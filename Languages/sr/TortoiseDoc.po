@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-09 08:30+0000\n"
+"PO-Revision-Date: 2013-01-13 15:28+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3312,7 +3312,7 @@ msgid ""
 "(recursively)</guimenuitem></menuchoice> This will affect the directory on "
 "which you set the <literal>svn:global-ignores</literal> property and all "
 "subfolders as well."
-msgstr ""
+msgstr "додај фајл у <literal>svn:global-ignores</literal> листу користећи <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Додај у листу занемаривања (рекурзивно)</guimenuitem></menuchoice> Ово ће утицати на директоријум где сте подесили <literal>svn:global-ignores</literal> особину и све субфолдере такођеl."
 
 #. (para)
 msgid ""
@@ -6805,7 +6805,7 @@ msgid ""
 "extension. Both submenus also have a <literal>(recursively)</literal> "
 "equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr ""
+msgstr "Ако урадите <action>десни клик</action> на појединачни неверзионисани фајл, и изаберете команду <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Додај на листу занемаривања</guimenuitem></menuchoice> из контекст менија, субмени се појављује дозвољавајући да изаберете баш тај фајл, или све фајлове са истом екстензијим. Оба субменија такође имају <literal>(рекурзивно)</literal> еквивалент. Ако изаберете више фајлова нема субменија и можете само да додате те специфичне фајлове/фолдере. "
 
 #. (para)
 msgid ""
@@ -6813,7 +6813,7 @@ msgid ""
 "context menu, the item will be ignored not just for the selected folder but "
 "all subfolders as well. However this requires SVN clients version 1.8 or "
 "higher."
-msgstr ""
+msgstr "Ако изаберете <literal>(rрекурзивно)</literal> верзију занемаривања контекст менија, ставка ће бити занемарена не само за изабране фолдере већ и све субфолдере такође.Међутим ово захтева СВН клијент верзију 1.8 или вишу."
 
 #. (para)
 msgid ""
@@ -12185,7 +12185,7 @@ msgid ""
 "<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
 "property to exclude files or directories from version control. Read <xref "
 "linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Овај шаблон занемаривања утицаће на све ваше пројекте. Он није верзионисан тако да неће утицати на остале кориснике. Насупрот томе можете такође користити верзионисани <literal>svn:ignore</literal> или <literal>svn:global-ignores</literal> особине да искључите фајлове или директоријуме из контроле верзија. Прочитајте <xref linkend=\"tsvn-dug-ignore\"/> за више информација."
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -14829,80 +14829,80 @@ msgstr "Постоји велики број опционих прекидача
 
 #. (title)
 msgid "List of SubWCRev error codes"
-msgstr ""
+msgstr "Листа СубВЦРев кодова грешака"
 
 #. (entry)
 msgid "Error Code"
-msgstr ""
+msgstr "Код грешке"
 
 #. (entry)
 msgid "Syntax error. One or more command line parameters are invalid."
-msgstr ""
+msgstr "Синтаксна грешка. Једна или више параметара командние линије су неисправни."
 
 #. (entry)
 msgid "The file or folder specified on the command line was not found."
-msgstr ""
+msgstr "Фајл или фолдер специфициран у командној линији није нађен."
 
 #. (entry)
 msgid ""
 "The input file could not be opened, or the target file could not be created."
-msgstr ""
+msgstr "Улазни фајл не може бити отворен, или циљни фајл не може бити креиран."
 
 #. (entry)
 msgid ""
 "Could not allocate memory. This could happen if e.g. the source file is too "
 "big."
-msgstr ""
+msgstr "Не може алоцирати меморију. Ово ће се десити нпр. ако је изворни фајл сувише велики."
 
 #. (entry)
 msgid "The source file can not be scanned properly."
-msgstr ""
+msgstr "Изворни фајл не може бити иправно скениран."
 
 #. (entry)
 msgid ""
 "SVN error: Subversion returned with an error when SubWCRev tried to find the"
 " information from the working copy."
-msgstr ""
+msgstr "СВН грешка: Субверзија је враћена са грешкпм кад СубВЦРев покушава да нађе информације из радне копије."
 
 #. (literal)
 msgid "-n"
-msgstr ""
+msgstr "-n"
 
 #. (entry)
 msgid ""
 "The working copy has local modifications. This requires the <placeholder-1/>"
 " switch."
-msgstr ""
+msgstr "Радна копија има локалне измене. Ово захтева <placeholder-1/> преклопник."
 
 #. (literal)
 msgid "-m"
-msgstr ""
+msgstr "-m"
 
 #. (entry)
 msgid ""
 "The working copy has mixed revisions. This requires the <placeholder-1/> "
 "switch."
-msgstr ""
+msgstr "Радна копија има измешане ревизије. Ово захтева <placeholder-1/> преклопник."
 
 #. (literal)
 msgid "-d"
-msgstr ""
+msgstr "-d"
 
 #. (entry)
 msgid ""
 "The output file already exists. This requires the <placeholder-1/> switch."
-msgstr ""
+msgstr "Излазни фајл већ постоји. Ово захтева <placeholder-1/> преклопник."
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
-msgstr ""
+msgstr "Специфицирана путања није радна копија или њен део."
 
 #. (para)
 msgid ""
 "If there is no error, SubWCRev returns zero. But in case an error occurs, "
 "the error message is written to stderr and shown in the console. And the "
 "returned error codes are: <placeholder-1/>"
-msgstr ""
+msgstr "Ако нема грешке, СубВЦРев враћа нулу. Али у случају појаве грешке порука о грешци је исписана на стдерр и приказана је на конзоли. Повратни кодови грешке су: <placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
@@ -16329,7 +16329,7 @@ msgstr "дистрибутерски пројекти"
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
 " perhaps some library code. There are at least 4 ways of dealing with this."
-msgstr ""
+msgstr "Понека желите да укључите други пројекат у оквиру радне копије, рецимо неки код библиотеке. Има најмање 4 начина да се то уради."
 
 #. (title)
 msgid "Use svn:externals"
@@ -16418,14 +16418,14 @@ msgstr "Овај метод ће само радити на потпун-ПЦ о
 
 #. (title)
 msgid "Add the project to the repository"
-msgstr ""
+msgstr "Додај пројекат у спремиште."
 
 #. (para)
 msgid ""
 "The maybe easiest way is to simply add the project in a subfolder to your "
 "own project working copy. However this has the disadvantage that you have to"
 " update and upgrade this external project manually."
-msgstr ""
+msgstr "Можда лакши начин је једноставно додавање пројекта у субфолдер у радну копију вашег пројекта. Међутим то има непогодности  кад хоћете да ускладите или доградите овај екстерни пројекат ручно."
 
 #. (para)
 msgid ""
@@ -16436,7 +16436,7 @@ msgid ""
 "Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
 "files over to the target folder while automatically adding new files and "
 "removing files that aren't in the new version anymore."
-msgstr ""
+msgstr "Да би помогли надоградњу, ТортоисеСВН омогућава команду у претраживачу са десним вучењем контекст менијем.Једноставно десно вучење фолдера где сте анзиповали нову верзију спољашње библиотеке у фолдер у вашој радној копији и изаберите <menuchoice><guimenu>Контекст мени</guimenu><guimenuitem>СВН Продајна грана овде</guimenuitem></menuchoice>. Ово ће онда копирати нове фајлове преко циљног фолдера док  аутоматски додаје нове фајлове и уклања фајлове који нису више у новој верзији. "
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -17247,7 +17247,7 @@ msgstr "/stickydepth"
 
 #. (option)
 msgid "/skipprechecks"
-msgstr ""
+msgstr "/skipprechecks"
 
 #. (entry)
 msgid ""
@@ -17260,7 +17260,7 @@ msgid ""
 "set to skip all checks that are done before an update. If this is specified,"
 " then the <placeholder-9/> button is disabled, and the context menu to show "
 "diffs is also disabled after the update."
-msgstr ""
+msgstr "Усклади радну копију у <placeholder-1/> према ГЛАВНОЈ. Ако је опција <placeholder-2/>  дата онда је дијалог приказан да пита корисна коју ревизију треба ускладити. Да се избегне дијалог специфицирајте  ревизиони број <placeholder-3/>. Остале опције  су <placeholder-4/>, <placeholder-5/> и <placeholder-6/>. Тада <placeholder-7/> индицира да је специфицирана дубина танка креирајући празно преузимање.  <placeholder-8/> може бити сетовано да прескочи све провере које су дате пре усклађивања, онда је дигме  <placeholder-9/> онемогућено и контекст мени који приказује разлике је такође онемогућен при усклађивању. "
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17410,7 +17410,7 @@ msgid ""
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
 "destination are exactly the same."
-msgstr ""
+msgstr "Копира фолдер у <placeholder-1/> рекурзивно у директоријум специфициран у <placeholder-2/>. Нови фајлови су додати аутоматски и недостајући фајлови су уклоњени у циљној радној копији, базично осигуравајући да су извор и дестинација потпуно исти."
 
 #. (option)
 #. (option)
