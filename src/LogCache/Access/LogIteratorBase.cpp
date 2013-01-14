@@ -335,11 +335,11 @@ CLogIteratorBase& CLogIteratorBase::operator=(const CLogIteratorBase& rhs)
 
     if (this != &rhs)
     {
-        // parent operator= is not called ...
+        // parent operator= is not called because it's an interface, not a class
         revision = rhs.revision;
         path = rhs.path;
         addRevision = rhs.addRevision;
-        // we do not copy/set addPath, why?
+        // don't copy/set addPath because that's a temp path
     }
 
     return *this;
