@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 10:28+0000\n"
+"PO-Revision-Date: 2013-01-14 09:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1095,6 +1095,10 @@ msgstr "&Port:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Poweruser Einstellungen"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "&Ordner zum schnellen Blättern im Voraus laden"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7405,10 +7409,6 @@ msgstr "Vor Verbindung"
 msgid "Pre-Update Hook"
 msgstr "Vor Aktualisierung"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Ordner zum schnellen Blättern im Voraus laden"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "&Lokal bevorzugen"
@@ -8930,6 +8930,14 @@ msgstr "Zeige &alle Revisionen"
 msgid "Show &changes"
 msgstr "Änderungen &zeigen"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "&Externals anzeigen"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "&Sperren anzeigen"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Zeige &Log"
@@ -9025,10 +9033,6 @@ msgstr "Zeige Unterschiede als &Standard-Diff"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Ausgeschlossene Wurzelordner 'normal' anzeigen"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Externals anzeigen"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9160,6 +9164,12 @@ msgstr "Zeigt das Aktionslog im Standard Texteditor an"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Zeigt den Wert der eol-style Eigenschaft"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "Zeigt den Eigner einer Dateisperre. Deaktivieren Sie diese Option um die Leistung mit älteren Servern zu verbessern."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9768,6 +9778,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Das Aktionsskript gab eine Fehlermeldung zurück:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "Das Aktionsskript wurde nicht zur Ausführung zugelassen"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
