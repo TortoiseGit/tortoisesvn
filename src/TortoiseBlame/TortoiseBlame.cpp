@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2039,8 +2039,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     break;
                 bool bUseMerged = ((app.m_mergedRevs[line] > 0)&&(app.m_mergedRevs[line] < app.m_revs[line]));
                 LONG rev = bUseMerged ? app.m_mergedRevs[line] : app.m_revs[line];
-                LONG origrev = -1;
-                origrev = app.m_revs[line];
+                LONG origrev = app.m_revs[line];
 
                 SecureZeroMemory(app.m_szTip, sizeof(app.m_szTip));
                 SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
