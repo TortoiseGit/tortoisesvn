@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010 - TortoiseSVN 
+// Copyright (C) 2007, 2010, 2013 - TortoiseSVN 
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@ const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp)
 {
     // default on error: empty string
 
-    if (size <= 0)
+    if (size == 0)
         return buffer;
 
     buffer[0] = 0;
