@@ -1,4 +1,4 @@
-// Copyright 2012 Idol Software, Inc.
+// Copyright 2012-2013 Idol Software, Inc.
 //
 // This file is part of CrashHandler library.
 //
@@ -246,7 +246,7 @@ public:
     //! Sends assertion violation report from this point and continue execution.
     //! \sa ExceptionAssertionViolated
     //! \note Functions prefixed with "CrashServer_" will be ignored in stack parsing.
-    void CrashServer_SendAssertionViolated()
+    void CrashServer_SendAssertionViolated() const
     {
         if (!m_InitCrashHandler)
             return;
