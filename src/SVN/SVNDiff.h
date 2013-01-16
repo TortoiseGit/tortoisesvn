@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011 - TortoiseSVN 
+// Copyright (C) 2003-2006, 2008-2011, 2013 - TortoiseSVN 
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,10 @@ public:
     /**
      * Diff a single file against its text-base
      * \param filePath The file to diff
-     * \param bAlternativeTool If true, invert selection of TortoiseMerge vs. external diff tool.
+     * \param baseRev
+     * \param status
+     * \param text_status
+     * \param prop_status
      */
     bool DiffFileAgainstBase(
         const CTSVNPath& filePath,

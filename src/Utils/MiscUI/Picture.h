@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012 - TortoiseSVN 
+// Copyright (C) 2003-2007, 2009, 2012-2013 - TortoiseSVN 
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -76,7 +76,7 @@ public:
      * \note
      * if the given size is not the actual picture size, then the picture will
      * be drawn stretched to the given dimensions.
-     * \param pDC the device context to draw on
+     * \param hDC the device context to draw on
      * \param DrawRect the dimensions to draw the picture on
      * \return TRUE if succeeded
      */
@@ -85,7 +85,7 @@ public:
      * get the original picture pixel size. A pointer to a device context is needed
      * for the pixel calculation (DPI). Also updates the classes height and width
      * members.
-     * \param pDC the device context to perform the calculations on
+     * \param hDC the device context to perform the calculations on
      * \return TRUE if succeeded
      */
     bool UpdateSizeOnDC(HDC hDC);

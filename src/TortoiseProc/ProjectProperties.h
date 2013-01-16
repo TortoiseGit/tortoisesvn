@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,7 +94,7 @@ public:
     /**
      * Reads the properties from all paths found in a path list.
      * This method calls ReadProps() for each path .
-     * \param list of paths
+     * \param pathList list of paths
      */
     BOOL ReadPropsPathList(const CTSVNPathList& pathList);
 
@@ -145,7 +145,7 @@ public:
     /**
      * Returns the URL pointing to the Issue in the issue tracker. The URL is
      * created from the bugtraq:url property and the BugID found in the log message.
-     * \param msg the BugID extracted from the log message
+     * \param sBugID the BugID extracted from the log message
      */
     CString GetBugIDUrl(const CString& sBugID);
 

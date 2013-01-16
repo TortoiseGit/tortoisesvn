@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,6 +77,10 @@ public:
      * \param bRemote if false, the externals are changed in the working copy. If true
      *                then \c message, \c headrev, \c origurl and \c tagurl must also be set
      *                to change the properties in the repository.
+     * \param message message for remote tag
+     * \param headrev
+     * \param origurl
+     * \param tagurl
      */
     bool TagExternals(bool bRemote, const CString& message = CString(), svn_revnum_t headrev = -1, const CTSVNPath& origurl = CTSVNPath(), const CTSVNPath& tagurl = CTSVNPath());
     /// Restores all svn:external properties

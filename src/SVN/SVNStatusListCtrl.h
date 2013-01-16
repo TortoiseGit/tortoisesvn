@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -654,7 +654,10 @@ public:
     /**
      * Populates the list control with the previously (with GetStatus) gathered status information.
      * \param dwShow mask of file types to show. Use the SVNSLC_SHOWxxx defines.
+     * \param checkedList
      * \param dwCheck mask of file types to check. Use SVNLC_SHOWxxx defines. Default (0) means 'use the entry's stored check status'
+     * \param bShowFolders
+     * \param bShowFiles
      */
     void Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck, bool bShowFolders, bool bShowFiles);
 
@@ -736,12 +739,14 @@ public:
     /**
      * Select/unselect all entries in the list control.
      * \param bSelect TRUE to check, FALSE to uncheck.
+     * \param bIncludeNoCommits
      */
     void SelectAll(bool bSelect, bool bIncludeNoCommits = false);
 
     /**
      * Checks all specified items, removes the checks from the ones not specified
      * \param dwCheck SVNLC_SHOWxxx defines
+     * \param uncheckNonMatches
      */
     void Check(DWORD dwCheck, bool uncheckNonMatches);
 
@@ -757,6 +762,8 @@ public:
 
     /** fills in \a lMin and \a lMax with the lowest/highest revision of all
      * files/folders in the working copy.
+     * \param rMin min revision found
+     * \param rMax max revision found
      * \param bShownOnly if true, the min/max revisions are calculated only for shown items
      * \param bCheckedOnly if true, the min/max revisions are calculated only for items
      *                   which are checked.

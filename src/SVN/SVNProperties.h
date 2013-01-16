@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,8 @@ public:
      * Constructor. Creates a Subversion properties object for
      * the specified file/directory.
      * \param filepath the file/directory
+     * \param bRevProps
+     * \param bIncludeInherited
      */
     SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited);
 #endif
@@ -56,6 +58,7 @@ public:
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
      * \param Name the name of the new property
      * \param Value the value of the new property
+     * \param force
      * \param depth the depth with which the property is added
      * \param message an optional commit message if the property is set directly on the repository
      * \return TRUE if the property is added successfully

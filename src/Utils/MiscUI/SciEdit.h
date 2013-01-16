@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -88,6 +88,7 @@ public:
     /**
      * The specified text is inserted at the cursor position. If a text is
      * selected, that text is replaced.
+     * \param sText test to insert
      * \param bNewLine if set to true, a newline is appended.
      */
     void        InsertText(const CString& sText, bool bNewLine = false);

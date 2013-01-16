@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,6 +42,10 @@ public:
      * \param startrev the starting revision of the operation
      * \param endrev the revision to stop the operation
      * \param pegrev the peg revision
+     * \param options
+     * \param includemerge
+     * \param showprogress
+     * \param ignoremimetype
      * \param path the path to the file to determine the required information
      * \return The path to the temporary file or an empty string in case of an error.
      */

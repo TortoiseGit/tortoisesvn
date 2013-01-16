@@ -170,7 +170,7 @@ public:
      * \param pathlist a list of files/directories to delete
      * \param force if TRUE, all files including those not versioned are deleted. If FALSE the operation
      * will fail if a directory contains unversioned files or if the file itself is not versioned.
-     * \param if keeplocal is true, the file/dir is not removed from the working copy but only scheduled
+     * \param keeplocal true means the file/dir is not removed from the working copy but only scheduled
      * for deletion in the repository. After the next commit, the file/dir will be unversioned.
      * \return TRUE if successful
      */
@@ -178,7 +178,8 @@ public:
     /**
      * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
      * was last updated with the repository.
-     * \param path the file/directory to revert
+     * \param pathlist the files/directories to revert
+     * \param changelists
      * \param recurse
      * \return TRUE if successful
      */
@@ -192,9 +193,11 @@ public:
      * happen to the repository until a commit occurs.  This scheduling
      * can be removed with Revert().
      *
-     * \param path the file/directory to add
-     * \param recurse
+     * \param pathList the files/directories to add
+     * \param props
      * \param depth
+     * \param force
+     * \param bUseAutoprops
      * \param no_ignore if FALSE, then don't add ignored files.
      * \param addparents if true, recurse up path's directory and look for a versioned directory.
      *                   If found, add all intermediate paths between it and path.
@@ -216,13 +219,15 @@ public:
      * \param pathList the files/directories to update
      * \param revision the revision the local copy should be updated to or -1 for HEAD
      * \param depth the Subversion depth enum
+     * \param depthIsSticky
      * \param ignoreexternals if TRUE, don't update externals
      * \param bAllow_unver_obstructions if true then the update tolerates
-     * existing unversioned items that obstruct added paths from @a pathList.  Only
-     * obstructions of the same type (file or dir) as the added item are
-     * tolerated.  The text of obstructing files is left as-is, effectively
+     * existing unversioned items that obstruct added paths from @a pathList.
+     * Only obstructions of the same type (file or dir) as the added item are tolerated.
+     * The text of obstructing files is left as-is, effectively
      * treating it as a user modification after the update.  Working
      * properties of obstructing items are set equal to the base properties.
+     * \param makeParents
      * If @a bAllow_unver_obstructions is false then the update will abort
      * if there are any unversioned obstructing items.
      */
@@ -238,11 +243,11 @@ public:
      * If 0 is returned then the commit failed. Use GetLastErrorMessage()
      * to get detailed error information.
      *
-     * \param path the file/directory to commit
+     * \param pathlist the files/directories to commit
      * \param message a log message describing the changes you made
-     * \param changelist If \c changelist is non-empty, then use it as a restrictive
+     * \param changelists If \c changelists is non-empty, then use it as a restrictive
      *                   filter on items that are committed; that is, don't commit
-     *                   anything unless it's a member of changelist \c changelist.
+     *                   anything unless it's a member of changelist \c changelists.
      * \param keepchangelist After the commit completes successfully, remove \c changelist
      *                       associations from the targets, unless \c keepchangelist is set.
      * \param depth how deep to commit
@@ -279,6 +284,8 @@ public:
      *                      as a child of the \c destPath if the name of
      *                      srcPathList and destPath are the same.
      * \param make_parents if true, any non-existent parent dirs are also created
+     * \param ignoreExternals
+     * \param revProps
      * \return TRUE if successful
      */
     bool Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
@@ -308,6 +315,9 @@ public:
      *                      as a child of the \c destPath if the name of
      *                      srcPathList and destPath are the same.
      * \param make_parents if true, any non-existent parent dirs are also created
+     * \param allow_mixed
+     * \param metadata_only
+     * \param revProps
      * \return TRUE if successful
      */
     bool Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
@@ -320,9 +330,10 @@ public:
      * Else, create the directory on disk, and attempt to schedule it for
      * addition.
      *
-     * \param path
+     * \param pathlist
      * \param message
      * \param makeParents create any non-existent parent directories also
+     * \param revProps
      * \return TRUE if successful
      */
     bool MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash& revProps = RevPropHash());
@@ -342,6 +353,7 @@ public:
      * If path is not in a state of conflict to begin with, do nothing.
      *
      * \param path the path to resolve
+     * \param result
      * \param recurse
      * \return TRUE if successful
      */
@@ -354,6 +366,7 @@ public:
      * \param srcPath   either the path the working copy on disk, or a url to the
      *                  repository you wish to export.
      * \param destPath  the path to the directory where you wish to create the exported tree.
+     * \param pegrev
      * \param revision  the revision that should be exported, which is only used
      *                  when exporting from a repository.
      * \param force     TRUE if existing files should be overwritten
@@ -379,7 +392,10 @@ public:
      * \param path the path of the working directory
      * \param url the url of the repository
      * \param revision the revision number to switch to
+     * \param pegrev
      * \param depth the Subversion depth enum
+     * \param depthIsSticky
+     * \param ignore_externals
      * \param allow_unver_obstruction if true then the switch tolerates
      * existing unversioned items that obstruct added paths from @a path.  Only
      * obstructions of the same type (file or dir) as the added item are
@@ -388,6 +404,7 @@ public:
      * properties of obstructing items are set equal to the base properties.
      * If @a allow_unver_obstructions is false then the switch will abort
      * if there are any unversioned obstructing items.
+     * \param ignore_ancestry
      * \return TRUE if successful
      */
     bool Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision,
@@ -412,8 +429,12 @@ public:
      * \param path      the file/directory to import
      * \param url       the url to import to
      * \param message   log message used for the 'commit'
+     * \param props
      * \param depth
+     * \param bUseAutoprops
      * \param no_ignore If no_ignore is FALSE, don't add files or directories that match ignore patterns.
+     * \param ignore_unknown
+     * \param revProps
      * \return TRUE if successful
      */
     bool Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
@@ -445,6 +466,9 @@ public:
      * \param localPath destination path
      * \param force     see description
      * \param depth     the Subversion depth enum
+     * \param options
+     * \param ignoreancestry
+     * \param dryrun
      * \param record_only   If record_only is true, the merge isn't actually performed,
      *                      but the merge info for the revisions which would've been
      *                      merged is recorded in the working copy (and must be subsequently
@@ -475,12 +499,14 @@ public:
      * will be deleted.
      *
      * \param source        url
-     * \param revision1     first revision
-     * \param revision2     second revision
+     * \param revrangearray revisions
      * \param pegrevision   the peg revision
-     * \param localPath     destination path
+     * \param destpath      destination path
      * \param force         see description
      * \param depth         the Subversion depth enum
+     * \param options
+     * \param ignoreancestry
+     * \param dryrun
      * \param record_only   If record_only is true, the merge isn't actually performed,
      *                      but the merge info for the revisions which would've been
      *                      merged is recorded in the working copy (and must be subsequently
@@ -608,13 +634,12 @@ public:
      * on a given log message more than once).
      * To receive the messages you need to listen to Log() events.
      *
-     * \param path the file/directory to get the log of
+     * \param pathlist the file/directory to get the log of
      * \param revisionPeg the peg revision to anchor the log on
      * \param revisionStart the revision to start the logs from
      * \param revisionEnd the revision to stop the logs
      * \param limit number of log messages to fetch, or zero for all
      * \param strict if TRUE, then the log won't follow copies
-     * \param changed TRUE if the log should follow changed paths
      * \param withMerges TRUE if the log should contain merged revisions
      *        as children
      * \param refresh fetch data from repository even if log caching
@@ -629,6 +654,8 @@ public:
 
     /**
      * Checks out a file with \a revision to \a localpath.
+     * \param url
+     * \param pegrevision
      * \param revision the revision of the file to checkout
      * \param localpath the place to store the file
      * \return TRUE if successful
@@ -671,8 +698,6 @@ public:
      * \param diffoptions options for the internal diff to use when blaming
      * \param ignoremimetype set to true if you want to ignore the mimetype and blame everything
      * \param includemerge if true, also return data based upon revisions which have been merged to path.
-
-
      * \return TRUE if successful
      */
     bool Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev,
@@ -741,9 +766,10 @@ public:
 
     /**
      * Set the revision property \a sName to the new value \a sValue.
-     * \param sURL the URL of the file/folder
+     * \param sName property name to set
      * \param sValue the value for the new property
      * \param sOldValue the value the property had before, or an empty string if not known
+     * \param URL the URL of the file/folder
      * \param rev the revision number to change the revprop
      * \return the actual revision number the property value was set
      */
@@ -751,7 +777,8 @@ public:
 
     /**
      * Reads the revision property \a sName and returns its value.
-     * \param sURL the URL of the file/folder
+     * \param sName property name to read
+     * \param URL the URL of the file/folder
      * \param rev the revision number
      * \return the value of the property
      */
@@ -808,6 +835,7 @@ public:
     /**
      * Creates a repository at the specified location.
      * \param path where the repository should be created
+     * \param fstype repository file system type. Default is fsfs.
      * \return TRUE if operation was successful
      */
     static bool CreateRepository(const CTSVNPath& path, const CString& fstype = _T("fsfs"));

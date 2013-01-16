@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - TortoiseSVN
+// Copyright (C) 2003-2006, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,8 +82,7 @@ namespace stdex {
         /**
          * Conversion operator returns pointer to the immutable item at the
          * beginning of this array of NULL if the array is empty.
-         * @param i The index of the value to return a reference to.
-         * @return A pointer to an immutable item or NULL.
+         * @return A pointer to an immutable first item or NULL.
          */
         inline operator const_pointer () const {
             return empty() ? NULL : &operator[](0);
@@ -92,8 +91,7 @@ namespace stdex {
         /**
          * Conversion operator returns pointer to the item at the beginning of
          * this array of NULL if the array is empty.
-         * @param i The index of the value to return a reference to.
-         * @return A pointer to an item or NULL.
+         * @return A pointer to an first item or NULL.
          */
         inline operator pointer () {
             return empty() ? NULL : &operator[](0);

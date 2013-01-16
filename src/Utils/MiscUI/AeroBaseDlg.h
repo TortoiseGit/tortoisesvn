@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -277,6 +277,7 @@ protected:
 
     /**
     * Adjusts the size of a static control.
+    * \param nID control ID
     * \param rc the position of the control where this control shall
     *           be positioned next to on its right side.
     * \param spacing number of pixels to add to rc.right

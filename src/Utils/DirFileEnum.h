@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006, 2010-2011 - TortoiseSVN
+// Copyright (C) 2005-2006, 2010-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,7 +72,7 @@ public:
     * Constructor.
     *
     * \param sPath    The path to search in.
-    * \param sPattern The filename pattern - default all files.
+    * \param pPattern The filename pattern - default all files.
     */
    CSimpleFileFind(const CString &sPath, LPCTSTR pPattern = _T("*.*"));
    ~CSimpleFileFind();
