@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -476,6 +476,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                const CString& message /* = _T("")*/,
                bool move_as_child /* = false*/, bool make_parents /* = false */,
                bool allow_mixed /* = false */,
+               bool metadata_only /* = false */,
                const RevPropHash& revProps /* = RevPropHash() */ )
 {
     SVNPool subpool(pool);
@@ -490,6 +491,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                                 move_as_child,
                                 make_parents,
                                 allow_mixed,
+                                metadata_only,
                                 revPropHash,
                                 commitcallback2,
                                 this,
