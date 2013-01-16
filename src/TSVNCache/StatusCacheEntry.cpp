@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008, 2010, 2012 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008, 2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,10 +19,11 @@
 #include "stdafx.h"
 #include "statuscacheentry.h"
 #include "SVNStatus.h"
+#include "SVNStatusCache.h"
 #include "CacheInterface.h"
 #include "registry.h"
 
-#define CACHEENTRYDISKVERSION 9
+#define CACHEENTRYDISKVERSION 10
 
 DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
@@ -75,6 +76,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
     WRITECOPYVALUETOFILE(m_svnStatus.switched);
     WRITECOPYVALUETOFILE(m_svnStatus.text_status);
     WRITECOPYVALUETOFILE(m_treeconflict);
+    WRITECOPYVALUETOFILE(m_bIgnoreOnCommit);
     return true;
 }
 
@@ -105,6 +107,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
     LOADCOPYVALUEFROMFILE(m_svnStatus.switched, svn_boolean_t);
     LOADCOPYVALUEFROMFILE(m_svnStatus.text_status, svn_wc_status_kind);
     LOADCOPYVALUEFROMFILE(m_treeconflict, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_bIgnoreOnCommit, svn_boolean_t);
 
     m_discardAtTime = GetTickCount()+cachetimeout;
     return true;
@@ -163,6 +166,9 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
             m_bSVNEntryFieldSet = true;
             m_bHasOwner = pSVNStatus->lock && pSVNStatus->lock->owner && pSVNStatus->lock->owner[0];
             m_needsLock = needsLock;
+            m_bIgnoreOnCommit = pSVNStatus->changelist && (strcmp(pSVNStatus->changelist, "ignore-on-commit")==0);
+            if (m_bIgnoreOnCommit && CSVNStatusCache::Instance().IsIgnoreOnCommitIgnored())
+                m_highestPriorityLocalStatus = svn_wc_status_normal;
         }
         else
         {
@@ -192,6 +198,7 @@ void CStatusCacheEntry::SetAsUnversioned()
     m_svnStatus.node_status = status;
     m_lastWriteTime = 0;
     m_treeconflict = false;
+    m_bIgnoreOnCommit = false;
     m_needsLock = false;
 }
 

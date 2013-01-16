@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,7 @@ public:
     BOOL IsFolderOverlay();
     BOOL HasShellMenuAccelerators();
     BOOL IsUnversionedAsModified();
+    BOOL IsIgnoreOnCommitIgnored();
     BOOL IsGetLockTop();
     BOOL ShowExcludedAsNormal();
     BOOL AlwaysExtended();
@@ -214,6 +215,7 @@ private:
     CRegStdDWORD menumasklow_cu;
     CRegStdDWORD menumaskhigh_cu;
     CRegStdDWORD unversionedasmodified;
+    CRegStdDWORD ignoreoncommitignored;
     CRegStdDWORD excludedasnormal;
     CRegStdDWORD alwaysextended;
     CRegStdDWORD hidemenusforunversioneditems;
@@ -235,6 +237,7 @@ private:
     DWORD pathfilterticker;
     DWORD shellmenuacceleratorsticker;
     DWORD unversionedasmodifiedticker;
+    DWORD ignoreoncommitignoredticker;
     DWORD excludedasnormalticker;
     DWORD alwaysextendedticker;
     DWORD hidemenusforunversioneditemsticker;

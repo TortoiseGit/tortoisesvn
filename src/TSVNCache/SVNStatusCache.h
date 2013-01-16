@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006 - TortoiseSVN
+// Copyright (C) 2005-2006, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,6 +90,7 @@ public:
 
     bool IsPathAllowed(const CTSVNPath& path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
     bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
+    bool IsIgnoreOnCommitIgnored() {return !!m_shellCache.IsIgnoreOnCommitIgnored();}
     bool IsPathGood(const CTSVNPath& path);
     bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
     bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}

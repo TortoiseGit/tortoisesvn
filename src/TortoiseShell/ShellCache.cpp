@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,6 +35,7 @@ ShellCache::ShellCache()
     driveunknown = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
     shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
     unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
+    ignoreoncommitignored = CRegStdDWORD(_T("Software\\TortoiseSVN\\IgnoreOnCommitIgnored"), TRUE);
     hidemenusforunversioneditems = CRegStdDWORD(_T("Software\\TortoiseSVN\\HideMenusForUnversionedItems"), FALSE);
     getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
     excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
@@ -49,6 +50,7 @@ ShellCache::ShellCache()
     pathfilterticker = 0;
     shellmenuacceleratorsticker = cachetypeticker;
     unversionedasmodifiedticker = cachetypeticker;
+    ignoreoncommitignoredticker = cachetypeticker;
     columnseverywhereticker = cachetypeticker;
     getlocktopticker = cachetypeticker;
     excludedasnormalticker = cachetypeticker;
@@ -104,6 +106,7 @@ void ShellCache::ForceRefresh()
     driveunknown.read();
     shellmenuaccelerators.read();
     unversionedasmodified.read();
+    ignoreoncommitignored.read();
     excludedasnormal.read();
     alwaysextended.read();
     hidemenusforunversioneditems.read();
@@ -211,6 +214,16 @@ BOOL ShellCache::IsUnversionedAsModified()
         unversionedasmodified.read();
     }
     return (unversionedasmodified);
+}
+
+BOOL ShellCache::IsIgnoreOnCommitIgnored()
+{
+    if ((GetTickCount() - ignoreoncommitignoredticker)>REGISTRYTIMEOUT)
+    {
+        ignoreoncommitignoredticker = GetTickCount();
+        ignoreoncommitignored.read();
+    }
+    return (ignoreoncommitignored);
 }
 
 BOOL ShellCache::IsGetLockTop()
