@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-09 08:30+0000\n"
+"PO-Revision-Date: 2013-01-15 19:35+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2943,11 +2943,11 @@ msgstr "Créer une copie de travail"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr ""
+msgstr "Extraction éparse"
 
 #. (primary)
 msgid "partial checkout"
-msgstr ""
+msgstr "Extraction partielle"
 
 #. (para)
 msgid ""
@@ -3438,7 +3438,7 @@ msgstr "La fenêtre de livraison supporte la fonctionnalité liste des modificat
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Livrer uniquement des morceaux de fichiers"
 
 #. (para)
 msgid ""
@@ -4697,7 +4697,7 @@ msgstr "Éléments externes, c-à-d, tous élément ajouté via une propriété 
 msgid ""
 "Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
 "restore\"/> for details."
-msgstr ""
+msgstr "Eléments qui sont restaurés après une livraison. Consultez <xref linkend=\"tsvn-dug-commit-restore\"/> pour plus de détails."
 
 #. (para)
 msgid ""
@@ -7032,7 +7032,7 @@ msgid ""
 " <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy "
 "to...</guimenuitem></menuchoice> as the target for that copy operation "
 "select the path to your working copy."
-msgstr ""
+msgstr "Si vous avez supprimé un fichier ou un dossier et déjà procédé au dépôt de cette opération de suppression dans le référentiel, un simple <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir à l'ancienne version</guimenuitem></menuchoice> ne pourra plus le ramener. Mais le fichier ou le dossier n'est pas perdu pour autant. Si vous connaissez la révision où le fichier ou le dossier a été supprimé (si vous ne la connaissez pas, utilisez la fenêtre de journal pour la retrouver) ouvrez le navigateur de référentiel et basculer vers cette révision. Sélectionnez ensuite le fichier ou le dossier que vous avez supprimé, faites un clic droit et sélectionnez <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Copier vers...</guimenuitem></menuchoice> avec comme cible de l'opération de copie le chemin vers votre copie de travail."
 
 #. (title)
 msgid "Moving files and folders"
@@ -7948,7 +7948,7 @@ msgstr "tsvn:postupdatehook"
 
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
-msgstr ""
+msgstr "Les propriétés / scripts disponibles sont <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8067,7 +8067,7 @@ msgstr ""
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
-msgstr ""
+msgstr "Pour les propriétés qui consistent en une seule ligne de texte, utilisez le type de propriété <literal>singleline</literal> : <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
@@ -8088,7 +8088,7 @@ msgstr ""
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
-msgstr ""
+msgstr "Pour des propriétés qui consistent en plusieurs lignes de texte, utilisez le type de propriété <literal>multiline</literal> : <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
@@ -8405,13 +8405,13 @@ msgstr ""
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Vous pouvez personnaliser le message généré avec les propriétés suivantes : <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Une liste séparée par des virgules des révisions fusionnées, par exemple <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
@@ -8444,7 +8444,7 @@ msgstr ""
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Le message de journal de la révision fusionnée, tel qu'il a été saisi."
 
 #. (para)
 msgid ""
@@ -8462,7 +8462,7 @@ msgstr "La révision fusionnée elle-même."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Les ID de bogues de la révision fusionnée, s'il en existe."
 
 #. (para)
 msgid ""
@@ -9636,7 +9636,7 @@ msgid ""
 "url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Apprenez-en plus sur le suivi des fusions dans la <ulink url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Documentation du suivi des fusions</citetitle></ulink> de Subversion."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -9824,7 +9824,7 @@ msgstr "Premièrement, vous devez vous assurer que votre serveur Subversion est 
 
 #. (title)
 msgid "The Three Meanings of <quote>Lock</quote>"
-msgstr ""
+msgstr "Les Trois Significations de <quote>Verrou</quote>"
 
 #. (para)
 msgid ""
@@ -14838,44 +14838,44 @@ msgstr "Un grand nombre d'options peuvent changer la manière dont SubZCRev fonc
 
 #. (title)
 msgid "List of SubWCRev error codes"
-msgstr ""
+msgstr "Liste des codes d'erreur de SubWCRev"
 
 #. (entry)
 msgid "Error Code"
-msgstr ""
+msgstr "Code d'Erreur"
 
 #. (entry)
 msgid "Syntax error. One or more command line parameters are invalid."
-msgstr ""
+msgstr "Erreur de syntaxe. Une ou plusieurs commandes sont invalides."
 
 #. (entry)
 msgid "The file or folder specified on the command line was not found."
-msgstr ""
+msgstr "Le fichier ou le dossier spécifié dans le ligne de commande est introuvable."
 
 #. (entry)
 msgid ""
 "The input file could not be opened, or the target file could not be created."
-msgstr ""
+msgstr "Le fichier source n'a pas pu être ouvert, ou le fichier cible n'a pas pu être créé."
 
 #. (entry)
 msgid ""
 "Could not allocate memory. This could happen if e.g. the source file is too "
 "big."
-msgstr ""
+msgstr "Impossible d'allouer la mémoire. Cela peut arrivé si, par exemple, le fichier source est trop gros."
 
 #. (entry)
 msgid "The source file can not be scanned properly."
-msgstr ""
+msgstr "Le fichier source ne peut pas être scanné correctement."
 
 #. (entry)
 msgid ""
 "SVN error: Subversion returned with an error when SubWCRev tried to find the"
 " information from the working copy."
-msgstr ""
+msgstr "Erreur SVN : Subversion a renvoyé une erreur quand SubWCRev a essayé d'obtenir des informations de la copie de travail."
 
 #. (literal)
 msgid "-n"
-msgstr ""
+msgstr "-n"
 
 #. (entry)
 msgid ""
@@ -14885,7 +14885,7 @@ msgstr ""
 
 #. (literal)
 msgid "-m"
-msgstr ""
+msgstr "-m"
 
 #. (entry)
 msgid ""
@@ -14895,7 +14895,7 @@ msgstr ""
 
 #. (literal)
 msgid "-d"
-msgstr ""
+msgstr "-d"
 
 #. (entry)
 msgid ""
@@ -14904,14 +14904,14 @@ msgstr ""
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
-msgstr ""
+msgstr "Le chemin spécifié n'est pas une copie de travail ou n'appartient à aucune."
 
 #. (para)
 msgid ""
 "If there is no error, SubWCRev returns zero. But in case an error occurs, "
 "the error message is written to stderr and shown in the console. And the "
 "returned error codes are: <placeholder-1/>"
-msgstr ""
+msgstr "S'il n'y a pas d'erreur, SubWCRev renvoie zéro. Mais dans le cas où une erreur survient, le message d'erreur est écrit sur la sortie d'erreur standard et affiché dans le console. Et les codes d'erreur renvoyés sont : <placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
@@ -14919,7 +14919,7 @@ msgstr "Substitution de mot-clés"
 
 #. (title)
 msgid "List of available keywords"
-msgstr ""
+msgstr "Les des mots-clés disponibles"
 
 #. (entry)
 msgid "Keyword"
@@ -16149,7 +16149,7 @@ msgstr "Utiliser la boîte de dialogue du journal de révision"
 msgid ""
 "By far the easiest way to revert the changes from one or more revisions, is "
 "to use the revision log dialog."
-msgstr ""
+msgstr "De loin le moyen le plus simple de faire revenir des modifications à une ou plusieurs révisions est d'utiliser la fenêtre du journal des révisions."
 
 #. (para)
 msgid ""
@@ -16237,7 +16237,7 @@ msgstr ""
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr ""
+msgstr "Cliquez sur <guibutton>Fusionner</guibutton> pour terminer la fusion."
 
 #. (para)
 msgid ""

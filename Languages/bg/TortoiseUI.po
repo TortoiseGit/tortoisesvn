@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-14 08:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1091,6 +1091,10 @@ msgstr "&Порт:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Настройки по подразбиране за напреднали"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7401,10 +7405,6 @@ msgstr "Кука за преди свръзване"
 msgid "Pre-Update Hook"
 msgstr "Кука преди обновяване"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr ""
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Предпочитат се &местните"
@@ -8926,6 +8926,14 @@ msgstr "&Всички ревизии"
 msgid "Show &changes"
 msgstr "&Промени"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr ""
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "&Дневник"
@@ -9021,10 +9029,6 @@ msgstr "Показване на разликите като &Unified Diff"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Покажи изключени главни папки както нормално"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9156,6 +9160,12 @@ msgstr "Отваря файла-дневник на действията в те
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Показва стойността на свойството 'Знак за край на ред'"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9764,6 +9774,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Закаченият скрипт върна грешка:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

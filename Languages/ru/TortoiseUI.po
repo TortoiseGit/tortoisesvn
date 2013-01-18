@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 19:09+0000\n"
+"PO-Revision-Date: 2013-01-14 10:49+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1095,6 +1095,10 @@ msgstr "&Порт:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Продвинутые настройки"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "&Предварительно выбирать папки для быстрого просмотра"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7405,10 +7409,6 @@ msgstr "Ловушка перед-соединением"
 msgid "Pre-Update Hook"
 msgstr "Ловушка перед-обновлением"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Предварительно выбирать папки для быстрого просмотра"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "&Локальные"
@@ -8930,6 +8930,14 @@ msgstr "Показать &все ревизии"
 msgid "Show &changes"
 msgstr "Показать &изменения"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "Показывать &внешние"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "Показывать &блокировки"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "&Журнал"
@@ -9025,10 +9033,6 @@ msgstr "Показать различия как объединённые раз
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Показывать исключенные корневые папки как нормальные"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Показывать внешние"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9160,6 +9164,12 @@ msgstr "Показывает журнал действий в текстовом
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Показывает значение свойства eol-style (завершения строк)"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "Показывать владельца блокировки заблокированных файлов. Отключите эту опцию, чтобы улучшить производительность на старых серверах."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9768,6 +9778,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Скрипт ловушки вернул ошибку:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "Скрипт-обработчик не был одобрен для запуска"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

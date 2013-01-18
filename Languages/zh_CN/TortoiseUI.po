@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-14 08:38+0000\n"
 "Last-Translator: Christopher Meng <cickumqt@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1102,6 +1102,10 @@ msgstr "端口(&P): "
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "“Power user”的默认值(&P)"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7412,10 +7416,6 @@ msgstr "连接之前钩子"
 msgid "Pre-Update Hook"
 msgstr "更新之前钩子"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "预取文件夹以加速浏览"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "优先使用本地(&L)"
@@ -8937,6 +8937,14 @@ msgstr "显示全部版本(&A)"
 msgid "Show &changes"
 msgstr "显示改变(&C)..."
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr ""
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "显示日志(&L)"
@@ -9032,10 +9040,6 @@ msgstr "以标准差异文件显示修改(&U)"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "被排除的文件夹根目录仍显示正常状态的图标"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "显示外部"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9167,6 +9171,12 @@ msgstr "在默认文本编辑器中显示动作记录"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "显示 eol-style 属性设置"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9775,6 +9785,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "钩子脚本返回了一个错误:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

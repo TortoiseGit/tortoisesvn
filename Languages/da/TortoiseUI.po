@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-14 08:38+0000\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1091,6 +1091,10 @@ msgstr "&Port:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Standarder for erfarne brugere"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7401,10 +7405,6 @@ msgstr "Før-forbindelses tilkobling"
 msgid "Pre-Update Hook"
 msgstr "\"Før opdatering\"-tilkobling"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Hent foldere tidligt for hurtigere visning"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Foretræk &lokal"
@@ -8926,6 +8926,14 @@ msgstr "Vis &alle revisioner"
 msgid "Show &changes"
 msgstr "Vis &ændringer"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr ""
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "&Vis log"
@@ -9021,10 +9029,6 @@ msgstr "Vis forskelle som &unified diff"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Vis udelukkede rod-foldere som normale"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Vis eksterne"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9156,6 +9160,12 @@ msgstr "Viser handlingsloggen for den valgte fil/mappe"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Viser værdien for egenskaben eol-style"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9764,6 +9774,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Tilkoblingen returnerede en fejl:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

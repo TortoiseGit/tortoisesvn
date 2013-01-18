@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-10 20:55+0000\n"
+"PO-Revision-Date: 2013-01-14 08:38+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1094,6 +1094,10 @@ msgstr "&Porto:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "Valores por omissão de &Power User"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7404,10 +7408,6 @@ msgstr "Gancho Pré-Conexão"
 msgid "Pre-Update Hook"
 msgstr "Gancho Pré-Actualização"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Pré-aquisição de pastas para navegação rápida"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Preferir &local"
@@ -8929,6 +8929,14 @@ msgstr "Mostrar tod&as as revisões"
 msgid "Show &changes"
 msgstr "Mostrar &alterações..."
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr ""
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Mostrar &registo"
@@ -9024,10 +9032,6 @@ msgstr "Mostrar diferenças como uma comparação &unificada"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Mostrar pastas raiz excluídas como normais"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Mostrar externos"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9159,6 +9163,12 @@ msgstr "Mostra o arquivo de registo de acções no editor de texto por omissão"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Mostra o valor da propriedade estilo de fim-de-linha"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9767,6 +9777,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "O script de gancho devolveu um erro:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

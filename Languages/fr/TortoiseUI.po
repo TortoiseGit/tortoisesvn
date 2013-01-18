@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-05 16:01+0000\n"
+"PO-Revision-Date: 2013-01-15 19:12+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1102,6 +1102,10 @@ msgstr "&Port :"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "Re&staurer les valeurs par défaut du superutilisateur"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "&Pré-charger les dossiers pour une navigation plus rapide"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7412,10 +7416,6 @@ msgstr "Hook de pre-connexion"
 msgid "Pre-Update Hook"
 msgstr "Hook pre-mise à jour"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Pré-charger les dossiers pour une navigation plus rapide"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Privilégier la copie &locale"
@@ -8937,6 +8937,14 @@ msgstr "&Afficher toutes les révisions"
 msgid "Show &changes"
 msgstr "Afficher les &changements"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "Montrer les &externes"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "Montrer &les verrous"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Voir le journa&l"
@@ -9032,10 +9040,6 @@ msgstr "Voir les différences en mode diff &unifié"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Afficher les dossiers racines exclus comme normaux"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Voir les externes"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9167,6 +9171,12 @@ msgstr "Affiche le fichier du journal des actions dans l'éditeur de texte par d
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Montrer la valeur de la propriété eol-style"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "Montre le propriété du verrou des fichiers. Désactiver ceci pour améliorer les performances sur les anciens serveurs."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9776,6 +9786,10 @@ msgid ""
 "%s"
 msgstr "Le script hook a renvoyé une erreur :\n%s"
 
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "Le script n'a pas été approuvé pour être exécuté"
+
 #. Resource IDs: (7)
 msgid "The image can not be shown."
 msgstr "L'image ne peut pas être affichée."
@@ -10047,7 +10061,7 @@ msgstr "Le dépôt a été créé avec succès.\nVoulez vous dès à présent cr
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "The required automatic merge is reintegrate like, and the \"only record the merge\" option can not be used."
 
 #. Resource IDs: (279)
 msgid ""

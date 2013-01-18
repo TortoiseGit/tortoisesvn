@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-13 13:10+0000\n"
+"PO-Revision-Date: 2013-01-14 10:20+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1092,6 +1092,10 @@ msgstr "&Kapija:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "Glavni korisnik po&drazumevane vrednosti"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "&Pripremni folderi za brže pretraživanje"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7402,10 +7406,6 @@ msgstr "Pre-povezivanja zakačaljka"
 msgid "Pre-Update Hook"
 msgstr "Zakačiv Skript pre obnavljanja"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Pribavi foldere za brže pretraživanje"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Pretpostavi &lokalno "
@@ -8927,6 +8927,14 @@ msgstr "Prikaži &sve revizije"
 msgid "Show &changes"
 msgstr "Prikaži &izmene"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "Pretraži &eksternale"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "Prikaži &katance"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Prikaži &dnevnik"
@@ -9022,10 +9030,6 @@ msgstr "Prikaži &objedinjene razlike"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Prikazuje isključen folder kao normalno"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Prikaži eksternale"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9157,6 +9161,12 @@ msgstr "Prikazuje dnevnik u postavljenom editoru teksta"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Prikazuje vrednost svojstva za vrstu završetaka linija (EOL)"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "Prikaži vlasnike katanaca zaključanih fajlova. Onemogući ovo da poboljšaš performanse kod starih servera."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9765,6 +9775,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Zakačiv Skript  je vratio grešku:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "Zakačiva skripta nema odobrenje za rad"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

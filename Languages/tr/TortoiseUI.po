@@ -14,13 +14,13 @@
 # Muhammet Kara <muhammet.k@gmail.com>, 2011, 2012.
 # turambar <vuralgoze@gmail.com>, 2011.
 #   <vuralgoze@gmail.com>, 2011.
-# Vural Göze <vuralgoze@gmail.com>, 2012.
+# Vural Göze <vuralgoze@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:34+0000\n"
+"PO-Revision-Date: 2013-01-16 17:26+0000\n"
 "Last-Translator: Vural Göze <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1061,7 +1061,7 @@ msgstr "&Seçenekler"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Diğer"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1094,6 +1094,10 @@ msgstr "&Port:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Uzman kullanıcı varsayılan değerleri"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -2168,7 +2172,7 @@ msgstr "Otomatik Tekrar Adlandır"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Otomatik Birleştir"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2509,7 +2513,7 @@ msgstr "İptal Et\nÖnbelleği diskte bırak."
 msgid ""
 "Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "İptal\nYerel değişiklikler korunur."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2664,7 +2668,7 @@ msgstr "Yapılan değişiklikler (farklılık detayları için iki kere tıklay�
 
 #. Resource IDs: (2060)
 msgid "Changes the style of the application"
-msgstr ""
+msgstr "Uygulamanın görünümünü değiştirir"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -3182,7 +3186,7 @@ msgstr "Çakıştı"
 
 #. Resource IDs: (265)
 msgid "Conflicted (maybe)"
-msgstr ""
+msgstr "Çakıştı (belki)"
 
 #. Resource IDs: (188)
 #, c-format
@@ -3836,7 +3840,7 @@ msgstr "Fark Seçenekleri"
 
 #. Resource IDs: (192)
 msgid "Diff Viewer"
-msgstr ""
+msgstr "Dosya Fark Görüntüleyicisi"
 
 #. Resource IDs: (193)
 msgid "Diff Viewer::Merge Tool"
@@ -4307,7 +4311,7 @@ msgstr "Revizyonu sonlandır"
 
 #. Resource IDs: (200)
 msgid "Enforce"
-msgstr ""
+msgstr "Zorla"
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -5297,7 +5301,7 @@ msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -6075,7 +6079,7 @@ msgstr "Dosyaları Kilitle"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Kilit kırık"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6627,7 +6631,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -7404,10 +7408,6 @@ msgstr "Bağlantı-Öncesi yakalayıcısı"
 msgid "Pre-Update Hook"
 msgstr "Güncelleme-öncesi yakalayıcısı"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr ""
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Yere&l olanı tercih et"
@@ -8130,7 +8130,7 @@ msgstr "Depo UUID"
 
 #. Resource IDs: (65535)
 msgid "Repository browser"
-msgstr ""
+msgstr "Depo Tarayıcısı"
 
 #. Resource IDs: (324)
 msgid "Repository created"
@@ -8333,7 +8333,7 @@ msgstr "Revizyon diyagramı"
 
 #. Resource IDs: (1492)
 msgid "Revision range to merge"
-msgstr ""
+msgstr "Birleştirme için revizyon aralığı"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -8929,6 +8929,14 @@ msgstr "Tüm& revizyonları göster"
 msgid "Show &changes"
 msgstr "&Değişiklikeri göster..."
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr ""
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "&Günlüğü göster"
@@ -9024,10 +9032,6 @@ msgstr "Farklılıkları &birleştirilmiş karşılaştırma dosyası olarak gö
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Harici tutulmuş kök klasörleri normal olarak göster"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9159,6 +9163,12 @@ msgstr "İşlem günlüğünü varsayın metin editöründe gösterir"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Özellik değerlerini eol-stilinde gösterir"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9768,6 +9778,10 @@ msgid ""
 "%s"
 msgstr "Yakalayıcı komut-dosyası bu hatayı verdi:\n%s"
 
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr ""
+
 #. Resource IDs: (7)
 msgid "The image can not be shown."
 msgstr "Resim gösterilemiyor."
@@ -9934,7 +9948,7 @@ msgstr "Eski dosyaya işaret etmesi beklenen satır %d satırında bulunamadı!"
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
-msgstr ""
+msgstr "Satır numarası %d ile %d arasında olmalıdır"
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
@@ -10574,7 +10588,7 @@ msgstr "TortoiseSVN'i ayarlayın"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -11101,7 +11115,7 @@ msgstr "Versiyonlandı"
 
 #. Resource IDs: (156)
 msgid "View"
-msgstr ""
+msgstr "Görünüm"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
@@ -11132,7 +11146,7 @@ msgstr "UYARI:\r\nBu ayarları sadece ne yaptığınızdan kesinlikle eminseniz 
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Çalışan Kopya Revizyonu:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11254,7 +11268,7 @@ msgstr "Çalışan kopya: %s\n"
 
 #. Resource IDs: (156)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "Uzun satırları ayır"
 
 #. Resource IDs: (2056)
 msgid ""
@@ -11552,7 +11566,7 @@ msgstr "takma ad: %s"
 
 #. Resource IDs: (1618)
 msgid "all &revisions"
-msgstr ""
+msgstr "tüm &revizyonlar"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -11742,7 +11756,7 @@ msgstr "nesle aldırma"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "özellikleri dahil et"
 
 #. Resource IDs: (13)
 msgid "incomplete"

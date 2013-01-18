@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-09 13:34+0000\n"
+"PO-Revision-Date: 2013-01-15 20:45+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1091,6 +1091,10 @@ msgstr "&Port:"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "Výchozí pro &Power user"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "&Adresáře získávat předem pro rychlejší prohlížení"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7401,10 +7405,6 @@ msgstr "Hák před spojením"
 msgid "Pre-Update Hook"
 msgstr "Hák před aktualizací"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "Adresáře získávat předem pro rychlejší prohlížení"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Upřednostnit &místní"
@@ -8926,6 +8926,14 @@ msgstr "&Zobrazit všechny revize"
 msgid "Show &changes"
 msgstr "Zobrazit &změny"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "Zobrazit &externí"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "Zobrazit &zámky"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Zobrazit &záznam"
@@ -9021,10 +9029,6 @@ msgstr "Zobrazit rozdíly jako &sjednocený rozdíl"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Zobrazit vyloučené kořenové adresáře jako normální"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "Zobrazit externí"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9156,6 +9160,12 @@ msgstr "Otevře soubor se záznamem činností ve výchozím textovém editoru"
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "Ukáže hodnotu vlastnosti eol-style"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "Zobrazit vlastníka zámku u uzamčených souborů. Zakažte pro zlepšení výkonu starších serverů."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9764,6 +9774,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "Hákový skript vrátil chybu:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "Hákový skript nebyl schválen ke spuštění"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."

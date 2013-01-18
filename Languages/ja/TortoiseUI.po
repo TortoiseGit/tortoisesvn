@@ -13,12 +13,13 @@
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 # Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2012.
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-03 14:59+0000\n"
+"PO-Revision-Date: 2013-01-14 22:10+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1092,6 +1093,10 @@ msgstr "ポート(&P):"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Power User デフォルト"
+
+#. Resource IDs: (1562)
+msgid "&Pre-fetch folders for faster browsing"
+msgstr "高速に表示するためにフォルダーを先読みする(&P)"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -7402,10 +7407,6 @@ msgstr "Pre-Connect フック"
 msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
 
-#. Resource IDs: (1562)
-msgid "Pre-fetch folders for faster browsing"
-msgstr "高速に表示するためにフォルダーを先読みする"
-
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "ローカルを優先する(&L)"
@@ -8927,6 +8928,14 @@ msgstr "すべてのリビジョンを表示(&A)"
 msgid "Show &changes"
 msgstr "変更を表示(&C)"
 
+#. Resource IDs: (1480)
+msgid "Show &externals"
+msgstr "外部参照を表示(&E)"
+
+#. Resource IDs: (1529)
+msgid "Show &locks"
+msgstr "ロックを表示(&L)"
+
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "ログを表示(&L)"
@@ -9022,10 +9031,6 @@ msgstr "&Unified 形式で差分を表示"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "表示対象外にある作業フォルダーの最上位を通常として表示する"
-
-#. Resource IDs: (1480)
-msgid "Show externals"
-msgstr "外部参照を表示"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9157,6 +9162,12 @@ msgstr "デフォルトのテキストエディタでアクションログファ
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
 msgstr "eol-style プロパティ値を表示する"
+
+#. Resource IDs: (200)
+msgid ""
+"Shows the lock owner of locked files. Disable this to improve performance "
+"with older servers."
+msgstr "ファイルをロックしている人を表示します。古いサーバーでは性能向上のため無効にしてください。"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9765,6 +9776,10 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr "フックスクリプトはエラーを返しました:\n%s"
+
+#. Resource IDs: (84)
+msgid "The hook script was not approved to run"
+msgstr "実行するフックスクリプトが設定されませんでした"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
