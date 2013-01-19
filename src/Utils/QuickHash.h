@@ -439,7 +439,7 @@ public:
             {
                 *target = *source;
             }
-            // we do not copy/set hr because it's const.
+            // we do not copy/set hf because it's const.
         }
 
         return *this;
