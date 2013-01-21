@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -265,7 +265,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     progDlg.ShowModeless(GetHWND());
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
-        if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, true, false, options, bIgnoreAncestry, tempfile))
+        if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, false, true, false, options, bIgnoreAncestry, tempfile))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -275,9 +275,9 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     }
     else
     {
-        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, true, false, options, false, tempfile))
+        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, false, true, false, options, false, tempfile))
         {
-            if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, true, false, options, false, tempfile))
+            if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, false, true, false, options, false, tempfile))
             {
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);

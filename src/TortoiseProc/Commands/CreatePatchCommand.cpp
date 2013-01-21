@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -278,7 +278,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
     {
         svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, !!ignoreproperties, false, diffoptions, true, tempPatchFilePath))
+        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, false, true, false, !!gitFormat, !!ignoreproperties, false, diffoptions, true, tempPatchFilePath))
         {
             progDlg.Stop();
             svn.ShowErrorDialog(GetExplorerHWND(), paths[fileindex]);

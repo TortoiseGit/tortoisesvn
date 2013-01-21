@@ -1079,7 +1079,7 @@ bool SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revisio
 bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
                       const CTSVNPath& path2, const SVNRev& revision2,
                       const CTSVNPath& relativeToDir, svn_depth_t depth,
-                      bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                      bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
                       bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
     // to create a patch, we need to remove any custom diff tools which might be set in the config file
@@ -1098,7 +1098,7 @@ bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
         svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
     }
 
-    bool bRet = Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
+    bool bRet = Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffadded, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
     if (cfg)
     {
         svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, (LPCSTR)diffCmd);
@@ -1110,16 +1110,16 @@ bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
 bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                const CTSVNPath& path2, const SVNRev& revision2,
                const CTSVNPath& relativeToDir, svn_depth_t depth,
-               bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+               bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
                bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-    return Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
+    return Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffadded, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
 }
 
 bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                const CTSVNPath& path2, const SVNRev& revision2,
                const CTSVNPath& relativeToDir, svn_depth_t depth,
-               bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+               bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
                bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
     bool del = false;
@@ -1175,6 +1175,7 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                                relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localpool),
                                depth,
                                ignoreancestry,
+                               nodiffadded,
                                nodiffdeleted,
                                showCopiesAsAdds,
                                ignorecontenttype,
@@ -1203,16 +1204,16 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
 bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
-                  bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                  bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
                     bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
+    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffadded, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
 }
 
 bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
-                  bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                  bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
                   bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
     bool del = false;
@@ -1268,6 +1269,7 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
             relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localpool),
             depth,
             ignoreancestry,
+            nodiffadded,
             nodiffdeleted,
             showCopiesAsAdds,
             ignorecontenttype,

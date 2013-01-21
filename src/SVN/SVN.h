@@ -564,19 +564,19 @@ public:
     bool Diff(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth,
-        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
         bool ignoreproperties, bool propertiesonly,
         const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool Diff(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
-        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
+        bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
         bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
     bool CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
-        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
+        bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
         bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile);
 
     /**
@@ -590,12 +590,12 @@ public:
      */
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
-        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
         bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
-        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
         bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
 

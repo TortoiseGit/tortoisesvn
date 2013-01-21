@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -686,11 +686,11 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     progDlg.SetProgress(i+1, urls1.GetCount());
                     if (bDoPegDiff)
                     {
-                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, true, false, options, true, diffFile);
+                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, options, true, diffFile);
                     }
                     else
                     {
-                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, true, false, options, true, diffFile);
+                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, options, true, diffFile);
                     }
                     if (progDlg.HasUserCancelled() || m_bCancelled)
                         break;
