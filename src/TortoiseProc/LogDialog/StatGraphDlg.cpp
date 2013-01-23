@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -288,10 +288,10 @@ BOOL CStatGraphDlg::OnInitDialog()
     bool bUseSystemLocale = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
     LCID locale = bUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : m_locale;
 
-    TCHAR l = 0;
-    GetLocaleInfo(locale, LOCALE_IDATE, &l, sizeof(TCHAR));
+    TCHAR l[2] = {0};
+    GetLocaleInfo(locale, LOCALE_IDATE, l, sizeof(TCHAR));
 
-    m_langOrder = (l > 0) ? l - '0' : -1;
+    m_langOrder = (l[0] > 0) ? l[0] - '0' : -1;
 
     RedrawGraph();
 
