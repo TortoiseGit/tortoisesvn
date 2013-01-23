@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 23509)
+--- include/Scintilla.h	(revision 23848)
 +++ include/Scintilla.h	(working copy)
-@@ -957,6 +957,9 @@
+@@ -959,6 +959,9 @@
  #define SCN_AUTOCCANCELLED 2025
  #define SCN_AUTOCCHARDELETED 2026
  #define SCN_HOTSPOTRELEASECLICK 2027
@@ -14,7 +14,7 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 23509)
+--- src/Editor.cxx	(revision 23848)
 +++ src/Editor.cxx	(working copy)
 @@ -2774,6 +2774,17 @@
  		}
@@ -36,9 +36,9 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 23509)
+--- src/Editor.h	(revision 23848)
 +++ src/Editor.h	(working copy)
-@@ -431,6 +431,7 @@
+@@ -444,6 +444,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -48,7 +48,7 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 23509)
+--- win32/ScintillaWin.cxx	(revision 23848)
 +++ win32/ScintillaWin.cxx	(working copy)
 @@ -252,6 +252,7 @@
  	virtual void SetCtrlID(int identifier);
