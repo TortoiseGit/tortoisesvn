@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "Tooltip.h"
 
 class CBugTraqAssociation;
+class CBugTraqAssociations;
 
 /**
  * \ingroup TortoiseProc
@@ -37,6 +38,7 @@ public:
     virtual ~CSetBugTraqAdv();
 
     CBugTraqAssociation GetAssociation() const;
+    void SetAssociations(CBugTraqAssociations * as) { m_pAssociations = as; }
 
 // Dialog Data
     enum { IDD = IDD_SETTINGSBUGTRAQADV };
@@ -57,9 +59,10 @@ protected:
     void CheckHasOptions();
 
 protected:
-    CString         m_sPath;
-    CLSID           m_provider_clsid;
-    CString         m_sParameters;
-    CComboBox       m_cProviderCombo;
-    CToolTips       m_tooltips;
+    CString                 m_sPath;
+    CLSID                   m_provider_clsid;
+    CString                 m_sParameters;
+    CComboBox               m_cProviderCombo;
+    CToolTips               m_tooltips;
+    CBugTraqAssociations *  m_pAssociations;
 };

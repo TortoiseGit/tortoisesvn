@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -143,6 +143,7 @@ void CSetBugTraq::OnBnClickedEditbutton()
 void CSetBugTraq::OnBnClickedAddbutton()
 {
     CSetBugTraqAdv dlg;
+    dlg.SetAssociations(&m_associations);
     if (dlg.DoModal() == IDOK)
     {
         m_associations.Add(dlg.GetAssociation());

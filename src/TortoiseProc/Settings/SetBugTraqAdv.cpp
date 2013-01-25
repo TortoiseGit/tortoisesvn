@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2012 - TortoiseSVN
+// Copyright (C) 2008-2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,7 @@ IMPLEMENT_DYNAMIC(CSetBugTraqAdv, CResizableStandAloneDialog)
 CSetBugTraqAdv::CSetBugTraqAdv(CWnd* pParent /*= NULL*/)
     : CResizableStandAloneDialog(CSetBugTraqAdv::IDD, pParent)
     , m_provider_clsid(GUID_NULL)
+    , m_pAssociations(nullptr)
 {
 }
 
@@ -37,6 +38,7 @@ CSetBugTraqAdv::CSetBugTraqAdv(const CBugTraqAssociation &assoc, CWnd* pParent /
     , m_sPath(assoc.GetPath().GetWinPathString())
     , m_provider_clsid(assoc.GetProviderClass())
     , m_sParameters(assoc.GetParameters())
+    , m_pAssociations(nullptr)
 {
 }
 
@@ -157,6 +159,19 @@ void CSetBugTraqAdv::OnOK()
 
     if (valid == VARIANT_FALSE)
         return; // It's assumed that the provider will have done this.
+
+    if (m_pAssociations)
+    {
+        CBugTraqAssociation bugtraq_association;
+        if (m_pAssociations->FindProvider(CTSVNPathList(CTSVNPath(m_sPath)), &bugtraq_association))
+        {
+            if (bugtraq_association.GetPath().IsEquivalentToWithoutCase(CTSVNPath(m_sPath)))
+            {
+                ShowEditBalloon(IDC_BUGTRAQPATH, IDS_ERR_PROVIDER_PATH_ALREADY_CONFIGURED, IDS_ERR_ERROR, TTI_ERROR);
+                return;
+            }
+        }
+    }
 
     CResizableStandAloneDialog::OnOK();
 }

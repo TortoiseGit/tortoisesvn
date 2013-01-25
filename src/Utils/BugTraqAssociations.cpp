@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009, 2012 - TortoiseSVN
+// Copyright (C) 2008-2009, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -104,7 +104,8 @@ bool CBugTraqAssociations::FindProvider(const CTSVNPathList &pathList, CBugTraqA
 
     if (pProjectProvider)
     {
-        *assoc = *pProjectProvider;
+        if (assoc)
+            *assoc = *pProjectProvider;
         return true;
     }
     if (!providerUUID.IsEmpty())
@@ -114,7 +115,8 @@ bool CBugTraqAssociations::FindProvider(const CTSVNPathList &pathList, CBugTraqA
         pProjectProvider = new CBugTraqAssociation(_T(""), provider_clsid, _T("bugtraq:provider"), (LPCWSTR)providerParams);
         if (pProjectProvider)
         {
-            *assoc = *pProjectProvider;
+            if (assoc)
+                *assoc = *pProjectProvider;
             return true;
         }
     }
@@ -140,7 +142,8 @@ bool CBugTraqAssociations::FindProviderForPath(CTSVNPath path, CBugTraqAssociati
         inner_t::const_iterator it = std::find_if(m_inner.begin(), m_inner.end(), FindByPathPred(path));
         if (it != m_inner.end())
         {
-            *assoc = *(*it);
+            if (assoc)
+                *assoc = *(*it);
             return true;
         }
 
