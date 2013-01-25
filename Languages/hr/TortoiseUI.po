@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Ivan Vučica <ivan@vucica.net>, 2012.
+# Ivan Vučica <ivan@vucica.net>, 2012-2013.
 #   <ivan@vucica.net>, 2011, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-14 08:38+0000\n"
+"PO-Revision-Date: 2013-01-21 08:33+0000\n"
 "Last-Translator: Ivan Vučica <ivan@vucica.net>\n"
 "Language-Team: Croatian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3627,7 +3627,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr ""
+msgstr "Vlastiti string za naslov. Dostupne ključne riječi su:\n {mergeurl}:»izvorni url za stapanje\n {revisions}:»zarezima odvojena lista stopljenih revizija, primjerice: 3, 5, 6, 7\n {revisionsr}:»poput {revisions} no uz 'r' ispred revizija\n {revrange}:»zarezima odvojena lista stopljenih revizija, grupirana u raspone, ako je moguće; primjerice: 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5968,7 +5968,7 @@ msgstr ""
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
-msgstr ""
+msgstr "Kao iznad, ali koristi se za obrnuta stapanja"
 
 #. Resource IDs: (19)
 msgid "Line"
@@ -6297,7 +6297,7 @@ msgstr "&Dubina stapanja:"
 
 #. Resource IDs: (32865)
 msgid "Merge Log &Templates"
-msgstr ""
+msgstr "Predlošci za dnevnik s&tapanja"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6358,7 +6358,7 @@ msgstr "Stopljeno"
 
 #. Resource IDs: (286)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "Stopljene revizije {revrange} iz {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8233,7 +8233,7 @@ msgstr "Pokušaj ponovo"
 
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "Obrnuto stopljene revizije {revrange} iz {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format

@@ -13,6 +13,7 @@
 # Arith Hsu <arithmandar@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
+#  <zcecil@csie.org>, 2013.
 #   <zcecil@csie.org>, 2011-2013.
 # zcecil <zcecil@csie.org>, 2011.
 msgid ""
@@ -20,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-14 08:38+0000\n"
+"PO-Revision-Date: 2013-01-25 06:24+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1097,7 +1098,7 @@ msgstr "進階使用者預設值(&P)"
 
 #. Resource IDs: (1562)
 msgid "&Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "預先取得資料匣以加速瀏覽(&P)"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -8931,11 +8932,11 @@ msgstr "顯示變更(&C)"
 
 #. Resource IDs: (1480)
 msgid "Show &externals"
-msgstr ""
+msgstr " 顯示外部資源(&E)"
 
 #. Resource IDs: (1529)
 msgid "Show &locks"
-msgstr ""
+msgstr "顯示鎖定(&L)"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
@@ -9168,7 +9169,7 @@ msgstr "顯示 eol-style 屬性設定"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr ""
+msgstr "對於鎖定的檔案，顯示鎖定的使用者. 舊版伺服器上關閉這個功能可以提升效能。"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9780,7 +9781,7 @@ msgstr "掛勾指令檔傳回錯誤:\n%s"
 
 #. Resource IDs: (84)
 msgid "The hook script was not approved to run"
-msgstr ""
+msgstr "尚未許可掛勾指令檔執行"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
