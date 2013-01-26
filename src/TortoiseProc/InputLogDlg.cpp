@@ -125,8 +125,8 @@ BOOL CInputLogDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     EnableSaveRestore(_T("InputLogDlg"));
-    if (GetExplorerHWND())
-        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
+    if (FindParentWindow(0))
+        CenterWindow(CWnd::FromHandle(FindParentWindow(0)));
 
     // HACK! Under certain conditions, the dialog box
     // will not get the input focus.
@@ -138,7 +138,7 @@ BOOL CInputLogDlg::OnInitDialog()
         ShowWindow (SW_SHOW);
     }
 
-    GetDlgItem(IDC_INPUTTEXT)->SetFocus();
+    m_cInput.SetFocus();
     return FALSE;
 }
 
