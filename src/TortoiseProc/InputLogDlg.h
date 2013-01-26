@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ public:
     void SetActionText(const CString& sAction) {m_sActionText = sAction;}
     void SetTitleText(const CString& sTitle) { m_sTitleText = sTitle; }
     void SetCheckText(const CString& sCheck) { m_sCheckText = sCheck; }
+    void SetLogText(const CString& sLog) { m_sLogMsg = sLog; }
     int GetCheck() { return m_iCheck; }
     CString GetLogMessage() {return m_sLogMsg;}
     void SetForceFocus(bool force) {m_bForceFocus = force;}
