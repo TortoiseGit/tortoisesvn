@@ -32,6 +32,11 @@
         you can always choose to call a script which is itself under version control.
     </para>
     <para>
+        Note that you can also specify such hook scripts using special
+        properties on your working copy. See the section <xref linkend="tsvn-dug-propertypage-tsvn-props"/>
+        for details.
+    </para>
+    <para>
         <figure id="tsvn-dug-settings-dia-hook-edit">
             <title>The Settings Dialog, Configure Hook Scripts</title>
             <graphic fileref="../images/SettingsHookEdit.png"/>
@@ -213,6 +218,12 @@
                         A path to a temporary file which contains all the
                         paths for which the operation was started.
                         Each path is on a separate line in the temp file.
+                    </para>
+                    <para>
+                        Note that for operations done remotely, e.g.
+                        in the repository browser, those paths are
+                        not local paths but the urls of the affected
+                        items.
                     </para>
                 </listitem>
             </varlistentry>
