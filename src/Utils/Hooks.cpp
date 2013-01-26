@@ -126,6 +126,7 @@ bool CHooks::Create()
 
 void CHooks::SetProjectProperties( const CTSVNPath& wcRootPath, const ProjectProperties& pp )
 {
+    m_wcRootPath = wcRootPath;
     CString sLocalPath = pp.sRepositoryRootUrl;
     ParseAndInsertProjectProperty(pre_commit_hook, pp.sPreCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
     ParseAndInsertProjectProperty(start_commit_hook, pp.sStartCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
@@ -456,10 +457,20 @@ hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
             path = path.GetContainingDirectory();
         } while(!path.IsEmpty());
     }
+
+    // try the wc root path
+    key.htype = t;
+    key.path = m_wcRootPath;
+    hookiterator it = find(key);
+    if (it != end())
+    {
+        return it;
+    }
+
     // look for a script with a path as '*'
     key.htype = t;
     key.path = CTSVNPath(_T("*"));
-    hookiterator it = find(key);
+    it = find(key);
     if (it != end())
     {
         return it;
