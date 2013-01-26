@@ -41,7 +41,6 @@ public:
     void SetLogText(const CString& sLog) { m_sLogMsg = sLog; }
     int GetCheck() { return m_iCheck; }
     CString GetLogMessage() {return m_sLogMsg;}
-    void SetForceFocus(bool force) {m_bForceFocus = force;}
 
 protected:
     virtual BOOL OnInitDialog();
@@ -71,5 +70,4 @@ private:
     CString             m_sTitleText;
     CString             m_sCheckText;
     int                 m_iCheck;
-    bool                m_bForceFocus;
 };

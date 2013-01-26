@@ -2412,7 +2412,6 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
     CString sHint;
     sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(absolutepath), (LPCTSTR)targetUrl.GetUIPathString());
     input.SetActionText(sHint);
-    input.SetForceFocus (true);
     if (input.DoModal() == IDOK)
     {
         CWaitCursorEx wait_cursor;
@@ -2478,7 +2477,6 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
     CString sHint;
     sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetUIPathString());
     input.SetActionText(sHint);
-    input.SetForceFocus (true);
     if (input.DoModal() == IDOK)
     {
         CWaitCursorEx wait_cursor;
