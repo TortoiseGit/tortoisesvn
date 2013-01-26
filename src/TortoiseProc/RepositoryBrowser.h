@@ -285,6 +285,10 @@ protected:
     void ShowText(const CString& sText, bool forceupdate = false);
     static void FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths);
     void SetListItemInfo( int index, const CItem * it );
+
+    bool RunStartCommit(const CTSVNPathList& pathlist, CString& sLogMsg);
+    bool RunPreCommit(const CTSVNPathList& pathlist, svn_depth_t depth, CString& sMsg);
+    bool RunPostCommit(const CTSVNPathList& pathlist, svn_depth_t depth, svn_revnum_t revEnd, const CString& sMsg);
 protected:
     bool                m_bInitDone;
     CRepositoryBar      m_barRepository;
