@@ -20,6 +20,8 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "SciEdit.h"
+#include "BugTraqAssociations.h"
+#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 
 /**
  * \ingroup TortoiseProc
@@ -34,6 +36,8 @@ public:
     virtual ~CInputLogDlg();
 
     void SetProjectProperties(ProjectProperties * pProps, const CStringA& sAction) { m_pProjectProperties = pProps; m_sSVNAction = sAction; }
+    void SetPathList(const CTSVNPathList& pl) { m_pathlist = pl; }
+    void SetRootPath(const CTSVNPath& p) { m_rootpath = p; }
     void SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
     void SetActionText(const CString& sAction) {m_sActionText = sAction;}
     void SetTitleText(const CString& sTitle) { m_sTitleText = sTitle; }
@@ -41,6 +45,8 @@ public:
     void SetLogText(const CString& sLog) { m_sLogMsg = sLog; }
     int GetCheck() { return m_iCheck; }
     CString GetLogMessage() {return m_sLogMsg;}
+
+    std::map<CString, CString> m_revProps;
 
 protected:
     virtual BOOL OnInitDialog();
@@ -50,6 +56,7 @@ protected:
 
     afx_msg void OnEnChangeLogmessage();
     afx_msg void OnBnClickedHistory();
+    afx_msg void OnBnClickedBugtraqbutton();
     DECLARE_MESSAGE_MAP()
 
 // Dialog Data
@@ -57,11 +64,17 @@ protected:
 
 private:
     void        UpdateOKButton();
+    void        OnComError(HRESULT hr);
 
 
 private:
     CSciEdit            m_cInput;
+    CString             m_sBugID;
     ProjectProperties * m_pProjectProperties;
+    CComPtr<IBugTraqProvider> m_BugTraqProvider;
+    CBugTraqAssociation m_bugtraq_association;
+    CTSVNPathList       m_pathlist;
+    CTSVNPath           m_rootpath;
     CStringA            m_sSVNAction;
     CFont               m_logFont;
     CString             m_sLogMsg;
