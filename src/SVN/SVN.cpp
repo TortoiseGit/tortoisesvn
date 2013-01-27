@@ -902,12 +902,13 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
     const char* svnPath = path1.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path1));
     SVNTRACE (
-        Err = svn_client_merge4(svnPath,
+        Err = svn_client_merge5(svnPath,
                                 revision1,
                                 path2.GetSVNApiPath(subpool),
                                 revision2,
                                 localPath.GetSVNApiPath(subpool),
                                 depth,
+                                ignoreanchestry,
                                 ignoreanchestry,
                                 force,
                                 record_only,
@@ -936,11 +937,12 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
     const char* svnPath = source.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(source));
     SVNTRACE (
-        Err = svn_client_merge_peg4 (svnPath,
+        Err = svn_client_merge_peg5 (svnPath,
             revrangearray.GetAprArray(subpool),
             pegrevision,
             destpath.GetSVNApiPath(subpool),
             depth,
+            ignoreancestry,
             ignoreancestry,
             force,
             record_only,
@@ -1005,7 +1007,7 @@ bool SVN::IsReintegrateMerge( const CTSVNPath& source, const SVNRev& srcrevision
 }
 
 bool SVN::MergeAutomatically( const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
-                              bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
+                              bool ignoreancestry, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
                               svn_depth_t depth, bool recordonly, bool force, bool dryrun, const CString& options )
 {
     SVNPool subpool(pool);
@@ -1034,6 +1036,7 @@ bool SVN::MergeAutomatically( const CTSVNPath& source, const SVNRev& srcrevision
                 Err = svn_client_do_automatic_merge(merge,
                                                     wcpath.GetSVNApiPath(subpool),
                                                     depth,
+                                                    ignoreancestry,
                                                     force, recordonly,
                                                     dryrun, opts,
                                                     m_pctx, subpool),

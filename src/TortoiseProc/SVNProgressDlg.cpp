@@ -3133,6 +3133,7 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
 
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!MergeAutomatically(m_url, SVNRev::REV_HEAD, m_targetPathList[0],
+                            !!(m_options & ProgOptIgnoreAncestry),
                             !!(m_options & ProgOptAllowMixedRev),
                             true,           // allow local mods
                             true,           // allow switched subtrees

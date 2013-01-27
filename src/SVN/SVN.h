@@ -525,7 +525,7 @@ public:
      * Performs an automatic merge of \c source into \c wcpath.
      */
     bool MergeAutomatically(const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
-                            bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
+                            bool ignoreancestry, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
                             svn_depth_t depth, bool recordonly, bool force, bool dryrun, const CString& options);
     /**
      * Returns true if the automatic merge with the specified parameters would be reintegrate like.
