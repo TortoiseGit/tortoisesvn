@@ -12,14 +12,14 @@
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2012.
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2013.
 # Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-14 22:10+0000\n"
+"PO-Revision-Date: 2013-01-26 06:16+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,12 +78,12 @@ msgstr "%1 は不正確なスキーマを含んでいます。"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 has a bad format."
-msgstr "%1 は不完全なフォーマットです。"
+msgstr "%1 は不正なフォーマットです。"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 は見つかりませんでした。"
+msgstr "%1が見つかりませんでした。"
 
 #. Resource IDs: (169)
 #, c-format
@@ -155,7 +155,7 @@ msgstr "%1!s!\r\nリビジョン %2!s!、作者 %3!s!、サイズ %4!s!、日付
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr "%1!s!\r\n%2!d!個のファイルと%3!d!個のフォルダー、計%4!d!項目を表示"
+msgstr "%1!s!\r\n%2!d!件のファイルと%3!d!件のフォルダー、計%4!d!項目を表示"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -356,7 +356,7 @@ msgstr "%s\n本当に削除してもよろしいですか？"
 msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
-msgstr "%s\n%d 個のファイルを削除してもよろしいですか？"
+msgstr "%s\n%d件のファイルを削除してもよろしいですか？"
 
 #. Resource IDs: (147)
 #, c-format
@@ -822,7 +822,7 @@ msgstr "アイコンセット(&I):"
 #. Resource IDs: (15)
 #, c-format
 msgid "&Ignore %d items by name"
-msgstr "名前によって %d 個の項目を無視する(&I)"
+msgstr "名前によって%d件の項目を無視する(&I)"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
@@ -2075,14 +2075,14 @@ msgstr "本当に、ファイルの競合を解決済としてもよろしいで
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "選択した%d個のキャッシュを本当に削除してもよろしいですか？？"
+msgstr "選択した%d件のキャッシュを本当に削除してもよろしいですか？？"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr "本当に%d個の項目をの変更を取り消してもよろしいですか？ 最後の更新以降のすべての変更が失われます。"
+msgstr "本当に%d件の項目をの変更を取り消してもよろしいですか？ 最後の更新以降のすべての変更が失われます。"
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
@@ -2842,19 +2842,19 @@ msgstr "クリアツール\nクリア"
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
-msgstr "%2!ld!個の作業コピーで保存した%1!ld!個のURLをクリアする"
+msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のURLをクリアする"
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr "%2!ld!個の作業コピーで保存した%1!ld!個のログメッセージをクリアする"
+msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のログメッセージをクリアする"
 
 #. Resource IDs: (196)
 #, c-format
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr "%1!ld!個のユーザー名/パスワードの組、%2!ld!個のSSL証明書と%3!ld!個のユーザー名をクリアする"
+msgstr "%1!ld!件のユーザー名/パスワードの組、%2!ld!件のSSL証明書と%3!ld!件のユーザー名をクリアする"
 
 #. Resource IDs: (198)
 #, c-format
@@ -2864,7 +2864,7 @@ msgstr "%ld件のクライアント側スクリプトの承認をクリア"
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "%ld個のリポジトリにキャッシュされているログをクリアする"
+msgstr "%ld件のリポジトリにキャッシュされているログをクリアする"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2875,7 +2875,7 @@ msgstr "保存されている認証データをクリアする。\r\nすべて�
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "保存されている%ld個のダイアログの位置と大きさをクリアする"
+msgstr "保存されている%ld件のダイアログの位置と大きさをクリアする"
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -3250,7 +3250,7 @@ msgstr "コピー"
 msgid ""
 "Copy %1!ld! items to\r\n"
 "%2!s!"
-msgstr "%1!ld! 個の項目をコピー\r\n%2!s!"
+msgstr "%1!ld!件の項目をコピー\r\n%2!s!"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3719,12 +3719,12 @@ msgstr "バージョン管理外の項目を削除"
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and &ignore %d items by name"
-msgstr "削除した後、名前によって %d 個の項目を無視する(&I)"
+msgstr "削除して同じ名前の%d件の項目を無視する(&I)"
 
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "削除した後、拡張子によって %d 個の項目を無視する(&E)"
+msgstr "削除して同じ拡張子の%d件の項目を無視する(&E)"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5526,7 +5526,7 @@ msgstr "無視"
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
-msgstr "拡張子によって %d 個の項目を無視する(&E)"
+msgstr "拡張子によって%d件の項目を無視する(&E)"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
@@ -5630,7 +5630,7 @@ msgstr "%1!s! を %2!s!%3!s! へインポート"
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
-msgstr "%ld 個の項目をインポート"
+msgstr "%ld件の項目をインポート"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -6512,7 +6512,7 @@ msgstr "マウス"
 msgid ""
 "Move %1!ld! items to\r\n"
 "%2!s!"
-msgstr "%1!ld! 個の項目を移動\r\n%2!s!"
+msgstr "%1!ld!件の項目を移動\r\n%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -7930,7 +7930,7 @@ msgstr "削除"
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
-msgstr "%ld 個の項目を削除"
+msgstr "%ld件の項目を削除"
 
 #. Resource IDs: (126)
 #, c-format
@@ -9121,12 +9121,12 @@ msgstr "表示/非表示"
 msgid ""
 "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld!"
 " revision(s) selected, showing %5!ld! changed paths"
-msgstr "%1!ld!個のリビジョンを表示（%2!ld!～%3!ld!）、%4!ld!個のリビジョンを選択、%5!ld!個の変更されたパスを表示"
+msgstr "%1!ld!件のリビジョンを表示（%2!ld!～%3!ld!）、%4!ld!件のリビジョンを選択、%5!ld!件の変更されたパスを表示"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
-msgstr "%ld個のノードを表示"
+msgstr "%ld件のノードを表示"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10505,7 +10505,7 @@ msgstr "TortoiseSVN 自動コミット: 修正されたリビジョンへ外部�
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr "%1!ld!個の項目をごみ箱に入れるのに、非常に時間がかかっています。ごみ箱に現在%2!ld!個の項目が入っていることが原因と考えられます。\n解決するには、ごみ箱を空にしてください。"
+msgstr "%1!ld!件の項目をごみ箱に入れるのに、非常に時間がかかっています。ごみ箱に現在%2!ld!件の項目が入っていることが原因と考えられます。\n解決するには、ごみ箱を空にしてください。"
 
 #. Resource IDs: (98)
 #, c-format
@@ -11317,7 +11317,7 @@ msgstr "%d × %d サイズのビットマップ画像のみ貼り付けること
 #. Resource IDs: (1016)
 #, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr "ユーザー定義ツールバーは %d 個までしか作成できません。"
+msgstr "ユーザー定義ツールバーは%d件までしか作成できません。"
 
 #. Resource IDs: (16)
 msgid ""
@@ -11365,7 +11365,7 @@ msgstr "課題IDが入力されていません。"
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr "%d 個までしかツールを定義することができません。"
+msgstr "ツールは%d件までしか定義できません。"
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
@@ -11531,6 +11531,10 @@ msgstr "[デフォルト]"
 msgid "[Unassigned]"
 msgstr "[Unassigned]"
 
+#. Resource IDs: (1562)
+msgid "\"ignore-on-commit\" files do not mark parent folder modified\""
+msgstr "コミット時に無視されるファイルがあっても、親フォルダーは変更状態にはなりません"
+
 #. Resource IDs: (346)
 msgid ""
 "\n"
@@ -11569,7 +11573,7 @@ msgstr "すべてのリビジョン(&R)"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
-msgstr "名前無しファイル"
+msgstr "名称未設定ファイル"
 
 #. Resource IDs: (1304)
 msgid "and"
