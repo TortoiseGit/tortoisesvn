@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2012 - TortoiseSVN
+// Copyright (C) 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -315,7 +315,7 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
             }
 
             EndPaint(hWnd, &ps);
-            return 1;
+            return 0;
         }
         break;
     case WM_NCDESTROY:
@@ -834,7 +834,7 @@ LRESULT AeroControlBase::ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wPar
             }
 
             EndPaint(hWnd, &ps);
-            return 1;
+            return 0;
         }
         break;
     case WM_NCDESTROY:
