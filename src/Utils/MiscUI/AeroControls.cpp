@@ -45,6 +45,7 @@ AeroControlBase::AeroControlBase()
         m_dwm.Initialize();
     }
     m_theme.Initialize();
+    m_theme.BufferedPaintInit();
 }
 
 AeroControlBase::~AeroControlBase()
@@ -53,6 +54,7 @@ AeroControlBase::~AeroControlBase()
     {
         RemoveWindowSubclass(it->first, SubclassProc, it->second);
     }
+    m_theme.BufferedPaintUnInit();
     if (gdiplusToken)
         GdiplusShutdown(gdiplusToken);
 }
