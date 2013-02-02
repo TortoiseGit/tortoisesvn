@@ -31,11 +31,11 @@ public:
     void InsertAt(int index, const T& strVal)   { m_vec.insert(m_vec.begin()+index, strVal); }
     void InsertAt(int index, const T& strVal, int nCopies)  { m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
     void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
-    void Add(const T& strVal)    { 
+    void Add(const T& strVal)    {
         if (m_vec.size()==m_vec.capacity()) {
             m_vec.reserve(m_vec.capacity() ? m_vec.capacity()*2 : 256);
         }
-        m_vec.push_back(strVal); 
+        m_vec.push_back(strVal);
     }
     void RemoveAll()             { m_vec.clear(); }
     void Reserve(int nHintSize) { m_vec.reserve(nHintSize); }

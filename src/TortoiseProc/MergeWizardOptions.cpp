@@ -158,7 +158,7 @@ BOOL CMergeWizardOptions::OnWizardFinish()
         // the wait dialog needs to process some messages now, otherwise it
         // won't show the info text.
         MSG stMsg;
-        while (::PeekMessage (&stMsg, NULL, 0, 0, PM_REMOVE)) 
+        while (::PeekMessage (&stMsg, NULL, 0, 0, PM_REMOVE))
         {
             ::TranslateMessage (&stMsg);
             ::DispatchMessage (&stMsg);

@@ -24,34 +24,34 @@
 
 
 inline HRESULT GetDllVersion(
-	_In_ HINSTANCE hInstDLL,
-	_Out_ DLLVERSIONINFO* pDllVersionInfo)
+    _In_ HINSTANCE hInstDLL,
+    _Out_ DLLVERSIONINFO* pDllVersionInfo)
 {
-	ATLENSURE(pDllVersionInfo != NULL);
+    ATLENSURE(pDllVersionInfo != NULL);
 
-	// We must get this function explicitly because some DLLs don't implement it.
-	DLLGETVERSIONPROC pfnDllGetVersion = (DLLGETVERSIONPROC)::GetProcAddress(hInstDLL, "DllGetVersion");
+    // We must get this function explicitly because some DLLs don't implement it.
+    DLLGETVERSIONPROC pfnDllGetVersion = (DLLGETVERSIONPROC)::GetProcAddress(hInstDLL, "DllGetVersion");
 
-	if(pfnDllGetVersion == NULL)
-	{
-		return E_NOTIMPL;
-	}
+    if(pfnDllGetVersion == NULL)
+    {
+        return E_NOTIMPL;
+    }
 
-	return (*pfnDllGetVersion)(pDllVersionInfo);
+    return (*pfnDllGetVersion)(pDllVersionInfo);
 }
 
 inline HRESULT GetDllVersion(
-	_In_z_ LPCTSTR lpstrDllName,
-	_Out_ DLLVERSIONINFO* pDllVersionInfo)
+    _In_z_ LPCTSTR lpstrDllName,
+    _Out_ DLLVERSIONINFO* pDllVersionInfo)
 {
-	HINSTANCE hInstDLL = ::LoadLibrary(lpstrDllName);
-	if(hInstDLL == NULL)
-	{
-		return AtlHresultFromLastError();
-	}
-	HRESULT hRet = GetDllVersion(hInstDLL, pDllVersionInfo);
-	::FreeLibrary(hInstDLL);
-	return hRet;
+    HINSTANCE hInstDLL = ::LoadLibrary(lpstrDllName);
+    if(hInstDLL == NULL)
+    {
+        return AtlHresultFromLastError();
+    }
+    HRESULT hRet = GetDllVersion(hInstDLL, pDllVersionInfo);
+    ::FreeLibrary(hInstDLL);
+    return hRet;
 }
 
 // Shell Versions:
@@ -61,21 +61,21 @@ inline HRESULT GetDllVersion(
 //   IE 4.01 with Web Integrated Desktop            maj=4 min=72
 //   Win2000                                        maj=5 min=00
 inline HRESULT GetShellVersion(
-	_Out_ LPDWORD pdwMajor,
-	_Out_ LPDWORD pdwMinor)
+    _Out_ LPDWORD pdwMajor,
+    _Out_ LPDWORD pdwMinor)
 {
-	ATLENSURE(( pdwMajor != NULL) && ( pdwMinor != NULL ));
+    ATLENSURE(( pdwMajor != NULL) && ( pdwMinor != NULL ));
 
-	DLLVERSIONINFO dvi;
-	memset(&dvi, 0, sizeof(dvi));
-	dvi.cbSize = sizeof(dvi);
-	HRESULT hRet = GetDllVersion(_T("shell32.dll"), &dvi);
+    DLLVERSIONINFO dvi;
+    memset(&dvi, 0, sizeof(dvi));
+    dvi.cbSize = sizeof(dvi);
+    HRESULT hRet = GetDllVersion(_T("shell32.dll"), &dvi);
 
-	if(SUCCEEDED(hRet))
-	{
-		*pdwMajor = dvi.dwMajorVersion;
-		*pdwMinor = dvi.dwMinorVersion;
-	}
+    if(SUCCEEDED(hRet))
+    {
+        *pdwMajor = dvi.dwMajorVersion;
+        *pdwMinor = dvi.dwMinorVersion;
+    }
 
-	return hRet;
+    return hRet;
 }

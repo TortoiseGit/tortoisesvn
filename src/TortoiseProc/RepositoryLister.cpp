@@ -132,7 +132,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
     CItem entry
         ( path
-        , externalTarget 
+        , externalTarget
         , kind
         , size
         , has_props

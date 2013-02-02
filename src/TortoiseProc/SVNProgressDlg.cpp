@@ -127,7 +127,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     m_arData.reserve(10000);
     m_bHideExternalInfo = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\HideExternalInfo"), TRUE);
     m_columnbuf[0] = 0;
-    
+
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()

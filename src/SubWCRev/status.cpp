@@ -357,8 +357,8 @@ svn_status (    const char *path,
     for (std::vector<SubWcExtData_t>::iterator I = extarray->begin(); I != extarray->end(); ++I)
     {
         SubWcExtData_t extdata = *I;
-        svn_revnum_t minRev = -1; 
-        svn_revnum_t maxRev = -1; 
+        svn_revnum_t minRev = -1;
+        svn_revnum_t maxRev = -1;
         if (strcmp(path, extdata.Path))
         {
             if (sb.SubStat->bExternalsNoMixedRevision && (extdata.Revision.kind == svn_opt_revision_number))

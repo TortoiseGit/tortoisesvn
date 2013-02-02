@@ -672,7 +672,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 CString temp2 = temp;
                 CString sExt = rootUrl.Mid(repoRootUrl.GetLength());
                 CString sLocalPath;
-                do 
+                do
                 {
                     temp = temp2;
                     CString repoRootUrlExt = repoRootUrl + sExt;
