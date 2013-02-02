@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,6 +79,8 @@ protected:
     CRegDWORD       m_regAutoAdd;
     int             m_nMaxInline;
     CRegDWORD       m_regMaxInline;
+    BOOL            m_bUseRibbons;
+    CRegDWORD       m_regUseRibbons;
 
     CRegDWORD       m_regFontSize;
     DWORD           m_dwFontSize;

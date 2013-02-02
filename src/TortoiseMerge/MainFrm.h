@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2012 - TortoiseSVN
+// Copyright (C) 2006-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -194,6 +194,7 @@ protected:
     bool            m_bInlineDiff;
     bool            m_bLineDiff;
     bool            m_bLocatorBar;
+    bool            m_bUseRibbons;
 
     CMFCRibbonBar               m_wndRibbonBar;
     CMFCRibbonApplicationButton m_MainButton;
@@ -203,6 +204,7 @@ protected:
     CRegDWORD       m_regOneWay;
     CRegDWORD       m_regCollapsed;
     CRegDWORD       m_regInlineDiff;
+    CRegDWORD       m_regUseRibbons;
 public:
     CLeftView *     m_pwndLeftView;
     CRightView *    m_pwndRightView;
@@ -220,4 +222,8 @@ public:
     HWND            resolveMsgWnd;
     WPARAM          resolveMsgWParam;
     LPARAM          resolveMsgLParam;
+
+    const CMFCToolBar *   GetToolbar() const { return &m_wndToolBar; }
+    CMFCMenuBar     m_wndMenuBar;
+    CMFCToolBar     m_wndToolBar;
 };
