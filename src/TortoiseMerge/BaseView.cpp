@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2899,7 +2899,11 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
     {
         POINT ptCaretPos;
         ptCaretPos.y = nClickedLine;
-        ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+        LONG xpos = m_nOffsetChar + (point.x - GetMarginWidth());
+        LONG xpos2 = xpos / GetCharWidth();
+        if ((xpos % GetCharWidth()) >= (GetCharWidth()/2))
+            xpos2++;
+        ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, xpos2);
         SetCaretAndGoalPosition(ptCaretPos);
 
         if (nFlags & MK_SHIFT)
