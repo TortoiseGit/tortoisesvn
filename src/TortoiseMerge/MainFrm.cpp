@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2012 - TortoiseSVN
+// Copyright (C) 2004-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -165,7 +165,7 @@ CMainFrame::CMainFrame()
     , resolveMsgWParam(0)
     , resolveMsgLParam(0)
     , m_regWrapLines(L"Software\\TortoiseMerge\\WrapLines", 0)
-    , m_regViewModedBlocks(L"Software\\TortoiseMerge\\ViewMovedBlocks", 0)
+    , m_regViewModedBlocks(L"Software\\TortoiseMerge\\ViewMovedBlocks", TRUE)
     , m_regOneWay(L"Software\\TortoiseMerge\\OnePane")
     , m_regCollapsed(L"Software\\TortoiseMerge\\Collapsed", 0)
     , m_regInlineDiff(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE)
