@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012-2013 - TortoiseSVN
 
 #pragma once
 // Modify the following defines if you have to target a platform prior to the ones specified below.
@@ -21,6 +21,7 @@
 #endif
 
 #define ISOLATION_AWARE_ENABLED 1
+#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
 
 #include <windows.h>
 

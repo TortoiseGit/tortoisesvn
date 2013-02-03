@@ -268,7 +268,7 @@ private:
      * IShellExtInit wrapper functions to catch exceptions and send crash reports
      */
     //@{
-    STDMETHODIMP    Initialize_Wrap(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);
+    STDMETHODIMP    Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);
     //@}
 
     /** \name IShellIconOverlayIdentifier wrappers
@@ -338,7 +338,7 @@ public:
      * IShellExtInit methods
      */
     //@{
-    STDMETHODIMP    Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);
+    STDMETHODIMP    Initialize(PCIDLIST_ABSOLUTE pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);
     //@}
 
     /** \name IPersistFile

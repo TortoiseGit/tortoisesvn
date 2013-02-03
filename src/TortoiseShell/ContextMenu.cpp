@@ -27,8 +27,8 @@
 #include "FormatMessageWrapper.h"
 #include "PathUtils.h"
 
-#define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])
-#define GetPIDLItem(pida, i) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[i+1])
+#define GetPIDLFolder(pida) (PIDLIST_ABSOLUTE)(((LPBYTE)pida)+(pida)->aoffset[0])
+#define GetPIDLItem(pida, i) (PCUITEMID_CHILD)(((LPBYTE)pida)+(pida)->aoffset[i+1])
 
 int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 
@@ -202,7 +202,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, _T("") },
 };
 
-STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
+STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                                         LPDATAOBJECT pDataObj,
                                         HKEY  hRegKey)
 {
@@ -216,7 +216,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
     return E_FAIL;
 }
 
-STDMETHODIMP CShellExt::Initialize_Wrap(LPCITEMIDLIST pIDFolder,
+STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                                         LPDATAOBJECT pDataObj,
                                         HKEY /* hRegKey */)
 {
@@ -1942,7 +1942,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
 {
     TCHAR buf[MAX_PATH];    //MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
-    LPITEMIDLIST pidl = NULL;
+    PIDLIST_ABSOLUTE pidl = NULL;
     for (int i = 0; csidlarray[i]; i++)
     {
         pidl = NULL;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009, 2011-2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2011-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,11 +21,19 @@
 #include "ItemIDList.h"
 
 
-ItemIDList::ItemIDList(LPCITEMIDLIST item, LPCITEMIDLIST parent) :
-      item_ (item)
+ItemIDList::ItemIDList(PCUITEMID_CHILD item, PCUIDLIST_RELATIVE parent)
+    : item_ (item)
     , parent_ (parent)
     , count_ (-1)
 {
+}
+
+ItemIDList::ItemIDList( PCIDLIST_ABSOLUTE item )
+    : item_ ((PCUITEMID_CHILD)item)
+    , parent_ (0)
+    , count_ (-1)
+{
+
 }
 
 ItemIDList::~ItemIDList()
@@ -157,7 +165,7 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
     return ret;
 }
 
-LPCITEMIDLIST ItemIDList::operator& ()
+PCUITEMID_CHILD ItemIDList::operator& ()
 {
     return item_;
 }

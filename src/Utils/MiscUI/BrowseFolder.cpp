@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -190,7 +190,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         browseInfo.lParam           = (LPARAM)this;
         browseInfo.lpfn             = BrowseCallBackProc;
 
-        LPITEMIDLIST itemIDList = SHBrowseForFolder(&browseInfo);
+        PCIDLIST_ABSOLUTE itemIDList = SHBrowseForFolder(&browseInfo);
 
         //is the dialog canceled?
         if (!itemIDList)
@@ -203,15 +203,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
             path.ReleaseBuffer();
 
-            LPMALLOC shellMalloc = 0;
-            hr = SHGetMalloc(&shellMalloc);
-            if (SUCCEEDED(hr))
-            {
-                //free memory
-                shellMalloc->Free(itemIDList);
-                //release interface
-                shellMalloc->Release();
-            }
+            CoTaskMemFree((LPVOID)itemIDList);
         }
     }
 
@@ -379,7 +371,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
     {
         // Set the status window to the currently selected path.
         TCHAR szDir[MAX_PATH];
-        if (SHGetPathFromIDList((LPITEMIDLIST)lParam, szDir))
+        if (SHGetPathFromIDList((PCIDLIST_ABSOLUTE)lParam, szDir))
         {
             SendMessage(hwnd,BFFM_SETSTATUSTEXT, 0, (LPARAM)szDir);
         }

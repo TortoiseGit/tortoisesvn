@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2004-2005, 2007-2008, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2004-2005, 2007-2008, 2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #pragma once
+
+#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
 
 #define _WIN32_WINNT 0x502
 

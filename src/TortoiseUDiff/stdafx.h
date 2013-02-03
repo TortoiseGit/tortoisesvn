@@ -23,6 +23,9 @@
 #ifndef _WIN32_IE               // Specifies that the minimum required platform is Internet Explorer 7.0.
 #define _WIN32_IE 0x0700        // Change this to the appropriate value to target other versions of IE.
 #endif
+
+#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
+
 // Windows Header Files:
 #include <windows.h>
 

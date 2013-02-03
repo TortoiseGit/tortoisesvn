@@ -3776,11 +3776,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             case IDSVNLC_EXPLORE:
                 {
                     CString p = filepath.Exists() ? filepath.GetWinPathString() : filepath.GetDirectory().GetWinPathString();
-                    ITEMIDLIST __unaligned * pidl = ILCreateFromPath((LPCTSTR)p);
+                    PCIDLIST_ABSOLUTE __unaligned pidl = ILCreateFromPath((LPCTSTR)p);
                     if (pidl)
                     {
                         SHOpenFolderAndSelectItems(pidl,0,0,0);
-                        ILFree(pidl);
+                        CoTaskMemFree((LPVOID)pidl);
                     }
                 }
                 break;
