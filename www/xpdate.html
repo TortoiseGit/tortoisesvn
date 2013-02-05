@@ -74,28 +74,28 @@
 
                     Run the tool in a command line window. The tool tries to
                     convert a fixed system time to a local time (using the
-                    SystemTimeToTzSpecificLocalTime API). The tool will show
-                    you either an error if the function fails, or the
-                    converted date.</p>
+                    <code>SystemTimeToTzSpecificLocalTime</code> API).
+                    The tool will show you either an error if the function fails,
+                    or the converted date.</p>
 
                     <p>If the function call fails, you will see the following
-                    output:<br/>
+                    output:</p>
+<pre>SystemTimeToTzSpecificLocalTime failed! GetLastError() returned: 87
+The parameter is incorrect.</pre>
 
-                    SystemTimeToTzSpecificLocalTime failed! GetLastError() returned: 87<br/>
-                    The parameter is incorrect.</p>
+                    <p>if the function suceeds, the output is:</p>
+<pre>SystemTimeToTzSpecificLocalTime succeeded
+the resulting SYSTEMTIME is:
+Year = 2008
+Month = 5
 
-                    <p>if the function suceeds, the output is:<br/>
-                    SystemTimeToTzSpecificLocalTime succeeded<br/>
-                    the resulting SYSTEMTIME is:<br/>
-                    Year = 2008<br/>
-                    Month = 5<br/>
+Day of week = 3
+Day = 7
+Hour = 6
+Minute = 7
+Second = 59
+Milliseconds = 190</pre>
 
-                    Day of week = 3<br/>
-                    Day = 7<br/>
-                    Hour = 6<br/>
-                    Minute = 7<br/>
-                    Second = 59<br/>
-                    Milliseconds = 190</p>
                 </div>
             </div>
         </div>
