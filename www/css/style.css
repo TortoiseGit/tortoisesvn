@@ -149,6 +149,12 @@ ul {
     vertical-align: middle;
 }
 
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Header */
 #header {
     margin: 0 auto;
@@ -296,7 +302,6 @@ ul {
 
 /* Sidebar */
 #sidebar {
-    color: black;
     float: left;
     padding: 20px 0 0 30px;
     width: 220px;

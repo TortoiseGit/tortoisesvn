@@ -36,9 +36,7 @@
                     wanted to show such a watermark image in our main dialogs
                     file list.</p>
 
-                    <div style="text-align: center">
-                    <img src="img/explorer-watermark.png" alt="the watermark in Windows explorer"/>
-                    </div>
+                    <img class="centered" src="img/explorer-watermark.png" alt="the watermark in Windows explorer"/>
 
                     <p>The obvious step to get this done would be the
                     <a href="http://msdn2.microsoft.com/en-gb/library/z16576bw(vs.80).aspx">SetBkImage</a>
@@ -86,9 +84,9 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     make the image stay at the right bottom, even with setting
                     the image position in the scroll event handler. Obviously,
                     I was on the wrong path here.</p>
-                    <div style="text-align: center">
-                    <img src="img/first-try.png" alt="SetBkImage the obvious way"/>
-                    </div>
+
+                    <img class="centered" src="img/first-try.png" alt="SetBkImage the obvious way"/>
+
                     <p>Next I tried to draw the image directly in the
                     <a href="http://msdn2.microsoft.com/en-us/library/ms670610.aspx">NM_CUSTOMDRAW</a>
                     handler of the list control. That worked really well,
@@ -102,10 +100,8 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     <a href="http://msdn2.microsoft.com/en-us/library/ms672574.aspx">CDRF_NOTIFYPOSTERASE</a>
                     isn't used in the list control.</p>
 
-                    <div style="text-align: center">
-                    <img src="img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler"/>
+                    <img class="centered" src="img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler"/>
 
-                    </div>
                     <p>But there must be a way, because Microsoft does it with
                     the explorer, assuming of course they don't use some
                     undocumented feature they like to keep to themselves.<br/>
@@ -214,7 +210,6 @@ SetBkImage(&amp;lv);</pre>
                     to the system background the user has set.</p>
                     <pre class="prettyprint lang-cpp">
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
-
 {
     SetTextBkColor(CLR_NONE);
     COLORREF bkColor = GetBkColor();
@@ -300,9 +295,9 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     the watermark image was painted over when an item got
                     selected, and the first column was not transparent and
                     was also painting over the watermark.</p>
-                    <div style="text-align: center">
-                    <img src="img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set"/>
-                    </div>
+
+                    <img class="centered" src="img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set"/>
+
                     <p>As it turned out, this was due to the fact that I set
                     the LVS_EX_FULLROWSELECT style for the control. Removing
                     that style finally made the watermark image behave the
@@ -310,7 +305,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 
                     <p>And now (drumroll please): the screenshots of the add
                     and commit dialog:</p>
-                    <div style="text-align: center">
+                    <div class="centered">
                     <img src="img/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark"/>
                     <br/>
                     <img src="img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark"/>
