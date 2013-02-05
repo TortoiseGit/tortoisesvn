@@ -228,8 +228,11 @@ ul {
     font-size: 13px;
     margin-right: 3px;
     margin-top: 20px;
-    outline: none;
     padding: 8px 20px;
+}
+
+#menu a:focus {
+    outline: none;
 }
 
 #menu a:hover {
