@@ -53,6 +53,16 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">AutoCompleteMinChars</term>
+            <listitem>
+                <para>
+                    The minimum amount of chars from which the editor
+					shows an auto-completion popup. The default value
+					is <literal>3</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">AutocompleteRemovesExtensions</term>
             <listitem>
                 <para>

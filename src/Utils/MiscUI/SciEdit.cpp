@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,6 +77,7 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_bDoStyle(false)
     , m_spellcodepage(0)
     , m_separator(' ')
+    , m_nAutoCompleteMinChars(3)
 {
     m_hModule = ::LoadLibrary(_T("SciLexer.DLL"));
 }
@@ -126,6 +127,7 @@ void CSciEdit::Init(LONG lLanguage)
     Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
     Call(SCI_SETWHITESPACECHARS, 0, (LPARAM)(LPCSTR)sWhiteSpace);
     m_bDoStyle = ((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE;
+    m_nAutoCompleteMinChars= (int)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCompleteMinChars"), 3);
     // look for dictionary files and use them if found
     long langId = GetUserDefaultLCID();
 
@@ -644,7 +646,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     Call(SCI_DELETEBACK);
                 else
                 {
-                    DoAutoCompletion(3);
+                    DoAutoCompletion(m_nAutoCompleteMinChars);
                 }
                 return TRUE;
             }

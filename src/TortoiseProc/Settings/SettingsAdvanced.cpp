@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2012 - TortoiseSVN
+// Copyright (C) 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,6 +40,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].sName   = L"AlwaysExtendedMenu";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = false;
+
+    settings[i].sName   = L"AutoCompleteMinChars";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 3;
 
     settings[i].sName   = L"AutocompleteRemovesExtensions";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
@@ -157,7 +161,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 33 so far...
+    // 34 so far...
     ASSERT(i < _countof(settings));
 }
 
