@@ -365,9 +365,6 @@
     <ClCompile Include="..\..\ext\hunspell\suggestmgr.cxx">
       <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\utf_info.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
     <ClCompile Include="..\SVN\SVN.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
@@ -1093,6 +1090,18 @@
     </ClCompile>
     <ClCompile Include="Commands\DropVendorCommand.cpp">
       <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\hunspell\phonet.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\hunspell\replist.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\hunspell\filemgr.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\hunspell\hunzip.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2097,6 +2106,24 @@
     </ClInclude>
     <ClInclude Include="Commands\DropVendorCommand.h">
       <Filter>Commands\Drop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\phonet.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\replist.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\w_char.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\filemgr.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\hunvisapi.h">
+      <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\hunspell\hunzip.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
