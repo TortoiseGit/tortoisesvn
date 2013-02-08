@@ -14,6 +14,7 @@
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 # okloster <okl@sintef.no>, 2011.
+#  <okl@sintef.no>, 2013.
 #   <okl@sintef.no>, 2011-2012.
 # Ronny N. Olsen <rnolsen@hotmail.com>, 2011.
 msgid ""
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-29 09:05+0000\n"
+"PO-Revision-Date: 2013-02-05 09:34+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -270,12 +271,12 @@ msgstr "%s, men katalogen var slettet, flyttet eller omdøpt lokalt."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, men katalogen var flyttet vekk"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, men katalogen var flyttet hit"
 
 #. Resource IDs: (609)
 #, c-format
@@ -315,12 +316,12 @@ msgstr "%s, men filen var slettet, flyttet eller omdøpt lokalt."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, men filen var flyttet vekk"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, men filen var flyttet hit"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1098,7 +1099,7 @@ msgstr "&Avansert standard"
 
 #. Resource IDs: (1562)
 msgid "&Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "&Hent mapper på forhånd for raskere utforsking"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -1834,7 +1835,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "La til filmønsteret(ne)\n%s\ni den globale ignorerings-listen."
 
 #. Resource IDs: (145)
 #, c-format
@@ -1842,7 +1843,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
-msgstr "La til filmønsteret(ne)\n%s\ni ignorerings-listen."
+msgstr "La til filmønsteret(ne)\n%s\ni ignoreringslisten."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -2173,7 +2174,7 @@ msgstr "Automatisk Omdøping"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-Flett"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2196,7 +2197,7 @@ msgstr "Autofullføring foreslår ord (vanligvis klasse, eller medlemsnavn)\r\nf
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-flett %1!s! til %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3945,7 +3946,7 @@ msgstr "Ikke vis sammenhengsmenyen for følgende stier:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Gjør reintegrering i stedet for automatisk fletting"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4656,11 +4657,11 @@ msgstr "Henter innholdet i mapper i bakgrunnen slik at utforsking går raskere"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Henter kildens fil-liste"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Henter målets fil-liste"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5967,7 +5968,7 @@ msgstr "Venstre bilde:"
 
 #. Resource IDs: (266)
 msgid "Left local modifications"
-msgstr ""
+msgstr "Lot lokale endringer være"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
@@ -6080,7 +6081,7 @@ msgstr "Sperr filer"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Lås brutt"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6232,7 +6233,7 @@ msgstr "Merk for sammenligning"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Merk manglende filer som fjernet"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6588,7 +6589,7 @@ msgstr "Flyttet fra"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Flyttet fra\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6603,7 +6604,7 @@ msgstr "Flyttet til"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Flyttet til\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6896,7 +6897,7 @@ msgstr "Notis"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Merk: Hvis du oppgraderer arbeidskopien, vil du ikke kunne bruke den oppgraderte arbeidskopien med klienter fra før 1.8 lenger!\nVil du virkelig oppgradere denne arbeidskopien?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7367,7 +7368,7 @@ msgstr "Vennligst vent mens depot-utforskeren starter..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Vennligs vent mens vi sjekker parametrene for flettingen."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7650,7 +7651,7 @@ msgstr "R&AM-disker"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eintegrer gren / automatisk fletting"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8010,7 +8011,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Fjernet filmønsteret(ne)\n%s\nfra den globale ignoreringslisten."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8018,7 +8019,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the ignore list."
-msgstr "Fjernet filmønsteret/mønstrene\n%s\nfra ignorerings-listen."
+msgstr "Fjernet filmønsteret(ne)\n%s\nfra ignoreringslisten."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
@@ -8446,7 +8447,7 @@ msgstr "SSH"
 
 #. Resource IDs: (17)
 msgid "SVN &Vendorbranch here"
-msgstr ""
+msgstr "SVN &Leverandørgren her"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -8932,11 +8933,11 @@ msgstr "Vis &endringer"
 
 #. Resource IDs: (1480)
 msgid "Show &externals"
-msgstr ""
+msgstr "Vis &eksterne"
 
 #. Resource IDs: (1529)
 msgid "Show &locks"
-msgstr ""
+msgstr "Vis &låser"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
@@ -9169,7 +9170,7 @@ msgstr "Viser verdien til egenskapen eol-style"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr ""
+msgstr "Viser lås-eieren for låste filer. Slå av for å bedre ytelsen mot eldre tjenere."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9229,7 +9230,7 @@ msgstr "Hoppet over hindret arbeidskopi"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Hoppet over, tilgang nektet"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9237,7 +9238,7 @@ msgstr "Hoppet over, mappen over er ikke-versjonert"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Hoppet over, forblir i konflikt"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9311,7 +9312,7 @@ msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
-msgstr "Angi filene eller mappene som TortoiseSVN\r\nskal ignorere i alle arbeidskopier.\r\nDel stiene med mellomrom."
+msgstr "Angi filene eller mappene som TortoiseSVN\nskal ignorere i alle arbeidskopier.\nDel mønstrene med mellomrom."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -9781,7 +9782,7 @@ msgstr "Påhakingsskriptet ga en feil:\n%s"
 
 #. Resource IDs: (84)
 msgid "The hook script was not approved to run"
-msgstr ""
+msgstr "Påhakingsskriptet ble ikke godkjent for kjøring"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
@@ -10054,13 +10055,13 @@ msgstr "Oppretting av depotet var vellykket.\nVil du lage standard mappestruktur
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "Den påkrevde automatiske flettingen er reintegrering-aktig, og opsjonen \"bare ta opp\" kan ikke brukes."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "Den påkrevde automatiske flettingen er reintegrering-aktig.\nBare \"arbeidskopi\" kan brukes som flettedybde."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10217,7 +10218,7 @@ msgstr "Det er ingenting som skal legges til. Alle filene og mappene er enten al
 
 #. Resource IDs: (64)
 msgid "There's already a plugin configured for this path"
-msgstr ""
+msgstr "En ekstramodul er allerede konfigurert for denne stien"
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -10353,7 +10354,7 @@ msgstr "Dette vil slette historien over kommandoer du har brukt i denne applikas
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Dette vil oppgradere arbeidskopien din til det nye 1.8-formatet og gjøre den ubrukelig for eldre klienter."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10863,7 +10864,7 @@ msgstr "Oppdaterer loggmellomlager"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Oppgrader arbeidskopien\ntil det nye 1.8-formatet."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11099,7 +11100,7 @@ msgstr "Verdi"
 
 #. Resource IDs: (92)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Leverandørgren"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11539,7 +11540,7 @@ msgstr "[Ikke tilordnet]"
 
 #. Resource IDs: (1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
-msgstr ""
+msgstr "\"ingore-on-commit\"-filer markerer ikke mappen over som endret"
 
 #. Resource IDs: (346)
 msgid ""
@@ -11765,7 +11766,7 @@ msgstr "overser opphav"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "ta med egenskaper"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -11993,7 +11994,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "tsvn:autoprops\nEn linjedelt liste av egenskaper som rekursivt blir satt automatisk når filer legges til/importeres.\nFormat: <filmønster> = egenskap=verdi;egenskap=verdi\nEksempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12040,13 +12041,13 @@ msgstr "svn:externals\r\nEn linjeskift-delt liste med modul-spesifikasjoner. Hve
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nEn linjedelt liste av filmønstre som skal ignoreres rekursivt."
 
 #. Resource IDs: (576)
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
-msgstr "svn:ignore\r\nEn linjedelt liste over søkestrenger (jokertegn er tilatt) som skal ignoreres."
+msgstr "svn:ignore\nEn linjedelt liste av filmønstre som skal ignoreres."
 
 #. Resource IDs: (317)
 msgid "svn:keywords"
@@ -12149,7 +12150,7 @@ msgid ""
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "tsvn:autoprops\r\nEn linjedelt liste av egenskaper som blir satt automatisk når filer legges til/importeres.\r\nFormat: <filmønster> = egenskap=verdi;egenskap=verdi\r\nEksempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "tsvn:autoprops\nEn linjedelt liste av egenskaper som blir satt automatisk når filer legges til/importeres.\nFormat: <filmønster> = egenskap=verdi;egenskap=verdi\nEksempel: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""

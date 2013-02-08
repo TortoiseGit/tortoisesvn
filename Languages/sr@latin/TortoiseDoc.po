@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-13 15:31+0000\n"
+"PO-Revision-Date: 2013-02-08 09:35+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13917,12 +13917,10 @@ msgstr "Jedna aplikacija za takve zakačaljke može biti pozivanje programa kao 
 
 #. (para)
 msgid ""
-"For various security and implementation reasons, hook scripts are defined "
-"locally on a machine, rather than as project properties. You define what "
-"happens, no matter what someone else commits to the repository. Of course "
-"you can always choose to call a script which is itself under version "
-"control."
-msgstr "Zbog različitih sigurnosnih i primenljivih razloga, zakačive skripte su definisane lokalno na mašini, radije nego osobine projekta. Definišite šta će se desiti, nije važno što još neko urezije u spremište. Svakako uvek možete izabrati da zovete skript koji je sam pod kontrolom verzija.  "
+"Note that you can also specify such hook scripts using special properties on"
+" your working copy. See the section <xref linkend=\"tsvn-dug-propertypage-"
+"tsvn-props\"/> for details."
+msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
@@ -14044,6 +14042,12 @@ msgid ""
 "A path to a temporary file which contains all the paths for which the "
 "operation was started. Each path is on a separate line in the temp file."
 msgstr "Putanja ka privremenom fajlu koji sadrži sve putanje za koje operacija počinje. Svaka putanja je na odvojenoj liniji u temp fajlu."
+
+#. (para)
+msgid ""
+"Note that for operations done remotely, e.g. in the repository browser, "
+"those paths are not local paths but the urls of the affected items."
+msgstr ""
 
 #. (para)
 msgid "The depth with which the commit/update is done."
@@ -14302,6 +14306,12 @@ msgid ""
 "force TortoiseSVN to always show those extended commands, set this value to "
 "<literal>true</literal>."
 msgstr "Kao i kod pretraživača, TortoiseSVN prikazuje dodatne komande ako je <keycap>Shift</keycap> taster pritisnut dok je kontekst meni otvoren. Da se forsira TortoiseSVN da omogući prikazivanje ove proširene komande podesite ovu vrednost na <literal>istina</literal>."
+
+#. (para)
+msgid ""
+"The minimum amount of chars from which the editor shows an auto-completion "
+"popup. The default value is <literal>3</literal>."
+msgstr ""
 
 #. (para)
 msgid ""

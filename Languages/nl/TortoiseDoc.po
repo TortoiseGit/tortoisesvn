@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-09 08:30+0000\n"
+"PO-Revision-Date: 2013-02-08 09:35+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13922,12 +13922,10 @@ msgstr "Een mogelijke toepassing voor zulke hooks kan zijn het aanroepen van een
 
 #. (para)
 msgid ""
-"For various security and implementation reasons, hook scripts are defined "
-"locally on a machine, rather than as project properties. You define what "
-"happens, no matter what someone else commits to the repository. Of course "
-"you can always choose to call a script which is itself under version "
-"control."
-msgstr "Vanwege verschillende veiligheid en implementatie redenen, worden hook scripts op de lokale machine gedefinieerd, in plaats van als project eigenschap. Je definieert wat er moet gebeuren, onafhankelijk van wat iemand anders in het archief vastlegt. Natuurlijk kun je er altijd voor kiezen om een script aan te roepen, die zelf ook van versiebeheer is voorzien."
+"Note that you can also specify such hook scripts using special properties on"
+" your working copy. See the section <xref linkend=\"tsvn-dug-propertypage-"
+"tsvn-props\"/> for details."
+msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
@@ -14049,6 +14047,12 @@ msgid ""
 "A path to a temporary file which contains all the paths for which the "
 "operation was started. Each path is on a separate line in the temp file."
 msgstr "Een pad met een tijdelijk bestand met daarin alle paden waarvoor de operatie gestart werd. Elk pad staat op een aparte regel in het tijdelijke bestand."
+
+#. (para)
+msgid ""
+"Note that for operations done remotely, e.g. in the repository browser, "
+"those paths are not local paths but the urls of the affected items."
+msgstr ""
 
 #. (para)
 msgid "The depth with which the commit/update is done."
@@ -14307,6 +14311,12 @@ msgid ""
 "force TortoiseSVN to always show those extended commands, set this value to "
 "<literal>true</literal>."
 msgstr "Net zoals de verkenner, toont TortoiseSVN extra commando's als de <keycap>Shift</keycap> knop is ingedrukt als het context menu geopend is. Om TortoiseSVN altijd die uitgebreide commando's te laten zien, stel je deze waarde in op <literal>true</literal>."
+
+#. (para)
+msgid ""
+"The minimum amount of chars from which the editor shows an auto-completion "
+"popup. The default value is <literal>3</literal>."
+msgstr ""
 
 #. (para)
 msgid ""
