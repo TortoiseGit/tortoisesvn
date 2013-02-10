@@ -1,5 +1,5 @@
 body {
-    background: #27343C;
+    background-color: #27343C;
     color: black;
     font: 14px Arial, Helvetica, sans-serif;
     margin: 0;
@@ -171,7 +171,6 @@ img.centered {
 }
 
 #logo a {
-    background: none;
     border: none;
     color: white;
 }
@@ -221,7 +220,7 @@ img.centered {
 }
 
 #menu a {
-    background: white;
+    background-color: white;
     border: none;
     -webkit-border-top-left-radius: 4px;
     -webkit-border-top-right-radius: 4px;
@@ -258,7 +257,7 @@ img.centered {
 
 /* Page */
 #page {
-    background: white;
+    background-color: white;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
             border-radius: 2px;
@@ -279,7 +278,6 @@ img.centered {
 }
 
 .title a {
-    background: none;
     border: none;
     color: #417FDA;
 }
@@ -322,11 +320,6 @@ img.centered {
     text-shadow: 0 0 2px #B7B7B7;
 }
 
-#sidebar li {
-    margin: 0;
-    padding: 0;
-}
-
 #sidebar li ul {
     padding-bottom: 30px;
 }
@@ -338,11 +331,9 @@ img.centered {
 
 #sidebar li li span {
     display: block;
-    font-size: 14px;
     font-style: italic;
     line-height: 100%;
     margin-top: -10px;
-    padding: 0;
 }
 
 #sidebar ul {
@@ -362,8 +353,6 @@ img.centered {
 
 #footer p {
     font-size: 9px;
-    line-height: normal;
-    margin: 0;
     text-align: center;
     text-transform: uppercase;
 }
