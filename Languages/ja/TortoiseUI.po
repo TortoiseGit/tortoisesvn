@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-30 15:03+0000\n"
+"PO-Revision-Date: 2013-02-08 12:53+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,27 +63,27 @@ msgstr "%.2f KB/秒"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 は予期せぬオブジェクトを含んでいます。"
+msgstr "%1は予期せぬオブジェクトを含んでいます。"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 は不正確なパスを含んでいます。"
+msgstr "%1 に不正なパスが含まれています。"
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 は不正確なスキーマを含んでいます。"
+msgstr "%1 に不正なスキーマが含まれています。"
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 has a bad format."
-msgstr "%1 は不正なフォーマットです。"
+msgstr "%1 の書式が不正です。"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1が見つかりませんでした。"
+msgstr "%1 が見つかりませんでした。"
 
 #. Resource IDs: (169)
 #, c-format
@@ -155,7 +155,7 @@ msgstr "%1!s!\r\nリビジョン %2!s!、作者 %3!s!、サイズ %4!s!、日付
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr "%1!s!\r\n%2!d!件のファイルと%3!d!件のフォルダー、計%4!d!項目を表示"
+msgstr "%1!s!\r\n%2!d!個のファイルと%3!d!個のフォルダー、計%4!d!項目を表示"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -402,6 +402,10 @@ msgstr "%s\nr%s | %s\n\n%s\n"
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
+
+#. Resource IDs: (57664)
+msgid "&About TortoiseMerge..."
+msgstr "TortoiseMergeについて(&A)..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -811,6 +815,10 @@ msgstr "リポジトリ内の最新リビジョン(&HEAD)"
 msgid "&Help"
 msgstr "ヘルプ(&H)"
 
+#. Resource IDs: (57670)
+msgid "&Help Topics"
+msgstr "ヘルプトピック(&H)"
+
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "隠す(&H)"
@@ -988,6 +996,14 @@ msgstr "タグのコピーの色を変更(&M)"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "トランクのコピーの色を変更(&M)"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "移動したブロック(&M)"
+
+#. Resource IDs: (65535)
+msgid "&Navigate"
+msgstr "移動(&N)"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1254,6 +1270,10 @@ msgstr "グループの始まり(&S)"
 msgid "&Start Repobrowser"
 msgstr "リポジトリブラウザーを起動(&S)"
 
+#. Resource IDs: (59393)
+msgid "&Status Bar"
+msgstr "ステータスバー(&S)"
+
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
 msgstr "ロックを横取りする(&S)"
@@ -1321,6 +1341,10 @@ msgstr "宛先パス(&T): "
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "終了点(&T): （マージする範囲の終点を指すURLとリビジョン）"
+
+#. Resource IDs: (59392)
+msgid "&Toolbar"
+msgstr "ツールバー(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -2075,14 +2099,14 @@ msgstr "本当に、ファイルの競合を解決済としてもよろしいで
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "選択した%d件のキャッシュを本当に削除してもよろしいですか？？"
+msgstr "選択した%d件のキャッシュを本当に削除してもよろしいですか？"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr "本当に%d件の項目をの変更を取り消してもよろしいですか？ 最後の更新以降のすべての変更が失われます。"
+msgstr "本当に項目%d件の変更を取り消してもよろしいですか？ 最後の更新以降のすべての変更が失われます。"
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
@@ -3719,12 +3743,12 @@ msgstr "バージョン管理外の項目を削除"
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and &ignore %d items by name"
-msgstr "削除して同じ名前の%d件の項目を無視する(&I)"
+msgstr "削除して同じ名前の%d件の項目を無視(&I)"
 
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "削除して同じ拡張子の%d件の項目を無視する(&E)"
+msgstr "削除して同じ拡張子の%d件の項目を無視(&E)"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5985,6 +6009,10 @@ msgid ""
 "Line"
 msgstr "線ツール\n線"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "行差分表示バー"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "行差分"
@@ -6059,6 +6087,10 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
 msgstr "リポジトリURLの内容を保存する位置。"
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "ロケーターバー"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -9779,7 +9811,7 @@ msgstr "フックスクリプトはエラーを返しました:\n%s"
 
 #. Resource IDs: (84)
 msgid "The hook script was not approved to run"
-msgstr "実行するフックスクリプトが設定されませんでした"
+msgstr "フックスクリプトが実行用に設定されませんでした"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
@@ -10918,6 +10950,10 @@ msgstr "Aeroのダイアログを使用"
 #. Resource IDs: (156)
 msgid "Use Blocks"
 msgstr "ブロックを使用する"
+
+#. Resource IDs: (1066)
+msgid "Use Ribbons"
+msgstr "リボンを使用"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"

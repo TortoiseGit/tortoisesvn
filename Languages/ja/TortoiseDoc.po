@@ -12,14 +12,14 @@
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2012.
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2013.
 # Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 09:35+0000\n"
+"PO-Revision-Date: 2013-02-08 12:20+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13923,7 +13923,7 @@ msgid ""
 "Note that you can also specify such hook scripts using special properties on"
 " your working copy. See the section <xref linkend=\"tsvn-dug-propertypage-"
 "tsvn-props\"/> for details."
-msgstr ""
+msgstr "なお、フックスクリプトは作業コピーの特殊なプロパティで指定することもできます。詳しくは、<xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/>を参照してください。"
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
@@ -14050,7 +14050,7 @@ msgstr "操作を開始したときのすべてのパスを格納した一時フ
 msgid ""
 "Note that for operations done remotely, e.g. in the repository browser, "
 "those paths are not local paths but the urls of the affected items."
-msgstr ""
+msgstr "なお、操作がリモートで行われた場合（例えばリポジトリブラウザー内で）、それらのパスはローカルパスではなく、影響する項目のURLになります。"
 
 #. (para)
 msgid "The depth with which the commit/update is done."
@@ -14314,7 +14314,7 @@ msgstr "エクスプローラーでは <keycap>Shift</keycap> キーを押しな
 msgid ""
 "The minimum amount of chars from which the editor shows an auto-completion "
 "popup. The default value is <literal>3</literal>."
-msgstr ""
+msgstr "エディターが自動補完のポップアップを表示する最小文字数です。初期値は<literal>3</literal>です。"
 
 #. (para)
 msgid ""
