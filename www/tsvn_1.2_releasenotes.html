@@ -20,9 +20,6 @@
         <div id="content">
 
             <div class="post" id="customcontent">
-                <center>
-                    <h2>TortoiseSVN 1.2 Release Notes</h2>
-                </center>
                 <h2>What's New in TortoiseSVN 1.2</h2>
 
                 <ul>
@@ -41,7 +38,7 @@
                 some of the new 1.2 features may not be available unless the server is
                 upgraded to the latest version.</p>
 
-                <p>If you access a BDB repository using <tt>file://</tt> access
+                <p>If you access a BDB repository using <code>file://</code> access
                 you will need to update that repository to BDB 4.3 format.
                 Instructions on how to do that can be found on the
                 <a href="http://subversion.apache.org/faq.html#bdb43-upgrade">
@@ -85,7 +82,7 @@
                 unmergable changes.</p>
 
                 <p>The first goal is accomplished using file locks. TortoiseSVN has new
-                context menu entries to <tt>Get Lock</tt> and <tt>Release Lock</tt>.
+                context menu entries to <code>Get Lock</code> and <code>Release Lock</code>.
                 When a user locks a file, no other user may commit a change to the file
                 or delete it from the repository.</p>
 
@@ -96,7 +93,7 @@
 
                 <p>The second goal &mdash; preventing a user from wasting time on an
                 unmergable change &mdash; is accomplished via a new property,
-                <tt>svn:needs-lock</tt>.  Users (or administrators) are encouraged to
+                <code>svn:needs-lock</code>.  Users (or administrators) are encouraged to
                 set this property on any file that is unmergeable.  When present, this
                 property causes the file to be read-only <em>unless</em> the working
                 copy holds a lock-token for the file, in which case the file is
@@ -105,8 +102,8 @@
                 acquire a lock before editing.</p>
 
                 <p><strong>Warning</strong>: if you have a team of users all accessing
-                a repository via <tt>file://</tt>, then <strong>all</strong> users
-                must use 1.2 clients. Pre-1.2 clients will unknowingly ignore locks.
+                a repository via <code>file://</code>, then <strong>all</strong> users
+                must use 1.2 clients. Pre-1.2 clients will unknowingly ignore locks.</p>
 
                 <h3>New External Status Cache</h3>
 
@@ -116,7 +113,7 @@
                 in previous releases this feature was only useable with very small working
                 copies due to the delay in getting the status information.</p>
 
-                <p>In release 1.2, a new <tt>TSVNCache</tt> program is used to maintain
+                <p>In release 1.2, a new <code>TSVNCache</code> program is used to maintain
                 a cache of your working copy status, providing much faster access to this
                 information. Not only does this prevent explorer from blocking while
                 acquiring status, but it also makes recursive overlays workable.</p>
@@ -132,7 +129,7 @@
                 on a file changes and the content doesn't. This forces subversion to
                 do a byte-by-byte compare of the file with BASE to check whether it has
                 really changed. In this new release, you can fix such timestamp mismatches
-                using the <tt>Cleanup</tt> menu entry. If your WC has become slow to
+                using the <code>Cleanup</code> menu entry. If your WC has become slow to
                 check, try doing a cleanup.</p>
 
                 <h3>Better Use of Overlays</h3>
@@ -144,8 +141,8 @@
                 <p>In this release, TortoiseSVN checks to see how many overlays are
                 required by other apps, and only installs essential ones if there
                 are not enough for everyone. It also displays an alternative overlay
-                if the preferred one is not available. For example if the <tt>Added</tt>
-                overlay is not available, the <tt>Modified</tt> overlay will be used
+                if the preferred one is not available. For example if the <code>Added</code>
+                overlay is not available, the <code>Modified</code> overlay will be used
                 instead.</p>
 
                 <h2>Enhancements and Bugfixes</h2>
@@ -215,12 +212,12 @@
                 Subversion does a byte-by-byte check to see if the files really are
                 different, and that can slow down status checks.</p>
 
-                <p><tt>Cleanup</tt> now checks these files and if the content matches,
+                <p><code>Cleanup</code> now checks these files and if the content matches,
                 it resets its record of the timestamp so that future checks will run
                 faster. If your working copy is very slow to produce the list of files
-                in the <tt>Check for Modifications</tt> and <tt>Commit</tt> dialogs,
-                try running <tt>Cleanup</tt> on your working copy. If you used the
-                <tt>Use commit timestamps</tt> option, you should definitely do this.</p>
+                in the <code>Check for Modifications</code> and <code>Commit</code> dialogs,
+                try running <code>Cleanup</code> on your working copy. If you used the
+                <code>Use commit timestamps</code> option, you should definitely do this.</p>
 
                 <h3>Settings Dialog</h3>
                 <p>The settings dialog now has an updated interface which is less
