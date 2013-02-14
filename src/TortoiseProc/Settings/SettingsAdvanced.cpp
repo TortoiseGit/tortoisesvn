@@ -121,6 +121,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeString;
     settings[i++].def.s = L"........";
 
+    settings[i].sName   = L"NumDiffWarning";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 10;
+
     settings[i].sName   = L"OldVersionCheck";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = false;
@@ -161,7 +165,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 34 so far...
+    // 35 so far...
     ASSERT(i < _countof(settings));
 }
 

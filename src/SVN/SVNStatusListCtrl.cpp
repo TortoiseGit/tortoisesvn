@@ -3590,34 +3590,40 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 break;
             case IDSVNLC_COMPARE:
                 {
-                    POSITION pos = GetFirstSelectedItemPosition();
-                    if (pos == NULL)
-                        StartDiff(entry);
-                    else
+                    if (CheckMultipleDiffs())
                     {
-                        while ( pos )
+                        POSITION pos = GetFirstSelectedItemPosition();
+                        if (pos == NULL)
+                            StartDiff(entry);
+                        else
                         {
-                            int index = GetNextSelectedItem(pos);
-                            StartDiff(index);
+                            while ( pos )
+                            {
+                                int index = GetNextSelectedItem(pos);
+                                StartDiff(index);
+                            }
                         }
                     }
                 }
                 break;
             case IDSVNLC_COMPAREWC:
                 {
-                    POSITION pos = GetFirstSelectedItemPosition();
-                    while ( pos )
+                    if (CheckMultipleDiffs())
                     {
-                        int index = GetNextSelectedItem(pos);
-                        FileEntry * entry2 = GetListEntry(index);
-                        ASSERT(entry2 != NULL);
-                        if (entry2 == NULL)
-                            continue;
-                        SVNDiff diff(NULL, m_hWnd, true);
-                        diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-                        svn_revnum_t baseRev = entry2->Revision;
-                        diff.DiffFileAgainstBase(
-                            entry2->path, baseRev, entry2->textstatus, entry2->propstatus);
+                        POSITION pos = GetFirstSelectedItemPosition();
+                        while ( pos )
+                        {
+                            int index = GetNextSelectedItem(pos);
+                            FileEntry * entry2 = GetListEntry(index);
+                            ASSERT(entry2 != NULL);
+                            if (entry2 == NULL)
+                                continue;
+                            SVNDiff diff(NULL, m_hWnd, true);
+                            diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                            svn_revnum_t baseRev = entry2->Revision;
+                            diff.DiffFileAgainstBase(
+                                entry2->path, baseRev, entry2->textstatus, entry2->propstatus);
+                        }
                     }
                 }
                 break;
@@ -4873,11 +4879,14 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
     CAutoReadWeakLock readLock(m_guard);
     if (readLock.IsAcquired())
     {
-        POSITION pos = GetFirstSelectedItemPosition();
-        while ( pos )
+        if (CheckMultipleDiffs())
         {
-            int index = GetNextSelectedItem(pos);
-            StartDiffOrResolve(index);
+            POSITION pos = GetFirstSelectedItemPosition();
+            while ( pos )
+            {
+                int index = GetNextSelectedItem(pos);
+                StartDiffOrResolve(index);
+            }
         }
     }
 }
@@ -6189,6 +6198,37 @@ LRESULT CSVNStatusListCtrl::OnResolveMsg( WPARAM wParam, LPARAM)
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 
     return 0;
+}
+
+bool CSVNStatusListCtrl::CheckMultipleDiffs()
+{
+    UINT selCount = GetSelectedCount();
+    if (selCount > max(3, (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumDiffWarning"), 10)))
+    {
+        bool doIt = false;
+        CString message;
+        message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(message,
+                                CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+        }
+        else
+        {
+            doIt = (::MessageBox(GetSafeHwnd(), message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
+        }
+        return doIt;
+    }
+    return true;
 }
 
 //////////////////////////////////////////////////////////////////////////

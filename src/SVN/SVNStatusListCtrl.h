@@ -1012,6 +1012,7 @@ private:
     void OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& path);
     void SendNeedsRefresh();
     void Open(const CTSVNPath& filepath, FileEntry * entry, bool bOpenWith);
+    bool CheckMultipleDiffs();
 
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);

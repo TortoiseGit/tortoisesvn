@@ -57,8 +57,8 @@
             <listitem>
                 <para>
                     The minimum amount of chars from which the editor
-					shows an auto-completion popup. The default value
-					is <literal>3</literal>.
+                    shows an auto-completion popup. The default value
+                    is <literal>3</literal>.
                 </para>
             </listitem>
         </varlistentry>
@@ -370,7 +370,7 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term condition="pot">Merge log separator</term>
+            <term condition="pot">MergeLogSeparator</term>
             <listitem>
                 <para>
                     When you merge revisions from another branch, and merge tracking
@@ -379,6 +379,16 @@
                     A pre-defined string is used to separate the individual log
                     messages of the merged revisions. If you prefer, you can set
                     this to a value containing a separator string of your choice.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">NumDiffWarning</term>
+            <listitem>
+                <para>
+                    If you want to show the diff at once for more items
+                    than specified with this settings, a warning dialog
+                    is shown first. The default is 10.
                 </para>
             </listitem>
         </varlistentry>
