@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 12:20+0000\n"
+"PO-Revision-Date: 2013-02-15 03:34+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7665,7 +7665,7 @@ msgid ""
 "Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "Subversion の設定ファイルを編集すると、自分のクライアントでこの機能を有効にできます。TortoiseSVN の設定ダイアログの <guilabel>一般</guilabel> ページに、直接そこに行くための編集ボタンがあります。設定ファイルは、 Subversion の動作を制御する、単純なテキストファイルです。ここで２か所を変更する必要があります。１つめは、 <literal>miscellany</literal> という見出しのセクションで、 <literal>enable-auto-props = yes</literal> という行のコメントを解除します。２つめは、その下にある、どのファイル形式に、どのプロパティを追加するかを定義したセクションを編集します。この方法は Subversion の標準機能で、どの Subversion クライアントでも動作します。しかし、各クライアントでそれぞれ定義しなければなりません。つまり、この設定をリポジトリに伝播する方法はありません。"
+msgstr "Subversion の設定ファイルを編集すると、自分のクライアントでこの機能を有効にできます。 TortoiseSVN の設定ダイアログの<guilabel>全般</guilabel>ページに、直接そこに行くための編集ボタンがあります。設定ファイルは、  Subversion の動作を制御する単純なテキストファイルです。ここで２か所を変更する必要があります。１つめは、 <literal>miscellany</literal> という見出しのセクションで、 <literal>enable-auto-props = yes</literal> という行のコメントを解除します。２つめは、その下にある、どのファイル形式に、どのプロパティを追加するかを定義したセクションを編集します。この方法は Subversion の標準機能で、どの Subversion クライアントでも動作します。しかし、各クライアントでそれぞれ定義しなければなりません。つまり、この設定をリポジトリに伝播する方法はありません。"
 
 #. (para)
 msgid ""
@@ -12069,7 +12069,7 @@ msgstr "サウンド"
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr "設定ダイアログ、「一般」ページ"
+msgstr "設定ダイアログの「全般」ページ"
 
 #. (para)
 msgid ""
@@ -16427,7 +16427,7 @@ msgid ""
 "document the required drive mappings so your team know where these "
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
-msgstr "この方法は全てが PC の環境でのみ動作します。また、謎なファイルがどこにあるかチームが知るために、必要なドライブマッピングのドキュメントが必要です。厳密に言えばこの方法は、閉じた開発環境用です。一般的にはお勧めしません。"
+msgstr "この方法は、全てが PC の環境でしか利用できません。また、必要なドライブマッピングを明文化しておかないと、チームはファイルがどこにあるか分からなくなってしまいます。はっきり言って、この方法は閉じた開発環境向けで、一般的にはお勧めできません。"
 
 #. (title)
 msgid "Add the project to the repository"
