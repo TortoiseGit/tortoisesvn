@@ -2150,9 +2150,6 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         // look up in cached repository properties
         // (missing entries will be added automatically)
 
-        CTSVNPath canonicalURL;
-        canonicalURL.SetFromSVN (urla);
-
         CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
         CString uuid;
         url.SetFromSVN (cachedProperties.GetRepositoryRootAndUUID (path, uuid));
@@ -2162,7 +2159,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         }
         else
         {
-            rev = cachedProperties.GetHeadRevision (uuid, canonicalURL);
+            rev = cachedProperties.GetHeadRevision (uuid, path);
             if ((rev == NO_REVISION) && (Err == NULL))
             {
                 CHooks::Instance().PreConnect(CTSVNPathList(path));
