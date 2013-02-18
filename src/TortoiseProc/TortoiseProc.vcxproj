@@ -147,6 +147,7 @@
     <ClCompile Include="..\Utils\MiscUI\SubTooltipListCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
+    <ClCompile Include="..\Utils\PreserveChdir.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
     <ClCompile Include="..\Utils\StringBuffer.cpp" />
     <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
@@ -527,6 +528,7 @@
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
     <ClInclude Include="..\Utils\MiscUI\XMessageBox.h" />
+    <ClInclude Include="..\Utils\PreserveChdir.h" />
     <ClInclude Include="..\Utils\ReaderWriterLock.h" />
     <ClInclude Include="..\Utils\SmartHandle.h" />
     <ClInclude Include="..\Utils\StringBuffer.h" />

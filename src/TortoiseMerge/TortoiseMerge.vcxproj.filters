@@ -219,6 +219,9 @@
     <ClCompile Include="..\SVN\SVNAdminDir.cpp">
       <Filter>SVN</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\PreserveChdir.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -424,6 +427,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNAdminDir.h">
       <Filter>SVN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PreserveChdir.h">
+      <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 #include "CreateProcessHelper.h"
 #include "SelectFileFilter.h"
 #include "SmartHandle.h"
+#include "PreserveChdir.h"
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
@@ -634,6 +635,7 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
 
 
         // Display the Open dialog box.
+        PreserveChdir preserveDir;
         bool bRet = false;
         if (bOpen)
         {

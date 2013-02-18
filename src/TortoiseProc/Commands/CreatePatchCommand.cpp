@@ -29,6 +29,7 @@
 #include "ProgressDlg.h"
 #include "SelectFileFilter.h"
 #include "SmartHandle.h"
+#include "PreserveChdir.h"
 
 #define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      _T(".TSVNPatchToClipboard")
 
@@ -84,6 +85,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
     if (cmdLineSavePath.IsEmpty())
     {
+        PreserveChdir preserveDir;
         HRESULT hr;
         // Create a new common save file dialog
         CComPtr<IFileSaveDialog> pfd = NULL;

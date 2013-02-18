@@ -1103,6 +1103,9 @@
     <ClCompile Include="..\..\ext\hunspell\hunzip.cxx">
       <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\PreserveChdir.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2124,6 +2127,9 @@
     </ClInclude>
     <ClInclude Include="..\..\ext\hunspell\hunzip.hxx">
       <Filter>Utils\3rd Party\hunspell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PreserveChdir.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

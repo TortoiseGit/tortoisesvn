@@ -146,6 +146,7 @@
     <ClCompile Include="..\SVN\SVNInfo.cpp" />
     <ClCompile Include="..\SVN\SVNReadProperties.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
+    <ClCompile Include="..\Utils\PreserveChdir.cpp" />
     <ClCompile Include="ColumnProvider.cpp" />
     <ClCompile Include="ContextMenu.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
@@ -154,7 +155,6 @@
     <ClCompile Include="ItemIDList.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="PIDL.cpp" />
-    <ClCompile Include="PreserveChdir.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="RemoteCacheLink.cpp" />
     <ClCompile Include="ShellCache.cpp" />
@@ -229,13 +229,13 @@
     <ClInclude Include="..\SVN\SVNInfo.h" />
     <ClInclude Include="..\SVN\SVNReadProperties.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />
+    <ClInclude Include="..\Utils\PreserveChdir.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Guids.h" />
     <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h" />
     <ClInclude Include="ItemIDList.h" />
     <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="PIDL.h" />
-    <ClInclude Include="PreserveChdir.h" />
     <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h" />
     <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="RemoteCacheLink.h" />
