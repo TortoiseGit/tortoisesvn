@@ -2075,6 +2075,11 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                         }
                     }
                 }
+                if (msg.size() > MAX_LOG_LENGTH)
+                {
+                    msg = msg.substr(0, MAX_LOG_LENGTH-5);
+                    msg = msg + _T("\n...");
+                }
 
                 // an empty tooltip string will deactivate the tooltips,
                 // which means we must make sure that the tooltip won't

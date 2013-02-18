@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ const int blockSize = 128 * 1024;
 #define HEADER_HEIGHT 18
 #define LOCATOR_WIDTH 20
 
-#define MAX_LOG_LENGTH 2000
+#define MAX_LOG_LENGTH 20000
 
 
 #ifndef GET_X_LPARAM
