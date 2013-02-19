@@ -3007,7 +3007,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             {
                 if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
                 {
-                    popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
+                    if (entry->remotestatus > svn_wc_status_normal)
+                        popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHHEAD, IDI_DIFF);
+                    else
+                        popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
                     if ((wcStatus != svn_wc_status_normal)||(entry->remotestatus > svn_wc_status_normal))
                         popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
                 }
@@ -3052,7 +3055,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         if (m_dwContextMenus & SVNSLC_POPCOMPARE)
                         {
-                            popup.AppendMenuIcon(IDSVNLC_COMPAREWC, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
+                            popup.AppendMenuIcon(IDSVNLC_COMPAREWC, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
                             popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
                             bEntryAdded = true;
                         }
