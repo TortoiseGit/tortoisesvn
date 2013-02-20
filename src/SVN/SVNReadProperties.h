@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -156,6 +156,12 @@ public:
     std::vector<std::tuple<std::string, std::map<std::string,std::string>>> GetInheritedProperties() const { return m_inheritedProperties; }
 
     CTSVNPath GetPath() const { return m_path; }
+
+    /**
+     * Returns the revision. If a commit has happened, this is the new head revision
+     */
+    SVNRev GetRevision() const { return m_rev; }
+
 private:        //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
