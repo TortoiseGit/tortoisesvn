@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-15 03:34+0000\n"
+"PO-Revision-Date: 2013-02-19 14:58+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14549,6 +14549,12 @@ msgid ""
 "separate the individual log messages of the merged revisions. If you prefer,"
 " you can set this to a value containing a separator string of your choice."
 msgstr "別のブランチからのリビジョンをマージし、マージ追跡情報が使用可能になると、マージされたリビジョンのログメッセージは、コミット時のログメッセージを構成するために収集されます。各リビジョンの個々のログメッセージは、あらかじめ定義された区切り文字列で区切られます。必要に応じて、任意の区切り文字列を指定してください。"
+
+#. (para)
+msgid ""
+"If you want to show the diff at once for more items than specified with this"
+" settings, a warning dialog is shown first. The default is 10."
+msgstr "ここに指定された数よりも多くの項目の差分を表示しようとした場合、警告ダイアログが最小に表示されます。既定値は10です。"
 
 #. (para)
 msgid ""

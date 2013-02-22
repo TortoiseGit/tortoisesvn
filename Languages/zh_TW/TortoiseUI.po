@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-12 10:51+0000\n"
+"PO-Revision-Date: 2013-02-20 15:12+0000\n"
 "Last-Translator: binota <liu.bangjyh@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2493,6 +2493,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "取消\n不解決此項目的."
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3123,6 +3129,10 @@ msgstr "比較兩個檔案"
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "比對空白字元"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6239,6 +6249,10 @@ msgstr "設為預設值"
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 屬性"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "標記為已消除"
@@ -9147,6 +9161,12 @@ msgstr "顯示選擇的記錄快取的統計資料"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在複製來源處顯示標籤, 而不顯示在獨立節點上"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "顯示/隱藏"
@@ -11390,6 +11410,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "已修改過屬性但尚未儲存.\n是否要立即儲存?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-15 03:40+0000\n"
+"PO-Revision-Date: 2013-02-20 17:20+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2490,6 +2490,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "キャンセル\n項目を解決しない。"
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr "キャンセル\n差分を表示しません。"
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3120,6 +3126,10 @@ msgstr "2つのファイルを比較"
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "空白を比較する"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr "最新(&HEAD)リビジョンと作業ベースを比較"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6236,6 +6246,10 @@ msgstr "デフォルトに設定する"
 msgid "Manage Subversion properties"
 msgstr "Subversion のプロパティを管理する"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr "差分を表示するために多くの項目が選択されました"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "解決済みとする"
@@ -9144,6 +9158,12 @@ msgstr "選択したログキャッシュの統計データを表示"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "ノードとして分割せずにコピー元にタグを表示する"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr "差分を表示\n選択されたすべての項目について差分ビューアを起動します。"
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "表示/非表示"
@@ -10418,7 +10438,7 @@ msgstr "このエラーを回避して再帰的にコミットを行うために
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
-msgstr "ロックを横取りするために、この項目の親フォルダー上で右クリックし、コンテキストメニューから「ロックを取得」を選択してください。\nこれにより、ロックを実行する際にロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを「横取り」など）。"
+msgstr "ロックを横取りするには、この項目の親フォルダーを右クリックし、コンテキストメニューから「ロックを取得」を選択してください。\nあなたがロックを適用する場所のロックダイアログが表示されるので、現在ロックを保持している人からロックを「横取り」します。"
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -11387,6 +11407,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "保存する前にプロパティの変更を行いました。\n今すぐ保存しますか？"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr "差分を表示するために%d件の項目が選択されました。\nすべての項目について、差分ビューアーの新しいインスタンスが起動します。\n本当に一度にたくさんの差分を表示しますか？"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

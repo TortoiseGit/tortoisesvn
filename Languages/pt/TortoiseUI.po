@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 10:24+0000\n"
+"PO-Revision-Date: 2013-02-20 15:12+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +407,7 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr ""
+msgstr "&Sobre TortoiseMerge..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -819,7 +819,7 @@ msgstr "&Ajuda"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr ""
+msgstr "&Ajuda Tópicos"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -1001,11 +1001,11 @@ msgstr "&Modificar cor das copias do tronco"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "Blocos &Movidos"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
-msgstr ""
+msgstr "&Navegar"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1274,7 +1274,7 @@ msgstr "&Arrancar NavegadorRepo"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr ""
+msgstr "Barra de e&stado "
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1346,7 +1346,7 @@ msgstr "&Para: (revisão e URL finais do intervalo a integrar)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
-msgstr ""
+msgstr "Barra de ferramen&tas"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -2492,6 +2492,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "Cancelar\nNão resolver o item."
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3122,6 +3128,10 @@ msgstr "Compara dois ficheiros"
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "Comparar espaços em branco"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6013,7 +6023,7 @@ msgstr "Ferramenta de Linha\nLinha"
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr ""
+msgstr "Barra de comp. linha"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -6092,7 +6102,7 @@ msgstr "Local onde o conteúdo dos URL(s)\ndo repositório será guardado."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr ""
+msgstr "Barra de Localização"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -6237,6 +6247,10 @@ msgstr "Tornar no valor por omissão"
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Gerir propriedades do Subversion"
+
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr ""
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -9146,6 +9160,12 @@ msgstr "Mostrar estatísticas da cache de registo seleccionada"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostrar etiquetas na fonte da cópia, e não como nós separados"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "Mostrar/Ocultar"
@@ -10955,7 +10975,7 @@ msgstr "Usar blocos"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "Usar Fitas"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11389,6 +11409,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "Modificou propriedades sem que as tenha guardado antes.\nDeseja guardá-las agora?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

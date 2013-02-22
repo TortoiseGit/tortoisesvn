@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 09:35+0000\n"
+"PO-Revision-Date: 2013-02-19 14:24+0000\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14559,6 +14559,12 @@ msgid ""
 "separate the individual log messages of the merged revisions. If you prefer,"
 " you can set this to a value containing a separator string of your choice."
 msgstr "Cuando fusiona revisiones desde otra rama, y hay información de registro de fusión disponible, los mensajes de las revisiones que fusiona se reunirán para crear un mensaje de registro de confirmación. Se utilizará una cadena de texto predefinida para separar los mensajes de registro individuales de las revisiones fusionadas. Si lo desea, puede establecer este valor con una cadena de separación de su elección."
+
+#. (para)
+msgid ""
+"If you want to show the diff at once for more items than specified with this"
+" settings, a warning dialog is shown first. The default is 10."
+msgstr ""
 
 #. (para)
 msgid ""

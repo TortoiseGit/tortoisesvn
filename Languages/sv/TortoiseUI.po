@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 10:24+0000\n"
+"PO-Revision-Date: 2013-02-20 15:12+0000\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2490,6 +2490,12 @@ msgid ""
 "Don't resolve the item."
 msgstr ""
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3120,6 +3126,10 @@ msgstr ""
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "Jämför tomrum"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6236,6 +6246,10 @@ msgstr "Spara detta som standard"
 msgid "Manage Subversion properties"
 msgstr "Hantera Subversion egenskaper"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Markera som löst"
@@ -9144,6 +9158,12 @@ msgstr "Visa statisik för den valda logg cachen"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Visa märkena på källan av kopieringar, inte som separata noder"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "Visa/dölj"
@@ -11387,6 +11407,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "Du har ändrat egenskaper utan att spara dem.\nVill du spara dem nu?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

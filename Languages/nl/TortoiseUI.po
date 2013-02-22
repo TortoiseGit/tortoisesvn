@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-08 10:23+0000\n"
+"PO-Revision-Date: 2013-02-20 15:12+0000\n"
 "Last-Translator: Eric van Aert <ericvanaert@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2493,6 +2493,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "Annuleer\nHet onderdeel niet oplossen."
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3123,6 +3129,10 @@ msgstr "Vergelijk twee bestanden"
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "Vergelijk spaties en witregels"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6239,6 +6249,10 @@ msgstr "Maak dit de standaard"
 msgid "Manage Subversion properties"
 msgstr "Subversion eigenschappen beheren"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Markeer als opgelost"
@@ -9147,6 +9161,12 @@ msgstr "Toon statistieken van de geselecteerde cache"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Toon labels op de bron van de kopie en niet als apart knooppunt"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "Toon/verberg"
@@ -11390,6 +11410,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "U heeft eigenschappen gewijzigd zonder ze op te slaan.\nWilt u ze nu opslaan?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

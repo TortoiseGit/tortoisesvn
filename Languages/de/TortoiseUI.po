@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-11 08:03+0000\n"
+"PO-Revision-Date: 2013-02-21 08:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2492,6 +2492,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "Abbrechen\nDas Objekt nicht auflösen."
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr "Abbrechen\nUnterschiede nicht anzeigen"
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3122,6 +3128,10 @@ msgstr "Vergleiche zwei Dateien"
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "Vergleiche Leerzeichen"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr "Vergleich mit &HEAD und BASE"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6238,6 +6248,10 @@ msgstr "Diese Einstellung immer verwenden"
 msgid "Manage Subversion properties"
 msgstr "Subversion-Eigenschaften bearbeiten"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr "Viele Objekte zum Vergleichen gewählt"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Als aufgelöst markieren"
@@ -9146,6 +9160,12 @@ msgstr "Zeige Statistiken für den gewählten Log-Puffer"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Zeige Marken an der Quelle, nicht als separate Knoten"
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr "Unterschiede anzeigen\nDas Vergleichsprogramm wird für jeden markierten Eintrag gestartet"
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "Anzeigen/Verbergen"
@@ -11389,6 +11409,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "Sie haben Eigenschaften verändert, ohne sie zu speichern.\nWollen Sie das jetzt tun?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr "Sie haben %d Einträge für den Vergleich gewählt.\nFür jeden dieser Einträge wird eine neue Instanz des Vergleichsprogramms gestartet.\nWollen Sie wirklich die Unterschiede von so vielen Objekten gleichzeitig anzeigen?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

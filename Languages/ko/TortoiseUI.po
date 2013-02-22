@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-16 03:11+0000\n"
+"PO-Revision-Date: 2013-02-20 15:12+0000\n"
 "Last-Translator: ks k <kmshts@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2492,6 +2492,12 @@ msgid ""
 "Don't resolve the item."
 msgstr "취소\n항목을 해결하지 않습니다."
 
+#. Resource IDs: (214)
+msgid ""
+"Cancel\n"
+"Don't show the diff."
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
@@ -3122,6 +3128,10 @@ msgstr "두 파일 "
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
 msgstr "공백 비교"
+
+#. Resource IDs: (138)
+msgid "Compare with &HEAD and BASE"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6238,6 +6248,10 @@ msgstr "기본값으로 지정"
 msgid "Manage Subversion properties"
 msgstr "Subversion 속성 관리"
 
+#. Resource IDs: (214)
+msgid "Many items selected to show diff"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "충돌해결상태로 표시"
@@ -9146,6 +9160,12 @@ msgstr "선택된 로그 캐시에 대해 통계정보 보기"
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "복사 원본의 태그들을 같은 노드처럼 보여줍니다."
 
+#. Resource IDs: (214)
+msgid ""
+"Show the diff\n"
+"The diff viewer is started for every selected item."
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Show/Hide"
 msgstr "보이기/숨기기"
@@ -11389,6 +11409,14 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr "저장하지 않은 속성들이 있습니다.\n지금 저장하시겠습니까?"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"You have selected %d items to show the diff for.\n"
+"For every of these items a new instance of the diff viewer will be started.\n"
+"Do you really want to show the diff for so many items at once?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
