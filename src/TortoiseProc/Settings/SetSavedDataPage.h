@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,7 @@ protected:
     afx_msg void OnBnClickedLoghistclear();
     afx_msg void OnBnClickedResizablehistclear();
     afx_msg void OnBnClickedAuthhistclear();
+    afx_msg void OnBnClickedAuthhistclearselect();
     afx_msg void OnBnClickedRepologclear();
     afx_msg void OnBnClickedActionlogshow();
     afx_msg void OnBnClickedActionlogclear();
@@ -63,6 +64,7 @@ private:
     CButton         m_btnLogHistClear;
     CButton         m_btnResizableHistClear;
     CButton         m_btnAuthHistClear;
+    CButton         m_btnAuthHistClearSelect;
     CButton         m_btnRepoLogClear;
     CButton         m_btnActionLogShow;
     CButton         m_btnActionLogClear;

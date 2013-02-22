@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNAuthData.cpp" />
     <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\SVN\SVNReadProperties.cpp" />
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -349,6 +350,7 @@
     <ClCompile Include="RecycleBinDlg.cpp" />
     <ClCompile Include="RepoCreationFinished.cpp" />
     <ClCompile Include="RevisionGraph\RemoveTags.cpp" />
+    <ClCompile Include="SettingsClearAuth.cpp" />
     <ClCompile Include="Settings\SetOverlayHandlers.cpp" />
     <ClCompile Include="Settings\SettingsDialogs3.cpp" />
     <ClCompile Include="UpdateDlg.cpp" />
@@ -511,6 +513,7 @@
     <ClCompile Include="WaitDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNAuthData.h" />
     <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\SVN\SVNReadProperties.h" />
     <ClInclude Include="..\Utils\Callback.h" />
@@ -691,6 +694,7 @@
     <ClInclude Include="RecycleBinDlg.h" />
     <ClInclude Include="RepoCreationFinished.h" />
     <ClInclude Include="RevisionGraph\RemoveTags.h" />
+    <ClInclude Include="SettingsClearAuth.h" />
     <ClInclude Include="Settings\SetOverlayHandlers.h" />
     <ClInclude Include="Settings\SettingsDialogs3.h" />
     <ClInclude Include="UpdateDlg.h" />
@@ -1024,4 +1028,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

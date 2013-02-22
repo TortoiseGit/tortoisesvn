@@ -1106,6 +1106,12 @@
     <ClCompile Include="..\Utils\PreserveChdir.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="SettingsClearAuth.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNAuthData.cpp">
+      <Filter>Subversion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2130,6 +2136,12 @@
     </ClInclude>
     <ClInclude Include="..\Utils\PreserveChdir.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsClearAuth.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNAuthData.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

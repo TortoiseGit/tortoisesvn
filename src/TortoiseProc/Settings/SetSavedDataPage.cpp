@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "DirFileEnum.h"
 #include "SetSavedDataPage.h"
 #include "StringUtils.h"
+#include "SettingsClearAuth.h"
 
 IMPLEMENT_DYNAMIC(CSetSavedDataPage, ISettingsPropPage)
 
@@ -46,6 +47,7 @@ void CSetSavedDataPage::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_LOGHISTCLEAR, m_btnLogHistClear);
     DDX_Control(pDX, IDC_RESIZABLEHISTCLEAR, m_btnResizableHistClear);
     DDX_Control(pDX, IDC_AUTHHISTCLEAR, m_btnAuthHistClear);
+    DDX_Control(pDX, IDC_AUTHHISTCLEARSELECT, m_btnAuthHistClearSelect);
     DDX_Control(pDX, IDC_REPOLOGCLEAR, m_btnRepoLogClear);
     DDX_Text(pDX, IDC_MAXLINES, m_maxLines);
     DDX_Control(pDX, IDC_ACTIONLOGSHOW, m_btnActionLogShow);
@@ -150,6 +152,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     DialogEnableWindow(&m_btnUrlHistClear, nUrlHistItems || nUrlHistWC);
     DialogEnableWindow(&m_btnResizableHistClear, nResizableDialogs > 0);
     DialogEnableWindow(&m_btnAuthHistClear, nSimple || nSSL || nUsername);
+    DialogEnableWindow(&m_btnAuthHistClearSelect, nSimple || nSSL || nUsername);
     DialogEnableWindow(&m_btnRepoLogClear, nLogHistRepo >= 0);
     DialogEnableWindow(&m_btnActionLogClear, bActionLog);
     DialogEnableWindow(&m_btnActionLogShow, bActionLog);
@@ -202,6 +205,7 @@ BEGIN_MESSAGE_MAP(CSetSavedDataPage, ISettingsPropPage)
     ON_BN_CLICKED(IDC_ACTIONLOGCLEAR, &CSetSavedDataPage::OnBnClickedActionlogclear)
     ON_EN_CHANGE(IDC_MAXLINES, OnModified)
     ON_BN_CLICKED(IDC_HOOKCLEAR, &CSetSavedDataPage::OnBnClickedHookclear)
+    ON_BN_CLICKED(IDC_AUTHHISTCLEARSELECT, &CSetSavedDataPage::OnBnClickedAuthhistclearselect)
 END_MESSAGE_MAP()
 
 void CSetSavedDataPage::OnBnClickedUrlhistclear()
@@ -264,6 +268,7 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
         DeleteViaShell(pathbuf, IDS_SETTINGS_DELFILE);
     }
     DialogEnableWindow(&m_btnAuthHistClear, false);
+    DialogEnableWindow(&m_btnAuthHistClearSelect, false);
     m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTCLEAR));
     m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTORY));
 }
@@ -327,3 +332,8 @@ void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, UINT progressText)
     SHFileOperation(&fileop);
 }
 
+void CSetSavedDataPage::OnBnClickedAuthhistclearselect()
+{
+    CSettingsClearAuth dlg;
+    dlg.DoModal();
+}
