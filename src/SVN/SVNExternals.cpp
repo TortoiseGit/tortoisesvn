@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -383,6 +383,7 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
     m_sError.Empty();
     SVN svn;
     // now set the new properties
+    std::set<CTSVNPath> changedurls;
     for (std::map<CTSVNPath, sb>::iterator it = externals.begin(); it != externals.end(); ++it)
     {
         if (it->second.adjust)
@@ -404,9 +405,17 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
                 CTSVNPath targeturl = tagurl; // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7
                 targeturl.AppendRawString(sInsidePath); // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7/ext
 
-                SVNProperties props(targeturl, headrev, false, false);
-                if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message))
-                    m_sError = props.GetLastErrorMessage();
+                if (changedurls.find(targeturl) != changedurls.end())
+                {
+                    SVNProperties props(targeturl, headrev, false, false);
+                    if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message))
+                        m_sError = props.GetLastErrorMessage();
+                    else
+                    {
+                        headrev = props.GetRevision();
+                    }
+                    changedurls.insert(targeturl);
+                }
             }
             else
             {
