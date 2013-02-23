@@ -7355,6 +7355,7 @@ static void do_ssh2_authconn(Ssh ssh, unsigned char *in, int inlen,
 	Ssh_gss_stat gss_stat;
 #endif
     };
+    char *methods = NULL;
     crState(do_ssh2_authconn_state);
 
     crBegin(ssh->do_ssh2_authconn_crstate);
@@ -7618,8 +7619,8 @@ static void do_ssh2_authconn(Ssh ssh, unsigned char *in, int inlen,
 	}
 
 	while (1) {
-	    char *methods = NULL;
 	    int methlen = 0;
+	    methods = NULL;
 
 	    /*
 	     * Wait for the result of the last authentication request.
