@@ -1048,6 +1048,8 @@ void CBaseView::ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar /*= TRUE*/
         if (bTrackScrollBar)
             RecalcHorzScrollBar(TRUE);
         UpdateCaret();
+        if (m_pwndLineDiffBar)
+            m_pwndLineDiffBar->Invalidate();
     }
 }
 
