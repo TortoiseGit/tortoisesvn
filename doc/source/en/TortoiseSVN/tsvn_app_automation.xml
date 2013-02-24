@@ -576,7 +576,9 @@ Don't touch these lines:
                             <entry condition="pot">:createpatch</entry>
                             <entry>
                                 Creates a patch file for the path given in
-                                <option>/path</option>.
+                                <option>/path</option>. To skip the file Save-As dialog
+                                you can pass <option>/savepath:path</option> to specify
+                                the path where to save the patch file to directly.
                             </entry>
                         </row>
                         <row>
