@@ -579,6 +579,8 @@ Don't touch these lines:
                                 <option>/path</option>. To skip the file Save-As dialog
                                 you can pass <option>/savepath:path</option> to specify
                                 the path where to save the patch file to directly.
+                                To prevent the unified diff viewer from being started showing
+                                the patch file, pass <option>/noview</option>.
                             </entry>
                         </row>
                         <row>

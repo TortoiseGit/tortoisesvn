@@ -306,10 +306,11 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             fclose(inFile);
 
             CStringUtils::WriteDiffToClipboard(sClipdata);
-            CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename(), TRUE);
+            if (!parser.HasKey(L"noview"))
+                CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename(), TRUE);
         }
     }
-    else
+    else if (!parser.HasKey(L"noview"))
         CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename());
 
     return TRUE;
