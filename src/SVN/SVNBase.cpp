@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,6 +131,9 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             msg += temp;
         }
         temp.Empty();
+        if (svn_error_find_cause(Err, SVN_ERR_WC_LOCKED) && (Err->apr_err != SVN_ERR_WC_CLEANUP_REQUIRED))
+            temp.LoadString(IDS_SVNERR_RUNCLEANUP);
+
 #ifdef IDS_SVNERR_CHECKPATHORURL
         // add some hint text for some of the error messages
         switch (Err->apr_err)
@@ -165,6 +168,9 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             break;
         case SVN_ERR_REPOS_HOOK_FAILURE:
             temp.LoadString(IDS_SVNERR_HOOKFAILED);
+            break;
+        case SVN_ERR_SQLITE_BUSY:
+            temp.LoadString(IDS_SVNERR_SQLITEBUSY);
             break;
         default:
             break;
