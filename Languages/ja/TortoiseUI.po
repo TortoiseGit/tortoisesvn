@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 17:20+0000\n"
+"PO-Revision-Date: 2013-02-25 06:38+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgstr "%.2f KB/秒"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1は予期せぬオブジェクトを含んでいます。"
+msgstr "%1は想定外のオブジェクトを含んでいます。"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -203,7 +203,7 @@ msgstr "%ld / %ld"
 #. Resource IDs: (563)
 #, c-format
 msgid "%ld paths"
-msgstr "%ld パス"
+msgstr "%ld 件のパス"
 
 #. Resource IDs: (272)
 #, c-format
@@ -689,11 +689,11 @@ msgstr "編集(&E)"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
-msgstr "競合の編集(&E)"
+msgstr "競合を編集(&E)"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
-msgstr "競合の編集(&E)"
+msgstr "競合を編集(&E)"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -717,7 +717,7 @@ msgstr "ファイルをロックする理由を入力してください。(&E)"
 
 #. Resource IDs: (1554)
 msgid "&Executable"
-msgstr "実行形式(&E)"
+msgstr "実行可能(&E)"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -765,7 +765,7 @@ msgstr "フローティング(&F)"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "ログメッセージ用フォント(&F):"
+msgstr "ログメッセージのフォント(&F):"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -927,7 +927,7 @@ msgstr "開く(&L)..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr "ロックが必要（読み取り専用の更新）(&L)"
+msgstr "ロックが必要（読み取り専用で更新）(&L)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -983,7 +983,7 @@ msgstr "マージ(&M)"
 
 #. Resource IDs: (32847)
 msgid "&Mime-Type"
-msgstr "MIME タイプ(&M)"
+msgstr "MIMEタイプ(&M)"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -1044,7 +1044,7 @@ msgstr "なし(&N)"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr "非実行形式(&N)"
+msgstr "実行不可(&N)"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
@@ -1647,7 +1647,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
-msgstr "アイコンのオーバーレイを表示するパスを入力する（改行で区切る）。\r\n「?」をパスの最後に追加した場合は、このパスのみが含まれる。\r\n「*」をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが含まれる。"
+msgstr "アイコンのオーバーレイを表示するパスを改行区切りで入力してください。\n「?」をパスの最後に追加した場合は、このパスのみが含まれます。\n「*」をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが含まれます。"
 
 #. Resource IDs: (197)
 msgid ""
@@ -1662,7 +1662,7 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
-msgstr "アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\r\n「?」をパスの最後に追加した場合は、このパスのみが除外される。\r\n「*」をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが除外される。\r\n何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となる。"
+msgstr "アイコンのオーバーレイを非表示にするパスを下位行区切りで入力してください。\n「?」をパスの最後に追加した場合は、このパスのみが除外されます。\n「*」をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが除外されます。\n何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となります。"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2737,7 +2737,7 @@ msgstr "変更をチェック"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr "更新をチェック"
+msgstr "更新のチェック"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3606,7 +3606,7 @@ msgstr "リポジトリ内に簡易コピーを作成する（ブランチやタ
 #. Resource IDs: (199)
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
-msgstr "Subversion の作業コピーのために、特殊な設定のライブラリフォルダーを作成する"
+msgstr "Subversionの作業コピーのために、特殊な設定のライブラリフォルダーを作成します"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3973,7 +3973,7 @@ msgstr "キーワードを展開しない"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
-msgstr "次のパスではコンテキストメニューを表示しない:"
+msgstr "以下のパスではコンテキストメニューを表示しない:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
@@ -4176,7 +4176,7 @@ msgstr "除外するパス(&X):"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
-msgstr "実行形式(&X)"
+msgstr "実行可能属性(&X)"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -4307,7 +4307,7 @@ msgstr "オーバーレイハンドラーを有効にする"
 msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
-msgstr "tsvn:projectlanguage プロパティが設定され\nている場合のみ、スペルチェッカーを有効にします。"
+msgstr "tsvn:projectlanguageプロパティが設定されている場合のみ、\nスペルチェッカーを有効にします。"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4331,12 +4331,12 @@ msgstr "不適切な引数に遭遇しました。"
 #. Resource IDs: (3859)
 #, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "%1 の読み込み中に予期せぬエラーが発生しました。"
+msgstr "%1 の読み込み中に想定外のエラーが発生しました。"
 
 #. Resource IDs: (3859)
 #, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "%1 の書き込み中に予期せぬエラーが発生しました。"
+msgstr "%1 の書き込み中に想定外のエラーが発生しました。"
 
 #. Resource IDs: (1537)
 msgid "End Revision"
@@ -4819,7 +4819,7 @@ msgstr "ファイル名"
 
 #. Resource IDs: (65535)
 msgid "Filename, extension or mime-type:"
-msgstr "ファイル名、拡張子、もしくは Mime タイプ:"
+msgstr "ファイル名、拡張子、もしくはMIMEタイプ:"
 
 #. Resource IDs: (74)
 msgid "Filename/Extension"
@@ -5010,7 +5010,7 @@ msgid ""
 "To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
-msgstr "「svn:needs-lock」プロパティを設定していないファイルをロックしたとしても、他の作業コピーでそのファイルを編集することができます。\nロックを正しく動作させるためには、ロックが必要なすべてのファイルに「svn:needs-lock」プロパティを追加し、それらをコミットしてください。\nそれぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
+msgstr "「svn:needs-lock」プロパティを設定していないファイルは、ロックしても、他の作業コピーでそのファイルを編集することができます。\nロックを正しく動作させるためには、ロックが必要なすべてのファイルに「svn:needs-lock」プロパティを追加し、それらをコミットしてください。\nそれらのファイルには、ファイルシステム上で読み取り専用のフラグが設定され、ロックするとファイルが書き込み可能になります。\nなお、他のユーザーがファイルを読み取り専用として見えるようになるには、作業コピーの更新が必要になります。"
 
 #. Resource IDs: (119)
 #, c-format
@@ -5145,7 +5145,7 @@ msgstr "最新(HEAD)リビジョンは %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
-msgstr "ヘッダ"
+msgstr "ヘッダー"
 
 #. Resource IDs: (9, 332)
 msgid "Help"
@@ -5197,7 +5197,7 @@ msgstr "実行時はスクリプトを非表示にする"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr "未使用のブランチを隠す(&B)"
+msgstr "未使用のブランチを非表示にする(&B)"
 
 #. Resource IDs: (156)
 msgid "Hide/Show the patch file list"
@@ -5450,19 +5450,19 @@ msgstr "アイコン/デザイン/コード:\t\tLuebbe Onken"
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'."
-msgstr "パスの要素（2つの「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「ブランチ」と判断する。"
+msgstr "パスの構成要素（2つの「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「ブランチ」と判断します。"
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'."
-msgstr "パスの要素（2つの「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「タグ」と判断する。"
+msgstr "パスの構成要素（2つの「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「タグ」と判断します。"
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
-msgstr "パスの要素（2つの 「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「トランク」と判断する。"
+msgstr "パスの構成要素（2つの 「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「トランク」と判断します。"
 
 #. Resource IDs: (194)
 msgid ""
@@ -5474,7 +5474,7 @@ msgstr "有効にすると、「名前を付けて保存」や「開く」ダイ
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
-msgstr "有効にすると、選択したファイルに svn:needs-lock プロパティが設定されている場合、\nトップレベルメニューに常に「ロックを取得」メニューが表示されます。"
+msgstr "有効にすると、選択したファイルにsvn:needs-lockプロパティが設定されている場合、\nトップレベルメニューに「ロックを取得」メニュー項目が常に表示されます。"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5739,7 +5739,7 @@ msgstr "次のリビジョン範囲のみを含める:"
 msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
-msgstr "状態チェックのためにリポジトリを含める\nすべてを取得するためにはシフトキーを押したままでクリックしてください。"
+msgstr "状態チェックのためにリポジトリを含めます\nすべてを取得するためにはShiftキーを押したままでクリックしてください。"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6843,7 +6843,7 @@ msgstr "スペルの訂正はありません"
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
 "overlay"
-msgstr "状態をキャッシュしません。バージョン管理されたフォルダーのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
+msgstr "状態キャッシュを行いません。バージョン管理されたフォルダーのみオーバーレイ表示を行い、ファイルはオーバーレイ表示を行いません"
 
 #. Resource IDs: (84)
 #, c-format
@@ -7103,7 +7103,7 @@ msgstr "この項目のみ"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "tsvn:projectlanguage が設定されている場合はスペルチェッカーを使用する(&P)"
+msgstr "tsvn:projectlanguageが設定されている場合のみスペルチェッカーを使用する(&P)"
 
 #. Resource IDs: (65535)
 msgid "Opacity"
@@ -7427,7 +7427,7 @@ msgstr "ポート:"
 
 #. Resource IDs: (347)
 msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
-msgstr "可能な値: 0（透明）～255（不透明）"
+msgstr "設定可能な値: 0（透明）～255（不透明）"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -7669,7 +7669,7 @@ msgstr "プロキシの設定"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "svn:needs-lock が設定されている場合は、トップメニューに「ロックを取得」を表示する"
+msgstr "svn:needs-lockが設定されている場合は、トップメニューに「ロックを取得」を表示する"
 
 #. Resource IDs: (246)
 #, c-format
@@ -7690,7 +7690,7 @@ msgstr "終了\n変更を保存せずにTortoiseMergeを終了する"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
-msgstr "RAM ドライブ(&A)"
+msgstr "RAMドライブ(&A)"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
@@ -8327,7 +8327,7 @@ msgstr "変更を取り消しています"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr "最後の更新から行ったすべての変更を取り消す"
+msgstr "最後の更新以降のすべての変更を取り消す"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
@@ -8448,7 +8448,7 @@ msgstr "一行上へ"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr "クリーンアップを今すぐ実行(&N)"
+msgstr "今すぐクリーンアップを実行(&N)"
 
 #. Resource IDs: (363)
 msgid ""
@@ -8554,7 +8554,7 @@ msgstr "SVN eol-style"
 
 #. Resource IDs: (14)
 msgid "SVN mime-type"
-msgstr "SVN Mime タイプ"
+msgstr "SVN MIMEタイプ"
 
 #. Resource IDs: (12)
 msgid "SVN short URL"
@@ -8832,7 +8832,7 @@ msgstr "ツリーをマージするURLを選択"
 #. Resource IDs: (79)
 msgid ""
 "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "処理終了時の進行状況ダイアログの動作を選択する"
+msgstr "処理終了時の進行状況ダイアログの動作を選択します。"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8888,7 +8888,7 @@ msgstr "これらの外部参照に対してリビジョンを明示的に指定
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "ファイルの更新日時を「最後にコミットした日時」に設定(&T)"
+msgstr "ファイルの更新日時を「最終コミット日時」に設定する(&T)"
 
 #. Resource IDs: (127)
 #, c-format
@@ -9227,7 +9227,7 @@ msgstr "選択したファイル/フォルダーのログを表示"
 
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
-msgstr "バージョン管理されたファイルの Mime タイプを表示する"
+msgstr "バージョン管理されたファイルのMIMEタイプを表示する"
 
 #. Resource IDs: (156, 564)
 msgid "Silver Style"
@@ -9448,11 +9448,11 @@ msgstr "状態のキャッシュ"
 #. Resource IDs: (196)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr "外部プロセスで保持している状態キャッシュは再帰的にオーバーレイすることができます"
+msgstr "状態キャッシュは外部プロセスで保持し、再帰的なオーバーレイ表示ができます"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "１つのフォルダーに対してのみ状態をキャッシュし、再帰的なオーバーレイは行いません"
+msgstr "状態キャッシュを1つのフォルダーに対してのみ行い、再帰的なオーバーレイは行いません"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -9494,7 +9494,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr "部分文字列の絞り込み条件\r\n* 1つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\r\n* 部分文字列の先頭に - を付加すると、この文字列を含むリビジョンが除外される。\r\n* 部分文字列の先頭に + を付加すると、この文字列にマッチしないリビジョンが含まれる。\r\n* 空白などを含む文字列は \" で囲む。\r\n* 行の先頭に ! を付加すると、絞り込み条件全体を反転させる。\r\n\r\n【例】\r\nichiro  2008    : 2008年のichiroによるコミット\r\n.h  -.cpp       : ヘッダファイルが変更されたが実装がされていないコミット\r\n.doc +.xls 2010 : 2010年の .doc もしくは .xls ファイルが含まれるコミット\r\n\" \"             : スペースを含むコミット（例えば、パスのみを探す場合）\r\n-\"\"show all\"\"   : 文字列「show all」を含まないコミット\r\n!ichiro  .cpp    : .cppファイルへのichiro以外のコミットすべて"
+msgstr "部分文字列の絞り込み条件\n* 1つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\n* 部分文字列の先頭に - を付加すると、この文字列を含むリビジョンが除外される。\n* 部分文字列の先頭に + を付加すると、この文字列にマッチしないリビジョンが含まれる。\n* 空白などを含む文字列は \" で囲む。\n* 行の先頭に ! を付加すると、絞り込み条件全体を反転させる。\n\n【例】\nichiro  2008    : 2008年のichiroによるコミット\n.h  -.cpp       : ヘッダーファイルが変更されたが実装がされていないコミット\n.doc +.xls 2010 : 2010年の .doc もしくは .xls ファイルが含まれるコミット\n\" \"             : スペースを含むコミット（例えば、パスのみを探す場合）\n-\"\"show all\"\"   : 文字列「show all」を含まないコミット\n!ichiro  .cpp    : .cppファイルへのichiro以外のコミットすべて"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9502,7 +9502,7 @@ msgstr "Subversion"
 
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
-msgstr "Subversion の設定ファイル(&F):"
+msgstr "Subversionの設定ファイル(&F):"
 
 #. Resource IDs: (84)
 #, c-format
@@ -9522,7 +9522,7 @@ msgid ""
 "\n"
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
-msgstr "Subversion は深刻な問題に遭遇しました。\n下記のエラー情報と、何をしようとしたかをできるだけ詳しく\n書いて、Subversionのメーリングリストに報告してください。\n但し、同じ問題が繰り返し報告されることを避けるために、\nまずメーリングリストアーカイブから、このエラーメッセージを\n探してみてください。メーリングリストのアーカイブは下記の\nアドレスにあります。\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversion が遭遇した問題:\nファイル %1!s!の%2!ld!行目\n式=%3!s!\n\nCtrl+Cを使用すると、このダイアログの内容をクリップボードに\nコピーできます。"
+msgstr "Subversionで深刻な問題が発生しました。\n下記のエラー情報と、何をしようとしたかをできるだけ詳しく書いて、\nSubversionのメーリングリストに報告してください。\n但し、同じ問題が繰り返し報告されることを避けるために、まず\nメーリングリストアーカイブから、このエラーメッセージを探してみて\nください。メーリングリストのアーカイブは下記のアドレスにあります。\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversionで発生した問題:\nファイル%1!s!の%2!ld!行目\n式=%3!s!\n\nCtrl+Cを使用すると、このダイアログの内容をクリップボードにコピー\nできます。"
 
 #. Resource IDs: (84)
 msgid ""
@@ -9551,7 +9551,7 @@ msgstr "リポジトリ作成中に Subversion がエラーを返しました。
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "%s"
-msgstr "クリーンアップ中に Subversion がエラーを返しました。\n%s"
+msgstr "クリーンアップ中にSubversionがエラーを報告しました。\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -9725,21 +9725,21 @@ msgstr "「@@」で始まる部分は、%d行目だと思われます。"
 msgid ""
 "The color of creation, copy and rename nodes of tags will be shifted towards"
 " yellow."
-msgstr "タグの作成、コピー、名前変更のノードの色は、黄色系の色になる。"
+msgstr "タグの作成、コピー、名前変更のノードの色は、黄色系になります。"
 
 #. Resource IDs: (346)
 msgid ""
 "The color of creation, copy and rename nodes of the trunk will be shifted "
 "towards green."
-msgstr "トランクの作成、コピー、名前変更のノードの色は、緑系の色になる。"
+msgstr "トランクの作成、コピー、名前変更のノードの色は、緑系になります。"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "何も指定しない場合にチェックアウトするデフォルトのURL"
+msgstr "何も指定しない場合にチェックアウトするデフォルトのURLです"
 
 #. Resource IDs: (196)
 msgid "The default path to checkout to if nothing else is specified"
-msgstr "何も指定しない場合にチェックアウトするデフォルトのパス"
+msgstr "何も指定しない場合にチェックアウトするデフォルトのパスです"
 
 #. Resource IDs: (226)
 #, c-format
@@ -10761,7 +10761,7 @@ msgstr "直前に行った変更を取り消す\n元に戻す"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
-msgstr "予期せぬファイルフォーマットです。"
+msgstr "想定外のファイル形式です。"
 
 #. Resource IDs: (1070)
 msgid "Unfold"
@@ -10807,7 +10807,7 @@ msgstr "ロック解除"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
-msgstr "認識できない、もしくは無効なファイルフォーマットです。"
+msgstr "ファイル形式が認識できないか不正です。"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
@@ -10833,7 +10833,7 @@ msgstr "バージョン管理から除外し、無視リストに追加(&I)"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr "バージョン管理外の作業コピー"
+msgstr "作業コピーのバージョン管理をやめる"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -10965,7 +10965,7 @@ msgstr "「theirs」→「mine」の順でテキストブロックを使用"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
-msgstr "Aeroのダイアログを使用"
+msgstr "Aeroダイアログを使用"
 
 #. Resource IDs: (156)
 msgid "Use Blocks"
@@ -11245,7 +11245,7 @@ msgstr "指定した日数の間、小さなログキャッシュが使用され
 msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
-msgstr "有効にすると、シフトキーを押しながら右クリックしたときに限り、TortoiseSVNのメニューがコンテキストメニューに現れるようになります。"
+msgstr "有効にすると、Shiftキーを押しながら右クリックしたときに限り、コンテキストメニューにTortoiseSVNのメニューが現れるようになります。"
 
 #. Resource IDs: (344)
 msgid ""
@@ -11611,7 +11611,7 @@ msgid ""
 "Whitespaces will become part of the pattern.\n"
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
-msgstr "\n\nパターンは大文字/小文字に関係なくマッチし、小文字で指定されなくてはなりません。\n空白はパターンの一部とみなされます。\nワイルドカードとしては「?」と「*」を使用できます。\n複数のパターンは「;」で区切ります。"
+msgstr "\n\nパターンは大文字/小文字の区別なくマッチしますが、小文字で指定する必要があります。\n空白はパターンの一部とみなされます。\nワイルドカードとしては「?」と「*」を使用できます。\n複数のパターンは「;」で区切ります。"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -12055,7 +12055,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "svn:auto-props\r\nファイルを追加したりインポートしたりする際に、自動的に再帰的に適用されるプロパティのリストを、改行で区切って指定します。\r\n書式: <ファイルマスク> = プロパティ=値;プロパティ=値\r\n例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\nファイルを追加したりインポートしたりする際に、自動的に再帰的に適用されるプロパティのリストを、改行で区切って指定します。\n書式: <ファイルマスク> = プロパティ=値;プロパティ=値\n例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12144,7 +12144,7 @@ msgid ""
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
-msgstr "svn:mime-type\r\nファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決めます。\r\n「text/」で始まるMIMEタイプの場合（もしくはMIMEタイプが設定されていない場合）はテキストとして扱われます。\r\nその他はすべてバイナリとして扱われます。"
+msgstr "svn:mime-type\nファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決めます。\n「text/」で始まるMIMEタイプの場合（またはMIMEタイプが設定されていない場合）はテキストとして扱われます。\nその他はすべてバイナリとして扱われます。"
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
@@ -12157,7 +12157,7 @@ msgid ""
 "The file will be set to read-only when checked out or updated,\r\n"
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
-msgstr "svn:needs-lock\r\nこのファイルに対してロックを強制するために、任意の値（例えば「*」）を設定する。\r\nファイルはチェックアウトや更新を行ったときに読み取り専用になり、\r\nファイルを編集する場合やコミットする場合には、\r\nユーザーはロックを取得しなくてはならなくなります。"
+msgstr "svn:needs-lock\nこのファイルに対してロックを強制するために、任意の値（例えば「*」）を設定します。\nファイルはチェックアウトや更新を行ったときに読み取り専用になり、ファイルを編集や\nコミットする場合、ユーザーはロックを取得しなければならなくなります。"
 
 #. Resource IDs: (208)
 #, c-format
@@ -12211,7 +12211,7 @@ msgid ""
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "tsvn:autoprops\r\nファイルを追加/インポートする際に自動的に適用されるプロパティのリスト（複数ある場合は、改行で区切る）。\r\n【書式】<filemask> = property=value;property=value\r\n【例】*.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "tsvn:autoprops\nファイルを追加/インポートする際に自動的に適用されるプロパティのリスト（複数ある場合は、改行で区切る）。\n【書式】<filemask> = property=value;property=value\n【例】*.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
