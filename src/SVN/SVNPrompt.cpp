@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,10 +33,6 @@
 #include "SmartHandle.h"
 #include "TempFile.h"
 #include "PathUtils.h"
-
-#include <Cryptuiapi.h>
-
-#pragma comment(lib, "Cryptui.lib")
 
 SVNPrompt::SVNPrompt(bool suppressUI)
 {
@@ -101,7 +97,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
     and client-cert-passphrases.  */
     svn_auth_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-    svn_auth_get_tsvn_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, pool);
+    svn_auth_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
     svn_auth_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
@@ -338,96 +334,138 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
     return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslclientprompt(int trycount, svn_auth_cred_ssl_client_cert_t **cred, void *baton, const char * realm, svn_boolean_t /*may_save*/, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, const char * realm, svn_boolean_t /*may_save*/, apr_pool_t *pool)
 {
     SVNPrompt * svn = (SVNPrompt *)baton;
     const char *cert_file = NULL;
+
     svn->m_bPromptShown = true;
+    CString filename;
 
-    *cred = NULL;
+    BOOL bOpenRet = FALSE;
 
-    svn_checksum_t *checksum;
-    svn_checksum(&checksum, svn_checksum_md5, realm, strlen(realm), pool);
-    const char * hexname = svn_checksum_to_cstring(checksum, pool);
-    CString hex = CUnicodeUtils::GetUnicode(hexname);
-    DWORD index = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\auth\\" + hex, (DWORD)-1, HKEY_CURRENT_USER);
-    if (trycount == 2)
-        index = (DWORD)-1;  // second try: skip the saved auth index!
-
-    HCERTSTORE store = CertOpenStore(CERT_STORE_PROV_SYSTEM,
-                                     0,
-                                     NULL,
-                                     CERT_SYSTEM_STORE_CURRENT_USER|CERT_STORE_OPEN_EXISTING_FLAG|CERT_STORE_READONLY_FLAG,
-                                     L"MY");
-    if (store == NULL)
-        return SVN_NO_ERROR;
-
-    PCCERT_CONTEXT cert = NULL;
-    if (index != DWORD(-1))
+    HRESULT hr; 
+    // Create a new common save file dialog
+    CComPtr<IFileOpenDialog> pfd = NULL;
+    hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
+    if (SUCCEEDED(hr))
     {
-        PCCERT_CONTEXT incert = NULL;
-        for(DWORD i = 0;;i++)
+        // Set the dialog options
+        DWORD dwOptions;
+        if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
         {
-            incert = CertEnumCertificatesInStore(store, incert);
-            if (!incert)
-                break;
-            if (i == index)
-            {
-                cert = incert;
-                break;
-            }
+            hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
         }
-    }
 
-    if (cert == NULL)
-    {
-        // Display a selection of certificates to choose from.
-        cert = CryptUIDlgSelectCertificateFromStore(store,
-                                                    svn->m_hParentWnd,
-                                                    NULL,
-                                                    NULL,
-                                                    0,
-                                                    0,
-                                                    NULL);
-        if (cert)
+        // Set a title
+        if (SUCCEEDED(hr))
         {
-            // save the certificate index
-            PCCERT_CONTEXT incert = NULL;
-            for(DWORD i = 0;;i++)
+            CString temp;
+            temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+            CStringUtils::RemoveAccelerators(temp);
+            pfd->SetTitle(temp);
+        }
+        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+
+        hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+
+        CComPtr<IFileDialogCustomize> pfdCustomize;
+        hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+        if (SUCCEEDED(hr))
+        {
+            pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SSL_SAVE_CERTPATH)), FALSE);
+        }
+
+        // Show the save file dialog
+        if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
+        {
+            CComPtr<IFileDialogCustomize> pfdCustomize;
+            hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+            if (SUCCEEDED(hr))
             {
-                incert = CertEnumCertificatesInStore(store, incert);
-                if (!incert)
-                    break;
-                if (memcmp(incert->pbCertEncoded, cert->pbCertEncoded, cert->cbCertEncoded) == 0)
+                BOOL bChecked = FALSE;
+                pfdCustomize->GetCheckButtonState(101, &bChecked);
+                (*cred)->may_save = (bChecked!=0);
+            }
+
+            // Get the selection from the user
+            CComPtr<IShellItem> psiResult = NULL;
+            hr = pfd->GetResult(&psiResult);
+            if (SUCCEEDED(hr))
+            {
+                PWSTR pszPath = NULL;
+                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                if (SUCCEEDED(hr))
                 {
-                    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\auth\\" + hex, (DWORD)-1, HKEY_CURRENT_USER);
-                    reg = i;
-                    break;
+                    filename = CString(pszPath);
+                    bOpenRet = TRUE;
                 }
             }
-            if (incert)
-                CertFreeCertificateContext(incert);
         }
     }
-    if (cert)
+    else
     {
-        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true);
+        OPENFILENAME ofn = {0};             // common dialog box structure
+        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
+        // Initialize OPENFILENAME
+        ofn.lStructSize = sizeof(OPENFILENAME);
+        ofn.hwndOwner = svn->m_hParentWnd;
+        ofn.lpstrFile = szFile;
+        ofn.nMaxFile = _countof(szFile);
+        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+        ofn.lpstrFilter = fileFilter;
+        ofn.nFilterIndex = 1;
+        ofn.lpstrFileTitle = NULL;
+        ofn.nMaxFileTitle = 0;
+        ofn.lpstrInitialDir = NULL;
+        CString temp;
+        temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+        CStringUtils::RemoveAccelerators(temp);
+        ofn.lpstrTitle = temp;
+        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
+        ofn.lpfnHook = SVNPrompt::OFNHookProc;
+
+        // Display the Open dialog box.
+        svn->m_server.Empty();
+        bOpenRet = GetOpenFileName(&ofn);
+        if (bOpenRet)
         {
-            CAutoFile file = CreateFile(tempfile.GetWinPath(), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-            if (file.IsValid())
-            {
-                DWORD nWritten = 0;
-                WriteFile(file, cert->pbCertEncoded, cert->cbCertEncoded, &nWritten, NULL);
-
-                cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(tempfile.GetWinPath()));
-                *cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
-                (*cred)->cert_file = cert_file;
-            }
+            filename = CString(ofn.lpstrFile);
+            (*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
         }
-        CertFreeCertificateContext(cert);
     }
-    CertCloseStore(store, CERT_CLOSE_STORE_FORCE_FLAG);
+    if (!svn->m_bSuppressed && (bOpenRet==TRUE))
+    {
+        cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
+        /* Build and return the credentials. */
+        *cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
+        (*cred)->cert_file = cert_file;
 
+        // the svn library doesn't have a save_credentials() function for cert files
+        // (yet?). It would get implemented in subversion\libsvn_subr\ssl_client_cert_providers.c
+        //
+        // We do the saving here ourselves (until subversion implements its own saving)
+        if ((*cred)->may_save)
+        {
+            CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
+            CString groups = regpath;
+            groups += _T("groups\\");
+            CString server = CString(realm);
+            int f1 = server.Find('<')+9;
+            int len = server.Find(':', 10)-f1;
+            server = server.Mid(f1, len);
+            svn->m_server = server;
+            groups += server;
+            CRegString server_groups = CRegString(groups);
+            server_groups = server;
+            regpath += server;
+            regpath += _T("\\ssl-client-cert-file");
+            CRegString client_cert_filepath_reg = CRegString(regpath);
+            client_cert_filepath_reg = filename;
+        }
+    }
+    else
+        *cred = NULL;
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;
