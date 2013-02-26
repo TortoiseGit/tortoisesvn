@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,6 +134,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
         Err = svn_client_info3(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, NULL, infoReceiver, this, m_pctx, m_pool),
         svnPath
     )
+    ClearCAPIAuthCacheOnError();
     if (Err != NULL)
         return NULL;
     if (m_arInfo.empty())

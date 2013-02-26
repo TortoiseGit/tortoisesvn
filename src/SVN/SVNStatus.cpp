@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -242,6 +242,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
                                 m_pool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
     if ((Err != NULL) || (apr_hash_count(statushash) == 0))
@@ -307,6 +308,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
                                 m_pool),
         svnPath
     )
+    ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
     if ((Err != NULL) || (apr_hash_count(m_statushash) == 0))

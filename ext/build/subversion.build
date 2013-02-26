@@ -167,7 +167,8 @@
   EXPORTS
 ERR_free_strings
 EVP_cleanup
-CRYPTO_cleanup_all_ex_data' />
+CRYPTO_cleanup_all_ex_data
+TSVN_ClearLastUsedAuthCache' />
     <echo file="${configuration}_${platform}\libsvn_tsvn${platext}.def" message="${deffilecontent}" />
 
     <property name="ssldbg" value="" if="${configuration == 'release'}" />

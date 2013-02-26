@@ -57,6 +57,9 @@
 #include <openssl/crypto.h>
 #include <openssl/buffer.h>
 #include <openssl/bn.h>
+#include <shlwapi.h>
+
+#pragma comment(lib, "shlwapi.lib")
 
 #ifdef OPENSSL_SYS_WIN32
 #ifndef OPENSSL_NO_CAPIENG
@@ -116,6 +119,96 @@
 #include "e_capi_err.h"
 #include "e_capi_err.c"
 
+
+char lastUsedAuthCacheHash[100] = {0};
+
+ void TSVN_GetSHA1HashFromX509(STACK_OF(X509_NAME) *ca_dn, char * outbuf)
+ {
+	 HCRYPTPROV hProv = 0;
+	 HCRYPTHASH hHash = 0;
+	 DWORD cbHash = 0;
+	 BYTE rgbHash[20];
+	 char sha1hashstring[50];
+	 CHAR rgbDigits[] = "0123456789abcdef";
+	 int i;
+	 X509_NAME * nm;
+
+	 outbuf[0] = 0;
+	 if (CryptAcquireContext(&hProv,
+		 NULL,
+		 NULL,
+		 PROV_RSA_FULL,
+		 CRYPT_VERIFYCONTEXT))
+	 {
+		 if (CryptCreateHash(hProv, CALG_SHA1, 0, 0, &hHash))
+		 {
+			 for (i = 0; i < sk_X509_NAME_num(ca_dn); ++i)
+			 {
+				 nm = sk_X509_NAME_value(ca_dn, i);
+				 CryptHashData(hHash, nm->canon_enc, nm->canon_enclen, 0);
+			 }
+
+			 cbHash = 20;
+			 if (CryptGetHashParam(hHash, HP_HASHVAL, rgbHash, &cbHash, 0))
+			 {
+				 for (i = 0; i < cbHash; ++i)
+				 {
+					 sha1hashstring[i*2]   = rgbDigits[rgbHash[i] >> 4];
+					 sha1hashstring[i*2+1] = rgbDigits[rgbHash[i] & 0xf];
+				 }
+				 sha1hashstring[cbHash] = 0;
+				 strcpy(outbuf, sha1hashstring);
+			 }
+			 CryptDestroyHash(hHash);
+		 }
+		 CryptReleaseContext(hProv, 0);
+	 }
+ }
+
+ int TSVN_GetSavedIndexForHash(const char* hash)
+ {
+	 int ret = -1;
+	 DWORD dwType = 0;
+	 DWORD dwData = 0;
+	 DWORD dwDataSize = 4;
+	 int bLoad = 1;
+	 if (SHGetValueA(HKEY_CURRENT_USER, "Software\\TortoiseSVN\\CAPIAuthz", hash, &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+	 {
+		 if (dwType == REG_DWORD)
+		 {
+			 ret = (int)dwData;
+		 }
+	 }
+	 return ret;
+ }
+
+ void TSVN_SaveIndexForHash(const char* hash, int index)
+ {
+	 DWORD value = index;
+	 SHSetValueA(HKEY_CURRENT_USER, "Software\\TortoiseSVN\\CAPIAuthz", hash, REG_DWORD, &value, sizeof(value));
+ }
+
+ void TSVN_ClearLastUsedAuthCache()
+ {
+	 SHDeleteValueA(HKEY_CURRENT_USER, "Software\\TortoiseSVN\\CAPIAuthz", lastUsedAuthCacheHash);
+ }
+
+ BOOL CALLBACK FindWindoProc(HWND hwnd, LPARAM lParam)
+ {
+	 HWND * pWnd;
+	 DWORD pid = 0;
+	 if ((GetWindowLongPtr(hwnd, GWL_STYLE) & WS_VISIBLE))
+	 {
+		 GetWindowThreadProcessId(hwnd, &pid);
+		 if (pid == GetCurrentProcessId())
+		 {
+			 HWND * pWnd = (HWND*)lParam;
+			 (*pWnd) = hwnd;
+			 return FALSE;
+		 }
+	 }
+	 return TRUE;
+ }
 
 static const char *engine_capi_id = "capi";
 static const char *engine_capi_name = "CryptoAPI ENGINE";
@@ -575,12 +668,29 @@ static ENGINE *engine_capi(void)
 
 void ENGINE_load_capi(void)
 	{
+	DWORD dwType = 0;
+	DWORD dwData = 0;
+	DWORD dwDataSize = 4;
+	int bLoad = 1;
+	if (SHGetValueA(HKEY_CURRENT_USER, "Software\\TortoiseSVN", "OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+	{
+		if (dwType == REG_DWORD)
+		{
+			if (dwData == 0)
+			{
+				bLoad = 0;
+			}
+		}
+	}
+	if (bLoad)
+	{
 	/* Copied from eng_[openssl|dyn].c */
 	ENGINE *toadd = engine_capi();
 	if(!toadd) return;
 	ENGINE_add(toadd);
 	ENGINE_free(toadd);
 	ERR_clear_error();
+	}
 	}
 #endif
 
@@ -1635,6 +1745,7 @@ static int capi_load_ssl_client_cert(ENGINE *e, SSL *ssl,
 	PCCERT_CONTEXT cert = NULL, excert = NULL;
 	CAPI_CTX *ctx;
 	CAPI_KEY *key;
+	char hash[100];
 	ctx = ENGINE_get_ex_data(e, capi_idx);
 
 	*pcert = NULL;
@@ -1696,8 +1807,21 @@ static int capi_load_ssl_client_cert(ENGINE *e, SSL *ssl,
 
 
 	/* Select the appropriate certificate */
-
-	client_cert_idx = ctx->client_cert_select(e, ssl, certs);
+	TSVN_GetSHA1HashFromX509(ca_dn, hash);
+	strcpy(lastUsedAuthCacheHash, hash);
+	client_cert_idx = TSVN_GetSavedIndexForHash(hash);
+	if ((client_cert_idx < 0) || (client_cert_idx >= sk_X509_num(certs)))
+	{
+		client_cert_idx = ctx->client_cert_select(e, ssl, certs);
+		if (client_cert_idx >= 0)
+		{
+			TSVN_SaveIndexForHash(hash, client_cert_idx);
+		}
+	}
+	else if (client_cert_idx >= sk_X509_num(certs))
+	{
+		TSVN_ClearLastUsedAuthCache();
+	}
 
 	/* Set the selected certificate and free the rest */
 
@@ -1734,8 +1858,10 @@ static int capi_load_ssl_client_cert(ENGINE *e, SSL *ssl,
 
 static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 	{
-	return 0;
-	}
+        if (sk_X509_num(certs) == 1)
+            return 0;
+        return -1; /* let TSVN decide which certificate to use */
+    }
 
 #ifdef OPENSSL_CAPIENG_DIALOG
 
@@ -1752,7 +1878,7 @@ static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 #define CRYPTUI_SELECT_INTENDEDUSE_COLUMN                0x000000004
 #endif
 
-#define dlg_title L"OpenSSL Application SSL Client Certificate Selection"
+#define dlg_title L"TortoiseSVN SSL Client Certificate Selection"
 #define dlg_prompt L"Select a certificate to use for authentication"
 #define dlg_columns	 CRYPTUI_SELECT_LOCATION_COLUMN \
 			|CRYPTUI_SELECT_INTENDEDUSE_COLUMN
@@ -1764,7 +1890,7 @@ static int cert_select_dialog(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 	PCCERT_CONTEXT cert;
 	CAPI_CTX *ctx;
 	CAPI_KEY *key;
-	HWND hwnd;
+	HWND hwnd = 0;
 	int i, idx = -1;
 	if (sk_X509_num(certs) == 1)
 		return 0;
@@ -1793,7 +1919,9 @@ static int cert_select_dialog(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 			}
 
 		}
-	hwnd = GetForegroundWindow();
+	EnumWindows(FindWindoProc, (LPARAM)&hwnd);
+	if (!hwnd)
+		hwnd = GetForegroundWindow();
 	if (!hwnd)
 		hwnd = GetActiveWindow();
 	if (!hwnd && ctx->getconswindow)

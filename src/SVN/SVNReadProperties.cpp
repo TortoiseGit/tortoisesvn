@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,6 +111,7 @@ svn_error_t*    SVNReadProperties::Refresh()
                                                 m_pool),
             svnPath
         )
+        ClearCAPIAuthCacheOnError();
         if (Err == NULL)
             m_props = apr_hash_copy(m_pool, props);
     }
@@ -131,6 +132,7 @@ svn_error_t*    SVNReadProperties::Refresh()
             svnPath
         )
     }
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
         return Err;
 

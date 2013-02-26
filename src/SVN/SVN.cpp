@@ -215,6 +215,7 @@ bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
                                     subpool ),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -243,6 +244,8 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
                                   subPool) ,
         NULL
     );
+
+    ClearCAPIAuthCacheOnError();
 
     if(Err != NULL)
     {
@@ -392,6 +395,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                                 localpool),
         NULL
     );
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -428,6 +432,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
         NULL
     );
     m_pctx->log_msg_baton3 = logMessage(_T(""));
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
         return 0;
@@ -464,6 +469,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                                 subpool),
         NULL
     );
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
         return false;
@@ -500,6 +506,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
         NULL
     );
 
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
         return false;
@@ -526,6 +533,7 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
                                  pool) ,
         NULL
     );
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
         return false;
@@ -780,6 +788,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                 subpool),
             source
         );
+        ClearCAPIAuthCacheOnError();
         if(Err != NULL)
         {
             return false;
@@ -811,6 +820,7 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
         svnPath
     );
 
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -880,6 +890,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
         svnPath
     );
     m_pctx->log_msg_baton3 = logMessage(_T(""));
+    ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
         return false;
@@ -919,6 +930,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
                                 subpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -953,6 +965,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
             subpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -977,6 +990,7 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, c
             subpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -1065,6 +1079,7 @@ bool SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revisio
         svnPath
     );
 
+    ClearCAPIAuthCacheOnError();
     if (Err != NULL)
     {
         return false;
@@ -1193,6 +1208,7 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                                localpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     if (Err)
     {
         return false;
@@ -1287,6 +1303,7 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
             localpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     if (Err)
     {
         return false;
@@ -1314,6 +1331,7 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, const SVNRev& rev1, const CTSVNP
                                         m_pctx, localpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -1332,6 +1350,7 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, const SVNRev& peg, const SVNRe
                                             m_pctx, localpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -1472,6 +1491,7 @@ bool SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& rev
     );
 
     apr_file_close(file);
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -1542,6 +1562,7 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
                                  subpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
 
     if ((Err != 0)&&((Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE)||(Err->apr_err == SVN_ERR_FS_NOT_FOUND)||(Err->apr_err == SVN_ERR_CLIENT_UNRELATED_RESOURCES))&&(includemerge))
     {
@@ -1561,6 +1582,7 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
             svnPath
         )
     }
+    ClearCAPIAuthCacheOnError();
 
     return (Err == NULL);
 }
@@ -1656,6 +1678,7 @@ bool SVN::Lock(const CTSVNPathList& pathList, bool bStealLock, const CString& co
     Prepare();
     CHooks::Instance().PreConnect(pathList);
     Err = svn_client_lock(pathList.MakePathArray(pool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, pool);
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -1666,6 +1689,7 @@ bool SVN::Unlock(const CTSVNPathList& pathList, bool bBreakLock)
     Prepare();
     CHooks::Instance().PreConnect(pathList);
     Err = svn_client_unlock(pathList.MakePathArray(pool), bBreakLock, m_pctx, pool);
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -1958,6 +1982,7 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
                                subpool),
         svnPath
     )
+    ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
 
@@ -1981,6 +2006,7 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
         svnPath
     );
 
+    ClearCAPIAuthCacheOnError();
     if (Err == NULL)
     {
         GetLogCachePool()->DropCache(uuid, root);
@@ -2032,6 +2058,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, C
         Err = svn_client_get_repos_root(&returl, &uuid, goodurl, m_pctx, localpool, localpool),
         goodurl
     );
+    ClearCAPIAuthCacheOnError();
     if (Err == NULL)
     {
         sUUID = CString(uuid);
@@ -2104,6 +2131,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
             Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
             urla
         );
+        ClearCAPIAuthCacheOnError();
         if (Err)
             return -1;
 
@@ -2111,6 +2139,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
             Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool),
             urla
         );
+        ClearCAPIAuthCacheOnError();
         if (Err)
             return -1;
         return rev;
@@ -2167,6 +2196,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
                     Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
                     urla
                 );
+                ClearCAPIAuthCacheOnError();
                 if (Err)
                     return false;
 
@@ -2174,6 +2204,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
                     Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool),
                     urla
                 );
+                ClearCAPIAuthCacheOnError();
                 if (Err)
                     return false;
             }
@@ -2192,6 +2223,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
             Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
             urla
         );
+        ClearCAPIAuthCacheOnError();
         if (Err)
             return FALSE;
 
@@ -2199,6 +2231,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
             Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool),
             urla
         );
+        ClearCAPIAuthCacheOnError();
         if (Err)
             return FALSE;
 
@@ -2206,6 +2239,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
             Err = svn_ra_get_repos_root2(ra_session, &returl, localpool),
             urla
         );
+        ClearCAPIAuthCacheOnError();
         if (Err)
             return FALSE;
 
@@ -2231,6 +2265,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
         Err = svn_client_open_ra_session (&ra_session, svnPath, m_pctx, localpool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     if (Err != NULL)
         return false;
 
@@ -2238,6 +2273,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
         Err = svn_ra_get_locks2(ra_session, &hash, "", svn_depth_infinity, localpool),
         svnPath
     )
+    ClearCAPIAuthCacheOnError();
     if (Err != NULL)
         return false;
     apr_hash_index_t *hi;
@@ -2343,6 +2379,7 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
                                         pool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     if (Err)
         return 0;
     return set_rev;
@@ -2360,6 +2397,7 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SV
         Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, svnPath, rev, &set_rev, m_pctx, pool),
         svnPath
     );
+    ClearCAPIAuthCacheOnError();
     if (Err)
         return _T("");
     if (propval==NULL)

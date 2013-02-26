@@ -37,6 +37,8 @@
 #include "svn_client.h"
 #pragma warning(pop)
 
+extern "C" void TSVN_ClearLastUsedAuthCache();
+
 SVNBase::SVNBase()
     : Err(NULL)
     , m_pctx(NULL)
@@ -263,6 +265,16 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
 
     ret = MessageBox(hParent, (LPCTSTR)sError, L"TortoiseSVN", MB_ICONERROR);
     return ret;
+}
+
+void SVNBase::ClearCAPIAuthCacheOnError()
+{
+    if (Err != NULL)
+    {
+        if ( (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+            (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)))
+            TSVN_ClearLastUsedAuthCache();
+    }
 }
 
 #endif
