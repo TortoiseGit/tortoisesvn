@@ -89,8 +89,15 @@ void CSettingsClearAuth::OnOK()
     {
         if (m_cAuthList.GetCheck(i))
         {
-            auto data = std::make_tuple(m_cAuthList.GetItemText(i, 0), m_cAuthList.GetItemText(i, 1), m_cAuthList.GetItemText(i, 2));
-            delList.push_back(data);
+            if (m_cAuthList.GetItemText(i, 0).Compare(L"certificate")==0)
+            {
+                SHDeleteValue(HKEY_CURRENT_USER, L"Software\\TortoiseSVN\\CAPIAuthz", m_cAuthList.GetItemText(i, 1));
+            }
+            else
+            {
+                auto data = std::make_tuple(m_cAuthList.GetItemText(i, 0), m_cAuthList.GetItemText(i, 1), m_cAuthList.GetItemText(i, 2));
+                delList.push_back(data);
+            }
         }
     }
 
@@ -129,6 +136,21 @@ void CSettingsClearAuth::FillAuthListControl()
         m_cAuthList.SetItemText(iItem, 2, std::get<2>(it));
         ++iItem;
     }
+
+    CRegistryKey regCerts(L"Software\\TortoiseSVN\\CAPIAuthz");
+    CStringList certList;
+    regCerts.getValues(certList);
+    for (POSITION pos = certList.GetHeadPosition(); pos != NULL; )
+    {
+        CString certHash = certList.GetNext(pos);
+        CRegDWORD regCert(_T("Software\\TortoiseSVN\\CAPIAuthz\\")+certHash);
+        m_cAuthList.InsertItem (iItem,    L"certificate");
+        m_cAuthList.SetItemText(iItem, 1, certHash);
+        temp.Format(L"%d", (int)(DWORD)regCert);
+        m_cAuthList.SetItemText(iItem, 2, temp);
+        ++iItem;
+    }
+
 
     int maxcol = ((CHeaderCtrl*)(m_cAuthList.GetDlgItem(0)))->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)

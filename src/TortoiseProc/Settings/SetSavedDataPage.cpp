@@ -267,6 +267,7 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
         pathbuf[_tcslen(pathbuf)+1] = 0;
         DeleteViaShell(pathbuf, IDS_SETTINGS_DELFILE);
     }
+    SHDeleteKey(HKEY_CURRENT_USER, L"Software\\TortoiseSVN\\CAPIAuthz");
     DialogEnableWindow(&m_btnAuthHistClear, false);
     DialogEnableWindow(&m_btnAuthHistClearSelect, false);
     m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTCLEAR));
