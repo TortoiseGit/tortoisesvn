@@ -189,6 +189,7 @@
 #define IDS_SVN_DEPTH_UNKNOWN           305
 #define IDS_SVN_DEPTH_WORKING           306
 #define IDS_COLTITLESTATUSNUMBER        307
+#define IDS_SVNERR_RUNCLEANUP           308
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -241,7 +242,7 @@
 #define IDC_CHECKSUM                    11027
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        5165
