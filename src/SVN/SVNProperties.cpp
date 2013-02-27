@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,7 +129,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #else
     UNREFERENCED_PARAMETER(message);
 #endif
-    if ((!m_bRevProps)&&((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
+    if ((!m_bRevProps)&&(!m_path.IsUrl())&&((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
     {
         // The bugtraq and tsvn properties must only be set on folders.
         CTSVNPath path;
@@ -152,22 +152,11 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #endif
                 // a versioned folder, so set the property!
                 SVNPool setPool((apr_pool_t*)subpool);
-                if (m_path.IsUrl())
-                {
-                    const char* svnPath = path.GetSVNApiPath(setPool);
-                    SVNTRACE (
-                        Err = svn_client_propset_remote(name.c_str(), pval, svnPath, false, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, setPool),
-                        svnPath
-                        )
-                }
-                else
-                {
-                    CTSVNPathList target = CTSVNPathList(path);
-                    SVNTRACE (
-                        Err = svn_client_propset_local(name.c_str(), pval, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
-                        NULL
-                        )
-                }
+                CTSVNPathList target = CTSVNPathList(path);
+                SVNTRACE (
+                    Err = svn_client_propset_local(name.c_str(), pval, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
+                    NULL
+                    )
             }
             status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
@@ -241,7 +230,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     }
     else
     {
-        if (((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
+        if (!m_path.IsUrl()&&((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
         {
             CTSVNPath path;
             SVNStatus stat;
@@ -261,22 +250,11 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                         m_pProgress->SetLine(2, path.GetWinPath(), true);
 #endif
                     SVNPool setPool((apr_pool_t*)subpool);
-                    const char* svnLocalPath = path.GetSVNApiPath(setPool);
-                    if (m_path.IsUrl())
-                    {
-                        SVNTRACE (
-                            Err = svn_client_propset_remote(name.c_str(), NULL, svnLocalPath, false, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, setPool),
-                            svnLocalPath
-                            )
-                    }
-                    else
-                    {
-                        CTSVNPathList target = CTSVNPathList(path);
-                        SVNTRACE (
-                            Err = svn_client_propset_local(name.c_str(), NULL, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
-                            NULL
-                            )
-                    }
+                    CTSVNPathList target = CTSVNPathList(path);
+                    SVNTRACE (
+                        Err = svn_client_propset_local(name.c_str(), NULL, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
+                        NULL
+                        )
                 }
                 status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
