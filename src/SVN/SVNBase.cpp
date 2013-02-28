@@ -272,7 +272,8 @@ void SVNBase::ClearCAPIAuthCacheOnError()
     if (Err != NULL)
     {
         if ( (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
-            (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)))
+             (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+             (Err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN))
             TSVN_ClearLastUsedAuthCache();
     }
 }
