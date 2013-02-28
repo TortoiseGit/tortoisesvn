@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -189,7 +189,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     AdjustControlSize(IDC_PROPRECURSIVE);
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
-    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || m_bRemote ? SW_HIDE : SW_SHOW);
 
     AddAnchor(IDC_PROPNAME, TOP_LEFT, TOP_CENTER);
     AddAnchor(IDC_PROPNAMECOMBO, TOP_CENTER, TOP_RIGHT);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ EditPropBase::EditPropBase()
     , m_bChanged(false)
     , m_bRevProps(false)
     , m_bRecursive(false)
+    , m_bRemote(false)
 {
 }
 
@@ -55,6 +56,16 @@ void EditPropBase::SetPropertyValue(const std::string& sValue)
         m_bIsBinary = false;
     }
     m_PropValue = sValue;
+}
+
+void EditPropBase::SetPathList( const CTSVNPathList& pathlist )
+{
+    m_pathList = pathlist;
+    if (m_pathList.GetCount())
+    {
+        if (m_pathList[0].IsUrl())
+            m_bRemote = true;
+    }
 }
 
 
