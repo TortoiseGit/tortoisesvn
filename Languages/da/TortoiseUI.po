@@ -11,13 +11,13 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Mikkel Elmholdt <mikkel@elmholdt.dk>, 2011-2012.
+# Mikkel Elmholdt <mikkel@elmholdt.dk>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:12+0000\n"
+"PO-Revision-Date: 2013-02-28 09:07+0000\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,7 +216,7 @@ msgstr "%s (offline)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (rekursivt)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -403,7 +403,7 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr ""
+msgstr "&Om TortoiseMerge..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -815,7 +815,7 @@ msgstr "&Hjælp"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr ""
+msgstr "&Hjælp emner"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -997,11 +997,11 @@ msgstr "Ændr farve for &kopier af hovedgren"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "&Flyttede blokke"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
-msgstr ""
+msgstr "&Naviger"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1074,7 +1074,7 @@ msgstr "&Indstillinger"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Andet"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1854,7 +1854,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Tilføjede filmønstre(ne)\n%s\ntil den globale ignoreringsliste."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2193,7 +2193,7 @@ msgstr "Auto-omdøb"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-Flet"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2216,7 +2216,7 @@ msgstr "Automatisk fuldføring foreslår ord (normalt klasse- eller medlemsnavne
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-flet %1!s! ind i %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2492,7 +2492,7 @@ msgstr "Fortryd\nLøs ikke konflikten på elementet"
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "Afbryd\nVis ikke forskellen."
 
 #. Resource IDs: (315)
 msgid ""
@@ -3028,7 +3028,7 @@ msgstr "Kommandolinje, der skal udføres:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Udfør kommando linie:\nFor at specificere en sti ind i en arbejdskopi skal du angive URL'en i versionsarkivet med rod-URL'en sat til %REPOROOT%, eller  %REPOROOT+% d længere nede i arbejdskopi roden."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3127,7 +3127,7 @@ msgstr "Sammenlign blanktegn"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "Sammenlign med &HEAD og BASE"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3975,7 +3975,7 @@ msgstr "Vis ikke højrekliksmenuer for følgende stier:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Udfør reintegration i stedet for automatisk fletning"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4686,11 +4686,11 @@ msgstr "Hent indhold af foldere i baggrunden så gennemsyn er hurtigere"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Henter filliste fra kilde"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Henter filliste fra destination"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -6118,7 +6118,7 @@ msgstr "Lås filer"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Lås brudt op"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6274,7 +6274,7 @@ msgstr "Marker til sammenligning"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Marker manglende filer som fjernet"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6630,7 +6630,7 @@ msgstr "Flyttet fra"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Flyttet fra\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6645,7 +6645,7 @@ msgstr "Flyttet til"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Flyttet til\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6674,7 +6674,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -7409,7 +7409,7 @@ msgstr "Vent venligst mens versionsarkivbrowseren initialiserer..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Vent venligst mens vi checker flette-parametrene."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7692,7 +7692,7 @@ msgstr "&Hukommelsesdrev"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eintegrer en sidegren / automatisk fletning"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8052,7 +8052,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Fjernede filmønstre(ne)\n%s\nfra den globale ignoreringsliste."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8974,11 +8974,11 @@ msgstr "Vis &ændringer"
 
 #. Resource IDs: (1480)
 msgid "Show &externals"
-msgstr ""
+msgstr "Vis &eksterne"
 
 #. Resource IDs: (1529)
 msgid "Show &locks"
-msgstr ""
+msgstr "Vis &låse"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
@@ -10102,13 +10102,13 @@ msgstr "Versionsarkivet blev oprettet korrekt.\nØnsker du at oprette en standar
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "Den krævede automatiske fletning udføres som reintegration, og \"Noter kun fletningen\" optionen kan ikke bruges."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "Den krævede atomatiske fletning udføres som reintegration.\nFletningsdybde-optionen \"Arbejdskopi\" er den eneste der kan bruges."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10401,7 +10401,7 @@ msgstr "Dette vil slette historikken over kommandoer du har brugt i dette progra
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Dette vil opgradere din arbejdskopi til det nye 1.8 format og gøre den utilgængelig for ældre klienter."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10548,7 +10548,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10641,7 +10641,7 @@ msgstr "Optimer TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10911,7 +10911,7 @@ msgstr "Opdaterer log-cache"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Opgrader arbejdskopien\ntil det nye 1.8 format."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -10971,7 +10971,7 @@ msgstr "Brug blokke"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "Brug Bånd"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-19 14:58+0000\n"
+"PO-Revision-Date: 2013-02-27 14:30+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgid ""
 " the next day. Imagine a team of such developers working concurrently - and "
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
-msgstr "バージョン管理は、情報の変更を管理する技術です。これは、たとえばソフトウェアのあちこちに変更を加えたり、その翌日にはその変更の一部を取り消したりチェックしたりすることに時間を費やしてきたようなプログラマたちにとって、長い間重要な技でした。そのような開発者たちが同時に働くチームを想像してみてください。恐らく同じファイルに同時に変更を加える場面があるでしょう。なぜ、 <emphasis>このような潜在的な混沌を管理</emphasis> する良いシステムが求められているかがわかるでしょう。"
+msgstr "バージョン管理は、情報の変更を管理する技術です。これは、たとえばソフトウェアのあちこちに変更を加えたり、その翌日にはその変更の一部を取り消したりチェックしたりすることに時間を費やしてきたようなプログラマたちにとって、長い間重要な技でした。そのような開発者たちが同時に働くチームを想像してみてください。恐らく同じファイルに同時に変更を加える場面があるでしょう。なぜ、<emphasis>このような潜在的な混沌を管理する</emphasis>良いシステムが求められているかがわかるでしょう。"
 
 #. (title)
 msgid "What is TortoiseSVN?"
@@ -109,7 +109,7 @@ msgid ""
 "supplying tools for building software. Subversion, however, is not one of "
 "these systems; it is a general system that can be used to manage "
 "<emphasis>any</emphasis> collection of files, including source code."
-msgstr "バージョン管理システムによっては、ソフトウェア構成管理（SCM）システムを兼ねている場合もあります。このようなシステムはソースコードのツリーを管理するために最適化して設計されており、ソフトウェア開発に特化した多くの機能を持っています。例えば、プログラム言語をネイティブに理解したり、ソフトウェアを構築するのに必要なツールが付属していたりといった具合です。しかし、 Subversion はそういったシステムではありません。 <emphasis>あらゆる</emphasis> ファイルの集合（ソースコードを含む）を管理する汎用的なシステムです。"
+msgstr "バージョン管理システムによっては、ソフトウェア構成管理（SCM）システムを兼ねている場合もあります。このようなシステムはソースコードのツリーを管理するために最適化して設計されており、ソフトウェア開発に特化した多くの機能を持っています。例えば、プログラム言語をネイティブに理解したり、ソフトウェアを構築するのに必要なツールが付属していたりといった具合にです。しかし、Subversionはそういったシステムではありません。<emphasis>あらゆる</emphasis>ファイルの集合（ソースコードを含む）を管理する汎用的なシステムです。"
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -119,7 +119,7 @@ msgstr "TortoiseSVNの特徴"
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "TortoiseSVN は Subversion クライアントとして、どのような点が優れているのでしょうか？主な特徴は次の通りです。"
+msgstr "TortoiseSVNはSubversionクライアントとして、どのような点が優れているのでしょうか？主な特徴は次の通りです。"
 
 #. (term)
 msgid "Shell integration"
@@ -127,7 +127,7 @@ msgstr "シェル統合"
 
 #. (primary)
 msgid "Windows shell"
-msgstr "Windows シェル"
+msgstr "Windowsシェル"
 
 #. (primary)
 msgid "explorer"
@@ -139,7 +139,7 @@ msgid ""
 "explorer). This means you can keep working with the tools you're already "
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
-msgstr "TortoiseSVN は Windows のシェル（すなわちエクスプローラー）に統合されています。つまり、すでに使い慣れた方法で操作することができます。そして、バージョン管理の機能が必要になるたびに違うアプリケーションに切り替える必要はありません。"
+msgstr "TortoiseSVNはWindowsのシェル（すなわちエクスプローラー）に統合されています。つまり、すでに使い慣れた方法で操作することができます。そして、バージョン管理の機能が必要になるたびに違うアプリケーションに切り替える必要はありません。"
 
 #. (para)
 msgid ""
@@ -149,7 +149,7 @@ msgid ""
 "bear in mind that TortoiseSVN is intentionally developed as an extension for"
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Windows のエクスプローラーに限らず、 TortoiseSVN のコンテキストメニューは、他のファイルマネージャや、「ファイルを開く」ダイアログのような一般の Windows アプリケーションで共通に使用されているダイアログでも使用することができます。しかし、 TortoiseSVN は Windows エクスプローラーの拡張機能として開発されていることを認識しておいてください。つまり、他のアプリケーションを使うと、例えばアイコンオーバレイが表示されないというような不都合が生じる可能性もあります。"
+msgstr "Windowsのエクスプローラーに限らず、TortoiseSVNのコンテキストメニューは、他のファイルマネージャや、「ファイルを開く」ダイアログのような一般のWindowsアプリケーションで共通に使用されているダイアログでも使用することができます。しかし、TortoiseSVNはWindowsエクスプローラーの拡張機能として開発されていることを認識しておいてください。つまり、他のアプリケーションの中では、アイコンオーバーレイが表示されないといったように、統合が不完全になることもあります。"
 
 #. (term)
 msgid "Icon overlays"
@@ -183,19 +183,19 @@ msgstr "コミットダイアログでは、コミットに含まれる可能性
 
 #. (term)
 msgid "Easy access to Subversion commands"
-msgstr "Subversion コマンドへの容易なアクセス"
+msgstr "Subversionコマンドへの容易なアクセス"
 
 #. (para)
 msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
-msgstr "エクスプローラーのコンテキストメニューから、すべての Subversion コマンドにアクセスできます。TortoiseSVN は独自のサブメニューにそのコマンドを追加します。"
+msgstr "エクスプローラーのコンテキストメニューから、すべてのSubversionコマンドを利用できます。TortoiseSVNは独自のサブメニューにそのコマンドを追加します。"
 
 #. (para)
 msgid ""
 "Since TortoiseSVN is a Subversion client, we would also like to show you "
 "some of the features of Subversion itself:"
-msgstr "TortoiseSVN は Subversion クライアントであるため、 Subversion 自体が持つ特徴も紹介します。"
+msgstr "TortoiseSVNはSubversionのクライアントであるため、Subversion自体が持つ特徴も紹介します。"
 
 #. (term)
 msgid "Directory versioning"
@@ -208,7 +208,7 @@ msgid ""
 "directory trees over time. Files <emphasis>and</emphasis> directories are "
 "versioned. As a result, there are real client-side <command>move</command> "
 "and <command>copy</command> commands that operate on files and directories."
-msgstr "CVS は個々のファイルの履歴しか追跡できませんが、 Subversion では、時系列でディレクトリツリー全体に行われた変更を追跡する<quote>仮想的な</quote>バージョン管理ファイルシステムを実装しています。ファイル <emphasis>と</emphasis> ディレクトリがバージョン管理されます。そのため、クライアント側からファイルやディレクトリを操作する<command>move</command>（移動）や<command>copy</command>（コピー）コマンドが実装されています。"
+msgstr "CVSは個々のファイルの履歴しか追跡できませんが、Subversionでは、時系列でディレクトリツリー全体に行われた変更を追跡する<quote>仮想的な</quote>バージョン管理ファイルシステムを実装しています。ファイル<emphasis>および</emphasis>ディレクトリがバージョン管理されます。そのため、クライアント側からファイルやディレクトリを操作する<command>move</command>（移動）や<command>copy</command>（コピー）コマンドが実装されています。"
 
 #. (term)
 msgid "Atomic commits"
@@ -246,7 +246,7 @@ msgid ""
 "compression, and repository browsing, for example. A smaller, standalone "
 "Subversion server process is also available. This server speaks a custom "
 "protocol which can be easily tunneled over ssh."
-msgstr "Subversion はリポジトリへのアクセスが抽象化されており、新しいネットワークメカニズムを容易に実装できるようになっています。 Subversion の<quote>先進的</quote>なネットワークサーバーは、Apache ウェブサーバーのモジュールになっており、 HTTP の一種である WebDAV/DeltaV で通信します。これは、 Subversion に安定性や相互運用性の面で大きな利点を与え、認証、認可、データ圧縮、リポジトリ閲覧のような、様々な重要な機能を使用することができます。もっと小さいスタンドアロンの Subversion サーバーもあります。このサーバーは ssh で簡単にトンネル通信ができる独自プロトコルで通信します。"
+msgstr "Subversionはリポジトリへのアクセスが抽象化されており、新しいネットワークメカニズムを容易に実装できるようになっています。Subversionの<quote>先進的</quote>なネットワークサーバーは、Apache ウェブサーバーのモジュールになっており、HTTPの一種であるWebDAV/DeltaVで通信します。これは、Subversionに安定性や相互運用性の面で大きな利点を与え、認証、認可、データ圧縮、リポジトリ閲覧のような、様々な重要な機能を使用することができます。もっと小さいスタンドアロンのSubversionサーバーもあります。このサーバーはsshで簡単にトンネル通信ができる独自プロトコルで通信します。"
 
 #. (term)
 msgid "Consistent data handling"
@@ -259,7 +259,7 @@ msgid ""
 "unreadable) files. Both types of files are stored equally compressed in the "
 "repository, and differences are transmitted in both directions across the "
 "network."
-msgstr "Subversion はテキストファイル（人が読める形式）でもバイナリファイル（人が読めない形式）でも、ファイルの差分をバイナリ差分アルゴリズムを用いて表現します。どちらのタイプのファイルでも、リポジトリに圧縮して格納されます。また、差分はネットワークを使って双方向に通信されます。"
+msgstr "Subversionはテキストファイル（人が読める形式）でもバイナリファイル（人が読めない形式）でも、ファイルの差分をバイナリ差分アルゴリズムを用いて表現します。どちらのタイプのファイルでも、リポジトリに圧縮して格納されます。また、差分はネットワークを使って双方向に通信されます。"
 
 #. (term)
 msgid "Efficient branching and tagging"
@@ -272,7 +272,7 @@ msgid ""
 "using a mechanism similar to a hard-link. Thus these operations take only a "
 "very small, constant amount of time, and very little space in the "
 "repository."
-msgstr "ブランチやタグを作成するときのコストは、プロジェクトの規模に比例しません。 Subversion はブランチやタグを作成するのに、ハードリンクによく似た単純なプロジェクトのコピーで行います。そのため、この操作はとても小さいコストであり、一定の時間で完了し、リポジトリのほんの小さな領域しか使用しません。"
+msgstr "ブランチやタグを作成するときのコストは、プロジェクトの規模に比例しません。Subversionはブランチやタグを作成するのに、ハードリンクによく似た単純なプロジェクトのコピーで行います。そのため、この操作はとても小さいコストであり、一定の時間で完了し、リポジトリのほんの小さな領域しか使用しません。"
 
 #. (title)
 msgid "License"
@@ -283,7 +283,7 @@ msgid ""
 "TortoiseSVN is an Open Source project developed under the GNU General Public"
 " License (GPL). It is free to download and free to use, either personally or"
 " commercially, on any number of PCs."
-msgstr "TortoiseSVN は、 GNU General Public License (GPL) に基づいて開発されているオープンソース・プロジェクトです。個人用・商用にかかわらず、何台のPCにも、無料でダウンロードでき無料で使用できます。"
+msgstr "TortoiseSVNは、 GNU General Public License (GPL) に基づいて開発されているオープンソース・プロジェクトです。個人用・商用にかかわらず、何台のPCにも、無料でダウンロードでき無料で使用できます。"
 
 #. (para)
 msgid ""
@@ -293,7 +293,7 @@ msgid ""
 "url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "多くの人々はインストーラーをダウンロードしますが、このプログラムのソースコードもすべて読めるようになっています。ブラウザで <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink> から参照できます。現在開発中のものは <filename>/trunk/</filename> 以下に、既にリリースされたバージョンは <filename>/tags/</filename> 以下にあります。"
+msgstr "多くの人々はインストーラーをダウンロードしますが、このプログラムのソースコードもすべて読めるようになっています。ブラウザーで <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink> から参照できます。現在開発中のものは <filename>/trunk/</filename> 以下に、既にリリースされたバージョンは <filename>/tags/</filename> 以下にあります。"
 
 #. (title)
 msgid "Development"
