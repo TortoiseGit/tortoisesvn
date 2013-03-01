@@ -3122,7 +3122,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             if (m_dwContextMenus & SVNSLC_POPREPAIRMOVE)
                             {
                                 if ((status1 == svn_wc_status_missing && ((status2 == svn_wc_status_unversioned)||(status2 == svn_wc_status_none))) ||
-                                    (status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none))))
+                                    (status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none))) ||
+                                    ((status1 == svn_wc_status_deleted) && (status2 == svn_wc_status_added)) ||
+                                    ((status2 == svn_wc_status_deleted) && (status1 == svn_wc_status_added)))
                                 {
                                     popup.AppendMenuIcon(IDSVNLC_REPAIRMOVE, IDS_STATUSLIST_CONTEXT_REPAIRMOVE);
                                 }
@@ -5906,21 +5908,31 @@ void CSVNStatusListCtrl::OnRepairMove()
         return;
 
     svn_wc_status_kind status2 = entry2->status;
-    if (status2 == svn_wc_status_missing && status1 == svn_wc_status_unversioned)
-    {
+    if (status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none)))
         std::swap(entry1, entry2);
+    if ((status2 == svn_wc_status_deleted) && (status1 == svn_wc_status_added))
+        std::swap(entry1, entry2);
+
+    SVN svn;
+    if (entry2->status == svn_wc_status_added)
+    {
+        // the target file was already added: revert it first
+        svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false);
+        svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false);
     }
+
+
     // entry1 was renamed to entry2 but outside of Subversion
     // fix this by moving entry2 back to entry1 first,
     // then do an svn-move from entry1 to entry2
     CPathUtils::MakeSureDirectoryPathExists(entry1->GetPath().GetContainingDirectory().GetWinPath());
-    if (!MoveFile(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath()))
+    entry1->GetPath().Delete(true);
+    if (!MoveFileEx(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath(), MOVEFILE_REPLACE_EXISTING))
     {
         ShowErrorMessage();
         return;
     }
 
-    SVN svn;
     // now make sure that the target folder is versioned
     CTSVNPath parentPath = entry2->GetPath().GetContainingDirectory();
     FileEntry * parentEntry = GetListEntry(parentPath);
