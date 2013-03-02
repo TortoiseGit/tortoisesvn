@@ -34,16 +34,27 @@
 #include "DiffOptionsDlg.h"
 #include "AsyncCall.h"
 
-#define ID_COMPARE 1
-#define ID_BLAME 2
-#define ID_SAVEAS 3
-#define ID_EXPORT 4
-#define ID_CLIPBOARD 5
-#define ID_UNIFIEDDIFF 6
-#define ID_LOG 7
+enum FileDiffDlgMenuIDs
+{
+    ID_COMPARE = 1,
+    ID_COMPARETEXT,
+    ID_COMPAREPROP,
+    ID_BLAME,
+    ID_SAVEAS,
+    ID_EXPORT,
+    ID_CLIPBOARD,
+    ID_UNIFIEDDIFF,
+    ID_LOG,
+};
+
+#define COL1WIDTH 200
 
 BOOL    CFileDiffDlg::m_bAscending = FALSE;
 int     CFileDiffDlg::m_nSortedColumn = -1;
+
+CString sContentOnly;
+CString sPropertiesOnly;
+CString sContentAndProps;
 
 
 IMPLEMENT_DYNAMIC(CFileDiffDlg, CResizableStandAloneDialog)
@@ -155,8 +166,8 @@ BOOL CFileDiffDlg::OnInitDialog()
 
     CRect rect;
     m_cFileList.GetClientRect(&rect);
-    m_cFileList.SetColumnWidth(0, rect.Width()-100);
-    m_cFileList.SetColumnWidth(1, 100);
+    m_cFileList.SetColumnWidth(0, rect.Width()-COL1WIDTH-20);
+    m_cFileList.SetColumnWidth(1, COL1WIDTH);
 
     m_cFileList.SetRedraw(true);
 
@@ -171,6 +182,10 @@ BOOL CFileDiffDlg::OnInitDialog()
     AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 
     SetURLLabels();
+
+    sContentOnly        = CString(MAKEINTRESOURCE(IDS_CONTENTONLY));
+    sPropertiesOnly     = CString(MAKEINTRESOURCE(IDS_PROPONLY));
+    sContentAndProps    = CString(MAKEINTRESOURCE(IDS_CONTENTANDPROP));
 
     EnableSaveRestore(_T("FileDiffDlg"));
 
@@ -239,8 +254,8 @@ UINT CFileDiffDlg::DiffThread()
 
     CRect rect;
     m_cFileList.GetClientRect(&rect);
-    m_cFileList.SetColumnWidth(0, rect.Width()-100);
-    m_cFileList.SetColumnWidth(1, 100);
+    m_cFileList.SetColumnWidth(0, rect.Width()-COL1WIDTH-20);
+    m_cFileList.SetColumnWidth(1, COL1WIDTH);
 
     m_cFileList.ClearText();
     m_cFileList.SetRedraw(true);
@@ -251,7 +266,7 @@ UINT CFileDiffDlg::DiffThread()
     return 0;
 }
 
-void CFileDiffDlg::DoDiff(int selIndex, bool blame)
+void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
 {
     CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
@@ -266,11 +281,13 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
             url2 = m_bDoPegDiff ? url1 : CTSVNPath(GetURLFromPath(m_path2) + _T("/") + fd.path.GetSVNPathString());
     }
 
-    if (fd.propchanged)
+    if (fd.propchanged && bProps && (!blame || bProps))
     {
         DiffProps(selIndex);
     }
     if (fd.node == svn_node_dir)
+        return;
+    if (!bText)
         return;
 
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path1, m_rev1);
@@ -479,7 +496,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     if (selIndex >= (int)m_arFilteredList.size())
         return;
 
-    DoDiff(selIndex, m_bBlame);
+    DoDiff(selIndex, true, false, m_bBlame);
 }
 
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -576,6 +593,13 @@ void CFileDiffDlg::OnLvnGetdispinfoFilelist(NMHDR *pNMHDR, LRESULT *pResult)
                     break;
                 case 1: // action
                     lstrcpyn(m_columnbuf, GetSummarizeActionText(data->kind), pDispInfo->item.cchTextMax);
+                    wcscat_s(m_columnbuf, L" ");
+                    if ((data->kind != svn_client_diff_summarize_kind_normal)&&(!data->propchanged))
+                        wcscat_s(m_columnbuf, sContentOnly);
+                    else if (data->kind == svn_client_diff_summarize_kind_normal)
+                        wcscat_s(m_columnbuf, sPropertiesOnly);
+                    else
+                        wcscat_s(m_columnbuf, sContentAndProps);
                     break;
                 default:
                     m_columnbuf[0] = 0;
@@ -617,7 +641,27 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     if (!popup.CreatePopupMenu())
         return;
 
-    popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+    POSITION spos = m_cFileList.GetFirstSelectedItemPosition();
+    int sindex = m_cFileList.GetNextSelectedItem(spos);
+    FileDiff sfd = m_arFilteredList[sindex];
+
+    if (sfd.kind != svn_client_diff_summarize_kind_normal)
+    {
+        if (sfd.propchanged)
+            popup.AppendMenuIcon(ID_COMPARETEXT, IDS_LOG_POPUP_COMPARETWOTEXT, IDI_DIFF);
+        else
+            popup.AppendMenuIcon(ID_COMPARETEXT, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+    }
+    if (sfd.propchanged)
+    {
+        if (sfd.kind != svn_client_diff_summarize_kind_normal)
+            popup.AppendMenuIcon(ID_COMPAREPROP, IDS_LOG_POPUP_COMPARETWOPROP, IDI_DIFF);
+        else
+            popup.AppendMenuIcon(ID_COMPAREPROP, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+    }
+    if ((sfd.kind != svn_client_diff_summarize_kind_normal)&&(sfd.propchanged))
+        popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+
     popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
     popup.AppendMenuIcon(ID_BLAME, IDS_FILEDIFF_POPBLAME, IDI_BLAME);
     popup.AppendMenuIcon(ID_LOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);
@@ -641,7 +685,49 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, false);
+                    DoDiff(index, true, true, false);
+
+                    this->EnableWindow(TRUE);
+                    this->SetFocus();
+                };
+                new async::CAsyncCall(f, &netScheduler);
+            }
+        }
+        break;
+    case ID_COMPARETEXT:
+        {
+            POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+            while (pos)
+            {
+                int index = m_cFileList.GetNextSelectedItem(pos);
+
+                auto f = [=]()
+                {
+                    CoInitialize(NULL);
+                    this->EnableWindow(FALSE);
+
+                    DoDiff(index, true, false, false);
+
+                    this->EnableWindow(TRUE);
+                    this->SetFocus();
+                };
+                new async::CAsyncCall(f, &netScheduler);
+            }
+        }
+        break;
+    case ID_COMPAREPROP:
+        {
+            POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+            while (pos)
+            {
+                int index = m_cFileList.GetNextSelectedItem(pos);
+
+                auto f = [=]()
+                {
+                    CoInitialize(NULL);
+                    this->EnableWindow(FALSE);
+
+                    DoDiff(index, false, true, false);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -717,7 +803,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, true);
+                    DoDiff(index, true, false, true);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -985,14 +1071,14 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
                 }
             }
             break;
-        case '\r':
+        case VK_RETURN:
             {
                 if (GetFocus() == GetDlgItem(IDC_FILELIST))
                 {
                     // Return pressed in file list. Show diff, as for double click
                     int selIndex = m_cFileList.GetSelectionMark();
                     if ((selIndex >= 0) && (selIndex < (int)m_arFileList.size()))
-                        DoDiff(selIndex, m_bBlame);
+                        DoDiff(selIndex, true, false, m_bBlame);
                     return TRUE;
                 }
             }
