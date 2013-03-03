@@ -156,6 +156,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                                 '0X' prepended.
                             </entry>
                         </row>
+                        <row>
+                            <entry condition="pot">-q</entry>
+                            <entry>
+                                If this switch is given, SubWCRev will perform the
+                                keyword substitution without showing working copy
+                                status on stdout.
+                            </entry>
+                        </row>
                     </tbody>
                 </tgroup>
             </table>

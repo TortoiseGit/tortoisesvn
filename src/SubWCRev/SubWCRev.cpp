@@ -713,6 +713,7 @@ int _tmain(int argc, _TCHAR* argv[])
     BOOL bErrOnMods = FALSE;
     BOOL bErrOnUnversioned = FALSE;
     BOOL bErrOnMixed = FALSE;
+    BOOL bQuiet = FALSE;
     SubWCRev_t SubStat;
     memset (&SubStat, 0, sizeof (SubStat));
     SubStat.bFolders = FALSE;
@@ -743,6 +744,8 @@ int _tmain(int argc, _TCHAR* argv[])
         const TCHAR * Params = argv[argc-1];
         if (Params[0] == '-')
         {
+            if (_tcschr(Params, 'q') != 0)
+                bQuiet = TRUE;
             if (_tcschr(Params, 'n') != 0)
                 bErrOnMods = TRUE;
             if (_tcschr(Params, 'N') != 0)
@@ -1025,39 +1028,43 @@ int _tmain(int argc, _TCHAR* argv[])
         return ERR_SVN_MIXED;
     }
 
-    if (SubStat.bHexPlain)
-        _tprintf(_T("Last committed at revision %LX\n"), SubStat.CmtRev);
-    else if (SubStat.bHexX)
-        _tprintf(_T("Last committed at revision %#LX\n"), SubStat.CmtRev);
-    else
-        _tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
-
-    if (SubStat.MinRev != SubStat.MaxRev)
+    if (!bQuiet)
     {
         if (SubStat.bHexPlain)
-            _tprintf(_T("Mixed revision range %LX:%LX\n"), SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(_T("Last committed at revision %LX\n"), SubStat.CmtRev);
         else if (SubStat.bHexX)
-            _tprintf(_T("Mixed revision range %#LX:%#LX\n"), SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(_T("Last committed at revision %#LX\n"), SubStat.CmtRev);
         else
-            _tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
-    }
-    else
-    {
-        if (SubStat.bHexPlain)
-            _tprintf(_T("Updated to revision %LX\n"), SubStat.MaxRev);
-        else if (SubStat.bHexX)
-            _tprintf(_T("Updated to revision %#LX\n"), SubStat.MaxRev);
-        else
-            _tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
-    }
+            _tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
 
-    if (SubStat.HasMods)
-    {
-        _tprintf(_T("Local modifications found\n"));
-    }
-    if (SubStat.HasUnversioned)
-    {
-        _tprintf(_T("Unversioned items found\n"));
+        if (SubStat.MinRev != SubStat.MaxRev)
+        {
+            if (SubStat.bHexPlain)
+                _tprintf(_T("Mixed revision range %LX:%LX\n"), SubStat.MinRev, SubStat.MaxRev);
+            else if (SubStat.bHexX)
+                _tprintf(_T("Mixed revision range %#LX:%#LX\n"), SubStat.MinRev, SubStat.MaxRev);
+            else
+                _tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
+        }
+        else
+        {
+            if (SubStat.bHexPlain)
+                _tprintf(_T("Updated to revision %LX\n"), SubStat.MaxRev);
+            else if (SubStat.bHexX)
+                _tprintf(_T("Updated to revision %#LX\n"), SubStat.MaxRev);
+            else
+                _tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
+        }
+
+        if (SubStat.HasMods)
+        {
+            _tprintf(_T("Local modifications found\n"));
+        }
+
+        if (SubStat.HasUnversioned)
+        {
+            _tprintf(_T("Unversioned items found\n"));
+        }
     }
 
     if (dst == NULL)
