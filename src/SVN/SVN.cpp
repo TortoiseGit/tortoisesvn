@@ -2128,7 +2128,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
         CHooks::Instance().PreConnect(CTSVNPathList(path));
         /* use subpool to create a temporary RA session */
         SVNTRACE (
-            Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
+            Err = svn_client_open_ra_session2 (&ra_session, urla, path.IsUrl() ? NULL : svnPath, m_pctx, localpool, localpool),
             urla
         );
         ClearCAPIAuthCacheOnError();
@@ -2193,7 +2193,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
             {
                 CHooks::Instance().PreConnect(CTSVNPathList(path));
                 SVNTRACE (
-                    Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
+                    Err = svn_client_open_ra_session2 (&ra_session, urla, path.IsUrl() ? NULL : svnPath, m_pctx, localpool, localpool),
                     urla
                 );
                 ClearCAPIAuthCacheOnError();
@@ -2220,7 +2220,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         /* use subpool to create a temporary RA session */
 
         SVNTRACE (
-            Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
+            Err = svn_client_open_ra_session2 (&ra_session, urla, path.IsUrl() ? NULL : svnPath, m_pctx, localpool, localpool),
             urla
         );
         ClearCAPIAuthCacheOnError();
@@ -2262,7 +2262,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
     const char* svnPath = url.GetSVNApiPath(localpool);
     CHooks::Instance().PreConnect(CTSVNPathList(url));
     SVNTRACE (
-        Err = svn_client_open_ra_session (&ra_session, svnPath, m_pctx, localpool),
+        Err = svn_client_open_ra_session2 (&ra_session, svnPath, NULL, m_pctx, localpool, localpool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -117,7 +117,7 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
         svn_error_clear(err);
         return false;
     }
-    err = svn_wc_read_kind(&kind, pctx, local_abspath, true, pool);
+    err = svn_wc_read_kind2(&kind, pctx, local_abspath, true, true, pool);
     if (err)
     {
         switch (err->apr_err)

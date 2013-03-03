@@ -694,7 +694,7 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
     {
         std::tuple<CReaderWriterLock*,std::map<CTSVNPath,PropertyList>*> t = std::make_tuple(&m_PropertyMapGuard, &m_PropertyMap);
         svn_client_proplist4(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(),
-                             svn_depth_infinity, NULL, true, proplist_receiver, &t, pCtx, pool, pool);
+                             svn_depth_infinity, NULL, true, proplist_receiver, &t, pCtx, pool);
     }
 
     svn_error_clear (error);

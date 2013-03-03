@@ -127,7 +127,6 @@ svn_error_t*    SVNReadProperties::Refresh()
                                         proplist_receiver,
                                         this,
                                         m_pctx,
-                                        m_pool,
                                         m_pool),
             svnPath
         )
