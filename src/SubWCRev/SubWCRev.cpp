@@ -52,6 +52,8 @@ SrcVersionFile     :   path to a template file containing keywords.\n\
 DstVersionFile     :   path to save the resulting parsed file.\n\
 -n                 :   if given, then SubWCRev will error if the working\n\
                        copy contains local modifications.\n\
+-N                 :   if given, then SubWCRev will error if the working\n\
+                       copy contains unversioned items.\n\
 -m                 :   if given, then SubWCRev will error if the working\n\
                        copy contains mixed revisions.\n\
 -d                 :   if given, then SubWCRev will only do its job if\n\
@@ -145,6 +147,7 @@ $WCISLOCKED$    True if the item is locked\n"
 #define LOCKWFMTDEFUTC   "$WCLOCKDATEUTC="
 #define LOCKOWNER        "$WCLOCKOWNER$"
 #define LOCKCOMMENT      "$WCLOCKCOMMENT$"
+#define UNVERDEF         "$WCUNVER?"
 
 // Internal error codes
 // Note: these error codes are documented in /doc/source/en/TortoiseSVN/tsvn_subwcrev.xml
@@ -159,6 +162,7 @@ $WCISLOCKED$    True if the item is locked\n"
 #define ERR_SVN_MIXED   8   // Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS  9   // Output file already exists (-d)
 #define ERR_NOWC       10   // the path is not a working copy or part of one
+#define ERR_SVN_UNVER  11   // Unversioned items found (-N)
 
 // Value for apr_time_t to signify "now"
 #define USE_TIME_NOW    -2  // 0 and -1 might already be significant.
@@ -707,6 +711,7 @@ int _tmain(int argc, _TCHAR* argv[])
     const TCHAR * dst = NULL;
     const TCHAR * wc = NULL;
     BOOL bErrOnMods = FALSE;
+    BOOL bErrOnUnversioned = FALSE;
     BOOL bErrOnMixed = FALSE;
     SubWCRev_t SubStat;
     memset (&SubStat, 0, sizeof (SubStat));
@@ -740,6 +745,8 @@ int _tmain(int argc, _TCHAR* argv[])
         {
             if (_tcschr(Params, 'n') != 0)
                 bErrOnMods = TRUE;
+            if (_tcschr(Params, 'N') != 0)
+                bErrOnUnversioned = TRUE;
             if (_tcschr(Params, 'm') != 0)
                 bErrOnMixed = TRUE;
             if (_tcschr(Params, 'd') != 0)
@@ -993,6 +1000,15 @@ int _tmain(int argc, _TCHAR* argv[])
         delete [] src;
         return ERR_SVN_MODS;
     }
+    if (bErrOnUnversioned && SubStat.HasUnversioned)
+    {
+        _tprintf(_T("Working copy has unversioned items!\n"));
+        delete [] pBuf;
+        delete [] wc;
+        delete [] dst;
+        delete [] src;
+        return ERR_SVN_UNVER;
+    }
 
     if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
     {
@@ -1038,6 +1054,10 @@ int _tmain(int argc, _TCHAR* argv[])
     if (SubStat.HasMods)
     {
         _tprintf(_T("Local modifications found\n"));
+    }
+    if (SubStat.HasUnversioned)
+    {
+        _tprintf(_T("Unversioned items found\n"));
     }
 
     if (dst == NULL)
@@ -1120,6 +1140,11 @@ int _tmain(int argc, _TCHAR* argv[])
     while (InsertBoolean(MODDEF, pBuf, index, filelength, SubStat.HasMods));
     index = 0;
     while (InsertBooleanW(TEXT(MODDEF), (wchar_t*)pBuf, index, filelength, SubStat.HasMods));
+
+    index = 0;
+    while (InsertBoolean(UNVERDEF, pBuf, index, filelength, SubStat.HasUnversioned));
+    index = 0;
+    while (InsertBooleanW(TEXT(UNVERDEF), (wchar_t*)pBuf, index, filelength, SubStat.HasUnversioned));
 
     index = 0;
     while (InsertBoolean(MIXEDDEF, pBuf, index, filelength, (SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed));

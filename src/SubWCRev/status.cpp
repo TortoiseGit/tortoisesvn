@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -281,6 +281,8 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     {
     case svn_wc_status_none:
     case svn_wc_status_unversioned:
+        sb->SubStat->HasUnversioned = TRUE;
+        break;
     case svn_wc_status_ignored:
         break;
     case svn_wc_status_external:

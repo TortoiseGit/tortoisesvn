@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,6 +66,8 @@ public:
     virtual HRESULT __stdcall get_Author(/*[out, retval]*/VARIANT* author);
 
     virtual HRESULT __stdcall get_HasModifications(/*[out, retval]*/VARIANT_BOOL* modifications);
+
+    virtual HRESULT __stdcall get_HasUnversioned(/*[out, retval]*/VARIANT_BOOL* modifications);
 
     virtual HRESULT __stdcall get_HasMixedRevisions(/*[out, retval]*/VARIANT_BOOL* modifications);
 

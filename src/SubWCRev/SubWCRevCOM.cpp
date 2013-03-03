@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -294,6 +294,11 @@ HRESULT SubWCRev::Utf8StringToVariant(const char* string, VARIANT* result )
 HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 {
     return BoolToVariantBool(SubStat.HasMods, modifications);
+}
+
+HRESULT __stdcall SubWCRev::get_HasUnversioned(VARIANT_BOOL* modifications)
+{
+    return BoolToVariantBool(SubStat.HasUnversioned, modifications);
 }
 
 HRESULT __stdcall SubWCRev::get_HasMixedRevisions(VARIANT_BOOL* modifications)

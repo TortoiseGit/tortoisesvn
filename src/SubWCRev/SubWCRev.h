@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,7 @@ typedef struct SubWCRev_t
     svn_revnum_t CmtRev;    // Highest commit revision found
     apr_time_t CmtDate;     // Date of highest commit revision
     BOOL HasMods;           // True if local modifications found
+    BOOL HasUnversioned;    // True if unversioned items found
     BOOL bFolders;          // If TRUE, status of folders is included
     BOOL bExternals;        // If TRUE, status of externals is included
     BOOL bExternalsNoMixedRevision; // If TRUE, externals set to an explicit revision lead not to an mixed revsion error

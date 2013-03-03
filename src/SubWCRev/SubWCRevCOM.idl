@@ -44,6 +44,9 @@ library LibSubWCRev
         [propget, helpstring("TRUE if the working copy has modifications")]
         HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
 
+        [propget, helpstring("TRUE if the working copy has unversioned items")]
+        HRESULT HasUnversioned([out, retval]VARIANT_BOOL* modifications);
+
         [propget, helpstring("TRUE if mixed update revisions found")]
         HRESULT HasMixedRevisions([out, retval]VARIANT_BOOL* mixed);
 

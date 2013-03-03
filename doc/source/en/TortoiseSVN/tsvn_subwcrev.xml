@@ -88,6 +88,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">-N</entry>
+                            <entry>
+                                If this switch is given, SubWCRev will exit with
+                                <literal>ERRORLEVEL 11</literal> if the working copy
+                                contains unversioned items that are not ignored.
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">-m</entry>
                             <entry>
                                 If this switch is given, SubWCRev will exit with
@@ -154,8 +162,8 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
         </para>
         <para>
             If there is no error, SubWCRev returns zero. But in case
-			an error occurs, the error message is written to stderr
-			and shown in the console. And the returned error codes are:
+            an error occurs, the error message is written to stderr
+            and shown in the console. And the returned error codes are:
             <table id="tsvn-subwcrev-error-table">
                 <title>List of SubWCRev error codes</title>
                 <tgroup cols="2">
@@ -171,30 +179,30 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                         <row>
                             <entry condition="pot">1</entry>
                             <entry>
-								Syntax error. One or more command line
-								parameters are invalid.
+                                Syntax error. One or more command line
+                                parameters are invalid.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">2</entry>
                             <entry>
                                 The file or folder specified on the
-								command line was not found.
+                                command line was not found.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">3</entry>
                             <entry>
                                 The input file could not be opened, or
-								the target file could not be created.
+                                the target file could not be created.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">4</entry>
                             <entry>
                                 Could not allocate memory. This could
-								happen if e.g. the source file is too
-								big.
+                                happen if e.g. the source file is too
+                                big.
                             </entry>
                         </row>
                         <row>
@@ -207,36 +215,43 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             <entry condition="pot">6</entry>
                             <entry>
                                 SVN error: Subversion returned with
-								an error when SubWCRev tried to find
-								the information from the working copy.
+                                an error when SubWCRev tried to find
+                                the information from the working copy.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">7</entry>
                             <entry>
                                 The working copy has local modifications.
-								This requires the <literal>-n</literal> switch.
+                                This requires the <literal>-n</literal> switch.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">8</entry>
                             <entry>
                                 The working copy has mixed revisions.
-								This requires the <literal>-m</literal> switch.
+                                This requires the <literal>-m</literal> switch.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">9</entry>
                             <entry>
                                 The output file already exists.
-								This requires the <literal>-d</literal> switch.
+                                This requires the <literal>-d</literal> switch.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">10</entry>
                             <entry>
                                 The specified path is not a working copy or
-								part or one.
+                                part or one.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">11</entry>
+                            <entry>
+                                The working copy has unversioned files or folders in it.
+                                This requires the <literal>-N</literal> switch.
                             </entry>
                         </row>
                     </tbody>
@@ -342,6 +357,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                                 <literal>$WCMODS?TText:FText$</literal> is
                                 replaced with <literal>TText</literal> if there are local
                                 modifications, or <literal>FText</literal> if not.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">$WCUNVER$</entry>
+                            <entry>
+                                <literal>$WCUNVER?TText:FText$</literal> is
+                                replaced with <literal>TText</literal> if there are unversioned
+                                items in the working copy, or <literal>FText</literal> if not.
                             </entry>
                         </row>
                         <row>
@@ -461,6 +484,7 @@ char *Revision16    = "$WCREV&amp;0xFF$";
 char *Revisionp100  = "$WCREV+100$";
 char *Revisionm100  = "$WCREV-100$";
 char *Modified      = "$WCMODS?Modified:Not modified$";
+char *Unversioned   = "$WCUNVER?Unversioned items found:no unversioned items$";
 char *Date          = "$WCDATE$";
 char *CustDate      = "$WCDATE=%a, %d %B %Y$";
 char *DateUTC       = "$WCDATEUTC$";
@@ -500,6 +524,7 @@ char *Revision16    = "53";
 char *Revisionp100  = "22937";
 char *Revisionm100  = "22737";
 char *Modified      = "Modified";
+char *Unversioned   = "no unversioned items";
 char *Date          = "2012/04/26 18:47:57";
 char *CustDate      = "Thu, 26 April 2012";
 char *DateUTC       = "2012/04/26 16:47:57";
@@ -617,6 +642,10 @@ char *lockcmt       = "";
                         <row>
                             <entry condition="pot">.HasModifications</entry>
                             <entry>True if there are local modifications</entry>.
+                        </row>
+                        <row>
+                            <entry condition="pot">.HasUnversioned</entry>
+                            <entry>True if there are unversioned items</entry>.
                         </row>
                         <row>
                             <entry condition="pot">.Url</entry>
