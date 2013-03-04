@@ -8451,7 +8451,7 @@ msgid "When you authenticate with a Subversion server, the username and password
 msgstr ""
 
 #. (para)
-msgid "If you want to clear authentication data for one particular server only, read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to find the cached data."
+msgid "If you want to clear authentication data for one particular server only, use the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear all</guibutton> button."
 msgstr ""
 
 #. (term)
@@ -9235,6 +9235,14 @@ msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the 
 msgstr ""
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr ""
+
+#. (entry)
+msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains unversioned items that are not ignored."
+msgstr ""
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr ""
 
@@ -9277,6 +9285,10 @@ msgstr ""
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX, with '0X' prepended."
+msgstr ""
+
+#. (entry)
+msgid "If this switch is given, SubWCRev will perform the keyword substitution without showing working copy status on stdout."
 msgstr ""
 
 #. (para)
@@ -9341,6 +9353,14 @@ msgstr ""
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
+msgstr ""
+
+#. (literal)
+msgid "-N"
+msgstr ""
+
+#. (entry)
+msgid "The working copy has unversioned files or folders in it. This requires the <placeholder-1/> switch."
 msgstr ""
 
 #. (para)
@@ -9424,9 +9444,11 @@ msgstr ""
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr ""
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -9447,6 +9469,14 @@ msgstr ""
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
+msgstr ""
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned items in the working copy, or <placeholder-3/> if not."
 msgstr ""
 
 #. (literal)
@@ -9543,6 +9573,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -9586,6 +9617,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -9682,6 +9714,7 @@ msgstr ""
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr ""
 
@@ -9691,6 +9724,10 @@ msgstr ""
 
 #. (entry)
 msgid "True if there are local modifications"
+msgstr ""
+
+#. (entry)
+msgid "True if there are unversioned items"
 msgstr ""
 
 #. (literal)
@@ -11429,6 +11466,7 @@ msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> a
 msgstr ""
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr ""
 
@@ -11440,8 +11478,12 @@ msgstr ""
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr ""
 
+#. (option)
+msgid "/noview"
+msgstr ""
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
+msgid "Creates a patch file for the path given in <placeholder-1/>. To skip the file Save-As dialog you can pass <placeholder-2/> to specify the path where to save the patch file to directly. To prevent the unified diff viewer from being started showing the patch file, pass <placeholder-3/>."
 msgstr ""
 
 #. (para)
