@@ -57,7 +57,9 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -m                 :   if given, then SubWCRev will error if the working\n\
                        copy contains mixed revisions.\n\
 -d                 :   if given, then SubWCRev will only do its job if\n\
-                       DstVersionFile does not exist.\n"
+                       DstVersionFile does not exist.\n\
+-q                 :   if given, then SubWCRev will perform keyword\n\
+                       substitution but will not show status on stdout.\n"
 #define HelpText2 "\
 -f                 :   if given, then SubWCRev will include the\n\
                        last-committed revision of folders. Default is\n\
