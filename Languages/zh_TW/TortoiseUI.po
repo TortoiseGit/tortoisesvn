@@ -12,6 +12,7 @@
 # Translators:
 # Arith Hsu <arithmandar@gmail.com>, 2011.
 # Binota Liu <liu.bangjyh@gmail.com>, 2013.
+# Cecil Sheng <zcecil@csie.org>, 2013.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
 #  <zcecil@csie.org>, 2013.
@@ -22,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:12+0000\n"
-"Last-Translator: binota <liu.bangjyh@gmail.com>\n"
+"PO-Revision-Date: 2013-03-01 15:16+0000\n"
+"Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,17 +52,17 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "將會執行指令:\n要設定工作複本內的路徑, 請使用 %REPOROOT% 變數作為檔案庫中的最上層URL"
+msgstr "# 個別顯示作者:"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "傳輸了 %.2f M位元組"
+msgstr "傳輸了 %.2f M 位元組"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f kBytes/s"
-msgstr "%.2f k位元組/秒"
+msgstr "每秒 %.2f k位元組"
 
 #. Resource IDs: (3868)
 #, c-format
@@ -91,18 +92,18 @@ msgstr "找不到 %1."
 #. Resource IDs: (169)
 #, c-format
 msgid "%1!d! files selected, %2!d! files total"
-msgstr "選擇了 %1!d! 個檔案, 共有 %2!d! 個檔案"
+msgstr "在 %2!d! 個檔案中選擇了 %1!d! 個檔案."
 
 #. Resource IDs: (246)
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "%1!d! 個最活躍的作者 (至少有 %2!d!(%3!d!%%) 次送交數)"
+msgstr "前 %1!d! 名活躍作者 (至少有 %2!d!(%3!d!%%) 次送交數)"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!ld! minute(s) and %2!ld! second(s)"
-msgstr "%1!ld! 分鐘 %2!ld! 秒"
+msgstr "%1!ld! 分鐘又 %2!ld! 秒"
 
 #. Resource IDs: (115)
 #, c-format
@@ -178,12 +179,12 @@ msgstr "%1\n找不到這個檔案.\n請確定輸入了正確的路徑和檔案�
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "傳輸了 %I64d k位元組"
+msgstr "傳輸了 %I64d 位元組"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes/s"
-msgstr "%I64d 位元組/秒"
+msgstr "每秒 %I64d 位元組"
 
 #. Resource IDs: (357)
 #, c-format
@@ -2497,7 +2498,7 @@ msgstr "取消\n不解決此項目的."
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "取消\n不顯示差異."
 
 #. Resource IDs: (315)
 msgid ""
@@ -3132,7 +3133,7 @@ msgstr "比對空白字元"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "與最新版本和工作基礎版本比對(&H)"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -6251,7 +6252,7 @@ msgstr "管理 Subversion 屬性"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr ""
+msgstr "選擇了多個要顯示差異的項目"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -9165,7 +9166,7 @@ msgstr "在複製來源處顯示標籤, 而不顯示在獨立節點上"
 msgid ""
 "Show the diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "顯示差異\n差異檢視程式正在處理所有選擇的項目."
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -11417,7 +11418,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr ""
+msgstr "總共選擇了 %d 項顯示差異.\n對每一個項目都會啟動一支差異檢視程式.\n確定要同時顯示這麼多項目的差異嗎?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
