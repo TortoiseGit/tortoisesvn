@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -443,6 +443,11 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 {
                     if (m_externals[index].headrev != SVN_INVALID_REVNUM)
                     {
+                        if (m_externals[index].revision.kind == svn_opt_revision_number)
+                        {
+                            m_externals[index].revision.value.number = -1;
+                            m_externals[index].revision.kind = svn_opt_revision_unspecified;
+                        }
                         m_externals[index].pegrevision.value.number = m_externals[index].headrev;
                         m_externals[index].pegrevision.kind = svn_opt_revision_number;
                     }
