@@ -434,27 +434,27 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             }
             // intentional fall through
         case CMD_ADJUST:
-{
-            POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
-            while (pos)
             {
-                int index = m_ExtList.GetNextSelectedItem(pos);
-                if ((index >= 0)&&(index < (int)m_externals.size()))
+                POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
+                while (pos)
                 {
-                    if (m_externals[index].headrev != SVN_INVALID_REVNUM)
+                    int index = m_ExtList.GetNextSelectedItem(pos);
+                    if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
-                        if (m_externals[index].revision.kind == svn_opt_revision_number)
+                        if (m_externals[index].headrev != SVN_INVALID_REVNUM)
                         {
-                            m_externals[index].revision.value.number = -1;
-                            m_externals[index].revision.kind = svn_opt_revision_unspecified;
+                            if (m_externals[index].revision.kind == svn_opt_revision_number)
+                            {
+                                m_externals[index].revision.value.number = -1;
+                                m_externals[index].revision.kind = svn_opt_revision_unspecified;
+                            }
+                            m_externals[index].pegrevision.value.number = m_externals[index].headrev;
+                            m_externals[index].pegrevision.kind = svn_opt_revision_number;
                         }
-                        m_externals[index].pegrevision.value.number = m_externals[index].headrev;
-                        m_externals[index].pegrevision.kind = svn_opt_revision_number;
                     }
                 }
+                m_ExtList.Invalidate();
             }
-            m_ExtList.Invalidate();
-}
             break;
         }
     }
