@@ -190,6 +190,8 @@ public:
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
 
     const CString& GetLogMsgTemplate(const CStringA& prop) const;
+
+    const CString& GetLogRevRegex() const;
 public:
     /** The label to show in the commit dialog where the issue number/bug id
      * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -258,10 +260,6 @@ public:
      */
     CString     sLogSummaryRe;
 
-    /**
-     * A regex string to extract revisions from a log message.
-     */
-    CString     sLogRevRegex;
 
     /// multi line string containing the data for a start-commit-hook
     CString     sStartCommitHook;
@@ -332,6 +330,11 @@ private:
     CString     sLogTemplateMkDir;
     CString     sLogTemplatePropset;
     CString     sLogTemplateLock;
+    /**
+     * A regex string to extract revisions from a log message.
+     */
+    CString     sLogRevRegex;
+
     int         nBugIdPos;              ///< result of sMessage.Find(L"%BUGID%");
 
     bool        m_bFound;

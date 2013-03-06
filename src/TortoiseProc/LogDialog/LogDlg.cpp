@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -690,7 +690,7 @@ namespace
 
             // underline all revisions mentioned in the message
             revRanges = CAppUtils::FindRegexMatches ( text
-                                                    , project->sLogRevRegex
+                                                    , project->GetLogRevRegex()
                                                     , _T("\\d+"));
 
             return TRUE;
@@ -2645,7 +2645,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         if ((!bBugIDFound)&&(pEnLink->msg != WM_SETCURSOR))
         {
             // now check whether it matches a revision
-            const tr1::wregex regMatch(m_ProjectProperties.sLogRevRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            const tr1::wregex regMatch(m_ProjectProperties.GetLogRevRegex(), tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
             const tr1::wsregex_iterator end;
             wstring s = msg;
             for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)

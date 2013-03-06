@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -770,6 +770,13 @@ const CString& ProjectProperties::GetLogMsgTemplate( const CStringA& prop ) cons
         return sLogTemplateLock;    // we didn't use sLogTemplate before for lock messages, so we don't do that now either
 
     return sLogTemplate;
+}
+
+const CString& ProjectProperties::GetLogRevRegex() const
+{
+    if (!sLogRevRegex.IsEmpty())
+        return sLogRevRegex;
+    return LOG_REVISIONREGEX;
 }
 
 #ifdef DEBUG
