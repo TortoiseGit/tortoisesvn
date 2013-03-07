@@ -123,7 +123,7 @@ void CSettingsClearAuth::FillAuthListControl()
     m_cAuthList.InsertColumn(0, temp);
     temp.LoadString(IDS_SETTINGSCLEAR_COL2);
     m_cAuthList.InsertColumn(1, temp);
-    temp.LoadString(IDS_SETTINGSCLEAR_COL2);
+    temp.LoadString(IDS_SETTINGSCLEAR_COL3);
     m_cAuthList.InsertColumn(2, temp);
 
     SVNAuthData authData;
