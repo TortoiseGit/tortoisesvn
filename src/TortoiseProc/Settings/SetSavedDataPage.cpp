@@ -133,6 +133,11 @@ BOOL CSetSavedDataPage::OnInitDialog()
             nUsername++;
     }
 
+    CRegistryKey regCerts(L"Software\\TortoiseSVN\\CAPIAuthz");
+    CStringList certList;
+    regCerts.getValues(certList);
+    int nCapi = certList.GetCount();
+
     CDirFileEnum logenum(CPathUtils::GetAppDataDirectory()+_T("logcache"));
     while (logenum.NextFile(sFile, &bIsDir))
         nLogHistRepo++;
@@ -151,8 +156,8 @@ BOOL CSetSavedDataPage::OnInitDialog()
     DialogEnableWindow(&m_btnLogHistClear, nLogHistMsg || nLogHistWC);
     DialogEnableWindow(&m_btnUrlHistClear, nUrlHistItems || nUrlHistWC);
     DialogEnableWindow(&m_btnResizableHistClear, nResizableDialogs > 0);
-    DialogEnableWindow(&m_btnAuthHistClear, nSimple || nSSL || nUsername);
-    DialogEnableWindow(&m_btnAuthHistClearSelect, nSimple || nSSL || nUsername);
+    DialogEnableWindow(&m_btnAuthHistClear, nSimple || nSSL || nUsername || nCapi);
+    DialogEnableWindow(&m_btnAuthHistClearSelect, nSimple || nSSL || nUsername || nCapi);
     DialogEnableWindow(&m_btnRepoLogClear, nLogHistRepo >= 0);
     DialogEnableWindow(&m_btnActionLogClear, bActionLog);
     DialogEnableWindow(&m_btnActionLogShow, bActionLog);
@@ -171,7 +176,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     sTT.Format(IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT, nResizableDialogs);
     m_tooltips.AddTool(IDC_RESIZABLEHISTORY, sTT);
     m_tooltips.AddTool(IDC_RESIZABLEHISTCLEAR, sTT);
-    sTT.FormatMessage(IDS_SETTINGS_SAVEDDATA_AUTH_TT, nSimple, nSSL, nUsername);
+    sTT.FormatMessage(IDS_SETTINGS_SAVEDDATA_AUTH_TT, nSimple, nSSL+nCapi, nUsername);
     m_tooltips.AddTool(IDC_AUTHHISTORY, sTT);
     m_tooltips.AddTool(IDC_AUTHHISTCLEAR, sTT);
     sTT.Format(IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT, nLogHistRepo);
