@@ -4158,12 +4158,59 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
     if ((m_currentChangedPathList.GetCount() > 0) && (nColumn > 0))
         return;
 
+    CString selPath;
+    POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+    if (pos)
+    {
+        int posindex = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+        if (m_currentChangedArray.GetCount() > 0)
+            selPath = m_currentChangedArray[posindex].GetPath();
+        else
+            selPath = m_currentChangedPathList[posindex].GetSVNPathString();
+    }
+
+    // clear the selection
+    int iItem = -1;
+    while ((iItem = m_ChangedFileListCtrl.GetNextItem(-1, LVNI_SELECTED)) >= 0)
+        m_ChangedFileListCtrl.SetItemState(iItem, 0, LVIS_SELECTED);
+
     m_bAscendingPathList = nColumn == m_nSortColumnPathList ? !m_bAscendingPathList : TRUE;
     m_nSortColumnPathList = nColumn;
     if (m_currentChangedArray.GetCount() > 0)
         m_currentChangedArray.Sort (m_nSortColumnPathList, m_bAscendingPathList);
     else
         m_currentChangedPathList.SortByPathname (!m_bAscendingPathList);
+
+    if (!selPath.IsEmpty())
+    {
+        if (m_currentChangedArray.GetCount() > 0)
+        {
+            for (int i = 0; i < m_currentChangedArray.GetCount(); ++i)
+            {
+                if (selPath.Compare(m_currentChangedArray[i].GetPath())==0)
+                {
+                    m_ChangedFileListCtrl.SetSelectionMark(i);
+                    m_ChangedFileListCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                    m_ChangedFileListCtrl.EnsureVisible(i, FALSE);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < m_currentChangedPathList.GetCount(); ++i)
+            {
+                if (selPath.Compare(m_currentChangedPathList[i].GetSVNPathString())==0)
+                {
+                    m_ChangedFileListCtrl.SetSelectionMark(i);
+                    m_ChangedFileListCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                    m_ChangedFileListCtrl.EnsureVisible(i, FALSE);
+                    break;
+                }
+            }
+        }
+
+    }
 
     SetSortArrow(&m_ChangedFileListCtrl, m_nSortColumnPathList, m_bAscendingPathList);
     m_ChangedFileListCtrl.Invalidate();
