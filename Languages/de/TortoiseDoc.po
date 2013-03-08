@@ -14,6 +14,7 @@
 # Lübbe Onken <l.onken@rac.de>, 2011-2012.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # <peu@rekoba.de>, 2012.
+#  <peu@rekoba.de>, 2013.
 #   <peu@rekoba.de>, 2012.
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011.
 msgid ""
@@ -21,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-21 08:56+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-03-07 21:46+0000\n"
+"Last-Translator: peu <peu@rekoba.de>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,7 +112,7 @@ msgid ""
 "supplying tools for building software. Subversion, however, is not one of "
 "these systems; it is a general system that can be used to manage "
 "<emphasis>any</emphasis> collection of files, including source code."
-msgstr "Einige Versionskontrollsysteme sind zugleich Konfigurationsmanagementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Quellcode zu handhaben und haben viele Funktionen, die spezifisch für die Softwareentwicklung sind - z.B. bestimmte Programmiersprachen zu verstehen oder Hilfsmittel für die Erstellung von Programmen zur Verfügung zu stellen. Subversion ist jedoch kein solches System; es ist allgemein gehalten, so dass es für den Umgang mit <emphasis>beliebigen</emphasis> Dateien geeignet ist, was Quellcode einschließt."
+msgstr "Einige Versionskontrollsysteme sind zugleich Konfigurationsmanagementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, mit Quelltextstrukturen umzugehen und haben viele Funktionen, die spezifisch für die Softwareentwicklung sind - z.B. bestimmte Programmiersprachen zu verstehen oder Hilfsmittel für die Erstellung von Programmen zur Verfügung zu stellen. Subversion ist jedoch kein solches System; es ist so allgemein gehalten, dass es für <emphasis>jede</emphasis> Ansammlung von Dateien nutzbar ist, einschließlich Quellcode."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -1458,7 +1459,7 @@ msgid ""
 "be either absent or <literal>localhost</literal>. For this reason, local "
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "In den weitaus meisten Fällen nutzen Subversion URLs die Standardsyntax und erlauben, dass Servernamen und Portnummern als Teil der URL angegeben werden. Beachten Sie jedoch, dass die <literal>file://</literal> Zugriffsmethode normalerweise nur für den Zugriff auf lokale Projektarchive verwendet wird, obwohl auch mittels eines UNC Pfades auf ein Projektarchiv im Netzwerk zugegriffen werden kann. In diesem Fall nimmt die URL die Form <systemitem class=\"url\">file://rechnername/pfad/zum/projektarchiv</systemitem> an. Bei einem lokalen Projektarchiv muss der Rechnername entweder leer oder <literal>localhost</literal> sein. Deshalb enthalten lokale Pfade meistens drei Schrägstriche, <systemitem class=\"url\">file:///pfad/zum/projektarchiv</systemitem>."
+msgstr "In den weitaus meisten Fällen nutzen Subversion-URLs die Standardsyntax und erlauben, dass Servernamen und Portnummern als Teil der URL angegeben werden. Beachten Sie jedoch, dass die <literal>file://</literal> Zugriffsmethode normalerweise nur für den Zugriff auf lokale Projektarchive verwendet wird, obwohl auch mittels eines UNC Pfades auf ein Projektarchiv im Netzwerk zugegriffen werden kann. In diesem Fall nimmt die URL die Form <systemitem class=\"url\">file://rechnername/pfad/zum/projektarchiv</systemitem> an. Bei einem lokalen Projektarchiv muss der Rechnername entweder leer oder <literal>localhost</literal> sein. Deshalb enthalten lokale Pfade meistens drei Schrägstriche, <systemitem class=\"url\">file:///pfad/zum/projektarchiv</systemitem>."
 
 #. (para)
 msgid ""
@@ -1468,7 +1469,7 @@ msgid ""
 "drive than the client's current working drive. Either of the two following "
 "URL path syntaxes will work where <literal>X</literal> is the drive on which"
 " the repository resides:"
-msgstr "Zudem müssen Benutzer des <literal>file://</literal> Schemas auf Windowsrechnern eine nicht offizielle <quote>Standard</quote> Syntax für die URL verwenden. Jede der folgenden URLs funktioniert, wobei <literal>X</literal> das Laufwerk mit dem Projektarchiv ist:"
+msgstr "Zudem müssen Benutzer des Schemas <literal>file://</literal> auf Windowsrechnern eine nicht offizielle <quote>Standard</quote>-Syntax für die URL verwenden. Jede der folgenden URLs funktioniert, wobei <literal>X</literal> das Laufwerk mit dem Projektarchiv ist:"
 
 #. (screen)
 #, no-wrap
@@ -1490,7 +1491,7 @@ msgstr "Beachten Sie, dass die URL normale Schrägstriche verwendet, obwohl Wind
 msgid ""
 "You can safely access a FSFS repository via a network share, but you "
 "<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "Sie können auf FSFS Projektarchive auf einer Netzwerkfreigabe zugreifen, für BDB Projektarchive ist das <emphasis>nicht</emphasis> möglich."
+msgstr "Sie können auf FSFS-Projektarchive über eine Netzwerkfreigabe zugreifen, für BDB-Projektarchive ist das <emphasis>nicht</emphasis> möglich."
 
 #. (para)
 msgid ""
@@ -1500,7 +1501,7 @@ msgid ""
 "Berkeley DB on a network share, the results are unpredictable - you may see "
 "mysterious errors right away, or it may be months before you discover that "
 "your repository database is subtly corrupted."
-msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe sein! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen dass das Projektarchiv korrupt und nicht mehr zu retten ist."
+msgstr "Erstellen Sie kein Berkeley-DB-Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe liegen! Auch dann nicht, wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden, wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen, dass das Projektarchiv korrupt und nicht mehr zu retten ist."
 
 #. (title)
 msgid "Revisions"
@@ -1517,7 +1518,7 @@ msgid ""
 "of files and directories as a single atomic transaction. In your working "
 "copy, you can change files' contents, create, delete, rename and copy files "
 "and directories, and then commit the complete set of changes as a unit."
-msgstr "Ein <command>Übertragen</command> Befehl kann Änderungen an beliebig vielen Dateien und Ordnern als eine einzige atomare Operation übertragen. In Ihrer Arbeitskopie können Sie Dateien ändern, erstellen, löschen, umbenennen und verschieben und dann alle diese Änderungen in einem einzigen Schritt übertragen."
+msgstr "Ein <command>Übertragen</command>-Befehl kann Änderungen an beliebig vielen Dateien und Ordnern als eine einzige atomare Operation übertragen. In Ihrer Arbeitskopie können Sie Dateien ändern, erstellen, löschen, umbenennen und verschieben und dann alle diese Änderungen in einem einzigen Schritt übertragen."
 
 #. (para)
 msgid ""
@@ -1543,7 +1544,7 @@ msgid ""
 "Each revision number has a filesystem tree hanging below it, and each tree "
 "is a <quote>snapshot</quote> of the way the repository looked after each "
 "commit."
-msgstr "Ein möglicher Weg, um sich das Projektarchiv vorzustellen, ist als eine Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede Revisionsnummer hat einen Dateibaum, welcher an dieser Reihe hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote> davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat."
+msgstr "Eine Möglichkeit, sich das Projektarchiv vorzustellen, ist als eine Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede Revisionsnummer hat einen Dateibaum, welcher an dieser Reihe hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote> davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat."
 
 #. (title)
 msgid "Global Revision Numbers"
@@ -1560,7 +1561,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr "Anders als in vielen bekannten Versionskontrollsystemen stellt eine Revisionsnummer den Zustand eines <emphasis>ganzen Dateibaumes </emphasis> dar, nicht nur von einzelnen Dateien. Jede Revision ist ein ganzer Dateibaum, ein bestimmter Zustand des Projektarchivs nach einer Übertragung. Eine andere Möglichkeit, sich eine Revision vorzustellen, ist, dass eine Revision N den Zustand des Projektarchivs nach der N-ten Übertragung darstellt. Wenn ein Subversion-Benutzer von <quote>Revision 5 der Datei <filename> foo.c</filename> </quote> spricht, meint er in Wirklichkeit den Zustand der Datei <filename>foo.c</filename> wie sie in Revision 5 ausgesehen hat. Beachten Sie, dass zwei verschiedene Revisionen einer Datei <emphasis>nicht</emphasis> unterschiedlich sein müssen!"
+msgstr "Anders als in vielen anderen Versionskontrollsystemen betreffen Revisionsnummern <emphasis>ganze Dateibäume </emphasis>, nicht einzelne Dateien. Jede Revision kennzeichnet einen ganzen Dateibaum, einen bestimmten Zustand des Projektarchivs nach einer Übertragung. Eine andere Möglichkeit, sich eine Revision vorzustellen ist, dass eine Revision N den Zustand des Projektarchivs nach der N-ten Übertragung darstellt. Wenn ein Subversion-Benutzer von <quote>Revision 5 der Datei <filename> foo.c</filename> </quote> spricht, meint er in Wirklichkeit den Zustand der Datei <filename>foo.c</filename> wie sie in Revision 5 ausgesehen hat. Beachten Sie, dass zwei verschiedene Revisionen einer Datei <emphasis>nicht</emphasis> unterschiedlich sein müssen!"
 
 #. (para)
 msgid ""
@@ -1603,7 +1604,7 @@ msgid ""
 "<filename>integer.c</filename>, creating revision 6. If you use <command>svn"
 " update</command> to bring your working copy up to date, then it will look "
 "like this:"
-msgstr "Nehmen Sie nun an, dass jetzt Sally Änderungen an der Datei <filename>integer.c</filename> überträgt und damit eine Revision 6 erstellt. Wenn Sie nun Ihre Arbeitskopie aktualisieren, wird dies dann so aussehen:"
+msgstr "Nehmen Sie nun an, dass jetzt Sally Änderungen an der Datei <filename>integer.c</filename> überträgt und damit eine Revision 6 erstellt. Wenn Sie nun Ihre Arbeitskopie aktualisieren, wird diese so aussehen:"
 
 #. (screen)
 #, no-wrap
@@ -1624,7 +1625,7 @@ msgid ""
 " revision 6 to indicate that it is still current. So, after you do a clean "
 "update at the top of your working copy, it will generally correspond to "
 "exactly one revision in the repository."
-msgstr "Sallys Änderungen an der Datei <filename>integer.c</filename> werden in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei <filename>button.c</filename> werden immer noch vorhanden sein. In diesem Beispiel ist der Inhalt der Datei <filename>Makefile </filename> identisch in den Revisionen 4, 5 und 6, aber Subversion markiert Ihre lokale Kopie von <filename>Makefile</filename> mit Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also nachdem Sie eine saubere Aktualisierung durchgeführt haben, wird Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen."
+msgstr "Sallys Änderungen an der Datei <filename>integer.c</filename> werden in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei <filename>button.c</filename> werden immer noch vorhanden sein. In diesem Beispiel ist der Inhalt der Datei <filename>Makefile </filename> identisch in den Revisionen 4, 5 und 6, aber Subversion markiert Ihre lokale Kopie von <filename>Makefile</filename> mit Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also wird, nachdem Sie eine saubere Aktualisierung durchgeführt haben, Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1634,13 +1635,13 @@ msgstr "Wie Arbeitskopien das Projektarchiv verfolgen"
 msgid ""
 "For each file in a working directory, Subversion records two essential "
 "pieces of information in the <filename>.svn/</filename> administrative area:"
-msgstr "Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei wesentliche Informationen im <filename>.svn</filename> Administrationsordner auf:"
+msgstr "Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei wesentliche Informationen im <filename>.svn</filename>-Administrationsordner auf:"
 
 #. (para)
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm>working revision</firstterm>), and"
-msgstr "Auf welcher Revision die Datei basiert (dies wird auch <firstterm>Arbeitsrevision</firstterm> genannt)"
+msgstr "Auf welcher Revision die Datei basiert (dies wird auch <firstterm>Basisrevision</firstterm> genannt)"
 
 #. (para)
 msgid ""
@@ -1664,7 +1665,7 @@ msgid ""
 "have been committed to the repository since its working revision. A "
 "<command>commit</command> of the file will do nothing, and an "
 "<command>update</command> of the file will do nothing."
-msgstr "Die Datei wurde weder lokal noch im Projektarchiv verändert. Eine <command>Übertragung</command> und auch eine <command>Aktualisierung</command> dieser Datei bewirkt nichts."
+msgstr "Die Datei wurde weder lokal noch im Projektarchiv verändert. Sowohl <command>Übertragen</command> als auch <command>Aktualisieren</command> dieser Datei bewirken nichts."
 
 #. (term)
 msgid "Locally changed, and current"
@@ -1705,7 +1706,7 @@ msgid ""
 "with the local changes. If Subversion can't complete the merge in a "
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
-msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit einer <emphasis>nicht mehr aktuell</emphasis> Fehlermeldung fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, muss der Benutzer den Konflikt manuell lösen."
+msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit der Fehlermeldung <emphasis>nicht mehr aktuell</emphasis> fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, überlässt das Auflösen des Konflikts dem Benutzer."
 
 #. (title)
 msgid "Summary"
@@ -1727,13 +1728,13 @@ msgid ""
 "We've seen some simple examples of how two collaborators can use Subversion "
 "to publish and receive changes from one another, using the 'copy-modify-"
 "merge' model."
-msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subversion mittels des Kopieren-Ändern-Zusammenführen Modells benutzen können, um Änderungen zur Verfügung zu stellen und Änderungen von anderen zu übernehmen."
+msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subversion mittels des Kopieren-Ändern-Zusammenführen-Modells benutzen können, um Änderungen zur Verfügung zu stellen und Änderungen von anderen zu übernehmen."
 
 #. (para)
 msgid ""
 "We've talked a bit about the way Subversion tracks and manages information "
 "in a working copy."
-msgstr "Wir sprachen ein wenig darüber, wie Subversion Informationen in der Arbeitskopie verfolgt und verwaltet."
+msgstr "Wir gaben einen Einblick, wie Subversion Informationen innerhalb der Arbeitskopie verfolgt und verwaltet."
 
 #. (para)
 msgid ""
@@ -1813,7 +1814,7 @@ msgstr "Erstellen eines Projektarchivs mit TortoiseSVN"
 
 #. (para)
 msgid "Open the windows explorer"
-msgstr "Öffne den Windows-Explorer"
+msgstr "Öffnen Sie den Windows-Explorer"
 
 #. (para)
 msgid ""
@@ -1825,28 +1826,28 @@ msgid ""
 "<action>Right click</action> on the newly created folder and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>."
-msgstr "<action>Rechtsklick</action> auf einen neu erstellten Ordner und wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv hier erstellen...</guimenuitem></menuchoice>."
+msgstr "Nach <action>Rechtsklick</action> auf den neu erstellten Ordner wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv hier erstellen...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "A repository is then created inside the new folder. <emphasis>Don't edit "
 "those files yourself!!!</emphasis>. If you get any errors make sure that the"
 " folder is empty and not write protected."
-msgstr "Ein Projektarchiv wird dann in dem neuen Ordner erstellt. <emphasis>Editieren Sie diese Dateien nicht selbst</emphasis>. Falls Sie eine Fehlermeldung erhalten stellen Sie sicher, dass der Ordner leer und nicht schreibgeschützt ist."
+msgstr "Nun wird ein Projektarchiv in dem neuen Ordner erstellt. <emphasis>Bearbeiten Sie diese Dateien nicht selbst!</emphasis>. Falls Sie eine Fehlermeldung erhalten, stellen Sie sicher, dass der Ordner leer und nicht schreibgeschützt ist."
 
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
 "within the repository. Find out about layout options in <xref linkend"
 "=\"tsvn-repository-layout\"/>."
-msgstr "Sie werden auch gefragt werden, ob Sie eine Verzeichnisstruktur im Projektarchiv erstellen möchten. Erfahren Sie mehr über Layoutoptionen in <xref linkend=\"tsvn-repository-layout\"/>."
+msgstr "Sie werden auch gefragt werden, ob Sie eine Verzeichnisstruktur im Projektarchiv erstellen möchten. Erfahren Sie mehr über Layout-Optionen in <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
 msgid ""
 "TortoiseSVN will set a custom folder icon when it creates a repository so "
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
-msgstr "TortoiseSVN wird den Ordner mit einem benutzerdefinierten Symbol versehen, wenn es ein Projektarchiv erstellt, damit Sie lokale Projektarchive leichter identifizieren können. Wenn Sie ein Projektarchiv mit dem offiziellen Befehlszeile-Client erstellen wird dieser Ordnersymbol nicht zugewiesen."
+msgstr "TortoiseSVN wird den Ordner mit einem benutzerdefinierten Symbol versehen, wenn es ein Projektarchiv erstellt, so können Sie lokale Projektarchive leichter identifizieren. Wenn Sie ein Projektarchiv mit dem offiziellen Befehlszeilen-Client erstellen, wird dieses Ordnersymbol nicht zugewiesen."
 
 #. (para)
 msgid ""
@@ -1855,7 +1856,7 @@ msgid ""
 " are generally easier for you to maintain, and also makes it easier for us "
 "to maintain TortoiseSVN due to compatibility issues between the different "
 "BDB versions."
-msgstr "TortoiseSVN unterstützt das Anlegen von BDB Projektarchiven nicht mehr. Sie können das jedoch weiterhin mit der SVN Kommandozeile tun. FSFS Projektarchive sind im Allgemeinen für den Anwender einfacher zu warten und machen es uns auch einfacher TortoiseSVN zu pflegen, da es Kompatibilitätsprobleme zwischen verschiedenen BDB Versionen gibt."
+msgstr "TortoiseSVN unterstützt das Anlegen von BDB-Projektarchiven nicht mehr. Sie können das jedoch weiterhin mit der SVN-Kommandozeile tun. FSFS-Projektarchive sind im Allgemeinen für den Anwender einfacher zu warten und machen es auch uns leichter, TortoiseSVN zu pflegen, denn es gibt Kompatibilitätsprobleme zwischen verschiedenen BDB-Versionen."
 
 #. (para)
 msgid ""
@@ -1864,14 +1865,14 @@ msgid ""
 "always support this repository format when accessed via a server through the"
 " <literal>svn://</literal>, <literal>http://</literal> or "
 "<literal>https://</literal> protocols."
-msgstr "TortoiseSVN unterstützt wegen dieser Kompatibilitätsprobleme keinen <literal>file://</literal> Zugriff auf BDB Projektarchive. Es wird dieses Format jedoch immer beim Zugriff über einen Server via der <literal>svn://</literal>, <literal>http://</literal> oder <literal>https://</literal> Protokolle unterstützen."
+msgstr "TortoiseSVN unterstützt wegen dieser Kompatibilitätsprobleme keinen <literal>file://</literal> Zugriff auf BDB-Projektarchive. Es wird dieses Format jedoch immer beim Zugriff über einen Server durch eines der Protokolle <literal>svn://</literal>, <literal>http://</literal> oder <literal>https://</literal> unterstützen."
 
 #. (para)
 msgid ""
 "Of course we also recommend that you don't use <literal>file://</literal> "
 "access at all, apart from local testing purposes. Using a server is more "
 "secure and more reliable for all but single-developer use."
-msgstr "Grundsätzlich empfehlen wir allerdings auf die Verwendung des <literal>file://</literal> Zugriffs, außer für lokale Testzwecke, zu verzichten. Die Verwendung eines Servers ist, außer vielleicht für Einzelanwender, generell sicherer und zuverlässiger."
+msgstr "Grundsätzlich raten wir allerdings von der Verwendung des Zugriffs per <literal>file://</literal> ab, es sei denn für lokale Testzwecke. Die Verwendung eines Servers ist, außer vielleicht für Einzelanwender, generell sicherer und zuverlässiger."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1883,7 +1884,7 @@ msgstr "Zugriff"
 
 #. (primary)
 msgid "UNC paths"
-msgstr "UNC Pfade"
+msgstr "UNC-Pfade"
 
 #. (para)
 msgid ""
@@ -1899,14 +1900,14 @@ msgid ""
 "mapping, or you can use the UNC path. For UNC paths, the form is <systemitem"
 " class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that "
 "there are only 2 leading slashes here."
-msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file://ServerName/Pfad/zum/Projektarchiv/</systemitem>. Beachten Sie, dass hier nur zwei Schrägstriche vor dem Servernamen stehen."
+msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen, können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file://ServerName/Pfad/zum/Projektarchiv/</systemitem>. Beachten Sie, dass hier nur 2 Schrägstriche vor dem Servernamen stehen."
 
 #. (para)
 msgid ""
 "Prior to SVN 1.2, UNC paths had to be given in the more obscure form "
 "<systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. "
 "This form is still supported, but not recommended."
-msgstr "Vor Subversion 1.2, mussten UNC Pfade in dem obskuren Format <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem> angegeben werden. Dieses Format wird weiterhin unterstützt, aber nicht empfohlen."
+msgstr "Vor Subversion 1.2 mussten UNC-Pfade in dem obskuren Format <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem> angegeben werden. Dieses Format wird weiterhin unterstützt, aber nicht empfohlen."
 
 #. (para)
 msgid ""
@@ -1916,7 +1917,7 @@ msgid ""
 "Berkeley DB on a network share, the results are unpredictable - you may see "
 "mysterious errors right away, or it may be months before you discover that "
 "your repository database is subtly corrupted."
-msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe sein! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen dass das Projektarchiv korrupt und nicht mehr zu retten ist."
+msgstr "Erstellen Sie kein Berkeley-DB-Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe liegen! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden, wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen, dass das Projektarchiv korrupt und nicht mehr zu retten ist."
 
 #. (title)
 msgid "Accessing a Repository on a Network Share"
@@ -13595,10 +13596,10 @@ msgstr "Wenn Sie sich an einem Subversion Server anmelden, können Anmeldename u
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
-msgstr "Wie Sie die Anmeldedaten für einen bestimmten Server löschen, können Sie in <xref linkend=\"tsvn-dug-general-auth\"/> nachlesen."
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
+msgstr "Wenn Sie nur die Anmeldedaten für einen bestimmten Server löschen wollen, verwenden Sie die <guibutton>Löschen...</guibutton> anstelle der <guibutton>Alle löschen</guibutton> Schaltfläche."
 
 #. (term)
 msgid "Action log"
@@ -14776,7 +14777,17 @@ msgid ""
 "If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
 "working copy contains local modifications. This may be used to prevent "
 "building with uncommitted changes present."
-msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev <placeholder-1/> zurück, falls die Arbeitskopie lokale Modifikationen enthält. Damit kann das Erzeugen mit nicht übertragenen Änderungen vermieden werden."
+msgstr "Mit dieser Option gibt SubWCRev <placeholder-1/> zurück, falls die Arbeitskopie lokale Modifikationen enthält. Damit kann das Erzeugen mit nicht übertragenen Änderungen vermieden werden."
+
+#. (literal)
+msgid "ERRORLEVEL 11"
+msgstr "ERRORLEVEL 11"
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr "Mit dieser Option gibt SubWCRev <placeholder-1/> zurück, wenn die Arbeitskopie unversionierte Objekte zurück, die nicht ignoriert werden."
 
 #. (literal)
 msgid "ERRORLEVEL 8"
@@ -14787,7 +14798,7 @@ msgid ""
 "If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
 "working copy contains mixed revisions. This may be used to prevent building "
 "with a partially updated working copy."
-msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev <placeholder-1/> zurück, falls die Arbeitskopie gemischte Revisionen enthält. Damit kann das Erzeugen mit einer nur teilweise aktuellen Arbeitskopie vermieden werden."
+msgstr "Mit dieser Option gibt SubWCRev <placeholder-1/> zurück, falls die Arbeitskopie gemischte Revisionen enthält. Damit kann das Erzeugen mit einer nur teilweise aktuellen Arbeitskopie vermieden werden."
 
 #. (literal)
 msgid "ERRORLEVEL 9"
@@ -14797,14 +14808,14 @@ msgstr "ERRORLEVEL 9"
 msgid ""
 "If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
 "destination file already exists."
-msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev <placeholder-1/> zurück, falls die Zieldatei bereits existiert."
+msgstr "Mit dieser Option gibt SubWCRev <placeholder-1/> zurück, falls die Zieldatei bereits existiert."
 
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will include the last-changed revision of "
 "folders. The default behaviour is to use only files when getting the "
 "revision numbers."
-msgstr "Wenn dieser Schalter angegeben wurde, wird SubWCRev die <quote>zuletzt-geändert</quote> Revision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
+msgstr "Mit dieser Option wird SubWCRev die <quote>zuletzt-geändert</quote> Revision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
 
 #. (literal)
 msgid "svn:externals"
@@ -14815,7 +14826,7 @@ msgid ""
 "If this switch is given, SubWCRev will examine directories which are "
 "included with <placeholder-1/>, but only if they are from the same "
 "repository. The default behaviour is to ignore externals."
-msgstr "Wenn dieser Schalter angegeben wurde, wird SubWCRev Verzeichnisse überprüfen, die mittels <placeholder-1/> eingebunden wurden, falls diese auf dasselbe Projektarchiv verweisen. Die Vorgabe ist, externe Verweise zu ignorieren."
+msgstr "Mit dieser Option wird SubWCRev Verzeichnisse überprüfen, die mittels <placeholder-1/> eingebunden wurden, falls diese auf dasselbe Projektarchiv verweisen. Die Vorgabe ist, externe Verweise zu ignorieren."
 
 #. (literal)
 #. (literal)
@@ -14828,7 +14839,7 @@ msgid ""
 "externals with explicit revisions, when the revision range inside of them is"
 " only the given explicit revision in the properties. So it doesn't lead to "
 "mixed revisions."
-msgstr "Wenn dieser Schalter gesetzt ist, dasselbe wie <placeholder-1/>, aber die Externals mit expliziten Revisionen werden ignoriert, [when the revision range inside of them is only the given explicit revision in the properties]. So werden gemischte Revisionen unterbunden."
+msgstr "Wenn dieser Schalter gesetzt ist, genau so wie <placeholder-1/>, aber die Externals mit expliziten Revisionen werden ignoriert, [when the revision range inside of them is only the given explicit revision in the properties]. So werden gemischte Revisionen unterbunden."
 
 #. (entry)
 msgid ""
@@ -14839,7 +14850,13 @@ msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev die Revisionsnummern
 msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
-msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev die Revisionsnummern in HEX mit vorangestelltem '0X' aus."
+msgstr "Mit dieser Option gibt SubWCRev die Revisionsnummern in HEX mit vorangestelltem '0X' aus."
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
+msgstr "Mit dieser Option wird SubWCRev die Schlüsselwörter ersetzen, ohne den Status der Arbeitskopie auf die Standardausgabe auszugeben."
 
 #. (para)
 msgid ""
@@ -14917,6 +14934,16 @@ msgstr "Die Ausgabedatei ist bereits vorhanden. Dies erfordert den <placeholder-
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
 msgstr "Der angegebene Pfad ist keine Arbeitskopie oder ein Teil davon."
+
+#. (literal)
+msgid "-N"
+msgstr "-N"
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
+msgstr "Die Arbeitskopie enthält nicht versionierte Dateien oder Ordner. Dies erfordert den <placeholder-1/> Schalter."
 
 #. (para)
 msgid ""
@@ -15020,9 +15047,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15048,6 +15077,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> wird durch <placeholder-2/> ersetzt, falls die Arbeitskopie lokale Änderungen enthält oder <placeholder-3/>, falls nicht."
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr "$WCUNVER?TText:FText$"
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr "<placeholder-1/> wird durch <placeholder-2/> ersetzt, falls die Arbeitskopie nicht versionierte Objekte enthält oder <placeholder-3/>, falls nicht."
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15167,6 +15206,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15193,7 +15233,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Testdatei für SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15213,6 +15253,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15239,7 +15280,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Tesdatei für SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Unversioned   = \"no unversioned items\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15328,6 +15369,7 @@ msgstr "Die minimale aktualisierte Revision, wie in <placeholder-1/> angezeigt."
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr "<placeholder-1/>."
 
@@ -15338,6 +15380,10 @@ msgstr "Die maximale aktualisierte Revision, wie in <placeholder-1/> angezeigt."
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "<literal>True</literal>, falls es lokale Änderungen gibt."
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr "True, wenn nicht versionierte Objekte vorhanden sind"
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17654,6 +17700,7 @@ msgid ""
 msgstr "Die Optionen <option>/ignoreeol</option>, <option>/ignorespaces</option> und <option>/ignoreallspaces</option> werden ebenfalls unterstützt."
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
@@ -17668,9 +17715,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Speichert eine Datei von einer <placeholder-1/> angegebenen Arbeitskopie oder URL an der in <placeholder-2/> spezifizierten Stelle. Eine Revision kann in <placeholder-3/> angegeben werden, um eine Datei in einer bestimmten Revision zu holen."
 
+#. (option)
+msgid "/noview"
+msgstr "/noview"
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "Erzeugt eine Patchdatei für den in <placeholder-1/> angegebenen Pfad."
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr "Erstellt eine Patchdatei für den in <placeholder-1/> angegebenen Pfad. Um den Speichern Unter Dialog zu überspringen, können Sie in <placeholder-2/> den Pfad angeben, in dem die Patchdatei gespeichert werden soll. Damit der Standard-Diff-Betrachter nicht gestartet wird, übergeben Sie <placeholder-3/>."
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

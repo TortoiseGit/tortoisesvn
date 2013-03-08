@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-25 06:38+0000\n"
+"PO-Revision-Date: 2013-03-06 05:27+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1469,11 +1469,19 @@ msgstr "（%1!s!）%2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
-msgstr "（ダブルクリックでエラーメッセージをクリア）"
+msgstr "（ダブルクリックでエラーメッセージを消去）"
 
 #. Resource IDs: (17, 589)
 msgid "(binary value)"
 msgstr "（バイナリ値）"
+
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr "（内容とプロパティ）"
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr "（内容のみ）"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -2028,7 +2036,7 @@ msgstr "ファイルの競合を解決するために使用する\r\n外部マ�
 #. Resource IDs: (3867)
 #, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr "無効なファイルハンドルが %1 に関連付けられています。"
+msgstr "不正なファイルハンドルが %1 に関連付けられています。"
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -2043,6 +2051,14 @@ msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "未知の改行コードが、%d行目で見つかりました。"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr "他のプロセスが作業コピーデータベースをブロックしているか、使用しているファイルシステムがファイルのロックをサポートしていないかです。もし作業コピーがネットワーク上のファイルシステムにあるのであれば、ファイルサーバーがファイルのロックをサポートしているかどうかを確認してください。"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2743,6 +2759,10 @@ msgstr "更新のチェック"
 msgid "Check out a working copy from a repository"
 msgstr "リポジトリから作業コピーをチェックアウト"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr "以下から削除する認証データの項目をチェックしてください"
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2861,51 +2881,59 @@ msgstr "中断した処理、ロックされたファイル、などをクリー
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
-msgstr "クリア"
+msgstr "消去"
 
 #. Resource IDs: (1057)
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr "クリアツール\nクリア"
+msgstr "消去ツール\n消去"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr "すべて消去"
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr "消去..."
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
-msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のURLをクリアする"
+msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のURLを消去します"
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のログメッセージをクリアする"
+msgstr "%2!ld!件の作業コピーで保存した%1!ld!件のログメッセージを消去します"
 
 #. Resource IDs: (196)
 #, c-format
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr "%1!ld!件のユーザー名/パスワードの組、%2!ld!件のSSL証明書と%3!ld!件のユーザー名をクリアする"
+msgstr "%1!ld!件のユーザー名/パスワードの組、%2!ld!件のSSL証明書と%3!ld!件のユーザー名を消去します"
 
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr "%ld件のクライアント側スクリプトの承認をクリア"
+msgstr "%ld件のクライアント側スクリプトの承認を消去します"
 
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "%ld件のリポジトリにキャッシュされているログをクリアする"
+msgstr "%ld件のリポジトリにキャッシュされているログを消去します"
 
 #. Resource IDs: (195)
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
-msgstr "保存されている認証データをクリアする。\r\nすべてのリポジトリに対して、再度ユーザー名とパスワードを入力する必要があります。"
+msgstr "保存されている認証データを消去する。\nすべてのリポジトリに対して、再度ユーザー名とパスワードを入力する必要があります。"
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "保存されている%ld件のダイアログの位置と大きさをクリアする"
+msgstr "保存されている%ld件のダイアログの位置と大きさを消去します"
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -3119,6 +3147,14 @@ msgstr "作業ベースと比較/注釈履歴(&B)"
 msgid "Compare and blame with previous revision"
 msgstr "直前のリビジョンと比較/注釈履歴"
 
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr "リビジョンを比較（プロパティのみ）(&P)"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr "リビジョンを比較（コンテンツのみ）(&C)"
+
 #. Resource IDs: (210)
 msgid "Compare two files"
 msgstr "2つのファイルを比較"
@@ -3248,7 +3284,7 @@ msgstr "ドッキングしているウィンドウをコントラクトする"
 
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
-msgstr "作業コピーのフォーマットを新しいバージョンに変換する"
+msgstr "作業コピーの形式を新しいバージョンに変換する"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -3319,7 +3355,7 @@ msgstr "URLをクリップボードにコピー"
 
 #. Resource IDs: (209)
 msgid "Copy all information to clipboard"
-msgstr "クリップボードにすべての情報をコピー"
+msgstr "すべての情報をクリップボードにコピー"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3961,7 +3997,7 @@ msgstr "ヘルプの使い方を表示する\nヘルプ"
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
-msgstr "プログラムの情報、バージョン、コピーライトを表示する\nバージョン情報"
+msgstr "プログラムの情報、バージョン、著作権を表示する\nバージョン情報"
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
@@ -4491,7 +4527,7 @@ msgstr "除外"
 msgid ""
 "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
 "(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "実行ファイル (*.exe)|*.exe|コマンド (*.com)|*.com|PDFファイル (*.pdf)|*.pdf|バッチファイル (*.bat)|*.bat|すべてのファイル (*.*)|*.*||"
+msgstr "実行ファイル (*.exe)|*.exe|コマンド (*.com)|*.com|情報ファイル (*.pdf)|*.pdf|バッチファイル (*.bat)|*.bat|すべてのファイル (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -4684,7 +4720,7 @@ msgstr "最新リビジョンであるか調べ、それに合わせる"
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
-msgstr "フォルダーの中身をバックグラウンドで先読みし、表示を高速化します"
+msgstr "フォルダーの内容バックグラウンドで先読みし、表示を高速化します"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
@@ -4966,7 +5002,7 @@ msgstr "GDI+はビットマップオブジェクトを作成できませんで�
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
-msgstr "情報を集めています。しばらくお待ちください..."
+msgstr "情報収集中です。しばらくお待ちください..."
 
 #. Resource IDs: (107, 143)
 msgid "General"
@@ -5743,7 +5779,7 @@ msgstr "状態チェックのためにリポジトリを含めます\nすべて�
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
-msgstr "ファイル名が正しくありません。"
+msgstr "ファイル名が不正です。"
 
 #. Resource IDs: (65535)
 msgid "Index colors:"
@@ -5934,6 +5970,10 @@ msgstr "キーボードショートカット:"
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr "キー"
+
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr "種類"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -7752,6 +7792,10 @@ msgstr "リビジョン(&V)"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "行き詰まったら「日常の使用ガイド」をお読みください。"
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr "領域名の文字列"
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "最近"
@@ -7982,6 +8026,10 @@ msgstr "%ld件の項目を削除"
 #, c-format
 msgid "Remove %s"
 msgstr "%s を削除"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr "保存された認証データを削除"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

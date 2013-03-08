@@ -12,6 +12,7 @@
 # Translators:
 # Begina Felicysym <>, 2011.
 # Begina Felicysym <begina.felicysym@wp.eu>, 2011-2013.
+# Jarosław Pękala <jaroslaw.pekala@gmail.com>, 2013.
 # <kkotowicz@gmail.com>, 2011.
 #   <kkotowicz@gmail.com>, 2011.
 # kkotowicz <kkotowicz@gmail.com>, 2011.
@@ -22,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-21 21:59+0000\n"
-"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
+"PO-Revision-Date: 2013-03-05 22:07+0000\n"
+"Last-Translator: Jarosław Pękala <jaroslaw.pekala@gmail.com>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1478,6 +1479,14 @@ msgstr "(Kliknij dwukrotnie, aby wyczyścić komunikat błędu)"
 msgid "(binary value)"
 msgstr "(wartość binarna)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr "(zawartość i atrybuty)"
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr "(tylko zawartość)"
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(kopiuj)"
@@ -2046,6 +2055,14 @@ msgstr "Wystąpił nieoczekiwany błąd podczas dostępu do %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "W linii %d wystąpił nieznany typ linii!"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr "Inny proces blokuje bazę danych kopii roboczej, lub system plików nie wspiera blokowania plików.: jeśli kopia robocza znajduje się na sieciowym systemie plików, upewnij się, że blokowanie plików jest włączone na serwerze."
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2746,6 +2763,10 @@ msgstr "Sprawdź zmiany"
 msgid "Check out a working copy from a repository"
 msgstr "Pobierz kopię roboczą z repozytorium"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr "Poniżej zaznacz elementy autentykacji, które chcesz usunąć."
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2871,6 +2892,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Narzędzie czyszczenia\nWyczyść"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr "Wyczyść wszystko"
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr "Wyczyść..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3121,6 +3150,14 @@ msgstr "Porównaj i adnotuj z roboczą &BASE"
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "Porównaj i adnotuj z poprzednią wersją"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr "Porównaj wersje (tylko atrybuty)"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr "Porównaj wersje (tylko zawar&tość)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5938,6 +5975,10 @@ msgstr "Skróty klawiaturowe:"
 msgid "Keys"
 msgstr "Klawisze"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr "Rodzaj"
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "&Limit:"
@@ -7755,6 +7796,10 @@ msgstr "&Wersja"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Przeczytaj 'Daily Use Guide' zanim rozpoczniesz na dobre..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr "Dziedzina"
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "Ostatnie"
@@ -7985,6 +8030,10 @@ msgstr "Usuń %ld elementów"
 #, c-format
 msgid "Remove %s"
 msgstr "Usuń %s"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr "Usuń zapisane informacje autentykacyjne"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

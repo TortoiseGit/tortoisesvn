@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-26 08:41+0000\n"
+"PO-Revision-Date: 2013-03-07 13:11+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1473,6 +1473,14 @@ msgstr "(Dvojklik pro zbavení se chybové zprávy)"
 msgid "(binary value)"
 msgstr "(binární hodnota)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr "(obsah a vlastnosti)"
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr "(pouze obsah)"
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(kopie)"
@@ -2041,6 +2049,14 @@ msgstr "Nastala neznámá chyba při přístupu na %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Neznámý typ řádky byl nalezen na řádce %d!"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr "Jiný proces blokuje databázi pracovní kopie, nebo systém souborů nepodporuje uzamčení souborů; pokud pracovní kopie je umístěna na síťovém disku, ujistěte se, že server má zamykání souborů povoleno."
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2741,6 +2757,10 @@ msgstr "Zjistit aktualizace"
 msgid "Check out a working copy from a repository"
 msgstr "Získat pracovní kopii z úložiště"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr "Níže zaškrtněte položky ověření, které chcete smazat"
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2866,6 +2886,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Nástroj Vyčištění\nVymazat"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr "Smazat vše"
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr "Smazat..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3116,6 +3144,14 @@ msgstr "Porovnat a o&bvinit s pracovním originálem"
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "Porovnat a obvinit s předchozí revizí"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr "Porovnat revize (pouze &vlastnosti)"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr "Porovnat revize (pouze &obsah)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5933,6 +5969,10 @@ msgstr "Klávesové zkratky:"
 msgid "Keys"
 msgstr "Klávesy"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr "Druh"
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "L&imit:"
@@ -7750,6 +7790,10 @@ msgstr "Re&vize"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Přečtěte si 'Příručku Každodenního Použití' dřív, než se zaseknete..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr "Řetězec oblasti"
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "Předchozí"
@@ -7980,6 +8024,10 @@ msgstr "Odstranit %ld položek"
 #, c-format
 msgid "Remove %s"
 msgstr "Odstranit %s"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr "Odstranit uložená data ověření"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-05 14:10+0000\n"
+"PO-Revision-Date: 2013-03-08 00:19+0000\n"
 "Last-Translator: Skender Mustafi <1mail2me@gmail.com>\n"
 "Language-Team: Albanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -91,17 +91,17 @@ msgstr "%1!d! skeda të selektuara, %2!d! skeda në përgjithësi"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr ""
+msgstr "%1!d! autori(ët) më aktiv me së paku %2!d! shënime secili (%3!d! %%)"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!ld! minute(s) and %2!ld! second(s)"
-msgstr ""
+msgstr "%1!ld! minutë(a) dhe %2!ld! sekondë(a)"
 
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (jasht rrjeti)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -111,7 +111,7 @@ msgstr "%1!s! - në versionin: %2!d!"
 #. Resource IDs: (151)
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
-msgstr ""
+msgstr "%1!s! : Baza Funksionale, Rishqytime %2!ld!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -159,7 +159,7 @@ msgstr ""
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr ""
+msgstr "%1: %2\nVahzdo funksionimin e skriptës?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -167,7 +167,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr ""
+msgstr "%1\nNuk mund të gjindej skeda.\nVërtetoni nëse është dhënë rruga dhe emri i vërtetë i skedës."
 
 #. Resource IDs: (357)
 #, c-format
@@ -240,7 +240,7 @@ msgstr "%s [Rikthyer]"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr ""
+msgstr "%s, por direktoria tanimë ekziston e pa përditësuar në kompjuterin tuaj."
 
 #. Resource IDs: (609)
 #, c-format
@@ -285,7 +285,7 @@ msgstr "%s, por direktoria tanimë është zëvendësuar"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr ""
+msgstr "%s, por skeda tanimë ekziston në kompjuterin tuaj."
 
 #. Resource IDs: (609)
 #, c-format
@@ -295,7 +295,7 @@ msgstr "%s, por skeda mungon në kompjuterin tuaj."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr ""
+msgstr "%s, por skeda tanimë është vendosur në kompjuterin tuaj."
 
 #. Resource IDs: (609)
 #, c-format
@@ -450,7 +450,7 @@ msgstr "&Argumentet:"
 
 #. Resource IDs: (16645)
 msgid "&Assign"
-msgstr ""
+msgstr "&Cakto"
 
 #. Resource IDs: (16633)
 msgid "&Associate double-click event with:"
@@ -458,7 +458,7 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "&Auto Hide"
-msgstr ""
+msgstr "&Fshihe Automatikisht"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -506,7 +506,7 @@ msgstr ""
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr ""
+msgstr "&Shfleto magazinën"
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
@@ -518,11 +518,11 @@ msgstr ""
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr ""
+msgstr "&Pamja e Pullës..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
-msgstr ""
+msgstr "&Teksti i pullës:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -542,7 +542,7 @@ msgstr "&Kategoria:"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
-msgstr ""
+msgstr "&Përzgjidh komandën nga:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
@@ -602,7 +602,7 @@ msgstr "&Kopjo"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr ""
+msgstr "&Kopjo Foton e Pullës"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -618,7 +618,7 @@ msgstr "&Kopjo në..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "&Krijo strukturë të dosjes"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -630,7 +630,7 @@ msgstr "&Data"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "&Ditë pasiviteti derisa ndryshimet e vogla të largohen"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -646,7 +646,7 @@ msgstr "&Grise (mbaje lokall)"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
-msgstr ""
+msgstr "&Gris sendet e pa përditësuara..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -778,7 +778,7 @@ msgstr "&Nga WC / URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
-msgstr ""
+msgstr "&Nga rivlerësimi"
 
 #. Resource IDs: (1494)
 msgid "&From: (start URL and revision of the range to merge)"
@@ -786,7 +786,7 @@ msgstr ""
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
-msgstr "&Kalo tek Vija..."
+msgstr "&Kalo tek rreshti..."
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -794,7 +794,7 @@ msgstr "&Gjelbër:"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr ""
+msgstr "&Grupo sipas degës"
 
 #. Resource IDs: (1115)
 msgid "&HEAD Revision"
@@ -859,7 +859,7 @@ msgstr "&Përfshij të jashtme"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
-msgstr ""
+msgstr "&Përfshij informacionet e bashkimit"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -891,7 +891,7 @@ msgstr "&Ikonat e Mëdha"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
-msgstr ""
+msgstr "&Kufizo kërkimin tek rreshtet e ndryshuar"
 
 #. Resource IDs: (65535)
 msgid "&Limit:"
@@ -899,7 +899,7 @@ msgstr "&Limiti:"
 
 #. Resource IDs: (1078)
 msgid "&Line number"
-msgstr ""
+msgstr "&Numri i rreshtit"
 
 #. Resource IDs: (88)
 #, c-format
@@ -908,7 +908,7 @@ msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr ""
+msgstr "&Lidh pozitat e fotografisë"
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
@@ -916,7 +916,7 @@ msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
-msgstr ""
+msgstr "&Pamje Liste"
 
 #. Resource IDs: (1309)
 msgid "&Load..."
@@ -956,11 +956,11 @@ msgstr ""
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr ""
+msgstr "&Meny animacionesh:"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
-msgstr ""
+msgstr "&Meny përmbajtjesh:"
 
 #. Resource IDs: (1, 279)
 msgid "&Merge"
@@ -1041,7 +1041,7 @@ msgstr "&Asnjë"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr ""
+msgstr "&E pa ekzekutueshme"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
@@ -1053,7 +1053,7 @@ msgstr "&Mirë"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr ""
+msgstr "&Jasht rrjeti për tani"
 
 #. Resource IDs: (3845)
 msgid "&One Page"
@@ -1121,15 +1121,15 @@ msgstr "&Shtyp..."
 
 #. Resource IDs: (1265)
 msgid "&Properties"
-msgstr ""
+msgstr "&Karakteristikat"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
-msgstr ""
+msgstr "&Karakteristikat..."
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr ""
+msgstr "&Porositë e fundit"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
@@ -1165,7 +1165,7 @@ msgstr "&Rikthe"
 
 #. Resource IDs: (1019)
 msgid "&Reset Toolbar"
-msgstr ""
+msgstr "&Rikthe Shiritin e Mjeteve"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
@@ -1201,7 +1201,7 @@ msgstr ""
 
 #. Resource IDs: (1033, 1116, 1612)
 msgid "&Revision"
-msgstr ""
+msgstr "&Rivlerësim"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
@@ -1221,7 +1221,7 @@ msgstr "&Ruaje"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
-msgstr ""
+msgstr "&Ruaje vërtetësinë"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
@@ -1249,7 +1249,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "&Shfaq Menytë për:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1277,7 +1277,7 @@ msgstr ""
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
-msgstr ""
+msgstr "&Ndërprit kopjimin/riemërimin"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1289,11 +1289,11 @@ msgstr ""
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
-msgstr ""
+msgstr "&Pamja e Simbolit"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
-msgstr ""
+msgstr "&Madhësia e fletës:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
@@ -1305,7 +1305,7 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr ""
+msgstr "&Test bashkim"
 
 #. Resource IDs: (1558, 16915)
 msgid "&Text"
@@ -1377,7 +1377,7 @@ msgstr ""
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr ""
+msgstr "&URL e magazinës:"
 
 #. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
@@ -1405,11 +1405,11 @@ msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Përditëso sendin deri në rivlerësim..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr ""
+msgstr "&Përditëso deri në rivlerësim..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1429,11 +1429,11 @@ msgstr "&Shih"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr ""
+msgstr "&Shih:"
 
 #. Resource IDs: (1066)
 msgid "&Whole word"
-msgstr ""
+msgstr "&Fjala e tërë"
 
 #. Resource IDs: (1589)
 msgid "&Windows (CRLF)"
@@ -1445,7 +1445,7 @@ msgstr "&Kopje funksionale"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
-msgstr ""
+msgstr "&kontrolli i listës së skedave"
 
 #. Resource IDs: (84)
 #, c-format
@@ -1486,7 +1486,7 @@ msgstr "(kopjo)"
 
 #. Resource IDs: (277)
 msgid "(create branch)"
-msgstr ""
+msgstr "(krijo degë)"
 
 #. Resource IDs: (277)
 msgid "(created)"
@@ -1498,7 +1498,7 @@ msgstr "(grise)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr ""
+msgstr "(të jashtmet)"
 
 #. Resource IDs: (277)
 msgid "(modified)"
@@ -1514,19 +1514,19 @@ msgstr ""
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
-msgstr ""
+msgstr "(s'ka listë ndryshimesh)"
 
 #. Resource IDs: (314)
 msgid "(no line number)"
-msgstr "(nuk ka numër vije)"
+msgstr "(nuk ka numër rreshti)"
 
 #. Resource IDs: (277)
 msgid "(no modification but copy created from here)"
-msgstr ""
+msgstr "(nuk ka ndryshime por kopja është krijuar nga këtu)"
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
-msgstr ""
+msgstr "(nuk ka ndryshime por e rëndësishme për kopjen funksionale)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1586,7 +1586,7 @@ msgstr ""
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
-msgstr ""
+msgstr "... duke lexuar statutin e kopjes funksionale"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1595,15 +1595,15 @@ msgstr "....."
 #. Resource IDs: (151)
 #, c-format
 msgid ": Revision %d"
-msgstr ""
+msgstr ": Rivlerësimi %d"
 
 #. Resource IDs: (151)
 msgid ": working base"
-msgstr ""
+msgstr ":bazë funksionale"
 
 #. Resource IDs: (151)
 msgid ": working copy"
-msgstr ""
+msgstr ":kopje funksionale"
 
 #. Resource IDs: (332)
 msgid "< &Back"
@@ -1623,11 +1623,11 @@ msgstr "<Patitull>"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
-msgstr ""
+msgstr "<descr>"
 
 #. Resource IDs: (209)
 msgid "<new changelist>"
-msgstr ""
+msgstr "<listë e re ndryshimesh>"
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1635,7 +1635,7 @@ msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "Një listë e karakteristikave të definuara nga përdoruesi për skedat për të shfaqur në kutinë combo "
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
@@ -1645,7 +1645,7 @@ msgstr ""
 msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
-msgstr ""
+msgstr "Ka version të ri në dispozicion. \nKaloni tek http://tortoisesvn.net për të shkarkuar versionin e fundit."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1679,7 +1679,7 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
-msgstr ""
+msgstr "Burimi i kërkuar nuk ishte në dispozicion."
 
 #. Resource IDs: (89)
 #, c-format
@@ -1697,15 +1697,15 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
-msgstr ""
+msgstr "Sh&to dosje..."
 
 #. Resource IDs: (563)
 msgid "Abort"
-msgstr ""
+msgstr "Ndërprit"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
-msgstr ""
+msgstr "Ndërprit &Bashko"
 
 #. Resource IDs: (9)
 msgid "About"
@@ -1721,11 +1721,11 @@ msgstr "Rreth TortoiseSVN"
 
 #. Resource IDs: (82)
 msgid "Accept once"
-msgstr ""
+msgstr "Prano njëherë"
 
 #. Resource IDs: (82)
 msgid "Accept permanently"
-msgstr ""
+msgstr "Prano përherë"
 
 #. Resource IDs: (148)
 msgid ""
@@ -1742,7 +1742,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
-msgstr ""
+msgstr "Qasja tek %1 u refuzua."
 
 #. Resource IDs: (77, 319)
 msgid "Action"
@@ -1758,7 +1758,7 @@ msgstr "Veprime"
 
 #. Resource IDs: (3826)
 msgid "Activate Task List"
-msgstr ""
+msgstr "Aktivizo Listën e Detyrave"
 
 #. Resource IDs: (1066)
 msgid "Active Files"
@@ -1777,7 +1777,7 @@ msgstr "Shto"
 
 #. Resource IDs: (101)
 msgid "Add &file..."
-msgstr ""
+msgstr "Shto &skedë..."
 
 #. Resource IDs: (376)
 #, c-format
@@ -1786,11 +1786,11 @@ msgstr "E shto '%s' në fjalorë"
 
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
-msgstr ""
+msgstr "Shto (si zëvendësim)..."
 
 #. Resource IDs: (588)
 msgid "Add Properties"
-msgstr ""
+msgstr "Shto Karakteristikat"
 
 #. Resource IDs: (110)
 msgid "Add extension specific diff program"
@@ -1808,11 +1808,11 @@ msgstr ""
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
-msgstr ""
+msgstr "Vendos automatikisht skedë të re tek SVN"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "Shto sendin sendin dosido"
 
 #. Resource IDs: (613)
 #, c-format
@@ -1821,11 +1821,11 @@ msgstr "E shto tek %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
-msgstr ""
+msgstr "E shto tek &lista e injorimit"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Shto tek shiriti i mjeteve të Quick Access"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1841,19 +1841,19 @@ msgstr "Shtuar"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr ""
+msgstr "Shto skedën nga distanca"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "Shto dosjen nga distanca"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
-msgstr ""
+msgstr "Shto sendet nga distanca"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr ""
+msgstr "Nyje e vendosur"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1869,7 +1869,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
-msgstr ""
+msgstr "Vendosur në strukturën(at)\n%s\ntë listës së injorimit."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -1877,7 +1877,7 @@ msgstr "Duke shtuar"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
-msgstr ""
+msgstr "Shton karakteristikë të re"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1947,19 +1947,19 @@ msgstr "Të gjitha Skedat (*.*)|*.*||"
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
 "menus?"
-msgstr ""
+msgstr "Të gjitha ndryshimet tuaja do të humben! Dëshironi me të vërtetë t'i riktheni të gjitha shiritet e mjeteve dhe menytë?"
 
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset the keyboard "
 "assignments?"
-msgstr ""
+msgstr "Të gjitha ndryshimet tuaja do të humben! Dëshironi me të vërtetë t'i riktheni caktimet e tastierës?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "Të gjitha ndryshimet tuaja do të humben!  Dëshironi me të vërtetë të riktheni menynë '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -1992,7 +1992,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "Gjithnjë mbyll dialogun për veprime lokale"
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
@@ -2037,7 +2037,7 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "Është paraqitur një gabim i panjohur."
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -2047,7 +2047,7 @@ msgstr ""
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr ""
+msgstr "Një lloj i pa njohur i rreshtit është gjetur në rreshtin %d !"
 
 #. Resource IDs: (251)
 msgid ""
@@ -2127,7 +2127,7 @@ msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "Siç &është (nuk ka EOL specifik)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2140,7 +2140,7 @@ msgstr ""
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "Caktuar tek:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -2149,7 +2149,7 @@ msgstr "Në rivlerësimin: %d"
 
 #. Resource IDs: (3843)
 msgid "Attempted an unsupported operation."
-msgstr ""
+msgstr "U tentua të realizohej një veprim i pa mbështetur."
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -2159,20 +2159,20 @@ msgstr ""
 #. Resource IDs: (3868)
 #, c-format
 msgid "Attempted to read from the writing %1."
-msgstr ""
+msgstr "U tentua të lexohej nga shkrimi %1."
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "Attempted to write to the reading %1."
-msgstr ""
+msgstr "U tentua të shkruhej tek shkrimi %1."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
-msgstr ""
+msgstr "Vërtetim"
 
 #. Resource IDs: (1278)
 msgid "Authentication data"
-msgstr ""
+msgstr "Të dhënat e vërtetimit"
 
 #. Resource IDs: (19, 76, 207, 1562)
 msgid "Author"
@@ -2180,7 +2180,7 @@ msgstr "Autori"
 
 #. Resource IDs: (65535)
 msgid "Author:\t\t\t\tStefan Kueng"
-msgstr ""
+msgstr "Autor:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2196,15 +2196,15 @@ msgstr "Autorët:"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide"
-msgstr ""
+msgstr "Fshihe Automatikisht"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
+msgstr "Fshihi Automatikisht Të Gjitha"
 
 #. Resource IDs: (99)
 msgid "Auto Rename"
-msgstr ""
+msgstr "Riemëroje Automatikisht"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -2212,15 +2212,15 @@ msgstr ""
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr ""
+msgstr "Mbylle automatikisht nëse nuk ka konflikte"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "Mbylle automakisht nëse nuk ka gabime"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
-msgstr ""
+msgstr "Mbylle automatikisht nëse nuk ka bashkime, shtime ose grisje"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2235,7 +2235,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
-msgstr ""
+msgstr "Automatikisht"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2247,7 +2247,7 @@ msgstr "Mesatare"
 
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
-msgstr ""
+msgstr "S&hfleto..."
 
 #. Resource IDs: (1064)
 msgid "Back"
@@ -2316,7 +2316,7 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
-msgstr ""
+msgstr "Sh&fleto..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
@@ -2368,7 +2368,7 @@ msgstr ""
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "Pamja e Pullës"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -2384,7 +2384,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
-msgstr ""
+msgstr "K&omandat:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2392,7 +2392,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
-msgstr ""
+msgstr "K&rijo dosje..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
@@ -2623,7 +2623,7 @@ msgstr ""
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "Duke ndërprerë veprimin..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
@@ -3613,7 +3613,7 @@ msgstr ""
 msgid ""
 "Create new directory:\r\n"
 "%s"
-msgstr ""
+msgstr "Krijo direktori të re:\n%s"
 
 #. Resource IDs: (156)
 msgid "Create patch file"
@@ -3625,7 +3625,7 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Create shortcut"
-msgstr ""
+msgstr "Krijo shkurtesë"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -3661,7 +3661,7 @@ msgstr "Atributet:"
 
 #. Resource IDs: (376)
 msgid "Cu&t"
-msgstr ""
+msgstr "Pre&je"
 
 #. Resource IDs: (65535)
 msgid "Current"
@@ -5089,11 +5089,11 @@ msgstr ""
 
 #. Resource IDs: (155)
 msgid "Go To Line"
-msgstr ""
+msgstr "Kalo Tek Rreshti"
 
 #. Resource IDs: (130)
 msgid "Go to line"
-msgstr "Kalo tek vija"
+msgstr "Kalo tek rreshti"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5133,7 +5133,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Goto Line"
-msgstr ""
+msgstr "Kalo tek Rreshti"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -6044,7 +6044,7 @@ msgstr ""
 
 #. Resource IDs: (19)
 msgid "Line"
-msgstr "Vija"
+msgstr "Rreshti"
 
 #. Resource IDs: (246)
 msgid "Line Graph"
@@ -6054,7 +6054,7 @@ msgstr ""
 msgid ""
 "Line Tool\n"
 "Line"
-msgstr ""
+msgstr "Mjeti i rreshtit\nRreshti"
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
@@ -6067,21 +6067,21 @@ msgstr ""
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "Rreshti është zhvendosur nga rreshti %ld"
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "Rreshti u zhvendos tek rreshti %ld"
 
 #. Resource IDs: (65535)
 msgid "Line:"
-msgstr "Vija:"
+msgstr "Rreshti:"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Line: %*ld"
-msgstr "Vija: %*ld"
+msgstr "Rreshti: %*ld"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -6483,7 +6483,7 @@ msgstr ""
 #. Resource IDs: (83)
 msgid ""
 "Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr ""
+msgstr "Bashkimi kërkon rivlerësime të ndryshme ose URL të ndryshme në 'Nga:' dhe 'Tek:'"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6492,7 +6492,7 @@ msgstr ""
 
 #. Resource IDs: (76, 1241, 1359)
 msgid "Message"
-msgstr ""
+msgstr "Porosia"
 
 #. Resource IDs: (1574)
 msgid "Message &label:"
@@ -6508,11 +6508,11 @@ msgstr ""
 
 #. Resource IDs: (1241)
 msgid "Message:"
-msgstr ""
+msgstr "Porosia:"
 
 #. Resource IDs: (116)
 msgid "Messages"
-msgstr ""
+msgstr "Porositë"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6544,7 +6544,7 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "Mixed"
-msgstr ""
+msgstr "Përzier"
 
 #. Resource IDs: (208)
 msgid "Modification date"
@@ -6552,7 +6552,7 @@ msgstr ""
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
-msgstr ""
+msgstr "Ndryshuar"
 
 #. Resource IDs: (65535)
 msgid "Modified node"
@@ -6560,11 +6560,11 @@ msgstr ""
 
 #. Resource IDs: (1070)
 msgid "More"
-msgstr ""
+msgstr "Më tepër"
 
 #. Resource IDs: (1002)
 msgid "More Buttons"
-msgstr ""
+msgstr "Më Shumë Pulla"
 
 #. Resource IDs: (1069)
 msgid "More Commands..."
@@ -6572,7 +6572,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "More colors..."
-msgstr ""
+msgstr "Më shumë ngjyra..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
@@ -6580,7 +6580,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "More..."
-msgstr ""
+msgstr "Më tepër..."
 
 #. Resource IDs: (1136)
 msgid "Most active author:"
@@ -6595,42 +6595,42 @@ msgstr ""
 msgid ""
 "Move %1!ld! items to\r\n"
 "%2!s!"
-msgstr ""
+msgstr "Lëviz %1!ld! sendet tek\n%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
 "Move %1!s!\r\n"
 "to %2!s!"
-msgstr ""
+msgstr "Lëviz %1!s!\ntek %2!s!"
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
-msgstr ""
+msgstr "Lëviz &Poshtë"
 
 #. Resource IDs: (17025)
 msgid "Move &Up"
-msgstr ""
+msgstr "Lëviz &Sipër"
 
 #. Resource IDs: (1002)
 msgid "Move Item Down"
-msgstr ""
+msgstr "Lëviz Sendin Poshtë"
 
 #. Resource IDs: (1002)
 msgid "Move Item Up"
-msgstr ""
+msgstr "Lëviz Sendin Sipër"
 
 #. Resource IDs: (147)
 msgid "Move and rename"
-msgstr ""
+msgstr "Lëviz dhe riemëro"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
-msgstr ""
+msgstr "Lëviz dhe riemëro sendin këtu"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
-msgstr ""
+msgstr "Lëvis sendet këtu"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
@@ -6639,20 +6639,20 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "Lëviz tek %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
-msgstr ""
+msgstr "Lëvize tek lista e ndryshimeve"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
-msgstr ""
+msgstr "Lëviz/Riemëro"
 
 #. Resource IDs: (98)
 #, c-format
 msgid "Move: New name for %s"
-msgstr ""
+msgstr "Lëviz: Emri i ri për %s"
 
 #. Resource IDs: (106)
 msgid ""
@@ -6662,7 +6662,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
-msgstr ""
+msgstr "Lëvizur nga"
 
 #. Resource IDs: (210)
 #, c-format
@@ -6673,7 +6673,7 @@ msgstr ""
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
-msgstr ""
+msgstr "Lëvizur nga distanca"
 
 #. Resource IDs: (65535)
 msgid "Moved to"
@@ -6693,15 +6693,15 @@ msgstr ""
 #. Resource IDs: (80)
 #, c-format
 msgid "Moving %1!s!"
-msgstr ""
+msgstr "Duke lëvizur %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
-msgstr ""
+msgstr "Duke lëvizur..."
 
 #. Resource IDs: (1204)
 msgid "Multiple, &independent working copies"
-msgstr ""
+msgstr "Skeda ime:"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -6709,7 +6709,7 @@ msgstr ""
 
 #. Resource IDs: (3697)
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
@@ -6756,7 +6756,7 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Network"
-msgstr ""
+msgstr "Rrjeti"
 
 #. Resource IDs: (199)
 msgid "Never try to contact the repository again"
@@ -6764,30 +6764,30 @@ msgstr ""
 
 #. Resource IDs: (1002, 30721, 65535)
 msgid "New"
-msgstr ""
+msgstr "E Re"
 
 #. Resource IDs: (1076)
 msgid "New &name:"
-msgstr ""
+msgstr "Emri i &Ri"
 
 #. Resource IDs: (1001)
 msgid "New Menu"
-msgstr ""
+msgstr "Menyja e &Re"
 
 #. Resource IDs: (97)
 #, c-format
 msgid "New name for %s"
-msgstr ""
+msgstr "Emri i ri për %s"
 
 #. Resource IDs: (98)
 msgid "New name:"
-msgstr ""
+msgstr "Emri i ri:"
 
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
 "Next Page"
-msgstr ""
+msgstr "Faqja e Radhës\nFaqja e Radhës"
 
 #. Resource IDs: (156)
 msgid "Next conflict"
@@ -6813,7 +6813,7 @@ msgstr ""
 
 #. Resource IDs: (81)
 msgid "No command value specified!"
-msgstr ""
+msgstr "Nuk është specifikuar asnjë vlerë e kompandës!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -6821,15 +6821,15 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "No error message is available."
-msgstr ""
+msgstr "Nuk ka asnjë porosi gabimi."
 
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
-msgstr ""
+msgstr "Nuk është paraqitur asnjë gabim."
 
 #. Resource IDs: (281)
 msgid "No externals found"
-msgstr ""
+msgstr "Nuk janë gjetur të jashtme"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6861,7 +6861,7 @@ msgstr ""
 
 #. Resource IDs: (273)
 msgid "No graph available"
-msgstr ""
+msgstr "Nuk ka grafiqe"
 
 #. Resource IDs: (273)
 #, c-format
@@ -6874,7 +6874,7 @@ msgstr ""
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
-msgstr ""
+msgstr "Nuk ka përmirësime gjuhësore"
 
 #. Resource IDs: (196)
 msgid ""
@@ -6897,11 +6897,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
-msgstr ""
+msgstr "Statuti i Nyjes:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
-msgstr ""
+msgstr "Ngjyra e nyjes"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
@@ -6925,7 +6925,7 @@ msgstr ""
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
-msgstr ""
+msgstr "Nuk ka memorje të mjaftueshme për të kompletuar veprimin."
 
 #. Resource IDs: (273)
 msgid ""
@@ -6951,7 +6951,7 @@ msgstr ""
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr ""
+msgstr "Shënim: dosja përmban sende të pa përditësuara"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -6990,7 +6990,7 @@ msgstr ""
 
 #. Resource IDs: (1161)
 msgid "Number of authors:"
-msgstr ""
+msgstr "Numri i autorëve:"
 
 #. Resource IDs: (339)
 msgid "Number of cached merged revisions"
@@ -7044,7 +7044,7 @@ msgstr ""
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
-msgstr ""
+msgstr "Numri i javëve:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
@@ -7076,11 +7076,11 @@ msgstr "Office XP"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
-msgstr ""
+msgstr "Rreshtet e vjetra"
 
 #. Resource IDs: (32814)
 msgid "Oldest on to&p"
-msgstr ""
+msgstr "Më të vjetrat sipë&r"
 
 #. Resource IDs: (99, 1202)
 msgid "Omit e&xternals"
@@ -7122,13 +7122,13 @@ msgstr ""
 
 #. Resource IDs: (19)
 msgid "Only file children"
-msgstr ""
+msgstr "Vetëm skedat fëmijë"
 
 #. Resource IDs: (169)
 msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
-msgstr ""
+msgstr "Vetëm numra (sipas dëshirës të ndarë me presje)\nlejohen!"
 
 #. Resource IDs: (626)
 msgid "Only properties changed"
@@ -7136,7 +7136,7 @@ msgstr ""
 
 #. Resource IDs: (19)
 msgid "Only this item"
-msgstr ""
+msgstr "Vetëm këtë send"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
@@ -7148,7 +7148,7 @@ msgstr ""
 
 #. Resource IDs: (3841)
 msgid "Open"
-msgstr ""
+msgstr "Hape"
 
 #. Resource IDs: (76)
 msgid "Open client certificate file"
@@ -7166,7 +7166,7 @@ msgstr ""
 
 #. Resource IDs: (7)
 msgid "Open image file..."
-msgstr ""
+msgstr "Hape fotografinë..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -7174,7 +7174,7 @@ msgstr ""
 
 #. Resource IDs: (113)
 msgid "Open with..."
-msgstr ""
+msgstr "Hape me..."
 
 #. Resource IDs: (3605)
 msgid ""
@@ -7196,15 +7196,15 @@ msgstr ""
 
 #. Resource IDs: (348)
 msgid "Option"
-msgstr ""
+msgstr "Alternativa"
 
 #. Resource IDs: (16137)
 msgid "Options"
-msgstr ""
+msgstr "Alternativat"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
-msgstr ""
+msgstr "Mad&hësia origjinale"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
@@ -7212,11 +7212,11 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "Others"
-msgstr ""
+msgstr "Tjera"
 
 #. Resource IDs: (3843)
 msgid "Out of memory."
-msgstr ""
+msgstr "Jasht memorje."
 
 #. Resource IDs: (3845)
 msgid "Output.prn"
@@ -7234,7 +7234,7 @@ msgstr ""
 
 #. Resource IDs: (99)
 msgid "Overwrite"
-msgstr ""
+msgstr "Rishkruaj"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7302,7 +7302,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Paste filename list"
-msgstr ""
+msgstr "Hidhe listën e emrave të skedave"
 
 #. Resource IDs: (15)
 msgid ""
@@ -7341,7 +7341,7 @@ msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
-msgstr ""
+msgstr "Rruga"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
@@ -7349,7 +7349,7 @@ msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
-msgstr ""
+msgstr "Rrugët"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -7359,25 +7359,25 @@ msgstr ""
 msgid ""
 "Pencil Tool\n"
 "Pencil"
-msgstr ""
+msgstr "Mjeti i Stilolapsit\nStilolapsi"
 
 #. Resource IDs: (245)
 msgid "Percent of authorship"
-msgstr ""
+msgstr "Përqindja e autorësisë"
 
 #. Resource IDs: (245)
 msgid "Percents"
-msgstr ""
+msgstr "Përqindjet"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Shiritet e Mjeteve dhe Menytë e Personalizuara"
 
 #. Resource IDs: (3849)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
-msgstr ""
+msgstr "Pikturë (meta-skedë)\nnjë pikturë"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
@@ -7391,7 +7391,7 @@ msgstr "Fotografitë (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jp
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
-msgstr ""
+msgstr "Grafik Pite"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
@@ -7432,7 +7432,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Please wait while cancelling..."
-msgstr ""
+msgstr "Ju lutemi prisni derisa të ndërpritet..."
 
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
@@ -7456,7 +7456,7 @@ msgstr ""
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
-msgstr ""
+msgstr "Ju lutemi prisni..."
 
 #. Resource IDs: (65535)
 msgid "Port :"
@@ -7520,13 +7520,13 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Preview: "
-msgstr ""
+msgstr "Parashih:"
 
 #. Resource IDs: (3633)
 msgid ""
 "Previous Page\n"
 "Previous Page"
-msgstr ""
+msgstr "Faqja Paraprake\nFaqja Paraprake"
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
@@ -7542,7 +7542,7 @@ msgstr ""
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
-msgstr ""
+msgstr "Shtyp"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7560,11 +7560,11 @@ msgstr ""
 
 #. Resource IDs: (3845)
 msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Skedat e Shtypit (*.prn)|*.prn|Të gjitha Skedat (*.*)|*.*||"
 
 #. Resource IDs: (65535)
 msgid "Printing"
-msgstr ""
+msgstr "Shtypja"
 
 #. Resource IDs: (170)
 msgid ""
@@ -7595,15 +7595,15 @@ msgstr ""
 
 #. Resource IDs: (74)
 msgid "Program"
-msgstr ""
+msgstr "Programi"
 
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Programet (*.exe)|*.exe|Të gjitha Skedat  (*.*)|*.*||"
 
 #. Resource IDs: (134)
 msgid "Progress"
-msgstr ""
+msgstr "Progresi"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -7759,7 +7759,7 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "Re&name..."
-msgstr ""
+msgstr "Ri&emëro..."
 
 #. Resource IDs: (16613)
 msgid "Re&set"
@@ -7783,7 +7783,7 @@ msgstr ""
 
 #. Resource IDs: (1033)
 msgid "Re&vision"
-msgstr ""
+msgstr "&Ri&vlerësim"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -7799,7 +7799,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
-msgstr ""
+msgstr "Rreshtet e ndryshuara së fundi"
 
 #. Resource IDs: (279)
 msgid "Record Only"
@@ -7883,7 +7883,7 @@ msgstr ""
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
-msgstr ""
+msgstr "Fresko"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
@@ -7928,7 +7928,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr ""
+msgstr "Refuzo"
 
 #. Resource IDs: (148)
 msgid ""
@@ -7956,11 +7956,11 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
-msgstr ""
+msgstr "Zhve&ndos..."
 
 #. Resource IDs: (32794)
 msgid "Reload"
-msgstr ""
+msgstr "Rihap"
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7970,7 +7970,7 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr ""
+msgstr "Zhvendos"
 
 #. Resource IDs: (89)
 msgid "Relocate Warning"
@@ -7988,7 +7988,7 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Relocating..."
-msgstr ""
+msgstr "Duke zhvendosur..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
@@ -8000,11 +8000,11 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Remote revision"
-msgstr ""
+msgstr "Rivlerësim nga distanca"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
-msgstr ""
+msgstr "Statuti nga distanca"
 
 #. Resource IDs: (207)
 msgid "Remote text status"
@@ -8012,17 +8012,17 @@ msgstr ""
 
 #. Resource IDs: (1332, 1470)
 msgid "Remove"
-msgstr ""
+msgstr "Largo"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
-msgstr ""
+msgstr "Zhvendos %ld sendet"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %s"
-msgstr ""
+msgstr "Largo %s"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -8030,7 +8030,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
-msgstr ""
+msgstr "Largo nga &lista e injorimit"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
@@ -8055,11 +8055,11 @@ msgstr ""
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
-msgstr ""
+msgstr "Largo direktorinë"
 
 #. Resource IDs: (610)
 msgid "Remove the file"
-msgstr ""
+msgstr "Largo skedën"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9422,7 +9422,7 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "Split lines"
-msgstr ""
+msgstr "Ndaj rreshtet"
 
 #. Resource IDs: (275)
 msgid "Split sub-trees"
@@ -10023,7 +10023,7 @@ msgstr ""
 #. Resource IDs: (63)
 #, c-format
 msgid "The line '====' was expected in line %d !"
-msgstr ""
+msgstr "Rreshti '====' është pritur tek rreshti %d !"
 
 #. Resource IDs: (63)
 msgid ""
@@ -11270,7 +11270,7 @@ msgstr ""
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
-msgstr ""
+msgstr "Dëshiron të largohesh nga rrjeti?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -12001,7 +12001,7 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr "jasht linje"
+msgstr "jasht rrjeti"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -12010,7 +12010,7 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr "në linjë"
+msgstr "në rrjeti"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"

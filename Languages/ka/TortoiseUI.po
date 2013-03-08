@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:12+0000\n"
+"PO-Revision-Date: 2013-03-05 09:24+0000\n"
 "Last-Translator: Gia Shervashidze <giasher@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1472,6 +1472,14 @@ msgstr "(ორმაგი დაწკაპვა შეცდომის �
 msgid "(binary value)"
 msgstr "(ორობითი მნიშვნელობა)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr ""
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr ""
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(კოპირება)"
@@ -2040,6 +2048,14 @@ msgstr "უცნობი ტიპის შეცდომა მიმარ
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "სტრიქონის უცნობი ტიპი. ნომერი - %d !"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2740,6 +2756,10 @@ msgstr "შემოწმება განახლებებზე"
 msgid "Check out a working copy from a repository"
 msgstr "სამუშაო ასლის შექმნა საცავიდან"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr ""
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2865,6 +2885,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "გასუფთავების სამარჯვი\nგასუფთავება"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr ""
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
@@ -3115,6 +3143,14 @@ msgstr "ძირეულ სამუშაო ასლთან შედა
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "შედარება წინა ვერსიასთან და ავტორები"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr ""
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5932,6 +5968,10 @@ msgstr "მალმხმობები:"
 msgid "Keys"
 msgstr "კლავიშები"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "&ზღვარი"
@@ -7749,6 +7789,10 @@ msgstr "&ვერსია..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "სანამ ჩაეფლობით გადაიკითხეთ 'Daily Use Guide'..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr ""
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "უახლესი"
@@ -7979,6 +8023,10 @@ msgstr "%ld ელემენტის ამოღება"
 #, c-format
 msgid "Remove %s"
 msgstr "%s - ამოღება"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

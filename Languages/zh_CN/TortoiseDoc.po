@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-19 14:24+0000\n"
+"PO-Revision-Date: 2013-03-05 08:21+0000\n"
 "Last-Translator: Nick Vrvilo <nick@vrvilo.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13602,9 +13602,9 @@ msgstr "当你在登陆某个Subversion服务器，填写认证信息时，用�
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
 msgstr ""
 
 #. (term)
@@ -14786,6 +14786,16 @@ msgid ""
 msgstr ""
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr ""
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
@@ -14846,6 +14856,12 @@ msgstr ""
 msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
 msgstr ""
 
 #. (para)
@@ -14923,6 +14939,16 @@ msgstr ""
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
+msgstr ""
+
+#. (literal)
+msgid "-N"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
 msgstr ""
 
 #. (para)
@@ -15027,9 +15053,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15055,6 +15083,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "若本地存在修改，就用 <placeholder-2/> 替换 <placeholder-1/>，否则用 <placeholder-3/> 替换。"
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr ""
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15174,6 +15212,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15220,6 +15259,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15335,6 +15375,7 @@ msgstr "最小的更新版本，在 <placeholder-1/> 中描述"
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr ""
 
@@ -15345,6 +15386,10 @@ msgstr "最大的更新版本，在 <placeholder-1/> 中描述"
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "若本地存在修改，就为真"
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr ""
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17661,6 +17706,7 @@ msgid ""
 msgstr "也支持 <option>/ignoreeol</option>，<option>/ignorespaces</option> 和 <option>/ignoreallspaces</option> 选项。"
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
@@ -17675,9 +17721,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "将<placeholder-1/>指定的工作副本或URL的文件保存到<placeholder-2/>，修订版本号在<placeholder-3/>，这样可以得到特定修订版本的文件。"
 
+#. (option)
+msgid "/noview"
+msgstr ""
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "创建<placeholder-1/>下的补丁文件。"
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr ""
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-19 14:24+0000\n"
+"PO-Revision-Date: 2013-03-05 08:22+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13595,10 +13595,10 @@ msgstr "Als u zich authenticeerd met een Subversion server worden de gebruikersn
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
-msgstr "Als u de authenticatie gegevens wilt wissen voor slechts één specifieke server, lees <xref linkend=\"tsvn-dug-general-auth\"/> voor instructies omtrent hoe de cache gegevens te vinden."
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
+msgstr ""
 
 #. (term)
 msgid "Action log"
@@ -14779,6 +14779,16 @@ msgid ""
 msgstr "Als deze optie gebruikt wordt, zal SubWCRev stoppen met <placeholder-1/> als de werkkopie lokale wijzigingen heeft. Dit kan gebruikt worden om te voorkomen dat er een pakket gebouwd wordt met niet vastgelegde wijzigingen."
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr ""
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
@@ -14840,6 +14850,12 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "Als deze optie gebruikt wordt, zal SubWCRev het revisienummer in HEX formaat teruggeven, vooraf gegaan door '0X'."
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14916,6 +14932,16 @@ msgstr ""
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
+msgstr ""
+
+#. (literal)
+msgid "-N"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
 msgstr ""
 
 #. (para)
@@ -15020,9 +15046,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15048,6 +15076,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als er lokale wijzigingen zijn, of <placeholder-3/> als geen wijzigingen zijn."
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr ""
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15167,6 +15205,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15213,6 +15252,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15328,6 +15368,7 @@ msgstr "De minimale bijgewerkte versie, zoals weergegeven in <placeholder-1/>"
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr "<placeholder-1/>."
 
@@ -15338,6 +15379,10 @@ msgstr "De maximale bijgewerkte revisie, zoals weergegeven in <placeholder-1/>"
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "True, wanneer er lokale aanpassingen zijn"
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr ""
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17654,6 +17699,7 @@ msgid ""
 msgstr "De opties <option>/ignoreeol</option>, <option>/ignorespaces</option> en <option>/ignoreallspaces</option> worden ook ondersteund."
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
@@ -17668,9 +17714,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Slaat een bestand op vanuit een URL of werkkopiepad gegeven in <placeholder-1/> naar de locatie gegeven in <placeholder-2/>. De revisie wordt gegeven in <placeholder-3/>. Dit kan worden gebruikt om een bestand met van een bepaalde revisie op te halen."
 
+#. (option)
+msgid "/noview"
+msgstr ""
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "Maakt een patch bestand aan voor het in <placeholder-1/> gegeven pad."
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr ""
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-22 17:56+0000\n"
+"PO-Revision-Date: 2013-03-05 09:24+0000\n"
 "Last-Translator: mohsensajjadi <mohsensajjadi@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1476,6 +1476,14 @@ msgstr "(برای پاک‌کردن پیغام خطا دو-بار کلیک کن�
 msgid "(binary value)"
 msgstr "(مقدار دودوئی)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr ""
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr ""
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(کپی)"
@@ -2044,6 +2052,14 @@ msgstr "خطای ناشناخته در دسترسی به %1 رخ داد."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "یک نوع خط ناشناخته در خط %d یافت شد."
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2744,6 +2760,10 @@ msgstr "بررسی وجود نسخه جدید"
 msgid "Check out a working copy from a repository"
 msgstr "دریافت یک نسخه کاری از مخزن"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr ""
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2869,6 +2889,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Clear Tool\nClear"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr ""
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
@@ -3119,6 +3147,14 @@ msgstr "مقایسه و &مقصریابی با نسخه BASE"
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "با اصلاحیه قبلی مقایسه بکنید و مقصریابی کنید"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr ""
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5936,6 +5972,10 @@ msgstr "میانبرهای صفحه کلید:"
 msgid "Keys"
 msgstr "کلیدها"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "م&حدوده:"
@@ -7753,6 +7793,10 @@ msgstr "&اصلاحیه"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "قبل از برخورد با مشکل 'راهنمای کاربری روزمره' را مطالعه کنید..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr ""
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "اخیر"
@@ -7983,6 +8027,10 @@ msgstr "حذف %ld قلم"
 #, c-format
 msgid "Remove %s"
 msgstr "حذف %s"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

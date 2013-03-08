@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:12+0000\n"
+"PO-Revision-Date: 2013-03-06 19:27+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1477,6 +1477,14 @@ msgstr "(Clique duas vezes para apagar a mensagem de erro)"
 msgid "(binary value)"
 msgstr "(valor binário)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr "(conteúdo e propriedades)"
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr "(apenas conteúdo)"
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(cópia)"
@@ -2046,6 +2054,14 @@ msgstr "Ocorreu um erro desconhecido ao aceder %1."
 msgid "An unknown line type was found in line %d !"
 msgstr "Um tipo de linha desconhecido foi encontrado na linha %d !"
 
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr "Outro processo está a bloquear a base de dados da cópia de trabalho, ou o sistema de ficheiros não suporta bloqueio de ficheiros; se a cópia de trabalho está numa partilha de rede, garante que o bloqueio de ficheiros foi activado no servidor de ficheiros."
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Menus da Moldura da Aplicação:"
@@ -2496,7 +2512,7 @@ msgstr "Cancelar\nNão resolver o item."
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "Cancelar⏎Não mostrar dif."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2745,6 +2761,10 @@ msgstr "Procurar actualizações"
 msgid "Check out a working copy from a repository"
 msgstr "Fazer checkout de uma cópia de trabalho a partir de um repositório"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr "Confirma, em baixo, os itens de autenticação que queres remover"
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2870,6 +2890,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Ferramenta para Apagar\nApagar"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr "Limpar todos"
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr "Limpar..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3121,6 +3149,14 @@ msgstr "Comparar com a BASE de trabalho e responsa&bilizar"
 msgid "Compare and blame with previous revision"
 msgstr "Comparar com revisão anterior e responsabilizar"
 
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr "Comparar revisões (apenas &propriedades)"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr "Comparar revisões (apenas con&teúdo)"
+
 #. Resource IDs: (210)
 msgid "Compare two files"
 msgstr "Compara dois ficheiros"
@@ -3131,7 +3167,7 @@ msgstr "Comparar espaços em branco"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "Comparar com &HEAD e BASE"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -5937,6 +5973,10 @@ msgstr "Atalhos de teclado:"
 msgid "Keys"
 msgstr "Teclas"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "L&imite:"
@@ -6250,7 +6290,7 @@ msgstr "Gerir propriedades do Subversion"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr ""
+msgstr "Demasiados itens seleccionados para o dif."
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -7754,6 +7794,10 @@ msgstr "Re&visão"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Leia o 'Guia de Uso Diário' antes de empancar..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr "String de domínio"
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "Recente"
@@ -7984,6 +8028,10 @@ msgstr "Remover %ld itens"
 #, c-format
 msgid "Remove %s"
 msgstr "Remover %s"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr "Remove dados de autenticação guardados"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:12+0000\n"
+"PO-Revision-Date: 2013-03-05 09:24+0000\n"
 "Last-Translator: Baquatelle <abel@abel.hu>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1472,6 +1472,14 @@ msgstr "(Dupla-katt a hibaüzenet törléséhez)"
 msgid "(binary value)"
 msgstr "(bináris adat)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr ""
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr ""
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(másolva)"
@@ -2040,6 +2048,14 @@ msgstr "Ismeretlen hiba %1 elérése közben."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Ismeretlen sortípus a %d. sorban!"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2740,6 +2756,10 @@ msgstr "Frissítések keresése"
 msgid "Check out a working copy from a repository"
 msgstr "Munkapéldány lekérése egy tárolóból"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr ""
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2865,6 +2885,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Tisztító Alkalmazás\nTörlés"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr ""
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
@@ -3115,6 +3143,14 @@ msgstr "Összehasonlítás és &hibáztatás az ALAP verzióval"
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "Összehasonlítás és hibáztatás az előző verzióval"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr ""
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5932,6 +5968,10 @@ msgstr "Gyorsbillentyűk:"
 msgid "Keys"
 msgstr "Billentyűk"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "L&imit:"
@@ -7749,6 +7789,10 @@ msgstr "&Verzió"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Olvasd el a \"Hétköznapi használat\" fejezetet a súgóban, mielőtt elakadnál..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr ""
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "Legutóbbi"
@@ -7979,6 +8023,10 @@ msgstr "%ld elem törlése"
 #, c-format
 msgid "Remove %s"
 msgstr "%s törlése"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

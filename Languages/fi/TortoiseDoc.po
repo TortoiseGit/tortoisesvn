@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-28 21:03+0000\n"
+"PO-Revision-Date: 2013-03-05 08:22+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13591,10 +13591,10 @@ msgstr "Kun tunnistaudut Subversion-palvelimelle, käyttäjätunnus ja salasana 
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
-msgstr "Jos haluat tyhjentää tunnistustiedot vain tietylle palvelimelle, lue kappaleesta <xref linkend=\"tsvn-dug-general-auth\"/> ohjeet tietojen löytämiseksi."
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
+msgstr ""
 
 #. (term)
 msgid "Action log"
@@ -14775,6 +14775,16 @@ msgid ""
 msgstr "Jos tämä valitsin on annettu, SubWCRev palauttaa arvon <placeholder-1/> jos työkopiossa on paikallisia muutoksia. Tätä voidaan käyttää esim. estämään ohjelman käännös, jos työkopiosta löytyy toimittamattomia muutoksia."
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr ""
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
@@ -14836,6 +14846,12 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "Jos tämä valitsin on annettu, SubWCRev näyttää versionumeron heksadesimaalisena etuliitteen '0X' kanssa."
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14913,6 +14929,16 @@ msgstr "Kohdetiedosto on jo olemassa. Tämä vaatii valitsimen <placeholder-1/> 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
 msgstr "Annettu polku ei ole työkopio tai sen osa."
+
+#. (literal)
+msgid "-N"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15016,9 +15042,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15044,6 +15072,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> korvataan muodolla <placeholder-2/> jos työkopiossa on paikallisia muutoksia, tai muodolla <placeholder-3/> jos näin ei ole."
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr ""
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15163,6 +15201,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15189,7 +15228,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15209,6 +15248,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15235,7 +15275,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15324,6 +15364,7 @@ msgstr "Työkopion pienin päivitetty versio, ks. <placeholder-1/>."
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr "<placeholder-1/>."
 
@@ -15334,6 +15375,10 @@ msgstr "Työkopion suurin päivitetty versio, kuten <placeholder-1/> kertoo."
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "Tosi jos työkopiossa on paikallisia muutoksia."
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr ""
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17650,6 +17695,7 @@ msgid ""
 msgstr "Valitsimia <option>/ignoreeol</option>, <option>/ignorespaces</option> ja <option>/ignoreallspaces</option> tuetaan myös."
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:polku"
 
@@ -17664,9 +17710,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Tallentaa valitsimella <placeholder-1/> annetun paikantimen tai työkopiopolun valitsimella <placeholder-2/> annettuun paikkaan. Versionumero annetaan valitsimella <placeholder-3/>; tätä voidaan käyttää hankkimaan tiedostosta tietty versio."
 
+#. (option)
+msgid "/noview"
+msgstr ""
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "Luo paikkatiedoston valitsimella <placeholder-1/> annetusta polusta."
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr ""
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

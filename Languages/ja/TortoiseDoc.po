@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-27 14:30+0000\n"
+"PO-Revision-Date: 2013-03-05 19:24+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -670,7 +670,7 @@ msgid ""
 " Subversion clients (like TortoiseSVN) on request. If you only back up one "
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
-msgstr "Subversion は、すべてのバージョン管理対象のファイルとその履歴を格納するデータベースを使用します。このデータベースを <emphasis>リポジトリ</emphasis> と呼びます。一般に、リポジトリは Subversion のサーバープログラムが動作しているファイルサーバーに配置し、必要に応じて（TortoiseSVN のような） Subversion クライアントに中身を提供します。バックアップを1つしか取らないならば、すべてのデータの重要なマスターコピーであるリポジトリのバックアップを取ってください。"
+msgstr "Subversion は、すべてのバージョン管理対象のファイルとその履歴を格納するデータベースを使用します。このデータベースを <emphasis>リポジトリ</emphasis> と呼びます。一般に、リポジトリは Subversion のサーバープログラムが動作しているファイルサーバーに配置し、必要に応じて（TortoiseSVN のような） Subversion クライアントに内容を提供します。バックアップを1つしか取らないならば、すべてのデータの重要なマスターコピーであるリポジトリのバックアップを取ってください。"
 
 #. (term)
 #. (glossterm)
@@ -2121,7 +2121,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "</screen>"
-msgstr "中身をインポートしたフォルダーの名前はリポジトリに現れないことに注意してください。たとえば、以下のようなフォルダー構造を作成した場合、 <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> リポジトリルートに <filename>C:\\Temp\\New</filename> をインポートすると、次のようになります。<screen>\n/trunk\n/branches\n/tags\n</screen>"
+msgstr "なお、インポートするフォルダーの名前はリポジトリに現れず、その内容のみがインポートされます。たとえば、以下のようなフォルダー構造を作成した場合、 <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> リポジトリルートに <filename>C:\\Temp\\New</filename> をインポートすると、次のようになります。<screen>\n/trunk\n/branches\n/tags\n</screen>"
 
 #. (title)
 msgid "Repository Backup"
@@ -2668,14 +2668,14 @@ msgid ""
 "Subversion <filename>auth</filename> directories, as well as any "
 "authentication data stored in the registry by earlier versions of "
 "TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "すべてのサーバーの認証情報をクリアするには、TortoiseSVN の設定ダイアログの <guilabel>保存されたデータ</guilabel> ページから行えます。このボタンで、以前のバージョンでレジストリに格納した認証情報と一緒に、 Subversion の <filename>auth</filename> ディレクトリからキャッシュされた認証データをクリアします。 <xref linkend=\"tsvn-dug-settings-saved-data\"/> を参照してください。"
+msgstr "すべてのサーバーの認証情報を消去するには、TortoiseSVN の設定ダイアログの <guilabel>保存されたデータ</guilabel> ページから行えます。このボタンで、以前のバージョンでレジストリに格納した認証情報と一緒に、 Subversion の <filename>auth</filename> ディレクトリからキャッシュされた認証データを消去します。 <xref linkend=\"tsvn-dug-settings-saved-data\"/> を参照してください。"
 
 #. (para)
 msgid ""
 "If you want to clear authentication for one realm only then you will have to"
 " dig into those directories, find the file which contains the information "
 "you want to clear and delete the file."
-msgstr "もし特定のサイトの認証情報をクリアするには、これらのディレクトリを探してクリアしたい情報を含むファイルを見つけ、そのファイルを削除してください。"
+msgstr "もし特定のサイトの認証情報を消去するには、これらのディレクトリを探して消去したい情報を含むファイルを見つけ、そのファイルを削除してください。"
 
 #. (para)
 msgid ""
@@ -2804,7 +2804,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr "このダイアログで、プロジェクトのインポート先のリポジトリの場所を示すURLを入力する必要があります。リポジトリには、インポートしようとするローカルフォルダーは現れず、その中身だけが現れるということ注意してください。例えば次のような構造があるとします。<screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen>ここで、 <filename>C:\\Projects\\Widget</filename> を <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> にインポートすると、<literal>Widget</literal> サブディレクトリではなく、その中のサブディレクトリが <literal>trunk</literal> の直下に現れるので、驚くかもしれません。サブディレクトリ名は、 <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem> というようにURLの一部として指定する必要があります。インポートコマンドでは、リポジトリの中にサブディレクトリがない場合、自動的に作成されることに注意してください。"
+msgstr "このダイアログで、プロジェクトのインポート先となるリポジトリの場所を示すURLを入力してください。リポジトリには、インポートで指定したローカルフォルダーは作成されず、その内容のみがインポートされるということ注意してください。例えば次のような構造があるとします。<screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen>ここで、 <filename>C:\\Projects\\Widget</filename> を <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> にインポートすると、<literal>Widget</literal> サブディレクトリではなく、その中のサブディレクトリが <literal>trunk</literal> の直下に現れるので、驚くかもしれません。サブディレクトリ名は、 <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem> というようにURLの一部として指定する必要があります。インポートコマンドでは、リポジトリの中にサブディレクトリがない場合、自動的に作成されることに注意してください。"
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -2852,7 +2852,7 @@ msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
 "will get a warning that the local folder is not empty. Ignore the warning. "
 "Now you have a versioned top level folder with unversioned content."
-msgstr "新しいフォルダーを、インポートしたいフォルダーの上位層にチェックアウトします。ローカルフォルダーが空でないという警告が表示されますが、無視してください。バージョン管理下のフォルダーの中に、バージョン管理外の中身がある状態になります。"
+msgstr "新しいフォルダーを、インポートしたいフォルダーの上位層にチェックアウトします。ローカルフォルダーが空でないという警告が表示されますが、無視してください。バージョン管理下のフォルダーの中に、バージョン管理外の内容がある状態になります。"
 
 #. (para)
 msgid ""
@@ -6759,7 +6759,7 @@ msgid ""
 " to another while preserving history using TortoiseSVN. Not even if the "
 "repositories live on the same server. All you can do is copy the content in "
 "its current state and add it as new content to the second repository."
-msgstr "TortoiseSVN では、リポジトリの <emphasis>内部</emphasis> でファイルやフォルダーはコピーや移動を行うと履歴が保持されますが、リポジトリ間をまたがってファイルやフォルダーをコピーや移動を行うと、履歴が保持されません。リポジトリが同じサーバー上にあったとしても同様です。ファイルの現在の状態をコピーし、別なリポジトリに新しいコンテンツとして追加することはできます。"
+msgstr "TortoiseSVN では、リポジトリの <emphasis>内部</emphasis> でファイルやフォルダーはコピーや移動を行うと履歴が保持されますが、リポジトリ間をまたがってファイルやフォルダーをコピーや移動を行うと、履歴が保持されません。リポジトリが同じサーバー上にあったとしても同様です。現状のファイルの内容をコピーし、別なリポジトリに新しい内容として追加することはできます。"
 
 #. (para)
 msgid ""
@@ -11049,7 +11049,7 @@ msgid ""
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
 "that tags were made. This greatly simplifies the view."
-msgstr "プロジェクトに多くのタグがある場合、それぞれのタグがグラフ上で独立したノードとして表示されるため、開発にとってより重要なブランチの構造が読み取りにくくなります。一方、リビジョン間の比較のためには、タグの中身に簡単にアクセスできる必要があります。このオプションは、タグのノードを非表示にする代わりに、コピー元のノード上にツールチップとして表示するようにします。コピー元のノードの右側にタグアイコンがあれば、タグが作成されたことが分かります。これで、表示をとても簡素化することができます。"
+msgstr "プロジェクトに多くのタグがある場合、それぞれのタグがグラフ上で独立したノードとして表示されるため、開発にとってより重要なブランチの構造が読み取りにくくなります。一方、リビジョン間で比較を行う場合は、タグの内容に簡単にアクセスできる必要があります。このオプションは、タグのノードを非表示にする代わりに、コピー元のノード上にツールチップとして表示するようにします。コピー元のノードの右側にタグアイコンがあれば、タグが作成されたことが分かります。これで、表示をとても簡素化することができます。"
 
 #. (para)
 msgid ""
@@ -13568,7 +13568,7 @@ msgid ""
 "already have that message cached, you will not see the change until you "
 "clear the cache. Log message caching is enabled on the <guilabel>Log "
 "Cache</guilabel> tab."
-msgstr "TortoiseSVN は、次回ログを参照した際の時間節約のため、ログ参照ダイアログが取得したログメッセージをキャッシュしています。メッセージがキャッシュされている状態で、他の誰かがログメッセージを編集した場合、キャッシュをクリアしないとその変更を参照できません。ログメッセージのキャッシュは <guilabel>ログキャッシュ</guilabel> タブで有効にできます。"
+msgstr "TortoiseSVN は、次回ログを参照した際の時間節約のため、ログ参照ダイアログが取得したログメッセージをキャッシュしています。メッセージがキャッシュされている状態で、他の誰かがログメッセージを編集した場合、キャッシュを消去しないとその変更を参照できません。ログメッセージのキャッシュは <guilabel>ログキャッシュ</guilabel> タブで有効にできます。"
 
 #. (term)
 msgid "Dialog sizes and positions"
@@ -13589,14 +13589,14 @@ msgid ""
 "clear this for security reasons, or because you want to access the "
 "repository under a different username ... does John know you are using his "
 "PC?"
-msgstr "Subversion サーバーの認証を通れば、ユーザー名とパスワードを毎回入力しなくてもいいように、ローカルにキャッシュしています。セキュリティ上の理由や、リポジトリに別のユーザー名でアクセスするのにクリアしたいかもしれません……ジョンは PC をあなたに使われているのを知っていますか？"
+msgstr "Subversion サーバーの認証を通れば、ユーザー名とパスワードを毎回入力しなくてもいいように、ローカルにキャッシュしています。セキュリティ上の理由や、リポジトリに別のユーザー名でアクセスするのに消去したいかもしれません……ジョンはPCがあなたに使われているのを知っていますか？"
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
-msgstr "特定のサーバーのみ、認証データをクリアしたければ、キャッシュデータの探し方について、 <xref linkend=\"tsvn-dug-general-auth\"/> をご覧ください。"
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
+msgstr "もし、特定の1つのサーバーについて認証データをクリアしたい場合は、<guibutton>全て消去</guibutton>ではなく<guibutton>消去...</guibutton>ボタンを使用してください。"
 
 #. (term)
 msgid "Action log"
@@ -14777,6 +14777,16 @@ msgid ""
 msgstr "このスイッチが与えられた場合、SubWCRev は <placeholder-1/> で終了します。このとき作業コピーにはローカルの変更が含まれています。これは、コミットしていない変更が残っていたまま構築するのを防ぎます。"
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr "ERRORLEVEL 11"
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr "このスイッチが指定された場合、作業コピーに無視リストに入っていないバージョン管理外の項目が含まれているときは、 SubWCRev は <placeholder-1/> で終了します。"
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
@@ -14838,6 +14848,12 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "このスイッチが与えられた場合、SubWCRev はリビジョン番号を「0X」で始まる十六進数で出力します。"
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
+msgstr "このスイッチが指定された場合、 SubWCRev は標準出力に作業コピーの状態を表示せずにキーワード置換を行います。"
 
 #. (para)
 msgid ""
@@ -14915,6 +14931,16 @@ msgstr "出力ファイルが既に存在しています。この場合は<place
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
 msgstr "指定されたパスは作業コピーやその一部を指すものではありません。"
+
+#. (literal)
+msgid "-N"
+msgstr "-N"
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
+msgstr "作業コピーにバージョン管理外のファイルやフォルダーが含まれています。<placeholder-1/>スイッチが必要です。"
 
 #. (para)
 msgid ""
@@ -15018,9 +15044,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15046,6 +15074,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> は、ローカルで変更があれば <placeholder-2/> に、そうでなければ <placeholder-3/> に置き換わります。"
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr "$WCUNVER?TText:FText$"
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr "<placeholder-1/> は、作業コピーにバージョン管理外の項目がある場合は <placeholder-2/> に、そうでなければ <placeholder-3/> に置換されます。"
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15165,6 +15203,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15191,7 +15230,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15211,6 +15250,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15237,7 +15277,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Unversioned   = \"no unversioned items\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15326,6 +15366,7 @@ msgstr "<placeholder-1/> で参照できる更新リビジョンの最小値"
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr "<placeholder-1/>。"
 
@@ -15336,6 +15377,10 @@ msgstr "<placeholder-1/> で参照できる更新リビジョンの最大値"
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "ローカルに変更がある場合 True"
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr "バージョン管理外の項目がある場合はtrue"
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17652,6 +17697,7 @@ msgid ""
 msgstr "<option>/ignoreeol</option> や <option>/ignorespaces</option> 、<option>/ignoreallspaces</option> の各オプションもサポートしています。"
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:path"
 
@@ -17666,9 +17712,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "<placeholder-1/> で指定した URL や作業コピーのパスのファイルを、 <placeholder-2/> で指定した場所に保存します。 <placeholder-3/> でリビジョンを指定できます。指定したリビジョンのファイルを取得するのに使用できます。"
 
+#. (option)
+msgid "/noview"
+msgstr "/noview"
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "<placeholder-1/> で指定したパスのパッチファイルを作成します。"
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr "<placeholder-1/> で指定されたパスのパッチファイルを作成します。「名前を付けて保存」ダイアログをスキップする場合は、 <placeholder-2/> でパッチファイルを保存するディレクトリのパスを指定してください。パッチファイルを統合差分ビューアーで表示する場合は、 <placeholder-3/> を指定してください。"
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

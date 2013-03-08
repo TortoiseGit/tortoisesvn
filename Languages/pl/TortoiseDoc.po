@@ -12,6 +12,7 @@
 # Translators:
 # Begina Felicysym <>, 2011.
 # Begina Felicysym <begina.felicysym@wp.eu>, 2011-2013.
+# Jarosław Pękala <jaroslaw.pekala@gmail.com>, 2013.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 msgid ""
@@ -19,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-21 22:04+0000\n"
-"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
+"PO-Revision-Date: 2013-03-06 12:04+0000\n"
+"Last-Translator: Jarosław Pękala <jaroslaw.pekala@gmail.com>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13593,10 +13594,10 @@ msgstr "Podczas uwierzytelniania wobec serwera Subversion, nazwa użytkownika i 
 
 #. (para)
 msgid ""
-"If you want to clear authentication data for one particular server only, "
-"read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
-"find the cached data."
-msgstr "Jeśli chcecie wyczyścić dane uwierzytelniania tylko dla jednego konkretnego serwera, czytaj <xref linkend=\"tsvn-dug-general-auth\"/> by uzyskać instrukcje, jak przeszukiwać bufor danych."
+"If you want to clear authentication data for one particular server only, use"
+" the <guibutton>Clear...</guibutton> instead of the <guibutton>Clear "
+"all</guibutton> button."
+msgstr "Jeśli chcesz wyczyścić dane autentykacyjne tylko dla jednego serwera, użyj przycisku <guibutton>Wyczyść...</guibutton> zamiast <guibutton>Wyczyść wszystko</guibutton>."
 
 #. (term)
 msgid "Action log"
@@ -14777,6 +14778,16 @@ msgid ""
 msgstr "Jeśli zostanie podana ta opcja SubWCRev wyjdzie z <placeholder-1/> jeśli kopia robocza zawiera lokalne modyfikacje. Może to być wykorzystane do zapobiegania kompilacji z obecnymi niezatwierdzonymi zmianami."
 
 #. (literal)
+msgid "ERRORLEVEL 11"
+msgstr "ERRORLEVEL 11"
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will exit with <placeholder-1/> if the "
+"working copy contains unversioned items that are not ignored."
+msgstr "Jeśli ta opcja zostanie podana, SubWCRev zakończy się z <placeholder-1/> jeśli kopia robocza zawiera niewersjonowane obiekty, które nie sa ignorowane."
+
+#. (literal)
 msgid "ERRORLEVEL 8"
 msgstr "ERRORLEVEL 8"
 
@@ -14838,6 +14849,12 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "Jeśli opcja ta zostanie podana SubWCRev wypisze numery wersji w formacie HEX z przedrostkiem '0X'."
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will perform the keyword substitution "
+"without showing working copy status on stdout."
+msgstr "Jeśli ta opcja jest podana, SubWCRev wykona zamianę słów kluczowych bez pokazywania statusu kopii roboczej w stdout."
 
 #. (para)
 msgid ""
@@ -14915,6 +14932,16 @@ msgstr "Plik docelowy już istnieje.  Wymaga to przełącznika <placeholder-1/>.
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
 msgstr "Wskazana ścieżka nie prowadzi do kopii roboczej ani nie stanowi jej części."
+
+#. (literal)
+msgid "-N"
+msgstr "-N"
+
+#. (entry)
+msgid ""
+"The working copy has unversioned files or folders in it. This requires the "
+"<placeholder-1/> switch."
+msgstr "Kopia robocza zawiera niewersjonowane pliki lub foldery. Wymaga to ustawienia opcji <placeholder-1/>."
 
 #. (para)
 msgid ""
@@ -15018,9 +15045,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15046,6 +15075,16 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> otrzymuje wartość <placeholder-2/> jeśli występują lokalne modyfikacje albo <placeholder-3/>, jeśli nie."
+
+#. (literal)
+msgid "$WCUNVER?TText:FText$"
+msgstr "$WCUNVER?TText:FText$"
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"items in the working copy, or <placeholder-3/> if not."
+msgstr "<placeholder-1/> jest zastąpione przez <placeholder-2/> jeśli w kopii roboczej znajdują się niewersjonowane obiekty, lub <placeholder-3/> jeśli nie."
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
@@ -15165,6 +15204,7 @@ msgid ""
 "char *Revisionp100  = \"$WCREV+100$\";\n"
 "char *Revisionm100  = \"$WCREV-100$\";\n"
 "char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Unversioned   = \"$WCUNVER?Unversioned items found:no unversioned items$\";\n"
 "char *Date          = \"$WCDATE$\";\n"
 "char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
 "char *DateUTC       = \"$WCDATEUTC$\";\n"
@@ -15191,7 +15231,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Plik testowy dla SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// Koniec pliku\n"
+msgstr "\n// Plik testowy dla SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modyfikowany:Nie modyfikowany$\";\nchar *Unversioned   = \"$WCUNVER?Znaleziono niewersjonowane obiekty:brak niewersjonowanych obiektów$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Wersja mieszana WC:Nie mieszana$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?Wszystkie zewnętrzne naprawione:Nie wszystkie zewnętrzne naprawione$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagowane:Nie tagowane$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?wersjonowane:nie wersjonowane$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?zablokowane:nie zablokowane$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15211,6 +15251,7 @@ msgid ""
 "char *Revisionp100  = \"22937\";\n"
 "char *Revisionm100  = \"22737\";\n"
 "char *Modified      = \"Modified\";\n"
+"char *Unversioned   = \"no unversioned items\";\n"
 "char *Date          = \"2012/04/26 18:47:57\";\n"
 "char *CustDate      = \"Thu, 26 April 2012\";\n"
 "char *DateUTC       = \"2012/04/26 16:47:57\";\n"
@@ -15237,7 +15278,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Plik testowy dla SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// KOniec pliku\n"
+msgstr "\n// Plik testowy dla SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modyfikowany\";\nchar *Unversioned   = \"brak niewersjonowanych danych\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Wersja mieszana WC\";\nchar *ExtAllFixed   = \"Wszystkie zewnętrzne naprawione\";\nchar *IsTagged      = \"Nie tagowane\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"wersjonowane\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"nie zablokowany\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15326,6 +15367,7 @@ msgstr "Minimalna wersja aktualizacji, jak pokazano w <placeholder-1/>"
 #. (row)
 #. (row)
 #. (row)
+#. (row)
 msgid "<placeholder-1/>."
 msgstr "<placeholder-1/>."
 
@@ -15336,6 +15378,10 @@ msgstr "Maksymalna wersja aktualizacji, jak pokazano w <placeholder-1/>"
 #. (entry)
 msgid "True if there are local modifications"
 msgstr "Prawdziwe jeśli występują lokalne zmiany"
+
+#. (entry)
+msgid "True if there are unversioned items"
+msgstr "Prawda jeśli znajdują się tu niewersjonowane obiekty"
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17652,6 +17698,7 @@ msgid ""
 msgstr "Opcje <option>/ignoreeol</option>, <option>/ignorespaces</option> i <option>/ignoreallspaces</option> są również obsługiwane."
 
 #. (option)
+#. (option)
 msgid "/savepath:path"
 msgstr "/savepath:ścieżka"
 
@@ -17666,9 +17713,17 @@ msgid ""
 "<placeholder-3/>. This can be used to get a file with a specific revision."
 msgstr "Zapisuje plik z adresu URL lub ścieżki w kopii roboczej podany w <placeholder-1/> do lokalizacji podanej w <placeholder-2/>. Wersja jest podana w <placeholder-3/>. Można tego użyć pobrania pliku o określonej wersji."
 
+#. (option)
+msgid "/noview"
+msgstr "/noview"
+
 #. (entry)
-msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr "Tworzy plik poprawki dla ścieżki podanej w <placeholder-1/>."
+msgid ""
+"Creates a patch file for the path given in <placeholder-1/>. To skip the "
+"file Save-As dialog you can pass <placeholder-2/> to specify the path where "
+"to save the patch file to directly. To prevent the unified diff viewer from "
+"being started showing the patch file, pass <placeholder-3/>."
+msgstr "Tworzy plik z poprawką dla ścieżki podanej w <placeholder-1/>. Aby pominąć okno Zapisz jako możesz podać <placeholder-2/> aby wyspecyfikować ścieżkę, gdzie bezpośrednio zostanie zapisany plik z poprawką. Aby zapobiec pokazywaniu tego pliku przez przeglądarkę różnic, przekaż <placeholder-3/>."
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

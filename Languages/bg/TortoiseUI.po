@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-02-20 15:11+0000\n"
+"PO-Revision-Date: 2013-03-05 09:24+0000\n"
 "Last-Translator: kode <kdelchev@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1473,6 +1473,14 @@ msgstr "(Щракнете два пъти за да изчистите съоб�
 msgid "(binary value)"
 msgstr "(двоична стойност)"
 
+#. Resource IDs: (438)
+msgid "(content and properties)"
+msgstr ""
+
+#. Resource IDs: (438)
+msgid "(content only)"
+msgstr ""
+
 #. Resource IDs: (277)
 msgid "(copy)"
 msgstr "(копие)"
@@ -2041,6 +2049,14 @@ msgstr "Неизвестна грешка при достъп до %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Неизвестен тип на ред бе открит на ред %d !"
+
+#. Resource IDs: (251)
+msgid ""
+"Another process is blocking the working copy database, or the underlying "
+"filesystem does not support file locking; if the working copy is on a "
+"network filesystem, make sure file locking has been enabled on the file "
+"server."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2741,6 +2757,10 @@ msgstr "Проверка за обновления"
 msgid "Check out a working copy from a repository"
 msgstr "Изписване на работно копие от хранилище"
 
+#. Resource IDs: (1536)
+msgid "Check the authentication items you want to delete below"
+msgstr ""
+
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -2866,6 +2886,14 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr "Инструмент за изчистване\nИзчистване"
+
+#. Resource IDs: (1279)
+msgid "Clear all"
+msgstr ""
+
+#. Resource IDs: (1284)
+msgid "Clear..."
+msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
@@ -3116,6 +3144,14 @@ msgstr "Сравняване и &авторство спрямо работна�
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "Сравняване и авторство спрямо предишна ревизия"
+
+#. Resource IDs: (115)
+msgid "Compare revisions (&properties only)"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Compare revisions (conten&t only)"
+msgstr ""
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5933,6 +5969,10 @@ msgstr "Клавишни комбинации:"
 msgid "Keys"
 msgstr "Клавиши"
 
+#. Resource IDs: (349)
+msgid "Kind"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "L&imit:"
 msgstr "Ограни&ение:"
@@ -7750,6 +7790,10 @@ msgstr "&Ревизия"
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Прочетете 'Упътване за всекидневна употреба' преди да 'затънете'..."
 
+#. Resource IDs: (349)
+msgid "Realm String"
+msgstr ""
+
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr "Последни"
@@ -7980,6 +8024,10 @@ msgstr "Премахване на %ld обекта"
 #, c-format
 msgid "Remove %s"
 msgstr "Премахване на %s"
+
+#. Resource IDs: (348)
+msgid "Remove Saved Authentication Data"
+msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
