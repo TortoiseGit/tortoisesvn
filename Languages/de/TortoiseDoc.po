@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-07 21:46+0000\n"
+"PO-Revision-Date: 2013-03-08 19:18+0000\n"
 "Last-Translator: peu <peu@rekoba.de>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -249,7 +249,7 @@ msgid ""
 "compression, and repository browsing, for example. A smaller, standalone "
 "Subversion server process is also available. This server speaks a custom "
 "protocol which can be easily tunneled over ssh."
-msgstr "Subversion hat einen abstrakten Begriff des Zugangs zum Projektarchiv, der es leicht macht, neue Netzwerkschichten zu implementieren. Subversions <quote>fortgeschrittener</quote> Netzwerkserver ist ein Modul für den Apache Web-Server, welcher eine Variante von HTTP, genannt WebDAV/DeltaV, nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion-Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
+msgstr "Subversion hat einen abstrakten Verständnis für den Zugriff auf Projektarchive, der es leicht macht, neue Netzwerkschichten zu implementieren. Subversions <quote>fortgeschrittener</quote> Netzwerkserver ist ein Modul für den Apache-Web-Server, der eine Variante von HTTP, genannt WebDAV/DeltaV, nutzt. Das verschafft Subversion einen Vorteil an Stabilität und Interoperabilität, verschiedene Schlüsselfunktionen kommen als kostenlose Zugabe daher: so zum Beispiel Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser. Ein kleinerer Subversion-Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, das über SSH getunnelt werden kann."
 
 #. (term)
 msgid "Consistent data handling"
@@ -673,7 +673,7 @@ msgid ""
 " Subversion clients (like TortoiseSVN) on request. If you only back up one "
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
-msgstr "Subversion verwendet eine zentrale Datenbank, die alle Ihre versionierten Dateien mit ihrer vollständigen Historie enthält. Diese Datenbank wird als <emphasis>Projektarchiv</emphasis> bezeichnet. Das Projektarchiv liegt normalerweise auf einem Server, der auf Anfrage mittels der Subversion-Serveranwendung, Inhalte an Subversion-Clients (wie TortoiseSVN) liefert. Wenn Sie nur eine einzige Sache sichern, dann sollte das Ihr Projektarchiv sein, da es die entscheidende Quelle für all Ihre Daten ist."
+msgstr "Subversion verwendet eine zentrale Datenbank, die alle Ihre versionierten Dateien mit ihrer vollständigen Historie enthält. Diese Datenbank wird als <emphasis>Projektarchiv</emphasis> bezeichnet. Das Projektarchiv liegt normalerweise auf einem Server-Rechner, auf dem die Subversion-Serveranwendung läuft, die auf Anfrage von Subversion-Clients (wie TortoiseSVN) mit Inhalten antwortet. Sollten Sie Ihr Backup auf eine einzige Sache beschränken, dann wählen Sie Ihr Projektarchiv aus: es ist die entscheidende Quelle für all Ihre Daten."
 
 #. (term)
 #. (glossterm)
@@ -942,7 +942,7 @@ msgid ""
 "case) and reverts to the committed version you started with. If you want to "
 "get rid of just some of the changes, you can use TortoiseMerge to view the "
 "differences and selectively revert changed lines."
-msgstr "Wenn Sie Änderungen loswerden möchten, die Sie noch nicht übertragen haben, und Ihre Datei in den Zustand vor Ihrer Bearbeitung zurückversetzen möchten, ist <menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig...</guimenuitem></menuchoice> Ihr Freund. Diese Aktion verwirft Ihre Änderungen (in den Papierkorb, nur für alle Fälle) und kehrt zu der Version zurück, mit der Sie begonnen hatten. Wenn Sie nur einige der Änderungen loswerden möchten, können Sie TortoiseMerge nutzen, um die Unterschiede anzuzeigen und selektiv geänderte Zeilen wieder herzustellen."
+msgstr "Wenn Sie Änderungen loswerden möchten, die Sie noch nicht übertragen haben und Ihre Datei in den Zustand vor Ihrer Bearbeitung zurückversetzen möchten, ist <menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig...</guimenuitem></menuchoice> Ihr Freund. Diese Aktion verwirft Ihre Änderungen (in den Papierkorb, nur für alle Fälle) und kehrt zu der Version zurück, mit der Sie begonnen hatten. Wenn Sie nur einige der Änderungen loswerden möchten, können Sie TortoiseMerge nutzen, um die Unterschiede anzuzeigen und selektiv geänderte Zeilen wieder herzustellen."
 
 #. (para)
 msgid ""
@@ -1459,7 +1459,7 @@ msgid ""
 "be either absent or <literal>localhost</literal>. For this reason, local "
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "In den weitaus meisten Fällen nutzen Subversion-URLs die Standardsyntax und erlauben, dass Servernamen und Portnummern als Teil der URL angegeben werden. Beachten Sie jedoch, dass die <literal>file://</literal> Zugriffsmethode normalerweise nur für den Zugriff auf lokale Projektarchive verwendet wird, obwohl auch mittels eines UNC Pfades auf ein Projektarchiv im Netzwerk zugegriffen werden kann. In diesem Fall nimmt die URL die Form <systemitem class=\"url\">file://rechnername/pfad/zum/projektarchiv</systemitem> an. Bei einem lokalen Projektarchiv muss der Rechnername entweder leer oder <literal>localhost</literal> sein. Deshalb enthalten lokale Pfade meistens drei Schrägstriche, <systemitem class=\"url\">file:///pfad/zum/projektarchiv</systemitem>."
+msgstr "In den weitaus meisten Fällen nutzen Subversion-URLs die Standardsyntax und erlauben, dass Servernamen und Portnummern als Teil der URL angegeben werden. Beachten Sie jedoch, dass die Zugriffsmethode <literal>file://</literal> normalerweise nur für den Zugriff auf lokale Projektarchive verwendet wird, obwohl auch mittels eines UNC-Pfades auf ein Projektarchiv im Netzwerk zugegriffen werden kann. In diesem Fall nimmt die URL die Form <systemitem class=\"url\">file://rechnername/pfad/zum/projektarchiv</systemitem> an. Bei einem lokalen Projektarchiv muss der Rechnername entweder leer oder <literal>localhost</literal> sein. Deshalb enthalten lokale Pfade meistens drei Schrägstriche, <systemitem class=\"url\">file:///pfad/zum/projektarchiv</systemitem>."
 
 #. (para)
 msgid ""
@@ -1501,7 +1501,7 @@ msgid ""
 "Berkeley DB on a network share, the results are unpredictable - you may see "
 "mysterious errors right away, or it may be months before you discover that "
 "your repository database is subtly corrupted."
-msgstr "Erstellen Sie kein Berkeley-DB-Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe liegen! Auch dann nicht, wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden, wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen, dass das Projektarchiv korrupt und nicht mehr zu retten ist."
+msgstr "Erstellen Sie kein Berkeley-DB-Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe liegen! Auch dann nicht, wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden, wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu Beginn erhalten, oder es können Monate vergehen ehe Sie feststellen, dass das Projektarchiv auf subtile Weise beschädigt ist."
 
 #. (title)
 msgid "Revisions"
@@ -1544,7 +1544,7 @@ msgid ""
 "Each revision number has a filesystem tree hanging below it, and each tree "
 "is a <quote>snapshot</quote> of the way the repository looked after each "
 "commit."
-msgstr "Eine Möglichkeit, sich das Projektarchiv vorzustellen, ist als eine Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede Revisionsnummer hat einen Dateibaum, welcher an dieser Reihe hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote> davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat."
+msgstr "Eine Möglichkeit, sich das Projektarchiv vorzustellen, ist als eine Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern vor, beginnend mit 0, die sich von links nach rechts ausdehnt. An jeder Revisionsnummer hängt ein Dateibaum, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote> davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat."
 
 #. (title)
 msgid "Global Revision Numbers"
@@ -1625,7 +1625,7 @@ msgid ""
 " revision 6 to indicate that it is still current. So, after you do a clean "
 "update at the top of your working copy, it will generally correspond to "
 "exactly one revision in the repository."
-msgstr "Sallys Änderungen an der Datei <filename>integer.c</filename> werden in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei <filename>button.c</filename> werden immer noch vorhanden sein. In diesem Beispiel ist der Inhalt der Datei <filename>Makefile </filename> identisch in den Revisionen 4, 5 und 6, aber Subversion markiert Ihre lokale Kopie von <filename>Makefile</filename> mit Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also wird, nachdem Sie eine saubere Aktualisierung durchgeführt haben, Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen."
+msgstr "Sallys Änderungen an der Datei <filename>integer.c</filename> werden in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei <filename>button.c</filename> werden immer noch vorhanden sein. In diesem Beispiel ist der Inhalt der Datei <filename>Makefile</filename> identisch in den Revisionen 4, 5 und 6, aber Subversion markiert Ihre lokale Kopie von <filename>Makefile</filename> mit Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also wird, nachdem Sie eine saubere Aktualisierung durchgeführt haben, Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1706,7 +1706,7 @@ msgid ""
 "with the local changes. If Subversion can't complete the merge in a "
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
-msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit der Fehlermeldung <emphasis>nicht mehr aktuell</emphasis> fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, überlässt das Auflösen des Konflikts dem Benutzer."
+msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit der Fehlermeldung <emphasis>nicht mehr aktuell</emphasis> fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, überlässt es das Auflösen des Konflikts dem Benutzer."
 
 #. (title)
 msgid "Summary"
@@ -1734,7 +1734,7 @@ msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subver
 msgid ""
 "We've talked a bit about the way Subversion tracks and manages information "
 "in a working copy."
-msgstr "Wir gaben einen Einblick, wie Subversion Informationen innerhalb der Arbeitskopie verfolgt und verwaltet."
+msgstr "Wir haben gesehen, wie Subversion innerhalb einer Arbeitskopie Informationen verfolgt und verwaltet."
 
 #. (para)
 msgid ""
@@ -1847,7 +1847,7 @@ msgid ""
 "TortoiseSVN will set a custom folder icon when it creates a repository so "
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
-msgstr "TortoiseSVN wird den Ordner mit einem benutzerdefinierten Symbol versehen, wenn es ein Projektarchiv erstellt, so können Sie lokale Projektarchive leichter identifizieren. Wenn Sie ein Projektarchiv mit dem offiziellen Befehlszeilen-Client erstellen, wird dieses Ordnersymbol nicht zugewiesen."
+msgstr "TortoiseSVN wird den Ordner mit einem benutzerdefinierten Symbol versehen, wenn es ein Projektarchiv erstellt; so können Sie lokale Projektarchive leichter erkennen. Wenn Sie ein Projektarchiv mit dem offiziellen Befehlszeilen-Client erstellen, wird dieses Ordnersymbol nicht zugewiesen."
 
 #. (para)
 msgid ""
@@ -1865,7 +1865,7 @@ msgid ""
 "always support this repository format when accessed via a server through the"
 " <literal>svn://</literal>, <literal>http://</literal> or "
 "<literal>https://</literal> protocols."
-msgstr "TortoiseSVN unterstützt wegen dieser Kompatibilitätsprobleme keinen <literal>file://</literal> Zugriff auf BDB-Projektarchive. Es wird dieses Format jedoch immer beim Zugriff über einen Server durch eines der Protokolle <literal>svn://</literal>, <literal>http://</literal> oder <literal>https://</literal> unterstützen."
+msgstr "Wegen dieser Kompatibilitätsprobleme bietet TortoiseSVN auf BDB-Projektarchive keinen Zugriff via <literal>file://</literal>,  allerdings unterstützt es dieses Format uneingeschränkt, wenn der Zugriff über einen Server durch eines der Protokolle <literal>svn://</literal>, <literal>http://</literal> oder <literal>https://</literal> geschieht."
 
 #. (para)
 msgid ""
@@ -1934,7 +1934,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use."
-msgstr "Obwohl es theoretisch möglich ist, ein FSFS Projektarchiv auf einer Netzwerkfreigabe anzulegen und mehrere Anwender per <literal>file://</literal> Protokoll darauf zugreifen zu lassen, raten wir <emphasis>dringend</emphasis> davon ab."
+msgstr "Obwohl es theoretisch möglich ist, ein FSFS-Projektarchiv auf einer Netzwerkfreigabe anzulegen und mehrere Anwender per <literal>file://</literal>-Protokoll darauf zugreifen zu lassen, raten wir <emphasis>dringend</emphasis> davon ab."
 
 #. (para)
 msgid ""
@@ -1949,7 +1949,7 @@ msgid ""
 "Subversion requires, so you may find your repository gets corrupted. It may "
 "not happen straight away, but one day two users will try to access the "
 "repository at the same time."
-msgstr "Zweitens unterstützen nicht alle Netzwerk Dateiprotokolle die Sperr- und Schutzmechanismen, die Subversion erfordert, so dass das Projektarchiv beschädigt werden kann. Das muss nicht sofort passieren, aber eines Tages werden zwei Anwender gleichzeitig auf das Projektarchiv zugreifen. Schlimmstenfalls bleibt die Beschädigung eine Zeit lang unbemerkt."
+msgstr "Zweitens unterstützen nicht alle Netzwerk-Dateiprotokolle die Sperr- und Schutzmechanismen, die Subversion erfordert, so dass das Projektarchiv beschädigt werden kann. Das muss nicht sofort passieren, aber eines Tages werden zwei Anwender gleichzeitig auf das Projektarchiv zugreifen. Schlimmstenfalls bleibt die Beschädigung eine Zeit lang unbemerkt."
 
 #. (para)
 msgid ""
@@ -1964,7 +1964,7 @@ msgid ""
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
 "and it is not nearly as difficult as you might think. Read <xref linkend"
 "=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr "<literal>file://</literal> Zugriff ist ausschließlich für lokalen Einzelbenutzerzugriff gedacht, speziell zum Testen und Debuggen. Wenn Sie das Projektarchiv gemeinsam nutzen wollen sollten Sie <emphasis>wirklich</emphasis> einen richtigen Server einrichten, und das ist nicht halb so kompliziert wie Sie vielleicht denken. Lesen Sie <xref linkend=\"tsvn-serversetup\"/> als Anleitung zur Auswahl und Einrichtung eines Servers."
+msgstr "Der Zugriff per <literal>file://</literal> ist ausschließlich für lokalen Einzelbenutzerzugriff gedacht, speziell zum Testen und Debuggen. Wenn Sie das Projektarchiv gemeinsam nutzen wollen, sollten Sie <emphasis>wirklich</emphasis> einen richtigen Server einrichten, und das ist nicht annähernd so kompliziert wie Sie vielleicht denken. Lesen Sie <xref linkend=\"tsvn-serversetup\"/> als Anleitung zu Auswahl und Einrichtung eines Servers."
 
 #. (title)
 msgid "Repository Layout"
@@ -1975,7 +1975,7 @@ msgid ""
 "Before you import your data into the repository you should first think about"
 " how you want to organize your data. If you use one of the recommended "
 "layouts you will later have it much easier."
-msgstr "Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich Gedanken darüber machen wie Sie Ihre Daten organisieren wollen. Wenn Sie eine der empfohlenen Strukturen verwenden, werden Sie es später sehr viel einfacher haben."
+msgstr "Bevor Sie Daten in das Projektarchiv importieren, sollten Sie sich Gedanken darüber machen, wie Sie Ihre Daten organisieren wollen. Wenn Sie eine der empfohlenen Strukturen verwenden, werden Sie es später sehr viel einfacher haben."
 
 #. (para)
 msgid ""
@@ -1985,7 +1985,7 @@ msgid ""
 "contain branch copies, and a <filename>tags</filename> directory to contain "
 "tag copies. If a repository holds only one project, then often people create"
 " these top-level directories:"
-msgstr "Es gibt ein paar empfohlene Standards um die Daten innerhalb eines Projektarchivs zu organisieren. Die meisten Leute erstellen einen <filename>trunk</filename> Ordner, der den <quote>Stamm der Entwicklung</quote> enthält, einen <filename>branches</filename> Ordner, welcher Entwicklungszweige enthält und einen <filename>tags</filename> Ordner, der markierte Zustände enthält. Wenn ein Projektarchiv nur ein einziges Projekt enthält ist die folgende Struktur zu empfehlen:"
+msgstr "Es gibt ein paar empfohlene Standards um die Daten innerhalb eines Projektarchivs zu organisieren. Die meisten Leute erstellen einen <filename>trunk</filename>-Ordner für die <quote>Stammentwicklung</quote>, einen <filename>branches</filename>-Ordner für die Entwicklungszweige und einen <filename>tags</filename>-Ordner zum Markieren von Ständen. Wenn ein Projektarchiv nur ein einziges Projekt enthält, ist die folgende Struktur zu empfehlen:"
 
 #. (screen)
 #, no-wrap
@@ -2001,7 +2001,7 @@ msgid ""
 "Because this layout is so commonly used, when you create a new repository "
 "using TortoiseSVN, it will also offer to create the directory structure for "
 "you."
-msgstr "Da dieses Layout so häufig Verwendung findet, wird TortoiseSVN Ihnen, wenn Sie ein neues Projektarchiv anlegen, anbieten, diese Struktur für Sie erzeugen."
+msgstr "Da dieses Layout so häufig benutzt wird, schlägt Ihnen TortoiseSVN beim Erstellen eines neuen Projektarchivs vor, diese Struktur anzulegen."
 
 #. (para)
 msgid ""
@@ -2045,7 +2045,7 @@ msgid ""
 " together in a single distribution package, it is often better to index by "
 "branch. This way you have only one trunk to checkout, and the relationships "
 "between the sub-projects is more easily visible."
-msgstr "Nach Projekt zu organisieren ist sinnvoll, wenn diese nicht eng miteinander verwandt sind und jedes für sich bearbeitet wird. Für verwandte Projekte, die sie alle in einem Rutsch auschecken wollen oder die in einer Distribution zusammengefasst sind, ist es oft besser nach Zweigen zu organisieren. Auf diese Weise müssen Sie nur den Stamm (trunk) auschecken und die Beziehungen zwischen den Unterprojekten sind einfacher zu erkennen."
+msgstr "Nach Projekt zu organisieren ist sinnvoll, wenn die Projekte nicht eng miteinander verwandt sind und jedes für sich bearbeitet wird. Für verwandte Projekte, die Sie alle in einem Rutsch auschecken wollen oder die in einer Distribution zusammengefasst sind, ist es oft besser nach Zweigen zu organisieren. Auf diese Weise müssen Sie nur den Stamm auschecken und die Beziehungen zwischen den Unterprojekten sind einfacher zu erkennen."
 
 #. (para)
 msgid ""
@@ -2053,7 +2053,7 @@ msgid ""
 "approach, there is nothing to say that you have to copy the entire trunk for"
 " every branch and tag, and in some ways this structure offers the most "
 "flexibility."
-msgstr "Wenn Sie eine <filename>/trunk /tags /branches</filename> Struktur wählen, müssen Sie lediglich den gesamten Stamm kopieren, um Zweige oder Marken zu erstellen. In vielen Punkten ist das der flexibelste Ansatz."
+msgstr "Wenn Sie die Struktur <filename>/trunk /tags /branches</filename> wählen, müssen Sie lediglich den gesamten Stamm kopieren, wenn Sie Zweige oder Marken erstellen, und in gewisser Weise ist das der flexibelste Ansatz."
 
 #. (para)
 msgid ""
