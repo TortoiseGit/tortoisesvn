@@ -136,7 +136,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     CRegistryKey regCerts(L"Software\\TortoiseSVN\\CAPIAuthz");
     CStringList certList;
     regCerts.getValues(certList);
-    int nCapi = certList.GetCount();
+    int nCapi = (int)certList.GetCount();
 
     CDirFileEnum logenum(CPathUtils::GetAppDataDirectory()+_T("logcache"));
     while (logenum.NextFile(sFile, &bIsDir))
