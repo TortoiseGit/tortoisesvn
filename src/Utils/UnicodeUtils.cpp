@@ -135,6 +135,21 @@ std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
     return std::wstring (buffer, len-1);
 }
 
+std::string CUnicodeUtils::StdAnsiToUTF8( const std::string& ansi )
+{
+    int size = (int)ansi.length()+1;
+    CBuffer<wchar_t> buffer (2*size);
+
+    int len = MultiByteToWideChar(CP_ACP, 0, ansi.c_str(), size, buffer, 2*size);
+    if (len==0)
+        return ansi;
+    CBuffer<char> buffer2 (4 * size);
+    len = WideCharToMultiByte(CP_UTF8, 0, buffer, size, buffer2, 4*size, 0, NULL);
+    if (len == 0)
+        return ansi;
+    return std::string (buffer2, len-1);
+}
+
 // load a string resource
 
 #pragma warning(push)
