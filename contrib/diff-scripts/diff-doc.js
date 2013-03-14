@@ -62,6 +62,15 @@ if ( !objScript.FileExists(sNewDoc))
 try
 {
    word = WScript.CreateObject("Word.Application");
+   
+    if(parseInt(word.Version) >= vOffice2013)
+	 {
+       var f = objScript.GetFile(sBaseDoc);
+      if(f.attributes & 1)		
+      {
+	       f.attributes = f.attributes - 1;
+      }	
+	}   
 }
 catch(e)
 {
