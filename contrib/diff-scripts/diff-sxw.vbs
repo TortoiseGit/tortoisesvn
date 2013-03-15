@@ -18,8 +18,8 @@ dim objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination
 Set objArgs = WScript.Arguments
 num = objArgs.Count
 if num < 2 then
-   MsgBox "Usage: [CScript | WScript] compare.vbs base.doc new.doc", vbExclamation, "Invalid arguments"
-   WScript.Quit 1
+    MsgBox "Usage: [CScript | WScript] compare.vbs base.doc new.doc", vbExclamation, "Invalid arguments"
+    WScript.Quit 1
 end if
 
 sBaseDoc=objArgs(0)
@@ -42,8 +42,8 @@ On Error Resume Next
 'If there is no office running then an office is started
 Set objServiceManager= Wscript.CreateObject("com.sun.star.ServiceManager")
 If Err.Number <> 0 Then
-   Wscript.Echo "You must have OpenOffice installed to perform this operation."
-   Wscript.Quit 1
+    Wscript.Echo "You must have OpenOffice installed to perform this operation."
+    Wscript.Quit 1
 End If
 
 On Error Goto 0
@@ -68,4 +68,3 @@ oPropertyValue(0).Name = "ShowTrackedChanges"
 oPropertyValue(0).Value = true
 Set objDocument=objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue)
 Set objDocument2=objDesktop.loadComponentFromURL(sBaseDoc,"_blank",0, oPropertyValue)
-

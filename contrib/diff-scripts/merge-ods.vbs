@@ -19,8 +19,8 @@ dim objArgs,num,sBaseDoc,sMergedDoc,sTheirDoc,sMyDoc,objScript,word,destination
 Set objArgs = WScript.Arguments
 num = objArgs.Count
 if num < 4 then
-   MsgBox "Usage: [CScript | WScript] merge-ods.vbs %merged %theirs %mine %base", vbExclamation, "Invalid arguments"
-   WScript.Quit 1
+    MsgBox "Usage: [CScript | WScript] merge-ods.vbs %merged %theirs %mine %base", vbExclamation, "Invalid arguments"
+    WScript.Quit 1
 end if
 
 sMergedDoc=objArgs(0)
@@ -48,8 +48,8 @@ On Error Resume Next
 'If there is no office running then an office is started
 Set objServiceManager= Wscript.CreateObject("com.sun.star.ServiceManager")
 If Err.Number <> 0 Then
-   Wscript.Echo "You must have OpenOffice installed to perform this operation."
-   Wscript.Quit 1
+    Wscript.Echo "You must have OpenOffice installed to perform this operation."
+    Wscript.Quit 1
 End If
 
 On Error Goto 0
@@ -86,4 +86,3 @@ Dispatcher.executeDispatch Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyVal
 oPropertyValue(0).Name = "URL"
 oPropertyValue(0).Value = sTheirDoc
 Dispatcher.executeDispatch Frame, ".uno:CompareDocuments", "", 0, oPropertyValue
-
