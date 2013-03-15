@@ -86,8 +86,9 @@ enum LogDlgContextMenuCommands
 {
     // needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
     ID_COMPARE = 1,
-    ID_SAVEAS,
     ID_COMPARETWO,
+    ID_COMPAREWITHPREVIOUS,
+    ID_BLAMEWITHPREVIOUS,
     ID_UPDATE,
     ID_COPY,
     ID_REVERTREV,
@@ -96,26 +97,27 @@ enum LogDlgContextMenuCommands
     ID_GNUDIFF2,
     ID_FINDENTRY,
     ID_OPEN,
-    ID_BLAME,
+    ID_OPENWITH,
+    ID_OPENLOCAL,
+    ID_OPENWITHLOCAL,
     ID_REPOBROWSE,
     ID_LOG,
     ID_POPPROPS,
     ID_EDITAUTHOR,
     ID_EDITLOG,
     ID_DIFF,
-    ID_OPENWITH,
     ID_COPYCLIPBOARD,
     ID_CHECKOUT,
     ID_REVERTTOREV,
+    ID_BLAME,
     ID_BLAMECOMPARE,
     ID_BLAMETWO,
     ID_BLAMEDIFF,
     ID_VIEWREV,
     ID_VIEWPATHREV,
+    ID_SAVEAS,
     ID_EXPORT,
     ID_EXPORTTREE,
-    ID_COMPAREWITHPREVIOUS,
-    ID_BLAMEWITHPREVIOUS,
     ID_GETMERGELOGS,
     ID_REVPROPS
 };
@@ -1942,9 +1944,10 @@ void CLogDlg::CreateFindDialog()
     }
 }
 
-void CLogDlg::DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile)
+void CLogDlg::DoOpenFileWith(bool bReadOnly, bool bOpenWith, const CTSVNPath& tempfile)
 {
-    SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+    if (bReadOnly)
+        SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     int ret = 0;
     if (!bOpenWith)
         ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
@@ -2291,7 +2294,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
     }
     progDlg.Stop();
     SetAndClearProgressInfo((HWND)NULL);
-    DoOpenFileWith(bOpenWith, tempfile);
+    DoOpenFileWith(true, bOpenWith, tempfile);
     EnableOKButton();
     theApp.DoWaitCursor(-1);
     return TRUE;
@@ -4519,6 +4522,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE, IDI_SAVEAS);
                 popup.AppendMenuIcon(ID_OPEN, IDS_LOG_POPUP_OPEN, IDI_OPEN);
                 popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
+                if (m_hasWC)
+                {
+                    popup.AppendMenuIcon(ID_OPENLOCAL, IDS_LOG_POPUP_OPENLOCAL, IDI_OPEN);
+                    popup.AppendMenuIcon(ID_OPENWITHLOCAL, IDS_LOG_POPUP_OPENWITHLOCAL, IDI_OPEN);
+                }
                 popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
                 popup.AppendMenu(MF_SEPARATOR, NULL);
             }
@@ -5109,13 +5117,21 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     {
                         progDlg.Stop();
                         SetAndClearProgressInfo((HWND)NULL);
-                        DoOpenFileWith(bOpenWith, tempfile);
+                        DoOpenFileWith(true, bOpenWith, tempfile);
                     }
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
                 };
                 new async::CAsyncCall(f, &netScheduler);
+            }
+            break;
+        case ID_OPENWITHLOCAL:
+            bOpenWith = true;
+            // fallthrough
+        case ID_OPENLOCAL:
+            {
+                DoOpenFileWith(false, bOpenWith, m_path);
             }
             break;
         case ID_BLAME:
@@ -5432,9 +5448,14 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     popup.AppendMenu(MF_SEPARATOR, NULL);
                 popup.AppendMenuIcon(ID_OPEN, IDS_LOG_POPUP_OPEN, IDI_OPEN);
                 popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
+                if (m_hasWC && (!wcPath.IsEmpty()) && PathFileExists(wcPath))
+                {
+                    popup.AppendMenuIcon(ID_OPENLOCAL, IDS_LOG_POPUP_OPENLOCAL, IDI_OPEN);
+                    popup.AppendMenuIcon(ID_OPENWITHLOCAL, IDS_LOG_POPUP_OPENWITHLOCAL, IDI_OPEN);
+                }
                 popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
                 popup.AppendMenu(MF_SEPARATOR, NULL);
-                if ((m_hasWC)&&(bOneRev))
+                if ((m_hasWC)&&(bOneRev)&&(!wcPath.IsEmpty()))
                     popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
                 popup.AppendMenuIcon(ID_POPPROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);         // "Show Properties"
                 popup.AppendMenuIcon(ID_LOG, IDS_MENULOG, IDI_LOG);                     // "Show Log"
@@ -5762,6 +5783,14 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;
                 auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); Open(bOpenWith,m_currentChangedArray[selIndex].GetPath(),getrev); this->EnableWindow(TRUE);this->SetFocus();};
                 new async::CAsyncCall(f, &netScheduler);
+            }
+            break;
+        case ID_OPENWITHLOCAL:
+            bOpenWith = true;
+            // fallthrough
+        case ID_OPENLOCAL:
+            {
+                DoOpenFileWith(false, bOpenWith, CTSVNPath(wcPath));
             }
             break;
         case ID_BLAME:

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -218,7 +218,7 @@ private:
         const CString& whatToFind, LRESULT *pResult);
     void NotifyTargetOnOk();
     void CreateFindDialog();
-    void DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile);
+    void DoOpenFileWith(bool bReadOnly, bool bOpenWith, const CTSVNPath& tempfile);
     bool ConfirmRevert(const CString& path, bool bToRev = false);
 
     // selection management
