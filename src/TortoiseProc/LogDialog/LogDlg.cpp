@@ -5386,21 +5386,23 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
     if (m_hasWC)
     {
         // find the working copy path of the selected item from the URL
-        CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
-
-        fileURL = changedlogpath.GetPath();
-        fileURL = sUrlRoot + fileURL.Trim();
-        // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
-        // sUrl = http://mydomain.com/repos/trunk/folder
-        CString sUnescapedUrl = CPathUtils::PathUnescape(sUrl);
-        // find out until which char the urls are identical
-        int i=0;
-        while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
-            i++;
-        int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
-        wcPath = m_path.GetWinPathString().Left(leftcount);
-        wcPath += fileURL.Mid(i);
-        wcPath.Replace('/', '\\');
+        CString sUrlRoot = GetRepositoryRoot(m_path);
+        if (!sUrlRoot.IsEmpty())
+        {
+            fileURL = changedlogpath.GetPath();
+            fileURL = sUrlRoot + fileURL.Trim();
+            // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+            // sUrl = http://mydomain.com/repos/trunk/folder
+            CString sUnescapedUrl = CPathUtils::PathUnescape(sUrl);
+            // find out until which char the urls are identical
+            int i=0;
+            while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
+                i++;
+            int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
+            wcPath = m_path.GetWinPathString().Left(leftcount);
+            wcPath += fileURL.Mid(i);
+            wcPath.Replace('/', '\\');
+        }
     }
 
     //entry is selected, now show the popup menu
@@ -5497,9 +5499,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_REVERTREV:
             {
-                const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[selIndex];
-
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
                 if (sUrl.IsEmpty())
@@ -5625,13 +5624,13 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         progDlg.SetAnimation(IDR_DOWNLOAD);
                         for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
                         {
-                            const CLogChangedPath& changedlogpath
+                            const CLogChangedPath& changedlogpathi
                                 = m_currentChangedArray[changedlogpathindices[i]];
 
-                            SVNRev getrev = (changedlogpath.GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
+                            SVNRev getrev = (changedlogpathi.GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
 
                             CString sInfoLine;
-                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)CPathUtils::GetFileNameFromPath(changedlogpath.GetPath()), (LPCTSTR)getrev.ToString());
+                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)CPathUtils::GetFileNameFromPath(changedlogpathi.GetPath()), (LPCTSTR)getrev.ToString());
                             progDlg.SetLine(1, sInfoLine, true);
                             SetAndClearProgressInfo(&progDlg);
                             progDlg.ShowModeless(m_hWnd);
@@ -5642,13 +5641,13 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                                 // if multiple items are selected, then the TargetPath
                                 // points to a folder and we have to append the filename
                                 // to save to that folder.
-                                CString sName = changedlogpath.GetPath();
+                                CString sName = changedlogpathi.GetPath();
                                 int slashpos = sName.ReverseFind('/');
                                 if (slashpos >= 0)
                                     sName = sName.Mid(slashpos);
                                 tempfile.AppendPathString(sName);
                             }
-                            CString filepath = sRoot + changedlogpath.GetPath();
+                            CString filepath = sRoot + changedlogpathi.GetPath();
                             progDlg.SetLine(2, filepath, true);
                             if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
                             {
@@ -5711,23 +5710,23 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         progDlg.SetTime(true);
                         for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
                         {
-                            const CString& changedlogpath
+                            const CString& schangedlogpath
                                 = m_currentChangedArray[changedlogpathindices[i]].GetPath();
 
                             SVNRev getrev = rev1;
 
                             CTSVNPath tempfile = TargetPath;
-                            tempfile.AppendPathString(changedlogpath);
+                            tempfile.AppendPathString(schangedlogpath);
 
                             CString sInfoLine;
-                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)changedlogpath, (LPCTSTR)getrev.ToString());
+                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)schangedlogpath, (LPCTSTR)getrev.ToString());
                             progDlg.SetLine(1, sInfoLine, true);
                             progDlg.SetLine(2, tempfile.GetWinPath(), true);
                             progDlg.SetProgress64(i, changedlogpathindices.size());
                             progDlg.ShowModeless(m_hWnd);
 
                             SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(), NULL);
-                            CString filepath = m_sRepositoryRoot + changedlogpath;
+                            CString filepath = m_sRepositoryRoot + schangedlogpath;
                             if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev, true, true, svn_depth_empty))
                             {
                                 progDlg.Stop();
@@ -5775,8 +5774,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     theApp.DoWaitCursor(-1);
                     break;      //exit
                 }
-                const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[selIndex];
                 CBlameDlg dlg;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
                     rev1--;
@@ -5831,9 +5828,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             // fall through
         case ID_LOG:
             {
-                const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[selIndex];
-
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
@@ -5871,9 +5865,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_REPOBROWSE:
             {
-                const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[selIndex];
-
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
