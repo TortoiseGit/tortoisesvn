@@ -5368,6 +5368,41 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         }
     }
 
+
+    CString sUrl;
+    const CLogChangedPath& changedlogpath
+        = m_currentChangedArray[selIndex];
+    if (SVN::PathIsURL(m_path))
+    {
+        sUrl = m_path.GetSVNPathString();
+    }
+    else
+    {
+        sUrl = GetURLFromPath(m_path);
+    }
+
+    CString fileURL;
+    CString wcPath;
+    if (m_hasWC)
+    {
+        // find the working copy path of the selected item from the URL
+        CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
+
+        fileURL = changedlogpath.GetPath();
+        fileURL = sUrlRoot + fileURL.Trim();
+        // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+        // sUrl = http://mydomain.com/repos/trunk/folder
+        CString sUnescapedUrl = CPathUtils::PathUnescape(sUrl);
+        // find out until which char the urls are identical
+        int i=0;
+        while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
+            i++;
+        int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
+        wcPath = m_path.GetWinPathString().Left(leftcount);
+        wcPath += fileURL.Mid(i);
+        wcPath.Replace('/', '\\');
+    }
+
     //entry is selected, now show the popup menu
     CIconMenu popup;
     if (popup.CreatePopupMenu())
@@ -5467,40 +5502,15 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
-                CString sUrl;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    sUrl = m_path.GetSVNPathString();
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
-                else
-                {
-                    sUrl = GetURLFromPath(m_path);
-                    if (sUrl.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(m_path.GetWinPath());
-                        EnableOKButton();
-                        theApp.DoWaitCursor(-1);
-                        break;      //exit
-                    }
-                }
-                // find the working copy path of the selected item from the URL
                 m_bCancelled = false;
-                CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
-
-                CString fileURL = changedlogpath.GetPath();
-                fileURL = sUrlRoot + fileURL.Trim();
-                // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
-                // sUrl = http://mydomain.com/repos/trunk/folder
-                CString sUnescapedUrl = CPathUtils::PathUnescape(sUrl);
-                // find out until which char the urls are identical
-                int i=0;
-                while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
-                    i++;
-                int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
-                CString wcPath = m_path.GetWinPathString().Left(leftcount);
-                wcPath += fileURL.Mid(i);
-                wcPath.Replace('/', '\\');
                 CSVNProgressDlg dlg;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
                 {
@@ -5543,27 +5553,17 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
-                CString filepath;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    filepath = m_path.GetSVNPathString();
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
-                else
-                {
-                    filepath = GetURLFromPath(m_path);
-                    if (filepath.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(filepath);
-                        EnableOKButton();
-                        break;
-                    }
-                }
-                filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += m_currentChangedArray[selIndex].GetPath();
                 CPropDlg dlg;
                 dlg.m_rev = rev1;
-                dlg.m_Path = CTSVNPath(filepath);
+                dlg.m_Path = CTSVNPath(fileURL);
                 dlg.DoModal();
                 EnableOKButton();
                 theApp.DoWaitCursor(-1);
@@ -5574,24 +5574,16 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
-                CString filepath;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    filepath = m_path.GetSVNPathString();
-                }
-                else
-                {
-                    filepath = GetURLFromPath(m_path);
-                    if (filepath.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(filepath);
-                        EnableOKButton();
-                        break;
-                    }
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
                 m_bCancelled = false;
-                CString sRoot = GetRepositoryRoot(CTSVNPath(filepath));
+                CString sRoot = GetRepositoryRoot(CTSVNPath(fileURL));
                 // if more than one entry is selected, we save them
                 // one by one into a folder the user has selected
                 bool bTargetSelected = false;
@@ -5775,24 +5767,14 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_BLAME:
             {
-                CString filepath;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    filepath = m_path.GetSVNPathString();
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
-                else
-                {
-                    filepath = GetURLFromPath(m_path);
-                    if (filepath.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(filepath);
-                        EnableOKButton();
-                        break;
-                    }
-                }
-                filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += m_currentChangedArray[selIndex].GetPath();
                 const CLogChangedPath& changedlogpath
                     = m_currentChangedArray[selIndex];
                 CBlameDlg dlg;
@@ -5812,7 +5794,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         this->EnableWindow(FALSE);
                         CBlame blame;
                         CString tempfile;
-                        tempfile = blame.BlameToTempFile(CTSVNPath(filepath), startrev, endrev, pegrev, _T(""), includeMerge, TRUE, TRUE);
+                        tempfile = blame.BlameToTempFile(CTSVNPath(fileURL), startrev, endrev, pegrev, _T(""), includeMerge, TRUE, TRUE);
                         if (!tempfile.IsEmpty())
                         {
                             if (textView)
@@ -5822,9 +5804,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                             }
                             else
                             {
-                                CString sParams = _T("/path:\"") + filepath + _T("\" ");
+                                CString sParams = _T("/path:\"") + fileURL + _T("\" ");
                                 CAppUtils::LaunchTortoiseBlame(tempfile,
-                                                               CPathUtils::GetFileNameFromPath(filepath),
+                                                               CPathUtils::GetFileNameFromPath(fileURL),
                                                                sParams,
                                                                startrev,
                                                                endrev,
@@ -5855,25 +5837,15 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
-                CString filepath;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    filepath = m_path.GetSVNPathString();
-                }
-                else
-                {
-                    filepath = GetURLFromPath(m_path);
-                    if (filepath.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(filepath);
-                        EnableOKButton();
-                        break;
-                    }
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
                 m_bCancelled = false;
-                filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += m_currentChangedArray[selIndex].GetPath();
                 svn_revnum_t logrev = rev1;
                 CString sCmd;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
@@ -5882,12 +5854,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     // fetch the log from the previous revision where it
                     // still existed.
                     sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld /pegrev:%ld"),
-                        (LPCTSTR)filepath, logrev-1, logrev-1);
+                        (LPCTSTR)fileURL, logrev-1, logrev-1);
                 }
                 else
                 {
                     sCmd.Format(_T("/command:log /path:\"%s\" /pegrev:%ld"),
-                        (LPCTSTR)filepath, logrev);
+                        (LPCTSTR)fileURL, logrev);
                 }
 
                 if (bMergeLog)
@@ -5905,36 +5877,26 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
-                CString filepath;
-                if (SVN::PathIsURL(m_path))
+                if (sUrl.IsEmpty())
                 {
-                    filepath = m_path.GetSVNPathString();
-                }
-                else
-                {
-                    filepath = GetURLFromPath(m_path);
-                    if (filepath.IsEmpty())
-                    {
-                        theApp.DoWaitCursor(-1);
-                        ReportNoUrlOfFile(filepath);
-                        EnableOKButton();
-                        break;
-                    }
+                    theApp.DoWaitCursor(-1);
+                    ReportNoUrlOfFile(m_path.GetWinPath());
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                    break;      //exit
                 }
                 m_bCancelled = false;
-                filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += m_currentChangedArray[selIndex].GetPath();
                 svn_revnum_t logrev = rev1;
                 CString sCmd;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
                 {
                     sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
-                                (LPCTSTR)filepath, logrev-1);
+                                (LPCTSTR)fileURL, logrev-1);
                 }
                 else
                 {
                     sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
-                                (LPCTSTR)filepath, logrev);
+                                (LPCTSTR)fileURL, logrev);
                 }
 
                 CAppUtils::RunTortoiseProc(sCmd);
