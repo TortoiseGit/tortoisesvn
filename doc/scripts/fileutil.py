@@ -154,9 +154,9 @@ class HashRecord(object):
 
     def __repr__(self):
         return self.SEP.join(("%s:%s" % (self.hashtype, self.hashcode),
-            self.datetime.strftime('%Y-%m-%dT%H:%M:%S'),
-            str(self.filesize),
-            self.filename))
+                              self.datetime.strftime('%Y-%m-%dT%H:%M:%S'),
+                              str(self.filesize),
+                              self.filename))
 
 
 class HashDir(object):
