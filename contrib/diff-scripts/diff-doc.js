@@ -40,20 +40,22 @@ objArgs = WScript.Arguments;
 num = objArgs.length;
 if (num < 2)
 {
-   WScript.Echo("Usage: [CScript | WScript] diff-doc.js base.doc new.doc");
-   WScript.Quit(1);
+    WScript.Echo("Usage: [CScript | WScript] diff-doc.js base.doc new.doc");
+    WScript.Quit(1);
 }
 
 sBaseDoc = objArgs(0);
 sNewDoc = objArgs(1);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject");
-if ( !objScript.FileExists(sBaseDoc))
+
+if (!objScript.FileExists(sBaseDoc))
 {
     WScript.Echo("File " + sBaseDoc + " does not exist.  Cannot compare the documents.");
     WScript.Quit(1);
 }
-if ( !objScript.FileExists(sNewDoc))
+
+if (!objScript.FileExists(sNewDoc))
 {
     WScript.Echo("File " + sNewDoc + " does not exist.  Cannot compare the documents.");
     WScript.Quit(1);
@@ -61,18 +63,18 @@ if ( !objScript.FileExists(sNewDoc))
 
 try
 {
-   word = WScript.CreateObject("Word.Application");
-   
-    if(parseInt(word.Version) >= vOffice2013)
-	 {
-       var f = objScript.GetFile(sBaseDoc);
-      if(f.attributes & 1)		
-      {
-	       f.attributes = f.attributes - 1;
-      }	
-	}   
+    word = WScript.CreateObject("Word.Application");
+
+    if (parseInt(word.Version) >= vOffice2013)
+    {
+        var f = objScript.GetFile(sBaseDoc);
+        if (f.attributes & 1)
+        {
+            f.attributes = f.attributes - 1;
+        }
+    }
 }
-catch(e)
+catch (e)
 {
     // before giving up, try with OpenOffice
     var OO;
@@ -80,7 +82,7 @@ catch(e)
     {
         OO = WScript.CreateObject("com.sun.star.ServiceManager");
     }
-    catch(e)
+    catch (e)
     {
         WScript.Echo("You must have Microsoft Word or OpenOffice installed to perform this operation.");
         WScript.Quit(1);
@@ -100,14 +102,14 @@ catch(e)
     sBaseDoc = sBaseDoc.replace(/:/g, "|");
     sBaseDoc = sBaseDoc.replace(/ /g, "%20");
     sBaseDoc = sBaseDoc.replace(/#/g, "%23");
-    sBaseDoc="file:///" + sBaseDoc;
-    sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc);
+    sBaseDoc = "file:///" + sBaseDoc;
+    sBaseDoc = objUriTranslator.translateToInternal(sBaseDoc);
     sNewDoc = sNewDoc.replace(/\\/g, "/");
     sNewDoc = sNewDoc.replace(/:/g, "|");
     sNewDoc = sNewDoc.replace(/ /g, "%20");
     sNewDoc = sNewDoc.replace(/#/g, "%23");
-    sNewDoc="file:///" + sNewDoc;
-    sNewDoc=objUriTranslator.translateToInternal(sNewDoc);
+    sNewDoc = "file:///" + sNewDoc;
+    sNewDoc = objUriTranslator.translateToInternal(sNewDoc);
 
     //Open the %base document
     var oPropertyValue = new Array();
@@ -143,7 +145,7 @@ try
 {
     destination = word.Documents.Open(sNewDoc, true, (parseInt(word.Version) < vOffice2013));
 }
-catch(e)
+catch (e)
 {
     try
     {
@@ -151,7 +153,7 @@ catch(e)
         word.Documents.Add();
         destination = word.Documents.Open(sNewDoc, true, (parseInt(word.Version) < vOffice2013));
     }
-    catch(e)
+    catch (e)
     {
         WScript.Echo("Error opening " + sNewDoc);
         // Quit
@@ -174,7 +176,7 @@ if (parseInt(word.Version) <= vOffice2000)
     {
         destination.Compare(sBaseDoc);
     }
-    catch(e)
+    catch (e)
     {
         WScript.Echo("Error comparing " + sBaseDoc + " and " + sNewDoc);
         // Quit
@@ -188,7 +190,7 @@ else
     {
         destination.Compare(sBaseDoc, "Comparison", wdCompareTargetNew, true, true);
     }
-    catch(e)
+    catch (e)
     {
         WScript.Echo("Error comparing " + sBaseDoc + " and " + sNewDoc);
         // Close the first document and quit

@@ -35,7 +35,7 @@ function PptAppMajorVersion(PowerPoint)
         else
             return parseInt(pptVersion);
     }
-    catch(e)
+    catch (e)
     {
         return 0;
     }
@@ -47,22 +47,24 @@ objArgs = WScript.Arguments;
 num = objArgs.length;
 if (num < 2)
 {
-   WScript.Echo("Usage: [CScript | WScript] diff-ppt.js base.ppt new.ppt");
-   WScript.Quit(1);
+    WScript.Echo("Usage: [CScript | WScript] diff-ppt.js base.ppt new.ppt");
+    WScript.Quit(1);
 }
 
 sBasePpt = objArgs(0);
 sNewPpt = objArgs(1);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject");
-if ( !objScript.FileExists(sBasePpt))
+
+if (!objScript.FileExists(sBasePpt))
 {
     WScript.Echo("File " + sBasePpt + " does not exist.  Cannot compare the presentations.");
     WScript.Quit(1);
 }
-if ( !objScript.FileExists(sNewPpt))
+
+if (!objScript.FileExists(sNewPpt))
 {
-    WScript.Echo("File " + sNewPpt +" does not exist.  Cannot compare the presentations.");
+    WScript.Echo("File " + sNewPpt + " does not exist.  Cannot compare the presentations.");
     WScript.Quit(1);
 }
 
@@ -70,12 +72,12 @@ objScript = null;
 
 try
 {
-   powerpoint = WScript.CreateObject("Powerpoint.Application");
+    powerpoint = WScript.CreateObject("Powerpoint.Application");
 }
-catch(e)
+catch (e)
 {
-   WScript.Echo("You must have Microsoft Powerpoint installed to perform this operation.");
-   WScript.Quit(1);
+    WScript.Echo("You must have Microsoft Powerpoint installed to perform this operation.");
+    WScript.Quit(1);
 }
 
 if (PptAppMajorVersion(powerpoint) === 12)
