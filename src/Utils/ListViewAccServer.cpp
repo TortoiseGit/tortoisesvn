@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2012 - TortoiseSVN
+// Copyright (C) 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,6 +115,6 @@ void ListViewAccServer::ClearProvider( HWND hControl )
     if (hr == S_OK && pAccPropSvc)
     {
         MSAAPROPID propid = PROPID_ACC_HELP;
-        hr = pAccPropSvc->ClearHwndProps(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1);
+        pAccPropSvc->ClearHwndProps(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1);
     }
 }
