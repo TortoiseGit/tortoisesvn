@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2007, 2010-2012 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,8 +63,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 
     MSG msg;
-    HACCEL hAccelTable;
-
     hInst = hInstance;
 
     INITCOMMONCONTROLSEX used = {
@@ -88,7 +86,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     mainWindow->SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
     if (mainWindow->RegisterAndCreateWindow())
     {
-        hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
+        HACCEL hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
         if (!parser.HasVal(_T("left")))
         {
             PostMessage(*mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
