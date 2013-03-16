@@ -112,7 +112,7 @@ bool DropVendorCommand::Execute()
                 CTSVNPathList plist = CTSVNPathList(CTSVNPath(dstPath));
                 if (!it->second)
                 {
-                    bSuccess = CopyFile(srcPath, dstPath, FALSE);
+                    bSuccess = CopyFile(srcPath, dstPath,  FALSE);
                     svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true);
                 }
             }
@@ -128,5 +128,5 @@ bool DropVendorCommand::Execute()
         svn.Remove(CTSVNPathList(CTSVNPath(droppath + L"\\" + it->first)), true, false);
     }
 
-    return bSuccess != FALSE;
+    return bSuccess != false;
 }
