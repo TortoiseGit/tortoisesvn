@@ -4279,7 +4279,7 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
             svn.SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
             progDlg.ShowModeless(m_hWnd);
             progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
-            if (!svn.Export(CTSVNPath(entry->GetURL()), filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD))
+            if (!svn.Export(CTSVNPath(m_sRepositoryRoot + L"/" + entry->GetURL()), filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD))
             {
                 progDlg.Stop();
                 svn.SetAndClearProgressInfo((HWND)NULL);
@@ -4295,7 +4295,7 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
         CString n1, n2;
         n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
         n2.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
-        CTSVNPath url = CTSVNPath(entry->GetURL());
+        CTSVNPath url = CTSVNPath(m_sRepositoryRoot + L"/" + entry->GetURL());
         CAppUtils::StartExtDiff(filePath, filePath, n1, n2,
           url, url, rev, rev, rev,
           CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
@@ -6175,7 +6175,7 @@ void CSVNStatusListCtrl::Open( const CTSVNPath& filepath, FileEntry * entry, boo
         // fetch the file from the repository
         SVN svn;
         CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
-        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
+        if (!svn.Export(CTSVNPath(m_sRepositoryRoot + L"/" + entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
         {
             svn.ShowErrorDialog(m_hWnd);
             return;
