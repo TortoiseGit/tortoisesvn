@@ -40,9 +40,8 @@ fileGui  = 'TortoiseUI'
 fileDoc  = 'TortoiseDoc'
 
 langList = os.path.join(wrkDir, 'Languages.txt')
-langFields = ['LangCC', 'LangWiX', 'LangID', 'FlagByte', 'LangName', 'Translators']
+langFields = ['LangCC','LangWiX','LangID','FlagByte','LangName','Translators']
 Sep75 = '==========================================================================='
-
 
 def usage_and_exit(errmsg=None):
     """Print a usage message, plus an ERRMSG (if provided), then exit.
@@ -60,10 +59,8 @@ def usage_and_exit(errmsg=None):
         sys.exit(2)
     sys.exit(0)
 
-
 def makeTimeString(format, timestamp):
-    return time.strftime(format, time.gmtime(timestamp))
-
+    return  time.strftime(format, time.gmtime(timestamp))
 
 class transReport:
     def __init__(self, to_email_id='luebbe@tigris.org'):
@@ -71,9 +68,9 @@ class transReport:
         self.from_email_id = '<dev@tortoisesvn.tigris.org>'
 
     def safe_command(self, cmd_and_args, cmd_in=''):
-        [stdout, stderr] = subprocess.Popen(cmd_and_args,
-                           stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE,
+        [stdout, stderr] = subprocess.Popen(cmd_and_args, \
+                           stdin=subprocess.PIPE, \
+                           stdout=subprocess.PIPE, \
                            stderr=subprocess.PIPE).communicate(input=cmd_in)
         return stdout, stderr
 
@@ -89,30 +86,30 @@ class transReport:
         Creates and cleans up the path if necessary"""
         # Check if target directory exists locally
         if os.path.isdir(dstDir):
-            cmd = ['svnversion', dstDir]
-            ver = self.safe_command(cmd)[0]
-            ver = ver.strip()
+          cmd = ['svnversion', dstDir]
+          ver = self.safe_command(cmd)[0]
+          ver = ver.strip()
 
-            # Check if target directory is a working copy
-            if ver == 'exported':
-                # No -> remove it and make a fresh checkout
-                checkout = True
-                os.rmdir(dstDir)
-            else:
-                # Yes -> switch it to the given URL
-                # works like 'svn up' if URL stays the same
-                checkout = False
-                cmd = ['svn', 'switch', srcUrl, dstDir]
-                self.safe_command(cmd)
+          # Check if target directory is a working copy
+          if ver == 'exported':
+            # No -> remove it and make a fresh checkout
+            checkout = True
+            os.rmdir(dstDir)
+          else:
+            # Yes -> switch it to the given URL
+            # works like 'svn up' if URL stays the same
+            checkout = False
+            cmd = ['svn', 'switch', srcUrl, dstDir]
+            self.safe_command(cmd)
 
         else:
-            checkout = True
+          checkout = True
 
         # Create target directory and make a fresh checkout
         if checkout:
-            os.makedirs(dstDir)
-            cmd = ['svn', 'checkout', srcUrl, dstDir]
-            self.safe_command(cmd)
+          os.makedirs(dstDir)
+          cmd = ['svn', 'checkout', srcUrl, dstDir]
+          self.safe_command(cmd)
 
         return None
 
@@ -134,11 +131,11 @@ class transReport:
         """Checks for errors in the .po file. Can detect missing accelerators"""
         msgout = self.safe_command(['msgfmt', attrib, poFile])[1]
         if msgout:
-            grepout = self.safe_command(['grep', '-E', 'msgfmt: found'], msgout)[0]
-            reout = self.match('.*?(\d+).*', grepout.strip())
-            return int(reout)
+           grepout = self.safe_command(['grep', '-E', 'msgfmt: found'], msgout)[0]
+           reout = self.match('.*?(\d+).*', grepout.strip())
+           return int(reout)
         else:
-            return 0
+           return 0
 
     def checkAttrib(self, attrib, file):
         """Counts the lines that match a particular attribute"""
@@ -156,44 +153,44 @@ class transReport:
         poFile = os.path.join(wrkDir, langCC,  fileMask + '.po')
 
         if not os.path.isfile(poFile):
-            # No need to write status for non-existent .po files
-            # Just print on standard output for the "paper" report
-            return '---'
+          # No need to write status for non-existent .po files
+          # Just print on standard output for the "paper" report
+          return '---'
         else:
-            wrkFile = os.path.join(wrkDir, 'temp.po')
-            cmd = ['msgmerge', '--no-wrap', '--quiet', '--no-fuzzy-matching', poFile, potFile, '-o', wrkFile]
-            self.safe_command(cmd)
-            poDate = self.getPoDate(wrkFile)
-            error = self.checkError('--check-format', wrkFile)
-            if error:
-                return 'BROKEN'
+          wrkFile = os.path.join(wrkDir, 'temp.po')
+          cmd = ['msgmerge','--no-wrap','--quiet','--no-fuzzy-matching', poFile, potFile, '-o', wrkFile]
+          self.safe_command(cmd)
+          poDate = self.getPoDate(wrkFile)
+          error = self.checkError('--check-format', wrkFile)
+          if error:
+            return 'BROKEN'
+          else:
+            trans = self.checkAttrib('--translated', wrkFile)
+            untrans = self.checkAttrib('--untranslated', wrkFile)
+# transifex doesn't support fuzzy, so don't report it anymore
+#           fuzzy = self.checkAttrib('--only-fuzzy', wrkFile)
+            fuzzy = 0
+            if checkAccel:
+              accel = self.checkError('--check-accelerators', wrkFile)
             else:
-                trans = self.checkAttrib('--translated', wrkFile)
-                untrans = self.checkAttrib('--untranslated', wrkFile)
-                # transifex doesn't support fuzzy, so don't report it anymore
-                #fuzzy = self.checkAttrib('--only-fuzzy', wrkFile)
-                fuzzy = 0
-                if checkAccel:
-                    accel = self.checkError('--check-accelerators', wrkFile)
-                else:
-                    accel = 0
+              accel = 0
 
-                trans = trans-fuzzy
+            trans = trans-fuzzy
 
-                if untrans + fuzzy + accel == 0:
-                    return 'OK'
-                else:
-                    if trans == total:
-                        percent = 99
-                    else:
-                        percent = 100 * (trans) / total
+            if untrans+fuzzy+accel == 0:
+              return 'OK'
+            else:
+              if trans == total:
+                percent = 99
+              else:
+                percent = 100*(trans)/total
 
-                    if checkAccel:
-                        #return '%2s%% (%s/%s/%s)' % (percent, untrans, fuzzy, accel)
-                        return '%2s%% (%s/%s)' % (percent, untrans, accel)
-                    else:
-                        #return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
-                        return '%2s%% (%s)' % (percent, untrans)
+              if checkAccel:
+#                return '%2s%% (%s/%s/%s)' % (percent, untrans, fuzzy, accel)
+                return '%2s%% (%s/%s)' % (percent, untrans, accel)
+              else:
+#                return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
+                return '%2s%% (%s)' % (percent, untrans)
 
     def printStatLine(self, Lang, Gui, Doc):
         print '%-33s: %-19s: %-19s' % (Lang, Gui, Doc)
@@ -216,18 +213,18 @@ class transReport:
         csvReader.skipinitialspace = True
 
         for row in csvReader:
-            # Ignore lines beginning with:
-            # '\xef' = UTF-8 BOM
-            # '#' = comment line
-            if row['LangCC'][0] != '\xef' and row['LangCC'][0] != '#':
-                langCC = row['LangCC'].strip()
-                statusGui = self.checkStatus(wrkDir, langCC, fileGui, totGui, True)
-                statusDoc = self.checkStatus(wrkDir, langCC, fileDoc, totDoc, False)
+          # Ignore lines beginning with:
+          # '\xef' = UTF-8 BOM
+          # '#' = comment line
+          if row['LangCC'][0] != '\xef' and row['LangCC'][0] != '#':
+            langCC = row['LangCC'].strip()
+            statusGui = self.checkStatus(wrkDir, langCC, fileGui, totGui, True)
+            statusDoc = self.checkStatus(wrkDir, langCC, fileDoc, totDoc, False)
 
             if statusGui != 'NONE' or statusDoc != 'NONE':
-                langName = row['LangName'].strip()
-                langName = langName + ' (' + langCC + ')'
-                self.printStatLine(langName, statusGui, statusDoc)
+               langName = row['LangName'].strip()
+               langName = langName + ' ('+langCC+')'
+               self.printStatLine (langName, statusGui, statusDoc)
 
         return None
 
@@ -238,9 +235,9 @@ class transReport:
             sys.exit(0)
 
         # Try different matches for older and newer svn clients
-        reposRoot = self.match('Repository Root: (\S+)', info_out)
+        reposRoot = self.match('Repository Root: (\S+)',info_out)
         if reposRoot is None:
-            reposRoot = self.match('Repository: (\S+)', info_out)
+           reposRoot = self.match('Repository: (\S+)',info_out)
 
         reposTrunk = reposRoot + '/' + urlTrunk + '/'
 
@@ -256,13 +253,12 @@ class transReport:
 
         # Clean up the tmp folder
         for root, dirs, files in os.walk('tmp', topdown=False):
-            for name in files:
-                os.remove(os.path.join(root, name))
-            for name in dirs:
-                os.rmdir(os.path.join(root, name))
+          for name in files:
+            os.remove(os.path.join(root, name))
+          for name in dirs:
+            os.rmdir(os.path.join(root, name))
 
         return None
-
 
 def main():
     # Parse the command-line options and arguments.
