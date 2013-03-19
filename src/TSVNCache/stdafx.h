@@ -23,8 +23,6 @@
 #define _WIN32_IE 0x0700        // Change this to the appropriate value to target other versions of IE.
 #endif
 
-#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
-
 #include <tchar.h>
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 

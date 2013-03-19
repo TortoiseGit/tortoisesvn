@@ -22,8 +22,6 @@
 #endif
 
 #define ISOLATION_AWARE_ENABLED 1
-#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
-
 #include <WinSock2.h>
 #include <Ws2tcpip.h>
 #include <Wspiapi.h>

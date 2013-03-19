@@ -18,8 +18,6 @@
 
 #pragma once
 
-#define STRICT_TYPED_ITEMIDS    // Better type safety for IDLists
-
 #define _WIN32_WINNT 0x502
 
 #define WIN32_LEAN_AND_MEAN     // Exclude rarely-used stuff from Windows headers
