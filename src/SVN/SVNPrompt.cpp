@@ -344,7 +344,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 
     BOOL bOpenRet = FALSE;
 
-    HRESULT hr; 
+    HRESULT hr;
     // Create a new common save file dialog
     CComPtr<IFileOpenDialog> pfd = NULL;
     hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);

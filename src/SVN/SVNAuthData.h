@@ -46,8 +46,8 @@ protected:
     apr_pool_t *                m_pool;         ///< the memory pool
     SVNPrompt                   m_prompt;       ///< auth_baton setup helper
 
-    static svn_error_t * cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton, 
-                                          const char *cred_kind, const char *realmstring, 
+    static svn_error_t * cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
+                                          const char *cred_kind, const char *realmstring,
                                           const char *provider, apr_pool_t *scratch_pool);
 };
 
