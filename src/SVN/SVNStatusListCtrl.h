@@ -959,7 +959,7 @@ private:
     void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);
 
     /// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
-    void FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored = false);
+    void FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored = false, bool bNoUnversioned = false);
 
     /// Enables/Disables group view and adds all groups to the list control.
     /// If bForce is true, then group view is enabled and the 'null' group is added.

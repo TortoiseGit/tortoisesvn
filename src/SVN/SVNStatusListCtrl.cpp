@@ -3657,7 +3657,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             case IDSVNLC_GNUDIFF1:
                 {
                     CTSVNPathList targetList;
-                    FillListOfSelectedItemPaths(targetList);
+                    FillListOfSelectedItemPaths(targetList, true, true);
 
                     if (targetList.GetCount() > 1)
                     {
@@ -4854,7 +4854,7 @@ void CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
 
 
 /// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
-void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored)
+void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored, bool bNoUnversioned)
 {
     CAutoReadLock locker(m_guard);
     pathList.Clear();
@@ -4866,6 +4866,10 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bo
         index = GetNextSelectedItem(pos);
         FileEntry * entry = GetListEntry(index);
         if ((bNoIgnored)&&(entry->status == svn_wc_status_ignored))
+            continue;
+        if ((bNoUnversioned)&&(entry->status == svn_wc_status_unversioned))
+            continue;
+        if ((bNoUnversioned)&&(entry->status == svn_wc_status_none))
             continue;
         pathList.AddPath(entry->path);
     }
