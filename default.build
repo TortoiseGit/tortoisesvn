@@ -10,7 +10,7 @@
   <!-- default build tool is VS2012 -->
   <property name="buildtool" value="devenv.com" />
   <!-- default: don't add a platform specific extension
-     to the bin folders 'release' / 'debug'	 -->
+       to the bin folders 'release' / 'debug'   -->
   <property name="bindirextension" value="" />
   <!-- default: we don't cross-compile -->
   <property name="crosscompile" value="" />
@@ -50,7 +50,7 @@
 
   <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
        for example:
-     /t "url/to/timestamp/server" /q
+       /t "url/to/timestamp/server" /q
   -->
   <loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}"/>
 
