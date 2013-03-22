@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-05 09:24+0000\n"
+"PO-Revision-Date: 2013-03-20 22:56+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1477,11 +1477,11 @@ msgstr "(binääriarvo)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(sisältö ja ominaisuudet)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(vain sisältö)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -2058,7 +2058,7 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "Toinen prosessi estää pääsyn  työkopion tietokantaan tai tiedostojärjestelmä ei tue tiedostojen lukitusta.  Jos työkopio sijaitsee verkkojaolla, varmista, että tiedostojen lukitus on kytketty päälle  tiedostopalvelimella."
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2761,7 +2761,7 @@ msgstr "Hae työkopio arkistosta"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Valitse poistettavat tunnistustiedot"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2891,11 +2891,11 @@ msgstr "Pyyhkimistyökalu\nPyyhi"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Tyhjennä kaikki"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Tyhjennä..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3149,11 +3149,11 @@ msgstr "Vertaa ja selvitä tekijätiedot edelliseen versioon nähden"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "Vertaa versioita (vain &ominaisuuksia)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Vertaa versioita (vain &sisältöä)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5973,7 +5973,7 @@ msgstr "Näppäimet"
 
 #. Resource IDs: (349)
 msgid "Kind"
-msgstr ""
+msgstr "Tyyppi"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -7153,6 +7153,14 @@ msgstr "Läpinäkymättömyys"
 msgid "Open"
 msgstr "Avaa"
 
+#. Resource IDs: (115)
+msgid "Open &local"
+msgstr "Avaa &paikallinen"
+
+#. Resource IDs: (115)
+msgid "Open &with local..."
+msgstr "Avaa &paikallisella..."
+
 #. Resource IDs: (76)
 msgid "Open client certificate file"
 msgstr "Avaa sertifikaattitiedosto"
@@ -7794,7 +7802,7 @@ msgstr "Lue 'Päivittäisen käytön opas' ennen kuin jäät jumiin..."
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "Alue"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8029,7 +8037,7 @@ msgstr "Poista %s"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "Poista tallennetut tunnistustiedot"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

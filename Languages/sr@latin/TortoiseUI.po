@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-05 09:24+0000\n"
+"PO-Revision-Date: 2013-03-20 09:02+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1476,11 +1476,11 @@ msgstr "(binarna vrednost)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(sadržaj i osobine)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(samo sadržaj)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -2057,7 +2057,7 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "Drugi proces blokira bazu podataka radne kopije, ili fajl sistem ne podržava zaključavanje fajlova; ako je radna kopija na mrežnom fajl sistemu, osigurajte da je omogućeno zaključavanje fajlova na serveru fajlova."
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2760,7 +2760,7 @@ msgstr "Preuzmi radnu kopiju iz spremišta"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Proveri autentifikaciju stavki koju hoćeš dole da obrišeš"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2890,11 +2890,11 @@ msgstr "Alat za čišćenje\nČisti"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Očisti sve"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Očisti..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3148,11 +3148,11 @@ msgstr "Uporedi i okrivi prethodnu reviziju"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "Uporedi revizije (&osobine samo)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Uporedi revizije (&sadržaj samo)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -5972,7 +5972,7 @@ msgstr "Tasteri"
 
 #. Resource IDs: (349)
 msgid "Kind"
-msgstr ""
+msgstr "Vrsta"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -7152,6 +7152,14 @@ msgstr "Neprozirnost"
 msgid "Open"
 msgstr "Otvori"
 
+#. Resource IDs: (115)
+msgid "Open &local"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Open &with local..."
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Open client certificate file"
 msgstr "Otvori fajl sa sertifikatom klijenta"
@@ -7793,7 +7801,7 @@ msgstr "Pročitajte 'Vodič za dnevnu uporabu' pre no što zaglavite..."
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "Područje string"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8028,7 +8036,7 @@ msgstr "Ukloni %s"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "Ukloni sačuvane autentifikacione podatke"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"

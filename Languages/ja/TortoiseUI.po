@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-11 02:53+0000\n"
+"PO-Revision-Date: 2013-03-20 18:39+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4720,7 +4720,7 @@ msgstr "最新リビジョンであるか調べ、それに合わせる"
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
-msgstr "フォルダーの内容バックグラウンドで先読みし、表示を高速化します"
+msgstr "フォルダーの内容をバックグラウンドで先読みし、表示を高速化します"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
@@ -5498,7 +5498,7 @@ msgstr "パスの構成要素（2つの「/」で区切られた部分）がこ�
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
-msgstr "パスの構成要素（2つの 「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「トランク」と判断します。"
+msgstr "パスの構成要素（2つの「/」で区切られた部分）がこれらのパターンの\n1つにマッチするなら、「トランク」と判断します。"
 
 #. Resource IDs: (194)
 msgid ""
@@ -7152,6 +7152,14 @@ msgstr "不透明度"
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "開く"
+
+#. Resource IDs: (115)
+msgid "Open &local"
+msgstr "ローカルを開く(&L)"
+
+#. Resource IDs: (115)
+msgid "Open &with local..."
+msgstr "ローカルでプログラムを指定して開く(&W)..."
 
 #. Resource IDs: (76)
 msgid "Open client certificate file"
@@ -12205,7 +12213,7 @@ msgid ""
 "The file will be set to read-only when checked out or updated,\r\n"
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
-msgstr "svn:needs-lock\nこのファイルに対してロックを強制するために、任意の値（例えば「*」）を設定します。\nファイルはチェックアウトや更新を行ったときに読み取り専用になり、ファイルを編集や\nコミットする場合、ユーザーはロックを取得しなければならなくなります。"
+msgstr "svn:needs-lock\r\nこのファイルに対してロックを強制するために、任意の値（例えば「*」）を設定します。\r\nファイルはチェックアウトや更新を行ったときに読み取り専用になり、ファイルを編集や\r\nコミットする場合、ユーザーはロックを取得しなければならなくなります。"
 
 #. Resource IDs: (208)
 #, c-format
@@ -12259,7 +12267,7 @@ msgid ""
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "tsvn:autoprops\nファイルを追加/インポートする際に自動的に適用されるプロパティのリスト（複数ある場合は、改行で区切る）。\n【書式】<filemask> = property=value;property=value\n【例】*.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "tsvn:autoprops\r\nファイルを追加/インポートする際に自動的に適用されるプロパティのリスト（複数ある場合は、改行で区切る）。\r\n【書式】<filemask> = property=value;property=value\r\n【例】*.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
