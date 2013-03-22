@@ -39,6 +39,7 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/GL" if="${configuration == 'release'}" />
+      <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -107,6 +108,7 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/GL" if="${configuration == 'release'}" />
+      <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -187,6 +189,7 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/GL" if="${configuration == 'release'}" />
+      <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <sources>
         <include name="plugins\plugin_common.c" />
         <include name="plugins\anonymous.c" />

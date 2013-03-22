@@ -29,6 +29,7 @@
       <arg value="/c" />
       <arg value="/Zi" />
       <arg value="/GL" if="${configuration == 'release'}" />
+      <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <sources>
         <include name="gssapi.cpp" />
       </sources>

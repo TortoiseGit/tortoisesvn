@@ -76,7 +76,7 @@ OPTIMFLAGS = -FD -O2 -EHsc -Zi
 DEBUGFLAGS = -Zi
 !else
 # Some people prefer -O2 -G6 instead of -O1, but -O2 is not reliable in MSVC5.
-OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi -GL
+OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi -GL -arch:IA32
 DEBUGFLAGS = -Zi
 !endif
 

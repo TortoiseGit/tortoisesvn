@@ -80,6 +80,7 @@
           <arg value="/Zi" />
           <arg value="/MP" />
           <arg value="/GL" if="${configuration == 'release'}" />
+          <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
           <sources>
             <include name="subversion\${fname}\**.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
@@ -231,6 +232,7 @@ TSVN_ClearLastUsedAuthCache' />
           <arg value="/Zi" />
           <arg value="/MP" />
           <arg value="/GL" if="${configuration == 'release'}" />
+          <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
           <sources>
             <include name="subversion\${toolname}\*.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
