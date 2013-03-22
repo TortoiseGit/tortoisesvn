@@ -27,7 +27,7 @@
     <exec program="nmake.exe" workingdir="gettext-0.14.6\gettext-runtime\intl">
       <arg value="-f" />
       <arg value="Makefile.msvc" if="${platform == 'x64'}" />
-      <arg value="Makefile32.msvc" if="${platform != 'x64'}" />
+      <arg value="Makefile32.msvc" if="${platform == 'win32'}" />
       <arg value="DLL=1" />
       <arg value="MFLAGS=-MD" />
     </exec>
@@ -36,7 +36,7 @@
       <arg value="-manifest" />
       <arg value="intl3_tsvn.dll.manifest" />
       <arg value='/outputresource:"intl3_tsvn.dll;#2"' if="${platform == 'x64'}" />
-      <arg value='/outputresource:"intl3_tsvn32.dll;#2"' if="${platform != 'x64'}" />
+      <arg value='/outputresource:"intl3_tsvn32.dll;#2"' if="${platform == 'win32'}" />
     </exec>
 
     <copy todir="${configuration}_${platform}\lib" overwrite="true" flatten="true" failonerror="false">

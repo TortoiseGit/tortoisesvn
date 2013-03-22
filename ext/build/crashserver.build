@@ -18,7 +18,7 @@
       <arg value="${configuration}|${platform}" />
     </exec>
     <property name="crashplat" value="\x64" if="${platform == 'x64'}"/>
-    <property name="crashplat" value="" if="${platform != 'x64'}"/>
+    <property name="crashplat" value="" if="${platform == 'win32'}"/>
 
     <copy todir="..\..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="true">
       <fileset>
