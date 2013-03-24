@@ -36,7 +36,7 @@ function PptAppMajorVersion(PowerPoint)
         }
         else
         {
-            return parseInt(pptVersion);
+            return parseInt(pptVersion, 10);
         }
     }
     catch (e)

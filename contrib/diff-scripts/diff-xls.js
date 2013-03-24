@@ -86,7 +86,7 @@ catch (e)
 {
     Abort("You must have Excel installed to perform this operation.", "Excel Instantiation Failed");
 }
-var fExcelVersion = parseInt(objExcelApp.Version);
+var fExcelVersion = parseInt(objExcelApp.Version, 10);
 
 // Open base Excel book
 var objBaseWorkbook;
