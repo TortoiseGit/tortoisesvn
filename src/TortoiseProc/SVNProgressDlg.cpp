@@ -86,6 +86,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_bCancelled(FALSE)
     , m_bThreadRunning(FALSE)
     , m_nConflicts(0)
+    , m_nTotalConflicts(0)
     , m_bConflictWarningShown(false)
     , m_bWarningShown(false)
     , m_bErrorsOccurred(FALSE)
@@ -297,6 +298,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->bConflictedActionItem = true;
             data->sActionColumnText.LoadString(((m_options & ProgOptDryRun)!=0) ? IDS_SVNACTION_DRYRUN_CONFLICTED : IDS_SVNACTION_CONFLICTED);
             m_nConflicts++;
+            m_nTotalConflicts++;
             m_bConflictWarningShown = false;
         }
         else
@@ -391,6 +393,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
             data->bConflictedActionItem = true;
             m_nConflicts++;
+            m_nTotalConflicts++;
             m_bConflictWarningShown = false;
             data->sActionColumnText.LoadString(((m_options & ProgOptDryRun)!=0) ? IDS_SVNACTION_DRYRUN_CONFLICTED : IDS_SVNACTION_CONFLICTED);
         }
@@ -433,6 +436,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
             data->bConflictedActionItem = true;
             m_nConflicts++;
+            m_nTotalConflicts++;
             m_bConflictWarningShown = false;
             data->sActionColumnText.LoadString(((m_options & ProgOptDryRun)!=0) ? IDS_SVNACTION_DRYRUN_CONFLICTED : IDS_SVNACTION_CONFLICTED);
         }
@@ -505,6 +509,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->bConflictSummary = true;
                 CSoundUtils::PlayTSVNWarning();
                 m_bConflictWarningShown = true;
+                m_nConflicts = 0;
                 // This item will now be added after the switch statement
                 m_bFinishedItemAdded = true;
             }
@@ -561,6 +566,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->bConflictSummary = true;
                 CSoundUtils::PlayTSVNWarning();
                 m_bConflictWarningShown = true;
+                m_nConflicts = 0;
                 // This item will now be added after the switch statement
             }
             if (!m_basePath.IsEmpty())
@@ -597,6 +603,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_locked:
@@ -678,6 +685,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_tree_conflict:
@@ -686,6 +694,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->bConflictedActionItem = true;
         data->bTreeConflict = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_failed_external:
@@ -732,6 +741,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_update_skip_access_denied:
@@ -739,6 +749,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_skip_conflicted:
@@ -746,6 +757,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
         m_nConflicts++;
+        m_nTotalConflicts++;
         m_bConflictWarningShown = false;
         break;
     case svn_wc_notify_update_broken_lock:
@@ -1358,7 +1370,7 @@ UINT CSVNProgressDlg::ProgressThread()
             logfile.AddLine(sFinalInfo);
         logfile.Close();
     }
-    GetDlgItem(IDC_JUMPCONFLICT)->ShowWindow(m_nConflicts ? SW_SHOW : SW_HIDE);
+    GetDlgItem(IDC_JUMPCONFLICT)->ShowWindow(m_nTotalConflicts ? SW_SHOW : SW_HIDE);
 
     m_bCancelled = TRUE;
     InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -1408,15 +1420,15 @@ UINT CSVNProgressDlg::ProgressThread()
     bool sendClose = false;
     if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
         sendClose = true;
-    if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(m_nConflicts==0))
+    if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(m_nTotalConflicts==0))
         sendClose = true;
-    if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(!m_bMergesAddsDeletesOccurred))
+    if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(m_nTotalConflicts==0)&&(!m_bMergesAddsDeletesOccurred))
         sendClose = true;
     // kept for compatibility with pre 1.7 clients
-    if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
+    if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(m_nTotalConflicts==0)&&(localoperation))
         sendClose = true;
 
-    if ((bAutoCloseLocal)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
+    if ((bAutoCloseLocal)&&(!m_bErrorsOccurred)&&(m_nTotalConflicts==0)&&(localoperation))
         sendClose = true;
 
     if (sendClose)
@@ -1799,7 +1811,7 @@ LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
                     (*it)->action = svn_wc_notify_resolved;
                     (*it)->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
                     (*it)->bConflictedActionItem = false;
-                    m_nConflicts--;
+                    m_nTotalConflicts--;
                     CString info = BuildInfoString();
                     SetDlgItemText(IDC_INFOTEXT, info);
                     m_ProgList.Invalidate();
@@ -2150,9 +2162,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 data2->action = svn_wc_notify_resolved;
                 data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
                 data2->bConflictedActionItem = false;
-                m_nConflicts--;
+                m_nTotalConflicts--;
 
-                if (m_nConflicts==0)
+                if (m_nTotalConflicts==0)
                 {
                     // When the last conflict is resolved we remove
                     // the warning(s).
@@ -3691,6 +3703,7 @@ void CSVNProgressDlg::ResetVars()
     m_bLockExists = false;
     m_bCancelled = FALSE;
     m_nConflicts = 0;
+    m_nTotalConflicts = 0;
     m_bConflictWarningShown = false;
     m_bWarningShown = false;
     m_bErrorsOccurred = FALSE;
