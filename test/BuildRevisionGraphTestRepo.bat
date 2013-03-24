@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 set REPOROOT=file:///d:/test/repo
 
@@ -316,3 +317,6 @@ svn cp %REPOROOT%/trunk %REPOROOT%/tags/5.2.3 -m ""
 :: revision 70
 
 cd ..
+
+endlocal
+pause

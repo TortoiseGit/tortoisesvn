@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 set REPOROOT=file:///d:/_test_repo
 set REPOPATH=d:\_test_repo
@@ -6,10 +7,10 @@ set WC=d:\_test_wc
 
 :: create empty repos & working copy
 
-rd /s /q %REPOPATH%
+if exist %REPOPATH% rd /s /q %REPOPATH%
 svnadmin create %REPOPATH%
 
-rd /s /q %WC%
+if exist %WC% rd /s /q %WC%
 svn co %REPOROOT% %WC%
 
 :: r1: initial content
@@ -74,4 +75,5 @@ svn merge -g -r4:3 %REPOROOT%/trunk %WC%\branches\b
 
 svn ci %WC% -m "unmerged r4"
 
-
+endlocal
+pause
