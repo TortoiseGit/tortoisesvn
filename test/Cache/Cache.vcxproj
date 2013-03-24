@@ -20,13 +20,13 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -56,7 +56,8 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_diff-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_ra-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_wc-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_subr-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_client-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_delta-nonet.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_diff-nonet.lib;libsvn_ra-nonet.lib;libsvn_wc-nonet.lib;libsvn_subr-nonet.lib;libsvn_client-nonet.lib;libsvn_delta-nonet.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -68,7 +69,8 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_diff-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_delta-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_wc-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_subr-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_client-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_ra-nonet.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_diff-nonet.lib;libsvn_ra-nonet.lib;libsvn_wc-nonet.lib;libsvn_subr-nonet.lib;libsvn_client-nonet.lib;libsvn_delta-nonet.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -95,7 +97,7 @@
     <ClInclude Include="..\..\src\Utils\DirFileEnum.h" />
     <ClInclude Include="..\..\src\Utils\PathUtils.h" />
     <ClInclude Include="..\..\src\Utils\registry.h" />
-    <ClInclude Include="Resource.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="..\..\src\Utils\StringUtils.h" />
     <ClInclude Include="..\..\src\SVN\SVNAdminDir.h" />
@@ -106,7 +108,6 @@
   <ItemGroup>
     <None Include="res\Cache.ico" />
     <None Include="res\Cache.rc2" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Cache.rc" />
