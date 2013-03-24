@@ -116,7 +116,7 @@ objExcelApp.Visible = true;
 // Arrange windows
 if (objBaseWorkbook.ProtectWindows || objNewWorkbook.ProtectWindows)
 {
-    StoreWarning("Unable to arrange windows because one or both workbooks are protected.");
+    StoreWarning("Unable to arrange windows because one or both Workbooks are protected.");
 }
 else
 {
@@ -131,7 +131,7 @@ else
 
 if (!bFastMode && objNewWorkbook.ProtectWindows)
 {
-    StoreWarning("Fallback to fast mode bacause " + objNewWorkbook.Name + " is protected.");
+    StoreWarning("Fall back to fast mode because " + objNewWorkbook.Name + " is protected.");
     bFastMode = true;
 }
 
