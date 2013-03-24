@@ -31,9 +31,13 @@ function PptAppMajorVersion(PowerPoint)
             pptVersion = pptVersion.substr(0, pptVersion.indexOf("."));
         }
         if (pptVersion === "")
+        {
             return 0;
+        }
         else
+        {
             return parseInt(pptVersion);
+        }
     }
     catch (e)
     {
