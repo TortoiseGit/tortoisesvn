@@ -30,7 +30,7 @@ WScript.Quit(0);
 
 function readPaths(path)
 {
-    var retPaths = new Array();
+    var retPaths = [];
     var fs = new ActiveXObject("Scripting.FileSystemObject");
     if (fs.FileExists(path))
     {
