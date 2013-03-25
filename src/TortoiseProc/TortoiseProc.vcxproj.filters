@@ -14,9 +14,6 @@
     <Filter Include="Utils\3rd Party">
       <UniqueIdentifier>{66d0cf64-f3b7-447b-bde0-2db6edbd3f89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\3rd Party\hunspell">
-      <UniqueIdentifier>{d5e5e600-98a1-4683-bafb-8f319142cf73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Subversion">
       <UniqueIdentifier>{37f2c83f-3536-43d7-a0b5-7b293d3dcdf3}</UniqueIdentifier>
     </Filter>
@@ -340,30 +337,6 @@
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp">
       <Filter>Utils\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\affentry.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\affixmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\csutil.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\dictmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\hashmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\hunspell.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\mythes.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\suggestmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVN.cpp">
       <Filter>Subversion</Filter>
@@ -1091,18 +1064,6 @@
     <ClCompile Include="Commands\DropVendorCommand.cpp">
       <Filter>Commands\Drop</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\phonet.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\replist.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\filemgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\hunzip.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\PreserveChdir.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
@@ -1305,45 +1266,6 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\WaterEffect.h">
       <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\affentry.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\affixmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\atypes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\baseaffix.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\csutil.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\dictmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hashmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\htypes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunspell.h">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunspell.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\langnum.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\mythes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\suggestmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HighColorTab.hpp">
       <Filter>Utils\3rd Party</Filter>
@@ -2116,24 +2038,6 @@
     <ClInclude Include="Commands\DropVendorCommand.h">
       <Filter>Commands\Drop</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\phonet.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\replist.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\w_char.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\filemgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunvisapi.h">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunzip.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\PreserveChdir.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
@@ -2145,6 +2049,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="externalpeggedovl.ico">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="..\Resources\actionadded.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2379,7 +2286,7 @@
     <None Include="..\Resources\misc.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\resources\nestedovl.ico">
+    <None Include="..\Resources\nestedovl.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\newfolder.ico">
@@ -2484,9 +2391,6 @@
     <None Include="..\Resources\Tortoise.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\TortoiseBlame\TortoiseBlame.ico">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\TortoiseMerge.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2541,10 +2445,10 @@
     <None Include="..\Resources\mergeinfoovl.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="externalpeggedovl.ico">
+    <None Include="..\Resources\externalpeggedovl.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\externalpeggedovl.ico">
+    <None Include="..\TortoiseBlame\TortoiseBlame.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
