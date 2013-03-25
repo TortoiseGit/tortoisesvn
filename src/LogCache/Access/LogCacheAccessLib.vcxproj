@@ -100,27 +100,27 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CopyFollowingLogIterator.cpp" />
+    <ClCompile Include="CSVWriter.cpp" />
+    <ClCompile Include="FormatTime.cpp" />
+    <ClCompile Include="LogIteratorBase.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="CSVWriter.cpp" />
-    <ClCompile Include="FormatTime.cpp" />
+    <ClCompile Include="StrictLogIterator.cpp" />
     <ClCompile Include="XMLLogReader.cpp" />
     <ClCompile Include="XMLLogWriter.cpp" />
-    <ClCompile Include="CopyFollowingLogIterator.cpp" />
-    <ClCompile Include="LogIteratorBase.cpp" />
-    <ClCompile Include="StrictLogIterator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="CopyFollowingLogIterator.h" />
     <ClInclude Include="CSVWriter.h" />
     <ClInclude Include="FormatTime.h" />
-    <ClInclude Include="XMLLogReader.h" />
-    <ClInclude Include="XMLLogWriter.h" />
-    <ClInclude Include="CopyFollowingLogIterator.h" />
     <ClInclude Include="ILogIterator.h" />
     <ClInclude Include="LogIteratorBase.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="StrictLogIterator.h" />
+    <ClInclude Include="XMLLogReader.h" />
+    <ClInclude Include="XMLLogWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

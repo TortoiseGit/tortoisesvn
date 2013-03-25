@@ -115,11 +115,25 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="config.h" />
+    <ClCompile Include="affentry.cxx" />
+    <ClCompile Include="affixmgr.cxx" />
+    <ClCompile Include="csutil.cxx" />
+    <ClCompile Include="dictmgr.cxx" />
+    <ClCompile Include="filemgr.cxx" />
+    <ClCompile Include="hashmgr.cxx" />
+    <ClCompile Include="hunspell.cxx" />
+    <ClCompile Include="hunzip.cxx" />
+    <ClCompile Include="mythes.cxx" />
+    <ClCompile Include="phonet.cxx" />
+    <ClCompile Include="replist.cxx" />
+    <ClCompile Include="suggestmgr.cxx" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="affentry.hxx" />
     <ClInclude Include="affixmgr.hxx" />
     <ClInclude Include="atypes.hxx" />
     <ClInclude Include="baseaffix.hxx" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="csutil.hxx" />
     <ClInclude Include="dictmgr.hxx" />
     <ClInclude Include="filemgr.hxx" />
@@ -134,20 +148,6 @@
     <ClInclude Include="replist.hxx" />
     <ClInclude Include="suggestmgr.hxx" />
     <ClInclude Include="w_char.hxx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="affentry.cxx" />
-    <ClCompile Include="affixmgr.cxx" />
-    <ClCompile Include="csutil.cxx" />
-    <ClCompile Include="dictmgr.cxx" />
-    <ClCompile Include="filemgr.cxx" />
-    <ClCompile Include="hashmgr.cxx" />
-    <ClCompile Include="hunspell.cxx" />
-    <ClCompile Include="hunzip.cxx" />
-    <ClCompile Include="mythes.cxx" />
-    <ClCompile Include="phonet.cxx" />
-    <ClCompile Include="replist.cxx" />
-    <ClCompile Include="suggestmgr.cxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

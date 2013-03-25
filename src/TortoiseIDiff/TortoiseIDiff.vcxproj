@@ -108,40 +108,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
-    <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
+    <ClCompile Include="..\Utils\LangDll.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
-    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
     <ClCompile Include="..\Utils\MiscUI\hyperlink_base.cpp" />
-    <ClCompile Include="..\Utils\LangDll.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\Picture.cpp" />
+    <ClCompile Include="..\Utils\Registry.cpp" />
+    <ClCompile Include="..\Utils\SysInfo.cpp" />
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
+    <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="NiceTrackbar.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\Picture.cpp" />
     <ClCompile Include="PicWindow.cpp" />
-    <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="TortoiseIDiff.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Utils\TaskbarUUID.h" />
-    <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="..\Utils\CmdLineParser.h" />
+    <ClInclude Include="..\Utils\LangDll.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseDialog.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseWindow.h" />
-    <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\MiscUI\hyperlink_base.h" />
-    <ClInclude Include="..\Utils\LangDll.h" />
+    <ClInclude Include="..\Utils\MiscUI\Picture.h" />
+    <ClInclude Include="..\Utils\registry.h" />
+    <ClInclude Include="..\Utils\SysInfo.h" />
+    <ClInclude Include="..\Utils\TaskbarUUID.h" />
+    <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="NiceTrackbar.h" />
-    <ClInclude Include="..\Utils\MiscUI\Picture.h" />
     <ClInclude Include="PicWindow.h" />
-    <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="..\Utils\SysInfo.h" />
     <ClInclude Include="TortoiseIDiff.h" />
   </ItemGroup>
   <ItemGroup>

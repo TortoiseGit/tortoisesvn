@@ -96,36 +96,36 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
-    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
+    <ClCompile Include="..\Utils\Registry.cpp" />
+    <ClCompile Include="..\Utils\StringUtils.cpp" />
     <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="FindBar.cpp" />
     <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\Utils\StringUtils.cpp" />
     <ClCompile Include="TortoiseUDiff.cpp" />
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\CreateProcessHelper.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseDialog.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseWindow.h" />
-    <ClInclude Include="..\Utils\CmdLineParser.h" />
+    <ClInclude Include="..\Utils\registry.h" />
+    <ClInclude Include="..\Utils\StringUtils.h" />
     <ClInclude Include="..\Utils\SysInfo.h" />
     <ClInclude Include="..\Utils\TaskbarUUID.h" />
+    <ClInclude Include="..\Utils\UnicodeUtils.h" />
     <ClInclude Include="FindBar.h" />
     <ClInclude Include="MainWindow.h" />
-    <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="..\Utils\StringUtils.h" />
     <ClInclude Include="TortoiseUDiff.h" />
-    <ClInclude Include="..\Utils\UnicodeUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\cancel-normal.ico" />

@@ -100,29 +100,29 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CacheLogQuery.cpp" />
+    <ClCompile Include="ILogReceiver.cpp" />
+    <ClCompile Include="LogCachePool.cpp" />
     <ClCompile Include="LogCacheSettings.cpp" />
+    <ClCompile Include="LogCacheStatistics.cpp" />
+    <ClCompile Include="PathToStringMap.cpp" />
+    <ClCompile Include="RepositoryInfo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="LogCachePool.cpp" />
-    <ClCompile Include="LogCacheStatistics.cpp" />
-    <ClCompile Include="RepositoryInfo.cpp" />
-    <ClCompile Include="CacheLogQuery.cpp" />
-    <ClCompile Include="ILogReceiver.cpp" />
-    <ClCompile Include="PathToStringMap.cpp" />
     <ClCompile Include="SVNLogQuery.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LogCacheSettings.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="ConnectionState.h" />
-    <ClInclude Include="LogCachePool.h" />
-    <ClInclude Include="LogCacheStatistics.h" />
-    <ClInclude Include="RepositoryInfo.h" />
     <ClInclude Include="CacheLogQuery.h" />
+    <ClInclude Include="ConnectionState.h" />
     <ClInclude Include="ILogQuery.h" />
     <ClInclude Include="ILogReceiver.h" />
+    <ClInclude Include="LogCachePool.h" />
+    <ClInclude Include="LogCacheSettings.h" />
+    <ClInclude Include="LogCacheStatistics.h" />
     <ClInclude Include="PathToStringMap.h" />
+    <ClInclude Include="RepositoryInfo.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="SVNLogQuery.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

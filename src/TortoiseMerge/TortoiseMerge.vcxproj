@@ -132,27 +132,51 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp" />
     <ClCompile Include="..\SVN\SVNConfig.cpp" />
     <ClCompile Include="..\SVN\SVNGlobal.cpp" />
     <ClCompile Include="..\SVN\SVNHelpers.cpp" />
+    <ClCompile Include="..\SVN\SVNLineDiff.cpp" />
     <ClCompile Include="..\SVN\SVNPatch.cpp" />
     <ClCompile Include="..\SVN\SVNRev.cpp" />
     <ClCompile Include="..\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\accHelper.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
+    <ClCompile Include="..\Utils\DirFileEnum.cpp" />
+    <ClCompile Include="..\Utils\DragDropImpl.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\DIB.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconMenu.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\ProgressDlg.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\ScrollTool.cpp" />
     <ClCompile Include="..\Utils\MiscUI\StandAloneDlg.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp" />
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
+    <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PreserveChdir.cpp" />
     <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
+    <ClCompile Include="..\Utils\Registry.cpp" />
+    <ClCompile Include="..\Utils\StringUtils.cpp" />
+    <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
     <ClCompile Include="..\Utils\TempFile.cpp" />
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="BottomView.cpp" />
     <ClCompile Include="DiffColors.cpp" />
@@ -165,10 +189,8 @@
     <ClCompile Include="LineDiffBar.cpp" />
     <ClCompile Include="LocatorBar.cpp" />
     <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
     <ClCompile Include="MovedBlocks.cpp" />
     <ClCompile Include="OpenDlg.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\ProgressDlg.cpp" />
     <ClCompile Include="RightView.cpp" />
     <ClCompile Include="SetColorPage.cpp" />
     <ClCompile Include="SetMainPage.cpp" />
@@ -176,55 +198,55 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\SVN\SVNAdminDir.cpp" />
-    <ClCompile Include="..\SVN\SVNLineDiff.cpp" />
     <ClCompile Include="TortoiseMerge.cpp" />
     <ClCompile Include="Undo.cpp" />
     <ClCompile Include="ViewData.cpp" />
     <ClCompile Include="WorkingFile.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp" />
-    <ClCompile Include="AppUtils.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
-    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\DIB.cpp" />
-    <ClCompile Include="..\Utils\DirFileEnum.cpp" />
-    <ClCompile Include="..\Utils\DragDropImpl.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp" />
-    <ClCompile Include="..\Utils\PathUtils.cpp" />
-    <ClCompile Include="..\Utils\Registry.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\ScrollTool.cpp" />
-    <ClCompile Include="..\Utils\StringUtils.cpp" />
-    <ClCompile Include="..\Utils\SysInfo.cpp" />
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp" />
     <ClCompile Include="XSplitter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNAdminDir.h" />
     <ClInclude Include="..\SVN\SVNConfig.h" />
     <ClInclude Include="..\SVN\SVNGlobal.h" />
     <ClInclude Include="..\SVN\SVNHelpers.h" />
+    <ClInclude Include="..\SVN\SVNLineDiff.h" />
     <ClInclude Include="..\SVN\SVNPatch.h" />
     <ClInclude Include="..\SVN\SVNRev.h" />
     <ClInclude Include="..\SVN\TSVNPath.h" />
+    <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\CommonAppUtils.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />
+    <ClInclude Include="..\Utils\DirFileEnum.h" />
+    <ClInclude Include="..\Utils\DragDropImpl.h" />
+    <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
+    <ClInclude Include="..\Utils\MiscUI\AeroGlass.h" />
+    <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h" />
+    <ClInclude Include="..\Utils\MiscUI\DIB.h" />
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
+    <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h" />
+    <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h" />
+    <ClInclude Include="..\Utils\MiscUI\HyperLink.h" />
     <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h" />
     <ClInclude Include="..\Utils\MiscUI\IconMenu.h" />
     <ClInclude Include="..\Utils\MiscUI\LineColors.h" />
+    <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
+    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h" />
+    <ClInclude Include="..\Utils\MiscUI\ScrollTool.h" />
     <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
+    <ClInclude Include="..\Utils\MiscUI\WaterEffect.h" />
     <ClInclude Include="..\Utils\MiscUI\XMessageBox.h" />
+    <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\PreserveChdir.h" />
     <ClInclude Include="..\Utils\ProfilingInfo.h" />
+    <ClInclude Include="..\Utils\registry.h" />
+    <ClInclude Include="..\Utils\StringUtils.h" />
+    <ClInclude Include="..\Utils\SysInfo.h" />
     <ClInclude Include="..\Utils\TaskbarUUID.h" />
     <ClInclude Include="..\Utils\TempFile.h" />
+    <ClInclude Include="..\Utils\UnicodeUtils.h" />
     <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="AppUtils.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="BottomView.h" />
     <ClInclude Include="CustomMFCRibbonButton.h" />
@@ -243,38 +265,16 @@
     <ClInclude Include="MovedBlocks.h" />
     <ClInclude Include="OpenDlg.h" />
     <ClInclude Include="Patch.h" />
-    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RightView.h" />
     <ClInclude Include="SetColorPage.h" />
     <ClInclude Include="SetMainPage.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="..\SVN\SVNAdminDir.h" />
-    <ClInclude Include="..\SVN\SVNLineDiff.h" />
     <ClInclude Include="TortoiseMerge.h" />
     <ClInclude Include="Undo.h" />
     <ClInclude Include="ViewData.h" />
     <ClInclude Include="WorkingFile.h" />
-    <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
-    <ClInclude Include="..\Utils\MiscUI\AeroGlass.h" />
-    <ClInclude Include="AppUtils.h" />
-    <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h" />
-    <ClInclude Include="..\Utils\CmdLineParser.h" />
-    <ClInclude Include="..\Utils\MiscUI\DIB.h" />
-    <ClInclude Include="..\Utils\DirFileEnum.h" />
-    <ClInclude Include="..\Utils\DragDropImpl.h" />
-    <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h" />
-    <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h" />
-    <ClInclude Include="..\Utils\MiscUI\HyperLink.h" />
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
-    <ClInclude Include="..\Utils\PathUtils.h" />
-    <ClInclude Include="..\Utils\registry.h" />
-    <ClInclude Include="..\Utils\MiscUI\ScrollTool.h" />
-    <ClInclude Include="..\Utils\StringUtils.h" />
-    <ClInclude Include="..\Utils\SysInfo.h" />
-    <ClInclude Include="..\Utils\UnicodeUtils.h" />
-    <ClInclude Include="..\Utils\MiscUI\WaterEffect.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\aerobackground.ico" />

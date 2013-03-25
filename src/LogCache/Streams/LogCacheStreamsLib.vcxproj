@@ -100,18 +100,13 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="StreamException.cpp" />
-    <ClCompile Include="BufferedOutFile.cpp" />
-    <ClCompile Include="CacheFileInBuffer.cpp" />
-    <ClCompile Include="CacheFileOutBuffer.cpp" />
-    <ClCompile Include="MappedInFile.cpp" />
     <ClCompile Include="BinaryInStream.cpp" />
     <ClCompile Include="BinaryOutStream.cpp" />
     <ClCompile Include="BLOBInStream.cpp" />
     <ClCompile Include="BLOBOutStream.cpp" />
+    <ClCompile Include="BufferedOutFile.cpp" />
+    <ClCompile Include="CacheFileInBuffer.cpp" />
+    <ClCompile Include="CacheFileOutBuffer.cpp" />
     <ClCompile Include="CompositeInStream.cpp" />
     <ClCompile Include="CompositeOutStream.cpp" />
     <ClCompile Include="DiffIntegerInStream.cpp" />
@@ -121,6 +116,7 @@
     <ClCompile Include="HuffmanBase.cpp" />
     <ClCompile Include="HuffmanDecoder.cpp" />
     <ClCompile Include="HuffmanEncoder.cpp" />
+    <ClCompile Include="MappedInFile.cpp" />
     <ClCompile Include="PackedDWORDInStream.cpp" />
     <ClCompile Include="PackedDWORDOutStream.cpp" />
     <ClCompile Include="PackedIntegerInStream.cpp" />
@@ -129,28 +125,30 @@
     <ClCompile Include="PackedTime64OutStream.cpp" />
     <ClCompile Include="RootInStream.cpp" />
     <ClCompile Include="RootOutStream.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamException.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileName.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StreamException.h" />
-    <ClInclude Include="BufferedOutFile.h" />
-    <ClInclude Include="CacheFileInBuffer.h" />
-    <ClInclude Include="CacheFileOutBuffer.h" />
-    <ClInclude Include="MappedInFile.h" />
     <ClInclude Include="BinaryInStream.h" />
     <ClInclude Include="BinaryOutStream.h" />
     <ClInclude Include="BLOBInStream.h" />
     <ClInclude Include="BLOBOutStream.h" />
+    <ClInclude Include="BufferedOutFile.h" />
+    <ClInclude Include="CacheFileInBuffer.h" />
+    <ClInclude Include="CacheFileOutBuffer.h" />
     <ClInclude Include="CompositeInStream.h" />
     <ClInclude Include="CompositeOutStream.h" />
     <ClInclude Include="DiffIntegerInStream.h" />
     <ClInclude Include="DiffIntegerOutStream.h" />
+    <ClInclude Include="FileName.h" />
     <ClInclude Include="HierachicalInStreamBase.h" />
     <ClInclude Include="HierachicalOutStreamBase.h" />
     <ClInclude Include="HuffmanBase.h" />
     <ClInclude Include="HuffmanDecoder.h" />
     <ClInclude Include="HuffmanEncoder.h" />
+    <ClInclude Include="MappedInFile.h" />
     <ClInclude Include="PackedDWORDInStream.h" />
     <ClInclude Include="PackedDWORDOutStream.h" />
     <ClInclude Include="PackedIntegerInStream.h" />
@@ -159,6 +157,8 @@
     <ClInclude Include="PackedTime64OutStream.h" />
     <ClInclude Include="RootInStream.h" />
     <ClInclude Include="RootOutStream.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StreamException.h" />
     <ClInclude Include="StreamFactory.h" />
     <ClInclude Include="StreamTypeIDs.h" />
   </ItemGroup>

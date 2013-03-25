@@ -140,9 +140,9 @@
     <ClCompile Include="TortoiseOverlays.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ShellExt.def" />
-    <None Include="resource.rc2" />
     <None Include="Includes.wxi" />
+    <None Include="resource.rc2" />
+    <None Include="ShellExt.def" />
     <None Include="TortoiseOverlaysDir.wxi">
       <SubType>Designer</SubType>
     </None>
