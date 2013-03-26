@@ -159,6 +159,10 @@
             <!-- we need the exports from the fs_fs.h file, but this function doesn't have
                  and implementation and would lead to an LNK2019 error -->
             <replacestring from="svn_fs_fs__move_into_place" to="" />
+            <!-- svn_hash__clear is only needed for apr < 1.3.0 - we use a hither
+                 version so we don't have that function and therefore don't want
+                 it exported -->
+            <replacestring from="svn_hash__clear" to="" />
           </filterchain>
         </loadfile>
         <property name="deffilecontent" value ='${deffilecontent} ${deffile}' />
