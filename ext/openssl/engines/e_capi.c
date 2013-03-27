@@ -151,7 +151,7 @@ char lastUsedAuthCacheHash[100] = {0};
 			 cbHash = 20;
 			 if (CryptGetHashParam(hHash, HP_HASHVAL, rgbHash, &cbHash, 0))
 			 {
-				 for (i = 0; i < cbHash; ++i)
+				 for (i = 0; i < (int)cbHash; ++i)
 				 {
 					 sha1hashstring[i*2]   = rgbDigits[rgbHash[i] >> 4];
 					 sha1hashstring[i*2+1] = rgbDigits[rgbHash[i] & 0xf];
@@ -202,7 +202,7 @@ char lastUsedAuthCacheHash[100] = {0};
 		 GetWindowThreadProcessId(hwnd, &pid);
 		 if (pid == GetCurrentProcessId())
 		 {
-			 HWND * pWnd = (HWND*)lParam;
+			 pWnd = (HWND*)lParam;
 			 (*pWnd) = hwnd;
 			 return FALSE;
 		 }
