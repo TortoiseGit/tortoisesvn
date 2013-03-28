@@ -10,13 +10,14 @@
 # 
 # Authors:
 # Translators:
-# Christopher Meng <cickumqt@gmail.com>, 2012.
+# Christopher Meng <cickumqt@gmail.com>, 2012-2013.
 # Entong Shen <dexter_shen@hotmail.com>, 2011.
 # fang zheng <fz0000@sina.com>, 2011, 2012.
 # Garfield Yao <field977@gmail.com>, 2011.
 # Hong Xu <icehong@gmail.com>, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011, 2012.
+#   <pluwen@gmail.com>, 2011.
 # pluwen <pluwen@gmail.com>, 2011.
 #   <qinghao1@foxmail.com>, 2012.
 #   <sailen@live.com>, 2011.
@@ -27,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-05 09:24+0000\n"
+"PO-Revision-Date: 2013-03-28 04:48+0000\n"
 "Last-Translator: Christopher Meng <cickumqt@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1489,7 +1490,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(仅内容)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -2242,7 +2243,7 @@ msgstr "自动完成建议的字符(通常是类名或成员名)\r\n它来自于
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "自动整合 %1!s! 至 %2!s！"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2899,11 +2900,11 @@ msgstr "清理工具\n清理"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "清除全部"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "清除..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -7161,6 +7162,14 @@ msgstr "不透明度"
 msgid "Open"
 msgstr "打开"
 
+#. Resource IDs: (115)
+msgid "Open &local"
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Open &with local..."
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Open client certificate file"
 msgstr "打开用户端凭证文件"
@@ -8037,7 +8046,7 @@ msgstr "删除 %s"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "移除已保存的认证数据"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -9335,7 +9344,7 @@ msgstr "跳过有问题的工作副本"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "已忽略，拒绝访问"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -11029,7 +11038,7 @@ msgstr "使用文本块"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "使用 Ribbon"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
