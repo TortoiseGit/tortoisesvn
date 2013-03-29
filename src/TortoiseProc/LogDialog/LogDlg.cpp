@@ -4188,7 +4188,7 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
     {
         if (m_currentChangedArray.GetCount() > 0)
         {
-            for (int i = 0; i < m_currentChangedArray.GetCount(); ++i)
+            for (int i = 0; i < (int)m_currentChangedArray.GetCount(); ++i)
             {
                 if (selPath.Compare(m_currentChangedArray[i].GetPath())==0)
                 {
@@ -4201,7 +4201,7 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
         }
         else
         {
-            for (int i = 0; i < m_currentChangedPathList.GetCount(); ++i)
+            for (int i = 0; i < (int)m_currentChangedPathList.GetCount(); ++i)
             {
                 if (selPath.Compare(m_currentChangedPathList[i].GetSVNPathString())==0)
                 {
