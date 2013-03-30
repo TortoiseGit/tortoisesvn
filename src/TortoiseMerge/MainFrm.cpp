@@ -610,7 +610,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
 void CMainFrame::OnFileOpen()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_OPEN)==IDCANCEL)
         return;
     COpenDlg dlg;
     if (dlg.DoModal()!=IDOK)
@@ -1076,7 +1076,7 @@ void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewOnewaydiff()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_RELOAD)==IDCANCEL)
         return;
     m_bOneWay = !m_bOneWay;
     ShowDiffBar(!m_bOneWay);
@@ -1129,7 +1129,6 @@ int CMainFrame::SaveFile(const CString& sFilePath)
     if (IsViewGood(m_pwndBottomView))
     {
         pViewData = m_pwndBottomView->m_pViewData;
-        Invalidate();
     }
     else if (IsViewGood(m_pwndRightView))
     {
@@ -1138,13 +1137,13 @@ int CMainFrame::SaveFile(const CString& sFilePath)
             pOriginFile = &m_Data.m_arYourFile;
         else if (m_Data.IsTheirFileInUse())
             pOriginFile = &m_Data.m_arTheirFile;
-        Invalidate();
     }
     else
     {
         // nothing to save!
         return 1;
     }
+    Invalidate();
     if ((pViewData)&&(pOriginFile))
     {
         CFileTextLines file;
@@ -1465,7 +1464,7 @@ void CMainFrame::OnViewOptions()
     dlg.DoModal();
     if (dlg.IsReloadNeeded())
     {
-        if (CheckForSave()==IDCANCEL)
+        if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
             return;
         CDiffColors::GetInstance().LoadRegistry();
         LoadViews();
@@ -1482,47 +1481,7 @@ void CMainFrame::OnViewOptions()
 
 void CMainFrame::OnClose()
 {
-    UINT ret = IDNO;
-    if (HasUnsavedEdits())
-    {
-        CString sTemp;
-        sTemp.LoadString(IDS_ASKFORSAVE);
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(sTemp,
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
-                                L"TortoiseMerge",
-                                0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            CString sTask3;
-            if (m_Data.m_mergedFile.InUse())
-                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
-            else
-                sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
-            taskdlg.AddCommandControl(IDYES, sTask3);
-            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK4)));
-            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK5)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(IDYES);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (m_bSaveRequired)
-            {
-                taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK9)));
-            }
-            ret = (UINT)taskdlg.DoModal(m_hWnd);
-        }
-        else
-        {
-            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
-        }
-
-        if (ret == IDYES)
-        {
-            if (!FileSave())
-                return;
-        }
-    }
-    if ((ret == IDNO)||(ret == IDYES))
+    if (CheckForSave(CHFSR_CLOSE)!=IDCANCEL)
     {
         WINDOWPLACEMENT    wp;
 
@@ -1540,7 +1499,7 @@ void CMainFrame::OnClose()
                 // if maximized and maybe iconic restore maximized state
                 wp.showCmd = SW_SHOWMAXIMIZED ;
 
-            // and write it to the .INI file
+            // and write it
             WriteWindowPlacement(&wp);
         }
         __super::OnClose();
@@ -1698,7 +1657,7 @@ void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)
 
 void CMainFrame::OnFileReload()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_RELOAD)==IDCANCEL)
         return;
     CDiffColors::GetInstance().LoadRegistry();
     LoadViews(-1);
@@ -1978,42 +1937,7 @@ void CMainFrame::OnUpdateEditPaste(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewSwitchleft()
 {
-    int ret = IDNO;
-    if (HasUnsavedEdits())
-    {
-        CString sTemp;
-        sTemp.LoadString(IDS_ASKFORSAVE);
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(sTemp,
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
-                                L"TortoiseMerge",
-                                0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            CString sTask3;
-            if (m_Data.m_mergedFile.InUse())
-                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
-            else
-                sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
-            taskdlg.AddCommandControl(IDYES, sTask3);
-            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
-            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(IDYES);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            ret = (UINT)taskdlg.DoModal(m_hWnd);
-        }
-        else
-        {
-            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
-        }
-        if (ret == IDYES)
-        {
-            if (!FileSave())
-                return;
-        }
-    }
-    if ((ret == IDNO)||(ret == IDYES))
+    if (CheckForSave(CHFSR_SWITCH)!=IDCANCEL)
     {
         CWorkingFile file = m_Data.m_baseFile;
         m_Data.m_baseFile = m_Data.m_yourFile;
@@ -2148,17 +2072,48 @@ int CMainFrame::CheckForReload()
     return ret;
 }
 
-int CMainFrame::CheckForSave()
+int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
 {
+    CString sTitle(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
+    CString sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2));
+    CString sNoSave("Don't save [default text]");
+    CString sCancelAction("Cancel [default text]");
+    // todo use resources instead of constants; we may hold resource id instaed of string
+    switch (eReason) {
+    case CHFSR_CLOSE:
+        sTitle = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE)); // use more descriptive IDS_WARNMODIFIEDLOOSECHANGES instead?
+        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK4));
+        sCancelAction = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK5));
+        break;
+    case CHFSR_SWITCH:
+        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
+        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
+        sCancelAction = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8));
+        break;
+    case CHFSR_RELOAD:
+        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
+        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
+        sCancelAction = CString("Cancel\nDon't reload views");
+        break;
+    case CHFSR_OPTIONS:
+        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGESOPTIONS));
+        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
+        sCancelAction = CString("Cancel\nStay with current settings");
+        break;
+    case CHFSR_OPEN:
+        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
+        sNoSave = CString("Don't save\nClose the views without saving the modifications");
+        sCancelAction = CString("Cancel\nStay with current files");
+        break;
+    }
+
     UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
-        CString sTemp;
-        sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(sTemp,
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
+            CTaskDialog taskdlg(sTitle,
+                                sSubTitle,
                                 L"TortoiseMerge",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2168,8 +2123,8 @@ int CMainFrame::CheckForSave()
             else
                 sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
             taskdlg.AddCommandControl(IDYES, sTask3);
-            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
-            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
+            taskdlg.AddCommandControl(IDNO, sNoSave);
+            taskdlg.AddCommandControl(IDCANCEL, sCancelAction);
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(IDYES);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
@@ -2177,7 +2132,7 @@ int CMainFrame::CheckForSave()
         }
         else
         {
-            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+            ret = MessageBox(sTitle, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
         }
 
         if (ret == IDYES)
@@ -2330,7 +2285,7 @@ void CMainFrame::OnViewLocatorbar()
 
 void CMainFrame::OnViewComparewhitespaces()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     regIgnoreWS = 0;
@@ -2346,7 +2301,7 @@ void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewIgnorewhitespacechanges()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     regIgnoreWS = 2;
@@ -2362,7 +2317,7 @@ void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewIgnoreallwhitespacechanges()
 {
-    if (CheckForSave()==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     regIgnoreWS = 1;
@@ -2481,6 +2436,4 @@ void CMainFrame::SetWindowTitle()
     else
         SetWindowText(L"TortoiseMerge");
 }
-
-
 
