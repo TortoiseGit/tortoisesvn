@@ -96,6 +96,11 @@ public:
         UTF8BOM, //=UTF8+65536,
     };
 
+    struct SaveParams {
+        UnicodeType          m_UnicodeType;
+        EOL                  m_LineEndings;
+    };
+
     /**
      * Loads the text file and adds each line to the array
      * \param sFilePath the path to the file
@@ -129,8 +134,8 @@ public:
     void        CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
     bool        NeedsConversion() const { return m_bNeedsConversion; }
-    CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
-    EOL GetLineEndings() const {return m_LineEndings;}
+    UnicodeType GetUnicodeType() const  {return m_SaveParams.m_UnicodeType;}
+    EOL GetLineEndings() const {return m_SaveParams.m_LineEndings;}
 
     using CStdFileLineArray::Add;
     void        Add(const CString& sLine, EOL ending) { CFileTextLine temp={sLine, ending}; CStdFileLineArray::Add(temp); }
@@ -149,7 +154,7 @@ private:
      * \param pBuffer pointer to the buffer containing text
      * \param cb size of the text buffer in bytes
      */
-    CFileTextLines::UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb);
+    UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb);
 
     void        SetErrorString();
 
@@ -158,9 +163,8 @@ private:
 
 private:
     CString              m_sErrorString;
-    UnicodeType          m_UnicodeType;
-    EOL                  m_LineEndings;
     bool                 m_bNeedsConversion;
+    SaveParams           m_SaveParams;
 };
 
 
