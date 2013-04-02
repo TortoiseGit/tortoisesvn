@@ -1246,7 +1246,76 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 
 void CMainFrame::OnFileSave()
 {
-    FileSave();
+    // when mutiple files are set as writable we have to ask what file to save
+    int nEditableViewCount = 
+            (CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsWritable() ? 1 : 0)
+            + (CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsWritable() ? 1 : 0)
+            + (CBaseView::IsViewGood(m_pwndBottomView) && m_pwndBottomView->IsWritable() ? 1 : 0);
+    bool bLeftIsModified = CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsModified();
+    bool bRightIsModified = CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsModified();
+    bool bBottomIsModified = CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsModified();
+    int nModifiedViewCount = 
+            (bLeftIsModified ? 1 : 0)
+            + (bRightIsModified ? 1 : 0)
+            + (bBottomIsModified ? 1 : 0);
+    if (nEditableViewCount>1)
+    {
+        if (nModifiedViewCount>0)
+        {
+            // both views
+            UINT ret = IDNO;
+            CString sSubTitle("Save");
+            CString sTitle("There are more views set editable.\nWhat view you want to save?");
+            if (CTaskDialog::IsSupported())
+            {
+                CTaskDialog taskdlg(sTitle,
+                                    sSubTitle,
+                                    L"TortoiseMerge",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                CString sTaskTemp;
+                if (m_pwndLeftView->m_pWorkingFile->InUse())
+                    sTaskTemp.Format(L"Save Left File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
+                else
+                    sTaskTemp = CString(L"Save Left File as\nYou're asked where to save the left file");
+                taskdlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
+                if (bLeftIsModified) {
+                    taskdlg.SetDefaultCommandControl(201);
+                }
+                if (m_pwndRightView->m_pWorkingFile->InUse())
+                    sTaskTemp.Format(L"Save Right File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
+                else
+                    sTaskTemp = CString(L"Save Right File as\nYou're asked where to save the right file");
+                taskdlg.AddCommandControl(202, sTaskTemp, bRightIsModified); // right
+                if (bRightIsModified) {
+                    taskdlg.SetDefaultCommandControl(202);
+                }
+                taskdlg.AddCommandControl(203, CString("Save all\nBoth Files are saved"), nModifiedViewCount>1); // both
+                if (nModifiedViewCount>1) {
+                    taskdlg.SetDefaultCommandControl(203);
+                }
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                ret = (UINT)taskdlg.DoModal(m_hWnd);
+                switch (ret)
+                {
+                case 201: // left
+                    m_pwndLeftView->SaveFile(SAVE_REMOVED);
+                    break;
+                case 203: // both
+                    m_pwndLeftView->SaveFile(SAVE_REMOVED);
+                case 202: // right
+                    m_pwndRightView->SaveFile();
+                    break;
+                }
+            }
+        }
+    }
+    else
+    {
+        // only target view was modified
+        FileSave();
+    }
 }
 
 void CMainFrame::PatchSave()
@@ -2197,10 +2266,10 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                 switch (ret)
                 {
                 case 201: // left
-                    m_pwndLeftView->SaveFile();
+                    m_pwndLeftView->SaveFile(SAVE_REMOVED);
                     break;
                 case 203: // both
-                    m_pwndLeftView->SaveFile();
+                    m_pwndLeftView->SaveFile(SAVE_REMOVED);
                 case 202: // right
                     m_pwndRightView->SaveFile();
                     break;
@@ -2218,7 +2287,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                 }
                 if (ret == IDYES)
                 {
-                    if (m_pwndLeftView->SaveFile()<0)
+                    if (m_pwndLeftView->SaveFile(SAVE_REMOVED)<0)
                     {
                         return IDCANCEL;
                     }

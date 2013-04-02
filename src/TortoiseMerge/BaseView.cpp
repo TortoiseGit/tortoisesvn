@@ -5287,7 +5287,7 @@ void CBaseView::OnToggleReadonly()
     }
 }
 
-int CBaseView::SaveFile() 
+int CBaseView::SaveFile(int nFlags)
 {
     Invalidate();
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
@@ -5325,14 +5325,18 @@ int CBaseView::SaveFile()
                 }
                 break;
             case DIFFSTATE_EMPTY:
+                break;
             case DIFFSTATE_CONFLICTEMPTY:
             case DIFFSTATE_IDENTICALREMOVED:
             case DIFFSTATE_REMOVED:
             case DIFFSTATE_THEIRSREMOVED:
             case DIFFSTATE_YOURSREMOVED:
             case DIFFSTATE_CONFLICTRESOLVEDEMPTY:
-                // do not save removed lines
-                break;
+                if ((nFlags&SAVE_REMOVED) == 0)
+                {
+                    // do not save removed lines
+                    break;
+                }
             default:
                 file.Add(m_pViewData->GetLine(i), m_pViewData->GetLineEnding(i));
                 break;
