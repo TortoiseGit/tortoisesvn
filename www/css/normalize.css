@@ -36,13 +36,19 @@ summary {
    ========================================================================== */
 
 /**
- * 2. Prevent iOS text size adjust after orientation change, without disabling
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
 
 html {
-    -webkit-text-size-adjust: 100%; /* 2 */
-    -ms-text-size-adjust: 100%; /* 2 */
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    -ms-text-size-adjust: 100%; /* 4 */
+    -webkit-text-size-adjust: 100%; /* 4 */
 }
 
 /* ==========================================================================
@@ -71,12 +77,13 @@ a:hover {
    ========================================================================== */
 
 /**
- * Address variable `h1` font size within `section` and `article` contexts in
- * Firefox 4+, Safari 5, and Chrome.
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
  */
 
 h1 {
     font-size: 2em;
+    margin: 0.67em 0;
 }
 
 /**
@@ -86,6 +93,16 @@ h1 {
 b,
 strong {
     font-weight: bold;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
 }
 
 /**
@@ -105,9 +122,7 @@ samp {
  */
 
 pre {
-    white-space: pre;
     white-space: pre-wrap;
-    word-wrap: break-word;
 }
 
 /**
