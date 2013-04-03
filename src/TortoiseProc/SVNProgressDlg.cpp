@@ -729,6 +729,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         }
         data->bAuxItem = true;
         break;
+    case svn_wc_notify_foreign_copy_begin:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_COPYREMOTE);
+        data->sPathColumnText = url.GetUIPathString();
+        break;
     case svn_wc_notify_merge_elide_info:
         data->sActionColumnText.LoadString(IDS_SVNACTION_ELIDEMERGEINFO);
         break;
@@ -766,6 +770,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_left_local_modifications:
         data->sActionColumnText.LoadString(IDS_SVNACTION_LEFTLOCALMODS);
         break;
+    case svn_wc_notify_move_broken:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_MOVEBROKEN);
+        break;
+
     case svn_wc_notify_upgraded_path:
     case svn_wc_notify_failed_conflict:
     case svn_wc_notify_failed_missing:

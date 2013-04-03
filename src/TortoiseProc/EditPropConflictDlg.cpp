@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2012 - TortoiseSVN
+// Copyright (C) 2008-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,6 +74,7 @@ bool CEditPropConflictDlg::SetPrejFile(const CTSVNPath& prejFile)
 BEGIN_MESSAGE_MAP(CEditPropConflictDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_RESOLVE, &CEditPropConflictDlg::OnBnClickedResolve)
     ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropConflictDlg::OnBnClickedEditprops)
+    ON_BN_CLICKED(IDC_RESOLVETHEIRS, &CEditPropConflictDlg::OnBnClickedResolvetheirs)
 END_MESSAGE_MAP()
 
 
@@ -84,7 +85,8 @@ BOOL CEditPropConflictDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(IDC_DIFFGROUP);
+    ExtendFrameIntoClientArea(IDC_PROPCONFLICTINFO);
+    m_aeroControls.SubclassControl(this, IDC_RESOLVETHEIRS);
     m_aeroControls.SubclassControl(this, IDC_RESOLVE);
     m_aeroControls.SubclassControl(this, IDC_EDITPROPS);
     m_aeroControls.SubclassControl(this, IDCANCEL);
@@ -100,6 +102,7 @@ BOOL CEditPropConflictDlg::OnInitDialog()
 
     AddAnchor(IDC_PROPINFO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_PROPCONFLICTINFO, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_RESOLVETHEIRS, BOTTOM_LEFT);
     AddAnchor(IDC_RESOLVE, BOTTOM_LEFT);
     AddAnchor(IDC_EDITPROPS, BOTTOM_LEFT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -126,4 +129,11 @@ void CEditPropConflictDlg::OnBnClickedEditprops()
     CAppUtils::RunTortoiseProc(sCmd);
 
     EndDialog(IDC_EDITPROPS);
+}
+
+void CEditPropConflictDlg::OnBnClickedResolvetheirs()
+{
+    SVN svn;
+    svn.Resolve(m_conflictItem, svn_wc_conflict_choose_theirs_full, FALSE);
+    EndDialog(IDC_RESOLVETHEIRS);
 }
