@@ -1,3 +1,28 @@
+Version 1.7.12
+- BUG: Issue #446: Infotip is shown even if path
+       is fully visible. (Stefan)
+- BUG: Issue #449: Invalid quotation in %burl and
+       %yurl diff tool arguments. (Stefan)
+- BUG: Issue #450: Windows path check fails if the
+       path/url is escaped. (Stefan)
+- BUG: Issue #455: Crash in TortoiseIDiff and
+       TortoiseUDiff on Windows8. (Stefan)
+- BUG: Issue #456: offline log mode does
+       not activate. (Stefan)
+- BUG: Issue #459: Setting a property recursively
+       in the repo browser segfaults. (Stefan)
+- BUG: Issue #462:  revision links not created
+       in commit comments when started from
+       the repo browser. (Stefan)
+- BUG: Issue #463: Selection is wrong after sorting
+       the file column in the log dialog. (Stefan)
+- BUG: Issue #464: TortoiseBlame does not detect
+       utf8/ansi encodings correctly. (Stefan)
+- BUG: Issue #466: Error opening a new file in
+       Check for modifications. (Stefan)
+- BUG: Issue #467: Warning not shown about
+       non-recursive commits. (Stefan)
+
 Version 1.7.11
 - BUG: Issue #428: out-of-date error when modifying
        properties from the repository browser. (Stefan)
@@ -326,7 +351,7 @@ Version 1.7.5
        the last fetched block. (Stefan)
 - BUG: Issue #185: apply patch from clipboard fails
        for direct items. (Stefan)
-- BUG: Issue #186: Overlays can crash the
+- BUG: Issue #186: Overlays can crash the 
        shell. (Stefan)
 - BUG: Issue #188: edit log message fails to edit
        case changes. (Stefan)
@@ -363,7 +388,7 @@ Version 1.7.5
        shows files menu items. (Stefan)
 
 Version 1.7.4
-- BUG: Issue #169: Error "Access to
+- BUG: Issue #169: Error "Access to 
        C:\Users\<windowsAccount> was denied." (Stefan)
 - BUG: Issue #170: svn url fomatting broken
        on 'switch'. (Stefan)
@@ -468,7 +493,7 @@ Version 1.7.2
        ignored whitespace lines. (Stefan)
 - BUG: Issue #142: Crash in TMerge on
        doubleclick. (Stefan)
-- BUG: Issue #143: Stealing locks from
+- BUG: Issue #143: Stealing locks from 
        CSVNStatusListCtrl doesn't work. (Stefan)
 - NEW: Issue #145: Fill in image in
        open dialog. (Stefan)
@@ -481,7 +506,7 @@ Version 1.7.1
 - BUG: Issue #89: Crash in TSVNCache. (Stefan)
 - BUG: Cursor stayed as busy after an operation
        until it was moved. (Stefan)
-- BUG: Issue #92 : checked item count in
+- BUG: Issue #92 : checked item count in 
        commit dialog is wrong. (Stefan)
 - BUG: Issue #94: resolve conflict dialog
        resizing issues. (Stefan)
