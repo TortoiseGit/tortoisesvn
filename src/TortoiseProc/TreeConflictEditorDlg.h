@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011 - TortoiseSVN
+// Copyright (C) 2008-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,13 +32,18 @@ public:
     CTreeConflictEditorDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CTreeConflictEditorDlg();
 
-    void SetConflictInfoText(const CString& info) {m_sConflictInfo = info;}
-    void SetResolveTexts(const CString& usetheirs, const CString& usemine) {m_sUseTheirs = usetheirs; m_sUseMine = usemine;}
     void SetPath(const CTSVNPath& path) {m_path = path;}
+    void SetConflictSources(const svn_wc_conflict_version_t * left, const svn_wc_conflict_version_t * right);
     void SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
     void SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
     void SetConflictAction(svn_wc_conflict_action_t action) {conflict_action = action;}
     void SetConflictReason(svn_wc_conflict_reason_t reason) {conflict_reason = reason;}
+    void SetConflictOperation(svn_wc_operation_t operation) {conflict_operation = operation;}
+    void SetKind(svn_node_kind_t k) {kind = k;}
+    void SetInteractive(bool bInteractive = true) {m_bInteractive = bInteractive;}
+
+    svn_wc_conflict_choice_t GetResult() {return m_choice;}
+    bool IsCancelled() const {return m_bCancelled;}
 
 // Dialog Data
     enum { IDD = IDD_TREECONFLICTEDITOR };
@@ -46,8 +51,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    static UINT StatusThreadEntry(LPVOID pVoid);
-    UINT StatusThread();
 
     DECLARE_MESSAGE_MAP()
 
@@ -56,33 +59,31 @@ protected:
     afx_msg void OnBnClickedShowlog();
     afx_msg void OnBnClickedBranchlog();
     afx_msg void OnBnClickedHelp();
-
-    /// called after the thread has finished
-    LRESULT OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/);
+    afx_msg void OnBnClickedPostponeAll();
+    afx_msg void OnBnClickedAbort();
 
 private:
-    CProgressDlg        m_progressDlg;
+    svn_wc_conflict_choice_t    m_theirsChoice;
+    svn_wc_conflict_choice_t    m_mineChoice;
+    CTSVNPath                   m_path;
+    CTSVNPath                   m_copyfromPath;
+    bool                        m_bInteractive;
+    svn_wc_conflict_reason_t    conflict_reason;
+    svn_wc_conflict_action_t    conflict_action;
+    svn_wc_operation_t          conflict_operation;
+    svn_node_kind_t             kind;
+    svn_wc_conflict_choice_t    m_choice;
+    bool                        m_bCancelled;
 
-    volatile LONG       m_bThreadRunning;
-    CString             m_sConflictInfo;
-    CString             m_sUseTheirs;
-    CString             m_sUseMine;
-    CTSVNPath           m_path;
-    CTSVNPath           m_copyfromPath;
-    svn_wc_conflict_reason_t conflict_reason;
-    svn_wc_conflict_action_t conflict_action;
 
-
-    CString             src_right_version_url;
-    CString             src_right_version_path;
-    SVNRev              src_right_version_rev;
-    svn_node_kind_t     src_right_version_kind;
-    CString             src_left_version_url;
-    CString             src_left_version_path;
-    SVNRev              src_left_version_rev;
-    svn_node_kind_t     src_left_version_kind;
-    CPathEdit           src_leftedit;
-    CPathEdit           src_rightedit;
+    CString                     src_right_version_url;
+    CString                     src_right_version_path;
+    SVNRev                      src_right_version_rev;
+    svn_node_kind_t             src_right_version_kind;
+    CString                     src_left_version_url;
+    CString                     src_left_version_path;
+    SVNRev                      src_left_version_rev;
+    svn_node_kind_t             src_left_version_kind;
+    CPathEdit                   src_leftedit;
+    CPathEdit                   src_rightedit;
 };
-
-static UINT WM_AFTERTHREAD = RegisterWindowMessage(_T("TORTOISESVN_AFTERTHREAD_MSG"));

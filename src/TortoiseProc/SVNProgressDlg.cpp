@@ -35,6 +35,8 @@
 #include "SVNHelpers.h"
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
+#include "EditPropConflictDlg.h"
+#include "TreeConflictEditorDlg.h"
 #include "LogFile.h"
 #include "ShellUpdater.h"
 #include "IconMenu.h"
@@ -177,30 +179,71 @@ BOOL CSVNProgressDlg::Cancel()
 
 LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam)
 {
-    CConflictResolveDlg dlg(this);
     const svn_wc_conflict_description2_t *description = (svn_wc_conflict_description2_t *)lParam;
     if (description)
     {
-        dlg.SetConflictDescription(description);
+        svn_wc_conflict_choice_t retVal = svn_wc_conflict_choose_postpone;
         if (m_pTaskbarList)
         {
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_PAUSED);
         }
-        if (dlg.DoModal() == IDOK)
+        switch (description->kind)
         {
-            if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+        case svn_wc_conflict_kind_text:
             {
-                // if the result is conflicted and the dialog returned IDOK,
-                // that means we should not ask again in case of a conflict
-                m_AlwaysConflicted = true;
-                ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+                CConflictResolveDlg dlg(this);
+                dlg.SetConflictDescription(description);
+                if (dlg.DoModal() == IDOK)
+                {
+                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                    {
+                        // if the result is conflicted and the dialog returned IDOK,
+                        // that means we should not ask again in case of a conflict
+                        m_AlwaysConflicted = true;
+                    }
+                }
+                m_mergedfile = dlg.GetMergedFile();
+                m_bCancelled = dlg.IsCancelled();
+                retVal = dlg.GetResult();
             }
+            break;
+        case svn_wc_conflict_kind_property:
+            {
+                // no interactive conflict resolving, just postpone it
+            }
+            break;
+        case svn_wc_conflict_kind_tree:
+            {
+                CTSVNPath treeConflictPath;
+                treeConflictPath.SetFromSVN(description->merged_file);
+
+                CTreeConflictEditorDlg dlg;
+                dlg.SetInteractive();
+                dlg.SetPath(treeConflictPath);
+                dlg.SetConflictSources(description->src_left_version, description->src_right_version);
+                dlg.SetConflictReason(description->reason);
+                dlg.SetConflictAction(description->action);
+                dlg.SetConflictOperation(description->operation);
+                dlg.SetKind(description->node_kind);
+                if (dlg.DoModal() == IDOK)
+                {
+                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                    {
+                        // if the result is conflicted and the dialog returned IDOK,
+                        // that means we should not ask again in case of a conflict
+                        m_AlwaysConflicted = true;
+                    }
+                }
+                retVal = dlg.GetResult();
+                m_bCancelled = dlg.IsCancelled();
+            }
+        default:
+            break;
         }
-        m_mergedfile = dlg.GetMergedFile();
-        m_bCancelled = dlg.IsCancelled();
         if (m_pTaskbarList)
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
-        return dlg.GetResult();
+
+        return retVal;
     }
     return svn_wc_conflict_choose_postpone;
 }
@@ -265,6 +308,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                              svn_merge_range_t * range,
                              svn_error_t * err, apr_pool_t * pool)
 {
+    static bool bInInteractiveResolving = false;
+
     bool bNoNotify = false;
     bool bDoAddData = true;
     NotificationData * data = new NotificationData();
@@ -360,6 +405,28 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         break;
     case svn_wc_notify_resolved:
         data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+        if (bInInteractiveResolving)
+        {
+            // the now resolved item might be listed above already as
+            // conflicted (resolved due to interactive conflict resolve dialog).
+            // Try to find the corresponding entry and change it so it does
+            // not appear as conflicted anymore.
+            size_t index = 0;
+            for (auto it : m_arData)
+            {
+                if ((it->bTreeConflict||it->bConflictedActionItem) && (it->path.IsEquivalentToWithoutCase(data->path)))
+                {
+                    it->bConflictedActionItem = false;
+                    it->bTreeConflict = false;
+                    m_nConflicts--;
+                    m_nTotalConflicts--;
+                    it->sActionColumnText = it->sActionColumnText + L" (" + data->sActionColumnText + L")";
+                    it->color = m_Colors.GetColor(CColors::Merged);
+                    m_ProgList.RedrawItems((int)index-1, (int)index);
+                }
+                ++index;
+            }
+        }
         break;
     case svn_wc_notify_update_replace:
     case svn_wc_notify_commit_copied_replaced:
@@ -773,7 +840,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_move_broken:
         data->sActionColumnText.LoadString(IDS_SVNACTION_MOVEBROKEN);
         break;
-
+    case svn_wc_notify_conflict_resolver_starting:
+        bInInteractiveResolving = true;
+        bNoNotify = true;
+        break;
+    case svn_wc_notify_conflict_resolver_done:
+        bInInteractiveResolving = false;
+        bNoNotify = true;
+        break;
     case svn_wc_notify_upgraded_path:
     case svn_wc_notify_failed_conflict:
     case svn_wc_notify_failed_missing:
@@ -782,8 +856,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_failed_locked:
     case svn_wc_notify_failed_forbidden_by_server:
     case svn_wc_notify_failed_obstruction:
-    case svn_wc_notify_conflict_resolver_starting:
-    case svn_wc_notify_conflict_resolver_done:
+        bNoNotify = true;
     default:
         break;
     } // switch (data->action)
@@ -853,6 +926,8 @@ CString CSVNProgressDlg::BuildInfoString()
         case svn_wc_notify_commit_added:
         case svn_wc_notify_commit_copied:
         case svn_wc_notify_update_shadowed_add:
+        case svn_wc_notify_tree_conflict:
+        case svn_wc_notify_path_nonexistent:
             if (dat->bConflictedActionItem)
                 conflicted++;
             else
