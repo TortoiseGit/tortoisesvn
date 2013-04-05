@@ -43,6 +43,7 @@ public:
     CString GetFilename() const     { return m_sFilename; }
     void SetOutOfUse();
 
+    bool IsReadonly() const;
     bool HasSourceFileChanged() const;
     void StoreFileAttributes();
 
