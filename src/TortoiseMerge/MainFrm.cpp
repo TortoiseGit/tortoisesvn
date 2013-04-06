@@ -1264,33 +1264,31 @@ void CMainFrame::OnFileSave()
         {
             // both views
             UINT ret = IDNO;
-            CString sSubTitle("Save");
-            CString sTitle("There are more views set editable.\nWhat view you want to save?");
             if (CTaskDialog::IsSupported())
             {
-                CTaskDialog taskdlg(sTitle,
-                                    sSubTitle,
-                                    L"TortoiseMerge",
+                CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_SAVE_MORE)),
+                                    CString(MAKEINTRESOURCE(IDS_SAVE)),
+                                    CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 CString sTaskTemp;
-                if (m_pwndLeftView->m_pWorkingFile->InUse())
-                    sTaskTemp.Format(L"Save Left File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
+                if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
+                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
                 else
-                    sTaskTemp = CString(L"Save Left File as\nYou're asked where to save the left file");
+                    sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
                 taskdlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
                 if (bLeftIsModified) {
                     taskdlg.SetDefaultCommandControl(201);
                 }
-                if (m_pwndRightView->m_pWorkingFile->InUse())
-                    sTaskTemp.Format(L"Save Right File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
+                if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
+                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
                 else
-                    sTaskTemp = CString(L"Save Right File as\nYou're asked where to save the right file");
+                    sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
                 taskdlg.AddCommandControl(202, sTaskTemp, bRightIsModified); // right
                 if (bRightIsModified) {
                     taskdlg.SetDefaultCommandControl(202);
                 }
-                taskdlg.AddCommandControl(203, CString("Save all\nBoth Files are saved"), nModifiedViewCount>1); // both
+                taskdlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2)), nModifiedViewCount>1); // both
                 if (nModifiedViewCount>1) {
                     taskdlg.SetDefaultCommandControl(203);
                 }
@@ -1391,7 +1389,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             msg.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
             CTaskDialog taskdlg(msg,
                                 CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)),
-                                L"TortoiseMerge",
+                                CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
@@ -1452,7 +1450,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                     msg.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
                     CTaskDialog taskdlg(msg,
                         CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK2)),
-                        L"TortoiseMerge",
+                        CString(MAKEINTRESOURCE(IDS_APPNAME)),
                         0,
                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
@@ -1519,16 +1517,23 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
         else if ( (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData)) &&
                   (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0)) )
             bEnable = TRUE;
+        else if (IsViewGood(m_pwndLeftView)
+                && (m_pwndLeftView->m_pViewData)
+                && (m_pwndLeftView->IsModified()))
+            bEnable = TRUE;
     }
     pCmdUI->Enable(bEnable);
 }
 
 void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 {
+    // any file is open we can save it as
     BOOL bEnable = FALSE;
     if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         bEnable = TRUE;
     else if (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData))
+        bEnable = TRUE;
+    else if (IsViewGood(m_pwndLeftView)&&(m_pwndLeftView->m_pViewData))
         bEnable = TRUE;
     pCmdUI->Enable(bEnable);
 }
@@ -2187,44 +2192,49 @@ int CMainFrame::CheckForReload()
 
 int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
 {
-    CString sTitle(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
-    CString sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2));
-    CString sNoSave("Don't save [default text]");
-    CString sCancelAction("Cancel [default text]");
-    // todo use resources instead of constants; we may hold resource id instaed of string
+    int idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+    int idNoSave = IDS_ASKFORSAVE_TASK7;
+    int idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
     switch (eReason)
     {
     case CHFSR_CLOSE:
-        sTitle = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE)); // use more descriptive IDS_WARNMODIFIEDLOOSECHANGES instead?
-        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK4));
-        sCancelAction = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK5));
+        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+        idNoSave = IDS_ASKFORSAVE_TASK4;
+        idCancelAction = IDS_ASKFORSAVE_TASK5;
         break;
     case CHFSR_SWITCH:
-        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
-        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
-        sCancelAction = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8));
+        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+        //idNoSave = IDS_ASKFORSAVE_TASK7;
+        idCancelAction = IDS_ASKFORSAVE_TASK8;
         break;
     case CHFSR_RELOAD:
-        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
-        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
-        sCancelAction = CString("Cancel\nDon't reload views");
+        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+        //idNoSave = IDS_ASKFORSAVE_TASK7;
+        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
         break;
     case CHFSR_OPTIONS:
-        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGESOPTIONS));
-        sNoSave = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7));
-        sCancelAction = CString("Cancel\nStay with current settings");
+        idTitle = IDS_WARNMODIFIEDLOOSECHANGESOPTIONS;
+        //idNoSave = IDS_ASKFORSAVE_TASK7;
+        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPTIONS;
         break;
     case CHFSR_OPEN:
-        sTitle = CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDLOOSECHANGES));
-        sNoSave = CString("Don't save\nClose the views without saving the modifications");
-        sCancelAction = CString("Cancel\nStay with current files");
+        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+        idNoSave = IDS_ASKFORSAVE_NOSAVE_OPEN;
+        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
         break;
     }
+
+    CString sTitle(MAKEINTRESOURCE(idTitle));
+    CString sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2));
+    CString sNoSave(MAKEINTRESOURCE(idNoSave));
+    CString sCancelAction(MAKEINTRESOURCE(idCancelAction));
+    CString sAppName(MAKEINTRESOURCE(IDS_APPNAME));
 
     // TODO simplify logic, reduce code duplication
     if (CBaseView::IsViewGood(m_pwndBottomView))
     {
         // three-way diff - by design only bottom can be changed
+        // use 1.7 way to do that
     }
     else if (CBaseView::IsViewGood(m_pwndRightView))
     {
@@ -2238,24 +2248,24 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
             {
                 CTaskDialog taskdlg(sTitle,
                                     sSubTitle,
-                                    L"TortoiseMerge",
+                                    sAppName,
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 CString sTaskTemp;
-                if (m_pwndLeftView->m_pWorkingFile->InUse())
-                    sTaskTemp.Format(L"Save Left File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
+                if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
+                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
                 else
-                    sTaskTemp = CString(L"Save Left File as\nYou're asked where to save the left file");
+                    sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
                 taskdlg.AddCommandControl(201, sTaskTemp); // left
                 taskdlg.SetDefaultCommandControl(201);
                 if (HasUnsavedEdits(m_pwndRightView))
                 {
-                    if (m_pwndRightView->m_pWorkingFile->InUse())
-                        sTaskTemp.Format(L"Save Right File\nThe modifications are saved to\n%s", (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
+                    if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
+                        sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
                     else
-                        sTaskTemp = CString(L"Save Right File as\nYou're asked where to save the right file");
+                        sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
                     taskdlg.AddCommandControl(202, sTaskTemp); // right
-                    taskdlg.AddCommandControl(203, CString("Save Both Files")); // both
+                    taskdlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2))); // both
                     taskdlg.SetDefaultCommandControl(203);
                 }
                 taskdlg.AddCommandControl(IDNO, sNoSave); // none
@@ -2299,7 +2309,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         {
             // only secondary (left) view
         }
-        // otherwise 1.7 behaviour is used
+        // only right view - 1.7 implementation is used
     }
     else if (CBaseView::IsViewGood(m_pwndLeftView))
     {
@@ -2312,7 +2322,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
             {
                 CTaskDialog taskdlg(sTitle,
                                     sSubTitle,
-                                    L"TortoiseMerge",
+                                    sAppName,
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 CString sTask3;
@@ -2346,6 +2356,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         return IDNO; // nothing to save
     }
 
+    // 1.7 implementation
     UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
@@ -2353,7 +2364,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         {
             CTaskDialog taskdlg(sTitle,
                                 sSubTitle,
-                                L"TortoiseMerge",
+                                sAppName,
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             CString sTask3;
