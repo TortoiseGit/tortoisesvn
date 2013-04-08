@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-25 09:55+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -406,6 +406,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr "&О ТортоисеМерге..."
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Активирај"
@@ -441,6 +445,10 @@ msgstr "Дозволи вишезн&ачне УРЛ-ове"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "Примени особине пон&ављајући"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -705,6 +713,10 @@ msgstr "&Испразни корпу за рециклирање"
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Омогући прокси сервер"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1104,6 +1116,10 @@ msgstr "Зависан од &платформе (приридни)"
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Капија:"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1969,6 +1985,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Све ваше измене биће изгубљене! Да ли заиста желите изменити алатни панел '%s'?"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Дозволи вишезначне &УУИДе"
@@ -2499,6 +2521,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "Откажи\nНе напуштајте ТортоисеМерге"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2564,6 +2592,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "Откажи\nРешите конфликт најпре."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2767,20 +2807,6 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "Провери фајлови које желите\nобрисати пре увоза."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "Проверите дневник да нађете фајл/фолдер који је преименован/померен и да одлучите да ли желите да сачувате измену/померање или онај из спремишта. Затим означите да су конфликти решени."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "Проверите дневник да нађете фајл/фолдер који је преименован/померен и да одлучите да ли желите да стопите измене у ваш преименован фајл, или да вратите оригинални фајл."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3420,6 +3446,10 @@ msgstr "Копија: Ново име за %s"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "Копирање %1!s!"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4169,6 +4199,12 @@ msgstr "Не извршавај\nНе извршавај скрипту"
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Немојте сачувати\nПоново унесите преглед без чувања измена"
 
@@ -4329,6 +4365,10 @@ msgstr "Омогућите ауто-&особине"
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
 msgstr "Омогући ауто-особине"
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5415,6 +5455,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr "ID:32893:V C +G"
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5938,25 +5982,13 @@ msgstr "Скочи на следећи &конфликт"
 msgid "Keep &locks"
 msgstr "Држи &закључан"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr "Чувај л&исте измена"
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "Остави фолдер из спремишта"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "Остави фајл из спремишта"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "Остави локални фолдер"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "Остави локални фајл"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6289,6 +6321,10 @@ msgstr "Управљање особинама Субверзије"
 msgid "Many items selected to show diff"
 msgstr "Ставка менија изабрана да прикаже диф"
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Означи као решено"
@@ -6316,10 +6352,6 @@ msgstr "Означи за поређење"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "Означи фајлове који недостају као уклоњене"
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "Означи конфликт као решен"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6629,6 +6661,10 @@ msgstr "Премести и преименуј"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Премести овде и преименуј ставку"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7460,10 +7496,6 @@ msgstr "Молим причекајте иницијализацију прет�
 msgid "Please wait while we check the parameters for the merge."
 msgstr "Молим вас сачекајте док проверимо параметре за стапање."
 
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "Молим причекајте док се добије више информација..."
-
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Молим причекајте..."
@@ -8063,14 +8095,6 @@ msgid ""
 "%2!s!"
 msgstr "Уклони својство '%1!S!' из\r\n%2!s!"
 
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Уклони фолдер:"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Уклони фајл"
-
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Уклања одабраног кеша са диска"
@@ -8264,6 +8288,10 @@ msgstr "Ресетуј колоне"
 msgid "Resolve"
 msgstr "Реши"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Разреши сукоб"
@@ -8287,6 +8315,10 @@ msgstr "Разреши сукоб:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Реши к&асније"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -8642,6 +8674,44 @@ msgstr "Сачувај &као..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Сачувај као"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10284,6 +10354,12 @@ msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
 msgstr "Постоји текућих %d руковаоца прекривача инсталираних по Тортоисе кориснику"
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
+msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."

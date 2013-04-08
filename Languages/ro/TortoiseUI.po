@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 09:02+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -406,6 +406,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr ""
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Activează"
@@ -441,6 +445,10 @@ msgstr "&Permite URL-uri ambigue"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "&Aplică proprietatea recursiv"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -705,6 +713,10 @@ msgstr ""
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Activează serverul proxy"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1104,6 +1116,10 @@ msgstr "&Platformă dependentă (nativă)"
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Port:"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1969,6 +1985,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi bara de unelte '%s'?"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Permite &UUID-uri ambigue"
@@ -2499,6 +2521,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "Anulează\nNu ieși din ToortoiseSVN"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2564,6 +2592,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "Anulează\nResolvă conflictele întăi."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2767,20 +2807,6 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "Selectaţi fişierele pe care doriţi\nsă le ştergeţi înainte de importare."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să vă păstraţi redenumirea/mutarea sau să folosiţi cea din depozit. Atunci marcaţi conflictul ca fiind resolvat."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să îmbinaţi schimbarea cu fişierul redenumit sau să restauraţi fişierul original."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3420,6 +3446,10 @@ msgstr "Copiere: Nume nou pentru %s"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "Se copiază %1!s!"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4169,6 +4199,12 @@ msgstr ""
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Nu salva\nReîncarcă modul de vizualizare fără a salva modificările."
 
@@ -4329,6 +4365,10 @@ msgstr ""
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
 msgstr "Activează auto-proprietăți"
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5415,6 +5455,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5938,25 +5982,13 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Păstrează b&locările"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "Păstraţi dosarul din depozit"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "Păstraţi fişierul din depozit"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "Păstraţi dosarul local"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "Păstraţi fişierul local"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6289,6 +6321,10 @@ msgstr "Editează proprietăţile Subversion"
 msgid "Many items selected to show diff"
 msgstr ""
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Marchează ca rezolvat"
@@ -6316,10 +6352,6 @@ msgstr "Marcează pentru comparaţie"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr ""
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "Marchează conflictul ca fiind rezolvat"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6629,6 +6661,10 @@ msgstr "Mută şi redenumeşte"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Mută aici şi redenumeşte elementul"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7460,10 +7496,6 @@ msgstr "Aşteptaţi în timp ce se iniţiează navigatorul de depozit..."
 msgid "Please wait while we check the parameters for the merge."
 msgstr ""
 
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "Aşteptaţi în timp ce se obţine mai multă informaţie..."
-
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Aşteptaţi..."
@@ -8063,14 +8095,6 @@ msgid ""
 "%2!s!"
 msgstr "Elimină proprietatea '%1!S!' din \r\n%2!s!"
 
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Elimină dosarul"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Elimină fişierul"
-
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Elimină unu sau mai multe cache-uri din disc"
@@ -8264,6 +8288,10 @@ msgstr "Restabileşte coloanele"
 msgid "Resolve"
 msgstr "Rezolvă"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Resolvă Conflictul"
@@ -8287,6 +8315,10 @@ msgstr "Rezolvă conflictul:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Rezolvă mai &târziu"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -8642,6 +8674,44 @@ msgstr "Salvează &ca..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Salvează Ca"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10283,6 +10353,12 @@ msgstr "Există elemente schimbate sau neversionate în unu sau mai multe dosare
 msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
 msgstr ""
 
 #. Resource IDs: (64)

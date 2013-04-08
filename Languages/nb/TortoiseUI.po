@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 09:02+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -410,6 +410,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge"
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktiver"
@@ -445,6 +449,10 @@ msgstr "Tillat flertydige &URLer"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "&Sett egenskapen rekursivt"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -709,6 +717,10 @@ msgstr "&Tøm papirkurven nå"
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "Aktiver &mellomtjener"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1109,6 +1121,10 @@ msgstr "&Plattform-avhengig (native)"
 msgid "&Port:"
 msgstr "&Port:"
 
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
+
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Avansert standard"
@@ -1480,11 +1496,11 @@ msgstr "(binær verdi)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(innhold og egenskaper)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(bare innhold)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -1973,6 +1989,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille verktøylinjen '%s'?"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Tillat flertydige &UUIDer"
@@ -2061,7 +2083,7 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "En annen prosess blokkerer arbeidskopiens database, eller fillåsing er ikke støttet i det underliggende filsystemet; hvis arbeidskopien er på et nett-filsystem, påse at fillåsing er stått på på tjeneren."
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2503,6 +2525,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "Avbryt\nIkke avslutt TortoiseMerge"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2513,7 +2541,7 @@ msgstr "Avbryt\nIkke løs elementet"
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "Avbryt\nIkke vis diff'en."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2568,6 +2596,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "Avbryt\nLøs konfliktene først."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2764,27 +2804,13 @@ msgstr "Hent en arbeidskopi ut fra et depot"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Huk av de autentiseringselementene du vil slette nedenfor"
 
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "Huk av for filene som du vil \nslette før importering"
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "Sjekk loggen for å finne ut hvordan filen/mappen ble omdøpt/flyttet og avgjør om du vil beholde din omdøping/flytting eller den fra depotet. Merk deretter konflikten som løst."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "Sjekk loggen for å finne ut hvordan filen/mappen ble omdøpt/flyttet og avgjør om du vil flette endingen inn i din omdøpte fil, eller gjenopprette den originale filen."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2884,59 +2910,59 @@ msgstr "Rydder opp avbrutte operasjoner, sperrede filer, ..."
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
-msgstr "Blank ut"
+msgstr "Fjern"
 
 #. Resource IDs: (1057)
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr "Slett Verktøy\nSlett"
+msgstr "Fjerneverktøy\nFjern"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Fjern alt"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Fjern..."
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
-msgstr "Sletter %1!ld! URL lagret for %2!ld! arbeidskopier"
+msgstr "Fjerner %1!ld! URL lagret for %2!ld! arbeidskopier"
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr "Sletter %1!ld! loggmeldinger lagret for %2!ld! arbeidskopier"
+msgstr "Fjerner %1!ld! loggmeldinger lagret for %2!ld! arbeidskopier"
 
 #. Resource IDs: (196)
 #, c-format
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr "Sletter %1!ld! par av brukernavn/passord, %2!ld! ssl-sertifikater og %3!ld! brukernavn"
+msgstr "Fjerner %1!ld! par av brukernavn/passord, %2!ld! ssl-sertifikater og %3!ld! brukernavn"
 
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr "Sletter alle %ld godkjente klient-påhakingsskript"
+msgstr "Fjerner alle %ld godkjente klient-påhakingsskript"
 
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "Sletter mellomlagrede logger fra %ld depoter"
+msgstr "Fjerner mellomlagrede logger fra %ld depoter"
 
 #. Resource IDs: (195)
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
-msgstr "Sletter lagret autentisering.\r\nDu vil måtte angi brukernavn og passord for alle depoter igjen."
+msgstr "Fjerner lagret autentisering.\nDu vil måtte angi brukernavn og passord for alle depoter igjen."
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "Sletter lagret størrelse og plassering for %ld dialoger"
+msgstr "Fjerner lagret størrelse og plassering for %ld dialoger"
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -3152,11 +3178,11 @@ msgstr "Sammenlign og vis skyld med forrige revisjon"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "Sammenlign revisjoner (bare &egenskaper)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Sammenlign revisjoner (bare &innhold)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -3168,7 +3194,7 @@ msgstr "Sammenlign blanktegn"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "Sammenlign med &HEAD og BASE"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3424,6 +3450,10 @@ msgstr "Kopiér: Nytt navn for %s"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "Kopierer %1!s!"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4173,6 +4203,12 @@ msgstr "Ikke kjør\nIkke kjør skriptet"
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Ikke lagre\nLast visningene på nytt uten å lagre endringene"
 
@@ -4333,6 +4369,10 @@ msgstr "Slå på auto-&egenskaper"
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
 msgstr "Slå på auto-egenskaper"
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5419,6 +5459,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr "ID:32893:V C +G"
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5942,25 +5986,13 @@ msgstr "Hopp til neste &konflikt"
 msgid "Keep &locks"
 msgstr "Behold &sperrer"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr "Behold &endringslister"
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "Behold katalogen fra depotet"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "Behold filen fra depotet"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "Behold den lokale katalogen"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "Behold den lokale filen"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -5976,7 +6008,7 @@ msgstr "Taster"
 
 #. Resource IDs: (349)
 msgid "Kind"
-msgstr ""
+msgstr "Type"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -6291,6 +6323,10 @@ msgstr "Behandle Subversion-egenskaper"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
+msgstr "Mange elementer er valgt for diff-visning"
+
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
 #. Resource IDs: (148, 282)
@@ -6320,10 +6356,6 @@ msgstr "Merk for sammenligning"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "Merk manglende filer som fjernet"
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "Merk konflikten som løst"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6633,6 +6665,10 @@ msgstr "Flytt og omdøp"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Flytt og omdøp element hit"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7158,11 +7194,11 @@ msgstr "Åpne"
 
 #. Resource IDs: (115)
 msgid "Open &local"
-msgstr ""
+msgstr "Åpne &lokal"
 
 #. Resource IDs: (115)
 msgid "Open &with local..."
-msgstr ""
+msgstr "Åpne &med lokal..."
 
 #. Resource IDs: (76)
 msgid "Open client certificate file"
@@ -7463,10 +7499,6 @@ msgstr "Vennligst vent mens depot-utforskeren starter..."
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
 msgstr "Vennligs vent mens vi sjekker parametrene for flettingen."
-
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "Vennligst vent mens vi samler mer informasjon..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7805,7 +7837,7 @@ msgstr "Les 'Daily Use Guide' før du havner i trøbbel..."
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "Rike-streng"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8040,7 +8072,7 @@ msgstr "Fjern %s"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "Fjern Lagrede Autentiseringsdata"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -8066,14 +8098,6 @@ msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!s!"
 msgstr "Fjern egenskap '%1!S!' fra\r\n%2!s!"
-
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Slett katalogen"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Slett filen"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -8268,6 +8292,10 @@ msgstr "Nullstill kolonner"
 msgid "Resolve"
 msgstr "Løs"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Løs Konflikt"
@@ -8291,6 +8319,10 @@ msgstr "Løs konflikt:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Løs &senere"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -8646,6 +8678,44 @@ msgstr "Lagre &som..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Lagre Som"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9221,7 +9291,7 @@ msgstr "Vis merker på kopikilde, ikke som egne noder"
 msgid ""
 "Show the diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "Vis diff\nDiff-programmet vil startes for hvert valgt element."
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -10288,6 +10358,12 @@ msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
 msgstr "Det er nå %d ikonlag installert i tillegg til de Tortoise bruker."
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
+msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -11473,7 +11549,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr ""
+msgstr "Du har valgt å vise diff for %d elementer.\nEn ny instans av diff-programmet vil startes for hvert av disse elementene.\nVil du virkelig vise diff for så mange elementer på en gang?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

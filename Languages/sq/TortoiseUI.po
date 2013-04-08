@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 09:02+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Skender Mustafi <1mail2me@gmail.com>\n"
 "Language-Team: Albanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -404,6 +404,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr ""
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivizo"
@@ -438,6 +442,10 @@ msgstr ""
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
+msgstr ""
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
 msgstr ""
 
 #. Resource IDs: (1013)
@@ -704,6 +712,10 @@ msgstr ""
 msgid "&Enable Proxy Server"
 msgstr ""
 
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
+
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
 msgstr ""
@@ -863,7 +875,7 @@ msgstr "&Përfshij informacionet e bashkimit"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr "&Direktoriumi fillestare"
+msgstr "&Direktoria fillestare:"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -1037,7 +1049,7 @@ msgstr ""
 
 #. Resource IDs: (1506)
 msgid "&None"
-msgstr "&Asnjë"
+msgstr "As&një"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1069,7 +1081,7 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Options"
-msgstr ""
+msgstr "&Alternativat"
 
 #. Resource IDs: (32849)
 msgid "&Other"
@@ -1102,6 +1114,10 @@ msgstr ""
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Porti:"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1967,6 +1983,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr ""
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr ""
@@ -2087,7 +2109,7 @@ msgstr ""
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
-msgstr ""
+msgstr "Apliko diff të unifikuar"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
@@ -2497,6 +2519,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2561,6 +2589,18 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
 msgstr ""
 
 #. Resource IDs: (226)
@@ -2702,7 +2742,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
-msgstr ""
+msgstr "Lista e ndryshimeve:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
@@ -2764,20 +2804,6 @@ msgstr ""
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
-msgstr ""
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr ""
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
 msgstr ""
 
 #. Resource IDs: (251)
@@ -2884,7 +2910,7 @@ msgstr "Pastro"
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr ""
+msgstr "Mjeti i Pastrimit\nPastro"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
@@ -3419,13 +3445,17 @@ msgstr ""
 msgid "Copying %1!s!"
 msgstr "Kopjimi i %1!s!"
 
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Duke kopjuar..."
 
 #. Resource IDs: (188)
 msgid "Corrections"
-msgstr ""
+msgstr "Përmirësimet"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3594,7 +3624,7 @@ msgstr ""
 
 #. Resource IDs: (243)
 msgid "Create Changelist"
-msgstr ""
+msgstr "Krijo Listë Ndryshimesh"
 
 #. Resource IDs: (208)
 msgid "Create Patch"
@@ -4167,6 +4197,12 @@ msgstr ""
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
 
@@ -4326,6 +4362,10 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
 msgstr ""
 
 #. Resource IDs: (344)
@@ -5311,7 +5351,7 @@ msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
-msgstr ""
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlay images'
 msgid "ID:32772:V   +O"
@@ -5412,6 +5452,10 @@ msgstr "ID:32883:V C +A"
 #. Accelerator Entry for Menu ID:32893; '&Goto line'
 msgid "ID:32893:V C +G"
 msgstr "ID:32893:V C +G"
+
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5613,7 +5657,7 @@ msgstr "Injoro të gjitha"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
-msgstr ""
+msgstr "Injoro të gjitha ndryshimet e hapësirave"
 
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
@@ -5643,7 +5687,7 @@ msgstr ""
 
 #. Resource IDs: (1391, 32872)
 msgid "Ignore whitespace changes"
-msgstr ""
+msgstr "Injoro ndryshimet e hapësirave"
 
 #. Resource IDs: (1432)
 msgid "Ignored"
@@ -5936,24 +5980,12 @@ msgstr ""
 msgid "Keep &locks"
 msgstr ""
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
-msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
 msgstr ""
 
 #. Resource IDs: (16136)
@@ -6067,7 +6099,7 @@ msgstr ""
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr "Rreshti është zhvendosur nga rreshti %ld"
+msgstr "Rreshti u zhvendos nga rreshti %ld"
 
 #. Resource IDs: (176)
 #, c-format
@@ -6095,7 +6127,7 @@ msgstr ""
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
-msgstr ""
+msgstr "Lista1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
@@ -6287,6 +6319,10 @@ msgstr ""
 msgid "Many items selected to show diff"
 msgstr ""
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr ""
@@ -6313,10 +6349,6 @@ msgstr ""
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -6361,11 +6393,11 @@ msgstr ""
 
 #. Resource IDs: (16134)
 msgid "Menu"
-msgstr ""
+msgstr "Menyja"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr ""
+msgstr "Shiriti i Menysë"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
@@ -6373,7 +6405,7 @@ msgstr ""
 
 #. Resource IDs: (78, 109, 110, 111, 112, 278, 65535)
 msgid "Merge"
-msgstr ""
+msgstr "Bashko"
 
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
@@ -6393,7 +6425,7 @@ msgstr ""
 
 #. Resource IDs: (277)
 msgid "Merge all"
-msgstr ""
+msgstr "Bashko të gjitha"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
@@ -6405,7 +6437,7 @@ msgstr ""
 
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
-msgstr ""
+msgstr "Bashko alternativat"
 
 #. Resource IDs: (14)
 msgid "Merge reintegrate..."
@@ -6438,7 +6470,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "Merged"
-msgstr ""
+msgstr "Bashkuar"
 
 #. Resource IDs: (286)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
@@ -6452,7 +6484,7 @@ msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
-msgstr ""
+msgstr "Duke Bashkuar"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6628,6 +6660,10 @@ msgstr "Lëviz dhe riemëro"
 msgid "Move and rename item to here"
 msgstr "Lëviz dhe riemëro sendin këtu"
 
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
+
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "Lëvis sendet këtu"
@@ -6705,7 +6741,7 @@ msgstr "Kopje funks&ionale të shumëfishta, të pavarura "
 
 #. Resource IDs: (65535)
 msgid "My file:"
-msgstr ""
+msgstr "Skeda ime:"
 
 #. Resource IDs: (3697)
 msgid "NUM"
@@ -6772,7 +6808,7 @@ msgstr "Emri i &Ri"
 
 #. Resource IDs: (1001)
 msgid "New Menu"
-msgstr "Menyja e &Re"
+msgstr "Menyja e Re"
 
 #. Resource IDs: (97)
 #, c-format
@@ -7080,7 +7116,7 @@ msgstr "Rreshtet e vjetra"
 
 #. Resource IDs: (32814)
 msgid "Oldest on to&p"
-msgstr "Më të vjetrat sipë&r"
+msgstr "Më të vjetrat si&për"
 
 #. Resource IDs: (99, 1202)
 msgid "Omit e&xternals"
@@ -7128,7 +7164,7 @@ msgstr "Vetëm skedat fëmijë"
 msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
-msgstr "Vetëm numra (sipas dëshirës të ndarë me presje)\nlejohen!"
+msgstr "Lejohen vetëm numra (sipas dëshirës të ndarë me presje)!"
 
 #. Resource IDs: (626)
 msgid "Only properties changed"
@@ -7300,7 +7336,7 @@ msgstr "Fjalëkalimi:"
 
 #. Resource IDs: (156)
 msgid "Paste"
-msgstr "Hidh"
+msgstr "Hidhe"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7385,7 +7421,7 @@ msgstr "Shiritet e Mjeteve dhe Menytë e Personalizuara"
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
-msgstr "Pikturë (meta-skedë)\nnjë pikturë"
+msgstr "Foto (meta-skedë)\nnjë foto"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
@@ -7456,10 +7492,6 @@ msgstr ""
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
-
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
 msgstr ""
 
 #. Resource IDs: (104, 119, 146, 213)
@@ -7767,7 +7799,7 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "Re&name..."
-msgstr "Ri&emëro..."
+msgstr "Rie&mëro..."
 
 #. Resource IDs: (16613)
 msgid "Re&set"
@@ -7791,7 +7823,7 @@ msgstr ""
 
 #. Resource IDs: (1033)
 msgid "Re&vision"
-msgstr "&Ri&vlerësim"
+msgstr "Ri&vlerësim"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -8038,7 +8070,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
-msgstr "Largo nga &lista e injorimit"
+msgstr "Largo nga l&ista e injorimit"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
@@ -8060,14 +8092,6 @@ msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!s!"
 msgstr ""
-
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Largo direktorinë"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Largo skedën"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -8262,6 +8286,10 @@ msgstr ""
 msgid "Resolve"
 msgstr ""
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr ""
@@ -8284,6 +8312,10 @@ msgstr ""
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
+msgstr ""
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8640,6 +8672,44 @@ msgstr ""
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Ruaje Si"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9292,7 +9362,7 @@ msgstr "Madhësia"
 
 #. Resource IDs: (65535)
 msgid "Size and status"
-msgstr "Madhësia dhe Statuti"
+msgstr "Madhësia dhe statuti"
 
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
@@ -10283,6 +10353,12 @@ msgid ""
 "uses."
 msgstr ""
 
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr ""
@@ -10603,7 +10679,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nNënversioni %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10791,7 +10867,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"
-msgstr "Rikthe"
+msgstr "Zhbëje"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -11286,7 +11362,7 @@ msgstr ""
 
 #. Resource IDs: (219)
 msgid "Warning!"
-msgstr "Raralajmërim!"
+msgstr "Paralajmërim!"
 
 #. Resource IDs: (345)
 msgid ""
@@ -11630,19 +11706,19 @@ msgstr "Zvogëlo"
 
 #. Resource IDs: (32801)
 msgid "Zoom to &100%"
-msgstr "Zmadho 100%"
+msgstr "Zmadho &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
-msgstr ""
+msgstr "Zmadho të përputhet me hapësirën"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit in height"
-msgstr ""
+msgstr "Zmadho të përputhet me larësinë"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit in width"
-msgstr ""
+msgstr "Zmadho të përputhet me gjerësinë"
 
 #. Resource IDs: (1070)
 msgid "[Default]"
@@ -11720,7 +11796,7 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "author"
-msgstr "autori"
+msgstr "autor"
 
 #. Resource IDs: (65535)
 msgid "authors: "
@@ -12018,7 +12094,7 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr "në rrjeti"
+msgstr "në rrjet"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
@@ -12118,7 +12194,7 @@ msgstr ""
 msgid ""
 "svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
-msgstr "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
+msgstr "svn:eol-style\nNjë nga 'native', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (312)
 msgid "svn:executable"

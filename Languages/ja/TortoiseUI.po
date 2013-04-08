@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 18:39+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "表示する作者の数:"
+msgstr "個別に表示する作者の数:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -407,6 +407,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMergeについて(&A)..."
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr "現在の作業コピーの状態（解決済みとしてマーク）を受け入れる(&A)"
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "アクティブにする(&A)"
@@ -442,6 +446,10 @@ msgstr "あいまいなURLを許可(&A)"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "プロパティを再帰的に適用(&A)"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr "移動方向への更新を了承(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -706,6 +714,10 @@ msgstr "ごみ箱を空にする(&E)"
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "プロキシサーバーを有効にする(&E)"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr "編集を有効にする(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1105,6 +1117,10 @@ msgstr "環境依存（ネイティブ）(&P)"
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "ポート(&P):"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr "残りの競合を後回しにする(&P)"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1970,6 +1986,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "すべての変更が失われます。本当にツールバー「%s」をリセットしてもよろしいですか？"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr "このビューの編集を許可する\n編集を許可"
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "あいまいなUUIDを許可(&U)"
@@ -2500,6 +2522,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "キャンセル\nTortoiseMerge を終了しない"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2565,6 +2593,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "キャンセル\nまず競合を解決する。"
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2768,20 +2808,6 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "インポート前に削除したいファイルにチェックをつける。"
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "ログをチェックして、ファイルまたはフォルダーが、どのように名前変更または移動されたか確認し、名前変更または移動したままにするか、またはどちらかをリポジトリから戻すかを決めてください。そして、競合を解決済みとしてください。"
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "ログをチェックして、ファイルまたはフォルダーが、どのように名前変更または移動が行われたか確認し、名前変更したファイルに変更をマージするか、もしくは元のファイルを復元するか決めてください。"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3421,6 +3447,10 @@ msgstr "コピー: %s の新しい名前"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "%1!s! をコピー中"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr "外部リポジトリのURLからコピー"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4170,6 +4200,12 @@ msgstr "実行しない\nスクリプトを実行しない"
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "保存しない\n変更を保存せずにビューを再読込する"
 
@@ -4331,13 +4367,17 @@ msgstr "プロパティの自動付与を有効化(&P)"
 msgid "Enable Auto-Properties"
 msgstr "プロパティの自動付与を有効化"
 
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr "編集を有効化"
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "ログとリビジョングラフの各ダイアログを高速化するためにログのキャッシュを有効にする"
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
-msgstr "オーバーレイハンドラーを有効にする"
+msgstr "有効なオーバーレイハンドラー"
 
 #. Resource IDs: (195)
 msgid ""
@@ -5416,6 +5456,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr "ID:32893:V C +G"
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr "ID:32976:V C +E"
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5939,25 +5983,13 @@ msgstr "次の競合へ(&C)"
 msgid "Keep &locks"
 msgstr "ロックを保持(&L)"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr "この操作の移動結果を保持する"
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr "変更リストを保持(&H)"
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "リポジトリのディレクトリを保持"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "リポジトリのファイルを保持"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "ローカルのディレクトリを保持"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "ローカルのファイルを保持"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6290,6 +6322,10 @@ msgstr "Subversion のプロパティを管理する"
 msgid "Many items selected to show diff"
 msgstr "差分を表示するために多くの項目が選択されました"
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr "解決済みとしてマーク（移動はコピーになる）(&R)"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "解決済みとする"
@@ -6317,10 +6353,6 @@ msgstr "比較対象としてマーク"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "紛失ファイルを削除としてマークします"
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "競合を解決済みとしてマークする"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6630,6 +6662,10 @@ msgstr "移動して名前を変更"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "ここに項目を移動し名前を変更"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr "移動の破損"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7461,10 +7497,6 @@ msgstr "リポジトリブラウザーを初期化する間しばらくお待ち
 msgid "Please wait while we check the parameters for the merge."
 msgstr "マージのためのパラメータを確認している間、お待ちください。"
 
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "情報を取得する間、しばらくお待ちください ..."
-
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
@@ -8064,14 +8096,6 @@ msgid ""
 "%2!s!"
 msgstr "プロパティ「%1!S!」を\r\n%2!s! から削除"
 
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "ディレクトリを削除"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "ファイルを削除"
-
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "ディスクから選択されているキャッシュを削除"
@@ -8265,6 +8289,10 @@ msgstr "列をリセット"
 msgid "Resolve"
 msgstr "競合の解決"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr "後で解決(&L)"
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "競合の解決"
@@ -8288,6 +8316,10 @@ msgstr "競合の解決:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "後で解決する(&A)"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr "&theirのプロパティを使用して解決"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8643,6 +8675,44 @@ msgstr "名前を付けて保存(&A)..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "名前を付けて保存"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10285,6 +10355,12 @@ msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
 msgstr "現在、Tortoiseが使用しているもののほかに%d件のオーバーレイハンドラ―が使われています。"
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
+msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."

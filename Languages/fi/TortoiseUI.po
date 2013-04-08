@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 22:56+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,6 +407,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr "&Tietoja TortoiseMergestä..."
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivoi"
@@ -442,6 +446,10 @@ msgstr "&Salli moniselitteiset paikantimet"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "Aseta ominaisuus &palautuvasti"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -706,6 +714,10 @@ msgstr "&Tyhjennä roskakori"
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "Käytä &välityspalvelinta"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1105,6 +1117,10 @@ msgstr "&Alustariippuva"
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Portti:"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1970,6 +1986,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Kaikki muutoksesi katoavat! Haluatko todella palauttaa valintapalkin '%s' alkutilaan?"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Salli moniselitteiset &UUID-arvot"
@@ -2500,6 +2522,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "Peruuta\nÄlä poistu TortoiseMergestä"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2565,6 +2593,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "Peruuta\nRatko ensin ristiriidat."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2768,20 +2808,6 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "Valitse tiedostot, jotka haluat poistaa\nennen arkistoon tuontia."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "Tarkista lokista, kuinka tiedosto/kansio nimettiin uudelleen/siirrettiin ja päätä, haluatko säilyttää nykyisen vai arkiston version. Merkitse sitten ristiriita ratkaistuksi."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "Tarkista lokista, kuinka tiedosto/kansio nimettiin uudelleen/siirrettiin ja päätä sitten, haluatko yhdistää muutoksen uudelleen nimettyyn tiedostoosi, vaiko palauttaa alkuperäisen tiedoston."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3421,6 +3447,10 @@ msgstr "Kopio: Uusi nimi %s:lle"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "Kopioidaan %1!s!"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4170,6 +4200,12 @@ msgstr "Älä suorita\nÄlä suorita komentoa"
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Älä talleta\nAvaa näkymät uudelleen tallettamatta muutoksia"
 
@@ -4330,6 +4366,10 @@ msgstr "Kytke automaattiset &ominaisuudet"
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
 msgstr "Kytke automaattiset ominaisuudet"
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5416,6 +5456,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr "ID:32893:V C +S"
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5939,25 +5983,13 @@ msgstr "Siirry seuraavaan &ristiriitaan"
 msgid "Keep &locks"
 msgstr "Pidä &lukot"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr "&Säilytä muutoslistat"
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "Valitse arkiston hakemisto"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "Valitse arkiston tiedosto"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "Valitse paikallinen hakemisto"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "Valitse paikallinen tiedosto"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6290,6 +6322,10 @@ msgstr "Hallitse Subversion-ominaisuuksia"
 msgid "Many items selected to show diff"
 msgstr "Useita vertailukohteita vallittu"
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Merkitse ratkaistuksi"
@@ -6317,10 +6353,6 @@ msgstr "Valitse vertailua varten"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "Merkitse puuttuvat tiedostot poistetuiksi"
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "Merkitse ristiriita ratkaistuksi"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6630,6 +6662,10 @@ msgstr "Siirrä ja uudelleennimeä"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Siirrä ja uudelleennimeä kohde tänne"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7461,10 +7497,6 @@ msgstr "Odota, arkistoselain käynnistyy..."
 msgid "Please wait while we check the parameters for the merge."
 msgstr "Odota hetki, tarkistetaan yhdistämiseparametreja."
 
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "Odota hetki, lisätietoja haetaan..."
-
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Odota..."
@@ -8064,14 +8096,6 @@ msgid ""
 "%2!s!"
 msgstr "Poista ominaisuus '%1!S!'\r\npolulta %2!s!"
 
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Poista hakemisto"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Poista tiedosto"
-
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Poistaa valitut välimuistit levyltä"
@@ -8265,6 +8289,10 @@ msgstr "Palauta sarakkeet"
 msgid "Resolve"
 msgstr "Ratkaise"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Ratkaise ristiriita"
@@ -8288,6 +8316,10 @@ msgstr "Ratkaise ristiriita:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Ratkaise &myöhemmin"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -8643,6 +8675,44 @@ msgstr "Tallenna &nimellä..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Tallenna nimellä"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10285,6 +10355,12 @@ msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
 msgstr "Tortoisen käyttämien lisäksi asennettuna on %d kuvakepäällyskäsittelijää."
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
+msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."

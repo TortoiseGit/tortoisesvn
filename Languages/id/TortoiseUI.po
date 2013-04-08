@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-03-20 09:02+0000\n"
+"PO-Revision-Date: 2013-04-07 09:02+0000\n"
 "Last-Translator: Chandra <chandra@utama.us>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -414,6 +414,10 @@ msgstr "&..."
 msgid "&About TortoiseMerge..."
 msgstr ""
 
+#. Resource IDs: (610)
+msgid "&Accept current working copy state (mark as resolved)"
+msgstr ""
+
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivasi"
@@ -449,6 +453,10 @@ msgstr "&Izinkan URL rancu"
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "&Terapkan properti secara rekursif"
+
+#. Resource IDs: (610)
+msgid "&Apply the udpate to the move destination"
+msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -713,6 +721,10 @@ msgstr ""
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Hidupkan Server Proxy"
+
+#. Resource IDs: (32976)
+msgid "&Enable edit"
+msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1112,6 +1124,10 @@ msgstr "&Tergantung Platform (asli)"
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Port:"
+
+#. Resource IDs: (3)
+msgid "&Postpone all remaining conflicts"
+msgstr ""
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1977,6 +1993,12 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang bilah alat '%s'?"
 
+#. Resource IDs: (2062)
+msgid ""
+"Allow Editing for this view\n"
+"Allow Edit"
+msgstr ""
+
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Izinkan &UUID rancu"
@@ -2507,6 +2529,12 @@ msgid ""
 "Don't quit TortoiseMerge"
 msgstr "Batal\nJangan keluar dari TortoiseMerge"
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't reload views"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2572,6 +2600,18 @@ msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr "Batal\nSelesaikan konflik terlebih dulu."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current files"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Stay with current settings"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid ""
@@ -2775,20 +2815,6 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "Periksa berkas yang ingin Anda \nhapus sebelum mengimpor."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to keep your rename/move or the one from the repository. "
-"Then mark the conflict as resolved."
-msgstr "Memeriksa log untuk menemukan bagaimana berkas/folder diganti nama/dipindah dan memutuskan apakah Anda ingin menyimpan penggantian nama/perpindahan atau yang dari repositori. Jika sudah, silakan tanda konflik itu sebagai terselesaikan."
-
-#. Resource IDs: (612)
-msgid ""
-"Check the log to find out how the file/folder got renamed/moved and decide "
-"whether you want to merge the change into your renamed file, or restore the "
-"original file."
-msgstr "Memeriksa log untuk menemukan bagaimana berkas/folder diganti nama/dipindah dan memutuskan apakah Anda ingin menggabung perubahan itu ke berkas yang diganti nama atau mengembalikan berkas asli."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3428,6 +3454,10 @@ msgstr "Copy: Nama baru untuk %s"
 #, c-format
 msgid "Copying %1!s!"
 msgstr "Mengcopy %1!s!"
+
+#. Resource IDs: (266)
+msgid "Copying from foreign repository URL"
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4177,6 +4207,12 @@ msgstr ""
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
+"Close the views without saving the modifications"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Jangan simpan\nMemuat ulang tampilan tanpa menyimpan modifikasi"
 
@@ -4337,6 +4373,10 @@ msgstr "&Aktifkan properti-otomatis"
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
 msgstr "Aktifkan Properti-Otomatis"
+
+#. Resource IDs: (156)
+msgid "Enable Edit"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5423,6 +5463,10 @@ msgstr "ID:32883:V C +A"
 msgid "ID:32893:V C +G"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32976; '&Enable edit'
+msgid "ID:32976:V C +E"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5946,25 +5990,13 @@ msgstr ""
 msgid "Keep &locks"
 msgstr "Biarkan &kunci"
 
+#. Resource IDs: (611)
+msgid "Keep any moves affected by this operation"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr ""
-
-#. Resource IDs: (610)
-msgid "Keep the directory from the repository"
-msgstr "Gunakan direktori dari repositori"
-
-#. Resource IDs: (610)
-msgid "Keep the file from the repository"
-msgstr "Gunakan berkas dari repositori"
-
-#. Resource IDs: (610)
-msgid "Keep the local directory"
-msgstr "Gunakan direktori lokal"
-
-#. Resource IDs: (610)
-msgid "Keep the local file"
-msgstr "Gunakan berkas lokal"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6297,6 +6329,10 @@ msgstr "Atur properti Subversion"
 msgid "Many items selected to show diff"
 msgstr ""
 
+#. Resource IDs: (611)
+msgid "Mark as &resolved (the move will become a copy)"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Tandai diselesaikan"
@@ -6324,10 +6360,6 @@ msgstr "Tandai untuk perbandingan"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr ""
-
-#. Resource IDs: (610)
-msgid "Mark the conflict as resolved"
-msgstr "Tandai konflik sebagai terselesaikan"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6637,6 +6669,10 @@ msgstr "Pindahkan dan ganti nama"
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Pindahkan dan ganti nama item ke sini"
+
+#. Resource IDs: (266)
+msgid "Move broken"
+msgstr ""
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7468,10 +7504,6 @@ msgstr "Please wait while the repository browser is initializing..."
 msgid "Please wait while we check the parameters for the merge."
 msgstr ""
 
-#. Resource IDs: (1368)
-msgid "Please wait while we gather more information..."
-msgstr "Harap menunggu sementara kami mengumpulkan informasi..."
-
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Harap menunggu..."
@@ -8071,14 +8103,6 @@ msgid ""
 "%2!s!"
 msgstr "Hapus properti '%1!S!' dari\r\n%2!s!"
 
-#. Resource IDs: (610)
-msgid "Remove the directory"
-msgstr "Hapus direktori"
-
-#. Resource IDs: (610)
-msgid "Remove the file"
-msgstr "Hapus berkas"
-
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Hilangkan tembolok terpilih dari diska"
@@ -8272,6 +8296,10 @@ msgstr "Set ulang kolom"
 msgid "Resolve"
 msgstr "Selesaikan"
 
+#. Resource IDs: (2)
+msgid "Resolve &later"
+msgstr ""
+
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Menyelesaikan Konflik"
@@ -8295,6 +8323,10 @@ msgstr "Menyelesaikan konflik:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Menyelesaikan &nanti"
+
+#. Resource IDs: (1383)
+msgid "Resolve using &their property"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -8650,6 +8682,44 @@ msgstr "Simpan seb&agai"
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "Simpan Sebagai"
+
+#. Resource IDs: (316)
+msgid "Save File"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Left File as\n"
+"You're asked where to save the left file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Left File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save Right File as\n"
+"You're asked where to save the right file"
+msgstr ""
+
+#. Resource IDs: (316)
+#, c-format
+msgid ""
+"Save Right File\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Save all\n"
+"Both Files are saved"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10291,6 +10361,12 @@ msgstr "Ada perubahan atau item tidak berversi di dalam satu atau lebih direktor
 msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"There are more editable views.\n"
+"What view do you want to save?"
 msgstr ""
 
 #. Resource IDs: (64)
