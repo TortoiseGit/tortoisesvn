@@ -1001,9 +1001,20 @@ void TortoiseBlame::Notify(SCNotification *notification)
             notification->lParam = GetLineColor(notification->line);
         }
         break;
-    case SCN_STYLENEEDED:
     case SCN_UPDATEUI:
         {
+            LRESULT firstline = SendEditor(SCI_GETFIRSTVISIBLELINE);
+            LRESULT lastline = firstline + SendEditor(SCI_LINESONSCREEN);
+            long startstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, firstline);
+            long endstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, lastline) + (long)SendEditor(SCI_LINELENGTH, lastline);
+            if (endstylepos < 0)
+                endstylepos = (long)SendEditor(SCI_GETLENGTH)-startstylepos;
+
+            int len = endstylepos - startstylepos + 1;
+            // reset indicators
+            SendEditor(SCI_SETINDICATORCURRENT, STYLE_MARK);
+            SendEditor(SCI_INDICATORCLEARRANGE, startstylepos, len);
+
             int selTextLen = (int)SendEditor(SCI_GETSELTEXT);
             if (selTextLen == 0)
                 break;
@@ -1013,14 +1024,6 @@ void TortoiseBlame::Notify(SCNotification *notification)
             if (seltextbuffer[0] == 0)
                 break;
 
-            LRESULT firstline = SendEditor(SCI_GETFIRSTVISIBLELINE);
-            LRESULT lastline = firstline + SendEditor(SCI_LINESONSCREEN);
-            long startstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, firstline);
-            long endstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, lastline) + (long)SendEditor(SCI_LINELENGTH, lastline);
-            if (endstylepos < 0)
-                endstylepos = (long)SendEditor(SCI_GETLENGTH)-startstylepos;
-
-            int len = endstylepos - startstylepos + 1;
             std::unique_ptr<char[]> textbuffer(new char[len + 1]);
             TEXTRANGEA textrange;
             textrange.lpstrText = textbuffer.get();
@@ -1028,9 +1031,6 @@ void TortoiseBlame::Notify(SCNotification *notification)
             textrange.chrg.cpMax = endstylepos;
             SendEditor(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 
-            // reset indicators
-            SendEditor(SCI_SETINDICATORCURRENT, STYLE_MARK);
-            SendEditor(SCI_INDICATORCLEARRANGE, startstylepos, len);
             char * startPos = strstr(textbuffer.get(), seltextbuffer.get());
             while (startPos)
             {
