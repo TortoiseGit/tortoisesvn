@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,6 +102,15 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
+        return -1;
+    }
+
+    CString sUrl;
+    m_URLCombo.GetWindowText(sUrl);
+    CTSVNPath url(sUrl);
+    if (!url.IsUrl())
+    {
+        ShowComboBalloon(&m_URLCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
         return -1;
     }
 
@@ -210,10 +219,11 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
         return;
 
-    CString url;
-    m_URLCombo.GetWindowText(url);
+    CString sUrl;
+    m_URLCombo.GetWindowText(sUrl);
+    CTSVNPath url(sUrl);
 
-    if (!url.IsEmpty())
+    if (!url.IsEmpty() && url.IsUrl())
     {
         StopWCCheckThread();
         CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
@@ -225,7 +235,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
+        m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
         m_pLogDlg->SetProjectPropertiesPath(wcPath);
         m_pLogDlg->SetMergePath(wcPath);
 
