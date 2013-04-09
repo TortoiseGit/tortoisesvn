@@ -252,6 +252,11 @@
 #define IDS_ASKFORSAVE_SAVEALL2         5045
 #define IDS_SAVE                        5046
 #define IDS_SAVE_MORE                   5047
+#define IDS_ASKFORSAVE_SAVEBOTTOMAS     5048
+#define IDS_ASKFORSAVE_NEEDRESOLVE      5049
+#define IDS_ASKFORSAVEAS                5050
+#define IDS_ASKFORSAVEAS_MORE           5051
+#define IDS_ASKFORSAVEAS_MORECONFLICT   5052
 #define IDS_MARKASRESOLVED              5100
 #define IDS_MARKASRESOLVED_TASK2        5101
 #define IDS_MARKASRESOLVED_TASK3        5102

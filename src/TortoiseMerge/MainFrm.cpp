@@ -756,13 +756,10 @@ bool CMainFrame::LoadViews(int line)
                         m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
                     }
                 }
-                else
+                else if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
                 {
-                    if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
-                    {
-                        m_Data.m_sPatchPath = betterpatchpath;
-                        m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
-                    }
+                    m_Data.m_sPatchPath = betterpatchpath;
+                    m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
                 }
             }
             m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
@@ -1491,7 +1488,85 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 
 void CMainFrame::OnFileSaveAs()
 {
-    FileSaveAs();
+    if (CTaskDialog::IsSupported())
+    {
+        // ask what file to save as
+        bool bHaveConflict = (CheckResolved() >= 0);
+        CTaskDialog taskdlg(
+                CString(MAKEINTRESOURCE(bHaveConflict ? IDS_ASKFORSAVEAS_MORECONFLICT : IDS_ASKFORSAVEAS_MORE)),
+                CString(MAKEINTRESOURCE(IDS_ASKFORSAVEAS)),
+                CString(MAKEINTRESOURCE(IDS_APPNAME)),
+                0,
+                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+        // default can be last view (target) as was in 1.7 or actual (where is cursor) as is in most text editor
+        if (IsViewGood(m_pwndLeftView))
+        {
+            taskdlg.AddCommandControl(201, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS))); // left
+            taskdlg.SetDefaultCommandControl(201);
+        }
+        if (IsViewGood(m_pwndRightView))
+        {
+            taskdlg.AddCommandControl(202, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS))); // right
+            taskdlg.SetDefaultCommandControl(202);
+        }
+        if (IsViewGood(m_pwndBottomView))
+        {
+            taskdlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEBOTTOMAS))); // bottom
+            taskdlg.SetDefaultCommandControl(203);
+        }
+        if (bHaveConflict)
+        {
+            taskdlg.AddCommandControl(204, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_NEEDRESOLVE))); // resolve
+            taskdlg.SetDefaultCommandControl(204);
+        }
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetMainIcon(bHaveConflict ? TD_WARNING_ICON : TD_INFORMATION_ICON);
+        int nCommand = taskdlg.DoModal(m_hWnd);
+        CString sFileName;
+        switch (nCommand)
+        {
+        case 201: // left
+            if (TryGetFileName(sFileName))
+            {
+                // in 2, 3 view display we want to keep removed lines
+                m_pwndLeftView->SaveFileTo(sFileName, IsViewGood(m_pwndRightView) ? SAVE_REMOVED : 0);
+            }
+            break;
+        case 202: // right
+            if (TryGetFileName(sFileName))
+            {
+                m_pwndRightView->SaveFileTo(sFileName);
+            }
+            break;
+        case 203: // bottom
+            FileSaveAs();
+            break;
+        case 204: // continue resolving
+            if (m_pwndBottomView)
+            {
+                m_pwndBottomView->GoToLine(CheckResolved());
+            }
+            break;
+        }
+    }
+    else
+    {
+        // use 1.7 logic - only "target" can be saved
+        if (IsViewGood(m_pwndBottomView) || IsViewGood(m_pwndRightView))
+        {
+            // 2, 3 panel view was handled
+            FileSaveAs();
+        }
+        else if (IsViewGood(m_pwndLeftView))
+        {
+            CString sFileName;
+            if (TryGetFileName(sFileName))
+            {
+                m_pwndLeftView->SaveFileTo(sFileName);
+            }
+        }
+        return;
+    }
 }
 
 bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
