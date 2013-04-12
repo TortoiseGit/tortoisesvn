@@ -1521,7 +1521,7 @@ void CMainFrame::OnFileSaveAs()
         }
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetMainIcon(bHaveConflict ? TD_WARNING_ICON : TD_INFORMATION_ICON);
-        int nCommand = taskdlg.DoModal(m_hWnd);
+        int nCommand = (int)taskdlg.DoModal(m_hWnd);
         CString sFileName;
         switch (nCommand)
         {
