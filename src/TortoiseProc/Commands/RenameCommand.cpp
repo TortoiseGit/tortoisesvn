@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,9 +93,13 @@ bool RenameCommand::Execute()
     else
     {
         CString sFilemask = cmdLinePath.GetFilename();
-        if (sFilemask.ReverseFind('.')>=0)
+        int slashpos = sFilemask.ReverseFind('\\');
+        if (slashpos < 0)
+            slashpos = 0;
+        if (sFilemask.ReverseFind('.')>=slashpos)
         {
-            sFilemask = sFilemask.Left(sFilemask.ReverseFind('.'));
+            while (sFilemask.ReverseFind('.')>=slashpos)
+                sFilemask = sFilemask.Left(sFilemask.ReverseFind('.'));
         }
         else
             sFilemask.Empty();
