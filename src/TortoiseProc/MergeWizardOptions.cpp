@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,38 +151,7 @@ BOOL CMergeWizardOptions::OnWizardFinish()
 
     if ((pWizard->nRevRangeMerge == MERGEWIZARD_REINTEGRATE) && (!pWizard->bReintegrate))
     {
-        CWaitDlg waitdlg;
-        waitdlg.SetInfo(CString(MAKEINTRESOURCE(IDS_MERGE_WAITCHECK)));
-        waitdlg.Create(IDD_PLEASEWAIT, this);
-        waitdlg.ShowWindow(SW_SHOW);
-        // the wait dialog needs to process some messages now, otherwise it
-        // won't show the info text.
-        MSG stMsg;
-        while (::PeekMessage (&stMsg, NULL, 0, 0, PM_REMOVE))
-        {
-            ::TranslateMessage (&stMsg);
-            ::DispatchMessage (&stMsg);
-        }
-
-        // now this can take a really, really long time.
-        // should we do this here?
-        // or just have the merge error out later instead?
-        if (IsReintegrateMerge(CTSVNPath(pWizard->URL1), SVNRev(), pWizard->wcPath, true, true, true))
-        {
-            if (pWizard->m_bRecordOnly)
-            {
-                TSVNMessageBox(GetSafeHwnd(), IDS_MERGEAUTO_REINTEGRATELIKE_RECORDONLY, IDS_APPNAME, MB_ICONERROR);
-                return FALSE;
-            }
-            if (pWizard->m_depth != svn_depth_unknown)
-            {
-                TSVNMessageBox(GetSafeHwnd(), IDS_MERGEAUTO_REINTEGRATELIKE_DEPTH, IDS_APPNAME, MB_ICONERROR);
-                return FALSE;
-            }
-            pWizard->bAllowMixedRev = false;
-        }
-        waitdlg.ShowWindow(SW_HIDE);
-        waitdlg.DestroyWindow();
+        pWizard->bAllowMixedRev = false;
     }
 
     return CMergeWizardBasePage::OnWizardFinish();

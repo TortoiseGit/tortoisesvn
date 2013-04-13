@@ -84,7 +84,7 @@ BOOL CSettingsClearAuth::OnInitDialog()
 
 void CSettingsClearAuth::OnOK()
 {
-    std::vector<std::tuple<CString, CString, CString>> delList;
+    std::vector<std::tuple<CString, CString>> delList;
     for (int i = 0; i < m_cAuthList.GetItemCount(); ++i)
     {
         if (m_cAuthList.GetCheck(i))
@@ -95,7 +95,7 @@ void CSettingsClearAuth::OnOK()
             }
             else
             {
-                auto data = std::make_tuple(m_cAuthList.GetItemText(i, 0), m_cAuthList.GetItemText(i, 1), m_cAuthList.GetItemText(i, 2));
+                auto data = std::make_tuple(m_cAuthList.GetItemText(i, 0), m_cAuthList.GetItemText(i, 1));
                 delList.push_back(data);
             }
         }
@@ -123,8 +123,6 @@ void CSettingsClearAuth::FillAuthListControl()
     m_cAuthList.InsertColumn(0, temp);
     temp.LoadString(IDS_SETTINGSCLEAR_COL2);
     m_cAuthList.InsertColumn(1, temp);
-    temp.LoadString(IDS_SETTINGSCLEAR_COL3);
-    m_cAuthList.InsertColumn(2, temp);
 
     SVNAuthData authData;
     auto authList = authData.GetAuthList();
@@ -133,7 +131,6 @@ void CSettingsClearAuth::FillAuthListControl()
     {
         m_cAuthList.InsertItem (iItem,    std::get<0>(it));
         m_cAuthList.SetItemText(iItem, 1, std::get<1>(it));
-        m_cAuthList.SetItemText(iItem, 2, std::get<2>(it));
         ++iItem;
     }
 

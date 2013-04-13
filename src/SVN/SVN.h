@@ -522,17 +522,6 @@ public:
     bool MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision,
         const CTSVNPath& wcpath, bool dryrun, const CString& options);
     /**
-     * Performs an automatic merge of \c source into \c wcpath.
-     */
-    bool MergeAutomatically(const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
-                            bool ignoreancestry, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
-                            svn_depth_t depth, bool recordonly, bool force, bool dryrun, const CString& options);
-    /**
-     * Returns true if the automatic merge with the specified parameters would be reintegrate like.
-     */
-    bool IsReintegrateMerge(const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
-                            bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees);
-    /**
      * Returns a list of suggested source URLs for the given \c targetpath in \c revision.
      */
     bool SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs);

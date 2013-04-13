@@ -3226,17 +3226,18 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
         m_AlwaysConflicted = true;
     }
 
+    ASSERT(m_revisionArray.GetCount()==0);
+
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-    if (!MergeAutomatically(m_url, SVNRev::REV_HEAD, m_targetPathList[0],
-                            !!(m_options & ProgOptIgnoreAncestry),
-                            !!(m_options & ProgOptAllowMixedRev),
-                            true,           // allow local mods
-                            true,           // allow switched subtrees
-                            m_depth,
-                            !!(m_options & ProgOptRecordOnly),
-                            !!(m_options & ProgOptForce),
-                            !!(m_options & ProgOptDryRun),
-                            m_diffoptions))
+    if (!PegMerge(m_url, m_revisionArray,
+                  m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? SVNRev() : SVNRev(SVNRev::REV_WC)),
+                  m_targetPathList[0],
+                  !!(m_options & ProgOptForce),
+                  m_depth,
+                  m_diffoptions,
+                  !!(m_options & ProgOptIgnoreAncestry),
+                  !!(m_options & ProgOptDryRun),
+                  !!(m_options & ProgOptRecordOnly)))
     {
         ReportSVNError();
         GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);

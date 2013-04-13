@@ -39,8 +39,8 @@ public:
     SVNAuthData();
     ~SVNAuthData(void);
 
-    std::vector<std::tuple<CString, CString, CString>> GetAuthList();
-    std::vector<std::tuple<CString, CString, CString>> DeleteAuthList(const std::vector<std::tuple<CString, CString, CString>>& delList);
+    std::vector<std::tuple<CString, CString>> GetAuthList();
+    std::vector<std::tuple<CString, CString>> DeleteAuthList(const std::vector<std::tuple<CString, CString>>& delList);
 
 protected:
     apr_pool_t *                m_pool;         ///< the memory pool
@@ -48,6 +48,6 @@ protected:
 
     static svn_error_t * cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
                                           const char *cred_kind, const char *realmstring,
-                                          const char *provider, apr_pool_t *scratch_pool);
+                                          apr_hash_t *hash, apr_pool_t *scratch_pool);
 };
 

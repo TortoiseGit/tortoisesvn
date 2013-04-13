@@ -20,6 +20,7 @@
 #include "stdafx.h"
 #pragma warning(push)
 #include "svn_config.h"
+#include "svn_auth.h"
 #pragma warning(pop)
 #include "SVNAuthData.h"
 #include "UnicodeUtils.h"
@@ -52,43 +53,40 @@ SVNAuthData::~SVNAuthData(void)
 
 svn_error_t * SVNAuthData::cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
                                             const char *cred_kind, const char *realmstring,
-                                            const char *provider, apr_pool_t * /*scratch_pool*/)
+                                            apr_hash_t * /*hash*/, apr_pool_t * /*scratch_pool*/)
 {
-    std::tuple<std::vector<std::tuple<CString, CString, CString>>*, std::vector<std::tuple<CString, CString, CString>>> * tupleBaton =
-        (std::tuple<std::vector<std::tuple<CString, CString, CString>>*, std::vector<std::tuple<CString, CString, CString>>>*)cleanup_baton;
+    std::tuple<std::vector<std::tuple<CString, CString>>*, std::vector<std::tuple<CString, CString>>> * tupleBaton =
+        (std::tuple<std::vector<std::tuple<CString, CString>>*, std::vector<std::tuple<CString, CString>>>*)cleanup_baton;
 
     auto authList = std::get<0>(*tupleBaton);
     auto delList  = std::get<1>(*tupleBaton);
 
-    CString s1, s2, s3;
+    CString s1, s2;
     if (cred_kind)
         s1 = CUnicodeUtils::GetUnicode(cred_kind);
     if (realmstring)
         s2 = CUnicodeUtils::GetUnicode(realmstring);
-    if (provider)
-        s3 = CUnicodeUtils::GetUnicode(provider);
 
     for (auto it: delList)
     {
         if ((s1.Compare(std::get<0>(it)) == 0) &&
-            (s2.Compare(std::get<1>(it)) == 0) &&
-            (s3.Compare(std::get<2>(it)) == 0))
+            (s2.Compare(std::get<1>(it)) == 0))
         {
             *delete_cred = true;
         }
     }
-    authList->push_back(std::make_tuple(s1, s2, s3));
+    authList->push_back(std::make_tuple(s1, s2));
 
     return SVN_NO_ERROR;
 }
 
-std::vector<std::tuple<CString, CString, CString>> SVNAuthData::GetAuthList()
+std::vector<std::tuple<CString, CString>> SVNAuthData::GetAuthList()
 {
-    std::vector<std::tuple<CString, CString, CString>> authList;
-    std::vector<std::tuple<CString, CString, CString>> delList;
+    std::vector<std::tuple<CString, CString>> authList;
+    std::vector<std::tuple<CString, CString>> delList;
     auto cleanup_baton = std::make_tuple(&authList, delList);
     SVNPool subpool(m_pool);
-    Err = svn_auth_cleanup_walk(m_pctx->auth_baton, cleanup_callback, &cleanup_baton, subpool);
+    Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
     if (Err)
     {
         authList.clear();
@@ -96,11 +94,11 @@ std::vector<std::tuple<CString, CString, CString>> SVNAuthData::GetAuthList()
     return authList;
 }
 
-std::vector<std::tuple<CString, CString, CString>> SVNAuthData::DeleteAuthList( const std::vector<std::tuple<CString, CString, CString>>& delList )
+std::vector<std::tuple<CString, CString>> SVNAuthData::DeleteAuthList( const std::vector<std::tuple<CString, CString>>& delList )
 {
-    std::vector<std::tuple<CString, CString, CString>> authList;
+    std::vector<std::tuple<CString, CString>> authList;
     auto cleanup_baton = std::make_tuple(&authList, delList);
     SVNPool subpool(m_pool);
-    Err = svn_auth_cleanup_walk(m_pctx->auth_baton, cleanup_callback, &cleanup_baton, subpool);
+    Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
     return GetAuthList();
 }

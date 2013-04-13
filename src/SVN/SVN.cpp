@@ -950,19 +950,19 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
     CHooks::Instance().PreConnect(CTSVNPathList(source));
     SVNTRACE (
         Err = svn_client_merge_peg5 (svnPath,
-            revrangearray.GetAprArray(subpool),
-            pegrevision,
-            destpath.GetSVNApiPath(subpool),
-            depth,
-            ignoreancestry,
-            ignoreancestry,
-            force,
-            record_only,
-            dryrun,
-            true,
-            opts,
-            m_pctx,
-            subpool),
+                                     revrangearray.GetCount() ? revrangearray.GetAprArray(subpool) : NULL,
+                                     pegrevision,
+                                     destpath.GetSVNApiPath(subpool),
+                                     depth,
+                                     ignoreancestry,
+                                     ignoreancestry,
+                                     force,
+                                     record_only,
+                                     dryrun,
+                                     true,
+                                     opts,
+                                     m_pctx,
+                                     subpool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
@@ -980,6 +980,8 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, c
     Prepare();
     const char* svnPath = source.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(source));
+
+#pragma warning(disable:4996)   // disable deprecated warning: we use svn_client_merge_reintegrate specifically for 'old style' merges
     SVNTRACE (
         Err = svn_client_merge_reintegrate(svnPath,
             pegrevision,
@@ -990,75 +992,10 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, c
             subpool),
         svnPath
     );
+#pragma warning(default:4996)
+
     ClearCAPIAuthCacheOnError();
     return (Err == NULL);
-}
-
-
-bool SVN::IsReintegrateMerge( const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees )
-{
-    SVNPool subpool(pool);
-    Prepare();
-
-    // Find the 3-way merges needed (and check suitability of the WC).
-    svn_client_automatic_merge_t *merge;
-    const char* svnSourcePath = source.GetSVNApiPath(subpool);
-    SVNTRACE (
-            Err = svn_client_find_automatic_merge( &merge,
-                                                   svnSourcePath, srcrevision,
-                                                   wcpath.GetSVNApiPath(subpool),
-                                                   allowmixedrev,
-                                                   allowlocalmods,
-                                                   allowswitchedsubtrees,
-                                                   m_pctx, subpool, subpool),
-            svnSourcePath
-        );
-    if (Err == nullptr)
-    {
-        return svn_client_automatic_merge_is_reintegrate_like(merge) != 0;
-    }
-    return false;
-}
-
-bool SVN::MergeAutomatically( const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
-                              bool ignoreancestry, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
-                              svn_depth_t depth, bool recordonly, bool force, bool dryrun, const CString& options )
-{
-    SVNPool subpool(pool);
-    apr_array_header_t *opts;
-    opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
-
-    Prepare();
-
-    // Find the 3-way merges needed (and check suitability of the WC).
-    svn_client_automatic_merge_t *merge;
-    const char* svnSourcePath = source.GetSVNApiPath(subpool);
-    SVNTRACE (
-            Err = svn_client_find_automatic_merge( &merge,
-                                                   svnSourcePath, srcrevision,
-                                                   wcpath.GetSVNApiPath(subpool),
-                                                   allowmixedrev,
-                                                   allowlocalmods,
-                                                   allowswitchedsubtrees,
-                                                   m_pctx, subpool, subpool),
-            svnSourcePath
-    );
-    if (Err == 0)
-    {
-        // Perform the 3-way merges
-        SVNTRACE (
-                Err = svn_client_do_automatic_merge(merge,
-                                                    wcpath.GetSVNApiPath(subpool),
-                                                    depth,
-                                                    ignoreancestry,
-                                                    force, recordonly,
-                                                    dryrun, opts,
-                                                    m_pctx, subpool),
-                svnSourcePath
-        );
-    }
-
-    return (Err == nullptr);
 }
 
 bool SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs)
