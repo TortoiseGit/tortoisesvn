@@ -37,6 +37,7 @@
         <arg value="." />
         <arg value="version.build.in" />
         <arg value="version.build" />
+        <arg value="-f" />
       </exec>
     </if>
     <if test="${not file::exists(SubWCRevFileName)}">
