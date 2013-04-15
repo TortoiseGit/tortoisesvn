@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,6 +116,32 @@ BOOL CSettingsLogCaches::OnInitDialog()
 BOOL CSettingsLogCaches::PreTranslateMessage(MSG* pMsg)
 {
     m_tooltips.RelayEvent(pMsg);
+
+    if (pMsg->message == WM_KEYDOWN)
+    {
+        switch (pMsg->wParam)
+        {
+        case 'A':
+            {
+                if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+                {
+                    // select all entries
+                    const int itemCount = m_cRepositoryList.GetItemCount();
+                    for (int i=0; i<itemCount; ++i)
+                    {
+                        m_cRepositoryList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                    }
+                    return TRUE;
+                }
+            }
+            break;
+        case VK_DELETE:
+            {
+                OnBnClickedDelete();
+            }
+            break;
+        }
+    }
     return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
