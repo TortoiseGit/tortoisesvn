@@ -215,6 +215,7 @@ TSVN_ClearLastUsedAuthCache' />
           <include name="subversion\svnserve" />
           <include name="subversion\svnsync" />
           <include name="subversion\svnversion" />
+          <include name="tools\client-side\svn-bench" />
         </items>
       </in>
       <do>
@@ -238,6 +239,7 @@ TSVN_ClearLastUsedAuthCache' />
           <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
           <sources>
             <include name="subversion\${toolname}\*.c" />
+            <include name="tools\client-side\${toolname}\*.c"/>
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
           </sources>
           <includedirs>
