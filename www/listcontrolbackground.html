@@ -54,12 +54,12 @@ m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);</pre>
                     <p>
 
                     But of course, that didn't work at all. No background image
-                    was shown. Stepping through the code of SetBkImage shows
-                    that it's simply a wrapper around the
+                    was shown. Stepping through the code of <code>SetBkImage</code>
+                    shows that it's simply a wrapper around the
                     <a href="http://msdn.microsoft.com/library/en-us/shellcc/platform/commctls/listview/messages/lvm_setbkimage.asp">LVM_SETBKIMAGE</a>
                     message. Reading the MSDN docs about that message reviled
                     something that was missing completely from the
-                    documentation of SetBkImage: the parameter hbm of the
+                    documentation of <code>SetBkImage</code>: the parameter <code>hbm</code> of the
                     <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>
                     structure is "not currently used". Just great. I then tried
                     to use another option:</p>
@@ -106,8 +106,8 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     the explorer, assuming of course they don't use some
                     undocumented feature they like to keep to themselves.<br/>
                     Sometimes it is usefull to read the header files from the
-                    SDK. In the file commctrl.h I found the following defines
-                    for use in the
+                    SDK. In the file <em>commctrl.h</em> I found the following
+                    defines for use in the
                     <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>:
                     </p>
 
@@ -121,7 +121,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     But of these three defines, only the first one is
                     documented. Well, not exactly. Searching
                     <a href="http://msdn.microsoft.com">MSDN</a> for
-                    <em>LVBKIF_TYPE_WATERMARK</em> revealed
+                    <code>LVBKIF_TYPE_WATERMARK</code> revealed
                     <a href="http://msdn2.microsoft.com/en-us/library/ms670562.aspx">this page</a>.
                     And here those defines are documented. Heureka! Or so I
                     thought.</p>
@@ -145,7 +145,7 @@ lv.yOffsetPercent = 100;
 m_ListCtrl.SetBkImage(&amp;lv);</pre>
                     <p>Nope, didn't work either. Maybe the bitmap I used didn't
                     have a real alpha channel? Removing the
-                    <em>LVBKIF_FLAG_ALPHABLEND</em> flag didn't help either.
+                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag didn't help either.
                     Out of pure desperation I tried this:</p>
                     <pre class="prettyprint lang-cpp">
 HBITMAP hbm = LoadImage(hResource,
@@ -164,15 +164,16 @@ lv.yOffsetPercent = 100;
 SetBkImage(&amp;lv);</pre>
                     <p>
                     And this worked! Unbelievable. Even though the
-                    documentation tells that the hbm member of the LVBKIMAGE
-                    structure is "not currently used", it obviously is used
-                    (and must be used) if the LVBKIF_TYPE_WATERMARK flag is set.
+                    documentation tells that the <code>hbm</code> member
+                    of the <code>LVBKIMAGE</code> structure is "not currently used",
+                    it obviously is used (and must be used) if the
+                    <code>LVBKIF_TYPE_WATERMARK</code> flag is set.
                     The image was shown in the bottom right corner and stayed
                     there without any UI glitches even when scrolling the file
                     list. But (there's always a "but") the image was not shown
                     with its alpha channel. Where it should have been
                     transparent it was drawn black. But that's what the
-                    LVBKIF_FLAG_ALPHABLEND flag is for:</p>
+                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag is for:</p>
                     <pre class="prettyprint lang-cpp">
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
@@ -190,7 +191,7 @@ lv.yOffsetPercent = 100;
 SetBkImage(&amp;lv);</pre>
                     <p>
                     Or at least that's what I thought. Adding the
-                    LVBKIF_FLAG_ALPHABLEND flag made the bitmap disappear.
+                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag made the bitmap disappear.
                     I tried different bitmaps, used different image editors
                     to create a bitmap with alpha channel, but nothing worked.
                     I even extracted the bitmaps from shell.dll which the
@@ -299,9 +300,9 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     <img class="centered" src="img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set"/>
 
                     <p>As it turned out, this was due to the fact that I set
-                    the LVS_EX_FULLROWSELECT style for the control. Removing
-                    that style finally made the watermark image behave the
-                    exact same way it does in the explorer.</p>
+                    the <code>LVS_EX_FULLROWSELECT</code> style for the control.
+                    Removing that style finally made the watermark image behave
+                    the exact same way it does in the explorer.</p>
 
                     <p>And now (drumroll please): the screenshots of the add
                     and commit dialog:</p>
@@ -311,7 +312,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     <img src="img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark"/>
                     </div>
                     <p>And in case someone knows how to use the
-                    LVBKIF_FLAG_ALPHABLEND flag, please let me know!</p>
+                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag, please let me know!</p>
                 </div>
             </div>
         </div>
