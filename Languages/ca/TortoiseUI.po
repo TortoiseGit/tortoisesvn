@@ -10,14 +10,14 @@
 # 
 # Authors:
 # Translators:
-# Adrià Vilanova Martínez <jocdeladria@gmail.com>, 2012.
-# el_libre como el chaval <el.libre@gmail.com>, 2011.
+# Adrià Vilanova Martínez <jocdeladria@gmail.com>, 2012
+# Libre El Chaval <el.libre@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-07 09:02+0000\n"
+"PO-Revision-Date: 2013-04-15 08:40+0000\n"
 "Last-Translator: Adrià Vilanova Martínez <jocdeladria@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -340,7 +340,7 @@ msgstr ""
 msgid ""
 "%s\n"
 "%s"
-msgstr ""
+msgstr "%s\n%s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -386,7 +386,7 @@ msgid ""
 "%s\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr ""
+msgstr "%s\nés un directori, no un fitxer!\nTortoiseMerge no pot comparar directoris."
 
 #. Resource IDs: (286)
 #, c-format
@@ -403,7 +403,7 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr ""
+msgstr "&Quant a TortoiseMerge..."
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
@@ -827,7 +827,7 @@ msgstr "&Ajuda"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr ""
+msgstr "&Temes de l'Ajuda"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -1013,7 +1013,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
-msgstr ""
+msgstr "&Navega"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1286,7 +1286,7 @@ msgstr ""
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr ""
+msgstr "&Barra d'Estat"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1358,7 +1358,7 @@ msgstr ""
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
-msgstr ""
+msgstr "&Barra d'Eines"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -2007,7 +2007,7 @@ msgstr "Permet a diferents repositoris utilitzar la mateixa UUID, p.ex. reposito
 
 #. Resource IDs: (119)
 msgid "Already merged"
-msgstr ""
+msgstr "A"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
@@ -5198,7 +5198,7 @@ msgstr "Agrupa changelists"
 
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
-msgstr ""
+msgstr "&Revisió HEAD"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -6091,7 +6091,7 @@ msgstr "Eina de Línea\nLínea"
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr ""
+msgstr "Barra dif de línia"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -6170,7 +6170,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr ""
+msgstr "Barra Localització"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"

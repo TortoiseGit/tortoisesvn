@@ -10,16 +10,16 @@
 # 
 # Authors:
 # Translators:
-# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
-# Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2013.
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013.
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
+# Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2013
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-07 09:02+0000\n"
+"PO-Revision-Date: 2013-04-15 10:35+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2526,7 +2526,7 @@ msgstr "キャンセル\nTortoiseMerge を終了しない"
 msgid ""
 "Cancel\n"
 "Don't reload views"
-msgstr ""
+msgstr "キャンセル\nビューを再読み込みしません"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2598,13 +2598,13 @@ msgstr "キャンセル\nまず競合を解決する。"
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "キャンセル\n現在のファイルのままにします"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "キャンセル\n現在の設定のままにします"
 
 #. Resource IDs: (226)
 msgid ""
@@ -4201,7 +4201,7 @@ msgstr "実行しない\nスクリプトを実行しない"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "保存しない\n変更を保存せずにビューを閉じます"
 
 #. Resource IDs: (315)
 msgid ""
@@ -8678,13 +8678,13 @@ msgstr "名前を付けて保存"
 
 #. Resource IDs: (316)
 msgid "Save File"
-msgstr ""
+msgstr "ファイルを保存"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr ""
+msgstr "左ファイルを名前を付けて保存\n左ファイルをどこに保存するか指定します"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8692,13 +8692,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "左ファイルを保存\n変更を%sに保存します"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "右ファイルを名前を付けて保存\n左ファイルをどこに保存するか指定します"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8706,13 +8706,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "右ファイルを保存\n変更を%sに保存します"
 
 #. Resource IDs: (316)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "すべて保存\n両方のファイルを保存します"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10360,7 +10360,7 @@ msgstr "現在、Tortoiseが使用しているもののほかに%d件のオー�
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "他にも編集可能なビューがあります。\nどのビューを保存しますか？"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."

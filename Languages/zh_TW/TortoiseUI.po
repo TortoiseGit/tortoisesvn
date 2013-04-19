@@ -10,20 +10,20 @@
 # 
 # Authors:
 # Translators:
-# Arith Hsu <arithmandar@gmail.com>, 2011.
-# Binota Liu <liu.bangjyh@gmail.com>, 2013.
-# Cecil Sheng <zcecil@csie.org>, 2013.
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Nick Vrvilo <nick@vrvilo.com>, 2011.
-#  <zcecil@csie.org>, 2013.
-#   <zcecil@csie.org>, 2011-2013.
-# zcecil <zcecil@csie.org>, 2011.
+# Arith Hsu <arithmandar@gmail.com>, 2011
+# binota <liu.bangjyh@gmail.com>, 2013
+# zcecil <zcecil@csie.org>, 2013
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Nick Vrvilo <nick@vrvilo.com>, 2011
+# zcecil <zcecil@csie.org>, 2013
+# zcecil <zcecil@csie.org>, 2011-2013
+# zcecil <zcecil@csie.org>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-07 09:02+0000\n"
+"PO-Revision-Date: 2013-04-15 13:31+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -413,7 +413,7 @@ msgstr "關於TortoiseMerge…(&A)"
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "接受目前工作複本的狀態, 標記為已解決(&A)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -453,7 +453,7 @@ msgstr "套用屬性至子項目(&A)"
 
 #. Resource IDs: (610)
 msgid "&Apply the udpate to the move destination"
-msgstr ""
+msgstr "套用更新至移動目標(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -721,7 +721,7 @@ msgstr "啟用 Proxy 伺服器(&E)"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
-msgstr ""
+msgstr "啟用編輯(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1124,7 +1124,7 @@ msgstr "埠(&P):"
 
 #. Resource IDs: (3)
 msgid "&Postpone all remaining conflicts"
-msgstr ""
+msgstr "延後處理剩餘的衝突(&P)"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1994,7 +1994,7 @@ msgstr "全部的變更都會消失! 是否確定要重置工具列 '%s' ?"
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr ""
+msgstr "允許在此視窗中編輯\n允許編輯"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2530,7 +2530,7 @@ msgstr "取消\n不離開 TortoiseMerge"
 msgid ""
 "Cancel\n"
 "Don't reload views"
-msgstr ""
+msgstr "取消\n不重新載入視窗"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2602,13 +2602,13 @@ msgstr "取消\n先消除衝突."
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "取消\n保留目前的檔案"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "取消\n保留目前設定"
 
 #. Resource IDs: (226)
 msgid ""
@@ -3454,7 +3454,7 @@ msgstr "正在複製 %1!s!"
 
 #. Resource IDs: (266)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "正在自外部檔案庫URL複製中"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4205,7 +4205,7 @@ msgstr "不執行\n不執行指令檔"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "不儲存\n關閉視窗並且不儲存變更"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4373,7 +4373,7 @@ msgstr "啟用自動屬性設定"
 
 #. Resource IDs: (156)
 msgid "Enable Edit"
-msgstr ""
+msgstr "啟用編輯"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -5462,7 +5462,7 @@ msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5989,7 +5989,7 @@ msgstr "保持鎖定(&L)"
 
 #. Resource IDs: (611)
 msgid "Keep any moves affected by this operation"
-msgstr ""
+msgstr "保留所有受此次操作影響的移動行為"
 
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
@@ -6328,7 +6328,7 @@ msgstr "選擇了多個要顯示差異的項目"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
-msgstr ""
+msgstr "標記為已解決, 移動操作會改變為複製(&R)"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6669,7 +6669,7 @@ msgstr "移動並重新命名項目至此"
 
 #. Resource IDs: (266)
 msgid "Move broken"
-msgstr ""
+msgstr "移動已損壞的檔案"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -8295,7 +8295,7 @@ msgstr "解決衝突"
 
 #. Resource IDs: (2)
 msgid "Resolve &later"
-msgstr ""
+msgstr "稍候解決衝突(&L)"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
@@ -8323,7 +8323,7 @@ msgstr "稍後解決(&A)"
 
 #. Resource IDs: (1383)
 msgid "Resolve using &their property"
-msgstr ""
+msgstr "使用對方的屬性解決衝突(&T)"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8682,13 +8682,13 @@ msgstr "另存新檔"
 
 #. Resource IDs: (316)
 msgid "Save File"
-msgstr ""
+msgstr "儲存檔案"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr ""
+msgstr "另存左側檔案\n請問左側檔案要儲存至那裡"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8696,13 +8696,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "儲存左側檔案\n儲存左側檔案變更至\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "另存右側檔案\n請問右側檔案要儲存至那裡"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8710,13 +8710,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "儲存右側檔案\n儲存右側檔案變更至\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "全部儲存\n儲存左右兩側檔案"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -10364,7 +10364,7 @@ msgstr "包含 Tortoise 在內，目前共有 %d 個覆蓋圖示處理程式"
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "尚有可編輯的視窗.\n您要儲存那一側的視窗?"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
