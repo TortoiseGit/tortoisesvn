@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,7 @@ UINT __stdcall TerminateCache(MSIHANDLE /*hModule*/)
 
 UINT __stdcall OpenDonatePage(MSIHANDLE /*hModule*/)
 {
-    ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org/donate.html"), NULL, NULL, SW_SHOW);
+    ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.net/donate.html"), NULL, NULL, SW_SHOW);
     return ERROR_SUCCESS;
 }
 
