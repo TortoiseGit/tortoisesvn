@@ -755,6 +755,12 @@ BEGIN
     IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST 
                             "Use both text blocks (this one first)"
     IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST "Use both text blocks (this one last)"
+    IDS_VIEWCONTEXTMENU_PREPENDTHIS "Prepend this block to left"
+    IDS_VIEWCONTEXTMENU_USETHIS "Use this block on left"
+    IDS_VIEWCONTEXTMENU_APPENDTHIS "Append this block to left"
+    IDS_VIEWCONTEXTMENU_PREPENDRIGHT "Prepend right block"
+    IDS_VIEWCONTEXTMENU_USERIGHT "Use right block"
+    IDS_VIEWCONTEXTMENU_APPENDRIGHT "Append right block"
 END
 
 STRINGTABLE
@@ -1080,7 +1086,8 @@ BEGIN
     IDS_SAVE_MORE           "There are more editable views.\nWhat view do you want to save?"
     IDS_ASKFORSAVE_SAVEBOTTOMAS 
                             "Save Bottom File as\nYou're asked where to save the bottom file"
-    IDS_ASKFORSAVE_NEEDRESOLVE "Keep resolving\nJump to first unresolved conflict"
+    IDS_ASKFORSAVE_NEEDRESOLVE 
+                            "Keep resolving\nJump to first unresolved conflict"
     IDS_ASKFORSAVEAS        "Save as"
     IDS_ASKFORSAVEAS_MORE   "Select what file you want to save as"
     IDS_ASKFORSAVEAS_MORECONFLICT 
