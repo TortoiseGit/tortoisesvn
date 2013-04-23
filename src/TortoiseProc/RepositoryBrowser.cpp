@@ -734,8 +734,6 @@ LRESULT CRepositoryBrowser::OnRefreshURL(WPARAM /*wParam*/, LPARAM lParam)
 
 void CRepositoryBrowser::OnOK()
 {
-    RevokeDragDrop(m_RepoList.GetSafeHwnd());
-    RevokeDragDrop(m_RepoTree.GetSafeHwnd());
     if (m_blockEvents)
         return;
     if (m_RepoTree.GetEditControl())
@@ -784,6 +782,9 @@ void CRepositoryBrowser::OnOK()
     }
 
     ClearUI();
+
+    RevokeDragDrop(m_RepoList.GetSafeHwnd());
+    RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
     CResizableStandAloneDialog::OnOK();
 }
