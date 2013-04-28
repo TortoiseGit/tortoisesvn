@@ -1967,6 +1967,14 @@ msgstr ""
 msgid "Another process is blocking the working copy database, or the underlying filesystem does not support file locking; if the working copy is on a network filesystem, make sure file locking has been enabled on the file server."
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr ""
@@ -3749,7 +3757,7 @@ msgid "Do not show the context menu for the following paths:"
 msgstr ""
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
+msgid "Do reintegrate instead of automatic merge (old style)"
 msgstr ""
 
 #. Resource IDs: (90)
@@ -5462,6 +5470,10 @@ msgstr ""
 msgid "Keep c&hangelists"
 msgstr ""
 
+#. Resource IDs: (316)
+msgid "Keep resolving\nJump to first unresolved conflict"
+msgstr ""
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr ""
@@ -6901,6 +6913,14 @@ msgstr ""
 msgid "Prefer &repository"
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr ""
@@ -7935,6 +7955,10 @@ msgid "Save As"
 msgstr ""
 
 #. Resource IDs: (316)
+msgid "Save Bottom File as\nYou're asked where to save the bottom file"
+msgstr ""
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr ""
 
@@ -8214,6 +8238,14 @@ msgstr ""
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as\nNote: There is unresolved conflict!"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -9576,7 +9608,7 @@ msgstr ""
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 msgstr ""
 
 #. Resource IDs: (80, 65535)
@@ -9590,7 +9622,7 @@ msgstr ""
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 msgstr ""
 
 #. Resource IDs: (281)
@@ -10034,6 +10066,10 @@ msgstr ""
 msgid "Use regular expression"
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr ""
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr ""
@@ -10094,6 +10130,10 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
 msgstr ""
 
 #. Resource IDs: (12)
