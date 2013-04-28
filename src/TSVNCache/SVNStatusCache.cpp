@@ -23,7 +23,7 @@
 #include "CacheInterface.h"
 #include "UnicodeUtils.h"
 #include "SVNConfig.h"
-#include "shlobj.h"
+#include <shlobj.h>
 
 //////////////////////////////////////////////////////////////////////////
 #define BLOCK_PATH_DEFAULT_TIMEOUT  600 // 10 minutes

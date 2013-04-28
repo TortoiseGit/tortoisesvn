@@ -19,8 +19,8 @@
 #include "stdafx.h"
 #include "SmartHandle.h"
 #include "JumpListHelpers.h"
-#include "propvarutil.h"
-#include "propsys.h"
+#include <propvarutil.h>
+#include <propsys.h>
 
 HRESULT SetAppID(LPCTSTR appID)
 {

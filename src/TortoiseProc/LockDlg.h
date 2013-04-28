@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,13 +17,12 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "afxcmn.h"
-#include "sciedit.h"
+#include <afxcmn.h>
+#include "SciEdit.h"
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "RegHistory.h"
-#include "SciEdit.h"
 #include "registry.h"
 #include "Tooltip.h"
 

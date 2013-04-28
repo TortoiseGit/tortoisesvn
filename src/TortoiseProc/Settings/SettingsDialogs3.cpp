@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsDialogs3.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 
 
 // SettingsDialogs3 dialog

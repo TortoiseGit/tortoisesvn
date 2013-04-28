@@ -19,7 +19,7 @@
 #pragma once
 #include "tstring.h"
 #include <string>
-#include "ocidl.h"
+#include <ocidl.h>
 #include <GdiPlus.h>
 
 using namespace Gdiplus;

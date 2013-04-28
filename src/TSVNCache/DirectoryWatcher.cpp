@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Dbt.h"
 #include "SVNStatusCache.h"
-#include "directorywatcher.h"
+#include "DirectoryWatcher.h"
 #include "SmartHandle.h"
 
 #include <list>

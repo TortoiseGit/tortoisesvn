@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "messagebox.h"
+#include "MessageBox.h"
 #include "SVNProgressDlg.h"
 #include "LogDialog\LogDlg.h"
 #include "TSVNPath.h"

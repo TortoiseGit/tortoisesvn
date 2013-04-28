@@ -18,11 +18,11 @@
 //
 
 #include "stdafx.h"
-#include "foldercrawler.h"
+#include "FolderCrawler.h"
 #include "SVNStatusCache.h"
 #include "registry.h"
 #include "TSVNCache.h"
-#include "shlobj.h"
+#include <shlobj.h>
 #include "SysInfo.h"
 
 

@@ -9,8 +9,8 @@
 #ifndef __DRAGDROPIMPL_H__
 #define __DRAGDROPIMPL_H__
 //#include <ShlDisp.h>
-#include "shobjidl.h"
-#include "shlobj.h"
+#include <shobjidl.h>
+#include <shlobj.h>
 
 
 // problem: the interface IDragSourceHelper2 is only available if compiled

@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "PathUtils.h"
-#include "shlobj.h"
+#include <shlobj.h>
 #include "UnicodeUtils.h"
 
 #include "SVNHelpers.h"

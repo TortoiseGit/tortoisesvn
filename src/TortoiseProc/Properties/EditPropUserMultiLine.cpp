@@ -20,7 +20,7 @@
 #include "resource.h"
 #include "TortoiseProc.h"
 #include "EditPropUserMultiLine.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 #include "AppUtils.h"
 #include "UnicodeUtils.h"
 

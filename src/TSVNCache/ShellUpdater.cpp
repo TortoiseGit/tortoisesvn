@@ -18,7 +18,7 @@
 //
 
 #include "stdafx.h"
-#include "shlobj.h"
+#include <shlobj.h>
 #include "SVNStatusCache.h"
 
 CShellUpdater::CShellUpdater(void)

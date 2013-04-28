@@ -22,7 +22,7 @@
 #include "SettingsClearAuth.h"
 #include "SVNAuthData.h"
 #include "AppUtils.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 
 
 // CSettingsClearAuth dialog

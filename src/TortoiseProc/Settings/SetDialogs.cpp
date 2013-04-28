@@ -22,7 +22,7 @@
 #include "AppUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
-#include "setdialogs.h"
+#include "SetDialogs.h"
 #include "SVN.h"
 #include "BrowseFolder.h"
 

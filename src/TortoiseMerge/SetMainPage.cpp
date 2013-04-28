@@ -23,7 +23,6 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "SetMainPage.h"
-#include "setmainpage.h"
 
 
 // CSetMainPage dialog

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "EditPropUserState.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 #include "AppUtils.h"
 #include "UnicodeUtils.h"
 

@@ -35,7 +35,7 @@
 #include "LogDialog\LogDlg.h"
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
-#include "Svnstatuslistctrl.h"
+#include "SVNStatusListCtrl.h"
 #include "SVNDataObject.h"
 #include "TSVNPath.h"
 #include "registry.h"

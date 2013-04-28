@@ -20,7 +20,7 @@
 #include "resource.h"
 #include "AppUtils.h"
 
-#include "leftview.h"
+#include "LeftView.h"
 #include "BottomView.h"
 
 IMPLEMENT_DYNCREATE(CLeftView, CBaseView)

@@ -18,7 +18,7 @@
 //
 
 #pragma once
-#include "wininet.h"
+#include <wininet.h>
 
 // The name of the named-pipe for the cache
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")

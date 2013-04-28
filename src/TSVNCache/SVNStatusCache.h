@@ -27,7 +27,7 @@
 #include "ShellUpdater.h"
 #include "WCRoots.h"
 #include "ReaderWriterLock.h"
-#include "atlcoll.h"
+#include <atlcoll.h>
 
 //////////////////////////////////////////////////////////////////////////
 

@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "EditPropsLocalHooks.h"
 #include "UnicodeUtils.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 
 
 // CEditPropsLocalHooks dialog

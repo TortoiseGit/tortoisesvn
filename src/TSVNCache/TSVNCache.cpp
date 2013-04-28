@@ -28,7 +28,7 @@
 #include "SVNAdminDir.h"
 #include "Dbt.h"
 #include <initguid.h>
-#include "ioevent.h"
+#include <ioevent.h>
 #include "svn_dso.h"
 #include "SmartHandle.h"
 #include "DllVersion.h"
