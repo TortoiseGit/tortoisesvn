@@ -483,6 +483,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         }
         data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
         m_bConflictWarningShown = false;
+        m_bExternalStartInfoShown = false;
         break;
     case svn_wc_notify_update_shadowed_update:
     case svn_wc_notify_merge_record_info:
