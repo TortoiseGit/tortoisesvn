@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2011-2012 - TortoiseSVN
+// Copyright (C) 2008-2010, 2011-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
 #include "JobScheduler.h"
-#include "Win7.h"
 
 class CFullGraphNode;
 

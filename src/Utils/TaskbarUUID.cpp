@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012 - TortoiseSVN
+// Copyright (C) 2011-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "CmdLineParser.h"
 
 #include <Shobjidl.h>
-#include "Win7.h"
 #include <atlbase.h>
 
 #define APPID (_T("TSVN.TSVN.1"))

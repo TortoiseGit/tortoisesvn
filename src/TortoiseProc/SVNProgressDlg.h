@@ -25,7 +25,6 @@
 #include "Colors.h"
 #include "SVNExternals.h"
 #include "../IBugTraqProvider/IBugTraqProvider_h.h"
-#include "Win7.h"
 #include "LinkControl.h"
 #include "Hooks.h"
 

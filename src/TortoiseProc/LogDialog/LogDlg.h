@@ -35,7 +35,6 @@
 #include "HintCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
-#include "Win7.h"
 
 using namespace std;
 
