@@ -22,6 +22,9 @@
 #include "resource.h"
 #include <initguid.h>
 #include <propkeydef.h>
+#include "Win7.h"
+#include "SmartHandle.h"
+
 #if (NTDDI_VERSION < 0x06010000)
 
 #define INITGUID
@@ -34,11 +37,6 @@ DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x
 #endif
 
 #endif /* (NTDDI_VERSION < NTDDI_WIN7) */
-
-#include "stdafx.h"
-#include "Libraries.h"
-#include "Win7.h"
-#include "SmartHandle.h"
 
 /**
  * Makes sure a library named "Subversion" exists and has our template
@@ -152,5 +150,3 @@ HRESULT GetShellLibraryItem(LPWSTR pwszLibraryName, IShellItem2** ppShellItem)
 
     return hr;
 }
-
-
