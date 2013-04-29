@@ -32,7 +32,7 @@
 #include "HistoryDlg.h"
 #include "Hooks.h"
 #include "COMError.h"
-#include "..\version.h"
+#include "../version.h"
 #include "BstrSafeVector.h"
 #include "SmartHandle.h"
 

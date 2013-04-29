@@ -29,7 +29,7 @@
 #include "Repositorybrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
-#include "RevisionGraph\RevisionGraphDlg.h"
+#include "RevisionGraph/RevisionGraphDlg.h"
 #include "CheckoutDlg.h"
 #include "ExportDlg.h"
 #include "SVNProgressDlg.h"
@@ -49,7 +49,7 @@
 #include "SysInfo.h"
 #include <Shlwapi.h>
 #include "RepositoryBrowserSelection.h"
-#include "Commands\EditFileCommand.h"
+#include "Commands/EditFileCommand.h"
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
 #include "Callback.h"

@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #include "stdafx.h"
-#include "..\\TortoiseShell\\resource.h"
+#include "../TortoiseShell/resource.h"
 #include "tstring.h"
 #include "SVNReadProperties.h"
 #include "SVNStatus.h"

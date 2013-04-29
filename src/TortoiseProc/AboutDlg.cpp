@@ -21,8 +21,8 @@
 #include "TortoiseProc.h"
 #include "AboutDlg.h"
 #include "svn_version.h"
-#include "..\version.h"
-#include "..\..\ext\serf\serf.h"
+#include "../version.h"
+#include "../../ext/serf/serf.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CAboutDlg, CStandAloneDialog)

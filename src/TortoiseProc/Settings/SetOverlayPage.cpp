@@ -22,7 +22,7 @@
 #include "SetOverlayIcons.h"
 #include "Globals.h"
 #include "ShellUpdater.h"
-#include "..\TSVNCache\CacheInterface.h"
+#include "../TSVNCache/CacheInterface.h"
 #include "setoverlaypage.h"
 
 

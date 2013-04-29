@@ -25,7 +25,7 @@
 #include "SVNStatus.h"
 #include "PathUtils.h"
 #include "SysInfo.h"
-#include "..\TSVNCache\CacheInterface.h"
+#include "../TSVNCache/CacheInterface.h"
 #include <strsafe.h>
 
 

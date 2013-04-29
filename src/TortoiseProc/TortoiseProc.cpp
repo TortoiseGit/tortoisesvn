@@ -38,8 +38,8 @@
 #include "svn_dso.h"
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#include "Commands\Command.h"
-#include "..\version.h"
+#include "Commands/Command.h"
+#include "../version.h"
 #include "JumpListHelpers.h"
 #include "CmdUrlParser.h"
 #include "Libraries.h"

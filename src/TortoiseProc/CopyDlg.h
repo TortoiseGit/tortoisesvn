@@ -31,7 +31,7 @@
 #include "HintCtrl.h"
 #include "LinkControl.h"
 #include "BugTraqAssociations.h"
-#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
+#include "../IBugTraqProvider/IBugTraqProvider_h.h"
 
 #define WM_TSVN_MAXREVFOUND         (WM_APP + 1)
 

@@ -29,7 +29,7 @@
 #endif
 
 #include "resource.h"
-#include "..\\TortoiseShell\\resource.h"
+#include "../TortoiseShell/resource.h"
 
 #pragma warning(push)
 #include "svn_config.h"

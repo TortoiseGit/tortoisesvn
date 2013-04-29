@@ -23,7 +23,7 @@
 #pragma warning(pop)
 
 #include "resource.h"
-#include "..\TortoiseShell\resource.h"
+#include "../TortoiseShell/resource.h"
 #include "AppUtils.h"
 #include "TempFile.h"
 #include "SVNStatus.h"

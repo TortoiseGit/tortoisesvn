@@ -22,7 +22,7 @@
 #include "svn_config.h"
 #pragma warning(pop)
 #include "resource.h"
-#include "..\TortoiseShell\resource.h"
+#include "../TortoiseShell/resource.h"
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
 #include "SVNGlobal.h"

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@
 #include "RevisionDlg.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
-#include "LogDialog\LogDlg.h"
+#include "LogDialog/LogDlg.h"
 
 IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)

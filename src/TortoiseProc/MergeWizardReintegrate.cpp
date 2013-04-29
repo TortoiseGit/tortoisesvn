@@ -23,7 +23,7 @@
 
 #include "AppUtils.h"
 #include "PathUtils.h"
-#include "LogDialog\LogDlg.h"
+#include "LogDialog/LogDlg.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardReintegrate, CMergeWizardBasePage)
 

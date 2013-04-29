@@ -23,7 +23,7 @@
 #include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
-#include "..\version.h"
+#include "../version.h"
 #include "SetMainPage.h"
 #include "SVN.h"
 #include "SysInfo.h"

@@ -19,7 +19,7 @@
 
 #include "stdafx.h"
 #include "resource.h"
-#include "..\\TortoiseShell\\resource.h"
+#include "../TortoiseShell/resource.h"
 #include "MessageBox.h"
 #include "MyMemDC.h"
 #include "UnicodeUtils.h"
@@ -32,7 +32,7 @@
 #include "SVNProperties.h"
 #include "SVN.h"
 #include "SVNDiff.h"
-#include "LogDialog\LogDlg.h"
+#include "LogDialog/LogDlg.h"
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
 #include "SVNStatusListCtrl.h"

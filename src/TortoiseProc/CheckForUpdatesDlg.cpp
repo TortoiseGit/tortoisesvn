@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "..\version.h"
+#include "../version.h"
 #include "MessageBox.h"
 #include "CheckForUpdatesDlg.h"
 #include "registry.h"

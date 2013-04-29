@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include <assert.h>
 #include "LangDll.h"
-#include "..\version.h"
+#include "../version.h"
 
 #pragma comment(lib, "Version.lib")
 

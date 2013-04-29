@@ -21,7 +21,7 @@
 #include "ProjectProperties.h"
 #include "SciEdit.h"
 #include "BugTraqAssociations.h"
-#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
+#include "../IBugTraqProvider/IBugTraqProvider_h.h"
 
 /**
  * \ingroup TortoiseProc

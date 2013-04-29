@@ -36,7 +36,7 @@
 #include "svn_dirent_uri.h"
 #include "SubWCRev.h"
 #include "UnicodeUtils.h"
-#include "..\version.h"
+#include "../version.h"
 #include "svn_dso.h"
 #pragma warning(pop)
 
