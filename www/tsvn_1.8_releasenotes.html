@@ -37,19 +37,19 @@
                 </ul>
 
                 <p>TortoiseSVN 1.8 is a superset of all previous TortoiseSVN releases,
-                and is considered the current stable and "best" release. Anything in earlier versions
-                is also in 1.8, but 1.8 contains features and
+                and is considered the current stable and "best" release. Anything in
+                earlier versions is also in 1.8, but 1.8 contains features and
                 bugfixes not present in any earlier release.</p>
 
                 <p>This page describes only major changes. For a complete list
                 of changes, you can check our
                 <a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>
-                and the <a href="code.google.com/p/tortoisesvn/issues/list?can=1&q=label%3AMilestone-1.8.0">list of issues</a> for 1.8</p>
-                
+                and the <a href="http://code.google.com/p/tortoisesvn/issues/list?can=1&amp;q=label%3AMilestone-1.8.0">list of issues</a> for 1.8</p>
+
                 <p>Don't forget to check out all the changes in the Subversion
                 library that also is now at version 1.8: all those changes
                 are of course in TortoiseSVN as well. See the full list
-                of changes in the <a href="http://subversion.apache.org/docs/release-notes/1.8.html">Subversion 1.8 release notes</a>.
+                of changes in the <a href="http://subversion.apache.org/docs/release-notes/1.8.html">Subversion 1.8 release notes</a>.</p>
             </div>  <!-- news -->
 
             $ADSENSE_INPAGE$
@@ -74,14 +74,14 @@
                 and therefore also to have multiple fixes/tasks done
                 in one single commit.</p>
                 <p>To commit only the parts of the file that relate
-                to one specific issue:
+                to one specific issue:</p>
                 <ol>
                     <li>in the commit dialog, right-click on file, choose "restore after commit"</li>
                     <li>edit the file in e.g. TortoiseMerge: undo the changes that you don't want to commit yet</li>
                     <li>save the file</li>
                     <li>commit the file</li>
                 </ol>
-                after the commit is done, the original file is restored, containing
+                <p>After the commit is done, the original file is restored, containing
                 all the changes you didn't commit yet.
                 </p>
             </div>  <!-- commitparts -->
@@ -90,13 +90,13 @@
                 <h2>TortoiseMerge</h2>
                 <p>TortoiseMerge, the visual diff/merge tool that comes
                 with TortoiseSVN has also a lot of improvements.</p>
+                <a href="img/TMerge_TwoPaneRibbon.png" class="fancybox" rel="gallery" title="TortoiseMerge Ribbon">
+                    <img src="img/TMerge_TwoPaneRibbon-small.png" alt="TortoiseMerge Ribbon" width="364" height="187"/>
+                </a>
                 <dl>
                     <dt>Ribbon UI</dt>
                     <dd>TortoiseMerge uses now a Ribbon instead of a plain
                     toolbar for its commands.</dd>
-                    <a href="img/TMerge_TwoPaneRibbon.png" class="fancybox" rel="gallery" title="TortoiseMerge Ribbon">
-                        <img src="img/TMerge_TwoPaneRibbon-small.png" alt="TortoiseMerge Ribbon" width="364" height="187"/>
-                    </a>
                     <dt>Searching</dt>
                     <dd>new shortcuts to search (Ctrl+F3), better indication of search matches, only search the active view.</dd>
                     <dt>go to line</dt>
@@ -111,8 +111,7 @@
             <div class="post" id="repobrowser">
                 <h2>Repository Browser</h2>
                 <p>An often requested feature for the Repository Browser
-                was to list all the repositories that are offered via
-                the
+                was to list all the repositories that are offered via the
                 <a href="http://svnbook.red-bean.com/en/1.7/svn.serverconfig.httpd.html#svn.serverconfig.httpd.extra">SVNListParentPath</a>
                 directive. This is now possible: point the repository browser
                 to the root url and it lists all the repositories.
@@ -134,11 +133,11 @@
                 property, then updating those is not quite easy.</p>
                 <p>Just copying over the new version will work of course, but
                 if the new version has files removed, those files will still
-                be in your working copy</p>.
+                be in your working copy.</p>
                 <p>In version 1.8 TortoiseSVN offers an easier way to do this:
                 just right-drag the folder with the new version of the library
-                to the version stored in your working copy, then select <em>SVN vendor branch here</em>
-                from the context menu.</p>
+                to the version stored in your working copy, then select
+                <em>SVN vendor branch here</em> from the context menu.</p>
                 <p>TortoiseSVN then scans both directories, copies all
                 new files, removes files that are not present anymore in the new
                 version.</p>
@@ -148,8 +147,7 @@
 
             <div class="post" id="subwcrev">
                 <h2>SubWCRev</h2>
-                <p>SubWCRev also got a lot of improvements, the major ones
-                are:</p>
+                <p>SubWCRev also got a lot of improvements, the major ones are:</p>
                 <ul>
                     <li>Files in UTF-16 encoding can be used as well, either as
                     sources/templates or as target files as well.</li>
@@ -201,19 +199,22 @@
                     <th>Minimum Client<sup>1</sup></th>
                     <th>Minimum Server</th>
                     <th>Minimum Repository</th>
-                    <th>Notes</th></tr>
+                    <th>Notes</th>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#moves">working copy records moves</a></td>
                     <td>1.8</td>
                     <td>any</td>
                     <td>any</td>
-                    <td></td></tr>
+                    <td></td>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#auto-merge">automatic merging</a></td>
                     <td>1.8</td>
                     <td>1.5</td>
                     <td>1.5</td>
-                    <td></td></tr>
+                    <td></td>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#neon-deleted">neon support removed</a></td>
                     <td>1.8</td>
@@ -221,30 +222,35 @@
                     <td>any</td>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#neon-deleted">Server-side configuration changes</a>
                       might be required for optimal performance with 1.8 clients which
-                      access the repository via HTTP.</td></tr>
+                      access the repository via HTTP.</td>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#iprops">Inheritable properties</a></td>
                     <td>1.8</td>
                     <td>any</td>
                     <td>any</td>
                     <td>A 1.8 server isn't required but will deliver superior performance
-                      when asked for inherited properties.</td></tr>
+                      when asked for inherited properties.</td>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#repos-dictated-config">Repos dictated config props</a></td>
                     <td>1.8</td>
                     <td>any</td>
                     <td>any</td>
-                    <td></td></tr>
+                    <td></td>
+                  </tr>
                   <tr>
                     <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#in-repo-authz">Authz file in repository</a></td>
                     <td>any</td>
                     <td>1.8</td>
                     <td>any</td>
-                    <td></td></tr>
-                   <tr>
-                     <td colspan="5"><sup>1</sup>Reminder: when using the <tt>file://</tt>
-                       repository access method, the Subversion program is both the client
-                       <em>and</em> the server.</td></tr>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5"><sup>1</sup>Reminder: when using the <code>file://</code>
+                      repository access method, the Subversion program is both the client
+                      <em>and</em> the server.</td>
+                  </tr>
                 </table>
                 </div>  <!-- new-feature-compatibility-table -->
 
