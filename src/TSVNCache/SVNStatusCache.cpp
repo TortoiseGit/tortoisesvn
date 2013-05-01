@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2012 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 
 #include "stdafx.h"
 #include "SVNStatus.h"
-#include "Svnstatuscache.h"
+#include "SVNStatusCache.h"
 #include "CacheInterface.h"
 #include "UnicodeUtils.h"
 #include "SVNConfig.h"

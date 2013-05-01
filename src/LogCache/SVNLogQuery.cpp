@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@
 #include "SVNError.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
-#include "svntrace.h"
+#include "SVNTrace.h"
 #include "Hooks.h"
 
 // SVN API utility

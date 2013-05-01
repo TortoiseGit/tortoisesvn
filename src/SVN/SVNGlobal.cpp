@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
 #include "registry.h"
-#include "Unicodeutils.h"
+#include "UnicodeUtils.h"
 #include "SVNGlobal.h"
 
 char * g_pConfigDir = NULL;

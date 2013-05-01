@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "Revisiongraphdlg.h"
+#include "RevisionGraphDlg.h"
 #include "MessageBox.h"
 #include "SVN.h"
 #include "AppUtils.h"

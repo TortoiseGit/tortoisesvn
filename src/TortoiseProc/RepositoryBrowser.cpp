@@ -26,7 +26,7 @@
 #include "Blame.h"
 #include "BlameDlg.h"
 #include "WaitCursorEx.h"
-#include "Repositorybrowser.h"
+#include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
 #include "RevisionGraph/RevisionGraphDlg.h"

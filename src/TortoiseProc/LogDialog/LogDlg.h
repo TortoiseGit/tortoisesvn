@@ -19,7 +19,7 @@
 #pragma once
 
 #include "resource.h"
-#include "svn.h"
+#include "SVN.h"
 #include "ProjectProperties.h"
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"

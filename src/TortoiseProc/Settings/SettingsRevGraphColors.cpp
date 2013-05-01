@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsRevGraphColors.h"
-#include "settingscolors.h"
+#include "SettingsColors.h"
 
 IMPLEMENT_DYNAMIC(CSettingsRevisionGraphColors, ISettingsPropPage)
 CSettingsRevisionGraphColors::CSettingsRevisionGraphColors()

@@ -51,7 +51,7 @@
 #include "SysInfo.h"
 #include "ProgressDlg.h"
 #include "StringUtils.h"
-#include "svntrace.h"
+#include "SVNTrace.h"
 #include "FormatMessageWrapper.h"
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"

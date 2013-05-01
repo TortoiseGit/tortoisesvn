@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "Remotecachelink.h"
+#include "RemoteCacheLink.h"
 #include "ShellExt.h"
 #include "../TSVNCache/CacheInterface.h"
 #include "TSVNPath.h"

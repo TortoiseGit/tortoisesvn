@@ -20,7 +20,7 @@
 #include "resource.h"
 #include "UnicodeUtils.h"
 #include "registry.h"
-#include "filetextlines.h"
+#include "FileTextLines.h"
 #include "FormatMessageWrapper.h"
 #include "SmartHandle.h"
 

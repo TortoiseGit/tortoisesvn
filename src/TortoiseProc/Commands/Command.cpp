@@ -60,7 +60,7 @@
 #include "RepoStatusCommand.h"
 #include "ResolveCommand.h"
 #include "RevertCommand.h"
-#include "RevisiongraphCommand.h"
+#include "RevisionGraphCommand.h"
 #include "RTFMCommand.h"
 #include "SettingsCommand.h"
 #include "ShowCompareCommand.h"
