@@ -56,4 +56,3 @@ echo testlinemodified > %WC%1\foo2.c
 :: tree conflict on user 1 merge
 %SVNCLI% merge %REPO%/b2 -r3:HEAD %WC%1
 %SVNCLI% st %WC%1
-

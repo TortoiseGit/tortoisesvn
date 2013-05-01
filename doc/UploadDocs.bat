@@ -17,18 +17,19 @@ rem set ZIP="C:\Programme\7-zip\7z.exe"
 
 call docserverlogin.bat
 
-cd output
-del docs.zip
+pushd output
+if exist docs.zip del docs.zip
 
 %ZIP% a -r -x!*.pdf -x!*.chm -tzip docs.zip *
 
 %PSCP% -r -l %USERNAME% -pw %PASSWORD% docs.zip www.tortoisesvn.net:/var/www/vhosts/default/htdocs/docs
 
-if "%1"=="" (
-%PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/nightly;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
+if "%1" == "" (
+  %PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/nightly;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
 ) else (
-%PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/release;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
+  %PLINK% www.tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/htdocs/docs/docs.zip -d /var/www/vhosts/default/htdocs/docs/release;rm -f /var/www/vhosts/default/htdocs/docs/docs.zip
 )
-del docs.zip
 
-cd ..
+if exist docs.zip del docs.zip
+
+popd

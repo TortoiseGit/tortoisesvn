@@ -1,4 +1,4 @@
-ECHO OFF
+@echo OFF
 
 SET ROOTDIR=%cd%
 SET ROOTDIR=%ROOTDIR:\=/%
@@ -14,7 +14,7 @@ IF EXIST "%WC%" rmdir /s /q "%WC%"
 "%SVNADMIN%" create "%REPOS%"
 
 "%SVN%" co "%REPOS_PATH%" "%WC%1"
-ECHO file1 > "%WC%1"\File1.txt
+echo file1 > "%WC%1"\File1.txt
 "%SVN%" add "%WC%1"\File1.txt
 "%SVN%" ci -m "" "%WC%1" 
 

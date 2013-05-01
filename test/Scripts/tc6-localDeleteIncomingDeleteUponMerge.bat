@@ -13,8 +13,8 @@ set SVNADM=D:\Development\SVN\TortoiseSVN\bin\debug\bin\svnadmin.exe
 
 cd %ROOT%
 if exist %REPONAME% rd /s /q %REPONAME%
-if exist %WCNAME%1 rd /s /q %WCNAME%1
-if exist %WCNAME%2 rd /s /q %WCNAME%2
+if exist %WCNAME%1  rd /s /q %WCNAME%1
+if exist %WCNAME%2  rd /s /q %WCNAME%2
 
 mkdir %ROOT%\%REPONAME%
 svnadmin create %REPOROOT%\%REPONAME%
@@ -54,4 +54,3 @@ echo testline1 > %WC%1\foo2.c
 :: tree conflict on user 2 merge
 %SVNCLI% merge %REPO%/b1 -r1:HEAD %WC%2
 %SVNCLI% st %WC%2
-
