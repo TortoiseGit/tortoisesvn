@@ -198,12 +198,11 @@
                         <div class="h3" id="ovllostonupgrade">
                         <h3>Nach einem Update von TortoiseSVN, werden die Overlay-Icons nicht mehr angezeigt</h3>
                         <p>Dies ist ein bekanntes Problem bei Upgrades von Version 1.6.8 oder älter. Wenn dies Auftritt, muss eine Reparatur-Installation und ein Neustart durchgeführt werden.</p>
-                        <p>Falls dies nicht hilft, sind diese Antworten hilfreich:
+                        <p>Falls dies nicht hilft, sind diese Antworten hilfreich:</p>
                         <ul>
                             <li><a href="#ovlnotshowing">Warum werden die Overlay-Icons nicht angezeigt?</a></li>
                             <li><a href="#ovlnotall">Die Overlay-Icons werden angezeigt, aber nicht alle!</a></li>
                         </ul>
-                        </p>
                         </div>
 
                         <div class="h3" id="ovlnotshowing">
@@ -235,15 +234,14 @@
                         <p>Sie können überprüfen welche anderen Programme
                         Overlay-Icons verwenden indem Sie den folgenden Registry-Key
                         in regedit.exe anzeigen:
-                        HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+                        <code>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</code>
                         </p>
-                        <p>Bekannte Programme, welche ebenfalls Overlay-Icons benutzen:
+                        <p>Bekannte Programme, welche ebenfalls Overlay-Icons benutzen:</p>
                         <ul>
                             <li>Windows selbst. Vista und Windows 7 benutzen einen mehr als XP</li>
                             <li>Dropbox</li>
                             <li>Microsoft Groove (Teil von Office 2007/2010)</li>
                         </ul>
-                        </p>
                         </div>
 
                         <div class="h3" id="ovlonlylocal">
@@ -427,16 +425,15 @@
                         Wir haben ebenfalls ein Kapitel in unserer Doku über
                         dieses Thema:
                         <a title="Setting up a server" href="docs/release/TortoiseSVN_de/tsvn-serversetup.html">Zugriff auf das Projektarchiv</a>.
-                        <p>
+                        </p>
                         <p>Es gibt auch sehr einfache Installer welche einen
                         Subversion-Server ohne Konfiguration automatisch installieren
-                        und aufsetzen:
+                        und aufsetzen:</p>
                         <ul>
                             <li><a title="CollabNet server download" href="http://www.collab.net/downloads/subversion/" rel="nofollow">CollabNet Subversion Edge</a></li>
                             <li><a title="uberSVN" href="http://www.ubersvn.com/" rel="nofollow">uberSVN</a></li>
                             <li><a title="VisualSVN" href="http://www.visualsvn.com/server/" rel="nofollow">VisualSVN</a></li>
                         </ul>
-                        </p>
                         </div>
 
                         <div class="h3" id="listparentpath">
@@ -676,7 +673,7 @@
                         Zertifikatsspeicher von Windows zuzugreiffen wenn der
                         Repository-Server nach einem Zertifikat verlangt können
                         Sie den Registry-Schlüssel <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em>
-                        als DWORD Wert erstellen und den Wert auf <em>0<em> setzen.
+                        als DWORD Wert erstellen und den Wert auf <em>0</em> setzen.
                         </p>
                         </div>
                     </div>
@@ -738,7 +735,7 @@
                         <h3>... die Projekt-Revisionsnummer ins Projekt übernehmen?</h3>
                         <p>Benutzen Sie dazu das <em>SubWCRev.exe</em> Tool
                         welches mit TortoiseSVN installiert wird.
-                        Lesen Sie dazu unsere <a href="docs/release/TortoiseSVN_de/tsvn-subwcrev.html">Doku</a>.
+                        Lesen Sie dazu unsere <a href="docs/release/TortoiseSVN_de/tsvn-subwcrev.html">Doku</a>.</p>
                         </div>
 
                         <div class="h3" id="noautomerge">
@@ -882,7 +879,7 @@ diff3-cmd = "C:\\false.bat"</pre>
                         dass ohne ein Kommandozeilenfenster Fehlermeldungen
                         von Plink nicht angezeigt werden können. Tritt dies auf,
                         erscheint deshalb stattdessen diese nichtssagende Fehlermeldung.</p>
-                        Deshalb sollten Sie in diesem Fall zuerst nicht TortoisePlink,
+                        <p>Deshalb sollten Sie in diesem Fall zuerst nicht TortoisePlink,
                         sondern das richtige Plink Tool verwenden. Damit werden
                         die richtigen Fehlermeldungen angezeigt und Sie können
                         dann den Server korrekt aufsetzen und konfigurieren.
