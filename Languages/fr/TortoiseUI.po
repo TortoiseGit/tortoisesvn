@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
+"PO-Revision-Date: 2013-04-29 08:40+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2091,6 +2091,14 @@ msgid ""
 "server."
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Menus de la Bordure de l'Application :"
@@ -4051,8 +4059,8 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Ne pas afficher le menu contextuel pour les chemins suivants :"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
-msgstr "Procéder à une réintégration au lieu d'une fusion automatique"
+msgid "Do reintegrate instead of automatic merge (old style)"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -6000,6 +6008,12 @@ msgstr ""
 msgid "Keep c&hangelists"
 msgstr "Conserver les listes de &modifications"
 
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr ""
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr "Clavier"
@@ -7550,6 +7564,14 @@ msgstr "Privilégier la copie &locale"
 msgid "Prefer &repository"
 msgstr "Privilégier le &dépôt "
 
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Presser la &Nouvelle Touche de Raccourci :"
@@ -8686,6 +8708,12 @@ msgid "Save As"
 msgstr "Enregistrer sous"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr ""
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr ""
 
@@ -8996,6 +9024,16 @@ msgstr "Sélectionner le type de fusion"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Sélectionner l'application de visualisation des différences"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10669,8 +10707,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr ""
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10687,11 +10725,11 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11174,6 +11212,10 @@ msgstr "Utiliser la corbeille lors d'un retour en arrière"
 msgid "Use regular expression"
 msgstr "Utiliser les expressions régulières"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr ""
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Utiliser les réglages internationaux du système pour la date/l'heure"
@@ -11256,6 +11298,10 @@ msgstr "Utiliser le chemin d'origine.\nAppliquer le patch à\n%s"
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Utiliser la &totalité de ce fichier"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

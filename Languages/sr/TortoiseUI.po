@@ -12,14 +12,15 @@
 # Translators:
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Milorad Popovic <MiloradSPopovic@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-04-29 20:09+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2081,6 +2082,14 @@ msgid ""
 "server."
 msgstr "Други процес блокира базу података радне копије, или фајл систем не подржава закључавање фајлова; ако је радна копија на мрежном фајл систему, осигурајте да је омогућено закључавање фајлова на серверу фајлова."
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr "Додај десни блок"
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr "Додај овај блок лево"
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Мени оквира апликације"
@@ -4041,8 +4050,8 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Не приказуј конетекст мени за следеће путање:"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
-msgstr "Уради реинтеграцију уместо аутоматског стапања"
+msgid "Do reintegrate instead of automatic merge (old style)"
+msgstr "Реинтегришите уместо аутоматског стапања (стари начин)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -5990,6 +5999,12 @@ msgstr "Чувај свако померање узроковано овом о�
 msgid "Keep c&hangelists"
 msgstr "Чувај л&исте измена"
 
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr "Чувајте решено\nСкок на први нерешен конфликт"
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr "Тастатура"
@@ -7540,6 +7555,14 @@ msgstr "Претпостави &локално "
 msgid "Prefer &repository"
 msgstr "Претпостави  сп&ремиште"
 
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr "Припрема десни блок"
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr "Припрема овај блок лево"
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Притисни &Нови Тастер Скраћеница:"
@@ -8676,6 +8699,12 @@ msgid "Save As"
 msgstr "Сачувај као"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr "Чува доње фајлове као\nБићете питани где да сачувате доње фалове"
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr "Сачувај фајл"
 
@@ -8986,6 +9015,16 @@ msgstr "Одредите тип стапања"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Изаберите прегледач за разл-фајл"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr "Изаберите који фајл желите да сачувате као"
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr "Изаберите који фајл желте да сачувате као\nПримедба: Постоји нерешен конфликт!"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10659,8 +10698,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "ТортоисеМерге %d.%d.%d, Гради %d - %s, %s\r\nлибсвн_дифф %d.%d.%d, %s\r\nапр %d.%d.%d\r\nапр-утилс %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10677,11 +10716,11 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "ТортоисеСВН%d.%d.%d, Изгради %d - %s, %s\r\nСубверзија %d.%d.%d, %s\r\nапр %d.%d.%d\r\nапр-утилс %d.%d.%d\r\nсерф %d.%d.%d\r\n%s\r\nзлиб %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11164,6 +11203,10 @@ msgstr "Користите корпу за отпатке када враћат�
 msgid "Use regular expression"
 msgstr "Користи регуларне изразе"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr "Користи десни блок"
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Користи системске поставке датума/времена"
@@ -11246,6 +11289,10 @@ msgstr "Користите оригиналну путању.\nПрименит�
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Користи овај &цели фајл"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr "Користи овај блок лево"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

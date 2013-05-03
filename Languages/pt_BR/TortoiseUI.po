@@ -17,15 +17,15 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # mkbu95 <mkbu95@gmail.com>, 2013
-# Rafael Heise <rmheise@gmail.com>, 2011, 2012
+# Rafael Heise <rmheise@gmail.com>, 2011-2013
 # Ricardo RCDMK Souza <srrcdmk@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-04-29 14:55+0000\n"
+"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -263,7 +263,7 @@ msgstr "%s, mas o diretório já existe localmente."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, mas o diretório já foi editado."
+msgstr "%s, mas o diretório já foi alterado."
 
 #. Resource IDs: (609)
 #, c-format
@@ -1885,7 +1885,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Adicionar (s) arquivo(s) padrão(ões)\n%s\npara a lista global de arquivos ignorados"
 
 #. Resource IDs: (145)
 #, c-format
@@ -2087,6 +2087,14 @@ msgid ""
 "server."
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Menus da Moldura da Aplicação:"
@@ -2238,7 +2246,7 @@ msgstr "Renomear Automaticamente"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-combinação"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2261,7 +2269,7 @@ msgstr "A medida que você digita seu comentário, o autocompletar sugere palavr
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-combinação %1!s! em %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3089,7 +3097,7 @@ msgstr "Linha de Comando A Executar:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Linha de comando para Executar:»\nPara especificar um caminho dentro da cópia de trabalho, especifique o endereço no repositório com o diretório principal do repositório como %REPOROOT%, ou %REPOROOT+% d até o diretório principal da cópia de trabalho."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4047,7 +4055,7 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Não exibir o menu de contexto para os seguintes caminhos:"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
+msgid "Do reintegrate instead of automatic merge (old style)"
 msgstr ""
 
 #. Resource IDs: (90)
@@ -5996,6 +6004,12 @@ msgstr ""
 msgid "Keep c&hangelists"
 msgstr "Manter &alterações"
 
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr ""
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr "Teclado"
@@ -6197,7 +6211,7 @@ msgstr "Bloquear Arquivos"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Bloqueio desfeito."
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -7021,7 +7035,7 @@ msgstr "Aviso"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Nota: se você atualizar sua cópia de trabalho você não poderá mais acessar uma cópia de trabalho anterior à versão 1.8 de clientes SVN!\nVocê tem certeza que quer atualizar sua cópia de trabalho?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7500,7 +7514,7 @@ msgstr "Por favor, aguarde enquanto o navegador do repositório é iniciado..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Por favor espere enquanto verificamos os parâmetros para a combinação."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7545,6 +7559,14 @@ msgstr "Usar &local"
 #. Resource IDs: (4)
 msgid "Prefer &repository"
 msgstr "Usar &repositório"
+
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7779,7 +7801,7 @@ msgstr "Unidades R&AM"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eintegrar o ramo / combinação automática"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8139,7 +8161,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Removido o(s) arquivo(s) padrão(ões)\n%s\nda lista de arquivos ignorados."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8682,6 +8704,12 @@ msgid "Save As"
 msgstr "Salvar Como"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr ""
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr ""
 
@@ -8992,6 +9020,16 @@ msgstr "Selecionar o tipo de combinação"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Selecionar visualizador para arquivos de comparação"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -9418,7 +9456,7 @@ msgstr "Ignorado, pai não controlado"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Ignorado, continua em conflito."
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10540,7 +10578,7 @@ msgstr "Remove os registros de comandos usados nesta aplicação e restaura o co
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "A ação atualizará sua cópia de trabalho para o novo formato versão 1.8 e ficará inutilizado para versões anteriores."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10665,8 +10703,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr ""
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10683,11 +10721,11 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11050,7 +11088,7 @@ msgstr "Atualizando o cache de log"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Atualizar a cópia local\npara o novo formato 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11170,6 +11208,10 @@ msgstr "Usar lixeira para fazer reversão"
 msgid "Use regular expression"
 msgstr "Usar expressão regular"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr ""
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Usar configuração regional do sistema para data/hora"
@@ -11252,6 +11294,10 @@ msgstr "Usar o caminho original.\nAplicar a correção para\n%s"
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Use esse arquivo &inteiro"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
+"PO-Revision-Date: 2013-04-29 08:40+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2085,6 +2085,14 @@ msgid ""
 "server."
 msgstr "Un altro processo sta bloccando la copia di lavoro del database, o il file system non supporta il blocco dei file. Se la copia di lavoro del database ha un file system di rete, assicurati che il blocco dei file sia stato abilitato nel file server."
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Menu dei frame dell'applicazione:"
@@ -4045,8 +4053,8 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Non visualizzare il menu contestuale per i seguenti percorsi:"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
-msgstr "Effettua reintegrazione invece di unione automatica"
+msgid "Do reintegrate instead of automatic merge (old style)"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -5994,6 +6002,12 @@ msgstr "Mantieni questa operazione per qualsiasi spostamento"
 msgid "Keep c&hangelists"
 msgstr "&Mantieni elenco modifiche"
 
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr ""
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr "Tastiera"
@@ -7544,6 +7558,14 @@ msgstr "Usa copia &locale"
 msgid "Prefer &repository"
 msgstr "Usa &repository"
 
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Premi &nuova abbreviazione tasto:"
@@ -8680,6 +8702,12 @@ msgid "Save As"
 msgstr "Salva come"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr ""
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr "Salva file"
 
@@ -8990,6 +9018,16 @@ msgstr "Seleziona il tipo di unione"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Seleziona l'applicazione per il confronto dei file"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10663,8 +10701,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr ""
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10681,11 +10719,11 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversione %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11168,6 +11206,10 @@ msgstr "Usa cestino quando si fa il reverting"
 msgid "Use regular expression"
 msgstr "Usa espressione regolare"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr ""
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Utilizzare la data di sistema come data/ora"
@@ -11250,6 +11292,10 @@ msgstr "Usa il percorso originale.\nApplica la patch a\n%s"
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Utilizza l'&intero file"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

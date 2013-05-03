@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-30 07:52+0000\n"
+"PO-Revision-Date: 2013-05-02 07:30+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1202,7 +1202,7 @@ msgstr "&Mit der lokalen Eigenschaft auflösen"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
-msgstr "&Standardwerte wieder herstellen"
+msgstr "&Standardwerte"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
@@ -1680,7 +1680,7 @@ msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
-msgstr "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die kein Kontextmenü angezeigt wird.\r\nWenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
+msgstr "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die kein Kontextmenü angezeigt wird.\nWenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen.\nEine leere Liste lässt Kontextmenüs für alle Pfade zu."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1688,7 +1688,7 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
-msgstr "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die keine überlagerten Symbole angezeigt werden.\r\nWenn Sie ein '?' Zeichen an einen Pfad anhängen, wird nur dieser Pfad ausgeschlossen.\r\nWenn Sie ein '*' oder gar kein Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
+msgstr "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die keine überlagerten Symbole angezeigt werden.\nWenn Sie ein '?' Zeichen an einen Pfad anhängen, wird nur dieser Pfad ausgeschlossen.\nWenn Sie ein '*' oder gar kein Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen.\nEine leere Liste lässt überlagerte Symbole für alle Pfade zu."
 
 #. Resource IDs: (90)
 msgid ""
@@ -1714,7 +1714,7 @@ msgstr "Unter Windows darf ein gültiger Pfad weder die Zeichen '<>|\"?*:' noch 
 msgid ""
 "A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
-msgstr "Ein Anzeigeprogramm für Standard-Diffdateien (Patchdateien).\r\nFalls Sie keines haben wählen Sie einen normalen Texteditor\r\n(z.B. Notepad.exe)."
+msgstr "Ein Anzeigeprogramm für Standard-Diffdateien (Patchdateien).\nFalls Sie keines haben, wählen Sie einen normalen Texteditor, wie \nz.B. Notepad."
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
@@ -1790,7 +1790,7 @@ msgstr "Aktive Dateien"
 msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
-msgstr "ActiveX Objekte können während Windows beendet wird nicht gespeichert werden!\nAlle Änderungen an %1 verwerfen?"
+msgstr "ActiveX Objekte können nicht gespeichert werden, während Windows beendet wird!\nAlle Änderungen an %1 verwerfen?"
 
 #. Resource IDs: (77, 155, 209, 229)
 msgid "Add"
@@ -1918,7 +1918,7 @@ msgstr "Groß-/Kleinschreibung anpassen\nDie Datei wird nicht hinzugefügt."
 msgid ""
 "Adjust the settings\n"
 "Settings"
-msgstr "Einstellungen\nEinstellungen"
+msgstr "Einstellungen anpassen\nEinstellungen"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"

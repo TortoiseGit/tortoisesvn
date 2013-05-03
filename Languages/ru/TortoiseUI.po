@@ -13,17 +13,19 @@
 # shcham <shcham@gmail.com>, 2013
 # Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011
 # _deniska <denis_levin@mail.ru>, 2011
+# Dmitry Sytkov <sytkov@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011-2012
+# shcham <shcham@gmail.com>, 2013
 # Dmitry Sytkov <sytkov@gmail.com>, 2011
-# Вячеслав Третьяков <tret2003@gmail.com>, 2012
+# Вячеслав Третьяков <tret2003@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-04-30 08:06+0000\n"
+"Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -452,7 +454,7 @@ msgstr "&Применить свойство рекурсивно"
 
 #. Resource IDs: (610)
 msgid "&Apply the udpate to the move destination"
-msgstr ""
+msgstr "&применить обновление к месту назначения"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1123,7 +1125,7 @@ msgstr "&Порт:"
 
 #. Resource IDs: (3)
 msgid "&Postpone all remaining conflicts"
-msgstr ""
+msgstr "&Отложить все остальные конфликты"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -2084,6 +2086,14 @@ msgid ""
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
 msgstr "Другой процесс блокирует базу данных рабочей копии, или базовая файловая система не поддерживает блокировку файла; если рабочая копия находится в сетевой файловой системе, то убедитесь, что на файловом сервере разрешена блокировка файлов."
+
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr "Присоединить в конец правый блок"
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr "Присоединить этот блок в конец левого"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -4045,8 +4055,8 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Не показывать контекстное меню для следующих путей:"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
-msgstr "Воссоединить вместо автоматического слияния"
+msgid "Do reintegrate instead of automatic merge (old style)"
+msgstr "Сделать воссоединение вместо автоматического слияния (старый стиль)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -5988,11 +5998,17 @@ msgstr "Сохранить &блокировки"
 
 #. Resource IDs: (611)
 msgid "Keep any moves affected by this operation"
-msgstr ""
+msgstr "Сохранить все действия, затронутые этой операцией"
 
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
 msgstr "Сохранить группы из&менений"
+
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr "Продолжать улаживание\nПерейти к первому неулаженному конфликту"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6668,7 +6684,7 @@ msgstr "Переместить и переименовать элемент сю
 
 #. Resource IDs: (266)
 msgid "Move broken"
-msgstr ""
+msgstr "Перемещение прервано"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7543,6 +7559,14 @@ msgstr "&Локальные"
 #. Resource IDs: (4)
 msgid "Prefer &repository"
 msgstr "Из &хранилища"
+
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr "Присоединить спереди правый блок"
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr "Присоединить этот блок спереди левого"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -8680,6 +8704,12 @@ msgid "Save As"
 msgstr "Сохранить как"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr "Сохранить нижний файл как\nУ вас спросили куда сохранить нижний файл"
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr "Сохранить файл"
 
@@ -8990,6 +9020,16 @@ msgstr "Выберите тип слияния"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Выберите программу просмотра файлов различий"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr "Выберите файл, который вы хотите сохранить"
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr "Выберите файл, который вы хотите сохранить\nПримечание: Есть неулаженный конфликт!"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10663,8 +10703,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Сборка %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10681,11 +10721,11 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11168,6 +11208,10 @@ msgstr "Использовать корзину при отмене измене
 msgid "Use regular expression"
 msgstr "Регулярное выражение"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr "Использовать правый блок"
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Использовать формат даты/времени из локализации системы "
@@ -11250,6 +11294,10 @@ msgstr "Использовать исходный путь.\nПрименить 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Использовать &весь этот файл"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr "Использовать этот блок слева"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

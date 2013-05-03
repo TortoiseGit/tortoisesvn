@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-28 08:38+0000\n"
+"PO-Revision-Date: 2013-04-29 08:40+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2089,6 +2089,14 @@ msgid ""
 "server."
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Append right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Append this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
 msgstr "Menu Bingkai Aplikasi"
@@ -4049,7 +4057,7 @@ msgid "Do not show the context menu for the following paths:"
 msgstr "Jangan tampilkan menu konteks untuk path berikut:"
 
 #. Resource IDs: (1562)
-msgid "Do reintegrate instead of automatic merge"
+msgid "Do reintegrate instead of automatic merge (old style)"
 msgstr ""
 
 #. Resource IDs: (90)
@@ -5998,6 +6006,12 @@ msgstr ""
 msgid "Keep c&hangelists"
 msgstr ""
 
+#. Resource IDs: (316)
+msgid ""
+"Keep resolving\n"
+"Jump to first unresolved conflict"
+msgstr ""
+
 #. Resource IDs: (16136)
 msgid "Keyboard"
 msgstr "Papan ketik"
@@ -7548,6 +7562,14 @@ msgstr "Lebih suka &lokal"
 msgid "Prefer &repository"
 msgstr "Lebih suka &repositori"
 
+#. Resource IDs: (251)
+msgid "Prepend right block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Prepend this block to left"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Teka&n Kunci Pintasan Baru"
@@ -8684,6 +8706,12 @@ msgid "Save As"
 msgstr "Simpan Sebagai"
 
 #. Resource IDs: (316)
+msgid ""
+"Save Bottom File as\n"
+"You're asked where to save the bottom file"
+msgstr ""
+
+#. Resource IDs: (316)
 msgid "Save File"
 msgstr ""
 
@@ -8994,6 +9022,16 @@ msgstr "select flow from type=? and Flow.da "
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Pilih peninjau untuk berkas-diff"
+
+#. Resource IDs: (316)
+msgid "Select what file you want to save as"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid ""
+"Select what file you want to save as\n"
+"Note: There is unresolved conflict!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10667,8 +10705,8 @@ msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
+"apr-util %d.%d.%d"
+msgstr ""
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10685,7 +10723,7 @@ msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
@@ -11172,6 +11210,10 @@ msgstr "Gunakan tampungan daur ulang saat membalik"
 msgid "Use regular expression"
 msgstr "Gunakan ekspresi reguler"
 
+#. Resource IDs: (251)
+msgid "Use right block"
+msgstr ""
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Gunakan lokal sistem untuk tanggal/waktu"
@@ -11254,6 +11296,10 @@ msgstr "Gunakan path yang asli\nTerapkan patch pada\n%s"
 #. Resource IDs: (251)
 msgid "Use this &whole file"
 msgstr "Gunakan seluru&h berkas ini"
+
+#. Resource IDs: (251)
+msgid "Use this block on left"
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
