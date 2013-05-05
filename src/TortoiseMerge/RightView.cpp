@@ -184,6 +184,7 @@ void CRightView::UseLeftFile()
 
     if (!IsWritable())
         return;
+    ClearSelection();
     return UseBlock(nFirstViewLine, nLastViewLine);
 }
 
@@ -220,6 +221,10 @@ void CRightView::AddContextItems(CIconMenu& popup, DiffStates state)
             popup.AppendMenu(MF_SEPARATOR, NULL);
         }
         popup.AppendMenuIcon(POPUPCOMMAND_USELEFTFILE, IDS_VIEWCONTEXTMENU_USEOTHERFILE);
+        if (IsLeftViewGood() && !m_pwndLeft->IsReadonly())
+        {
+            popup.AppendMenuIcon(POPUPCOMMAND_USERIGHTFILE, IDS_VIEWCONTEXTMENU_USETHISFILE);
+        }
     }
 
     CBaseView::AddContextItems(popup, state);
