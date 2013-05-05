@@ -56,6 +56,7 @@ bool CleanupCommand::Execute()
     if (!bCleanup && !bRevert && !bDelUnversioned && !bDelIgnored && !bRefreshShell)
         return false;
 
+    bool bUseTrash = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)) != 0;
     int actionTotal = 0;
     if (bCleanup)
         actionTotal += pathList.GetCount();
@@ -126,12 +127,12 @@ bool CleanupCommand::Execute()
         if (itemsToRevert.GetCount())
         {
             CTSVNPathList revertItems = itemsToRevert;
-            if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
+            if (bUseTrash)
             {
                 CRecycleBinDlg rec;
                 rec.StartTime();
                 int count = itemsToRevert.GetCount();
-                itemsToRevert.DeleteAllPaths(true, true, NULL);
+                itemsToRevert.DeleteAllPaths(bUseTrash, true, NULL);
                 rec.EndTime(count);
             }
             SVN svn;
@@ -152,7 +153,7 @@ bool CleanupCommand::Execute()
         HWND hErrorWnd = GetExplorerHWND();
         if (hErrorWnd == NULL)
             hErrorWnd = GetDesktopWindow();
-        unversionedItems.DeleteAllPaths(true, false, hErrorWnd);
+        unversionedItems.DeleteAllPaths(bUseTrash, false, hErrorWnd);
     }
     if (!bFailed && bDelIgnored)
     {
@@ -162,7 +163,7 @@ bool CleanupCommand::Execute()
         HWND hErrorWnd = GetExplorerHWND();
         if (hErrorWnd == NULL)
             hErrorWnd = GetDesktopWindow();
-        ignoredItems.DeleteAllPaths(true, false, hErrorWnd);
+        ignoredItems.DeleteAllPaths(bUseTrash, false, hErrorWnd);
     }
     if (!bFailed && bRefreshShell)
     {
