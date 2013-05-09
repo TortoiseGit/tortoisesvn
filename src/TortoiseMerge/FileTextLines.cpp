@@ -71,9 +71,9 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
     // scan the whole buffer for a 0x00000000 sequence
     // if found, we assume a binary file
     int nDwords = cb/4;
-    for (int i=0; i<nDwords; ++i)
+    for (int j=0; j<nDwords; ++j)
     {
-        if (0x00000000 == pVal32[i])
+        if (0x00000000 == pVal32[j])
             return CFileTextLines::BINARY;
     }
     if (cb >=4 )
