@@ -136,7 +136,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             <entry>
                                 If this switch is given, same as <literal>-e</literal>,
                                 but it ignores the externals with explicit revisions,
-                                when the revision range inside of them is only 
+                                when the revision range inside of them is only
                                 the given explicit revision in the properties.
                                 So it doesn't lead to mixed revisions.
                             </entry>
@@ -387,8 +387,8 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             <entry condition="pot">$WCISTAGGED$</entry>
                             <entry>
                                 <literal>$WCISTAGGED?TText:FText$</literal> is
-                                replaced with <literal>TText</literal> if the repository 
-                                URL contains the tags classification pattern, or 
+                                replaced with <literal>TText</literal> if the repository
+                                URL contains the tags classification pattern, or
                                 <literal>FText</literal> if not.
                             </entry>
                         </row>

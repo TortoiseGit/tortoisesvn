@@ -44,10 +44,10 @@
         </para>
         <para>
             You can also specify a file which contains a list of paths, separated by
-            newlines. The file must be in UTF-16 format, without a 
-            <ulink url="http://en.wikipedia.org/wiki/Byte-order_mark"><citetitle>BOM</citetitle></ulink>. 
-            If you pass such a file, use <option>/pathfile</option> instead of 
-            <option>/path</option>. To have TortoiseProc delete that file after 
+            newlines. The file must be in UTF-16 format, without a
+            <ulink url="http://en.wikipedia.org/wiki/Byte-order_mark"><citetitle>BOM</citetitle></ulink>.
+            If you pass such a file, use <option>/pathfile</option> instead of
+            <option>/path</option>. To have TortoiseProc delete that file after
             the command is finished, you can pass the parameter <option>/deletepathfile</option>.
         </para>
         <para>
@@ -242,11 +242,11 @@ Don't touch these lines:
                                 The <option>/stickydepth</option> indicates that
                                 the specified depth should be sticky, creating
                                 a sparse checkout.
-								The <option>/skipprechecks</option> can be set
-								to skip all checks that are done before an update. If this
-								is specified, then the <guilabel>Show log</guilabel> button
-								is disabled, and the context menu
-								to show diffs is also disabled after the update.
+                                The <option>/skipprechecks</option> can be set
+                                to skip all checks that are done before an update. If this
+                                is specified, then the <guilabel>Show log</guilabel> button
+                                is disabled, and the context menu
+                                to show diffs is also disabled after the update.
                             </entry>
                         </row>
                         <row>
@@ -357,9 +357,9 @@ Don't touch these lines:
                             <entry>
                                 Copies the folder in <option>/path</option> recursively
                                 to the directory specified in <option>/droptarget</option>.
-								New files are added automatically, and missing files get
-								removed in the target working copy, basically ensuring
-								that source and destination are exactly the same.
+                                New files are added automatically, and missing files get
+                                removed in the target working copy, basically ensuring
+                                that source and destination are exactly the same.
                             </entry>
                         </row>
                         <row>
@@ -395,7 +395,7 @@ Don't touch these lines:
                                 The <option>/path</option>
                                 is the working copy to branch/tag from.
                                 And the <option>/url</option> is the
-                                target URL. To already check the option <literal>Switch 
+                                target URL. To already check the option <literal>Switch
                                 working copy to new branch/tag</literal> you can pass
                                 the <option>/switchaftercopy</option> switch.
                                 You can also specify the <option>/logmsg</option> switch
@@ -592,7 +592,7 @@ Don't touch these lines:
                                 </para>
                                 <para>
                                 To create an image file of the revision graph for a specific path, but
-                                without showing the graph window, pass <option>/output:path</option> 
+                                without showing the graph window, pass <option>/output:path</option>
                                 with the path to the output file. The output file must have
                                 an extension that the revision graph can actually
                                 export to. These are:
@@ -600,7 +600,7 @@ Don't touch these lines:
                                 <literal>.wmf</literal>,
                                 <literal>.png</literal>,
                                 <literal>.jpg</literal>,
-                                <literal>.bmp</literal> and 
+                                <literal>.bmp</literal> and
                                 <literal>.gif</literal>.
                                 </para>
                                 <para>

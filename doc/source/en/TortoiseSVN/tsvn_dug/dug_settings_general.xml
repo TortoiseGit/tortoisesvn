@@ -216,7 +216,7 @@
             for unversioned paths</literal>, TortoiseSVN will not add its entries
             to the context menu for unversioned folders. But the entries are
             added for all items and paths in a versioned folder. And you can
-            get the entries back for unversioned folders by holding the 
+            get the entries back for unversioned folders by holding the
             <keycap>Shift</keycap> key down while showing the context menu.
         </para>
         <para>
@@ -549,12 +549,12 @@
                         If this box is checked (default state), then
                         the repository browser fetches information about
                         shown folders in the background. That way as soon
-                        as you browse into one of those folders, the 
+                        as you browse into one of those folders, the
                         information is already available.
                     </para>
                     <para>
                         Some servers however can't handle the multiple
-                        requests this causes or when not configured 
+                        requests this causes or when not configured
                         correctly treat so many requests as something
                         bad and start blocking them. In this case you
                         can disable the pre-fetching here.
