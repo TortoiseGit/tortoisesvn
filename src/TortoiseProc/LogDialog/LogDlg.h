@@ -176,6 +176,7 @@ private:
     void SetFilterCueText();
     void CopySelectionToClipBoard();
     void CopySelectionToClipBoard(bool bIncludeChangedList);
+    void CopyCommaSeparatedRevisionsToClipboard();
     void CopyChangedSelectionToClipBoard();
     CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch, CLogChangedPathArray& currentChangedArray);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);

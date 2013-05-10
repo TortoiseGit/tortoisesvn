@@ -1554,7 +1554,45 @@ void CLogDlg::StatusThread()
 
 void CLogDlg::CopySelectionToClipBoard()
 {
-    CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
+    if ((GetKeyState(VK_CONTROL) & 0x8000) && ((GetKeyState('C') & 0x8000)==0))
+    {
+        CopyCommaSeparatedRevisionsToClipboard();
+    }
+    else
+    {
+        CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
+    }
+}
+
+
+// generate a comma delimited string of revision numbers
+// we can paste this list into a code review tool
+void CLogDlg::CopyCommaSeparatedRevisionsToClipboard()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    CString sRevisions;
+    CString sRevision;
+
+    if (pos != NULL)
+    {
+        while(pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
+            sRevision.Format(_T("%ld, "),pLogEntry->GetRevision());
+            sRevisions += sRevision;
+        }
+
+        // trim trailing comma and space
+        int revisionsLength = sRevisions.GetLength() - 2;
+        if (revisionsLength > 0)
+        {
+            sRevisions = sRevisions.Left(revisionsLength);
+            CStringUtils::WriteAsciiStringToClipboard(sRevisions, GetSafeHwnd());
+        }
+    }
 }
 
 void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
