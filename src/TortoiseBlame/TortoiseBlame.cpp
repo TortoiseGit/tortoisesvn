@@ -1362,33 +1362,66 @@ void TortoiseBlame::DrawHeader(HDC hDC)
     RECT rc;
     HFONT oldfont = (HFONT)::SelectObject(hDC, GetStockObject(DEFAULT_GUI_FONT));
     GetClientRect(wHeader, &rc);
-
     ::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
+
+    RECT edgerc = rc;
+    edgerc.bottom = edgerc.top + HEADER_HEIGHT/2;
+    DrawEdge(hDC, &edgerc, EDGE_BUMP, BF_FLAT|BF_RECT|BF_ADJUST);
+
+    // draw the path first
+    WCHAR pathbuf[MAX_PATH] = {0};
+    if (szViewtitle.size() >= MAX_PATH)
+    {
+        std::wstring str = szViewtitle;
+        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+        std::wstring replacement = L"$1$2...$3";
+        std::wstring str2 = std::regex_replace(str, rx, replacement);
+        if (str2.size() >= MAX_PATH)
+            str2 = str2.substr(0, MAX_PATH-2);
+        wcscpy_s(pathbuf, str2.c_str());
+        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left-LOCATOR_WIDTH);
+    }
+    else
+    {
+        wcscpy_s(pathbuf, szViewtitle.c_str());
+        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left-LOCATOR_WIDTH);
+    }
+    DrawText(hDC, pathbuf, -1, &edgerc, DT_SINGLELINE|DT_VCENTER);
+
+    rc.top = rc.top + HEADER_HEIGHT/2;
+    DrawEdge(hDC, &rc, EDGE_BUMP, BF_FLAT|BF_RECT|BF_ADJUST);
+
+    RECT drawRc = rc;
 
     TCHAR szText[MAX_LOADSTRING];
     LoadString(app.hResource, IDS_HEADER_REVISION, szText, MAX_LOADSTRING);
-    ::ExtTextOut(hDC, LOCATOR_WIDTH, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
+    drawRc.left = LOCATOR_WIDTH;
+    DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
     int Left = m_revWidth+LOCATOR_WIDTH;
     if (ShowDate)
     {
         LoadString(app.hResource, IDS_HEADER_DATE, szText, MAX_LOADSTRING);
-        ::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
+        drawRc.left = Left;
+        DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
         Left += m_dateWidth;
     }
     if (ShowAuthor)
     {
         LoadString(app.hResource, IDS_HEADER_AUTHOR, szText, MAX_LOADSTRING);
-        ::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
+        drawRc.left = Left;
+        DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
         Left += m_authorWidth;
     }
     if (ShowPath)
     {
         LoadString(app.hResource, IDS_HEADER_PATH, szText, MAX_LOADSTRING);
-        ::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
+        drawRc.left = Left;
+        DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
         Left += m_pathWidth;
     }
     LoadString(app.hResource, IDS_HEADER_LINE, szText, MAX_LOADSTRING);
-    ::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
+    drawRc.left = Left;
+    DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
 
     ::SelectObject(hDC, oldfont);
 }
