@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -157,7 +157,7 @@ bool DropExportCommand::Execute()
                     dropper = renameddropper;
                 }
             }
-            if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, false, svn_depth_infinity, GetExplorerHWND(), exportType))
+            if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, !!parser.HasKey(L"overwrite"), false, false, svn_depth_infinity, GetExplorerHWND(), exportType))
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                 bRet = false;
