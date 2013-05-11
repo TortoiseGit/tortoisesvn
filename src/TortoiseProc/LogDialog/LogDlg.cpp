@@ -1554,7 +1554,7 @@ void CLogDlg::StatusThread()
 
 void CLogDlg::CopySelectionToClipBoard()
 {
-    if ((GetKeyState(VK_CONTROL) & 0x8000) && ((GetKeyState('C') & 0x8000)==0))
+    if ((GetKeyState(VK_CONTROL) & 0x8000) && ((GetKeyState('C') & 0x8000)==0) && ((GetKeyState(VK_INSERT) & 0x8000)==0))
     {
         CopyCommaSeparatedRevisionsToClipboard();
     }
