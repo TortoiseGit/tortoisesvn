@@ -19,7 +19,7 @@ You only have to do this once.
 
 \subsection Requirements1 First, you need to install the compiler package.
 
--# You need VS2012 to allow
+-# You need VS2012 with Update 2 [http://support.microsoft.com/kb/2797912] to allow
    building of the full TortoiseSVN package.
    This is the recommended option, but it is not free :-(
    If you want to build the msi make sure the "Tools for Redistributing
@@ -33,7 +33,7 @@ You only have to do this once.
    with the Express Edition!
    - Install Visual C++ 2012 Express Edition.
      Download it from http://msdn.microsoft.com/vstudio/express/visualc/
-   - Install MASM 6.15 from: http://win32assembly.online.fr/files/masm615.zip
+   - Install MASM 6.15 from: http://blog.ramzikomati.com/download/Masm615.rar
      and add it to the PATH environment variable
    \note Do not bother to install WiX and Votive as you cannot build very much.
 
@@ -70,7 +70,7 @@ Now you're almost ready. Only a few more steps to do:
   note that the names of the files are important!
   They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic (or whatever language you use).
   Warning: only the thesaurus in the format for OO2 will work. Earlier versions will
-  crash TortoiseSVN!
+  crash TortoiseSVN!  You can copy these files from your C:\Program Files\TortoiseSVN\Languages folder.
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
 - unzip the file 'Tools.zip' into a folder, we suggest SVN\TortoiseSVN\Tools.
