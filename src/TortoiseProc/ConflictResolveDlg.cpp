@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -189,13 +189,14 @@ void CConflictResolveDlg::OnBnClickedUserepo()
 
 void CConflictResolveDlg::OnBnClickedEditconflict()
 {
-    CString filename, n1, n2, n3;
+    CString filename, n1, n2, n3, n4;
     if (m_pConflictDescription->property_name)
     {
         filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
         n1.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)filename);
         n2.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)filename);
         n3.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)filename);
+        n4.Format(IDS_DIFF_PROP_MERGENAME, (LPCTSTR)filename);
     }
     else
     {
@@ -204,29 +205,44 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
         n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
         n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
         n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
+        n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
     }
 
-    if (m_pConflictDescription->base_abspath == NULL)
-    {
-        CAppUtils::DiffFlags flags;
-        // no base file, start TortoiseMerge in Two-way diff mode
-        CTSVNPath myFile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath));
-        CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
-            myFile, n3, n1, myFile, myFile, SVNRev(), SVNRev::REV_WC, SVNRev(), flags, 0);
-    }
+    m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
+    CAppUtils::MergeFlags flags;
+    flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
+    flags.bReadOnly = true;
+    CTSVNPath basefile;
+    CTSVNPath theirfile;
+    CTSVNPath myfile;
+    if (m_pConflictDescription->base_abspath)
+        basefile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_abspath));
+    else
+        basefile = CTempFiles::Instance().GetTempFilePath(true);
+    if (m_pConflictDescription->their_abspath && (m_pConflictDescription->kind != svn_wc_conflict_kind_property))
+        theirfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath));
     else
     {
-        m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
-        CAppUtils::MergeFlags flags;
-        flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-        flags.bReadOnly = true;
-        CAppUtils::StartExtMerge(flags,
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_abspath)),
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath)),
-                                CTSVNPath(m_mergedfile), true,
-                                n2, n3, n1, CString());
+        if (m_pConflictDescription->merged_file)
+            theirfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file));
+        else
+            theirfile = CTempFiles::Instance().GetTempFilePath(true);
     }
+    if (m_pConflictDescription->my_abspath)
+        myfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath));
+    else
+    {
+        if (m_pConflictDescription->merged_file)
+            myfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file));
+        else
+            myfile = CTempFiles::Instance().GetTempFilePath(true);
+    }
+    CAppUtils::StartExtMerge(flags,
+        basefile,
+        theirfile,
+        myfile,
+        CTSVNPath(m_mergedfile), true,
+        n2, n3, n1, n4);
 
     GetDlgItem(IDC_RESOLVED)->EnableWindow(TRUE);
 }

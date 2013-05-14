@@ -189,6 +189,7 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
         }
         switch (description->kind)
         {
+        case svn_wc_conflict_kind_property:
         case svn_wc_conflict_kind_text:
             {
                 CConflictResolveDlg dlg(this);
@@ -205,11 +206,6 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
                 m_mergedfile = dlg.GetMergedFile();
                 m_bCancelled = dlg.IsCancelled();
                 retVal = dlg.GetResult();
-            }
-            break;
-        case svn_wc_conflict_kind_property:
-            {
-                // no interactive conflict resolving, just postpone it
             }
             break;
         case svn_wc_conflict_kind_tree:
