@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,6 +102,14 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     if (str.IsEmpty())
         return -1;
 
+    //truncate list to m_nMaxHistoryItems
+    int nNumItems = GetCount();
+    for (int n = m_nMaxHistoryItems; n < nNumItems; n++)
+    {
+        DeleteItem(m_nMaxHistoryItems);
+        m_arEntries.RemoveAt(m_nMaxHistoryItems);
+    }
+
     COMBOBOXEXITEM cbei;
     SecureZeroMemory(&cbei, sizeof cbei);
     cbei.mask = CBEIF_TEXT;
@@ -161,14 +169,6 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     {
         DeleteItem(nIndex);
         m_arEntries.RemoveAt(nIndex);
-    }
-
-    //truncate list to m_nMaxHistoryItems
-    int nNumItems = GetCount();
-    for (int n = m_nMaxHistoryItems; n < nNumItems; n++)
-    {
-        DeleteItem(m_nMaxHistoryItems);
-        m_arEntries.RemoveAt(m_nMaxHistoryItems);
     }
 
     SetCurSel(nRet);
