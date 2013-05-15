@@ -307,7 +307,7 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
                     if (p.IsDirectory())
                     {
                         bool bswitched, bmodified, bsparse;
-                        if (svn.GetWCRevisionStatus(p, true, minrev, maxrev, bswitched, bmodified, bsparse))
+                        if (svn.GetWCRevisionStatus(p, false, minrev, maxrev, bswitched, bmodified, bsparse))
                         {
                             ext.revision.kind = svn_opt_revision_number;
                             ext.revision.value.number = maxrev;
