@@ -27,15 +27,16 @@ You only have to do this once.
 
 \subsection Requirements2 Next you need to install some utilities/programs.
 - Java runtime                     http://www.java.com
-- Python 2.6(\b 1)                 http://www.python.org/windows/
+- Python 2.6(\b 1 \b 3)            http://www.python.org/windows/
 - libxml2 python bindings (\b 2)   http://users.skynet.be/sbi/libxml-python/
 - Perl                             http://www.activestate.com/Products/ActivePerl/
 - WiX3.7(\b 1)                     http://wix.codeplex.com/
 - NAnt 0.92 (\b 1)                 http://nant.sourceforge.net
-.
+
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
 (\b 2) right-click on the installer file and "run as administrator" to install it.
+(\b 3) use 32 bit installer (even on x64 OS)
 
 \subsection Requirements3 Next you need to download some more.
 - tools collection            http://code.google.com/p/tortoisesvn/downloads/list
