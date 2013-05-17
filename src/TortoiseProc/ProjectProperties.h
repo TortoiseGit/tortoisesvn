@@ -190,7 +190,7 @@ public:
 #ifdef _WIN64
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
 #else
-    const CString& GetProviderUUID() const { return sProviderUuid; }
+    const CString& GetProviderUUID() const { return (sProviderUuid.IsEmpty() ? sProviderUuid64 : sProviderUuid); }
 #endif
     const CString& GetLogMsgTemplate(const CStringA& prop) const;
 
