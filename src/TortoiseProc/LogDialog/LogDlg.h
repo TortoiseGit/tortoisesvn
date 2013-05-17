@@ -36,6 +36,17 @@
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
 
+// import EnvDTE for opening files in Visual Studio through COM
+#pragma warning(disable : 4278)
+#pragma warning(disable : 4146)
+#pragma warning(disable : 4298)
+#pragma once
+#include "dte80a.tlh"
+#pragma warning(default : 4146)
+#pragma warning(default : 4278)
+#pragma warning(default : 4298)
+
+
 using namespace std;
 
 
@@ -228,6 +239,15 @@ private:
 
     // ListViewAccProvider
     virtual CString GetListviewHelpString(HWND hControl, int index) override;
+    void DetectVisualStudioRunningThread();
+	bool OpenInVisualStudio(std::vector<size_t>& changedlogpathindices);
+    bool OpenOneFileInVisualStudio(CString& filename, 
+        CComPtr<EnvDTE::ItemOperations>& pItemOperations);
+    CString GetSUrl();
+    CString GetWcPathFromUrl(CString fileUrl);
+    void OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices, 
+        CComPtr<EnvDTE::ItemOperations>& pItemOperations);
+
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -330,9 +350,12 @@ private:
 
     async::CJobScheduler netScheduler;
     async::CJobScheduler diskScheduler;
+    async::CJobScheduler vsRunningScheduler;
 
     ListViewAccServer * m_pLogListAccServer;
     ListViewAccServer * m_pChangedListAccServer;
+    
+    bool                m_bVisualStudioRunningAtStart;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));

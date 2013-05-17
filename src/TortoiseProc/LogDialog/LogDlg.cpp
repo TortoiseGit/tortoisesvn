@@ -56,6 +56,8 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
+#include "tlhelp32.h"
+#include "shlwapi.h"
 #include "../LogCache/Streams/StreamException.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
@@ -119,7 +121,8 @@ enum LogDlgContextMenuCommands
     ID_EXPORT,
     ID_EXPORTTREE,
     ID_GETMERGELOGS,
-    ID_REVPROPS
+    ID_REVPROPS,
+    ID_OPENVISUALSTUDIO
 };
 
 enum LogDlgShowBtnCommands
@@ -158,6 +161,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_nRefresh(None)
     , netScheduler(1, 0, true)
     , diskScheduler(1, 0, true)
+    , vsRunningScheduler(1, 0, true)
     , m_pLogListAccServer(NULL)
     , m_pChangedListAccServer(NULL)
     , m_head(-1)
@@ -593,6 +597,7 @@ BOOL CLogDlg::OnInitDialog()
     // blocking the dialog
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
     new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
+    new async::CAsyncCall(this, &CLogDlg::DetectVisualStudioRunningThread, &vsRunningScheduler);
     GetDlgItem(IDC_LOGLIST)->SetFocus();
     return FALSE;
 }
@@ -4632,8 +4637,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             if (m_hasWC)
             {
                 popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREVS, IDI_REVERT);
-                if (m_hasWC)
-                    popup.AppendMenuIcon(ID_MERGEREV, IDS_LOG_POPUP_MERGEREVS, IDI_MERGE);
+                popup.AppendMenuIcon(ID_MERGEREV, IDS_LOG_POPUP_MERGEREVS, IDI_MERGE);
                 bAddSeparator = true;
             }
             if (bAddSeparator)
@@ -5422,19 +5426,11 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         }
     }
 
-
-    CString sUrl;
+    
     const CLogChangedPath& changedlogpath
         = m_currentChangedArray[selIndex];
-    if (SVN::PathIsURL(m_path))
-    {
-        sUrl = m_path.GetSVNPathString();
-    }
-    else
-    {
-        sUrl = GetURLFromPath(m_path);
-    }
-
+   
+    CString sUrl = GetSUrl();
     CString fileURL;
     CString wcPath;
     if (m_hasWC)
@@ -5461,6 +5457,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
     //entry is selected, now show the popup menu
     CIconMenu popup;
+    bool openInVisualStudioContextMenuAdded = false;
     if (popup.CreatePopupMenu())
     {
         bool bEntryAdded = false;
@@ -5490,6 +5487,11 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     popup.AppendMenuIcon(ID_OPENLOCAL, IDS_LOG_POPUP_OPENLOCAL, IDI_OPEN);
                     popup.AppendMenuIcon(ID_OPENWITHLOCAL, IDS_LOG_POPUP_OPENWITHLOCAL, IDI_OPEN);
+                    if (m_bVisualStudioRunningAtStart)
+                    {
+                        popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
+                        openInVisualStudioContextMenuAdded = true;
+                    }
                 }
                 popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
                 popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -5519,6 +5521,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         if (!changedpaths.empty())
         {
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
+            if (!openInVisualStudioContextMenuAdded && m_bVisualStudioRunningAtStart)
+                popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
             bEntryAdded = true;
         }
 
@@ -5831,6 +5835,11 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 DoOpenFileWith(false, bOpenWith, CTSVNPath(wcPath));
             }
             break;
+        case ID_OPENVISUALSTUDIO:
+            {
+                OpenInVisualStudio(changedlogpathindices);
+                break;
+            }
         case ID_BLAME:
             {
                 if (sUrl.IsEmpty())
@@ -6316,4 +6325,154 @@ bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
         msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
     return (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
 }
+
+// this to be called on a thread so we don't delay the startup of the dialog
+// and we can take advantage of multiple cores...
+void CLogDlg::DetectVisualStudioRunningThread()
+{
+    PROCESSENTRY32 entry;
+    entry.dwSize = sizeof(PROCESSENTRY32);
+    m_bVisualStudioRunningAtStart = false;
+
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+
+    if (Process32First(snapshot, &entry))
+    {
+        while (Process32Next(snapshot, &entry))
+        {
+            if (!_tcsicmp(entry.szExeFile, _T("devenv.exe")))
+            {
+                m_bVisualStudioRunningAtStart = true;
+                return;
+            }
+        }
+    }
+    CloseHandle(snapshot);
+}
+
+// This code was borrowed and modified to use compiler-generated Smart Pointers
+// so we don't have to include the ATL libraries.  Inspiration for the code was from:
+// http://stackoverflow.com/questions/350323/open-a-file-in-visual-studio-at-a-specific-line-number
+bool CLogDlg::OpenInVisualStudio(std::vector<size_t>& changedlogpathindices)
+{
+    HRESULT result;
+    CLSID   clsid;
+    result = ::CLSIDFromProgID(_T("VisualStudio.DTE"), &clsid);
+    if (FAILED(result))
+        return false;
+       
+    // grab active pointer to VS 
+    CComPtr<IUnknown> pUnk;
+    result = ::GetActiveObject(clsid, NULL, &pUnk);
+    if (FAILED(result))
+        return false;
+
+    // cast to our smart pointer type for EnvDTE
+    CComPtr<EnvDTE::_DTE> pDTE;
+    pDTE = pUnk;
+
+    // get the item operations pointer we need
+    CComPtr<EnvDTE::ItemOperations> pItemOperations;
+    result = pDTE->get_ItemOperations(&pItemOperations);
+    if (FAILED(result))
+        return false;
+   
+    // make sure we got a selection
+    if (m_ChangedFileListCtrl.GetSelectedCount() <= 0)
+        return false;
+
+    // preparation
+    theApp.DoWaitCursor(1);
+    DialogEnableWindow(IDOK, FALSE);
+    
+    // do the deed...
+    OpenSelectedFilesInVisualStudio(changedlogpathindices, pItemOperations);
+       
+    // re-enable and end wait
+    EnableOKButton();
+    theApp.DoWaitCursor(-1);
+    return true;
+ }
+
+void CLogDlg::OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices,
+                                              CComPtr<EnvDTE::ItemOperations>& pItemOperations)
+{
+    CString wcPath;
+    int openCount = 0;
+    const int MaxFilesToOpen = 100;
+
+    // loop over all the selections
+    for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
+    {
+        wcPath = GetWcPathFromUrl(m_currentChangedArray[changedlogpathindices[i]].GetPath());
+        if (!PathFileExists((LPCWSTR)wcPath))
+            continue;
+        CString extension = PathFindExtension((LPCWSTR)wcPath);
+        extension = extension.MakeLower();
+        // following extensions might make sense to review in VisualStudio
+        if (extension == _T(".cpp")  || extension == _T(".h")    || extension == _T(".cs")   ||
+            extension == _T(".rc")   || extension == _T(".resx") || extension == _T(".xaml") ||
+            extension == _T(".js")   || extension == _T(".html") || extension == _T(".htm")  ||
+            extension == _T(".asp")  || extension == _T(".aspx") || extension == _T(".php")  ||
+            extension == _T(".css")  || extension == _T(".xml"))
+        {
+            // we arbitrarily limit the number of files per code review to 100
+            if (++openCount >= MaxFilesToOpen)
+                break;
+            OpenOneFileInVisualStudio(wcPath, pItemOperations);
+        }
+    }
+}
+
+// todo: remove duplicated code line ~5450
+CString CLogDlg::GetWcPathFromUrl(CString url)
+{
+    CString wcPath;
+    CString fileUrl = GetRepositoryRoot(m_path) + url.Trim();
+    // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+    // sUrl = http://mydomain.com/repos/trunk/folder
+    CString sUnescapedUrl = CPathUtils::PathUnescape(GetSUrl());
+    // find out until which char the urls are identical
+    int j = 0;
+    while ((j<fileUrl.GetLength()) && (j<sUnescapedUrl.GetLength())
+        && (fileUrl[j] == sUnescapedUrl[j]))
+    {
+        j++;
+    }
+    int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-j);
+    wcPath = m_path.GetWinPathString().Left(leftcount);
+    wcPath += fileUrl.Mid(j);
+    wcPath.Replace('/', '\\');
+    return wcPath;
+}
+
+CString CLogDlg::GetSUrl()
+{
+    CString sUrl;
+    if (SVN::PathIsURL(m_path))
+    {
+        sUrl = m_path.GetSVNPathString();
+    }
+    else
+    {
+        sUrl = GetURLFromPath(m_path);
+    }
+    return sUrl;
+}
+
+bool CLogDlg::OpenOneFileInVisualStudio(CString& filename, 
+                                        CComPtr<EnvDTE::ItemOperations>& pItemOperations)
+{
+    HRESULT result;
+    _bstr_t bstrKind(EnvDTE::vsViewKindTextView);
+    CComPtr<EnvDTE::Window> pWindow;
+    _bstr_t bstrFileName(filename);
+
+    // ok, open one file in VS
+    result = pItemOperations->OpenFile(bstrFileName, bstrKind, &pWindow);
+    if (FAILED(result))
+        return false;
+    return true;
+}
+
 

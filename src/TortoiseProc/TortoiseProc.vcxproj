@@ -939,6 +939,9 @@
       <Project>{f0d5506c-bb6b-43a7-a4ef-d4826f398185}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\VS_2012.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
