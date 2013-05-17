@@ -2,7 +2,7 @@
 <project name="TortoiseSVN" default="all">
 
   <property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
-  <property name="solutionname" value="TortoiseOverlays.sln" if="${studioversion == '2012'}"/>
+  <property name="solutionname" value="TortoiseOverlays.sln" />
 
   <target name="all">
 

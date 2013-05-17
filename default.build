@@ -7,8 +7,6 @@
   <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
   <!-- default build for win32 platform -->
   <property name="platform" value="win32" />
-  <!-- default build tool is VS2012 -->
-  <property name="buildtool" value="devenv.com" />
   <!-- default: don't add a platform specific extension
        to the bin folders 'release' / 'debug'   -->
   <property name="bindirextension" value="" />
@@ -20,8 +18,6 @@
   <property name="ipv6" value="" />
   <!-- default: we build with openssl support -->
   <property name="skipssl" value="" />
-  <!-- default: we build with VS2012 -->
-  <property name="studioversion" value="2012"/>
   <!-- default: we build in a user session -->
   <property name="schedule" value="no"/>
   <!-- the ${subsystem} to use -->
@@ -44,9 +40,6 @@
   </if>
 
   <include buildfile="default.build.user" />
-
-  <!-- build with VS2012, if there is a 11.0 in the VC path -->
-  <property name="studioversion" value="2012" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '11.0')}"/>
 
   <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
        for example:

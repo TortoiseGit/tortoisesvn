@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="VersionInfo" default="versioninfo">
 
-  <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2012'}"/>
+  <property name="solutionname" value="TortoiseSVN.sln" />
 
   <target name="versioninfo">
     <!-- You can specify the path to SubWCRev.exe in SubWCRevFileName property to avoid

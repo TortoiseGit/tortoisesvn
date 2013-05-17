@@ -24,18 +24,6 @@ You only have to do this once.
    This is the recommended option, but it is not free :-(
    If you want to build the msi make sure the "Tools for Redistributing
    Applications" are installed.
--# If you do not have access to VS.NET you can download the free
-   Visual C++ 2012 Express Edition.
-   This will allow you to build the subversion libraries and the
-   SubWCRev, TortoiseBlame, TortoiseUDiff, TortoiseIDiff, CrashRpt
-   and ResText projects only. You can not build the main parts of
-   TortoiseSVN (shell extension, TortoiseProc, TSVNCache, TortoiseMerge)
-   with the Express Edition!
-   - Install Visual C++ 2012 Express Edition.
-     Download it from http://msdn.microsoft.com/vstudio/express/visualc/
-   - Install MASM 6.15 from: http://blog.ramzikomati.com/download/Masm615.rar
-     and add it to the PATH environment variable
-   \note Do not bother to install WiX as you cannot build very much.
 
 \subsection Requirements2 Next you need to install some utilities/programs.
 - Java runtime                     http://www.java.com
@@ -93,25 +81,6 @@ Now you're almost ready. Only a few more steps to do:
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
   file which is located in \%VS110COMNTOOLS%.
 
-  Note that for the Express edition you need to sort out the vars for the platform SDK
-  as well. The easiest way I found was to edit the supplied VC++ file
-  C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat
-  Look for the :x86 label and add an extra call to setenv.cmd as shown below:
-
-\code
-    :x86
-    if not exist "%~dp0bin\vcvars32.bat" goto missing
-    call "%~dp0bin\vcvars32.bat"
-    if exist "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" call "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" /Release /x86 /vista
-    if exist "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" goto :eof
-    if exist "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd" call "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd"
-    if exist "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd" goto :eof
-    goto :eof
-\endcode
-
-  Then call vsvarsall.bat when you start your command processor instead
-  of vsvars32 as described above.
-
   Now, if you got some time left you can run the build script to compile
   TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
   how fast your computer is (on mine, it takes 1 hour and 50 minutes)!
@@ -133,32 +102,10 @@ Now you're almost ready. Only a few more steps to do:
   which will create a build log file which you can use to analyse where
   exactly the build failed.
 
-  If you are building using VC++ Express, your options are somewhat limited.
-  Firstly you need to change the build tool in default.build.user.
-  There is already a line to set this up which you need to un-comment:
-
-\verbatim
-  <property name="buildtool" value="vcexpress.exe" />
-\endverbatim
-
   Now you need to build the Subversion libraries:
 \verbatim
   > nant Subversion
 \endverbatim
-
-  Note that the VC Express compiler works in the background without a console
-  window. There is a lot of disk activity with no apparent result showing
-  in the Nant console window. Be patient!
-
-  Before building the applications, update the version info:
-  > nant VersionInfo
-
-  Now you can open the SubWCRev.vcproj file to start the IDE.
-  Some error dialogs will come up, which you can ignore.
-  Right click on SubWCRev and 'Build'.
-
-  You can also right click on TortoiseBlame and TortoiseIDiff and build those.
-
 
 \section build64cross Building 64 bit packages on win32 (cross-compile)
 

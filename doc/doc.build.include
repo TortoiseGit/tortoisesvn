@@ -52,11 +52,6 @@ This will only build the english HTML help file for TortoiseSVN
 
   <property name="critical" value="${devrelease!='-dev'}" />
 
-  <property name="studioversion"
-    value=""
-    unless="${property::exists('studioversion')}"
-  />
-
   <!-- ============================================================ -->
   <!-- Settings for the translation                                 -->
 

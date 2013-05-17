@@ -23,8 +23,6 @@
     <if test="${not environment::variable-exists('VCINSTALLDIR')}">
       <fail>You must first call "%VS110COMNTOOLS%\vsvars32.bat"</fail>
     </if>
-    <!-- Uncomment the line below to allow limited building using VC Express instead of VS.NET. -->
-    <!-- <property name="buildtool" value="vcexpress.exe" /> -->
 
     <!-- Uncomment and modify the path of the statement below if you're building
          a version of TSVN which uses a different working copy format than

@@ -58,16 +58,11 @@
           <variable name="Platform" value="win32" />
         </setenv>
       </if>
-      <if test="${studioversion == '2010'}">
-        <setenv>
-          <variable name="VCVERSION" value="100" />
-        </setenv>
-      </if>
-      <if test="${studioversion == '2012'}">
-        <setenv>
-          <variable name="VCVERSION" value="110" />
-        </setenv>
-      </if>
+
+      <!-- we're using VS2012 -->
+      <setenv>
+        <variable name="VCVERSION" value="110" />
+      </setenv>
 
       <!-- find the path to the merge modules -->
       <script language="C#">
