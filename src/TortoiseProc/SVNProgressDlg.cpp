@@ -3591,10 +3591,12 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     // We also need the 'changed_rev' of every target before the update
     // so we can do diffs and show logs after the update has finished.
     int targetcount = m_targetPathList.GetCount();
+    std::set<CTSVNPath> wcroots;
     if ((m_options & ProgOptSkipPreChecks) == 0)
     {
         bool multipleUUIDs = false;
         CString lastUUID;
+        CTSVNPath lastDir;
         for(int nItem = 0; (nItem < targetcount); nItem++)
         {
             const CTSVNPath& targetPath = m_targetPathList[nItem];
@@ -3612,6 +3614,12 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
                     if (lastUUID.Compare(uuid) != 0)
                         multipleUUIDs = true;
                 }
+                if (!lastDir.IsEquivalentToWithoutCase(targetPath))
+                {
+                    CTSVNPath sRoot = GetWCRootFromPath(targetPath);
+                    wcroots.insert(sRoot);
+                }
+                lastDir = targetPath.GetDirectory();
             }
         }
         // if all targets are from the same repository and we're updating to HEAD,
@@ -3621,16 +3629,38 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             m_Revision = GetHEADRevision(m_targetPathList[0]);
         }
     }
-
-    DWORD exitcode = 0;
-    CString error;
-    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, m_Revision, exitcode, error)))
+    if (wcroots.size() <= 1)
     {
-        if (exitcode)
+        DWORD exitcode = 0;
+        CString error;
+        CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+        if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, m_Revision, exitcode, error)))
         {
-            ReportHookFailed(pre_update_hook, m_targetPathList, error);
-            return false;
+            if (exitcode)
+            {
+                ReportHookFailed(pre_update_hook, m_targetPathList, error);
+                return false;
+            }
+        }
+    }
+    else
+    {
+        for (auto it:wcroots)
+        {
+            DWORD exitcode = 0;
+            CString error;
+            ProjectProperties pp;
+            pp.ReadProps(it);
+            CHooks::Instance().SetProjectProperties(it, pp);
+            CTSVNPathList pl(it);
+            if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, pl, m_depth, m_Revision, exitcode, error)))
+            {
+                if (exitcode)
+                {
+                    ReportHookFailed(pre_update_hook, pl, error);
+                    return false;
+                }
+            }
         }
     }
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
@@ -3640,13 +3670,38 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         ReportSVNError();
         return false;
     }
-    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    if (wcroots.size() <= 1)
     {
-        if (exitcode)
+        DWORD exitcode = 0;
+        CString error;
+        CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+        if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
         {
-            ReportHookFailed(post_update_hook, m_targetPathList, error);
-            return false;
+            if (exitcode)
+            {
+                ReportHookFailed(post_update_hook, m_targetPathList, error);
+                return false;
+            }
+        }
+    }
+    else
+    {
+        for (auto it:wcroots)
+        {
+            DWORD exitcode = 0;
+            CString error;
+            ProjectProperties pp;
+            pp.ReadProps(it);
+            CHooks::Instance().SetProjectProperties(it, pp);
+            CTSVNPathList pl(it);
+            if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, pl, m_depth, m_RevisionEnd, exitcode, error)))
+            {
+                if (exitcode)
+                {
+                    ReportHookFailed(post_update_hook, pl, error);
+                    return false;
+                }
+            }
         }
     }
 
