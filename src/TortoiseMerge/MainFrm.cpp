@@ -1422,7 +1422,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 
     // if we're in conflict resolve mode (three pane view), check if there are no more conflicts
     // and if there aren't, ask to mark the file as resolved
-    if (IsViewGood(m_pwndBottomView) && !m_bHasConflicts)
+    if (IsViewGood(m_pwndBottomView) && !m_bHasConflicts && bCheckResolved)
     {
         CTSVNPath svnpath = CTSVNPath(m_Data.m_mergedFile.GetFilename());
         if (SVNHelper::IsVersioned(svnpath, true))
