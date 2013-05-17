@@ -187,8 +187,11 @@ public:
     const CString& GetBugIDRe() const {return sBugIDRe;}
     void SetBugIDRe(const CString& s) {sBugIDRe = s;regExNeedUpdate=true;AutoUpdateRegex();}
 
+#ifdef _WIN64
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
-
+#else
+    const CString& GetProviderUUID() const { return sProviderUuid; }
+#endif
     const CString& GetLogMsgTemplate(const CStringA& prop) const;
 
     const CString& GetLogRevRegex() const;
