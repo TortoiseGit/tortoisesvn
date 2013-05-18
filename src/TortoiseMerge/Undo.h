@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2009-2012 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,14 +29,15 @@ class CBaseView;
  */
 typedef struct viewstate
 {
-    std::map<int, CString> difflines;
-    std::map<int, DWORD> linestates;
-    std::map<int, DWORD> linelines;
-    std::map<int, EOL> linesEOL;
-    std::list<int> addedlines;
+    std::map<int, CString>  difflines;
+    std::map<int, DWORD>    linestates;
+    std::map<int, DWORD>    linelines;
+    std::map<int, EOL>      linesEOL;
+    std::list<int>          addedlines;
 
     std::map<int, viewdata> removedlines;
     std::map<int, viewdata> replacedlines;
+    bool                    modified;
 
     void    AddViewLineFromView(CBaseView *pView, int nViewLine, bool bAddEmptyLine);
     void    Clear();
