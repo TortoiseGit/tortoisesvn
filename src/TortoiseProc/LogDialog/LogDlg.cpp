@@ -185,6 +185,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_temprev(0)
     , m_tFrom(0)
     , m_tTo(0)
+    , m_bVisualStudioRunningAtStart(false)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
