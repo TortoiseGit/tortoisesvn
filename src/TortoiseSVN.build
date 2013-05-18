@@ -6,7 +6,7 @@
   <target name="clean">
 
     <if test="${cleanup == 'yes'}">
-      <exec program="devenv.com" >
+      <exec program="devenv.com">
         <arg value="${solutionname}" />
         <arg value="/clean" />
         <arg value="${configuration}|${platform}" />
@@ -19,22 +19,18 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
       <fileset>
-        <include name="TortoiseSVNSetup\include\autolist.txt" />
-        <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn${platext}.dll"/>
-        <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn${platext}.pdb"/>
+        <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn${platext}.dll" />
+        <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn${platext}.pdb" />
         <include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn${platext}.dll" />
         <include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn${platext}.pdb" />
         <include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.dll" />
         <include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.pdb" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\*.exe" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\*.dll" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\*.pdb" />
-      </fileset>
-    </copy>
-    <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
-      <fileset>
         <include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn${platext}.dll" />
         <include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn${platext}.pdb" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\*.dll" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\*.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\*.pdb" />
+        <include name="TortoiseSVNSetup\include\autolist.txt" />
       </fileset>
     </copy>
     <nant target="versioninfo">
@@ -58,7 +54,7 @@
   </target>
 
   <target name="TortoiseSVN" depends="clean,versioninfo">
-    <exec program="devenv.com" >
+    <exec program="devenv.com">
       <arg value="${solutionname}" />
       <arg value="/rebuild" />
       <arg value="${configuration}|${platform}" />

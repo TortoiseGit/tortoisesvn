@@ -113,8 +113,8 @@
             <define name="_WIN32_WINNT" value="0x0501" />
             <define name="APR_HAVE_IPV6" if="${ipv6 == 'enabled'}" />
             <define name="WIN64" if="${platform == 'x64'}" />
-            <define name="NDEBUG" if="${configuration == 'release'}"/>
-            <define name="_DEBUG" if="${configuration == 'debug'}"/>
+            <define name="NDEBUG" if="${configuration == 'release'}" />
+            <define name="_DEBUG" if="${configuration == 'debug'}" />
             <define name="PSAPI_VERSION=1" />
             <define name="_USING_V110_SDK71_" />
           </defines>
@@ -239,7 +239,7 @@ TSVN_ClearLastUsedAuthCache' />
           <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
           <sources>
             <include name="subversion\${toolname}\*.c" />
-            <include name="tools\client-side\${toolname}\*.c"/>
+            <include name="tools\client-side\${toolname}\*.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
           </sources>
           <includedirs>
@@ -271,8 +271,8 @@ TSVN_ClearLastUsedAuthCache' />
             <define name="_WIN32_WINNT" value="0x0501" />
             <define name="APR_HAVE_IPV6" if="${ipv6 == 'enabled'}" />
             <define name="WIN64" if="${platform == 'x64'}" />
-            <define name="NDEBUG" if="${configuration == 'release'}"/>
-            <define name="_DEBUG" if="${configuration == 'debug'}"/>
+            <define name="NDEBUG" if="${configuration == 'release'}" />
+            <define name="_DEBUG" if="${configuration == 'debug'}" />
             <define name="PSAPI_VERSION=1" />
             <define name="_USING_V110_SDK71_" />
           </defines>
@@ -296,7 +296,7 @@ TSVN_ClearLastUsedAuthCache' />
           <arg line="/LTCG /RELEASE" if="${configuration == 'release'}" />
           <sources>
             <include name="${configuration}_${platform}\${toolname}\*.obj" />
-            <include name="${configuration}_${platform}\libsvn_ra_svn\*.obj" if="${toolname == 'svnserve'}"/>
+            <include name="${configuration}_${platform}\libsvn_ra_svn\*.obj" if="${toolname == 'svnserve'}" />
           </sources>
         </link>
         <exec program="mt.exe">

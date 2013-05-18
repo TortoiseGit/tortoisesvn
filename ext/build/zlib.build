@@ -29,7 +29,7 @@
           <include name="*.c" />
         </fileset>
       </copy>
-      <if test="${file::exists('gvmat32.asm')}" >
+      <if test="${file::exists('gvmat32.asm')}">
         <exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF -Fo${configuration}_${platform}\gvmat32.obj gvmat32.asm" />
       </if>
     </if>
@@ -70,8 +70,8 @@
         <define name="_WIN32" />
         <define name="HAS_ADLER32_FAST" />
         <define name="WIN64" if="${platform == 'x64'}" />
-        <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration == 'debug'}"/>
+        <define name="NDEBUG" if="${configuration == 'release'}" />
+        <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
@@ -83,7 +83,6 @@
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
-        <exclude name="${configuration}_${platform}\example.obj" />
       </sources>
     </lib>
   </target>

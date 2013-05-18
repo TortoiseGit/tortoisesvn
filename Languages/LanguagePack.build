@@ -15,7 +15,7 @@ NAnt build script for the TortoiseSVN language pack installers
     Builds the Language pack installers
   </description>
 
-  <include buildfile="../default.build.user" if="${file::exists('../default.build.user')}"/>
+  <include buildfile="../default.build.user" if="${file::exists('../default.build.user')}" />
 
   <property name="SpellCheckDir"
     value="..\..\Common\Spell\"
@@ -52,11 +52,11 @@ NAnt build script for the TortoiseSVN language pack installers
       </setenv>
     </if>
 
-    <loadfile file="Languages.txt" property="languagelines" encoding="utf-8"/>
+    <loadfile file="Languages.txt" property="languagelines" encoding="utf-8" />
     <!-- the next line is split in two because we need the newline in the string -->
     <foreach item="String" in="${languagelines}" delim="
 " property="langline">
-      <call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}" failonerror="false"/>
+      <call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}" failonerror="false" />
     </foreach>
   </target>
 
@@ -116,7 +116,7 @@ NAnt build script for the TortoiseSVN language pack installers
 
     <!-- create the mo files -->
     <property name="PoFileName" value="..\ext\Subversion\Subversion\po\${langISO}.po" />
-    <exec program="msgfmt" if="${file::exists(PoFileName)}" failonerror="false" >
+    <exec program="msgfmt" if="${file::exists(PoFileName)}" failonerror="false">
       <arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
       <arg value="-o" />
       <arg value="subversion.mo" />
@@ -156,7 +156,7 @@ NAnt build script for the TortoiseSVN language pack installers
     </if>
     <!-- create the files for the installer -->
     <if test="${environment::variable-exists('MajorVersion')}">
-      <loadfile file="LanguagePack.wxs" property="versionwxsfile" encoding="utf-8" >
+      <loadfile file="LanguagePack.wxs" property="versionwxsfile" encoding="utf-8">
         <filterchain>
           <replacetokens begintoken="$" endtoken="$">
             <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />

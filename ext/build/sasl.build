@@ -18,7 +18,7 @@
     </delete>
   </target>
 
-  <target name="build" >
+  <target name="build">
     <mkdir dir="${configuration}_${platform}" />
     <rc rcfile="win32\include\CyrusSasl.rc" output="${configuration}_${platform}\libsasl.res">
       <includedirs>
@@ -71,8 +71,8 @@
         <define name="_WIN32_WINNT" value="0x0501" if="${ipv6 == 'enabled'}" />
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
-        <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration == 'debug'}"/>
+        <define name="NDEBUG" if="${configuration == 'release'}" />
+        <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
@@ -144,8 +144,8 @@
         <define name="_WIN32_WINNT" value="0x0501" if="${ipv6 == 'enabled'}" />
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
-        <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration == 'debug'}"/>
+        <define name="NDEBUG" if="${configuration == 'release'}" />
+        <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
@@ -227,8 +227,8 @@
         <define name="_WIN32_WINNT" value="0x0501" if="${ipv6 == 'enabled'}" />
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
-        <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration == 'debug'}"/>
+        <define name="NDEBUG" if="${configuration == 'release'}" />
+        <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="HAVE_GSS_C_NT_HOSTBASED_SERVICE" />
         <define name="SSIZE_T_DEFINED" />
         <define name="HAVE_GSSAPI_H" />

@@ -57,7 +57,7 @@
     <!-- set the path for the SubWCRev script to use -->
     <property name="SubWCRevPath" value="D:\\Development\\SVN\\TortoiseSVN" />
     <!-- call the SubWCRev task -->
-    <call target="SubWCRev"/>
+    <call target="SubWCRev" />
     <!-- now print all the information we got from SubWCRev -->
     <echo message="Revision is ${SubWCRev_Revision}" />
     <echo message="MinRev is ${SubWCRev_MinRev}" />

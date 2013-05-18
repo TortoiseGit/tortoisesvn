@@ -4,7 +4,7 @@
   <!-- default configuration is release -->
   <property name="configuration" value="release" />
   <!-- default builds are dev builds -->
-  <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
+  <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}" />
   <!-- default build for win32 platform -->
   <property name="platform" value="win32" />
   <!-- default: don't add a platform specific extension
@@ -19,7 +19,7 @@
   <!-- default: we build with openssl support -->
   <property name="skipssl" value="" />
   <!-- default: we build in a user session -->
-  <property name="schedule" value="no"/>
+  <property name="schedule" value="no" />
   <!-- the ${subsystem} to use -->
   <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.01" />
   <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE,5.01" />
@@ -36,7 +36,7 @@
       it to your needs.
     </echo>
     <copy file="${userconfigtemplate}"
-          tofile="${userconfigfile}"/>
+          tofile="${userconfigfile}" />
   </if>
 
   <include buildfile="default.build.user" />
@@ -45,7 +45,7 @@
        for example:
        /t "url/to/timestamp/server" /q
   -->
-  <loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}"/>
+  <loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}" />
 
   <!-- ====================================================================== -->
   <!-- Configuration targets                                                  -->
@@ -79,8 +79,8 @@
     <description>
       Cross-compiles on win32 for a different platform.
     </description>
-    <property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
-    <echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
+    <property name="crosscompile" value="yes" if="${platform == 'x64'}" />
+    <echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}" />
   </target>
 
   <target name="ipv6">
@@ -101,7 +101,7 @@
     <description>
       run this task if the whole build is done via task scheduler
     </description>
-    <property name="schedule" value="yes"/>
+    <property name="schedule" value="yes" />
   </target>
   <!-- ====================================================================== -->
   <!-- Project targets                                                        -->
@@ -165,7 +165,7 @@
     </nant>
   </target>
 
-  <target name="APIDocs" depends="env" >
+  <target name="APIDocs" depends="env">
     <description>
       Builds the API docs from the comments in the sourcecode
     </description>
@@ -188,7 +188,7 @@
     </nant>
   </target>
 
-  <target name="Overlays" depends="VSNET,env" >
+  <target name="Overlays" depends="VSNET,env">
     <description>
       Builds the TortoiseOverlays install files
     </description>
@@ -204,7 +204,7 @@
       Builds all the libraries TortoiseSVN depends on:
       Subversion, apr, OpenSSL, ...
     </description>
-    <nant target="OpenSSL" if="${skipssl != 'yes'}" >
+    <nant target="OpenSSL" if="${skipssl != 'yes'}">
       <buildfiles>
         <include name="ext\build\OpenSSL.build" />
       </buildfiles>
@@ -291,8 +291,8 @@
       server http://crash-server.com
     </description>
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-    <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
-    <property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+    <property name="platformfoldername" value=""   if="${platform == 'win32'}" />
+    <property name="platformfoldername" value="64" if="${platform == 'x64'}" />
 
     <exec program="${environment::get-variable('DEBUGTOOLS')}\srcsrv\svnindex.cmd">
       <arg value="/debug" />

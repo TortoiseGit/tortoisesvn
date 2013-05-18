@@ -93,16 +93,16 @@
         <include name="include\arch\win32" />
       </includedirs>
       <defines>
-        <define name="APR_DECLARE_EXPORT"/>
+        <define name="APR_DECLARE_EXPORT" />
         <define name="WIN32" />
         <define name="_WINDOWS" />
         <define name="_WIN32" />
         <define name="WINNT" />
-        <define name="_WIN32_WINNT" value="0x0501"/>
+        <define name="_WIN32_WINNT" value="0x0501" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="_WINDLL" />
-        <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration == 'debug'}"/>
+        <define name="NDEBUG" if="${configuration == 'release'}" />
+        <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
