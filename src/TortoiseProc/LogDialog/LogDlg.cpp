@@ -56,8 +56,8 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
-#include "tlhelp32.h"
-#include "shlwapi.h"
+#include <tlhelp32.h>
+#include <shlwapi.h>
 #include "../LogCache/Streams/StreamException.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
