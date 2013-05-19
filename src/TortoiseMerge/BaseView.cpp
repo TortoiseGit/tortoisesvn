@@ -3579,6 +3579,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             bNeedRenumber = true;
         }
         SetViewData(nViewLine, lineData);
+        SetModified();
         SaveUndoStep();
         BuildAllScreen2ViewVector(nViewLine);
         if (bNeedRenumber)
@@ -3642,6 +3643,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         int nInsertLine = (m_pViewData->GetCount()==0) ? 0 : nViewLine + 1;
         viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
         InsertViewData(nInsertLine, newLastLine);
+        SetModified();
         SaveUndoStep();
 
         // adds new line everywhere except me
@@ -3673,7 +3675,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     ClearSelection();
     EnsureCaretVisible();
     UpdateCaret();
-    SetModified(true);
     Invalidate(FALSE);
 }
 
@@ -3765,10 +3766,10 @@ void CBaseView::RemoveSelectedText()
         UpdateViewLineNumbers();
     }
 
+    SetModified(); //TODO set modified only if real data was changed
     SaveUndoStep();
     CUndo::GetInstance().EndGrouping();
 
-    SetModified();
     BuildAllScreen2ViewVector(m_ptSelectionViewPosStart.y, m_ptSelectionViewPosEnd.y);
     SetCaretViewPosition(m_ptSelectionViewPosStart);
     UpdateGoalPos();
@@ -3857,6 +3858,7 @@ void CBaseView::PasteText()
         newLine.ending = eOriginalEnding;
         InsertViewData(++nInsertLine, newLine);
 
+        SetModified();
         SaveUndoStep();
 
         // adds new lines everywhere except me
@@ -3887,10 +3889,10 @@ void CBaseView::PasteText()
         ptCaretViewPos = SetupPoint(nLeft + sClipboardText.GetLength(), nViewLine);
         SetViewLine(nViewLine, sLine);
         SetViewState(nViewLine, DIFFSTATE_EDITED);
+        SetModified();
         SaveUndoStep();
     }
 
-    SetModified();
     RefreshViews();
     BuildAllScreen2ViewVector();
     UpdateCaretViewPosition(ptCaretViewPos);
@@ -4706,12 +4708,6 @@ void CBaseView::SaveUndoStep()
 {
     if (!m_AllState.IsEmpty())
     {
-        if (m_pwndLeft)
-            m_AllState.left.modified = m_pwndLeft->IsModified();
-        if (m_pwndRight)
-            m_AllState.right.modified = m_pwndRight->IsModified();
-        if (m_pwndBottom)
-            m_AllState.bottom.modified = m_pwndBottom->IsModified();
         CUndo::GetInstance().AddState(m_AllState, GetCaretViewPosition());
     }
     ResetUndoStep();
@@ -5405,7 +5401,10 @@ int CBaseView::SaveFile(int nFlags)
         m_pWorkingFile->StoreFileAttributes();
         // m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
         SetModified(FALSE);
-        CUndo::GetInstance().MarkAsOriginalState(this);
+        CUndo::GetInstance().MarkAsOriginalState(
+                this == m_pwndLeft,
+                this == m_pwndRight,
+                this == m_pwndBottom);
         if (file.GetCount() == 1 && file.GetAt(0).IsEmpty() && file.GetLineEnding(0) == EOL_NOENDING)
             return 0;
         return file.GetCount();
