@@ -6,14 +6,14 @@
 
 \section Introduction Introduction
 Compiling TortoiseSVN is not very difficult, but it requires several steps
-to finish, at least the first time.
+to finish, at least when you do it the first time.
 
 Unlike other big open source projects, once you have built all the libraries
 TortoiseSVN depends on, you can use the familiar VisualStudio IDE to build
 and debug the binaries. No need to run the build script for every little change.
 
-So don't give up if you read through the next section and all the requirements.
-You only have to do this once.
+So don't give up if you read through the next section you will find all the requirements.
+You need to perform most steps only once.
 
 \section Requirements Requirements
 
@@ -72,7 +72,8 @@ Now you're almost ready. Only a few more steps to do:
   into the suggested default paths.
 - Make a copy of the file doc\doc.build.user.tmpl and rename that copy to
   doc\doc.build.user. Then adjust the paths in that file according to your
-  setup.
+  setup. You need to edit this file if your installed version of Tortoise has a different
+  working-copy database version than the tool expects.
 - Unzip (if necessary) and copy the font files into %WINDIR%\Fonts.
   You will need them only if you are building the respective language packs.
 
@@ -111,7 +112,7 @@ Now you're almost ready. Only a few more steps to do:
 \section build64cross Building 64 bit packages on win32 (cross-compile)
 
   First, we build some 32-bit SVN utilities you will need later
-  during the build process. Follow the instruction above or just
+  during the build process. Follow the instructions above or just
   open "Microsoft Visual Studio 2012" -> "Visual Studio Tools" ->
   "Visual Studio 2012 Command Prompt", change to the TortoiseSVN source
   directory and run
@@ -153,14 +154,14 @@ Now you're almost ready. Only a few more steps to do:
   > nant release clean
 \endverbatim
 
-  You have to clean when alterning between x86 and x64 builds. You will find that
-  Language\Tortoise.pot gets deleted. This is normal. This is a generated file
-  that is in the repository so the translators don't need to build the whole
-  thing to update documentation.
+  You have to run the clean target when alterning between x86 and x64 builds. You will find that
+  Language\Tortoise.pot gets deleted, which is normal behavior. This generated file is
+  present in the repository so the translators don't need to execute the entire
+  build if they only wish to update documentation.
 
 \section buildhelp Learning the current build options
 
-  Many other settings can be used. You can have a description of the possible targets
+  Many other settings can be used. You can see a description of the available nant targets
   by running
 
 \verbatim
