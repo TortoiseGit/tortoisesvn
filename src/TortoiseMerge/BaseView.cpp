@@ -5339,7 +5339,7 @@ int CBaseView::SaveFile(int nFlags)
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
     {
         CFileTextLines file;
-        //file.SetSaveParams(m_SaveParams);
+        file.SetSaveParams(m_SaveParams);
 
         for (int i=0; i<m_pViewData->GetCount(); i++)
         {
