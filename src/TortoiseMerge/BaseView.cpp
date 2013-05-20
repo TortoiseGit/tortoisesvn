@@ -5339,6 +5339,8 @@ int CBaseView::SaveFile(int nFlags)
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
     {
         CFileTextLines file;
+        m_SaveParams.m_LineEndings = lineendings;
+        m_SaveParams.m_UnicodeType = texttype;
         file.SetSaveParams(m_SaveParams);
 
         for (int i=0; i<m_pViewData->GetCount(); i++)
