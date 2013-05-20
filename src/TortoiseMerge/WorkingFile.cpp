@@ -150,7 +150,6 @@ void CWorkingFile::ClearStoredAttributes()
 {
     static const WIN32_FILE_ATTRIBUTE_DATA attribsEmpty = {0};
     m_attribs = attribsEmpty;
-
 }
 
 bool CWorkingFile::IsReadonly() const

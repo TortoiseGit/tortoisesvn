@@ -510,4 +510,3 @@ void CFilePatchesDlg::OnLvnItemchangedFilelist(NMHDR * /*pNMHDR*/, LRESULT *pRes
 
     *pResult = 0;
 }
-
