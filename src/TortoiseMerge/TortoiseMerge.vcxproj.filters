@@ -222,6 +222,9 @@
     <ClCompile Include="..\Utils\PreserveChdir.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EncodingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -433,6 +436,9 @@
     </ClInclude>
     <ClInclude Include="CustomMFCRibbonButton.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EncodingDlg.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

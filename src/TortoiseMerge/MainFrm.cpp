@@ -35,6 +35,7 @@
 #include "TaskbarUUID.h"
 #include "SVNHelpers.h"
 #include "SVNConfig.h"
+#include "EncodingDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -134,6 +135,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnUpdateViewWraplonglines)
     ON_REGISTERED_MESSAGE( TaskBarButtonCreated, CMainFrame::OnTaskbarButtonCreated )
     ON_UPDATE_COMMAND_UI(ID_EDIT_PASTE, &CMainFrame::OnUpdateEditPaste)
+    ON_COMMAND(ID_INDICATOR_LEFTVIEW, &CMainFrame::OnIndicatorLeftview)
+    ON_COMMAND(ID_INDICATOR_RIGHTVIEW, &CMainFrame::OnIndicatorRightview)
+    ON_COMMAND(ID_INDICATOR_BOTTOMVIEW, &CMainFrame::OnIndicatorBottomview)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -264,6 +268,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         TRACE0("Failed to create status bar\n");
         return -1;      // fail to create
     }
+    m_wndStatusBar.EnablePaneDoubleClick();
 
     if (!m_wndLocatorBar.Create(this, IDD_DIFFLOCATOR,
         CBRS_ALIGN_LEFT | CBRS_SIZE_FIXED, ID_VIEW_LOCATORBAR))
@@ -1139,14 +1144,17 @@ int CMainFrame::CheckResolved()
 
 int CMainFrame::SaveFile(const CString& sFilePath)
 {
+    CBaseView * pView = NULL;
     CViewData * pViewData = NULL;
     CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
     if (IsViewGood(m_pwndBottomView))
     {
+        pView = m_pwndBottomView;
         pViewData = m_pwndBottomView->m_pViewData;
     }
     else if (IsViewGood(m_pwndRightView))
     {
+        pView = m_pwndRightView;
         pViewData = m_pwndRightView->m_pViewData;
         if (m_Data.IsYourFileInUse())
             pOriginFile = &m_Data.m_arYourFile;
@@ -1163,6 +1171,10 @@ int CMainFrame::SaveFile(const CString& sFilePath)
     {
         CFileTextLines file;
         pOriginFile->CopySettings(&file);
+        CFileTextLines::SaveParams saveParams;
+        saveParams.m_LineEndings = pView->lineendings;
+        saveParams.m_UnicodeType = pView->texttype;
+        file.SetSaveParams(saveParams);
         for (int i=0; i<pViewData->GetCount(); i++)
         {
             //only copy non-removed lines
@@ -2206,6 +2218,56 @@ void CMainFrame::OnUpdateEditEnable(CCmdUI *pCmdUI)
     {
         pCmdUI->Enable(FALSE);
     }
+}
+
+void CMainFrame::OnIndicatorLeftview()
+{
+    CEncodingDlg dlg;
+    dlg.view = CString(MAKEINTRESOURCE(IDS_STATUSBAR_LEFTVIEW));
+    dlg.texttype = m_pwndLeftView->texttype;
+    dlg.lineendings = m_pwndLeftView->lineendings;
+    if (dlg.DoModal() != IDOK)
+        return;
+    m_pwndLeftView->texttype = dlg.texttype;
+    m_pwndLeftView->lineendings = dlg.lineendings;
+    for (int i = 0; i < m_pwndLeftView->m_pViewData->GetCount(); ++i)
+        m_pwndLeftView->m_pViewData->SetLineEnding(i, dlg.lineendings);
+    m_pwndLeftView->DocumentUpdated();
+    m_pwndLeftView->SetModified();
+}
+
+void CMainFrame::OnIndicatorRightview()
+{
+    CEncodingDlg dlg;
+    dlg.view = CString(MAKEINTRESOURCE(IDS_STATUSBAR_RIGHTVIEW));
+    dlg.texttype = m_pwndRightView->texttype;
+    dlg.lineendings = m_pwndRightView->lineendings;
+    if (dlg.DoModal() != IDOK)
+        return;
+    m_pwndRightView->texttype = dlg.texttype;
+    m_pwndRightView->lineendings = dlg.lineendings;
+    for (int i = 0; i < m_pwndRightView->m_pViewData->GetCount(); ++i)
+        m_pwndRightView->m_pViewData->SetLineEnding(i, dlg.lineendings);
+    m_pwndRightView->DocumentUpdated();
+    m_pwndRightView->SetModified();
+}
+
+void CMainFrame::OnIndicatorBottomview()
+{
+    if (!IsViewGood(m_pwndBottomView))
+        return;
+    CEncodingDlg dlg;
+    dlg.view = CString(MAKEINTRESOURCE(IDS_STATUSBAR_BOTTOMVIEW));
+    dlg.texttype = m_pwndBottomView->texttype;
+    dlg.lineendings = m_pwndBottomView->lineendings;
+    if (dlg.DoModal() != IDOK)
+        return;
+    m_pwndBottomView->texttype = dlg.texttype;
+    m_pwndBottomView->lineendings = dlg.lineendings;
+    for (int i = 0; i < m_pwndBottomView->m_pViewData->GetCount(); ++i)
+        m_pwndBottomView->m_pViewData->SetLineEnding(i, dlg.lineendings);
+    m_pwndBottomView->DocumentUpdated();
+    m_pwndBottomView->SetModified();
 }
 
 int CMainFrame::CheckForReload()
