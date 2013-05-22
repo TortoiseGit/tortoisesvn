@@ -32,6 +32,19 @@ static CFileTextLines::UnicodeType uctArray[] =
     CFileTextLines::UTF8BOM
 };
 
+static EOL eolArray[] =
+{
+    EOL_CRLF,
+    EOL_LF,
+    EOL_CR,
+    EOL_LFCR,
+    EOL_VT,
+    EOL_FF,
+    EOL_NEL,
+    EOL_LS,
+    EOL_PS
+};
+
 // CFindDlg dialog
 
 IMPLEMENT_DYNAMIC(CEncodingDlg, CDialog)
@@ -68,7 +81,7 @@ void CEncodingDlg::OnOK()
 {
     UpdateData();
     texttype = uctArray[m_Encoding.GetCurSel()];
-    lineendings = (EOL)m_EOL.GetCurSel();
+    lineendings = eolArray[m_EOL.GetCurSel()];
     __super::OnOK();
 }
 
@@ -90,17 +103,17 @@ BOOL CEncodingDlg::OnInitDialog()
     m_Encoding.AddString(_T("UTF-32BE"));
     m_Encoding.AddString(_T("UTF-8"));
     m_Encoding.AddString(_T("UTF-8 BOM"));
+    int idxtexttype = 0;
     for (int i = 0; i < _countof(uctArray); i++)
     {
         if (texttype == uctArray[i])
         {
-            m_Encoding.SetCurSel(i);
+            idxtexttype = i;
             break;
         }
     }
-#ifdef _DEBUG
-    m_EOL.AddString(_T("AUTOLINE"));
-#endif
+    m_Encoding.SetCurSel(idxtexttype);
+
     m_EOL.AddString(_T("CRLF"));
     m_EOL.AddString(_T("LF"));
     m_EOL.AddString(_T("CR"));
@@ -110,10 +123,16 @@ BOOL CEncodingDlg::OnInitDialog()
     m_EOL.AddString(_T("NEL"));
     m_EOL.AddString(_T("LS"));
     m_EOL.AddString(_T("PS"));
-#ifdef _DEBUG
-    m_EOL.AddString(_T("NOENDING"));
-#endif
-    if (lineendings >= 0 && lineendings < EOL__COUNT)
-        m_EOL.SetCurSel(lineendings);
+    int idxlineendings = 0;
+    for (int i = 0; i < _countof(eolArray); i++)
+    {
+        if (lineendings == eolArray[i])
+        {
+            idxlineendings = i;
+            break;
+        }
+    }
+    m_EOL.SetCurSel(idxlineendings);
+
     return FALSE;
 }

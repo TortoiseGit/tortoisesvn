@@ -2230,7 +2230,7 @@ void CMainFrame::OnIndicatorLeftview()
         return;
     m_pwndLeftView->texttype = dlg.texttype;
     m_pwndLeftView->lineendings = dlg.lineendings;
-    for (int i = 0; i < m_pwndLeftView->m_pViewData->GetCount(); ++i)
+    for (int i = 0; i < m_pwndLeftView->m_pViewData->GetCount() - 1; ++i)
         m_pwndLeftView->m_pViewData->SetLineEnding(i, dlg.lineendings);
     m_pwndLeftView->DocumentUpdated();
     m_pwndLeftView->SetModified();
@@ -2246,7 +2246,7 @@ void CMainFrame::OnIndicatorRightview()
         return;
     m_pwndRightView->texttype = dlg.texttype;
     m_pwndRightView->lineendings = dlg.lineendings;
-    for (int i = 0; i < m_pwndRightView->m_pViewData->GetCount(); ++i)
+    for (int i = 0; i < m_pwndRightView->m_pViewData->GetCount() - 1; ++i)
         m_pwndRightView->m_pViewData->SetLineEnding(i, dlg.lineendings);
     m_pwndRightView->DocumentUpdated();
     m_pwndRightView->SetModified();
@@ -2264,7 +2264,7 @@ void CMainFrame::OnIndicatorBottomview()
         return;
     m_pwndBottomView->texttype = dlg.texttype;
     m_pwndBottomView->lineendings = dlg.lineendings;
-    for (int i = 0; i < m_pwndBottomView->m_pViewData->GetCount(); ++i)
+    for (int i = 0; i < m_pwndBottomView->m_pViewData->GetCount() - 1; ++i)
         m_pwndBottomView->m_pViewData->SetLineEnding(i, dlg.lineendings);
     m_pwndBottomView->DocumentUpdated();
     m_pwndBottomView->SetModified();
