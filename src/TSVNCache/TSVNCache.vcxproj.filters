@@ -99,6 +99,9 @@
     <ClCompile Include="..\SVN\SVNConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\ext\xpsupportvc11upd2\xpatl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CachedDirectory.h">
@@ -195,5 +198,13 @@
     <ResourceCompile Include="TSVNCache.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\..\ext\xpsupportvc11upd2\xpatlwrap.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="..\..\ext\xpsupportvc11upd2\xpatlwrap64.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
