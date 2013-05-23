@@ -568,12 +568,12 @@ CCachedDirectory::SvnUpdateMembersStatus()
         switch (pErr->apr_err)
         {
         case SVN_ERR_WC_NOT_WORKING_COPY:
-        case SVN_ERR_WC_PATH_NOT_FOUND:
             {
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                 CSVNStatusCache::Instance().BlockPath(m_directoryPath, true);
             }
             break;
+        case SVN_ERR_WC_PATH_NOT_FOUND:
         case SVN_ERR_WC_NOT_FILE:
         case SVN_ERR_WC_CORRUPT:
         case SVN_ERR_WC_CORRUPT_TEXT_BASE:
