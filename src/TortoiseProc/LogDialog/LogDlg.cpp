@@ -484,11 +484,6 @@ void CLogDlg::SetupFilterControlBitmaps()
 void CLogDlg::ConfigureResizableControlAnchors()
 {
     // resizable stuff
-    AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
-    AddAnchor(IDC_DATEFROM, TOP_RIGHT);
-    AddAnchor(IDC_TOLABEL, TOP_RIGHT);
-    AddAnchor(IDC_DATETO, TOP_RIGHT);
-    AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
     AddMainAnchors();
     AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
@@ -656,7 +651,8 @@ BOOL CLogDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
     ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
-   
+
+    SubclassControls();
     InitializeTaskBarListPtr();
     SetupDialogFonts();
     ExtraInitialization();
@@ -684,6 +680,7 @@ BOOL CLogDlg::OnInitDialog()
     ConfigureDialogForPickingRevisionsOrShowingLog();
     SetupButtonMenu();
     SetupAccessibility();
+    SetupToolTips();
          
     // first start a thread to obtain the log messages without
     // blocking the dialog
