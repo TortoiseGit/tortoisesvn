@@ -214,6 +214,30 @@ private:
     void ReportNoUrlOfFile(LPCTSTR filepath) const;
     CRect DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
     LRESULT DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
+    
+    // extracted from OnInitDialog()...
+    void SubclassControls();
+    void SetupDialogFonts();
+    void RestoreSavedDialogSettings();
+    void SetupLogMessageViewControl();
+    void SetupLogListControl();
+    void LoadIconsForActionColumns();
+    void ConfigureColumnsForLogListControl();
+    void ConfigureColumnsForChangedFileListControl();
+    void SetupFilterControlBitmaps();
+    void ConfigureResizableControlAnchors();
+    void RestoreLogDlgWindowAndSplitters();
+    void AdjustControlSizesForLocalization();
+    void GetOriginalControlRectangles();
+    void SetupDatePickerControls();
+    void ConfigureDialogForPickingRevisionsOrShowingLog();
+    void SetupButtonMenu();
+    void ReadProjectPropertiesAndBugTraqInfo();
+    void SetupToolTips();
+    void InitializeTaskBarListPtr();
+    void CenterThisWindow();
+    void SetupAccessibility();
+    void ExtraInitialization();
 
     inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + (m_bStrictStopped ? 1 : 0); }
 

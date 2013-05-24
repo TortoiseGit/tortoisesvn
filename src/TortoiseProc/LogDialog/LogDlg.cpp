@@ -311,16 +311,11 @@ void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
 {
     delete m_pStoreSelection;
     m_pStoreSelection = NULL;
-
     m_pStoreSelection = new CStoreSelection(this, revArray);
 }
 
-BOOL CLogDlg::OnInitDialog()
+void CLogDlg::SubclassControls()
 {
-    CResizableStandAloneDialog::OnInitDialog();
-    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
-
-    ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
     m_aeroControls.SubclassControl(this, IDC_LOGINFO);
     m_aeroControls.SubclassControl(this, IDC_HIDENONMERGEABLE);
     m_aeroControls.SubclassControl(this, IDC_SHOWPATHS);
@@ -333,11 +328,10 @@ BOOL CLogDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_REFRESH);
     m_aeroControls.SubclassControl(this, IDC_LOGCANCEL);
     m_aeroControls.SubclassOkCancelHelp(this);
+}
 
-    m_pTaskbarList.Release();
-    if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
-        m_pTaskbarList = nullptr;
-
+void CLogDlg::SetupDialogFonts()
+{
     // use the default GUI font, create a copy of it and
     // change the copy to BOLD (leave the rest of the font
     // the same)
@@ -346,12 +340,11 @@ BOOL CLogDlg::OnInitDialog()
     GetObject(hFont, sizeof(LOGFONT), &lf);
     lf.lfWeight = FW_BOLD;
     m_boldFont = CreateFontIndirect(&lf);
+    CAppUtils::CreateFontForLogs(m_logFont);
+}
 
-    EnableToolTips();
-    m_LogList.SetTooltipProvider(this);
-
-    m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
-
+void CLogDlg::RestoreSavedDialogSettings()
+{
     // use the state of the "stop on copy/rename" option from the last time
     if (!m_bStrict)
         m_bStrict = m_regLastStrict;
@@ -364,15 +357,35 @@ BOOL CLogDlg::OnInitDialog()
 
     SetDlgItemText(IDC_NEXTHUNDRED, temp);
 
-    // set the font to use in the log message view, configured in the settings dialog
-    CAppUtils::CreateFontForLogs(m_logFont);
+    // Show paths checkbox
+    int checkState = (int)DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"), BST_UNCHECKED));
+    m_cShowPaths.SetCheck(checkState);
+
+    switch ((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")))
+    {
+        default:
+        case 0:
+            m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
+            break;
+        case  1:
+            m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
+            break;
+    }
+}
+
+void CLogDlg::SetupLogMessageViewControl()
+{
+     // set the font to use in the log message view, configured in the settings dialog
     GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
     // automatically detect URLs in the log message and turn them into links
     GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
     // make the log message rich edit control send a message when the mouse pointer is over a link
     GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK|ENM_SCROLL);
-    DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
+}
 
+void CLogDlg::SetupLogListControl()
+{
+    DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
     // we *could* enable checkboxes on pre Vista OS too, but those don't have
     // the LVS_EX_AUTOCHECKSELECT style. Without that style, users could get
     // very confused because selected items are not checked.
@@ -381,10 +394,11 @@ BOOL CLogDlg::OnInitDialog()
     if (m_bSelect && SysInfo::Instance().IsVistaOrLater())
         dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
     m_LogList.SetExtendedStyle(dwStyle);
+    m_LogList.SetTooltipProvider(this);
+}
 
-    int checkState = (int)DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"), BST_UNCHECKED));
-    m_cShowPaths.SetCheck(checkState);
-
+void CLogDlg::LoadIconsForActionColumns()
+{
     // load the icons for the action columns
     m_hModifiedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMODIFIED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hReplacedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREPLACED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
@@ -392,18 +406,11 @@ BOOL CLogDlg::OnInitDialog()
     m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hReverseMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREVERSEMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-    // if there is a working copy, load the project properties
-    // to get information about the bugtraq: integration
-    if (m_hasWC)
-        m_ProjectProperties.ReadProps(m_path);
+}
 
-    // the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
-    if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.GetCheckRe().IsEmpty()))
-        m_bShowBugtraqColumn = true;
-
-    SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
-    SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
-
+void CLogDlg::ConfigureColumnsForLogListControl()
+{
+    CString temp;
     // set up the columns
     int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
@@ -436,10 +443,16 @@ BOOL CLogDlg::OnInitDialog()
     ResizeAllListCtrlCols(true);
     m_LogList.SetRedraw(true);
 
-    m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+    SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
+    GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+}
+
+void CLogDlg::ConfigureColumnsForChangedFileListControl()
+{
+    CString temp;
     m_ChangedFileListCtrl.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
     m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
-    c = ((CHeaderCtrl*)(m_ChangedFileListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+    int c = ((CHeaderCtrl*)(m_ChangedFileListCtrl.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
         m_ChangedFileListCtrl.DeleteColumn(c--);
     temp.LoadString(IDS_PROGRS_PATH);
@@ -454,46 +467,27 @@ BOOL CLogDlg::OnInitDialog()
     CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
     m_ChangedFileListCtrl.SetRedraw(true);
 
+    SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+}
 
-    GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-    m_sMessageBuf.Preallocate(100000);
-
-    // set the dialog title to "Log - path/to/whatever/we/show/the/log/for"
-    SetDlgTitle(false);
-
-    m_tooltips.Create(this);
-    CheckRegexpTooltip();
-
+void CLogDlg::SetupFilterControlBitmaps()
+{
     // the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
     m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
     m_cFilter.SetInfoIcon(IDI_LOGFILTER);
     m_cFilter.SetValidator(this);
     m_cFilter.SetWindowText(m_sFilterText);
+}
 
-    AdjustControlSize(IDC_SHOWPATHS);
-    AdjustControlSize(IDC_CHECK_STOPONCOPY);
-    AdjustControlSize(IDC_INCLUDEMERGE);
-    AdjustControlSize(IDC_HIDENONMERGEABLE);
-
-    GetClientRect(m_DlgOrigRect);
-    m_LogList.GetClientRect(m_LogListOrigRect);
-    GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
-    m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
-
-    m_DateFrom.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
-    m_DateTo.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
-
+void CLogDlg::ConfigureResizableControlAnchors()
+{
     // resizable stuff
     AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
     AddAnchor(IDC_DATEFROM, TOP_RIGHT);
     AddAnchor(IDC_TOLABEL, TOP_RIGHT);
     AddAnchor(IDC_DATETO, TOP_RIGHT);
-
-    SetFilterCueText();
     AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
-
     AddMainAnchors();
-
     AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
     AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
@@ -507,13 +501,10 @@ BOOL CLogDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDC_LOGCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    SetPromptParentWindow(m_hWnd);
-    if (GetExplorerHWND())
-        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("LogDlg"));
+}
 
-    SetSplitterRange();
-
+void CLogDlg::RestoreLogDlgWindowAndSplitters()
+{
     DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
     DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
     RECT rcDlg, rcLogList, rcChgMsg;
@@ -550,7 +541,37 @@ BOOL CLogDlg::OnInitDialog()
         }
     }
 
-    SetSplitterRange();
+    SetSplitterRange();    
+}
+
+void CLogDlg::AdjustControlSizesForLocalization()
+{
+    AdjustControlSize(IDC_SHOWPATHS);
+    AdjustControlSize(IDC_CHECK_STOPONCOPY);
+    AdjustControlSize(IDC_INCLUDEMERGE);
+    AdjustControlSize(IDC_HIDENONMERGEABLE);
+}
+
+void CLogDlg::GetOriginalControlRectangles()
+{
+    GetClientRect(m_DlgOrigRect);
+    m_LogList.GetClientRect(m_LogListOrigRect);
+    GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
+    m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
+}
+
+void CLogDlg::SetupDatePickerControls()
+{
+    m_DateFrom.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
+    m_DateTo.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
+
+    // show/hide the date filter controls according to the filter setting
+    AdjustDateFilterVisibility();
+}
+
+void CLogDlg::ConfigureDialogForPickingRevisionsOrShowingLog()
+{
+    CString temp;
     if (m_bSelect)
     {
         // the dialog is used to select revisions
@@ -566,6 +587,10 @@ BOOL CLogDlg::OnInitDialog()
         SetDlgItemText(IDC_LOGCANCEL, temp);
         GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
     }
+}
+
+void CLogDlg::SetupButtonMenu()
+{
     m_btnMenu.CreatePopupMenu();
     m_btnMenu.AppendMenu(MF_STRING|MF_BYCOMMAND, ID_CMD_SHOWALL, CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
     m_btnMenu.AppendMenu(MF_STRING|MF_BYCOMMAND, ID_CMD_SHOWRANGE, CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
@@ -574,30 +599,95 @@ BOOL CLogDlg::OnInitDialog()
     m_btnShow.m_bRightArrow = TRUE;
     m_btnShow.m_bDefaultClick = TRUE;
     m_btnShow.m_bTransparent = TRUE;
-    switch ((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")))
-    {
-    default:
-    case 0:
-        m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
-        break;
-    case  1:
-        m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
-        break;
-    }
+}
 
-    m_mergedRevs.clear();
+void CLogDlg::ReadProjectPropertiesAndBugTraqInfo()
+{
+    // if there is a working copy, load the project properties
+    // to get information about the bugtraq: integration
+    if (m_hasWC)
+        m_ProjectProperties.ReadProps(m_path);
 
+    // the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
+    if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.GetCheckRe().IsEmpty()))
+        m_bShowBugtraqColumn = true;
+
+}
+
+void CLogDlg::SetupToolTips()
+{
+    EnableToolTips();
+    m_tooltips.Create(this);
+    CheckRegexpTooltip();
+}
+
+void CLogDlg::InitializeTaskBarListPtr()
+{
+    m_pTaskbarList.Release();
+    if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
+        m_pTaskbarList = nullptr;
+}
+
+void CLogDlg::CenterThisWindow()
+{
+     if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
+}
+
+void CLogDlg::SetupAccessibility()
+{
     // set up the accessibility callback
     m_pLogListAccServer = ListViewAccServer::CreateProvider(m_LogList.GetSafeHwnd(), this);
     m_pChangedListAccServer = ListViewAccServer::CreateProvider(m_ChangedFileListCtrl.GetSafeHwnd(), this);
+}
 
-    // show/hide the date filter controls according to the filter setting
-    AdjustDateFilterVisibility();
+void CLogDlg::ExtraInitialization()
+{
+    m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
+    m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+    m_sMessageBuf.Preallocate(100000);
+    m_mergedRevs.clear();
+}
 
+BOOL CLogDlg::OnInitDialog()
+{
+    CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
+   
+    InitializeTaskBarListPtr();
+    SetupDialogFonts();
+    ExtraInitialization();
+    RestoreSavedDialogSettings();
+    SetupLogMessageViewControl();
+    SetupLogListControl();
+    LoadIconsForActionColumns();
+    ReadProjectPropertiesAndBugTraqInfo();
+    ConfigureColumnsForLogListControl();
+    ConfigureColumnsForChangedFileListControl();
+        
+    // set the dialog title to "Log - path/to/whatever/we/show/the/log/for"
+    SetDlgTitle(false);
+    SetupFilterControlBitmaps();
+    AdjustControlSizesForLocalization();
+    GetOriginalControlRectangles();
+    SetupDatePickerControls();
+    SetFilterCueText();
+    ConfigureResizableControlAnchors();
+    SetPromptParentWindow(m_hWnd);
+    CenterThisWindow();
+    EnableSaveRestore(_T("LogDlg"));
+    SetSplitterRange();
+    RestoreLogDlgWindowAndSplitters();
+    ConfigureDialogForPickingRevisionsOrShowingLog();
+    SetupButtonMenu();
+    SetupAccessibility();
+         
     // first start a thread to obtain the log messages without
     // blocking the dialog
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
     new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
+    // detect Visual Studio Running with thread
     new async::CAsyncCall(this, &CLogDlg::DetectVisualStudioRunningThread, &vsRunningScheduler);
     GetDlgItem(IDC_LOGLIST)->SetFocus();
     return FALSE;
