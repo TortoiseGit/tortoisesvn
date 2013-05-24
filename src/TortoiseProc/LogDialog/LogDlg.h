@@ -271,6 +271,10 @@ private:
     CString GetWcPathFromUrl(CString fileUrl);
     void OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices, 
         CComPtr<EnvDTE::ItemOperations>& pItemOperations);
+    void ActivateVisualStudioWindow(CComPtr<EnvDTE::_DTE>& pDTE);
+    bool IsProcessRunningInHighIntegrity(DWORD pid);
+    PTOKEN_USER GetUserTokenFromProcessId(DWORD pid);
+    bool RunningInSameUserContextWithSameProcessIntegrity(DWORD pidVisualStudio);
 
 public:
     CWnd *              m_pNotifyWindow;

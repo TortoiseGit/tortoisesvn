@@ -56,8 +56,10 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
-#include <tlhelp32.h>
-#include <shlwapi.h>
+#include "SmartHandle.h"
+#include "tlhelp32.h"
+#include "shlwapi.h"
+
 #include "../LogCache/Streams/StreamException.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
@@ -5580,7 +5582,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     popup.AppendMenuIcon(ID_OPENWITHLOCAL, IDS_LOG_POPUP_OPENWITHLOCAL, IDI_OPEN);
                     if (m_bVisualStudioRunningAtStart)
                     {
-                        popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
+                        if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
+                            popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
+                        else
+                            popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPEN_MULTIPLE_INVISUALSTUDIO, IDI_VS_2012);
                         openInVisualStudioContextMenuAdded = true;
                     }
                 }
@@ -5613,7 +5618,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         {
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
             if (!openInVisualStudioContextMenuAdded && m_bVisualStudioRunningAtStart)
-                popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
+            {
+                if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
+                    popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPENINVISUALSTUDIO, IDI_VS_2012);
+                else
+                    popup.AppendMenuIcon(ID_OPENVISUALSTUDIO, IDS_LOG_OPEN_MULTIPLE_INVISUALSTUDIO, IDI_VS_2012);
+            }
             bEntryAdded = true;
         }
 
@@ -6425,7 +6435,7 @@ void CLogDlg::DetectVisualStudioRunningThread()
     entry.dwSize = sizeof(PROCESSENTRY32);
     m_bVisualStudioRunningAtStart = false;
 
-    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+    CAutoGeneralHandle snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 
     if (Process32First(snapshot, &entry))
     {
@@ -6433,12 +6443,12 @@ void CLogDlg::DetectVisualStudioRunningThread()
         {
             if (!_tcsicmp(entry.szExeFile, _T("devenv.exe")))
             {
-                m_bVisualStudioRunningAtStart = true;
+                if (RunningInSameUserContextWithSameProcessIntegrity(entry.th32ProcessID))
+                     m_bVisualStudioRunningAtStart = true;
                 return;
             }
         }
     }
-    CloseHandle(snapshot);
 }
 
 // This code was borrowed and modified to use compiler-generated Smart Pointers
@@ -6482,6 +6492,8 @@ bool CLogDlg::OpenInVisualStudio(std::vector<size_t>& changedlogpathindices)
     // re-enable and end wait
     EnableOKButton();
     theApp.DoWaitCursor(-1);
+
+    ActivateVisualStudioWindow(pDTE);
     return true;
  }
 
@@ -6567,3 +6579,117 @@ bool CLogDlg::OpenOneFileInVisualStudio(CString& filename,
 }
 
 
+// The run in VS won't work if the process owner for VS is different than the current user
+// Also, if the same user runs VS as administrator, they run in "High Integrity" mode
+// and we don't want to show the Open in Visual Studio menu item in either case.
+bool CLogDlg::RunningInSameUserContextWithSameProcessIntegrity(DWORD pidVisualStudio)
+{
+    DWORD tortoisePid = GetCurrentProcessId();
+    PTOKEN_USER pUserTokenTortoise = GetUserTokenFromProcessId(tortoisePid);
+    PTOKEN_USER pUserTokenVisualStudio = GetUserTokenFromProcessId(pidVisualStudio);
+    BOOL isSameOwner = FALSE;
+    if (pUserTokenTortoise != NULL && pUserTokenVisualStudio != NULL)
+        isSameOwner = EqualSid((pUserTokenTortoise->User).Sid,
+                                    (pUserTokenVisualStudio->User).Sid);
+    if(pUserTokenTortoise)
+        LocalFree(pUserTokenTortoise);
+    if(pUserTokenVisualStudio)
+        LocalFree(pUserTokenVisualStudio);
+
+    // check if the process integrity matches, problem if dissimilar
+    bool vsHighIntegrity = IsProcessRunningInHighIntegrity(pidVisualStudio);
+    bool tortoiseHighIntegrity = IsProcessRunningInHighIntegrity(tortoisePid);
+    bool integrityMatches = !(vsHighIntegrity ^ tortoiseHighIntegrity);
+    return (isSameOwner && integrityMatches) ? true : false;
+}
+
+// Got a pid, want a User Token* ?  Don't forget to free any valid pointers returned
+PTOKEN_USER CLogDlg::GetUserTokenFromProcessId(DWORD pid)
+{
+    CAutoGeneralHandle hProcess = OpenProcess(MAXIMUM_ALLOWED, FALSE, pid);
+    CAutoGeneralHandle hToken;
+    int lastError = 0;
+    
+    // yuck!
+    if (OpenProcessToken(hProcess, TOKEN_QUERY, hToken.GetPointer()))
+    {
+        DWORD dwLengthNeeded;
+        if (!GetTokenInformation(hToken, TokenUser,  NULL, 0, &dwLengthNeeded))
+        {
+            if ( GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+            {
+                PTOKEN_USER pUserToken = (PTOKEN_USER)LocalAlloc(0, dwLengthNeeded);
+                if (pUserToken != NULL)
+                {
+                    if (GetTokenInformation(hToken, TokenUser,
+                        pUserToken, dwLengthNeeded, &dwLengthNeeded))
+                    {
+                        return pUserToken;
+                    }
+                    lastError = GetLastError();
+                    LocalFree(pUserToken);
+                    return NULL; // no token info
+                }
+                return NULL;  // LocalAlloc() failed
+            }
+            return NULL; // GetLastError() returned a weird error
+        }
+        return NULL; // no token info :-(
+    }
+    return NULL; // can't get a process token
+}
+
+// adapted from http://msdn.microsoft.com/en-us/library/bb625966.aspx
+bool CLogDlg::IsProcessRunningInHighIntegrity(DWORD pid)
+{
+    bool runningHighIntegrity = false;
+    DWORD dwLengthNeeded = 0;
+    DWORD dwError = ERROR_SUCCESS;
+    PTOKEN_MANDATORY_LABEL pTIL = NULL;
+    DWORD dwIntegrityLevel = 0;
+    CAutoGeneralHandle hProcess = OpenProcess(MAXIMUM_ALLOWED, FALSE, pid);
+    CAutoGeneralHandle hToken;
+
+    // yuck2
+    if (OpenProcessToken(hProcess, TOKEN_QUERY, hToken.GetPointer())) 
+    {
+        // Get the Integrity level.
+        if (!GetTokenInformation(hToken, TokenIntegrityLevel, 
+            NULL, 0, &dwLengthNeeded))
+        {
+            dwError = GetLastError();
+            if (dwError == ERROR_INSUFFICIENT_BUFFER)
+            {
+                pTIL = (PTOKEN_MANDATORY_LABEL)LocalAlloc(0, 
+                    dwLengthNeeded);
+                if (pTIL != NULL)
+                {
+                    if (GetTokenInformation(hToken, TokenIntegrityLevel, 
+                        pTIL, dwLengthNeeded, &dwLengthNeeded))
+                    {
+                        dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid, 
+                            (DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid)-1));
+
+                        if (dwIntegrityLevel >= SECURITY_MANDATORY_HIGH_RID)
+                            runningHighIntegrity = true;
+                    }
+                    LocalFree(pTIL);
+                }
+            }
+        }
+    }
+    return runningHighIntegrity;
+}
+
+void CLogDlg::ActivateVisualStudioWindow(CComPtr<EnvDTE::_DTE>& pDTE)
+{
+    HRESULT result = E_FAIL;
+    CComPtr<EnvDTE::Window> pMainWindow;
+    result = pDTE->get_MainWindow(&pMainWindow);
+    if (FAILED(result))
+        return;
+    long hwnd = 0;
+    pMainWindow->get_HWnd(&hwnd);
+    if (IsWindow((HWND)hwnd))
+        ::SetForegroundWindow((HWND)hwnd);
+}
