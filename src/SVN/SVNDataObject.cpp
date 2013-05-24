@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -275,20 +275,14 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                 else
                     files->fgd[index].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
 
-                struct tm newtime;
-                SYSTEMTIME systime;
-                __time64_t ttt = it->infodata.lastchangedtime;
-                _localtime64_s(&newtime, &ttt);
-
-                systime.wDay = (WORD)newtime.tm_mday;
-                systime.wDayOfWeek = (WORD)newtime.tm_wday;
-                systime.wHour = (WORD)newtime.tm_hour;
-                systime.wMilliseconds = 0;
-                systime.wMinute = (WORD)newtime.tm_min;
-                systime.wMonth = (WORD)newtime.tm_mon+1;
-                systime.wSecond = (WORD)newtime.tm_sec;
-                systime.wYear = (WORD)newtime.tm_year+1900;
-                SystemTimeToFileTime(&systime, &files->fgd[index].ftLastWriteTime);
+                // convert time to FILETIME
+                LONGLONG ll;
+#define APR_DELTA_EPOCH_IN_USEC   APR_TIME_C(11644473600000000);
+                ll = it->infodata.lastchangedtime*1000000L; // create apr_time
+                ll += APR_DELTA_EPOCH_IN_USEC;  // add apr_time offset required
+                ll = ll * 10;   // to get the FILETIME
+                files->fgd[index].ftLastWriteTime.dwLowDateTime = (DWORD)ll;
+                files->fgd[index].ftLastWriteTime.dwHighDateTime = (DWORD) (ll >> 32);
                 files->fgd[index].dwFlags |= FD_WRITESTIME;
             }
             else
