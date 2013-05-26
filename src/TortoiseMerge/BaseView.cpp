@@ -5380,7 +5380,7 @@ int CBaseView::SaveFile(int nFlags)
             case DIFFSTATE_THEIRSREMOVED:
             case DIFFSTATE_YOURSREMOVED:
             case DIFFSTATE_CONFLICTRESOLVEDEMPTY:
-                if ((nFlags&SAVE_REMOVED) == 0)
+                if ((nFlags&SAVE_REMOVEDLINES) == 0)
                 {
                     // do not save removed lines
                     break;
@@ -5424,3 +5424,69 @@ int CBaseView::SaveFileTo(CString sFileName, int nFlags)
     }
     return -1;
 }
+
+
+EOL CBaseView::GetLineEndings()
+{
+    // check if all lines have same EOL
+    for (int i = 0; i < GetViewCount() - 1; ++i)
+    {
+        if (IsLineEmpty(i))
+        {
+            continue;
+        }
+        EOL eLineEol = GetViewLineEnding(i);
+        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == lineendings)
+        {
+            continue;
+        }
+        return EOL_AUTOLINE; // mixed eols - hack value
+    }
+    if (lineendings == EOL_AUTOLINE)
+    {
+        return EOL_CRLF;
+    }
+    return lineendings;
+}
+
+void CBaseView::SetLineEndings(EOL eEol)
+{
+    if (eEol == EOL_AUTOLINE)
+    {
+        return;
+    }
+    // set AUTOLINE
+    lineendings = eEol;
+    // replace all set EOLs
+    // TODO store line endings and lineendings in undo
+    //CUndo::BeginGrouping();
+    for (int i = 0; i < GetViewCount(); ++i)
+    {
+        if (IsLineEmpty(i))
+        {
+            continue;
+        }
+        EOL eLineEol = GetViewLineEnding(i);
+        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == lineendings)
+        {
+            continue;
+        }
+        SetViewLineEnding(i, eEol);
+    }
+    //CUndo::EndGrouping();
+    //CUndo::saveundostep;
+    DocumentUpdated();
+    SetModified();
+}
+
+void CBaseView::SetTextType(CFileTextLines::UnicodeType texttype)
+{
+    if (texttype == texttype)
+    {
+        return;
+    }
+    texttype = texttype;
+    DocumentUpdated();
+    SetModified();
+}
+
