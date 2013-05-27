@@ -5479,13 +5479,13 @@ void CBaseView::SetLineEndings(EOL eEol)
     SetModified();
 }
 
-void CBaseView::SetTextType(CFileTextLines::UnicodeType texttype)
+void CBaseView::SetTextType(CFileTextLines::UnicodeType eTextType)
 {
-    if (texttype == texttype)
+    if (texttype == eTextType)
     {
         return;
     }
-    texttype = texttype;
+    texttype = eTextType;
     DocumentUpdated();
     SetModified();
 }
