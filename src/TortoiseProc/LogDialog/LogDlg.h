@@ -68,6 +68,8 @@ using namespace std;
 
 #define LOGFILTER_TIMER     101
 
+
+
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 enum RefreshEnum
@@ -77,11 +79,56 @@ enum RefreshEnum
     Cache
 };
 
+// fwd declaration
+class CIconMenu;
+
+/**
+ * \ingroup TortoiseProc
+ * Helper class containing info used for context menu selections.
+ */
+class ContextMenuInfo
+{
+public:
+    ContextMenuInfo()
+    {
+        SelLogEntry = NULL;
+        SelEntries.clear();
+        RevisionRanges.Clear();
+        AllFromTheSameAuthor = false;
+        RevPrevious = 0;
+        RevSelected = 0;
+        RevSelected2 = 0;
+        RevHighest = 0;
+        RevLowest = 0;
+        PathURL = _T("");
+    }
+    ~ContextMenuInfo()
+    {
+        SelEntries.clear();
+        RevisionRanges.Clear();
+    }
+
+    PLOGENTRYDATA SelLogEntry;
+    std::vector<PLOGENTRYDATA> SelEntries; 
+    bool AllFromTheSameAuthor;
+    SVNRevRangeArray RevisionRanges;
+    SVNRev RevPrevious;
+    SVNRev RevSelected;
+    SVNRev RevSelected2;
+    SVNRev RevHighest;
+    SVNRev RevLowest;
+    CString PathURL;
+};
+
+// get an alias to a shared automatic pointer
+typedef std::shared_ptr<ContextMenuInfo> ContextMenuInfoPtr;
+
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox.
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, IListCtrlTooltipProvider, ListViewAccProvider
+class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, 
+                                                   IListCtrlTooltipProvider, ListViewAccProvider
 {
     DECLARE_DYNAMIC(CLogDlg)
 
@@ -92,8 +139,10 @@ public:
     virtual ~CLogDlg();
 
     void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
-        BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE,
-        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+        BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
+        BOOL bSaveStrict = TRUE,
+        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 
+        100));
     void SetFilter(const CString& findstr, LONG findtype, bool findregex);
     void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
     void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
@@ -111,7 +160,8 @@ public:
 
 protected:
     //implement the virtual methods from SVN base class
-    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo) override;
+    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, 
+                                                apr_time_t time, const MergeInfo* mergeInfo) override;
     virtual BOOL Cancel() override;
     virtual bool Validate(LPCTSTR string) override;
 
@@ -168,7 +218,8 @@ protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     void    FillLogMessageCtrl(bool bShow = true);
-    void    DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified);
+    void    DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
+                                                            bool blame, bool unified);
 
     DECLARE_MESSAGE_MAP()
 
@@ -189,7 +240,8 @@ private:
     void CopySelectionToClipBoard(bool bIncludeChangedList);
     void CopyCommaSeparatedRevisionsToClipboard();
     void CopyChangedSelectionToClipBoard();
-    CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch, CLogChangedPathArray& currentChangedArray);
+    CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch,
+                                                                CLogChangedPathArray& currentChangedArray);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
     void SortByColumn(int nSortColumn, bool bAscending);
@@ -239,15 +291,44 @@ private:
     void SetupAccessibility();
     void ExtraInitialization();
 
-    inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + (m_bStrictStopped ? 1 : 0); }
+    inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + 
+                                                                        (m_bStrictStopped ? 1 : 0); }
 
     virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
     void ResizeAllListCtrlCols(bool bOnlyVisible);
 
+    // extracted from ShowContextMenuForRevisions...
     void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
+    void PopulateContextMenuForRevisions(ContextMenuInfoPtr& pCmi, CIconMenu& popup);
+    bool GetContextMenuInfo(ContextMenuInfoPtr& pCmi);
+    void AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint &point, int selIndex, CListCtrl& listControl);
+    bool VerifyContextMenuForRevisionsAllowed(int selIndex);
+    void ExecuteGnuDiff1Menu(ContextMenuInfoPtr& pCmi);
+    void ExecuteGnuDiff2Menu(ContextMenuInfoPtr& pCmi);
+    void ExecuteRevertRevisionMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteMergeRevisionMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteRevertToRevisionMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteCopyMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteCompareWithWorkingCopyMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteCompareTwoMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteCompareWithPreviousMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteBlameCompareMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteBlameTwoMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteWithPreviousMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteSaveAsMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteOpenMenu(ContextMenuInfoPtr& pCmi, bool bOpenWith);
+    void ExecuteBlameMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteUpdateMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteFindEntryMenu();
+    void ExecuteRepoBrowseMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteRevisionPropsMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteExportMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteCheckoutMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteViewRevMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteViewPathRevMenu(ContextMenuInfoPtr& pCmi);
+    
     void ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point);
-
     virtual CString GetToolTipText(int nItem, int nSubItem) override;
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,
         const CString& whatToFind, LRESULT *pResult);
