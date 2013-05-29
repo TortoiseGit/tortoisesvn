@@ -30,8 +30,14 @@
                       >Repository Browser</a></li>
                   <li><a href="#extlibs"
                       >Third party libraries</a></li>
+                  <li><a href="#progdlg"
+                      >Progress dialog</a></li>
                   <li><a href="#subwcrev"
                       >SubWCRev</a></li>
+                  <li><a href="#customprops"
+                      >Custom properies</a></li>
+                  <li><a href="#clienthook"
+                      >Client hook scripts configurable via properties</a></li>
                   <li><a href="#compatibility"
                       >Compatibility concerns</a></li>
                 </ul>
@@ -145,6 +151,19 @@
                 do is commit the new version.</p>
             </div>  <!-- extlibs -->
 
+            <div class="post" id="progdlg">
+                <h2>Progress dialog</h2>
+                <p>The dialog that shows the progress of various operations
+                now has a better indication of sections/grouping, for example
+                when updating a working copy that has multiple externals set.</p>
+                <p>Each section/group is indicated by the first line shown in bold.</p>
+                <p>And as for updating externals: only those externals that pull
+                down modifications are shown in the dialog. If an external hasn't
+                changed then the dialog does not show any information for it.
+                This reduces the no-information lines a lot, especially if you
+                have a lot of externals set.</p>
+            </div>  <!-- progdlg -->
+
             <div class="post" id="subwcrev">
                 <h2>SubWCRev</h2>
                 <p>SubWCRev also got a lot of improvements, the major ones are:</p>
@@ -164,6 +183,39 @@
                 </ul>
             </div>  <!-- subwcrev -->
 
+            <div class="post" id="customprops">
+                <h2>Custom properties</h2>
+                <p>If you're using custom properties, you can now configure TortoiseSVN
+                to provide better dialogs to edit and modify them.</p>
+                <p>The properties <em>tsvn:userfileproperties</em> and <em> tsvn:userdirproperties</em>
+                got extended so you can specify what kind of property you have</p>.
+                <p>Have a look at our
+                <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-tsvn-props">docs</a>
+                on how this works.</p>
+            </div>  <!-- customprops -->
+
+            <div class="post" id="clienthook">
+                <h2>Client hook scripts configurable via properties</h2>
+                <p>In earlier versions you could only configure client-side
+                hook scripts via the settings dialog. This worked ok if you
+                only had a few workstations/users to configure. But if you
+                wanted a big team of committers to all run the hook scripts
+                you needed, this required a lot of work to set up.</p>
+                <p>In TortoiseSVN 1.8 you can now configure the hook scripts
+                to run via project properties.</p>
+                <p>To avoid running potentially insecure scripts without the user
+                knowing it, TortoiseSVN will ask to run those scripts first.</p>
+                <p>Have a look at our
+                <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-tsvn-props">docs</a>
+                on how this works.</p>
+            </div>  <!-- clienthook -->
+
+            <!--
+            * Option to export only modified files (right-drag, selection in commit dialog)
+            * Clear auth data individually
+            * Branch/Tag with --make-parents (issue 405)
+            * utf-32 files in TMerge
+            -->
             <div class="post" id="compatibility">
                 <h2>Compatibility concerns</h2>
 
