@@ -1827,7 +1827,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     }
     else if (pWnd == &m_ChangedFileListCtrl)
     {
-        ShowContextMenuForChangedpaths(pWnd, point);
+        ShowContextMenuForChangedPaths(pWnd, point);
     }
     else if ((selCount > 0)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
     {
@@ -4685,7 +4685,7 @@ void CLogDlg::AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint &point, int s
 }
 
 
-bool CLogDlg::GetContextMenuInfo(ContextMenuInfoPtr& pCmi)
+bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // calculate some information the context menu commands can use
     pCmi->PathURL = GetURLFromPath(m_path);
@@ -4745,7 +4745,7 @@ bool CLogDlg::GetContextMenuInfo(ContextMenuInfoPtr& pCmi)
     return true;
 }
 
-void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoPtr& pCmi, CIconMenu& popup)
+void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup)
 {
     if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth()==0))
     {
@@ -4871,8 +4871,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     m_bCancelled = FALSE;
 
     // grab extra revision info that the Execute methods will use
-    ContextMenuInfoPtr pCmi(new ContextMenuInfo());
-    if (!GetContextMenuInfo(pCmi))
+    ContextMenuInfoForRevisionsPtr pCmi(new ContextMenuInfoForRevisions());
+    if (!GetContextMenuInfoForRevisions(pCmi))
         return;
     
     CIconMenu popup;
@@ -4891,49 +4891,49 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     switch (cmd)
     {
         case ID_GNUDIFF1:
-            ExecuteGnuDiff1Menu(pCmi);
+            ExecuteGnuDiff1MenuRevisions(pCmi);
             break;
         case ID_GNUDIFF2:
-            ExecuteGnuDiff2Menu(pCmi);
+            ExecuteGnuDiff2MenuRevisions(pCmi);
             break;
         case ID_REVERTREV:
-            ExecuteRevertRevisionMenu(pCmi);
+            ExecuteRevertRevisionMenuRevisions(pCmi);
             break;
         case ID_MERGEREV:
-            ExecuteMergeRevisionMenu(pCmi);
+            ExecuteMergeRevisionMenuRevisions(pCmi);
             break;
         case ID_REVERTTOREV:
-            ExecuteRevertToRevisionMenu(pCmi);
+            ExecuteRevertToRevisionMenuRevisions(pCmi);
             break;
         case ID_COPY:
-            ExecuteCopyMenu(pCmi);
+            ExecuteCopyMenuRevisions(pCmi);
             break;
         case ID_COMPARE:
-            ExecuteCompareWithWorkingCopyMenu(pCmi);
+            ExecuteCompareWithWorkingCopyMenuRevisions(pCmi);
             break;
         case ID_COMPARETWO:
-            ExecuteCompareTwoMenu(pCmi);
+            ExecuteCompareTwoMenuRevisions(pCmi);
             break;
         case ID_COMPAREWITHPREVIOUS:
-            ExecuteCompareWithPreviousMenu(pCmi);
+            ExecuteCompareWithPreviousMenuRevisions(pCmi);
             break;
         case ID_BLAMECOMPARE:
-            ExecuteBlameCompareMenu(pCmi);
+            ExecuteBlameCompareMenuRevisions(pCmi);
             break;
         case ID_BLAMETWO:
-            ExecuteBlameTwoMenu(pCmi);
+            ExecuteBlameTwoMenuRevisions(pCmi);
             break;
         case ID_BLAMEWITHPREVIOUS:
-            ExecuteWithPreviousMenu(pCmi);
+            ExecuteWithPreviousMenuRevisions(pCmi);
             break;
         case ID_SAVEAS:
-            ExecuteSaveAsMenu(pCmi);
+            ExecuteSaveAsMenuRevisions(pCmi);
             break;
         case ID_OPENWITH:
-            ExecuteOpenMenu(pCmi, true);
+            ExecuteOpenMenuRevisions(pCmi, true);
             break;
         case ID_OPEN:
-            ExecuteOpenMenu(pCmi, false);
+            ExecuteOpenMenuRevisions(pCmi, false);
             break;
         case ID_OPENWITHLOCAL:
             DoOpenFileWith(false, true, m_path);
@@ -4942,16 +4942,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             DoOpenFileWith(false, false, m_path);
             break;
         case ID_BLAME:
-            ExecuteBlameMenu(pCmi);
+            ExecuteBlameMenuRevisions(pCmi);
             break;
         case ID_UPDATE:
-            ExecuteUpdateMenu(pCmi);
+            ExecuteUpdateMenuRevisions(pCmi);
             break;
         case ID_FINDENTRY:
-            ExecuteFindEntryMenu();
+            ExecuteFindEntryMenuRevisions();
             break;
         case ID_REPOBROWSE:
-            ExecuteRepoBrowseMenu(pCmi);
+            ExecuteRepoBrowseMenuRevisions(pCmi);
             break;
         case ID_EDITLOG:
             EditLogMessage(selIndex);
@@ -4960,22 +4960,22 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             EditAuthor(pCmi->SelEntries);
             break;
         case ID_REVPROPS:
-            ExecuteRevisionPropsMenu(pCmi);
+            ExecuteRevisionPropsMenuRevisions(pCmi);
             break;
         case ID_COPYCLIPBOARD:
             CopySelectionToClipBoard();
             break;
         case ID_EXPORT:
-            ExecuteExportMenu(pCmi);
+            ExecuteExportMenuRevisions(pCmi);
             break;
         case ID_CHECKOUT:
-            ExecuteCheckoutMenu(pCmi);
+            ExecuteCheckoutMenuRevisions(pCmi);
             break;
         case ID_VIEWREV:
-            ExecuteViewRevMenu(pCmi);
+            ExecuteViewRevMenuRevisions(pCmi);
             break;
         case ID_VIEWPATHREV:
-            ExecuteViewPathRevMenu(pCmi);
+            ExecuteViewPathRevMenuRevisions(pCmi);
             break;
         default:
             break;
@@ -4985,7 +4985,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     EnableOKButton();
 }
 
-void CLogDlg::ExecuteGnuDiff1Menu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString options;
     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
@@ -5017,7 +5017,7 @@ void CLogDlg::ExecuteGnuDiff1Menu(ContextMenuInfoPtr& pCmi)
         pCmi->RevSelected, SVNRev(), m_LogRevision, options);
 }
 
-void CLogDlg::ExecuteGnuDiff2Menu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     SVNRev r1 = pCmi->RevSelected;
     SVNRev r2 = pCmi->RevSelected2;
@@ -5055,7 +5055,7 @@ void CLogDlg::ExecuteGnuDiff2Menu(ContextMenuInfoPtr& pCmi)
         CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options);
 }
 
-void CLogDlg::ExecuteRevertRevisionMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
     if (pCmi->PathURL.IsEmpty())
@@ -5079,7 +5079,7 @@ void CLogDlg::ExecuteRevertRevisionMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteMergeRevisionMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
     if (pCmi->PathURL.IsEmpty())
@@ -5151,7 +5151,7 @@ void CLogDlg::ExecuteMergeRevisionMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteRevertToRevisionMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
     if (pCmi->PathURL.IsEmpty())
@@ -5176,7 +5176,7 @@ void CLogDlg::ExecuteRevertToRevisionMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteCopyMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
     if (pCmi->PathURL.IsEmpty())
@@ -5222,7 +5222,7 @@ void CLogDlg::ExecuteCopyMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteCompareWithWorkingCopyMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //user clicked on the menu item "compare with working copy"
     if (PromptShown())
@@ -5248,7 +5248,7 @@ void CLogDlg::ExecuteCompareWithWorkingCopyMenu(ContextMenuInfoPtr& pCmi)
         L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 }
 
-void CLogDlg::ExecuteCompareTwoMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     SVNRev r1 = pCmi->RevSelected;
     SVNRev r2 = pCmi->RevSelected2;
@@ -5287,7 +5287,7 @@ void CLogDlg::ExecuteCompareTwoMenu(ContextMenuInfoPtr& pCmi)
         false, false, nodekind);
 }
 
-void CLogDlg::ExecuteCompareWithPreviousMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     svn_node_kind_t nodekind = svn_node_unknown;
     if (!m_path.IsUrl())
@@ -5320,7 +5320,7 @@ void CLogDlg::ExecuteCompareWithPreviousMenu(ContextMenuInfoPtr& pCmi)
         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
 }
 
-void CLogDlg::ExecuteBlameCompareMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //user clicked on the menu item "compare with working copy"
     //now first get the revision which is selected
@@ -5345,7 +5345,7 @@ void CLogDlg::ExecuteBlameCompareMenu(ContextMenuInfoPtr& pCmi)
         pCmi->RevSelected, SVNRev(), m_LogRevision, false, false, true);
 }
 
-void CLogDlg::ExecuteBlameTwoMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //user clicked on the menu item "compare and blame revisions"
     svn_node_kind_t nodekind = svn_node_unknown;
@@ -5378,7 +5378,7 @@ void CLogDlg::ExecuteBlameTwoMenu(ContextMenuInfoPtr& pCmi)
 }
 
 
-void CLogDlg::ExecuteWithPreviousMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //user clicked on the menu item "Compare and Blame with previous revision"
     svn_node_kind_t nodekind = svn_node_unknown;
@@ -5407,7 +5407,7 @@ void CLogDlg::ExecuteWithPreviousMenu(ContextMenuInfoPtr& pCmi)
         SVNRev(), m_LogRevision, L"", false, false, true, nodekind);
 }
 
-void CLogDlg::ExecuteSaveAsMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //now first get the revision which is selected
     CString revFilename;
@@ -5460,7 +5460,7 @@ void CLogDlg::ExecuteSaveAsMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteOpenMenu(ContextMenuInfoPtr& pCmi, bool bOpenWith)
+void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, bool bOpenWith)
 {
     auto f = [=]()
     {
@@ -5505,7 +5505,7 @@ void CLogDlg::ExecuteOpenMenu(ContextMenuInfoPtr& pCmi, bool bOpenWith)
     new async::CAsyncCall(f, &netScheduler);
 }
 
-void CLogDlg::ExecuteBlameMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CBlameDlg dlg;
     dlg.EndRev = pCmi->RevSelected;
@@ -5555,7 +5555,7 @@ void CLogDlg::ExecuteBlameMenu(ContextMenuInfoPtr& pCmi)
     }
 }
 
-void CLogDlg::ExecuteUpdateMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteUpdateMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     sCmd.Format(_T("/command:update /path:\"%s\" /rev:%ld"),
@@ -5563,7 +5563,7 @@ void CLogDlg::ExecuteUpdateMenu(ContextMenuInfoPtr& pCmi)
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
-void CLogDlg::ExecuteFindEntryMenu()
+void CLogDlg::ExecuteFindEntryMenuRevisions()
 {
     m_nSearchIndex = m_LogList.GetSelectionMark();
     if (m_nSearchIndex < 0)
@@ -5571,7 +5571,7 @@ void CLogDlg::ExecuteFindEntryMenu()
     CreateFindDialog();
 }
 
-void CLogDlg::ExecuteRepoBrowseMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteRepoBrowseMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%s"),
@@ -5581,7 +5581,7 @@ void CLogDlg::ExecuteRepoBrowseMenu(ContextMenuInfoPtr& pCmi)
 }
 
 
-void CLogDlg::ExecuteRevisionPropsMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteRevisionPropsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CEditPropertiesDlg dlg;
     dlg.SetProjectProperties(&m_ProjectProperties);
@@ -5591,7 +5591,7 @@ void CLogDlg::ExecuteRevisionPropsMenu(ContextMenuInfoPtr& pCmi)
     dlg.DoModal();
 }
 
-void CLogDlg::ExecuteExportMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteExportMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     sCmd.Format(_T("/command:export /path:\"%s\" /revision:%ld"),
@@ -5599,7 +5599,7 @@ void CLogDlg::ExecuteExportMenu(ContextMenuInfoPtr& pCmi)
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
-void CLogDlg::ExecuteCheckoutMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     CString url = _T("tsvn:")+pCmi->PathURL;
@@ -5608,7 +5608,7 @@ void CLogDlg::ExecuteCheckoutMenu(ContextMenuInfoPtr& pCmi)
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
-void CLogDlg::ExecuteViewRevMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString url = m_ProjectProperties.sWebViewerRev;
     url = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
@@ -5617,7 +5617,7 @@ void CLogDlg::ExecuteViewRevMenu(ContextMenuInfoPtr& pCmi)
         ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 }
 
-void CLogDlg::ExecuteViewPathRevMenu(ContextMenuInfoPtr& pCmi)
+void CLogDlg::ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString relurl = pCmi->PathURL;
     CString sRoot = GetRepositoryRoot(CTSVNPath(relurl));
@@ -5630,7 +5630,7 @@ void CLogDlg::ExecuteViewPathRevMenu(ContextMenuInfoPtr& pCmi)
         ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 }
 
-void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
+void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
 {
     INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
     if ((point.x == -1) && (point.y == -1))

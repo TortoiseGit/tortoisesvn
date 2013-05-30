@@ -84,16 +84,14 @@ class CIconMenu;
 
 /**
  * \ingroup TortoiseProc
- * Helper class containing info used for context menu selections.
+ * Helper class containing info used for context menu for revisions selections.
  */
-class ContextMenuInfo
+class ContextMenuInfoForRevisions
 {
 public:
-    ContextMenuInfo()
+    ContextMenuInfoForRevisions()
     {
         SelLogEntry = NULL;
-        SelEntries.clear();
-        RevisionRanges.Clear();
         AllFromTheSameAuthor = false;
         RevPrevious = 0;
         RevSelected = 0;
@@ -101,8 +99,11 @@ public:
         RevHighest = 0;
         RevLowest = 0;
         PathURL = _T("");
+        SelEntries.clear();
+        RevisionRanges.Clear();
     }
-    ~ContextMenuInfo()
+
+    ~ContextMenuInfoForRevisions()
     {
         SelEntries.clear();
         RevisionRanges.Clear();
@@ -121,7 +122,7 @@ public:
 };
 
 // get an alias to a shared automatic pointer
-typedef std::shared_ptr<ContextMenuInfo> ContextMenuInfoPtr;
+typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
 
 /**
  * \ingroup TortoiseProc
@@ -300,35 +301,35 @@ private:
 
     // extracted from ShowContextMenuForRevisions...
     void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
-    void PopulateContextMenuForRevisions(ContextMenuInfoPtr& pCmi, CIconMenu& popup);
-    bool GetContextMenuInfo(ContextMenuInfoPtr& pCmi);
+    void PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup);
+    bool GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint &point, int selIndex, CListCtrl& listControl);
     bool VerifyContextMenuForRevisionsAllowed(int selIndex);
-    void ExecuteGnuDiff1Menu(ContextMenuInfoPtr& pCmi);
-    void ExecuteGnuDiff2Menu(ContextMenuInfoPtr& pCmi);
-    void ExecuteRevertRevisionMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteMergeRevisionMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteRevertToRevisionMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteCopyMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteCompareWithWorkingCopyMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteCompareTwoMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteCompareWithPreviousMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteBlameCompareMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteBlameTwoMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteWithPreviousMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteSaveAsMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteOpenMenu(ContextMenuInfoPtr& pCmi, bool bOpenWith);
-    void ExecuteBlameMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteUpdateMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteFindEntryMenu();
-    void ExecuteRepoBrowseMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteRevisionPropsMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteExportMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteCheckoutMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteViewRevMenu(ContextMenuInfoPtr& pCmi);
-    void ExecuteViewPathRevMenu(ContextMenuInfoPtr& pCmi);
+    void ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, bool bOpenWith);
+    void ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteUpdateMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteFindEntryMenuRevisions();
+    void ExecuteRepoBrowseMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteRevisionPropsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteExportMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     
-    void ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point);
+    void ShowContextMenuForChangedPaths(CWnd* pWnd, CPoint point);
     virtual CString GetToolTipText(int nItem, int nSubItem) override;
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,
         const CString& whatToFind, LRESULT *pResult);
