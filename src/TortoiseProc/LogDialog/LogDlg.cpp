@@ -2630,13 +2630,11 @@ void CLogDlg::EditLogMessage( size_t index )
                 m_LogList.Invalidate();
 
                 // update the log cache
-
                 LogCache::CCachedLogInfo* toUpdate
                     = GetLogCache (CTSVNPath (m_sRepositoryRoot));
                 if (toUpdate != NULL)
                 {
                     // log caching is active
-
                     LogCache::CCachedLogInfo newInfo;
                     newInfo.Insert ( pLogEntry->GetRevision()
                         , ""
