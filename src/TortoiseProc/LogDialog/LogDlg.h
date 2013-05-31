@@ -131,10 +131,10 @@ typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisions
  * \ingroup TortoiseProc
  * Helper class containing info used for context menu for changed paths selections.
  */
-class ContextMenuInfoForChangedPaths
+class CContextMenuInfoForChangedPaths
 {
 public:
-    ContextMenuInfoForChangedPaths()
+    CContextMenuInfoForChangedPaths()
     {
         Rev1 = 0;
         Rev2 = 0;
@@ -146,7 +146,7 @@ public:
         fileUrl = _T("");
     }
 
-    ~ContextMenuInfoForChangedPaths()
+    ~CContextMenuInfoForChangedPaths()
     {
         ChangedPaths.clear();
         ChangedLogPathIndices.clear();
@@ -164,7 +164,7 @@ public:
 };
 
 // get an alias to a shared automatic pointer
-typedef std::shared_ptr<ContextMenuInfoForChangedPaths> ContextMenuInfoForChangedPathsPtr;
+typedef std::shared_ptr<CContextMenuInfoForChangedPaths> ContextMenuInfoForChangedPathsPtr;
 
 
 

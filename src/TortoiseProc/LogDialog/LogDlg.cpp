@@ -5637,7 +5637,7 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
         return;
 
     // grab extra revision info that the Execute methods will use
-    ContextMenuInfoForChangedPathsPtr pCmi(new ContextMenuInfoForChangedPaths());
+    ContextMenuInfoForChangedPathsPtr pCmi(new CContextMenuInfoForChangedPaths());
     if (!GetContextMenuInfoForChangedPaths(pCmi))
         return;
 
