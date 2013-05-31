@@ -124,6 +124,50 @@ public:
 // get an alias to a shared automatic pointer
 typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
 
+// get an alias to a shared automatic pointer
+typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
+
+/**
+ * \ingroup TortoiseProc
+ * Helper class containing info used for context menu for changed paths selections.
+ */
+class ContextMenuInfoForChangedPaths
+{
+public:
+    ContextMenuInfoForChangedPaths()
+    {
+        Rev1 = 0;
+        Rev2 = 0;
+        OneRev = false;
+        ChangedPaths.clear();
+        ChangedLogPathIndices.clear();
+        sUrl = _T("");
+        wcPath = _T("");
+        fileUrl = _T("");
+    }
+
+    ~ContextMenuInfoForChangedPaths()
+    {
+        ChangedPaths.clear();
+        ChangedLogPathIndices.clear();
+    }
+        
+    std::vector<CString> ChangedPaths;
+    std::vector<size_t> ChangedLogPathIndices;
+    svn_revnum_t Rev1;
+    svn_revnum_t Rev2;
+    CString sUrl;
+    CString fileUrl;
+    CString wcPath;
+    
+    bool OneRev;
+};
+
+// get an alias to a shared automatic pointer
+typedef std::shared_ptr<ContextMenuInfoForChangedPaths> ContextMenuInfoForChangedPathsPtr;
+
+
+
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox.
@@ -299,7 +343,6 @@ private:
 
     void ResizeAllListCtrlCols(bool bOnlyVisible);
 
-    // extracted from ShowContextMenuForRevisions...
     void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
     void PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup);
     bool GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
@@ -330,6 +373,22 @@ private:
     void ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     
     void ShowContextMenuForChangedPaths(CWnd* pWnd, CPoint point);
+    void ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex);
+    void ExecuteBrowseRepositoryChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
+    void ExecuteShowLogChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath, bool bMergeLog);
+    void ExecuteBlameChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
+    void ExecuteOpenChangedPaths(INT_PTR selIndex, ContextMenuInfoForChangedPathsPtr pCmi, bool bOpenWith);
+    void ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi);
+    void ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex);
+    void ExecuteShowPropertiesChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi);
+    void ExecuteDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex);
+    void ExecuteGnuDiff1ChangedPaths(INT_PTR selIndex, ContextMenuInfoForChangedPathsPtr pCmi);
+    void ExecuteBlameDiffChangedPaths(INT_PTR selIndex, ContextMenuInfoForChangedPathsPtr pCmi);
+    void ExecuteRevertChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
+    bool VerifyContextMenuForChangedPathsAllowed(INT_PTR selIndex);
+    bool GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi);
+    bool PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup);
+
     virtual CString GetToolTipText(int nItem, int nSubItem) override;
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,
         const CString& whatToFind, LRESULT *pResult);
