@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012,2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,10 +71,92 @@ public:
     bool IsCached (svn_revnum_t revision) const;
 
     /// \returns NULL if \ref IsCached returns false for that \ref revision.
-    /// Otherwise, all cached log information for the respective revisin
+    /// Otherwise, all cached log information for the respective revision
     /// will be returned.
     /// The bCopiedSelf, bChecked and hasChildren members will always be
     /// @a FALSE; childStackDepth will be 0.
 
     PLOGENTRYDATA GetRevisionData (svn_revnum_t revision);
 };
+
+/**
+ * \ingroup TortoiseProc
+ * Helper class containing info used for context menu for revisions selections.
+ */
+class CContextMenuInfoForRevisions
+{
+public:
+    CContextMenuInfoForRevisions()
+    {
+        SelLogEntry = NULL;
+        AllFromTheSameAuthor = false;
+        RevPrevious = 0;
+        RevSelected = 0;
+        RevSelected2 = 0;
+        RevHighest = 0;
+        RevLowest = 0;
+        PathURL = _T("");
+        SelEntries.clear();
+        RevisionRanges.Clear();
+    }
+
+    ~CContextMenuInfoForRevisions()
+    {
+        SelEntries.clear();
+        RevisionRanges.Clear();
+    }
+
+    PLOGENTRYDATA SelLogEntry;
+    std::vector<PLOGENTRYDATA> SelEntries; 
+    bool AllFromTheSameAuthor;
+    SVNRevRangeArray RevisionRanges;
+    SVNRev RevPrevious;
+    SVNRev RevSelected;
+    SVNRev RevSelected2;
+    SVNRev RevHighest;
+    SVNRev RevLowest;
+    CString PathURL;
+};
+
+// get an alias to a shared automatic pointer
+typedef std::shared_ptr<CContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
+
+
+/**
+ * \ingroup TortoiseProc
+ * Helper class containing info used for context menu for changed paths selections.
+ */
+class CContextMenuInfoForChangedPaths
+{
+public:
+    CContextMenuInfoForChangedPaths()
+    {
+        Rev1 = 0;
+        Rev2 = 0;
+        OneRev = false;
+        ChangedPaths.clear();
+        ChangedLogPathIndices.clear();
+        sUrl = _T("");
+        wcPath = _T("");
+        fileUrl = _T("");
+    }
+
+    ~CContextMenuInfoForChangedPaths()
+    {
+        ChangedPaths.clear();
+        ChangedLogPathIndices.clear();
+    }
+        
+    std::vector<CString> ChangedPaths;
+    std::vector<size_t> ChangedLogPathIndices;
+    svn_revnum_t Rev1;
+    svn_revnum_t Rev2;
+    CString sUrl;
+    CString fileUrl;
+    CString wcPath;
+    
+    bool OneRev;
+};
+
+// get an alias to a shared automatic pointer
+typedef std::shared_ptr<CContextMenuInfoForChangedPaths> ContextMenuInfoForChangedPathsPtr;
