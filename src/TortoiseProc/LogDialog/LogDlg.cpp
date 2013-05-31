@@ -4869,7 +4869,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     m_bCancelled = FALSE;
 
     // grab extra revision info that the Execute methods will use
-    ContextMenuInfoForRevisionsPtr pCmi(new ContextMenuInfoForRevisions());
+    ContextMenuInfoForRevisionsPtr pCmi(new CContextMenuInfoForRevisions());
     if (!GetContextMenuInfoForRevisions(pCmi))
         return;
     

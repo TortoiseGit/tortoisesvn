@@ -86,10 +86,10 @@ class CIconMenu;
  * \ingroup TortoiseProc
  * Helper class containing info used for context menu for revisions selections.
  */
-class ContextMenuInfoForRevisions
+class CContextMenuInfoForRevisions
 {
 public:
-    ContextMenuInfoForRevisions()
+    CContextMenuInfoForRevisions()
     {
         SelLogEntry = NULL;
         AllFromTheSameAuthor = false;
@@ -103,7 +103,7 @@ public:
         RevisionRanges.Clear();
     }
 
-    ~ContextMenuInfoForRevisions()
+    ~CContextMenuInfoForRevisions()
     {
         SelEntries.clear();
         RevisionRanges.Clear();
@@ -122,10 +122,9 @@ public:
 };
 
 // get an alias to a shared automatic pointer
-typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
+typedef std::shared_ptr<CContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
 
-// get an alias to a shared automatic pointer
-typedef std::shared_ptr<ContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
+
 
 /**
  * \ingroup TortoiseProc
