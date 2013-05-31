@@ -301,6 +301,8 @@ private:
     bool VerifyContextMenuForChangedPathsAllowed(INT_PTR selIndex);
     bool GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi);
     bool PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup);
+    void ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi);
+    bool CheckMultipleDiffs(UINT selCount);
 
     virtual CString GetToolTipText(int nItem, int nSubItem) override;
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,

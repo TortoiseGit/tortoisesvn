@@ -124,7 +124,8 @@ enum LogDlgContextMenuCommands
     ID_EXPORTTREE,
     ID_GETMERGELOGS,
     ID_REVPROPS,
-    ID_OPENVISUALSTUDIO
+    ID_OPENVISUALSTUDIO,
+    ID_DIFF_MULTIPLE
 };
 
 enum LogDlgShowBtnCommands
@@ -5664,6 +5665,9 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
         case ID_OPENVISUALSTUDIO:
             OpenInVisualStudio(pCmi->ChangedLogPathIndices);
             break;
+        case ID_DIFF_MULTIPLE:
+            ExecuteMultipleDiffChangedPaths(pCmi);
+            break;
         case ID_BLAME:
             ExecuteBlameChangedPaths(pCmi, changedlogpath);
             break;
@@ -6490,6 +6494,11 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
         }
         if (!pCmi->ChangedPaths.empty())
         {
+            if(m_ChangedFileListCtrl.GetSelectedCount() > 1)
+            {
+                popup.AppendMenuIcon(ID_DIFF_MULTIPLE, IDS_LOG_POPUP_DIFF_MULTIPLE, IDI_DIFF);
+                popup.SetDefaultItem(ID_DIFF_MULTIPLE, FALSE);
+            }
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
             if (!openInVisualStudioContextMenuAdded && m_bVisualStudioRunningAtStart)
             {
@@ -6507,6 +6516,54 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
     }
     return true;
 }
+
+// borrowed from SVNStatusListCtrl -- extract??
+bool CLogDlg::CheckMultipleDiffs( UINT selCount )
+{
+    if (selCount > max(3, (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumDiffWarning"), 15)))
+    {
+        bool doIt = false;
+        CString message;
+        message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(message,
+                CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
+                L"TortoiseSVN",
+                0,
+                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            doIt = (taskdlg.DoModal(m_hWnd) == 1);
+        }
+        else
+        {
+            doIt = (::MessageBox(m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
+        }
+        return doIt;
+    }
+    return true;
+}
+
+void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi)
+{
+    INT_PTR selIndex = 0;
+    int nPaths = pCmi->ChangedLogPathIndices.size();
+   
+    // warn if we exceed Software\\TortoiseSVN\\NumDiffWarning or 15 if not set
+    if (!CheckMultipleDiffs(nPaths))
+        return;
+
+    for (int i = 0; i < nPaths; ++i)
+    {
+        selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
+        ExecuteDiffChangedPaths(pCmi, selIndex);
+    }
+}
+
 
 void CLogDlg::ExecuteDiffChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex )
 {
