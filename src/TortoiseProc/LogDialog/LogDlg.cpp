@@ -5985,6 +5985,9 @@ void CLogDlg::ReportNoUrlOfFile(const CString& filepath) const
 
 void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
 {
+    // clear potential wait cursor: when showing the error dialog,
+    // the cursor should be the normal one
+    theApp.DoWaitCursor(-1);
     CString messageString;
     messageString.Format(IDS_ERR_NOURLOFFILE, filepath);
     ::MessageBox(this->m_hWnd, messageString, _T("TortoiseSVN"), MB_ICONERROR);
@@ -6563,7 +6566,6 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1); // necessary?
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;      
     }
@@ -6607,7 +6609,6 @@ void CLogDlg::ExecuteShowPropertiesChangedPaths( ContextMenuInfoForChangedPathsP
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);  // necessary??
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;
     }
@@ -6621,7 +6622,6 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);  // necessary?
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;     
     }
@@ -6812,7 +6812,6 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;
     }
@@ -6870,7 +6869,6 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;
     }
@@ -6902,7 +6900,6 @@ void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPath
       
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1); // necessary?
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;
     }
