@@ -160,3 +160,18 @@ public:
 
 // get an alias to a shared automatic pointer
 typedef std::shared_ptr<CContextMenuInfoForChangedPaths> ContextMenuInfoForChangedPathsPtr;
+
+/**
+  * \ingroup TortoiseProc
+  * Helper class to set the hour glass while executing external programs.
+  * Utility also disables the OK button - reverts everything when going out of scope
+  */
+class CLogWndHourglass
+{
+    public:
+        CLogWndHourglass(CLogDlg* parent);
+        ~CLogWndHourglass();
+      
+    private:
+        CLogDlg* m_pLogDlg;
+};

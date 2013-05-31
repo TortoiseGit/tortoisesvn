@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "CachedLogInfo.h"
 #include "RevisionIndex.h"
 #include "CacheLogQuery.h"
+#include "TortoiseProc.h"
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
@@ -170,17 +171,37 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     std::unique_ptr<LOGENTRYDATA> result
         (new CLogEntryData
-            ( NULL
-            , revision
-            , date / 1000000L
-            , author != NULL ? author : ""
-            , message
-            , projectProperties
-            , NULL
-            )
+	        ( NULL
+	        , revision
+	        , date / 1000000L
+	        , author != NULL ? author : ""
+	        , message
+	        , projectProperties
+	        , NULL
+	        )
         );
 
     // done here
 
     return result.release();
+}
+
+CLogWndHourglass::CLogWndHourglass(CLogDlg* parent) : m_pLogDlg(parent)
+{
+    if (m_pLogDlg != NULL)
+    {
+        m_pLogDlg->DialogEnableWindow(IDOK, FALSE);
+        m_pLogDlg->SetPromptApp(&theApp);
+        theApp.DoWaitCursor(1);
+    }
+}
+
+CLogWndHourglass::~CLogWndHourglass()
+{
+    if (m_pLogDlg != NULL)
+    {
+        m_pLogDlg->EnableOKButton();
+        theApp.DoWaitCursor(-1);
+        m_pLogDlg = NULL;
+    }
 }

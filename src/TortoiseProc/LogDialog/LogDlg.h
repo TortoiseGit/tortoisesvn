@@ -90,6 +90,7 @@ class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValida
     DECLARE_DYNAMIC(CLogDlg)
 
     friend class CStoreSelection;
+    friend class CLogWndHourglass;
 
 public:
     CLogDlg(CWnd* pParent = NULL);   // standard constructor
