@@ -2416,8 +2416,8 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
                 options = dlg.GetDiffOptionsString();
             else
             {
-                theApp.DoWaitCursor(-1);
-                EnableOKButton();
+                theApp.DoWaitCursor(-1);  // necessary? (this method called in lambda)
+                EnableOKButton();         // necessary?  we have the CLogWndHourglass...
                 return;
             }
         }
@@ -2433,8 +2433,8 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
         diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), 
                                         L"", false, blame, nodekind);
     }
-    theApp.DoWaitCursor(-1);
-    EnableOKButton();
+    theApp.DoWaitCursor(-1);  // necessary?
+    EnableOKButton();          // necessary?
 }
 
 BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
@@ -6659,7 +6659,7 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
     {
         dlg.DoModal();
     }
-    theApp.DoWaitCursor(-1);
+    theApp.DoWaitCursor(-1); // necessary?
 }
 
 void CLogDlg::ExecuteShowPropertiesChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi )
@@ -6762,8 +6762,8 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
                     SetAndClearProgressInfo((HWND)NULL);
                     ShowErrorDialog(m_hWnd);
                     tempfile.Delete(false);
-                    EnableOKButton();
-                    theApp.DoWaitCursor(-1);
+                    EnableOKButton();           // needed?
+                    theApp.DoWaitCursor(-1);    // needed?
                     return;
                 }
                 progDlg.SetProgress((DWORD)i+1, (DWORD)pCmi->ChangedLogPathIndices.size());
