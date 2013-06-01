@@ -72,7 +72,7 @@ void CLeftView::UseBothLeftFirst()
         {
             line.state = DIFFSTATE_EMPTY;
         }
-        else 
+        else
         {
             if (line.state!=DIFFSTATE_NORMAL) {
                 m_pwndRight->SetViewState(viewLine, DIFFSTATE_NORMAL);

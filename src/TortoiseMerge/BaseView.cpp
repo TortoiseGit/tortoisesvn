@@ -151,7 +151,7 @@ CBaseView::CBaseView()
     m_Eols[EOL_LS]   = L"\x2028";
     m_Eols[EOL_PS]   = L"\x2029";
     m_Eols[EOL_AUTOLINE] = m_Eols[lineendings==EOL_AUTOLINE
-                                 ? EOL_CRLF 
+                                 ? EOL_CRLF
                                  : lineendings];
 }
 
@@ -244,7 +244,7 @@ void CBaseView::DocumentUpdated()
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
     m_Eols[EOL_AUTOLINE] = m_Eols[lineendings==EOL_AUTOLINE
-                                ? EOL_CRLF 
+                                ? EOL_CRLF
                                 : lineendings];
     DeleteFonts();
     ClearCurrentSelection();

@@ -84,7 +84,7 @@ class CIconMenu;
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox.
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, 
+class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator,
                                                    IListCtrlTooltipProvider, ListViewAccProvider
 {
     DECLARE_DYNAMIC(CLogDlg)
@@ -99,7 +99,7 @@ public:
     void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
         BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
         BOOL bSaveStrict = TRUE,
-        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 
+        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"),
         100));
     void SetFilter(const CString& findstr, LONG findtype, bool findregex);
     void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
@@ -118,7 +118,7 @@ public:
 
 protected:
     //implement the virtual methods from SVN base class
-    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, 
+    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message,
                                                 apr_time_t time, const MergeInfo* mergeInfo) override;
     virtual BOOL Cancel() override;
     virtual bool Validate(LPCTSTR string) override;
@@ -176,7 +176,7 @@ protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     void    FillLogMessageCtrl(bool bShow = true);
-    void    DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
+    void    DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2,
                                                             bool blame, bool unified);
 
     DECLARE_MESSAGE_MAP()
@@ -224,7 +224,7 @@ private:
     void ReportNoUrlOfFile(LPCTSTR filepath) const;
     CRect DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
     LRESULT DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
-    
+
     // extracted from OnInitDialog()...
     void SubclassControls();
     void SetupDialogFonts();
@@ -249,7 +249,7 @@ private:
     void SetupAccessibility();
     void ExtraInitialization();
 
-    inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + 
+    inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() +
                                                                         (m_bStrictStopped ? 1 : 0); }
 
     virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
@@ -284,7 +284,7 @@ private:
     void ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    
+
     void ShowContextMenuForChangedPaths(CWnd* pWnd, CPoint point);
     void ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex);
     void ExecuteBrowseRepositoryChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
@@ -323,11 +323,11 @@ private:
     virtual CString GetListviewHelpString(HWND hControl, int index) override;
     void DetectVisualStudioRunningThread();
     bool OpenInVisualStudio(std::vector<size_t>& changedlogpathindices);
-    bool OpenOneFileInVisualStudio(CString& filename, 
+    bool OpenOneFileInVisualStudio(CString& filename,
         CComPtr<EnvDTE::ItemOperations>& pItemOperations);
     CString GetSUrl();
     CString GetWcPathFromUrl(CString fileUrl);
-    void OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices, 
+    void OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices,
         CComPtr<EnvDTE::ItemOperations>& pItemOperations);
     void ActivateVisualStudioWindow(CComPtr<EnvDTE::_DTE>& pDTE);
     bool IsProcessRunningInHighIntegrity(DWORD pid);
@@ -440,7 +440,7 @@ private:
 
     ListViewAccServer * m_pLogListAccServer;
     ListViewAccServer * m_pChangedListAccServer;
-    
+
     bool                m_bVisualStudioRunningAtStart;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

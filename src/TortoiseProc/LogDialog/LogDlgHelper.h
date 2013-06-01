@@ -107,7 +107,7 @@ public:
     }
 
     PLOGENTRYDATA SelLogEntry;
-    std::vector<PLOGENTRYDATA> SelEntries; 
+    std::vector<PLOGENTRYDATA> SelEntries;
     bool AllFromTheSameAuthor;
     SVNRevRangeArray RevisionRanges;
     SVNRev RevPrevious;
@@ -146,7 +146,7 @@ public:
         ChangedPaths.clear();
         ChangedLogPathIndices.clear();
     }
-        
+
     std::vector<CString> ChangedPaths;
     std::vector<size_t> ChangedLogPathIndices;
     svn_revnum_t Rev1;
@@ -154,7 +154,7 @@ public:
     CString sUrl;
     CString fileUrl;
     CString wcPath;
-    
+
     bool OneRev;
 };
 
@@ -171,7 +171,7 @@ class CLogWndHourglass
     public:
         CLogWndHourglass(CLogDlg* parent);
         ~CLogWndHourglass();
-      
+
     private:
         CLogDlg* m_pLogDlg;
 };

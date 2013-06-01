@@ -171,14 +171,14 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     std::unique_ptr<LOGENTRYDATA> result
         (new CLogEntryData
-	        ( NULL
-	        , revision
-	        , date / 1000000L
-	        , author != NULL ? author : ""
-	        , message
-	        , projectProperties
-	        , NULL
-	        )
+            ( NULL
+            , revision
+            , date / 1000000L
+            , author != NULL ? author : ""
+            , message
+            , projectProperties
+            , NULL
+            )
         );
 
     // done here
