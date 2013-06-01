@@ -164,14 +164,11 @@ typedef std::shared_ptr<CContextMenuInfoForChangedPaths> ContextMenuInfoForChang
 /**
   * \ingroup TortoiseProc
   * Helper class to set the hour glass while executing external programs.
-  * Utility also disables the OK button - reverts everything when going out of scope
   */
 class CLogWndHourglass
 {
     public:
-        CLogWndHourglass(CLogDlg* parent);
+        CLogWndHourglass();
         ~CLogWndHourglass();
-
-    private:
-        CLogDlg* m_pLogDlg;
+        
 };

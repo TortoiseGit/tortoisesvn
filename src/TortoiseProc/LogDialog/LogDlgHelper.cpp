@@ -186,22 +186,12 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
     return result.release();
 }
 
-CLogWndHourglass::CLogWndHourglass(CLogDlg* parent) : m_pLogDlg(parent)
+CLogWndHourglass::CLogWndHourglass()
 {
-    if (m_pLogDlg != NULL)
-    {
-        m_pLogDlg->DialogEnableWindow(IDOK, FALSE);
-        m_pLogDlg->SetPromptApp(&theApp);
-        theApp.DoWaitCursor(1);
-    }
+    theApp.DoWaitCursor(1);
 }
 
 CLogWndHourglass::~CLogWndHourglass()
 {
-    if (m_pLogDlg != NULL)
-    {
-        m_pLogDlg->EnableOKButton();
-        theApp.DoWaitCursor(-1);
-        m_pLogDlg = NULL;
-    }
+    theApp.DoWaitCursor(-1);
 }
