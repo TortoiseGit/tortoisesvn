@@ -303,6 +303,8 @@ private:
     bool PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup);
     void ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi);
     bool CheckMultipleDiffs(UINT selCount);
+    int  OpenWorkingCopyFileWithRegisteredProgram(CString& fullPath);
+    void OpenSelectedWcFilesWithRegistedProgram(std::vector<size_t>& changedlogpathindices);
 
     virtual CString GetToolTipText(int nItem, int nSubItem) override;
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,

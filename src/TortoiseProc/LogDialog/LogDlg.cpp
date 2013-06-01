@@ -125,7 +125,8 @@ enum LogDlgContextMenuCommands
     ID_GETMERGELOGS,
     ID_REVPROPS,
     ID_OPENVISUALSTUDIO,
-    ID_DIFF_MULTIPLE
+    ID_DIFF_MULTIPLE,
+    ID_OPENLOCAL_MULTIPLE
 };
 
 enum LogDlgShowBtnCommands
@@ -2113,6 +2114,13 @@ void CLogDlg::CreateFindDialog()
         m_pFindDialog = new CFindReplaceDialog();
         m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
     }
+}
+
+int CLogDlg::OpenWorkingCopyFileWithRegisteredProgram(CString& fullPath)
+{
+    if (!PathFileExists((LPCWSTR)fullPath))
+        return -1;
+    return (int)ShellExecute(this->m_hWnd, NULL, fullPath, NULL, NULL, SW_SHOWNORMAL);
 }
 
 void CLogDlg::DoOpenFileWith(bool bReadOnly, bool bOpenWith, const CTSVNPath& tempfile)
@@ -5668,6 +5676,9 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
         case ID_DIFF_MULTIPLE:
             ExecuteMultipleDiffChangedPaths(pCmi);
             break;
+        case ID_OPENLOCAL_MULTIPLE:
+            OpenSelectedWcFilesWithRegistedProgram(pCmi->ChangedLogPathIndices);
+            break;
         case ID_BLAME:
             ExecuteBlameChangedPaths(pCmi, changedlogpath);
             break;
@@ -6089,6 +6100,24 @@ bool CLogDlg::OpenInVisualStudio(std::vector<size_t>& changedlogpathindices)
     return true;
  }
 
+void CLogDlg::OpenSelectedWcFilesWithRegistedProgram(std::vector<size_t>& changedlogpathindices)
+{
+    CString wcPath;
+    int openCount = 0;
+    const int MaxFilesToOpen = 20;
+	
+    // loop over all the selections
+    for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
+    {
+        wcPath = GetWcPathFromUrl(m_currentChangedArray[changedlogpathindices[i]].GetPath());
+        if (!PathFileExists((LPCWSTR)wcPath))
+            continue;
+        OpenWorkingCopyFileWithRegisteredProgram(wcPath);
+        if (++openCount >= MaxFilesToOpen)
+            break;
+    }
+}
+
 void CLogDlg::OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpathindices,
                                               CComPtr<EnvDTE::ItemOperations>& pItemOperations)
 {
@@ -6498,6 +6527,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
             {
                 popup.AppendMenuIcon(ID_DIFF_MULTIPLE, IDS_LOG_POPUP_DIFF_MULTIPLE, IDI_DIFF);
                 popup.SetDefaultItem(ID_DIFF_MULTIPLE, FALSE);
+                popup.AppendMenuIcon(ID_OPENLOCAL_MULTIPLE, IDS_LOG_POPUP_OPENLOCAL_MULTIPLE, IDI_OPEN);
             }
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
             if (!openInVisualStudioContextMenuAdded && m_bVisualStudioRunningAtStart)
