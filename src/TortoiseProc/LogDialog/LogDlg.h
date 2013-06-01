@@ -322,7 +322,7 @@ private:
     // ListViewAccProvider
     virtual CString GetListviewHelpString(HWND hControl, int index) override;
     void DetectVisualStudioRunningThread();
-    bool OpenInVisualStudio(std::vector<size_t>& changedlogpathindices);
+    bool OpenSelectedWcFilesWithVisualStudio(std::vector<size_t>& changedlogpathindices);
     bool OpenOneFileInVisualStudio(CString& filename,
         CComPtr<EnvDTE::ItemOperations>& pItemOperations);
     CString GetSUrl();
