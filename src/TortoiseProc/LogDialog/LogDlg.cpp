@@ -2352,7 +2352,8 @@ void CLogDlg::DiffSelectedRevWithPrevious()
     m_bCancelled = FALSE;
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
+    CLogWndHourglass wait;
+
 
     if (PromptShown())
     {
@@ -2367,7 +2368,6 @@ void CLogDlg::DiffSelectedRevWithPrevious()
             m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
 
-    theApp.DoWaitCursor(-1);
     EnableOKButton();
 }
 
@@ -2376,7 +2376,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     //get the filename
     CString filepath;
     if (SVN::PathIsURL(m_path))
@@ -2388,7 +2387,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
         filepath = GetURLFromPath(m_path);
         if (filepath.IsEmpty())
         {
-            theApp.DoWaitCursor(-1);
             ReportNoUrlOfFile(filepath);
             EnableOKButton();
             return;     //exit
@@ -2432,7 +2430,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
                 options = dlg.GetDiffOptionsString();
             else
             {
-                theApp.DoWaitCursor(-1);
                 EnableOKButton();
                 return;
             }
@@ -2449,7 +2446,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1,
         diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), 
                                         L"", false, blame, nodekind);
     }
-    theApp.DoWaitCursor(-1);
     EnableOKButton();
 }
 
@@ -2457,7 +2453,6 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     CString filepath;
     if (SVN::PathIsURL(m_path))
     {
@@ -2468,7 +2463,6 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
         filepath = GetURLFromPath(m_path);
         if (filepath.IsEmpty())
         {
-            theApp.DoWaitCursor(-1);
             ReportNoUrlOfFile(filepath);
             EnableOKButton();
             return FALSE;
@@ -2496,14 +2490,12 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
         SetAndClearProgressInfo((HWND)NULL);
         ShowErrorDialog(m_hWnd);
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return FALSE;
     }
     progDlg.Stop();
     SetAndClearProgressInfo((HWND)NULL);
     DoOpenFileWith(true, bOpenWith, tempfile);
     EnableOKButton();
-    theApp.DoWaitCursor(-1);
     return TRUE;
 }
 
@@ -2514,7 +2506,6 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
 
     CString url;
     if (SVN::PathIsURL(m_path))
@@ -2590,7 +2581,6 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
             progDlg.Stop();
         }
     }
-    theApp.DoWaitCursor(-1);
     EnableOKButton();
 }
 
@@ -2598,7 +2588,7 @@ void CLogDlg::EditLogMessage( size_t index )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
+    CLogWndHourglass wait;
 
     CString url;
     if (SVN::PathIsURL(m_path))
@@ -2664,7 +2654,6 @@ void CLogDlg::EditLogMessage( size_t index )
             }
         }
     }
-    theApp.DoWaitCursor(-1);
     EnableOKButton();
 }
 
@@ -3758,7 +3747,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
     m_sFilterText.Empty();
     UpdateData(FALSE);
-    theApp.DoWaitCursor(1);
+    CLogWndHourglass wait;
     AutoStoreSelection();
     FillLogMessageCtrl(false);
 
@@ -3782,7 +3771,6 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
     m_LogList.Invalidate();
     m_ChangedFileListCtrl.Invalidate();
 
-    theApp.DoWaitCursor(-1);
     GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
     GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
@@ -4087,7 +4075,8 @@ void CLogDlg::OnEnChangeSearchedit()
         AutoStoreSelection();
 
         // clear the filter, i.e. make all entries appear
-        theApp.DoWaitCursor(1);
+        CLogWndHourglass wait;
+
         KillTimer(LOGFILTER_TIMER);
         FillLogMessageCtrl(false);
         m_filter = CLogDlgFilter();
@@ -4100,7 +4089,6 @@ void CLogDlg::OnEnChangeSearchedit()
         m_LogList.SetRedraw(true);
         m_LogList.Invalidate();
         m_ChangedFileListCtrl.Invalidate();
-        theApp.DoWaitCursor(-1);
         GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
         GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
         GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
@@ -4200,7 +4188,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
             // 1. to clear an existing filter
             // 2. to rebuild the filtered list after sorting
         }
-        theApp.DoWaitCursor(1);
+        CLogWndHourglass wait;
         AutoStoreSelection();
         KillTimer(LOGFILTER_TIMER);
 
@@ -4219,7 +4207,6 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
             m_LogList.SetSelectionMark(0);
             m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
         }
-        theApp.DoWaitCursor(-1);
         GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
         GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
         if (bSetFocusToFilterControl)
@@ -4893,7 +4880,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                                         TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
+    CLogWndHourglass wait;
         
     switch (cmd)
     {
@@ -4988,7 +4975,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
     } // switch (cmd)
 
-    theApp.DoWaitCursor(-1);
+    
     EnableOKButton();
 }
 
@@ -5658,6 +5645,7 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
     PopulateContextMenuForChangedPaths(pCmi, popup);
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | 
                                     TPM_RIGHTBUTTON, point.x, point.y, this, 0);
+    CLogWndHourglass wait;
     
     m_bCancelled = false;
     switch (cmd)
@@ -5723,7 +5711,6 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
             break;
     } // switch (cmd)
 }
-
 
 void CLogDlg::OnDtnDropdownDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
@@ -6115,7 +6102,6 @@ bool CLogDlg::OpenSelectedWcFilesWithVisualStudio(std::vector<size_t>& changedlo
         return false;
 
     // preparation
-    theApp.DoWaitCursor(1);
     DialogEnableWindow(IDOK, FALSE);
     
     // do the deed...
@@ -6123,7 +6109,6 @@ bool CLogDlg::OpenSelectedWcFilesWithVisualStudio(std::vector<size_t>& changedlo
        
     // re-enable and end wait
     EnableOKButton();
-    theApp.DoWaitCursor(-1);
 
     ActivateVisualStudioWindow(pDTE);
     return true;
@@ -6663,13 +6648,10 @@ void CLogDlg::ExecuteGnuDiff1ChangedPaths( INT_PTR selIndex, ContextMenuInfoForC
 void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath )
 {
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return;     
     }
     m_bCancelled = false;
@@ -6691,7 +6673,6 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
             // tell the user how to work around this.
             TSVNMessageBox(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
             EnableOKButton();
-            theApp.DoWaitCursor(-1);
             return;      //exit
         }
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
@@ -6707,21 +6688,17 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
     {
         dlg.DoModal();
     }
-    theApp.DoWaitCursor(-1);
 }
 
 void CLogDlg::ExecuteShowPropertiesChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
 
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return;
     }
     CPropDlg dlg;
@@ -6729,20 +6706,16 @@ void CLogDlg::ExecuteShowPropertiesChangedPaths( ContextMenuInfoForChangedPathsP
     dlg.m_Path = CTSVNPath(pCmi->fileUrl);
     dlg.DoModal();
     EnableOKButton();
-    theApp.DoWaitCursor(-1);
 }
 
 void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return;     
     }
     m_bCancelled = false;
@@ -6825,8 +6798,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
                     SetAndClearProgressInfo((HWND)NULL);
                     ShowErrorDialog(m_hWnd);
                     tempfile.Delete(false);
-                    EnableOKButton();           // needed?
-                    theApp.DoWaitCursor(-1);    // needed?
+                    EnableOKButton();
                     return;
                 }
                 progDlg.SetProgress((DWORD)i+1, (DWORD)pCmi->ChangedLogPathIndices.size());
@@ -6842,7 +6814,6 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
     else
     {
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
     }
    
 }
@@ -6851,7 +6822,6 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     m_bCancelled = false;
 
     bool bTargetSelected = false;
@@ -6908,7 +6878,6 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
                     ShowErrorDialog(m_hWnd);
                     tempfile.Delete(false);
                     EnableOKButton();
-                    theApp.DoWaitCursor(-1);
                     break;
                 }
             }
@@ -6916,7 +6885,6 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
             SetAndClearProgressInfo((HWND)NULL);
             this->EnableWindow(TRUE);
             this->SetFocus();
-            theApp.DoWaitCursor(-1);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -6941,10 +6909,8 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
 {
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return;
     }
     CBlameDlg dlg;
@@ -6990,8 +6956,7 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
             }
             this->EnableWindow(TRUE);
             this->SetFocus();
-            EnableOKButton();       // necessary?
-            theApp.DoWaitCursor(-1);  // necessary?
+            EnableOKButton();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7001,10 +6966,8 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1);
         ReportNoUrlOfFile(m_path.GetWinPath());
         return;
     }
@@ -7029,21 +6992,16 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
         sCmd += _T(" /merge");
     CAppUtils::RunTortoiseProc(sCmd);
     EnableOKButton();
-    theApp.DoWaitCursor(-1);
 }
 
 void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    theApp.DoWaitCursor(1);
-    
     if (pCmi->sUrl.IsEmpty())
     {
-        theApp.DoWaitCursor(-1); // can this line go, or is there a reason for it?
         ReportNoUrlOfFile(m_path.GetWinPath());
         EnableOKButton();
-        theApp.DoWaitCursor(-1);
         return;
     }
     m_bCancelled = false;
@@ -7062,7 +7020,6 @@ void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPath
 
     CAppUtils::RunTortoiseProc(sCmd);
     EnableOKButton();
-    theApp.DoWaitCursor(-1);
 }
 
 void CLogDlg::ExecuteViewPathRevisionChangedPaths( INT_PTR selIndex )
