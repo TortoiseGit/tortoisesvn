@@ -595,6 +595,73 @@
                     </listitem>
                 </varlistentry>
             </variablelist>
+            When multiple files are selected in the bottom pane of the Log dialog, the context menu changes 
+            to the following:
+            <figure id="tsvn-dug-showlog-3-dia-3">
+                <title>The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected.</title>
+                <graphic fileref="../images/LogContextMenu3.png"/>
+            </figure>
+            <variablelist>
+                <varlistentry>
+                    <term>Save revision to...</term>
+                    <listitem>
+                        <para>
+                            Save the selected revision to a file so you
+                            have an older version of that file.
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Show multiple changes...</term>
+                    <listitem>
+                        <para>
+                            Show changes made in the selected revision for the
+                            selected files. Note that the show changes functionality
+                            is invoked multiple times, which may bring up multiple copies of
+                            your selected diff tool, or just add a new comparison tab in your diff tool.
+                            If you have selected more than 15 files, you will be prompted to confirm the action.
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Open multiple local...</term>
+                    <listitem>
+                        <para>
+                            This will open local working copy files that correspond to your
+                            selected files using the application that is registered for the extension. 
+                            [The behavior is the one you would get double-clicking the working-copy
+                            file(s) in Windows explorer].
+                            Depending on how your file extension is associated to an application and
+                            the capabilities of the application, this may be a slow operation.
+                            In the worst case, new instances of the application may be launched 
+                            by Windows for each file that was selected.
+                        </para>
+                        <para>
+                            If you hold <keycap>Ctrl</keycap> while invoking this command, the working copy files
+                            are always loaded into Visual Studio.  This only works when the following conditions are met:
+                            Visual Studio must be running in the same user context while having the same process 
+                            integrity level [running as admin or not] as TortoiseProc.exe. It may be desirable to have the
+                            solution containing the changed files loaded, although this is not strictly necessary.
+                            Only files that exist on disk with extensions [.cpp, .h, .cs, .rc, .resx,
+                            .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will be loaded. A maximum of
+                            100 files can be loaded into Visual Studio at one time, and the files are always loaded
+                            as new tabs into the currently open instance of Visual Studio. The benefit of reviewing code 
+                            changes in Visual Studio lies in the fact that you can then use the built-in code navigation,
+                            reference finding, static code analysis and other tools built into Visual Studio.
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Export...</term>
+                    <listitem>
+                        <para>
+                            Export the selected files/folder at the selected
+                            revision. This brings up a dialog for you to confirm the
+                            URL and revision, and select a location for the export.
+                        </para>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
         </para>
         <tip>
             <para>
