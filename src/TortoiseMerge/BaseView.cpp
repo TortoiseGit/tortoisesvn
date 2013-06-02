@@ -26,6 +26,7 @@
 #include "StringUtils.h"
 #include "AppUtils.h"
 #include "GotoLineDlg.h"
+#include "EncodingDlg.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -79,7 +80,7 @@ CBaseView::CBaseView()
     , m_nMouseLine(-1)
     , m_mouseInMargin(false)
     , m_bIsHidden(FALSE)
-    , lineendings(EOL_AUTOLINE)
+    , m_lineendings(EOL_AUTOLINE)
     , m_bReadonly(true)
     , m_bReadonlyIsChangable(false)
     , m_bTarget(false)
@@ -88,7 +89,7 @@ CBaseView::CBaseView()
     , m_nSelViewBlockEnd(-1)
     , m_bFocused(FALSE)
     , m_bShowSelection(true)
-    , texttype(CFileTextLines::AUTOTYPE)
+    , m_texttype(CFileTextLines::AUTOTYPE)
     , m_bModified(FALSE)
     , m_bOtherDiffChecked(false)
     , m_bInlineWordDiff(true)
@@ -150,9 +151,9 @@ CBaseView::CBaseView()
     m_Eols[EOL_NEL]  = L"\x85";
     m_Eols[EOL_LS]   = L"\x2028";
     m_Eols[EOL_PS]   = L"\x2029";
-    m_Eols[EOL_AUTOLINE] = m_Eols[lineendings==EOL_AUTOLINE
+    m_Eols[EOL_AUTOLINE] = m_Eols[m_lineendings==EOL_AUTOLINE
                                  ? EOL_CRLF
-                                 : lineendings];
+                                 : m_lineendings];
 }
 
 CBaseView::~CBaseView()
@@ -243,9 +244,9 @@ void CBaseView::DocumentUpdated()
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
-    m_Eols[EOL_AUTOLINE] = m_Eols[lineendings==EOL_AUTOLINE
+    m_Eols[EOL_AUTOLINE] = m_Eols[m_lineendings==EOL_AUTOLINE
                                 ? EOL_CRLF
-                                : lineendings];
+                                : m_lineendings];
     DeleteFonts();
     ClearCurrentSelection();
     UpdateStatusBar();
@@ -291,7 +292,7 @@ void CBaseView::UpdateStatusBar()
     CString sBarText;
     CString sTemp;
 
-    switch (texttype)
+    switch (m_texttype)
     {
     case CFileTextLines::ASCII:
         sBarText = _T("ASCII ");
@@ -319,7 +320,7 @@ void CBaseView::UpdateStatusBar()
         break;
     }
 
-    switch(lineendings)
+    switch(m_lineendings)
     {
     case EOL_LF:
         sBarText += _T("LF ");
@@ -3554,7 +3555,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             {
                 if (!IsViewLineEmpty(nCheckViewLine))
                 {
-                    lineData.ending = lineendings;
+                    lineData.ending = m_lineendings;
                     break;
                 }
             }
@@ -3565,7 +3566,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 {
                     if (GetViewLineEnding(nCheckViewLine) == EOL_NOENDING)
                     {
-                        SetViewLineEnding(nCheckViewLine, lineendings);
+                        SetViewLineEnding(nCheckViewLine, m_lineendings);
                     }
                     break;
                 }
@@ -3634,9 +3635,9 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         if (m_pViewData->GetCount() > nViewLine)
             eOriginalEnding = GetViewLineEnding(nViewLine);
 
-        if (!sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
+        if (!sLineRight.IsEmpty() || (eOriginalEnding!=m_lineendings))
         {
-            viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
+            viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, m_lineendings, HIDESTATE_SHOWN, -1);
             SetViewData(nViewLine, newFirstLine);
         }
 
@@ -3697,7 +3698,7 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
     EOL ending = m_pViewData->GetLineEnding(viewLine);
     if (ending == EOL_NOENDING)
     {
-         ending = lineendings;
+         ending = m_lineendings;
     }
     viewdata newLine(_T(""), DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN, -1);
     if (IsTarget()) // TODO: once more wievs will writable this is not correct anymore
@@ -3841,8 +3842,8 @@ void CBaseView::PasteText()
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
         EOL eOriginalEnding = GetViewLineEnding(nViewLine);
-        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
-        if (!lines[0].IsEmpty() || !sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
+        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, m_lineendings, HIDESTATE_SHOWN, -1);
+        if (!lines[0].IsEmpty() || !sLineRight.IsEmpty() || (eOriginalEnding!=m_lineendings))
         {
             newLine.sLine = sLineLeft + lines[0];
             SetViewData(nViewLine, newLine);
@@ -5339,8 +5340,8 @@ int CBaseView::SaveFile(int nFlags)
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
     {
         CFileTextLines file;
-        m_SaveParams.m_LineEndings = lineendings;
-        m_SaveParams.m_UnicodeType = texttype;
+        m_SaveParams.m_LineEndings = m_lineendings;
+        m_SaveParams.m_UnicodeType = m_texttype;
         file.SetSaveParams(m_SaveParams);
 
         for (int i=0; i<m_pViewData->GetCount(); i++)
@@ -5436,17 +5437,17 @@ EOL CBaseView::GetLineEndings()
             continue;
         }
         EOL eLineEol = GetViewLineEnding(i);
-        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == lineendings)
+        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == m_lineendings)
         {
             continue;
         }
         return EOL_AUTOLINE; // mixed eols - hack value
     }
-    if (lineendings == EOL_AUTOLINE)
+    if (m_lineendings == EOL_AUTOLINE)
     {
         return EOL_CRLF;
     }
-    return lineendings;
+    return m_lineendings;
 }
 
 void CBaseView::SetLineEndings(EOL eEol)
@@ -5456,7 +5457,7 @@ void CBaseView::SetLineEndings(EOL eEol)
         return;
     }
     // set AUTOLINE
-    lineendings = eEol;
+    m_lineendings = eEol;
     // replace all set EOLs
     // TODO store line endings and lineendings in undo
     //CUndo::BeginGrouping();
@@ -5467,7 +5468,7 @@ void CBaseView::SetLineEndings(EOL eEol)
             continue;
         }
         EOL eLineEol = GetViewLineEnding(i);
-        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == lineendings)
+        if (eLineEol == EOL_AUTOLINE || eLineEol == EOL_NOENDING || eLineEol == m_lineendings)
         {
             continue;
         }
@@ -5481,12 +5482,129 @@ void CBaseView::SetLineEndings(EOL eEol)
 
 void CBaseView::SetTextType(CFileTextLines::UnicodeType eTextType)
 {
-    if (texttype == eTextType)
+    if (m_texttype == eTextType)
     {
         return;
     }
-    texttype = eTextType;
+    m_texttype = eTextType;
     DocumentUpdated();
     SetModified();
 }
 
+void CBaseView::AskUserForNewLineEndingsAndTextType(int nTextId)
+{
+    if (IsReadonly())
+        return; // nothing to be changed in read-only view
+    CEncodingDlg dlg;
+    dlg.view = CString(MAKEINTRESOURCE(nTextId));
+    dlg.texttype = m_texttype;
+    dlg.lineendings = GetLineEndings();
+    if (dlg.DoModal() != IDOK)
+        return;
+    SetTextType(dlg.texttype);
+    SetLineEndings(dlg.lineendings);
+}
+
+/**
+    Replaces lines from source view to this
+*/
+void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine)
+{
+    if (!IsViewGood(pwndView))
+        return;
+    if (!IsWritable())
+        return;
+    CUndo::GetInstance().BeginGrouping();
+
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
+    {
+        viewdata line = pwndView->GetViewData(viewLine);
+        if (line.ending != EOL_NOENDING)
+            line.ending = m_lineendings;
+        switch (line.state)
+        {
+        case DIFFSTATE_CONFLICTEMPTY:
+        case DIFFSTATE_UNKNOWN:
+            line.state = DIFFSTATE_EMPTY;
+        case DIFFSTATE_EMPTY:
+            break;
+        case DIFFSTATE_ADDED:
+        case DIFFSTATE_MOVED_TO:
+        case DIFFSTATE_CONFLICTADDED:
+        case DIFFSTATE_CONFLICTED:
+        case DIFFSTATE_CONFLICTED_IGNORED:
+        case DIFFSTATE_IDENTICALADDED:
+        case DIFFSTATE_THEIRSADDED:
+        case DIFFSTATE_YOURSADDED:
+        case DIFFSTATE_MOVED_FROM:
+        case DIFFSTATE_IDENTICALREMOVED:
+        case DIFFSTATE_REMOVED:
+        case DIFFSTATE_THEIRSREMOVED:
+        case DIFFSTATE_YOURSREMOVED:
+            pwndView->SetViewState(viewLine, DIFFSTATE_NORMAL);
+            line.state = DIFFSTATE_NORMAL;
+        case DIFFSTATE_NORMAL:
+            break;
+        default:
+            break;
+        }
+        SetViewData(viewLine, line);
+    }
+    // normal lines is mostly same but may differ in EOL so any copied line change view state to modified
+    // TODO: check if copied line is same as original one set modified only when differ
+    SetModified(); 
+    SaveUndoStep();
+
+    int nRemovedLines = CleanEmptyLines();
+    SaveUndoStep();
+    //VerifyEols();
+    // make sure all non empty line have EOL set but last
+    // wrong can be last copied line(have eol, but no line under),
+    // or old last line (line before copied block missing eol, but have line under)
+    // we'll check all lines to be sure
+    int nLine = GetViewCount();
+    // check last line have no EOLs
+    while (--nLine>=0)
+    {
+        if (!IsViewLineEmpty(nLine))
+        {
+            if (GetViewLineEnding(nLine) != EOL_NOENDING)
+            {
+                // we added non last line into empty block on the end (or should we remove eol from this one ?)
+                // so next line is empty
+                ASSERT(IsViewLineEmpty(nLine+1));
+                // and we can turn it to normal empty line
+                SetViewData(nLine+1, viewdata(CString(), DIFFSTATE_ADDED, 1, EOL_NOENDING, HIDESTATE_SHOWN, -1));
+            }
+            break;
+        }
+    }
+    // check all (nonlast) line have EOL set
+    while (--nLine>=0)
+    {
+        if (!IsViewLineEmpty(nLine))
+        {
+            if (GetViewLineEnding(nLine) == EOL_NOENDING)
+            {
+                SetViewLineEnding(nLine, m_lineendings);
+                // in theory there should be only one line needing fix, but most of time we get over all anyway
+                // break;
+            }
+        }
+    }
+    SaveUndoStep();
+    UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
+    if (nRemovedLines!=0)
+    {
+        // some lines are gone update selection
+        ClearSelection();
+        SetupAllViewSelection(nFirstViewLine, nLastViewLine - nRemovedLines);
+    }
+    BuildAllScreen2ViewVector();
+    pwndView->Invalidate();
+    RefreshViews();
+}
