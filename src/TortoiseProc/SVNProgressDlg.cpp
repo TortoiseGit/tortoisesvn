@@ -4043,7 +4043,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
     CRegHistory history;
     history.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
     CString reg;
-    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
+    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCWSTR)GetUUIDFromPath(m_targetPathList[0]));
     history.Load(reg, _T("logmsgs"));
     history.AddEntry(sSuggestedMessage);
     history.Save();

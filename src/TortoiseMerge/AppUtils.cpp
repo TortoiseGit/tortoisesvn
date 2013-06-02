@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
         sSCMPath += _T(" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4");
     }
     CString sTemp;
-    sTemp.Format(_T("%d"), hWnd);
+    sTemp.Format(_T("%ld"), hWnd);
     sSCMPath.Replace(_T("%1"), sPath);
     sSCMPath.Replace(_T("%2"), sVersion);
     sSCMPath.Replace(_T("%3"), sSavePath);

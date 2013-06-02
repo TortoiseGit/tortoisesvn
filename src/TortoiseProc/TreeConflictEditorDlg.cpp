@@ -300,7 +300,7 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
     CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);
 
     CString sTemp;
-    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_left_version_url, src_left_version_path, (svn_revnum_t)src_left_version_rev);
+    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_left_version_url, (LPCWSTR)src_left_version_path, (svn_revnum_t)src_left_version_rev);
     SetDlgItemText(IDC_SOURCELEFTURL, sTemp);
     sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_right_version_url, (LPCTSTR)src_right_version_path, (svn_revnum_t)src_right_version_rev);
     SetDlgItemText(IDC_SOURCERIGHTURL, sTemp);

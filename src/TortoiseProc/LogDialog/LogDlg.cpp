@@ -4290,7 +4290,7 @@ CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CStr
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
             CString sRevMsg;
             sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(), 
-                                                            pLogEntry->GetShortMessageUTF16());
+                                                            (LPCWSTR)pLogEntry->GetShortMessageUTF16());
             sMessageSketch +=  sRevMsg;
             const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
             for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
@@ -6134,7 +6134,7 @@ void CLogDlg::OpenSelectedWcFilesWithRegistedProgram(std::vector<size_t>& change
     CString wcPath;
     int openCount = 0;
     const int MaxFilesToOpen = 20;
-	
+    
     // loop over all the selections
     for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
     {

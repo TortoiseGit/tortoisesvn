@@ -365,11 +365,11 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 
         CString temp;
         if (it->adjust && !rev.IsHead())
-            temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
         else if (origrev.IsValid() && !origrev.IsHead())
-            temp.Format(_T("-r %s %s%s %s"), origrev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)origrev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
         else
-            temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, it->targetDir);
+            temp.Format(_T("%s%s %s"), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
 
         sb val = externals[it->path];
         if (!val.extvalue.empty())
@@ -449,9 +449,9 @@ std::string SVNExternals::GetValue(const CTSVNPath& path) const
                 targetDir = L"'" + targetDir + L"'";
             CString temp;
             if (rev.IsValid() && !rev.IsHead() && (!rev.IsEqual(pegrev)))
-                temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, targetDir);
+                temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
             else
-                temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, targetDir);
+                temp.Format(_T("%s%s %s"), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
             if (ret.size())
                 ret += "\n";
             ret += CUnicodeUtils::StdGetUTF8((LPCTSTR)temp);
