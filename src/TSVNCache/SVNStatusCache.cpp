@@ -59,8 +59,8 @@ void CSVNStatusCache::Create()
     unsigned int value = (unsigned int)-1;
     FILE * pFile = NULL;
     // find the location of the cache
-    TCHAR path[MAX_PATH];       //MAX_PATH ok here.
-    TCHAR path2[MAX_PATH];
+    TCHAR path[MAX_PATH] = {0};       //MAX_PATH ok here.
+    TCHAR path2[MAX_PATH] = {0};
     if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
     {
         _tcscat_s(path, _T("\\TSVNCache"));

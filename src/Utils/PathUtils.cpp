@@ -653,8 +653,8 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
     };
 
     CString strReturn;
-    DWORD dwReserved,dwBufferSize;
-    dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
+    DWORD dwReserved = 0;
+    DWORD dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
 
     if (dwBufferSize > 0)
     {
