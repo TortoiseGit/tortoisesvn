@@ -18,7 +18,7 @@
 #include "stdafx.h"
 
 #pragma warning(push)
-#include <apr_pools.h>
+#include "apr_pools.h"
 #include "svn_client.h"
 #include "svn_wc.h"
 #include "svn_dirent_uri.h"

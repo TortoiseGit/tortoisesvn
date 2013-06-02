@@ -29,7 +29,7 @@
 #include <memory>
 
 #pragma warning(push)
-#include <apr_pools.h>
+#include "apr_pools.h"
 #include "svn_error.h"
 #include "svn_client.h"
 #include "svn_path.h"
