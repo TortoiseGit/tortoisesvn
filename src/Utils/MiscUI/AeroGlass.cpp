@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012 - TortoiseSVN
+// Copyright (C) 2009, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,20 +80,6 @@ BOOL CDwmApiImpl::IsDwmCompositionEnabled(void)
     BOOL bEnabled = FALSE;
     HRESULT hRes = pfnDwmIsCompositionEnabled(&bEnabled);
     return SUCCEEDED(hRes) && bEnabled;
-}
-
-HRESULT CDwmApiImpl::DwmEnableComposition(UINT uCompositionAction)
-{
-    if(!IsInitialized())
-    {
-        SetLastError((DWORD)OLE_E_BLANK);
-        return FALSE;
-    }
-    DWM_ENABLE_COMPOSITION pfnDwmEnableComposition = (DWM_ENABLE_COMPOSITION)GetProcAddress(m_hDwmApiLib, "DwmEnableComposition");
-    if(!pfnDwmEnableComposition)
-        return HRESULT_FROM_WIN32(GetLastError());
-
-    return pfnDwmEnableComposition(uCompositionAction);
 }
 
 CUxThemeAeroImpl::CUxThemeAeroImpl(void) : m_hUxThemeLib(NULL)
