@@ -312,6 +312,12 @@
       <Project>{4be529fb-c2f2-49f7-a897-054b955564cf}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\ribbon\ribbonlargehdpi.png" />
+    <Image Include="..\Resources\ribbon\ribbonsmallhdpi.png" />
+    <Image Include="ribbon\ribbonlargehdpi.png" />
+    <Image Include="ribbon\ribbonsmallhdpi.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
