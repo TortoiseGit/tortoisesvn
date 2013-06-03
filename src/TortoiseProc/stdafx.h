@@ -34,10 +34,6 @@
 
 #include "MessageBox.h"
 
-#ifndef LVS_EX_DOUBLEBUFFER
-#define LVS_EX_DOUBLEBUFFER     0x00010000
-#endif
-
 #pragma warning(push)
 #include "apr_general.h"
 #include "svn_pools.h"
