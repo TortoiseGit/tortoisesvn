@@ -324,7 +324,7 @@ void CFolderCrawler::WorkerThread()
                     }
                 }
             }
-            else if (m_foldersToUpdate.size())
+            if (m_foldersToUpdate.size())
             {
                 if (SysInfo::Instance().IsVistaOrLater())
                 {
