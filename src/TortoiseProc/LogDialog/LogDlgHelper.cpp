@@ -195,3 +195,45 @@ CLogWndHourglass::~CLogWndHourglass()
 {
     theApp.DoWaitCursor(-1);
 }
+
+
+CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
+{
+    PathToCollabGui = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui"), _T(""));
+    CollabUser      = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\CollabUser"), _T(""));
+    CollabPassword  = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword"), _T(""));
+    RepoUrl         = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl"), _T(""));
+    SvnUser         = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\SvnUser"), _T(""));
+    SvnPassword     = 
+        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword"), _T(""));
+    
+    PathToCollabGui.read();
+    CollabUser.read();
+    CollabPassword.read();
+    RepoUrl.read();
+    SvnUser.read();
+    SvnPassword.read();
+	
+    m_Revisions = revisions;
+}
+
+bool CodeCollaboratorInfo::IsInstalled()
+{
+    if (((CString)PathToCollabGui).GetLength() == 0 || 
+            !PathFileExists((LPCWSTR)(CString)PathToCollabGui))
+        return false;
+    return true;
+}
+
+CString CodeCollaboratorInfo::GetCommandLineArguments()
+{
+    CString arguments;
+    arguments.Format(_T("--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s"),
+        (CString)CollabUser, (CString)CollabPassword, (CString)RepoUrl, (CString)SvnUser, (CString)SvnPassword, m_Revisions);
+    return arguments;
+}
