@@ -218,7 +218,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
             }
         }
     }
-    if (!newroot.IsEmpty())
+    if (!newroot.IsEmpty() && SVNHelper::IsVersioned(newroot, false))
     {
         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": AddPath for %s\n"), newroot.GetWinPath());
         watchedPaths.AddPath(newroot);
@@ -227,6 +227,11 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
             ClearInfoMap();
 
         return true;
+    }
+    if (!SVNHelper::IsVersioned(path, false))
+    {
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Path %s prevented from being watched: not versioned\n"), path.GetWinPath());
+        return false;
     }
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": AddPath for %s\n"), path.GetWinPath());
     watchedPaths.AddPath(path);
