@@ -164,6 +164,7 @@ CMainFrame::CMainFrame()
     , m_pwndLeftView(NULL)
     , m_pwndRightView(NULL)
     , m_pwndBottomView(NULL)
+    , m_pwndCommandView(NULL)
     , m_bReadOnly(false)
     , m_bBlame(false)
     , m_bCheckReload(false)
@@ -2240,6 +2241,56 @@ void CMainFrame::OnIndicatorBottomview()
     if (IsViewGood(m_pwndBottomView))
     {
         m_pwndBottomView->AskUserForNewLineEndingsAndTextType(IDS_STATUSBAR_BOTTOMVIEW);
+    }
+}
+
+void CMainFrame::OnIndicatorLeftviewPopup()
+{
+    m_pwndCommandView = m_pwndLeftView;
+    OnIndicatorPopup();
+}
+
+void CMainFrame::OnIndicatorRightviewPopup()
+{
+    m_pwndCommandView = m_pwndRightView;
+    OnIndicatorPopup();
+}
+
+void CMainFrame::OnIndicatorBottomviewPopup()
+{
+    m_pwndCommandView = m_pwndBottomView;
+    OnIndicatorPopup();
+}
+
+void CMainFrame::OnIndicatorPopup()
+{
+    if (IsViewGood(m_pwndCommandView))
+    {
+        //m_pwndCommandView->ShowCommandPopup();
+    }
+}
+
+void CMainFrame::OnRemoveTrailSpaces()
+{
+    if (IsViewGood(m_pwndCommandView))
+    {
+        m_pwndCommandView->RemoveTrailWhiteChars();
+    }
+}
+
+void CMainFrame::OnTabToSpaces()
+{
+    if (IsViewGood(m_pwndCommandView))
+    {
+        m_pwndCommandView->ConvertTabToSpaces();
+    }
+}
+
+void CMainFrame::OnTabulatorize()
+{
+    if (IsViewGood(m_pwndCommandView))
+    {
+        m_pwndCommandView->Tabularize();
     }
 }
 
