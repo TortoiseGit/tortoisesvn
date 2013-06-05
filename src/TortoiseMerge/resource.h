@@ -290,6 +290,9 @@
 #define IDS_EDIT_COPY                   8000
 #define IDS_EDIT_CUT                    8001
 #define IDS_EDIT_PASTE                  8002
+#define IDS_EDIT_TAB2SPACE              8003
+#define IDS_EDIT_SPACE2TAB              8004
+#define IDS_EDIT_TRIM                   8005
 #define IDS_MSGBOX_OK                   9001
 #define IDS_MSGBOX_CANCEL               9002
 #define IDS_MSGBOX_IGNORE               9003

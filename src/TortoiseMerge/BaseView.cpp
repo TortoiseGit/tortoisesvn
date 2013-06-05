@@ -2353,6 +2353,16 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     case ID_EDIT_PASTE:
         OnEditPaste();
         break;
+    // white chars manipulations
+    case POPUPCOMMAND_TABTOSPACES:
+        ConvertTabToSpaces();
+        break;
+    case POPUPCOMMAND_SPACESTOTABS:
+        Tabularize();
+        break;
+    case POPUPCOMMAND_REMOVETRAILWHITES:
+        RemoveTrailWhiteChars();
+        break;
     default:
         return;
     } // switch (cmd)
@@ -3534,52 +3544,12 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         // change indentation for selected lines
         if (bShift)
         {
-            // remove indentation
-            for (int nViewLine = m_ptSelectionViewPosStart.y; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
-            {
-                if (IsLineEmpty(nViewLine))
-                {
-                    continue;
-                }
-                CString sLine = GetViewLine(nViewLine);
-                // remove up to n spaces from line start
-                // and one tab (if less then n spaces was removed)
-                int nPos = 0;
-                while (nPos<m_nTabSize)
-                {
-                    switch (sLine[nPos])
-                    {
-                    case ' ':
-                        nPos++;
-                        continue;
-                    case '\t':
-                        nPos++;
-                    }
-                    break;
-                }
-                if (nPos>0)
-                {
-                    sLine.Delete(0, nPos);
-                    SetViewLine(nViewLine, sLine);
-                }
-            }
+            RemoveIndentationForSelectedBlock();
         }
         else
         {
-            // add indentation
-            for (int nViewLine = m_ptSelectionViewPosStart.y; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
-            {
-                if (IsLineEmpty(nViewLine))
-                {
-                    continue;
-                }
-                CString sLine = GetViewLine(nViewLine);
-                // add tab to line start (alternatively m_nTabSize spaces can be used)
-                SetViewLine(nViewLine, CString("\t") + sLine);
-            }
+            AddIndentationForSelectedBlock();
         }
-        SetModified();
-        SaveUndoStep();
         bSkipSelectionClear = true;
     }
     else if ((nChar > 31)||(nChar == VK_TAB))
@@ -4258,6 +4228,13 @@ void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)
         popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
         temp.LoadString(IDS_EDIT_PASTE);
         popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
+        popup.AppendMenu(MF_SEPARATOR, NULL);
+        temp.LoadString(IDS_EDIT_TAB2SPACE);
+        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
+        temp.LoadString(IDS_EDIT_SPACE2TAB);
+        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
+        temp.LoadString(IDS_EDIT_TRIM);
+        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
     }
 }
 
@@ -5659,4 +5636,212 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
     BuildAllScreen2ViewVector();
     pwndView->Invalidate();
     RefreshViews();
+}
+
+void CBaseView::AddIndentationForSelectedBlock()
+{
+    bool bModified = false;
+    for (int nViewLine = m_ptSelectionViewPosStart.y; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
+    {
+        // skip empty lines
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        if (sLine.Trim().IsEmpty())
+        {
+            // skip empty and whitechar only lines
+            continue;
+        }
+        // add tab to line start (alternatively m_nTabSize spaces can be used)
+        SetViewLine(nViewLine, CString("\t") + sLine);
+        bModified = true;
+    }
+    if (bModified)
+    {
+        SetModified();
+        SaveUndoStep();
+        BuildAllScreen2ViewVector();
+    }
+}
+    
+void CBaseView::RemoveIndentationForSelectedBlock()
+{
+    bool bModified = false;
+    for (int nViewLine = m_ptSelectionViewPosStart.y; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
+    {
+        // skip empty lines
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        // remove up to n spaces from line start
+        // and one tab (if less then n spaces was removed)
+        int nPos = 0;
+        while (nPos<m_nTabSize)
+        {
+            switch (sLine[nPos])
+            {
+            case ' ':
+                nPos++;
+                continue;
+            case '\t':
+                nPos++;
+            }
+            break;
+        }
+        if (nPos>0)
+        {
+            sLine.Delete(0, nPos);
+            SetViewLine(nViewLine, sLine);
+            bModified = true;
+        }
+    }
+    if (bModified)
+    {
+        SetModified();
+        SaveUndoStep();
+        BuildAllScreen2ViewVector();
+    }
+}
+
+/**
+    there are two possible versions
+     - convert tabs to spaces only in front of text (implemented)
+     - convert all tabs to spaces
+*/
+void CBaseView::ConvertTabToSpaces()
+{
+    bool bModified = false;
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        int nDel = 0;
+        int nTabCount = 0; // total tabs to be replaced by spaces
+        int nSpaceCount = 0; // number of spaces in tab size run
+        int nPos = 0;
+        while (nPos<sLine.GetLength())
+        {
+            switch (sLine[nPos++])
+            {
+            case ' ':
+                if (++nSpaceCount < m_nTabSize)
+                {
+                    continue;
+                }
+            case '\t':
+                nTabCount++;
+                nSpaceCount = 0;
+                nDel = nPos;
+                continue;
+            }
+            break;
+        }
+        if (nDel > 0)
+        {
+            CString sLineNew = sLine;
+            sLineNew.Delete(0, nDel);
+            sLineNew = CString(' ', nTabCount * m_nTabSize) + sLineNew;
+            if (sLine!=sLineNew)
+            {
+                SetViewLine(nViewLine, sLineNew);
+                bModified = true;
+            }
+        }
+    }
+    if (bModified)
+    {
+        SetModified();
+        SaveUndoStep();
+        BuildAllScreen2ViewVector();
+    }
+}
+
+/**
+    there are two possible version
+     - convert spaces to tabs only in front of text (implemented)
+     - convert all spaces to tabs
+*/
+void CBaseView::Tabularize()
+{
+    bool bModified = false;
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        int nDel = 0;
+        int nTabCount = 0; // total tabs to be used
+        int nSpaceCount = 0; // number of spaces in tab size run
+        int nPos = 0;
+        while (nPos<sLine.GetLength())
+        {
+            switch (sLine[nPos++])
+            {
+            case ' ':
+                //bSpace = true;
+                if (++nSpaceCount < m_nTabSize)
+                {
+                    continue;
+                }
+            case '\t':
+                nTabCount++;
+                nSpaceCount = 0;
+                nDel = nPos;
+                continue;
+            }
+            break;
+        }
+        if (nDel > 0)
+        {
+            CString sLineNew = sLine;
+            sLineNew.Delete(0, nDel);
+            sLineNew = CString('\t', nTabCount) + sLineNew;
+            if (sLine!=sLineNew)
+            {
+                SetViewLine(nViewLine, sLineNew);
+                bModified = true;
+            }
+        }
+    }
+    if (bModified)
+    {
+        SetModified();
+        SaveUndoStep();
+        BuildAllScreen2ViewVector();
+    }
+}
+
+void CBaseView::RemoveTrailWhiteChars()
+{
+    bool bModified = false;
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        CString sLineNew = sLine;
+        sLineNew.TrimRight();
+        if (sLine!=sLineNew)
+        {
+            SetViewLine(nViewLine, sLineNew);
+            bModified = true;
+        }
+    }
+    if (bModified)
+    {
+        SetModified();
+        SaveUndoStep();
+        BuildAllScreen2ViewVector();
+    }
 }

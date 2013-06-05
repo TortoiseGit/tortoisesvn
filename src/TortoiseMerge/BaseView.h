@@ -211,6 +211,12 @@ public: // methods
     static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
     static CBaseView * GetFirstGoodView();
 
+    void            AddIndentationForSelectedBlock();
+    void            RemoveIndentationForSelectedBlock();
+    void            ConvertTabToSpaces();
+    void            Tabularize();
+    void            RemoveTrailWhiteChars();
+
 public: // variables
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
@@ -585,6 +591,10 @@ protected:  // variables
         POPUPCOMMAND_USEYOURFILE,
         POPUPCOMMAND_USETHEIRBLOCK,
         POPUPCOMMAND_USETHEIRFILE,
+        // others
+        POPUPCOMMAND_TABTOSPACES,
+        POPUPCOMMAND_SPACESTOTABS,
+        POPUPCOMMAND_REMOVETRAILWHITES,
     };
 
     class Screen2View
