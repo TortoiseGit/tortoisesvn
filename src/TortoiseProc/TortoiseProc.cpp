@@ -501,44 +501,6 @@ void CTortoiseProcApp::CheckUpgrade()
         }
     }
 
-    CRegDWORD regval = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), 999);
-    if ((DWORD)regval != 999)
-    {
-        // there's a leftover registry setting we have to convert and then delete it
-        CRegDWORD newregval = CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"));
-        newregval = !regval;
-        regval.removeValue();
-    }
-
-    if (lVersion <= 0x01010300)
-    {
-        CSoundUtils::RegisterTSVNSounds();
-        // remove all saved dialog positions
-        CRegString(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\")).removeKey();
-        CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay")).removeValue();
-        // remove the external cache key
-        CRegDWORD(_T("Software\\TortoiseSVN\\ExternalCache")).removeValue();
-    }
-
-    if (lVersion <= 0x01020200)
-    {
-        // upgrade to > 1.2.3 means the doc diff scripts changed from vbs to js
-        // so remove the diff/merge scripts if they're the defaults
-        CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.doc"));
-        CString sDiff = diffreg;
-        CString sCL = _T("wscript.exe \"") + CPathUtils::GetAppParentDirectory()+_T("Diff-Scripts\\diff-doc.vbs\"");
-        if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
-            diffreg = _T("");
-        CRegString mergereg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\.doc"));
-        sDiff = mergereg;
-        sCL = _T("wscript.exe \"") + CPathUtils::GetAppParentDirectory()+_T("Diff-Scripts\\merge-doc.vbs\"");
-        if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
-            mergereg = _T("");
-    }
-    if (lVersion <= 0x01040000)
-    {
-        CRegStdDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus")).removeValue();
-    }
     if (lVersion <= 0x01070000)
     {
         // create a default "Subversion" library with our own template which includes
@@ -547,7 +509,7 @@ void CTortoiseProcApp::CheckUpgrade()
         EnsureSVNLibrary();
         CoUninitialize();
     }
-    if (lVersion <= 0x01070100)
+    if (lVersion <= 0x01080000)
     {
         // upgrade to 1.7.1: force recreation of all diff scripts.
         CAppUtils::SetupDiffScripts(true, CString());
