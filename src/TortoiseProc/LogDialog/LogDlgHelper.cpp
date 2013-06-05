@@ -196,6 +196,18 @@ CLogWndHourglass::~CLogWndHourglass()
     theApp.DoWaitCursor(-1);
 }
 
+/*
+Example registry file contents required for Code Collaborator menu item to show...
+Windows Registry Editor Version 5.00
+
+    [HKEY_CURRENT_USER\Software\TortoiseSVN\CodeCollaborator]
+    "PathToCollabGui"="C:\\Program Files\\Collaborator Client\\ccollabgui.exe"
+    "CollabUser"="collab_user"
+    "CollabPassword"="secret1"
+    "RepoUrl"="http://ntsvn1.sciex.com/cliquid/Helium/Trunk"
+    "SvnUser"="svn_user"
+    "SvnPassword"="Secret2"
+*/
 
 CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 {
@@ -224,6 +236,7 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 
 bool CodeCollaboratorInfo::IsInstalled()
 {
+    // Special Registry item must be set and CollabGui.exe File must exist
     if (((CString)PathToCollabGui).GetLength() == 0 || 
             !PathFileExists((LPCWSTR)(CString)PathToCollabGui))
         return false;

@@ -283,6 +283,8 @@ private:
     void ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void ExecuteAddCodeCollaboratorReview();
+    CString GetSpaceSeparatedSelectedRevisions();
 
     void ShowContextMenuForChangedPaths(CWnd* pWnd, CPoint point);
     void ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex);

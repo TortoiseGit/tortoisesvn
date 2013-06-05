@@ -125,7 +125,8 @@ enum LogDlgContextMenuCommands
     ID_GETMERGELOGS,
     ID_REVPROPS,
     ID_DIFF_MULTIPLE,
-    ID_OPENLOCAL_MULTIPLE
+    ID_OPENLOCAL_MULTIPLE,
+    ID_CODE_COLLABORATOR
 };
 
 enum LogDlgShowBtnCommands
@@ -4741,6 +4742,8 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
 
 void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup)
 {
+    CodeCollaboratorInfo codeCollaborator(_T(""));
+
     if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth()==0))
     {
         if (!m_path.IsDirectory())
@@ -4845,13 +4848,17 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
         // "Show Revision Properties"
         popup.AppendMenuIcon(ID_REVPROPS, IDS_REPOBROWSE_SHOWREVPROP, IDI_PROPERTIES); 
         popup.AppendMenu(MF_SEPARATOR, NULL);
+
     }
     if (m_LogList.GetSelectedCount() != 0)
     {
         popup.AppendMenuIcon(ID_COPYCLIPBOARD, IDS_LOG_POPUP_COPYTOCLIPBOARD, IDI_COPYCLIP);
     }
     popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND, IDI_FILTEREDIT);
-    
+    // this menu shows only if Code Collaborator Installed & Registry configured
+    if (codeCollaborator.IsInstalled())
+        popup.AppendMenuIcon(ID_CODE_COLLABORATOR, IDS_LOG_CODE_COLLABORATOR, 
+                                                        IDI_CODE_COLLABORATOR);
 }
 
 void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
@@ -4971,12 +4978,53 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         case ID_VIEWPATHREV:
             ExecuteViewPathRevMenuRevisions(pCmi);
             break;
+        case ID_CODE_COLLABORATOR:
+            ExecuteAddCodeCollaboratorReview();
+            break;
         default:
             break;
     } // switch (cmd)
 
     
     EnableOKButton();
+}
+
+void CLogDlg::ExecuteAddCodeCollaboratorReview()
+{
+    CString revisions;
+    CString commandLine;
+
+    revisions = GetSpaceSeparatedSelectedRevisions();
+    if (revisions.GetLength() == 0)
+        return;
+
+    CodeCollaboratorInfo codeCollaborator(revisions);
+    commandLine.Format(_T("%s %s"), (CString)codeCollaborator.PathToCollabGui, 
+                                        codeCollaborator.GetCommandLineArguments());
+    // the following line is for testing only and will be removed in the future.
+    ::MessageBox(GetSafeHwnd(), (LPCWSTR)commandLine, _T("TortoiseSVN-Debugging"), MB_OK);
+    CAppUtils::LaunchApplication(commandLine, NULL, false);    
+}
+
+CString CLogDlg::GetSpaceSeparatedSelectedRevisions()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    CString sRevisions = _T("");
+    CString sRevision = _T("");
+
+    if (pos != NULL)
+    {
+        while(pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
+            sRevision.Format(_T("%ld "), pLogEntry->GetRevision());
+            sRevisions += sRevision;
+        }
+    }
+    return sRevisions;
 }
 
 void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
