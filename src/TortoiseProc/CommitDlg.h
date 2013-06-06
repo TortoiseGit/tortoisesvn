@@ -81,6 +81,7 @@ protected:
     afx_msg void OnBnClickedLog();
     afx_msg void OnEnChangeLogmessage();
     afx_msg void OnStnClickedExternalwarning();
+    afx_msg BOOL OnQueryEndSession();
     afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM);

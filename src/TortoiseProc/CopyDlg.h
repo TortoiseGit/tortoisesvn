@@ -84,6 +84,7 @@ protected:
     afx_msg void OnBnClickedBugtraqbutton();
     afx_msg LRESULT OnCheck(WPARAM count, LPARAM);
     afx_msg void OnEnChangeCopyrevtext();
+    afx_msg BOOL OnQueryEndSession();
     DECLARE_MESSAGE_MAP()
 
     virtual BOOL    Cancel() override {return m_bCancelled;}

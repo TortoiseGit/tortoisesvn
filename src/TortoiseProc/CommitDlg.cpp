@@ -101,6 +101,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
     ON_STN_CLICKED(IDC_EXTERNALWARNING, &CCommitDlg::OnStnClickedExternalwarning)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CCommitDlg::OnBnClickedShowexternals)
     ON_BN_CLICKED(IDC_LOG, &CCommitDlg::OnBnClickedLog)
+    ON_WM_QUERYENDSESSION()
 END_MESSAGE_MAP()
 
 
@@ -1798,3 +1799,12 @@ void CCommitDlg::VersionCheck()
     }
 }
 
+BOOL CCommitDlg::OnQueryEndSession()
+{
+    if (!__super::OnQueryEndSession())
+        return FALSE;
+
+    OnCancel();
+
+    return TRUE;
+}

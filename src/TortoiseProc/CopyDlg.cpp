@@ -94,6 +94,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_BUGTRAQBUTTON, &CCopyDlg::OnBnClickedBugtraqbutton)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_EXTERNALSLIST, &CCopyDlg::OnNMCustomdrawExternalslist)
     ON_EN_CHANGE(IDC_COPYREVTEXT, &CCopyDlg::OnEnChangeCopyrevtext)
+    ON_WM_QUERYENDSESSION()
 END_MESSAGE_MAP()
 
 
@@ -1121,4 +1122,12 @@ LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
     return 0;
 }
 
+BOOL CCopyDlg::OnQueryEndSession()
+{
+    if (!__super::OnQueryEndSession())
+        return FALSE;
 
+    OnCancel();
+
+    return TRUE;
+}
