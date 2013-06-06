@@ -212,25 +212,18 @@ Windows Registry Editor Version 5.00
 CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 {
     PathToCollabGui = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui"), _T(""));
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui", L"");
     CollabUser      = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\CollabUser"), _T(""));
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
     CollabPassword  = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword"), _T(""));
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
     RepoUrl         = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl"), _T(""));
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl", L"");
     SvnUser         = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\SvnUser"), _T(""));
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
     SvnPassword     = 
-        CRegString(_T("Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword"), _T(""));
-    
-    PathToCollabGui.read();
-    CollabUser.read();
-    CollabPassword.read();
-    RepoUrl.read();
-    SvnUser.read();
-    SvnPassword.read();
-	
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword", L"");
+
     m_Revisions = revisions;
 }
 
@@ -246,7 +239,8 @@ bool CodeCollaboratorInfo::IsInstalled()
 CString CodeCollaboratorInfo::GetCommandLineArguments()
 {
     CString arguments;
-    arguments.Format(_T("--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s"),
-        (CString)CollabUser, (CString)CollabPassword, (CString)RepoUrl, (CString)SvnUser, (CString)SvnPassword, m_Revisions);
+    arguments.Format(L"--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
+        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)(CString)RepoUrl, 
+        (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     return arguments;
 }
