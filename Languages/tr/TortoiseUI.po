@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -220,6 +220,11 @@ msgstr "%s (çevrimdışı)"
 #, c-format
 msgid "%s (recursively)"
 msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
+msgstr "%s : Birleştirilmiş dosya"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1053,7 +1058,7 @@ msgstr "&Kilitleme gerekmiyor"
 
 #. Resource IDs: (1506)
 msgid "&None"
-msgstr ""
+msgstr "&Hiçbiri"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -2348,6 +2353,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Hem yama dosyası yolu hem de hedef yol mutlak yol olmalıdır!"
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "İn&cele..."
@@ -2547,7 +2556,7 @@ msgstr "İptal Et\nÖğeyi çözümleme."
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "İptal\nFarkı gösterme."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2926,11 +2935,11 @@ msgstr "Temizlik Aracı\nTemizle"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Tümünü temizle"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Temizle..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3188,7 +3197,7 @@ msgstr ""
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Revizyonları karşılaştır (sadece &içerikler)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -4279,6 +4288,10 @@ msgstr "&Dışa aktar"
 msgid "E&xport..."
 msgstr "&Dışa aktar..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4393,6 +4406,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Sadece tsvn:projectlanguage özelliği işaretli ise\nyazım denetleyicisini çaliştırır."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4773,7 +4790,7 @@ msgstr ""
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Kaynağın dosya listesini alıyor"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
@@ -5467,7 +5484,7 @@ msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5679,7 +5696,7 @@ msgstr "Büyük/küçük harf değişiklikleri&ne aldırma"
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
-msgstr ""
+msgstr "Değişiklikleri yoksay\nHarici değişiklikleri yoksay."
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6070,7 +6087,7 @@ msgstr "En az aktif yaratıcı:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Çakışmış olarak bırak\nDosyanın çakışma durumu korunur"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6117,7 +6134,7 @@ msgstr "Dizin farklılıkları"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "Satır %ld satırından taşındı"
 
 #. Resource IDs: (176)
 #, c-format
@@ -6335,7 +6352,7 @@ msgstr "Subversion özelliklerini yönet:"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr ""
+msgstr "Farkı göstermek için birden fazla öğe seçildi"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6355,7 +6372,7 @@ msgstr "Çözüldü olarak işaretle\nÇakışma çözülür."
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Çözüldü olarak işaretle\nDosya durumu güncellendi durumuna çevrilir"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6367,7 +6384,7 @@ msgstr "Karşılaştırma için işaretle"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Eksik dosyaları silindi olarak işaretle"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6723,7 +6740,7 @@ msgstr "Buradan taşındı"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Buradan taşındı\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6738,7 +6755,7 @@ msgstr "Buraya taşındı"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Buraya taşındı\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -7230,6 +7247,10 @@ msgstr "Panodan aç"
 msgid "Open image file..."
 msgstr "Resim dosyasını aç..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Bir üst klasörü Aç"
@@ -7700,6 +7721,11 @@ msgstr "Özellik %1!s! : Revizyon %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "Özellik %1!s! : Çalışan Taban, Revizyon %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -8297,8 +8323,8 @@ msgid "Requests a username and a password"
 msgstr "Kullanıcı adı ve sifre bilgilerini ister"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "Çözüm&lendi..."
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8367,7 +8393,7 @@ msgstr "Çakışan dosyaları çözümler"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "Geridön"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8707,7 +8733,7 @@ msgstr ""
 
 #. Resource IDs: (316)
 msgid "Save File"
-msgstr ""
+msgstr "Dosyayı Kaydet"
 
 #. Resource IDs: (316)
 msgid ""
@@ -8741,7 +8767,7 @@ msgstr ""
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "Tümünü kaydet\nHer iki dosya da kaydedilir"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9444,7 +9470,7 @@ msgstr "Çalışan kopyanın engellenmesi atlandı"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Atlandı, erişim reddedildi"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9452,7 +9478,7 @@ msgstr "Atlandı, versiyonlanmış ana öğe yok."
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Atlandı, çakışmış olarak kaldı"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10700,7 +10726,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\nlibsvn_diff %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10721,7 +10747,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11324,7 +11350,7 @@ msgstr "Geçerli komuta satırları :\n/Taban :< taban dosyasının dizini>\n/On
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "Özellik değerinin geçerlilik kontrolü başarısız!"
 
 #. Resource IDs: (11, 348)
 msgid "Value"

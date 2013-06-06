@@ -11,12 +11,13 @@
 # Authors:
 # Translators:
 # Evaldas Granickas <evaldasgr@gmail.com>, 2011
+# paulius <pauliusdavyd@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Lithuanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +51,7 @@ msgstr "# autoriai:"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MBaitų persiusta"
+msgstr "%.2f MBaitų persiųsta"
 
 #. Resource IDs: (357)
 #, c-format
@@ -219,6 +220,11 @@ msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
+msgid "%s : Merged file"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
 msgid "%s : Remote file"
 msgstr "%s : Nuotolinė rinkmena"
 
@@ -275,7 +281,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr ""
+msgstr "%s, bet katalogas buvo paliestas darbinėje kopijoje."
 
 #. Resource IDs: (609)
 #, c-format
@@ -320,7 +326,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%s, bet failas buvo paliestas darbinėje kopijoje."
 
 #. Resource IDs: (609)
 #, c-format
@@ -438,7 +444,7 @@ msgstr ""
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr ""
+msgstr "&Leisti dviprasmiškus URL"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
@@ -450,7 +456,7 @@ msgstr ""
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr ""
+msgstr "%Pritaikyti unifikuotą palyginimą"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -482,19 +488,19 @@ msgstr "&Dvejetainis"
 
 #. Resource IDs: (114, 322)
 msgid "&Blame changes"
-msgstr ""
+msgstr "&Skųsti pakeitimus"
 
 #. Resource IDs: (32782)
 msgid "&Blame previous revision"
-msgstr ""
+msgstr "&Skųsti paskutinę reviziją"
 
 #. Resource IDs: (114)
 msgid "&Blame revisions"
-msgstr ""
+msgstr "&Skųsti revizijas"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr ""
+msgstr "&Skųsti..."
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
@@ -522,7 +528,7 @@ msgstr "&Naršyti..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr ""
+msgstr "&Bugtraq (Leidimo sekimo integracija)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -602,7 +608,7 @@ msgstr "&Susisiekti su repozitoriją paleisties metu"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr ""
+msgstr "&Konvertuoti failus, kai lyginama pagal BAZĘ"
 
 #. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
@@ -666,11 +672,11 @@ msgstr "&Skirtumas"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr ""
+msgstr "&Lyginti su URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr ""
+msgstr "&Lyginti su ankstesne versija"
 
 #. Resource IDs: (1528)
 msgid "&Directories"
@@ -682,7 +688,7 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr ""
+msgstr "&Dokingas"
 
 #. Resource IDs: (32851)
 msgid "&EOL"
@@ -718,7 +724,7 @@ msgstr ""
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr ""
+msgstr "&Įgalinti logo kešavimą"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -770,7 +776,7 @@ msgstr "&Kietieji diskai"
 
 #. Resource IDs: (1065)
 msgid "&Floating"
-msgstr ""
+msgstr "&Slankus"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -794,7 +800,7 @@ msgstr "&Iš revizijos"
 
 #. Resource IDs: (1494)
 msgid "&From: (start URL and revision of the range to merge)"
-msgstr ""
+msgstr "&Nuo: (pradinis URL ir revizijų diapazonas sujungimui)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -810,15 +816,15 @@ msgstr "&Skirstyti pagal šakas:"
 
 #. Resource IDs: (1115)
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "&HEAD Revizija"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD revision"
-msgstr ""
+msgstr "&HEAD revizija"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr ""
+msgstr "&HEAD revizija repozitorijoje"
 
 #. Resource IDs: (9, 12, 563, 32781, 57670, 65535)
 msgid "&Help"
@@ -883,11 +889,11 @@ msgstr "&Prijungti visus"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr ""
+msgstr "&Sujungti su sub-medžiais"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
-msgstr ""
+msgstr "&Pereiti prie pirmo skirtumo kraunant"
 
 #. Resource IDs: (32852)
 msgid "&Keywords"
@@ -920,7 +926,7 @@ msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr ""
+msgstr "&Susieti paveikslėlių pozicijas"
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
@@ -936,7 +942,7 @@ msgstr "&Paleisti..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr ""
+msgstr "&Užrakinimas reikalaujamas (tik-skaityti atnaujinimas)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -964,7 +970,7 @@ msgstr ""
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr ""
+msgstr "&Maksimalus pašalinto neaktyvaus kešo dydis [kBaitais]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1000,11 +1006,11 @@ msgstr "&Sumažinti"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "&Modifikuoti spalvą etikečių kopijoms"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "&Modifikuoti spalvą trunk kopijoms"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
@@ -1029,7 +1035,7 @@ msgstr "&Naujas..."
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr ""
+msgstr "&Kitas %Id"
 
 #. Resource IDs: (332)
 msgid "&Next >"
@@ -1041,11 +1047,11 @@ msgstr "&Sekantis puslapis"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
-msgstr ""
+msgstr "&Jokio dvigubo-paspaudimo įvykio"
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
-msgstr ""
+msgstr "&Užrakinimas neprivalomas"
 
 #. Resource IDs: (1506)
 msgid "&None"
@@ -1089,7 +1095,7 @@ msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
-msgstr ""
+msgstr "&Persidengiantys paveikslėliai"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1109,7 +1115,7 @@ msgstr "&Neprieinamas visam laikui"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "&Priklausoma nuo platformos (prigimtinė)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1161,7 +1167,7 @@ msgstr "&Atnaujinti"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr ""
+msgstr "&Priminti įvesti bug-ID"
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
@@ -1193,7 +1199,7 @@ msgstr "&Atstatyti"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
-msgstr ""
+msgstr "&Išspręsti naudojant lokalų nustatymą"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1241,7 +1247,7 @@ msgstr "&Išsaugoti prisijungimo duomenis"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
-msgstr ""
+msgstr "&Grafiką išsaugoti kaip..."
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
@@ -1257,7 +1263,7 @@ msgstr "&Nustatymai"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr ""
+msgstr "&Rodyti HEAD revizijas"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
@@ -1265,19 +1271,19 @@ msgstr "&Rodyti žurnalą"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "&Rodyti meniu:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
-msgstr ""
+msgstr "&Rodyti teksto etiketes"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
-msgstr ""
+msgstr "&Revizija repozitorijoje"
 
 #. Resource IDs: (16917)
 msgid "&Start Group"
-msgstr ""
+msgstr "&Pradėti Grupę"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
@@ -1289,7 +1295,7 @@ msgstr "&Būsenos juosta"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
-msgstr ""
+msgstr "&Pavogti užrakinimus"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
@@ -1297,11 +1303,11 @@ msgstr "&Sustoti ant kopijavimo/pervadinimo"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
-msgstr ""
+msgstr "&Pakeisti WC į kelią ir reviziją"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr ""
+msgstr "&Pakeisti WC į kelią@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1313,7 +1319,7 @@ msgstr "&Tabuliatoriaus dydis:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "&Dokumentas su kortelėmis"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
@@ -1321,7 +1327,7 @@ msgstr "&Raktažodžiai"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr ""
+msgstr "&Testinis sujungimas"
 
 #. Resource IDs: (1558, 16915)
 msgid "&Text"
@@ -1333,11 +1339,11 @@ msgstr "&Tik tekstas"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr ""
+msgstr "&Timeout sekundėmis prieš atnaujinant HEAD reviziją"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr ""
+msgstr "&Timeout sekundėmis automatinio-pabaigimo parsinimo pabaigimui"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
@@ -1353,7 +1359,7 @@ msgstr "&Į kelią:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
-msgstr ""
+msgstr "&Iki: (pabaigos URL ir revizijų intervalas sujungimui)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1381,7 +1387,7 @@ msgstr "&TortoiseSVN"
 
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
-msgstr ""
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -1389,11 +1395,11 @@ msgstr "&Kamienas"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr ""
+msgstr "&Du Puslapis"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr ""
+msgstr "&Repozitorijos URL"
 
 #. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
@@ -1405,11 +1411,11 @@ msgstr "&Anuliuoti"
 
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
-msgstr ""
+msgstr "&Unifikuotas palyginimas"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr ""
+msgstr "&Nežinomi diskai"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1421,19 +1427,19 @@ msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Atnaujinti elementą į reviziją..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr ""
+msgstr "&Atnaujinti į reviziją..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
-msgstr ""
+msgstr "&Naudoti failų kelių ir raktažodžių automatinį-pabaigimą"
 
 #. Resource IDs: (1432)
 msgid "&Use recycle bin"
-msgstr ""
+msgstr "&Naudoti šiukšliadėžę"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -1473,7 +1479,7 @@ msgstr ""
 #. Resource IDs: (338)
 msgid ""
 "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "'praleisti intervalus' yra naudojama revizijų, kurios dar nebuvo kešuotos, intervalų pažymėjimui"
 
 #. Resource IDs: (272)
 #, c-format
@@ -1522,23 +1528,23 @@ msgstr "(redaguota)"
 
 #. Resource IDs: (277)
 msgid "(modified, HEAD revision)"
-msgstr ""
+msgstr "(modifikuota, HEAD revizija)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
-msgstr ""
+msgstr "(pasirinkti keli targetai)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
-msgstr ""
+msgstr "(jokio pakeitimų sąrašo)"
 
 #. Resource IDs: (314)
 msgid "(no line number)"
-msgstr ""
+msgstr "(jokio eilutės numerio)"
 
 #. Resource IDs: (277)
 msgid "(no modification but copy created from here)"
-msgstr ""
+msgstr "(jokių pakeitimų, bet kurti kopiją nuo čia)"
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
@@ -1598,11 +1604,11 @@ msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr ""
+msgstr "... tinkrinamas kešas ir ruošiama logo užklausa"
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
-msgstr ""
+msgstr "... skaitoma darbinės kopijos būsena"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1615,7 +1621,7 @@ msgstr ": Revizija %d"
 
 #. Resource IDs: (151)
 msgid ": working base"
-msgstr ""
+msgstr ": darbinė bazė"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1785,7 +1791,7 @@ msgstr "Aktyvios rinkmenos"
 msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
-msgstr ""
+msgstr "ActiveX objektai negali būti išsaugoti, kol Windows išsijunginėja!⏎\nAtšaukti visus pakeitimus į %1?"
 
 #. Resource IDs: (77, 155, 209, 229)
 msgid "Add"
@@ -1828,7 +1834,7 @@ msgstr "Automatiškai pridėti naujus failus į SVN"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "Vis tiek pridėti elementą"
 
 #. Resource IDs: (613)
 #, c-format
@@ -1857,19 +1863,19 @@ msgstr "Pridėta"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr ""
+msgstr "Failas pridėtas nuotoliniu būdu"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "Katalogas pridėtas nuotoliniu būdu"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
-msgstr ""
+msgstr "Elementai pridėti nuotoliniu būdu"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr ""
+msgstr "Šaka pridėta"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1893,7 +1899,7 @@ msgstr "Pridėdama"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
-msgstr ""
+msgstr "Prideda naują savybę"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1913,7 +1919,7 @@ msgstr ""
 msgid ""
 "Adjust the settings\n"
 "Settings"
-msgstr ""
+msgstr "Pritaikyti nustatymus⏎\nNustatymai"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
@@ -1925,7 +1931,7 @@ msgstr "Išplestinis"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "Išsamus Palyginimo/Sujungimo nustatymai"
 
 #. Resource IDs: (110)
 msgid "Advanced diff settings"
@@ -1941,7 +1947,7 @@ msgstr "Amžius"
 
 #. Resource IDs: (32822)
 msgid "Align trees on top"
-msgstr ""
+msgstr "Sulygiuoti medžius viršuje"
 
 #. Resource IDs: (1505)
 msgid "All"
@@ -1991,18 +1997,18 @@ msgstr ""
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
-msgstr ""
+msgstr "Leisti dviprasmiškus &UUID"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr ""
+msgstr "Leisti skirtingoms repozitorijoms naudoti tą patį URL, pvz. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
+msgstr "Leisti skirtingoms repozitorijoms naudoti tą patį UUID, pvz. nukopijuotoms repozitorijoms"
 
 #. Resource IDs: (119)
 msgid "Already merged"
@@ -2014,7 +2020,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "Visada uždaryti dialogo langus vietinėms operacijoms"
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
@@ -2026,7 +2032,7 @@ msgstr "Visada naudoti sistemos regiono nustatymus laiko ir datos rodymui"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
-msgstr ""
+msgstr "Reikalinga atmintis kešui užkrauti"
 
 #. Resource IDs: (78)
 #, c-format
@@ -2069,7 +2075,7 @@ msgstr "Įvyko nežinoma klaida mėginant prieiti prie %1"
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr ""
+msgstr "Nežinomas eilutės tipas buvo rastas eilutėje %d !"
 
 #. Resource IDs: (251)
 msgid ""
@@ -2117,7 +2123,7 @@ msgstr ""
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
-msgstr ""
+msgstr "Pritaikyti unifikuotą palyginimą"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
@@ -2137,19 +2143,19 @@ msgstr ""
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr ""
+msgstr "Ar norite pažymėti konfliktuojančius failus išspręstais?"
 
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr ""
+msgstr "Ar tikrai norite pašalintų pasirinktų %d elementų kešą?"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr ""
+msgstr "Ar tikrai norite atšaukti pakeitimus %d elementui(-ams)? Visi pakeitimai, padaryti po paskutinio atnaujinimo, bus prarasti!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
@@ -2157,7 +2163,7 @@ msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "Kaip &is (nėra specialaus EOL)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2175,11 +2181,11 @@ msgstr "Priskirta prie:"
 #. Resource IDs: (77)
 #, c-format
 msgid "At revision: %d"
-msgstr ""
+msgstr "Revizijoje: %d"
 
 #. Resource IDs: (3843)
 msgid "Attempted an unsupported operation."
-msgstr ""
+msgstr "Bandyta atlikti nepalaikomą operaciją."
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -2242,15 +2248,15 @@ msgstr ""
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr ""
+msgstr "Automatiškai uždaryti, jei nėra konfliktų"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "Automatiškai uždaryti, jei nėra klaidų"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
-msgstr ""
+msgstr "Automatiškai uždaryti, jei nėra sujungimų, pridėjimų arba pašalinimų"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2269,11 +2275,11 @@ msgstr "Automatiškas"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
-msgstr ""
+msgstr "Automatinio teksto testuotojas"
 
 #. Resource IDs: (1157)
 msgid "Average"
-msgstr ""
+msgstr "Vidurkis"
 
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
@@ -2293,17 +2299,17 @@ msgstr ""
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr ""
+msgstr "Stulpelinis grafikas"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr ""
+msgstr "Bazinis failas:"
 
 #. Resource IDs: (3850)
 msgid ""
 "Bitmap\n"
 "a bitmap"
-msgstr ""
+msgstr "Vaizdas⏎\nvaizdas"
 
 #. Resource IDs: (156, 564)
 msgid "Black Style"
@@ -2311,19 +2317,19 @@ msgstr ""
 
 #. Resource IDs: (162)
 msgid "Blame"
-msgstr ""
+msgstr "Kaltinti"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
-msgstr ""
+msgstr "Kaltinti - TortoiseSVN"
 
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr ""
+msgstr "Kaltinti..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "Kaltina kiekvieną failo eilutę pagal autorių"
 
 #. Resource IDs: (32812)
 msgid "Blend alpha"
@@ -2337,11 +2343,15 @@ msgstr ""
 msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
-msgstr ""
+msgstr "/logmsg ir /logmsgfile buvo nurodyti!⏎\nGali būti nurodytas tik vienas iš jų."
 
 #. Resource IDs: (70)
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
+msgstr ""
+
+#. Resource IDs: (188)
+msgid "Bottom View:"
 msgstr ""
 
 #. Resource IDs: (1007)
@@ -2350,15 +2360,15 @@ msgstr "Na&ršyti..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr ""
+msgstr "Šaka / tag sukurta sėkmingai!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr ""
+msgstr "Kurti šaką nuo kopijuoti-iš-revizijos net jei toje revizijoje nebuvo pakeitimų"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr ""
+msgstr "Kurti šaką/&tag..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -2374,11 +2384,11 @@ msgstr "Naršyti..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr ""
+msgstr "Bug-&ID / Problemos-nr:"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr ""
+msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
@@ -2386,11 +2396,11 @@ msgstr ""
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr ""
+msgstr "Bug-ID yra:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr ""
+msgstr "Bug-ID'ai"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2410,7 +2420,7 @@ msgstr "T&ikrinti repozitoriją"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr ""
+msgstr "S&uglausti sub-medžius"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -2418,7 +2428,7 @@ msgstr "K&omandos:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr ""
+msgstr "S&ukurti šaką/tag iš revizijos"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2426,7 +2436,7 @@ msgstr "Suku&rti aplanką..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
-msgstr ""
+msgstr "&Dabartiniai Raktai:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2434,27 +2444,27 @@ msgstr "K&irpti"
 
 #. Resource IDs: (3697)
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr ""
+msgstr "Kešo dydis [kB]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
-msgstr ""
+msgstr "Kešo repozitorijos"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr ""
+msgstr "Kešuoja logo pranešimus, kad logo paėmimas būtų greitesnis"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "Galima dukart-paspausti logo sąraše tam, kad būtų palyginta su prieš tai buvusia revizija"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "Negali aktyvuoti statinio ActiveX objekto."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2463,7 +2473,7 @@ msgid ""
 "%1!s!\n"
 "to\n"
 "%2!s!"
-msgstr ""
+msgstr "Negali kopijuoti ⏎\n%1!s!⏎\nį⏎\n%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2471,7 +2481,7 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "Negalima sukurti naujo paveikslėlio!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menus!"
@@ -2667,11 +2677,11 @@ msgstr ""
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr ""
+msgstr "Atšaukiamas TortoiseSVN apkaltinimas..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "Atšaukiama operacija..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
@@ -2713,7 +2723,7 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "Sertifikatai|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 #. Resource IDs: (2061)
 msgid ""
@@ -2736,7 +2746,7 @@ msgstr "Rinkmenos pakeistos"
 #. Resource IDs: (324)
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
-msgstr ""
+msgstr "Failai tarp %1!s!, %2!s! ir %3!s!, %4!s pakeisti!"
 
 #. Resource IDs: (163)
 #, c-format
@@ -2746,7 +2756,7 @@ msgstr "Pakeisti failai: %d"
 #. Resource IDs: (264)
 #, c-format
 msgid "Changelist %s moved"
-msgstr ""
+msgstr "Pakeitimų sąrašas %s perkeltas"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -2774,31 +2784,31 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "Check"
-msgstr ""
+msgstr "Patikrinti"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr ""
+msgstr "Tikrinti, ar nėra atnaujinimų"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr ""
+msgstr "Tikrinti, ar nėra atnaujinimų..."
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
-msgstr ""
+msgstr "Tikrinti, ar nėra &pakeitimų"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
-msgstr ""
+msgstr "Tikrinti, ar nėra &pakeitimų"
 
 #. Resource IDs: (65535)
 msgid "Check for modifications"
-msgstr ""
+msgstr "Tikrinti, ar nėra pakeitimų"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr ""
+msgstr "Tikrinti, ar nėra atnaujinimų"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -4275,6 +4285,10 @@ msgstr "Eksportuoti"
 msgid "E&xport..."
 msgstr "Eksportuoti..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr ""
@@ -4388,6 +4402,10 @@ msgstr ""
 msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
+msgstr ""
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
 msgstr ""
 
 #. Resource IDs: (3867)
@@ -7226,6 +7244,10 @@ msgstr ""
 msgid "Open image file..."
 msgstr ""
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr ""
@@ -7695,6 +7717,11 @@ msgstr ""
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
 msgstr ""
 
 #. Resource IDs: (151)
@@ -8293,7 +8320,7 @@ msgid "Requests a username and a password"
 msgstr ""
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
+msgid "Res&olve..."
 msgstr ""
 
 #. Resource IDs: (16614)

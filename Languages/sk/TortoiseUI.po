@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-05-04 20:16+0000\n"
-"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,6 +221,11 @@ msgstr "%s (rekurzívne)"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "%s : Merged file"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
 msgid "%s : Remote file"
 msgstr "%s: Vzdialený súbor"
 
@@ -408,7 +413,7 @@ msgstr "&O TortoiseMerge..."
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "&Prijať aktuálny stav pracovnej kópie (oznaciť za vyriešené)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -448,7 +453,7 @@ msgstr "Použiť vl&astnosť rekurzívne"
 
 #. Resource IDs: (610)
 msgid "&Apply the udpate to the move destination"
-msgstr ""
+msgstr "&Použiť aktualizovanie na cieľ presunutia"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1127,7 +1132,7 @@ msgstr "&Prednastavené pre 'Power User'"
 
 #. Resource IDs: (1562)
 msgid "&Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "&Zrýchliť prehliadanie prenačítaním adresárov"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -2346,6 +2351,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Obe cesty - cesta súboru záplaty a cieľová cesta - musia byť absolútne."
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "P&rechádzaj..."
@@ -3091,7 +3100,7 @@ msgstr "Príkazový riadok na vykonanie:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Príkazový riadok k spusteniu:\nK zadaniu cesty v rámci pracovnej kópie, zadajte koreňovú URL úložiska ako %REPOROOT%, alebo %REPOROOT+% d hlbšie v pracovnej kópií."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3198,7 +3207,7 @@ msgstr "Porovnávať biele znaky"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "Porovnanie s &Hlavnou(HEAD) a Základnou(BASE)"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3457,7 +3466,7 @@ msgstr "Kopírovanie %1!s!"
 
 #. Resource IDs: (266)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "Kopírovanie z URL vonkašieho úložiska"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4050,7 +4059,7 @@ msgstr "Nezobrazovať kontextovú ponuku pre nasledovné cesty:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge (old style)"
-msgstr ""
+msgstr "Aplikovať reintergaciu miesto automatického zlučovania (starý štýl)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4277,6 +4286,10 @@ msgstr "E&xportovať"
 msgid "E&xport..."
 msgstr "E&xportovať..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4391,6 +4404,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Povolí kontrolu pravopisu len v prípade\nak je nastavená vlastnosť tsvn:projectlanguage."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -5992,7 +6009,7 @@ msgstr "Zachovať &zámky"
 
 #. Resource IDs: (611)
 msgid "Keep any moves affected by this operation"
-msgstr ""
+msgstr "Ponechať presunutia ovplivnené tímto úkonom"
 
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
@@ -7228,6 +7245,10 @@ msgstr "Otvoriť zo schránky"
 msgid "Open image file..."
 msgstr "Otvor obrázok..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Otvoriť hlavný adresár"
@@ -7701,6 +7722,11 @@ msgstr "Vlastnosť %1!s! : Pracovný základ, Revízia %2!ld!"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "Property %s : merged"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
 msgid "Property %s : remote"
 msgstr "Vlastnosť %s : vzdialené"
 
@@ -7855,7 +7881,7 @@ msgstr "Pred tým ako sa zaseknete si prečítajte 'Návod pre denné použite' 
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "Reťazec oblasti"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8295,8 +8321,8 @@ msgid "Requests a username and a password"
 msgstr "Vyžiada užívateľské meno a heslo"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "&Vyriešené"
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8340,7 +8366,7 @@ msgstr "Vyriešiť &neskôr"
 
 #. Resource IDs: (1383)
 msgid "Resolve using &their property"
-msgstr ""
+msgstr "&Vyriešiť použitím ich vlastnosti"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9325,7 +9351,7 @@ msgstr "Zobrazí značky na kópií zdroja, nie ako samostatný vrchol"
 msgid ""
 "Show the diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "Zobraziť porovnanie\nPrehliadač porovnania bude otvorený pre všetky vybrané objekty."
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -9382,7 +9408,7 @@ msgstr "Zobrazí hodnotu štýlu ukončenia riadkov"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr ""
+msgstr "Zobraziť vlastníka zámku pre zamknuté súbory. Pre staršie servery toto vypnite, aby nedošlo k poklesu výkonu."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -11778,7 +11804,7 @@ msgstr "[Nepriradené]"
 
 #. Resource IDs: (1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
-msgstr ""
+msgstr "súbory v \"ignore-on-commit\" neoznačia rodičovský adresár za zmenený"
 
 #. Resource IDs: (346)
 msgid ""
@@ -12232,7 +12258,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "tsvn:auto-props\nNovými riadkami oddelený zoznam vlastností, ktoré sú automaticky použité pri pridaní/importovaní súborov.\nFormát: <filemask> = property=value;property=value\nPríklad: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

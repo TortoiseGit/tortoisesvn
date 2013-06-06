@@ -12,25 +12,26 @@
 # Translators:
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2013
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: "
+"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-05-02 07:30+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-06-06 14:47+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -44,6 +45,7 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
+#. Resource IDs: (188)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -221,6 +223,11 @@ msgstr "%s (offline)"
 #, c-format
 msgid "%s (recursively)"
 msgstr "%s (rekursiv)"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
+msgstr "%s: Zusammengeführte Datei"
 
 #. Resource IDs: (151)
 #, c-format
@@ -2349,6 +2356,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Sowohl der Pfad zur Patchdatei als auch zum Ziel müssen absolute Pfade sein!"
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr "Untere Sicht:"
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "Su&chen..."
@@ -4280,6 +4291,10 @@ msgstr "E&xport"
 msgid "E&xport..."
 msgstr "E&xport..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr "EOL"
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4394,6 +4409,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Verwende Rechtschreibkorrektur nur,\nwenn 'tsvn:projectlanguage' gesetzt ist."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr "Kodierung"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7231,6 +7250,10 @@ msgstr "Aus Zwischenablage öffnen"
 msgid "Open image file..."
 msgstr "Öffne Bilddatei..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr "Öffne lokale Datei in &Visual Studio..."
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Elternordner öffnen"
@@ -7701,6 +7724,11 @@ msgstr "Eigenschaft %1!s! : Revision %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "Eigenschaft %1!s! : Arbeitskopie Basis, Revision %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr "Eigenschaft %s: zusammengeführt"
 
 #. Resource IDs: (151)
 #, c-format
@@ -8298,8 +8326,8 @@ msgid "Requests a username and a password"
 msgstr "Erfragt Anwendername und Passwort"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "Konflikt &aufgelöst..."
+msgid "Res&olve..."
+msgstr "&Auflösen..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"

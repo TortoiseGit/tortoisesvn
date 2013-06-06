@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,6 +222,11 @@ msgstr "%s (frakoblet)"
 #, c-format
 msgid "%s (recursively)"
 msgstr "%s (rekursivt)"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
+msgstr "%s: Flettet fil"
 
 #. Resource IDs: (151)
 #, c-format
@@ -2087,11 +2092,11 @@ msgstr "En annen prosess blokkerer arbeidskopiens database, eller fillåsing er 
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "Legg høyre blokk etter"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "Legg denne blokken etter til venste"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2349,6 +2354,10 @@ msgstr "Både /logmsg og /logmsgfile ble angitt!\nBare en av disse kan spesifise
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Både stien til korreksjonsfilen og målstien må være absolutte stier!"
+
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -4054,7 +4063,7 @@ msgstr "Ikke vis sammenhengsmenyen for følgende stier:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge (old style)"
-msgstr ""
+msgstr "Gjør reintegrering i stedet for automatisk fletting (gammel stil)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4281,6 +4290,10 @@ msgstr "E&ksportér"
 msgid "E&xport..."
 msgstr "E&ksportér..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4395,6 +4408,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Bruker stavekontroll bare når egenskapen\ntsvn:projectlanguage er satt på"
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -6006,7 +6023,7 @@ msgstr "Behold &endringslister"
 msgid ""
 "Keep resolving\n"
 "Jump to first unresolved conflict"
-msgstr ""
+msgstr "Fortsett løsing\nHopp til første uløste konflikt"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -7232,6 +7249,10 @@ msgstr "Åpne fra utklippstavlen"
 msgid "Open image file..."
 msgstr "Åpne bildefil..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr "Åpne lokal fil i &Visual Studio..."
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Åpne mappen over"
@@ -7560,11 +7581,11 @@ msgstr "Foretrekk &depotet"
 
 #. Resource IDs: (251)
 msgid "Prepend right block"
-msgstr ""
+msgstr "Legg høyre blokk foran"
 
 #. Resource IDs: (251)
 msgid "Prepend this block to left"
-msgstr ""
+msgstr "Legg denne blokken foran til venstre"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7702,6 +7723,11 @@ msgstr "Egenskap %1!s!: Revisjon %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "Egenskap %1!s! : Arbeidskopiens Basis, Revisjon %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr "Egenskap %s : flettet"
 
 #. Resource IDs: (151)
 #, c-format
@@ -8299,8 +8325,8 @@ msgid "Requests a username and a password"
 msgstr "Ber om et brukernavn og passord"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "&Løst..."
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8705,7 +8731,7 @@ msgstr "Lagre Som"
 msgid ""
 "Save Bottom File as\n"
 "You're asked where to save the bottom file"
-msgstr ""
+msgstr "Lagre Nedre Fil som\nDu blir spurt hvor den nedre filen skal lagres"
 
 #. Resource IDs: (316)
 msgid "Save File"
@@ -9021,13 +9047,13 @@ msgstr "Velg visningsprogram for diff-filer"
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
-msgstr ""
+msgstr "Velg den filen du vil lagre som"
 
 #. Resource IDs: (316)
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr ""
+msgstr "Velg den filen du vil lagre som\nMerk: Det finnes uløste konflikter!"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10702,7 +10728,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\nlibsvn_diff %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10723,7 +10749,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11208,7 +11234,7 @@ msgstr "Bruk regulært uttrykk"
 
 #. Resource IDs: (251)
 msgid "Use right block"
-msgstr ""
+msgstr "Bruk høyre blokk"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11295,7 +11321,7 @@ msgstr "Bruk &hele denne filen"
 
 #. Resource IDs: (251)
 msgid "Use this block on left"
-msgstr ""
+msgstr "Bruk denne blokken til venstre"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"

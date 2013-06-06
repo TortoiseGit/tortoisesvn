@@ -16,6 +16,7 @@
 # Garfield Yao <field977@gmail.com>, 2011
 # Hong Xu <icehong@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
 # Nick Vrvilo <nick@vrvilo.com>, 2011, 2012
 # pluwen <pluwen@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
@@ -29,7 +30,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -229,6 +230,11 @@ msgstr "%s(离线)"
 #, c-format
 msgid "%s (recursively)"
 msgstr "%s(递归)"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -2274,7 +2280,7 @@ msgstr "自动完成建议的字符(通常是类名或成员名)\r\n它来自于
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr "自动整合 %1!s! 至 %2!s！"
+msgstr "自动整合 %1!s! 至 %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2356,6 +2362,10 @@ msgstr "同时指定了 /logmsg 和 /logmsgfile !\n它们只能指定一个。"
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "补丁文件的路径和目标路径都必须是绝对路径！"
+
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -4288,6 +4298,10 @@ msgstr "导出(&X)"
 msgid "E&xport..."
 msgstr "导出(&X)..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4402,6 +4416,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "仅在设置了 tsvn:projectlanguage\n时才进行拼写检查。"
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7239,6 +7257,10 @@ msgstr "从剪贴板复制"
 msgid "Open image file..."
 msgstr "打开图像文件..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "打开父目录"
@@ -7709,6 +7731,11 @@ msgstr "属性 %1!s!: 版本 %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "属性 %1!s!: 工作基础，版本 %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -8306,8 +8333,8 @@ msgid "Requests a username and a password"
 msgstr "需要用户名和密码"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "已解决的(&O)..."
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"

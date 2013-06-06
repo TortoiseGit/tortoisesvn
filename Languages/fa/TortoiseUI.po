@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -219,6 +219,11 @@ msgstr "%s (خارج از خط)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
 msgstr ""
 
 #. Resource IDs: (151)
@@ -2348,6 +2353,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Both the path to the patch file and the target path must be absolute paths!"
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "مر&ور..."
@@ -4279,6 +4288,10 @@ msgstr "صد&ور..."
 msgid "E&xport..."
 msgstr "صد&ور..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4393,6 +4406,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7230,6 +7247,10 @@ msgstr "بازکردن از کلیپبورد"
 msgid "Open image file..."
 msgstr "بازکردن فایل تصویری..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "بازکردن پوشه والد"
@@ -7700,6 +7721,11 @@ msgstr "خاصیت %1!s! : اصلاحیه %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "خاصیت %1!s! : پایه کاری, اصلاحیه%2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -8297,8 +8323,8 @@ msgid "Requests a username and a password"
 msgstr "درخواست نام کاربر و رمزینه"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "برخوردهای &حل شده..."
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"

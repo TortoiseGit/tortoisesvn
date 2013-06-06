@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
+"PO-Revision-Date: 2013-05-19 08:19+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1760,10 +1760,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "Bạn có thể tạo một kho lưu trữ với các phụ trợ FSFS hoặc với định dạng cơ sở dữ liệu cũ Berkeley (BDB). Định dạng FSFS thường nhanh hơn và dễ dàng hơn để quản lý, và nó hoạt động trên mạng chia sẻ và Windows 98 mà không có vấn đề. Định dạng BDB từng được coi là ổn định hơn chỉ đơn giản là vì nó đã được sử dụng lâu hơn, nhưng kể từ khi FSFS đã được sử dụng trong lĩnh vực này trong nhiều năm, tranh luận bây giờ là khá yếu. Đọc <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle> Chọn một cửa hàng dữ liệu </citetitle></ulink> trong cuốn sách Subversion để biết thêm thông tin."
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2191,10 +2191,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "Một kịch bản móc là một chương trình được kích hoạt bởi một số sự kiện kho lưu trữ, chẳng hạn như việc tạo ra một phiên bản mới hoặc sửa đổi của một thuộc tính không phiên bản. Mỗi móc được giao đủ thông tin để cho biết những sự kiện đó là gì, những mục tiêu nào nó đang làm việc với, và tên người dùng của người gây ra sự kiện. Tùy thuộc vào sản lượng của móc hoặc tình trạng trả lại, chương trình móc có thể tiếp tục hành động, ngăn chặn nó, hoặc đình chỉ nó bằng một cách nào đó. Xin vui lòng tham khảo chương <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Kịch bản móc</citetitle></ulink> trong sách Subversion để biết chi tiết đầy đủ về các móc được thực hiện."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2358,9 +2358,9 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr "Xem thêm thông tin chi tiết về các tùy chọn máy chủ Subversion, và làm thế nào để lựa chọn các kiến ​​trúc tốt nhất cho tình huống của bạn, có thể được tìm thấy trong cuốn sách Subversion theo <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html\"><citetitle> Cấu Hình Máy  Chủ</citetitle></ulink> ."
+msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -5741,11 +5741,11 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr "Subversion cho phép bạn thay đổi thuộc tính sửa đổi bất cứ lúc nào bạn muốn. Nhưng vì những thay đổi như vậy không thể được hoàn tác (những thay đổi đó không phải là phiên bản) tính năng này được vô hiệu hóa theo mặc định. Để tính năng này làm việc, bạn phải thiết lập một cái móc pre-revprop-change. Xin vui lòng tham khảo chương <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle> Kịch bản Hook </citetitle></ulink> trong Sách Subversion để biết chi tiết về việc làm thế nào để làm điều đó. Đọc <xref linkend=\"tsvn-repository-hooks\"/> để tìm thấy một số ghi chú thêm về thực hiện các móc trên một máy tính Windows."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7485,18 +7485,18 @@ msgstr "Subversion hỗ trợ mở rộng từ khóa giống như CVS mà có th
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr "Để tìm hiểu làm thế nào để sử dụng các từ khóa này, nhìn vào <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle> phần svn:keywords </citetitle></ulink> trong cuốn sách Subversion, trong đó cung cấp một mô tả đầy đủ các từ khóa này và làm thế nào để kích hoạt và sử dụng chúng."
+msgstr ""
 
 #. (para)
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr "Để biết thêm thông tin về thuộc tính trong Subversion <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html\"><citetitle> Đặc biệt thuộc tính </citetitle></ulink> ."
+msgstr ""
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8657,9 +8657,9 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr "Bạn cũng có thể chỉ định một bản sửa đổi neo và hoạt động. Để biết thêm về bản sửa đổi neo và hoạt động, xin đọc <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding chapter</citetitle></ulink> trong sách Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9061,10 +9061,10 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr "Điều quan trọng là hiểu được cách thức phân nhánh và sáp nhập làm việc trong Subversion trước khi bạn bắt đầu sử dụng nó, vì nó có thể trở nên khá phức tạp. Chúng tôi khuyến khích bạn đọc chương <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.html\"><citetitle> Phân nhánh và Hợp nhất</citetitle></ulink> trong cuốn sách Subversion, có đưa ra một mô tả đầy đủ và nhiều ví dụ về cách sử dụng nó."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9173,9 +9173,9 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr "Nếu máy chủ / kho lưu trữ của bạn không hỗ trợ theo dõi kết hợp thì đây là cách duy nhất để hợp nhất một chi nhánh trở lại thân cây. Một trường hợp khác sử dụng xảy ra khi bạn đang sử dụng các chi nhánh nhà cung cấp và bạn cần phải hợp nhất các thay đổi sau một nhà cung cấp mới thả vào mã thân cây của bạn. Để biết thêm thông tin, đọc chương về <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle> các nhánh cho nhà cung cấp </citetitle></ulink> Sách Subversion."
+msgstr ""
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9436,9 +9436,9 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr "Hầu hết thời gian bạn muốn hợp nhất để kể vào lịch sử của tập tin, để thay đổi liên quan đến một tổ tiên chung được sáp nhập. Đôi khi bạn có thể cần phải hợp nhất các tập tin mà có lẽ liên quan, nhưng không có trong kho của bạn. Ví dụ, bạn có thể đã được nhập khẩu phiên bản 1 và 2 của một thư viện của bên thứ ba vào hai thư mục riêng biệt. Mặc dù chúng về lô gíc là có liên quan, Subversion không có kiến ​​thức về điều này bởi vì nó chỉ nhìn thấy các tập tin tarball bạn nhập khẩu. Nếu bạn cố gắng kết hợp sự khác biệt giữa hai cây, bạn sẽ thấy một lệnh loại bỏ hoàn toàn theo sau bởi một lệnh thêm hoàn chỉnh. Để làm cho Subversion sử dụng sự khác biệt dựa trên đường dẫn chỉ chứ không phải là sự khác biệt dựa trên lịch sử, đánh dấu hộp kiểm <guilabel> Bỏ qua tổ tiên </guilabel>. Tìm hiểu thêm về chủ đề này trong sách Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle> Chú ý hoặc Bỏ qua Tổ tiên </citetitle></ulink> ."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12212,18 +12212,18 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr "Sử dụng <guibutton>Biên tập</guibutton> để chỉnh sửa các tập tin cấu hình Subversion trực tiếp. Một số thiết lập không thể được sửa đổi trực tiếp bởi TortoiseSVN, và thay vào đó cần được đặt ở đây. Để biết thêm thông tin về tập tin <filename> cấu hình </filename> Subversion xem <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle> Khu vực Cấu hình Thời gian chạy </citetitle></ulink>. Phần <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle> Thiết lập Thuộc tính Tự động </citetitle></ulink> là thuộc quan tâm đặc biệt, và phần đó được cấu hình ở đây. Lưu ý rằng Subversion có thể đọc thông tin cấu hình từ nhiều nơi, và bạn cần phải biết là cái nào được ưu tiên. Tham khảo <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle> Cấu hình và Windows Registry </citetitle></ulink> để tìm hiểu thêm."
+msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13227,9 +13227,9 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr "Nếu bạn cần phải thiết lập các thiết lập proxy cho mỗi-kho lưu trữ, bạn sẽ cần phải sử dụng tập tin <filename> các máy chủ </filename> Subversion để cấu hình. Sử dụng <guibutton> Biên Tập </guibutton> để đến đó trực tiếp. Tham khảo <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle> Khu Vực Cấu Hình Thời Gian Chạy </citetitle></ulink> để biết chi tiết về cách sử dụng tập tin này."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16318,9 +16318,9 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "Cách duy nhất để loại bỏ các dữ liệu từ kho lưu trữ là sử dụng công cụ dòng lệnh Subversion <literal> svnadmin </literal> . Bạn có thể tìm thấy một mô tả về cách làm việc này trong <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle> Bảo Trì Kho </citetitle></ulink> ."
+msgstr ""
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16636,9 +16636,9 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr "TortoiseSVN phải được cài đặt theo <emphasis> Cấu Hình Máy Tính </emphasis> và không thuộc thẩm quyền <emphasis> Cấu Hình Người Dùng</emphasis> . Điều này là vì TortoiseSVN cần DLL cho CRT và MFC, mà chỉ có thể được triển khai <emphasis> cho mỗi máy tính </emphasis> và không <emphasis> cho mỗi người dùng </emphasis> . Nếu bạn thực sự phải cài đặt TortoiseSVN trên một cơ sở cho mỗi người dùng, sau đó trước tiên bạn phải cài đặt MFC và gói CRT phiên bản 10 từ Microsoft trên mỗi máy tính mà bạn muốn cài đặt TortoiseSVN cho mỗi người dùng."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19600,236 +19600,12 @@ msgstr "Sau khi TortoiseMerge phân tích các tập tin vá lỗi, nó sẽ cho
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "Nhưng đừng lo lắng. Nếu bạn đang làm việc với Subversion, bạn có thể lấy một phiên bản cũ của tập tin và giải quyết xung đột. Trong thực tế, TortoiseMerge tự động cố gắng để có được phiên bản cũ của tập tin và sau đó cho bạn thấy khác biệt giữa <emphasis> Cơ sở </emphasis> (Phiên bản cũ của tập tin), <emphasis> Của tôi </emphasis> (Các tập tin như nó hiện đang có trong bản sao làm việc của bạn) và <emphasis> Của họ </emphasis> (Phiên bản cũ của các tập tin với các bản vá đã được áp dụng). Sau đó, bạn có thể giải quyết xung đột có thể xảy ra bằng tay."
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Các cửa sổ tập tin bản vá có một trình đơn ngữ cảnh cho phép bạn xem trước hiệu ứng của các miếng vá trên các tập tin hiện hành (áp dụng mà không lưu), để áp dụng và lưu các thay đổi cho các tập tin được lựa chọn, hoặc để áp dụng và lưu các thay đổi tới <emphasis> tất cả </emphasis> các tập tin trong danh sách. Hành động nhấp đúp chuột là để xem trước."
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "Tùy thuộc vào liệu TortoiseMerge có thể áp dụng các bản vá trực tiếp hoặc bằng cách lấy một phiên bản cũ của tập tin trước tiên, nó cho bạn thấy màn xem hai cửa sổ (bản vá có thể được áp dụng trực tiếp) hoặc xem ba cửa sổ (phiên bản cũ hơn của tập tin được nạp)."
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "Các Nút bấm và Điều Khiển Khác"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "Thanh công cụ"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton> Mở </guibutton> truy cập vào hộp thoại mở tập tin. Còn gì khác?"
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton> Lưu </guibutton> lưu bất kỳ thay đổi bạn đã thực hiện."
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton> Tải lại </guibutton> loại bỏ bất kỳ thay đổi bạn đã thực hiện trong TortoiseMerge và tải lại các tập tin từ đĩa."
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton> Hoàn tác </guibutton> thực hiện hoàn tác đa cấp, cho phép bạn đảo ngược bất kỳ thay đổi bạn đã thực hiện trong TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton> Khác biệt Trước đó/Tiếp theo </guibutton> nhảy trực tiếp đến các điểm tiếp theo nơi các tập tin khác nhau. Điều này giúp tiết kiệm di chuyển qua tất cả các phần không thay đổi của tập tin."
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "Khi bạn làm điều này trong chế độ khác biệt 2 cửa sổ, thanh chi tiết ở dưới cùng của màn hình sẽ cho bạn thấy sự khác biệt nội tuyến cho dòng đầu tiên, bất kể nơi chuột đang lơ lửng."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton> Xung đột Trước đó / Tiếp theo </guibutton> nhảy trực tiếp đến điểm tiếp theo, nơi các sự khác biệt tập tin nằm trong xung đột và cần phải được giải quyết."
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton> Sử dụng Của họ / Sử dụng Của tôi </guibutton> lựa chọn việc sử dụng một khối từ bên trái hoặc bên phải cửa sổ. Tham khảo phần tiếp theo để biết thêm thông tin về việc biên tập các thay đổi và xung đột."
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton> Của Họ trước Của Tôi / Của Tôi trước Của Họ </guibutton> được sử dụng khi bạn muốn kết hợp những thay đổi trong một tập tin mâu thuẫn. Tham khảo phần tiếp theo để biết thêm thông tin về biên tập những thay đổi và xung đột."
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton> Đánh Dấu đã Giải Quyết</guibutton> Khi bạn đã giải quyết tất cả các xung đột trong một tập tin và lưu các thay đổi, bạn có thể đánh dấu nó như đã được giải quyết từ bên trong TortoiseMerge, chứ không phải quay trở lại explorer và đánh dấu như giải quyết từ đó."
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton> Hiển Thị Khoảng Trắng </guibutton> tắt mở các tùy chọn để hiển thị các ký tự trống và tab như là biểu tượng để bạn có thể phân biệt những thay đổi khoảng trắng."
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr "<guibutton> Bọc đường dài </guibutton> tắt mở các gói từ ngữ ở phần cuối của màn xem. Nếu được bật, các dòng dài mà thông thường sẽ mở rộng vượt ra ngoài biên giới màn xem được quấn quanh, tức là, một dòng dài được chia thành nhiều dòng."
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton> Khác Biệt Nội Tuyến Hướng Từ Ngữ</guibutton> bật tắt các phương pháp được sử dụng để hiển thị các khác biệt nội tuyến. Trong chế độ hướng-từ ngữ, khi một ký tự được thay đổi, toàn bộ từ ngữ được làm nổi. Trong chế độ hướng-ký tự, mỗi ký tự riêng lẻ thay đổi được làm nổi."
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "Hướng-từ ngữ là mặc định và trong nhiều trường hợp nó hoạt động tốt hơn. Ví dụ, nếu bạn thay đổi một tên biến, toàn bộ tên được làm nổi trong chế độ hướng-từ ngữ, trong khi ở chế độ hướng-ký tự, bạn có xu hướng nhận một mớ hỗn độn của các ký tự được thêm vào và bị xóa mà không có ý nghĩa nhiều. Tuy nhiên, một số nội dung không giải quyết gọn gàng thành các từ, ví dụ như một tập tin hex, và trong trường hợp đó, hiển thị hướng-ký tự làm việc tốt hơn."
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr "<guibutton> So sánh các khoảng trắng </guibutton> cho thấy tất cả những thay đổi trong thụt đầu dòng và khoảng trắng nội tuyến như các dòng được thêm / gỡ bỏ (là cách Subversion xử lý những thay đổi đó)."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guibutton> Bỏ qua thay đổi khoảng trắng </guibutton> giấu các thay đổi mà chỉ do một sự thay đổi trong số lượng hoặc loại khoảng trắng, ví dụ như thay đổi thụt đầu dòng hoặc thay đổi các tab thành khoảng trống. Thêm khoảng trắng nơi trước đây không có, hoặc loại bỏ một khoảng trắng hoàn toàn vẫn được hiển thị như là một thay đổi."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr "<guibutton> Bỏ qua tất cả các khoảng trắng </guibutton> giấu tất cả thay đổi chỉ gồm khoảng trắng."
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton> Chuyển Màn Xem </guibutton> lựa chọn giữa màn xem một cửa sổ và hai cửa sổ. Bị vô hiệu hóa trong màn xem 3 cửa sổ."
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton> Chuyển Màn Xem Trái và Phải </guibutton> Trong màn xem 2 cửa sổ, hoán đổi cửa ổ trái và bên phải. Khi bạn đang so sánh một tập tin trong 2 cây khác nhau, khác với 2 bản sửa đổi của cùng một tập tin, TortoiseSVN không biết cái nào nên đi vào khung bên trái là phiên bản <quote> nguyên thủy / cơ sở </quote>. Nếu nó điều này sai, bạn có thể thay đổi nó để có thể xem dễ dàng hơn."
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton> Hiện / Ẩn Danh Sách Bản Vá</guibutton> Khi TortoiseMerge có một danh sách các bản vá, nút này cho phép bạn ẩn nó (để bạn có thể nhìn thấy cả hai cửa sổ), hoặc hiển thị nó (để bạn có thể xem danh sách tập tin)."
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr "<guibutton> Sập Xuống </guibutton> làm sập các vùng không thay đổi thành một dòng duy nhất, để lại các khu vực bị thay đổi và bối cảnh tối thiểu. Bạn có thể mở rộng các khu vực bị sập bằng cách nhấp đúp vào dòng sập đổ, nhưng bạn không thể sập chúng lần nữa, trừ khi bạn tải lại các tập tin."
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton> Thiết Lập</guibutton> sẽ đưa bạn tới hộp thoại thiết lập TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton> Trợ giúp </guibutton> mở tập tin trợ giúp TortoiseMerge, tất nhiên rồi."
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Bên dưới thanh trình đơn nằm trên thanh công cụ. Điều này cung cấp truy cập dễ dàng đến các công cụ thông dụng nhất, đó là <placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "Ở phía bên trái của cửa sổ là một thanh định vị. Cái này cung cấp một tài liệu tham khảo trực quan nhanh chóng như là nơi những thay đổi nằm trong tập tin. Thanh có ba cột. Cột bên trái chỉ đến khung bên trái, cột bên phải đến cửa sổ bên phải, và cột trung tâm đến cửa sổ bên dưới (nếu có). Trong màn xem một cửa sổ chỉ có cột bên trái được sử dụng. Thanh định vị cũng có thể được sử dụng như một thanh cuộn để di chuyển tất cả các cửa sổ cùng một lúc."
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr "Nếu bạn kích đúp vào một từ thì mỗi sự xuất hiện của từ đó sẽ được tô sáng trong tài liệu, cả trong ngăn chính và thanh định vị. Nhấp đúp chuột vào từ một lần nữa để loại bỏ các phần được tô sáng."
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr "Nếu bạn nhấp chuột vào lề trái, hoặc nếu bạn nhấp ba trong một dòng, dòng toàn bộ sẽ được lựa chọn."
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "Bên dưới cửa sổ dưới đáy là thanh trạng thái. Điều này cho thấy số lượng dòng được thêm và xóa trong bản <literal> Của Họ </literal> và <literal> Của Tôi</literal> , và số lượng các xung đột chưa được giải quyết còn lại. Bạn cũng có thể thấy phong cách kết thúc dòng được sử dụng, kiểu mã hóa (ASCII, UTF-8, vv) được giả định bởi TortoiseMerge, và liệu có một đánh dấu-thứ tự-byte (BOM) có mặt trong UTF-8 tập tin. Phía bên trái của thanh trạng thái được sử dụng để hiển thị gợi ý khi bạn di chuyển chuột qua một thành phần điều khiển."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19950,15 +19726,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "Đôi khi một tập tin sẽ được đánh dấu như có mâu thuẫn trong Subversion, nhưng khi bạn xem nó bằng cách sử dụng TortoiseMerge thì không có xung đột nào được hiển thị. Điều này có thể là do việc xử lý khoảng trắng mà bạn đã chọn. Nếu bạn chọn để bỏ qua dòng kết thúc hoặc thay đổi khoảng trắng, những dòng sẽ được đánh dấu bằng cách sử dụng biểu tượng <emphasis> Xung Đột Bị Bỏ Qua </emphasis>. Để giải quyết xung đột bạn vẫn cần phải chọn phiên bản mà bạn muốn sử dụng."
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "Đôi khi cuộc xung đột là quá khó khăn để giải quyết bằng cách đơn giản chọn <literal> Của Họ </literal> và <literal> Của Tôi </literal> và nó yêu cầu chỉnh sửa bằng tay. TortoiseMerge cho phép bạn làm tất cả những thay đổi dễ dàng một cách trực quan trước và sau đó lưu các tập tin, chỉ để lại những thay đổi khó để được giải quyết bằng cách chỉnh sửa bằng tay."
 
 #. (para)
 msgid ""

@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-30 08:06+0000\n"
+"PO-Revision-Date: 2013-06-03 10:27+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,11 @@ msgstr "%s (автономно)"
 #, c-format
 msgid "%s (recursively)"
 msgstr "%s (рекурсивно)"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
+msgstr "%s : Слитый файл"
 
 #. Resource IDs: (151)
 #, c-format
@@ -2352,6 +2357,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Путь к файлу-заплатке и путь назначения должны быть аболютными путями!"
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr "Вид с низу:"
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "Об&зор..."
@@ -4283,6 +4292,10 @@ msgstr "&Экспорт"
 msgid "E&xport..."
 msgstr "&Экспорт..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr "Конец строки"
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4397,6 +4410,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Проверять орфографию, только если\nзадано свойство tsvn:projectlanguage."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr "Кодировка"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7234,6 +7251,10 @@ msgstr "Открыть из буфера обмена"
 msgid "Open image file..."
 msgstr "Открыть файл изображения..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr "Открыть локальный файл в &Visual Studio..."
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Открыть родительскую папку"
@@ -7704,6 +7725,11 @@ msgstr "Свойство %1!s! : Ревизия %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "Свойство %1!s! : Рабочая база, Ревизия %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr "Свойства %s : слиты"
 
 #. Resource IDs: (151)
 #, c-format
@@ -8301,7 +8327,7 @@ msgid "Requests a username and a password"
 msgstr "запрашивает имя пользователя и пароль"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
+msgid "Res&olve..."
 msgstr "У&ладить..."
 
 #. Resource IDs: (16614)

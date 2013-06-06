@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
+"PO-Revision-Date: 2013-05-19 08:19+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1772,10 +1772,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "你可以创建一个使用 FSFS 后台数据格式的版本库，或者比较老的伯克利数据库(BDB)格式的版本库。 FSFS 格式通常运行更快更易于管理，而且它可以运行于网络共享和 Windows 98 而不会出问题。BDB 格式曾经被认为更稳定，因为它使用的更久。但是因为 FSFS 在这个领域已经使用了很多年，BDB 现在有点弱了。参阅 Subversion 手册中的 <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>选择数据存储</citetitle></ulink> 一章获得更多信息。"
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2203,10 +2203,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "钩子脚本就是被某些版本库事件触发的程序，例如创建新版本或修改未被版本控制的属性。每个钩子都能掌管足够的信息来了解发生了什么事件，操作对象是什么以及触发事件用户的帐号。根据钩子的输出或者返回状态，钩子程序能够以某种方式控制该动作继续执行，停止或者挂起。请参阅 Subversion 手册中的 <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>钩子脚本</citetitle></ulink> 一章获得关于已实现的钩子的完整信息。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2370,7 +2370,7 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
 
@@ -5753,11 +5753,11 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr "Subversion允许你在任何时候修改日志消息和作者。但这种改变不可还原(不在版本控制之下)，正因如此，这些功能默认是不可用的，如果要开启它，必须设置一个pre-revprop-change钩子。具体如何做，请参考《使用 Subversion 进行版本管理》的相关章节<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>钩子脚本</citetitle></ulink>。在Windows机器上实现钩子的注意事项请阅读<xref linkend=\"tsvn-repository-hooks\"/>。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7497,18 +7497,18 @@ msgstr "Subversion 支持类似 CVS 的关键字扩展，用来在文件中嵌�
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr "关键字的用法参见 Subversion 手册的 <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink>，它给出了这些关键字的完整描述、如何启用和使用的方法。"
+msgstr ""
 
 #. (para)
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr "更多的关于 Subversion 中属性的信息可以看<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>。"
+msgstr ""
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8669,7 +8669,7 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr ""
 
@@ -9073,10 +9073,10 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr "因为分支与合并很复杂，所以在你开始使用之前，请先理解它们是怎么工作的。强烈建议你阅读《使用 Subversion 进行版本管理》的<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.html\"><citetitle>分支与合并</citetitle></ulink>章节，它给出了全面的描述，和许多使用举例。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9185,9 +9185,9 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr "如果服务器/版本库不支持合并跟踪，那么这是将分支合并回主干的唯一办法。另一个使用它的情况是当你使用供方分支时你需要合并沿着新供方的工作产生的修改到主干代码中。要了解更多的信息，请阅读《Subversion 手册》的<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>供方分支</citetitle></ulink>一章。"
+msgstr ""
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9448,9 +9448,9 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr "大多数时候合并都要考虑到文件历史，以便于合并那些关联至一个共同根源的变化。有时您可能需要合并那些不在版本库中却可能相关的文件。例如你可能已经导入了第三方库的版本 1 和 2 到两个单独的目录。虽然逻辑上它们是相关的，Subversion 却无法判别，因为它只能看到您导入的源码包。如果您尝试合并两个不同树之间的差异，你会先后看到完全清除及完全添加。若要让 Subversion 只使用基于路径的差异而非基于历史的差异，选中 <guilabel>忽略根源</guilabel>。在 Subversion book 中阅读关于这个主题的更多介绍，<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>注意或是忽略根源</citetitle></ulink>。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12224,15 +12224,15 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
 msgstr ""
@@ -13239,7 +13239,7 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
 msgstr ""
 
@@ -16330,7 +16330,7 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
 msgstr ""
 
@@ -16648,7 +16648,7 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
 msgstr ""
 
@@ -19612,236 +19612,12 @@ msgstr "如果 TortoiseMerge 能解析补丁文件，它会显示一个小窗口
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "但是别担心。如果你使用 Subversion，可以取出这个文件的老版本来解决冲突。实际上，TortoiseMerge 自动尝试取出老版本，给出<emphasis>基础版本</emphasis>(此文件的老版本), <emphasis>我的版本</emphasis>(你的工作副本中的文件)，和<emphasis>他人的版本</emphasis>(已经打补丁的老版本)之间的差异。然后你可以手工解决冲突。"
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr ""
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "依赖于 TortoiseMerge 能直接使用补丁，或者先取出老版本文件，它显示双窗口视图(可以直接打补丁)，或者显示三窗口视图(取出了老版本文件)。"
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "按钮及其他控制"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "工具条"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>打开</guibutton> 除了打开文件对话框，还能是什么？"
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton>保存</guibutton> 保存你所做的任何修改。"
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>重载</guibutton> 放弃你在 TortoiseMerge 中所做的任何修改，重新载入文件。"
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton>撤销</guibutton>实现多级撤销，允许你放弃在 TortoiseMerge 中所做的任何修改。"
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton>上一个/下一个差异</guibutton> 直接跳转到文件中的上一个/下一个不同的地方。它可以快速地跳过文件未变化过的部分。"
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "当你处于双窗口方式时，无论是否鼠标划过该区域，在屏幕底部的细节状态栏都将显示首行的不同。"
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>上一个/下一个冲突</guibutton> 直接跳转到文件中的上一个/下一个需要解决的冲突。"
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton>使用他人的/使用我的</guibutton> 从左边或右边的窗格选择块。参阅下节以获得更多关于编辑改变和冲突的信息。"
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton>他人的在前/我的在前</guibutton> 用于在冲突的文件中合并修改。参阅下节以获得更多关于编辑改变和冲突的信息。"
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton>标记为已解决</guibutton> 当你解决了文件中的全部冲突并保存了修改后，你可以在 TortoiseMerge 中标记为已解决冲突，而不用返回资源管理器去标记它们。"
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>显示空白字符</guibutton> 切换是否使用符号显示空格和制表符，以便你能注意到空白字符的变化。"
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton>感知单词的内嵌差异</guibutton>切换内嵌差异的显示方法。在感知单词模式，当改变字符时，整个单词高亮显示。在感知字符模式，高亮显示改变的字符。"
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "感知单词是默认模式，在大多数情况下它工作的很好。例如你修改了变量名，在感知单词模式下整个名称高亮显示，然而在感知字符模式下，你仅仅知道增加或删除了字符。但是，一些内容不能解释为单词，例如二进制文件，这种情况下，感知字符模式工作的更好。"
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr "<guilabel>忽略全部空白字符</guilabel> 隐藏所有空白字符的变化。"
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton>切换窗口方式</guibutton> 在单窗口方式和双窗口方式间进行切换。在三窗口方式时无效。"
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>交换左右窗口</guibutton> 在双窗口方式中，互换左右窗口的内容。当你比较两个不同分支中的两个文件时，而不是比较同一个文件的两个修订版本时，TortoiseSVN 并不知道哪个文件应该放在左边的窗口作为<quote>原始/基础版本</quote>。如果放错了，为了便于查看，你能够互换它们。"
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton>显示/隐藏补丁列表</guibutton> 当 TortoiseMerge 有补丁列表时，这个按钮允许你隐藏它(于是你可以看到两个窗口)，或者显示它(于是你可以复审文件列表)。 "
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton>设置</guibutton> 弹出 TortoiseMerge 的设置对话框。"
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton>帮助</guibutton> 当然就是打开 TortoiseMerge 的帮助文件了。"
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/>下列菜单显示在工具条里。可以方便地使用多数常见功能，它们分别是：<placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "窗口的左边是定位拉杆。它提供了对文件改变的位置的快速可视化引用。这个拉杆有三列。左列引用左边的窗口，右列引用右边的窗口，中间列引用底部窗口(如果存在)。在单窗口模式下，只使用了左列。定位拉杆也可以作为滑杆使用，让所有窗口同时滑动。"
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr ""
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr ""
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "底部窗口下面是状态栏。它显示了<literal>他人</literal>与<literal>本人</literal>增加和删除的行数，以及尚存的未解决冲突数目。你还可以看到使用的行结束符，编码(ASCII，UTF-8等)，以及在UTF-8编码的文件中是否有字节顺序标记(BOM)。当你的鼠标逗留在控件上的时候，状态栏的左边会显示提示。"
 
 #. (title)
 msgid "Line Status Icons"
@@ -19962,15 +19738,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "有时候在 Subversion 中的文件会被标记为冲突，但是当你用 TortoiseMerge 察看时，却没有显示冲突。这可能是你选择的空白处理方式造成的。如果你选择忽略行结束符或空白改变，这些行会用 <emphasis>冲突被忽略</emphasis> 图标标记。为了解决冲突，你仍旧需要选择你要使用的版本。"
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "有时冲突很难通过简单选择<literal>他人的</literal>和<literal>我的</literal>来解决，需要手工编辑。TortoiseMerge 允许你先在可视化模式做所有容易的合并，然后保存文件，将困难的合并用手工解决。"
 
 #. (para)
 msgid ""

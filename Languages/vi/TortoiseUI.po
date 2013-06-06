@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:40+0000\n"
+"PO-Revision-Date: 2013-06-03 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,6 +216,11 @@ msgstr "%s (ngoài mạng)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Merged file"
 msgstr ""
 
 #. Resource IDs: (151)
@@ -2345,6 +2350,10 @@ msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr "Cả hai đường dẫn đến tập tin vá lỗi và đường dẫn mục tiêu phải là đường dẫn tuyệt đối!"
 
+#. Resource IDs: (188)
+msgid "Bottom View:"
+msgstr ""
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "&Duyệt..."
@@ -4276,6 +4285,10 @@ msgstr "&Xuất khẩu"
 msgid "E&xport..."
 msgstr "&Xuất khẩu..."
 
+#. Resource IDs: (303)
+msgid "EOL"
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "EXT"
 msgstr "EXT"
@@ -4390,6 +4403,10 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Chỉ cho phép kiểm tra chính tả nếu\nthuộc tính tsvn:projectlanguage được bật."
+
+#. Resource IDs: (300, 301)
+msgid "Encoding"
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7227,6 +7244,10 @@ msgstr "Mở từ clipboard"
 msgid "Open image file..."
 msgstr "Mở tập tin ảnh..."
 
+#. Resource IDs: (115)
+msgid "Open local file in &Visual Studio..."
+msgstr ""
+
 #. Resource IDs: (282)
 msgid "Open parent folder"
 msgstr "Mở thư mục cha"
@@ -7697,6 +7718,11 @@ msgstr "Thuộc tính %1!s! : Bản chỉnh sửa %2!s!"
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr "Thuộc tính %1!s! : Bản làm việc gốc, Bản chỉnh sửa %2!ld!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : merged"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -8294,8 +8320,8 @@ msgid "Requests a username and a password"
 msgstr "Yêu cầu một tên đăng nhập và mật khẩu"
 
 #. Resource IDs: (8)
-msgid "Res&olved..."
-msgstr "Đã &giải quyết..."
+msgid "Res&olve..."
+msgstr ""
 
 #. Resource IDs: (16614)
 msgid "Reset &All"

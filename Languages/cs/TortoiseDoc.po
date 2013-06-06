@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-05-22 09:30+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1761,10 +1761,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "Můžete vytvořit úložiště s FSFS backendem nebo starší formát Berkeley databáze (BDB). Formát FSFS je obecně rychlejší a snadnější pro správu a funguje jak na sdílené síti tak i na Windows 98 bez problémů. Formát BDB byl kdysi považován za stabilnější prostě proto, že se používal déle, ale protože FSFS se nyní používal v této oblasti již několik let, tento argument je nyní spíše výmluva. Pro více informací si přečtěte <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing Výběr datového úložiště </citetitle></ulink> v knize Subversion."
+msgstr "Můžete vytvořit úložiště s podpůrnou vrstvou FSFS nebo starším formátem databáze Berkeley (BDB). Formát FSFS je obecně rychlejší a snadnější pro správu a funguje bez problémů jak na sdílené síti, tak i na Windows 98. Formát BDB byl kdysi považován za stabilnější jen proto, že se používal déle, ale protože FSFS se nyní používá v této oblasti již několik let, tento argument je teď spíše výmluva. Pro více informací si přečtěte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výběr datového úložiště </citetitle></ulink> v knize Subversion."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2192,10 +2192,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "Hákový skript je program spouštěný při nějaké událostí úložiště, jako je například vytvoření nové revize nebo změna vlastnosti bez verze. Každému háku je předán dostatek informací, pro zjištění, co je to za událost, jaké jsou cíle() operace a uživatelské jméno osoby, která událost spustila. V závislosti na výstupu háku či návratovém kódu, může hákový program pokračovat v činnosti, zastavit nebo ji nějakým způsobem pozastavit. Více informací naleznete v kapitole týkající se <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hákové skripty</citetitle></ulink> v Subversion Book pro podrobnosti o hácích, které jsou implementovány."
+msgstr "Hákový skript je program spouštěný při nějaké událostí úložiště, jako je například vytvoření nové revize nebo změna vlastnosti bez verze. Každému háku je předán dostatek informací, pro zjištění, co je to za událost, jaké jsou cíle() operace a uživatelské jméno osoby, která událost spustila. V závislosti na výstupu háku či návratovém kódu, může hákový program pokračovat v činnosti, zastavit nebo ji nějakým způsobem pozastavit. Více informací naleznete v kapitole týkající se <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hákové skripty</citetitle></ulink> v knize Subversion pro podrobnosti o hácích, které jsou zavedeny."
 
 #. (para)
 msgid ""
@@ -2359,9 +2359,9 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr "Podrobnější informace o možnostech serveru Subversion a jak si vybrat nejlepší architekturu pro Vaši situaci můžou být nalezeny v knize Subversion na <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Konfigurace Serveru</citetitle></ulink>."
+msgstr "Podrobnější informace o možnostech serveru Subversion a jak si vybrat nejlepší architekturu pro vaši situaci můžete nalézt v knize Subversion v <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Nastavení serveru</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -5742,11 +5742,11 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr "Subversion umožňuje měnit vlastnosti revizí kdykoliv budete chtít. Ale protože takové změny nelze vrátit zpět (tyto změny nemají verzi), tato funkce je ve výchozím nastavení zakázána. Pro povolení, musíte nastavit hák  před-vlastrev-změnou. Více informací je v kapitole týkající se <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hákové skripty</citetitle></ulink> v knize Subversion pro podrobnosti o tom, jak to provést. Přečtěte si <xref linkend=\"tsvn-repository-hooks\"/> pro některé další poznámky o zavedení háků na počítači s Windows."
+msgstr "Subversion Vám umožňuje měnit vlastnosti revizí kdykoliv chcete. Ale protože takové změny nelze vrátit zpět (tyto změny nemají verzi), je tato funkce ve výchozím nastavení zakázána. Pro povolení, musíte nastavit hák pre-revprop-change. Více informací je v kapitole týkající se <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hákových skriptů</citetitle></ulink> v knize Subversion, kde se nacházejí podrobnosti o tom, jak toto provést. Přečtěte si <xref linkend=\"tsvn-repository-hooks\"/> pro některé další poznámky o zavedení háků na počítači s Windows."
 
 #. (para)
 msgid ""
@@ -7486,18 +7486,18 @@ msgstr "Subversion podporuje expanzi klíčových slov podobně jako CVS, které
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr "Chcete-li zjistit, jak můžete tyto klíčová slova využít, podívejte se na <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>sekci svn:keywords</citetitle></ulink> v knize Subversion, který dává kompletní popis těchto klíčových slov a jak je povolit a používat."
+msgstr "Chcete-li zjistit, jak můžete tato klíčová slova využít, podívejte se na <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>sekci svn:keywords</citetitle></ulink> v knize Subversion, která obsahuje kompletní popis těchto klíčových slov, jak je povolit a používat."
 
 #. (para)
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr "Pro více informací o Subversion vlastnostech se podívejte na <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Zvláštní vlastnosti</citetitle></ulink>."
+msgstr "Pro více informací o vlastnostech v Subversion se podívejte na <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Zvláštní vlastnosti</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8658,9 +8658,9 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr "Můžete také určit zavěšenou revizi v adrese URL v případě potřeby. Abyste se dozvěděli více o zavěšených a operativních revizích, prohlédněte si prosím <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>odpovídající kapitolu</citetitle></ulink> v knize Subversion."
+msgstr "V případě potřeby můžete v URL zadat zavěšenou a operativní revizi. Abyste se dozvěděli více o zavěšených a operativních revizích, prohlédněte si prosím <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>odpovídající kapitolu</citetitle></ulink> v knize Subversion."
 
 #. (para)
 msgid ""
@@ -9062,10 +9062,10 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr "Je důležité pochopit, jak větvení a slučování v Subversion funguje předtím, než ho začnete používat, protože to může být docela složité. Je výrazně doporučeno si přečíst kapitolu <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Větvení a slučování</citetitle></ulink> v knize Subversion, která dává úplný popis a mnoho příkladů toho, jak se používá."
+msgstr "Je důležité pochopit, jak větvení a slučování v Subversion funguje předtím, než ho začnete používat, protože to může být docela složité. Je výrazně doporučeno si přečíst kapitolu <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Větvení a slučování</citetitle></ulink> v knize Subversion, která dává úplný popis a mnoho příkladů toho, jak se používají."
 
 #. (para)
 msgid ""
@@ -9174,9 +9174,9 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr "Pokud Váš server/úložiště nepodporuje sledování sloučení pak je to jediný způsob, jak sloučit větve zpátky do kmene. Další případ použití nastane, když používáte dodavatelské větve a je třeba sloučit změny v důsledku nového vývoje dodavatele do kmenového kódu. Pro více informací si přečtěte kapitolu <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle> Dodavatelské větve</citetitle></ulink> v knize Subversion."
+msgstr "Pokud váš server/úložiště nepodporuje sledování sloučení pak toto je to jediný způsob, jak sloučit větve zpátky do kmene. Dalším případem použití je, když používáte dodavatelské větve a je třeba sloučit změny v důsledku nového vývoje dodavatele do kmenového kódu. Pro více informací si přečtěte kapitolu <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>Dodavatelské větve</citetitle></ulink> v knize Subversion."
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9437,9 +9437,9 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr "Většinou chcete slučovat s přihlédnutím k historii souboru, takže jsou sloučeny změny týkající se společného předka. Někdy je potřeba sloučit soubory, které jsou možná příbuzné, ale ne ve Vašem úložišti. Například můžete mít importovanou verzi 1 a 2 knihovny třetí strany do dvou samostatných adresářů. Ačkoli jsou logicky spojené, Subversion o tom nemá ponětí, protože vidí jen archivy vytvořené tarem, které jste importovali. Pokusíte-li se sloučit rozdíly mezi těmito dvěma stromy viděli byste úplně odstranění následované úplným přidáním. Chcete-li, aby Subversion používalo pouze rozdíly v cestě raději než rozdíly v historii, zaškrtněte políčko <guilabel>Ignorovat původ</guilabel>. Přečtěte si více o tomto tématu v knize Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Všímání nebo nevšímání předků</citetitle></ulink>."
+msgstr "Většinou chcete slučovat s přihlédnutím k historii souboru, takže jsou sloučeny změny týkající se společného předka. Někdy je potřeba sloučit soubory, které jsou možná příbuzné, ale ne ve vašem úložišti. Například můžete mít importovanou verzi 1 a 2 knihovny třetí strany do dvou samostatných adresářů. Ačkoli jsou logicky spojené, Subversion o tom nemá ponětí, protože vidí jen archivy vytvořené archivem tar, které jste importovali. Pokusíte-li se sloučit rozdíly mezi těmito dvěma stromy viděli byste úplně odstranění následované úplným přidáním. Chcete-li, aby Subversion používalo pouze rozdíly v cestě raději než rozdíly v historii, zaškrtněte políčko <guilabel>Ignorovat původ</guilabel>. Přečtěte si více o tomto tématu v knize Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Všímání nebo nevšímání si předků</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -12213,18 +12213,18 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr "Použijte <guibutton>Upravit</guibutton> pro úpravu konfigurační souboru Subversion přímo. Některá nastavení nelze měnit přímo v TortoiseSVN a je třeba je nastavit zde. Pro více informací o Subversion souboru <filename>konfigurace</filename> prohlédněte si <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Oblast Konfigurace běhu programu</citetitle></ulink>. Část o <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatické Nastavení Vlastností</citetitle></ulink> je obzvlášť zajímavá a to se nastavuje zde. Všimněte si, že Subversion umí číst informace o konfiguraci z několika míst a musíte vědět, který z nich má přednost. V části <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Konfigurace a registr systému Windows</citetitle></ulink> se dozvíte více."
+msgstr "Použijte <guibutton>Upravit</guibutton> pro přímou úpravu konfiguračního souboru Subversion. Některá nastavení nelze měnit přímo v TortoiseSVN a je třeba je nastavit zde. Pro více informací o souboru <filename>nastavení</filename> Subversion si prohlédněte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Oblast nastavení běhu programu</citetitle></ulink>. Část o <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Nastavení automatických vlastností</citetitle></ulink> je obzvlášť zajímavá a to se provádí zde. Všimněte si, že Subversion umí číst informace o nastavení z několika míst a musíte vědět, který z nich má přednost. V části <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Nastavení a registr systému Windows</citetitle></ulink> se dozvíte více."
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13228,9 +13228,9 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr "Pokud potřebujete mít nastavení proxy serveru pro každé úložiště zvlášť, budete muset použít Subversion soubor <filename>servers</filename> k této konfiguraci. Použitím <guibutton>Upravit</guibutton> se tam dostanete přímo. Prohlédněte si <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Oblast konfigurace běhu programu</citetitle></ulink> pro podrobnosti o tom, jak tento soubor použít."
+msgstr "Pokud potřebujete mít nastavení proxy serveru pro každé úložiště zvlášť, musíte k nastavení použít Subversion soubor <filename>servers</filename>. Použitím <guibutton>Upravit</guibutton> ho otevřete přímo. Prohlédněte si <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Oblast konfigurace běhu programu</citetitle></ulink> pro podrobnosti o tom, jak tento soubor použít."
 
 #. (para)
 msgid ""
@@ -16319,9 +16319,9 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "Jediným způsobem, jak odstranit data z úložiště je použití nástroje <literal>svnadmin</literal> příkazového řádku Subversion. Popis funkce naleznete v <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Údržbě Úložiště</citetitle></ulink>."
+msgstr "Jediným způsobem, jak odstranit data z úložiště je použití nástroje <literal>svnadmin</literal> příkazového řádku Subversion. Popis nástroje naleznete v <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Údržbě Úložiště</citetitle></ulink>."
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16637,9 +16637,9 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr "TortoiseSVN musí být nainstalován pod <emphasis>Konfigurace počítače</emphasis> a ne pod <emphasis>Konfigurace uživatele</emphasis>. Je to proto, že TortoiseSVN potřebuje DLL knihovny CRT a MFC, které můžou být nasazeny pouze na <emphasis>každý počítač zvlášť</emphasis> a ne <emphasis>zvlášť pro jednoho uživatele</emphasis>. Pokud opravdu musíte nainstalovat TortoiseSVN zvlášť pro každého uživatele, pak musíte nejprve nainstalovat balík MFC a CRT verze 10 od společnosti Microsoft na každém počítači, na který chcete nainstalovat TortoiseSVN pro každého uživatele zvlášť."
+msgstr "TortoiseSVN musí být nainstalován pod <emphasis>Konfigurací počítače</emphasis> a ne pod <emphasis>Konfigurací uživatele</emphasis>. Je to proto, že TortoiseSVN potřebuje DLL knihovny CRT a MFC, které můžou být nasazeny pouze na <emphasis>každém počítači zvlášť</emphasis> a ne <emphasis>zvlášť pro jednoho uživatele</emphasis>. Pokud opravdu musíte nainstalovat TortoiseSVN zvlášť pro každého uživatele, pak musíte nejprve nainstalovat balík MFC a CRT verze 11 od společnosti Microsoft na každém počítači, na který chcete nainstalovat TortoiseSVN pro každého uživatele."
 
 #. (para)
 msgid ""
@@ -19601,236 +19601,12 @@ msgstr "Až TortoiseMerge záplatový soubor rozebere, zobrazí Vám malé okno 
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "Ale nebojte se. Pokud pracujete se Subversion můžete získat starší verzi souboru a konflikt vyřešit. Ve skutečnosti, TortoiseMerge se automaticky pokusí dostat tuto starší verzi souboru a pak můžete vidět rozdíl mezi <emphasis>Původní</emphasis> (Starší verze souboru), <emphasis>Můj</emphasis> (Soubor, jaký v současnosti je ve Vaší pracovní kopii) a <emphasis>Jejich</emphasis> (Starší verze souboru s již použitou záplatou). Pak můžete případné konflikty řešit ručně."
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Okno záplatových souborů má kontextové menu, které Vám umožní ukázat účinky záplaty v aktuálním souboru (použít bez uložení), použít a uložit změny pro vybraný soubor, nebo použít a uložit změny do <emphasis>všech</emphasis> souborů v seznamu. Dvojité kliknutí je pro zobrazení náhledu."
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "V závislosti na tom, zda TortoiseMerge může uplatnit záplatu přímo, nebo nejdříve získáním starší verze souboru, ukáže buď dvou panelové zobrazení (záplatu lze aplikovat přímo), nebo tří panelové zobrazení (získaná starší verze souboru)."
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "Tlačítka a Další Ovládání"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "Panel nástrojů"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Otevřít</guibutton> zobrazí dialogové okno otevřít soubor. Co jiného?"
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton>Uložit</guibutton> uloží všechny změny, které jste provedli."
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Znovu načíst</guibutton> zahodí veškeré změny provedené v TortoiseMerge a znovu načte soubory z disku."
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton>Zpět</guibutton> zavádí mnohoúrovňové zpět zrušení, což Vám umožní navrátit všechny změny provedené v rámci TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton>Před/Další Rozdíl</guibutton> skočí přímo na další místo, kde se soubory liší. To Vás ušetří posouvání všemi nezměněnými částmi souboru."
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "Když toto uděláte v dvoupanelovém zobrazení porovnání, bude řádek detaily v dolní části obrazovky zobrazovat rozdíly v řádku na prvním řádku, bez ohledu na to, kde je myš umístěna."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Před/Další Konflikt </guibutton> skočí přímo na další bod, kde jsou rozdíly souboru v konfliktu a je třeba je vyřešit."
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton>Použít Jejích/Použít Můj </guibutton> zvolí, zda použít blok z levého nebo pravého panelu. Podívejte se na další část pro více informací o úpravách změn a konfliktů."
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton>Jejich před Mým/Můj před Jejich</guibutton> se používá, když chcete zkombinovat změny v konfliktním souboru. Podívejte se na další část pro více informací o úpravách změn a konfliktů."
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton>Označit jako vyřešený</guibutton> Když jste vyřešili všechny konflikty v souboru a uložili změny, můžete jej označit jako vyřešený zevnitř TortoiseMerge, raději než jít zpátky do průzkumníka a označit jako vyřešený odtamtud."
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Zobrazit Mezery</guibutton> zapne možnost zobrazení mezer a na znaků tabulátoru jako symboly, takže můžete rozlišit změny v mezerách."
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr "<guibutton>Zalomení dlouhých řádků</guibutton> zapne zalamování na konci zobrazení. Pokud je zapnuté, dlouhé řádky, které by normálně přesahovaly hranice zobrazení, jsou zalomené okolo, tj. jeden dlouhý řádek je rozdělen do několika řádků."
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton>Rozdíly na řádcích podle slov</guibutton> zapíná metodu sloužící k zobrazení rozdílů v řádcích. V režimu podle slov, když se znak změnil, je zvýrazněno celé slovo. V režimu podle znaků jsou zvýrazněny jednotlivé změněné znaky."
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "Podle slov je výchozí a ve většině případů funguje lépe. Například pokud změníte název proměnné, v režimu podle slov je celý název zvýrazněn, zatímco v režimu podle znaků máte sklon mít nepořádek v přidaných a odstraněných znacích, což nedává moc smysl. Nicméně, některé obsahy nejdou rozdělit úhledně do slov, například hex soubor a v tom případě, zobrazení podle znaků je lepší."
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr "<guibutton>Porovnat mezery</guibutton> zobrazí všechny změny v odsazení a mezery mezi slovy jako přidané/ odstraněné řádky (a takto Subversion zachází s takovými změnami)."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guibutton>Ignorovat změny mezer</guibutton> skryje změny, které jsou pouze z důvodu změn v množství nebo druhu mezer, např. změna odsazení nebo změnou tabulátoru na mezery. Přidání mezery tam, kde předtím nebyla nebo odstranění mezery úplně je stále zobrazeno jako změna."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr "<guibutton>Ignorovat všechny mezery</guibutton> skryje všechny změny způsobené mezerami."
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton>Přepnout zobrazení</guibutton> volí mezi jedno panelovým a dvou panelovým zobrazení. Vypnuto v třípanelovém zobrazení."
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Přepnout Levé a Pravé Zobrazení</guibutton> Ve dvou panelovém zobrazení, vymění levé a pravé okno. Když porovnáváte soubor ve 2 různých stromech, na rozdíl od 2 revizí stejného souboru, TortoiseSVN neví, který z nich by měl jít do levé části okna, jako <quote>originální/základní</quote> verze. Pokud je to špatně, můžete jej změnit, aby bylo prohlížení jednodušší."
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton>Skrýt/Zobrazit seznam záplat</guibutton> Když TortoiseMerge má seznam záplat, toto tlačítko Vám ho umožňuje skrýt (takže můžete vidět obě okna), nebo ukázat (takže si můžete zkontrolovat seznam souborů)."
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr "<guibutton>Sbalit</guibutton> sbalí nezměněné oblasti na jeden řádek, zanechávajíc pouze změněné plochy a minimální kontext. Sbalené oblastí můžete rozšířit dvojitým kliknutím na sbalený řádek, ale pak je nemůžete znovu sbalit, dokud znovu nenačtete soubor."
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton>Nastavení</guibutton> Vás dostane do dialogového okna nastavení TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton>Nápověda</guibutton> samozřejmě otevře soubor nápovědy TortoiseMerge."
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Pod menu se nachází panel nástrojů. Poskytuje snadný přístup k nejčastěji používaným nástrojům, které jsou <placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "Na levé straně okna je lišta umístění. Poskytuje rychlou vizuální referenci o tom, kde leží změny uvnitř souboru. Lišta má tři sloupce. Levý sloupec odkazuje na levý panel, pravý sloupec na pravý panel a střední sloupec na dolní panel (pokud existuje). V jedno panelovém pohledu je použit pouze levý sloupec. Lišta umístění může být také použita jako posuvník pro posun všech oken najednou."
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr "Pokud dvakrát kliknete na slovo pak všechny výskyty tohoto slova se zvýrazní v celém dokumentu, a to jak v hlavním panelu, tak v liště umístění. Znovu poklepejte na slovo k odstranění zvýraznění."
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr "Pokud kliknete na tlačítko v levém okraji, nebo pokud třikrát kliknete na řádek, pak bude celý řádek vybrán."
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "Pod spodním oknem je stavový řádek. Ukazuje počet přidaných a odstraněných řádků v <literal>Jejich</literal> a <literal>Mém</literal> a počet zbývajících nevyřešených konfliktů. Můžete také vidět, který styl konců řádků je použit, jaké kódování TortoiseMerge předpokládá (ASCII, UTF-8, atd.) a zda je označení pořadí bajtů (BOM) přítomno v souborech UTF-8. Levá strana stavového řádku se používá pro zobrazení popisu, když myší najedete nad kontrolu."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19951,15 +19727,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "Někdy bude soubor označen jako konfliktní v Subversion, ale při zobrazení pomocí TortoiseMerge nejsou zobrazeny žádné konflikty. To může být způsobeno zacházením s mezerami, které jste vybrali. Pokud se rozhodnete ignorovat konce řádků nebo změny mezer, budou tyto řádky označeny ikonou <emphasis>Konflikt-Ignorované</emphasis>. Chcete-li konflikt vyřešit, stále musíte vybrat, kterou verzi chcete použít."
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "Někdy je konflikt příliš složité vyřešit prostým výběrem <literal>Jejich</literal> a <literal>Můj</literal> a vyžaduje ruční úpravy. TortoiseMerge Vám umožní udělat všechny snadné změny vizuálně a pak soubor uložit, takže jen těžké změny musí být vyřešen ručními úpravami."
 
 #. (para)
 msgid ""

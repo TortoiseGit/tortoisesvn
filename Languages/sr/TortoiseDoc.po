@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
+"PO-Revision-Date: 2013-05-19 08:19+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1762,10 +1762,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "Можете креирати спремиште са ФСФС крај или стари Беркли база података (БДБ) формат. ФСФС формат је  генерално бржи и лакши за администрацију, ради на мрежном дељеном простору и Виндоуз 98 без проблема. БДБ формат је замишљен много стабилнијим једноставно зато што се дуже користи, али од како је ФСФС  у употреби неколико година тај аргумент је све слабији. Прочитајте <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Избор смештанја података</citetitle></ulink> у Субверзионој књизи за више информација."
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2193,10 +2193,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "Закачиве скрипте су програми окидане неким догађајем из спремишта, као што је креирање нове ревизије или измена неверзиониране особине. Свака закачаљка је руковођена са довољно информација да кже који догађај се десио, који окидач(и) је покренуо и корисничко име особе која је окинула догађај. У зависности од излаза закачаљке или повратног статуса, закачив програм може наставити акцију, заиставити је, или суспендовати на неки начин. Молим вас да погледате поглавље <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Закачиве скрипте</citetitle></ulink> у Субверзионој књизи за пуне детаље о закачаљкама које су имплементиране."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2360,9 +2360,9 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr "Много детаљнија информација о опцијама Субверзионог сервера, и како изабрати најбољу архитектуру за вашу ситуацију, може се наћи у Субверзионој књизи  на <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
+msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -5743,11 +5743,11 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr "Субвезија вам допушта да мењате ревизионе особине кад год желите. Али како такве измене не могу бити поништене (те измене нису верзионисане) ова особина је подразумевано онемогућена. Да се уради овај посао, морате подесити пре-ревпроп-измене закачаљку. Молим погледајте поглавље на  <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> у Субверзионој Књизи за детаље како да се то уради. Прочитајте <xref linkend=\"tsvn-repository-hooks\"/> да нађете неке даље белешке о примени закачаљки на Windows машини."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7487,18 +7487,18 @@ msgstr "Субверзија подржава ЦВС-сличне прошире
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr "Да бисте нашли како да користите кључне речи погледајте на <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> у Субверзионој књизи, која вам даје пун опис ових кључних речи и како их омогућити и користити."
+msgstr ""
 
 #. (para)
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr "Даље информације о свнсерву могу се наћи на <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Специјалне особине</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8659,9 +8659,9 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr "Можете, такође, одредити пег и оперативну ревизију за УРЛ ако је потребно. Да прочитате више о пег и оперативним ревизијама, молим прочитајте <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding chapter</citetitle></ulink> у Субверзионој књизи."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9063,10 +9063,10 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr "Важно је разумети како гране и стапање раде на Субверзији пре почетка њиховог коришћења, јер може бити сасвим комплексно. Јако се препоручује да прочитате поглавље <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> у Субверзионој књизи, која даје пун опис и много примера как се корист."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9175,9 +9175,9 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr "Ако ваш сервер/спремиште не подржава стапање-праћење онда је ово једини начин да се стопи грана назад у дебло. Следећи случај коришћења се јавља када користите продајне гране и потребно вам је да стопите измене које прате нови продајни пад у ваш код дебла.За више информација прочитајте  поглавље <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> у Субверзионој кљизи."
+msgstr ""
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9438,9 +9438,9 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr "Највише времена ви желите да стапање узме у обзир историју фајла, тако да измене релативне заједничком претходнику су стопљене. Понекад вам је потребно да стопите фајлове који можда зависе, али нису у вашем спремишту. На пример можда сте увезли верзије 1 и 2 библиотеке трећег лица у два одвојена фолдера.Такође, они су логички зависни, Субверзија нема знања о томе јер само види лопту коју унесете. Ако покушате да стопите разлике та два стабла видећете комплетно уклањање коме следи комплетно додавање. Да учините да Субверзија користи само разлике засноване на путањи  пре него историјски-засноване разлике, чекирајте <guilabel>Занемари порекло</guilabel>  бокс. Прочитајте више о овоме у Субверзионој књизи, <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12214,18 +12214,18 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr "Користите <guibutton>Уреди</guibutton>  да уредите Субверзиони конфигурациони фајл директно. нека подешавање се не могу изменити са ТортоисеСВН, и траже да уместо тога буду подешена овде. За више информација о Субверзионом <filename>конфиг</filename> фајлу видите <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. Поглавље на  <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> је од посебног интереса, и оно је конфигурисано овде. Приметимо да Субверзија може читати конфигурационе информације са више места , и потребно је да знате који има приоритет. Упоредите са <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> да нађете више о томе."
+msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13229,9 +13229,9 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr "Ако вам је потребно да подесите по-спремишту прокси подешавања, потребно је да користите Субверзиони <filename>сервер</filename> фајл да конфигурише ово. Користи <guibutton>Уреди</guibutton> да добијеш то директно. Консултујте <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> за детаље како користити овај фајл."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16320,9 +16320,9 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "Једини начин да се избаце подаци из спремишта је да се алат Субверзионе командне линије <literal>svnadmin</literal>. Можете наћи опис како ово ради у <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Одржавање спремишта</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16638,9 +16638,9 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr "ТортоисеСВН мора бити инсталиран под <emphasis>Рачунар Конфигурација</emphasis> а не под <emphasis>Корисник Конфигурација</emphasis>. Ово је због тога што ТортоисеСВН тражи ЦРТ и МФЦ ДЛЛове, који се могу распоредити само <emphasis>за рачунар</emphasis> а не <emphasis>за корисника</emphasis>. Ако стварно морате инсталирати ТортоисеСВН по основи за корисника, онда морате најпре инсталирати МФЦ и ЦРТ пакет верзиу 10 од Микрософта на сваки компјутер на који желите да инсталирате ТортоисеСВН по кориснику."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19602,236 +19602,12 @@ msgstr "После анализе ТортоисеМерге фајла закр
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "Али не брините. Ако радите са Субверзијом можете вратити стару верзију фајла и решити конфликт. У ствари, ТортоисеМерге аутоматски покушава да добије стару верзију фајла и онда вам показује дифф између <emphasis>Основе</emphasis> (стара верзија фајла), <emphasis>Мој</emphasis> (фајл као онај који је тренутно у вашој радној копији) и <emphasis>Њихов</emphasis> (стара верзија фајла са закрпом која је већ примењена). Тада можете решити могуће конфликте ручно."
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Прозор фајла закрпе има контекст мени који омогућава да прегледате ефекте закрпе на текући фајл (примењен без меморисања), да се примене и сачувају измене за изабране фајлове, или да се примене и сачувају измене за <emphasis>све</emphasis> фајлове у листи. Двоструки клик акција је за преглед."
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "У зависности где ТортоисеМерге може применити закрпе директно или прво  налазећи стару верзију фајла, то показује преглед два панела (закрпа може бити примењена директно) или преглед панел стабла (старија верзија фајла нађена)."
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "Дугмићи и друге контроле"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "Алатнби панел"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Отвори</guibutton> приступа фајл-отвори дијалогу. Шта више?"
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton>Сaчувај</guibutton> чува било које измене које сте урадили."
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Реунос</guibutton> уништава било коју измену урађену у ТортоисеМерге и  реуноси фајлове са диска."
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton>Поништи</guibutton> поставља мулти-ниво поништавања, омогућавајући вам да вратите било које измене које су урађене са ТортоисеМерге."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton>Претходне/Следеће разлике</guibutton> скаче директно на следећу тачку где се фајлови разликују. Ово памти прелазак преко непроменљивих делова фајла."
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "Када то радите у 2-панела дифф моду, детаљан пулт на дну екрана ће вам показати унутарлинијске разлике за прву линију, безобзира где миш лебди."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Претходни/Следећи конфликт</guibutton> скаче директно на следећу тачку где су разлике фајла  у конфликту и треба да буду решене."
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton>Користи Њихов/Користи Мој</guibutton> бира где користити блок из левог или десног панела. Погледајте следећи део за више информација о уређењу измена и конфликта."
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton>Њихов пре Мој/Мој пре Њихов</guibutton> је коришћен када желите да комбинујете измене у конфликтним фајловима. Погледајте следећи део за више информација о уређењу измена и конфликата."
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton>Означи као решено</guibutton> Када решите све конфликте у фајлу и сачувате измене, можете га означити као решен уз ТортоисеМерге, радије него да се иде назад у експлорер и да се реши одатле."
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Прикажи Белине</guibutton> мењају опције да прикажу размак и таб карактере као симболе тако да можете разликовати измене размака."
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr "<guibutton>Сави дугачке линије</guibutton> мења преламање речи на крају прегледа. Ако се укључи дугачке линије које се нормално шире преко границе прегледа преламају се, тј. једна дугачка линија се дели на више линија."
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton>Унутарлиније дифф Реч-начин</guibutton> мењају методе коришћене унутарлинијске разл. У реч-начин моду, када је карактер измењен, цела реч је осветљена. У карактер-начин моду, сваки индивидуални карактер је осветљен."
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "Реч-начин је подразумеван и у већини случајева то ради боље. На пример, ако измените име променљиве, цело име је осветљено у реч-начин моду, док у карактер-начин моду ви намеравате да добијете неред  у додатим и избрисаним карактерима који се много не примећују. Међутим, неки садржај се не решава уредно у речима, на пример хекса фајлови и у том случају  карактер-начин дисплеј ради боље. "
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr "<guilabel>Поређење белина</guilabel> приказује све измене у увлачењу линија и унутар линијске белине као додате/уклоњене линије (како Субверзија третира такве измене)."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Занемаривање измена белине</guilabel> сакрива  измене  које су само због измена у износу или типу белине, нпр. изменом увлачења линије или изменом табова у размаке. Додавањем белине где није била раније, или потпуним уклањањем белине још увек је приказано као промена."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr "<guilabel>Занемаривање свих белина</guilabel>  сакрива све измене само-белина."
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton>Пребаци преглед</guibutton> бира између један-панел и два-панела прегледа. Онемогућен у 3-панела прегледу."
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Пребаци леви и десни преглед</guibutton> У 2-панела прегледу измењује леви и десни прозор. Када поредите фајлове у 2 различита стабла, насупрот од 2 ревизије истог фајла, ТортоисеСВН не зна који треба да иде у леви панел као <quote>оригинална/основна</quote> верзија. Ако узме погрешну ви је можете заменити да направити лакши преглед."
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton>Прикажи/Сакри листу закрпа</guibutton> Када ТортоисеСВН има листу закрпа, ово дугме вам омогућава да је сакријете (тако да можете видети оба прозора), или је приказати (тако да можете прегледати листу фајлова)."
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr "<guilabel>Сажимање</guilabel> сажима  неизмењене области у јединствену линију остављајући само измењене области и минимални контекст. Можете проширити сажете површине двоструким кликом  на сажету линију, али је не можете проширити без учитавања фајла."
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton>Подешавање</guibutton> вам доноси ТортоисеМерге дијаог подешавања."
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton>Помоћ</guibutton> отвара ТортоисеМерге фајл помоћо, свакако."
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Испод мени пулта лежи алат пулт. Ово омогућава лак приступ многим често коришћеним алатима који су <placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "Са леве стране прозора је локатор пулт. Он омогућава брз визуални преглед где леже измене унутар фајла. Пулт има три колоне. Лева колона се односи на леви панел, десна колона на десни панел, централна колона на доњи панел (ако је присутан). У један-панел прегледу само се лева колона користи. Локатор пулт се такође може користити као пулт премотавања да премотава све прозоре симултано."
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr "Ако двоструко кликнете на реч онда свако појављивање те речи биће осветљено кроз документ, оба на главном панелу и локатор панелу. Двоструки клик на реч поново за уклањање осветљавања."
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr "Ако кликнете на леву маргину, или ако троструко кликнете у оквиру линије, цела линија ће бити селектована."
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "Испод доњег прозора је статусни пулт. Он приказује број линија додатих и обрисаних у <literal>Њихов</literal> и <literal>Мој</literal>, и број нерешених  преосталих конфликта. Такође можете видети који се крај-линије стил користи, које кодирање (АСЦИИ, УТФ-8,итд.) је усвојено од ТортоисеМерге, и где је бајт-ред-ознака (БРО) присутна у УТФ-8 фајловима. Лева страна статус пулта се користи да прикаже напомене када летите мишем преко контроле."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19952,15 +19728,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "Понекад фајл ће бити означен као конфликтан у Субверзији, али када га прегледате помоћу ТортоисеМерге неће бити приказаних конфликата. Ово се може десити због начина на који сте руковали белином. Ако изаберете да занемарите линијски-завршетак или измене белине, те линије ће бити означене користећи <emphasis>Конфликт-Занемарен</emphasis> иконе. Да се реши конфликт треба само одабрати коју верзију да користите."
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "Понекад је конфликт сувише тежак да се реши само избором <literal>Њихов</literal> и <literal>Мој</literal> и захтева ручно уређење. ТортоисеМерге дозвољава да једноставно урадите измене најпре визуално а затим да сачувате фајл, остављајући само тешке измене да се реше ручним-уређењем."
 
 #. (para)
 msgid ""

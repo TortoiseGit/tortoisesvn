@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
+"PO-Revision-Date: 2013-05-19 08:19+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1765,10 +1765,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "Het is mogelijk om een archief aan te maken met een FSFS backend of met het oudere Berkeley Database (BDB) formaat. Het FSFS formaat is over het algemeen sneller en makkelijker de administreren, bovendien werkt het zonder problemen om netwerk schijven en Windows 98. Het is lang verondersteld dat het BDB formaat stabieler was, eenvoudigweg omdat het langer gebruikt is. Echter aangezien FSFS nu ook al meerdere jaren in het veld in gebruik is, is dat argument niet zo sterk meer. Lees ook eens <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in het Subversion boek voor meer informatie."
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2196,10 +2196,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "Een hook script is een programma dat gestart wordt door een gebeurtenis in het archief, bijvoorbeeld de creatie van een nieuwe revisie of de modificatie van een niet versiebeheerde eigenschap. Elke hook krijgt genoeg informatie om te weten welke gebeurtenis er heeft plaatsgevonden, om welk systeem het gaat en de naam van de gebruiker die de gebeurtenis veroorzaakte. Afhankelijk van de uitkomst van de hook, kan het hook programma de action continueren, stoppen, of op een manier opschorten. Voor meer details over de geimplementeerde hooks, lees het hoofdstuk <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in het Subversion boek."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2363,7 +2363,7 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
 
@@ -5746,11 +5746,11 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr "Subversion staat wijzigingen aan revisie eigenschappen in principe altijd toe. De mogelijkheid hiervoor is standaard uitgeschakeld, omdat wijzigingen niet ongedaan gemaakt kunnen worden (die wijzigingen worden niet met versies beheerd). Om deze wijzigingen mogelijk te maken, moet je een pre-revprop-change hook instellen. Lees het hoofdstuk over <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in het Subversion book voor meer informatie hierover. Lees ook <xref linkend=\"tsvn-repository-hooks\"/> voor meer informatie over het implementeren van hooks op een Windows machine."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7490,18 +7490,18 @@ msgstr "Subversion ondersteunt CVS-achtige trefwoord uitbreidingen welke kunnen 
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr "Om meer te weten te komen over hoe deze trefwoorden te gebruiken, bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in het Subversion boek, wat een volledige beschrijving van deze trefwoorden geeft en hoe ze te kunnen gebruiken."
+msgstr ""
 
 #. (para)
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr "Voor meer informatie over eigenschappen in Subversion bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Speciale Eigenschappen</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8662,7 +8662,7 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr ""
 
@@ -9066,10 +9066,10 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr "Aangezien het erg complex kan worden is het erg belangrijk om goed te begrijpen hoe het vertakken en samenvoegen in Subversion werkt voordat van start wordt gegaan. Het is sterk aan te bevelen om het hoofdstuk <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> uit het Subversion book te lezen dat een volledige beschrijving inclusief voorbeelden geeft."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9178,9 +9178,9 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr "Indien uw Subversion server geen wijziging-controle-routines (‘merge-tracking’) ondersteunt is dit de enige manier om een tak opnieuw in de basislijn samen te voegen. Een andere situatie waar deze vorm van samenvoegen wordt gebruikt is wanneer een project zogenaamde verkopers-takken (‘vendor branches’) heeft en een nieuwe versie van de verkopers-tak in de basislijn moet worden gevoegd. Meer informatie is te vinden in het Subversion boek hoofdstuk <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9441,7 +9441,7 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
 
@@ -12217,18 +12217,18 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr "Gebruik <guibutton>Wijzigen</guibutton> om het Subversion configurationbestand direct te bewerken. Sommige settings kunnen niet rechtstreeks worden aangepast door TortoiseSVN en moeten daarom op deze manier gewijzigd worden. Kijk voor meer informatie over het Subversion <filename>config</filename> bestand in de <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. Met name de sectie over <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> is daarbij interessant, en die wordt hier geconfigureerd. Merk op, dat Subversion informatie over de configuratie vanaf diverse plaatsen ophaalt en het is daarom van belang om te weten welke daarvan de hoogste prioriteit heeft. Kijk op <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> voor meer informatie."
+msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13232,9 +13232,9 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr "Als u per archief de proxy instellingen moet aangeven, dient u het Subversion <filename>servers</filename> bestand te gebruiken om dit te configureren. Gebruik <guibutton>Wijzigen</guibutton> om hier direct bij te komen. Raadpleeg de <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> voor details omtrent het gebruik van dit bestand."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16323,9 +16323,9 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "De enige manier waarop gegevens echt uit het archief verwijderd kunnen worden, is door het Subversion opdrachtprompt programma <literal>svnadmin</literal> te gebruiken. Je kunt een beschrijving van de werking vinden op <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16641,7 +16641,7 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
 msgstr ""
 
@@ -19605,236 +19605,12 @@ msgstr "Nadat TortoiseMerge het patchbestand verwerkt heeft, zal het een klein v
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "Geen zorgen. Als je met Subversion werkt, kun je een oudere versie van het bestand ophalen en het conflict oplossen. In feite probeert TortoiseMerge automatisch de oudere versie van de file op te halen om vervolgens de verschillen te laten zien tussen <emphasis>Base</emphasis> (de oude versie van het bestand), <emphasis>Mine</emphasis> (de huidige versie in de eigen werk kopie)  en <emphasis>Theirs</emphasis> (de oude versie van het bestand, waarin de patch al verwerkt is). Vervolgens is het mogelijk om de mogelijke conflicten handmatig op te lossen. "
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr ""
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "TortoiseMerge zal de resultaten in twee vensters weergeven als de patch direct doorgevoerd kan worden. Als eerst de oude versie van een bestand opgehaald is, zal het resultaat in drie vensters worden weergegeven."
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "Knoppen en andere regelaars"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "De Toolbar"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Open</guibutton> om bestanden mee te openen. Wat anders?"
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton>Bewaar</guibutton> schrijft alle veranderingen weg naar disk."
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Herladen</guibutton> verwerpt alle in TortoiseMerge doorgevoerde wijzigingen and laadt de oorspronkelijke bestanden opnieuw in."
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton>Ongedaan maken</guibutton> verwijderd op meerdere niveaus de wijzigingen die gemaakt zijn met TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton>Vorig/Volgend verschil</guibutton> verspringt direct naar het volgende verschil tussen de bestanden. Heen en weer bladeren om alle verschillen te zien is niet nodig."
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "Als je dit doet in de twee-venster weergave, laat de detailbalk onderaan het scherm de verschillen in de eerste regel zien, onafhankelijk van waar de muis zich bevindt."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Vorig/Volgend Conflict</guibutton> verspringt direct naar het volgende conflict dat opgelost moet worden."
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton>Hun versie/Mijn versie</guibutton> selecteert of een blok van het linker of het rechter venster gebruikt moet worden. De volgende paragraaf bevat meer informatie over het verwerken van wijzigingen en conflicten."
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton>Zij eerst/Ik eerst</guibutton> wordt gebruikt als je wijzigingen wilt combineren bij conflicten. Lees de volgende sectie voor meer informatie over het verwerken van wijzigingen en conflicten."
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton>Markeer als opgelost</guibutton> Hiermee is het mogelijk om vanuit TortoiseMerge alle opgeloste en opgeslagen conflicten direct te markeren als opgelost. Hierdoor is het niet meer nodig om terug te gaan naar de verkenner en daar de markeringen door te voeren."
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Witruimte tonen</guibutton> schakelt de weergave van speciale characters voor spaties en tabs aan of uit, zodat spatie en tab wijzigingen onderscheiden kunnen worden."
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton>Inline woordelijke verschillen</guibutton> schakelt de weergave van de woordelijke verschillen in een regel aan en uit. Als in woord-modus één karakter is gewijzigd, wordt het hele woord gemarkeerd. In karacter-modus wordt elk individueel karakter gemarkeerd."
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "Woord-modus is standaard en werkt in de meeste gevallen het beste. Bijvoorbeeld, als je de naam van een variabele veranderd wordt in woord-modus de hele naam gemarkeerd. In karakter-mode wil zo'n wijziging nog weleens leiden tot een brei van toegevoegde en verwijderde karakters. Maar met bijvoorbeeld een hex bestand, werkt karakter-mode juist beter."
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton>Wissel weergave</guibutton> schakelt tussen een- en twee-venster weergave. Is uitgeschakeld in de weergave met drie-vensters."
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Wissel linker en rechter venster</guibutton> wisselt het linker en rechter venster in de weergave met twee vensters. Bij het vergelijken van een bestand in 2 verschillende bomen, in tegenstelling tot 2 revisies van het zelfde bestand, weet TortoiseSVN niet welk bestand het origineel is voor het linker scherm.  Als dit verkeerd gaat, kan dit dus gecorrigeerd worden om het bekijken te vereenvoudigen."
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton>Toon of verbergt lijst met patch-bestanden</guibutton> Als TortoiseMerge Patch lijst heeft, dan kan deze met deze knop verborgen (beide schermen zijn dan zichtbaar), of getoond worden (de bestandenlijst is dan zichtbaar)."
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton>Instellingen</guibutton> opent de TortoiseMerge's instelling dialoogvenster."
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton>Help</guibutton> opent het TortoiseMerge helpbestand, natuurlijk."
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Onder de menu balk staat de werk balk. Hiermee krijg je toegang tot de meest gebruikte functies, zoals:<placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "Aan de linker kant van het scherm staat de plaatsbepalingsbalk. Hiermee wordt visueel weergegeven waar de wijzigingen in het bestand zich bevinden. De balk heeft drie kolommen. De linker kolom verwijst naar het linker venster, de rechter kolom naar het rechter venster en de middelste naar het onderste venster (indien weergegeven). Bij weergave met één venster wordt alleen de linker kolom gebruikt. De plaatsbepalingsbalk kan ook gebruikt worden om mee te bladeren, waarbij alle vensters gelijktijdig mee gaan."
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr ""
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr ""
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "Onder het onderste venster bevind zich de status balk. Hier wordt het aantal toegevoegde en verwijderde regels in <literal>Hun</literal> en <literal>Mijn</literal>, en het aantal overgebleven onopgeloste conflicten. Daar wordt ook weergegeven welke regeleinde stijl gebruikt wordt, welke codering (ASCII, UTF-8, etc) gedetecteerd is door TortoiseMerge, en of een byte-order-mark (BOM) aanwezig is in UTF-8 bestanden. Het linker gedeelte van de status balk wordt gebruikt om hints weer te geven als je met je mous over een besturingselement gaat."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19955,15 +19731,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "Soms wordt een bestand in Subversion aangegeven als conflicterend, maar als de bestanden worden bekeken met TortoiseMerge zijn er geen conflicten te vinden. Dit heeft te maken met de spatie en witregel instellingen. Als er gekozen is voor “Negeer wijzigingen in spaties en  lege regels”, dan worden deze regels weergegeven met het <emphasis>Conflict-genegeerd</emphasis> icoon. Om het conflict op te lossen, moet de gewenste versie gekozen worden."
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "Soms is een conflict te complex om op te lossen door middel van het selecteren van <literal>Theirs</literal> en <literal>Mine</literal>, en is handwerk nodig. Met TortoiseMerge is het mogelijk om de eenvoudige wijzigingen eerst visueel op te lossen en deze dan op te slaan, waarna de overgebleven lastigste wijzigingen handmatig opgelost kunnen worden."
 
 #. (para)
 msgid ""

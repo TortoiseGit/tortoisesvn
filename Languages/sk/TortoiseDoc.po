@@ -12,13 +12,13 @@
 # Translators:
 # Michal Nosál <a2.nosal@gmail.com>, 2011
 # otik <otik@printflow.eu>, 2012
-# Oto BREZINA <otik@e-posta.sk>, 2011-2012
+# Oto BREZINA <otik@e-posta.sk>, 2011-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-04-29 08:26+0000\n"
+"PO-Revision-Date: 2013-05-19 08:19+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1762,10 +1762,10 @@ msgid ""
 " use for longer, but since FSFS has now been in use in the field for several"
 " years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
 ".red-"
-"bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr "Úložisko sa dá vytvoriť  pomocou backend FSFS alebo staršieho formátu Berkeley databázy (BDB). Formát FSFS je všeobecne rýchlejší a jednoduchší na správu a funguje aj v zdielaných sietiach a aj bezproblémov vo Windows 98. Formát BDB bol kedysi považovaný za viac stabilný, pretože sa používal veľmi dlhú dobu, ale odkedy sa používa FSFS v oblasti už niekoľko rokov, tak tento argument je teraz skôr nepostačujúci. Pre viac informacií si prečítajte <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výber dátoveho skladu</citetitle></ulink> v Subversion knihe."
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2165,7 +2165,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Nástroj <literal>svnadmin</literal> je nainštalovaný automaticky keď nainštalujete klienta príkazového riadka Subversion. Najlahší spôsob ako ho získať je vybrať túto možnosť  inštalátoe TortoiseSVN, ale ked uprednostňujete možete si stiahnuť najaktualnejšiu verziu nástrojov príkazového riadka priamo z stránky <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2193,10 +2193,10 @@ msgid ""
 "the event. Depending on the hook's output or return status, the hook program"
 " may continue the action, stop it, or suspend it in some way. Please refer "
 "to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr "Pripnutý skript je program, ktorý sa spúšťa nejakou udalosťou v úložisku ako je vytvorenie novej revízie alebo úpravy neverziovaných vlastností. Každé pripnutie nesie dostatok informácii, aby vedelo o akú udalosť sa jedná, aký je cieľ operácie a užívateľské meno, ktoré spúšťa udalosť. V závislosti od výstupu pripnutia alebo návratovej hodnoty, pripnutý program môže pokračovať vo vykonávaní alebo pozastaviť sa. Ďalšie informácie nájdete na <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> v Subversion knihe pre detailné informácie o pripnutiach, ktoré sa dajú vykonať."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2360,7 +2360,7 @@ msgid ""
 "More detailed information on the Subversion server options, and how to "
 "choose the best architecture for your situation, can be found in the "
 "Subversion book under <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.serverconfig.html\"><citetitle>Server "
+"bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
 
@@ -2394,7 +2394,7 @@ msgid ""
 "You can find further How To guides on the <ulink "
 "url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Ďalšie návody Ako na možete nájsť na stránke <ulink url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink> (stránka je v Anglickom jazyku)."
 
 #. (title)
 msgid "Daily Use Guide"
@@ -5743,7 +5743,7 @@ msgid ""
 "such changes can't be undone (those changes are not versioned) this feature "
 "is disabled by default. To make this work, you must set up a pre-revprop-"
 "change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
+"bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
@@ -7487,7 +7487,7 @@ msgstr ""
 msgid ""
 "To find out how to use these keywords, look at the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
+"bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
 msgstr ""
@@ -7496,7 +7496,7 @@ msgstr ""
 msgid ""
 "For more information about properties in Subversion see the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html\"><citetitle>Special "
+"bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
 msgstr ""
 
@@ -8659,7 +8659,7 @@ msgid ""
 "You can also specify a peg and operative revision for the URL if required. "
 "To learn more about peg and operative revisions, please read the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr ""
 
@@ -9063,7 +9063,7 @@ msgid ""
 "It is important to understand how branching and merging works in Subversion "
 "before you start using it, as it can become quite complex. It is highly "
 "recommended that you read the chapter <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.html\"><citetitle>Branching and "
+"bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
 msgstr ""
@@ -9175,7 +9175,7 @@ msgid ""
 "are using vendor branches and you need to merge the changes following a new "
 "vendor drop into your trunk code. For more information read the chapter on "
 "<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.vendorbr.html\"><citetitle>vendor "
+"bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
 msgstr ""
 
@@ -9438,7 +9438,7 @@ msgid ""
 " use only path-based differences rather than history-based differences, "
 "check the <guilabel>Ignore ancestry</guilabel> box. Read more about this "
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+"bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
 
@@ -12214,15 +12214,15 @@ msgid ""
 "directly. Some settings cannot be modified directly by TortoiseSVN, and need"
 " to be set here instead. For more information about the Subversion "
 "<filename>config</filename> file see the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink>. The section on <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
+"bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic"
 " Property Setting</citetitle></ulink> is of particular interest, and that is"
 " configured here. Note that Subversion can read configuration information "
 "from several places, and you need to know which one takes priority. Refer to"
 " <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
 msgstr ""
@@ -13229,7 +13229,7 @@ msgid ""
 "the Subversion <filename>servers</filename> file to configure this. Use "
 "<guibutton>Edit</guibutton> to get there directly. Consult the <ulink "
 "url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.advanced.confarea.html\"><citetitle>Runtime "
+"bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
 msgstr ""
 
@@ -16320,9 +16320,9 @@ msgid ""
 "The only way to remove data from the repository is to use the Subversion "
 "command line tool <literal>svnadmin</literal>. You can find a description of"
 " how this works in the <ulink url=\"http://svnbook.red-"
-"bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
+"bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "Jediný spôsob ako odstrániť data z úložiska je použitím príkazu Subversion <literal>svnadmin</literal>. V <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Údržba úložiska</citetitle></ulink> môžete nájsť popis ako to funguje ."
+msgstr ""
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16638,7 +16638,7 @@ msgid ""
 "DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
 "<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"10 from Microsoft on each computer you want to install TortoiseSVN as per "
+"11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
 msgstr ""
 
@@ -19602,236 +19602,12 @@ msgstr "Keď sa podarilo TortoiseMerge zanalyzovať súbor záplaty, zobrazí ma
 
 #. (para)
 msgid ""
-"But don't worry. If you're working with Subversion you can retrieve an older"
-" version of the file and resolve the conflict. In fact, TortoiseMerge "
-"automatically tries to get that older version of the file and then shows you"
-" the diff between <emphasis>Base</emphasis> (the older version of the file),"
-" <emphasis>Mine</emphasis> (the file as it is currently in your working "
-"copy) and <emphasis>Theirs</emphasis> (the older version of the file with "
-"the patch already applied). Then you can resolve possible conflicts "
-"manually."
-msgstr "Ale netreba sa obávať. Keď pracujete so Subversion môžete získať staršiu verziu súboru a konflikt vyriešiť. Fakticky, TortoiseMerge skúša automaticky získať takú staršiu verziu súboru a zobraziť vám rozdiely medzi <emphasis>Základ</emphasis> (staršia verzia súboru), <emphasis>Moje</emphasis> (súbor v jeho súčasnej podobe vo vašej pracovnej kópií) a <emphasis>Ich</emphasis> (staršia verzia súboru s použitou záplatou). Potom môžete ručne vyriešiť prípadné konflikty."
-
-#. (para)
-msgid ""
 "The patch file window has a context menu which allows you to preview the "
 "effect of the patch on the current file (apply without saving), to apply and"
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Okno súboru záplaty má kontextové menu, ktoré umožňuje prezretie výsledku zaplátania na vybranom súbore (použitá bez uloženia), na použitie a uloženie zmien pre vybraný súbor, alebo použitie a uloženie zmien pre <emphasis>všetky</emphasis> súbory v zozname. Dvojklik vedie k prezeraniu."
-
-#. (para)
-msgid ""
-"Depending on whether TortoiseMerge can apply the patch directly or by "
-"fetching an older version of the file first, it shows you a two pane view "
-"(patch can be applied directly) or a three pane view (older version of file "
-"fetched)."
-msgstr "V závislosti od toho či TortoiseMerge môže použiť záplatu priamo, alebo po získaní staršej verzie prvého súboru, použije dvoj-panelové zobrazenie (záplata môže byť použitá priamo) alebo troj-panelové zobrazenie (keď bolo nutné získanie staršej verzie súboru)."
-
-#. (title)
-msgid "Buttons and Other Controls"
-msgstr "Tlačítká a ovládacie prvky"
-
-#. (title)
-msgid "The Toolbar"
-msgstr "Lišta nástrojov"
-
-#. (para)
-msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Otvoriť</guibutton> sprístupní dialógové okno otvorenia súborov."
-
-#. (para)
-msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton>Uložiť</guibutton> uloží zmeny, ktoré ste vykonali."
-
-#. (para)
-msgid ""
-"<guibutton>Reload</guibutton> discards any changes you have made in "
-"TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Znovu načítať</guibutton> zahodí vykonané zmeny a znovu načíta súbory z disku."
-
-#. (para)
-msgid ""
-"<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
-"reverse any changes you have made within TortoiseMerge."
-msgstr "<guibutton>Späť</guibutton> umožňuje vrátiť akékoľvek zmeny vykonané pomocou TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point"
-" where the files differ. This saves scrolling through all the unchanged "
-"parts of the file."
-msgstr "<guibutton>Predošlý/Ďalší rozdiel</guibutton> skočí priamo na ďalšie miesto, kde sú v súboroch rozdiely. Toto šetrí presúvanie cez nezmenenú časť súboru."
-
-#. (para)
-msgid ""
-"When you do this in 2-pane diff mode, the detail bar at the bottom of the "
-"screen will show you the inline differences for the first line, regardless "
-"of where the mouse is hovering."
-msgstr "Keď to robíte v dvoj-panelovom porovnávacom režime, na spodku okna sa vám zobrazia riadkové rozdiely pre prvý riadok nezávisle od polohy ukazovateľa myši."
-
-#. (para)
-msgid ""
-"<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point "
-"where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Predošlí/Ďalší konflikt</guibutton> skočí priamo na ďalšie miesto, kde rozdiely v súboroch sú v konflikte a potrebujú byť vyriešené."
-
-#. (para)
-msgid ""
-"<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block "
-"from the left or the right pane. Refer to the next section for more "
-"information about editing changes and conflicts."
-msgstr "<guibutton>Použiť ich/Použiť moje</guibutton> vyberie, či sa má použiť blok z ľavého alebo pravého panelu. Pre viac informácií si pozrite nasledujúcu kapitolu o úprave konfliktov a zmien."
-
-#. (para)
-msgid ""
-"<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when "
-"you want to combine changes in a conflicted file. Refer to the next section "
-"for more information about editing changes and conflicts."
-msgstr "<guibutton>Ich pred Moje/Moje pre Ich</guibutton> sa používa ak chcete spojiť zmeny v súboroch v konflikte. Pre viac informácií si pozrite nasledujúcu kapitolu o úprave konfliktov a zmien."
-
-#. (para)
-msgid ""
-"<guibutton>Mark as Resolved</guibutton> When you have resolved all the "
-"conflicts in a file and saved the changes, you can mark it as resolved from "
-"within TortoiseMerge, rather than going back to explorer and marking as "
-"resolved from there."
-msgstr "<guibutton>Označiť ako vyriešené</guibutton> Keď ste vyriešili všetky konflikty v súbore a zmeny ste uložili, môžete ho označiť za vyriešený v TortoiseMerge, bez toho aby ste sa vrátili to prieskumníka a označili ho tam."
-
-#. (para)
-msgid ""
-"<guibutton>Show Whitespaces</guibutton> toggles the option to display space "
-"and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Zobraziť biele znaky</guibutton> prepína medzi zobrazovaním špeciálnych znakov pre medzery a tabulátory, takže môžete porovnať zmeny bielych znakov."
-
-#. (para)
-msgid ""
-"<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end "
-"of the views. If turned on, long lines which would normally extend beyond "
-"the view border are wrapped around, i.e., one long line is split into "
-"several lines."
-msgstr "<guibutton>Zalomovať dlhé riadky</guibutton> prepína zalamovanie koncov riadkov podľa slov na konci pohľadov. Keď je zapnuté dlhé riadky, ktoré by presahovali okraj okna sú zalomené, takže jeden dlhý riadok je rozdelený na niekoľko riadkov."
-
-#. (para)
-msgid ""
-"<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to "
-"display inline diffs. In word-wise mode, when a character is changed, the "
-"whole word is highlighted. In char-wise mode, each individual changed "
-"character is highlighted."
-msgstr "<guibutton>Riadkové zmeny po slovách</guibutton> mení spôsob zobrazenia zmien v riadkoch. Pri zobrazení po slovách je pri zmene jedného znaku označené celé slovo. Pri režime po znakoch je označený každý jednotlivý znak."
-
-#. (para)
-msgid ""
-"Word-wise is the default and in most cases it works better. For example if "
-"you change a variable name, the whole name is highlighted in word-wise mode,"
-" whereas in char-wise mode you tend to get a mess of added and deleted "
-"characters which doesn't make much sense. However, some content does not "
-"resolve neatly into words, for example a hex file, and in that case, char-"
-"wise display works better."
-msgstr "Po slovách je predvolené a vo väčšine prípadov funguje lepšie. Napríklad keď zmeníte meno premennej je pri režime po slovách vysvietené celé meno, ale pri režime po znakoch budete mať sklon k domotaniu sa pridanými a vymazanými znakmi, ktoré nemá veľmi zmysel. Avšak pre niektoré obsahy rozlišovanie po slovách nie je vyhovujúce, napríklad pri .hex súboroch režim po znakoch dáva lepšie výsledky."
-
-#. (para)
-msgid ""
-"<guibutton>Compare whitespaces</guibutton> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr "<guibutton>Porovnávať biele znaky</guibutton> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore whitespace changes</guibutton> hides changes which are due"
-" solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guibutton>Ignorovať zmeny bielych znakov</guibutton> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
-
-#. (para)
-msgid ""
-"<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
-"changes."
-msgstr "<guibutton>Ignorovať biele znaky</guibutton> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
-
-#. (para)
-msgid ""
-"<guibutton>Switch View</guibutton> selects between one-pane and two-pane "
-"view. Disabled in 3-pane view."
-msgstr "<guibutton>Prepnúť pohľad</guibutton> prepína medzi jedno- a dvoj-panelovým zobrazením. Zakázané pri troj-panelovom zobrazení."
-
-#. (para)
-msgid ""
-"<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the "
-"left and right windows. When you are comparing a file in 2 different trees, "
-"as opposed to 2 revisions of the same file, TortoiseSVN does not know which "
-"one should go in the left pane as the <quote>original/base</quote> version. "
-"If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Prepnúť Ľavý a Pravý pohľad</guibutton> V dvoj-panelovom zobrazení, vymení ľavé a pravé okno. Keď pozeráte súbor z dvoch rôznych ciest, na rozdiel od dvoch verzií toho istého súboru, TortoiseSVN nevie, ktorý súbor má byť na ľavom panely označenom <quote>original/základ</quote> verzia. Ak je to zlé, môžete ich vymeniť a zjednodušiť si prezeranie."
-
-#. (para)
-msgid ""
-"<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch "
-"list, this button allows you to hide it (so you can see both windows), or "
-"show it (so you can review the file list)."
-msgstr "<guibutton>Zobraziť/Skryť zoznam záplat</guibutton> Keď TortoiseMerge má zoznam záplat, toto tlačítko vám umožní ho skryť (takže môžete vidieť obe okná), alebo zobraziť (takže ho môžete prezerať)."
-
-#. (para)
-msgid ""
-"<guibutton>Collapse</guibutton> collapses unchanged regions to a single "
-"line, leaving only the changed areas and minimal context. You can expand the"
-" collapsed areas by double clicking on the collapse line, but you cannot "
-"then re-collapse them unless you reload the file."
-msgstr "<guibutton>Zbaliť</guibutton> zbalí nezmenené oblasti to jedného riadka, ponechajúc iba zmenené oblasti a minimálny kontext. Dvojklikom na zbalený riadok možete rozbaliť zbalené oblasti, ale potom ich už nie je možné zbaliť pokým nenačítate súbor znova."
-
-#. (para)
-msgid ""
-"<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings "
-"dialog."
-msgstr "<guibutton>Nastavenia</guibutton> zobrazí dialógové okno nastavenia pre TortoiseMerge."
-
-#. (para)
-msgid ""
-"<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr "<guibutton>Pomoc</guibutton> prirodzene otvorí nápovedu pre TortoiseMerge."
-
-#. (para)
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Pod menu leží lišta nástrojov. Táto poskytuje jednoduchý prístup k najpoužívanejším nástrojom, ktoré sú <placeholder-2/>"
-
-#. (para)
-msgid ""
-"On the left side of the window is a locator bar. This provides a quick "
-"visual reference as to where the changes lie within the file. The bar has "
-"three columns. The left column refers to the left pane, the right column to "
-"the right pane, and the centre column to the bottom pane (if present). In "
-"one-pane view only the left column is used. The locator bar can also be used"
-" as a scroll bar to scroll all the windows simultaneously."
-msgstr "Na ľavej strane okna je prehľadový stĺpec. Tento poskytuje rýchly vizuálny prehľad kde boli vykonané zmeny v súbore. Stĺpec má tri podstĺpcee. Ľavý popisuje ľavý súbor, pravý popisuje pravý súbor a stredný podstĺpec spodný panel (ak je prítomný). V jedno-panelovom zobrazení je použitý iba ľavý stĺpec. Prehľadový stĺpec môže byť použitý ako skrolovací na skrolovanie všetkými oknami súčasne."
-
-#. (para)
-msgid ""
-"If you double click on a word then every occurrence of that word will be "
-"highlighted throughout the document, both in the main panes and the locator "
-"bar. Double click on the word again to remove the highlighting."
-msgstr "Po dvoj-šťuku na slovo všetky výskyty toho slova budú zvýraznené v celom dokumente, v hlavných paneloch aj v navigačnom stĺpci. Dvoj-šťuk na takto zvýraznené slovo zvýraznenie zruší."
-
-#. (para)
-msgid ""
-"If you click in the left margin, or if you triple click within a line, that "
-"whole line will be selected."
-msgstr "Keď kliknete na ľavý okraj riadka, alebo na neho troj-šťuknete, celý riadok bude označený."
-
-#. (para)
-msgid ""
-"Below the bottom window is the status bar. This shows the number of lines "
-"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. The left side of the status bar is used to display hints when "
-"you hover the mouse over a control."
-msgstr "Pod spodkom okna sa nachádza stavový riadok. Tento zobrazuje počet pridaných, alebo zmazaných riadkov v <literal>Ich</literal> a <literal>Moje</literal>, ako aj počet ostávajúcich nevyriešených konfliktov. Môžete vidieť tiež štýl ukončenia riadkov, TortoiseMerge predpokladá kódovanie (ASCII, UTF-8, atď). Ďalej môžete vidieť prítomnosť značky poriadia byte-ov (byte-order-mark - BOM) v UTF-8 súboroch. Ľavá strana stavového riadka je použitá na zobrazenie pomoci pri prejdení myšou ponad ovládací prvok..."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19952,15 +19728,6 @@ msgid ""
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
 msgstr "Niekedy je súbor označený ako konfliktný, ale keď ho otvoríte v TortoiseMerge nie sú tam zobrazené žiadne konflikty. Toto môže byť spôsobené spôsobom spracovania bielych znakov, ktoré ste si vybrali. Ak si vyberiete ignorovanie zmien koncov riadkov, alebo bielych znakov, tieto riadky budú označené použitím ikonky <emphasis>Conflict-Ignored</emphasis>. Na vyriešenie konfliktu je stále potrebné vybrať, ktorá verzia má byť použitá."
-
-#. (para)
-msgid ""
-"Sometimes the conflict is too difficult to resolve by simply picking "
-"<literal>Theirs</literal> and <literal>Mine</literal> and it requires hand "
-"editing. TortoiseMerge allows you to do all the easy changes visually first "
-"and then save the file, leaving only the difficult changes to be resolved by"
-" hand-editing."
-msgstr "Niekedy je prílš ťažké vyriešiť konflikt jednoduchým vybratím <literal>Ich</literal> a <literal>Moje</literal> a potrebuje ručné úpravy. TortoiseMerge umožňuje vykonať všetky ľahko vykonateľné zmeny vizuálne a potom uložiť súbor a zanechať iba ťažko riešiteľné zmeny na ručnú úpravu."
 
 #. (para)
 msgid ""
