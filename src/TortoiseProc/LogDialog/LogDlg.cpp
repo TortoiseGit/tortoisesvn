@@ -6624,7 +6624,7 @@ bool CLogDlg::CheckMultipleDiffs( UINT selCount )
 void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi)
 {
     INT_PTR selIndex = 0;
-    int nPaths = pCmi->ChangedLogPathIndices.size();
+    int nPaths = (int)pCmi->ChangedLogPathIndices.size();
    
     // warn if we exceed Software\\TortoiseSVN\\NumDiffWarning or 15 if not set
     if (!CheckMultipleDiffs(nPaths))
