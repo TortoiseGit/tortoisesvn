@@ -5581,7 +5581,7 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
     }
     // normal lines is mostly same but may differ in EOL so any copied line change view state to modified
     // TODO: check if copied line is same as original one set modified only when differ
-    SetModified(); 
+    SetModified();
     SaveUndoStep();
 
     int nRemovedLines = CleanEmptyLines();
@@ -5665,7 +5665,7 @@ void CBaseView::AddIndentationForSelectedBlock()
         BuildAllScreen2ViewVector();
     }
 }
-    
+
 void CBaseView::RemoveIndentationForSelectedBlock()
 {
     bool bModified = false;

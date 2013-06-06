@@ -170,7 +170,7 @@ class CLogWndHourglass
     public:
         CLogWndHourglass();
         ~CLogWndHourglass();
-        
+
 };
 
 /**
@@ -179,7 +179,7 @@ class CLogWndHourglass
   */
 class CodeCollaboratorInfo
 {
-public: 
+public:
     CodeCollaboratorInfo(CString revisions);
     bool IsInstalled();
     CString GetCommandLineArguments();

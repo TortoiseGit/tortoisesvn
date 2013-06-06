@@ -595,7 +595,7 @@
                     </listitem>
                 </varlistentry>
             </variablelist>
-            When multiple files are selected in the bottom pane of the Log dialog, the context menu changes 
+            When multiple files are selected in the bottom pane of the Log dialog, the context menu changes
             to the following:
             <figure id="tsvn-dug-showlog-3-dia-3">
                 <title>The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected.</title>
@@ -628,24 +628,24 @@
                     <listitem>
                         <para>
                             This will open local working copy files that correspond to your
-                            selected files using the application that is registered for the extension. 
+                            selected files using the application that is registered for the extension.
                             [The behavior is the one you would get double-clicking the working-copy
                             file(s) in Windows explorer].
                             Depending on how your file extension is associated to an application and
                             the capabilities of the application, this may be a slow operation.
-                            In the worst case, new instances of the application may be launched 
+                            In the worst case, new instances of the application may be launched
                             by Windows for each file that was selected.
                         </para>
                         <para>
                             If you hold <keycap>Ctrl</keycap> while invoking this command, the working copy files
                             are always loaded into Visual Studio.  This only works when the following conditions are met:
-                            Visual Studio must be running in the same user context while having the same process 
+                            Visual Studio must be running in the same user context while having the same process
                             integrity level [running as admin or not] as TortoiseProc.exe. It may be desirable to have the
                             solution containing the changed files loaded, although this is not strictly necessary.
                             Only files that exist on disk with extensions [.cpp, .h, .cs, .rc, .resx,
                             .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will be loaded. A maximum of
                             100 files can be loaded into Visual Studio at one time, and the files are always loaded
-                            as new tabs into the currently open instance of Visual Studio. The benefit of reviewing code 
+                            as new tabs into the currently open instance of Visual Studio. The benefit of reviewing code
                             changes in Visual Studio lies in the fact that you can then use the built-in code navigation,
                             reference finding, static code analysis and other tools built into Visual Studio.
                         </para>

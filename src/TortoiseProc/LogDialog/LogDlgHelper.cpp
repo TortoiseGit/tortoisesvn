@@ -211,17 +211,17 @@ Windows Registry Editor Version 5.00
 
 CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 {
-    PathToCollabGui = 
+    PathToCollabGui =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui", L"");
-    CollabUser      = 
+    CollabUser      =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
-    CollabPassword  = 
+    CollabPassword  =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
-    RepoUrl         = 
+    RepoUrl         =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl", L"");
-    SvnUser         = 
+    SvnUser         =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
-    SvnPassword     = 
+    SvnPassword     =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword", L"");
 
     m_Revisions = revisions;
@@ -230,7 +230,7 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 bool CodeCollaboratorInfo::IsInstalled()
 {
     // Special Registry item must be set and CollabGui.exe File must exist
-    if (((CString)PathToCollabGui).GetLength() == 0 || 
+    if (((CString)PathToCollabGui).GetLength() == 0 ||
             !PathFileExists((LPCWSTR)(CString)PathToCollabGui))
         return false;
     return true;
@@ -240,7 +240,7 @@ CString CodeCollaboratorInfo::GetCommandLineArguments()
 {
     CString arguments;
     arguments.Format(L"--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
-        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)(CString)RepoUrl, 
+        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)(CString)RepoUrl,
         (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     return arguments;
 }
