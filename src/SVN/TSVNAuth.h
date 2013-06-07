@@ -17,16 +17,15 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "StringUtils.h"
 
 class Creds
 {
 public:
-    char *          GetUsername() { return Decrypt(username); }
-    bool            SetUsername(const char * user) { username = Encrypt(user); return !username.IsEmpty(); }
-    char *          GetPassword() { return Decrypt(password); }
-    bool            SetPassword(const char * pass) { password = Encrypt(pass); return !password.IsEmpty(); }
-    char *          Decrypt(const char * text);
-    CStringA        Encrypt(const char * text);
+    char *          GetUsername() { return CStringUtils::Decrypt(username); }
+    bool            SetUsername(const char * user) { username = CStringUtils::Encrypt(user); return !username.IsEmpty(); }
+    char *          GetPassword() { return CStringUtils::Decrypt(password); }
+    bool            SetPassword(const char * pass) { password = CStringUtils::Encrypt(pass); return !password.IsEmpty(); }
 private:
     CStringA        username;
     CStringA        password;
