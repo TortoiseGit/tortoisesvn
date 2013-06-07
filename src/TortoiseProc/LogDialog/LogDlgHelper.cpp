@@ -209,7 +209,7 @@ Windows Registry Editor Version 5.00
     "SvnPassword"="Secret2"
 */
 
-CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
+CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
 {
     PathToCollabGui =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui", L"");
@@ -217,7 +217,8 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
     CollabPassword  =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
-    RepoUrl = repoUrl;
+    RepoUrl         =
+        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl", L"");
     SvnUser         =
         CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
     SvnPassword     =
@@ -239,7 +240,7 @@ CString CodeCollaboratorInfo::GetCommandLineArguments()
 {
     CString arguments;
     arguments.Format(L"--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
-        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl, 
+        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)(CString)RepoUrl,
         (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     return arguments;
 }

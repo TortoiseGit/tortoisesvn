@@ -41,7 +41,6 @@
 #include "TreePropSheet.h"
 #include "SettingsAdvanced.h"
 #include "SettingsDialogs3.h"
-#include "SettingsCollaborator.h"
 
 #include "AeroGlass.h"
 #include "AeroControls.h"
@@ -92,7 +91,6 @@ private:
     CSettingsTBlame *               m_pTBlamePage;
     CSettingsAdvanced *             m_pAdvanced;
     SettingsDialogs3 *              m_pDialogs3Page;
-    SettingsCollaborator *          m_pCollaboratorPage;
 
     HICON                           m_hIcon;
     CDwmApiImpl                     m_Dwm;

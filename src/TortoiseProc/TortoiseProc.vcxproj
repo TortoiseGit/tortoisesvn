@@ -419,7 +419,6 @@
     <ClCompile Include="Settings\Settings.cpp" />
     <ClCompile Include="Settings\SettingsAdvanced.cpp" />
     <ClCompile Include="Settings\SettingsClearAuth.cpp" />
-    <ClCompile Include="Settings\SettingsCollaborator.cpp" />
     <ClCompile Include="Settings\SettingsColors.cpp" />
     <ClCompile Include="Settings\SettingsDialogs3.cpp" />
     <ClCompile Include="Settings\SettingsLogCaches.cpp" />
@@ -747,7 +746,6 @@
     <ClInclude Include="Settings\Settings.h" />
     <ClInclude Include="Settings\SettingsAdvanced.h" />
     <ClInclude Include="Settings\SettingsClearAuth.h" />
-    <ClInclude Include="Settings\SettingsCollaborator.h" />
     <ClInclude Include="Settings\SettingsColors.h" />
     <ClInclude Include="Settings\SettingsDialogs3.h" />
     <ClInclude Include="Settings\SettingsLogCaches.h" />
@@ -942,7 +940,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\resources\ccollabgui.ico" />
+    <Image Include="..\Resources\VS_2012.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

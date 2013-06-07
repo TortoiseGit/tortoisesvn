@@ -4741,7 +4741,7 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
 
 void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup)
 {
-    CodeCollaboratorInfo codeCollaborator(L"", L"");
+    CodeCollaboratorInfo codeCollaborator(L"");
 
     if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth()==0))
     {
@@ -4988,19 +4988,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     EnableOKButton();
 }
 
-CString CLogDlg::GetUrlOfTrunk()
-{
-    // this may not work for SVNSERVE based repos...
-    CString returnedString = L"";
-    CString repositoryRootUrl = GetRepositoryRoot(m_path);
-    CString selectedUrl = GetSUrl();
-    int slashPos = selectedUrl.Find(L"/", repositoryRootUrl.GetLength() + 1);
-    if (slashPos == -1)
-        return selectedUrl;
-    returnedString = selectedUrl.Left(slashPos);
-    return returnedString;
-}
-
 void CLogDlg::ExecuteAddCodeCollaboratorReview()
 {
     CString revisions;
@@ -5010,8 +4997,8 @@ void CLogDlg::ExecuteAddCodeCollaboratorReview()
     if (revisions.GetLength() == 0)
         return;
 
-    CodeCollaboratorInfo codeCollaborator(revisions, GetUrlOfTrunk());
-    commandLine.Format(L"%s %s", (LPCWSTR)(CString)codeCollaborator.PathToCollabGui, 
+    CodeCollaboratorInfo codeCollaborator(revisions);
+    commandLine.Format(L"%s %s", (CString)codeCollaborator.PathToCollabGui,
                                         codeCollaborator.GetCommandLineArguments());
     // the following line is for testing only and will be removed in the future.
     ::MessageBox(GetSafeHwnd(), (LPCWSTR)commandLine, L"TortoiseSVN-Debugging", MB_OK);
@@ -6222,7 +6209,7 @@ void CLogDlg::OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpat
     }
 }
 
-// todo: remove duplicated code 
+// todo: remove duplicated code line ~5752
 CString CLogDlg::GetWcPathFromUrl(CString url)
 {
     CString wcPath;

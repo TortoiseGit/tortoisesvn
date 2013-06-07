@@ -59,7 +59,6 @@ void CSettings::AddPropPages()
     m_pHooksPage = new CSetHooks();
     m_pBugTraqPage = new CSetBugTraq();
     m_pTBlamePage = new CSettingsTBlame();
-    m_pCollaboratorPage = new SettingsCollaborator();
     m_pAdvanced = new CSettingsAdvanced();
 
     SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
@@ -82,7 +81,6 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pHooksPage, m_pHooksPage->GetIconID());
     SetPageIcon(m_pBugTraqPage, m_pBugTraqPage->GetIconID());
     SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
-    SetPageIcon(m_pCollaboratorPage, m_pCollaboratorPage->GetIconID());
     SetPageIcon(m_pAdvanced, m_pAdvanced->GetIconID());
 
     // don't change the order here, since the
@@ -107,7 +105,6 @@ void CSettings::AddPropPages()
     AddPage(m_pHooksPage);
     AddPage(m_pBugTraqPage);
     AddPage(m_pTBlamePage);
-    AddPage(m_pCollaboratorPage);
     AddPage(m_pAdvanced);
 }
 
@@ -133,7 +130,6 @@ void CSettings::RemovePropPages()
     delete m_pHooksPage;
     delete m_pBugTraqPage;
     delete m_pTBlamePage;
-    delete m_pCollaboratorPage;
     delete m_pAdvanced;
 }
 
@@ -159,7 +155,6 @@ void CSettings::HandleRestart()
     restart |= m_pHooksPage->GetRestart();
     restart |= m_pBugTraqPage->GetRestart();
     restart |= m_pTBlamePage->GetRestart();
-    restart |= m_pCollaboratorPage->GetRestart();
     restart |= m_pAdvanced->GetRestart();
     if (restart & ISettingsPropPage::Restart_System)
     {
