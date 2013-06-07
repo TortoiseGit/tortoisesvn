@@ -173,25 +173,3 @@ class CLogWndHourglass
 
 };
 
-/**
-  * \ingroup TortoiseProc
-  * Helper class to hold & load code collaborator tool info.
-  */
-class CodeCollaboratorInfo
-{
-public:
-    CodeCollaboratorInfo(CString revisions);
-    bool IsInstalled();
-    CString GetCommandLineArguments();
-private:
-    CString m_Revisions;
-public:
-    CRegString PathToCollabGui;
-    CRegString CollabUser;
-     // passwords visible on cmd line anyways, so we don't encrypt :-(
-    CRegString CollabPassword;
-    CRegString SvnPassword;
-    CRegString RepoUrl;
-    CRegString SvnUser;
-};
-

@@ -1070,6 +1070,9 @@
     <ClCompile Include="Settings\SettingsClearAuth.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="CodeCollaborator.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2040,6 +2043,9 @@
     </ClInclude>
     <ClInclude Include="Settings\SettingsClearAuth.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeCollaborator.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -57,6 +57,7 @@
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
 #include "SmartHandle.h"
+#include "CodeCollaborator.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 
