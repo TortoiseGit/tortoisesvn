@@ -466,6 +466,106 @@ void CStringUtils::PipesToNulls(TCHAR* buffer)
     }
 }
 
+char * CStringUtils::Decrypt( const char * text )
+{
+    DWORD dwLen = 0;
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
+        return NULL;
+
+    std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL)==FALSE)
+        return NULL;
+
+    DATA_BLOB blobin;
+    blobin.cbData = dwLen;
+    blobin.pbData = strIn.get();
+    LPWSTR descr;
+    DATA_BLOB blobout = {0};
+    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return NULL;
+    SecureZeroMemory(blobin.pbData, blobin.cbData);
+
+    char * result = new char[blobout.cbData+1];
+    strncpy_s(result, blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
+    SecureZeroMemory(blobout.pbData, blobout.cbData);
+    LocalFree(blobout.pbData);
+    LocalFree(descr);
+    return result;
+}
+
+wchar_t * CStringUtils::Decrypt( const wchar_t * text )
+{
+    DWORD dwLen = 0;
+    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
+        return NULL;
+
+    std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
+    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL)==FALSE)
+        return NULL;
+
+    DATA_BLOB blobin;
+    blobin.cbData = dwLen;
+    blobin.pbData = strIn.get();
+    LPWSTR descr;
+    DATA_BLOB blobout = {0};
+    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return NULL;
+    SecureZeroMemory(blobin.pbData, blobin.cbData);
+
+    wchar_t * result = new wchar_t[(blobout.cbData)/sizeof(wchar_t)+1];
+    wcsncpy_s(result, (blobout.cbData)/sizeof(wchar_t)+1, (const wchar_t*)blobout.pbData, blobout.cbData/sizeof(wchar_t));
+    SecureZeroMemory(blobout.pbData, blobout.cbData);
+    LocalFree(blobout.pbData);
+    LocalFree(descr);
+    return result;
+}
+
+CStringA CStringUtils::Encrypt( const char * text )
+{
+    DATA_BLOB blobin = {0};
+    DATA_BLOB blobout = {0};
+    CStringA result;
+
+    blobin.cbData = (DWORD)strlen(text);
+    blobin.pbData = (BYTE*) (LPCSTR)text;
+    if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return result;
+    DWORD dwLen = 0;
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen)==FALSE)
+        return result;
+    std::unique_ptr<char[]> strOut(new char[dwLen + 1]);
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen)==FALSE)
+        return result;
+    LocalFree(blobout.pbData);
+
+    result = strOut.get();
+
+    return result;
+}
+
+CStringW CStringUtils::Encrypt( const wchar_t * text )
+{
+    DATA_BLOB blobin = {0};
+    DATA_BLOB blobout = {0};
+    CStringW result;
+
+    blobin.cbData = (DWORD)wcslen(text)*sizeof(wchar_t);
+    blobin.pbData = (BYTE*) (LPCWSTR)text;
+    if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return result;
+    DWORD dwLen = 0;
+    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen)==FALSE)
+        return result;
+    std::unique_ptr<wchar_t[]> strOut(new wchar_t[dwLen + 1]);
+    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen)==FALSE)
+        return result;
+    LocalFree(blobout.pbData);
+
+    result = strOut.get();
+
+    return result;
+}
+
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
 
@@ -504,6 +604,12 @@ public:
         longline = _T("The commit comment is not properly formatted.\nFormat:\n  Field 1 : Field 2 : Field 3\nWhere:\nField 1 - Team Name|Triage|Merge|Goal\nField 2 - V1 Backlog Item ID|Triage Number|SVNBranch|Goal Name\nField 3 - Description of change\nExamples:\n\nTeam Gamma : B-12345 : Changed some code\n  Triage : 123 : Fixed production release bug\n  Merge : sprint0812 : Merged sprint0812 into prod\n  Goal : Implement Pre-Commit Hook : Commit message hook impl");
         splittedline = CStringUtils::LinesWrap(longline, 80);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
+        CString widecrypt = CStringUtils::Encrypt(L"test");
+        CString wide = CStringUtils::Decrypt(widecrypt);
+        ATLASSERT(wide == L"test");
+        CStringA charcrypt = CStringUtils::Encrypt("test");
+        CStringA charnorm = CStringUtils::Decrypt(charcrypt);
+        ATLASSERT(charnorm == "test");
     }
 } StringUtilsTest;
 
