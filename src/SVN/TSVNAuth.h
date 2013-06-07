@@ -25,9 +25,9 @@ public:
     bool            SetUsername(const char * user) { username = Encrypt(user); return !username.IsEmpty(); }
     char *          GetPassword() { return Decrypt(password); }
     bool            SetPassword(const char * pass) { password = Encrypt(pass); return !password.IsEmpty(); }
-private:
     char *          Decrypt(const char * text);
     CStringA        Encrypt(const char * text);
+private:
     CStringA        username;
     CStringA        password;
 };

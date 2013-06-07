@@ -285,6 +285,7 @@ private:
     void ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void ExecuteAddCodeCollaboratorReview();
     CString GetSpaceSeparatedSelectedRevisions();
+    CString GetUrlOfTrunk();
 
     void ShowContextMenuForChangedPaths(CWnd* pWnd, CPoint point);
     void ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex);

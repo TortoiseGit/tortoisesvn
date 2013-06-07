@@ -180,7 +180,7 @@ class CLogWndHourglass
 class CodeCollaboratorInfo
 {
 public:
-    CodeCollaboratorInfo(CString revisions);
+    CodeCollaboratorInfo(CString revisions, CString repoUrl);
     bool IsInstalled();
     CString GetCommandLineArguments();
 private:
@@ -191,7 +191,7 @@ public:
      // passwords visible on cmd line anyways, so we don't encrypt :-(
     CRegString CollabPassword;
     CRegString SvnPassword;
-    CRegString RepoUrl;
+    CString RepoUrl;
     CRegString SvnUser;
 };
 
