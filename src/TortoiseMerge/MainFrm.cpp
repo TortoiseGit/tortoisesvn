@@ -2266,7 +2266,7 @@ void CMainFrame::OnIndicatorPopup()
 {
     if (IsViewGood(m_pwndCommandView))
     {
-        //m_pwndCommandView->ShowCommandPopup();
+        m_pwndCommandView->ShowFormatPopup(CPoint(100, 100));
     }
 }
 

@@ -217,6 +217,8 @@ public: // methods
     void            Tabularize();
     void            RemoveTrailWhiteChars();
 
+    void            ShowFormatPopup(CPoint point);
+
 public: // variables
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
@@ -595,6 +597,8 @@ protected:  // variables
         POPUPCOMMAND_TABTOSPACES,
         POPUPCOMMAND_SPACESTOTABS,
         POPUPCOMMAND_REMOVETRAILWHITES,
+
+        POPUPCOMMAND__LAST,
     };
 
     class Screen2View

@@ -22,6 +22,9 @@
 #include "HistoryCombo.h"
 #include "FileTextLines.h"
 
+extern const CFileTextLines::UnicodeType uctArray[7];
+extern const EOL eolArray[10];
+
 /**
  * \ingroup TortoiseMerge
  * Encoding dialog used in TortoiseMerge.
