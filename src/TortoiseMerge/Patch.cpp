@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2012 - TortoiseSVN
+// Copyright (C) 2004-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -559,7 +559,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
             {
             case PATCHSTATE_REMOVED:
                 {
-                    if ((lAddLine > PatchLines.GetCount())||(PatchLines.GetCount()==0))
+                    if ((lAddLine > PatchLines.GetCount())||(PatchLines.IsEmpty()))
                     {
                         m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
                         return FALSE;
@@ -801,7 +801,7 @@ CString CPatch::Strip(const CString& filename)
 
 CString CPatch::RemoveUnicodeBOM(const CString& str)
 {
-    if (str.GetLength()==0)
+    if (str.IsEmpty())
         return str;
     if (str[0] == 0xFEFF)
         return str.Mid(1);

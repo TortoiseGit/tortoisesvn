@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,7 @@ bool UserProp::Parse( const CString& line )
                 temp = temp.Mid(cpos+1);
                 int curPos = 0;
                 CString resToken = temp.Tokenize(L";",curPos);
-                while (resToken != "")
+                while (!resToken.IsEmpty())
                 {
                     CString sVal, sText;
                     sVal = resToken;

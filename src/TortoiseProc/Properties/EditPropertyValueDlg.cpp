@@ -94,7 +94,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
         if (!m_ProjectProperties.sFPPath.IsEmpty())
         {
             resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
-            while (resToken != "")
+            while (!resToken.IsEmpty())
             {
                 int equalpos = resToken.Find('=');
                 if (equalpos >= 0)
@@ -145,7 +145,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
                 curPos = 0;
                 resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
 
-                while (resToken != "")
+                while (!resToken.IsEmpty())
                 {
                     int equalpos = resToken.Find('=');
                     if (equalpos >= 0)

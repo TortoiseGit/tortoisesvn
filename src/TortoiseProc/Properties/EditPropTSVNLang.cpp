@@ -75,7 +75,7 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     {
         if (it->first.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0)
         {
-            m_bKeepEnglish = it->second.value.size() == 0;
+            m_bKeepEnglish = it->second.value.empty();
         }
         else if (it->first.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0)
         {

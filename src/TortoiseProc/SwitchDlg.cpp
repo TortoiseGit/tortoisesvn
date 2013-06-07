@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -88,7 +88,7 @@ BOOL CSwitchDlg::OnInitDialog()
     m_repoRoot.TrimRight('/');
     CString url = svn.GetURLFromPath(svnPath);
     CString destUrl = url;
-    if (m_URL != _T(""))
+    if (!m_URL.IsEmpty())
     {
         destUrl = m_URL;
     }

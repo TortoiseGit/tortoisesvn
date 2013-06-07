@@ -242,7 +242,7 @@ void CEditPropBugtraq::OnOK()
     // bugtraq:url
     std::string propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqUrl);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_URL] = pVal;
 
     // bugtraq:warnifnoissue
@@ -250,19 +250,19 @@ void CEditPropBugtraq::OnOK()
         pVal.value = "true";
     else
         pVal.value = "";
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_WARNIFNOISSUE] = pVal;
 
     // bugtraq:message
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqMessage);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_MESSAGE] = pVal;
 
     // bugtraq:label
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqLabel);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_LABEL] = pVal;
 
     // bugtraq:number
@@ -271,7 +271,7 @@ void CEditPropBugtraq::OnOK()
         pVal.value = "false";
     else
         pVal.value.clear();
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_NUMBER] = pVal;
 
     // bugtraq:append
@@ -280,7 +280,7 @@ void CEditPropBugtraq::OnOK()
         pVal.value = "false";
     else
         pVal.value.clear();
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_APPEND] = pVal;
 
     // bugtraq:logregex
@@ -293,25 +293,25 @@ void CEditPropBugtraq::OnOK()
         sLogRegex = m_sBugtraqRegex2;
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRegex);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_LOGREGEX] = pVal;
 
     // bugtraq:providerparams
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderParams);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_PROVIDERPARAMS] = pVal;
 
     // bugtraq:provideruuid
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_PROVIDERUUID] = pVal;
 
     // bugtraq:provideruuid64
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID64);
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[BUGTRAQPROPNAME_PROVIDERUUID64] = pVal;
 
     m_bChanged = true;

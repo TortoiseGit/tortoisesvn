@@ -1378,7 +1378,7 @@ private:
         ATLASSERT(testList[1].GetWinPathString() == _T("c:\\path2 with spaces and stuff"));
         ATLASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
 
-        ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T(""));
+        ATLASSERT(testList.GetCommonRoot().GetWinPathString().IsEmpty());
         sPathList = _T("c:\\path2 with spaces and stuff*c:\\funnypath\\*");
         testList.LoadFromAsteriskSeparatedString(sPathList);
         ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T("c:\\"));
@@ -1403,7 +1403,7 @@ private:
         ATLASSERT(dir.GetWinPathString() == _T("c:\\"));
         dir = dir.GetContainingDirectory();
         ATLASSERT(dir.IsEmpty());
-        ATLASSERT(dir.GetWinPathString() == _T(""));
+        ATLASSERT(dir.GetWinPathString().IsEmpty());
     }
 
     void AncestorTest()

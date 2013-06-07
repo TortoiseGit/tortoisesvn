@@ -1502,7 +1502,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
                         if (size == patchlen)
                         {
                             itemStates |= ITEMIS_PATCHFILE;
-                            if ((folder_.size()==0)&&(files_.size()))
+                            if ((folder_.empty())&&(!files_.empty()))
                             {
                                 folder_ = files_[0];
                             }

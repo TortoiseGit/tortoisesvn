@@ -79,7 +79,7 @@ BOOL CEditPropMimeType::OnInitDialog()
     DialogEnableWindow(IDC_CUSTOMMIMETYPE, false);
     if (m_PropValue.compare("application/octet-stream") == 0)
         CheckRadioButton(IDC_MIMETEXT, IDC_MIMECUSTOM, IDC_MIMEBIN);
-    else if (m_PropValue.size() == 0)
+    else if (m_PropValue.empty())
         CheckRadioButton(IDC_MIMETEXT, IDC_MIMECUSTOM, IDC_MIMETEXT);
     else
     {

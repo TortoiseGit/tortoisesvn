@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -152,7 +152,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     {
         int curPos = 0;
         CString resToken = m_pProjectProperties->sFPPath.Tokenize(_T("\n"),curPos);
-        while (resToken != "")
+        while (!resToken.IsEmpty())
         {
             UserProp up(true);
             if (up.Parse(resToken))
@@ -162,7 +162,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 
         curPos = 0;
         resToken = m_pProjectProperties->sDPPath.Tokenize(_T("\n"),curPos);
-        while (resToken != "")
+        while (!resToken.IsEmpty())
         {
             UserProp up(false);
             if (up.Parse(resToken))
@@ -765,7 +765,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                 (sName.substr(0, 5).compare("tsvn:") == 0) ||
                                 (sName.substr(0, 10).compare("webviewer:") == 0))
                             {
-                                if (dlg->GetPropertyValue().size() == 0)
+                                if (dlg->GetPropertyValue().empty())
                                     bRemove = true;
                             }
                             BOOL ret = FALSE;

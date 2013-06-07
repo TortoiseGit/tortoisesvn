@@ -129,7 +129,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                     }
                     if (type == 2)
                     {
-                        if (resEntry.msgstr.size() == 0)
+                        if (resEntry.msgstr.empty())
                             nTranslated++;
                         std::wstring temp = I->c_str();
                         temp = temp.substr(1, temp.length()-2);
@@ -232,7 +232,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
     {
         std::wstring s = I->first;
         s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
-        if (s.size() == 0)
+        if (s.empty())
             continue;
 
         RESOURCEENTRY entry = I->second;

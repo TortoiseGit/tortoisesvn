@@ -229,7 +229,7 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
 bool CodeCollaboratorInfo::IsInstalled()
 {
     // Special Registry item must be set and CollabGui.exe File must exist
-    if (((CString)PathToCollabGui).GetLength() == 0 ||
+    if (((CString)PathToCollabGui).IsEmpty() ||
             !PathFileExists((LPCWSTR)(CString)PathToCollabGui))
         return false;
     return true;

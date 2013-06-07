@@ -350,7 +350,7 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 void CStatGraphDlg::UpdateWeekCount()
 {
     // Sanity check
-    if ((!m_parDates)||(m_parDates->GetCount()==0))
+    if ((!m_parDates)||(m_parDates->IsEmpty()))
         return;
 
     // Already updated? No need to do it again.

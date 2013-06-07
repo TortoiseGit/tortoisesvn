@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -125,20 +125,20 @@ void CEditPropMergeLogTemplate::OnOK()
     CStringA propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[PROJECTPROPNAME_MERGELOGTEMPLATETITLE] = pVal;
 
     GetDlgItemText(IDC_TITLEREVERSE, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     newProps[PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE] = pVal;
 
     GetDlgItemText(IDC_MSG, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
-    pVal.remove = (pVal.value.size() == 0);
+    pVal.remove = (pVal.value.empty());
     pVal.value = propVal;
     newProps[PROJECTPROPNAME_MERGELOGTEMPLATEMSG] = pVal;
 
