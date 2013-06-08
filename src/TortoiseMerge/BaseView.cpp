@@ -5740,37 +5740,32 @@ void CBaseView::ConvertTabToSpaces()
             continue;
         }
         CString sLine = GetViewLine(nViewLine);
-        int nDel = 0;
-        int nTabCount = 0; // total tabs to be replaced by spaces
-        int nSpaceCount = 0; // number of spaces in tab size run
-        int nPos = 0;
-        while (nPos<sLine.GetLength())
+        bool bTabToConvertFound = false;
+        int nPosIn = 0;
+        int nPosOut = 0;
+        while (nPosIn<sLine.GetLength())
         {
-            switch (sLine[nPos++])
+            switch (sLine[nPosIn])
             {
             case ' ':
-                if (++nSpaceCount < m_nTabSize)
-                {
-                    continue;
-                }
+                nPosIn++;
+                nPosOut++;
+                continue;
             case '\t':
-                nTabCount++;
-                nSpaceCount = 0;
-                nDel = nPos;
+                nPosIn++;
+                bTabToConvertFound = true;
+                nPosOut = (nPosOut+m_nTabSize) - nPosOut%m_nTabSize;
                 continue;
             }
             break;
         }
-        if (nDel > 0)
+        if (bTabToConvertFound)
         {
             CString sLineNew = sLine;
-            sLineNew.Delete(0, nDel);
-            sLineNew = CString(' ', nTabCount * m_nTabSize) + sLineNew;
-            if (sLine!=sLineNew)
-            {
-                SetViewLine(nViewLine, sLineNew);
-                bModified = true;
-            }
+            sLineNew.Delete(0, nPosIn);
+            sLineNew = CString(' ', nPosOut) + sLineNew;
+            SetViewLine(nViewLine, sLineNew);
+            bModified = true;
         }
     }
     if (bModified)
