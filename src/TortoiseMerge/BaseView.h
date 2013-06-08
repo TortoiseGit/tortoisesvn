@@ -213,8 +213,11 @@ public: // methods
 
     void            AddIndentationForSelectedBlock();
     void            RemoveIndentationForSelectedBlock();
+    bool            HasTabsToConvert();
     void            ConvertTabToSpaces();
+    bool            HasSpacesToConvert();
     void            Tabularize();
+    bool            HasTrailWhiteChars();
     void            RemoveTrailWhiteChars();
 
     void            ShowFormatPopup(CPoint point);

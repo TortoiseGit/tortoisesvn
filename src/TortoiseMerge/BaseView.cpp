@@ -4232,6 +4232,16 @@ void CBaseView::OnCaretMove(bool bMoveLeft, bool isShiftPressed)
 void CBaseView::AddContextItems(CIconMenu& popup, DiffStates /*state*/)
 {
     AddCutCopyAndPaste(popup);
+    if (IsWritable())
+    {
+        CString temp;
+        temp.LoadString(IDS_EDIT_TAB2SPACE);
+        popup.AppendMenu(MF_STRING | HasTabsToConvert() ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
+        temp.LoadString(IDS_EDIT_SPACE2TAB);
+        popup.AppendMenu(MF_STRING | HasSpacesToConvert() ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
+        temp.LoadString(IDS_EDIT_TRIM);
+        popup.AppendMenu(MF_STRING | HasTrailWhiteChars() ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
+    }
 }
 
 void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)
@@ -4247,12 +4257,6 @@ void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)
         temp.LoadString(IDS_EDIT_PASTE);
         popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
         popup.AppendMenu(MF_SEPARATOR, NULL);
-        temp.LoadString(IDS_EDIT_TAB2SPACE);
-        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
-        temp.LoadString(IDS_EDIT_SPACE2TAB);
-        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
-        temp.LoadString(IDS_EDIT_TRIM);
-        popup.AppendMenu(MF_STRING | true ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
     }
 }
 
@@ -5725,6 +5729,37 @@ void CBaseView::RemoveIndentationForSelectedBlock()
     }
 }
 
+bool CBaseView::HasTabsToConvert()
+{
+    if (GetViewCount()>10000)
+    {
+        // 10k lines is enought to check
+        return true;
+    }
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        int nPosIn = 0;
+        while (nPosIn<sLine.GetLength())
+        {
+            switch (sLine[nPosIn])
+            {
+            case ' ':
+                nPosIn++;
+                continue;
+            case '\t':
+                return true;
+            }
+            break;
+        }
+    }
+    return false;
+}
+
 /**
     there are two possible versions
      - convert tabs to spaces only in front of text (implemented)
@@ -5774,6 +5809,45 @@ void CBaseView::ConvertTabToSpaces()
         SaveUndoStep();
         BuildAllScreen2ViewVector();
     }
+}
+
+bool CBaseView::HasSpacesToConvert()
+{
+    if (GetViewCount()>10000)
+    {
+        // 10k lines is enought to check
+        return true;
+    }
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        int nSpaceCount = 0; // number of spaces in tab size run
+        int nPos = 0;
+        while (nPos<sLine.GetLength())
+        {
+            switch (sLine[nPos++])
+            {
+            case ' ':
+                //bSpace = true;
+                if (++nSpaceCount < m_nTabSize)
+                {
+                    continue;
+                }
+            case '\t':
+                if (nSpaceCount!=0)
+                {
+                    return true;
+                }
+                continue;
+            }
+            break;
+        }
+    }
+    return false;
 }
 
 /**
@@ -5833,6 +5907,34 @@ void CBaseView::Tabularize()
     }
 }
 
+bool CBaseView::HasTrailWhiteChars()
+{
+    if (GetViewCount()>10000)
+    {
+        // 10k lines is enought to check
+        return true;
+    }
+    for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
+    {
+        if (IsLineEmpty(nViewLine))
+        {
+            continue;
+        }
+        CString sLine = GetViewLine(nViewLine);
+        if (sLine.IsEmpty())
+        {
+            continue;
+        }
+        switch (sLine[sLine.GetLength()-1])
+        {
+        case ' ':
+        case '\t':
+            return true;
+        }
+    }
+    return false;
+}
+
 void CBaseView::RemoveTrailWhiteChars()
 {
     bool bModified = false;
@@ -5845,7 +5947,7 @@ void CBaseView::RemoveTrailWhiteChars()
         CString sLine = GetViewLine(nViewLine);
         CString sLineNew = sLine;
         sLineNew.TrimRight();
-        if (sLine!=sLineNew)
+        if (sLine.GetLength()!=sLineNew.GetLength())
         {
             SetViewLine(nViewLine, sLineNew);
             bModified = true;
