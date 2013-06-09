@@ -1983,7 +1983,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         _tcscpy_s(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
     else
         _tcscpy_s(ignorepath, I->c_str());
-    if ((itemStates & ITEMIS_IGNORED)&&((ignoredprops.size() > 0)||(ignoredglobalprops.size() > 0)))
+    if ((itemStates & ITEMIS_IGNORED)&&((!ignoredprops.empty())||(!ignoredglobalprops.empty())))
     {
         // check if the item name is ignored or the mask
         size_t p = 0;

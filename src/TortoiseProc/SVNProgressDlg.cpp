@@ -595,7 +595,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 }
                 CString sExtPath = m_ExtStack.RemoveHead();
                 data->sPathColumnText.FormatMessage(IDS_PROGRS_PATHATREV, (LPCTSTR)sExtPath, rev);
-                if (m_arData.size() && !m_bExtDataAdded)
+                if (!m_arData.empty() && !m_bExtDataAdded)
                 {
                     NotificationData * pOldData = m_arData[m_arData.size()-1];
                     if (pOldData && (pOldData->sPathColumnText==sExtPath))
