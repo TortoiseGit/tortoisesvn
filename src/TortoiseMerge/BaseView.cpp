@@ -2230,10 +2230,63 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
 
     AddContextItems(popup, state);
 
+    CMenu popupEols;
+    CMenu popupUnicode;
+    int nEncodingCommandBase = POPUPCOMMAND__LAST;
+    int nEolCommandBase = nEncodingCommandBase+_countof(uctArray);
+    if (IsWritable())
+    {
+        CString temp;
+        TWhitecharsProperties oWhites = GetWhitecharsProperties();
+        temp.LoadString(IDS_EDIT_TAB2SPACE);
+        popup.AppendMenu(MF_STRING | oWhites.HasTabsToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
+        temp.LoadString(IDS_EDIT_SPACE2TAB);
+        popup.AppendMenu(MF_STRING | oWhites.HasSpacesToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
+        temp.LoadString(IDS_EDIT_TRIM);
+        popup.AppendMenu(MF_STRING | oWhites.HasTrailWhiteChars ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
+
+        // add eol submenu
+        if (!popupEols.CreatePopupMenu())
+            return;
+
+        EOL eEolType = GetLineEndings(oWhites.HasMixedEols);
+        for (int i = 1; i < _countof(eolArray); i++)
+        {
+            CString temp = GetEolName(eolArray[i]);
+            bool bChecked = (eEolType == eolArray[i]);
+            popupEols.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEolCommandBase+i, temp);
+        }
+
+        temp = "EOL";
+        popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupEols.GetSafeHmenu(), temp);
+
+        // add encoding submenu
+        if (!popupUnicode.CreatePopupMenu())
+            return;
+        for (int i = 0; i < _countof(uctArray); i++)
+        {
+            CString temp = CFileTextLines::GetEncodingName(uctArray[i]);
+            bool bChecked = (m_texttype == uctArray[i]);
+            popupUnicode.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEncodingCommandBase+i, temp);
+        }
+        temp = "Encoding";
+        popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupUnicode.GetSafeHmenu(), temp);
+
+    }
+
     CompensateForKeyboard(point);
 
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     ResetUndoStep();
+    if ((cmd>=nEncodingCommandBase) && (cmd<nEncodingCommandBase+(int)_countof(uctArray)))
+    {
+        SetTextType(uctArray[cmd-nEncodingCommandBase]);
+    }
+    if ((cmd>=nEolCommandBase) && (cmd<nEolCommandBase+(int)_countof(eolArray)))
+    {
+        SetLineEndings(eolArray[cmd-nEolCommandBase]);
+        SaveUndoStep();
+    }
     switch (cmd)
     {
     // 2-pane view commands; target is right view
@@ -2370,84 +2423,6 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         }
     }
     OnContextMenu(point, state);
-}
-
-void CBaseView::ShowFormatPopup(CPoint point)
-{
-    if (!IsWindowVisible())
-        return;
-
-    CIconMenu popup;
-    if (!popup.CreatePopupMenu())
-        return;
-
-    CMenu popupEols;
-    if (!popupEols.CreatePopupMenu())
-        return;
-
-    CMenu popupUnicode;
-    if (!popupUnicode.CreatePopupMenu())
-        return;
-
-    int nEncodingCommandBase = POPUPCOMMAND__LAST;
-    for (int i = 0; i < _countof(uctArray); i++)
-    {
-        CString temp = CFileTextLines::GetEncodingName(uctArray[i]);
-        bool bChecked = (m_texttype == uctArray[i]);
-        popupUnicode.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEncodingCommandBase+i, temp);
-    }
-
-    int nEolCommandBase = nEncodingCommandBase+_countof(uctArray);
-    EOL eEolType = GetLineEndings();
-    for (int i = 1; i < _countof(eolArray); i++)
-    {
-        CString temp = GetEolName(eolArray[i]);
-        bool bChecked = (eEolType == eolArray[i]);
-        popupEols.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEolCommandBase+i, temp);
-    }
-
-    CString temp;
-    TWhitecharsProperties oWhites = GetWhitecharsProperties();
-    temp.LoadString(IDS_EDIT_TAB2SPACE);
-    popup.AppendMenu(MF_STRING | oWhites.HasTabsToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
-    temp.LoadString(IDS_EDIT_SPACE2TAB);
-    popup.AppendMenu(MF_STRING | oWhites.HasSpacesToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
-    temp.LoadString(IDS_EDIT_TRIM);
-    popup.AppendMenu(MF_STRING | oWhites.HasTrailWhiteChars ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
-    temp = "Encoding";
-    popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupUnicode.GetSafeHmenu(), temp);
-    temp = "EOL";
-    popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupEols.GetSafeHmenu(), temp);
-
-    //CompensateForKeyboard(point);
-
-    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
-    ResetUndoStep();
-    if ((cmd>=nEncodingCommandBase) && (cmd<nEncodingCommandBase+(int)_countof(uctArray)))
-    {
-        SetTextType(uctArray[cmd-nEncodingCommandBase]);
-    }
-    if ((cmd>=nEolCommandBase) && (cmd<nEolCommandBase+(int)_countof(eolArray)))
-    {
-        SetLineEndings(eolArray[cmd-nEolCommandBase]);
-    }
-    switch (cmd)
-    {
-    // white chars manipulations
-    case POPUPCOMMAND_TABTOSPACES:
-        ConvertTabToSpaces();
-        break;
-    case POPUPCOMMAND_SPACESTOTABS:
-        Tabularize();
-        break;
-    case POPUPCOMMAND_REMOVETRAILWHITES:
-        RemoveTrailWhiteChars();
-        break;
-    default:
-        return;
-    } // switch (cmd)
-    SaveUndoStep(); // all except copy, cut  paste save undo step, but this should not be harmful as step is empty already and thus not saved
-    return;
 }
 
 void CBaseView::RefreshViews()
@@ -4233,17 +4208,6 @@ void CBaseView::OnCaretMove(bool bMoveLeft, bool isShiftPressed)
 void CBaseView::AddContextItems(CIconMenu& popup, DiffStates /*state*/)
 {
     AddCutCopyAndPaste(popup);
-    if (IsWritable())
-    {
-        CString temp;
-        TWhitecharsProperties oWhites = GetWhitecharsProperties();
-        temp.LoadString(IDS_EDIT_TAB2SPACE);
-        popup.AppendMenu(MF_STRING | oWhites.HasTabsToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_TABTOSPACES, temp);
-        temp.LoadString(IDS_EDIT_SPACE2TAB);
-        popup.AppendMenu(MF_STRING | oWhites.HasSpacesToConvert ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_SPACESTOTABS, temp);
-        temp.LoadString(IDS_EDIT_TRIM);
-        popup.AppendMenu(MF_STRING | oWhites.HasTrailWhiteChars ? MF_ENABLED : (MF_DISABLED|MF_GRAYED), POPUPCOMMAND_REMOVETRAILWHITES, temp);
-    }
 }
 
 void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)

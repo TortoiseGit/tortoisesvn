@@ -227,8 +227,6 @@ public: // methods
 
     TWhitecharsProperties GetWhitecharsProperties();
 
-    void            ShowFormatPopup(CPoint point);
-
 public: // variables
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
