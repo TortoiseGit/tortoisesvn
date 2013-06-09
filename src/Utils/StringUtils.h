@@ -18,6 +18,8 @@
 //
 #pragma once
 
+#include <atlstr.h>
+
 #ifdef UNICODE
 #define _tcswildcmp wcswildcmp
 #else

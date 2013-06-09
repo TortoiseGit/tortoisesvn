@@ -21,6 +21,11 @@
 #include "StringUtils.h"
 #include "ClipboardHelper.h"
 #include "SmartHandle.h"
+#include <memory>
+#include <WinCrypt.h>
+#include <atlstr.h>
+
+#pragma comment(lib, "Crypt32.lib")
 
 int strwildcmp(const char *wild, const char *string)
 {
