@@ -213,12 +213,19 @@ public: // methods
 
     void            AddIndentationForSelectedBlock();
     void            RemoveIndentationForSelectedBlock();
-    bool            HasTabsToConvert();
     void            ConvertTabToSpaces();
-    bool            HasSpacesToConvert();
     void            Tabularize();
-    bool            HasTrailWhiteChars();
     void            RemoveTrailWhiteChars();
+
+    struct TWhitecharsProperties
+    {
+        bool HasMixedEols;
+        bool HasTrailWhiteChars;
+        bool HasSpacesToConvert;
+        bool HasTabsToConvert;
+    };
+
+    TWhitecharsProperties GetWhitecharsProperties();
 
     void            ShowFormatPopup(CPoint point);
 
@@ -252,6 +259,7 @@ public: // variables
     int             SaveFileTo(CString FileName, int Flags = 0);
 
     EOL             GetLineEndings();                                           ///< Get Line endings on view from lineendings or "mixed"
+    EOL             GetLineEndings(bool MixelEols);
     void            SetLineEndings(EOL);                                        ///< Set AUTO lineendings and replaces all EOLs
     UnicodeType     GetTextType() { return m_texttype; }
     void            SetTextType(UnicodeType);                                   ///< Changes TextType
