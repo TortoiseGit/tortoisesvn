@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -394,7 +394,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         if (currentPath.get())
         {
-            oldestReported = min (oldestReported, revision);
+            oldestReported = std::min (oldestReported, revision);
             if (options.GetReceiver() != NULL)
             {
                 if (options.GetRevsOnly())
@@ -561,11 +561,11 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         bool limitReached = (limit > 0) && (receiveCount >= limit);
         if ((receiveCount == 0) || !limitReached)
         {
-            AutoAddSkipRange (max (endRevision, (revision_t)1)-1);
+            AutoAddSkipRange (std::max (endRevision, (revision_t)1)-1);
         }
     }
 
-    return min (oldestReported, firstNARevision+1);
+    return std::min (oldestReported, firstNARevision+1);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -640,7 +640,7 @@ CCacheLogQuery::NextAvailableRevision ( const CDictionaryBasedTempPath& path
                                       , const CDataAvailable& dataAvailable) const
 {
     const CRevisionIndex& revisions = cache->GetRevisions();
-    revision_t lastRevisionToCheck = min ( endRevision
+    revision_t lastRevisionToCheck = std::min ( endRevision
                                          , revisions.GetFirstRevision());
 
     while ((startRevision >= endRevision) && (startRevision != NO_REVISION))
@@ -799,7 +799,7 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
                         , uuid
                         , svnQuery
                         , startRevision
-                        , max (min (startRevision, endRevision), (revision_t)0)
+                        , std::max (std::min (startRevision, endRevision), (revision_t)0)
                         , startPath
                         , limit
                         , options);

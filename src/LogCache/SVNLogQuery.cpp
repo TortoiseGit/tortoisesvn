@@ -43,7 +43,7 @@ void CSVNLogQuery::AppendStrings ( SVNPool& pool
 {
     for (size_t i = 0; i  < strings.size(); ++i)
     {
-        const string& utf8String = strings[i];
+        const std::string& utf8String = strings[i];
 
         size_t size = utf8String.length()+1;
         char * aprString = reinterpret_cast<char *>(apr_palloc (pool, size));

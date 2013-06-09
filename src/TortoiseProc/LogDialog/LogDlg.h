@@ -47,8 +47,6 @@
 #pragma warning(default : 4298)
 
 
-using namespace std;
-
 
 #define MERGE_REVSELECTSTART     1
 #define MERGE_REVSELECTEND       2
@@ -209,7 +207,7 @@ private:
     void UpdateSelectedRevs();
     void UpdateLogInfoLabel();
     void SaveSplitterPos();
-    bool ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase);
+    bool ValidateRegexp(LPCTSTR regexp_str, std::tr1::wregex& pat, bool bMatchCase);
     void CheckRegexpTooltip();
     void DiffSelectedFile();
     void DiffSelectedRevWithPrevious();

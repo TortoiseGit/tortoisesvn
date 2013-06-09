@@ -1279,9 +1279,9 @@ void CCommitDlg::GetAutocompletionList()
 
 void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt)
 {
-    static std::map<CString, tr1::wregex> regexmap;
+    static std::map<CString, std::tr1::wregex> regexmap;
 
-    wstring sFileContent;
+    std::wstring sFileContent;
     CAutoFile hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
     if (hFile)
     {
@@ -1304,7 +1304,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
         }
         if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
         {
-            sFileContent = wstring((wchar_t*)buffer.get(), readbytes/sizeof(WCHAR));
+            sFileContent = std::wstring((wchar_t*)buffer.get(), readbytes/sizeof(WCHAR));
         }
         if ((opts & IS_TEXT_UNICODE_NOT_UNICODE_MASK)||(opts == 0))
         {
@@ -1312,7 +1312,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
             std::unique_ptr<wchar_t[]> pWideBuf(new wchar_t[ret]);
             const int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer.get(), readbytes, pWideBuf.get(), ret);
             if (ret2 == ret)
-                sFileContent = wstring(pWideBuf.get(), ret);
+                sFileContent = std::wstring(pWideBuf.get(), ret);
         }
     }
     if (sFileContent.empty()|| !m_bRunThread)
@@ -1323,29 +1323,29 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
     try
     {
 
-        tr1::wregex regCheck;
-        std::map<CString, tr1::wregex>::const_iterator regIt;
+        std::tr1::wregex regCheck;
+        std::map<CString, std::tr1::wregex>::const_iterator regIt;
         if ((regIt = regexmap.find(sExt)) != regexmap.end())
             regCheck = regIt->second;
         else
         {
-            regCheck = tr1::wregex(sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            regCheck = std::tr1::wregex(sRegex, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
             regexmap[sExt] = regCheck;
         }
-        const tr1::wsregex_iterator end;
-        for (tr1::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
+        const std::tr1::wsregex_iterator end;
+        for (std::tr1::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
         {
-            const tr1::wsmatch match = *it;
+            const std::tr1::wsmatch match = *it;
             for (size_t i=1; i<match.size(); ++i)
             {
                 if (match[i].second-match[i].first)
                 {
-                    m_autolist.insert(wstring(match[i]).c_str());
+                    m_autolist.insert(std::wstring(match[i]).c_str());
                 }
             }
         }
     }
-    catch (exception) {}
+    catch (std::exception) {}
 }
 
 // CSciEditContextMenuInterface

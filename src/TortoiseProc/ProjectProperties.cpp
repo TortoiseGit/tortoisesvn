@@ -28,8 +28,6 @@
 #include <regex>
 #include <Shlwapi.h>
 
-using namespace std;
-
 #define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)")
 
 const CString sLOG_REVISIONREGEX = LOG_REVISIONREGEX;
@@ -332,8 +330,8 @@ void ProjectProperties::AutoUpdateRegex()
     {
         try
         {
-            regCheck = tr1::wregex (sCheckRe);
-            regBugID = tr1::wregex (sBugIDRe);
+            regCheck = std::tr1::wregex (sCheckRe);
+            regBugID = std::tr1::wregex (sBugIDRe);
         }
         catch (std::exception)
         {
@@ -359,14 +357,14 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
             try
             {
                 AutoUpdateRegex();
-                const tr1::wsregex_iterator end;
-                wstring s = msg;
-                for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+                const std::tr1::wsregex_iterator end;
+                std::wstring s = msg;
+                for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
                     // (*it)[0] is the matched string
-                    wstring matchedString = (*it)[0];
+                    std::wstring matchedString = (*it)[0];
                     ptrdiff_t matchpos = it->position(0);
-                    for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
+                    for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                     {
                         ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
                         ptrdiff_t matchposID = it2->position(0);
@@ -375,29 +373,29 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
                     }
                 }
             }
-            catch (exception) {}
+            catch (std::exception) {}
         }
         else
         {
             try
             {
                 AutoUpdateRegex();
-                const tr1::wsregex_iterator end;
-                wstring s = msg;
-                for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+                const std::tr1::wsregex_iterator end;
+                std::wstring s = msg;
+                for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
-                    const tr1::wsmatch match = *it;
+                    const std::tr1::wsmatch match = *it;
                     // we define group 1 as the whole issue text and
                     // group 2 as the bug ID
                     if (match.size() >= 2)
                     {
-                        ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
+                        ATLTRACE(_T("matched id : %s\n"), std::wstring(match[1]).c_str());
                         CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
                         result.push_back (range);
                     }
                 }
             }
-            catch (exception) {}
+            catch (std::exception) {}
         }
     }
     else if (result.empty()&&(!sMessage.IsEmpty()))
@@ -563,9 +561,9 @@ BOOL ProjectProperties::HasBugID(const CString& sMessage)
         try
         {
             AutoUpdateRegex();
-            return tr1::regex_search((LPCTSTR)sMessage, regCheck);
+            return std::tr1::regex_search((LPCTSTR)sMessage, regCheck);
         }
-        catch (exception) {}
+        catch (std::exception) {}
     }
     return FALSE;
 }
@@ -694,21 +692,21 @@ CString ProjectProperties::GetLogSummary(const CString& sMessage)
     {
         try
         {
-            const tr1::wregex regSum(sLogSummaryRe);
-            const tr1::wsregex_iterator end;
-            wstring s = sMessage;
-            for (tr1::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
+            const std::tr1::wregex regSum(sLogSummaryRe);
+            const std::tr1::wsregex_iterator end;
+            std::wstring s = sMessage;
+            for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
             {
-                const tr1::wsmatch match = *it;
+                const std::tr1::wsmatch match = *it;
                 // we define the first group as the summary text
                 if ((*it).size() >= 1)
                 {
-                    ATLTRACE(_T("matched summary : %s\n"), wstring(match[0]).c_str());
-                    sRet += (CString(wstring(match[1]).c_str()));
+                    ATLTRACE(_T("matched summary : %s\n"), std::wstring(match[0]).c_str());
+                    sRet += (CString(std::wstring(match[1]).c_str()));
                 }
             }
         }
-        catch (exception) {}
+        catch (std::exception) {}
     }
     sRet.Trim();
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2012 - TortoiseSVN
+// Copyright (C) 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,11 +177,11 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
     }
     else
     {
-        for ( vector<tr1::regex>::const_iterator it = patterns.begin()
+        for ( std::vector<std::tr1::regex>::const_iterator it = patterns.begin()
             ; it != patterns.end()
             ; ++it)
         {
-            if (!regex_search(text, text + size, *it, tr1::regex_constants::match_any))
+            if (!regex_search(text, text + size, *it, std::tr1::regex_constants::match_any))
                 return false;
         }
     }
@@ -189,7 +189,7 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
     return true;
 }
 
-std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
+std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) const
 {
     std::vector<CHARRANGE> ranges;
 
@@ -227,10 +227,10 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
     }
     else
     {
-        for (vector<tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        for (std::vector<std::tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
         {
-            const tr1::sregex_iterator end;
-            for (tr1::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
+            const std::tr1::sregex_iterator end;
+            for (std::tr1::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
             {
                 ptrdiff_t matchposID = it2->position(0);
                 CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
@@ -283,21 +283,21 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
 
 // called to parse a (potentially incorrect) regex spec
 
-bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, vector<tr1::regex>& patterns)
+bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1::regex>& patterns)
 {
     try
     {
-        tr1::regex pat;
-        tr1::regex_constants::syntax_option_type type
+        std::tr1::regex pat;
+        std::tr1::regex_constants::syntax_option_type type
             = caseSensitive
-            ? tr1::regex_constants::ECMAScript
-            : tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
+            ? std::tr1::regex_constants::ECMAScript
+            : std::tr1::regex_constants::ECMAScript | std::tr1::regex_constants::icase;
 
-        pat = tr1::regex(regexp_str, type);
+        pat = std::tr1::regex(regexp_str, type);
         patterns.push_back(pat);
         return true;
     }
-    catch (exception) {}
+    catch (std::exception) {}
     return false;
 }
 
@@ -495,7 +495,7 @@ namespace
 {
     // concatenate strings
 
-    void AppendString (CStringBuffer& target, const string& toAppend)
+    void AppendString (CStringBuffer& target, const std::string& toAppend)
     {
         target.Append (' ');
         target.Append (toAppend);

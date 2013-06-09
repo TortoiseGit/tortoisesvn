@@ -35,8 +35,6 @@
 #include "StringUtils.h"
 #endif
 
-using namespace std;
-
 
 CTSVNPath::CTSVNPath(void) :
     m_bDirectoryKnown(false),
@@ -762,7 +760,7 @@ bool CTSVNPath::IsValidOnWindows() const
 
     m_bIsValidOnWindows = true;
     EnsureBackslashPathSet();
-    wstring checkPath = m_sBackslashPath;
+    std::wstring checkPath = m_sBackslashPath;
     if (IsUrl())
     {
         CString uipath = CPathUtils::PathUnescape(GetSVNPathString());
@@ -772,11 +770,11 @@ bool CTSVNPath::IsValidOnWindows() const
     try
     {
         // now check for illegal filenames
-        tr1::wregex rx2(_T("(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]"), tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-        if (tr1::regex_search(checkPath, rx2, tr1::regex_constants::match_default))
+        std::tr1::wregex rx2(_T("(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]"), std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+        if (std::tr1::regex_search(checkPath, rx2, std::tr1::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
-    catch (exception) {}
+    catch (std::exception) {}
 
     m_bIsValidOnWindowsKnown = true;
     return m_bIsValidOnWindows;

@@ -748,7 +748,7 @@ void CLogDlg::EnableOKButton()
 
 namespace
 {
-    bool IsAllWhitespace (const wstring& text, long first, long last)
+    bool IsAllWhitespace (const std::wstring& text, long first, long last)
     {
         for (; first < last; ++first)
         {
@@ -763,7 +763,7 @@ namespace
         return true;
     }
 
-    void ReduceRanges(std::vector<CHARRANGE>& ranges, const wstring& text)
+    void ReduceRanges(std::vector<CHARRANGE>& ranges, const std::wstring& text)
     {
         if (ranges.size() < 2)
             return;
@@ -787,7 +787,7 @@ namespace
     struct SMarkerInfo
     {
         CString sText;
-        wstring text;
+        std::wstring text;
 
         std::vector<CHARRANGE> ranges;
         std::vector<CHARRANGE> idRanges;
@@ -1926,7 +1926,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         //read data from dialog
         CString findText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
-        tr1::wregex pat;
+        std::tr1::wregex pat;
         bool bRegex = ValidateRegexp(findText, pat, bMatchCase);
 
         bool scanRelevantPathsOnly = (m_cShowPaths.GetState() & 0x0003)==BST_CHECKED;
@@ -2848,18 +2848,18 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         if ((!bBugIDFound)&&(pEnLink->msg != WM_SETCURSOR))
         {
             // now check whether it matches a revision
-            const tr1::wregex regMatch(m_ProjectProperties.GetLogRevRegex(),
-                                        tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            const tr1::wsregex_iterator end;
-            wstring s = msg;
-            for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
+            const std::tr1::wregex regMatch(m_ProjectProperties.GetLogRevRegex(),
+                                        std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+            const std::tr1::wsregex_iterator end;
+            std::wstring s = msg;
+            for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
             {
-                wstring matchedString = (*it)[0];
-                const tr1::wregex regRevMatch(L"\\d+");
-                wstring ss = matchedString;
-                for (tr1::wsregex_iterator it2(ss.begin(), ss.end(), regRevMatch); it2 != end; ++it2)
+                std::wstring matchedString = (*it)[0];
+                const std::tr1::wregex regRevMatch(L"\\d+");
+                std::wstring ss = matchedString;
+                for (std::tr1::wsregex_iterator it2(ss.begin(), ss.end(), regRevMatch); it2 != end; ++it2)
                 {
-                    wstring matchedRevString = (*it2)[0];
+                    std::wstring matchedRevString = (*it2)[0];
                     if (url.Compare(matchedRevString.c_str()) == 0)
                     {
                         svn_revnum_t rev = _ttol(matchedRevString.c_str());
@@ -3370,12 +3370,12 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
 LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD,
                                          PLOGENTRYDATA pLogEntry)
 {
-    wstring text;
+    std::wstring text;
     text = (LPCTSTR)listCtrl.GetItemText((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
     if (text.empty())
         return CDRF_DODEFAULT;
 
-    wstring matchtext = text;
+    std::wstring matchtext = text;
     std::vector<CHARRANGE> ranges = m_filter.GetMatchRanges(matchtext);
     if (!ranges.empty())
     {
@@ -4104,17 +4104,17 @@ void CLogDlg::OnEnChangeSearchedit()
         KillTimer(LOGFILTER_TIMER);
 }
 
-bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase /* = false */)
+bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, std::tr1::wregex& pat, bool bMatchCase /* = false */)
 {
     try
     {
-        tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript;
+        std::tr1::regex_constants::syntax_option_type type = std::tr1::regex_constants::ECMAScript;
         if (!bMatchCase)
-            type |= tr1::regex_constants::icase;
-        pat = tr1::wregex(regexp_str, type);
+            type |= std::tr1::regex_constants::icase;
+        pat = std::tr1::wregex(regexp_str, type);
         return true;
     }
-    catch (exception) {}
+    catch (std::exception) {}
     return false;
 }
 
@@ -4122,7 +4122,7 @@ bool CLogDlg::Validate(LPCTSTR string)
 {
     if (!m_bFilterWithRegex)
         return true;
-    tr1::wregex pat;
+    std::tr1::wregex pat;
     return ValidateRegexp(string, pat, false);
 }
 

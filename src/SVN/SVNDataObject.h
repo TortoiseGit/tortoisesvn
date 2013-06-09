@@ -28,8 +28,6 @@
 #define IDataObjectAsyncCapability IAsyncOperation
 #endif
 
-using namespace std;
-
 extern  CLIPFORMAT  CF_FILECONTENTS;
 extern  CLIPFORMAT  CF_FILEDESCRIPTOR;
 extern  CLIPFORMAT  CF_PREFERREDDROPEFFECT;
@@ -101,12 +99,12 @@ private:
     SVNRev                      m_pegRev;
     SVNRev                      m_revision;
     bool                        m_bFilesAsUrlLinks;
-    vector<SVNObjectInfoData>   m_allPaths;
+    std::vector<SVNObjectInfoData>   m_allPaths;
     long                        m_cRefCount;
     BOOL                        m_bInOperation;
     BOOL                        m_bIsAsync;
-    vector<FORMATETC*>          m_vecFormatEtc;
-    vector<STGMEDIUM*>          m_vecStgMedium;
+    std::vector<FORMATETC*>     m_vecFormatEtc;
+    std::vector<STGMEDIUM*>     m_vecStgMedium;
 };
 
 
@@ -117,8 +115,8 @@ private:
 class CSVNEnumFormatEtc : public IEnumFORMATETC
 {
 public:
-    CSVNEnumFormatEtc(const vector<FORMATETC*>& vec, bool localonly);
-    CSVNEnumFormatEtc(const vector<FORMATETC>& vec, bool localonly);
+    CSVNEnumFormatEtc(const std::vector<FORMATETC*>& vec, bool localonly);
+    CSVNEnumFormatEtc(const std::vector<FORMATETC>& vec, bool localonly);
     //IUnknown members
     STDMETHOD(QueryInterface)(REFIID, void**);
     STDMETHOD_(ULONG, AddRef)(void);
@@ -132,7 +130,7 @@ public:
 private:
     void                        Init(bool localonly);
 private:
-    vector<FORMATETC>           m_vecFormatEtc;
+    std::vector<FORMATETC>      m_vecFormatEtc;
     FORMATETC                   m_formats[SVNDATAOBJECT_NUMFORMATS];
     ULONG                       m_cRefCount;
     size_t                      m_iCur;

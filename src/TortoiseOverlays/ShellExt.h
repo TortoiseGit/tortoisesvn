@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2013 - TortoiseSVN
 
 #pragma once
 #include <vector>
@@ -8,7 +8,6 @@
 
 extern  volatile LONG       g_cRefThisDll;          // Reference count of this DLL.
 
-using namespace std;
 
 enum FileState
 {
@@ -50,7 +49,7 @@ protected:
     FileState m_State;
     ULONG   m_cRef;
 
-    vector<DLLPointers>         m_dllpointers;
+    std::vector<DLLPointers>         m_dllpointers;
 
 private:
     int             GetInstalledOverlays(void);     ///< returns the maximum number of overlays TSVN shall use

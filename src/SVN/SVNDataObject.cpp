@@ -240,7 +240,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         FILEGROUPDESCRIPTOR* files = (FILEGROUPDESCRIPTOR*)GlobalLock(data);
         files->cItems = static_cast<UINT>(m_allPaths.size());
         int index = 0;
-        for (vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
+        for (std::vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
         {
             CString temp;
             if (it->rootpath.IsUrl())
@@ -809,7 +809,7 @@ void CSVNEnumFormatEtc::Init(bool localonly)
     }
 }
 
-CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec, bool localonly) : m_cRefCount(0)
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const std::vector<FORMATETC>& vec, bool localonly) : m_cRefCount(0)
     , m_iCur(0)
 {
     m_localonly = localonly;
@@ -818,7 +818,7 @@ CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec, bool localonl
     Init(localonly);
 }
 
-CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC*>& vec, bool localonly) : m_cRefCount(0)
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const std::vector<FORMATETC*>& vec, bool localonly) : m_cRefCount(0)
     , m_iCur(0)
 {
     m_localonly = localonly;

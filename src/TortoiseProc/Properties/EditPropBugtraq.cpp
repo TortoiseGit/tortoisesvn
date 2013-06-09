@@ -219,7 +219,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r1 = std::tr1::wregex(m_sBugtraqRegex1);
         UNREFERENCED_PARAMETER(r1);
     }
-    catch (exception)
+    catch (std::exception)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX1, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;
@@ -229,7 +229,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r2 = std::tr1::wregex(m_sBugtraqRegex2);
         UNREFERENCED_PARAMETER(r2);
     }
-    catch (exception)
+    catch (std::exception)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX2, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;

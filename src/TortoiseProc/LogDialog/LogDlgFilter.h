@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ private:
 
     /// if empty, use sub-string matching
 
-    vector<tr1::regex> patterns;
+    std::vector<std::tr1::regex> patterns;
 
     /// sub-string matching info
 
@@ -50,7 +50,7 @@ private:
     {
         /// sub-strings to find; normalized to lower case
 
-        string subString;
+        std::string subString;
 
         /// depending on the presense of a prefix, indicate
         /// how the sub-string match / mismatch gets combined
@@ -67,7 +67,7 @@ private:
 
     /// list of sub-strings to find; normalized to lower case
 
-    vector<SCondition> subStringConditions;
+    std::vector<SCondition> subStringConditions;
 
     /// negate pattern matching result
 
@@ -119,7 +119,7 @@ private:
 
     bool ValidateRegexp
         ( const char* regexp_str
-        , vector<tr1::regex>& patterns);
+        , std::vector<std::tr1::regex>& patterns);
 
     // construction utility
 
@@ -151,7 +151,7 @@ public:
     /// returns a vector with all the ranges where a match
     /// was found.
 
-    std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
+    std::vector<CHARRANGE> GetMatchRanges (std::wstring& text) const;
 
     /// filter utiltiy method
 

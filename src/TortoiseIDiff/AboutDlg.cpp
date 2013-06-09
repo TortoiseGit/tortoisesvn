@@ -24,7 +24,6 @@
 #include <string>
 #include <Commdlg.h>
 
-using namespace std;
 
 CAboutDlg::CAboutDlg(HWND hParent)
     : m_hParent(hParent)

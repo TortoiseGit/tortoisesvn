@@ -598,7 +598,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 
 std::vector<CHARRANGE>
 CAppUtils::FindRegexMatches
-    ( const wstring& text
+    ( const std::wstring& text
     , const CString& matchstring
     , const CString& matchsubstring /* = _T(".*")*/)
 {
@@ -608,15 +608,15 @@ CAppUtils::FindRegexMatches
 
     try
     {
-        const tr1::wregex regMatch(matchstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-        const tr1::wregex regSubMatch(matchsubstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-        const tr1::wsregex_iterator end;
-        for (tr1::wsregex_iterator it(text.begin(), text.end(), regMatch); it != end; ++it)
+        const std::tr1::wregex regMatch(matchstring, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+        const std::tr1::wregex regSubMatch(matchsubstring, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+        const std::tr1::wsregex_iterator end;
+        for (std::tr1::wsregex_iterator it(text.begin(), text.end(), regMatch); it != end; ++it)
         {
             // (*it)[0] is the matched string
-            wstring matchedString = (*it)[0];
+            std::wstring matchedString = (*it)[0];
             ptrdiff_t matchpos = it->position(0);
-            for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
+            for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
             {
                 ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
                 ptrdiff_t matchposID = it2->position(0);
@@ -625,7 +625,7 @@ CAppUtils::FindRegexMatches
             }
         }
     }
-    catch (exception) {}
+    catch (std::exception) {}
 
     return result;
 }

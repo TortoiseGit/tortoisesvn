@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2009-2011 - TortoiseSVN
+// Copyright (C) 2007, 2009-2011, 2013 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -118,7 +118,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     // User selected icons are stored in CURRENT USER
     TCHAR regVal[1024];
 
-    wstring icon;
+    std::wstring icon;
     HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
     for (int i = 0; i < _countof(hkeys); ++i)
     {
@@ -213,7 +213,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 {
     if(pwszPath == 0)
         return E_INVALIDARG;
-    for (vector<DLLPointers>::iterator it = m_dllpointers.begin(); it != m_dllpointers.end(); ++it)
+    for (std::vector<DLLPointers>::iterator it = m_dllpointers.begin(); it != m_dllpointers.end(); ++it)
     {
         if (it->pShellIconOverlayIdentifier)
         {

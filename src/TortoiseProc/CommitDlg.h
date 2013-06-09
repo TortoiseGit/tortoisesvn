@@ -34,7 +34,6 @@
 #include "PathEdit.h"
 
 #include <regex>
-using namespace std;
 
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101

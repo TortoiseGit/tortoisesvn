@@ -21,7 +21,7 @@
 #include <string>
 #include <regex>
 #include "TSVNPath.h"
-using namespace std;
+
 
 // when adding new properties, don't forget to change the
 // method AddAutoProps() so the new properties are automatically
@@ -302,8 +302,8 @@ private:
     bool CheckStringProp(CString& s, const std::string& propname, const CString& propval, LPCSTR prop);
 
     bool regExNeedUpdate;
-    tr1::wregex regCheck;
-    tr1::wregex regBugID;
+    std::tr1::wregex regCheck;
+    std::tr1::wregex regBugID;
 
     CString     sAutoProps;
     CTSVNPath   propsPath;
