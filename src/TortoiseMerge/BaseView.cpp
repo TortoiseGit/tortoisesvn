@@ -5902,7 +5902,7 @@ int CBaseView::FixBeforeSave()
         dlg.trimRightEnabled = oWhitesCurrent.HasTrailWhiteChars && (!m_oWhitesOnLoad.HasTrailWhiteChars);
         dlg.fixEolsEnabled = oWhitesCurrent.HasMixedEols && (!m_oWhitesOnLoad.HasMixedEols);
         dlg.lineendings = m_lineendings;
-        // if checking for format change is enabled and coresponding change is detected show dialog
+        // if checking for format change is enabled and corresponding change is detected show dialog
         if (((((m_nFixBeforeSaveMap&1)!=0) && dlg.convertSpacesEnabled)
                 || (((m_nFixBeforeSaveMap&2)!=0) && dlg.convertTabsEnabled)
                 || (((m_nFixBeforeSaveMap&4)!=0) && dlg.trimRightEnabled)
