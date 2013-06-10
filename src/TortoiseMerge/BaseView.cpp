@@ -2259,7 +2259,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
             popupEols.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEolCommandBase+i, temp);
         }
 
-        temp = "EOL";
+        temp.LoadString(IDS_VIEWCONTEXTMENU_EOL);
         popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupEols.GetSafeHmenu(), temp);
 
         // add encoding submenu
@@ -2271,7 +2271,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
             bool bChecked = (m_texttype == uctArray[i]);
             popupUnicode.AppendMenu(MF_STRING | MF_ENABLED | (bChecked ? MF_CHECKED : 0), nEncodingCommandBase+i, temp);
         }
-        temp = "Encoding";
+        temp.LoadString(IDS_VIEWCONTEXTMENU_ENCODING);
         popup.AppendMenuW(MF_POPUP | MF_ENABLED, (UINT_PTR)popupUnicode.GetSafeHmenu(), temp);
 
     }
@@ -5868,6 +5868,7 @@ CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties()
                 {
                     oRet.HasSpacesToConvert = true;
                 }
+                continue;
             }
             break;
         }
@@ -5896,7 +5897,6 @@ int CBaseView::FixBeforeSave()
     {
         TWhitecharsProperties oWhitesCurrent = GetWhitecharsProperties();
         CWhitesFixDlg dlg;
-//        dlg.view = CString(MAKEINTRESOURCE(nTextId));
         dlg.convertSpacesEnabled = oWhitesCurrent.HasSpacesToConvert && (!m_oWhitesOnLoad.HasSpacesToConvert && m_oWhitesOnLoad.HasTabsToConvert);
         dlg.convertTabsEnabled = oWhitesCurrent.HasTabsToConvert && (!m_oWhitesOnLoad.HasTabsToConvert && m_oWhitesOnLoad.HasSpacesToConvert);
         dlg.trimRightEnabled = oWhitesCurrent.HasTrailWhiteChars && (!m_oWhitesOnLoad.HasTrailWhiteChars);
