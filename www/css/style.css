@@ -63,10 +63,10 @@ table {
 
 th {
     font-weight: bold;
-    text-align: left;
 }
 
-td {
+td.lang,
+th.lang {
     text-align: left;
 }
 
@@ -292,9 +292,9 @@ img.centered {
 
 .post .meta {
     border-bottom: 1px dashed #D2D4C9;
-    font: italic 11px/180% Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-style: italic;
     padding-bottom: 5px;
-    text-align: left;
 }
 
 .post .entry {
