@@ -27,6 +27,7 @@
 #include "AppUtils.h"
 #include "GotoLineDlg.h"
 #include "EncodingDlg.h"
+#include "WhitesFixDlg.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -119,6 +120,7 @@ CBaseView::CBaseView()
     m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?"));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
+    m_nFixBeforeSaveMap = CRegDWORD(_T("Software\\TortoiseMerge\\FixBeforeSave"), (DWORD)-1);
     std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
     m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
     m_hConflictedIgnoredIcon = LoadIcon(IDI_CONFLICTEDIGNOREDLINE);
@@ -5356,6 +5358,9 @@ int CBaseView::SaveFile(int nFlags)
     Invalidate();
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
     {
+        if (FixBeforeSave()!=0)
+            return -1;
+
         CFileTextLines file;
         m_SaveParams.m_LineEndings = m_lineendings;
         m_SaveParams.m_UnicodeType = m_texttype;
@@ -5883,4 +5888,40 @@ CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties()
         }
     }
     return oRet;
+}
+
+int CBaseView::FixBeforeSave()
+{
+    if (m_nFixBeforeSaveMap != 0)
+    {
+        TWhitecharsProperties oWhitesCurrent = GetWhitecharsProperties();
+        CWhitesFixDlg dlg;
+//        dlg.view = CString(MAKEINTRESOURCE(nTextId));
+        dlg.convertSpacesEnabled = oWhitesCurrent.HasSpacesToConvert && (!m_oWhitesOnLoad.HasSpacesToConvert && m_oWhitesOnLoad.HasTabsToConvert);
+        dlg.convertTabsEnabled = oWhitesCurrent.HasTabsToConvert && (!m_oWhitesOnLoad.HasTabsToConvert && m_oWhitesOnLoad.HasSpacesToConvert);
+        dlg.trimRightEnabled = oWhitesCurrent.HasTrailWhiteChars && (!m_oWhitesOnLoad.HasTrailWhiteChars);
+        dlg.fixEolsEnabled = oWhitesCurrent.HasMixedEols && (!m_oWhitesOnLoad.HasMixedEols);
+        dlg.lineendings = m_lineendings;
+        // if checking for format change is enabled and coresponding change is detected show dialog
+        if (((((m_nFixBeforeSaveMap&1)!=0) && dlg.convertSpacesEnabled)
+                || (((m_nFixBeforeSaveMap&2)!=0) && dlg.convertTabsEnabled)
+                || (((m_nFixBeforeSaveMap&4)!=0) && dlg.trimRightEnabled)
+                || (((m_nFixBeforeSaveMap&8)!=0) && dlg.fixEolsEnabled))
+                && dlg.DoModal() != IDOK)
+            return -1;
+        if (dlg.convertSpaces)
+            Tabularize();
+        if (dlg.convertTabs)
+            ConvertTabToSpaces();
+        if (dlg.trimRight)
+            RemoveTrailWhiteChars();
+        if (dlg.fixEols)
+            SetLineEndings(dlg.lineendings);
+        if (dlg.stopAsking)
+        {
+            CRegDWORD regFixBeforeSaveMap(_T("Software\\TortoiseMerge\\FixBeforeSave"), (DWORD)-1);
+            regFixBeforeSaveMap = 0;
+        }
+    }
+    return 0; // no errors
 }

@@ -297,6 +297,23 @@ BEGIN
     EDITTEXT        IDC_NUMBER,7,20,161,14,ES_AUTOHSCROLL | ES_NUMBER
 END
 
+IDD_WHITESFIX DIALOGEX 0, 0, 309, 121
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,100,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,252,100,50,14
+    LTEXT           "File formating change have been detected",IDC_TITLE,7,7,290,8
+    LTEXT           "Select what T-Merge should fix",IDC_DESCRIPTION,7,18,290,8
+    CONTROL         "Remove &Trailing spaces and Tabs",IDC_TRIM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,32,280,10
+    CONTROL         "Convert Tabs to &Spaces",IDC_USESPACES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,44,280,10
+    CONTROL         "Convert Spaces to &Tabs",IDC_USETABS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,56,280,10
+    CONTROL         "Unify EOLs",IDC_FIXEOLS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,68,280,10
+    COMBOBOX        IDC_COMBO_EOL,29,81,47,30,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Don't ask anymore",IDC_STOPASKING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,97,171,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -383,6 +400,14 @@ BEGIN
         RIGHTMARGIN, 168
         TOPMARGIN, 7
         BOTTOMMARGIN, 62
+    END
+
+    IDD_WHITESFIX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
     END
 END
 #endif    // APSTUDIO_INVOKED
