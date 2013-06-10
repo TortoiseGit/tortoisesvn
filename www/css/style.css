@@ -205,14 +205,6 @@ img.centered {
     width: 230px;
 }
 
-#banner {
-    background: url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center top;
-    margin: 0 auto;
-    padding: 0;
-    width: 468px;
-    height: 64px;
-}
-
 /* Menu */
 #menu {
     background-color: #565F68;
@@ -261,12 +253,12 @@ img.centered {
 
 /* Page */
 #page {
-    background-color: white;
+    background: white url(../img/tortoisesvn_logo_hor468x64.png) no-repeat center 20px;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
             border-radius: 2px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 84px;
     width: 910px;
 }
 
