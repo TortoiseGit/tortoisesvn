@@ -25,18 +25,18 @@
 class CodeCollaboratorInfo
 {
 public:
-    CodeCollaboratorInfo(CString revisions);
-    bool IsInstalled();
-    CString GetCommandLineArguments();
+    CodeCollaboratorInfo(CString revisions, CString urlOfTrunk);
+    static bool IsInstalled();
+    static CString GetPathToCollabGuiExe();
+    CString GetCommandLine();
+
 private:
     CString m_Revisions;
 public:
-    CRegString PathToCollabGui;
     CRegString CollabUser;
-     // passwords visible on cmd line anyways, so we don't encrypt :-(
     CRegString CollabPassword;
     CRegString SvnPassword;
-    CRegString RepoUrl;
     CRegString SvnUser;
+    CString RepoUrl;
 };
 

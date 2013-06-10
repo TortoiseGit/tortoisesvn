@@ -4742,8 +4742,6 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
 
 void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup)
 {
-    CodeCollaboratorInfo codeCollaborator(L"");
-
     if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth()==0))
     {
         if (!m_path.IsDirectory())
@@ -4856,7 +4854,7 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
     }
     popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND, IDI_FILTEREDIT);
     // this menu shows only if Code Collaborator Installed & Registry configured
-    if (codeCollaborator.IsInstalled())
+    if (CodeCollaboratorInfo::IsInstalled())
         popup.AppendMenuIcon(ID_CODE_COLLABORATOR, IDS_LOG_CODE_COLLABORATOR,
                                                         IDI_CODE_COLLABORATOR);
 }
@@ -4989,6 +4987,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     EnableOKButton();
 }
 
+CString CLogDlg::GetUrlOfTrunk()
+{
+    // this may not work for SVNSERVE based repos...
+    CString returnedString = L"";
+    CString repositoryRootUrl = GetRepositoryRoot(m_path);
+    CString selectedUrl = GetSUrl();
+    int slashPos = selectedUrl.Find(L"/", repositoryRootUrl.GetLength() + 1);
+    if (slashPos == -1)
+        return selectedUrl;
+    returnedString = selectedUrl.Left(slashPos);
+    return returnedString;
+}
+
 void CLogDlg::ExecuteAddCodeCollaboratorReview()
 {
     CString revisions;
@@ -4997,13 +5008,10 @@ void CLogDlg::ExecuteAddCodeCollaboratorReview()
     revisions = GetSpaceSeparatedSelectedRevisions();
     if (revisions.GetLength() == 0)
         return;
-
-    CodeCollaboratorInfo codeCollaborator(revisions);
-    commandLine.Format(L"%s %s", (CString)codeCollaborator.PathToCollabGui,
-                                        codeCollaborator.GetCommandLineArguments());
+    CodeCollaboratorInfo codeCollaborator (revisions, GetUrlOfTrunk());
     // the following line is for testing only and will be removed in the future.
-    ::MessageBox(GetSafeHwnd(), (LPCWSTR)commandLine, L"TortoiseSVN-Debugging", MB_OK);
-    CAppUtils::LaunchApplication(commandLine, NULL, false);
+    ::MessageBox(GetSafeHwnd(), (LPCWSTR)codeCollaborator.GetCommandLine(), L"TortoiseSVN-Debugging", MB_OK);
+    CAppUtils::LaunchApplication(codeCollaborator.GetCommandLine(), NULL, false);
 }
 
 CString CLogDlg::GetSpaceSeparatedSelectedRevisions()

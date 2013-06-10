@@ -19,52 +19,58 @@
 
 #include "stdafx.h"
 #include "CodeCollaborator.h"
+#include "StringUtils.h"
 
-/*
-Example registry file contents required for Code Collaborator menu item to show...
-Windows Registry Editor Version 5.00
-
-    [HKEY_CURRENT_USER\Software\TortoiseSVN\CodeCollaborator]
-    "PathToCollabGui"="C:\\Program Files\\Collaborator Client\\ccollabgui.exe"
-    "CollabUser"="collab_user"
-    "CollabPassword"="secret1"
-    "RepoUrl"="http://ntsvn1.sciex.com/cliquid/Helium/Trunk"
-    "SvnUser"="svn_user"
-    "SvnPassword"="Secret2"
-*/
-
-CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions)
+CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
 {
-    PathToCollabGui =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\PathToCollabGui", L"");
-    CollabUser      =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
-    CollabPassword  =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
-    RepoUrl         =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\RepoUrl", L"");
-    SvnUser         =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
-    SvnPassword     =
-        CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword", L"");
-
+    CollabUser = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
+    CString encrypted = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
+    if (encrypted.IsEmpty())
+        CollabPassword = L"";
+    else
+        CollabPassword = CStringUtils::Decrypt((LPCWSTR)encrypted);
+    SvnUser = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
+    encrypted = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword", L"");
+    if (encrypted.IsEmpty())
+        SvnPassword = L"";
+    else
+        SvnPassword = CStringUtils::Decrypt((LPCWSTR)encrypted);
+    RepoUrl = repoUrl;
     m_Revisions = revisions;
+}
+
+CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
+{
+    TCHAR szProgramFiles[MAX_PATH];
+    TCHAR szPath[MAX_PATH];
+    if (S_OK == SHGetFolderPath(NULL,
+                                CSIDL_PROGRAM_FILESX86, 
+                                NULL, 
+                                SHGFP_TYPE_CURRENT, 
+                                szProgramFiles))
+    {
+        PathCombine(szPath, 
+                        szProgramFiles, 
+                        L"Collaborator Client\\ccollabgui.exe");
+        if (PathFileExists(szPath))
+            return CString(szPath);
+    }
+    return CString(L"");
 }
 
 bool CodeCollaboratorInfo::IsInstalled()
 {
-    // Special Registry item must be set and CollabGui.exe File must exist
-    if (((CString)PathToCollabGui).IsEmpty() ||
-            !PathFileExists((LPCWSTR)(CString)PathToCollabGui))
+    if (GetPathToCollabGuiExe().IsEmpty())
         return false;
     return true;
 }
 
-CString CodeCollaboratorInfo::GetCommandLineArguments()
+CString CodeCollaboratorInfo::GetCommandLine()
 {
     CString arguments;
-    arguments.Format(L"--user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
-        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)(CString)RepoUrl,
+    arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
+        GetPathToCollabGuiExe(),
+        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
         (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     return arguments;
 }
