@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# djungbeck, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-06 12:55+0000\n"
+"PO-Revision-Date: 2013-06-10 09:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3327,6 +3328,22 @@ msgstr "Fortsetzen"
 msgid "Contract docked window"
 msgstr "Angedocktes Fenster kontrahieren"
 
+#. Resource IDs: (1092)
+msgid "Convert Spaces to &Tabs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Convert Tabs to &Spaces"
+msgstr ""
+
+#. Resource IDs: (501)
+msgid "Convert spaces to tabs"
+msgstr "Leerzeichen in Tabs umwandeln"
+
+#. Resource IDs: (501)
+msgid "Convert tabs to spaces"
+msgstr "Tabs in Leerzeichen umwandeln"
+
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
 msgstr "Konvertiert das Format der Arbeitskopie in die neueste Version"
@@ -3651,6 +3668,10 @@ msgstr "Erzeuge Änderungsliste"
 #. Resource IDs: (208)
 msgid "Create Patch"
 msgstr "Erzeuge Patch"
+
+#. Resource IDs: (64)
+msgid "Create code collaborator revie&w..."
+msgstr ""
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -4192,6 +4213,10 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Dokumentation : Simon Large\nCode : Tobias Schäfer, Stefan Fuhrmann"
 
+#. Resource IDs: (1093)
+msgid "Don't ask anymore"
+msgstr ""
+
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Nicht noch einmal fragen"
@@ -4444,6 +4469,10 @@ msgstr "Beim Schreiben von %1 trat ein unerwarteter Fehler auf."
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Endrevision"
+
+#. Resource IDs: (252)
+msgid "End of Line Style"
+msgstr ""
 
 #. Resource IDs: (200)
 msgid "Enforce"
@@ -4815,6 +4844,10 @@ msgstr "Status von %1!s! abrufen"
 msgid "File"
 msgstr "Datei"
 
+#. Resource IDs: (252)
+msgid "File Encoding"
+msgstr ""
+
 #. Resource IDs: (90)
 msgid "File already exists"
 msgstr "Datei existiert bereits"
@@ -4835,6 +4868,10 @@ msgstr "Datei enthält Konfliktmarkern"
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "Dateiunterschiede"
+
+#. Resource IDs: (1094)
+msgid "File formating change have been detected"
+msgstr ""
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
@@ -7248,9 +7285,9 @@ msgstr "Aus Zwischenablage öffnen"
 msgid "Open image file..."
 msgstr "Öffne Bilddatei..."
 
-#. Resource IDs: (115)
-msgid "Open local file in &Visual Studio..."
-msgstr "Öffne lokale Datei in &Visual Studio..."
+#. Resource IDs: (64)
+msgid "Open multiple &local..."
+msgstr ""
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -8116,6 +8153,10 @@ msgstr "Lösche %ld Objekte"
 #, c-format
 msgid "Remove %s"
 msgstr "Löschen %s"
+
+#. Resource IDs: (1090)
+msgid "Remove &Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -9044,6 +9085,10 @@ msgstr "Was wollen Sie zusammenführen"
 msgid "Select viewer for diff-files"
 msgstr "Betrachter für Standard-Diffdateien auswählen"
 
+#. Resource IDs: (1095)
+msgid "Select what T-Merge should fix"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr "Wählen Sie, welche Datei Sie speichern wollen"
@@ -9289,6 +9334,10 @@ msgstr "Zeige Zeilen&nummern"
 #. Resource IDs: (1037)
 msgid "Show lo&g"
 msgstr "Zeige &Log"
+
+#. Resource IDs: (64)
+msgid "Show multiple &changes..."
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10823,6 +10872,10 @@ msgstr "Baumkonflikt"
 msgid "Tree merge"
 msgstr "Bäume zusammenführen"
 
+#. Resource IDs: (501)
+msgid "Trim right"
+msgstr "rechts abschneiden"
+
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
 msgstr "Stamm"
@@ -10974,6 +11027,10 @@ msgstr "Unformatierter Text\nText ohne Formatierung"
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
 msgstr "Standard-&Diff der HEAD Revisionen"
+
+#. Resource IDs: (1096)
+msgid "Unify EOLs"
+msgstr ""
 
 #. Resource IDs: (81)
 #, c-format

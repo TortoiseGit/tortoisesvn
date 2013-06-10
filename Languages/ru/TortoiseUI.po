@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-03 10:27+0000\n"
-"Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
+"PO-Revision-Date: 2013-06-10 10:06+0000\n"
+"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3330,6 +3330,22 @@ msgstr "Продолжить"
 msgid "Contract docked window"
 msgstr "Сжать присоединённое окно"
 
+#. Resource IDs: (1092)
+msgid "Convert Spaces to &Tabs"
+msgstr "Заменить пробелы Табом"
+
+#. Resource IDs: (1091)
+msgid "Convert Tabs to &Spaces"
+msgstr "Заменить Табы пробелом"
+
+#. Resource IDs: (501)
+msgid "Convert spaces to tabs"
+msgstr "Конвертировать пробелы в символы табуляции"
+
+#. Resource IDs: (501)
+msgid "Convert tabs to spaces"
+msgstr "Конвертировать символы табуляции в пробелы"
+
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
 msgstr "Перевести формат рабочей копии на новую версию"
@@ -3654,6 +3670,10 @@ msgstr "Создать группу изменений"
 #. Resource IDs: (208)
 msgid "Create Patch"
 msgstr "Создание заплатки"
+
+#. Resource IDs: (64)
+msgid "Create code collaborator revie&w..."
+msgstr "Создать code collaborator revie&w..."
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -4195,6 +4215,10 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Документация: Simon Large\nКод: Tobias Schäfer, Stefan Fuhrmann\nПеревод: Станислав Петраков"
 
+#. Resource IDs: (1093)
+msgid "Don't ask anymore"
+msgstr "Больше не спрашивать"
+
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Не спрашивать меня снова"
@@ -4447,6 +4471,10 @@ msgstr "Случилась неожиданная ошибка при запис
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Конечная ревизия"
+
+#. Resource IDs: (252)
+msgid "End of Line Style"
+msgstr "Стиль конца строки"
 
 #. Resource IDs: (200)
 msgid "Enforce"
@@ -4818,6 +4846,10 @@ msgstr "Получение статуса %1!s!"
 msgid "File"
 msgstr "Файл"
 
+#. Resource IDs: (252)
+msgid "File Encoding"
+msgstr "Кодировка файла"
+
 #. Resource IDs: (90)
 msgid "File already exists"
 msgstr "Файл уже существует"
@@ -4838,6 +4870,10 @@ msgstr "Файл содержит маркеры конфликта"
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "Файловые различия"
+
+#. Resource IDs: (1094)
+msgid "File formating change have been detected"
+msgstr "Обнаружено изменение форматирования файла"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
@@ -7251,9 +7287,9 @@ msgstr "Открыть из буфера обмена"
 msgid "Open image file..."
 msgstr "Открыть файл изображения..."
 
-#. Resource IDs: (115)
-msgid "Open local file in &Visual Studio..."
-msgstr "Открыть локальный файл в &Visual Studio..."
+#. Resource IDs: (64)
+msgid "Open multiple &local..."
+msgstr "Открыть множество &локальных файлов..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -8119,6 +8155,10 @@ msgstr "Удаление %ld элементов"
 #, c-format
 msgid "Remove %s"
 msgstr "Удаление %s"
+
+#. Resource IDs: (1090)
+msgid "Remove &Trailing spaces and Tabs"
+msgstr "Удалить конечные пробелы и табы"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -9047,6 +9087,10 @@ msgstr "Выберите тип слияния"
 msgid "Select viewer for diff-files"
 msgstr "Выберите программу просмотра файлов различий"
 
+#. Resource IDs: (1095)
+msgid "Select what T-Merge should fix"
+msgstr "Выберите что T-Слияние должно исправить"
+
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr "Выберите файл, который вы хотите сохранить"
@@ -9292,6 +9336,10 @@ msgstr "Показывать но&мера строк"
 #. Resource IDs: (1037)
 msgid "Show lo&g"
 msgstr "&Журнал"
+
+#. Resource IDs: (64)
+msgid "Show multiple &changes..."
+msgstr "Показать множество &изменений..."
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10826,6 +10874,10 @@ msgstr "Конфликт деревьев"
 msgid "Tree merge"
 msgstr "Слияние деревьев"
 
+#. Resource IDs: (501)
+msgid "Trim right"
+msgstr "Удалить пробельные символы справа"
+
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
 msgstr "Узлы ствола"
@@ -10977,6 +11029,10 @@ msgstr "Неформатированный текст\nтекст без фор�
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
 msgstr "Объединённые разли&чия ведущих ревизий"
+
+#. Resource IDs: (1096)
+msgid "Unify EOLs"
+msgstr "Унифицировать знаки конца строки"
 
 #. Resource IDs: (81)
 #, c-format

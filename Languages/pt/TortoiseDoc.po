@@ -14,6 +14,7 @@
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
+# JustinoAveiro <paulojustino.nec@gmail.com>, 2013
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
 # Sandro Amaral <sandro123iv@gmail.com>, 2011
 msgid ""
@@ -21,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-05-19 08:19+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-10 10:22+0000\n"
+"Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5119,6 +5120,7 @@ msgstr "Mostra a caixa de diálogo de ficheiros alterados, permitindo-te selecci
 
 #. (term)
 #. (term)
+#. (term)
 msgid "Save revision to..."
 msgstr "Guardar revisão em..."
 
@@ -5288,6 +5290,7 @@ msgid ""
 "location for the checkout."
 msgstr "Fazer um SVN exportar de fresco, da pasta seleccionada na revisão seleccionada. Irá mostrar uma caixa de diálogo de modo a confirmares o URL e a revisão, e seleccionar uma localização para o SVN exportar."
 
+#. (term)
 #. (term)
 #. (term)
 msgid "Export..."
@@ -5506,6 +5509,7 @@ msgid ""
 msgstr "Mostrar o registo de revisão para o único ficheiro seleccionado, incluindo as alterações integradas. Descobre mais em  <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
+#. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
@@ -5517,11 +5521,71 @@ msgid ""
 "hierarchy."
 msgstr "Exporta os itens seleccionados nesta revisão para uma pasta, preservando a hierarquia de ficheiros."
 
+#. (title)
+msgid ""
+"The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
+msgstr ""
+
+#. (term)
+msgid "Show multiple changes..."
+msgstr ""
+
+#. (para)
+msgid ""
+"Show changes made in the selected revision for the selected files. Note that"
+" the show changes functionality is invoked multiple times, which may bring "
+"up multiple copies of your selected diff tool, or just add a new comparison "
+"tab in your diff tool. If you have selected more than 15 files, you will be "
+"prompted to confirm the action."
+msgstr ""
+
+#. (term)
+msgid "Open multiple local..."
+msgstr ""
+
+#. (para)
+msgid ""
+"This will open local working copy files that correspond to your selected "
+"files using the application that is registered for the extension. [The "
+"behavior is the one you would get double-clicking the working-copy file(s) "
+"in Windows explorer]. Depending on how your file extension is associated to "
+"an application and the capabilities of the application, this may be a slow "
+"operation. In the worst case, new instances of the application may be "
+"launched by Windows for each file that was selected."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you hold <keycap>Ctrl</keycap> while invoking this command, the working "
+"copy files are always loaded into Visual Studio. This only works when the "
+"following conditions are met: Visual Studio must be running in the same user"
+" context while having the same process integrity level [running as admin or "
+"not] as TortoiseProc.exe. It may be desirable to have the solution "
+"containing the changed files loaded, although this is not strictly "
+"necessary. Only files that exist on disk with extensions [.cpp, .h, .cs, "
+".rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will "
+"be loaded. A maximum of 100 files can be loaded into Visual Studio at one "
+"time, and the files are always loaded as new tabs into the currently open "
+"instance of Visual Studio. The benefit of reviewing code changes in Visual "
+"Studio lies in the fact that you can then use the built-in code navigation, "
+"reference finding, static code analysis and other tools built into Visual "
+"Studio."
+msgstr ""
+
+#. (para)
+msgid ""
+"Export the selected files/folder at the selected revision. This brings up a "
+"dialog for you to confirm the URL and revision, and select a location for "
+"the export."
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The bottom pane of the Log dialog also has a context menu "
-"that allows you to <placeholder-2/>"
-msgstr "<placeholder-1/> O painel inferior da caixa de diálogo Registo também tem um menu de contexto, que te permite <placeholder-2/>"
+"that allows you to <placeholder-2/> When multiple files are selected in the "
+"bottom pane of the Log dialog, the context menu changes to the following: "
+"<placeholder-3/><placeholder-4/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8395,7 +8459,7 @@ msgstr "Quando são integradas as revisões na cópia de trabalho, o TortoiseSVN
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Caixa de propriedades integra templates de mensagens de registo"
 
 #. (para)
 msgid ""
@@ -9829,7 +9893,7 @@ msgid ""
 "mutual exclusion between users to avoid clashing commits. Unfortunately, "
 "there are two other sorts of <quote>lock</quote> with which Subversion, and "
 "therefore this book, sometimes needs to be concerned."
-msgstr ""
+msgstr "Nesta secção, e em particamente em qulaquer parte deste livro, as palavras <quote>bloqueio</quote> e <quote>bloquear</quote> descreverm um mecanismo de mutua exclusão entre utilizadores para evitar colisões ao submeter. Infelizmente, existem outros tipos de <quote>bloqueio</quote>s com que o Subversion, e por consequência este livro, deve ter em conta."
 
 #. (para)
 msgid ""
@@ -14662,10 +14726,10 @@ msgstr "Doa!"
 #. (para)
 msgid ""
 "Even though TortoiseSVN and TortoiseMerge are free, you can support the "
-"developers by sending in patches and play an active role in the development."
-" You can also help to cheer us up during the endless hours we spend in front"
-" of our computers."
-msgstr "Mesmo que o TortoiseSVN e o TortoiseMerge sejam gratuitos, tu podes apoiar os programadores enviando correcções e tomando uma papel activo no desenvolvimento. Podes também ajudar a alegrar-nos durante as intermináveis horas que passamos em frente dos nossos computadores."
+"developers by sending in patches and playing an active role in the "
+"development. You can also help to cheer us up during the endless hours we "
+"spend in front of our computers."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-01 11:50+0000\n"
+"PO-Revision-Date: 2013-06-10 10:22+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5118,6 +5118,7 @@ msgstr "ファイルを選択する「変更されたファイル」ダイアロ
 
 #. (term)
 #. (term)
+#. (term)
 msgid "Save revision to..."
 msgstr "リビジョンを保存..."
 
@@ -5289,6 +5290,7 @@ msgstr "選択したリビジョンの選択したフォルダーを新たにチ
 
 #. (term)
 #. (term)
+#. (term)
 msgid "Export..."
 msgstr "エクスポート..."
 
@@ -5430,7 +5432,7 @@ msgstr "選択したすべてのリビジョンが、同じ作者のものであ
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr "ログダイアログの下のリストのコンテキストメニュー"
+msgstr "ログダイアログ下部の一覧でコンテキストメニューを表示したところ"
 
 #. (term)
 msgid "Show changes"
@@ -5505,6 +5507,7 @@ msgid ""
 msgstr "単体のファイルを選択しているとき、ファイルのマージされた変更を含めリビジョンログを表示します。詳細は <xref linkend=\"tsvn-dug-showlog-mergetrack\"/> をご確認ください。"
 
 #. (para)
+#. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
@@ -5516,11 +5519,71 @@ msgid ""
 "hierarchy."
 msgstr "このリビジョンの選択された項目を、ファイルの階層を保持したままエクスポートします。"
 
+#. (title)
+msgid ""
+"The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
+msgstr "ログダイアログ下部の一覧で複数ファイル選択時にコンテキストメニューを表示したところ"
+
+#. (term)
+msgid "Show multiple changes..."
+msgstr "複数の更新を表示..."
+
+#. (para)
+msgid ""
+"Show changes made in the selected revision for the selected files. Note that"
+" the show changes functionality is invoked multiple times, which may bring "
+"up multiple copies of your selected diff tool, or just add a new comparison "
+"tab in your diff tool. If you have selected more than 15 files, you will be "
+"prompted to confirm the action."
+msgstr "選択されたファイルの選択されたリビジョンで行われた変更を表示します。なお、変更の表示機能が複数回呼び出されるので、選択されている差分ツールによっては複数が起動したり、タブに表示されたりします。16件以上のファイルが選択されていた場合は、操作を行うかどうかの確認が表示されます。"
+
+#. (term)
+msgid "Open multiple local..."
+msgstr "複数のローカルファイルを開く..."
+
+#. (para)
+msgid ""
+"This will open local working copy files that correspond to your selected "
+"files using the application that is registered for the extension. [The "
+"behavior is the one you would get double-clicking the working-copy file(s) "
+"in Windows explorer]. Depending on how your file extension is associated to "
+"an application and the capabilities of the application, this may be a slow "
+"operation. In the worst case, new instances of the application may be "
+"launched by Windows for each file that was selected."
+msgstr "これは選択されたファイルに対応するローカルの作業コピーを、拡張子に登録されたアプリケーションを使用して開きます。［作業コピーのファイルをWindowsのエクスプローラー上でダブルクリックした場合と同じです。］ファイルの拡張子のアプリケーションへの関連付け方法や、アプリケーションの能力によっては、速度が遅くなることがあります。最悪の場合、選択されたそれぞれのファイルに対してアプリケーションの新しいインスタンスが起動される可能性があります。"
+
+#. (para)
+msgid ""
+"If you hold <keycap>Ctrl</keycap> while invoking this command, the working "
+"copy files are always loaded into Visual Studio. This only works when the "
+"following conditions are met: Visual Studio must be running in the same user"
+" context while having the same process integrity level [running as admin or "
+"not] as TortoiseProc.exe. It may be desirable to have the solution "
+"containing the changed files loaded, although this is not strictly "
+"necessary. Only files that exist on disk with extensions [.cpp, .h, .cs, "
+".rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will "
+"be loaded. A maximum of 100 files can be loaded into Visual Studio at one "
+"time, and the files are always loaded as new tabs into the currently open "
+"instance of Visual Studio. The benefit of reviewing code changes in Visual "
+"Studio lies in the fact that you can then use the built-in code navigation, "
+"reference finding, static code analysis and other tools built into Visual "
+"Studio."
+msgstr "<keycap>Ctrl</keycap>を押しながらこのコマンドを実行すると、作業コピーのファイルは常にVisual Studioで開かれます。このように動作するのは、Visual StudioがTortoiseProc.exeと同じプロセス統合レベル（管理者として実行されているかどうか）の同じユーザーコンテキストで動作している場合のみです。これはソリューションが重要ではないが変更されたファイルを読み込んでいる場合に便利かもしれません。拡張子.cpp、.h、.cs、.rc、.resx、.xaml、.js、.html、.htm、.asp、.aspx、.php、.css、.xmlのファイルがディスク上にある場合のみ開かれます。一度に最大100件のファイルをVisual Studioで開くことができ、開いているVisual Studioに常に新しいタブとして読み込まれます。Visual Studioでコードの変更を見るメリットは、内蔵のコードナビゲーション、参照の検索、スタティックコードの分析、その他のVisual Studioに内蔵された各種ツールを利用できることです。"
+
+#. (para)
+msgid ""
+"Export the selected files/folder at the selected revision. This brings up a "
+"dialog for you to confirm the URL and revision, and select a location for "
+"the export."
+msgstr "選択されたリビジョンの選択されたファイルやフォルダーをエクスポートします。URLとリビジョンを確認するダイアログが表示されますので、エクスポートする場所を選択してください。"
+
 #. (para)
 msgid ""
 "<placeholder-1/> The bottom pane of the Log dialog also has a context menu "
-"that allows you to <placeholder-2/>"
-msgstr "<placeholder-1/> ログダイアログの下の欄にもコンテキストメニューがあります。次の操作を行うことができます。<placeholder-2/>"
+"that allows you to <placeholder-2/> When multiple files are selected in the "
+"bottom pane of the Log dialog, the context menu changes to the following: "
+"<placeholder-3/><placeholder-4/>"
+msgstr "<placeholder-1/>ログダイアログの下の欄にも、<placeholder-2/>のためのコンテキストメニューがあります。ログダイアログの下の欄で複数のファイルが選択されていた場合、コンテキストメニューは次のように変化します。<placeholder-3/><placeholder-4/>"
 
 #. (para)
 msgid ""
@@ -12022,7 +12085,7 @@ msgid ""
 "you right click in the log dialog bottom pane on a file entry "
 "<literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the"
 " URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "ファイルとリビジョンを指定して、その変更点を表示させるために使用する URL を指定します。適切に URI エンコードし、<literal>%REVISION%</literal> と <literal>%PATH%</literal> という文字列を含んでいる必要があります。 <literal>%PATH%</literal> の部分は、リポジトリのルートからの相対パスに置き換わります。このプロパティを設定すると、ログダイアログのコンテキストメニューに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>パスのリビジョンをウェブビューアーで表示</guimenuitem></menuchoice> が表示されるようになります。例えば、ログダイアログの下の欄に表示された <literal>/trunk/src/file</literal> を右クリックすると、 URL の中の <literal>%PATH%</literal> の部分が <literal>/trunk/src/file</literal> に置き換わります。"
+msgstr "ファイルとリビジョンを指定して、その変更点を表示させるために使用する URL を指定します。適切に URI エンコードし、<literal>%REVISION%</literal> と <literal>%PATH%</literal> という文字列を含んでいる必要があります。 <literal>%PATH%</literal> の部分は、リポジトリのルートからの相対パスに置き換わります。このプロパティを設定すると、ログダイアログのコンテキストメニューに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>パスのリビジョンをウェブビューアーで表示</guimenuitem></menuchoice> が表示されるようになります。例えば、ログダイアログ下部の一覧に表示された <literal>/trunk/src/file</literal> を右クリックすると、 URL の中の <literal>%PATH%</literal> の部分が <literal>/trunk/src/file</literal> に置き換わります。"
 
 #. (para)
 msgid ""
@@ -14661,10 +14724,10 @@ msgstr "寄付をお願いします"
 #. (para)
 msgid ""
 "Even though TortoiseSVN and TortoiseMerge are free, you can support the "
-"developers by sending in patches and play an active role in the development."
-" You can also help to cheer us up during the endless hours we spend in front"
-" of our computers."
-msgstr "TortoiseSVN と TortoiseMerge はフリーですが、パッチを送ったり、開発体制内で積極的に役割をこなしたりして、開発者をサポートできます。また、コンピューターの前で延々と時間を過ごす私たちを力づけることができます。"
+"developers by sending in patches and playing an active role in the "
+"development. You can also help to cheer us up during the endless hours we "
+"spend in front of our computers."
+msgstr "TortoiseSVNとTortoiseMergeはフリーですが、パッチを送ったり、開発の中で重要な役割を担ったりして、開発者をサポートすることができます。また、コンピューターの前で延々と時間を過ごす私たちを応援することができます。"
 
 #. (para)
 msgid ""

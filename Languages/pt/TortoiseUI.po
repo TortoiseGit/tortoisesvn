@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-03 08:26+0000\n"
+"PO-Revision-Date: 2013-06-10 09:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "%1 contém um caminho incorrecto."
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 contém um esquema incorrecto."
+msgstr "%1 contém um schemaincorrecto."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -225,7 +225,7 @@ msgstr "%s (recursivamente)"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Merged file"
-msgstr ""
+msgstr "%s : ficheiro integrado"
 
 #. Resource IDs: (151)
 #, c-format
@@ -2356,7 +2356,7 @@ msgstr "Ambos os caminhos para a correcção e destino devem ser absolutos!"
 
 #. Resource IDs: (188)
 msgid "Bottom View:"
-msgstr ""
+msgstr "Vista de fundo:"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -3327,6 +3327,22 @@ msgstr "Continuar"
 msgid "Contract docked window"
 msgstr "Contrair janela ancorada"
 
+#. Resource IDs: (1092)
+msgid "Convert Spaces to &Tabs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Convert Tabs to &Spaces"
+msgstr ""
+
+#. Resource IDs: (501)
+msgid "Convert spaces to tabs"
+msgstr "Converte espaços em tabs"
+
+#. Resource IDs: (501)
+msgid "Convert tabs to spaces"
+msgstr "Converte tabs para espaços"
+
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
 msgstr "Converte o formato da cópia de trabalho para a nova versão"
@@ -3651,6 +3667,10 @@ msgstr "Criar Lista de Alterações"
 #. Resource IDs: (208)
 msgid "Create Patch"
 msgstr "Criar Correcção"
+
+#. Resource IDs: (64)
+msgid "Create code collaborator revie&w..."
+msgstr "Criar &revisão de código de colaborador..."
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -4192,6 +4212,10 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Documentação: Simon Large\nCódigo: Tobias Schäfer, Stefan Fuhrmann"
 
+#. Resource IDs: (1093)
+msgid "Don't ask anymore"
+msgstr ""
+
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Não me perguntes outra vez"
@@ -4291,7 +4315,7 @@ msgstr "E&xportar..."
 
 #. Resource IDs: (303)
 msgid "EOL"
-msgstr ""
+msgstr "EOL"
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -4410,7 +4434,7 @@ msgstr "Activa o verificador ortográfico apenas quando a propriedade\ntsvn:proj
 
 #. Resource IDs: (300, 301)
 msgid "Encoding"
-msgstr ""
+msgstr "Encoding"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4444,6 +4468,10 @@ msgstr "Ocorreu um erro inesperado ao escrever em %1."
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Revisão Final"
+
+#. Resource IDs: (252)
+msgid "End of Line Style"
+msgstr ""
 
 #. Resource IDs: (200)
 msgid "Enforce"
@@ -4815,6 +4843,10 @@ msgstr "A adquirir estado de %1!s!"
 msgid "File"
 msgstr "Ficheiro"
 
+#. Resource IDs: (252)
+msgid "File Encoding"
+msgstr ""
+
 #. Resource IDs: (90)
 msgid "File already exists"
 msgstr "O ficheiro já existe"
@@ -4835,6 +4867,10 @@ msgstr "O ficheiro contém marcadores de conflito"
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "Diferenças entre ficheiros"
+
+#. Resource IDs: (1094)
+msgid "File formating change have been detected"
+msgstr ""
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
@@ -7248,9 +7284,9 @@ msgstr "Abrir a partir da área de transferência"
 msgid "Open image file..."
 msgstr "Abrir arquivo de imagem..."
 
-#. Resource IDs: (115)
-msgid "Open local file in &Visual Studio..."
-msgstr ""
+#. Resource IDs: (64)
+msgid "Open multiple &local..."
+msgstr "Abrir multiplas &local..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -7726,7 +7762,7 @@ msgstr "Propriedade %1!s! : Base de Trabalho, Revisão %2!ld!"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : merged"
-msgstr ""
+msgstr "Propriedade %s : integrada"
 
 #. Resource IDs: (151)
 #, c-format
@@ -8117,6 +8153,10 @@ msgstr "Remover %ld itens"
 msgid "Remove %s"
 msgstr "Remover %s"
 
+#. Resource IDs: (1090)
+msgid "Remove &Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Remove dados de autenticação guardados"
@@ -8325,7 +8365,7 @@ msgstr "Solicita um nome de utilizador e uma palavra-passe"
 
 #. Resource IDs: (8)
 msgid "Res&olve..."
-msgstr ""
+msgstr "Res&olve..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -9044,6 +9084,10 @@ msgstr "Seleccionar o tipo de integração"
 msgid "Select viewer for diff-files"
 msgstr "Seleccionar o visualizador dos arquivos de comparação"
 
+#. Resource IDs: (1095)
+msgid "Select what T-Merge should fix"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr "Seleccionar que ficheiro queres guardar como"
@@ -9289,6 +9333,10 @@ msgstr "Mostrar número&s de linhas"
 #. Resource IDs: (1037)
 msgid "Show lo&g"
 msgstr "Mostrar re&gisto"
+
+#. Resource IDs: (64)
+msgid "Show multiple &changes..."
+msgstr "Mostrar multiplas a&lterações..."
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10823,6 +10871,10 @@ msgstr "Conflito de árvore"
 msgid "Tree merge"
 msgstr "Integração de árvores"
 
+#. Resource IDs: (501)
+msgid "Trim right"
+msgstr "aparar à direita"
+
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
 msgstr "Nós do tronco"
@@ -10974,6 +11026,10 @@ msgstr "Texto sem Formatação\ntexto sem qualquer formatação"
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
 msgstr "Comparação unifica&da das revisões HEAD (mais recentes)"
+
+#. Resource IDs: (1096)
+msgid "Unify EOLs"
+msgstr ""
 
 #. Resource IDs: (81)
 #, c-format

@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-05-19 22:00+0000\n"
-"Last-Translator: Jarosław Pękala <jaroslaw.pekala@gmail.com>\n"
+"PO-Revision-Date: 2013-06-10 10:22+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5118,6 +5118,7 @@ msgstr "Pokazuje okno dialogowe zmienionych plików umożliwiające wybranie pli
 
 #. (term)
 #. (term)
+#. (term)
 msgid "Save revision to..."
 msgstr "Zapisz wersję w..."
 
@@ -5287,6 +5288,7 @@ msgid ""
 "location for the checkout."
 msgstr "Dodaje świeże pobranie wybranego folderu na wybranej wersji. Pojawi się okienko do potwierdzenia adresu URL i wersji, a następnie wyboru lokalizacji docelowej pobrania."
 
+#. (term)
 #. (term)
 #. (term)
 msgid "Export..."
@@ -5505,6 +5507,7 @@ msgid ""
 msgstr "Pokazuje dziennik zmian dla wybranego pojedynczego pliku, w tym scalone zmiany. Dowiedzcie się więcej w <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
+#. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
@@ -5516,11 +5519,71 @@ msgid ""
 "hierarchy."
 msgstr "Eksport wybranych pozycji z tej wersji do folderu, z zachowaniem hierarchii plików."
 
+#. (title)
+msgid ""
+"The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
+msgstr "Dolny panel okna Dziennika z menu kontekstowym przy wybraniu wielu plików. "
+
+#. (term)
+msgid "Show multiple changes..."
+msgstr "Pokaż wiele zmian..."
+
+#. (para)
+msgid ""
+"Show changes made in the selected revision for the selected files. Note that"
+" the show changes functionality is invoked multiple times, which may bring "
+"up multiple copies of your selected diff tool, or just add a new comparison "
+"tab in your diff tool. If you have selected more than 15 files, you will be "
+"prompted to confirm the action."
+msgstr "Pokazuje zmiany wykonane w wybranej wersji w wybranych plikach. Należy zauważyć, że funkcja pokazania zmian jest wywoływana wiele razy, co może otworzyć wiele kopii wybranego narzędzia porównywania lub zwyczajnie dodać nową zakładkę porównania w porównywarce. Jeśli wybrano ponad 15 plików, zostaniecie poproszeni o potwierdzenie akcji."
+
+#. (term)
+msgid "Open multiple local..."
+msgstr "Otwórz wiele lokalnych..."
+
+#. (para)
+msgid ""
+"This will open local working copy files that correspond to your selected "
+"files using the application that is registered for the extension. [The "
+"behavior is the one you would get double-clicking the working-copy file(s) "
+"in Windows explorer]. Depending on how your file extension is associated to "
+"an application and the capabilities of the application, this may be a slow "
+"operation. In the worst case, new instances of the application may be "
+"launched by Windows for each file that was selected."
+msgstr "Powoduje otwarcie plików z kopii roboczej odpowiadających wybranym plikom przy użyciu aplikacji przypisanych do ich rozszerzeń. [Zachowanie analogiczne do dwukliku na pliku(ach) z kopii roboczej w eksploratorze Windows]. W zależności od powiązania rozszerzeń plików z aplikacjami może się to okazać powolną operacją. W najgorszym przypadku zostaną uruchomione przez Windows nowe instancje aplikacji dla każdego z wybranych plików."
+
+#. (para)
+msgid ""
+"If you hold <keycap>Ctrl</keycap> while invoking this command, the working "
+"copy files are always loaded into Visual Studio. This only works when the "
+"following conditions are met: Visual Studio must be running in the same user"
+" context while having the same process integrity level [running as admin or "
+"not] as TortoiseProc.exe. It may be desirable to have the solution "
+"containing the changed files loaded, although this is not strictly "
+"necessary. Only files that exist on disk with extensions [.cpp, .h, .cs, "
+".rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will "
+"be loaded. A maximum of 100 files can be loaded into Visual Studio at one "
+"time, and the files are always loaded as new tabs into the currently open "
+"instance of Visual Studio. The benefit of reviewing code changes in Visual "
+"Studio lies in the fact that you can then use the built-in code navigation, "
+"reference finding, static code analysis and other tools built into Visual "
+"Studio."
+msgstr "Jeśli podczas wywoływania tego polecenia wciśnięty jest <keycap>Ctrl</keycap>, pliki kopii roboczej są wczytywane za pomocą Visual Studio. Działa to tylko gdy spełnione są następujące warunki: Visual Studio musi działać w tym samym kontekście użytkownika mając ten sam poziom integralności procesu [uruchomione jako admin lub nie], jak TortoiseProc.exe. Może być pożądane, by mieć  już program  zawierający już załadowane zmienione pliki, chociaż nie jest to bezwzględnie konieczne. Tylko znajdujące się na dysku pliki z rozszerzeniami [.cpp, .h, .cs, .rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] zostaną załadowane.Maksymalnie 100 plików może być załadowanych jednocześnie do Visual Studio,  a pliki zawsze są ładowane w nowych kartach do aktualnie otwartej instancji Visual Studio. Korzyść z przeglądu zmian kodu w Visual Studio polega na tym, że można użyć wbudowanej nawigacji, znalezienie odwołań, analizy statycznej kodu i innych narzędzi wbudowanych w Visual Studio."
+
+#. (para)
+msgid ""
+"Export the selected files/folder at the selected revision. This brings up a "
+"dialog for you to confirm the URL and revision, and select a location for "
+"the export."
+msgstr "Eksport wybranych plików/folderu w wybranej wersji. Otwiera okno dialogowe do potwierdzenia adresu URL i wersji oraz wybrania miejsca docelowego eksportu."
+
 #. (para)
 msgid ""
 "<placeholder-1/> The bottom pane of the Log dialog also has a context menu "
-"that allows you to <placeholder-2/>"
-msgstr "<placeholder-1/> Dolny panel okna dialogowego dziennika posiada również menu kontekstowe, które pozwala <placeholder-2/>"
+"that allows you to <placeholder-2/> When multiple files are selected in the "
+"bottom pane of the Log dialog, the context menu changes to the following: "
+"<placeholder-3/><placeholder-4/>"
+msgstr "<placeholder-1/> Dolny panel okna dialogowego Dziennika posiada również menu kontekstowe  pozwalające na <placeholder-2/> Gdy na dolnym panelu okna Dziennika zaznaczonych jest wiele plików, menu kontekstowe zmienia się na następujące: <placeholder-3/><placeholder-4/>"
 
 #. (para)
 msgid ""
@@ -14661,10 +14724,10 @@ msgstr "Obdarujcie nas!"
 #. (para)
 msgid ""
 "Even though TortoiseSVN and TortoiseMerge are free, you can support the "
-"developers by sending in patches and play an active role in the development."
-" You can also help to cheer us up during the endless hours we spend in front"
-" of our computers."
-msgstr "Chociaż TortoiseSVN i TortoiseMerge są bezpłatne, można wspierać deweloperów wysyłając poprawki i odgrywając aktywną rolę w rozwoju. Możecie również pomóc nam nas umilając długie godziny jakie spędzamy przed komputerami."
+"developers by sending in patches and playing an active role in the "
+"development. You can also help to cheer us up during the endless hours we "
+"spend in front of our computers."
+msgstr "Chociaż TortoiseSVN i TortoiseMerge są bezpłatne, można wspierać deweloperów wysyłając poprawki i odgrywając aktywną rolę w ich rozwoju. Możecie również pomóc dopingując nam podczas niekończących godzin, które spędzamy przed komputerami."
 
 #. (para)
 msgid ""

@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-05-19 08:19+0000\n"
+"PO-Revision-Date: 2013-06-10 10:22+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5126,6 +5126,7 @@ msgstr "显示修改的文件对话框让你选择文件。追溯选中的版本
 
 #. (term)
 #. (term)
+#. (term)
 msgid "Save revision to..."
 msgstr "保存版本至..."
 
@@ -5295,6 +5296,7 @@ msgid ""
 "location for the checkout."
 msgstr "检出你选择的目录的选中版本，创建一个全新副本。它弹出对话框，让你确认URL和版本，并且选择保存的位置。"
 
+#. (term)
 #. (term)
 #. (term)
 msgid "Export..."
@@ -5513,6 +5515,7 @@ msgid ""
 msgstr "显示被选中的单个文件的版本日志，包括合并修改。在 <xref linkend=\"tsvn-dug-showlog-mergetrack\"/> 中查看更多信息。"
 
 #. (para)
+#. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
@@ -5524,11 +5527,71 @@ msgid ""
 "hierarchy."
 msgstr ""
 
+#. (title)
+msgid ""
+"The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
+msgstr ""
+
+#. (term)
+msgid "Show multiple changes..."
+msgstr ""
+
+#. (para)
+msgid ""
+"Show changes made in the selected revision for the selected files. Note that"
+" the show changes functionality is invoked multiple times, which may bring "
+"up multiple copies of your selected diff tool, or just add a new comparison "
+"tab in your diff tool. If you have selected more than 15 files, you will be "
+"prompted to confirm the action."
+msgstr ""
+
+#. (term)
+msgid "Open multiple local..."
+msgstr ""
+
+#. (para)
+msgid ""
+"This will open local working copy files that correspond to your selected "
+"files using the application that is registered for the extension. [The "
+"behavior is the one you would get double-clicking the working-copy file(s) "
+"in Windows explorer]. Depending on how your file extension is associated to "
+"an application and the capabilities of the application, this may be a slow "
+"operation. In the worst case, new instances of the application may be "
+"launched by Windows for each file that was selected."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you hold <keycap>Ctrl</keycap> while invoking this command, the working "
+"copy files are always loaded into Visual Studio. This only works when the "
+"following conditions are met: Visual Studio must be running in the same user"
+" context while having the same process integrity level [running as admin or "
+"not] as TortoiseProc.exe. It may be desirable to have the solution "
+"containing the changed files loaded, although this is not strictly "
+"necessary. Only files that exist on disk with extensions [.cpp, .h, .cs, "
+".rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] will "
+"be loaded. A maximum of 100 files can be loaded into Visual Studio at one "
+"time, and the files are always loaded as new tabs into the currently open "
+"instance of Visual Studio. The benefit of reviewing code changes in Visual "
+"Studio lies in the fact that you can then use the built-in code navigation, "
+"reference finding, static code analysis and other tools built into Visual "
+"Studio."
+msgstr ""
+
+#. (para)
+msgid ""
+"Export the selected files/folder at the selected revision. This brings up a "
+"dialog for you to confirm the URL and revision, and select a location for "
+"the export."
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The bottom pane of the Log dialog also has a context menu "
-"that allows you to <placeholder-2/>"
-msgstr "<placeholder-1/> 日志对话框的底部面板也有右键菜单，你可以: <placeholder-2/>"
+"that allows you to <placeholder-2/> When multiple files are selected in the "
+"bottom pane of the Log dialog, the context menu changes to the following: "
+"<placeholder-3/><placeholder-4/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14669,10 +14732,10 @@ msgstr "捐赠!"
 #. (para)
 msgid ""
 "Even though TortoiseSVN and TortoiseMerge are free, you can support the "
-"developers by sending in patches and play an active role in the development."
-" You can also help to cheer us up during the endless hours we spend in front"
-" of our computers."
-msgstr "尽管TSVN和TortoiseMerge是免费的，你也可以通过提交补丁和在项目开发中扮演一些积极角色，来支持我们的开发人员。你同样也可以给点鼓励，它们会让每天在计算机前没日没夜拼命工作的我们感到非常的振奋。"
+"developers by sending in patches and playing an active role in the "
+"development. You can also help to cheer us up during the endless hours we "
+"spend in front of our computers."
+msgstr ""
 
 #. (para)
 msgid ""
