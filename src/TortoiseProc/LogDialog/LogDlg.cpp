@@ -5016,7 +5016,7 @@ void CLogDlg::ExecuteAddCodeCollaboratorReview()
         dlg.DoModal();
         return;
     }
-    
+
     CAppUtils::LaunchApplication(codeCollaborator.GetCommandLine(), NULL, false);
 }
 

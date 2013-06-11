@@ -44,13 +44,13 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
     TCHAR szProgramFiles[MAX_PATH];
     TCHAR szPath[MAX_PATH];
     if (S_OK == SHGetFolderPath(NULL,
-                                CSIDL_PROGRAM_FILESX86, 
-                                NULL, 
-                                SHGFP_TYPE_CURRENT, 
+                                CSIDL_PROGRAM_FILESX86,
+                                NULL,
+                                SHGFP_TYPE_CURRENT,
                                 szProgramFiles))
     {
-        PathCombine(szPath, 
-                        szProgramFiles, 
+        PathCombine(szPath,
+                        szProgramFiles,
                         L"Collaborator Client\\ccollabgui.exe");
         if (PathFileExists(szPath))
             return CString(szPath);
