@@ -29,6 +29,7 @@ public:
     static bool IsInstalled();
     static CString GetPathToCollabGuiExe();
     CString GetCommandLine();
+    bool IsUserInfoSet();
 
 private:
     CString m_Revisions;

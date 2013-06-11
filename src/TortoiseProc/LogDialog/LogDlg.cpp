@@ -58,6 +58,7 @@
 #include "DiffOptionsDlg.h"
 #include "SmartHandle.h"
 #include "CodeCollaborator.h"
+#include "CodeCollaboratorSettingsDlg.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 
@@ -5006,11 +5007,16 @@ void CLogDlg::ExecuteAddCodeCollaboratorReview()
     CString commandLine;
 
     revisions = GetSpaceSeparatedSelectedRevisions();
-    if (revisions.GetLength() == 0)
+    if (revisions.IsEmpty())
         return;
     CodeCollaboratorInfo codeCollaborator (revisions, GetUrlOfTrunk());
-    // the following line is for testing only and will be removed in the future.
-    ::MessageBox(GetSafeHwnd(), (LPCWSTR)codeCollaborator.GetCommandLine(), L"TortoiseSVN-Debugging", MB_OK);
+    if (!codeCollaborator.IsUserInfoSet() || (GetKeyState(VK_CONTROL) & 0x8000))
+    {
+        CodeCollaboratorSettingsDlg dlg(this);
+        dlg.DoModal();
+        return;
+    }
+    
     CAppUtils::LaunchApplication(codeCollaborator.GetCommandLine(), NULL, false);
 }
 

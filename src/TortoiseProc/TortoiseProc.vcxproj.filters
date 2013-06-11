@@ -1073,6 +1073,9 @@
     <ClCompile Include="CodeCollaborator.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="CodeCollaboratorSettingsDlg.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2047,6 +2050,9 @@
     <ClInclude Include="CodeCollaborator.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
+    <ClInclude Include="CodeCollaboratorSettingsDlg.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="externalpeggedovl.ico">
@@ -2458,7 +2464,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\VS_2012.ico">
+    <Image Include="..\resources\ccollabgui.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

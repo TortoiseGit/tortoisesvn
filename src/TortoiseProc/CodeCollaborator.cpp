@@ -60,9 +60,7 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
 
 bool CodeCollaboratorInfo::IsInstalled()
 {
-    if (GetPathToCollabGuiExe().IsEmpty())
-        return false;
-    return true;
+    return !(GetPathToCollabGuiExe().IsEmpty());
 }
 
 CString CodeCollaboratorInfo::GetCommandLine()
@@ -74,3 +72,9 @@ CString CodeCollaboratorInfo::GetCommandLine()
         (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     return arguments;
 }
+
+bool CodeCollaboratorInfo::IsUserInfoSet()
+{
+    return !((CString)SvnUser).IsEmpty();
+}
+
