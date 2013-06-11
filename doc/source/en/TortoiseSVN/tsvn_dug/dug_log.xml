@@ -408,7 +408,27 @@
                         </para>
                     </listitem>
                 </varlistentry>
+                <varlistentry>
+                    <term>Create code collaborator review...</term>
+                    <listitem>
+                        <para>
+                            This menu is shown only if the SmartBear code collaborator tool 
+                            is installed.  When invoked for the first time, a dialog is shown
+                            prompting the user to enter user credentials for both code collaborator
+                            and SVN.  Once the settings are stored, the settings dialog is no
+                            longer shown when the menu is invoked, unless the user holds 
+                            <keycap>Ctrl</keycap> while executing the menu item. 
+                            The configuration and the chosen revision(s) are used to invoke
+                            the code collaborator graphical user interface client,
+                            which creates a new review with the selected revisions.
+                        </para>
+                    </listitem>
+                </varlistentry>
             </variablelist>
+            <figure id="tsvn-dug-show-collaborator-settings-1">
+                <title>The Code Collaborator Settings Dialog</title>
+                <graphic fileref="../images/CodeCollaboratorSettings.png"/>
+            </figure>
         </para>
         <para>
             <figure id="tsvn-dug-showlog-2-dia-1a">
