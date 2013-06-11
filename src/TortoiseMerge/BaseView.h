@@ -464,7 +464,6 @@ protected:  // variables
     int             m_nTabSize;
     int             m_nDigits;
     bool            m_bInlineWordDiff;
-    DWORD           m_nFixBeforeSaveMap;
 
     // Block selection attributes
     int             m_nSelViewBlockStart;

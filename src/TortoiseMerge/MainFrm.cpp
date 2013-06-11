@@ -1171,7 +1171,10 @@ int CMainFrame::SaveFile(const CString& sFilePath)
     Invalidate();
     if ((pViewData)&&(pOriginFile))
     {
-        pView->FixBeforeSave();
+        if (pView->FixBeforeSave()!=0)
+        {
+            return -1; // user aborted saving
+        }
         CFileTextLines file;
         pOriginFile->CopySettings(&file);
         CFileTextLines::SaveParams saveParams;
