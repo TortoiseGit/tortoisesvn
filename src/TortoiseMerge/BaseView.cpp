@@ -2285,7 +2285,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     }
     if ((cmd>=nEolCommandBase) && (cmd<nEolCommandBase+(int)_countof(eolArray)))
     {
-        SetLineEndings(eolArray[cmd-nEolCommandBase]);
+        ReplaceLineEndings(eolArray[cmd-nEolCommandBase]);
         SaveUndoStep();
     }
     switch (cmd)
@@ -5466,7 +5466,7 @@ EOL CBaseView::GetLineEndings(bool bHasMixedEols)
     return m_lineendings;
 }
 
-void CBaseView::SetLineEndings(EOL eEol)
+void CBaseView::ReplaceLineEndings(EOL eEol)
 {
     if (eEol == EOL_AUTOLINE)
     {
@@ -5496,6 +5496,11 @@ void CBaseView::SetLineEndings(EOL eEol)
     SetModified();
 }
 
+void CBaseView::SetLineEndingStyle(EOL eEol)
+{
+    m_lineendings = eEol;
+}
+
 void CBaseView::SetTextType(CFileTextLines::UnicodeType eTextType)
 {
     if (m_texttype == eTextType)
@@ -5518,7 +5523,7 @@ void CBaseView::AskUserForNewLineEndingsAndTextType(int nTextId)
     if (dlg.DoModal() != IDOK)
         return;
     SetTextType(dlg.texttype);
-    SetLineEndings(dlg.lineendings);
+    ReplaceLineEndings(dlg.lineendings);
 }
 
 /**
@@ -5909,6 +5914,6 @@ int CBaseView::FixBeforeSave()
     if (dlg.trimRight)
         RemoveTrailWhiteChars();
     if (dlg.fixEols)
-        SetLineEndings(dlg.lineendings);
+        ReplaceLineEndings(dlg.lineendings);
     return 0; // no errors
 }
