@@ -3695,6 +3695,7 @@ void CBaseView::AddUndoViewLine(int nViewLine, bool bAddEmptyLine)
     m_AllState.left.AddViewLineFromView(m_pwndLeft, nViewLine, bAddEmptyLine);
     m_AllState.right.AddViewLineFromView(m_pwndRight, nViewLine, bAddEmptyLine);
     m_AllState.bottom.AddViewLineFromView(m_pwndBottom, nViewLine, bAddEmptyLine);
+    SetModified();
     SaveUndoStep();
     RecalcAllVertScrollBars();
     Invalidate(FALSE);
