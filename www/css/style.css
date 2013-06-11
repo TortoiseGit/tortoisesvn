@@ -372,6 +372,10 @@ a.fancybox,
     border-bottom: none;
 }
 
+.nobr {
+    white-space: nowrap;
+}
+
 
 a[rel ~="en"] {
     background: transparent url("../img/icon_english.png") no-repeat center right;
