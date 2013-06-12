@@ -5451,7 +5451,7 @@ int CBaseView::SaveFileTo(CString sFileName, int nFlags)
 
 EOL CBaseView::GetLineEndings()
 {
-    return GetLineEndings(GetWhitecharsProperties().HasMixedEols);
+    return GetLineEndings(GetWhitecharsProperties(true).HasMixedEols);
 }
 
 EOL CBaseView::GetLineEndings(bool bHasMixedEols)
@@ -5835,9 +5835,9 @@ void CBaseView::RemoveTrailWhiteChars()
     }
 }
 
-CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties()
+CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties(bool scanAll)
 {
-    if (GetViewCount()>10000)
+    if (!scanAll && GetViewCount()>10000)
     {
         // 10k lines is enought to check
         TWhitecharsProperties oRet = {true, true, true, true};
@@ -5899,7 +5899,7 @@ CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties()
 
 int CBaseView::FixBeforeSave()
 {
-    TWhitecharsProperties oWhitesCurrent = GetWhitecharsProperties();
+    TWhitecharsProperties oWhitesCurrent = GetWhitecharsProperties(true);
     CWhitesFixDlg dlg;
     dlg.convertSpaces = oWhitesCurrent.HasSpacesToConvert;
     dlg.convertTabs = oWhitesCurrent.HasTabsToConvert;
