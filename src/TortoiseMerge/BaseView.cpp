@@ -5641,8 +5641,9 @@ void CBaseView::AddIndentationForSelectedBlock()
         {
             continue;
         }
-        CString sLine = GetViewLine(nViewLine);
-        if (sLine.Trim().IsEmpty())
+        const CString sLine = GetViewLine(nViewLine);
+        CString sTemp = sLine;
+        if (sTemp.Trim().IsEmpty())
         {
             // skip empty and whitechar only lines
             continue;
