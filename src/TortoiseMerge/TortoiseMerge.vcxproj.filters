@@ -11,7 +11,7 @@
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;png</Extensions>
     </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{86122444-e84e-4ca5-b744-20a0ac7af3ff}</UniqueIdentifier>
@@ -514,12 +514,6 @@
     <None Include="..\Resources\ribbon\TortoiseMerge.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\ribbon\ribbonlarge.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\ribbon\ribbonsmall.png">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\Resources\TortoiseMergeENG.rc">
@@ -527,9 +521,17 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\ribbon\ribbonsmall.png" />
-    <Image Include="..\Resources\ribbon\ribbonlarge.png" />
-    <Image Include="..\Resources\ribbon\ribbonsmallhdpi.png" />
-    <Image Include="..\Resources\ribbon\ribbonlargehdpi.png" />
+    <Image Include="..\Resources\ribbon\ribbonlarge.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\ribbon\ribbonlargehdpi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\ribbon\ribbonsmall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\ribbon\ribbonsmallhdpi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

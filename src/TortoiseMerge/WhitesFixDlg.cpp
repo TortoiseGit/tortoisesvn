@@ -124,10 +124,6 @@ BOOL CWhitesFixDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-/*    CString sTitle;
-    GetWindowText(sTitle);
-    SetWindowText(sTitle + view);//*/
-
     switch (m_eMode)
     {
     case FIX:
@@ -150,20 +146,16 @@ BOOL CWhitesFixDlg::OnInitDialog()
 
     case SETUP:
         // setup mode
-        m_trimRight.SetButtonStyle(BS_AUTO3STATE);
-        m_useSpaces.SetButtonStyle(BS_AUTO3STATE);
-        m_useTabs.SetButtonStyle(BS_AUTO3STATE);
-        m_fixEols.SetButtonStyle(BS_AUTO3STATE);
         m_EOL.ShowWindow(SW_HIDE);
         m_titleFix.ShowWindow(SW_HIDE);
         m_stopAsking.ShowWindow(SW_HIDE);
         m_setup.ShowWindow(SW_HIDE);
         {
             DWORD nMap = GetSettingsMap();
-            m_useTabs.SetCheck(nMap&2 ? (nMap>>2)&0x03 : 0);
-            m_useSpaces.SetCheck(nMap&2 ? 0 : (nMap>>2)&0x03);
-            m_trimRight.SetCheck((nMap>>4)&0x03);
-            m_fixEols.SetCheck((nMap>>6)&0x03);
+            m_useTabs.SetCheck(nMap&2 ? BST_CHECKED : BST_UNCHECKED);
+            m_useSpaces.SetCheck(nMap&2 ? BST_UNCHECKED : BST_CHECKED);
+            m_trimRight.SetCheck((nMap>>4)&0x03 ? BST_CHECKED : BST_UNCHECKED);
+            m_fixEols.SetCheck((nMap>>6)&0x03 ? BST_CHECKED : BST_UNCHECKED);
         }
         break;
     }
@@ -219,7 +211,7 @@ INT_PTR CWhitesFixDlg::DoModalConfirmMode()
     trimRight = askTrimRight || (trimRight && (nFixBeforeSaveMap & (1<<4)));
     fixEols = askFixEols || (fixEols && (nFixBeforeSaveMap & (1<<6)));
 
-    // if checking for format change is enabled and coresponding change is detected show dialog
+    // if checking for format change is enabled and corresponding change is detected show dialog
     if (askConvertSpaces
             || askConvertTabs
             || askTrimRight
