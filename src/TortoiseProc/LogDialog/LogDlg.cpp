@@ -58,7 +58,7 @@
 #include "DiffOptionsDlg.h"
 #include "SmartHandle.h"
 #include "CodeCollaborator.h"
-#include "CodeCollaboratorSettingsDlg.h"
+//#include "CodeCollaboratorSettingsDlg.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 
@@ -5012,8 +5012,8 @@ void CLogDlg::ExecuteAddCodeCollaboratorReview()
     CodeCollaboratorInfo codeCollaborator (revisions, GetUrlOfTrunk());
     if (!codeCollaborator.IsUserInfoSet() || (GetKeyState(VK_CONTROL) & 0x8000))
     {
-        CodeCollaboratorSettingsDlg dlg(this);
-        dlg.DoModal();
+        //CodeCollaboratorSettingsDlg dlg(this);
+        //dlg.DoModal();
         return;
     }
 
