@@ -299,7 +299,9 @@
     <None Include="..\Resources\moved.ico" />
     <None Include="..\Resources\ribbon.mfcribbon-ms" />
     <None Include="..\Resources\ribbon\ribbonlarge.png" />
+    <None Include="..\Resources\ribbon\ribbonlargehdpi.png" />
     <None Include="..\Resources\ribbon\ribbonsmall.png" />
+    <None Include="..\Resources\ribbon\ribbonsmallhdpi.png" />
     <None Include="..\Resources\ribbon\TortoiseMerge.png" />
     <None Include="..\Resources\Toolbar.bmp" />
     <None Include="..\Resources\TortoiseMerge.ico" />
@@ -315,12 +317,6 @@
     <ProjectReference Include="..\..\ext\ResizableLib\ResizableLib.vcxproj">
       <Project>{4be529fb-c2f2-49f7-a897-054b955564cf}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\Resources\ribbon\ribbonlargehdpi.png" />
-    <Image Include="..\Resources\ribbon\ribbonsmallhdpi.png" />
-    <Image Include="..\Resources\ribbon\ribbonlarge.png" />
-    <Image Include="..\Resources\ribbon\ribbonsmall.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

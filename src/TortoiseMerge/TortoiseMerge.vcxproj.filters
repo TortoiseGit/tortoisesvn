@@ -520,24 +520,22 @@
     <None Include="..\Resources\ribbon\TortoiseMerge.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Resources\ribbon\ribbonlarge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\ribbon\ribbonlargehdpi.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\ribbon\ribbonsmall.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\ribbon\ribbonsmallhdpi.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\Resources\TortoiseMergeENG.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\Resources\ribbon\ribbonlarge.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\Resources\ribbon\ribbonlargehdpi.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\Resources\ribbon\ribbonsmall.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\Resources\ribbon\ribbonsmallhdpi.png">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>
