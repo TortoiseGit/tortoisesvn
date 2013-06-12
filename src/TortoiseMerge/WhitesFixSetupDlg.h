@@ -22,50 +22,27 @@
 #include "HistoryCombo.h"
 #include "FileTextLines.h"
 
-#define TMERGE_WSF_GLOBALCHECK              (1<<0)
-#define TMERGE_WSF_ASKFIX_TABSPACE          (1<<1)
-#define TMERGE_WSF_ASKFIX_INDENTATION       (1<<2)
-#define TMERGE_WSF_ASKFIX_TRAIL             (1<<3)
-#define TMERGE_WSF_ASKFIX_EOL               (1<<4)
-
-
 /**
  * \ingroup TortoiseMerge
  * WhitesFix dialog used in TortoiseMerge.
  */
-class CWhitesFixDlg : public CDialog
+class CWhitesFixSetupDlg : public CDialog
 {
-    DECLARE_DYNAMIC(CWhitesFixDlg)
+    DECLARE_DYNAMIC(CWhitesFixSetupDlg)
 
 public:
-    CWhitesFixDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CWhitesFixDlg();
-    void Create(CWnd * pParent = NULL);
-
-    static void Enable(bool bEnable = true);
-    static bool IsEnabled();
-    bool HasSomethingToFix();
-
-    static DWORD GetSettingsMap() { return CRegDWORD(_T("Software\\TortoiseMerge\\FixBeforeSave"), (DWORD)-1); }
-    static void SetSettingsMap(DWORD nNewMap) { CRegDWORD(_T("Software\\TortoiseMerge\\FixBeforeSave"), (DWORD)-1) = nNewMap; }
+    CWhitesFixSetupDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CWhitesFixSetupDlg();
 
     // Dialog Data
-    enum { IDD = IDD_WHITESFIX };
+    enum { IDD = IDD_WHITESFIXSETUP };
 
     // in out: values for Fix Mode
     BOOL convertSpaces;
-    BOOL convertTabs;
     BOOL trimRight;
     BOOL fixEols;
-    EOL lineendings;
-    BOOL stopAsking;
 
 protected:
-    afx_msg void    OnUseEolsClick() { m_EOL.EnableWindow(m_fixEols.GetCheck()); }
-    afx_msg void    OnUseSpacesClick() { m_useTabs.SetCheck(0); }
-    afx_msg void    OnUseTabsClick() { m_useSpaces.SetCheck(0); }
-    afx_msg void    OnSetupClick();
-    afx_msg void    OnStopAskingClick();
 
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
@@ -74,12 +51,7 @@ protected:
     virtual void OnOK();
     virtual BOOL OnInitDialog();
 
-
     CButton m_useSpaces;
-    CButton m_useTabs;
     CButton m_trimRight;
     CButton m_fixEols;
-    CComboBox m_EOL;
-    CButton m_stopAsking;
-    CButton m_setup;
 };
