@@ -1731,6 +1731,21 @@ void SVN::notify( void *baton,
                 notify->err, pool);
 }
 
+static svn_wc_conflict_choice_t
+trivial_conflict_choice(const svn_wc_conflict_description2_t *cd)
+{
+  if ((cd->operation == svn_wc_operation_update
+      || cd->operation == svn_wc_operation_switch) &&
+      cd->reason == svn_wc_conflict_reason_moved_away &&
+      cd->action == svn_wc_conflict_action_edit)
+    {
+      /* local move vs. incoming edit -> update move */
+      return svn_wc_conflict_choose_mine_conflict;
+    }
+
+  return svn_wc_conflict_choose_unspecified;
+}
+
 svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
                                const svn_wc_conflict_description2_t *description,
                                void *baton,
@@ -1739,7 +1754,17 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
 {
     SVN * svn = (SVN *)baton;
     CString file;
-    svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
+    svn_wc_conflict_choice_t choice;
+
+    // Automatically resolve trivial conflicts.
+    choice = trivial_conflict_choice(description);
+
+    // Call the callback if still unresolved.
+    if (choice  == svn_wc_conflict_choose_unspecified)
+    {
+        svn->ConflictResolveCallback(description, file);
+    }
+
     CTSVNPath f(file);
     *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, f.GetSVNApiPath(resultpool)), resultpool);
     if (svn->Cancel())
