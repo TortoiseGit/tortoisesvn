@@ -66,15 +66,26 @@ bool CodeCollaboratorInfo::IsInstalled()
 CString CodeCollaboratorInfo::GetCommandLine()
 {
     CString arguments;
-    arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
-        GetPathToCollabGuiExe(),
-        (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
-        (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
+    if (!((CString)SvnUser).IsEmpty())
+    {
+        arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
+            GetPathToCollabGuiExe(),
+            (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
+            (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
+    }
+    else
+    {
+        // allow for anonymous svn access
+        arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s addchangelist new %s",
+            GetPathToCollabGuiExe(),
+            (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
+            (LPCWSTR)m_Revisions);
+    }
     return arguments;
 }
 
 bool CodeCollaboratorInfo::IsUserInfoSet()
 {
-    return !((CString)SvnUser).IsEmpty();
+    return !((CString)CollabUser).IsEmpty();
 }
 
