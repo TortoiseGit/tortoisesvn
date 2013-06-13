@@ -83,6 +83,8 @@ protected:
     CRegDWORD       m_regMaxInline;
     BOOL            m_bUseRibbons;
     CRegDWORD       m_regUseRibbons;
+    BOOL            m_bUseTaskDialog;
+    CRegDWORD       m_regUseTaskDialog;
     BOOL            m_bDontFixInconsistencies;
     CRegDWORD       m_regDontFixInconsistencies;
     CWnd            m_askIncosistenciesDetails;
