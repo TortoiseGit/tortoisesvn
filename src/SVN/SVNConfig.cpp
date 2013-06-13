@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010 - 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,8 +64,8 @@ BOOL SVNConfig::GetDefaultIgnores()
     if (config == nullptr)
         return FALSE;
     svn_error_t * err;
-    patterns = NULL;
-    err = svn_wc_get_default_ignores (&(patterns), config, pool);
+    patterns = nullptr;
+    err = svn_wc_get_default_ignores (&patterns, config, pool);
     if (err)
     {
         svn_error_clear(err);
@@ -77,7 +77,7 @@ BOOL SVNConfig::GetDefaultIgnores()
 
 BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 {
-    if (patterns == NULL)
+    if (patterns == nullptr)
         return FALSE;
     return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
 }
