@@ -17,9 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "SciEdit.h"
-#include "Tooltip.h"
-#include <afxcmn.h>
 
 // CodeCollaboratorSettingsDlg dialog
 
@@ -41,7 +38,6 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    CToolTips       m_tooltips;
     CString         m_svnUser;
     CString         m_svnPassword;
     CString         m_collabUser;

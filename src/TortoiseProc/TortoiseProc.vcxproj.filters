@@ -1073,6 +1073,9 @@
     <ClCompile Include="CodeCollaborator.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="CodeCollaboratorSettingsDlg.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2046,6 +2049,9 @@
     </ClInclude>
     <ClInclude Include="CodeCollaborator.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeCollaboratorSettingsDlg.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
