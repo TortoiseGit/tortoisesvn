@@ -759,12 +759,12 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
     // status info until we find the one matching workingTarget.
     if (!workingTarget.IsDirectory())
     {
-        if (!workingTarget.IsEquivalentTo(svnPath))
+        if (!workingTarget.IsEquivalentToWithoutCase(svnPath))
         {
             while (s != 0)
             {
                 s = status.GetNextFileStatus(svnPath);
-                if(workingTarget.IsEquivalentTo(svnPath))
+                if(workingTarget.IsEquivalentToWithoutCase(svnPath))
                 {
                     break;
                 }
