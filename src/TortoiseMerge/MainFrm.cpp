@@ -177,7 +177,6 @@ CMainFrame::CMainFrame()
     , m_regCollapsed(L"Software\\TortoiseMerge\\Collapsed", 0)
     , m_regInlineDiff(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE)
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
-    , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
@@ -186,7 +185,6 @@ CMainFrame::CMainFrame()
     m_bWrapLines = !!(DWORD)m_regWrapLines;
     m_bInlineDiff = !!m_regInlineDiff;
     m_bUseRibbons = !!m_regUseRibbons;
-    m_bUseTaskDialog = CTaskDialog::IsSupported() && (DWORD)m_regUseTaskDialog;
     CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
 }
 
@@ -733,7 +731,7 @@ bool CMainFrame::LoadViews(int line)
                 progDlg.Stop();
                 CString msg;
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
-                if (m_bUseTaskDialog)
+                if (CTaskDialog::IsSupported())
                 {
                     CTaskDialog taskdlg(msg,
                                         CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)),
@@ -1290,7 +1288,7 @@ void CMainFrame::OnFileSave()
         {
             // both views
             UINT ret = IDNO;
-            if (m_bUseTaskDialog)
+            if (CTaskDialog::IsSupported())
             {
                 CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_SAVE_MORE)),
                                     CString(MAKEINTRESOURCE(IDS_SAVE)),
@@ -1409,7 +1407,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
         bool bDelete = false;
-        if (m_bUseTaskDialog)
+        if (CTaskDialog::IsSupported())
         {
             CString msg;
             msg.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
@@ -1470,7 +1468,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             if ((err == NULL) && (statuskind == svn_wc_status_conflicted))
             {
                 bool bResolve = false;
-                if (m_bUseTaskDialog)
+                if (CTaskDialog::IsSupported())
                 {
                     CString msg;
                     msg.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
@@ -1517,7 +1515,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 
 void CMainFrame::OnFileSaveAs()
 {
-    if (m_bUseTaskDialog)
+    if (CTaskDialog::IsSupported())
     {
         // ask what file to save as
         bool bHaveConflict = (CheckResolved() >= 0);
@@ -2272,7 +2270,7 @@ int CMainFrame::CheckForReload()
     }
 
     UINT ret = IDNO;
-    if (m_bUseTaskDialog)
+    if (CTaskDialog::IsSupported())
     {
         CString msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
         CTaskDialog taskdlg(msg,
@@ -2393,7 +2391,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         {
             // both views
             UINT ret = IDNO;
-            if (m_bUseTaskDialog)
+            if (CTaskDialog::IsSupported())
             {
                 CTaskDialog taskdlg(sTitle,
                                     sSubTitle,
@@ -2467,7 +2465,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         if (HasUnsavedEdits(m_pwndLeftView))
         {
             UINT ret = IDNO;
-            if (m_bUseTaskDialog)
+            if (CTaskDialog::IsSupported())
             {
                 CTaskDialog taskdlg(sTitle,
                                     sSubTitle,
@@ -2509,7 +2507,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
     UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
-        if (m_bUseTaskDialog)
+        if (CTaskDialog::IsSupported())
         {
             CTaskDialog taskdlg(sTitle,
                                 sSubTitle,
@@ -2757,7 +2755,7 @@ bool CMainFrame::HasConflictsWontKeep()
     CString sTemp;
     sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
     bool bSave = false;
-    if (m_bUseTaskDialog)
+    if (CTaskDialog::IsSupported())
     {
         CTaskDialog taskdlg(sTemp,
                             CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)),
