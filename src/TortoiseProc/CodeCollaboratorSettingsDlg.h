@@ -27,14 +27,14 @@ class CodeCollaboratorSettingsDlg : public CDialog
 public:
     CodeCollaboratorSettingsDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CodeCollaboratorSettingsDlg();
-    
+
 // Dialog Data
     enum { IDD = IDD_COLLABORATORSETTINGS };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    
+
     DECLARE_MESSAGE_MAP()
 
 private:

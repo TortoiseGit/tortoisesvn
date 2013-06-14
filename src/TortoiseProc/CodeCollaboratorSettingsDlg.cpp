@@ -61,7 +61,7 @@ BOOL CodeCollaboratorSettingsDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
-   
+
     m_collabUser = (CString)m_regCollabUser;
     m_svnUser = (CString)m_regSvnUser;
 
