@@ -12,14 +12,15 @@
 # Translators:
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Milorad Popovic <MiloradSPopovic@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 10:22+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-12 20:42+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1765,7 +1766,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr ""
+msgstr "Možete kreirati spremište sa FSFS bekend ili sa starom Berkli bazom (BDB) format. FSFS format je generalno brži i lakši za administriranje, i radi na mrežnim deljenjeima i Vindous 98 bez problema. BDB format se smatra mnogo stabilnijim jednostavno zato što se dugo koristi ali kako je FSFS u upotrbi više godina taj argument je sada slab. Pročitaj  <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> u Subverzionoj knjizi za više informacija."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2196,7 +2197,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr ""
+msgstr "Zakačiva skripta je program započet nekim događajem iz spremišta, kao što je kreiranje nove revizije ili izmena neverzionisanih osobina. Svka zakačaljka rukuje sa dovoljno informacija da kaže koji je događaj, na  koji cilj se izvršava i korisničko ime osobe koja je pokrenula događaj. U zavisnosti izlaza zakačaljke, ili povratni status, zakačivi program može nastaviti akciju, zaustaviti je ili suspendovati na neki način. Molim pogledajte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> u Subverzionoj knjizi za sve detalje o zakačaljkama koje su primenjene."
 
 #. (para)
 msgid ""
@@ -2362,7 +2363,7 @@ msgid ""
 "Subversion book under <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "Mnogo detaljnije informacije o Subverzija server opcijama i kako izabrati najbolju arhitekturu za vašu situaciju, može se na u Subverzionoj knjizi pod <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -5520,11 +5521,11 @@ msgstr "Izvezite izabrane stavke u ovoj reviziji u folder, čuvajući hijerarhij
 #. (title)
 msgid ""
 "The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
-msgstr ""
+msgstr "Dnevnik donji panel sa lontekst menijem kada su višestruki fajlovi izabrani."
 
 #. (term)
 msgid "Show multiple changes..."
-msgstr ""
+msgstr "Prikaži višestruke izmene..."
 
 #. (para)
 msgid ""
@@ -5533,11 +5534,11 @@ msgid ""
 "up multiple copies of your selected diff tool, or just add a new comparison "
 "tab in your diff tool. If you have selected more than 15 files, you will be "
 "prompted to confirm the action."
-msgstr ""
+msgstr "Prikaži izmene napravljene u izabranoj reviziji za izabrane fajlove. Primetimo da je funkcionalnost izmena pozvana više puta, koji mogu doneti višestruke kopije od vas izabranih dif alata, ili samo dodat novi poredbeni tab u vašem dif alatu. Ako imate izabrano više od 15 fajlova bićete upitani da potvrdite akciju."
 
 #. (term)
 msgid "Open multiple local..."
-msgstr ""
+msgstr "Otvori višestruki lokal..."
 
 #. (para)
 msgid ""
@@ -5548,7 +5549,7 @@ msgid ""
 "an application and the capabilities of the application, this may be a slow "
 "operation. In the worst case, new instances of the application may be "
 "launched by Windows for each file that was selected."
-msgstr ""
+msgstr "Ovo će otvoriti fajlove lokalne radne kopije koja odgovara vašim izabranim fajlovima koristeći aplikaciju koja je registrovana za ekstenziju. [Ponašanje je ono što dobijete sa dvostrukim klikom na fajl(ove) radne kopije u Vindouz pretraživaču]. U zavisnosti kako je ekstenzija fajla pridružena aplikaciji i mogućnosti aplikacije ovo može biti spora operacija. U najgorem slučaju nova stavka aplikacije može biti lansirana od Vindouza za svaki fajl koji je izabran."
 
 #. (para)
 msgid ""
@@ -5566,14 +5567,14 @@ msgid ""
 "Studio lies in the fact that you can then use the built-in code navigation, "
 "reference finding, static code analysis and other tools built into Visual "
 "Studio."
-msgstr ""
+msgstr "Ako držite <keycap>Ctrl</keycap>  dok pozivate komandu, fajlovi radne kopije su uvek uneti u Vizual Studio. Ovo radi samo kada su sledeći uslovi stavljeni: Vizualni Studio mora da radi u istom korisničkom kontekstudok ima isti nivo proces integriteta [radeći kao admin ili ne]  kao TortoiseProc.ehe. Može se želeti da ima rezultat koji sadrži unete izmenjene fajlove, takođe to nije striktno neophodno. Jedini fajlovi koji postoje na disku sa ekstenzijama [.cpp, .h, .cs, .rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css and .xml] će biti uneti. Maksimum od 100 fajlova može biti uneto u Vizualni Studio u jednom trenutku i fajlovi su uvek uneti kao novi tabovi u tekuću otvorenu stavku Vizial Studija. Korist pregledanog koda izmeenog u Vizualnom Studiju leži u činjenici da možete koristiti ugrađen navigacioni kod, referentno nalaženje, statik kod analizu i drugi alati urađeni u Vizualnom Studiju."
 
 #. (para)
 msgid ""
 "Export the selected files/folder at the selected revision. This brings up a "
 "dialog for you to confirm the URL and revision, and select a location for "
 "the export."
-msgstr ""
+msgstr "Izvoz izabranih fajlova/foldera u izabranoj reviziji. Ovo dovodi dijalog da potvrdite URL i reviziju, i izaberete lokaciju za izvoz."
 
 #. (para)
 msgid ""
@@ -5581,7 +5582,7 @@ msgid ""
 "that allows you to <placeholder-2/> When multiple files are selected in the "
 "bottom pane of the Log dialog, the context menu changes to the following: "
 "<placeholder-3/><placeholder-4/>"
-msgstr ""
+msgstr "<placeholder-1/>  Donji panel dijaloga dnevnika takođe ima kontekst meni koji vam omogućava da <placeholder-2/> Kada se izberi višestruki fajlovi u donjem panelu dijaloga dnevnika kontekst meni se menja u sledeći: <placeholder-3/><placeholder-4/> "
 
 #. (para)
 msgid ""
@@ -5810,7 +5811,7 @@ msgid ""
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Subverzija vam dozvoljava da izmenite revizione osobine uvek kad to želite. Ali posle takvih promena nije moguće vraćanje (ove izmene nisu verzionisane) ove osobine su onemogućene uobičajeno.Da se uradi ovaj posao morate podesiti pre-revprop-izmene zakačaljku.Molim pogledajte poglavlje <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> u Subverzionoj knjizi za detalje o tome kako to uraditi.. Pročitajte <xref linkend=\"tsvn-repository-hooks\"/> da nađete neke dalje zabeleške o primeni zakačaljki na Vindouz mašini."
 
 #. (para)
 msgid ""
@@ -7553,7 +7554,7 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr ""
+msgstr "Da bi se našlo kako koristiti ove ključne reči, pogledajte u <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> u Subverzionoj knjizi koja vam daje pun opis ovih ključnih reči i kako ih koristiti."
 
 #. (para)
 msgid ""
@@ -7561,7 +7562,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr ""
+msgstr "Za više informacija o osobinama u Subverziji vidite link <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8724,7 +8725,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Takođe možete specificirati peg i operativnu reviziju za URL ako se trži. Da naučite više o peg i operativnim revizijama, molil pročitajte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>odgovarajuća poglavlja</citetitle></ulink> u Subverzionoj knjizi."
 
 #. (para)
 msgid ""
@@ -9129,7 +9130,7 @@ msgid ""
 "bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr ""
+msgstr "Važno je razumeti kako grananje i stapanje radi u Subverziji pre no se počne njihovo korišćenje, jer to može postati sasvim kompleksno. Veoma je preporučljivo da pročitate poglavlje <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink>  u Subverzionoj knjizi, što daje pun opis i puno primera kako ih koristiti."
 
 #. (para)
 msgid ""
@@ -9240,7 +9241,7 @@ msgid ""
 "<ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "Ako vaš server/spremište ne podržava praćenje stapanja onda je ovo jedini način da se grane stope nazad u deblo. Drugi slučaj korišćenja javlja se koristeći prodajne grane i potrebno je stopiti izmene prateći novi prodajni izdanak u vašem kodu debla. Za više informacija pročitajte poglavlje <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> u Subverzionoj knjizi."
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9503,7 +9504,7 @@ msgid ""
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr ""
+msgstr "Većinu vremena želite da stapanje uzme u obzir istoriju fajla tako da te izmene relativne zajedničkom pretku su stopljene. Ponekad će va možda trebati da stopite fajlove koji su možda povezane ali nisu u spremištu. Na primer možete imati uvezene verzije 1 i 2 iz biblioteke trećeg lica u dva odvojena direktorijuma. Takođe oni su logički povezani, Subverzija nema saznanje o tome jer ona vidi samo crnu kutiju koju ste uvezli. Ako pokušate da stopite razlike između ova dva stabla videćete potpuno uklanjanje koje prati potpuno dodavanje. Da se učini da Subverzija koristi samo razlike bazirane na razlikama putanje pre nego razlike bazirane na istoriji, proverite  <guilabel>Ignore ancestry</guilabel> boks. Pročitajte više o ovim stvarima u Subverzionoj knjizi <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -12288,7 +12289,7 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr ""
+msgstr "Koristite <guibutton>Uredi</guibutton> da uredite Subverzionu konfiguraciju direktno.Neka podešavanja ne mogu biti izmenjena direktno sa TortoiseSVN i potrebno ih je umesto toga  podesiti ovde. Za više informacija o Subverziji <filename>config</filename>  fajl vidi <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. Poglavlje na <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> je od partikularnog interesa i konfiguriše se ovde. Primetimo da Subverzija može da čita konfiguravione informacije sa više mesta i potrebno vam je da znate koji ima prioritet. Pogledajte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> da nđete više o tome."
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13294,7 +13295,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr ""
+msgstr "Ako vam je potrebno da podesite proksi podešavanje po spremištu potrebno vam da koristite Subverzioni <filename>servers</filename> fajl da to konfigurišete. Koristite <guibutton>Uredi</guibutton> da to dobijete direktno. Konsultujte <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> o detaljima kako da koristite taj fajl."
 
 #. (para)
 msgid ""
@@ -14725,7 +14726,7 @@ msgid ""
 "developers by sending in patches and playing an active role in the "
 "development. You can also help to cheer us up during the endless hours we "
 "spend in front of our computers."
-msgstr ""
+msgstr "Uprkos što su TortoiseSVN i TortoiseMerge besplatni možete podržate razvojni tim u zakrpama i igrajući aktivnu ulogu u razvoju. Možete takođe pomoći  bodreći nas u toku dugih časova koje trošimo pred našim kompjuterom."
 
 #. (para)
 msgid ""
@@ -16385,7 +16386,7 @@ msgid ""
 " how this works in the <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr ""
+msgstr "Jedini način da se uklone podaci iz spremišta je da se koristi Subverzioni alat komandne linije <literal>svnadmin</literal>. Možete naći opis kako to radi na <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16703,7 +16704,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN mora se instalirati pod <emphasis>Computer Configuration</emphasis> a ne pod <emphasis>User Configuration</emphasis>. Ovo je zato što TortoiseSVN traži CRT i MFC DLLove koji se šalju <emphasis>per computer</emphasis> a ne <emphasis>per user</emphasis>. Ako stvarno morate instalisati TortoiseSVN po korisniku morate najpre instalirati MFC i CRT oakete verzije 11 Mikrosofta na svaki kompjuter gde želite da instalirate TortoiseSVN po korisniku."
 
 #. (para)
 msgid ""

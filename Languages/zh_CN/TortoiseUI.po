@@ -23,6 +23,7 @@
 # qingxianhao <qinghao1@foxmail.com>, 2012
 # Verplusor <sailen@live.com>, 2011
 # shengbinmeng <shengbinmeng@gmail.com>, 2013
+# YFdyh000 Yang <yfdyh000@gmail.com>, 2013
 # loveyu <yuht@qq.com>, 2012
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 msgid ""
@@ -30,8 +31,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-12 12:41+0000\n"
+"Last-Translator: YFdyh000 Yang <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,7 +426,7 @@ msgstr "关于 TortoiseMerge(&A)..."
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "接受当前的工作副本状态（标记为已解决）(&A)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -465,7 +466,7 @@ msgstr "递归应用该属性(&A)"
 
 #. Resource IDs: (610)
 msgid "&Apply the udpate to the move destination"
-msgstr ""
+msgstr "应用更新到移动目标(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -733,7 +734,7 @@ msgstr "使用代理服务器(&E)"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
-msgstr ""
+msgstr "启用编辑(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1136,7 +1137,7 @@ msgstr "端口(&P): "
 
 #. Resource IDs: (3)
 msgid "&Postpone all remaining conflicts"
-msgstr ""
+msgstr "推迟所有冲突(&P)"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -2006,7 +2007,7 @@ msgstr "将要丢弃你的全部修改! 你真的要重置工具栏“%s”吗?"
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr ""
+msgstr "允许对此视图的编辑\n允许编辑"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2100,11 +2101,11 @@ msgstr "另一进程正在阻塞当前工作版本的数据库，或者底层操
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "追加到右块"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "追加此块到左侧"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2365,7 +2366,7 @@ msgstr "补丁文件的路径和目标路径都必须是绝对路径！"
 
 #. Resource IDs: (188)
 msgid "Bottom View:"
-msgstr ""
+msgstr "底部视图："
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -2554,7 +2555,7 @@ msgstr "取消\n不要退出 TortoiseMerge"
 msgid ""
 "Cancel\n"
 "Don't reload views"
-msgstr ""
+msgstr "取消\n不要重载视图"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2626,13 +2627,13 @@ msgstr "取消\n首先解决冲突。"
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "取消\n保持当前的文件"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "取消\n保持当前的设置"
 
 #. Resource IDs: (226)
 msgid ""
@@ -3338,19 +3339,19 @@ msgstr "契约钉住的窗口"
 
 #. Resource IDs: (1092)
 msgid "Convert Spaces to &Tabs"
-msgstr ""
+msgstr "转换空格到制表符(&T)"
 
 #. Resource IDs: (1091)
 msgid "Convert Tabs to &Spaces"
-msgstr ""
+msgstr "转换制表符到空格(&S)"
 
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
-msgstr ""
+msgstr "转换空格到制表符"
 
 #. Resource IDs: (501)
 msgid "Convert tabs to spaces"
-msgstr ""
+msgstr "转换制表符到空格"
 
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
@@ -3494,7 +3495,7 @@ msgstr "正在复制 %1!s!"
 
 #. Resource IDs: (266)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "正在从外部版本库URL复制"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -4091,7 +4092,7 @@ msgstr "对下述路径，不显示上下文菜单:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge (old style)"
-msgstr ""
+msgstr "重整而非自动合并（旧风格）"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4223,7 +4224,7 @@ msgstr "Documentation : Simon Large\nCode : Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (1093)
 msgid "Don't ask anymore"
-msgstr ""
+msgstr "不要再问"
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
@@ -4253,7 +4254,7 @@ msgstr "不要执行\n不要执行这些脚本"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "不要保存\n关闭视图并且不保存修改"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4425,7 +4426,7 @@ msgstr "启用自动属性"
 
 #. Resource IDs: (156)
 msgid "Enable Edit"
-msgstr ""
+msgstr "启用编辑"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4443,7 +4444,7 @@ msgstr "仅在设置了 tsvn:projectlanguage\n时才进行拼写检查。"
 
 #. Resource IDs: (300, 301)
 msgid "Encoding"
-msgstr ""
+msgstr "编码方式"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -6067,7 +6068,7 @@ msgstr "保留(c&)修改列表"
 msgid ""
 "Keep resolving\n"
 "Jump to first unresolved conflict"
-msgstr ""
+msgstr "继续解决\n跳转到第一个未解决的冲突"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -7625,11 +7626,11 @@ msgstr "优先使用版本库(&R)"
 
 #. Resource IDs: (251)
 msgid "Prepend right block"
-msgstr ""
+msgstr "加至右块开头"
 
 #. Resource IDs: (251)
 msgid "Prepend this block to left"
-msgstr ""
+msgstr "此块加至左侧开头"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -8374,7 +8375,7 @@ msgstr "需要用户名和密码"
 
 #. Resource IDs: (8)
 msgid "Res&olve..."
-msgstr ""
+msgstr "解决(&O)..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8390,7 +8391,7 @@ msgstr "解决"
 
 #. Resource IDs: (2)
 msgid "Resolve &later"
-msgstr ""
+msgstr "推迟解决(&L)"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
@@ -8418,7 +8419,7 @@ msgstr "以后解决(&A)"
 
 #. Resource IDs: (1383)
 msgid "Resolve using &their property"
-msgstr ""
+msgstr "使用它们的属性解决(&T)"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8779,11 +8780,11 @@ msgstr "另存为"
 msgid ""
 "Save Bottom File as\n"
 "You're asked where to save the bottom file"
-msgstr ""
+msgstr "另存为底部文件\n您将被询问在何处保存底部文件"
 
 #. Resource IDs: (316)
 msgid "Save File"
-msgstr ""
+msgstr "保存文件"
 
 #. Resource IDs: (316)
 msgid ""
@@ -8811,13 +8812,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "保存右侧文件\n此次修改将保存到：\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "保存所有\n两侧文件都将保存"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9099,13 +9100,13 @@ msgstr ""
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
-msgstr ""
+msgstr "选择您想另存为的文件"
 
 #. Resource IDs: (316)
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr ""
+msgstr "选择您想另存为的文件\n注意：有未解决的冲突！"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -10483,7 +10484,7 @@ msgstr "一共有 %d 种图标重载处理程序安装"
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "有多个可编辑的视图。\n您要保存哪个视图？"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -11298,7 +11299,7 @@ msgstr "使用正则表达式"
 
 #. Resource IDs: (251)
 msgid "Use right block"
-msgstr ""
+msgstr "使用左侧区块"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11385,7 +11386,7 @@ msgstr "使用整个文件(&W)"
 
 #. Resource IDs: (251)
 msgid "Use this block on left"
-msgstr ""
+msgstr "在左侧使用此区块"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
