@@ -11,6 +11,7 @@
 # Authors:
 # Translators:
 # brunzefb <brunzefb@yahoo.com>, 2013
+# brunzefb <brunzefb@yahoo.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
@@ -25,8 +26,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-12 02:40+0000\n"
-"Last-Translator: brunzefb <brunzefb@yahoo.com>\n"
+"PO-Revision-Date: 2013-06-14 07:57+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5348,7 +5349,7 @@ msgid ""
 "Search log messages for the text you enter. This searches the log messages "
 "that you entered and also the action summaries created by Subversion (shown "
 "in the bottom pane). The search is not case sensitive."
-msgstr "Die Logmeldungen durchsuchen. Die von Subversion generierte Liste der geänderten Dateien wird einbezogen. Die Suche ignoriert Groß-/Kleinschreibung."
+msgstr "Die Logmeldungen durchsuchen. Die von Subversion generierte Liste der geänderten Dateien im unteren Bereich wird mit einbezogen. Die Suche ignoriert Groß-/Kleinschreibung."
 
 #. (para)
 msgid ""
@@ -5527,7 +5528,7 @@ msgstr "Exportiert die gewählten Objekte in dieser Revision unter Beibehaltung 
 #. (title)
 msgid ""
 "The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
-msgstr "Der untere Panel im Log-Dialog mit angezeigtem Kontextmenü, wenn mehrere Dateien ausgewählt sind."
+msgstr "Der untere Bereich im Log-Dialog mit angezeigtem Kontextmenü, wenn mehrere Dateien ausgewählt sind."
 
 #. (term)
 msgid "Show multiple changes..."
@@ -5555,7 +5556,7 @@ msgid ""
 "an application and the capabilities of the application, this may be a slow "
 "operation. In the worst case, new instances of the application may be "
 "launched by Windows for each file that was selected."
-msgstr ""
+msgstr "Damit öffnen Sie lokale Dateien aus Ihrer Arbeitskopie mit den für diese Dateien registrierten Anwendungen. Das Verhalten entspricht dem bei einem Doppelklick auf die Datei(en) im Windows Explorer. Abhängig von den Eigenschaften der Anwendung die für die Dateierweiterung registriert ist, kann die Aktion recht lange dauern. Schlimmstenfalls wird für jede gewählte Datei eine neue Instanz der Anwendung gestartet."
 
 #. (para)
 msgid ""
@@ -5573,7 +5574,7 @@ msgid ""
 "Studio lies in the fact that you can then use the built-in code navigation, "
 "reference finding, static code analysis and other tools built into Visual "
 "Studio."
-msgstr ""
+msgstr "Wenn Sie beim Aufrufen dieser Befehl <keycap>Strg</keycap> halten, werden die Dateien immer in Visual Studio geladen. Dies funktioniert nur, wenn die folgenden Bedingungen erfüllt sind: Visual Studio muss in demselben Benutzerkontext und mit der  gleichen Prozess Integritätsebene [als Admin ausführen, oder nicht] wie TortoiseProc.exe. Es möglicherweise wünschenswert, das Projekt mit den geänderten Dateien geladen zu haben, obwohl dies nicht unbedingt erforderlich ist. Nur auf dem Datenträger vorhandene Dateien,  mit den Erweiterungen [cpp, .h, CS-, RC, resx, XAML, js, .html, .htm, .asp, .aspx, .php, css und xml]  werden geladen. Maximal 100 Dateien können gleichzeitig in Visual Studio geladen werden, und die Dateien werden immer als neue Karteireiter in der derzeit geöffneten Instanz von Visual Studio geladen. Der Vorteil einer Überprüfung von Codeänderungen in Visual Studio liegt in der Tatsache, dass Sie die integrierten Werkzeuge: Code-Navigation, Verweis finden, statische Codeanalyse verwenden können."
 
 #. (para)
 msgid ""
@@ -5588,7 +5589,7 @@ msgid ""
 "that allows you to <placeholder-2/> When multiple files are selected in the "
 "bottom pane of the Log dialog, the context menu changes to the following: "
 "<placeholder-3/><placeholder-4/>"
-msgstr ""
+msgstr "<placeholder-1/> Der untere Bereich des Log-Dialogs hat ein Kontextmenü, das Ihnen erlaubt <placeholder-2/> Wenn mehrere Dateien im Log-Dialog markiert sind, ändert sich das Kontextmenü in: <placeholder-3/><placeholder-4/>"
 
 #. (para)
 msgid ""
