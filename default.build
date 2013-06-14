@@ -279,6 +279,32 @@
     </nant>
   </target>
 
+  <target name="tabspace" depends="env">
+    <description>
+      Runs the tabspace utility on our source files, including the doc xml files
+    </description>
+    <foreach item="Folder" property="foldername">
+      <in>
+        <items>
+          <include name="src" />
+          <include name="doc\source\en" />
+          <include name="contrib\diff-scripts" />
+          <include name="contrib\hook-scripts" />
+        </items>
+      </in>
+      <do>
+        <echo message="tabspace for folder ${foldername}" />
+        <exec program="tabspace${bindirextension}.exe">
+          <arg value="/path:${foldername}" />
+          <!-- include all our own files -->
+          <arg value="/ext:c;cc;cpp;cs;cxx;h;hpp;hxx;build;txt;in;wxs;wxi;def;rc2;bat;js;vbs;idl;tmpl;sh" />
+          <!-- exclude generated source files -->
+          <arg value="/exclude:resource.h;dlldata.c;IBugTraqProvider_h.h;IBugTraqProvider_i.c;IBugTraqProvider_p.c;SubWCRevCOM_h.h;SubWCRevCOM_i.c" />
+        </exec>
+      </do>
+    </foreach>
+  </target>
+
   <target name="MakeRelease" depends="VSNET,env,clean,setup">
     <description>
       executes all Nant targets required for a release.
