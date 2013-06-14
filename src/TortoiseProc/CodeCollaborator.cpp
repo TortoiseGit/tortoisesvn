@@ -43,8 +43,10 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
 {
     TCHAR szProgramFiles[MAX_PATH];
     TCHAR szPath[MAX_PATH];
+
+    // this will work for X86 and X64 if the matching 'bitness' client has been installed
     if (S_OK == SHGetFolderPath(NULL,
-                                CSIDL_PROGRAM_FILESX86,
+                                CSIDL_PROGRAM_FILES,
                                 NULL,
                                 SHGFP_TYPE_CURRENT,
                                 szProgramFiles))
@@ -52,6 +54,21 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
         PathCombine(szPath,
                         szProgramFiles,
                         L"Collaborator Client\\ccollabgui.exe");
+        if (PathFileExists(szPath))
+            return CString(szPath);
+    }
+
+    // if running on x64 OS, but installed X86 client - get try getting directory from there
+    // on X86 this just returns %ProgramFiles%
+    if (S_OK == SHGetFolderPath(NULL,
+        CSIDL_PROGRAM_FILESX86,
+        NULL,
+        SHGFP_TYPE_CURRENT,
+        szProgramFiles))
+    {
+        PathCombine(szPath,
+            szProgramFiles,
+            L"Collaborator Client\\ccollabgui.exe");
         if (PathFileExists(szPath))
             return CString(szPath);
     }
