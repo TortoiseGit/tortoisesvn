@@ -1014,6 +1014,17 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
         m_bCheckReload = false;
         CheckForReload();
     }
+    // workaround for ribbon interface when the task bar is on the left or top
+    if (nType == SIZE_MAXIMIZED)
+    {
+        WINDOWPLACEMENT wp;
+        GetWindowPlacement(&wp);
+        if (wp.ptMaxPosition.x || wp.ptMaxPosition.y)
+        {
+            wp.ptMaxPosition.x = wp.ptMaxPosition.y = 0;
+            SetWindowPlacement(&wp);
+        }
+    }
 }
 
 void CMainFrame::OnViewWhitespaces()
