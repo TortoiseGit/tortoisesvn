@@ -371,19 +371,21 @@
     <echo message="LanguagePacks: creates the Languagepack installers" />
     <echo message="msi          : creates the msi, but doesn't build the libs first" />
     <echo message="Overlays     : builds the TortoiseOverlays module" />
+    <echo message="tabspace     : cleans the code and documents up replacing tabs with spaces" />
     <echo />
     <echo message="The following targets can be used to tweak the builds:" />
-    <echo message="clean   : clean those targets which are built next" />
-    <echo message="debug   : if this target is called before other build targets," />
-    <echo message="          those targets are built with debug support" />
-    <echo message="release : call this if you want to create official releases." />
-    <echo message="          It removes the '-dev' string from some builds" />
-    <echo message="xp      : target Windows XP" />
-    <echo message="x64     : call this if you want to create native 64 bit builds." />
-    <echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
-    <echo message="cross   : cross-compile on win32 for the given target platform." />
-    <echo message="          (currently only available with x64.)" />
-    <echo message="ipv6    : builds the packages with IPv6 support" />
+    <echo message="clean    : clean those targets which are built next" />
+    <echo message="debug    : if this target is called before other build targets," />
+    <echo message="           those targets are built with debug support" />
+    <echo message="release  : call this if you want to create official releases." />
+    <echo message="           It removes the '-dev' string from some builds" />
+    <echo message="xp       : target Windows XP" />
+    <echo message="x64      : call this if you want to create native 64 bit builds." />
+    <echo message="           (AMD64/EM64T only -- will not work on Itanium systems.)" />
+    <echo message="cross    : cross-compile on win32 for the given target platform." />
+    <echo message="           (currently only available with x64.)" />
+    <echo message="ipv6     : builds the packages with IPv6 support" />
+
     <echo />
     <echo message="Please specify the configuration targets BEFORE the main target." />
     <echo message="Examples:" />
@@ -392,6 +394,9 @@
     <echo message="nant release setup" />
     <echo message="nant -v x64 debug binaries" />
     <echo message="nant cross x64 setup" />
+    <echo />
+    <echo message="Remember to use the correct Visual Studio command prompt environment for your" />
+    <echo message="target [x64, cross, default x86] each build with different Visual Studio command prompts!" />
     <echo />
   </target>
 </project>
