@@ -266,16 +266,23 @@ LRESULT CMainWindow::DoCommand(int id)
         break;
     case ID_FILE_PAGESETUP:
         {
+            TCHAR localeInfo[3];
+            GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
+            // Metric system. '1' is US System
+            int defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
+
             PAGESETUPDLG pdlg = {0};
             pdlg.lStructSize = sizeof(PAGESETUPDLG);
             pdlg.hwndOwner = *this;
             pdlg.hInstance = NULL;
             pdlg.Flags = PSD_DEFAULTMINMARGINS|PSD_MARGINS|PSD_DISABLEPAPER|PSD_DISABLEORIENTATION;
+            if (localeInfo[0] == '0')
+                pdlg.Flags |= PSD_INHUNDREDTHSOFMILLIMETERS;
 
-            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", 2540);
-            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", 2540);
-            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", 2540);
-            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", 2540);
+            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
+            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
+            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
+            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
 
             pdlg.rtMargin.left   = (long)(DWORD)m_regMargLeft;
             pdlg.rtMargin.top    = (long)(DWORD)m_regMargTop;
@@ -361,11 +368,15 @@ LRESULT CMainWindow::DoCommand(int id)
                 - GetDeviceCaps(hdc, VERTRES)                       // printable height
                 - rectPhysMargins.top;                              // right unprintable margin
 
+            TCHAR localeInfo[3];
+            GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
+            // Metric system. '1' is US System
+            int defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
             RECT pagesetupMargin;
-            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", 2540);
-            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", 2540);
-            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", 2540);
-            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", 2540);
+            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
+            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
+            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
+            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
 
             pagesetupMargin.left   = (long)(DWORD)m_regMargLeft;
             pagesetupMargin.top    = (long)(DWORD)m_regMargTop;
@@ -381,10 +392,6 @@ LRESULT CMainWindow::DoCommand(int id)
                 // thousandths of inches (HiEnglish) margin values
                 // from the Page Setup dialog to device units.
                 // (There are 2540 hundredths of a mm in an inch.)
-
-                TCHAR localeInfo[3];
-                GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
-
                 if (localeInfo[0] == '0')
                 {
                     // Metric system. '1' is US System
