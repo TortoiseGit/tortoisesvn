@@ -27,7 +27,6 @@
 #include "AppUtils.h"
 #include "GotoLineDlg.h"
 #include "EncodingDlg.h"
-#include "WhitesFixDlg.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -5358,9 +5357,6 @@ int CBaseView::SaveFile(int nFlags)
     Invalidate();
     if (m_pViewData!=NULL && m_pWorkingFile!=NULL)
     {
-        if (FixBeforeSave()!=0)
-            return -1;
-
         CFileTextLines file;
         m_SaveParams.m_LineEndings = m_lineendings;
         m_SaveParams.m_UnicodeType = m_texttype;
@@ -5451,7 +5447,7 @@ int CBaseView::SaveFileTo(CString sFileName, int nFlags)
 
 EOL CBaseView::GetLineEndings()
 {
-    return GetLineEndings(GetWhitecharsProperties(true).HasMixedEols);
+    return GetLineEndings(GetWhitecharsProperties().HasMixedEols);
 }
 
 EOL CBaseView::GetLineEndings(bool bHasMixedEols)
@@ -5835,17 +5831,15 @@ void CBaseView::RemoveTrailWhiteChars()
     }
 }
 
-CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties(bool scanAll)
+CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties()
 {
-    if (!scanAll && GetViewCount()>10000)
+    if (GetViewCount()>10000)
     {
         // 10k lines is enough to check
         TWhitecharsProperties oRet = {true, true, true, true};
         return oRet;
     }
     TWhitecharsProperties oRet = {};
-    bool bUsesSpaces = false;
-    bool bUsesTabs = false;
     for (int nViewLine = 0; nViewLine < GetViewCount(); nViewLine++)
     {
         if (IsLineEmpty(nViewLine))
@@ -5867,21 +5861,18 @@ CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties(bool scanAll
             case ' ':
                 if (++nSpaceCount >= m_nTabSize)
                 {
-                    // if there are enough spaces to fill a tab, the file uses spaces at least here instead of using a tab
-                    bUsesSpaces = true;
-                    if (bUsesTabs)
-                        oRet.HasTabsToConvert = true;
-                }
-                break;
-            case '\t':
-                bUsesTabs = true;
-                if (bUsesSpaces)
                     oRet.HasSpacesToConvert = true;
-                break;
-            default:
-                nSpaceCount = 0;
-                break;
+                }
+                continue;
+            case '\t':
+                oRet.HasTabsToConvert = true;
+                if (nSpaceCount!=0)
+                {
+                    oRet.HasSpacesToConvert = true;
+                }
+                continue;
             }
+            break;
         }
 
         // check trailing whites for removable chars
@@ -5900,33 +5891,4 @@ CBaseView::TWhitecharsProperties CBaseView::GetWhitecharsProperties(bool scanAll
         }
     }
     return oRet;
-}
-
-int CBaseView::FixBeforeSave()
-{
-    TWhitecharsProperties oWhitesCurrent = GetWhitecharsProperties(true);
-    CWhitesFixDlg dlg;
-    if (dlg.IsEnabled())
-    {
-        dlg.convertSpaces = oWhitesCurrent.HasSpacesToConvert;
-        dlg.convertTabs = oWhitesCurrent.HasTabsToConvert;
-        dlg.trimRight = oWhitesCurrent.HasTrailWhiteChars;
-        dlg.fixEols = oWhitesCurrent.HasMixedEols;
-        dlg.lineendings = m_lineendings;
-        // if checking for format change is enabled and corresponding change is detected show dialog
-        if (dlg.HasSomethingToFix())
-        {
-            if (dlg.DoModal() != IDOK)
-                return -1; // user cancel action
-            if (dlg.convertSpaces)
-                Tabularize();
-            if (dlg.convertTabs)
-                ConvertTabToSpaces();
-            if (dlg.trimRight)
-                RemoveTrailWhiteChars();
-            if (dlg.fixEols)
-                ReplaceLineEndings(dlg.lineendings);
-        }
-    }
-    return 0; // no errors
 }

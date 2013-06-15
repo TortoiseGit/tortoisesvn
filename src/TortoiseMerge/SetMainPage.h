@@ -52,8 +52,6 @@ protected:
     afx_msg void OnModified();
     afx_msg void OnModifiedWithReload();
     afx_msg void OnBnClickedWhitespace();
-    afx_msg void OnBnClickedStopaskinconsistencies();
-    afx_msg void OnSetupClick();
 
     DECLARE_MESSAGE_MAP()
 
@@ -83,9 +81,6 @@ protected:
     CRegDWORD       m_regMaxInline;
     BOOL            m_bUseRibbons;
     CRegDWORD       m_regUseRibbons;
-    BOOL            m_bDontFixInconsistencies;
-    CRegDWORD       m_regDontFixInconsistencies;
-    CWnd            m_askIncosistenciesDetails;
 
     CRegDWORD       m_regFontSize;
     DWORD           m_dwFontSize;
