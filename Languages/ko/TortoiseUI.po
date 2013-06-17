@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-17 03:49+0000\n"
+"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,7 +225,7 @@ msgstr "%s (재귀적으로)"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Merged file"
-msgstr ""
+msgstr "%s : 파일이 병합되었습니다"
 
 #. Resource IDs: (151)
 #, c-format
@@ -416,7 +416,7 @@ msgstr "TortoiseMerge에대해서(&A)..."
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "현재 작업 복사본의 상태 승인 (해결된 것으로 표시)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -456,7 +456,7 @@ msgstr "속성을 재귀적으로 적용(&A)"
 
 #. Resource IDs: (610)
 msgid "&Apply the udpate to the move destination"
-msgstr ""
+msgstr "이동 방향으로 업데이트 적용 (&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -583,6 +583,10 @@ msgid "&Close Window(s)"
 msgstr "창(들) 닫기(&C)"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr "Collaborator의 사용자 이름(&C)"
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "명령(&C):"
 
@@ -694,6 +698,10 @@ msgstr "다시 묻지 않음(&D)"
 msgid "&Docking"
 msgstr "붙이기(&D)"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr "앞으로는 확인하지 않고 항상 수정없이 저장하기(&D)."
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&EOL"
@@ -724,7 +732,7 @@ msgstr "프록시 서버 사용(&E)"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
-msgstr ""
+msgstr "편집 활성화 (&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -773,6 +781,10 @@ msgstr "찾기(&F)..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "윈도우에 이미지 맞춤(&F)"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr "수정하고 저장하기(&F)"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1127,7 +1139,7 @@ msgstr "포트(&P):"
 
 #. Resource IDs: (3)
 msgid "&Postpone all remaining conflicts"
-msgstr ""
+msgstr "나머지 충돌 내버려두기 (&P)"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1176,6 +1188,10 @@ msgstr "buf-ID를 입력하도록 알려주기(&R)"
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
 msgstr "삭제(&R)"
+
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr "문장 끝의 공백이나 탭 제거하기(&R)"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1305,6 +1321,10 @@ msgstr "잠금 훔쳐오기(&S)"
 msgid "&Stop on copy/rename"
 msgstr "복사/이름변경 시점에서 중지(&S)"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr "Subversion의 사용자 이름(&S)"
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "작업사본을 경로@리비전으로 전환(&S)"
@@ -1392,6 +1412,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr "문장 끝의 공백 및 탭(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -1500,11 +1524,11 @@ msgstr "(이진 값)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(내용과 속성)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(내용만)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -1997,7 +2021,7 @@ msgstr "모든 변경사항을 잃을 것입니다! 정말로 도구 막대 '%s'
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr ""
+msgstr "이 뷰의 편집 허용\n편집 허용"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2087,15 +2111,15 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "다른 프로세스가 작업 복사본의 데이터베이스를 차단하고 있거나, 사용하고 있는 파일 시스템이 파일 잠금을 지원하지 않습니다. 만약 작업 복사본이 네트워크 파일 시스템 상에 있다면, 파일 서버가 파일 잠금을 지원하는 지 여부를 확인하십시오."
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "오른쪽 블럭을 추가"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "이 블럭을 왼쪽에 추가"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2356,7 +2380,7 @@ msgstr "패치 파일 및 대상 경로는 모두 절대 경로로 지정하십�
 
 #. Resource IDs: (188)
 msgid "Bottom View:"
-msgstr ""
+msgstr "아래 뷰 :"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -2545,7 +2569,7 @@ msgstr "취소\nTortoiseMerge 끝내지 않습니다."
 msgid ""
 "Cancel\n"
 "Don't reload views"
-msgstr ""
+msgstr "취소\n뷰를 다시 로드하지 않습니다"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2617,13 +2641,13 @@ msgstr "취소\n첫번째 충돌을 해결합니다."
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "취소\n현재 파일로 둡니다"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "취소\n현재 설정대로 둡니다"
 
 #. Resource IDs: (226)
 msgid ""
@@ -2820,7 +2844,7 @@ msgstr "저장소에서 작업을 하기위해 사본을 꺼내 옵니다."
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "아래에서 삭제할 인증 데이터 항목을 확인하십시오."
 
 #. Resource IDs: (95)
 msgid ""
@@ -2936,11 +2960,11 @@ msgstr "지우기 도구\n지우기"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "모두 지우기"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "지우기..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3032,9 +3056,17 @@ msgstr "수동으로 닫습니다."
 msgid "Close the active window and prompts to save the documents"
 msgstr "활성화된 윈도우를 닫고, 문서를 저장할지 물어 봅니다."
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr "Code Collaborator의 설정"
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "소스 트리 축소하기(&A)"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr "Collaborator의 암호(&P)"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3194,11 +3226,11 @@ msgstr "이전 버전과 비교 후 수정한 사람 보이기"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "리비전 비교(속성만) (&P)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "리비전 비교(내용만) (&T)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -3210,7 +3242,7 @@ msgstr "공백 비교"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "최신(&HEAD)수정 및 작업기반 비교"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3329,19 +3361,19 @@ msgstr "붙어있는 윈도우를 줄이기"
 
 #. Resource IDs: (1092)
 msgid "Convert Spaces to &Tabs"
-msgstr ""
+msgstr "공백을 탭으로 바꾸기(&T)"
 
 #. Resource IDs: (1091)
 msgid "Convert Tabs to &Spaces"
-msgstr ""
+msgstr "탭을 공백으로 바꾸기(&S)"
 
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
-msgstr ""
+msgstr "공백을 탭으로 바꾸기"
 
 #. Resource IDs: (501)
 msgid "Convert tabs to spaces"
-msgstr ""
+msgstr "탭을 공백으로 바꾸기"
 
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
@@ -3485,7 +3517,7 @@ msgstr "%1!s! 복사중"
 
 #. Resource IDs: (266)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "외부 저장소의 URL을 복사해오기"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3670,7 +3702,7 @@ msgstr "패치 생성"
 
 #. Resource IDs: (64)
 msgid "Create code collaborator revie&w..."
-msgstr ""
+msgstr "Code Collabroator의 리뷰를 작성(&W)..."
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -3954,6 +3986,10 @@ msgstr "목적지 URL:"
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr "상세..."
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "이동된 블럭을 검출하고 밝게 표시합니다."
@@ -4082,7 +4118,7 @@ msgstr "다음 경로들에 대해서 컨텍스트 메뉴를 보여주지 않습
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge (old style)"
-msgstr ""
+msgstr "자동 병합이 아니라 다시 통합 (이전 방식)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4212,13 +4248,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "문서 : Simon Large\n코드 : Tobias Schäfer, Stefan Fuhrmann"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr ""
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "다시 묻지 않기"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr "저장할 때 물어보지 않고 불일치 사항을 수정한다"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4244,7 +4280,7 @@ msgstr "실행하지 않기\n스크립트를 실행하지 않기"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "저장하지 않기\n변경사항을 저장하지 않고 뷰를 닫습니다"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4315,7 +4351,7 @@ msgstr "익스포트(&X)..."
 
 #. Resource IDs: (303)
 msgid "EOL"
-msgstr ""
+msgstr "EOL"
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -4416,7 +4452,7 @@ msgstr "자동-속성들 활성화"
 
 #. Resource IDs: (156)
 msgid "Enable Edit"
-msgstr ""
+msgstr "편집 활성화"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4434,7 +4470,7 @@ msgstr "tsvn:projectlanguage 가 설정된 경우에만\n철자검사를 수행�
 
 #. Resource IDs: (300, 301)
 msgid "Encoding"
-msgstr ""
+msgstr "인코딩"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4471,7 +4507,7 @@ msgstr "종료 리비전"
 
 #. Resource IDs: (252)
 msgid "End of Line Style"
-msgstr ""
+msgstr "개행문자 형식"
 
 #. Resource IDs: (200)
 msgid "Enforce"
@@ -4845,7 +4881,7 @@ msgstr "파일"
 
 #. Resource IDs: (252)
 msgid "File Encoding"
-msgstr ""
+msgstr "파일 인코딩"
 
 #. Resource IDs: (90)
 msgid "File already exists"
@@ -4867,10 +4903,6 @@ msgstr "파일이 충돌 상태 마커를 포함하고 있습니다."
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "파일 비교"
-
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr ""
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
@@ -5069,6 +5101,14 @@ msgstr "강제로"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "강제 삭제"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr "서식 불일치"
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr "서식 불일치가 발견되었습니다."
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5521,7 +5561,7 @@ msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5862,6 +5902,12 @@ msgstr "%1!s! 파일을 임포트중"
 msgid "Imports the directory to a repository"
 msgstr "현재 디렉토리를 저장소에 넣습니다."
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr "나중에 이 대화상자를 표시하려면, Code Collaborator 메뉴 명령을 실행할 때, <Ctrl>키를 누르세요."
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "외부참조 포함(&X)"
@@ -5883,6 +5929,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "상태 체크를 위해 저장소를 포함합니다.\n모든 것을 가져오기 위해서 쉬프트 키를 누르고 클릭하십시오."
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr "개행문자 불일치(&E)"
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr "탭 및 공백 불일치(&S)"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6048,7 +6102,7 @@ msgstr "잠금 유지(&L)"
 
 #. Resource IDs: (611)
 msgid "Keep any moves affected by this operation"
-msgstr ""
+msgstr "이 작업에 의해 영향을 받는 어떠한 이동도 유지하기"
 
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
@@ -6058,7 +6112,7 @@ msgstr "변경 목록을 유지(&H)"
 msgid ""
 "Keep resolving\n"
 "Jump to first unresolved conflict"
-msgstr ""
+msgstr "계속 해결하기\n첫번째 미해결 충돌로 이동하기"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6389,11 +6443,11 @@ msgstr "Subversion 속성 관리"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr ""
+msgstr "차이를 보기위해 많은 항목이 선택되었습니다"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
-msgstr ""
+msgstr "해결된 것으로 표시 (이동은 복사가 됨) (&R)"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6734,7 +6788,7 @@ msgstr "아이템을 여기에 옮기고 이름을 바꿉니다"
 
 #. Resource IDs: (266)
 msgid "Move broken"
-msgstr ""
+msgstr "손상된 이동"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7260,11 +7314,11 @@ msgstr "열기"
 
 #. Resource IDs: (115)
 msgid "Open &local"
-msgstr ""
+msgstr "로컬 열기 (&L)"
 
 #. Resource IDs: (115)
 msgid "Open &with local..."
-msgstr ""
+msgstr "로컬 프로그램을 사용하여 열기... (&W)"
 
 #. Resource IDs: (76)
 msgid "Open client certificate file"
@@ -7286,7 +7340,7 @@ msgstr "이미지 파일 열기..."
 
 #. Resource IDs: (64)
 msgid "Open multiple &local..."
-msgstr ""
+msgstr "여러 로컬 파일 열기 (&L) ..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -7616,11 +7670,11 @@ msgstr "저장소 선호(&R)"
 
 #. Resource IDs: (251)
 msgid "Prepend right block"
-msgstr ""
+msgstr "오른쪽 블럭을 앞에 추가"
 
 #. Resource IDs: (251)
 msgid "Prepend this block to left"
-msgstr ""
+msgstr "이 블럭을 왼쪽 앞에 추가"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7762,7 +7816,7 @@ msgstr "속성 %1!s! : 작업 사본 베이스, 리비전 %2!ld!"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : merged"
-msgstr ""
+msgstr "속성 %s : 병합됨"
 
 #. Resource IDs: (151)
 #, c-format
@@ -7920,7 +7974,7 @@ msgstr "Daily Use Guide 읽기"
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "영역 이름의 문자열"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8153,13 +8207,9 @@ msgstr "%ld 아이템을 삭제함"
 msgid "Remove %s"
 msgstr "%s 삭제"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "저장된 인증 데이터를 삭제"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -8365,7 +8415,7 @@ msgstr "사용자명과 암호를 요구합니다."
 
 #. Resource IDs: (8)
 msgid "Res&olve..."
-msgstr ""
+msgstr "해결하기(&O)..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8381,7 +8431,7 @@ msgstr "충돌 해결됨"
 
 #. Resource IDs: (2)
 msgid "Resolve &later"
-msgstr ""
+msgstr "나중에 해결하기 (&L)"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
@@ -8409,7 +8459,7 @@ msgstr "충돌 상황을 나중에 해결함(&A)"
 
 #. Resource IDs: (1383)
 msgid "Resolve using &their property"
-msgstr ""
+msgstr "속성을 사용해서 해결하기 (&T)"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8770,17 +8820,17 @@ msgstr "다른 이름으로 저장"
 msgid ""
 "Save Bottom File as\n"
 "You're asked where to save the bottom file"
-msgstr ""
+msgstr "아래 파일을 다른 이름으로 저장\n아래 파일을 어디에 저장할 지 지정합니다"
 
 #. Resource IDs: (316)
 msgid "Save File"
-msgstr ""
+msgstr "파일 저장하기"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr ""
+msgstr "왼쪽 파일을 다른 이름으로 저장\n왼쪽 파일을 어디에 저장할 지 지정합니다"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8788,13 +8838,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "왼쪽 파일 저장하기\n변경사항을 %s에 저장합니다"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "오른쪽 파일을 다른 이름으로 저장\n오른쪽 파일을 어디에 저장할 지 지정합니다"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8802,13 +8852,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "오른쪽 파일 저장하기\n변경사항을 %s에 저장합니다"
 
 #. Resource IDs: (316)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "모두 저장하기\n양쪽 파일 모두를 저장합니다"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9084,19 +9134,25 @@ msgstr "병합 방법 선택"
 msgid "Select viewer for diff-files"
 msgstr "Diff 파일 보기 프로그램 선택"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr "TortoiseMerge가 저장 될 때 자동으로 감지 및 제안하는 것을 선택하세요."
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
-msgstr ""
+msgid "Select what TortoiseMerge should fix:"
+msgstr "TortoiseMerge를 해결하는 것을 선택하세요:"
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
-msgstr ""
+msgstr "어떤 파일을 다른 이름으로 저장할 지 선택하십시오"
 
 #. Resource IDs: (316)
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr ""
+msgstr "어떤 파일을 다른 이름으로 저장할 지 선택하십시오\n참고 : 미해결된 충돌이 있습니다!"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -9144,6 +9200,10 @@ msgstr "설정"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "설정 - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr "설정(&P)..."
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9336,7 +9396,7 @@ msgstr "로그 보기(&G)"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
-msgstr ""
+msgstr "여러 변경점을 표시하기(&C)..."
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -9402,7 +9462,7 @@ msgstr "복사 원본의 태그들을 같은 노드처럼 보여줍니다."
 msgid ""
 "Show the diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "차이점 보이기\n선택된 모든 항목에 대해서 차이점 뷰어가 시작됩니다."
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -9779,6 +9839,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "Subversion에 심각한 문제가 발생했습니다. \n시간을 내서 하려고 했던 내용에 대해서 가능한 한 많은 정보를 Subversion 메일링리스트에 보고해 주십시오.\n하지만, 반복적으로 같은 문제가 보고되지 않도록 먼저 오류 메시지를 메일링 리스트의 아카이브에서 검색해 보시기 바랍니다.\n메일링 리스트 아카이브는 다음 위치에서 찾을 수 있습니다:\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversion이 다음과 같이 리포트했습니다.\n(Ctrl-C를 누르면 이 대화상자의 내용을 클립보드로 복사 할 수 있습니다.)"
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr "Subversion의 암호(&D)"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10474,7 +10538,7 @@ msgstr "현재, Tortoise에서 사용하는 하나를 제외하고 %d 개의 오
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "그 밖에도 편집 가능한 뷰가 있습니다. 어떤 뷰를 저장하시겠습니까?"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -10671,6 +10735,10 @@ msgstr "수평으로 붙이기(&Z)"
 msgid "Timeouts"
 msgstr "타임아웃"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr "Tip"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10775,7 +10843,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\nlibsvn_diff %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10796,7 +10864,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10873,7 +10941,7 @@ msgstr "트리 병합"
 
 #. Resource IDs: (501)
 msgid "Trim right"
-msgstr ""
+msgstr "오른쪽 공백제거"
 
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
@@ -11028,8 +11096,8 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD 리비전에 대한 통합 비교 보기 (&D)"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
-msgstr ""
+msgid "Unify &EOLs"
+msgstr "개행문자를 통일(&E)"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11289,7 +11357,7 @@ msgstr "정규표현식을 사용"
 
 #. Resource IDs: (251)
 msgid "Use right block"
-msgstr ""
+msgstr "오른쪽 블럭 사용"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11376,7 +11444,7 @@ msgstr "전체파일 사용(&W)"
 
 #. Resource IDs: (251)
 msgid "Use this block on left"
-msgstr ""
+msgstr "이 블럭을 왼쪽으로 사용"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
@@ -11535,6 +11603,10 @@ msgid ""
 "show a conflict for those!"
 msgstr "충돌을 해결할 때에는 충돌 내용이 보이지 않아도 항상 저장해야 합니다. TortoiseMerge는 SVN에서 볼 수 없는 충돌을 병합할 수 있습니다."
 
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
+msgstr "공백문자 수정 설정"
+
 #. Resource IDs: (65535)
 msgid "Whitespaces"
 msgstr "공백문자들"
@@ -11676,7 +11748,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr ""
+msgstr "차이를 표시하기 위해서 %d개 항목이 선택되었습니다.\n모든 항목에 대해 차이점 뷰어의 새 인스턴스가 시작됩니다.\n정말 한번에 많은 차이를 보시겠습니까?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."

@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 10:45+0000\n"
+"PO-Revision-Date: 2013-06-16 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -585,6 +585,10 @@ msgid "&Close Window(s)"
 msgstr "&Fenster schließen"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "&Befehl:"
 
@@ -696,6 +700,10 @@ msgstr "&Nicht mehr fragen"
 msgid "&Docking"
 msgstr "&Andocken"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&Zeilenende"
@@ -775,6 +783,10 @@ msgstr "&Suchen..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "Bilder in &Fenster einpassen"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1179,6 +1191,10 @@ msgstr "&Erinnere mich daran, eine Problem-ID einzugeben"
 msgid "&Remove"
 msgstr "Ent&fernen"
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&Umbenennen"
@@ -1307,6 +1323,10 @@ msgstr "&Sperre stehlen"
 msgid "&Stop on copy/rename"
 msgstr "Bei Kopien/Umbenennen &anhalten"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "&Wechsle Arbeitskopie zu Pfad und Revision"
@@ -1394,6 +1414,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3034,9 +3058,17 @@ msgstr "Manuell"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Schließt das aktive Fenster und fragt nach, ob die Daten gespeichert werden sollen"
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "Quellbaum &Einklappen"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3956,6 +3988,10 @@ msgstr "Ziel-URL:"
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "Verschobene Blöcke erkennen und hervorheben"
@@ -4214,13 +4250,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Dokumentation : Simon Large\nCode : Tobias Schäfer, Stefan Fuhrmann"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr "Nicht mehr fragen"
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Nicht noch einmal fragen"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4870,10 +4906,6 @@ msgstr "Datei enthält Konfliktmarkern"
 msgid "File diffs"
 msgstr "Dateiunterschiede"
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr "Es wurden Änderungen in der Dateiformatierung erkannt"
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr "Datei hat keine Konflikte"
@@ -5071,6 +5103,14 @@ msgstr "Erzwinge"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Entfernen erzwingen"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5864,6 +5904,12 @@ msgstr "Importiere Datei %1!s!"
 msgid "Imports the directory to a repository"
 msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "E&xternals einschließen"
@@ -5885,6 +5931,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "Schließt das Projektarchiv mit in die Statusprüfung ein.\nDrücken Sie die Umschalt-Taste beim Klicken, um alles zu übertragen."
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8155,10 +8209,6 @@ msgstr "Lösche %ld Objekte"
 msgid "Remove %s"
 msgstr "Löschen %s"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr "Nachgestellte Leerzeichen und &Tabs entfernen"
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Gespeicherte Anmeldedaten löschen"
@@ -9086,9 +9136,15 @@ msgstr "Was wollen Sie zusammenführen"
 msgid "Select viewer for diff-files"
 msgstr "Betrachter für Standard-Diffdateien auswählen"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
-msgstr "Wählen Sie, was TortoiseMerge beheben soll"
+msgid "Select what TortoiseMerge should fix:"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
@@ -9146,6 +9202,10 @@ msgstr "Einstellungen"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Einstellungen - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9781,6 +9841,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "Subversion hat ein ernstes Problem festgestellt.\nBitte nehmen Sie sich die Zeit, es mit einer möglichst\nausführlichen Beschreibung, was sie zu tun versuchten, an\ndie Subversion Mailingliste weiterzuleiten.\nBitte durchsuchen Sie zuerst das Listenarchiv nach der Fehlermeldung,\num doppelte Berichte zu vermeiden.Das Listenarchiv finden Sie unter\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversion berichtet folgendes\n(Sie können den Inhalt dieses Dialogs mit Hilfe von\nStrg+C in die Zwischenablage kopieren):"
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -10673,6 +10737,10 @@ msgstr "&Horizontal anordnen"
 msgid "Timeouts"
 msgstr "Wartezeiten"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11030,8 +11098,8 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "Standard-&Diff der HEAD Revisionen"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
-msgstr "EOLs vereinheitlichen"
+msgid "Unify &EOLs"
+msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
@@ -11536,6 +11604,10 @@ msgid ""
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
 msgstr "Wenn Sie Konflikte auflösen, müssen Sie stets speichern, auch wenn kein Konflikt angezeigt wird. TortoiseMerge kann manche Änderungen zusammenführen an denen SVN scheitert und zeigt dafür keine Konflikte an!"
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"

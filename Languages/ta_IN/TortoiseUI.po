@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:27+0000\n"
+"PO-Revision-Date: 2013-06-16 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Tamil (India) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -579,6 +579,10 @@ msgid "&Close Window(s)"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr ""
 
@@ -690,6 +694,10 @@ msgstr ""
 msgid "&Docking"
 msgstr ""
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr ""
@@ -768,6 +776,10 @@ msgstr ""
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
+msgstr ""
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
 msgstr ""
 
 #. Resource IDs: (1050)
@@ -1173,6 +1185,10 @@ msgstr ""
 msgid "&Remove"
 msgstr ""
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr ""
@@ -1301,6 +1317,10 @@ msgstr ""
 msgid "&Stop on copy/rename"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr ""
@@ -1387,6 +1407,10 @@ msgstr ""
 
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
+msgstr ""
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -3028,8 +3052,16 @@ msgstr ""
 msgid "Close the active window and prompts to save the documents"
 msgstr ""
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
 msgstr ""
 
 #. Resource IDs: (156)
@@ -3950,6 +3982,10 @@ msgstr ""
 msgid "Destination disk drive is full."
 msgstr ""
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr ""
@@ -4208,12 +4244,12 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr ""
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
+msgstr ""
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
 msgstr ""
 
 #. Resource IDs: (94)
@@ -4864,10 +4900,6 @@ msgstr ""
 msgid "File diffs"
 msgstr ""
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr ""
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr ""
@@ -5064,6 +5096,14 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Force removal"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
 msgstr ""
 
 #. Resource IDs: (1064)
@@ -5858,6 +5898,12 @@ msgstr ""
 msgid "Imports the directory to a repository"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr ""
@@ -5878,6 +5924,14 @@ msgstr ""
 msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
+msgstr ""
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
 msgstr ""
 
 #. Resource IDs: (3857)
@@ -8149,10 +8203,6 @@ msgstr ""
 msgid "Remove %s"
 msgstr ""
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr ""
@@ -9080,8 +9130,14 @@ msgstr ""
 msgid "Select viewer for diff-files"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
+msgid "Select what TortoiseMerge should fix:"
 msgstr ""
 
 #. Resource IDs: (316)
@@ -9139,6 +9195,10 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
+msgstr ""
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
 msgstr ""
 
 #. Resource IDs: (616)
@@ -9774,6 +9834,10 @@ msgid ""
 "Subversion reported the following\n"
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
 msgstr ""
 
 #. Resource IDs: (79)
@@ -10667,6 +10731,10 @@ msgstr ""
 msgid "Timeouts"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11024,7 +11092,7 @@ msgid "Unified &diff of HEAD revisions"
 msgstr ""
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
+msgid "Unify &EOLs"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -11529,6 +11597,10 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
+msgstr ""
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
 msgstr ""
 
 #. Resource IDs: (65535)

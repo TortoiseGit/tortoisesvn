@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:36+0000\n"
-"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
+"PO-Revision-Date: 2013-06-16 08:27+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -580,6 +580,10 @@ msgid "&Close Window(s)"
 msgstr "&Zatvoriť okno(á)"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "&Príkaz:"
 
@@ -691,6 +695,10 @@ msgstr "&Už sa nepýtať"
 msgid "&Docking"
 msgstr "&Zachytávanie"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&EOL"
@@ -770,6 +778,10 @@ msgstr "&Nájsť..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "&Zväčšiť na veľkosť okna"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1174,6 +1186,10 @@ msgstr "&Primenuť mi zadať ID chyby"
 msgid "&Remove"
 msgstr "&Odstrániť"
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "P&remenovať"
@@ -1302,6 +1318,10 @@ msgstr "&Odobranie zámkov"
 msgid "&Stop on copy/rename"
 msgstr "Za&staviť na Kopírovať/Premenovať"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "&Prepnúť pracovnú kópiu na cestu a revíziu"
@@ -1389,6 +1409,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3029,9 +3053,17 @@ msgstr "Zatvoriť ručne"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Zatvorí aktívne okno a vyzve k uloženiu dokumentov"
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "&Zbaliť zdrojový strom"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3951,6 +3983,10 @@ msgstr "Cieľová URL:"
 msgid "Destination disk drive is full."
 msgstr "Cieľový disk je plný"
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "Zistiť a vyznačiť presunuté bloky"
@@ -4209,13 +4245,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Dokumentácia : Simon Large\nKód : Tobias Schäfer, Stefan Fuhrmann"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr "Už sa nepýtať"
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Už sa nepýtať"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4865,10 +4901,6 @@ msgstr "Súbor obsahuje značky konfliktu"
 msgid "File diffs"
 msgstr "Rozdiely súboru"
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr "Bola zistená zmena stýlu formátovania súboru"
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr "Súbor je bez konfliktov"
@@ -5066,6 +5098,14 @@ msgstr "Vynútiť"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Vynutené odstránenie"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5859,6 +5899,12 @@ msgstr "Importuje sa súbor %1!s!"
 msgid "Imports the directory to a repository"
 msgstr "Importuje adresár do úložiska"
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "Vrátane e&xterných"
@@ -5880,6 +5926,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "Zahrnie úložisko do kontroly stavu.\nKeď chcete získať všetko držte shift keď klikáte."
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8150,10 +8204,6 @@ msgstr "Odstrániť %ld objektov"
 msgid "Remove %s"
 msgstr "Odstrániť %s"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr "&Odstrániť medzery a tabulátory z konca riadkov"
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Odstrániť uložené autentifikačné údaje"
@@ -9081,9 +9131,15 @@ msgstr "Vyberte typ zlúčenia"
 msgid "Select viewer for diff-files"
 msgstr "Vyberte prehliadač súborov porovnania"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
-msgstr "Vyberte čo ma T-Merge opraviť"
+msgid "Select what TortoiseMerge should fix:"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
@@ -9141,6 +9197,10 @@ msgstr "Nastavenia"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Nastavenia - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9776,6 +9836,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "Subversion zaznamenal vážny problém. Prosím,\nvenujte čas a oznámte to na mailing list Subversion\na poskytnite tak mnoho informácií ako je možné\no tom čo ste robili.\nPred odoslanim prosím prezrite archív mailing listu,\nči už neobsahuje hlásenie tej istej chyby aby ste predišli\nopakovanému hláseniu tej istej chyby.\nArchív mailing listu môžete nájsť na\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversion oznamil nasledový problém\n(obsah tohto dialógového okna\nmôžete vložiť do schánky pomocov Ctrl-C):"
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -10668,6 +10732,10 @@ msgstr "Usporiadať &vodorovne"
 msgid "Timeouts"
 msgstr "Časové limity"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11025,8 +11093,8 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "Unifikovaný \"&diff\" HEAD (hlavnej) revízie"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
-msgstr "Zjednotiť štýl koncov riadkov"
+msgid "Unify &EOLs"
+msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
@@ -11531,6 +11599,10 @@ msgid ""
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
 msgstr "Keď riešite konfliky, je nevzhnutné vždy uložiť i keď nie je žiadny konflit zobrazený. TortoiseMerge može zlúčiť zmeny, ktoré SVN nevie a pre tie nebude konflikt zobrazený."
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"

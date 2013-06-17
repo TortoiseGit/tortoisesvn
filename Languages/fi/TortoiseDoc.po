@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 11:12+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-15 23:50+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1764,7 +1764,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr ""
+msgstr "Voit luoda arkiston FSFS-muodossa tai vanhemmassa Berkeley Database (BDB) -muodossa. FSFS on yleisesti ottaen nopeampi ja toimii verkkojakojen sekä Windows 98:n kanssa ongelmitta. BDB-muotoa pidettiin ennen  vakaampana, koska se oli ollut käytössä pidempään. Koska FSFS on nyt ollut käytössä jo useita vuosia, tämä perustelu ontuu hieman. Lue lisää Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink>."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2195,7 +2195,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr ""
+msgstr "Toimintokomento (engl. hook script) on ohjelma, joka käynnistyy jonkin arkistotapahtuman (esim. uuden version luonti tai versioimattoman ominaisuuden muokkaus) takia. Toimintokomento saa parametreinaan tiedot arkistotapahtumasta,  sen kohteesta sekä tekijästä. Toimintokomennon tuloksista tai paluuarvosta riippuen komento voi jatkaa tapahtumaa, keskeyttää sen tai viivästyttää sitä jollain tavoin.  Lue Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> yksityiskohtaisempaa tietoa tuetuista toimintokomentotyypeistä."
 
 #. (para)
 msgid ""
@@ -2361,7 +2361,7 @@ msgid ""
 "Subversion book under <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "Tarkempaa tietoa Subversionin palvelinvaihtoehdoista ja vinkkejä sinulle parhaiten sopivaan kokoonpanoon löydät Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -5519,11 +5519,11 @@ msgstr "Vie valitut tiedostot tästä versiosta kansioon, säilyttäen tiedostoh
 #. (title)
 msgid ""
 "The Log Dialog Bottom Pane with Context Menu When Multiple Files Selected."
-msgstr ""
+msgstr "Lokin alapaneelin kontekstivalikko, kun useita tiedostoja on valittuna."
 
 #. (term)
 msgid "Show multiple changes..."
-msgstr ""
+msgstr "Näytä useita muutoksia..."
 
 #. (para)
 msgid ""
@@ -5532,11 +5532,11 @@ msgid ""
 "up multiple copies of your selected diff tool, or just add a new comparison "
 "tab in your diff tool. If you have selected more than 15 files, you will be "
 "prompted to confirm the action."
-msgstr ""
+msgstr "Näytä valittuihin tiedostoihin valitussa versiossa tehdyt muutokset. Huomaa, että muutosvertailu käynnistyy useaan otteeseen, mikä saattaa käynnistää valitsemasi vertailuohjelman useaan kertaan. Jos olet valinnut yli 15 tiedostoa, toiminnon suoritus varmistetaan erikseen."
 
 #. (term)
 msgid "Open multiple local..."
-msgstr ""
+msgstr "Avaa useita paikallisia..."
 
 #. (para)
 msgid ""
@@ -5547,7 +5547,7 @@ msgid ""
 "an application and the capabilities of the application, this may be a slow "
 "operation. In the worst case, new instances of the application may be "
 "launched by Windows for each file that was selected."
-msgstr ""
+msgstr "Tämä avaa valitsemasi työkopiotiedostot käyttäen sovellusta, joka on rekisteröity avaamaan ne (kuten tapahtuisi kaksoisnapsauttaessasi tiedostoja Windows-resurssienhallinnassa). Sovelluksesta riippuen, tämä voi olla hidas toiminto. Pahimmassa tapauksessa sovellus saatetaan käynnistää jokaiselle valitulle tiedostolle."
 
 #. (para)
 msgid ""
@@ -5565,14 +5565,14 @@ msgid ""
 "Studio lies in the fact that you can then use the built-in code navigation, "
 "reference finding, static code analysis and other tools built into Visual "
 "Studio."
-msgstr ""
+msgstr "Mikäli pidät <keycap>Ctrl</keycap> -näppäimen painettuna tätä komentoa käynnistettäessä, työkopiotiedostot avataan aina Visual Studio -ympäristössä. Tämä onnistuu vain, jos Visual Studio on samassa käyttäjäkontekstissa (pääkäyttäjä, normaali käyttäjä) kuin TortoiseProc.exe -ohjelma. Voi olla tarpeen avata muuttuneet tiedostot sisältävä [.sln]-tiedosto, vaikka tämä ei ole pakollista. Vain tiedostot, joiden laajennusosa on [.cpp, .h, .cs, .rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css tai .xml], avataan. Korkeintaan 100 tiedostoa voidaan avata Visual Studioon kerrallaan, ja ne avautuvat erillisiin välilehtiin. Koodimuutosten katselmointi Visual Studiossa on usein hyödyllistä,  koska voit käyttää hyväksi sen eri työkaluja."
 
 #. (para)
 msgid ""
 "Export the selected files/folder at the selected revision. This brings up a "
 "dialog for you to confirm the URL and revision, and select a location for "
 "the export."
-msgstr ""
+msgstr "Vie valitut tiedostot/kansiot valitussa versiossa. Komento avaa ikkunan, jossa voit vahvistaa paikantimen ja version sekä valita talletuskansion."
 
 #. (para)
 msgid ""
@@ -5580,7 +5580,7 @@ msgid ""
 "that allows you to <placeholder-2/> When multiple files are selected in the "
 "bottom pane of the Log dialog, the context menu changes to the following: "
 "<placeholder-3/><placeholder-4/>"
-msgstr ""
+msgstr "<placeholder-1/> Loki-ikkunan alapaneelissa on myös kontekstivalikko, jonka komentojen avulla voit <placeholder-2/> Kun loki-ikkunan alapaneelissa on useita tiedostoja valittuina, kontekstivalikko muuttuu seuraavaksi: <placeholder-3/> <placeholder-4/>"
 
 #. (para)
 msgid ""
@@ -5809,7 +5809,7 @@ msgid ""
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Sekä lokiviestiä että tekijätietoja voidaan muuttaa milloin vain. Koska tällaisia muutoksia ei voi perua (muutokset eivät versioidu), ominaisuus on oletusarvoisesti estetty. Salliaksesi sen sinun on määriteltävä pre-revprop-change -toimintokomento. Katso lisätietoa Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink>. Luvussa <xref linkend=\"tsvn-repository-hooks\"/> on tietoa toimintokomentojen ottamisesta käyttöön Windows-ympäristössä."
 
 #. (para)
 msgid ""
@@ -7552,7 +7552,7 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords"
 " section</citetitle></ulink> in the Subversion book, which gives a full "
 "description of these keywords and how to enable and use them."
-msgstr ""
+msgstr "Oppiaksesi lisää avainsanojen käytöstä, lue Subversion-kirjan luku <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -7560,7 +7560,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special "
 "Properties</citetitle></ulink>."
-msgstr ""
+msgstr "Lisätietoa Subversion-ominaisuuksista löydät Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -8723,7 +8723,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Voit myös tarvittaessa määrittää ankkuri- ja operatiivisen version paikantimelle. Lue lisää näistä tavoista <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>Subversion-kirjasta</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -9128,7 +9128,7 @@ msgid ""
 "bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and "
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
-msgstr ""
+msgstr "On oleellista ymmärtää, miten haarautuminen ja yhdistäminen toimivat Subversionissa ennen kuin alat käyttää niitä - yhdistäminen voi joskus olla varsin mutkikasta. Kannattaa lukea Subversion-kirjan kappale <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink>, jossa on hyvä kuvaus asiasta sekä lukuisia käyttöesimerkkejä."
 
 #. (para)
 msgid ""
@@ -9239,7 +9239,7 @@ msgid ""
 "<ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "Jos palvelimesi/arkistosi ei tue tehtyjen yhdistämisten jäljitystä, tämä on ainoa tapa yhdistää kehityshaara takaisin päähaaraan. Toinen käyttötapaus on se, että käytät ulkoisia komponentteja (engl. vendor branches) ja joudut yhdistämään ulkoisen komponentin uuden version muutokset päähaaraasi. Lue lisää tästä Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink>."
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -9502,7 +9502,7 @@ msgid ""
 "topic in the Subversion book, <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
-msgstr ""
+msgstr "Useimmiten yhdistäminen kannattaa suorittaa ottamalla tiedoston historia huomioon siten, että yhdistettävuksi valitaan muutokset suhteessa yhteiseen edeltäjään.  Joskus kuitenkin voi olla tarpeen yhdistää tiedostoja, jotka ovat suhteessa toisiinsa, mutta joilla ei ole yhteistä versiohistoriaa arkistossa. Olet esimerkiksi saattanut tuoda jonkun kirjaston versiot 1 ja 2 kahteen eri hakemistoon. Vaikka ne ovat loogisesti suhteessa keskenään, Subversion ei tiedä sitä, koska se näkee vain tuomasi tiedostot.  Jos yrität yhdistää nämä puut, havaitset, että ensin kaikki tiedostot poistetaan ja sitten lisätään uudestaan. Ohjataksesi Subversionin käyttämään polkuihin perustuvia eroja historiaan pohjautuvien erojen sijaan, ruksaa valinta <guilabel>Ohita edeltäjät</guilabel>. Tästä aiheesta löydät lisätietoa Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -12287,7 +12287,7 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
-msgstr ""
+msgstr "Käytä painiketta <guibutton>Muokkaa</guibutton> muokataksesi Subversionin määrittelytiedostoa suoraan. Joitain asetuksia ei voi muuttaa suoraan TortoiseSVN:n avulla, vaan ne on asetettava tällä tavalla. Katso lisätietoa <filename>config</filename>-tiedoston rakenteesta Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. Kappale <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> on erityisen kiinnostava, ja sen tiedot määritellään tässä. Huomaa, että Subversion voi lukea asetuksia useasta paikasta, ja sinun on tiedettävä, mikä asetus voittaa. Kannattaa lukaista myös <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink>."
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -13293,7 +13293,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr ""
+msgstr "Jos tarvitset arkistokohtaisia välityspalvelinasaetuksia, joudut muokkaamaan Subversionin <filename>servers</filename>-tiedostoa. Napsauta <guibutton>Muokkaa</guibutton> avataksesi sen suoraan. Katso lisätietoa Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -14724,7 +14724,7 @@ msgid ""
 "developers by sending in patches and playing an active role in the "
 "development. You can also help to cheer us up during the endless hours we "
 "spend in front of our computers."
-msgstr ""
+msgstr "Vaikka TortoiseSVN ja TortoiseMerge ovat ilmaisia, voit tukea kehittäjiä lähettämällä korjauksia ja olemalla aktiivinen kehitystyössä. Voit myös piristää meitä niiden loputtomien tuntien aikana, jotka vietämme tietokoneittemme äärellä."
 
 #. (para)
 msgid ""
@@ -16384,7 +16384,7 @@ msgid ""
 " how this works in the <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr ""
+msgstr "Ainut keino poistaa tietoa arkistosta on käyttää Subversionin <literal>svnadmin</literal>-komentorivityökalua. Löydät kuvauksen sen toiminnasta Subversion-kirjan luvusta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
@@ -16702,7 +16702,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "11 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN on asennettava kansioon <emphasis>Tietokoneasetukset</emphasis> kansion <emphasis>Käyttäjäasetukset</emphasis> sijaan. Tämä johtuu siitä, että TortoiseSVN tarvitsee CRT- ja MFC-kirjastoja, jotka voidaan asentaa ainoastaan <emphasis>työasemakohtaisesti</emphasis>, ei <emphasis>käyttäjäkohtaisesti</emphasis>. Jos TortoiseSVN halutaan asentaa käyttäjäkohtaisesti, joudut ensin erikseen asentamaan MFC- ja CRT-kirjastot (version 11) kuhunkin työasemaan."
 
 #. (para)
 msgid ""

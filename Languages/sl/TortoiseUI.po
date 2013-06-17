@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:27+0000\n"
+"PO-Revision-Date: 2013-06-16 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -580,6 +580,10 @@ msgid "&Close Window(s)"
 msgstr "&Zapri okna"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "&Ukaz"
 
@@ -691,6 +695,10 @@ msgstr ""
 msgid "&Docking"
 msgstr "Pripa&janje"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "Kon&ec vrstice:"
@@ -770,6 +778,10 @@ msgstr "&Poišči ..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "Prilagodi sl&ike na okno"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1174,6 +1186,10 @@ msgstr "Opomni me na vpis ID-ja h&rošča"
 msgid "&Remove"
 msgstr "&Odstrani"
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&Preimenuj"
@@ -1302,6 +1318,10 @@ msgstr "&Ukradi zaklepe"
 msgid "&Stop on copy/rename"
 msgstr "&Ustavi ob kopiranju/preimenovanju"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "&Preklopi v pot in revizijo"
@@ -1389,6 +1409,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3029,9 +3053,17 @@ msgstr "Zapri ročno"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Zapre aktivno okno in ponudi shranjevanje dokumentov"
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "Zapri &izvorno drevo"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3951,6 +3983,10 @@ msgstr "Ciljni  URL:"
 msgid "Destination disk drive is full."
 msgstr "Ciljni disk je poln."
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "Poišči in označi premaknjene bloke"
@@ -4209,13 +4245,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Dokumentacija : Simon Large\nKoda : Tobias Schäfer, Stefan Fuhrmann"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr ""
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Ne sprašuj me več"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4865,10 +4901,6 @@ msgstr "Datoteka vsebuje  oznake  za spor"
 msgid "File diffs"
 msgstr "Difi datoteke"
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr ""
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr ""
@@ -5066,6 +5098,14 @@ msgstr "Prisilno"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Izisili odstranitev"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5859,6 +5899,12 @@ msgstr "Uvažanje datoteke %1!s!"
 msgid "Imports the directory to a repository"
 msgstr "Uvozi mapo v skladišče"
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "Vključi &zunanje"
@@ -5880,6 +5926,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "Dodaj skladišče v preverjanje statusa\nZa prenos vseh elementov držite tipko shift."
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8150,10 +8204,6 @@ msgstr "Odstrani %ld elementov"
 msgid "Remove %s"
 msgstr "Odstrani %s"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr ""
@@ -9081,8 +9131,14 @@ msgstr "Izberite vrsto spajanja"
 msgid "Select viewer for diff-files"
 msgstr "Izberite pregledovalnik razlik (diff)"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
+msgid "Select what TortoiseMerge should fix:"
 msgstr ""
 
 #. Resource IDs: (316)
@@ -9141,6 +9197,10 @@ msgstr "Nastavitve"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Nastavitve - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9776,6 +9836,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "Subversion je naletel na resen problem. Vzemite si čas, da o tem sporočite na poštni seznam Subversion s kar največ informacij o tem, kaj ste skušali narediti. \nAmpak oglejte si prosim najprej arhiv dopisnega seznama za sporočilo o napaki, da se ne bi poročalo o enem in istem problemu večkrat. \nArhiv dopisnega seznama se nahaja na http://subversion.apache.org/mailing-lists.html \n\nSubversion je sporočil naslednje\n(vsebino tega dvogovora lahko kopirate v odložišče z  Ctrl-C);"
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -10668,6 +10732,10 @@ msgstr "Razpostavi hori&zontalno"
 msgid "Timeouts"
 msgstr "Časovni roki"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11025,7 +11093,7 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "Poenotene &razlike revizij HEAD"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
+msgid "Unify &EOLs"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -11530,6 +11598,10 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
+msgstr ""
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
 msgstr ""
 
 #. Resource IDs: (65535)

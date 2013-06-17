@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-10 09:27+0000\n"
+"PO-Revision-Date: 2013-06-16 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -578,6 +578,10 @@ msgid "&Close Window(s)"
 msgstr "სარკმლ(ებ)ის &დახურვა"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "&ბრძანება:"
 
@@ -689,6 +693,10 @@ msgstr "&აღარ დამეკითხო"
 msgid "&Docking"
 msgstr "&მიმაგრება"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&EOL"
@@ -768,6 +776,10 @@ msgstr "&პოვნა..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "სარკმლის შევსება გამოსახულებით"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1172,6 +1184,10 @@ msgstr "&შეცდომის ID-ის მითითების შე�
 msgid "&Remove"
 msgstr "&ამოშლა"
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&გადარქმევა"
@@ -1300,6 +1316,10 @@ msgstr "დაბლოკვების &გადახვეწა"
 msgid "&Stop on copy/rename"
 msgstr "&შეჩერება კოპირება/გადარქმევისას"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "&სამუშაო ასლის გადართვა გეზზე და ვერსიაზე"
@@ -1387,6 +1407,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3027,9 +3051,17 @@ msgstr "ხელით დახურვა"
 msgid "Close the active window and prompts to save the documents"
 msgstr "მიმდინარე ფანჯრის დახურვა დოკუმენტების შენახვის მოთხოვნით"
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "ძირითადი განტოტვის აკე&ცვა"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3949,6 +3981,10 @@ msgstr "დანიშნულების URL:"
 msgid "Destination disk drive is full."
 msgstr "დანიშნულების დისკი სავსეა"
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "გადანაცვლებული ბლოკების მოძიება და გამოყოფა"
@@ -4207,13 +4243,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "დოკუმენტაცია : საიმონ ლარჯი\nკოდი : ტობიას შაფერი, შტეფან ფურმანი"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr ""
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "აღარ დამეკითხო"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4863,10 +4899,6 @@ msgstr "ფაილი შეიცავს კონფლიქტის ნ
 msgid "File diffs"
 msgstr "ფაილების შედარება"
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr ""
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr ""
@@ -5064,6 +5096,14 @@ msgstr "იძულება"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "იძულებითი ამოღება"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5857,6 +5897,12 @@ msgstr "ფაილის იმპორტი: %1!s!"
 msgid "Imports the directory to a repository"
 msgstr "დასტის საცავში იმპორტირება"
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "გ&არე ელემენტების ჩათვლით"
@@ -5878,6 +5924,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "ითვალისწინებს საცავებს სტატუსის შემოწმებისას\nდაჭერილი გქონდეთ ღილაკი shift სრული მონაცემების წაკითხვისას."
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8148,10 +8202,6 @@ msgstr "%ld ელემენტის ამოღება"
 msgid "Remove %s"
 msgstr "%s - ამოღება"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr ""
@@ -9079,8 +9129,14 @@ msgstr "შერწყმის ტიპის არჩევა"
 msgid "Select viewer for diff-files"
 msgstr "ბებკი ფაილების დამთვალიერებელის არჩევა"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
+msgid "Select what TortoiseMerge should fix:"
 msgstr ""
 
 #. Resource IDs: (316)
@@ -9139,6 +9195,10 @@ msgstr "პარამეტრები"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "პარამეტრები - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9774,6 +9834,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "ქვევერსიაში სერიოზული პრობლემაა.\nგთხოვთ გამონახოთ დრო და გამოგზავნოთ ფორუმზე\nრაც შეიძლება მეტი ინფორმაცია, იმის შესახებ\nთუ რის გაკეთებას ცდილობდით.\nმაგრამ ჯერ სცადეთ მოიძიოთ მსგავსი შეცდომა ფორუმის არქივებში,\nრათა თავიდან აიცილოთ დუბლირება.\nფორუმის არქივების მისამართია:\nhttp://subversion.apache.org/mailing-lists.html\n\nქვევერსიის შეცდომის შეტყობინებაა\n(ამ დიალოგის ასლის ბუფერში გადატანა\nშეგიძლიათ ღილაკებით Ctrl-C):"
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -10666,6 +10730,10 @@ msgstr "დალაგება &განივად"
 msgid "Timeouts"
 msgstr "ვადები"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11023,7 +11091,7 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD ვერსიების გაერთიანებული &ბებკი"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
+msgid "Unify &EOLs"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -11528,6 +11596,10 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
+msgstr ""
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
 msgstr ""
 
 #. Resource IDs: (65535)

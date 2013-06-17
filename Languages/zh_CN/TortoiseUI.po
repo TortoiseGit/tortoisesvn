@@ -31,8 +31,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-12 12:41+0000\n"
-"Last-Translator: YFdyh000 Yang <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2013-06-16 08:26+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -593,6 +593,10 @@ msgid "&Close Window(s)"
 msgstr "关闭窗口(&C)"
 
 #. Resource IDs: (65535)
+msgid "&Collaborator username"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "&Command:"
 msgstr "命令(&C):"
 
@@ -704,6 +708,10 @@ msgstr "不再询问(&D)"
 msgid "&Docking"
 msgstr "钉住(&D)"
 
+#. Resource IDs: (1093)
+msgid "&Don't ask anymore, always save without fixing."
+msgstr ""
+
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "行尾(&E)"
@@ -783,6 +791,10 @@ msgstr "查找(&F)..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "缩放图像以适应窗口(&F)"
+
+#. Resource IDs: (1)
+msgid "&Fix and Save"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1187,6 +1199,10 @@ msgstr "提醒我输入一个bug-ID(&R)"
 msgid "&Remove"
 msgstr "删除(&R)"
 
+#. Resource IDs: (1090)
+msgid "&Remove Trailing spaces and Tabs"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "改名(&R)"
@@ -1315,6 +1331,10 @@ msgstr "偷取此锁定(&S)"
 msgid "&Stop on copy/rename"
 msgstr "复制/改名时终止(&S)"
 
+#. Resource IDs: (65535)
+msgid "&Subversion username"
+msgstr ""
+
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
 msgstr "切换工作副本到指定路径和版本(&S)"
@@ -1402,6 +1422,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (1090)
+msgid "&Trailing spaces and Tabs"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3042,9 +3066,17 @@ msgstr "手动关闭"
 msgid "Close the active window and prompts to save the documents"
 msgstr "关闭当前窗口并提示保存文件"
 
+#. Resource IDs: (350)
+msgid "Code Collaborator Settings"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
 msgstr "折叠源树(&A)"
+
+#. Resource IDs: (65535)
+msgid "Collaborator &password"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3964,6 +3996,10 @@ msgstr "目标 URL: "
 msgid "Destination disk drive is full."
 msgstr "目标磁盘已满。"
 
+#. Resource IDs: (1501)
+msgid "Details ..."
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "检测并高亮移动的块"
@@ -4222,13 +4258,13 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr "Documentation : Simon Large\nCode : Tobias Schäfer, Stefan Fuhrmann"
 
-#. Resource IDs: (1093)
-msgid "Don't ask anymore"
-msgstr "不要再问"
-
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "不再询问我"
+
+#. Resource IDs: (1500)
+msgid "Don't ask to fix inconsistencies when saving"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4878,10 +4914,6 @@ msgstr "文件存在冲突标记"
 msgid "File diffs"
 msgstr "文件差异比较"
 
-#. Resource IDs: (1094)
-msgid "File formating change have been detected"
-msgstr ""
-
 #. Resource IDs: (319)
 msgid "File has no conflicts"
 msgstr "文件没有冲突"
@@ -5079,6 +5111,14 @@ msgstr "强制"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "强制删除"
+
+#. Resource IDs: (164)
+msgid "Formatting inconsistencies"
+msgstr ""
+
+#. Resource IDs: (1097)
+msgid "Formatting inconsistencies have been detected!"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5872,6 +5912,12 @@ msgstr "正在导入文件 %1!s!"
 msgid "Imports the directory to a repository"
 msgstr "导入目录至版本库"
 
+#. Resource IDs: (65535)
+msgid ""
+"In order to show this dialog in the future, press <Ctrl> while executing the"
+" Code Collaborator menu command."
+msgstr ""
+
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
 msgstr "包含外部定义(&X)"
@@ -5893,6 +5939,14 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "状态检查包含版本库\n当点击以获得所有资料时保持 'shift' 键按下。"
+
+#. Resource IDs: (1096)
+msgid "Inconsistent &EOLs"
+msgstr ""
+
+#. Resource IDs: (1091)
+msgid "Inconsistent Tabs and &Spaces"
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8163,10 +8217,6 @@ msgstr "删除 %ld 项"
 msgid "Remove %s"
 msgstr "删除 %s"
 
-#. Resource IDs: (1090)
-msgid "Remove &Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "移除已保存的认证数据"
@@ -9094,8 +9144,14 @@ msgstr "选择合并类型"
 msgid "Select viewer for diff-files"
 msgstr "选择查看补丁文件工具"
 
+#. Resource IDs: (65535)
+msgid ""
+"Select what TortoiseMerge should automatically detect and offer to fix when "
+"saving"
+msgstr ""
+
 #. Resource IDs: (1095)
-msgid "Select what T-Merge should fix"
+msgid "Select what TortoiseMerge should fix:"
 msgstr ""
 
 #. Resource IDs: (316)
@@ -9154,6 +9210,10 @@ msgstr "设置"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "设置 - TortoiseSVN"
+
+#. Resource IDs: (1501)
+msgid "Setu&p ..."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9789,6 +9849,10 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr "Subversion遇到了一个严重的问题。\n麻烦您花点时间将这个问题报告给Subversion\n请尽量详细的描述您之前尝试的操作。\n不过希望您先在邮件存档中搜索一下同样的问题，避免重复提交。\n您可以登录下面的地址搜索邮件存档：\nhttp://subversion.apache.org/mailing-lists.html\n\nSubversion产生的报告如下\n(您可以用Ctrl-C快捷键复制\n本对话框的内容到剪切板)："
+
+#. Resource IDs: (65535)
+msgid "Subversion passwor&d"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -10681,6 +10745,10 @@ msgstr "水平标题(&Z)"
 msgid "Timeouts"
 msgstr "超时"
 
+#. Resource IDs: (65535)
+msgid "Tip"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -11038,7 +11106,7 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "与最新版本的标准差异(&D)"
 
 #. Resource IDs: (1096)
-msgid "Unify EOLs"
+msgid "Unify &EOLs"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -11544,6 +11612,10 @@ msgid ""
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
 msgstr "解决冲突时，即使未显示有冲突也必须保存。因为TortoiseMerge可能合并SVN无法合并的改动，而且对此不会显示冲突。"
+
+#. Resource IDs: (165)
+msgid "Whitespace-fix setup"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
