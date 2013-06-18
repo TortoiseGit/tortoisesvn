@@ -3040,9 +3040,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                 popup.AppendMenuIcon(IDSVNLC_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
                                 bEntryAdded = true;
                             }
-                        }
-                        if (wcStatus > svn_wc_status_normal)
-                        {
                             if (m_dwContextMenus & SVNSLC_POPCOMMIT)
                             {
                                 popup.AppendMenuIcon(IDSVNLC_COMMIT, IDS_STATUSLIST_CONTEXT_COMMIT, IDI_COMMIT);
