@@ -3721,13 +3721,13 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 
         case LOGFILTER_REGEX :
             m_bFilterWithRegex = !m_bFilterWithRegex;
-            CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter") = m_bFilterWithRegex;
+            CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter") = (DWORD)m_bFilterWithRegex;
             CheckRegexpTooltip();
             break;
 
         case LOGFILTER_CASE:
             m_bFilterCaseSensitively = !m_bFilterCaseSensitively;
-            CRegDWORD(L"Software\\TortoiseSVN\\FilterCaseSensitively") = m_bFilterCaseSensitively;
+            CRegDWORD(L"Software\\TortoiseSVN\\FilterCaseSensitively") = (DWORD)m_bFilterCaseSensitively;
             break;
 
         default:
@@ -5389,7 +5389,7 @@ void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& p
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, pCmi->RevSelected, SVNRev(), false, true);
+            diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, pCmi->RevSelected, SVNRev(), L"", false, true);
 
             this->EnableWindow(TRUE);
             this->SetFocus();
@@ -5398,7 +5398,7 @@ void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& p
     }
     else
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_BASE, m_path,
-        pCmi->RevSelected, SVNRev(), m_LogRevision, false, false, true);
+        pCmi->RevSelected, SVNRev(), m_LogRevision, L"", false, false, true);
 }
 
 void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)

@@ -40,7 +40,6 @@
 #pragma warning(disable : 4278)
 #pragma warning(disable : 4146)
 #pragma warning(disable : 4298)
-#pragma once
 #include "dte80a.tlh"
 #pragma warning(default : 4146)
 #pragma warning(default : 4278)
