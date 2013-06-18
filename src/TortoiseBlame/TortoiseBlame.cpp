@@ -647,7 +647,7 @@ void TortoiseBlame::StartSearchSel()
     if (selTextLen == 0)
         return;
 
-    std::unique_ptr<char[]> seltextbuffer = std::unique_ptr<char[]>(new char[selTextLen+1]);
+    std::unique_ptr<char[]> seltextbuffer(new char[selTextLen+1]);
     SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer.get());
     if (seltextbuffer[0] == 0)
         return;
