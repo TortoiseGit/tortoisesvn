@@ -47,13 +47,13 @@ bool CHooks::Create()
     CString strhooks = reghooks;
     // now fill the map with all the hooks defined in the string
     // the string consists of multiple lines, where one hook script is defined
-    // as four lines:
+    // as six lines:
     // line 1: the hook type
     // line 2: path to working copy where to apply the hook script
     // line 3: command line to execute
     // line 4: 'true' or 'false' for waiting for the script to finish
     // line 5: 'show' or 'hide' on how to start the hook script
-    // line 6: 'enforce' on whether to aks the user for permission (optinal)
+    // line 6: 'enforce' on whether to ask the user for permission (optional)
     hookkey key;
     int pos = 0;
     hookcmd cmd;
@@ -103,12 +103,15 @@ bool CHooks::Create()
                         cmd.bEnforce = false;
                         if ((pos = strhooks.Find('\n')) >= 0)
                         {
-                            // line 5
-                            cmd.bEnforce = (strhooks.Mid(0, pos).CompareNoCase(_T("enforce"))==0);
-                            if (pos+1 < strhooks.GetLength())
-                                strhooks = strhooks.Mid(pos+1);
-                            else
-                                strhooks.Empty();
+                            // line 6 (optional)
+                            if (GetHookType(strhooks.Mid(0, pos)) == unknown_hook)
+                            {
+                                cmd.bEnforce = (strhooks.Mid(0, pos).CompareNoCase(_T("enforce"))==0);
+                                if (pos+1 < strhooks.GetLength())
+                                    strhooks = strhooks.Mid(pos+1);
+                                else
+                                    strhooks.Empty();
+                            }
                         }
                         cmd.bApproved = true;   // user configured scripts are pre-approved
                         bComplete = true;
@@ -157,12 +160,12 @@ bool CHooks::Save()
         strhooks += '\n';
         strhooks += it->second.commandline;
         strhooks += '\n';
-        strhooks += (it->second.bWait ? _T("true") : _T("false"));
+        strhooks += (it->second.bWait ? L"true" : L"false");
         strhooks += '\n';
-        strhooks += (it->second.bShow ? _T("show") : _T("hide"));
+        strhooks += (it->second.bShow ? L"show" : L"hide");
         strhooks += '\n';
-        if (it->second.bEnforce)
-          strhooks += _T("enforce\n");
+        strhooks += (it->second.bEnforce ? L"enforce" : L"ask");
+        strhooks += '\n';
     }
 
     CRegString reghooks = CRegString(_T("Software\\TortoiseSVN\\hooks"));
