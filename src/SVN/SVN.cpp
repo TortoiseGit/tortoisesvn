@@ -1762,7 +1762,7 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
     // Call the callback if still unresolved.
     if (choice  == svn_wc_conflict_choose_unspecified)
     {
-        svn->ConflictResolveCallback(description, file);
+        choice = svn->ConflictResolveCallback(description, file);
     }
 
     CTSVNPath f(file);
