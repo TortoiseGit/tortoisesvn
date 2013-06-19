@@ -343,6 +343,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
     CString filename;
 
     BOOL bOpenRet = FALSE;
+    bool may_save = false;
 
     HRESULT hr;
     // Create a new common save file dialog
@@ -385,7 +386,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             {
                 BOOL bChecked = FALSE;
                 pfdCustomize->GetCheckButtonState(101, &bChecked);
-                (*cred)->may_save = (bChecked!=0);
+                may_save = (bChecked!=0);
             }
 
             // Get the selection from the user
@@ -431,7 +432,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
         if (bOpenRet)
         {
             filename = CString(ofn.lpstrFile);
-            (*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
+            may_save = ((ofn.Flags & OFN_READONLY)!=0);
         }
     }
     if (!svn->m_bSuppressed && (bOpenRet==TRUE))
@@ -440,12 +441,13 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
         /* Build and return the credentials. */
         *cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
         (*cred)->cert_file = cert_file;
+        (*cred)->may_save = may_save;
 
         // the svn library doesn't have a save_credentials() function for cert files
         // (yet?). It would get implemented in subversion\libsvn_subr\ssl_client_cert_providers.c
         //
         // We do the saving here ourselves (until subversion implements its own saving)
-        if ((*cred)->may_save)
+        if (may_save)
         {
             CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
             CString groups = regpath;
