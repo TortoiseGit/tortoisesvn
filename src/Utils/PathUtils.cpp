@@ -368,6 +368,8 @@ CString CPathUtils::GetLongPathname(const CString& path)
     else if (PathCanonicalize(pathbufcanonicalized, path))
     {
         ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
+        if (ret == 0)
+            return path;
         std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+2]);
         ret = ::GetLongPathName(pathbufcanonicalized, pathbuf.get(), ret+1);
         // GetFullPathName() sometimes returns the full path with the wrong
@@ -392,6 +394,8 @@ CString CPathUtils::GetLongPathname(const CString& path)
     else
     {
         ret = ::GetLongPathName(path, NULL, 0);
+        if (ret == 0)
+            return path;
         std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+2]);
         ret = ::GetLongPathName(path, pathbuf.get(), ret+1);
         sRet = CString(pathbuf.get(), ret);
