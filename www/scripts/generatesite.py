@@ -4,7 +4,7 @@ import shutil
 
 searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
 replacewith = ['1.8.0', '1.8.0.24401', '1.8.0']
-setpath = os.path.abspath('.')+'/tsvnsite'
+setpath = os.path.abspath('../../website');
 
 for root, dirs, files in os.walk(setpath, topdown = False):
     for name in files:
