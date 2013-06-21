@@ -1477,6 +1477,10 @@ private:
         sPathList = _T("c:\\windowsdummy*c:\\windows");
         list.LoadFromAsteriskSeparatedString(sPathList);
         ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\"))==0);
+
+        sPathList = L"https://svn.test.com/appidgd3fbn16y8*https://svn.test.com/appid";
+        list.LoadFromAsteriskSeparatedString(sPathList);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"https:\\\\svn.test.com")==0);
 #endif
     }
 
