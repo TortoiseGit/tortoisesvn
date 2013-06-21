@@ -4,7 +4,7 @@ import shutil
 
 searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
 replacewith = ['1.8.0', '1.8.0.24401', '1.8.0']
-setpath = 'D:\\Development\\SVN\\tsvnsite'
+setpath = os.path.abspath('.')+'/tsvnsite'
 
 for root, dirs, files in os.walk(setpath, topdown = False):
     for name in files:
@@ -23,15 +23,6 @@ menuFileZH = file(os.path.join(setpath, 'templates/menu.zh.html'), 'r')
 sidebarFile = file(os.path.join(setpath, 'templates/sidebar.html'), 'r')
 sidebarFileDE = file(os.path.join(setpath, 'templates/sidebar.de.html'), 'r')
 sidebarFileZH = file(os.path.join(setpath, 'templates/sidebar.zh.html'), 'r')
-adtopFile = file(os.path.join(setpath, 'templates/adsense_top.html'), 'r')
-adtopFileDE = file(os.path.join(setpath, 'templates/adsense_top.de.html'), 'r')
-adtopFileZH = file(os.path.join(setpath, 'templates/adsense_top.zh.html'), 'r')
-adtopBigFile = file(os.path.join(setpath, 'templates/adsense_downloadtop.html'), 'r')
-adtopBigFileDE = file(os.path.join(setpath, 'templates/adsense_downloadstop.de.html'), 'r')
-adtopBigFileZH = file(os.path.join(setpath, 'templates/adsense_downloadstop.zh.html'), 'r')
-adinpageFile = file(os.path.join(setpath, 'templates/adsense_inpage.html'), 'r')
-adinpageFileDE = file(os.path.join(setpath, 'templates/adsense_inpage.de.html'), 'r')
-adinpageFileZH = file(os.path.join(setpath, 'templates/adsense_inpage.zh.html'), 'r')
 
 footerText = footerFile.read()
 footerFile.close()
@@ -57,32 +48,6 @@ sidebarFileDE.close()
 sidebarTextZH = sidebarFileZH.read()
 sidebarFileZH.close()
 
-adtopText = adtopFile.read()
-adtopFile.close()
-
-adtopTextDE = adtopFileDE.read()
-adtopFileDE.close()
-
-adtopTextZH = adtopFileZH.read()
-adtopFileZH.close()
-
-adtopBigText = adtopBigFile.read()
-adtopBigFile.close()
-
-adtopBigTextDE = adtopBigFileDE.read()
-adtopBigFileDE.close()
-
-adtopBigTextZH = adtopBigFileZH.read()
-adtopBigFileZH.close()
-
-adinpageText = adinpageFile.read()
-adinpageFile.close()
-
-adinpageTextDE = adinpageFileDE.read()
-adinpageFileDE.close()
-
-adinpageTextZH = adinpageFileZH.read()
-adinpageFileZH.close()
 
 searchfor.extend(['<!--#include FILE="menu.html"-->',
                   '<!--#include FILE="menu.de.html"-->',
@@ -91,16 +56,7 @@ searchfor.extend(['<!--#include FILE="menu.html"-->',
                   '<!--#include FILE="sidebar.de.html"-->',
                   '<!--#include FILE="sidebar.zh.html"-->',
                   '<!--#include FILE="footer.html"-->',
-                  '<!--#include FILE="footer-js.html"-->',
-                  '$ADSENSE_TOP$',
-                  '$ADSENSE_TOPDE$',
-                  '$ADSENSE_TOPZH$',
-                  '$ADSENSE_BIGTOP$',
-                  '$ADSENSE_BIGTOPDE$',
-                  '$ADSENSE_BIGTOPZH$',
-                  '$ADSENSE_INPAGE$',
-                  '$ADSENSE_INPAGEDE$',
-                  '$ADSENSE_INPAGEZH$'])
+                  '<!--#include FILE="footer-js.html"-->'])
 replacewith.extend([menuText,
                     menuTextDE,
                     menuTextZH,
@@ -108,16 +64,7 @@ replacewith.extend([menuText,
                     sidebarTextDE,
                     sidebarTextZH,
                     footerText,
-                    footerJSText,
-                    adtopText,
-                    adtopTextDE,
-                    adtopTextZH,
-                    adtopBigText,
-                    adtopBigTextDE,
-                    adtopBigTextZH,
-                    adinpageText,
-                    adinpageTextDE,
-                    adinpageTextZH])
+                    footerJSText])
 
 for root, dirs, files in os.walk(setpath):
     fname = files
