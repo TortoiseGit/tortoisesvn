@@ -66,8 +66,32 @@ private:
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
     virtual BOOL OnInitDialog();
+    // extracted from OnInitDialog
+    void ShowBalloonInCaseOfError();
+    void GetAsyncFileListStatus();
+    void AddDirectoriesToPathWatcher();
+    void AdjustDialogSizeAndPanes();
+    void CenterWindowWhenLaunchedFromExplorer();
+    void SaveDialogAndLogMessageControlRectangles();
+    void AddAnchorsToFacilitateResizing();
+    void LineupControlsAndAdjustSizes();
+    void ConvertStaticToLinkControl();
+    void AdjustControlSizes();
+    void SetCommitWindowTitleAndEnableStatus();
+    void SetupLogMessageDefaultText();
+    void ShowOrHideBugIdAndLabelControls();
+    void HideBugIdAndLabel();
+    void RestoreBugIdAndLabelFromProjectProperties();
+    void SetupBugTraqControlsIfConfigured();
+    void HideAndDisableBugTraqButton();
+    void SetupToolTips();
+    void SetControlAccessibilityProperties();
+    void InitializeLogMessageControl();
+    void InitializeListControl();
+    void SubclassControls();
+    void ReadPersistedDialogSettings();
+
     virtual void OnOK();
     virtual void OnCancel();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
