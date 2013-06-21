@@ -12,6 +12,7 @@
 # Translators:
 # djungbeck, 2013
 # djungbeck, 2013
+# djungbeck, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
@@ -23,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-16 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-18 09:24+0000\n"
+"Last-Translator: djungbeck\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -586,7 +587,7 @@ msgstr "&Fenster schließen"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "Collaborator Benutzername"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -702,7 +703,7 @@ msgstr "&Andocken"
 
 #. Resource IDs: (1093)
 msgid "&Don't ask anymore, always save without fixing."
-msgstr ""
+msgstr "Nicht mehr nachfragen, immer ohne Reparatur speichern."
 
 #. Resource IDs: (32851)
 msgid "&EOL"
@@ -786,7 +787,7 @@ msgstr "Bilder in &Fenster einpassen"
 
 #. Resource IDs: (1)
 msgid "&Fix and Save"
-msgstr ""
+msgstr "Reparieren und Speichern"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1193,7 +1194,7 @@ msgstr "Ent&fernen"
 
 #. Resource IDs: (1090)
 msgid "&Remove Trailing spaces and Tabs"
-msgstr ""
+msgstr "Nachgestellte Leerzeichen und &Tabs entfernen"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1325,7 +1326,7 @@ msgstr "Bei Kopien/Umbenennen &anhalten"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "Subversion Benutzername"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1417,7 +1418,7 @@ msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (1090)
 msgid "&Trailing spaces and Tabs"
-msgstr ""
+msgstr "Nachgestellte Leerzeichen und Tabs"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3060,7 +3061,7 @@ msgstr "Schließt das aktive Fenster und fragt nach, ob die Daten gespeichert we
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Einstellungen des Code Collaborator"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3068,7 +3069,7 @@ msgstr "Quellbaum &Einklappen"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Collaborator Passwort"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3990,7 +3991,7 @@ msgstr "Ziel-Partition ist voll."
 
 #. Resource IDs: (1501)
 msgid "Details ..."
-msgstr ""
+msgstr "Details ..."
 
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
@@ -4256,7 +4257,7 @@ msgstr "Nicht noch einmal fragen"
 
 #. Resource IDs: (1500)
 msgid "Don't ask to fix inconsistencies when saving"
-msgstr ""
+msgstr "Nicht zum Reparieren von Inkonsistenzen beim Speichern ausffordern"
 
 #. Resource IDs: (94)
 msgid ""
@@ -5106,11 +5107,11 @@ msgstr "Entfernen erzwingen"
 
 #. Resource IDs: (164)
 msgid "Formatting inconsistencies"
-msgstr ""
+msgstr "Inkonsistenzen bei der Formatierung"
 
 #. Resource IDs: (1097)
 msgid "Formatting inconsistencies have been detected!"
-msgstr ""
+msgstr "Inkonsistenzen bei der Formatierung wurden erkannt"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5908,7 +5909,7 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr ""
+msgstr "Um diesen Dialog zukünftig anzuzeigen, drücken Sie <Ctrl> während Sie den Menübefehl Code Collaborator aufrufen."
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -5934,11 +5935,11 @@ msgstr "Schließt das Projektarchiv mit in die Statusprüfung ein.\nDrücken Sie
 
 #. Resource IDs: (1096)
 msgid "Inconsistent &EOLs"
-msgstr ""
+msgstr "Inkonsistenzen bei den Zeilenenden"
 
 #. Resource IDs: (1091)
 msgid "Inconsistent Tabs and &Spaces"
-msgstr ""
+msgstr "Inkonsistente Tabs und Leerzeichen"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9140,11 +9141,11 @@ msgstr "Betrachter für Standard-Diffdateien auswählen"
 msgid ""
 "Select what TortoiseMerge should automatically detect and offer to fix when "
 "saving"
-msgstr ""
+msgstr "Wählen Sie aus, was TortoiseMerge beim Speichern automatisch erkennen und zur Reparatur anbieten soll"
 
 #. Resource IDs: (1095)
 msgid "Select what TortoiseMerge should fix:"
-msgstr ""
+msgstr "Wählen Sie aus, was TortoiseMerge reparieren soll:"
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
@@ -9205,7 +9206,7 @@ msgstr "Einstellungen - TortoiseSVN"
 
 #. Resource IDs: (1501)
 msgid "Setu&p ..."
-msgstr ""
+msgstr "Setu&p ..."
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9844,7 +9845,7 @@ msgstr "Subversion hat ein ernstes Problem festgestellt.\nBitte nehmen Sie sich 
 
 #. Resource IDs: (65535)
 msgid "Subversion passwor&d"
-msgstr ""
+msgstr "Subversion Passwort"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10739,7 +10740,7 @@ msgstr "Wartezeiten"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "Tipp"
 
 #. Resource IDs: (224)
 msgid ""
@@ -11099,7 +11100,7 @@ msgstr "Standard-&Diff der HEAD Revisionen"
 
 #. Resource IDs: (1096)
 msgid "Unify &EOLs"
-msgstr ""
+msgstr "Zeilenenden vereinheitlichen"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11607,7 +11608,7 @@ msgstr "Wenn Sie Konflikte auflösen, müssen Sie stets speichern, auch wenn kei
 
 #. Resource IDs: (165)
 msgid "Whitespace-fix setup"
-msgstr ""
+msgstr "Setup zum Reparieren von Leerzeichen"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
