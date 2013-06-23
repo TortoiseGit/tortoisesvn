@@ -1072,53 +1072,57 @@ void CSVNProgressDlg::ResizeColumns()
 
     TCHAR textbuf[MAX_PATH];
 
-    int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
-    for (int col = 0; col <= maxcol; col++)
+    CHeaderCtrl * pHeaderCtrl = (CHeaderCtrl*)(m_ProgList.GetDlgItem(0));
+    if (pHeaderCtrl)
     {
-        // find the longest width of all items
-        int count = m_ProgList.GetItemCount();
-        HDITEM hdi = {0};
-        hdi.mask = HDI_TEXT;
-        hdi.pszText = textbuf;
-        hdi.cchTextMax = _countof(textbuf);
-        ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItem(col, &hdi);
-        int cx = m_ProgList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
-
-        for (int index = 0; index<count; ++index)
+        int maxcol = pHeaderCtrl->GetItemCount()-1;
+        for (int col = 0; col <= maxcol; col++)
         {
-            HFONT hFont = NULL;
-            if (m_arData[index]->bBold)
-            {
-                hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
-                // set the bold font and ask for the string width again
-                m_ProgList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
-            }
+            // find the longest width of all items
+            int count = m_ProgList.GetItemCount();
+            HDITEM hdi = {0};
+            hdi.mask = HDI_TEXT;
+            hdi.pszText = textbuf;
+            hdi.cchTextMax = _countof(textbuf);
+            pHeaderCtrl->GetItem(col, &hdi);
+            int cx = m_ProgList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
 
-            // get the width of the string and add 14 pixels for the column separator and margins
+            for (int index = 0; index<count; ++index)
+            {
+                HFONT hFont = NULL;
+                if (m_arData[index]->bBold)
+                {
+                    hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
+                    // set the bold font and ask for the string width again
+                    m_ProgList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+                }
+
+                // get the width of the string and add 14 pixels for the column separator and margins
 #define SEPANDMARG 14
-            int linewidth = cx;
-            switch (col)
-            {
-            case 0:
-                linewidth = m_ProgList.GetStringWidth(m_arData[index]->sActionColumnText) + SEPANDMARG;
-                break;
-            case 1:
-                linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + SEPANDMARG;
-                break;
-            case 2:
-                linewidth = m_ProgList.GetStringWidth(m_arData[index]->mime_type) + SEPANDMARG;
-                break;
-            }
-            if (m_arData[index]->bBold)
-            {
-                // restore the system font
-                m_ProgList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
-            }
+                int linewidth = cx;
+                switch (col)
+                {
+                case 0:
+                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->sActionColumnText) + SEPANDMARG;
+                    break;
+                case 1:
+                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + SEPANDMARG;
+                    break;
+                case 2:
+                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->mime_type) + SEPANDMARG;
+                    break;
+                }
+                if (m_arData[index]->bBold)
+                {
+                    // restore the system font
+                    m_ProgList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
+                }
 
-            if (cx < linewidth)
-                cx = linewidth;
+                if (cx < linewidth)
+                    cx = linewidth;
+            }
+            m_ProgList.SetColumnWidth(col, cx);
         }
-        m_ProgList.SetColumnWidth(col, cx);
     }
 
     m_ProgList.SetRedraw(TRUE);
