@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-16 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-06-22 03:30+0000\n"
+"Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -586,7 +586,7 @@ msgstr "關閉視窗(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "Collaborator 用戶名(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -702,7 +702,7 @@ msgstr "&視窗停駐"
 
 #. Resource IDs: (1093)
 msgid "&Don't ask anymore, always save without fixing."
-msgstr ""
+msgstr "不再詢問, 以後一律不修正就儲存."
 
 #. Resource IDs: (32851)
 msgid "&EOL"
@@ -786,7 +786,7 @@ msgstr "符合視窗大小(&F)"
 
 #. Resource IDs: (1)
 msgid "&Fix and Save"
-msgstr ""
+msgstr "修正並儲存(&F)"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1193,7 +1193,7 @@ msgstr "移除(&R)"
 
 #. Resource IDs: (1090)
 msgid "&Remove Trailing spaces and Tabs"
-msgstr ""
+msgstr "刪除行尾空白與 Tab (&R)"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1325,7 +1325,7 @@ msgstr "複製/重新命名時停止(&S)"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "Subversion 用戶名(&S)"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1417,7 +1417,7 @@ msgstr "&TortoiseIDiff"
 
 #. Resource IDs: (1090)
 msgid "&Trailing spaces and Tabs"
-msgstr ""
+msgstr "行尾的空白和 Tab (&T)"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3060,7 +3060,7 @@ msgstr "關閉目前視窗並提示儲存文件"
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Code Collaborator 設定"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3068,7 +3068,7 @@ msgstr "展開原始目錄樹(&A)"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Collaborator 密碼(&P)"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3990,7 +3990,7 @@ msgstr "目的磁碟已滿."
 
 #. Resource IDs: (1501)
 msgid "Details ..."
-msgstr ""
+msgstr "詳細內容..."
 
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
@@ -4256,7 +4256,7 @@ msgstr "不需要再詢問"
 
 #. Resource IDs: (1500)
 msgid "Don't ask to fix inconsistencies when saving"
-msgstr ""
+msgstr "儲存時不要求修正排版不一致"
 
 #. Resource IDs: (94)
 msgid ""
@@ -5106,11 +5106,11 @@ msgstr "強制刪除"
 
 #. Resource IDs: (164)
 msgid "Formatting inconsistencies"
-msgstr ""
+msgstr "排版格式不一致"
 
 #. Resource IDs: (1097)
 msgid "Formatting inconsistencies have been detected!"
-msgstr ""
+msgstr "偵側到排版格式不一致!"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5908,7 +5908,7 @@ msgstr "匯入目錄至檔案庫"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr ""
+msgstr "如果還想要再顯示此視窗, 請在執行 Code Collaborator 選單指令時按住 <Ctrl>."
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -5934,11 +5934,11 @@ msgstr "將此檔案庫也加入狀態檢查\n點擊時按住 SHIFT 鍵可以抓
 
 #. Resource IDs: (1096)
 msgid "Inconsistent &EOLs"
-msgstr ""
+msgstr "換行字元不一致(&E)"
 
 #. Resource IDs: (1091)
 msgid "Inconsistent Tabs and &Spaces"
-msgstr ""
+msgstr "Tab 與空白字元不一致(&S)"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9140,11 +9140,11 @@ msgstr "選擇檢視差異檔工具"
 msgid ""
 "Select what TortoiseMerge should automatically detect and offer to fix when "
 "saving"
-msgstr ""
+msgstr "請選擇要讓 TortoiseMerge 自動偵測並在儲存時修正的項目"
 
 #. Resource IDs: (1095)
 msgid "Select what TortoiseMerge should fix:"
-msgstr ""
+msgstr "請選擇 TortoiseMerge 需要修正的項目:"
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
@@ -9205,7 +9205,7 @@ msgstr "設定... - TortoiseSVN"
 
 #. Resource IDs: (1501)
 msgid "Setu&p ..."
-msgstr ""
+msgstr "設定(&P)..."
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9844,7 +9844,7 @@ msgstr "Subversion 發生嚴重錯誤.\n請回報至我們的郵件討論串, �
 
 #. Resource IDs: (65535)
 msgid "Subversion passwor&d"
-msgstr ""
+msgstr "Subversion 密碼(&D)"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10739,7 +10739,7 @@ msgstr "暫停"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "小技巧"
 
 #. Resource IDs: (224)
 msgid ""
@@ -11099,7 +11099,7 @@ msgstr "與最新版本的單一差異檔(&D)"
 
 #. Resource IDs: (1096)
 msgid "Unify &EOLs"
-msgstr ""
+msgstr "統一換行字元(&E)"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11607,7 +11607,7 @@ msgstr "處理衝突時, 就算沒有列出衝突也需要存檔. 因為 Tortois
 
 #. Resource IDs: (165)
 msgid "Whitespace-fix setup"
-msgstr ""
+msgstr "空白字元修正設定"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
