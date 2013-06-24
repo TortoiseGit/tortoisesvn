@@ -1097,6 +1097,7 @@ private:
     bool                        m_bFileDropsEnabled;
     bool                        m_bOwnDrag;
     bool                        m_bDepthInfinity;
+    bool                        m_bResortAfterShow;
 
     int                         m_nIconFolder;
 

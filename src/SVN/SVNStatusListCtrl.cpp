@@ -217,6 +217,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_bUpdate(false)
     , m_dwContextMenus(0)
     , m_nIconFolder(0)
+    , m_bResortAfterShow(false)
 {
     m_tooltipbuf[0] = 0;
 }
@@ -382,7 +383,8 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         m_pSelectButton->EnableWindow(FALSE);
 
     ClearSortsFromHeaders();
-    m_nSortedColumn = -1;
+    if (!m_bResortAfterShow)
+        m_nSortedColumn = -1;
     m_nSelected = 0;
 
     m_mapFilenameToChecked.clear();
@@ -1485,6 +1487,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         m_pSelectButton->EnableWindow(!m_bEmpty);
     GetHeaderCtrl()->Invalidate();
     Invalidate();
+    if (m_bResortAfterShow)
+    {
+        Sort();
+        m_bResortAfterShow = false;
+    }
 }
 
 CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
@@ -2927,7 +2934,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     BuildStatistics(false);
     SetRedraw(TRUE);
     SaveColumnWidths();
+    bool bResort = m_bResortAfterShow;
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+    m_bResortAfterShow = bResort;
     NotifyCheck();
 }
 
@@ -6151,6 +6160,7 @@ void CSVNStatusListCtrl::SendNeedsRefresh()
         return;
     if (pParent->GetSafeHwnd() == 0)
         return;
+    m_bResortAfterShow = true;
     pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
 }
 
@@ -6211,8 +6221,9 @@ LRESULT CSVNStatusListCtrl::OnResolveMsg( WPARAM wParam, LPARAM)
         }
     }
 
+    bool bResort = m_bResortAfterShow;
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
-
+    m_bResortAfterShow = bResort;
     return 0;
 }
 
