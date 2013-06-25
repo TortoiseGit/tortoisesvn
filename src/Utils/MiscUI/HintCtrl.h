@@ -93,7 +93,9 @@ protected:
             }
             ReleaseDC(pDC);
         }
-        ValidateRect(NULL);
+        CRect rc;
+        GetUpdateRect(&rc, FALSE);
+        ValidateRect(rc);
     }
 
 private:
