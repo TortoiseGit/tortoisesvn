@@ -120,9 +120,6 @@
     <ClCompile Include="..\Utils\PreserveChdir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ext\xpsupportvc11upd2\xpatl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ShellExt.def">
@@ -357,13 +354,5 @@
     <ResourceCompile Include="resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="..\..\ext\xpsupportvc11upd2\xpatlwrap.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="..\..\ext\xpsupportvc11upd2\xpatlwrap64.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
   </ItemGroup>
 </Project>

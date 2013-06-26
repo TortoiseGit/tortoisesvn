@@ -13,9 +13,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="workaround">
-      <UniqueIdentifier>{abcabcec-73f8-4bde-9023-1c07e630af1d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SendRpt\Config.h">
@@ -58,22 +55,11 @@
     <ClCompile Include="..\SendRpt\Serializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\xpsupportvc11upd2\xpatl.cpp">
-      <Filter>workaround</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="CrashHandler.def">
       <Filter>Source Files</Filter>
     </None>
     <None Include="sendrpt.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="..\..\..\xpsupportvc11upd2\xpatlwrap.asm">
-      <Filter>workaround</Filter>
-    </MASM>
-    <MASM Include="..\..\..\xpsupportvc11upd2\xpatlwrap64.asm">
-      <Filter>workaround</Filter>
-    </MASM>
   </ItemGroup>
 </Project>
