@@ -749,6 +749,14 @@ void CCommitDlg::OnCancel()
         m_History.AddEntry(m_sLogMessage);
         m_History.Save();
     }
+    if (!m_restorepaths.empty())
+    {
+        for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
+        {
+            CopyFile(it->first, it->second, FALSE);
+        }
+    }
+
     SaveSplitterPos();
     CResizableStandAloneDialog::OnCancel();
 }
