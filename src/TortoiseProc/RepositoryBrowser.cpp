@@ -1743,7 +1743,10 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     m_blockEvents = true;
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
     if (!pTreeItem || pTreeItem->svnparentpathroot)
+    {
+        m_blockEvents = false;
         return false;
+    }
     HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
     if (m_RepoTree.ItemHasChildren(hNode))
     {
@@ -1994,6 +1997,7 @@ void CRepositoryBrowser::OnRefresh()
 
     if (hSelected == NULL)
     {
+        m_blockEvents = false;
         if (m_InitialUrl.IsEmpty())
             return;
         // try re-init
@@ -3068,6 +3072,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
                     selection.Add ((CTreeItem *)m_RepoTree.GetItemData (hSelectedTreeItem));
                 }
+                else
+                    m_blockEvents = false;
             }
         }
     }
