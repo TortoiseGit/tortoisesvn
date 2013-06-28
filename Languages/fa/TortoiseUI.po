@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-16 08:27+0000\n"
+"PO-Revision-Date: 2013-06-27 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -697,10 +697,6 @@ msgstr "دوباره نپرس"
 msgid "&Docking"
 msgstr "&Docking"
 
-#. Resource IDs: (1093)
-msgid "&Don't ask anymore, always save without fixing."
-msgstr ""
-
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&EOL"
@@ -780,10 +776,6 @@ msgstr "&جستجو..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "&اندازه دادن تصاویر در پنجره"
-
-#. Resource IDs: (1)
-msgid "&Fix and Save"
-msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1188,10 +1180,6 @@ msgstr "&یادآوری وارد کردن کد ایراد bug-ID"
 msgid "&Remove"
 msgstr "&حذف"
 
-#. Resource IDs: (1090)
-msgid "&Remove Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&تغییر نام"
@@ -1411,10 +1399,6 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
-
-#. Resource IDs: (1090)
-msgid "&Trailing spaces and Tabs"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3358,14 +3342,6 @@ msgstr "ادامه"
 msgid "Contract docked window"
 msgstr "پنجرهٔ قابل حرکت کنتراکت"
 
-#. Resource IDs: (1092)
-msgid "Convert Spaces to &Tabs"
-msgstr ""
-
-#. Resource IDs: (1091)
-msgid "Convert Tabs to &Spaces"
-msgstr ""
-
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
 msgstr ""
@@ -3985,10 +3961,6 @@ msgstr "آدرس مقصد:"
 msgid "Destination disk drive is full."
 msgstr "دیسک گردان مقصد پر است."
 
-#. Resource IDs: (1501)
-msgid "Details ..."
-msgstr ""
-
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "بلوکهای جابجا شده را تشخیص بده و پررنگ کن"
@@ -4250,10 +4222,6 @@ msgstr "مستند سازی : Simon Large\nکدنویسی : Tobias Schäfer, Ste
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "مجددا سئوال نکن"
-
-#. Resource IDs: (1500)
-msgid "Don't ask to fix inconsistencies when saving"
-msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -5101,14 +5069,6 @@ msgstr "با اجبار"
 msgid "Force removal"
 msgstr "حذف اجباری"
 
-#. Resource IDs: (164)
-msgid "Formatting inconsistencies"
-msgstr ""
-
-#. Resource IDs: (1097)
-msgid "Formatting inconsistencies have been detected!"
-msgstr ""
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "جلو"
@@ -5928,14 +5888,6 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "برای بررسی وضعیت، مخزن را نیز شامل میشود\nهنگام کلیک کردن دگمه شیفت را نگه دارید تا همه اقلام بازیابی گردند."
-
-#. Resource IDs: (1096)
-msgid "Inconsistent &EOLs"
-msgstr ""
-
-#. Resource IDs: (1091)
-msgid "Inconsistent Tabs and &Spaces"
-msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9133,16 +9085,6 @@ msgstr "نوع ادغام را انتخاب کنید"
 msgid "Select viewer for diff-files"
 msgstr "انتخاب برنامه برای دیدن تفاوت فایل ها"
 
-#. Resource IDs: (65535)
-msgid ""
-"Select what TortoiseMerge should automatically detect and offer to fix when "
-"saving"
-msgstr ""
-
-#. Resource IDs: (1095)
-msgid "Select what TortoiseMerge should fix:"
-msgstr ""
-
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr ""
@@ -9199,10 +9141,6 @@ msgstr "تنظیمات"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "تنظیمات- TortoiseSVN"
-
-#. Resource IDs: (1501)
-msgid "Setu&p ..."
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -11094,10 +11032,6 @@ msgstr "متن فاقد فرمت\nمتنی که فاقد هرگونه فرمت �
 msgid "Unified &diff of HEAD revisions"
 msgstr "ایجاد فایل &مقایسه متحد از نسخه های اصلی"
 
-#. Resource IDs: (1096)
-msgid "Unify &EOLs"
-msgstr ""
-
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -11294,6 +11228,10 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
+msgstr ""
+
+#. Resource IDs: (1500)
+msgid "Use Task Dialog"
 msgstr ""
 
 #. Resource IDs: (1230)
@@ -11600,10 +11538,6 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
-
-#. Resource IDs: (165)
-msgid "Whitespace-fix setup"
 msgstr ""
 
 #. Resource IDs: (65535)

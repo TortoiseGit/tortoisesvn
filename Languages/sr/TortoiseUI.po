@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-16 08:27+0000\n"
+"PO-Revision-Date: 2013-06-27 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -582,7 +582,7 @@ msgstr "&Затвори прозор(е) "
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "&Сардниково корисничко име"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -696,10 +696,6 @@ msgstr "&Не питај поново"
 msgid "&Docking"
 msgstr "&Углављивање"
 
-#. Resource IDs: (1093)
-msgid "&Don't ask anymore, always save without fixing."
-msgstr ""
-
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&ЕОЛ"
@@ -779,10 +775,6 @@ msgstr "&Нађи..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "&Убаците слику у прозор"
-
-#. Resource IDs: (1)
-msgid "&Fix and Save"
-msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1187,10 +1179,6 @@ msgstr "&Подсети ме да унесем баг-ИД"
 msgid "&Remove"
 msgstr "&Уклони"
 
-#. Resource IDs: (1090)
-msgid "&Remove Trailing spaces and Tabs"
-msgstr ""
-
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&Преименуј"
@@ -1321,7 +1309,7 @@ msgstr "&Заустави на копирај/преименуј"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "&Субверзионо корсничко име"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1410,10 +1398,6 @@ msgstr "&ТортоисеСВН"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&ТортозУДиф"
-
-#. Resource IDs: (1090)
-msgid "&Trailing spaces and Tabs"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3056,7 +3040,7 @@ msgstr "Затвара активни прозор и упозорава на с
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Подешавање сарадничког кода"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3064,7 +3048,7 @@ msgstr "Са&жети изворно стабло"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Сардничка &лозинка"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3356,14 +3340,6 @@ msgstr "Настави"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Рашири углављен прозор"
-
-#. Resource IDs: (1092)
-msgid "Convert Spaces to &Tabs"
-msgstr "Конвертуј размаке у &Табове"
-
-#. Resource IDs: (1091)
-msgid "Convert Tabs to &Spaces"
-msgstr "Конвертуј Табове у &Размаке"
 
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
@@ -3984,10 +3960,6 @@ msgstr "Дестинациони УРЛ:"
 msgid "Destination disk drive is full."
 msgstr "Одредишни диск је пун."
 
-#. Resource IDs: (1501)
-msgid "Details ..."
-msgstr ""
-
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "Детектује и подвлачи померене блокове"
@@ -4249,10 +4221,6 @@ msgstr "Документација: Симон Ларге\nКод: Тобиас 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Не питај ме поново"
-
-#. Resource IDs: (1500)
-msgid "Don't ask to fix inconsistencies when saving"
-msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -5100,14 +5068,6 @@ msgstr "Форсира"
 msgid "Force removal"
 msgstr "Присила одбацивања"
 
-#. Resource IDs: (164)
-msgid "Formatting inconsistencies"
-msgstr ""
-
-#. Resource IDs: (1097)
-msgid "Formatting inconsistencies have been detected!"
-msgstr ""
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Напред"
@@ -5904,7 +5864,7 @@ msgstr "Увоз фолдера у спремиште"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr ""
+msgstr "Да би приказали дијалог у будуће притисни <Ctrl> док извршава команду менија сарадничког кода."
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -5927,14 +5887,6 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "Укључује спремиште за проверу статуса\nДржите притиснут шифт тастер док кликћете да нађете све."
-
-#. Resource IDs: (1096)
-msgid "Inconsistent &EOLs"
-msgstr ""
-
-#. Resource IDs: (1091)
-msgid "Inconsistent Tabs and &Spaces"
-msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9132,16 +9084,6 @@ msgstr "Одредите тип стапања"
 msgid "Select viewer for diff-files"
 msgstr "Изаберите прегледач за разл-фајл"
 
-#. Resource IDs: (65535)
-msgid ""
-"Select what TortoiseMerge should automatically detect and offer to fix when "
-"saving"
-msgstr ""
-
-#. Resource IDs: (1095)
-msgid "Select what TortoiseMerge should fix:"
-msgstr ""
-
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr "Изаберите који фајл желите да сачувате као"
@@ -9198,10 +9140,6 @@ msgstr "Поставке"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Поставке - ТортоисеСВН"
-
-#. Resource IDs: (1501)
-msgid "Setu&p ..."
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -9840,7 +9778,7 @@ msgstr "Субверзија је наишла на озбиљан пробле�
 
 #. Resource IDs: (65535)
 msgid "Subversion passwor&d"
-msgstr ""
+msgstr "Субверзиона &лозинка"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10735,7 +10673,7 @@ msgstr "Истекла времена"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "Тип"
 
 #. Resource IDs: (224)
 msgid ""
@@ -11093,10 +11031,6 @@ msgstr "Неформатиран текст\nтекст без било какв
 msgid "Unified &diff of HEAD revisions"
 msgstr "Обједињене &разлике главних (ХЕАД) ревизија"
 
-#. Resource IDs: (1096)
-msgid "Unify &EOLs"
-msgstr ""
-
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -11294,6 +11228,10 @@ msgstr "Користи блокове"
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
 msgstr "Користи траке"
+
+#. Resource IDs: (1500)
+msgid "Use Task Dialog"
+msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11600,10 +11538,6 @@ msgid ""
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
 msgstr "Када решавате конфликт, ви увек морате да извршите меморисање чак и када конфликт није приказан. ТортоисеМерге може стопити измене које СВН не може и неће да прикаже њихове конфликте!"
-
-#. Resource IDs: (165)
-msgid "Whitespace-fix setup"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"

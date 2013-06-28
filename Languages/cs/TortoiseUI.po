@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-20 13:46+0000\n"
+"PO-Revision-Date: 2013-06-27 21:11+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -580,7 +580,7 @@ msgstr "&Zavřít okno(a)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "&Uživatelské jméno spolupracovníka"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -694,10 +694,6 @@ msgstr "&Již se neptat"
 msgid "&Docking"
 msgstr "&Přichytávání"
 
-#. Resource IDs: (1093)
-msgid "&Don't ask anymore, always save without fixing."
-msgstr "&Již se neptat, vždy ukládat bez oprav."
-
 #. Resource IDs: (32851)
 msgid "&EOL"
 msgstr "&EOL"
@@ -777,10 +773,6 @@ msgstr "&Najít..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "&Přizpůsobit obrázky dle okna"
-
-#. Resource IDs: (1)
-msgid "&Fix and Save"
-msgstr "&Opravit a Uložit"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1185,10 +1177,6 @@ msgstr "&Připomenout zadání čísla chyby"
 msgid "&Remove"
 msgstr "Odst&ranit"
 
-#. Resource IDs: (1090)
-msgid "&Remove Trailing spaces and Tabs"
-msgstr "Odstranit &koncové mezery a tabulátory"
-
 #. Resource IDs: (101)
 msgid "&Rename"
 msgstr "&Přejmenovat"
@@ -1408,10 +1396,6 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
-
-#. Resource IDs: (1090)
-msgid "&Trailing spaces and Tabs"
-msgstr "&Koncové mezery a tabulátory"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -3054,7 +3038,7 @@ msgstr "Zavře aktivní okno a zeptá se na uložení dokumentů"
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Nastavení spolupráce na kódu"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3062,7 +3046,7 @@ msgstr "Sb&al zdrojový strom"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "&Heslo spolupracovníka"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3354,14 +3338,6 @@ msgstr "Pokračovat"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Zmenšit kotvící okno"
-
-#. Resource IDs: (1092)
-msgid "Convert Spaces to &Tabs"
-msgstr "Převést mezery na &tabulátory"
-
-#. Resource IDs: (1091)
-msgid "Convert Tabs to &Spaces"
-msgstr "Převést tabulátory na &mezery"
 
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
@@ -3698,7 +3674,7 @@ msgstr "Vytvořit záplatu"
 
 #. Resource IDs: (64)
 msgid "Create code collaborator revie&w..."
-msgstr ""
+msgstr "&Vytvořit přezkoumání v nástroji spolupráce na kódu"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -3982,10 +3958,6 @@ msgstr "Cílové URL:"
 msgid "Destination disk drive is full."
 msgstr "Cílový disk je plný."
 
-#. Resource IDs: (1501)
-msgid "Details ..."
-msgstr "Podrobnosti ..."
-
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
 msgstr "Najít a zvýraznit přesunuté bloky"
@@ -4247,10 +4219,6 @@ msgstr "Dokumentace : Simon Large\nKód : Tobias Schäfer, Stefan Fuhrmann"
 #. Resource IDs: (564)
 msgid "Don't ask me again"
 msgstr "Již se mě neptat"
-
-#. Resource IDs: (1500)
-msgid "Don't ask to fix inconsistencies when saving"
-msgstr "Při ukládání se neptat na opravu nesrovnalostí"
 
 #. Resource IDs: (94)
 msgid ""
@@ -5098,14 +5066,6 @@ msgstr "Vnutit"
 msgid "Force removal"
 msgstr "Vynutit odstranění"
 
-#. Resource IDs: (164)
-msgid "Formatting inconsistencies"
-msgstr "Nesrovnalosti formátování"
-
-#. Resource IDs: (1097)
-msgid "Formatting inconsistencies have been detected!"
-msgstr ""
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Dopředu"
@@ -5902,7 +5862,7 @@ msgstr "Importuje adresář do úložiště"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr ""
+msgstr "Aby toto dialogové okno bylo zobrazeno i v budoucnu, stiskněte <Ctrl> při spuštění příkazu Spolupráce na kódu z nabídky"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -5925,14 +5885,6 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr "Obsahuje úložiště pro kontrolu stavu\nPodržte klávesu shift při klikání pro načtení všeho."
-
-#. Resource IDs: (1096)
-msgid "Inconsistent &EOLs"
-msgstr ""
-
-#. Resource IDs: (1091)
-msgid "Inconsistent Tabs and &Spaces"
-msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9130,16 +9082,6 @@ msgstr "Zvolte typ sloučení"
 msgid "Select viewer for diff-files"
 msgstr "Zvolte aplikaci pro zobrazení souborů sjednoceného rozdílu"
 
-#. Resource IDs: (65535)
-msgid ""
-"Select what TortoiseMerge should automatically detect and offer to fix when "
-"saving"
-msgstr "Vyberte co TortoiseMerge při ukládání automaticky zjistí a navrhne opravu"
-
-#. Resource IDs: (1095)
-msgid "Select what TortoiseMerge should fix:"
-msgstr "Vyberte co by TortoiseMerge měl opravovat:"
-
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
 msgstr "Vyberte který soubor chcete uložit jako"
@@ -9196,10 +9138,6 @@ msgstr "Nastavení"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Nastavení - TortoiseSVN"
-
-#. Resource IDs: (1501)
-msgid "Setu&p ..."
-msgstr "&Nastavit ..."
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -10733,7 +10671,7 @@ msgstr "Časové limity"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "Rada"
 
 #. Resource IDs: (224)
 msgid ""
@@ -10937,7 +10875,7 @@ msgstr "Sloučení stromů"
 
 #. Resource IDs: (501)
 msgid "Trim right"
-msgstr ""
+msgstr "Oříznout vpravo"
 
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
@@ -11090,10 +11028,6 @@ msgstr "Neformátovaný text\ntext bez formátování"
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
 msgstr "Sjednocený roz&díl revize HEAD"
-
-#. Resource IDs: (1096)
-msgid "Unify &EOLs"
-msgstr "Sjednotit &EOL"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11292,6 +11226,10 @@ msgstr "Použít bloky"
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
 msgstr "Používat pásy karet"
+
+#. Resource IDs: (1500)
+msgid "Use Task Dialog"
+msgstr "Použít dialogové okno úlohy"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11598,10 +11536,6 @@ msgid ""
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
 msgstr "Při řešen konfliktů musíte vždycky ukládat, i když není zobrazen žádný konflikt. TortoiseMerge může sloučit změny, které SVN nedokáže a v těchto případech konflikt nezobrazí!"
-
-#. Resource IDs: (165)
-msgid "Whitespace-fix setup"
-msgstr "Nastavení opravy mezer"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
