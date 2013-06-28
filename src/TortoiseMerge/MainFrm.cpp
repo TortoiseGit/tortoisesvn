@@ -168,6 +168,7 @@ CMainFrame::CMainFrame()
     , m_bBlame(false)
     , m_bCheckReload(false)
     , m_bSaveRequired(false)
+    , m_bSaveRequiredOnConflicts(false)
     , resolveMsgWnd(0)
     , resolveMsgWParam(0)
     , resolveMsgLParam(0)
@@ -953,7 +954,7 @@ bool CMainFrame::LoadViews(int line)
         }
     }
     CheckResolved();
-    if (m_bHasConflicts)
+    if (m_bHasConflicts && !m_bSaveRequiredOnConflicts)
         m_bSaveRequired = false;
     CUndo::GetInstance().Clear();
     return true;
