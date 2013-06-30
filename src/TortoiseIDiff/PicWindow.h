@@ -213,8 +213,6 @@ protected:
     void                ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, int scale);
     /// Positions the buttons
     void                PositionChildren();
-    /// Rounds a double to a given precision
-    double              RoundDouble(double doValue, int nPrecision);
     /// advance to the next image in the file
     void                NextImage();
     /// go back to the previous image in the file
