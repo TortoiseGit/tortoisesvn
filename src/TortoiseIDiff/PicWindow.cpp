@@ -946,34 +946,37 @@ void CPicWindow::SetZoom(int Zoom, bool centermouse, bool inzoom)
     // adjust the scrollbar positions according to the new zoom and the
     // mouse position: if possible, keep the pixel where the mouse pointer
     // is at the same position after the zoom
-    POINT cpos;
-    DWORD ptW = GetMessagePos();
-    cpos.x = GET_X_LPARAM(ptW);
-    cpos.y = GET_Y_LPARAM(ptW);
-    ScreenToClient(*this, &cpos);
-    RECT clientrect;
-    GetClientRect(&clientrect);
-    if ((PtInRect(&clientrect, cpos))&&(centermouse))
+    if (!inzoom)
     {
-        // the mouse pointer is over our window
-        nHScrollPos = nHScrollPos + cpos.x*Zoom/oldPicscale-cpos.x;
-        nVScrollPos = nVScrollPos + cpos.y*Zoom/oldPicscale-cpos.y;
-        if (pTheOtherPic && bMainPic)
+        POINT cpos;
+        DWORD ptW = GetMessagePos();
+        cpos.x = GET_X_LPARAM(ptW);
+        cpos.y = GET_Y_LPARAM(ptW);
+        ScreenToClient(*this, &cpos);
+        RECT clientrect;
+        GetClientRect(&clientrect);
+        if ((PtInRect(&clientrect, cpos))&&(centermouse))
         {
-            int otherzoom = pTheOtherPic->GetZoom();
-            nHSecondScrollPos = nHSecondScrollPos + cpos.x*otherzoom/oldOtherPicscale-cpos.x;
-            nVSecondScrollPos = nVSecondScrollPos + cpos.y*otherzoom/oldOtherPicscale-cpos.y;
+            // the mouse pointer is over our window
+            nHScrollPos = (nHScrollPos + cpos.x)*Zoom/oldPicscale-cpos.x;
+            nVScrollPos = (nVScrollPos + cpos.y)*Zoom/oldPicscale-cpos.y;
+            if (pTheOtherPic && bMainPic)
+            {
+                int otherzoom = pTheOtherPic->GetZoom();
+                nHSecondScrollPos = (nHSecondScrollPos + cpos.x)*otherzoom/oldOtherPicscale-cpos.x;
+                nVSecondScrollPos = (nVSecondScrollPos + cpos.y)*otherzoom/oldOtherPicscale-cpos.y;
+            }
         }
-    }
-    else
-    {
-        nHScrollPos = nHScrollPos + ((clientrect.right-clientrect.left)/2)*Zoom/oldPicscale-((clientrect.right-clientrect.left)/2);
-        nVScrollPos = nVScrollPos + ((clientrect.bottom-clientrect.top)/2)*Zoom/oldPicscale-((clientrect.bottom-clientrect.top)/2);
-        if (pTheOtherPic && bMainPic)
+        else
         {
-            int otherzoom = pTheOtherPic->GetZoom();
-            nHSecondScrollPos = nHSecondScrollPos + ((clientrect.right-clientrect.left)/2)*otherzoom/oldOtherPicscale-((clientrect.right-clientrect.left)/2);
-            nVSecondScrollPos = nVSecondScrollPos + ((clientrect.bottom-clientrect.top)/2)*otherzoom/oldOtherPicscale-((clientrect.bottom-clientrect.top)/2);
+            nHScrollPos = (nHScrollPos + ((clientrect.right-clientrect.left)/2))*Zoom/oldPicscale-((clientrect.right-clientrect.left)/2);
+            nVScrollPos = (nVScrollPos + ((clientrect.bottom-clientrect.top)/2))*Zoom/oldPicscale-((clientrect.bottom-clientrect.top)/2);
+            if (pTheOtherPic && bMainPic)
+            {
+                int otherzoom = pTheOtherPic->GetZoom();
+                nHSecondScrollPos = (nHSecondScrollPos + ((clientrect.right-clientrect.left)/2))*otherzoom/oldOtherPicscale-((clientrect.right-clientrect.left)/2);
+                nVSecondScrollPos = (nVSecondScrollPos + ((clientrect.bottom-clientrect.top)/2))*otherzoom/oldOtherPicscale-((clientrect.bottom-clientrect.top)/2);
+            }
         }
     }
 
