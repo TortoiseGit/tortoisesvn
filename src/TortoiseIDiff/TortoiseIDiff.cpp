@@ -97,7 +97,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         }
         if (parser.HasKey(_T("fit")))
         {
-            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITIMAGEHEIGHTS, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITIMAGEWIDTHS, 0);
+        }
+        if (parser.HasKey(_T("fitwidth")))
+        {
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITIMAGEWIDTHS, 0);
+        }
+        if (parser.HasKey(_T("fitheight")))
+        {
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITIMAGEHEIGHTS, 0);
         }
         if (parser.HasKey(_T("showinfo")))
         {

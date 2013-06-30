@@ -206,15 +206,11 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
     case WM_MOUSEWHEEL:
         {
             OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
-            if (bFitSizes)
-                pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
         }
         break;
     case WM_MOUSEHWHEEL:
         {
             OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
-            if (bFitSizes)
-                pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
         }
         break;
     case WM_LBUTTONDOWN:
@@ -870,8 +866,6 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
     {
         // control means adjusting the scale factor
         Zoom(zDelta>0, true);
-        if ((bFitSizes)&&(pTheOtherPic)&&(!bOverlap))
-            pTheOtherPic->Zoom(zDelta>0, true);
         PositionChildren();
         InvalidateRect(*this, NULL, FALSE);
         SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
@@ -916,7 +910,7 @@ void CPicWindow::GetClientRectWithScrollbars(RECT * pRect)
 };
 
 
-void CPicWindow::SetZoom(int Zoom, bool centermouse)
+void CPicWindow::SetZoom(int Zoom, bool centermouse, bool inzoom)
 {
     // Set the interpolation mode depending on zoom
     int oldPicscale = picscale;
@@ -941,16 +935,12 @@ void CPicWindow::SetZoom(int Zoom, bool centermouse)
     }
     picscale = Zoom;
 
-    if ((bFitSizes)&&(bMainPic))
+    if (pTheOtherPic && !inzoom)
     {
-        long width, height;
-        long zoomWidth, zoomHeight;
-        width = picture.m_Width*Zoom;
-        height = picture.m_Height*Zoom;
-        zoomWidth = width/pTheOtherPic->GetPic()->m_Width;
-        zoomHeight = height/pTheOtherPic->GetPic()->m_Height;
-        oldOtherPicscale = pTheOtherPic->GetZoom();
-        pTheOtherPic->SetZoom(min(zoomWidth, zoomHeight), false);
+        if (bFitHeights)
+            pTheOtherPic->SetZoomToHeight(picture.m_Height*Zoom/100);
+        if (bFitWidths)
+            pTheOtherPic->SetZoomToWidth(picture.m_Width*Zoom/100);
     }
 
     // adjust the scrollbar positions according to the new zoom and the
@@ -1026,14 +1016,10 @@ void CPicWindow::Zoom(bool in, bool centermouse)
     // Set zoom
     if (in)
     {
-        if ((pSecondPic)&&(!bFitSizes))
-            pTheOtherPic->SetZoom(pTheOtherPic->GetZoom()+zoomFactor, false);
         SetZoom(picscale+zoomFactor, centermouse);
     }
     else
     {
-        if ((pSecondPic)&&(!bFitSizes))
-            pTheOtherPic->SetZoom(pTheOtherPic->GetZoom()-zoomFactor, false);
         SetZoom(picscale-zoomFactor, centermouse);
     }
 }
@@ -1133,9 +1119,16 @@ void CPicWindow::CenterImage()
     SetupScrollBars();
 }
 
-void CPicWindow::FitSizes(bool bFit)
+void CPicWindow::FitWidths(bool bFit)
 {
-    bFitSizes = bFit;
+    bFitWidths = bFit;
+
+    SetZoom(GetZoom(), false);
+}
+
+void CPicWindow::FitHeights(bool bFit)
+{
+    bFitHeights = bFit;
 
     SetZoom(GetZoom(), false);
 }
@@ -1155,6 +1148,11 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, i
     }
     picrect.right = (picrect.left + pic.m_Width * scale / 100);
     picrect.bottom = (picrect.top + pic.m_Height * scale / 100);
+
+    if (bFitWidths && m_linkedWidth)
+        picrect.right = picrect.left + m_linkedWidth;
+    if (bFitHeights && m_linkedHeight)
+        picrect.bottom = picrect.top + m_linkedHeight;
 
     pic.Show(hdc, picrect);
 
@@ -1510,4 +1508,18 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
             picture.m_ColorDepth,
             (UINT)(GetZoom()*100.0));
     }
+}
+
+void CPicWindow::SetZoomToWidth( long width )
+{
+    m_linkedWidth = width;
+    int zoom = width*100/picture.m_Width;
+    SetZoom(zoom, false, true);
+}
+
+void CPicWindow::SetZoomToHeight( long height )
+{
+    m_linkedHeight = height;
+    int zoom = height*100/picture.m_Height;
+    SetZoom(zoom, false, true);
 }
