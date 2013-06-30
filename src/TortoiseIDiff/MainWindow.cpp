@@ -517,6 +517,8 @@ LRESULT CMainWindow::DoCommand(int id)
         {
             picWindow2.SetZoom(100, false);
             picWindow1.SetZoom(100, false);
+            picWindow1.CenterImage();
+            picWindow2.CenterImage();
         }
         break;
     case ID_VIEW_ZOOMIN:
