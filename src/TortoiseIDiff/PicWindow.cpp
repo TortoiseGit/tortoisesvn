@@ -1067,7 +1067,7 @@ void CPicWindow::FitImageInWindow()
 
     if (rect.right-rect.left)
     {
-        int Zoom = 1.0;
+        int Zoom = 100;
         if (((rect.right - rect.left) > picture.m_Width+2)&&((rect.bottom - rect.top)> picture.m_Height+2))
         {
             // image is smaller than the window
