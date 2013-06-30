@@ -543,11 +543,15 @@ LRESULT CMainWindow::DoCommand(int id)
     case ID_VIEW_ZOOMIN:
         {
             picWindow1.Zoom(true, false);
+            if ((!(bFitWidths || bFitHeights))&&(!bOverlap))
+                picWindow2.Zoom(true, false);
         }
         break;
     case ID_VIEW_ZOOMOUT:
         {
             picWindow1.Zoom(false, false);
+            if ((!(bFitWidths || bFitHeights))&&(!bOverlap))
+                picWindow2.Zoom(false, false);
         }
         break;
     case ID_VIEW_ARRANGEVERTICAL:
