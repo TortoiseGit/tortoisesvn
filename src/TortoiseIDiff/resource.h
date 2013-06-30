@@ -38,7 +38,6 @@
 #define IDI_FITWIDTHS                   149
 #define IDI_BLEND                       152
 #define IDD_ABOUT                       153
-#define IDI_ICON1                       154
 #define IDI_FITHEIGHTS                  154
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001
