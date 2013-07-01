@@ -3039,6 +3039,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         }
     }
 
+    bool bSVNParentPathUrl = false;
     CRepositoryBrowserSelection selection;
     if (pWnd == &m_RepoList)
     {
@@ -3070,7 +3071,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
                     m_blockEvents = false;
                     m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
-                    selection.Add ((CTreeItem *)m_RepoTree.GetItemData (hSelectedTreeItem));
+                    CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (hSelectedTreeItem);
+                    bSVNParentPathUrl = pTreeItem->svnparentpathroot;
+                    selection.Add (pTreeItem);
                 }
                 else
                     m_blockEvents = false;
@@ -3098,7 +3101,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         if (hItem)
         {
             hChosenTreeItem = hItem;
-            selection.Add ((CTreeItem *)m_RepoTree.GetItemData (hItem));
+            CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
+            bSVNParentPathUrl = pTreeItem->svnparentpathroot;
+            selection.Add (pTreeItem);
         }
     }
 
@@ -3108,55 +3113,58 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
     CIconMenu popup;
     if (popup.CreatePopupMenu())
     {
-        if (selection.GetPathCount (0) == 1)
+        if (!bSVNParentPathUrl)
         {
-            if (selection.GetFolderCount (0) == 0)
+            if (selection.GetPathCount (0) == 1)
             {
-                // Let "Open" be the very first entry, like in Explorer
-                popup.AppendMenuIcon(ID_OPEN, IDS_REPOBROWSE_OPEN, IDI_OPEN);       // "open"
-                popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);    // "open with..."
-                popup.AppendMenuIcon(ID_EDITFILE, IDS_REPOBROWSE_EDITFILE);     // "edit"
-                popup.AppendMenu(MF_SEPARATOR, NULL);
+                if (selection.GetFolderCount (0) == 0)
+                {
+                    // Let "Open" be the very first entry, like in Explorer
+                    popup.AppendMenuIcon(ID_OPEN, IDS_REPOBROWSE_OPEN, IDI_OPEN);       // "open"
+                    popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);    // "open with..."
+                    popup.AppendMenuIcon(ID_EDITFILE, IDS_REPOBROWSE_EDITFILE);     // "edit"
+                    popup.AppendMenu(MF_SEPARATOR, NULL);
+                }
             }
-        }
-        if ( (selection.GetPathCount (0) == 1) ||
-             ((selection.GetPathCount (0) == 2) && (selection.GetFolderCount (0) != 1)) )
-        {
-            popup.AppendMenuIcon(ID_SHOWLOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);          // "Show Log..."
-        }
-        if (selection.GetPathCount (0) == 1)
-        {
-            // the revision graph on the repository root would be empty. We
-            // don't show the context menu entry there.
-            if (!selection.IsRoot (0, 0))
+            if ( (selection.GetPathCount (0) == 1) ||
+                ((selection.GetPathCount (0) == 2) && (selection.GetFolderCount (0) != 1)) )
             {
-                popup.AppendMenuIcon(ID_REVGRAPH, IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH); // "Revision graph"
+                popup.AppendMenuIcon(ID_SHOWLOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);          // "Show Log..."
             }
-            if (!selection.IsFolder (0, 0))
+            if (selection.GetPathCount (0) == 1)
             {
-                popup.AppendMenuIcon(ID_BLAME, IDS_MENUBLAME, IDI_BLAME);       // "Blame..."
-            }
-            if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
-            {
-                popup.AppendMenuIcon(ID_VIEWREV, IDS_LOG_POPUP_VIEWREV);        // "View revision in webviewer"
-            }
-            if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
-            {
-                popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_VIEWPATHREV);    // "View revision for path in webviewer"
-            }
-            if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
-                (!m_ProjectProperties.sWebViewerRev.IsEmpty()))
-            {
-                popup.AppendMenu(MF_SEPARATOR, NULL);
+                // the revision graph on the repository root would be empty. We
+                // don't show the context menu entry there.
+                if (!selection.IsRoot (0, 0))
+                {
+                    popup.AppendMenuIcon(ID_REVGRAPH, IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH); // "Revision graph"
+                }
+                if (!selection.IsFolder (0, 0))
+                {
+                    popup.AppendMenuIcon(ID_BLAME, IDS_MENUBLAME, IDI_BLAME);       // "Blame..."
+                }
+                if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+                {
+                    popup.AppendMenuIcon(ID_VIEWREV, IDS_LOG_POPUP_VIEWREV);        // "View revision in webviewer"
+                }
+                if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+                {
+                    popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_VIEWPATHREV);    // "View revision for path in webviewer"
+                }
+                if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
+                    (!m_ProjectProperties.sWebViewerRev.IsEmpty()))
+                {
+                    popup.AppendMenu(MF_SEPARATOR, NULL);
+                }
+
+                // we can export files and folders alike, but for files we have "save as"
+                if (selection.IsFolder (0, 0))
+                    popup.AppendMenuIcon(ID_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);        // "Export"
             }
 
-            // we can export files and folders alike, but for files we have "save as"
-            if (selection.IsFolder (0, 0))
-                popup.AppendMenuIcon(ID_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);        // "Export"
+            // We allow checkout of multiple paths at once (we do that one by one)
+            popup.AppendMenuIcon(ID_CHECKOUT, IDS_MENUCHECKOUT, IDI_CHECKOUT);      // "Checkout.."
         }
-
-        // We allow checkout of multiple paths at once (we do that one by one)
-        popup.AppendMenuIcon(ID_CHECKOUT, IDS_MENUCHECKOUT, IDI_CHECKOUT);      // "Checkout.."
 
         if (selection.GetPathCount (0) == 1)
         {
@@ -3166,99 +3174,108 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
             popup.AppendMenu(MF_SEPARATOR, NULL);
 
-            if (selection.GetRepository(0).revision.IsHead())
+            if (!bSVNParentPathUrl)
             {
-                if (selection.IsFolder (0, 0))
+                if (selection.GetRepository(0).revision.IsHead())
                 {
-                    popup.AppendMenuIcon(ID_MKDIR, IDS_REPOBROWSE_MKDIR, IDI_MKDIR);    // "create directory"
-                    popup.AppendMenuIcon(ID_IMPORT, IDS_REPOBROWSE_IMPORT, IDI_IMPORT); // "Add/Import File"
-                    popup.AppendMenuIcon(ID_IMPORTFOLDER, IDS_REPOBROWSE_IMPORTFOLDER, IDI_IMPORT); // "Add/Import Folder"
-                    popup.AppendMenu(MF_SEPARATOR, NULL);
+                    if (selection.IsFolder (0, 0))
+                    {
+                        popup.AppendMenuIcon(ID_MKDIR, IDS_REPOBROWSE_MKDIR, IDI_MKDIR);    // "create directory"
+                        popup.AppendMenuIcon(ID_IMPORT, IDS_REPOBROWSE_IMPORT, IDI_IMPORT); // "Add/Import File"
+                        popup.AppendMenuIcon(ID_IMPORTFOLDER, IDS_REPOBROWSE_IMPORTFOLDER, IDI_IMPORT); // "Add/Import Folder"
+                        popup.AppendMenu(MF_SEPARATOR, NULL);
+                    }
+
+                    if (!selection.IsExternal (0, 0) && !selection.IsRoot (0, 0))
+                        popup.AppendMenuIcon(ID_RENAME, IDS_REPOBROWSE_RENAME, IDI_RENAME);     // "Rename"
                 }
-
-                if (!selection.IsExternal (0, 0) && !selection.IsRoot (0, 0))
-                    popup.AppendMenuIcon(ID_RENAME, IDS_REPOBROWSE_RENAME, IDI_RENAME);     // "Rename"
+                if (selection.IsLocked (0, 0))
+                {
+                    popup.AppendMenuIcon(ID_BREAKLOCK, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK);   // "Break Lock"
+                }
             }
-            if (selection.IsLocked (0, 0))
+        }
+
+        if (!bSVNParentPathUrl)
+        {
+            if (selection.GetRepository(0).revision.IsHead() && !selection.IsRoot (0, 0))
             {
-                popup.AppendMenuIcon(ID_BREAKLOCK, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK);   // "Break Lock"
+                popup.AppendMenuIcon(ID_DELETE, IDS_REPOBROWSE_DELETE, IDI_DELETE);     // "Remove"
             }
-        }
-
-        if (selection.GetRepository(0).revision.IsHead() && !selection.IsRoot (0, 0))
-        {
-            popup.AppendMenuIcon(ID_DELETE, IDS_REPOBROWSE_DELETE, IDI_DELETE);     // "Remove"
-        }
-        if (selection.GetFolderCount(0) == 0)
-        {
-            popup.AppendMenuIcon(ID_SAVEAS, IDS_REPOBROWSE_SAVEAS, IDI_SAVEAS);     // "Save as..."
+            if (selection.GetFolderCount(0) == 0)
+            {
+                popup.AppendMenuIcon(ID_SAVEAS, IDS_REPOBROWSE_SAVEAS, IDI_SAVEAS);     // "Save as..."
+            }
         }
         popup.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_REPOBROWSE_URLTOCLIPBOARD, IDI_COPYCLIP);   // "Copy URL to clipboard"
-        if (   (selection.GetFolderCount(0) == selection.GetPathCount(0))
-            || (selection.GetFolderCount(0) == 0))
+        if (!bSVNParentPathUrl)
         {
-            popup.AppendMenuIcon(ID_COPYTOWC, IDS_REPOBROWSE_COPYTOWC); // "Copy To Working Copy..."
-        }
-
-        if (selection.GetPathCount(0) == 1)
-        {
-            popup.AppendMenuIcon(ID_COPYTO, IDS_REPOBROWSE_COPY, IDI_COPY);         // "Copy To..."
-            popup.AppendMenu(MF_SEPARATOR, NULL);
-            popup.AppendMenuIcon(ID_PROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);            // "Show Properties"
-            // Revision properties are not associated to paths
-            // so we only show that context menu on the repository root
-            if (selection.IsRoot (0, 0))
+            if (   (selection.GetFolderCount(0) == selection.GetPathCount(0))
+                || (selection.GetFolderCount(0) == 0))
             {
-                popup.AppendMenuIcon(ID_REVPROPS, IDS_REPOBROWSE_SHOWREVPROP, IDI_PROPERTIES);  // "Show Revision Properties"
+                popup.AppendMenuIcon(ID_COPYTOWC, IDS_REPOBROWSE_COPYTOWC); // "Copy To Working Copy..."
             }
-            if (selection.IsFolder (0, 0))
+
+            if (selection.GetPathCount(0) == 1)
+            {
+                popup.AppendMenuIcon(ID_COPYTO, IDS_REPOBROWSE_COPY, IDI_COPY);         // "Copy To..."
+                popup.AppendMenu(MF_SEPARATOR, NULL);
+                popup.AppendMenuIcon(ID_PROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);            // "Show Properties"
+                // Revision properties are not associated to paths
+                // so we only show that context menu on the repository root
+                if (selection.IsRoot (0, 0))
+                {
+                    popup.AppendMenuIcon(ID_REVPROPS, IDS_REPOBROWSE_SHOWREVPROP, IDI_PROPERTIES);  // "Show Revision Properties"
+                }
+                if (selection.IsFolder (0, 0))
+                {
+                    popup.AppendMenu(MF_SEPARATOR, NULL);
+                    popup.AppendMenuIcon(ID_PREPAREDIFF, IDS_REPOBROWSE_PREPAREDIFF);   // "Mark for comparison"
+
+                    CTSVNPath root (selection.GetRepository(0).root);
+                    if (   (m_diffKind == svn_node_dir)
+                        && !m_diffURL.IsEquivalentTo (selection.GetURL (0, 0))
+                        && root.IsAncestorOf (m_diffURL))
+                    {
+                        popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
+                        popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, IDI_DIFF);       // "Compare URLs"
+                    }
+                }
+            }
+
+            if (   (selection.GetPathCount (0) == 2)
+                && (selection.GetFolderCount (0) != 1))
             {
                 popup.AppendMenu(MF_SEPARATOR, NULL);
-                popup.AppendMenuIcon(ID_PREPAREDIFF, IDS_REPOBROWSE_PREPAREDIFF);   // "Mark for comparison"
-
-                CTSVNPath root (selection.GetRepository(0).root);
-                if (   (m_diffKind == svn_node_dir)
-                    && !m_diffURL.IsEquivalentTo (selection.GetURL (0, 0))
-                    && root.IsAncestorOf (m_diffURL))
-                {
-                    popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
-                    popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, IDI_DIFF);       // "Compare URLs"
-                }
+                popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
+                popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, ID_DIFF);        // "Compare URLs"
+                popup.AppendMenu(MF_SEPARATOR, NULL);
             }
-        }
 
-        if (   (selection.GetPathCount (0) == 2)
-            && (selection.GetFolderCount (0) != 1))
-        {
-            popup.AppendMenu(MF_SEPARATOR, NULL);
-            popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
-            popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, ID_DIFF);        // "Compare URLs"
-            popup.AppendMenu(MF_SEPARATOR, NULL);
-        }
-
-        if (m_path.Exists() &&
-            CTSVNPath(m_InitialUrl).IsAncestorOf (selection.GetURL (0, 0)))
-        {
-            CTSVNPath wcPath = m_path;
-            wcPath.AppendPathString(selection.GetURL (0, 0).GetWinPathString().Mid(m_InitialUrl.GetLength()));
-            if (!wcPath.Exists())
+            if (m_path.Exists() &&
+                CTSVNPath(m_InitialUrl).IsAncestorOf (selection.GetURL (0, 0)))
             {
-                bool bWCPresent = false;
-                while (!bWCPresent && m_path.IsAncestorOf(wcPath))
+                CTSVNPath wcPath = m_path;
+                wcPath.AppendPathString(selection.GetURL (0, 0).GetWinPathString().Mid(m_InitialUrl.GetLength()));
+                if (!wcPath.Exists())
                 {
-                    bWCPresent = wcPath.GetContainingDirectory().Exists();
-                    wcPath = wcPath.GetContainingDirectory();
+                    bool bWCPresent = false;
+                    while (!bWCPresent && m_path.IsAncestorOf(wcPath))
+                    {
+                        bWCPresent = wcPath.GetContainingDirectory().Exists();
+                        wcPath = wcPath.GetContainingDirectory();
+                    }
+                    if (bWCPresent)
+                    {
+                        popup.AppendMenu(MF_SEPARATOR, NULL);
+                        popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
+                    }
                 }
-                if (bWCPresent)
+                else
                 {
                     popup.AppendMenu(MF_SEPARATOR, NULL);
                     popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
                 }
-            }
-            else
-            {
-                popup.AppendMenu(MF_SEPARATOR, NULL);
-                popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
             }
         }
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
