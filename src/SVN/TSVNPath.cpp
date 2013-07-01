@@ -1572,6 +1572,8 @@ private:
         ATLASSERT(!testPath.IsValidOnWindows());
         testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/Blame3-%3Eblame.cpp"));
         ATLASSERT(!testPath.IsValidOnWindows());
+        testPath.SetFromSVN(_T(""));
+        ATLASSERT(!testPath.IsUrl());
     }
 
 } TSVNPathTestobject;
