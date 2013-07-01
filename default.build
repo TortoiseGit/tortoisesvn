@@ -250,6 +250,9 @@
     <description>
       Uses WiX to create an msi installer file.
     </description>
+    <if test="${devrelease != '-dev'}">
+      <call target="uploadsymbols" />
+    </if>
     <nant target="setup">
       <buildfiles>
         <include name="src\TortoiseSVNSetup\setup.build" />
@@ -272,6 +275,9 @@
     <description>
       Builds the msi installer from already built binaries.
     </description>
+    <if test="${devrelease != '-dev'}">
+      <call target="uploadsymbols" />
+    </if>
     <nant target="setup">
       <buildfiles>
         <include name="src\TortoiseSVNSetup\setup.build" />
