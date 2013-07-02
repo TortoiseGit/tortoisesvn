@@ -865,6 +865,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         }
         m_nSearchIndex = (int)selIndex;
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (selIndex);
+        if (pLogEntry == NULL)
+            return;
 
         pMsgView->SetRedraw(FALSE);
 
@@ -1703,8 +1705,11 @@ void CLogDlg::CopyCommaSeparatedRevisionsToClipboard()
             if (index >= (int)m_logEntries.GetVisibleCount())
                 continue;
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
-            sRevision.Format(L"%ld, ",pLogEntry->GetRevision());
-            sRevisions += sRevision;
+            if (pLogEntry)
+            {
+                sRevision.Format(L"%ld, ",pLogEntry->GetRevision());
+                sRevisions += sRevision;
+            }
         }
 
         // trim trailing comma and space
@@ -1738,6 +1743,8 @@ void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
             if (index >= (int)m_logEntries.GetVisibleCount())
                 continue;
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
+            if (pLogEntry == NULL)
+                continue;
             if (bIncludeChangedList)
             {
                 CString sPaths;
@@ -2161,6 +2168,8 @@ void CLogDlg::DiffSelectedFile()
     // find out if there's an entry selected in the log list
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
+    if (pLogEntry == NULL)
+        return;
     svn_revnum_t rev1 = pLogEntry->GetRevision();
     svn_revnum_t rev2 = rev1;
     if (pos)
@@ -2321,6 +2330,8 @@ void CLogDlg::DiffSelectedRevWithPrevious()
     // Find selected entry in the log list
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+    if (pLogEntry == NULL)
+        return;
     long rev1 = pLogEntry->GetRevision();
     long rev2 = rev1-1;
     CTSVNPath path = m_path;
@@ -2601,6 +2612,9 @@ void CLogDlg::EditLogMessage( size_t index )
     CString name = CString(SVN_PROP_REVISION_LOG);
 
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+    if (pLogEntry == NULL)
+        return;
+
     m_bCancelled = FALSE;
     CString value = RevPropertyGet(name, CTSVNPath(url), pLogEntry->GetRevision());
     CString sOldValue = value;
@@ -2986,8 +3000,11 @@ void CLogDlg::OnBnClickedStatbutton()
     for (size_t i=0; i<m_logEntries.GetVisibleCount(); ++i)
     {
         PLOGENTRYDATA entry = m_logEntries.GetVisible(i);
-        if (revisionsCovered.insert (entry->GetRevision()).second)
-            revsByDate.insert (std::make_pair (entry->GetDate(), entry));
+        if (entry)
+        {
+            if (revisionsCovered.insert (entry->GetRevision()).second)
+                revsByDate.insert (std::make_pair (entry->GetDate(), entry));
+        }
     }
 
     // create arrays which are aware of the current filter
@@ -4277,29 +4294,32 @@ CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CStr
                 continue;
 
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
-            CString sRevMsg;
-            sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(),
-                                                            (LPCWSTR)pLogEntry->GetShortMessageUTF16());
-            sMessageSketch +=  sRevMsg;
-            const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
-            for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
+            if (pLogEntry)
             {
-                const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-
-                LogCache::index_t pathID = cpath.GetCachedPath().GetIndex();
-                if (pathIDsAdded.contains (pathID))
-                    continue;
-
-                pathIDsAdded.insert (pathID);
-
-                if (((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
-                    || cpath.IsRelevantForStartPath())
+                CString sRevMsg;
+                sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(),
+                    (LPCWSTR)pLogEntry->GetShortMessageUTF16());
+                sMessageSketch +=  sRevMsg;
+                const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
+                for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
                 {
-                    CTSVNPath path;
-                    path.SetFromSVN(cpath.GetPath());
+                    const CLogChangedPath& cpath = cpatharray[cpPathIndex];
 
-                    pathList.AddPath(path);
-                    currentChangedArray.Add(cpath);
+                    LogCache::index_t pathID = cpath.GetCachedPath().GetIndex();
+                    if (pathIDsAdded.contains (pathID))
+                        continue;
+
+                    pathIDsAdded.insert (pathID);
+
+                    if (((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
+                        || cpath.IsRelevantForStartPath())
+                    {
+                        CTSVNPath path;
+                        path.SetFromSVN(cpath.GetPath());
+
+                        pathList.AddPath(path);
+                        currentChangedArray.Add(cpath);
+                    }
                 }
             }
         }
@@ -4574,21 +4594,24 @@ bool CLogDlg::DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex,
     for (size_t i=startIndex; i<endIndex; ++i)
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
-        sRev.Format(L"%ld", pLogEntry->GetRevision());
-        if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
+        if (pLogEntry)
         {
-            if (whatToFind.Compare(sRev.Left(whatToFind.GetLength()))==0)
+            sRev.Format(L"%ld", pLogEntry->GetRevision());
+            if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
             {
-                *pResult = i;
-                return true;
+                if (whatToFind.Compare(sRev.Left(whatToFind.GetLength()))==0)
+                {
+                    *pResult = i;
+                    return true;
+                }
             }
-        }
-        else
-        {
-            if (whatToFind.Compare(sRev)==0)
+            else
             {
-                *pResult = i;
-                return true;
+                if (whatToFind.Compare(sRev)==0)
+                {
+                    *pResult = i;
+                    return true;
+                }
             }
         }
     }
@@ -4630,18 +4653,21 @@ void CLogDlg::UpdateLogInfoLabel()
     if (m_logEntries.GetVisibleCount())
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(0);
-        rev1 = pLogEntry->GetRevision();
-        pLogEntry = m_logEntries.GetVisible (m_logEntries.GetVisibleCount()-1);
-        rev2 = pLogEntry->GetRevision();
-        selectedrevs = m_LogList.GetSelectedCount();
+        if (pLogEntry)
+        {
+            rev1 = pLogEntry->GetRevision();
+            pLogEntry = m_logEntries.GetVisible (m_logEntries.GetVisibleCount()-1);
+            rev2 = pLogEntry->GetRevision();
+            selectedrevs = m_LogList.GetSelectedCount();
 
-        if (m_bSingleRevision)
-        {
-            changedPaths = m_currentChangedArray.GetCount();
-        }
-        else if (m_currentChangedPathList.GetCount())
-        {
-            changedPaths = m_currentChangedPathList.GetCount();
+            if (m_bSingleRevision)
+            {
+                changedPaths = m_currentChangedArray.GetCount();
+            }
+            else if (m_currentChangedPathList.GetCount())
+            {
+                changedPaths = m_currentChangedPathList.GetCount();
+            }
         }
     }
     CString sTemp;
@@ -4691,6 +4717,8 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
     if ((indexNext < 0)||(indexNext >= (int)m_logEntries.GetVisibleCount()))
         return false;
     pCmi->SelLogEntry = m_logEntries.GetVisible(indexNext);
+    if (pCmi->SelLogEntry == NULL)
+        return false;
     pCmi->RevSelected = pCmi->SelLogEntry->GetRevision();
     pCmi->RevPrevious = svn_revnum_t(pCmi->RevSelected)-1;
 
@@ -4708,7 +4736,8 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
     if (pos)
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-        pCmi->RevSelected2 = pLogEntry->GetRevision();
+        if (pLogEntry)
+            pCmi->RevSelected2 = pLogEntry->GetRevision();
     }
     pCmi->AllFromTheSameAuthor = true;
 
@@ -4717,6 +4746,8 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
 
     POSITION pos2 = m_LogList.GetFirstSelectedItemPosition();
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
+    if (pLogEntry == NULL)
+        return false;
     revisions.push_back (pLogEntry->GetRevision());
     pCmi->SelEntries.push_back(pLogEntry);
 
@@ -4727,10 +4758,13 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
         if (index2 < (int)m_logEntries.GetVisibleCount())
         {
             pLogEntry = m_logEntries.GetVisible(index2);
-            revisions.push_back (pLogEntry->GetRevision());
-            pCmi->SelEntries.push_back(pLogEntry);
-            if (firstAuthor != pLogEntry->GetAuthor())
-                pCmi->AllFromTheSameAuthor = false;
+            if (pLogEntry)
+            {
+                revisions.push_back (pLogEntry->GetRevision());
+                pCmi->SelEntries.push_back(pLogEntry);
+                if (firstAuthor != pLogEntry->GetAuthor())
+                    pCmi->AllFromTheSameAuthor = false;
+            }
         }
     }
 
@@ -5034,8 +5068,11 @@ CString CLogDlg::GetSpaceSeparatedSelectedRevisions()
             if (index >= (int)m_logEntries.GetVisibleCount())
                 continue;
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
-            sRevision.Format(L"%ld ", pLogEntry->GetRevision());
-            sRevisions += sRevision;
+            if (pLogEntry)
+            {
+                sRevision.Format(L"%ld ", pLogEntry->GetRevision());
+                sRevisions += sRevision;
+            }
         }
     }
     return sRevisions;
@@ -5885,6 +5922,8 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
     if ((nSubItem == 1) && (m_logEntries.GetVisibleCount() > (size_t)nItem))
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nItem);
+        if (pLogEntry == NULL)
+            return CString();
 
         CString sToolTipText;
 
@@ -6412,6 +6451,8 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
     INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
+    if (pLogEntry == NULL)
+        return false;
     pCmi->Rev1 = pLogEntry->GetRevision();
     pCmi->Rev2 = pCmi->Rev1;
     pCmi->OneRev = true;
@@ -7087,14 +7128,17 @@ void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPath
 void CLogDlg::ExecuteViewPathRevisionChangedPaths( INT_PTR selIndex )
 {
     PLOGENTRYDATA pLogEntry2 = m_logEntries.GetVisible (m_LogList.GetSelectionMark());
-    SVNRev rev = pLogEntry2->GetRevision();
-    CString relurl = m_currentChangedArray[selIndex].GetPath();
-    CString url = m_ProjectProperties.sWebViewerPathRev;
-    url = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
-    url.Replace(L"%REVISION%", rev.ToString());
-    url.Replace(L"%PATH%", relurl);
-    relurl = relurl.Mid(relurl.Find('/'));
-    url.Replace(L"%PATH1%", relurl);
-    if (!url.IsEmpty())
-        ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
+    if (pLogEntry2)
+    {
+        SVNRev rev = pLogEntry2->GetRevision();
+        CString relurl = m_currentChangedArray[selIndex].GetPath();
+        CString url = m_ProjectProperties.sWebViewerPathRev;
+        url = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
+        url.Replace(L"%REVISION%", rev.ToString());
+        url.Replace(L"%PATH%", relurl);
+        relurl = relurl.Mid(relurl.Find('/'));
+        url.Replace(L"%PATH1%", relurl);
+        if (!url.IsEmpty())
+            ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
+    }
 }
