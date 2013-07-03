@@ -602,7 +602,25 @@ void TortoiseBlame::InitialiseEditor()
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);
     }
-    SendEditor(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);
+    BOOL bSmooth = FALSE;
+    SystemParametersInfo(SPI_GETFONTSMOOTHING, 0, &bSmooth, 0);
+    UINT uSmoothType = 0;
+    if (bSmooth)
+        SystemParametersInfo(SPI_GETFONTSMOOTHINGTYPE, 0, &uSmoothType, 0);
+    WPARAM scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
+    switch (uSmoothType)
+    {
+    case FE_FONTSMOOTHINGSTANDARD:
+        scintillaFontQuality = SC_EFF_QUALITY_ANTIALIASED;
+        break;
+    case FE_FONTSMOOTHINGCLEARTYPE:
+        scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
+        break;
+    default:
+        scintillaFontQuality = SC_EFF_QUALITY_NON_ANTIALIASED;
+        break;
+    }
+    SendEditor(SCI_SETFONTQUALITY, scintillaFontQuality);
     m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
     m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
     m_regLocatorOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), BLAMEOLDCOLORBAR);
