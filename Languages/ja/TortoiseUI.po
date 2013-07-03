@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-28 06:36+0000\n"
+"PO-Revision-Date: 2013-06-28 09:47+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2013,12 +2013,12 @@ msgstr "あいまいなUUIDを許可(&U)"
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr "異なるリポジトリで同じURLを用いることを許す。【例】http://localhost/myrepos/"
+msgstr "異なるリポジトリで同じURLを用いることを許す。例: http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr "異なるリポジトリで同じUUIDを用いることを許す。【例】コピーしたリポジトリ"
+msgstr "異なるリポジトリで同じUUIDを用いることを許す。例: コピーしたリポジトリ"
 
 #. Resource IDs: (119)
 msgid "Already merged"
@@ -5354,7 +5354,7 @@ msgstr "キャッシュ内のリビジョン番号の最大値"
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
 "toolbar buttons into the menu window."
-msgstr "【ヒント】コンテキストメニューを選択し、ページを「コマンド」に変更してメニューウィンドウにツールバーボタンをドラッグします。"
+msgstr "ヒント: コンテキストメニューを選択し、ページを「コマンド」に変更してメニューウィンドウにツールバーボタンをドラッグします。"
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5990,7 +5990,7 @@ msgid ""
 "Valid revisions are numbers and HEAD, separated by commas.\n"
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
-msgstr "無効なリビジョン範囲です。\n有効なリビジョンはコンマで区切られた数字とHEADです。\n範囲はハイフンで指定することができます。\n【例】2-5,7,10,44-70,300-HEAD"
+msgstr "無効なリビジョン範囲です。\n有効なリビジョンはコンマで区切られた数字とHEADです。\n範囲はハイフンで指定することができます。\n例: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
@@ -7536,7 +7536,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr "ご注意ください:\n作業コピーは従来のパスのままです。もし、今作成したコピーもしくはブランチに\n今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n切り替える必要があります。\n本操作を行うためには、切り替えコマンドを使用してください。"
+msgstr "注意:\n作業コピーは従来のパスのままです。もし、今作成したコピーもしくはブランチに\n今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n切り替える必要があります。\n本操作を行うためには、切り替えコマンドを使用してください。"
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -9092,7 +9092,7 @@ msgstr "どのファイルを名前を付けて保存するか選択してくだ
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr "どのファイルを名前を付けて保存するか選択してください\n【注】未解決の競合があります。"
+msgstr "どのファイルを名前を付けて保存するか選択してください\n注: 未解決の競合があります。"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -9655,7 +9655,7 @@ msgstr "レジストリエディターを起動する"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr "外部参照の処理を開始します..."
+msgstr "外部参照の処理を開始..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9730,7 +9730,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr "部分文字列の絞り込み条件\n* 1つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\n* 部分文字列の先頭に - を付加すると、この文字列を含むリビジョンが除外される。\n* 部分文字列の先頭に + を付加すると、この文字列にマッチしないリビジョンが含まれる。\n* 空白などを含む文字列は \" で囲む。\n* 行の先頭に ! を付加すると、絞り込み条件全体を反転させる。\n\n【例】\nichiro  2008    : 2008年のichiroによるコミット\n.h  -.cpp       : ヘッダーファイルが変更されたが実装がされていないコミット\n.doc +.xls 2010 : 2010年の .doc もしくは .xls ファイルが含まれるコミット\n\" \"             : スペースを含むコミット（例えば、パスのみを探す場合）\n-\"\"show all\"\"   : 文字列「show all」を含まないコミット\n!ichiro  .cpp    : .cppファイルへのichiro以外のコミットすべて"
+msgstr "部分文字列の絞り込み条件\n* 1つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\n* 部分文字列の先頭に - を付加すると、この文字列を含むリビジョンが除外される。\n* 部分文字列の先頭に + を付加すると、この文字列にマッチしないリビジョンが含まれる。\n* 空白などを含む文字列は \" で囲む。\n* 行の先頭に ! を付加すると、絞り込み条件全体を反転させる。\n\n例:\nichiro  2008    : 2008年のichiroによるコミット\n.h  -.cpp       : ヘッダーファイルが変更されたが実装がされていないコミット\n.doc +.xls 2010 : 2010年の .doc もしくは .xls ファイルが含まれるコミット\n\" \"             : スペースを含むコミット（例えば、パスのみを探す場合）\n-\"\"show all\"\"   : 文字列「show all」を含まないコミット\n!ichiro  .cpp    : .cppファイルへのichiro以外のコミットすべて"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -11199,7 +11199,7 @@ msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
-msgstr "除外指定にはワイルドカードとして「*」を用い、\r\n複数指定する場合はコンマ（「,」）を使用します。\r\n【例】*.mylan.com, *.company.com"
+msgstr "除外指定にはワイルドカードとして「*」を用い、\r\n複数指定する場合はコンマ（「,」）を使用します。\r\n例: *.mylan.com, *.company.com"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
@@ -11364,7 +11364,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
-msgstr "マージしたいリビジョンをログダイアログで選択するか、コンマで区切って入力してください。リビジョンの範囲はハイフンで指定することができます。\r\n\r\n【例】4-7,9,11,15-HEAD@pegrevision\r\n\r\nすべてのリビジョンをマージするには、入力ボックスを空のままにしてください。"
+msgstr "マージしたいリビジョンをログダイアログで選択するか、コンマで区切って入力してください。リビジョンの範囲はハイフンで指定することができます。\r\n\r\n例: 4-7,9,11,15-HEAD@pegrevision\r\n\r\nすべてのリビジョンをマージするには、入力ボックスを空のままにしてください。"
 
 #. Resource IDs: (314)
 #, c-format
@@ -11467,7 +11467,7 @@ msgid ""
 "WARNING:\r\n"
 "Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
-msgstr "【警告】\r\n何を行うかを把握している場合のみこれらの設定を変更してください。\r\nデフォルト値に設定するには、値を削除してください。"
+msgstr "警告:\r\n何をしているか分からない場合はこれらの設定を変更しないでください。\r\nデフォルト値に設定するには、値を削除してください。"
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
