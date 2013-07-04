@@ -372,6 +372,17 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     return TRUE;
 }
 
+void _invalid_parameter_donothing(
+    const wchar_t * /*expression*/,
+    const wchar_t * /*function*/, 
+    const wchar_t * /*file*/, 
+    unsigned int /*line*/,
+    uintptr_t /*pReserved*/
+    )
+{
+    // do nothing
+}
+
 int InsertDate(char * def, char * pBuf, size_t & index,
                 size_t & filelength, size_t maxlength,
                 apr_time_t date_svn)
@@ -424,8 +435,18 @@ int InsertDate(char * def, char * pBuf, size_t & index,
         memset(format,0,1024);
         memcpy(format,pStart,pEnd - pStart);
 
-        strftime(destbuf,1024,format,&newtime);
+        // to avoid wcsftime aborting if the user specified an invalid time format,
+        // we set a custom invalid parameter handler that does nothing at all:
+        // that makes wcsftime do nothing and set errno to EINVAL.
+        // we restore the invalid parameter handler right after
+        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(_invalid_parameter_donothing);
 
+        if (strftime(destbuf,1024,format,&newtime) == 0)
+        {
+            if (errno == EINVAL)
+                strcpy_s(destbuf, "Invalid Time Format Specified");
+        }
+        _set_invalid_parameter_handler(oldHandler);
         Expansion = strlen(destbuf) - (strlen(def) + pEnd - pStart + 1);
     }
     else
@@ -508,7 +529,18 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         memset(format,0,1024*sizeof(wchar_t));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
 
-        wcsftime(destbuf,1024,format,&newtime);
+        // to avoid wcsftime aborting if the user specified an invalid time format,
+        // we set a custom invalid parameter handler that does nothing at all:
+        // that makes wcsftime do nothing and set errno to EINVAL.
+        // we restore the invalid parameter handler right after
+        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(_invalid_parameter_donothing);
+
+        if (wcsftime(destbuf,1024,format,&newtime) == 0)
+        {
+            if (errno == EINVAL)
+                wcscpy_s(destbuf, L"Invalid Time Format Specified");
+        }
+        _set_invalid_parameter_handler(oldHandler);
 
         Expansion = wcslen(destbuf) - (wcslen(def) + pEnd - pStart + 1);
     }
