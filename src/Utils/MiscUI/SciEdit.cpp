@@ -25,7 +25,7 @@
 #include "registry.h"
 #include "SciEdit.h"
 #include "SysInfo.h"
-
+#include "ScintillaHelpers.h"
 
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
@@ -165,26 +165,7 @@ void CSciEdit::Init(LONG lLanguage)
         Call(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         Call(SCI_SETBUFFEREDDRAW, 0);
     }
-    BOOL bSmooth = FALSE;
-    SystemParametersInfo(SPI_GETFONTSMOOTHING, 0, &bSmooth, 0);
-    UINT uSmoothType = 0;
-    if (bSmooth)
-        SystemParametersInfo(SPI_GETFONTSMOOTHINGTYPE, 0, &uSmoothType, 0);
-    WPARAM scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
-    switch (uSmoothType)
-    {
-    case FE_FONTSMOOTHINGSTANDARD:
-        scintillaFontQuality = SC_EFF_QUALITY_ANTIALIASED;
-        break;
-    case FE_FONTSMOOTHINGCLEARTYPE:
-        scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
-        break;
-    default:
-        scintillaFontQuality = SC_EFF_QUALITY_NON_ANTIALIASED;
-        break;
-
-    }
-    Call(SCI_SETFONTQUALITY, scintillaFontQuality);
+    Call(SCI_SETFONTQUALITY, GetScintillaFontQuality());
 }
 
 void CSciEdit::Init(const ProjectProperties& props)

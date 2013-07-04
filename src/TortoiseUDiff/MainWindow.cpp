@@ -23,6 +23,7 @@
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
 #include "SysInfo.h"
+#include "ScintillaHelpers.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -598,25 +599,7 @@ bool CMainWindow::Initialize()
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);
     }
-    BOOL bSmooth = FALSE;
-    SystemParametersInfo(SPI_GETFONTSMOOTHING, 0, &bSmooth, 0);
-    UINT uSmoothType = 0;
-    if (bSmooth)
-        SystemParametersInfo(SPI_GETFONTSMOOTHINGTYPE, 0, &uSmoothType, 0);
-    WPARAM scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
-    switch (uSmoothType)
-    {
-    case FE_FONTSMOOTHINGSTANDARD:
-        scintillaFontQuality = SC_EFF_QUALITY_ANTIALIASED;
-        break;
-    case FE_FONTSMOOTHINGCLEARTYPE:
-        scintillaFontQuality = SC_EFF_QUALITY_LCD_OPTIMIZED;
-        break;
-    default:
-        scintillaFontQuality = SC_EFF_QUALITY_NON_ANTIALIASED;
-        break;
-    }
-    SendEditor(SCI_SETFONTQUALITY, scintillaFontQuality);
+    SendEditor(SCI_SETFONTQUALITY, GetScintillaFontQuality());
 
     return true;
 }
