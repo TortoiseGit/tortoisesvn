@@ -28,7 +28,12 @@
 bool DropVendorCommand::Execute()
 {
     CString droppath = parser.GetVal(_T("droptarget"));
-    if (CTSVNPath(droppath).IsAdminDir())
+    CTSVNPath droptsvnpath = CTSVNPath(droppath);
+    if (droptsvnpath.IsAdminDir())
+        return FALSE;
+    CString sAsk;
+    sAsk.Format(IDS_PROC_VENDORDROP_CONFIRM, (LPCWSTR)droptsvnpath.GetFileOrDirectoryName());
+    if (MessageBox(GetExplorerHWND(), sAsk, L"TortoiseSVN", MB_YESNO|MB_ICONQUESTION) != IDYES)
         return FALSE;
 
     CProgressDlg progress;
@@ -40,7 +45,7 @@ bool DropVendorCommand::Execute()
     std::map<CString,bool> versionedFiles;
     CTSVNPath path;
     SVNStatus st;
-    svn_client_status_t * status = st.GetFirstFileStatus(CTSVNPath(droppath), path, false, svn_depth_infinity, true, true);
+    svn_client_status_t * status = st.GetFirstFileStatus(droptsvnpath, path, false, svn_depth_infinity, true, true);
     if (status)
     {
         while (((status = st.GetNextFileStatus(path))!=NULL) && (!progress.HasUserCancelled()))
