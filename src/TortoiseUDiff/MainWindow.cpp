@@ -23,7 +23,6 @@
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
 #include "SysInfo.h"
-#include "ScintillaHelpers.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -599,7 +598,6 @@ bool CMainWindow::Initialize()
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);
     }
-    SendEditor(SCI_SETFONTQUALITY, GetScintillaFontQuality());
 
     return true;
 }

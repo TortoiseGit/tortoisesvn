@@ -28,7 +28,6 @@
 #include "BlameIndexColors.h"
 #include "../Utils/CrashReport.h"
 #include "../Utils/SysInfo.h"
-#include "ScintillaHelpers.h"
 
 #include <algorithm>
 #include <cctype>
@@ -603,7 +602,6 @@ void TortoiseBlame::InitialiseEditor()
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);
     }
-    SendEditor(SCI_SETFONTQUALITY, GetScintillaFontQuality());
     m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
     m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
     m_regLocatorOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), BLAMEOLDCOLORBAR);

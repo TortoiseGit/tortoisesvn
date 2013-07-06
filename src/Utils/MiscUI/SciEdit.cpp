@@ -25,7 +25,7 @@
 #include "registry.h"
 #include "SciEdit.h"
 #include "SysInfo.h"
-#include "ScintillaHelpers.h"
+
 
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
@@ -165,7 +165,6 @@ void CSciEdit::Init(LONG lLanguage)
         Call(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
         Call(SCI_SETBUFFEREDDRAW, 0);
     }
-    Call(SCI_SETFONTQUALITY, GetScintillaFontQuality());
 }
 
 void CSciEdit::Init(const ProjectProperties& props)
