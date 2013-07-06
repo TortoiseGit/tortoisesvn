@@ -125,7 +125,11 @@ bool DropVendorCommand::Execute()
     progress.SetProgress(0, 0);
     for (auto it = versionedFiles.cbegin(); (it != versionedFiles.cend()) && (!progress.HasUserCancelled()); ++it)
     {
-        svn.Remove(CTSVNPathList(CTSVNPath(droppath + L"\\" + it->first)), true, false);
+        // first move the file to the recycle bin so it's possible to retrieve it later
+        // again in case removing it was done accidentally
+        CTSVNPath delpath = CTSVNPath(droppath + L"\\" + it->first);
+        delpath.Delete(true);
+        svn.Remove(CTSVNPathList(delpath), true, false);
     }
 
     return bSuccess != false;
