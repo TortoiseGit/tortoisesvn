@@ -1552,6 +1552,8 @@ void CCommitDlg::UpdateCheckLinks()
 
 void CCommitDlg::VersionCheck()
 {
+    if (CRegDWORD(_T("Software\\TortoiseSVN\\VersionCheck"), TRUE) == FALSE)
+        return;
     CRegString regVer(_T("Software\\TortoiseSVN\\NewVersion"));
     CString vertemp = regVer;
     int major = _ttoi(vertemp);
