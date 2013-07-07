@@ -44,6 +44,7 @@ CCustomMFCRibbonButton button1;
 
 // CMainFrame
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
+#define IDT_RELOADCHECKTIMER 123
 
 IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 
@@ -137,6 +138,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_COMMAND(ID_INDICATOR_LEFTVIEW, &CMainFrame::OnIndicatorLeftview)
     ON_COMMAND(ID_INDICATOR_RIGHTVIEW, &CMainFrame::OnIndicatorRightview)
     ON_COMMAND(ID_INDICATOR_BOTTOMVIEW, &CMainFrame::OnIndicatorBottomview)
+    ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1738,7 +1740,14 @@ void CMainFrame::OnActivate(UINT nValue, CWnd* /*pwnd*/, BOOL /*bActivated?*/)
             m_bCheckReload = TRUE;
         }
         else
-            CheckForReload();
+        {
+            // use a timer to give other messages time to get processed
+            // first, like e.g. the WM_CLOSE message in case the user
+            // clicked the close button and that brought the window
+            // to the front - in that case checking for reload wouldn't
+            // do any good.
+            SetTimer(IDT_RELOADCHECKTIMER, 300, NULL);
+        }
     }
 }
 
@@ -2841,3 +2850,15 @@ void CMainFrame::SetWindowTitle()
         SetWindowText(L"TortoiseMerge");
 }
 
+void CMainFrame::OnTimer(UINT_PTR nIDEvent)
+{
+    switch (nIDEvent)
+    {
+    case IDT_RELOADCHECKTIMER:
+        KillTimer(nIDEvent);
+        CheckForReload();
+        break;
+    }
+
+    __super::OnTimer(nIDEvent);
+}
