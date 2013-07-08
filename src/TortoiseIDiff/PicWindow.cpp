@@ -938,9 +938,15 @@ void CPicWindow::SetZoom(int Zoom, bool centermouse, bool inzoom)
     if (pTheOtherPic && !inzoom)
     {
         if (bFitHeights)
+        {
+            m_linkedHeight = 0;
             pTheOtherPic->SetZoomToHeight(picture.m_Height*Zoom/100);
+        }
         if (bFitWidths)
+        {
+            m_linkedWidth = 0;
             pTheOtherPic->SetZoomToWidth(picture.m_Width*Zoom/100);
+        }
     }
 
     // adjust the scrollbar positions according to the new zoom and the
