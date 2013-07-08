@@ -287,6 +287,14 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                     nVSecondScrollPos = startVSecondScrollPos + (ptPanStart.y - yPos);
                     nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
                     nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
+                    if (!bLinkedPositions && pTheOtherPic)
+                    {
+                        // snap to the other picture borders
+                        if (abs(nVScrollPos-pTheOtherPic->nVScrollPos) < 10)
+                            nVScrollPos = pTheOtherPic->nVScrollPos;
+                        if (abs(nHScrollPos-pTheOtherPic->nHScrollPos) < 10)
+                            nHScrollPos = pTheOtherPic->nHScrollPos;
+                    }
                 }
                 SetupScrollBars();
                 InvalidateRect(*this, NULL, TRUE);
