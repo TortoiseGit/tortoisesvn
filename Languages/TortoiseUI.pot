@@ -3840,6 +3840,11 @@ msgstr ""
 msgid "Do you really want to revert all changes in\n%s\nwhich were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 
+#. Resource IDs: (92)
+#, c-format
+msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
+msgstr ""
+
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
 msgstr ""
@@ -4615,8 +4620,12 @@ msgstr ""
 msgid "Fit height"
 msgstr ""
 
-#. Resource IDs: (32810)
-msgid "Fit image &sizes"
+#. Resource IDs: (32818)
+msgid "Fit image &heights"
+msgstr ""
+
+#. Resource IDs: (32817)
+msgid "Fit image &widths"
 msgstr ""
 
 #. Resource IDs: (32803)
@@ -5039,10 +5048,6 @@ msgstr ""
 msgid "ID:32809:V C +F"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
-msgid "ID:32810:V   +T"
-msgstr ""
-
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
 msgstr ""
@@ -5053,6 +5058,14 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+msgid "ID:32817:V   +W"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+msgid "ID:32818:V   +H"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
