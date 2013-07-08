@@ -440,7 +440,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             if (url1.IsEquivalentTo(url2))
             {
                 svn_revnum_t baseRev = 0;
-                DiffProps(url1, rev1, rev2, baseRev);
+                DiffProps(url1, rev2, rev1, baseRev);
             }
             // diffing two revs of a file, so export two files
             CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url1, rev1);
@@ -868,7 +868,6 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
             SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
             CString n1, n2;
-            bool bSwitch = false;
             if (rev1.IsWorking())
                 n1.Format(IDS_DIFF_WCNAME, wcnameU.c_str());
             if (rev1.IsBase())
@@ -876,14 +875,9 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             if (rev1.IsHead())
                 n1.Format(IDS_DIFF_REMOTENAME, wcnameU.c_str());
             if (n1.IsEmpty())
-            {
                 n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev1.ToString());
-                bSwitch = true;
-            }
             else
-            {
                 n1 = CString(pathbuf1) + L" - " + n1;
-            }
             if (rev2.IsWorking())
                 n2.Format(IDS_DIFF_WCNAME, wcnameU.c_str());
             if (rev2.IsBase())
@@ -891,22 +885,10 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             if (rev2.IsHead())
                 n2.Format(IDS_DIFF_REMOTENAME, wcnameU.c_str());
             if (n2.IsEmpty())
-            {
                 n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev2.ToString());
-                bSwitch = true;
-            }
             else
-            {
                 n2 = CString(pathbuf1) + L" - " + n2;
-            }
-            if (bSwitch)
-            {
-                retvalue = !!CAppUtils::StartExtDiffProps(wcpropfile, basepropfile, n1, n2, TRUE, TRUE);
-            }
-            else
-            {
-                retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
-            }
+            retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
         }
     }
     return retvalue;
