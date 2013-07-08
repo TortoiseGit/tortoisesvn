@@ -221,10 +221,13 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
         startHScrollPos = nHScrollPos;
         startVSecondScrollPos = nVSecondScrollPos;
         startHSecondScrollPos = nHSecondScrollPos;
+        bDragging = true;
         SetCapture(*this);
         break;
     case WM_LBUTTONUP:
+        bDragging = false;
         ReleaseCapture();
+        InvalidateRect(*this, NULL, FALSE);
         break;
     case WM_MOUSELEAVE:
         ptPanStart.x = -1;
@@ -1253,6 +1256,33 @@ void CPicWindow::Paint(HWND hwnd)
                 DeleteObject(hBitmap);
                 DeleteDC(secondhdc);
             }
+            else if (bDragging && pTheOtherPic && !bLinkedPositions)
+            {
+                // when dragging, show lines indicating the position of the other image
+                HPEN hPen = CreatePen(PS_SOLID, 1, GetSysColor(/*COLOR_ACTIVEBORDER*/COLOR_HIGHLIGHT));
+                HPEN hOldPen = (HPEN)SelectObject(memDC, hPen);
+                int xpos = rect.left - pTheOtherPic->nHScrollPos - 1;
+                MoveToEx(memDC, xpos, rect.top, NULL);
+                LineTo(memDC, xpos, rect.bottom);
+                xpos = rect.left - pTheOtherPic->nHScrollPos + pTheOtherPic->picture.m_Width*pTheOtherPic->GetZoom()/100 + 1;
+                if (bFitWidths && m_linkedWidth)
+                    xpos = rect.left + pTheOtherPic->m_linkedWidth + 1;
+                MoveToEx(memDC, xpos, rect.top, NULL);
+                LineTo(memDC, xpos, rect.bottom);
+
+                int ypos = rect.top - pTheOtherPic->nVScrollPos - 1;
+                MoveToEx(memDC, rect.left, ypos, NULL);
+                LineTo(memDC, rect.right, ypos);
+                ypos = rect.top - pTheOtherPic->nVScrollPos + pTheOtherPic->picture.m_Height*pTheOtherPic->GetZoom()/100 + 1;
+                if (bFitHeights && m_linkedHeight)
+                    ypos = rect.top - pTheOtherPic->m_linkedHeight + 1;
+                MoveToEx(memDC, rect.left, ypos, NULL);
+                LineTo(memDC, rect.right, ypos);
+
+                SelectObject(memDC, hOldPen);
+                DeleteObject(hPen);
+            }
+
             int sliderwidth = 0;
             if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
                 sliderwidth = SLIDER_WIDTH;

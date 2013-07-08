@@ -99,6 +99,7 @@ public:
         , hAlphaToggle(0)
         , m_linkedWidth(0)
         , m_linkedHeight(0)
+        , bDragging(false)
     {
         SetWindowTitle(_T("Picture Window"));
         m_lastTTPos.x = 0;
@@ -245,6 +246,7 @@ protected:
     bool                bFitWidths;         ///< if true, the two image windows are shown with the same width
     bool                bFitHeights;        ///< if true, the two image windows are shown with the same height
     bool                bOverlap;           ///< true if the overlay mode is active
+    bool                bDragging;          ///< indicates an ongoing dragging operation
     BlendType           m_blend;            ///< type of blending to use
     tstring             pictitle2;          ///< the title of the second picture
     tstring             picpath2;           ///< the path of the second picture
