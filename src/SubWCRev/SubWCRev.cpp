@@ -374,8 +374,8 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
 
 void _invalid_parameter_donothing(
     const wchar_t * /*expression*/,
-    const wchar_t * /*function*/, 
-    const wchar_t * /*file*/, 
+    const wchar_t * /*function*/,
+    const wchar_t * /*file*/,
     unsigned int /*line*/,
     uintptr_t /*pReserved*/
     )
