@@ -355,6 +355,27 @@
 
   </target>
 
+  <target name="init" depends="VSNET,env">
+    <description>
+      Initializes the build, fetches the tools if not already available
+    </description>
+    <if test="${not file::exists(userconfigfile)}">
+      <echo>
+        The file ${userconfigfile} is missing. We will auto-create it
+        from the ${userconfigtemplate} file. Please consider adapting
+        it to your needs.
+      </echo>
+      <copy file="${userconfigtemplate}" tofile="${userconfigfile}" />
+    </if>
+
+    <if test="${not directory::exists('Tools') or not file::exists('Tools/ver-1.8.0')}">
+      <get src="https://tortoisesvn.googlecode.com/files/Tools-1.8.0.zip" dest="tools.zip" />
+      <unzip zipfile="tools.zip" />
+      <touch file="Tools\ver-1.8.0" />
+    </if>
+
+  </target>
+
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->
@@ -363,6 +384,7 @@
     <echo message="You must specify a target to tell us what you want to build!" />
     <echo />
     <echo message="The following targets are available:" />
+    <echo message="init         : initializes the build tools if required" />
     <echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
     <echo message="setup        : creates an msi installer for TortoiseSVN" />
     <echo />
