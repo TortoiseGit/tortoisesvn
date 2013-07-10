@@ -935,24 +935,10 @@ void CPicWindow::SetZoom(int Zoom, bool centermouse, bool inzoom)
     // Set the interpolation mode depending on zoom
     int oldPicscale = picscale;
     int oldOtherPicscale = picscale;
-    if (Zoom < 100)
-    {   // Zoomed out, use high quality bicubic
-        picture.SetInterpolationMode(InterpolationModeHighQualityBicubic);
-        if (pSecondPic)
-            pSecondPic->SetInterpolationMode(InterpolationModeHighQualityBicubic);
-    }
-    else if (!(Zoom%100))
-    {   // "Even" zoom sizes should be shown w-o any interpolation
-        picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
-        if (pSecondPic)
-            pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
-    }
-    else
-    {   // Arbitrary zoomed in, use bilinear that is semi-smoothed
-        picture.SetInterpolationMode(InterpolationModeBilinear);
-        if (pSecondPic)
-            pSecondPic->SetInterpolationMode(InterpolationModeBilinear);
-    }
+
+    picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
+    if (pSecondPic)
+        pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
     picscale = Zoom;
 
     if (pTheOtherPic && !inzoom)
