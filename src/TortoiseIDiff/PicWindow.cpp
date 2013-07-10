@@ -880,6 +880,15 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
         PositionChildren();
         InvalidateRect(*this, NULL, FALSE);
         SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
+        UpdateWindow(*this);
+        if (bLinkedPositions)
+        {
+            pTheOtherPic->nHScrollPos = nHScrollPos;
+            pTheOtherPic->nVScrollPos = nVScrollPos;
+            pTheOtherPic->SetupScrollBars();
+            InvalidateRect(*pTheOtherPic, NULL, TRUE);
+            UpdateWindow(*pTheOtherPic);
+        }
     }
     else
     {
