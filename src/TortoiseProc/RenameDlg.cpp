@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,15 @@ BOOL CRenameDlg::OnInitDialog()
         this->SetWindowText(m_windowtitle);
     if (!m_label.IsEmpty())
         SetDlgItemText(IDC_LABEL, m_label);
+
+    if (!m_name.IsEmpty())
+    {
+        CString sTmp;
+        sTmp.Format(IDS_RENAME_INFO, (LPCWSTR)m_name);
+        SetDlgItemText(IDC_RENINFOLABEL, sTmp);
+    }
+
+    AddAnchor(IDC_RENINFOLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_LABEL, TOP_LEFT);
     AddAnchor(IDC_NAME, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_DWM, TOP_LEFT);
