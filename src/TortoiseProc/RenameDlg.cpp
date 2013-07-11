@@ -47,7 +47,6 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
     ON_WM_SIZING()
-    ON_EN_CHANGE(IDC_NAME, OnEnChangeName)
 END_MESSAGE_MAP()
 
 BOOL CRenameDlg::OnInitDialog()
@@ -84,8 +83,6 @@ BOOL CRenameDlg::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("RenameDlg"));
     m_originalName = m_name;
-    if (m_renameRequired)
-        GetDlgItem(IDOK)->EnableWindow(FALSE);
     return TRUE;
 }
 
@@ -102,6 +99,14 @@ void CRenameDlg::OnOK()
             return;
         }
     }
+    bool nameAllowed = ((m_originalName != m_name) || !m_renameRequired)
+                       && !m_name.IsEmpty();
+    if (!nameAllowed)
+    {
+        ShowEditBalloon(IDC_NAME, IDS_WARN_RENAMEREQUIRED, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
+
     CTSVNPath path(m_name);
     if (!path.IsValidOnWindows())
     {
@@ -130,13 +135,4 @@ void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
         break;
     }
     CResizableStandAloneDialog::OnSizing(fwSide, pRect);
-}
-
-void CRenameDlg::OnEnChangeName()
-{
-    UpdateData();
-
-    bool nameAllowed =    ((m_originalName != m_name) || !m_renameRequired)
-                       && !m_name.IsEmpty();
-    GetDlgItem(IDOK)->EnableWindow (nameAllowed);
 }
