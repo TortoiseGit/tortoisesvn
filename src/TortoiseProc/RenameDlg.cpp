@@ -31,6 +31,7 @@ CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     , m_name(_T(""))
     , m_renameRequired(true)
     , m_pInputValidator(NULL)
+    , m_bBalloonVisible(false)
 {
 }
 
@@ -47,6 +48,7 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
     ON_WM_SIZING()
+    ON_EN_SETFOCUS(IDC_NAME, &CRenameDlg::OnEnSetfocusName)
 END_MESSAGE_MAP()
 
 BOOL CRenameDlg::OnInitDialog()
@@ -95,6 +97,7 @@ void CRenameDlg::OnOK()
         CString sError = m_pInputValidator->Validate(IDC_NAME, m_name);
         if (!sError.IsEmpty())
         {
+            m_bBalloonVisible = true;
             ShowEditBalloon(IDC_NAME, sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), TTI_ERROR);
             return;
         }
@@ -103,6 +106,7 @@ void CRenameDlg::OnOK()
                        && !m_name.IsEmpty();
     if (!nameAllowed)
     {
+        m_bBalloonVisible = true;
         ShowEditBalloon(IDC_NAME, IDS_WARN_RENAMEREQUIRED, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
@@ -110,6 +114,7 @@ void CRenameDlg::OnOK()
     CTSVNPath path(m_name);
     if (!path.IsValidOnWindows())
     {
+        m_bBalloonVisible = true;
         ShowEditBalloon(IDC_NAME, IDS_WARN_NOVALIDPATH, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
@@ -135,4 +140,22 @@ void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
         break;
     }
     CResizableStandAloneDialog::OnSizing(fwSide, pRect);
+}
+
+void CRenameDlg::OnCancel()
+{
+    // find out if there's a balloon tip showing and if there is,
+    // hide that tooltip but do NOT exit the dialog.
+    if (m_bBalloonVisible)
+    {
+        Edit_HideBalloonTip(GetDlgItem(IDC_NAME)->GetSafeHwnd());
+        return;
+    }
+
+    CResizableStandAloneDialog::OnCancel();
+}
+
+void CRenameDlg::OnEnSetfocusName()
+{
+    m_bBalloonVisible = false;
 }

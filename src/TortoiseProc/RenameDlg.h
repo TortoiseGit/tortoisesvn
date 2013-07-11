@@ -41,8 +41,10 @@ protected:
 
     virtual BOOL OnInitDialog();
     virtual void OnOK();
+    virtual void OnCancel();
 
     afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+    afx_msg void OnEnSetfocusName();
 
     DECLARE_MESSAGE_MAP()
 
@@ -52,6 +54,7 @@ public:
     CString m_label;
 
 private:
+    bool                m_bBalloonVisible;
     bool                m_renameRequired;
     CString             m_originalName;
     IInputValidator *   m_pInputValidator;
