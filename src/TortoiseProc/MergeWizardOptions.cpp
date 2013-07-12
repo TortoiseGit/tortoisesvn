@@ -52,6 +52,7 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CMergeWizardOptions, CMergeWizardBasePage)
     ON_BN_CLICKED(IDC_DRYRUN, &CMergeWizardOptions::OnBnClickedDryrun)
+    ON_BN_CLICKED(IDC_REINTEGRATEOLDSTYLE, &CMergeWizardOptions::OnBnClickedReintegrateoldstyle)
 END_MESSAGE_MAP()
 
 
@@ -272,4 +273,12 @@ svn_diff_file_ignore_space_t CMergeWizardOptions::GetIgnores()
     }
 
     return ignores;
+}
+
+void CMergeWizardOptions::OnBnClickedReintegrateoldstyle()
+{
+    UpdateData();
+    CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
+    if (pWizard)
+        GetDlgItem(IDC_RECORDONLY)->EnableWindow(!pWizard->bReintegrate);
 }
