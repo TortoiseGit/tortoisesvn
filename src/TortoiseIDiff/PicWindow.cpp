@@ -939,6 +939,10 @@ void CPicWindow::SetZoom(int Zoom, bool centermouse, bool inzoom)
     picture.SetInterpolationMode(InterpolationModeNearestNeighbor);
     if (pSecondPic)
         pSecondPic->SetInterpolationMode(InterpolationModeNearestNeighbor);
+
+    if ((oldPicscale == 0) || (Zoom == 0))
+        return;
+
     picscale = Zoom;
 
     if (pTheOtherPic && !inzoom)
@@ -1534,13 +1538,19 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 void CPicWindow::SetZoomToWidth( long width )
 {
     m_linkedWidth = width;
-    int zoom = width*100/picture.m_Width;
-    SetZoom(zoom, false, true);
+    if (picture.m_Width)
+    {
+        int zoom = width*100/picture.m_Width;
+        SetZoom(zoom, false, true);
+    }
 }
 
 void CPicWindow::SetZoomToHeight( long height )
 {
     m_linkedHeight = height;
-    int zoom = height*100/picture.m_Height;
-    SetZoom(zoom, false, true);
+    if (picture.m_Height)
+    {
+        int zoom = height*100/picture.m_Height;
+        SetZoom(zoom, false, true);
+    }
 }
