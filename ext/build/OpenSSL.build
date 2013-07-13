@@ -27,12 +27,12 @@
       <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
         <arg value="VC-WIN32" if="${configuration == 'release'}" />
-        <arg value="debug-VC-WIN32" if="${(configuration == 'debug')}" />
+        <arg value="debug-VC-WIN32" if="${configuration == 'debug'}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="-DUSING_V110_SDK71_" />
+        <arg value="-D_USING_V110_SDK71_" />
       </exec>
       <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />
@@ -52,12 +52,12 @@
       <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
         <arg value="VC-WIN64A" if="${configuration == 'release'}" />
-        <arg value="debug-VC-WIN64A" if="${(configuration == 'debug')}" />
+        <arg value="debug-VC-WIN64A" if="${configuration == 'debug'}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="-DUSING_V110_SDK71_" />
+        <arg value="-D_USING_V110_SDK71_" />
       </exec>
       <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />
