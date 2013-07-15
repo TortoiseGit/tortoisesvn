@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-27 08:28+0000\n"
+"PO-Revision-Date: 2013-07-09 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4138,6 +4138,11 @@ msgid ""
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr "Chcete naozaj vrátiť všetky zmeny v \n%s\nktoré boli v tejto revízií vykonané? Tieto zmeny budú vrátené reverzným zlučovaním revízie do vašej pracovnej kópie."
 
+#. Resource IDs: (92)
+#, c-format
+msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
+msgstr ""
+
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
 msgstr "Chcete načítať zmenený súbor?"
@@ -5019,9 +5024,13 @@ msgstr "Zväčšiť na graf"
 msgid "Fit height"
 msgstr "Zväčšiť na výšku"
 
-#. Resource IDs: (32810)
-msgid "Fit image &sizes"
-msgstr "Zväčšiť obrá&zky na veľkosť okna"
+#. Resource IDs: (32818)
+msgid "Fit image &heights"
+msgstr ""
+
+#. Resource IDs: (32817)
+msgid "Fit image &widths"
+msgstr ""
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5464,10 +5473,6 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
-msgid "ID:32810:V   +T"
-msgstr "ID:32810:V   +T"
-
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
 msgstr "ID:32811:V C +U"
@@ -5479,6 +5484,14 @@ msgstr "ID:32814:V C +L"
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+msgid "ID:32817:V   +W"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+msgid "ID:32818:V   +H"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"

@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-27 08:28+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-07-12 02:59+0000\n"
+"Last-Translator: mkbu95 <mkbu95@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,7 +323,7 @@ msgstr "%s, mas o arquivo já foi apagado, movido ou renomeado localmente."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, porém o arquivo foi movido"
 
 #. Resource IDs: (610)
 #, c-format
@@ -731,7 +731,7 @@ msgstr "Habilitar S&ervidor Proxy"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
-msgstr ""
+msgstr "Habilitar &edição"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -1511,11 +1511,11 @@ msgstr "(valor binário)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(conteúdo e propriedades)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(somente conteúdo)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -3213,11 +3213,11 @@ msgstr "Comparar e ver autoria com a revisão anterior"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "Comparar revisões (somente &propriedades)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Comparar revisões (somen&te conteúdo)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -4144,6 +4144,11 @@ msgid ""
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr "Você deseja reverter todas as alterações em\n%s\nque foram feitas nesta revisão? As alterações serão desfeitas revertendo as combinações da revisão de sua cópia de trabalho."
 
+#. Resource IDs: (92)
+#, c-format
+msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
+msgstr ""
+
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
 msgstr "Você deseja ler os arquivos alterados?"
@@ -5025,9 +5030,13 @@ msgstr "Ajustar gráfico"
 msgid "Fit height"
 msgstr "Ajustar à altura"
 
-#. Resource IDs: (32810)
-msgid "Fit image &sizes"
-msgstr "Ajustar &tamanho das imagens"
+#. Resource IDs: (32818)
+msgid "Fit image &heights"
+msgstr ""
+
+#. Resource IDs: (32817)
+msgid "Fit image &widths"
+msgstr ""
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5470,10 +5479,6 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
-msgid "ID:32810:V   +T"
-msgstr "ID:32810:V   +T"
-
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
 msgstr "ID:32811:V C + U"
@@ -5485,6 +5490,14 @@ msgstr "ID:32814:V C +L"
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
+
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+msgid "ID:32817:V   +W"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+msgid "ID:32818:V   +H"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -7269,7 +7282,7 @@ msgstr "Abrir"
 
 #. Resource IDs: (115)
 msgid "Open &local"
-msgstr ""
+msgstr "Abrir &local"
 
 #. Resource IDs: (115)
 msgid "Open &with local..."
@@ -8386,7 +8399,7 @@ msgstr "Resolver"
 
 #. Resource IDs: (2)
 msgid "Resolve &later"
-msgstr ""
+msgstr "Reso&lver depois"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
