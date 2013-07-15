@@ -60,44 +60,10 @@
                     of branch A [TO] revision 7 of branch A, and apply those changes
                     to my working copy (of trunk or branch B).</quote>
                 </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term>Reintegrate a branch</term>
-            <listitem>
                 <para>
-                    This method covers the case when you have made a feature branch
-                    as discussed in the Subversion book. All trunk changes have been
-                    ported to the feature branch, week by week, and now the feature
-                    is complete you want to merge it back into the trunk. Because
-                    you have kept the feature branch synchronized with the trunk,
-                    the latest versions of branch and trunk will be absolutely
-                    identical except for your branch changes.
-                </para>
-                <para>
-                    This is a special case of the tree merge described below,
-                    and it requires only the URL to merge from (normally) your
-                    development branch. It uses the merge-tracking features of
-                    Subversion to calculate the correct revision ranges to use,
-                    and perform additional checks which ensure that the branch has
-                    been fully updated with trunk changes. This ensures that you don't
-                    accidentally undo work that others have committed to trunk since
-                    you last synchronized changes.
-                </para>
-                <para>
-                    After the merge, all branch development has been completely
-                    merged back into the main development line. The branch is now
-                    redundant and can be deleted.
-                </para>
-                <para>
-                    Once you have performed a reintegrate merge you should not
-                    continue to use it for development. The reason for this is that
-                    if you try to resynchronize your existing branch from trunk later on,
-                    merge tracking will see your reintegration as a trunk change
-                    that has not yet been merged into the branch, and will try to
-                    merge the branch-to-trunk merge back into the branch!
-                    The solution to this is simply to create a new branch from trunk
-                    to continue the next phase of your development.
+                    If you leave the revision range empty, Subversion uses the
+                    merge-tracking features to calculate the correct revision range
+                    to use. This is known as a reintegrate or automatic merge.
                 </para>
             </listitem>
         </varlistentry>
@@ -257,31 +223,10 @@
             after your last update.
         </para>
         <para>
-            Click <guibutton>Next</guibutton> and go to
-            <xref linkend="tsvn-dug-merge-options"/>.
-        </para>
-    </sect2>
-    <sect2 id="tsvn-dug-merge-reintegrate">
-        <title>Reintegrate a branch</title>
-        <?dbhh topicname="HIDD_MERGEWIZARD_REINTEGRATE"?>
-        <indexterm>
-            <primary>merge</primary>
-            <secondary>reintegrate</secondary>
-        </indexterm>
-        <para>
-            <figure id="tsvn-dug-merge-wizard-reintegrate">
-                <title>The Merge Wizard - Reintegrate Merge</title>
-                <graphic fileref="../images/MergeWizardReintegrate.png"/>
-            </figure>
-            To merge a feature branch back into the trunk you must start the
-            merge wizard from within a working copy of the trunk.
-        </para>
-        <para>
-            In the <guilabel>From URL:</guilabel> field enter the full
-            folder URL of the branch that you want to merge back.
-            You may also click
-            <guibutton>...</guibutton>
-            to browse the repository.
+            If you leave the range of revisions empty or have the
+            radio button <guilabel>all revisions</guilabel> checked, then
+            Subversion merges all not-yet merged revisions. This is known
+            as a reintegrate or automatic merge.
         </para>
         <para>
             There are some conditions which apply to a reintegrate merge.
@@ -292,6 +237,10 @@
             All changes to trunk made during branch development must have
             been merged across to the branch (or marked as having been merged).
             The range of revisions to merge will be calculated automatically.
+        </para>
+        <para>
+            Click <guibutton>Next</guibutton> and go to
+            <xref linkend="tsvn-dug-merge-options"/>.
         </para>
     </sect2>
     <sect2 id="tsvn-dug-merge-tree">
