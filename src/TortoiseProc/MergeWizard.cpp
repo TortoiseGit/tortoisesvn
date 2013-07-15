@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,6 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     AddPage(&tree);
     AddPage(&revrange);
     AddPage(&options);
-    AddPage(&reintegrate);
 
     switch (iSelectPage)
     {
@@ -57,9 +56,6 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
         break;
     case 2:
         nRevRangeMerge = MERGEWIZARD_REVRANGE;
-        break;
-    case 4:
-        nRevRangeMerge = MERGEWIZARD_REINTEGRATE;
         break;
     }
 
@@ -156,9 +152,6 @@ void CMergeWizard::SaveMode()
         case IDD_MERGEWIZARD_REVRANGE:
             regMergeWizardMode = 2;
             break;
-        case IDD_MERGEWIZARD_REINTEGRATE:
-            regMergeWizardMode = 3;
-            break;
         case IDD_MERGEWIZARD_TREE:
             regMergeWizardMode = 1;
             break;
@@ -177,8 +170,6 @@ LRESULT CMergeWizard::GetSecondPage()
         return IDD_MERGEWIZARD_REVRANGE;
     case MERGEWIZARD_TREE:
         return IDD_MERGEWIZARD_TREE;
-    case MERGEWIZARD_REINTEGRATE:
-        return IDD_MERGEWIZARD_REINTEGRATE;
     }
     return IDD_MERGEWIZARD_REVRANGE;
 }

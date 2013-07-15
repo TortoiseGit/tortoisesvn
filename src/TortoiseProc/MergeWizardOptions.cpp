@@ -150,7 +150,7 @@ BOOL CMergeWizardOptions::OnWizardFinish()
     }
     pWizard->m_IgnoreSpaces = GetIgnores();
 
-    if ((pWizard->nRevRangeMerge == MERGEWIZARD_REINTEGRATE) && (!pWizard->bReintegrate))
+    if ((pWizard->nRevRangeMerge == MERGEWIZARD_REVRANGE) && (!pWizard->bReintegrate))
     {
         pWizard->bAllowMixedRev = false;
     }
@@ -164,7 +164,7 @@ BOOL CMergeWizardOptions::OnSetActive()
     psheet->SetWizardButtons(PSWIZB_BACK|PSWIZB_FINISH);
     SetButtonTexts();
     CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
-    GetDlgItem(IDC_REINTEGRATEOLDSTYLE)->EnableWindow(pWizard->nRevRangeMerge == MERGEWIZARD_REINTEGRATE);
+    GetDlgItem(IDC_REINTEGRATEOLDSTYLE)->EnableWindow((pWizard->nRevRangeMerge == MERGEWIZARD_REVRANGE) && (pWizard->revRangeArray.GetCount() == 0));
 
     CString sTitle;
     switch (pWizard->nRevRangeMerge)
@@ -174,9 +174,6 @@ BOOL CMergeWizardOptions::OnSetActive()
         break;
     case MERGEWIZARD_TREE:
         sTitle.LoadString(IDS_MERGEWIZARD_TREETITLE);
-        break;
-    case MERGEWIZARD_REINTEGRATE:
-        sTitle.LoadString(IDS_MERGEWIZARD_REINTEGRATETITLE);
         break;
     }
     sTitle += _T(" : ") + CString(MAKEINTRESOURCE(IDS_MERGEWIZARD_OPTIONSTITLE));
@@ -216,6 +213,8 @@ void CMergeWizardOptions::OnBnClickedDryrun()
                 tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
                 progDlg.SetRevisionRanges(tempRevArray);
             }
+            if (pWizard->bReintegrate)
+                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
         }
         break;
     case MERGEWIZARD_TREE:
@@ -229,14 +228,6 @@ void CMergeWizardOptions::OnBnClickedDryrun()
                 tempRevArray.AddRevRange(pWizard->startRev, pWizard->endRev);
                 progDlg.SetRevisionRanges(tempRevArray);
             }
-        }
-        break;
-    case MERGEWIZARD_REINTEGRATE:
-        {
-            if (pWizard->bReintegrate)
-                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
-            else
-                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
         }
         break;
     }

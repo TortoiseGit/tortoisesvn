@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,9 +60,6 @@ LRESULT CMergeWizardStart::OnWizardNext()
     case IDC_MERGE_TREE:
         wiz->nRevRangeMerge = MERGEWIZARD_TREE;
         break;
-    case IDC_MERGE_REINTEGRATE:
-        wiz->nRevRangeMerge = MERGEWIZARD_REINTEGRATE;
-        break;
     }
 
     wiz->SaveMode();
@@ -79,22 +76,16 @@ BOOL CMergeWizardStart::OnInitDialog()
     SetDlgItemText(IDC_MERGERANGELABEL, sLabel);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REVRANGE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
 
-    sLabel.LoadString(IDS_MERGEWIZARD_REINTEGRATELABEL);
-    SetDlgItemText(IDC_MERGEREINTEGRATELABEL, sLabel);
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REINTEGRATE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
     sLabel.LoadString(IDS_MERGEWIZARD_TREELABEL);
     SetDlgItemText(IDC_TREELABEL, sLabel);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_TREE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
 
     AdjustControlSize(IDC_MERGE_REVRANGE);
-    AdjustControlSize(IDC_MERGE_REINTEGRATE);
     AdjustControlSize(IDC_MERGE_TREE);
 
     AddAnchor(IDC_MERGETYPEGROUP, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_MERGE_REVRANGE, TOP_LEFT);
     AddAnchor(IDC_MERGERANGELABEL, TOP_LEFT, TOP_RIGHT);
-    AddAnchor(IDC_MERGE_REINTEGRATE, TOP_LEFT);
-    AddAnchor(IDC_MERGEREINTEGRATELABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_MERGE_TREE, TOP_LEFT);
     AddAnchor(IDC_TREELABEL, TOP_LEFT, TOP_RIGHT);
 
@@ -114,9 +105,6 @@ BOOL CMergeWizardStart::OnSetActive()
     {
     case MERGEWIZARD_REVRANGE:
         nButton = IDC_MERGE_REVRANGE;
-        break;
-    case MERGEWIZARD_REINTEGRATE:
-        nButton = IDC_MERGE_REINTEGRATE;
         break;
     case MERGEWIZARD_TREE:
         nButton = IDC_MERGE_TREE;

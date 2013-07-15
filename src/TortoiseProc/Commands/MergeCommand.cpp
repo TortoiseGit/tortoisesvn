@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +38,6 @@ bool MergeCommand::Execute()
         // tourl means merging a tree
         nMergeWizardMode = 1;
     }
-    if (parser.HasKey(L"reintegrate"))
-        nMergeWizardMode = 4;
 
     CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
     wizard.wcPath = cmdLinePath;
@@ -79,13 +77,10 @@ bool MergeCommand::Execute()
                 }
                 else
                 {
-                    SVNRevRangeArray tempRevArray;
-                    if (wizard.pegRev.IsValid())
-                        // only merge up to the peg rev is no rev range is specified.
-                        tempRevArray.AddRevRange(1, wizard.pegRev);
+                    if (wizard.bReintegrate)
+                        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
                     else
-                        tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
-                    progDlg.SetRevisionRanges(tempRevArray);
+                        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
                 }
                 progDlg.SetPegRevision(wizard.pegRev);
             }
@@ -101,14 +96,6 @@ bool MergeCommand::Execute()
                     tempRevArray.AddRevRange(wizard.startRev, wizard.endRev);
                     progDlg.SetRevisionRanges(tempRevArray);
                 }
-            }
-            break;
-        case MERGEWIZARD_REINTEGRATE:
-            {
-                if (wizard.bReintegrate)
-                    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
-                else
-                    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
             }
             break;
         }
