@@ -3796,6 +3796,8 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
     AutoRestoreSelection();
 
+    DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
+
     return 0L;
 }
 
