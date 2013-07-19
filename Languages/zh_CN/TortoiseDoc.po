@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-17 09:10+0000\n"
+"PO-Revision-Date: 2013-07-16 09:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5353,13 +5353,33 @@ msgid ""
 "in the bottom pane). The search is not case sensitive."
 msgstr "在日志信息中搜索你输入的的文字。这个操作搜索日志信息，也搜索由Subversion建立的提交行为总结(最底部的面板中的内容)。搜索大小写无关。"
 
+#. (term)
+msgid "Create code collaborator review..."
+msgstr ""
+
+#. (para)
+msgid ""
+"This menu is shown only if the SmartBear code collaborator tool is "
+"installed. When invoked for the first time, a dialog is shown prompting the "
+"user to enter user credentials for both code collaborator and SVN. Once the "
+"settings are stored, the settings dialog is no longer shown when the menu is"
+" invoked, unless the user holds <keycap>Ctrl</keycap> while executing the "
+"menu item. The configuration and the chosen revision(s) are used to invoke "
+"the code collaborator graphical user interface client, which creates a new "
+"review with the selected revisions."
+msgstr ""
+
+#. (title)
+msgid "The Code Collaborator Settings Dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The top pane of the Log dialog has a context menu that "
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
-"shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/> 日志对话框的顶部面板有一个右键菜单，通过此菜单你可以获得更多的信息。这些菜单条目中的有些内容只会在显示文件日志时出现，有些内容只会在显示文件夹日志时出现。 <placeholder-2/>"
+"shown for a folder. <placeholder-2/><placeholder-3/>"
+msgstr ""
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9120,7 +9140,6 @@ msgstr "合并"
 #. (primary)
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "merge"
 msgstr "合并"
 
@@ -9185,48 +9204,12 @@ msgid ""
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr "你要 Subversion 做如下事情: <quote>计算[从]分支 A 的版本 1 [到]分支 A 的版本 7 所需的修改，并将这些改变应用到(主干或分支 B 的)工作副本。</quote>"
 
-#. (term)
-#. (title)
-msgid "Reintegrate a branch"
-msgstr "复兴分支"
-
 #. (para)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. All trunk changes have been ported to the feature "
-"branch, week by week, and now the feature is complete you want to merge it "
-"back into the trunk. Because you have kept the feature branch synchronized "
-"with the trunk, the latest versions of branch and trunk will be absolutely "
-"identical except for your branch changes."
-msgstr "这个用例覆盖了这种情况，当你象《Subversion手册》里讨论的那样，创建了一个新特性分支。所有主干的修改都要每周一次合并到新特性分支，等新特性完成后，你想将它合并到主干。因为你已经保持了新特性分支和主干同步，所以除了你在分支做的修改，其它部分在分支和最新版本应该是相同的。"
-
-#. (para)
-msgid ""
-"This is a special case of the tree merge described below, and it requires "
-"only the URL to merge from (normally) your development branch. It uses the "
-"merge-tracking features of Subversion to calculate the correct revision "
-"ranges to use, and perform additional checks which ensure that the branch "
-"has been fully updated with trunk changes. This ensures that you don't "
-"accidentally undo work that others have committed to trunk since you last "
-"synchronized changes."
-msgstr "这是下面讨论的树合并的特殊情况，它只需要你(通常情况下)想要合并的开发分支的 URL。它使用 Subversion 的合并跟踪特性来计算正确的版本范围，并且执行附加的检查来确保分支按照主干的修改进行了完整的更新。这样会确保你不会意外的撤销提交内容，这些内容是其他人在你上次同步修改后提交到主干的。"
-
-#. (para)
-msgid ""
-"After the merge, all branch development has been completely merged back into"
-" the main development line. The branch is now redundant and can be deleted."
-msgstr "合并之后，分支的所有开发被完整的合并到主开发版本。现在的分支已经是多余的，可以删除。"
-
-#. (para)
-msgid ""
-"Once you have performed a reintegrate merge you should not continue to use "
-"it for development. The reason for this is that if you try to resynchronize "
-"your existing branch from trunk later on, merge tracking will see your "
-"reintegration as a trunk change that has not yet been merged into the "
-"branch, and will try to merge the branch-to-trunk merge back into the "
-"branch! The solution to this is simply to create a new branch from trunk to "
-"continue the next phase of your development."
-msgstr "一旦你执行了复兴合并，你就不应该继续使用它来进行开发。这样做的原因是，如果过后你试图再次对现有的分支与主干进行同步，合并跟踪将会你的复兴合并视为未合并到分支的主干修改，并且试图将分支到主干的合并再合并回分支！解决方案很简单，从主干创建一个新的分支来进行下一阶段的开发。"
+"If you leave the revision range empty, Subversion uses the merge-tracking "
+"features to calculate the correct revision range to use. This is known as a "
+"reintegrate or automatic merge."
+msgstr ""
 
 #. (term)
 msgid "Merge two different trees"
@@ -9395,30 +9378,10 @@ msgstr "如果其他用户可能提交，那么要小心使用最新版本。如
 
 #. (para)
 msgid ""
-"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
-"options\"/>."
-msgstr "点击<guibutton>下一页</guibutton>跳转到<xref linkend=\"tsvn-dug-merge-options\"/> 。"
-
-#. (secondary)
-msgid "reintegrate"
-msgstr "复兴"
-
-#. (title)
-msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "合并向导 - 重新合并"
-
-#. (para)
-msgid ""
-"<placeholder-1/> To merge a feature branch back into the trunk you must "
-"start the merge wizard from within a working copy of the trunk."
-msgstr "<placeholder-1/> 为了将一个特性分支合并到主干，您必须从一个主干工作副本启动合并向导。"
-
-#. (para)
-msgid ""
-"In the <guilabel>From URL:</guilabel> field enter the full folder URL of the"
-" branch that you want to merge back. You may also click "
-"<guibutton>...</guibutton> to browse the repository."
-msgstr "在 <guilabel>从 URL：</guilabel> 区域输入您要复兴合并的分支的完整文件夹地址。你也可以点击 <guibutton>...</guibutton> 浏览版本库。"
+"If you leave the range of revisions empty or have the radio button "
+"<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
+"yet merged revisions. This is known as a reintegrate or automatic merge."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9430,6 +9393,12 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr "复兴合并需要满足一些条件。首先，服务器必须支持合并跟踪。工作副本必须为完全递归 (不是有限的检出深度)，而且它不能具有任何本地修改、交换项目或已更新为最新版本之外的其他版本的项目。分支开发过程中的所有主干更改必须已合并到分支 (或标记为已合并)。要合并的版本范围将自动被计算。"
+
+#. (para)
+msgid ""
+"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
+"options\"/>."
+msgstr "点击<guibutton>下一页</guibutton>跳转到<xref linkend=\"tsvn-dug-merge-options\"/> 。"
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -17550,7 +17519,6 @@ msgstr ""
 
 #. (option)
 #. (option)
-#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -17570,19 +17538,13 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
-#. (option)
-msgid "/reintegrate"
-msgstr ""
-
 #. (entry)
 msgid ""
 "Opens the merge dialog. The <placeholder-1/> specifies the target directory."
 " For merging a revision range, the following options are available: "
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
-"<placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use "
-"the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
-" the relevant fields in the merge dialog."
+"<placeholder-6/> and <placeholder-7/>."
 msgstr ""
 
 #. (entry)
@@ -19623,8 +19585,10 @@ msgstr "这些改变在视图的左边用白色圆形符号标记。如果你看
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
-"Such changes are marked with a pencil symbol."
-msgstr "在两窗格视图中，可以在右边的窗格编辑文件。这些修改用铅笔符号标记。"
+"Such changes are marked with a pencil symbol. Hand editing of the file in "
+"the left pane is also possible, only when <guibutton>Enable Edit "
+"</guibutton> is pressed when the left pane is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19659,6 +19623,13 @@ msgid ""
 "filenames used for the diff in each pane."
 msgstr "如果你的鼠标在窗格的标题栏逗留，会有工具提示显示此窗格用于比较的文件名称。"
 
+#. (para)
+msgid ""
+"Hand editing of the file in the left pane or right pane is also possible, "
+"only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
+"active."
+msgstr ""
+
 #. (title)
 msgid "Patch File List"
 msgstr "补丁文件列表"
@@ -19680,6 +19651,53 @@ msgid ""
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
+msgstr ""
+
+#. (title)
+msgid "Buttons and Other Controls"
+msgstr "按钮及其他控制"
+
+#. (para)
+msgid ""
+"Depending on your setting, you either see a toolbar or a ribbon with many "
+"buttons. The buttons all show a tooltip explaining their function when you "
+"hover the mouse pointer over them."
+msgstr ""
+
+#. (para)
+msgid ""
+"On the left side of the window is a locator bar. This provides a quick "
+"visual reference as to where the changes lie within the file. The bar has "
+"three columns. The left column refers to the left pane, the right column to "
+"the right pane, and the centre column to the bottom pane (if present). In "
+"one-pane view only the left column is used. The locator bar can also be used"
+" as a scroll bar to scroll all the windows simultaneously."
+msgstr "窗口的左边是定位拉杆。它提供了对文件改变的位置的快速可视化引用。这个拉杆有三列。左列引用左边的窗口，右列引用右边的窗口，中间列引用底部窗口(如果存在)。在单窗口模式下，只使用了左列。定位拉杆也可以作为滑杆使用，让所有窗口同时滑动。"
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr ""
+
+#. (para)
+msgid ""
+"Below the bottom window is the status bar. This shows the number of lines "
+"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
+"and the number of unresolved conflicts remaining. You can also see which "
+"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
+" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
+"UTF-8 files. You can change line-ending style and encoding by double-"
+"clicking the corresponding column of that view. A dialog box will be "
+"displayed. The left side of the status bar is used to display hints when you"
+" hover the mouse over a control."
 msgstr ""
 
 #. (title)
@@ -19733,6 +19751,12 @@ msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> 此行处于冲突状态，但是被空白或行结束符的设置掩盖。"
+
+#. (para)
+msgid ""
+"<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
+"being moved from / to another location."
+msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20207,6 +20231,14 @@ msgstr "Ctrl-鼠标滚轮"
 #. (para)
 msgid "Scroll the display left/right"
 msgstr "滚动左右两边的显示"
+
+#. (term)
+msgid "Ctrl-Tab"
+msgstr ""
+
+#. (para)
+msgid "Switch between left/right/bottom view"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

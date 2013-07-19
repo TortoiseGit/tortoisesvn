@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-28 15:10+0000\n"
+"PO-Revision-Date: 2013-07-17 21:50+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5342,13 +5342,33 @@ msgid ""
 "in the bottom pane). The search is not case sensitive."
 msgstr "Hledat záznam zprávy zadaným textem. Toto prohledá záznam zpráv, které jste zadali a také souhrn činností vytvořených Subversion (uvedeno v dolní části panelu). Vyhledávání není citlivé na velikost písmen."
 
+#. (term)
+msgid "Create code collaborator review..."
+msgstr "Vytvořit přezkoumání v nástroji spolupráce na kódu..."
+
+#. (para)
+msgid ""
+"This menu is shown only if the SmartBear code collaborator tool is "
+"installed. When invoked for the first time, a dialog is shown prompting the "
+"user to enter user credentials for both code collaborator and SVN. Once the "
+"settings are stored, the settings dialog is no longer shown when the menu is"
+" invoked, unless the user holds <keycap>Ctrl</keycap> while executing the "
+"menu item. The configuration and the chosen revision(s) are used to invoke "
+"the code collaborator graphical user interface client, which creates a new "
+"review with the selected revisions."
+msgstr ""
+
+#. (title)
+msgid "The Code Collaborator Settings Dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The top pane of the Log dialog has a context menu that "
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
-"shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/> Horní panel v dialogovém oknu Záznamů má kontextové menu, které umožňuje přístup k mnohem více informacím. Některé z těchto položek menu se zobrazí pouze tehdy, pokud je záznam zobrazen pro soubor a některé, jen když je záznam zobrazen pro adresář. <placeholder-2/>"
+"shown for a folder. <placeholder-2/><placeholder-3/>"
+msgstr "<placeholder-1/> Horní panel v dialogovém oknu Záznamů má kontextové menu, které umožňuje přístup k mnohem více informacím. Některé z těchto položek nabídky se zobrazí pouze tehdy, pokud je záznam zobrazen pro soubor a některé, jen když je záznam zobrazen pro adresář. <placeholder-2/><placeholder-3/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9109,7 +9129,6 @@ msgstr "Sloučení"
 #. (primary)
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "merge"
 msgstr "sloučit"
 
@@ -9174,48 +9193,12 @@ msgid ""
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr "Co požádáte, aby Subversion udělal, je toto: <quote>Vypočítat nezbytné změny, jak se dostat [Z] revize 1 větve A [DO] revize 7 větve A a tyto změny provést v mé pracovní kopii (kmene nebo větve B). </quote>"
 
-#. (term)
-#. (title)
-msgid "Reintegrate a branch"
-msgstr "Znovu začlenit větev"
-
 #. (para)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. All trunk changes have been ported to the feature "
-"branch, week by week, and now the feature is complete you want to merge it "
-"back into the trunk. Because you have kept the feature branch synchronized "
-"with the trunk, the latest versions of branch and trunk will be absolutely "
-"identical except for your branch changes."
-msgstr "Tato metoda řeší případ, kdy jste vytvořili větev funkcí, jak je popsáno v knize Subversion. Všechny změny kmene byly přenášeny týden po týdnu do větve funkcí a nyní, když je tato funkce kompletní ji chcete sloučit zpátky do kmene. Protože jste zachovali synchronizaci větve s kmenem, bude nejnovější verze větve a kmene naprosto identická s výjimkou změn ve Vaší větvi."
-
-#. (para)
-msgid ""
-"This is a special case of the tree merge described below, and it requires "
-"only the URL to merge from (normally) your development branch. It uses the "
-"merge-tracking features of Subversion to calculate the correct revision "
-"ranges to use, and perform additional checks which ensure that the branch "
-"has been fully updated with trunk changes. This ensures that you don't "
-"accidentally undo work that others have committed to trunk since you last "
-"synchronized changes."
-msgstr "Toto je zvláštní případ sloučení stromu, který je popsán níže, a pouze vyžaduje URL pro sloučení z (obvykle) Vaší vývojové větve. Používá Subversion funkce sledování sloučení pro výpočet správného rozsahu revizí k použití a provede další kontroly, které zajistí, že větev je plně aktualizována změnami z kmene. To zaručuje, že náhodou nevrátíte zpět práci, kterou jiní odevzdali do kmene od Vaší poslední synchronizace změn."
-
-#. (para)
-msgid ""
-"After the merge, all branch development has been completely merged back into"
-" the main development line. The branch is now redundant and can be deleted."
-msgstr "Po sloučení, všechen vývoj ve větvi je kompletně sloučen zpět do hlavní vývojové linie. Větev je nyní zbytečná a může být smazána."
-
-#. (para)
-msgid ""
-"Once you have performed a reintegrate merge you should not continue to use "
-"it for development. The reason for this is that if you try to resynchronize "
-"your existing branch from trunk later on, merge tracking will see your "
-"reintegration as a trunk change that has not yet been merged into the "
-"branch, and will try to merge the branch-to-trunk merge back into the "
-"branch! The solution to this is simply to create a new branch from trunk to "
-"continue the next phase of your development."
-msgstr "Jakmile jste provedli znovu začlenění sloučení, neměli byste ji nadále používat pro vývoj. Důvodem je to, že pokud se pokusíte později znovu synchronizovat Vaši stávající větev z kmene, sledování sloučení uvidí vaše znovuzačlenění jako \nzměnu kmene, která dosud nebyly do větve sloučena a pokusí se sloučení větev do kmene sloučit zpět do větve! Řešením je jednoduše vytvořit novou větev z kmene, pro pokračování další fáze Vašeho vývoje."
+"If you leave the revision range empty, Subversion uses the merge-tracking "
+"features to calculate the correct revision range to use. This is known as a "
+"reintegrate or automatic merge."
+msgstr ""
 
 #. (term)
 msgid "Merge two different trees"
@@ -9384,30 +9367,10 @@ msgstr "Pokud ostatní můžou odevzdávat změny, pak buďte opatrní při pou�
 
 #. (para)
 msgid ""
-"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
-"options\"/>."
-msgstr "Klepněte na tlačítko <guibutton>Další</guibutton> a přejděte na <xref linkend=\"tsvn-dug-merge-options\"/>."
-
-#. (secondary)
-msgid "reintegrate"
-msgstr "znovu začlenit"
-
-#. (title)
-msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "Průvodce Sloučením - Znovu začleňovací Sloučení"
-
-#. (para)
-msgid ""
-"<placeholder-1/> To merge a feature branch back into the trunk you must "
-"start the merge wizard from within a working copy of the trunk."
-msgstr "<placeholder-1/> Chcete-li sloučit větev funkcí zpět do kmene, musíte spustit průvodce sloučením z pracovní kopie kmene."
-
-#. (para)
-msgid ""
-"In the <guilabel>From URL:</guilabel> field enter the full folder URL of the"
-" branch that you want to merge back. You may also click "
-"<guibutton>...</guibutton> to browse the repository."
-msgstr "V poli <guilabel>Z URL:</guilabel> zadejte úplnou adresu URL adresáře větve, kterou chcete sloučit zpět. Můžete také kliknout na <guibutton>...</guibutton> k procházení úložiště."
+"If you leave the range of revisions empty or have the radio button "
+"<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
+"yet merged revisions. This is known as a reintegrate or automatic merge."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9419,6 +9382,12 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr "Existují některé podmínky, které se vztahují na znovu začleňovací sloučení. Za prvé, server musí podporovat sledování sloučení. Pracovní kopie musí mít nekonečnou hloubku (žádné řídké získání) a nesmí mít žádné lokální úpravy, překlopené položky nebo položky, které byly aktualizovány na revizi jinou než HEAD. Všechny změny provedené v kmeni v průběhu vývoje větve musí být sloučeny do větve (nebo označeny jako sloučené). Rozsah revizí sloučení bude vypočten automaticky."
+
+#. (para)
+msgid ""
+"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
+"options\"/>."
+msgstr "Klepněte na tlačítko <guibutton>Další</guibutton> a přejděte na <xref linkend=\"tsvn-dug-merge-options\"/>."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -17539,7 +17508,6 @@ msgstr "Zkopíruje složku v <placeholder-1/> rekurzivně do adresáře zadaném
 
 #. (option)
 #. (option)
-#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -17559,20 +17527,14 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
-#. (option)
-msgid "/reintegrate"
-msgstr "/reintegrate"
-
 #. (entry)
 msgid ""
 "Opens the merge dialog. The <placeholder-1/> specifies the target directory."
 " For merging a revision range, the following options are available: "
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
-"<placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use "
-"the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
-" the relevant fields in the merge dialog."
-msgstr "Otevře dialogové okno sloučení. <placeholder-1/> určuje cílový adresář. Pro sloučení rozsahu revizí, jsou dostupné následující možnosti: <placeholder-2/>, <placeholder-3/> . Pro sloučení dvou stromů uložiště, jsou dostupné následující možnosti: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> a <placeholder-7/>. Pro znovu začlenění sloučení, použijte následující možnosti: <placeholder-8/> a <placeholder-9/>. Tyto před vyplní příslušná pole v dialogovém okně sloučení."
+"<placeholder-6/> and <placeholder-7/>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -19612,8 +19574,10 @@ msgstr "Takové změny jsou označeny symbolem bílého kruhu na levé straně z
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
-"Such changes are marked with a pencil symbol."
-msgstr "Ruční úprava souboru v pravém panelu je možné ve dvou panelovém zobrazení. Takové změny jsou označeny symbolem tužky."
+"Such changes are marked with a pencil symbol. Hand editing of the file in "
+"the left pane is also possible, only when <guibutton>Enable Edit "
+"</guibutton> is pressed when the left pane is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19648,6 +19612,13 @@ msgid ""
 "filenames used for the diff in each pane."
 msgstr "Pokud myší najedete nad název panelu, popisek v každém panelu zobrazí názvy souborů použitých pro porovnání."
 
+#. (para)
+msgid ""
+"Hand editing of the file in the left pane or right pane is also possible, "
+"only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
+"active."
+msgstr ""
+
 #. (title)
 msgid "Patch File List"
 msgstr "Seznam Záplatových Souborů"
@@ -19670,6 +19641,53 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Okno záplatových souborů má kontextové menu, které Vám umožní ukázat účinky záplaty v aktuálním souboru (použít bez uložení), použít a uložit změny pro vybraný soubor, nebo použít a uložit změny do <emphasis>všech</emphasis> souborů v seznamu. Dvojité kliknutí je pro zobrazení náhledu."
+
+#. (title)
+msgid "Buttons and Other Controls"
+msgstr "Tlačítka a Další Ovládání"
+
+#. (para)
+msgid ""
+"Depending on your setting, you either see a toolbar or a ribbon with many "
+"buttons. The buttons all show a tooltip explaining their function when you "
+"hover the mouse pointer over them."
+msgstr ""
+
+#. (para)
+msgid ""
+"On the left side of the window is a locator bar. This provides a quick "
+"visual reference as to where the changes lie within the file. The bar has "
+"three columns. The left column refers to the left pane, the right column to "
+"the right pane, and the centre column to the bottom pane (if present). In "
+"one-pane view only the left column is used. The locator bar can also be used"
+" as a scroll bar to scroll all the windows simultaneously."
+msgstr "Na levé straně okna je lišta umístění. Poskytuje rychlou vizuální referenci o tom, kde leží změny uvnitř souboru. Lišta má tři sloupce. Levý sloupec odkazuje na levý panel, pravý sloupec na pravý panel a střední sloupec na dolní panel (pokud existuje). V jedno panelovém pohledu je použit pouze levý sloupec. Lišta umístění může být také použita jako posuvník pro posun všech oken najednou."
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr "Pokud dvakrát kliknete na slovo pak všechny výskyty tohoto slova se zvýrazní v celém dokumentu, a to jak v hlavním panelu, tak v liště umístění. Znovu poklepejte na slovo k odstranění zvýraznění."
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr "Pokud kliknete na tlačítko v levém okraji, nebo pokud třikrát kliknete na řádek, pak bude celý řádek vybrán."
+
+#. (para)
+msgid ""
+"Below the bottom window is the status bar. This shows the number of lines "
+"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
+"and the number of unresolved conflicts remaining. You can also see which "
+"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
+" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
+"UTF-8 files. You can change line-ending style and encoding by double-"
+"clicking the corresponding column of that view. A dialog box will be "
+"displayed. The left side of the status bar is used to display hints when you"
+" hover the mouse over a control."
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -19722,6 +19740,12 @@ msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Tento řádek je v konfliktu, ale účinek je skryt mezerou nebo nastavením konce řádků."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
+"being moved from / to another location."
+msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20196,6 +20220,14 @@ msgstr "Ctrl-kolečko myši"
 #. (para)
 msgid "Scroll the display left/right"
 msgstr "Posunuje zobrazení doleva/doprava"
+
+#. (term)
+msgid "Ctrl-Tab"
+msgstr ""
+
+#. (para)
+msgid "Switch between left/right/bottom view"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

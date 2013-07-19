@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4142,7 +4142,7 @@ msgstr "Желите ли заиста вратити све измене у\n%s
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr ""
+msgstr "Да ли хоћете испустити продајну грану у радну копију \"%s\"?"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -5027,11 +5027,11 @@ msgstr "Подеси висину"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights"
-msgstr ""
+msgstr "Подеси &висину слике"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths"
-msgstr ""
+msgstr "Подеси ш&ирину слике"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5488,11 +5488,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6904,6 +6904,10 @@ msgstr "Нови мени"
 msgid "New name for %s"
 msgstr "Ново име за %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Ново име:"
@@ -7875,10 +7879,6 @@ msgstr "Напусти\nИзлази из ТортоисеМерге без чу
 msgid "R&AM drives"
 msgstr "Р&АМ дискови"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "Р&еинтегрише грана / аутоматско стапање"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Ресет"
@@ -8062,10 +8062,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Филтер регуларних израза:\r\n.  : било који знак\r\nц+  : пронађи слово с једном или више пута\r\nц*  : пронађи слово с нула или више пута\r\n^  : почетак реда\r\n$  : завршетак реда\r\n(стринг){н} : стринг н пута\r\n(абцд) : подизраз\r\n[аеи0-9] : нађи а,е,и и 0..9\r\n[^аеи0-9] : све осим а,е,и и 0..9\r\n\r\n\\w  : проналази а-з,А-З,0-9 и _\r\n\\W : проналази било који знак који није слово или број (а-з,А-З,0-9 и _)\r\n\\д : цифре 0-9\r\n\\с : белине"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Реинтегрисање стапања"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8281,6 +8277,11 @@ msgstr "Преименуј"
 #, c-format
 msgid "Rename %s"
 msgstr "Преименуј %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9055,10 +9056,6 @@ msgstr "Одаберите почетну ревизију"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Одаберите апликацију за обраду текста"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Одаберите УРЛове од којих реинтегришете"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10601,13 +10598,6 @@ msgstr "Ово није исправна путања!\nИсправна пут�
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Метода се користи у случају кад сте направили развојну грану како је описано у Субверзионој књизи. Користити за стапање свих измена развојне гране натраг у дебло."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11244,7 +11234,7 @@ msgstr "Користи траке"
 
 #. Resource IDs: (1500)
 msgid "Use Task Dialog"
-msgstr ""
+msgstr "Користи дијалог задатка"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11376,8 +11366,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Користите дијалог дневника да изаберете ревизију коју желите да стопите, или унесите ревизије за стапање, одвојене запетама. Ревизиони опсег специфицирајте цртицом.\r\n\r\nЕxампле: 4-7,9,11,15-ХЕАД@пегревисион\r\n\r\nДа стопите све ревизије оставите бокс празан."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-17 09:10+0000\n"
+"PO-Revision-Date: 2013-07-16 09:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5341,13 +5341,33 @@ msgid ""
 "in the bottom pane). The search is not case sensitive."
 msgstr "Tìm kiếm thông điệp tường trình cho các văn bản bạn nhập vào. Điều này tìm kiếm các thông điệp tường trình mà bạn đã nhập và cả các tóm tắt hành động được tạo ra bởi Subversion (được hiển thị ở khung bên dưới). Tìm kiếm không phân biệt chữ hoa."
 
+#. (term)
+msgid "Create code collaborator review..."
+msgstr ""
+
+#. (para)
+msgid ""
+"This menu is shown only if the SmartBear code collaborator tool is "
+"installed. When invoked for the first time, a dialog is shown prompting the "
+"user to enter user credentials for both code collaborator and SVN. Once the "
+"settings are stored, the settings dialog is no longer shown when the menu is"
+" invoked, unless the user holds <keycap>Ctrl</keycap> while executing the "
+"menu item. The configuration and the chosen revision(s) are used to invoke "
+"the code collaborator graphical user interface client, which creates a new "
+"review with the selected revisions."
+msgstr ""
+
+#. (title)
+msgid "The Code Collaborator Settings Dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The top pane of the Log dialog has a context menu that "
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
-"shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/> Các cửa sổ trên cùng của hộp thoại Tường Trình có một trình đơn ngữ cảnh cho phép bạn truy cập nhiều thông tin hơn nữa. Một số các mục trình đơn xuất hiện khi tường trình được hiển thị cho một tập tin, và một số chỉ hiển thị khi tường trình được hiển thị cho một thư mục. <placeholder-2/>"
+"shown for a folder. <placeholder-2/><placeholder-3/>"
+msgstr ""
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9108,7 +9128,6 @@ msgstr "Hợp nhất"
 #. (primary)
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "merge"
 msgstr "hợp nhất"
 
@@ -9173,48 +9192,12 @@ msgid ""
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr "Những gì bạn đang yêu cầu Subversion làm là: <quote> Tính toán những thay đổi cần thiết để có được [TỪ] phiên bản 1 của chi nhánh A [SANG] sửa đổi 7 chi nhánh A, và áp dụng những thay đổi để sao chép các thay đổi đó sang bản làm việc của tôi (của thân cây hoặc chi nhánh B). </quote>"
 
-#. (term)
-#. (title)
-msgid "Reintegrate a branch"
-msgstr "Tái tích h một chi nhánh"
-
 #. (para)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. All trunk changes have been ported to the feature "
-"branch, week by week, and now the feature is complete you want to merge it "
-"back into the trunk. Because you have kept the feature branch synchronized "
-"with the trunk, the latest versions of branch and trunk will be absolutely "
-"identical except for your branch changes."
-msgstr "Phương pháp này bao gồm các trường hợp khi bạn đã thực hiện một chi nhánh tính năng như được thảo luận trong cuốn sách Subversion. Tất cả các thay đổi thân cây đã được chuyển đến các chi nhánh tính năng, tuần sang tuần, và bây giờ tính năng này hoàn tất, bạn muốn kết hợp nó trở lại vào thân cây. Bởi vì bạn đã lưu giữ các chi nhánh tính năng đồng bộ với thân cây, các phiên bản mới nhất của chi nhánh và thân cây sẽ hoàn toàn giống nhau, ngoại trừ những thay đổi chi nhánh của bạn."
-
-#. (para)
-msgid ""
-"This is a special case of the tree merge described below, and it requires "
-"only the URL to merge from (normally) your development branch. It uses the "
-"merge-tracking features of Subversion to calculate the correct revision "
-"ranges to use, and perform additional checks which ensure that the branch "
-"has been fully updated with trunk changes. This ensures that you don't "
-"accidentally undo work that others have committed to trunk since you last "
-"synchronized changes."
-msgstr "Đây là một trường hợp đặc biệt của cây hợp nhất được mô tả dưới đây, và nó chỉ đòi hỏi URL để hợp nhất (bình thường là) chi nhánh phát triển của bạn. Nó sử dụng các tính năng theo dõi hợp nhất của Subversion để tính toán đúng phạm vi sửa đổi để sử dụng, và thực hiện kiểm tra bổ sung để đảm bảo rằng chi nhánh đã được cập nhật đầy đủ với những thay đổi thân cây. Điều này đảm bảo rằng bạn không vô tình lùi lại công việc mà người khác đã cam kết vào thân cây kể từ khi bạn đồng bộ các thay đổi lần cuối."
-
-#. (para)
-msgid ""
-"After the merge, all branch development has been completely merged back into"
-" the main development line. The branch is now redundant and can be deleted."
-msgstr "Sau khi hợp nhất, tất cả các nhánh phát triển đã được sáp nhập hoàn toàn vào dòng chính phát triển. Chi nhánh hiện nay là dư thừa và có thể bị xóa."
-
-#. (para)
-msgid ""
-"Once you have performed a reintegrate merge you should not continue to use "
-"it for development. The reason for this is that if you try to resynchronize "
-"your existing branch from trunk later on, merge tracking will see your "
-"reintegration as a trunk change that has not yet been merged into the "
-"branch, and will try to merge the branch-to-trunk merge back into the "
-"branch! The solution to this is simply to create a new branch from trunk to "
-"continue the next phase of your development."
-msgstr "Một khi bạn đã thực hiện tái tích hợp hợp nhất bạn không nên tiếp tục sử dụng nó để phát triển. Lý do cho điều này là rằng nếu bạn cố gắng để tái đồng bộ chi nhánh hiện có của bạn từ thân cây sau đó, theo dõi hợp nhất sẽ xem việc tái tích hợp của bạn như một sự thay đổi thân cây vẫn chưa được hợp nhất vào chi nhánh, và sẽ cố gắng để hợp nhất các hợp nhất chi nhánh-đến-thân cây lại vào chi nhánh! Giải pháp này chỉ đơn giản là để tạo ra một chi nhánh mới từ thân cây để tiếp tục giai đoạn tiếp theo của sự phát triển của bạn."
+"If you leave the revision range empty, Subversion uses the merge-tracking "
+"features to calculate the correct revision range to use. This is known as a "
+"reintegrate or automatic merge."
+msgstr ""
 
 #. (term)
 msgid "Merge two different trees"
@@ -9383,30 +9366,10 @@ msgstr "Nếu người khác có lẽ đang cam kết các thay đổi thì hãy
 
 #. (para)
 msgid ""
-"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
-"options\"/>."
-msgstr "Nhấp vào <guibutton> Tiếp theo </guibutton> và đi đến <xref linkend=\"tsvn-dug-merge-options\"/> ."
-
-#. (secondary)
-msgid "reintegrate"
-msgstr "tái tích h"
-
-#. (title)
-msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "Trình hướng dẫn sáp nh - tái tích hợp sáp nhập"
-
-#. (para)
-msgid ""
-"<placeholder-1/> To merge a feature branch back into the trunk you must "
-"start the merge wizard from within a working copy of the trunk."
-msgstr "<placeholder-1/> Để hợp nhất một chi nhánh tính năng trở lại vào thân cây, bạn phải ch trình hướng dẫn hợp nhất từ ​​bên trong một bản sao hoạt động của thân cây."
-
-#. (para)
-msgid ""
-"In the <guilabel>From URL:</guilabel> field enter the full folder URL of the"
-" branch that you want to merge back. You may also click "
-"<guibutton>...</guibutton> to browse the repository."
-msgstr "Trong trường <guilabel> URL Từ: </guilabel> nhập vào URL thư mục đầy đủ của chi nhánh mà bạn muốn kết hợp lại. Bạn cũng có thể nhấp chuột vào <guibutton> ... </guibutton> để duyệt qua kho lưu trữ."
+"If you leave the range of revisions empty or have the radio button "
+"<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
+"yet merged revisions. This is known as a reintegrate or automatic merge."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9418,6 +9381,12 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr "Có một số điều kiện áp dụng đối với một hợp nhất tái tích hợp. Thứ nhất, các máy chủ phải hỗ trợ theo dõi kết hợp. Bản sao làm việc phải có chiều sâu vô hạn (không có kiểm xuất thưa thớt), và nó không được có bất kỳ thay đổi địa phương, hạng mục bị chuyển hay hạng mục đã được cập nhật vào các bản sửa đổi khác không phải bản CHÍNH. Mọi thay đổi vào thân cây được thực hiện trong quá trình phát triển chi nhánh phải được sáp nhập qua chi nhánh (hoặc đánh dấu là đã được sáp nhập). Phạm vi các bản sửa đổi để hợp nhất sẽ được tính toán tự động."
+
+#. (para)
+msgid ""
+"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
+"options\"/>."
+msgstr "Nhấp vào <guibutton> Tiếp theo </guibutton> và đi đến <xref linkend=\"tsvn-dug-merge-options\"/> ."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -17538,7 +17507,6 @@ msgstr ""
 
 #. (option)
 #. (option)
-#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -17558,20 +17526,14 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
-#. (option)
-msgid "/reintegrate"
-msgstr "/reintegrate"
-
 #. (entry)
 msgid ""
 "Opens the merge dialog. The <placeholder-1/> specifies the target directory."
 " For merging a revision range, the following options are available: "
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
-"<placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use "
-"the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
-" the relevant fields in the merge dialog."
-msgstr "Mở hộp thoại hợp nhất. Các <placeholder-1/> xác định thư mục đích. Đối với việc sáp nhập một phạm vi sửa đổi, các tùy chọn có thể dùng sau đây: <placeholder-2/> , <placeholder-3/> . Đối với việc sáp nhập hai cây kho lưu trữ, các tùy chọn sau đây có thể dùng: <placeholder-4/> , <placeholder-5/> , <placeholder-6/> và <placeholder-7/> . Để làm một tái tích hợp hợp nhất, sử dụng các tùy chọn sau: <placeholder-8/> và <placeholder-9/> . Những cái này điền trước các trường có liên quan trong hộp thoại hợp nhất."
+"<placeholder-6/> and <placeholder-7/>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -19611,8 +19573,10 @@ msgstr "Thay đổi như vậy được đánh dấu bằng một biểu tượn
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
-"Such changes are marked with a pencil symbol."
-msgstr "Chỉnh sửa các tập tin bằng tay trong cửa sổ bên phải là có thể với màn xem hai cửa sổ. Thay đổi như vậy được đánh dấu bằng một biểu tượng bút chì."
+"Such changes are marked with a pencil symbol. Hand editing of the file in "
+"the left pane is also possible, only when <guibutton>Enable Edit "
+"</guibutton> is pressed when the left pane is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19647,6 +19611,13 @@ msgid ""
 "filenames used for the diff in each pane."
 msgstr "Nếu bạn di chuyển chuột lên tiêu đề cửa sổ, một tooltip sẽ hiển thị tên tập tin được sử dụng cho việc tìm khác biệt trong mỗi cửa sổ."
 
+#. (para)
+msgid ""
+"Hand editing of the file in the left pane or right pane is also possible, "
+"only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
+"active."
+msgstr ""
+
 #. (title)
 msgid "Patch File List"
 msgstr "Danh Sách Tập Tin Bản Vá"
@@ -19669,6 +19640,53 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Các cửa sổ tập tin bản vá có một trình đơn ngữ cảnh cho phép bạn xem trước hiệu ứng của các miếng vá trên các tập tin hiện hành (áp dụng mà không lưu), để áp dụng và lưu các thay đổi cho các tập tin được lựa chọn, hoặc để áp dụng và lưu các thay đổi tới <emphasis> tất cả </emphasis> các tập tin trong danh sách. Hành động nhấp đúp chuột là để xem trước."
+
+#. (title)
+msgid "Buttons and Other Controls"
+msgstr "Các Nút bấm và Điều Khiển Khác"
+
+#. (para)
+msgid ""
+"Depending on your setting, you either see a toolbar or a ribbon with many "
+"buttons. The buttons all show a tooltip explaining their function when you "
+"hover the mouse pointer over them."
+msgstr ""
+
+#. (para)
+msgid ""
+"On the left side of the window is a locator bar. This provides a quick "
+"visual reference as to where the changes lie within the file. The bar has "
+"three columns. The left column refers to the left pane, the right column to "
+"the right pane, and the centre column to the bottom pane (if present). In "
+"one-pane view only the left column is used. The locator bar can also be used"
+" as a scroll bar to scroll all the windows simultaneously."
+msgstr "Ở phía bên trái của cửa sổ là một thanh định vị. Cái này cung cấp một tài liệu tham khảo trực quan nhanh chóng như là nơi những thay đổi nằm trong tập tin. Thanh có ba cột. Cột bên trái chỉ đến khung bên trái, cột bên phải đến cửa sổ bên phải, và cột trung tâm đến cửa sổ bên dưới (nếu có). Trong màn xem một cửa sổ chỉ có cột bên trái được sử dụng. Thanh định vị cũng có thể được sử dụng như một thanh cuộn để di chuyển tất cả các cửa sổ cùng một lúc."
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr "Nếu bạn kích đúp vào một từ thì mỗi sự xuất hiện của từ đó sẽ được tô sáng trong tài liệu, cả trong ngăn chính và thanh định vị. Nhấp đúp chuột vào từ một lần nữa để loại bỏ các phần được tô sáng."
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr "Nếu bạn nhấp chuột vào lề trái, hoặc nếu bạn nhấp ba trong một dòng, dòng toàn bộ sẽ được lựa chọn."
+
+#. (para)
+msgid ""
+"Below the bottom window is the status bar. This shows the number of lines "
+"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
+"and the number of unresolved conflicts remaining. You can also see which "
+"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
+" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
+"UTF-8 files. You can change line-ending style and encoding by double-"
+"clicking the corresponding column of that view. A dialog box will be "
+"displayed. The left side of the status bar is used to display hints when you"
+" hover the mouse over a control."
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -19721,6 +19739,12 @@ msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Dòng này có mâu thuẫn, nhưng hiệu ứng bị là ẩn bởi khoảng trắng hoặc các thiết lập kết thúc dòng."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
+"being moved from / to another location."
+msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20195,6 +20219,14 @@ msgstr "Ctrl-mousewheel"
 #. (para)
 msgid "Scroll the display left/right"
 msgstr "Cuộn màn hình hiển thị bên trái / phải"
+
+#. (term)
+msgid "Ctrl-Tab"
+msgstr ""
+
+#. (para)
+msgid "Switch between left/right/bottom view"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

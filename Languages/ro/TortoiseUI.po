@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6904,6 +6904,10 @@ msgstr "Meniu nou"
 msgid "New name for %s"
 msgstr "Nume nou pentru %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nume nou:"
@@ -7875,10 +7879,6 @@ msgstr "Ieşire\nIese din TortoiseMerge fără a salva modificările."
 msgid "R&AM drives"
 msgstr "Discuri R&AM"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "R&eintegrează o ramură / fuziune automată"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&estabileşte"
@@ -8062,10 +8062,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filtru de expresii regulare:\r\n.   : orice caracter\r\nc+   : potriveşte caracterul c o dată sau de mai multe ori\r\nc*   : potriveşte caracterul c de zero sau de mai multe ori\r\n^   : început de linie\r\n$   : sfârşit de linie\r\n(string){n} : potriveşte string-ul de n ori\r\n(abcd)   : subexpresie\r\n[aei0-9]   : potriveşte a,e,i şi 0..9\r\n[^aei0-9] : orice în afară de a,e,i şi 0..9\r\n\r\n\\w   : potriveşte a-z,A-Z,0-9 şi _\r\n\\W   : orice caracter care nu este alfa-numeric\r\n\\d   : cifrele 0-9\r\n\\s   : spaţii goale"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reintegrează îmbinarea"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8281,6 +8277,11 @@ msgstr "Redenumeşte"
 #, c-format
 msgid "Rename %s"
 msgstr "Redenumeşte %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9055,10 +9056,6 @@ msgstr "Selectaţi prima revizie"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Selectează aplicaţia de editare text"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Selectaţi URL-ul din care se va face reintegrarea"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10601,13 +10598,6 @@ msgstr "Aceasta nu este o cale validă!\nO cale validă nu poate conţine '<>|\"
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Această metodă acoperă cazul in care a-ţi creat o ramură pentru functionalităţi după descrierea din manualul Subversion. Utilizaţi această metodă pentru a aduce modificările din ramură in trunchi."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11376,8 +11366,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Folosiţi dialogul de jurnal să selectaţi reviziile care doriţi să îmbinaţi, sau înregistraţi reviziile pentru îmbinare, separate de virgule. Un interval de revizii poate fi specificat cu o liniuţă.\n\nDe exemplu: 4-7,9,11,15-HEAD@pegrevision\n\nPentru a îmbina toate reviziile, lăsaţi căsuţă goală."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

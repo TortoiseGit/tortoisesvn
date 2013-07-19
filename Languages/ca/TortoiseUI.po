@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6902,6 +6902,10 @@ msgstr "Nou Menú"
 msgid "New name for %s"
 msgstr "Nou nom per %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nou nom:"
@@ -7873,10 +7877,6 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "Unitats R&AM"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&eseteja"
@@ -8060,10 +8060,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filtre d'expressions corrents:\r\n. : qualsevol caracter\r\nc+   : cerca concidències caracter c un o més cops\r\nc*   : cerca concidències caracter c zero o més cops\r\n^   : inici de línea\r\n$   : final de línea\r\n(string){n} : cerca concidències cadena n cops\r\n(abcd)   : subexpressió\r\n[aei0-9]   : cerca concidències a,e,i and 0..9\r\n[^aei0-9] : tot menys a,e,i and 0..9\r\n\r\n\\w   : coincideix amb a-z,A-Z,0-9 and _\r\n\\W   : any caràcter no-alfanumèric\r\n\\d   : digits 0-9\r\n\\s   : espais en blanc"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reintegra fusió"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8279,6 +8275,11 @@ msgstr "Canvia el nom"
 #, c-format
 msgid "Rename %s"
 msgstr "Canvia el nom %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9053,10 +9054,6 @@ msgstr "Selecciona inici de la revisió"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Selecciona aplicació d'editor de text"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Selecciona l'URL des d'on reintegrar"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10599,13 +10596,6 @@ msgstr "Això no és un path vàlid!\nUn path vàlid no pot contenir '<>|\"?*:' 
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Aquest mètode serveix per quan feu una branca rellevant (feature) tal com es descriu al manual del Subversion. Utilitzeu-la per fusionar tots els canvis d'una branca altre cop cap al tronc."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11374,7 +11364,7 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
 msgstr ""
 
 #. Resource IDs: (314)

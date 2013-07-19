@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-17 09:10+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2013-07-16 09:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5344,13 +5344,33 @@ msgid ""
 "in the bottom pane). The search is not case sensitive."
 msgstr "Претражује дневник порука за текст који сте унели. То претражује дневник порука које сте унели и такође збирну акцију креирану Субверзијом (приказан у доњем панелу). Претраживање не зависи од величине слова."
 
+#. (term)
+msgid "Create code collaborator review..."
+msgstr ""
+
+#. (para)
+msgid ""
+"This menu is shown only if the SmartBear code collaborator tool is "
+"installed. When invoked for the first time, a dialog is shown prompting the "
+"user to enter user credentials for both code collaborator and SVN. Once the "
+"settings are stored, the settings dialog is no longer shown when the menu is"
+" invoked, unless the user holds <keycap>Ctrl</keycap> while executing the "
+"menu item. The configuration and the chosen revision(s) are used to invoke "
+"the code collaborator graphical user interface client, which creates a new "
+"review with the selected revisions."
+msgstr ""
+
+#. (title)
+msgid "The Code Collaborator Settings Dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "<placeholder-1/> The top pane of the Log dialog has a context menu that "
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
-"shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/>  горњем  панел дијалога Дневника има контекст мени који омогућава да приступите ка много више информација. Неке од тих улаза менија појављују се само када је дневник приказан за фајл, а неки само када је дневник приказан за фолдер. <placeholder-2/>"
+"shown for a folder. <placeholder-2/><placeholder-3/>"
+msgstr ""
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9111,7 +9131,6 @@ msgstr "Спајање"
 #. (primary)
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "merge"
 msgstr "стопи"
 
@@ -9176,48 +9195,12 @@ msgid ""
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr "Како питате Субверзију да то уради: <quote>Израчунати измене неопходне да узмете [ОД] ревизије 1 гране A [ДО] ревизије 7 гране A, примените ове измене у мојој радној копији (дебло или грана B).</quote>"
 
-#. (term)
-#. (title)
-msgid "Reintegrate a branch"
-msgstr "Реинтегриши грану"
-
 #. (para)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. All trunk changes have been ported to the feature "
-"branch, week by week, and now the feature is complete you want to merge it "
-"back into the trunk. Because you have kept the feature branch synchronized "
-"with the trunk, the latest versions of branch and trunk will be absolutely "
-"identical except for your branch changes."
-msgstr "Овај метод покрива случај када сте урадили  посебну грану што је разматрано у Субверзионој књизи. Све измене дебла су проведена у посебној грани, недеља по недељу, и сада је посебност комплетно оно што желите да стопите назад у дебло. Пошто хоћете да задржите посебну грану синхронизирану са деблом, задња верзија гране и дебла ће бити апсолутно идентичне осим за ваше измене гране."
-
-#. (para)
-msgid ""
-"This is a special case of the tree merge described below, and it requires "
-"only the URL to merge from (normally) your development branch. It uses the "
-"merge-tracking features of Subversion to calculate the correct revision "
-"ranges to use, and perform additional checks which ensure that the branch "
-"has been fully updated with trunk changes. This ensures that you don't "
-"accidentally undo work that others have committed to trunk since you last "
-"synchronized changes."
-msgstr "Ово је специјални случај стапања стабла описан доле, и он захтева само УРЛ да стопи (нормално) вашу грану развоја. Користи праћење стапања особину Субверзије да израчуна исправни ревизиони опсег за коришћење, и омогућава додатну проверу која омогућава да је та грана потпуно обновљена изменом дебла. Ово омогућава  да ви не поништите гршком рад који су други урезали у дебло од ваше задње сихронизоване измене."
-
-#. (para)
-msgid ""
-"After the merge, all branch development has been completely merged back into"
-" the main development line. The branch is now redundant and can be deleted."
-msgstr "После стапања, цела грана развоја је комплетно стопљена назад у главну развојну линију. Грана је сада некорисна и може бити обрисана."
-
-#. (para)
-msgid ""
-"Once you have performed a reintegrate merge you should not continue to use "
-"it for development. The reason for this is that if you try to resynchronize "
-"your existing branch from trunk later on, merge tracking will see your "
-"reintegration as a trunk change that has not yet been merged into the "
-"branch, and will try to merge the branch-to-trunk merge back into the "
-"branch! The solution to this is simply to create a new branch from trunk to "
-"continue the next phase of your development."
-msgstr "Када једном извршите реинтеграцију стапања нећете наставити да га користите за развој. Резон за ово је то да ако покушате да ресинхронизујете вашу постојећу грану из дебла касније, праћење стапања ће погледати вашу реинтеграцију као измену дебла које још није стопљено у грану, и покушаће да стопи грану-у-дебло стапање назад у грану! Решење овоме је једноставно да се креира нова грана из дебла да се настави следећа фаза вашег развоја."
+"If you leave the revision range empty, Subversion uses the merge-tracking "
+"features to calculate the correct revision range to use. This is known as a "
+"reintegrate or automatic merge."
+msgstr ""
 
 #. (term)
 msgid "Merge two different trees"
@@ -9386,30 +9369,10 @@ msgstr "Ако други људи можда урезују измене буд
 
 #. (para)
 msgid ""
-"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
-"options\"/>."
-msgstr "Кликните <guibutton>Следећи</guibutton> и идите на  <xref linkend=\"tsvn-dug-merge-options\"/>."
-
-#. (secondary)
-msgid "reintegrate"
-msgstr "реинтеграција"
-
-#. (title)
-msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "Чаробњак спајања - Реинтеграција спајања"
-
-#. (para)
-msgid ""
-"<placeholder-1/> To merge a feature branch back into the trunk you must "
-"start the merge wizard from within a working copy of the trunk."
-msgstr "<placeholder-1/> Да стопите посебну грану назад у дебло морате почети чаробњак стапања унутар радне копије дебла."
-
-#. (para)
-msgid ""
-"In the <guilabel>From URL:</guilabel> field enter the full folder URL of the"
-" branch that you want to merge back. You may also click "
-"<guibutton>...</guibutton> to browse the repository."
-msgstr "У <guilabel>Из УРЛ:</guilabel> поља унесите пун фолдер УРЛ гране коју желите да стопите назад. Можете такође кликнути <guibutton>...</guibutton> да претражите спремиште."
+"If you leave the range of revisions empty or have the radio button "
+"<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
+"yet merged revisions. This is known as a reintegrate or automatic merge."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9421,6 +9384,12 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr "Постоје неки услови који доводе до реинтегрисања стапања. Најпре, сервер мора да подржава стапања праћење. Радна копија мора бити есконачне дубине (без празног преузимања), и не сме имати било какву локалну измену, пребачене ставке или ставке које су обновљене на ревизију различиту од ГЛАВНЕ. Све измене дебла урађене у току развоја гране морају бити стопљене кроз грану (или означене да су стопљене). Опсег ревизија за стапање биће израчунат аутоматски."
+
+#. (para)
+msgid ""
+"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
+"options\"/>."
+msgstr "Кликните <guibutton>Следећи</guibutton> и идите на  <xref linkend=\"tsvn-dug-merge-options\"/>."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -17541,7 +17510,6 @@ msgstr "Копира фолдер у <placeholder-1/> рекурзивно у д
 
 #. (option)
 #. (option)
-#. (option)
 msgid "/fromurl:URL"
 msgstr "/фромурл:УРЛ"
 
@@ -17561,20 +17529,14 @@ msgstr "/фромрев:xxx"
 msgid "/torev:xxx"
 msgstr "/торев:xxx"
 
-#. (option)
-msgid "/reintegrate"
-msgstr "/реинтеграција"
-
 #. (entry)
 msgid ""
 "Opens the merge dialog. The <placeholder-1/> specifies the target directory."
 " For merging a revision range, the following options are available: "
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
-"<placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use "
-"the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
-" the relevant fields in the merge dialog."
-msgstr "Отвара дијалог стапања. <placeholder-1/>  специфицира циљни фолдер. За стапање опсега ревизија следеће опције су доступне: <placeholder-2/>, <placeholder-3/>. За стапања два стабла спремишта следеће опције су доступне:  <placeholder-4/>, <placeholder-5/>, <placeholder-6/> и <placeholder-7/>.Да се реинтегрише стапање користите следеће опције:  <placeholder-8/>и <placeholder-9/>. Ово пре-попуњава релевантна поља у дијалогу стапања."
+"<placeholder-6/> and <placeholder-7/>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -19614,8 +19576,10 @@ msgstr "Такве измене се означе белим кругом са �
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
-"Such changes are marked with a pencil symbol."
-msgstr "Ручно уређење фајла у десном панелу могуће је у прегледу два-панела. Такве измене су означене симболом оловке."
+"Such changes are marked with a pencil symbol. Hand editing of the file in "
+"the left pane is also possible, only when <guibutton>Enable Edit "
+"</guibutton> is pressed when the left pane is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19650,6 +19614,13 @@ msgid ""
 "filenames used for the diff in each pane."
 msgstr "Ако летите мишем преко наслова панела, алатобавештења ће показати имена фајлова коришћена за дифф у сваком панелу."
 
+#. (para)
+msgid ""
+"Hand editing of the file in the left pane or right pane is also possible, "
+"only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
+"active."
+msgstr ""
+
 #. (title)
 msgid "Patch File List"
 msgstr "Листа фајла закрпе"
@@ -19672,6 +19643,53 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Прозор фајла закрпе има контекст мени који омогућава да прегледате ефекте закрпе на текући фајл (примењен без меморисања), да се примене и сачувају измене за изабране фајлове, или да се примене и сачувају измене за <emphasis>све</emphasis> фајлове у листи. Двоструки клик акција је за преглед."
+
+#. (title)
+msgid "Buttons and Other Controls"
+msgstr "Дугмићи и друге контроле"
+
+#. (para)
+msgid ""
+"Depending on your setting, you either see a toolbar or a ribbon with many "
+"buttons. The buttons all show a tooltip explaining their function when you "
+"hover the mouse pointer over them."
+msgstr ""
+
+#. (para)
+msgid ""
+"On the left side of the window is a locator bar. This provides a quick "
+"visual reference as to where the changes lie within the file. The bar has "
+"three columns. The left column refers to the left pane, the right column to "
+"the right pane, and the centre column to the bottom pane (if present). In "
+"one-pane view only the left column is used. The locator bar can also be used"
+" as a scroll bar to scroll all the windows simultaneously."
+msgstr "Са леве стране прозора је локатор пулт. Он омогућава брз визуални преглед где леже измене унутар фајла. Пулт има три колоне. Лева колона се односи на леви панел, десна колона на десни панел, централна колона на доњи панел (ако је присутан). У један-панел прегледу само се лева колона користи. Локатор пулт се такође може користити као пулт премотавања да премотава све прозоре симултано."
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr "Ако двоструко кликнете на реч онда свако појављивање те речи биће осветљено кроз документ, оба на главном панелу и локатор панелу. Двоструки клик на реч поново за уклањање осветљавања."
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr "Ако кликнете на леву маргину, или ако троструко кликнете у оквиру линије, цела линија ће бити селектована."
+
+#. (para)
+msgid ""
+"Below the bottom window is the status bar. This shows the number of lines "
+"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
+"and the number of unresolved conflicts remaining. You can also see which "
+"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
+" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
+"UTF-8 files. You can change line-ending style and encoding by double-"
+"clicking the corresponding column of that view. A dialog box will be "
+"displayed. The left side of the status bar is used to display hints when you"
+" hover the mouse over a control."
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -19724,6 +19742,12 @@ msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Ова линија је у конфликту, али ефекат је скривен белином или подешавањем краја-линије."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
+"being moved from / to another location."
+msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20198,6 +20222,14 @@ msgstr "Цтрл-мишточкић"
 #. (para)
 msgid "Scroll the display left/right"
 msgstr "Премотај дисплеј лево/десно"
+
+#. (term)
+msgid "Ctrl-Tab"
+msgstr ""
+
+#. (para)
+msgid "Switch between left/right/bottom view"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

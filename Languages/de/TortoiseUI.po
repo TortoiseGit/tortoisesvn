@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 11:44+0000\n"
+"PO-Revision-Date: 2013-07-19 08:03+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6909,6 +6909,10 @@ msgstr "Neues Menü"
 msgid "New name for %s"
 msgstr "Neuer Name für %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr "Der neue Name darf nicht leer oder gleich dem ursprünglichen Namen sein!"
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Neuer Name:"
@@ -7880,10 +7884,6 @@ msgstr "Beenden\nTortoiseMerge verlassenen ohne die Änderungen zu speichern."
 msgid "R&AM drives"
 msgstr "&RAM disks"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "Wi&edereingliedern / automatisch zusammenführen"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&ücksetzen"
@@ -8067,10 +8067,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filtern mit regulären Ausdrücken:\r\n. : Ein beliebiges Zeichen\r\nc+ : Ein oder mehrere Vorkommen von 'c'\r\nc* : Kein oder mehrere Vorkommen von 'c'\r\n^ : Zeilenanfang\r\n$ : Zeilenende\r\n(string){n} : N-maliges Vorkommen von 'string'\r\n(abcd) : Unterausdruck 'abcd'\r\n[aei0-9] : Findet a,e,i und 0..9\r\n[^aei0-9] : Findet alles außer a,e,i und 0..9\r\n\r\n\\w : Alphanumerische Zeichen a-z,A-Z,0-9 und _\r\n\\W : Alle nicht-alphanumerischen Zeichen\r\n\\d : Ziffern 0-9\r\n\\s : Leerzeichen"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Wiedereingliedern"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8286,6 +8282,11 @@ msgstr "Umbenennen"
 #, c-format
 msgid "Rename %s"
 msgstr "%s Umbenennen"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr "'%s' Umbenennen:"
 
 #. Resource IDs: (127)
 #, c-format
@@ -9060,10 +9061,6 @@ msgstr "Startrevision wählen"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Texteditor auswählen"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Wählen Sie die URLs zum Wiedereingliedern"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10606,13 +10603,6 @@ msgstr "Dies ist kein gültiger Pfad!\nEine gültige Pfadangabe unter Windows da
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Diese Methode deckt den Fall ab, dass Sie, wie im Subversion Buch beschrieben, einen Funktionszweig angelegt haben und diese Änderungen in den Stamm zurück übertragen wollen."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11381,8 +11371,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Wählen Sie den gewünschten Revisionsbereich im Log-Dialog aus oder geben Sie die Revisionen, durch Kommata getrennt, ein. Ein Revisionsbereich wird durch einen Bindestrich angegeben.\r\n\r\nBeispiel: 4-7,9,11,15-HEAD@fixrevision\r\n\r\nLassen Sie das Eingabefeld leer, um alle Revisionen zusammenzuführen."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr "Verwenden Sie den Log-Dialog, um die zusammenzuführenden Revisionen auszuwählen oder geben Sie sie durch Komma getrennt ein. Ein Revisionsbereich wird durch einen Bindestrich angegeben.\r\n\r\nBeispiel: 4-7,9,11,15-HEAD@fixrevision\r\n\r\nLassen Sie das Feld leer, um alle Revisionen zusammenzuführen (Reintegrieren, automatisches Zusammenführen)."
 
 #. Resource IDs: (314)
 #, c-format

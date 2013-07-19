@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Burmese (http://www.transifex.com/projects/p/tortoisesvn/language/my/)\n"
 "MIME-Version: 1.0\n"
@@ -6900,6 +6900,10 @@ msgstr ""
 msgid "New name for %s"
 msgstr ""
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr ""
@@ -7871,10 +7875,6 @@ msgstr ""
 msgid "R&AM drives"
 msgstr ""
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr ""
@@ -8057,10 +8057,6 @@ msgid ""
 "\\W   : any non-alphanumeric character\r\n"
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
-msgstr ""
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
 msgstr ""
 
 #. Resource IDs: (230)
@@ -8276,6 +8272,11 @@ msgstr ""
 #. Resource IDs: (97)
 #, c-format
 msgid "Rename %s"
+msgstr ""
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
 msgstr ""
 
 #. Resource IDs: (127)
@@ -9050,10 +9051,6 @@ msgstr ""
 
 #. Resource IDs: (79)
 msgid "Select text editor application"
-msgstr ""
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
 msgstr ""
 
 #. Resource IDs: (595)
@@ -10597,13 +10594,6 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr ""
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11372,7 +11362,7 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
 msgstr ""
 
 #. Resource IDs: (314)

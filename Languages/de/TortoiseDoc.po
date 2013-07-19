@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-06-17 09:10+0000\n"
+"PO-Revision-Date: 2013-07-19 08:04+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5351,13 +5351,33 @@ msgid ""
 "in the bottom pane). The search is not case sensitive."
 msgstr "Die Logmeldungen durchsuchen. Die von Subversion generierte Liste der geänderten Dateien im unteren Bereich wird mit einbezogen. Die Suche ignoriert Groß-/Kleinschreibung."
 
+#. (term)
+msgid "Create code collaborator review..."
+msgstr "Code Collaborator Rezension anlegen..."
+
+#. (para)
+msgid ""
+"This menu is shown only if the SmartBear code collaborator tool is "
+"installed. When invoked for the first time, a dialog is shown prompting the "
+"user to enter user credentials for both code collaborator and SVN. Once the "
+"settings are stored, the settings dialog is no longer shown when the menu is"
+" invoked, unless the user holds <keycap>Ctrl</keycap> while executing the "
+"menu item. The configuration and the chosen revision(s) are used to invoke "
+"the code collaborator graphical user interface client, which creates a new "
+"review with the selected revisions."
+msgstr "Dieses Menü wird nur angezeigt, wenn das SmartBear Code Collaborator Tool installiert ist. Beim ersten Aufruf wird ein Dialog angezeigt in den Sie die Anmeldeinformationen für Code Collaborator und SVN eingeben. Nachdem die Einstellungen gespeichert wurden, wird der Einstellungsdialog nicht mehr angezeigt wenn das Menü aufgerufen wird, es sei denn, Sie halten <keycap>Strg</keycap> gedrückt während Sie das Menü aufrufen. Die Konfiguration und die gewählten Revisionen werden zum Aufruf der grafischen  Code Collaborator Schnittstelle verwendet, der eine neue Rezension mit den gewählten Revisionen erstellt."
+
+#. (title)
+msgid "The Code Collaborator Settings Dialog"
+msgstr "Der Code Collaborator Einstellungsdialog"
+
 #. (para)
 msgid ""
 "<placeholder-1/> The top pane of the Log dialog has a context menu that "
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
-"shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/> Der obere Bereich des Log-Dialogs besitzt ein Kontextmenü das Ihnen Zugriff auf weitere Informationen ermöglicht. Einige Funktionen stehen nur bei Dateien, andere bei Ordnern zur Verfügung. <placeholder-2/>"
+"shown for a folder. <placeholder-2/><placeholder-3/>"
+msgstr "<placeholder-1/> Der obere Bereich des Log-Dialogs besitzt ein Kontextmenü das Ihnen Zugriff auf weitere Informationen ermöglicht. Einige Funktionen stehen nur bei Dateien, andere bei Ordnern zur Verfügung. <placeholder-2/><placeholder-3/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9118,7 +9138,6 @@ msgstr "Zusammenführen"
 #. (primary)
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "merge"
 msgstr "Merge"
 
@@ -9183,48 +9202,12 @@ msgid ""
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr "Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Änderungen, die nötig sind um <emphasis>von</emphasis> Revision X des Zweiges A <emphasis>zu</emphasis> Revision Y des Zweiges A zu gelangen und wende diese Änderungen auf meine Arbeitskopie (von Stamm oder Zweig B) an.</quote>"
 
-#. (term)
-#. (title)
-msgid "Reintegrate a branch"
-msgstr "Einen Zweig wieder eingliedern"
-
 #. (para)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. All trunk changes have been ported to the feature "
-"branch, week by week, and now the feature is complete you want to merge it "
-"back into the trunk. Because you have kept the feature branch synchronized "
-"with the trunk, the latest versions of branch and trunk will be absolutely "
-"identical except for your branch changes."
-msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig, wie im Subversion Buch behandelt, angelegt haben. Alle Änderungen am Stamm wurden Woche für Woche mit dem Zweig zusammengeführt, und nun möchten Sie, da die Funktion im Zweig fertig ist, diese wieder im Stamm zusammenführen. Weil Sie den Funktionszweig immer mit dem Stamm synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Stammes, mit Ausnahme der auf dem Funktionszweig implementierten Neuerungen identisch."
-
-#. (para)
-msgid ""
-"This is a special case of the tree merge described below, and it requires "
-"only the URL to merge from (normally) your development branch. It uses the "
-"merge-tracking features of Subversion to calculate the correct revision "
-"ranges to use, and perform additional checks which ensure that the branch "
-"has been fully updated with trunk changes. This ensures that you don't "
-"accidentally undo work that others have committed to trunk since you last "
-"synchronized changes."
-msgstr "Hierbei handelt es sich um einen Spezialfall des weiter unten beschriebenen Zusammenführens von Bäumen. Es wird als Quelle nur die URL des Entwicklungsszweiges benötigt. Die Funktion verwendet die Protokollierung der Datenintegration, um die korrekten Revisionsbereiche zu ermitteln und führt zusätzlich Überprüfungen durch ob der Zweig mit allen Änderungen aus dem Stamm zusammengeführt wurde. Dadurch wird sichergestellt, dass Sie nicht versehentlich Änderungen von anderen zurücknehmen, die seit Ihrer letzten Synchronisation mit dem Stamm übertragen wurden."
-
-#. (para)
-msgid ""
-"After the merge, all branch development has been completely merged back into"
-" the main development line. The branch is now redundant and can be deleted."
-msgstr "Nach dem Zusammenführen ist der Funktionszweig komplett in die Hauptentwicklungslinie zurückgeführt worden. Der Zweig ist nun überflüssig und kann gelöscht werden."
-
-#. (para)
-msgid ""
-"Once you have performed a reintegrate merge you should not continue to use "
-"it for development. The reason for this is that if you try to resynchronize "
-"your existing branch from trunk later on, merge tracking will see your "
-"reintegration as a trunk change that has not yet been merged into the "
-"branch, and will try to merge the branch-to-trunk merge back into the "
-"branch! The solution to this is simply to create a new branch from trunk to "
-"continue the next phase of your development."
-msgstr "Sobald Sie einen Zweig wieder eingegliedert haben, sollten Sie ihn nicht mehr für die Weiterentwicklung nutzen. Der Grund ist, dass wenn Sie ihren existierenden Zweig später mit dem Stamm synchronisieren wollen, die Änderungsverfolgung ihre Wiedereingliederung als Änderung am Stamm sieht, die noch nicht in den Zweig übertragen wurde und versucht, die Zweig nach Stamm Integration zurück in den Zweig zu integrieren! Die Lösung für dieses Problem besteht darin, für die nächste Phase der Weiterentwicklung einen neuen Zweig vom Stamm aus anzulegen."
+"If you leave the revision range empty, Subversion uses the merge-tracking "
+"features to calculate the correct revision range to use. This is known as a "
+"reintegrate or automatic merge."
+msgstr "Wenn Sie den Revisionsbereich leer lassen, wird Subversion auf das interne Änderungsprotokoll zurückgreifen, um den korrekten Revisionsbereich zu ermitteln. Dies wird als Reintegrieren bzw. automatisches Zusammenführen bezeichnet."
 
 #. (term)
 msgid "Merge two different trees"
@@ -9393,30 +9376,10 @@ msgstr "Falls außer Ihnen noch andere Personen Daten in das Projektarchiv über
 
 #. (para)
 msgid ""
-"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
-"options\"/>."
-msgstr "Klicken Sie auf <guibutton>Weiter</guibutton> und gehen Sie zu <xref linkend=\"tsvn-dug-merge-options\"/>."
-
-#. (secondary)
-msgid "reintegrate"
-msgstr "Erneut zusammenführen"
-
-#. (title)
-msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "Der Assistent - Zweig wieder Eingliedern"
-
-#. (para)
-msgid ""
-"<placeholder-1/> To merge a feature branch back into the trunk you must "
-"start the merge wizard from within a working copy of the trunk."
-msgstr "<placeholder-1/> Um einen Funktionszweig mit dem Stamm zusammenzuführen, müssen Sie den Assistenten aus einer Arbeitskopie des Stammes heraus aufrufen."
-
-#. (para)
-msgid ""
-"In the <guilabel>From URL:</guilabel> field enter the full folder URL of the"
-" branch that you want to merge back. You may also click "
-"<guibutton>...</guibutton> to browse the repository."
-msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die vollständige URL des <emphasis>Zweiges</emphasis> an, den Sie zurückintegrieren möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
+"If you leave the range of revisions empty or have the radio button "
+"<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
+"yet merged revisions. This is known as a reintegrate or automatic merge."
+msgstr "Wenn Sie den Revisionsbereich leer lassen oder die Option <guilabel>Alle Revisionen</guilabel> markiert haben, wird Subversion alle bisher noch nicht zusammengeführten Revision verwenden. Dies wird als Reintegrieren bzw. automatisches Zusammenführen bezeichnet."
 
 #. (para)
 msgid ""
@@ -9428,6 +9391,12 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr "Um einen Zweig wieder eingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine spärliche Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
+
+#. (para)
+msgid ""
+"Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
+"options\"/>."
+msgstr "Klicken Sie auf <guibutton>Weiter</guibutton> und gehen Sie zu <xref linkend=\"tsvn-dug-merge-options\"/>."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -17548,7 +17517,6 @@ msgstr "Kopiert die Ordner in <placeholder-1/> rekursiv in das in <placeholder-2
 
 #. (option)
 #. (option)
-#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -17568,20 +17536,14 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
-#. (option)
-msgid "/reintegrate"
-msgstr "/reintegrate"
-
 #. (entry)
 msgid ""
 "Opens the merge dialog. The <placeholder-1/> specifies the target directory."
 " For merging a revision range, the following options are available: "
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
-"<placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use "
-"the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
-" the relevant fields in the merge dialog."
-msgstr "Öffnet den Zusammenführen-Dialog. Der <placeholder-1/> definiert den Zielordner. Zum Zusammenführen eines Revisionsbereichs stehen die folgenden Optionen zur Verfügung: <placeholder-2/>, <placeholder-3/>. Zum Zusammenführen zweier Bäume stehen folgende Optionen zur Verfügung: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> und <placeholder-7/>. Um einen Zweig wieder einzugliedern, verwenden Sie die Optionen: <placeholder-8/> und <placeholder-9/>. Diese tragen Vorgabewerte in die Eingabefelder des Dialogs ein."
+"<placeholder-6/> and <placeholder-7/>."
+msgstr "Öffnet den Zusammenführen-Dialog. Der <placeholder-1/> definiert den Zielordner. Zum Zusammenführen eines Revisionsbereichs stehen die folgenden Optionen zur Verfügung: <placeholder-2/>, <placeholder-3/>. Zum Zusammenführen zweier Bäume stehen folgende Optionen zur Verfügung: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> und <placeholder-7/>."
 
 #. (entry)
 msgid ""
@@ -19621,8 +19583,10 @@ msgstr "Solche Änderungen werden durch einen weißen Kreis am linken Rand der B
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
-"Such changes are marked with a pencil symbol."
-msgstr "In der Zweifenstersicht können Sie die Datei im rechten Fenster bearbeiten. Solche Änderungen werden durch einen Stift gekennzeichnet."
+"Such changes are marked with a pencil symbol. Hand editing of the file in "
+"the left pane is also possible, only when <guibutton>Enable Edit "
+"</guibutton> is pressed when the left pane is active."
+msgstr "Manuelles Bearbeiten der rechten Datei ist in der Zweifenstersicht möglich. Änderungen werden durch ein Stiftsymbol gekennzeichnet. Manuelles Bearbeiten der linken Datei ist nur möglich, wenn die Schaltfläche <guibutton>Bearbeiten aktivieren</guibutton> bei aktiver linker Seite gedrückt wurde."
 
 #. (para)
 msgid ""
@@ -19657,6 +19621,13 @@ msgid ""
 "filenames used for the diff in each pane."
 msgstr "Wenn Sie mit der Maus über die Titelzeile jedes Bereichs fahren, wird Ihnen der Name der jeweiligen Datei in einem Hinweistext angezeigt."
 
+#. (para)
+msgid ""
+"Hand editing of the file in the left pane or right pane is also possible, "
+"only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
+"active."
+msgstr "Manuelles Bearbeiten der linken Datei ist nur möglich, wenn die Schaltfläche <guibutton>Bearbeiten aktivieren</guibutton> bei aktiver linker Seite gedrückt wurde."
+
 #. (title)
 msgid "Patch File List"
 msgstr "Patchliste"
@@ -19679,6 +19650,53 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr "Das Patchdateifenster hat ein Kontextmenü, das Ihnen eine Vorschau der Änderungen an der aktuellen Datei ermöglicht (Anwenden ohne zu speichern), den Patch anzuwenden und zu speichern sowie den Patch auf <emphasis>alle</emphasis> Dateien in der Liste anzuwenden und die Änderungen zu speichern. Ein <action>Doppelklick</action> startet die Vorschau."
+
+#. (title)
+msgid "Buttons and Other Controls"
+msgstr "Schaltflächen und andere Steuerelemente"
+
+#. (para)
+msgid ""
+"Depending on your setting, you either see a toolbar or a ribbon with many "
+"buttons. The buttons all show a tooltip explaining their function when you "
+"hover the mouse pointer over them."
+msgstr "Abhängig von Ihren Einstellungen, sehen Sie entweder eine Werkzeugleiste oder ein Band mit vielen Schaltflächen. Die Schaltflächen besitzen alle einen HInweistext, der ihre Funktion erläutert, sobald Sie mit der Maus darüber fahren."
+
+#. (para)
+msgid ""
+"On the left side of the window is a locator bar. This provides a quick "
+"visual reference as to where the changes lie within the file. The bar has "
+"three columns. The left column refers to the left pane, the right column to "
+"the right pane, and the centre column to the bottom pane (if present). In "
+"one-pane view only the left column is used. The locator bar can also be used"
+" as a scroll bar to scroll all the windows simultaneously."
+msgstr "Am linken Rand ist eine kleine Navigationsleiste. Diese zeigt in einer schnellen Überblick, wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Bereich, die rechte Spalte dem rechten Bereich, die mittlere Spalte, falls angezeigt, dem unteren Bereich. In der Einfenstersicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei sich dann jeweils alle drei Bereiche synchron verschieben."
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr "Wenn Sie auf ein Wort doppelklicken wird jedes Vorkommen des Wortes im gesamten Dokument, sowohl in den Fenstern als auch in der Navigationsleiste hervorgehoben. Doppelklicken Sie erneut auf das Wort, um die Markierung zu entfernen."
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr "Wenn Sie am linken Rand klicken oder wenn Sie innerhalb einer Zeile dreifach klicken, wird die gesamte Zeile ausgewählt."
+
+#. (para)
+msgid ""
+"Below the bottom window is the status bar. This shows the number of lines "
+"added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
+"and the number of unresolved conflicts remaining. You can also see which "
+"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
+" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
+"UTF-8 files. You can change line-ending style and encoding by double-"
+"clicking the corresponding column of that view. A dialog box will be "
+"displayed. The left side of the status bar is used to display hints when you"
+" hover the mouse over a control."
+msgstr "Unterhalb des unteren Bereichs befindet sich die Statusleiste. Diese zeigt die Anzahl der hinzugefügten und entfernten Zeilen in <emphasis>Deren</emphasis> und <emphasis>Meiner</emphasis> Datei sowie die Anzahl ungelöster Konflikte an. Sie können obendrein erkennen, welcher Zeilenendestil genutzt wird, welche Zeichencodierung TortoiseMerge vermutet (ASCII, UTF-8, etc) und ob eine Byte-Order-Marke (BOM) in UTF-8 Dateien vorhanden ist. Sie können den Zeilenendestil ändern, indem Sie einen Doppelklick auf die entsprechende Spalte machen. Die linke Seite der Statuszeile wird genutzt, um Hinweistexte anzuzeigen, wenn Sie mit der Maus über ein Steuerelement fahren."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19731,6 +19749,12 @@ msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Diese Zeile enthält einen Konflikt, der aufgrund der Vergleichsoptionen für Zeilenende oder Leerzeichen nicht sichtbar ist."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
+"being moved from / to another location."
+msgstr "<graphic fileref=\"images/TMerge_linemoved.png\"/> Diese Zeile wurde an eine andere Stelle verschoben."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20205,6 +20229,14 @@ msgstr "Strg+Mausrad"
 #. (para)
 msgid "Scroll the display left/right"
 msgstr "Anzeige links/rechts rollen"
+
+#. (term)
+msgid "Ctrl-Tab"
+msgstr "Strg+Tab"
+
+#. (para)
+msgid "Switch between left/right/bottom view"
+msgstr "Zwischen linker/rechter/unterer Ansicht wechseln"
 
 #. (title)
 msgid "Automating TortoiseMerge"

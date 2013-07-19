@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6902,6 +6902,10 @@ msgstr "Нове меню"
 msgid "New name for %s"
 msgstr "Нове ім'я для %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Нове ім'я:"
@@ -7873,10 +7877,6 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM диски"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "Пе&реініціалізувати"
@@ -8060,10 +8060,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Фільтр регулярних виразів:\r\n.   : будь-який символ\r\nc+   : співпадає з символом c один або більше разів\r\nc*   : співпадає з символом c нуль або більше разів\r\n^   : початок рядка\r\n$   : кінець рядка\r\n(string){n} : співпадає з рядком n разів\r\n(abcd)   : підвираз\r\n[aei0-9]   : співпадає з  a,e,i та 0..9\r\n[^aei0-9] : будь-що, крім a,e,i та 0..9\r\n\r\n\\w   : співпадає з  a-z,A-Z,0-9 та _\r\n\\W   : будь-який не буквоцифровий символ\r\n\\d   : цифри 0-9\r\n\\s   : пробіли"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr " Переінтегрувати злиття"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8279,6 +8275,11 @@ msgstr "Перейменувати"
 #, c-format
 msgid "Rename %s"
 msgstr "Перейменувати %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9053,10 +9054,6 @@ msgstr "Вибрати початкову модифікацію"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Вибрати програму для редагування тексту"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Вибрати URL, з якого переінтегрувати"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10599,13 +10596,6 @@ msgstr "Це недопустимий шлях!\nДопустимий шлях �
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Цей метод охоплює той випадок, коли зроблено функціональну гілку, як описано у книжці про Subversion. Використовуйте його для злиття всіх змін із гілки назад до стовбура."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11374,7 +11364,7 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
 msgstr ""
 
 #. Resource IDs: (314)

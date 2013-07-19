@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6906,6 +6906,10 @@ msgstr "Ny meny"
 msgid "New name for %s"
 msgstr "Nytt namn för %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nytt namn:"
@@ -7877,10 +7881,6 @@ msgstr "Avsluta\nLämna TortoiseMerge utan att spara dina ändringar"
 msgid "R&AM drives"
 msgstr "R&AM enheter"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "N&ollställ"
@@ -8064,10 +8064,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Reguljära uttrycksfilter:\r\n. : alla tecken\r\nc+ : bokstaven c en eller flera gånger\r\nc* : bokstaven c noll eller flera gånger\r\n^ : början på raden\r\n$ : slutet på raden\r\n(sträng){n} : sträng n gånger\r\n(abcd) : subuttryck\r\n[aei0-9] : a,e,i och 0..9\r\n[^aei0-9] : allt förutom a,e,i och 0..9\r\n\r\n\\w : a-z,A-Z,0-9 and _\r\n\\W : alla tecken som inte är alfanumeriska\r\n\\d : siffrorna 0-9\r\n\\s : tomrum"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Återintegrera förening"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8283,6 +8279,11 @@ msgstr "Byt namn"
 #, c-format
 msgid "Rename %s"
 msgstr "Döp om %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9057,10 +9058,6 @@ msgstr "Välj startrevision"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Välj applikation för textredigering"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Välj URLerna du vill återintegrera ifrån"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10603,13 +10600,6 @@ msgstr "Det här är inte en giltig sökväg!\nEn giltig sökväg får inte inne
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Den här metoden är för fallet då du har skapat en gren för en uppgift som det står beskrivet i Subversionboken. Använd den här metoden för att förena alla ändringar i grenen tillbaka till huvudgrenen. "
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11378,7 +11368,7 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
 msgstr ""
 
 #. Resource IDs: (314)

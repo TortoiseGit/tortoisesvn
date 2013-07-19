@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6907,6 +6907,10 @@ msgstr "Ny Meny"
 msgid "New name for %s"
 msgstr "Nytt navn for %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nytt navn:"
@@ -7878,10 +7882,6 @@ msgstr "Avslutt\nAvsluttTortoiseMerge uten å lagre endringene"
 msgid "R&AM drives"
 msgstr "R&AM-disker"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "R&eintegrer gren / automatisk fletting"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "N&ullstill"
@@ -8065,10 +8065,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Regulært uttrykksfilter:\r\n.   : hvilket tegn som helst\r\nc+   : passer til tegnet c en eller flere ganger\r\nc*   : passer til tegnet c ingen eller flere ganger\r\n^   : linjestart\r\n$   : linjeslutt\r\n(streng){n} : passer til strengen n ganger\r\n(abcd)   : underuttrykk\r\n[aei0-9]   : passer til a,e,i og 0..9\r\n[^aei0-9] : alt annet enn but a,e,i og 0..9\r\n\r\n\\w   : passer til a-z,A-Z,0-9 og _\r\n\\W   : ethvert ikke-alfanumerisk tegn\r\n\\d   : sifrene 0-9\r\n\\s   : blanktegn"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reintegrer flett"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8284,6 +8280,11 @@ msgstr "Omdøp"
 #, c-format
 msgid "Rename %s"
 msgstr "Omdøp %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9058,10 +9059,6 @@ msgstr "Velg første revisjon"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Velg tekstredigeringsprogram"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Velg URL det skal reintegreres fra"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10604,13 +10601,6 @@ msgstr "Dette er ikke en gyldig sti.\nEn gyldig sti må ikke inneholde '<>|\"?*:
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Denne metoden dekker tilfellet hvor du har laget en utviklingsgren som omtalt i Subversion-boken. Bruk dette for å flette alle endringene i grenen tilbake til stammen."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11379,8 +11369,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Bruk loggdialogen til å velge de revisjonene du vil flette, eller skriv inn revisjonene som skal flettes, skilt av kommaer. Et revisjonsintervall kan angis med bindestrek.\n\nEksempel: 4-7,9,11,15-HEAD@spikerrevisjon\n\nFor å flette alle revisjoner, la boksen stå tom."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

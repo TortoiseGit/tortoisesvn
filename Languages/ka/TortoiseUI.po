@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6901,6 +6901,10 @@ msgstr "ახალი მენიუ"
 msgid "New name for %s"
 msgstr "ახალი სახელი %s-თვის"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "ახალი სახელი:"
@@ -7872,10 +7876,6 @@ msgstr "გამოსვლა\nTortoiseMerge პროგრამის დ�
 msgid "R&AM drives"
 msgstr "R&AM დისკები"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "გა&ნულება"
@@ -8059,10 +8059,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "მარტივი გამოსახულების ფილტრი:\r\n.   : ნებისმიერი სიმბოლო\r\nc+   : c სიმბოლოს ერთი ან მეტი თანხვედრა\r\nc*   : c სიმბოლოს ნულოვანი ან მეტი თანხვედრა\r\n^   : სტრიქონის დასაწყისი\r\n$   : სტრიქონის ბოლო\r\n(string){n} : სტრიქონის n თანხვედრა\r\n(abcd)   : ქვეგამოსახულება\r\n[aei0-9]   : თანხვედრა a,e,i და 0..9\r\n[^aei0-9] : ყველა გარდა a,e,i და 0..9\r\n\r\n\\w   : თანხვედრა a-z,A-Z,0-9 და _\r\n\\W   : ნებისმიერი არა ასო-ნიშანი\r\n\\d   : ციფრები 0-9\r\n\\s   : შორისები"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "შემაჯამებელი შერწყმა"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8278,6 +8274,11 @@ msgstr "გადარქმევა"
 #, c-format
 msgid "Rename %s"
 msgstr "გადარქმევა - %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9052,10 +9053,6 @@ msgstr "საწყისი ვერსიის არჩევა."
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "ტექსტური რედაქტორის პროგრამის არჩევა"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "საწყისი მისამართების შერჩევა შემაჯამებელი შერწყმისთვის"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10598,13 +10595,6 @@ msgstr "ეს გეზი უმართებლოა!\nმართებ�
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "ეს მეთოდი ეხება იმ შემთხვევას, როცა შექმენით განშტოება როგორც აღწერილია Subversion წიგნში. ისარგებლეთ განშტოების ყველა ცვლილების მაგისტრალში შერწყმისთვის."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11373,8 +11363,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "ისარგებლეთ დავთრის დიალოგით შერწყმისთვის სასურველი ვერსიების შესარჩევად ან მძიმით დაყოფილი მიუთითეთ ვერსიების სია. ვერსიების დიაპაზონის მისათითებლად გამოიყენეთ ტირე.\n\nმაგალითი: 4-7,9,11,15-HEAD@pegrevision\n\nყველა ვერსიის შერწყმისათვის, დაფა ცარიელი დატოვეთ."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

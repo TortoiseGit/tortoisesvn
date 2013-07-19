@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6906,6 +6906,10 @@ msgstr "Novo Menu"
 msgid "New name for %s"
 msgstr "Novo nome para %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Novo nome:"
@@ -7877,10 +7881,6 @@ msgstr "desiste\nSai do TortoiseMerge sem guardar as modificações"
 msgid "R&AM drives"
 msgstr "Unidades R&AM"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "R&eintegrar um ramo / integrar automaticamente"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "Reini&ciar"
@@ -8064,10 +8064,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filtro de Expressões Regulares:\r\n.   : qualquer caractere\r\nc+   : corresponde ao caractere 'c' uma ou mais vezes\r\nc*   : corresponde ao caractere 'c' zero ou mais vezes\r\n^   : início da linha\r\n$   : fim da linha\r\n(ola){n} : corresponde à cadeia 'ola' repetida n vezes\r\n(abcd)   : sub expressão\r\n[aei0-9]   : corresponde a 'a', 'e', 'i' e '0' a '9'\r\n[^aei0-9] : qualquer coisa excepto 'a', 'e', 'i' e '0' a '9'\r\n\r\n\\w   : corresponde a 'a' a 'z', 'A' a 'Z', '0' a '9' ou '_'\r\n\\W   : qualquer caractere não-alfanumérico\r\n\\d   : dígitos de '0' a '9'\r\n\\s   : espaço em branco"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reintegrar integração"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8283,6 +8279,11 @@ msgstr "Alterar o nome"
 #, c-format
 msgid "Rename %s"
 msgstr "Alterar o nome de %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9057,10 +9058,6 @@ msgstr "Seleccionar revisão inicial"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Seleccionar aplicação de edição de texto"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Seleccionar o URL a partir do qual reintegrar"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10603,13 +10600,6 @@ msgstr "Este não é um caminho válido!\nUm caminho válido não pode conter '<
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Este método aplica-se no caso de ter criado um ramo de características, tal como discutido no livro do Subversion. Use-o para integrar no tronco todas as alterações de um ramo."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11378,8 +11368,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Usa a caixa de diálogo registo para seleccionar as revisões que queres integrar, ou introduz as revisões a integrar, separadas por virgulas. Um intervalo de revisões pode ser especificado por um traço.\n\nExemplo: 4-7,9,11,15-HEAD@pegrevision\n\nPara integrar todas as revisões, deixa a caixa vazia."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

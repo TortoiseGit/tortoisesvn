@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6907,6 +6907,10 @@ msgstr "Nieuw Menu"
 msgid "New name for %s"
 msgstr "Nieuwe naam voor %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nieuwe naam:"
@@ -7878,10 +7882,6 @@ msgstr "Afsluiten\nSluit TortoiseMerge af zonder de wijzigingen op te slaan"
 msgid "R&AM drives"
 msgstr "R&AM station"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Herstel"
@@ -8065,10 +8065,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filter voor reguliere expressies:\r\n.   : willekeurig teken\r\nc+   : één of meer 'c' karakters\r\nc*   : nul of meer 'c' karakters\r\n^   : begin van de regel\r\n$   : einde van de regel\r\n(string){n} : n maal tekenreeks string\r\n(abcd)   : subexpressie\r\n[aei0-9]   : tekens a,e,i of 0..9\r\n[^aei0-9] : alle tekens behalve a,e,i and 0..9\r\n\r\n\\w   : tekens a-z,A-Z,0-9 and _\r\n\\W   : alle niet alfanumerieke tekens\r\n\\d   : cijfers 0-9\r\n\\s   : spaties en tabs"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reïntegreer samenvoeging"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8284,6 +8280,11 @@ msgstr "Hernoemen"
 #, c-format
 msgid "Rename %s"
 msgstr "Hernoem %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9058,10 +9059,6 @@ msgstr "Selecteer eerste revisie"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Kies een tekstbewerker"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Kies de URL voor het samenvoegen"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10604,13 +10601,6 @@ msgstr "Dit is geen geldig pad!\nEen geldig pad onder Windows mag geen '<>|\"?*:
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Deze methode wordt gebruikt als u een 'feature branch' heeft zoals besproken in het Subversion boek. Gebruik deze methode om alle wijzigingen uit een tak in de basislijn samen te voegen."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11379,8 +11369,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Gebruik het log venster om de revisies die u wilt samenvoegen te selecteren, of geef de revisienummers gescheiden door komma's. Een aaneengesloten reeks revisies kan worden opgegeven met het min-teken.\n\nVoorbeeld: 4-7,9,11,15-HEAD@pegrevision\n\nVoor het samenvoegen van alle revisies laat u het vakje leeg."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

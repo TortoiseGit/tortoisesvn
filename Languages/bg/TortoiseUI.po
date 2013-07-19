@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6902,6 +6902,10 @@ msgstr "Ново меню"
 msgid "New name for %s"
 msgstr "Ново име за %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Ново име:"
@@ -7873,10 +7877,6 @@ msgstr "Изход\nЗатвори TortoiseMerge без запазване на 
 msgid "R&AM drives"
 msgstr "&RAM устройства"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Нулиране"
@@ -8060,10 +8060,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Филтър с регулярни изрази:\r\n.   : всеки знак\r\nc+   : съвпада със знака 'c' един или повече пъти\r\nc*   : съвпада със знака 'c' нула или повече пъти\r\n^   : начало на ред\r\n$   : край на ред\r\n(string){n} : съвпада с низа 'string' n-пъти\r\n(abcd) : подизраз\r\n[aei0-9] : съвпада с a,e,i и 0..9\r\n[^aei0-9] : всичко, освен a,e,i и 0..9\r\n\r\n\\w   : съвпада с a-z,A-Z,0-9 и _\r\n\\W   : всеки небуквено-цифров знак\r\n\\d   : цифри 0-9\r\n\\s   : празни символи"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Повторна интеграция / сливане"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8279,6 +8275,11 @@ msgstr "Преименуване"
 #, c-format
 msgid "Rename %s"
 msgstr "Преименуване на %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9053,10 +9054,6 @@ msgstr "Избор на начална ревизия"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Избор на текстов редактор"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Изберете URL, от който да се извърши повторна интеграция"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10599,13 +10596,6 @@ msgstr "Този път е невалиден!\nВалидните пътища 
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Този метод се използва, когато сте направили модулно разклонение, така както е обсъдено в книгата на 'Subversion'. Използвайте това, за да слеете всички промени от разклонението в основното течение."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11374,8 +11364,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Използвай диалога за да избереш ревизии за поверяване или въведи номера разделени със запетая. Диапазон може да се избере с тире.\r\n\r\nPrimer: 4-7,9,11,15-HEAD@pegrevision\r\n\r\nЗа да изберете всички ревизии, оставете кутията празна."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

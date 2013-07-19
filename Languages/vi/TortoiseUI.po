@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6902,6 +6902,10 @@ msgstr "Thực đơn mới"
 msgid "New name for %s"
 msgstr "Tên mới cho %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Tên mới:"
@@ -7873,10 +7877,6 @@ msgstr "Thoát\nThoát TortoiseMerge mà không lưu các sửa đổi"
 msgid "R&AM drives"
 msgstr "Ổ đĩa R&AM"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Đặt lại"
@@ -8060,10 +8060,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Lọc biểu thức thông thường:\n.   : bất kỳ ký tự nào\nc+   : khớp ký tự c một hoặc nhiều lần\nc*   : khớp ký tự c không hoặc nhiều lần\n^   : bắt đầu dòng\n$   : cuối dòng\n(string){n} : khớp chuỗi n lần\n(abcd)   : biểu thức con\n[aei0-9]   : khớp a,e,i và 0..9\n[^aei0-9] : mọi thứ trừ a,e,i và 0..9\n\n\\w   : khớp a-z,A-Z,0-9 và _\n\\W   : bất ký ký tự không phải chữ\n\\d   : chữ số 0-9\n\\s   : khoảng trắng"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Tái tích hợp việc hợp nhất"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8279,6 +8275,11 @@ msgstr "Đổi tên"
 #, c-format
 msgid "Rename %s"
 msgstr "Đổi tên %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9053,10 +9054,6 @@ msgstr "Chọn bản chỉnh sửa bắt đầu"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Chọn ứng dụng biên tập văn bản"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Chọn URL để tích hợp"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10599,13 +10596,6 @@ msgstr "Đây không phải là một đường dẫn hợp lệ!\nMột đườ
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Phương thức này bao gồm các trường hợp khi bạn làm một nhánh như đã thảo luận trong sách Subversion. Dùng cái này để hợp nhất tất cả các thay đổi của một nhánh vào lại thân."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11374,8 +11364,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Dùng hộp thoại tường trình để chọn các bản chỉnh sửa mà bạn muốn hợp nhất, hoặc nhập vào các bản chỉnh sửa cần hợp nhất, ngăn cách bởi các dấu phẩy. Một phạm vi chỉnh sửa có thể được chỉ ra băng dấu ngăn cách.\n\nVí dụ: 4-7,9,11,15-HEAD@pegrevision\n\nĐể hợp nhất tất cả các bản chỉnh sửa, hãy để trống hộp."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

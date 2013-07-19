@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-07-17 18:48+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4140,7 +4140,7 @@ msgstr "Opravdu chcete vrátit všechny změny na\n%s\nkteré byly udělány v t
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr ""
+msgstr "Chcete přetáhnout větev dodavatele do pracovní kopie \"%s\"?"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -5025,11 +5025,11 @@ msgstr "Zvětšit na výšku"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights"
-msgstr ""
+msgstr "Přizpůsobit &délky obrázku"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths"
-msgstr ""
+msgstr "&Přizpůsobit šířky obrázku"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5486,11 +5486,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6902,6 +6902,10 @@ msgstr "Nové menu"
 msgid "New name for %s"
 msgstr "Nové jméno pro %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr "Nový název nesmí být prázdný nebo stejný jako původní!"
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nové jméno:"
@@ -7873,10 +7877,6 @@ msgstr "Ukončit\nOdejít z TortoiseMerge bez uložení změn"
 msgid "R&AM drives"
 msgstr "R&AM disky"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr "&Znovu začlenit větev / Automatické sloučení"
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&esetovat"
@@ -8060,10 +8060,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Filtr regulárních výrazů:\n.   : jakýkoliv znak\nc+   : znak c jeden nebo více krát\nc*   : znak c nula nebo více krát\n^   : začátek řádky\n$   : konec řádky\n(řetězec){n} : řetězec n-krát\n(abcd)  : podvýraz\n[aei0-9]  : a,e,i nebo 0..9\n[^aei0-9] : cokoliv kromě a,e,i nebo 0..9\n\n\\w   : a-z,A-Z,0-9 nebo _\n\\W   : jakýkoliv nealfanumerický znak\n\\d   : číslo 0-9\n\\s   : mezery"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Znovu začlenit sloučení"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8279,6 +8275,11 @@ msgstr "Přejmenovat"
 #, c-format
 msgid "Rename %s"
 msgstr "Přejmenovat %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr "Přejmenovat '%s':"
 
 #. Resource IDs: (127)
 #, c-format
@@ -9053,10 +9054,6 @@ msgstr "Zvolte první revizi"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Zvolte aplikaci pro úpravy textu"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Zvolte URL odkud znovu začlenit"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10599,13 +10596,6 @@ msgstr "Toto není platná cesta!\nPlatná cesta nesmí obsahovat '<>|\"?*:', a 
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Tato metoda pokrývá případ, kdy jste vytvořili větev, jak je popsáno v knize Subversion. Použijte ke sloučení všech změn z větve zpět do kmene."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11374,8 +11364,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Použít dialogové okno záznamu k výběru revizí, které chcete sloučit, nebo zadejte revize ke sloučení oddělené čárkami. Rozsah může být zadán pomlčkou.\n\nPříklad: 4-7,9,11,15-HEAD@zavěšená revize\n\nPro sloučení všech revizí nechejte rámeček prázdný."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr "Použít dialogové okno záznamu k výběru revizí, které chcete sloučit, nebo zadejte revize ke sloučení oddělené čárkami. Rozsah může být zadán pomlčkou.\n\nPříklad: 4-7,9,11,15-HEAD@zavěšená revize\n\nPro sloučení všech revizí (znovuzačlenění/automatické sloučení) nechejte rámeček prázdný."
 
 #. Resource IDs: (314)
 #, c-format

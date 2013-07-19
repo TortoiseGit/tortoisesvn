@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6905,6 +6905,10 @@ msgstr "منوی جدید"
 msgid "New name for %s"
 msgstr "نام جدید برای %s"
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "نام جدید:"
@@ -7876,10 +7880,6 @@ msgstr "خروج\nخروج از TortoiseMerge  بدون ذخیره سازی تغ
 msgid "R&AM drives"
 msgstr "درایوهای &رَم"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "باز&نشانی"
@@ -8063,10 +8063,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Regular expressions filter:\r\n.   : any character\r\nc+   : match character c one or more times\r\nc*   : match character c zero or more times\r\n^   : start of line\r\n$   : end of line\r\n(string){n} : match string n times\r\n(abcd)   : subexpression\r\n[aei0-9]   : match a,e,i and 0..9\r\n[^aei0-9] : anything but a,e,i and 0..9\r\n\r\n\\w   : matches a-z,A-Z,0-9 and _\r\n\\W   : any non-alphanumeric character\r\n\\d   : digits 0-9\r\n\\s   : whitespaces"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Reintegrate merge"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8282,6 +8278,11 @@ msgstr "تغییر نام"
 #, c-format
 msgid "Rename %s"
 msgstr "تغییر نام %s"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9056,10 +9057,6 @@ msgstr "اصلاحیه شروع را انتخاب کنید"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "انتخاب برنامه ویرایش متن"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Select the URL from which to reintegrate"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10602,13 +10599,6 @@ msgstr "این مسیر معتبر نیست!\nمسیر معتبر نباید ش�
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "این روش موردی را پوشش می دهد که شما یک انشعاب برای ویژگی جدید به شکلی که در کتاب سابورژن بحث شده ایجاد کرده اید. از این ادغام برای انتقال تمامی تغییرات از انشعاب به شاخه اصلی استفاده نمایید."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11377,8 +11367,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\n\nExample: 4-7,9,11,15-HEAD@pegrevision\n\nTo merge all revisions, leave the box empty."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format

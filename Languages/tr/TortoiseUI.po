@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-09 08:27+0000\n"
+"PO-Revision-Date: 2013-07-16 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6905,6 +6905,10 @@ msgstr "Yeni Menü"
 msgid "New name for %s"
 msgstr "%s için yeni ad."
 
+#. Resource IDs: (95)
+msgid "New name must not be empty or the same as the original name!"
+msgstr ""
+
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Yeni ad:"
@@ -7876,10 +7880,6 @@ msgstr "Çık\nDeğişikleri kaydetmeden TortoiseMerge uygulamasından çık"
 msgid "R&AM drives"
 msgstr "R&AM sürücüleri"
 
-#. Resource IDs: (1469)
-msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
-
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&eset"
@@ -8063,10 +8063,6 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr "Normal ifade süzgeci:\r\n.   : herhangi bir karakter\r\nc+   : c karakterini bir ya da daha fazla kez eşleştir\r\nc*   : c karakterini sıfır ya da daha fazla kez eşleştir\r\n^   : satır başı\r\n$   : satır sonu\r\n(dize){n} : dizeyi n kere eşleştir\r\n(abcd)   : alt ifade\r\n[aei0-9]   : a,e,i ve 0..9'u eşleştir\r\n[^aei0-9] : a,e,i ve 0..9 dışında herşey\r\n\r\n\\w   : a-z,A-Z,0-9 ve _ ile eşleşir\r\n\\W   : herhangi alfasayısal olmayan karakter\r\n\\d   : 0-9 rakamları\r\n\\s   : boşluklar"
-
-#. Resource IDs: (595)
-msgid "Reintegrate merge"
-msgstr "Birleştirmeyi yeniden entegre et"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8282,6 +8278,11 @@ msgstr "Tekrar adlandır"
 #, c-format
 msgid "Rename %s"
 msgstr "%s 'ı Tekrar adlandır"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Rename '%s':"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9056,10 +9057,6 @@ msgstr "Başlangıç revizyonunu seç"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Metin editörü seç"
-
-#. Resource IDs: (595)
-msgid "Select the URL from which to reintegrate"
-msgstr "Yeniden entegre edilecek kaynak URL'yi seçin"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10602,13 +10599,6 @@ msgstr "Bu geçerli bir yol değil!\nGeçerli bir yol '<>|\"?*:'  veya aşağıd
 
 #. Resource IDs: (594)
 msgid ""
-"This method covers the case when you have made a feature branch as discussed"
-" in the Subversion book. Use this to merge all changes of a branch back to "
-"trunk."
-msgstr "Bu metod, Subversion kitabında bahsedildiği gibi, bir özellik dallanması yaptığınız durumu kapsar. Bunu bir daldaki tüm değişiklikleri ana yola birleştirmek için kullanın."
-
-#. Resource IDs: (594)
-msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
@@ -11377,8 +11367,8 @@ msgid ""
 "\r\n"
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
-"To merge all revisions, leave the box empty."
-msgstr "Günlük diyaloğunu, birleştirmek istediğiniz revizyonları seçmek veya birleştirilecek revizyonları virgül le ayrılmış şekilde girmek için kullanın. Revizyon aralığı tire ile belirtilebilir.\n\nÖrnek: 4-7,9,11,15-HEAD@pegrevision\n\nTüm revizyonları birleştirmek için kutuyu boş bırakın."
+"To merge all revisions (reintegrate/automatic merge), leave the box empty."
+msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
