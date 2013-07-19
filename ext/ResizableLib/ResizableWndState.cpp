@@ -122,25 +122,6 @@ BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
         &rc.right, &rc.bottom, &wp.showCmd, &wp.flags,
         &wp.ptMinPosition.x, &wp.ptMinPosition.y) == 8)
     {
-        // get screen size
-
-        int screenWidth = GetSystemMetrics(SM_CXSCREEN);
-        int screenHeight = GetSystemMetrics(SM_CYSCREEN);
-
-        // ensure that the window size doesn't exceeed the screen resolution
-
-        wp.rcNormalPosition.bottom = min ( wp.rcNormalPosition.bottom
-                                         , screenHeight + wp.rcNormalPosition.top - 1);
-
-        wp.rcNormalPosition.right = min ( wp.rcNormalPosition.right
-                                        , screenWidth + wp.rcNormalPosition.left - 1);
-
-        wp.ptMinPosition.x = min (wp.ptMinPosition.x, screenWidth - 1);
-        wp.ptMinPosition.y = min (wp.ptMinPosition.y, screenHeight - 1);
-
-        wp.ptMaxPosition.x = min (wp.ptMaxPosition.x, screenWidth - 1);
-        wp.ptMaxPosition.y = min (wp.ptMaxPosition.y, screenHeight - 1);
-
         if (bRectOnly)  // restore size/pos only
         {
             wp.showCmd = SW_SHOWNORMAL;
