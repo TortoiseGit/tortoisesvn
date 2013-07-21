@@ -140,6 +140,8 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     m_propList.InsertColumn(0, temp);
     temp.LoadString(IDS_PROPVALUE);
     m_propList.InsertColumn(1, temp);
+    temp.LoadString(IDS_EDITPROPS_INHERITED);
+    m_propList.InsertColumn(3, temp);
     m_propList.SetRedraw(false);
 
     if (m_bRevProps)
@@ -318,6 +320,51 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
             }
         }
     }
+    if (m_pathlist.GetCount() == 1)
+    {
+        // if there's only one path, read the inherited properties as well
+        SVNProperties propsinh (m_pathlist[0], m_revision, m_bRevProps, true);
+        auto inheritedprops = propsinh.GetInheritedProperties();
+        for (int p=0; p<propsinh.GetCount(); ++p)
+        {
+            std::string prop_str = propsinh.GetItemName(p);
+            std::string prop_value = propsinh.GetItemValue(p);
+
+            async::CCriticalSectionLock lock (m_mutex);
+
+            IT it = m_properties.find(prop_str);
+            if (it == m_properties.end())
+            {
+                // only add inherited properties if they're not already set
+                // on this very path
+                it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
+                tstring value = CUnicodeUtils::StdGetUnicode(prop_value);
+                it->second.value = prop_value;
+                CString stemp = value.c_str();
+                stemp.Replace('\n', ' ');
+                stemp.Remove(_T('\r'));
+                it->second.value_without_newlines = tstring((LPCTSTR)stemp);
+                it->second.count = 1;
+                it->second.allthesamevalue = true;
+                it->second.isinherited = true;
+                if (SVNProperties::IsBinary(prop_value))
+                    it->second.isbinary = true;
+                for (auto itup : inheritedprops)
+                {
+                    auto propmap = std::get<1>(itup);
+                    for (auto inp : propmap)
+                    {
+                        if (inp.first == it->first)
+                        {
+                            it->second.inheritedfrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 }
 
 UINT CEditPropertiesDlg::PropsThread()
@@ -343,6 +390,8 @@ UINT CEditPropertiesDlg::PropsThread()
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
+        m_propList.SetItemText(index, 2, it->second.inheritedfrom.c_str());
+
         if (it->second.isbinary)
         {
             m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
@@ -360,7 +409,7 @@ UINT CEditPropertiesDlg::PropsThread()
             // if the property values are the same for all paths,
             // we show the value
             m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
-            m_propList.SetItemData(index, TRUE);
+            m_propList.SetItemData(index, it->second.isinherited ? FALSE : TRUE);
         }
         else
         {

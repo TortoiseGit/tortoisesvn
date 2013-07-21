@@ -24,7 +24,7 @@
 class PropValue
 {
 public:
-    PropValue(void) : count(0), allthesamevalue(true), isbinary(false), remove(false) {};
+    PropValue(void) : count(0), allthesamevalue(true), isbinary(false), remove(false), isinherited(false) {};
 
     std::string value;
     tstring     value_without_newlines;
@@ -32,6 +32,8 @@ public:
     bool        allthesamevalue;
     bool        isbinary;
     bool        remove;
+    bool        isinherited;
+    std::wstring inheritedfrom;
 };
 
 typedef std::map<std::string, PropValue> TProperties;
