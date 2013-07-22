@@ -12,13 +12,14 @@
 # Translators:
 # Adrià Vilanova Martínez <jocdeladria@gmail.com>, 2012
 # Libre El Chaval <el.libre@gmail.com>, 2011
+# jmonguillot <jmonguillot@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-16 08:32+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-07-21 11:17+0000\n"
+"Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgstr "%1 no ha sigut trobat."
 #. Resource IDs: (169)
 #, c-format
 msgid "%1!d! files selected, %2!d! files total"
-msgstr ""
+msgstr "%1!d! fitxers seleccionats, %2!d! fitxers en total"
 
 #. Resource IDs: (246)
 #, c-format
@@ -246,27 +247,27 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr ""
+msgstr "%s, però el directori ja existeix sense versionar localment."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr ""
+msgstr "%s, però el directori no existeix localment."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr ""
+msgstr "%s, però el directori ja ha estat afegit localment."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr ""
+msgstr "%s, però el directori ja ha sigut editat."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr ""
+msgstr "%s, però el directori ja ha sigut esborrat, mogut o renombrat localment."
 
 #. Resource IDs: (610)
 #, c-format
@@ -286,7 +287,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr ""
+msgstr "%s, però el directori ha sigut substituït"
 
 #. Resource IDs: (609)
 #, c-format
@@ -301,7 +302,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr ""
+msgstr "%s, però el fitxer ja ha estat afegit localment."
 
 #. Resource IDs: (609)
 #, c-format
@@ -331,7 +332,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was replaced"
-msgstr ""
+msgstr "%s, però el fitxer ha sigut substituït"
 
 #. Resource IDs: (376)
 #, c-format
@@ -2493,7 +2494,7 @@ msgstr "No es pot crear una nova imatge!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menus!"
-msgstr ""
+msgstr "No es poden personalitzar menús!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -3432,7 +3433,7 @@ msgstr "Copia i canvia el nom aquí"
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
-msgstr ""
+msgstr "Copia columna al portapapers"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -12114,7 +12115,7 @@ msgstr "no està versionat."
 
 #. Resource IDs: (214)
 msgid "item kept locally"
-msgstr "item guradat localment"
+msgstr "item guardat localment"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
