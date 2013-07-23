@@ -138,8 +138,8 @@ void CEditPropMergeLogTemplate::OnOK()
     GetDlgItemText(IDC_MSG, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
-    pVal.remove = (pVal.value.empty());
     pVal.value = propVal;
+    pVal.remove = (pVal.value.empty());
     newProps[PROJECTPROPNAME_MERGELOGTEMPLATEMSG] = pVal;
 
     m_bChanged = true;
