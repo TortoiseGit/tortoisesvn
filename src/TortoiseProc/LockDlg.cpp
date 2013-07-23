@@ -277,6 +277,7 @@ void CLockDlg::OnBnClickedSelectall()
         m_SelectAll.SetCheck(state);
     }
     m_cFileList.SelectAll(state == BST_CHECKED);
+    OnEnChangeLockmessage();
 }
 
 void CLockDlg::OnBnClickedHistory()
