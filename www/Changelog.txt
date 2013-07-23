@@ -1,3 +1,62 @@
+Version 1.8.1
+- BUG: Issue #481: wrong parameter when
+       showing diff. (Stefan)
+- BUG: Issue #482: user hook scripts not loaded
+       and saved correctly. (Stefan)
+- BUG: Issue #483: merge error
+       "Invalid 'conflict_result' argument". (Stefan)
+- BUG: Issue #484: Crash when providing a client
+       certificate file. (Stefan)
+- BUG: Issue #486: Assert when creating a
+       unified diff. (Stefan)
+- BUG: Issue #487: Crash when parsing urls
+       from the command line. (Stefan)
+- BUG: Issue #490: Crash when closing
+       progress dialog early. (Stefan)
+- BUG: Issue #491: Sort state is lost when
+       refreshing the status list control. (Stefan)
+- BUG: Issue #493: Ribbon system menu
+       not working. (Stefan)
+- BUG: Issue #494: renaming in repo browser shows
+       empty cell. (Stefan)
+- BUG: Issue #496: include svnmucc in the
+       installer. (Stefan)
+- BUG: Issue #497: "restore after commit"
+       must restore on cancel as well. (Stefan)
+- BUG: Issue #498: Repo browser stops showing items
+       in the list view. (Stefan)
+- BUG: Issue #499: Subclassing static control
+       can fail. (Stefan)
+- BUG: Issue #502: repo browser shows context
+       menu for SVNParentPath item. (Stefan)
+- BUG: Issue #505: Crash in log dialog
+       editing message. (Stefan)
+- BUG: Issue #504: Log message editor always
+       use antialiased fonts. (Stefan)
+- BUG: Issue #506: SubWCRev aborts if date
+       template is wrong. (Stefan)
+- BUG: Issue #507: Vendorbranch feature needs
+       safeguards. (Stefan)
+- BUG: Issue #508: Annoying dialog when
+       closing TortoiseMerge. (Stefan)
+- BUG: Issue #509: VersionCheck = false not
+       working like it should. (Stefan)
+- BUG: Issue #510: Property diff shown
+       in reverse. (Stefan)
+- BUG: Issue #511: wrong tab order in cleanup
+       dialog. (Stefan)
+- BUG: Issue #512: old-style reintegrate merge:
+       disable record-only option. (Stefan)
+- BUG: Issue #515: Crash in TMerge when
+       copying text. (Stefan)
+- CHG: Issue #516: Remove reintegrate merge
+       page from merge wizard. (Stefan)
+- BUG: Issue #517: statistics button stays
+       disabled when filter is cleared. (Stefan)
+- BUG: Issue #520: TortoiseMerge fails to detect
+       utf-16 without BOM. (Stefan)
+- NEW: Issue #521: Show inherited properties. (Stefan)
+
 Version 1.8.0
 See the release notes here:
 http://tortoisesvn.net/tsvn_1.8_releasenotes.html
