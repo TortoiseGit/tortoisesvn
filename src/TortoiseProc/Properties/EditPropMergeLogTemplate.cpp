@@ -90,7 +90,6 @@ BOOL CEditPropMergeLogTemplate::OnInitDialog()
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
-    sWindowTitle.Remove('&');
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
