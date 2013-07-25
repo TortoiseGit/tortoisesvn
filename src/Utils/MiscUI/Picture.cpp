@@ -24,6 +24,7 @@
 #include "Picture.h"
 #include "SmartHandle.h"
 #include <atlbase.h>
+#include <Shobjidl.h>
 
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
@@ -550,6 +551,9 @@ UINT CPicture::GetColorDepth() const
     case PixelFormat32bppRGB:
         return 32;
     case PixelFormat48bppRGB:
+        // note: GDI+ converts images with bit depths > 32 automatically
+        // on loading, so PixelFormat48bppRGB, PixelFormat64bppARGB and
+        // PixelFormat64bppPARGB will never be used here.
         return 48;
     case PixelFormat64bppARGB:
     case PixelFormat64bppPARGB:
