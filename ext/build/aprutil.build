@@ -31,7 +31,6 @@
     </if>
   </target>
 
-
   <target name="build" depends="clean">
     <mkdir dir="${configuration}_${platform}" />
     <copy file="..\build\apu.hw" tofile="include\apu.h" overwrite="true" />
@@ -49,7 +48,6 @@
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
-      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
@@ -101,14 +99,14 @@
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
-    <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
+    <property name="machineoption" value="/MACHINE:X86" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
       output="${configuration}_${platform}\libaprutil_tsvn${platext}.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}\libaprutil_tsvn.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /BASE:"0x6EE60000" /IMPLIB:"${configuration}_${platform}\libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
-      <arg line="/LTCG /RELEASE" if="${configuration == 'release'}" />
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}\libaprutil_tsvn.pdb" /DLL ${subsystem} /BASE:"0x6EE60000" /IMPLIB:"${configuration}_${platform}\libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

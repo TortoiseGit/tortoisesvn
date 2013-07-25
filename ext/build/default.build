@@ -24,7 +24,6 @@
   <target name="build" depends="clean">
     <nant target="build" buildfile="apr.build" />
     <nant target="build" buildfile="aprutil.build" />
-
     <nant target="build" buildfile="zlib.build" />
     <nant target="build" buildfile="sqlite.build" />
     <nant target="build" buildfile="gssapi.build" />

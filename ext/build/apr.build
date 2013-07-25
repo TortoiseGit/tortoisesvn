@@ -39,7 +39,6 @@
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
-      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
@@ -112,8 +111,8 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
       output="${configuration}_${platform}\libapr_tsvn${platext}.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}\libapr_tsvn.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /BASE:"0x6EEC0000" /IMPLIB:"${configuration}_${platform}\libapr_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
-      <arg line="/LTCG /RELEASE" if="${configuration == 'release'}" />
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}\libapr_tsvn.pdb" /DLL ${subsystem} /BASE:"0x6EEC0000" /IMPLIB:"${configuration}_${platform}\libapr_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
+      <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

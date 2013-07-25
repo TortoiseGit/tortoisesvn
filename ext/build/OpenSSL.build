@@ -66,7 +66,7 @@
       <loadfile file="..\openssl\ms\nt.mak" property="makefile">
         <filterchain>
           <replacestring from="/MT" to="/MD" />
-          <replacestring from="/Ox " to="/O2 /GL " if="${configuration == 'release'}" />
+          <replacestring from="/Ox /O2" to="/O2 /GL" if="${configuration == 'release'}" />
           <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
           <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
           <replacestring from="OUT_D=out32" to="OUT_D=out64" />
