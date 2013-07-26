@@ -24,7 +24,6 @@
 #include "Picture.h"
 #include "SmartHandle.h"
 #include <atlbase.h>
-#include <Shobjidl.h>
 
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
