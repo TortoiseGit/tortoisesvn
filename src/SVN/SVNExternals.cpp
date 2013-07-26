@@ -405,7 +405,7 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
                 CTSVNPath targeturl = tagurl; // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7
                 targeturl.AppendRawString(sInsidePath); // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7/ext
 
-                if (changedurls.find(targeturl) != changedurls.end())
+                if (changedurls.find(targeturl) == changedurls.end())
                 {
                     SVNProperties props(targeturl, headrev, false, false);
                     if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message))
