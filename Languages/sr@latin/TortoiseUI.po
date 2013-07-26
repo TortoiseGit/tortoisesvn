@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-16 08:32+0000\n"
+"PO-Revision-Date: 2013-07-25 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6504,6 +6504,10 @@ msgstr "&Dubina stapanja:"
 msgid "Merge Log &Templates"
 msgstr "Stapa Dnevnik &Šablon"
 
+#. Resource IDs: (345)
+msgid "Merge Log Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Stopi Reintegriraj (!?)"
@@ -6906,7 +6910,7 @@ msgstr "Novo ime za %s"
 
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
-msgstr ""
+msgstr "Novo ime ne može biti prazno ili isto kao originalno ime!"
 
 #. Resource IDs: (98)
 msgid "New name:"
@@ -8281,7 +8285,7 @@ msgstr "Preimenuj %s"
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
-msgstr ""
+msgstr "Preimenuj '%s':"
 
 #. Resource IDs: (127)
 #, c-format
@@ -11367,7 +11371,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions (reintegrate/automatic merge), leave the box empty."
-msgstr ""
+msgstr "Koristi dijalog dnevnik da izabereš reviziju koju želiš da stopiš, ili unesi revizije za stapanje, razdvojene zapetama. Opseg revizija može se specificirati crticom.\r\n\r\nPrimer: 4-7,9,11,15-HEAD@pegrevision\r\n\r\nDa bi se stopile sve revizije (reintegrisano/automatsko stapanje) ostavite prazan boks."
 
 #. Resource IDs: (314)
 #, c-format
@@ -12101,6 +12105,10 @@ msgstr "uključi osobine"
 #. Resource IDs: (13)
 msgid "incomplete"
 msgstr "nedovršeno"
+
+#. Resource IDs: (589)
+msgid "inherited from"
+msgstr "nasleđeno od"
 
 #. Resource IDs: (583)
 msgid "it does not exist."

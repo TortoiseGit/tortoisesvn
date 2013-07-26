@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-16 08:32+0000\n"
+"PO-Revision-Date: 2013-07-25 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -582,7 +582,7 @@ msgstr "&Sulje ikkuna(t)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "&Collaborator -käyttäjänimi"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -1309,7 +1309,7 @@ msgstr "P&ysäytä kopion / uudelleennimennän kohdalla"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "&Subversion -käyttäjänimi"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -3040,7 +3040,7 @@ msgstr "Sulkee aktiivisen ikkunan ja pyytää tallettamaan tiedostot"
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Code Collaborator -asetukset"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3048,7 +3048,7 @@ msgstr "S&ulje lähdepuu"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Collaborator -&salasana"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -4142,7 +4142,7 @@ msgstr "Haluatko todella perua kaikki tiedostoon\n%s\ntässä versiossa tehdyt m
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr ""
+msgstr "Haluatko lisätä kirjastohaaran työkopioon \"%s\"?"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -5027,11 +5027,11 @@ msgstr "Sovita korkeus"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights"
-msgstr ""
+msgstr "Sovita kuvien &korkeudet"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths"
-msgstr ""
+msgstr "Sovita kuvien &leveydet"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5488,11 +5488,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V +L"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32817:V +K"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5877,7 +5877,7 @@ msgstr "Tuo kansion arkistoon"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr ""
+msgstr "Näyttääksesi tämän ikkunan jatkossa, paina <Ctrl> -näppäintä suorittaessasi Code Collaborator -toiminnon."
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -6504,6 +6504,10 @@ msgstr "Yhdistämis&syvyys:"
 msgid "Merge Log &Templates"
 msgstr "Yhdistämisloki&kaavaimet"
 
+#. Resource IDs: (345)
+msgid "Merge Log Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Yhdistä takaisin"
@@ -6906,7 +6910,7 @@ msgstr "Uudelleennimeä %s"
 
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
-msgstr ""
+msgstr "Uusi nimi ei saa olla tyhjä tai sama kuin alkuperäinen nimi!"
 
 #. Resource IDs: (98)
 msgid "New name:"
@@ -8281,7 +8285,7 @@ msgstr "Uudelleennimeä %s"
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
-msgstr ""
+msgstr "Nimeä uudelleen '%s':"
 
 #. Resource IDs: (127)
 #, c-format
@@ -9788,7 +9792,7 @@ msgstr "Subversion kohtasi vakavan ongelman.\nOle hyvä ja raportoi tästä Subv
 
 #. Resource IDs: (65535)
 msgid "Subversion passwor&d"
-msgstr ""
+msgstr "Subversion -&salasana"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10676,7 +10680,7 @@ msgstr "Aikakatkaisut"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "Vihje"
 
 #. Resource IDs: (224)
 msgid ""
@@ -11234,7 +11238,7 @@ msgstr "Käytä valintanauhaa"
 
 #. Resource IDs: (1500)
 msgid "Use Task Dialog"
-msgstr ""
+msgstr "Käytä Task-ikkunoita"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11367,7 +11371,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions (reintegrate/automatic merge), leave the box empty."
-msgstr ""
+msgstr "Käytä loki-ikkunaa valitaksesi yhdistettävät versiot tai anna ne suoraan pilkuin erotettuina. Versioväli voidaan antaa väliviivan avulla.\n\nEsimerkki: 4-7,9,11,15-HEAD@pegrevision\n\nYhdistääksesi kaikki versiot jätä valinta tyhjäksi."
 
 #. Resource IDs: (314)
 #, c-format
@@ -12101,6 +12105,10 @@ msgstr "sisällytä ominaisuudet"
 #. Resource IDs: (13)
 msgid "incomplete"
 msgstr "epätäydellinen"
+
+#. Resource IDs: (589)
+msgid "inherited from"
+msgstr "peritty"
 
 #. Resource IDs: (583)
 msgid "it does not exist."

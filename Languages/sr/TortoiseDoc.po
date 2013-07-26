@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-16 09:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-07-22 22:00+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5346,7 +5346,7 @@ msgstr "Претражује дневник порука за текст кој�
 
 #. (term)
 msgid "Create code collaborator review..."
-msgstr ""
+msgstr "Креирај  код сарадник преглед..."
 
 #. (para)
 msgid ""
@@ -5358,11 +5358,11 @@ msgid ""
 "menu item. The configuration and the chosen revision(s) are used to invoke "
 "the code collaborator graphical user interface client, which creates a new "
 "review with the selected revisions."
-msgstr ""
+msgstr "Овај мени је приказан само ако је СмартБеар код сарадник алат инсталиран. Када се позове први пут приказује се дијалог који пита корисника да унесе уверење и за код сарадник и СВН. Када се подешавања једном запамте дијалог подешавања се више не приказује када се мени позива, осим ако корисник држи  <keycap>Цтрл</keycap> док извршава ставку менија. Конфигурација и изабрана ревизија(е) су коришћене да се позове код сарадник графички кориснички клијент интерфејс, који креира нови преглед са изабраном ревизијом."
 
 #. (title)
 msgid "The Code Collaborator Settings Dialog"
-msgstr ""
+msgstr "Код сарадник дијалог подешавања"
 
 #. (para)
 msgid ""
@@ -5370,7 +5370,7 @@ msgid ""
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
 "shown for a folder. <placeholder-2/><placeholder-3/>"
-msgstr ""
+msgstr "<placeholder-1/> Вршњи панел дневник дијалога има контекст мени који омогућава да приступите многим информацијама. Неки од ових мени улаза јављају се само ако је дневник приказан за фајл, а неки само ако је дневник за фолдер. <placeholder-1/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9200,7 +9200,7 @@ msgid ""
 "If you leave the revision range empty, Subversion uses the merge-tracking "
 "features to calculate the correct revision range to use. This is known as a "
 "reintegrate or automatic merge."
-msgstr ""
+msgstr "Ако оставите ревизиони опсег празним Субверзија користи стапање-праћење могућности да израчина коректан ревизиони опсег за коришћење. Ово је познато као реинтегрисање или аутоматско стапање."
 
 #. (term)
 msgid "Merge two different trees"
@@ -9372,7 +9372,7 @@ msgid ""
 "If you leave the range of revisions empty or have the radio button "
 "<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
 "yet merged revisions. This is known as a reintegrate or automatic merge."
-msgstr ""
+msgstr "Ако оставите опсег ревизија празним или имате радио дугме <guilabel>све ревизије</guilabel> чекирано онда Субверзија стапа све ревизије које још нису стопљене. Ово је познато као реинтегрисање или аутоматско стапање."
 
 #. (para)
 msgid ""
@@ -17536,7 +17536,7 @@ msgid ""
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
 "<placeholder-6/> and <placeholder-7/>."
-msgstr ""
+msgstr "Отвара дијалог стапања. <placeholder-1/> специфицира циљни директоријум. За стапање опсега ревизија следеће опције су могуће: <placeholder-2/>, <placeholder-3/>. За стапање два стабла спремишта следће опције су могуће: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>."
 
 #. (entry)
 msgid ""
@@ -19579,7 +19579,7 @@ msgid ""
 "Such changes are marked with a pencil symbol. Hand editing of the file in "
 "the left pane is also possible, only when <guibutton>Enable Edit "
 "</guibutton> is pressed when the left pane is active."
-msgstr ""
+msgstr "Ручно уређење фајла у десном панелу могуће је у два-панел прегледа. Такве измене су маркиране симболом оловке. Ручно уређење фајла у левом панелу је такође могуће, само кад је <guibutton>Омогући уређење </guibutton> притиснут док је леви панел активан."
 
 #. (para)
 msgid ""
@@ -19619,7 +19619,7 @@ msgid ""
 "Hand editing of the file in the left pane or right pane is also possible, "
 "only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
 "active."
-msgstr ""
+msgstr "Ручно уређење фајла у левом панелу или десном панелу је такође могуће, само ако је <guibutton>Омогући уређење</guibutton> притиснуто док је панел активан."
 
 #. (title)
 msgid "Patch File List"
@@ -19653,7 +19653,7 @@ msgid ""
 "Depending on your setting, you either see a toolbar or a ribbon with many "
 "buttons. The buttons all show a tooltip explaining their function when you "
 "hover the mouse pointer over them."
-msgstr ""
+msgstr "У зависности од подешавања видите или алатни пулт или траку са мени дугмићима. Сви дугмићи  приказују облачиће који објашњавају њихову функцију када прелетите мишем преко њих."
 
 #. (para)
 msgid ""
@@ -19689,7 +19689,7 @@ msgid ""
 "clicking the corresponding column of that view. A dialog box will be "
 "displayed. The left side of the status bar is used to display hints when you"
 " hover the mouse over a control."
-msgstr ""
+msgstr "Испод дна прозора је статусна линија. Ту је приказан број линија додат или обрисан у <literal>Њихов</literal> и <literal>Мој</literal>, и број нерешених конфликта који су преостали. Можете такође видети који стил завршавања линија се користи, које кодирање (АСЦИИ, УТФ-8, итд) је предвиђено са ТортоисеМерге, и  да ли бајт-ордер-марк (БОМ) присутан у УТФ-8 фајловима. Можете заменити стил краја линије и кодирање двоструким кликом на одговарајућу колону прегледа. Дијалог бокс ће се приказати. Лева страна статусне траке се користи да прикаже савет док летите мишем преко контроле."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19747,7 +19747,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Ова л
 msgid ""
 "<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
 "being moved from / to another location."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_linemoved.png\"/> Ова линија је детектована да је померена из / у другу локацију."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20225,11 +20225,11 @@ msgstr "Премотај дисплеј лево/десно"
 
 #. (term)
 msgid "Ctrl-Tab"
-msgstr ""
+msgstr "Цтрл-Таб"
 
 #. (para)
 msgid "Switch between left/right/bottom view"
-msgstr ""
+msgstr "Прелаз између левог/десног/доњег прегледа"
 
 #. (title)
 msgid "Automating TortoiseMerge"

@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-16 09:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-07-24 23:50+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5344,7 +5344,7 @@ msgstr "Etsii lokiviesteistä syöttämääsi tekstiä. Komento läy läpi syöt
 
 #. (term)
 msgid "Create code collaborator review..."
-msgstr ""
+msgstr "Luo code collaborator -katselmus... "
 
 #. (para)
 msgid ""
@@ -5356,11 +5356,11 @@ msgid ""
 "menu item. The configuration and the chosen revision(s) are used to invoke "
 "the code collaborator graphical user interface client, which creates a new "
 "review with the selected revisions."
-msgstr ""
+msgstr "Tämä valinta näytetään vain, jos SmartBear Code Collaborator -työkalu on asennettu. Ensimmäisellä käyttökerralla toiminto pyytää käyttäjältä sekä Code Collaborator- että Subversion-käyttäjätiedot. Tämän jälkeen asetusikkunaa ei enää näytetä, ellei <keycap>Ctrl</keycap> -näppäintä pidetä pohjassa komentoa annettaessa. Käyttäjätietoja ja valittuja versioita käytetään graafisessa Code Collaborator -työkalussa, joka luo uuden katselmuksen valituista versioista."
 
 #. (title)
 msgid "The Code Collaborator Settings Dialog"
-msgstr ""
+msgstr "Code Collaborator -asetusikkuna"
 
 #. (para)
 msgid ""
@@ -5368,7 +5368,7 @@ msgid ""
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
 "shown for a folder. <placeholder-2/><placeholder-3/>"
-msgstr ""
+msgstr "<placeholder-1/> Loki-ikkunan yläpaneelissa on kontekstivalikko, jonka komentojen avulla saat lisää tietoa. Jotkut komennot ovat saatavilla vain, kun lokia näytetään tiedostolle, jotkut taas ovat käytettävissä vain, kun lokia näytetään kansiolle. <placeholder-2/><placeholder-3/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -9198,7 +9198,7 @@ msgid ""
 "If you leave the revision range empty, Subversion uses the merge-tracking "
 "features to calculate the correct revision range to use. This is known as a "
 "reintegrate or automatic merge."
-msgstr ""
+msgstr "Jos jätät versiovälin tyhjäksi, Subversion käyttää yhdistämistietoja laskeakseen tarvittavan versiovälin. Toiminto tunnetaan nimillä takaisinyhdistäminen tai automaattinen yhdistäminen."
 
 #. (term)
 msgid "Merge two different trees"
@@ -9370,7 +9370,7 @@ msgid ""
 "If you leave the range of revisions empty or have the radio button "
 "<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
 "yet merged revisions. This is known as a reintegrate or automatic merge."
-msgstr ""
+msgstr "Jos jätät versiovälin tyhjäksi tai valitset <guilabel>kaikki versiot</guilabel>, Subversion yhdistää kaikki vielä yhdistämättömät versiot. Tämä tunnetaan nimillä takaisin yhdistäminen tai automaattinen yhdistäminen."
 
 #. (para)
 msgid ""
@@ -17534,7 +17534,7 @@ msgid ""
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
 "<placeholder-6/> and <placeholder-7/>."
-msgstr ""
+msgstr "Avaa yhdistämisikkunan. Valitsin <placeholder-1/> määrittää kohdehakemiston. Versiovälin yhdistämiseen voi käyttää seuraavia valitsimia: <placeholder-2/>, <placeholder-3/>. Kahden arkistopuun yhdistämiseen voi käyttää seuraavia valitsimia: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> ja <placeholder-7/>."
 
 #. (entry)
 msgid ""
@@ -19577,7 +19577,7 @@ msgid ""
 "Such changes are marked with a pencil symbol. Hand editing of the file in "
 "the left pane is also possible, only when <guibutton>Enable Edit "
 "</guibutton> is pressed when the left pane is active."
-msgstr ""
+msgstr "Oikeassa paneelissa näytettyä tiedostoa voi muokata käsin kahden paneelin näkymässä. Tällaiset muutokset merkitään kynäsymbolilla. Käsin muokkaus vasemmassa paneelissa on myös mahdollista, mikäli <guibutton>Salli muokkaus</guibutton> on valittuna."
 
 #. (para)
 msgid ""
@@ -19617,7 +19617,7 @@ msgid ""
 "Hand editing of the file in the left pane or right pane is also possible, "
 "only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
 "active."
-msgstr ""
+msgstr "Tiedoston muokkaus käsin vasemmassa tai oikeassa paneelissa on myös mahdollista, mikäli <guibutton>Salli muokkaus</guibutton> on valittuna."
 
 #. (title)
 msgid "Patch File List"
@@ -19651,7 +19651,7 @@ msgid ""
 "Depending on your setting, you either see a toolbar or a ribbon with many "
 "buttons. The buttons all show a tooltip explaining their function when you "
 "hover the mouse pointer over them."
-msgstr ""
+msgstr "Valinnastasi riippuen näet joko työkalurivin tai valintanauhan. Painikkeilla on työkaluvihje, joka näytetään, kun viet hiiren niiden päälle."
 
 #. (para)
 msgid ""
@@ -19687,7 +19687,7 @@ msgid ""
 "clicking the corresponding column of that view. A dialog box will be "
 "displayed. The left side of the status bar is used to display hints when you"
 " hover the mouse over a control."
-msgstr ""
+msgstr "Alimmaisen ikkunan alapuolella on tilarivi. Se näyttää lisättyjen ja poistettujen rivien lukumäärät <literal>Heidän</literal> ja <literal>Minun</literal> osalta, sekä lisäksi jäjellä olevien ratkaisemattomien ristiriitojen lukumäärän.  Näet myös rivinlopetustyylin, merkkikoodauksen (ASCII, UTF-8 jne.) ja tiedon tavujärjestysmerkistä (BOM).  Voit muuttaa näitä asetuksia kaksoisnapsauttamalla tilarivin sarakkeita. Tilarivin vasenta puolta käytetään aputekstien näyttämiseen, kun viet hiiren jonkun kontrollin päälle."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19745,7 +19745,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Rivillä 
 msgid ""
 "<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
 "being moved from / to another location."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_linemoved.png\"/> Tämä rivi on havaittu siirretyn toisesta paikasta."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -20223,11 +20223,11 @@ msgstr "Vierittää näyttöä vasemmalle/oikealle"
 
 #. (term)
 msgid "Ctrl-Tab"
-msgstr ""
+msgstr "Ctrl-Tab"
 
 #. (para)
 msgid "Switch between left/right/bottom view"
-msgstr ""
+msgstr "Vaihda oikean/vasemman/alanäkymän välillä"
 
 #. (title)
 msgid "Automating TortoiseMerge"
