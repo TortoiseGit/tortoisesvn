@@ -664,7 +664,12 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 }
                 // now both sLocalPathUrl and sLocalPath can be used to construct
                 // the path to the script
-                sLocalPath = sLocalPath + L"\\" + fullUrl.Mid(sLocalPathUrl.GetLength());
+                CString partUrl = fullUrl.Mid(sLocalPathUrl.GetLength());
+                if (partUrl.Find('/') == 0)
+                    partUrl = partUrl.Mid(1);
+                if (sLocalPath.ReverseFind('\\') == sLocalPath.GetLength() - 1 || sLocalPath.ReverseFind('/') == sLocalPath.GetLength() - 1)
+                    sLocalPath = sLocalPath.Left(sLocalPath.GetLength() - 1);
+                sLocalPath = sLocalPath + L"\\" + partUrl;
                 sLocalPath.Replace('/', '\\');
                 // now replace the full url in the command line with the local path
                 temp.Replace(fullUrl, sLocalPath);
@@ -717,7 +722,12 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                     }
                     // now both sLocalPathUrl and sLocalPath can be used to construct
                     // the path to the script
-                    sLocalPath = sLocalPath + L"\\" + fullUrl.Mid(sLocalPathUrl.GetLength());
+                    CString partUrl = fullUrl.Mid(sLocalPathUrl.GetLength());
+                    if (partUrl.Find('/') == 0)
+                        partUrl = partUrl.Mid(1);
+                    if (sLocalPath.ReverseFind('\\') == sLocalPath.GetLength() - 1 || sLocalPath.ReverseFind('/') == sLocalPath.GetLength() - 1)
+                        sLocalPath = sLocalPath.Left(sLocalPath.GetLength() - 1);
+                    sLocalPath = sLocalPath + L"\\" + partUrl;
                     sLocalPath.Replace('/', '\\');
                     // now replace the full url in the command line with the local path
                     temp.Replace(fullUrl, sLocalPath);
