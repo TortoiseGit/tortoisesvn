@@ -973,9 +973,9 @@ UINT CFileDiffDlg::ExportThread()
 
 BOOL CFileDiffDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-    if (pWnd != &m_cFileList)
+    if (pWnd != &m_cFileList && this->IsWindowEnabled())
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
-    if ((m_bThreadRunning == 0)||(IsCursorOverWindowBorder()))
+    if ((m_bThreadRunning == 0 && netScheduler.GetRunningThreadCount() == 0)||(IsCursorOverWindowBorder()))
     {
         HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
         SetCursor(hCur);
