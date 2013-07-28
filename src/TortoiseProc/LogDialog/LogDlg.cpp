@@ -1625,7 +1625,7 @@ void CLogDlg::LogThread()
     {
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
     }
-    m_bCancelled = true;
+    m_bCancelled = false;
     InterlockedExchange(&m_bLogThreadRunning, FALSE);
     if ( m_pStoreSelection == NULL )
     {
@@ -4898,13 +4898,13 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
 
 void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 {
+    m_bCancelled = FALSE;
     int selIndex = m_LogList.GetSelectionMark();
     if (!VerifyContextMenuForRevisionsAllowed(selIndex))
         return;
     AdjustContextMenuAnchorPointIfKeyboardInvoked(point, selIndex, m_LogList);
 
     m_nSearchIndex = selIndex;
-    m_bCancelled = FALSE;
 
     // grab extra revision info that the Execute methods will use
     ContextMenuInfoForRevisionsPtr pCmi(new CContextMenuInfoForRevisions());
@@ -5727,6 +5727,7 @@ void CLogDlg::ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pC
 
 void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
 {
+    m_bCancelled = false;
     INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
     AdjustContextMenuAnchorPointIfKeyboardInvoked(point, (int)selIndex, m_ChangedFileListCtrl);
 
@@ -5748,7 +5749,6 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
                                     TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     CLogWndHourglass wait;
 
-    m_bCancelled = false;
     switch (cmd)
     {
         case ID_DIFF:
@@ -6542,15 +6542,15 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
 
     pCmi->sUrl = GetSUrl();
 
-    if (m_hasWC)
+    // find the working copy path of the selected item from the URL
+    CString sUrlRoot = GetRepositoryRoot(m_path);
+    if (!sUrlRoot.IsEmpty())
     {
-        // find the working copy path of the selected item from the URL
-        CString sUrlRoot = GetRepositoryRoot(m_path);
-        if (!sUrlRoot.IsEmpty())
+        const CLogChangedPath& changedlogpath = m_currentChangedArray[selIndex];
+        pCmi->fileUrl = changedlogpath.GetPath();
+        pCmi->fileUrl = sUrlRoot + pCmi->fileUrl.Trim();
+        if (m_hasWC)
         {
-            const CLogChangedPath& changedlogpath = m_currentChangedArray[selIndex];
-            pCmi->fileUrl = changedlogpath.GetPath();
-            pCmi->fileUrl = sUrlRoot + pCmi->fileUrl.Trim();
             // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
             // pCmi->sUrl = http://mydomain.com/repos/trunk/folder
             CString sUnescapedUrl = CPathUtils::PathUnescape(pCmi->sUrl);
