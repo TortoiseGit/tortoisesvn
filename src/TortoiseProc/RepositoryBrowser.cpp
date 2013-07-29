@@ -758,12 +758,16 @@ void CRepositoryBrowser::OnOK()
         return;
     }
 
+    if (m_EditFileCommand)
+    {
+        if (m_EditFileCommand->StopWaitingForEditor())
+            return;
+    }
+
     m_cancelled = TRUE;
     m_lister.Cancel();
 
 
-    if (m_EditFileCommand)
-        m_EditFileCommand->StopWaitingForEditor();
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
     {
@@ -791,6 +795,11 @@ void CRepositoryBrowser::OnOK()
 
 void CRepositoryBrowser::OnCancel()
 {
+    if (m_EditFileCommand)
+    {
+        if (m_EditFileCommand->StopWaitingForEditor())
+            return;
+    }
     m_cancelled = TRUE;
     m_lister.Cancel();
 
@@ -800,8 +809,6 @@ void CRepositoryBrowser::OnCancel()
     RevokeDragDrop(m_RepoList.GetSafeHwnd());
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
-    if (m_EditFileCommand)
-        m_EditFileCommand->StopWaitingForEditor();
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
     {
