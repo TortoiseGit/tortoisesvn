@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-25 12:00+0000\n"
+"PO-Revision-Date: 2013-07-28 11:50+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5352,7 +5352,7 @@ msgstr "Chercher les commentaires de révision correspondant au texte que vous s
 
 #. (term)
 msgid "Create code collaborator review..."
-msgstr ""
+msgstr "Créer une revue du code du collaborateur..."
 
 #. (para)
 msgid ""
@@ -5564,7 +5564,7 @@ msgstr ""
 
 #. (term)
 msgid "Open multiple local..."
-msgstr ""
+msgstr "Ouvrir de multiples locaux..."
 
 #. (para)
 msgid ""
@@ -8511,7 +8511,7 @@ msgstr ""
 #. (para)
 msgid ""
 "The source URL of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "L'URL source de la fusion, plus précisément, à partir de laquelle les révisions sont fusionnées."
 
 #. (para)
 msgid ""
@@ -15418,7 +15418,7 @@ msgstr "Vrais s'il y a des modifications locales."
 
 #. (entry)
 msgid "True if there are unversioned items"
-msgstr ""
+msgstr "Vrai s'il existe des éléments non versionnés"
 
 #. (literal)
 msgid "GetWCInfo"
@@ -15551,7 +15551,7 @@ msgid ""
 "WScript.Echo(wcInfoString3);\n"
 "WScript.Echo(wcInfoString4);\n"
 "\n"
-msgstr ""
+msgstr "\n// testCOM.js - fichier javascript\n// script de test pour le l'objet SubWCRev COM/Automatisation\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo2(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n\nwcInfoString1 = \"Révision = \" + revObject1.Revision +\n                \"\\nRévision Minimum = \" + revObject1.MinRev +\n                \"\\nRévision Maximum = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuteur = \" +\n                revObject1.Author + \"\\nAModifications = \" +\n                revObject1.HasModifications + \"\\nEstElémentSVN = \" +\n                revObject1.IsSvnItem + \"\\nRequiertVerrouillage = \" +\n                revObject1.NeedsLocking + \"\\nEstVerrouillé = \" +\n                revObject1.IsLocked + \"\\nDateCréationVerrou = \" +\n                revObject1.LockCreationDate + \"\\nPropriétaireVerrou = \" +\n                revObject1.LockOwner + \"\\nCommentaireVerrou = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Révision = \" + revObject2.Revision +\n                \"\\nRévision Minimum = \" + revObject2.MinRev +\n                \"\\nRévision Maximum = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuteur = \" +\n                revObject2.Author + \"\\nAModifications = \" +\n                revObject2.HasModifications + \"\\nEstElémentSVN = \" +\n                revObject2.IsSvnItem + \"\\nRequiertVerrouillage = \" +\n                revObject2.NeedsLocking + \"\\nEstVerrouillé = \" +\n                revObject2.IsLocked + \"\\nDateCréationVerrou = \" +\n                revObject2.LockCreationDate + \"\\nPropriétaireVerrou = \" +\n                revObject2.LockOwner + \"\\nCommentaireVerrou = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Révision = \" + revObject3.Revision +\n                \"\\nRévision Minimum = \" + revObject3.MinRev +\n                \"\\nRévision Maximum = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuteur = \" +\n                revObject3.Author + \"\\nAModifications = \" +\n                revObject3.HasModifications + \"\\nEstElémentSVN = \" +\n                revObject3.IsSvnItem + \"\\nRequiertVerrouillage = \" +\n                revObject3.NeedsLocking + \"\\nEstVerrouillé = \" +\n                revObject3.IsLocked + \"\\nDateCréationVerrou = \" +\n                revObject3.LockCreationDate + \"\\nPropriétaireVerrou = \" +\n                revObject3.LockOwner + \"\\nCommentaireVerrou = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Révision = \" + revObject4.Revision +\n                \"\\nRévision Minimum = \" + revObject4.MinRev +\n                \"\\nRévision Maximum = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuteur = \" +\n                revObject4.Author + \"\\nAModifications = \" +\n                revObject4.HasModifications + \"\\nEstElémentSVN = \" +\n                revObject4.IsSvnItem + \"\\nRequiertVerrouillage = \" +\n                revObject4.NeedsLocking + \"\\nEstVerrouillé = \" +\n                revObject4.IsLocked + \"\\nDateCréationVerrou = \" +\n                revObject4.LockCreationDate + \"\\nPropriétaireVerrou = \" +\n                revObject4.LockOwner + \"\\nCommentaireVerrou = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 
 #. (para)
 msgid ""
@@ -17807,7 +17807,7 @@ msgstr ""
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Pour traiter les propriétés versionnées, cette commande requiert une copie de travail."
 
 #. (para)
 msgid ""
@@ -20231,11 +20231,11 @@ msgstr "Défile l'affichage vers la gauche/droite"
 
 #. (term)
 msgid "Ctrl-Tab"
-msgstr ""
+msgstr "Ctrl-Tab"
 
 #. (para)
 msgid "Switch between left/right/bottom view"
-msgstr ""
+msgstr "Basculer entre les vues gauche / droite / bas"
 
 #. (title)
 msgid "Automating TortoiseMerge"

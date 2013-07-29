@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-22 20:20+0000\n"
+"PO-Revision-Date: 2013-07-26 21:20+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5356,11 +5356,11 @@ msgid ""
 "menu item. The configuration and the chosen revision(s) are used to invoke "
 "the code collaborator graphical user interface client, which creates a new "
 "review with the selected revisions."
-msgstr ""
+msgstr "Tato nabídka je zobrazena pouze když je nainstalován nástroj spolupráce na kódu SmartBear. Při prvním zavolání je zobrazeno dialogové okno, které požádá uživatele o zadání přihlašovacích údajů do nástroje i do úložiště. Jakmile jsou nastavení uložena, dialogové okno se při zavolání již nebude zobrazovat, pokud při zvolení položky nabídky uživatel nepodrží <keycap>Ctrl</keycap>. Nastavení a zvolené revize jsou použity k zavolání grafického rozhraní klienta nástroje, který vytvoří nové přezkoumání pomocí zvolených revizí."
 
 #. (title)
 msgid "The Code Collaborator Settings Dialog"
-msgstr ""
+msgstr "Dialogové okno nastavení spolupráce na kódu"
 
 #. (para)
 msgid ""
@@ -9198,7 +9198,7 @@ msgid ""
 "If you leave the revision range empty, Subversion uses the merge-tracking "
 "features to calculate the correct revision range to use. This is known as a "
 "reintegrate or automatic merge."
-msgstr ""
+msgstr "Pokud rozsah revizí necháte prázdný, Subversion použije funkce sledování sloučení pro výpočet správného rozsahu revizí k použití. Toto je označováno jako znovuzačlenění či automatické sloučení."
 
 #. (term)
 msgid "Merge two different trees"
@@ -9370,7 +9370,7 @@ msgid ""
 "If you leave the range of revisions empty or have the radio button "
 "<guilabel>all revisions</guilabel> checked, then Subversion merges all not-"
 "yet merged revisions. This is known as a reintegrate or automatic merge."
-msgstr ""
+msgstr "Pokud rozsah revizí necháte prázdný, nebo stiskněte políčko <guilabel>všechyn revize</guilabel>, pak Subversion sloučí všechny zatím nesloučené revize. Toto je označováno jako začlenění nebo automatické sloučení."
 
 #. (para)
 msgid ""
@@ -17534,7 +17534,7 @@ msgid ""
 "<placeholder-2/>, <placeholder-3/>. For merging two repository trees, the "
 "following options are available: <placeholder-4/>, <placeholder-5/>, "
 "<placeholder-6/> and <placeholder-7/>."
-msgstr ""
+msgstr "Otevře dialogové okno sloučení. <placeholder-1/> určuje cílový adresář. Pro sloučení rozsahu revizí, jsou dostupné následující možnosti: <placeholder-2/>, <placeholder-3/> . Pro sloučení dvou stromů úložiště, jsou dostupné následující možnosti: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> a <placeholder-7/>."
 
 #. (entry)
 msgid ""
@@ -19577,7 +19577,7 @@ msgid ""
 "Such changes are marked with a pencil symbol. Hand editing of the file in "
 "the left pane is also possible, only when <guibutton>Enable Edit "
 "</guibutton> is pressed when the left pane is active."
-msgstr ""
+msgstr "Ruční úprava souboru v pravém panelu je možná pouze v dvojpanelovém zobrazení. Takové změny jsou označeny symbolem tužky. Ruční úprava souboru v levém panelu je možná pouze, když je stisknuto <guibutton>Povolit úpravy</guibutton> v aktivním panelu."
 
 #. (para)
 msgid ""
@@ -19617,7 +19617,7 @@ msgid ""
 "Hand editing of the file in the left pane or right pane is also possible, "
 "only when <guibutton>Enable Edit </guibutton> is pressed when that pane is "
 "active."
-msgstr ""
+msgstr "Ruční úprava souboru v levém nebo pravém panelu je možná pouze, když je stisknuto <guibutton>Povolit úpravy</guibutton> v aktivním panelu."
 
 #. (title)
 msgid "Patch File List"
@@ -19651,7 +19651,7 @@ msgid ""
 "Depending on your setting, you either see a toolbar or a ribbon with many "
 "buttons. The buttons all show a tooltip explaining their function when you "
 "hover the mouse pointer over them."
-msgstr ""
+msgstr "V závislosti na vašem nastavení buď uvidíte lištu nástrojů nebo pás karet s mnoha tlačítky. Všechna tlačítka zobrazí popisek jejich funkce, když na ně najedete kurzorem myši."
 
 #. (para)
 msgid ""
@@ -19687,7 +19687,7 @@ msgid ""
 "clicking the corresponding column of that view. A dialog box will be "
 "displayed. The left side of the status bar is used to display hints when you"
 " hover the mouse over a control."
-msgstr ""
+msgstr "Pod spodním oknem je stavový řádek. Ukazuje počet přidaných a odstraněných řádků v <literal>Jejich</literal> a <literal>Mém</literal> a počet zbývajících nevyřešených konfliktů. Můžete také vidět, který styl konců řádků je použit, jaké kódování TortoiseMerge předpokládá (ASCII, UTF-8, atd.) a zda je označení pořadí bajtů (BOM) přítomno v souborech UTF-8. Změna stylu konců řádků a kódování může být změněno dvojklikem na odpovídající sloupce v tomto zobrazení. Zobrazí se dialogové okno. Levá strana stavového řádku se používá pro zobrazení popisu, když myší najedete nad kontrolu."
 
 #. (title)
 msgid "Line Status Icons"
@@ -19745,7 +19745,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Tento ř�
 msgid ""
 "<graphic fileref=\"images/TMerge_linemoved.png\"/> This line is detected as "
 "being moved from / to another location."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_linemoved.png\"/> Tento řádek je zaznamenán jako přesunutý z/do jiného umístění"
 
 #. (title)
 msgid "Merging / Editing Conflicts"
