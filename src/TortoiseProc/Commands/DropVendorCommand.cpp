@@ -116,10 +116,10 @@ bool DropVendorCommand::Execute()
             {
                 CTSVNPathList plist = CTSVNPathList(CTSVNPath(dstPath));
                 if (!it->second)
-                {
                     bSuccess = CopyFile(srcPath, dstPath,  FALSE);
-                    svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true);
-                }
+                else
+                    bSuccess = CreateDirectory(dstPath, NULL);
+                svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true);
             }
         }
     }
