@@ -122,7 +122,7 @@ void LoadLangDll()
                     LPSTR       lpVersion = NULL;
                     VOID*       lpFixedPointer;
                     TRANSARRAY* lpTransArray;
-                    TCHAR       strLangProduktVersion[MAX_PATH];
+                    TCHAR       strLangProductVersion[MAX_PATH];
 
                     if (GetFileVersionInfo((LPTSTR)langDll,
                         dwReserved,
@@ -137,11 +137,11 @@ void LoadLangDll()
                         {
                             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-                            _stprintf_s(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+                            _stprintf_s(strLangProductVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
                             if (VerQueryValue(buffer.get(),
-                                (LPTSTR)strLangProduktVersion,
+                                (LPTSTR)strLangProductVersion,
                                 (LPVOID *)&lpVersion,
                                 &nInfoSize))
                             {

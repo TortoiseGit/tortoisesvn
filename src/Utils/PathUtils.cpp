@@ -648,7 +648,7 @@ CString CPathUtils::PathUnescape (const char* path)
     return CUnicodeUtils::GetUnicode(path);
 }
 
-CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
+CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
 {
     struct TRANSARRAY
     {
@@ -658,7 +658,7 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
 
     CString strReturn;
     DWORD dwReserved = 0;
-    DWORD dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
+    DWORD dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strFilename,&dwReserved);
 
     if (dwBufferSize > 0)
     {
@@ -667,13 +667,13 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
         if (pBuffer != (void*) NULL)
         {
             UINT        nInfoSize = 0,
-                nFixedLength = 0;
+                        nFixedLength = 0;
             LPSTR       lpVersion = NULL;
             VOID*       lpFixedPointer;
             TRANSARRAY* lpTransArray;
-            CString     strLangProduktVersion;
+            CString     strLangProductVersion;
 
-            GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strDateiname,
+            GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strFilename,
                 dwReserved,
                 dwBufferSize,
                 pBuffer);
@@ -685,11 +685,11 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-            strLangProduktVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+            strLangProductVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
             VerQueryValue(pBuffer,
-                (LPTSTR)(LPCTSTR)strLangProduktVersion,
+                (LPTSTR)(LPCTSTR)strLangProductVersion,
                 (LPVOID *)&lpVersion,
                 &nInfoSize);
             if (nInfoSize && lpVersion)
