@@ -44,8 +44,6 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-    CString GetVersionFromFile(const CString & p_strFilename);
-
 private:
     CToolTips       m_tooltips;
     BOOL            m_bShortDateFormat;

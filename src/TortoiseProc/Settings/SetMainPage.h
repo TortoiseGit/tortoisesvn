@@ -52,8 +52,6 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-    CString GetVersionFromFile(const CString & p_strFilename);
-
 private:
     CRegString      m_regExtensions;
     CString         m_sTempExtensions;
