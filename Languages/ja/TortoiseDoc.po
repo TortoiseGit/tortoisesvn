@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-26 18:20+0000\n"
+"PO-Revision-Date: 2013-07-29 23:50+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1076,7 +1076,7 @@ msgid ""
 "because she never saw Harry's changes to begin with. Harry's work is still "
 "effectively lost - or at least missing from the latest version of the file -"
 " and probably by accident. This is definitely a situation we want to avoid!"
-msgstr "次のような場面を想定してみてください。2人の同僚、ハリーとサリーがいたとします。2人は同時に同じリポジトリ内のファイルを編集しようとしています。始めにハリーが変更を保存してから、（数分後に）サリーが自分の新しいファイルを偶然にも上書きすることができます。（システムが変更を記憶しているので）ハリーのバージョンが永遠に失われるというわけではありませんが、ハリーが行った変更はサリーの新バージョンに隠されて<emphasis>見えなくなります</emphasis>。サリーがハリーの変更を取り込まなかったからです。おそらく事故でですが、ハリーの作業は事実上失われたり、少なくとも後のバージョンのファイルには現れなくなったりします。これは確実に回避しなければならな状況です。"
+msgstr "次のような場面を想像してみてください。2人の同僚、ハリーとサリーがいたとします。2人は同時に同じリポジトリ内のファイルを編集しようとしています。始めにハリーが変更を保存してから、（数分後に）サリーが自分の新しいファイルを偶然にも上書きする可能性があります。（システムが変更を記憶しているので）ハリーのバージョンが永遠に失われるわけではありませんが、ハリーが行った変更はサリーの新バージョンに隠されて<emphasis>見えなくなります</emphasis>。サリーがハリーの変更を取り込まなかったからです。おそらく事故でですが、ハリーの作業は事実上失われたり、少なくとも後のバージョンのファイルには現れなくなったりします。これは確実に回避しなければならな状況です。"
 
 #. (title)
 msgid "The Problem to Avoid"
@@ -1099,13 +1099,13 @@ msgid ""
 " she can do is read the file, and wait for Harry to finish his changes and "
 "release his lock. After Harry unlocks the file, his turn is over, and now "
 "Sally can take her turn by locking and editing."
-msgstr "多くのバージョン管理システムでは、 <firstterm>ロック・変更・アンロック</firstterm> モデルというとても単純な方法で、この問題に対処しています。このようなシステムでは、リポジトリはひとつのファイルにつき同時に一人しか変更できないようにしています。この場合、はじめにハリーは変更を加える前に <emphasis>ロック</emphasis> をしなければなりません。ファイルをロックすることは、図書館から本を貸りるようなものです。ハリーがファイルにロックをかけると、サリーはそこに変更を加えられなくなります。サリーがファイルをロックしようとしても、リポジトリはその要求を拒否します。できるのは、ファイルを読むことと、ハリーが変更を終えてロックを解除するのを待つことだけです。ハリーが変更を終えてロックを解除すると、サリーはロックして編集できるようになります。"
+msgstr "多くのバージョン管理システムでは、<firstterm>ロック・変更・アンロック</firstterm>モデルというとても単純な方法で、この問題に対処しています。このようなシステムでは、リポジトリはひとつのファイルにつき同時に一人しか変更できないようにしています。この場合、ハリーは変更を加える前にあらかじめ<emphasis>ロック</emphasis>をしなければなりません。ファイルをロックすることは、図書館から本を貸りるようなものです。ハリーがファイルにロックをかけると、サリーはそこに変更を加えられなくなります。サリーがファイルをロックしようとしても、リポジトリはその要求を拒否します。できるのは、ファイルを読むことと、ハリーが変更を終えてロックを解除するのを待つことだけです。ハリーが変更を終えてロックを解除すると、サリーはロックして編集できるようになります。"
 
 #. (para)
 msgid ""
 "The problem with the lock-modify-unlock model is that it's a bit "
 "restrictive, and often becomes a roadblock for users:"
-msgstr "ロック・変更・アンロックモデルの問題点は、少々制限が厳しいことで、しばしばユーザーの作業の障害になります。"
+msgstr "ロック・変更・アンロックモデルの問題点は、少々制限が厳しいことで、しばしばユーザーの作業の邪魔になります。"
 
 #. (para)
 msgid ""
@@ -1114,7 +1114,7 @@ msgid ""
 " still waiting to edit the file, her hands are tied. And then Harry goes on "
 "vacation. Now Sally has to get an administrator to release Harry's lock. The"
 " situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr "<emphasis>ロックは管理上の問題を起こす可能性があります。</emphasis> ときどきハリーは、ファイルをロックしたまま忘れてしまうことがあります。いっぽうサリーは、ファイルが編集できるようになるのをずっと待っていて、その間何もできません。ハリーが休暇を取ってしまったりすると、サリーは管理者にハリーのロックを解除してもらわなければなりません。この状況では不要な遅れと、時間の浪費が発生します。"
+msgstr "<emphasis>ロックは管理上の問題を起こす可能性があります。</emphasis>ハリーは、ファイルをロックしたまま忘れてしまうかもしれません。いっぽうサリーは、ファイルが編集できるようになるのをずっと待っていて、その間何もできません。ハリーが休暇を取ってしまったりすると、サリーは管理者にハリーのロックを解除してもらわなければなりません。この状況では不要な遅れと、時間の浪費が発生します。"
 
 #. (para)
 msgid ""
@@ -1124,7 +1124,7 @@ msgid ""
 "could easily edit the file simultaneously, and no great harm would come, "
 "assuming the changes were properly merged together. There's no need for them"
 " to take turns in this situation."
-msgstr "<emphasis>ロックは意味のない直列化を起こす可能性があります。</emphasis> ハリーがテキストファイルの先頭を編集していて、サリーは単に同じファイルの最後を編集したいとしたらどうでしょう。変更が重なることはありません。簡単にファイルを同時に編集でき、互いを適切にマージできるとすれば、なんの障害も発生しないでしょう。この状況では待つ必要はないはずです。"
+msgstr "<emphasis>ロックは無意味な直列化を起こす可能性があります。</emphasis>ハリーがテキストファイルの先頭を編集していて、サリーは単に同じファイルの最後を編集したいとしたらどうでしょう。変更が重なることはありません。簡単にファイルを同時に編集でき、互いを適切にマージできるとすれば、なんの障害も発生しないでしょう。この状況では待つ必要はないはずです。"
 
 #. (para)
 msgid ""
@@ -1137,7 +1137,7 @@ msgid ""
 "Harry and Sally to imagine that by locking files, each is beginning a safe, "
 "insulated task, and thus inhibits them from discussing their incompatible "
 "changes early on."
-msgstr "<emphasis>ロックは誤った安心感を与える可能性があります。</emphasis> ハリーはファイルAをロックして編集し、サリーはファイルBをロックして編集するとします。しかし、AとBが互いに依存しあっている場合、変更すると意味的に矛盾が発生します。突然AとBが一緒には動作しなくなります。ロックするシステムはこの問題に対しては無力です。ある意味、誤った安心感を与えていると言えるでしょう。ハリーもサリーもファイルをロックしたことで安全な状態に入ったと感じ、自分の作業は保護されていると錯覚してしまうのです。"
+msgstr "<emphasis>ロックは誤った安心感を与える可能性があります。</emphasis>ハリーはファイルAをロックして編集し、サリーはファイルBをロックして編集するとします。しかし、AとBが互いに依存しあっている場合、変更すると意味的な矛盾が発生します。突然AとBが一緒には動作しなくなります。ロックするシステムはこの問題に対しては無力です。ある意味、誤った安心感を与えていると言えるでしょう。ハリーもサリーもファイルをロックしたことで安全な状態に入ったと感じ、自分の作業は保護されていると錯覚してしまうのです。"
 
 #. (title)
 #. (title)
@@ -1154,7 +1154,7 @@ msgid ""
 " merged together into a new, final version. The version control system often"
 " assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr "Subversion や CVS などのバージョン管理システムは、ロックの代わりに <firstterm>コピー・変更・マージ</firstterm> モデルを使用します。このモデルでは、ユーザーのクライアントが個別にリポジトリを読み込み、ファイルやプロジェクトの個人的な <firstterm>作業コピー</firstterm> を作成します。そこからユーザーは並行して作業し、個人のコピーを変更します。最後に個人のコピーを新しい最終版にマージします。バージョン管理システムはマージの補助を行いますが、正しくマージする最終責任は人間が負うことになります。"
+msgstr "Subversion や CVS などのバージョン管理システムは、ロックではなく<firstterm>コピー・変更・マージ</firstterm>モデルを使用します。このモデルでは、ユーザーのクライアントが個別にリポジトリを読み込み、ファイルやプロジェクトの個人的な<firstterm>作業コピー</firstterm>を作成します。そこからユーザーは並行して作業し、個人のコピーを変更します。最後に個人のコピーを新しい最終版にマージします。バージョン管理システムはマージの補助を行いますが、正しくマージする最終責任は人間が負うことになります。"
 
 #. (para)
 msgid ""
@@ -1169,7 +1169,7 @@ msgid ""
 "working copy of file A. Chances are that Sally's changes don't overlap with "
 "his own; so once he has both sets of changes integrated, he saves his "
 "working copy back to the repository."
-msgstr "例を挙げます。ハリーとサリーはそれぞれ同じプロジェクトの作業コピーを、リポジトリからコピーして作成したとします。2人とも同時に作業し、それぞれのコピーの同じファイル <filename>A</filename> に変更を加えました。最初にサリーがリポジトリに変更を保存しました。そのあとハリーが変更を適用しようとしましたが、ハリーのファイルAは <firstterm>最新ではない</firstterm> とリポジトリに言われてしまいました。一方、リポジトリのファイルAには、ハリーが最後にコピーしたときから、何らかの変更が加わっています。そこでハリーは、リポジトリから新しい変更点を取得し、作業コピーのファイルAに <firstterm>マージ</firstterm> するように指示を出します。幸い、サリーの変更はハリーの変更に重なりません。そのため、いったん両方の変更点を統合してしまえば、作業コピーの内容をリポジトリに書き戻すことができます。"
+msgstr "例を挙げましょう。ハリーとサリーはそれぞれ同じプロジェクトの作業コピーを、リポジトリからコピーして作成したとします。2人とも同時に作業し、それぞれのコピーの同じファイル <filename>A</filename> に変更を加えました。先にサリーがリポジトリに変更を保存しました。そのあとハリーが変更を適用しようとしましたが、ハリーのファイル A は<firstterm>最新ではない</firstterm>とリポジトリに言われてしまいました。一方、リポジトリのファイル A には、ハリーが最後にコピーしたときから、何らかの変更が加わっています。そこでハリーは、リポジトリから新しい変更点を取得し、作業コピーのファイル A に<firstterm>マージ</firstterm>するように指示を出します。幸い、サリーの変更はハリーの変更に重なりません。そのため、いったん両方の変更点を統合してしまえば、作業コピーの内容をリポジトリに書き戻すことができます。"
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
@@ -1193,7 +1193,7 @@ msgid ""
 "necessary intelligent choices. Once Harry has manually resolved the "
 "overlapping changes (perhaps by discussing the conflict with Sally!), he can"
 " safely save the merged file back to the repository."
-msgstr "では、サリーの変更がハリーの変更に <emphasis>重なっていた</emphasis> ら？そのときはどうなるのでしょう？この状況は <firstterm>競合</firstterm> と呼ばれ、普段はあまり問題になりません。ハリーがクライアントプログラムに、リポジトリの最新の変更を自分の作業コピーにマージするよう指示を出すと、作業コピーのファイルAは競合している状態になります。このとき彼は競合した変更を両方とも見ることができ、どちらを採用するかを選択することができます。ソフトウェアが自動的に競合を解決できないことに注意してください。理解し正しく選択する力を持っているのは人間だけです。ハリーがいったん重なった変更を解決したら、（おそらくサリーと競合について話し合ったあとで）マージしたファイルを安全にリポジトリに保存できます。"
+msgstr "では、サリーの変更がハリーの変更に<emphasis>重なっていた</emphasis>ら？そのときはどうなるのでしょう？この状況は<firstterm>競合</firstterm>と呼ばれ、ふつうは多発するものではありません。ハリーがクライアントプログラムに、リポジトリの最新の変更を自分の作業コピーにマージするよう指示を出すと、作業コピーのファイル A は競合している状態になります。このとき彼は競合した変更を両方とも見ることができ、どちらを採用するかを選択することができます。ソフトウェアは自動的に競合を解決できないことに注意してください。理解し正しく選択する力を持っているのは人間だけです。ハリーがいったん重なった変更を解決したら、（おそらくサリーと競合について話し合ったあとで）マージしたファイルを安全にリポジトリに保存できます。"
 
 #. (para)
 msgid ""
