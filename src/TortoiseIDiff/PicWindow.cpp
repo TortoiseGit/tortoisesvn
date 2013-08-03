@@ -668,8 +668,8 @@ void CPicWindow::SetupScrollBars()
     long height = picture.m_Height*picscale/100;
     if (pSecondPic && pTheOtherPic)
     {
-        width = max(width, pSecondPic->m_Width*pTheOtherPic->GetZoom());
-        height = max(height, pSecondPic->m_Height*pTheOtherPic->GetZoom());
+        width = max(width, pSecondPic->m_Width*pTheOtherPic->GetZoom()/100);
+        height = max(height, pSecondPic->m_Height*pTheOtherPic->GetZoom()/100);
     }
 
     bool bShowHScrollBar = (nHScrollPos > 0); // left of pic is left of window
