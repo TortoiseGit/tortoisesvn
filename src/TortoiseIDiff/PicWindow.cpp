@@ -1516,12 +1516,12 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
             picture.m_Width, picture.m_Height,
             picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
             picture.m_ColorDepth,
-            (UINT)(GetZoom()*100.0),
+            (UINT)GetZoom(),
             pSecondPic->GetFileSizeAsText().c_str(), pSecondPic->GetFileSizeAsText(false).c_str(),
             pSecondPic->m_Width, pSecondPic->m_Height,
             pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
             pSecondPic->m_ColorDepth,
-            (UINT)(pTheOtherPic->GetZoom()*100.0));
+            (UINT)pTheOtherPic->GetZoom());
     }
     else
     {
@@ -1531,7 +1531,7 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
             picture.m_Width, picture.m_Height,
             picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
             picture.m_ColorDepth,
-            (UINT)(GetZoom()*100.0));
+            (UINT)GetZoom());
     }
 }
 
