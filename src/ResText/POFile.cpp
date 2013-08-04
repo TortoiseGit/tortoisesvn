@@ -115,7 +115,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                     //message string
                     resEntry.msgstr = I->c_str();
                     resEntry.msgstr = resEntry.msgstr.substr(8, resEntry.msgstr.length() - 9);
-                    if (resEntry.msgstr.size()>0)
+                    if (!resEntry.msgstr.empty())
                         nTranslated++;
                     type = 2;
                 }
@@ -244,7 +244,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
         {
             File << II->c_str() << _T("\n");
         }
-        if (I->second.resourceIDs.size() > 0)
+        if (!I->second.resourceIDs.empty())
         {
             File << _T("#. Resource IDs: (");
 

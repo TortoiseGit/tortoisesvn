@@ -471,7 +471,7 @@ CLogDataVector::CLogDataVector()
 
 void CLogDataVector::ClearAll()
 {
-    if (size() > 0)
+    if (!empty())
     {
         for(iterator it=begin(); it!=end(); ++it)
             delete *it;

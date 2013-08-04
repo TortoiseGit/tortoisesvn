@@ -1274,7 +1274,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
             tstring author;
             if (i < (int)m_authors.size())
                 author = bUseMerged ? m_mergedAuthors[i] : m_authors[i];
-            if (author.size() > 0)
+            if (!author.empty())
             {
                 if (author.compare(m_mouseAuthor)==0)
                     ::SetBkColor(hDC, m_mouseAuthorColor);
