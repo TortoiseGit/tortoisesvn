@@ -1105,19 +1105,15 @@
 
           <Directory Id="D__Languages" Name="Languages" >
 
-            <?if $(env.DictionaryENGB) = 1 ?>
             <Component Id="C__DictionaryENGB" Guid="$(var.GuidDictionaryENGB)" Win64="$(var.Win64YesNo)">
-              <File Id="F__ENGBSPELLAFF" Name="en_GB.aff" Source="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
-              <File Id="F__ENGBSPELLDIC" Name="en_GB.dic" Source="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
+              <File Id="F__ENGBSPELLAFF" Name="en_GB.aff" Source="..\..\ext\Spell\en_GB.aff" DiskId="1" />
+              <File Id="F__ENGBSPELLDIC" Name="en_GB.dic" Source="..\..\ext\Spell\en_GB.dic" DiskId="1" />
             </Component>
-            <?endif ?>
 
-            <?if $(env.DictionaryENUS) = 1 ?>
             <Component Id="C__DictionaryENUS" Guid="$(var.GuidDictionaryENUS)" Win64="$(var.Win64YesNo)">
-              <File Id="F__ENSPELLAFF" Name="en_US.aff" Source="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
-              <File Id="F__ENSPELLDIC" Name="en_US.dic" Source="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
+              <File Id="F__ENSPELLAFF" Name="en_US.aff" Source="..\..\ext\Spell\en_US.aff" DiskId="1" />
+              <File Id="F__ENSPELLDIC" Name="en_US.dic" Source="..\..\ext\Spell\en_US.dic" DiskId="1" />
             </Component>
-            <?endif ?>
 
           </Directory>
 

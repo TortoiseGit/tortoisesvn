@@ -38,11 +38,8 @@ You need to perform most steps only once.
 (\b 2) right-click on the installer file and "run as administrator" to install it.
 (\b 3) use 32 bit installer (even on x64 OS)
 
-\subsection Requirements3 Next you need to download some more.
-- tools collection            http://code.google.com/p/tortoisesvn/downloads/list
-- dictionaries/thesauri(\b Optional) http://wiki.openoffice.org/wiki/Dictionaries
 
-\subsection Requirements4 Finally, you may need to install some fonts.
+\subsection Requirements3 Finally, you may need to install some fonts.
 - Arabic(\b Optional)         http://www7.bev.net/civic/icb/quran/Iqraa_ttf.zip
 - Japanese(\b Optional)       msgothic.ttc and msmincho.ttc should be available
                               if you activate support for international fonts in your OS.
@@ -54,18 +51,8 @@ You need to perform most steps only once.
 Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   1.5 GB of free space left!!!
-- create a new folder in SVN called 'common'
-- copy the dictionaries/thesauri to 'common\spell'.
-  note that the names of the files are important!
-  They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic (or whatever language you use).
-  Warning: only the thesaurus in the format for OO2 will work. Earlier versions will
-  crash TortoiseSVN!  You can copy these files from your C:\Program Files\TortoiseSVN\Languages folder.
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
-- unzip the file 'Tools.zip' into a folder, we suggest SVN\TortoiseSVN\Tools.
-  Note: the path to the tools folder must not have special chars in it or spaces.
-  If you checked out the TortoiseSVN source to such a location, you can store
-  the tools folder somewhere else.
 - Make a copy of the file default.build.user.tmpl in the TortoiseSVN root folder and
   rename that copy to default.build.user. Then adjust the paths as mentioned
   in that file. You may leave it unchanged if you installed / copied everything
@@ -76,6 +63,7 @@ Now you're almost ready. Only a few more steps to do:
   working-copy database version than the tool expects.
 - Unzip (if necessary) and copy the font files into %WINDIR%\Fonts.
   You will need them only if you are building the respective language packs.
+- run 'nant init' to fetch and unzip the required tools
 
 
 \section build32 Building 32 bit packages

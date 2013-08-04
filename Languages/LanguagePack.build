@@ -18,7 +18,7 @@ NAnt build script for the TortoiseSVN language pack installers
   <include buildfile="../default.build.user" if="${file::exists('../default.build.user')}" />
 
   <property name="SpellCheckDir"
-    value="..\..\Common\Spell\"
+    value="..\ext\Spell\"
     unless="${property::exists('SpellCheckDir')}"
   />
 

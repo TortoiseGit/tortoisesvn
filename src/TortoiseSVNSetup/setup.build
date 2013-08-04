@@ -28,21 +28,9 @@
     </if>
     <if test="${configuration == 'release'}">
       <setenv>
-        <variable name="DictionaryENUS" value="0" />
-        <variable name="DictionaryENGB" value="0" />
         <variable name="IncludeCrashReportDll" value="0" />
       </setenv>
 
-      <if test="${file::exists('..\..\..\Common\Spell\en_US.aff')}">
-        <setenv>
-          <variable name="DictionaryENUS" value="1" />
-        </setenv>
-      </if>
-      <if test="${file::exists('..\..\..\Common\Spell\en_GB.aff')}">
-        <setenv>
-          <variable name="DictionaryENGB" value="1" />
-        </setenv>
-      </if>
       <if test="${file::exists('..\..\MYBUILD')}">
         <setenv>
           <variable name="IncludeCrashReportDll" value="1" />

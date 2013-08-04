@@ -1,0 +1,886 @@
+SET ISO8859-1
+TRY áàãâéêíóõôúüçesianrtolcdugmphbyfvkwjqxz
+
+# Plural apenas
+
+SFX G N 8
+SFX G   0     s        [^ã][aeiouáéíóúôêãn]
+SFX G   0     es       [rsz]
+SFX G   l     s        il
+SFX G   l     is       [^i]l
+SFX G   m     ns       m
+SFX G   ão    ões      ão
+SFX G   0     es       r
+SFX G   0     s        n
+
+# Plural apenas (variante)
+
+SFX g N 4
+SFX g   il     eis     il
+SFX g   el     éis     el
+SFX g   ol     óis     ol
+SFX g   0      s       ão
+
+
+# Plural e masculino/feminino
+
+SFX P N 18
+SFX P   0     s        [^ã]o
+SFX P   o     a        [^ã]o
+SFX P   o     as       [^ã]o
+SFX P   0     s        e
+SFX P   e     a        e
+SFX P   e     as       e
+SFX P   0     a        r
+SFX P   0     es       r
+SFX P   0     as       r
+SFX P   0     s        ão
+SFX P   ão    ã        ão
+SFX P   o     s        ão
+SFX P   ês    eses     ês
+SFX P   ês    esa      ês
+SFX P   ês    esas     ês
+SFX P   0     a        m
+SFX P   0     as       m
+SFX P   m     ns       m
+
+
+# Plural e masc/feminino (variante)
+SFX p N 3
+SFX p   o     es      ão
+SFX p   ão    ã       ão
+SFX p   o     s       ão
+
+
+# Superlativo
+
+SFX S N 20
+SFX S   o     íssimo   o
+SFX S   o     íssimos  o
+SFX S   o     íssima   o
+SFX S   o     íssimas  o
+SFX S   e     íssimo   e
+SFX S   e     íssimos  e
+SFX S   e     íssima   e
+SFX S   e     íssimas  e
+SFX S   0     íssimo   l
+SFX S   0     íssimos  l
+SFX S   0     íssima   l
+SFX S   0     íssimas  l
+SFX S   0     íssimo   r
+SFX S   0     íssimos  r
+SFX S   0     íssima   r
+SFX S   0     íssimas  r
+SFX S   z     císsimo   z
+SFX S   z     císsimos  z
+SFX S   z     císsima   z
+SFX S   z     císsimas  z
+
+# Superlativo (variante)
+
+SFX s N 4
+SFX s   ável  abilíssimo   ável
+SFX s   ável  abilíssimos   ável
+SFX s   ável  abilíssima   ável
+SFX s   ável  abilíssimas   ável
+
+
+# ...mente
+
+SFX M N 6
+SFX M   o     amente       o
+SFX M   0     mente        e
+SFX M   0     mente        r
+SFX M   0     mente        z
+SFX M   0     ente         m
+SFX M   0     mente        l
+
+
+# ...mente (variante)
+
+SFX m N 15
+SFX m   0     amente       r
+SFX m   ário  ariamente    ário
+SFX m   ório  oriamente    ório
+SFX m   ógico ogicamente   ógico
+SFX m   ogia  ogicamente   ogia
+SFX m   ético eticamente   ético
+SFX m   ático aticamente   ático
+SFX m   ável  avelmente    ável
+SFX m   ível  ivelmente    ível
+SFX m   ômico omicamente   ômico
+SFX m   ístico isticamente  ístico
+SFX m   ícito icitamente   ícito
+SFX m   ítimo itimamente   ítimo
+SFX m   ópico opicamente   ópico
+SFX m   ínimo inimamente   ínimo
+
+# ...mento
+
+SFX N N 4
+SFX N   do     mento    do
+SFX N   do     mentos   do
+SFX N   e      amento   e
+SFX N   e      amentos  e
+
+
+# ...idade
+
+SFX D N 20
+SFX D   ável  abilidade    ável
+SFX D   ável  abilidades   ável
+SFX D   ível  ibilidade    ível
+SFX D   ível  ibilidades   ível
+SFX D   óvel  obilidade    óvel
+SFX D   óvel  obilidades   óvel
+SFX D   úvel  ubilidade    úvel
+SFX D   úvel  ubilidades   úvel
+SFX D   o     idade        o
+SFX D   o     idades       o
+SFX D   e     idade        e
+SFX D   e     idades       e
+SFX D   z     cidade       z
+SFX D   z     cidades      z
+SFX D   m     nidade       m
+SFX D   m     nidades      m
+SFX D   0     idade        [^e]l
+SFX D   0     idades       [^e]l
+SFX D   0     idade        r
+SFX D   0     idades       r
+
+# ...ismo
+
+SFX O N 8
+SFX O   o     ismo         [^ã]o
+SFX O   e     ismo         e
+SFX O   a     ismo         [^iç]a
+SFX O   a     smo          ia
+SFX O   0     ismo         [rl]
+SFX O   ção   cionismo     ção
+SFX O   ão    ionismo      são
+SFX O   ça    cismo        ça
+
+# ...ismo (variante)
+
+SFX o N 15
+SFX o   ático   atismo       ático
+SFX o   ético   etismo       ético
+SFX o   ítico   itismo       ítico
+SFX o   ótico   otismo       ótico
+SFX o   ário    arismo       ário
+SFX o   êmico   emicismo     êmico
+SFX o   óstico  osticismo    óstico
+SFX o   ônico   onismo       ônico
+SFX o   ênico   enismo       ênico
+SFX o   êntrico entrismo     êntrico
+SFX o   órfico  orfismo      órfico
+SFX o   élico   elismo       élico
+SFX o   ólico   olismo       ólico
+SFX o   ávico   avismo       ávico
+SFX o   óvel    obilismo     óvel
+
+# ...ista
+
+SFX T N 16
+SFX T   o     ista         [^ã]o
+SFX T   o     istas        [^ã]o
+SFX T   e     ista         e
+SFX T   e     istas        e
+SFX T   a     ista         [^iç]a
+SFX T   a     istas        [^iç]a
+SFX T   a     sta          ia
+SFX T   a     stas         ia
+SFX T   0     ista         [rl]
+SFX T   0     istas        [rl]
+SFX T   ção   cionista     ção
+SFX T   ção   cionistas    ção
+SFX T   ão    ionista      são
+SFX T   ão    ionistas     são
+SFX T   ça    cista         ça
+SFX T   ça    cistas        ça
+
+# ...ista (variante)
+
+SFX t N 26
+SFX t   ático   atista       ático
+SFX t   ático   atistas      ático
+SFX t   ético   etista       ético
+SFX t   ético   etistas      ético
+SFX t   ítico   itista       ítico
+SFX t   ítico   itistas      ítico
+SFX t   ótico   otista       ótico
+SFX t   ótico   otistas      ótico
+SFX t   ário    arista       ário
+SFX t   ário    aristas      ário
+SFX t   ório    arista       ório
+SFX t   ório    aristas      ório
+SFX t   óstico  osticista    óstico
+SFX t   óstico  osticistas   óstico
+SFX t   ônico   onista       ônico
+SFX t   ônico   onistas      ônico
+SFX t   ênico   enista       ênico
+SFX t   ênico   enistas      ênico
+SFX t   êntrico entrista     êntrico
+SFX t   êntrico entristas    êntrico
+SFX t   ólico   olista       ólico
+SFX t   ólico   olistas       ólico
+SFX t   óvel    obilista     óvel
+SFX t   óvel    obilistas    óvel
+SFX t   ismo    ista         ismo
+SFX t   ismo    istas        ismo
+
+# ...ógico
+
+SFX C N 4
+SFX C   ogia    ógico     ogia
+SFX C   ogia    ógicos    ogia
+SFX C   ogia    ógica     ogia
+SFX C   ogia    ógicas    ogia
+
+
+#============
+#   VERBOS
+#============
+
+# VERBOS REGULARES
+
+SFX R N 117
+SFX R   0       a      [aei]r
+SFX R   0       am     [aei]r
+SFX R   0       as     [aei]r
+SFX R   0       des    [aei]r
+SFX R   0       ei     [aei]r
+SFX R   0       eis    [aei]r
+SFX R   0       em     [aei]r
+SFX R   0       emos   [aei]r
+SFX R   0       es     [aei]r
+SFX R   0       ia     [aei]r
+SFX R   0       iam    [aei]r
+SFX R   0       ias    [aei]r
+SFX R   0       mos    [aei]r
+SFX R   0       á      [aei]r
+SFX R   0       ás     [aei]r
+SFX R   0       ão     [aei]r
+SFX R   0       íamos  [aei]r
+SFX R   0       íeis   [aei]r
+SFX R   ar      e      [^cgç]ar
+SFX R   ar      ei     [^cgç]ar
+SFX R   ar      eis    [^cgç]ar
+SFX R   ar      em     [^cgç]ar
+SFX R   ar      emos   [^cgç]ar
+SFX R   ar      es     [^cgç]ar
+SFX R   çar      ce      çar
+SFX R   çar      cei     çar
+SFX R   çar      ceis    çar
+SFX R   çar      cem     çar
+SFX R   çar      cemos   çar
+SFX R   çar      ces     çar
+SFX R   car     que    car
+SFX R   car     quei   car
+SFX R   car     queis  car
+SFX R   car     quem   car
+SFX R   car     quemos car
+SFX R   car     ques   car
+SFX R   ar      o      [^o]ar
+SFX R   oar     ôo      oar
+SFX R   ar      ou     ar
+SFX R   ar      áramos  ar
+SFX R   ar      áreis   ar
+SFX R   ar      ásseis  ar
+SFX R   ar      ássemos ar
+SFX R   ar      ávamos  ar
+SFX R   ar      áveis   ar
+SFX R   er      a      [^cgu]er
+SFX R   er      ais    [^cgu]er
+SFX R   er      am     [^cgu]er
+SFX R   er      amos   [^cgu]er
+SFX R   er      as     [^cgu]er
+SFX R   cer     ça     cer
+SFX R   cer     çais   cer
+SFX R   cer     çam    cer
+SFX R   cer     çamos  cer
+SFX R   cer     ças    cer
+SFX R   ger     ja     ger
+SFX R   ger     jais   ger
+SFX R   ger     jam    ger
+SFX R   ger     jamos  ger
+SFX R   ger     jas    ger
+SFX R   guer    ga     guer
+SFX R   guer    gais   guer
+SFX R   guer    gam    guer
+SFX R   guer    gamos  guer
+SFX R   guer    gas    guer
+SFX R   er      i      er
+SFX R   er      ia     er
+SFX R   er      iam    er
+SFX R   er      ias    er
+SFX R   er      ido    er
+SFX R   er      o      [^cgu]er
+SFX R   ger     jo      ger
+SFX R   guer    go      guer
+SFX R   cer     ço      cer
+SFX R   er      êramos  er
+SFX R   er      êreis   er
+SFX R   er      êsseis   er
+SFX R   er      êssemos  er
+SFX R   er      íamos    er
+SFX R   er      íeis     er
+SFX R   ir      a      ir
+SFX R   ir      ais    ir
+SFX R   ir      am     ir
+SFX R   ir      amos   ir
+SFX R   ir      as     ir
+SFX R   ir      e      ir
+SFX R   ir      em     ir
+SFX R   ir      es     ir
+SFX R   ir      o      ir
+SFX R   ir      íamos  ir
+SFX R   ir      íeis    ir
+SFX R   ir      íramos  ir
+SFX R   ir      íreis   ir
+SFX R   ir      ísseis   ir
+SFX R   ir      íssemos  ir
+SFX R   r       0     [aei]r
+SFX R   r       a      ir
+SFX R   r       am      ir
+SFX R   r       as      ir
+SFX R   r       do      [ai]r
+SFX R   r       i      [ae]r
+SFX R   r       is     [ae]r
+SFX R   r       m      [ae]r
+SFX R   r       mos    [aei]r
+SFX R   r       ndo    [aei]r
+SFX R   r       s      [aei]r
+SFX R   r       sse    [aei]r
+SFX R   r       ssem   [aei]r
+SFX R   r       sses   [aei]r
+SFX R   r       ste    [aei]r
+SFX R   r       stes   [aei]r
+SFX R   r       u      [ei]r
+SFX R   r       va      ar
+SFX R   r       vam     ar
+SFX R   r       vas     ar
+SFX R   ar      á       ar
+SFX R   er      ê       er
+
+
+# IRREGULARES: estar, apoiar, saudar, passear, odiar, dar
+#
+#
+#
+
+SFX I N 217
+SFX I   0       a        [ei]ar
+SFX I   0       a       udar
+SFX I   0       am       [ei]ar
+SFX I   0       am       udar
+SFX I   0       as       [ei]ar
+SFX I   0       as       udar
+SFX I   0       des      [ei]ar
+SFX I   0       des       dar
+SFX I   0       des       star
+SFX I   0       des       udar
+SFX I   0       ei       [ei]ar
+SFX I   0       ei       dar
+SFX I   0       ei       star
+SFX I   0       ei       udar
+SFX I   0       eis      [ei]ar
+SFX I   0       eis       dar
+SFX I   0       eis       star
+SFX I   0       eis       udar
+SFX I   0       em       [ei]ar
+SFX I   0       em       dar
+SFX I   0       em       star
+SFX I   0       em       udar
+SFX I   0       emos     [ei]ar
+SFX I   0       emos       dar
+SFX I   0       emos       star
+SFX I   0       emos       udar
+SFX I   0       es       [ei]ar
+SFX I   0       es       dar
+SFX I   0       es       star
+SFX I   0       es       udar
+SFX I   0       ia       [ei]ar
+SFX I   0       ia       dar
+SFX I   0       ia       star
+SFX I   0       ia       udar
+SFX I   0       iam      [ei]ar
+SFX I   0       iam       dar
+SFX I   0       iam       star
+SFX I   0       iam       udar
+SFX I   0       ias      [ei]ar
+SFX I   0       ias       dar
+SFX I   0       ias       star
+SFX I   0       ias       udar
+SFX I   0       mos      [ei]ar
+SFX I   0       mos       dar
+SFX I   0       mos       star
+SFX I   0       mos       udar
+SFX I   0       á        [ei]ar
+SFX I   0       á       dar
+SFX I   0       á       star
+SFX I   0       á       udar
+SFX I   0       ás       [ei]ar
+SFX I   0       ás       dar
+SFX I   0       ás       star
+SFX I   0       ás       udar
+SFX I   0       ão       [ei]ar
+SFX I   0       ão       dar
+SFX I   0       ão       star
+SFX I   0       ão       udar
+SFX I   0       íamos    [ei]ar
+SFX I   0       íamos       dar
+SFX I   0       íamos       star
+SFX I   0       íamos       udar
+SFX I   0       íeis     [ei]ar
+SFX I   0       íeis       dar
+SFX I   0       íeis       star
+SFX I   0       íeis       udar
+SFX I   ar      ei       dar
+SFX I   ar      ei       [ei]ar
+SFX I   ar      ei       udar
+SFX I   ar      eis       dar
+SFX I   ar      eis      [ei]ar
+SFX I   ar      eis       udar
+SFX I   ar      eja       star
+SFX I   ar      ejais       star
+SFX I   ar      ejam       star
+SFX I   ar      ejamos       star
+SFX I   ar      ejas       star
+SFX I   ar      emos       dar
+SFX I   ar      emos       [ei]ar
+SFX I   ar      emos       udar
+SFX I   ar      er       dar
+SFX I   ar      era       dar
+SFX I   ar      eram       dar
+SFX I   ar      eras       dar
+SFX I   ar      erdes       dar
+SFX I   ar      erem       dar
+SFX I   ar      eres       dar
+SFX I   ar      ermos       dar
+SFX I   ar      esse       dar
+SFX I   ar      essem       dar
+SFX I   ar      esses       dar
+SFX I   ar      este       dar
+SFX I   ar      estes       dar
+SFX I   ar      eu       dar
+SFX I   ar      eve       star
+SFX I   ar      ia       ear
+SFX I   ar      iam       ear
+SFX I   ar      ias       ear
+SFX I   ar      ie       ear
+SFX I   ar      iem       ear
+SFX I   ar      ies       ear
+SFX I   ar      io       ear
+SFX I   ar      ive       star
+SFX I   ar      ivemos       star
+SFX I   ar      iver       star
+SFX I   ar      ivera       star
+SFX I   ar      iveram       star
+SFX I   ar      iveras       star
+SFX I   ar      iverdes       star
+SFX I   ar      iverem       star
+SFX I   ar      iveres       star
+SFX I   ar      ivermos       star
+SFX I   ar      ivesse       star
+SFX I   ar      ivessem       star
+SFX I   ar      ivesses       star
+SFX I   ar      iveste       star
+SFX I   ar      ivestes       star
+SFX I   ar      ivéramos       star
+SFX I   ar      ivéreis       star
+SFX I   ar      ivésseis       star
+SFX I   ar      ivéssemos       star
+SFX I   ar      ou       [ei]ar
+SFX I   ar      ou       dar
+SFX I   ar      ou       star
+SFX I   ar      ou       udar
+SFX I   ar      á       dar
+SFX I   ar      á       star
+SFX I   ar      áramos      [ei]ar
+SFX I   ar      áramos       udar
+SFX I   ar      áreis       [ei]ar
+SFX I   ar      áreis       udar
+SFX I   ar      ás       dar
+SFX I   ar      ás       star
+SFX I   ar      ásseis      [ei]ar
+SFX I   ar      ásseis       udar
+SFX I   ar      ássemos     [ei]ar
+SFX I   ar      ássemos       udar
+SFX I   ar      ávamos      [ei]ar
+SFX I   ar      ávamos       dar
+SFX I   ar      ávamos       star
+SFX I   ar      ávamos       udar
+SFX I   ar      áveis       [ei]ar
+SFX I   ar      áveis       dar
+SFX I   ar      áveis       star
+SFX I   ar      áveis       udar
+SFX I   ar      ão       dar
+SFX I   ar      ão       star
+SFX I   ar      éramos       dar
+SFX I   ar      éreis       dar
+SFX I   ar      ésseis       dar
+SFX I   ar      éssemos       dar
+SFX I   ar      ê       dar
+SFX I   ar      êem       dar
+SFX I   ar      ês       dar
+SFX I   iar     eia       [^]iar
+SFX I   iar     eiam       [^]iar
+SFX I   iar     eias       [^]iar
+SFX I   iar     eie       [^]iar
+SFX I   iar     eiem       [^]iar
+SFX I   iar     eies       [^]iar
+SFX I   iar     eio       [^]iar
+SFX I   oiar    óia       oiar
+SFX I   oiar    óiam       oiar
+SFX I   oiar    óias       oiar
+SFX I   oiar    óie       oiar
+SFX I   oiar    óiem       oiar
+SFX I   oiar    óies       oiar
+SFX I   oiar    óio       oiar
+SFX I   r       do       [ei]ar
+SFX I   r       do       dar
+SFX I   r       do       star
+SFX I   r       do       udar
+SFX I   r       i        [ei]ar
+SFX I   r       i       dar
+SFX I   r       i       star
+SFX I   r       i       udar
+SFX I   r       is       [ei]ar
+SFX I   r       is       dar
+SFX I   r       is       star
+SFX I   r       is       udar
+SFX I   r       mos      [ei]ar
+SFX I   r       mos       dar
+SFX I   r       mos       star
+SFX I   r       mos       udar
+SFX I   r       ndo      [ei]ar
+SFX I   r       ndo       dar
+SFX I   r       ndo       star
+SFX I   r       ndo       udar
+SFX I   r       sse      [ei]ar
+SFX I   r       sse       udar
+SFX I   r       ssem     [ei]ar
+SFX I   r       ssem       udar
+SFX I   r       sses     [ei]ar
+SFX I   r       sses       udar
+SFX I   r       ste      [ei]ar
+SFX I   r       ste       udar
+SFX I   r       stes     [ei]ar
+SFX I   r       stes       udar
+SFX I   r       va       [ei]ar
+SFX I   r       va       dar
+SFX I   r       va       star
+SFX I   r       va       udar
+SFX I   r       vam      [ei]ar
+SFX I   r       vam       dar
+SFX I   r       vam       star
+SFX I   r       vam       udar
+SFX I   r       vas      [ei]ar
+SFX I   r       vas       dar
+SFX I   r       vas       star
+SFX I   r       vas       udar
+SFX I   udar    úda       udar
+SFX I   udar    údam       udar
+SFX I   udar    údas       udar
+SFX I   udar    úde       udar
+SFX I   udar    údem       udar
+SFX I   udar    údes       udar
+SFX I   udar    údo        udar
+
+# IRREGULARES: ser (era, és, for) ter haver ir (vá) poder querer
+
+SFX i N 293
+SFX i   0      m        ra
+SFX i   0      s        ra
+SFX i   r      i        for
+SFX i   r      mos      for
+SFX i   0      a        for
+SFX i   0      am       for
+SFX i   0      as       for
+SFX i   0      des      for
+SFX i   0      em       for
+SFX i   0      es       for
+SFX i   0      mos      for
+SFX i   r      sse      for
+SFX i   r      ssem     for
+SFX i   r      sses     for
+SFX i   r      ste      for
+SFX i   r      stes     for
+SFX i   or     ui       for
+SFX i   or     ôramos   for
+SFX i   or     ôreis    for
+SFX i   or     ôsseis   for
+SFX i   or     ôssemos  for
+SFX i   r      de      ser
+SFX i   r      ja      ser
+SFX i   r      jais      ser
+SFX i   r      jam      ser
+SFX i   r      jamos      ser
+SFX i   r      jas      ser
+SFX i   r      ndo      ser
+SFX i   0      des      ser
+SFX i   0      ei      ser
+SFX i   0      eis      ser
+SFX i   0      em      ser
+SFX i   0      emos      ser
+SFX i   0      es      ser
+SFX i   0      ia      ser
+SFX i   0      iam      ser
+SFX i   0      ias      ser
+SFX i   0      mos      ser
+SFX i   0      á      ser
+SFX i   0      ás      ser
+SFX i   0      ão      ser
+SFX i   0      íamos      ser
+SFX i   0      íeis      ser
+SFX i   er     ido      ser
+SFX i   er     ois      ser
+SFX i   er     omos      ser
+SFX i   er     ou      ser
+SFX i   er     ão      ser
+SFX i   er     ê      ser
+SFX i   s      ramos      és
+SFX i   s      reis      és
+SFX i   r      m      ter
+SFX i   r      mos      ter
+SFX i   r      nde      ter
+SFX i   r      ndes      ter
+SFX i   r      ndo      ter
+SFX i   r      nha      ter
+SFX i   r      nhais      ter
+SFX i   r      nham      ter
+SFX i   r      nhamos      ter
+SFX i   r      nhas      ter
+SFX i   r      nho      ter
+SFX i   r      ns      ter
+SFX i   0      des      ter
+SFX i   0      ei      ter
+SFX i   0      eis      ter
+SFX i   0      em      ter
+SFX i   0      emos      ter
+SFX i   0      es      ter
+SFX i   0      ia      ter
+SFX i   0      iam      ter
+SFX i   0      ias      ter
+SFX i   0      mos      ter
+SFX i   0      á      ter
+SFX i   0      ás      ter
+SFX i   0      ão      ter
+SFX i   0      íamos      ter
+SFX i   0      íeis      ter
+SFX i   r      ve      ter
+SFX i   er     ido      ter
+SFX i   er     inha      ter
+SFX i   er     inham      ter
+SFX i   er     inhas      ter
+SFX i   er     ive      ter
+SFX i   er     ivemos      ter
+SFX i   er     iver      ter
+SFX i   er     ivera      ter
+SFX i   er     iveram      ter
+SFX i   er     iveras      ter
+SFX i   er     iverdes      ter
+SFX i   er     iverem      ter
+SFX i   er     iveres      ter
+SFX i   er     ivermos      ter
+SFX i   er     ivesse      ter
+SFX i   er     ivessem      ter
+SFX i   er     ivesses      ter
+SFX i   er     iveste      ter
+SFX i   er     ivestes      ter
+SFX i   er     ivéramos      ter
+SFX i   er     ivéreis      ter
+SFX i   er     ivésseis      ter
+SFX i   er     ivéssemos      ter
+SFX i   er     êm        ter
+SFX i   er     ínhamos      ter
+SFX i   er     ínheis      ter
+SFX i   ver    ja      haver
+SFX i   ver    jais      haver
+SFX i   ver    jam      haver
+SFX i   ver    jamos      haver
+SFX i   ver    jas      haver
+SFX i   r      i      haver
+SFX i   r      is      haver
+SFX i   r      mos      haver
+SFX i   r      ndo      haver
+SFX i   0      des      haver
+SFX i   0      ei      haver
+SFX i   0      eis      haver
+SFX i   0      em      haver
+SFX i   0      emos      haver
+SFX i   0      es      haver
+SFX i   0      ia      haver
+SFX i   0      iam      haver
+SFX i   0      ias      haver
+SFX i   0      mos      haver
+SFX i   0      á      haver
+SFX i   0      ás      haver
+SFX i   0      ão      haver
+SFX i   0      íamos      haver
+SFX i   0      íeis      haver
+SFX i   er     ia      haver
+SFX i   er     iam      haver
+SFX i   er     ias      haver
+SFX i   er     ido      haver
+SFX i   er     íamos      haver
+SFX i   er     íeis      haver
+SFX i   aver   ei      haver
+SFX i   aver   ouve      haver
+SFX i   aver   ouvemos      haver
+SFX i   aver   ouver      haver
+SFX i   aver   ouvera      haver
+SFX i   aver   ouveram      haver
+SFX i   aver   ouveras      haver
+SFX i   aver   ouverdes      haver
+SFX i   aver   ouverem      haver
+SFX i   aver   ouveres      haver
+SFX i   aver   ouvermos      haver
+SFX i   aver   ouvesse      haver
+SFX i   aver   ouvessem      haver
+SFX i   aver   ouvesses      haver
+SFX i   aver   ouveste      haver
+SFX i   aver   ouvestes      haver
+SFX i   aver   ouvéramos      haver
+SFX i   aver   ouvéreis      haver
+SFX i   aver   ouvésseis      haver
+SFX i   aver   ouvéssemos      haver
+SFX i   aver   á      haver
+SFX i   aver   ás      haver
+SFX i   aver   ão      haver
+SFX i   r      a      ir
+SFX i   r      am     ir
+SFX i   r      as     ir
+SFX i   r      de     ir
+SFX i   r      des    ir
+SFX i   r      do     ir
+SFX i   r      ndo    ir
+SFX i   0      des    ir
+SFX i   0      ei     ir
+SFX i   0      eis    ir
+SFX i   0      em     ir
+SFX i   0      emos   ir
+SFX i   0      es     ir
+SFX i   0      ia     ir
+SFX i   0      iam    ir
+SFX i   0      ias    ir
+SFX i   0      mos    ir
+SFX i   0      á      ir
+SFX i   0      ás     ir
+SFX i   0      ão     ir
+SFX i   0      íamos  ir
+SFX i   0      íeis   ir
+SFX i   á      ades   vá
+SFX i   á      ai     vá
+SFX i   á      ais    vá
+SFX i   á      amos   vá
+SFX i   á      ou     vá
+SFX i   0      s      vá
+SFX i   á      ão     vá
+SFX i   r      0      poder
+SFX i   r      is      poder
+SFX i   r      m      poder
+SFX i   r      mos      poder
+SFX i   r      ndo      poder
+SFX i   0      des      poder
+SFX i   0      ei      poder
+SFX i   0      eis      poder
+SFX i   0      em      poder
+SFX i   0      emos      poder
+SFX i   0      es      poder
+SFX i   0      ia      poder
+SFX i   0      iam      poder
+SFX i   0      ias      poder
+SFX i   0      mos      poder
+SFX i   0      á      poder
+SFX i   0      ás      poder
+SFX i   0      ão      poder
+SFX i   0      íamos      poder
+SFX i   0      íeis      poder
+SFX i   r      s      poder
+SFX i   er     ia      poder
+SFX i   er     iam      poder
+SFX i   er     ias      poder
+SFX i   er     ido      poder
+SFX i   er     íamos      poder
+SFX i   er     íeis      poder
+SFX i   der    ssa      poder
+SFX i   der    ssais      poder
+SFX i   der    ssam      poder
+SFX i   der    ssamos      poder
+SFX i   der    ssas      poder
+SFX i   der    sso      poder
+SFX i   oder   ude      poder
+SFX i   oder   udemos      poder
+SFX i   oder   uder      poder
+SFX i   oder   udera      poder
+SFX i   oder   uderam      poder
+SFX i   oder   uderas      poder
+SFX i   oder   uderdes      poder
+SFX i   oder   uderem      poder
+SFX i   oder   uderes      poder
+SFX i   oder   udermos      poder
+SFX i   oder   udesse      poder
+SFX i   oder   udessem      poder
+SFX i   oder   udesses      poder
+SFX i   oder   udeste      poder
+SFX i   oder   udestes      poder
+SFX i   oder   udéramos      poder
+SFX i   oder   udéreis      poder
+SFX i   oder   udésseis      poder
+SFX i   oder   udéssemos      poder
+SFX i   oder   ôde      poder
+SFX i   rer    ira      querer
+SFX i   rer    irais      querer
+SFX i   rer    iram      querer
+SFX i   rer    iramos      querer
+SFX i   rer    iras      querer
+SFX i   rer    r      querer
+SFX i   r      i      querer
+SFX i   r      is      querer
+SFX i   r      m      querer
+SFX i   r      mos      querer
+SFX i   r      ndo      querer
+SFX i   0      des      querer
+SFX i   0      ei      querer
+SFX i   0      eis      querer
+SFX i   0      em      querer
+SFX i   0      emos      querer
+SFX i   0      es      querer
+SFX i   0      ia      querer
+SFX i   0      iam      querer
+SFX i   0      ias      querer
+SFX i   0      mos      querer
+SFX i   0      á      querer
+SFX i   0      ás      querer
+SFX i   0      ão      querer
+SFX i   0      íamos      querer
+SFX i   0      íeis      querer
+SFX i   r      s      querer
+SFX i   er     ia      querer
+SFX i   er     iam      querer
+SFX i   er     ias      querer
+SFX i   er     ido      querer
+SFX i   er     o      querer
+SFX i   er     íamos      querer
+SFX i   er     íeis      querer
+SFX i   erer   is      querer
+SFX i   erer   isemos      querer
+SFX i   erer   iser      querer
+SFX i   erer   isera      querer
+SFX i   erer   iseram      querer
+SFX i   erer   iseras      querer
+SFX i   erer   iserdes      querer
+SFX i   erer   iserem      querer
+SFX i   erer   iseres      querer
+SFX i   erer   isermos      querer
+SFX i   erer   isesse      querer
+SFX i   erer   isessem      querer
+SFX i   erer   isesses      querer
+SFX i   erer   iseste      querer
+SFX i   erer   isestes      querer
+SFX i   erer   iséramos      querer
+SFX i   erer   iséreis      querer
+SFX i   erer   isésseis      querer
+SFX i   erer   iséssemos      querer
