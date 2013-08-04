@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!-- use this file to set the paths to the required tools
+<!--
+     Use this file to set the paths to the required tools
      TortoiseSVN needs to build everything.
 
-     first make a copy of this file and rename the copy to
-     default.build.user
-     then check the TODO comments and adjust the paths in
-     the "value" field if necessary.
+     First make a copy of this file and rename the copy to
+     default.build.user then check the TODO comments and
+     adjust the paths in the "value" field if necessary.
 
      Note: if you followed the instructions in build.txt,
      the build script should automatically use the correct
@@ -35,15 +35,13 @@
     <!--
       WiX3 installer already sets an environment variable to
       its target folder. We need to move it to the \bin folder
-      conditionally as "manual" installations   might not have
+      conditionally as "manual" installations might not have
       that sub-folder.
     -->
 
     <if test="${not environment::variable-exists('WIX')}">
       <setenv>
-        <!--
-          TODO: change path value, if WIX is not defined
-        -->
+        <!-- TODO: change path value, if WIX is not defined -->
         <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.7" />
       </setenv>
     </if>
@@ -74,7 +72,7 @@
       </setenv>
     </if>
 
-    <!-- when creating the msi for a release, the task can also
+    <!-- When creating the msi for a release, the task can also
          zip all debug symbols. To do that, specify the path to
          7zip here -->
     <property name="sevenzip" value="c:\program files\7-zip\7z.exe" />
