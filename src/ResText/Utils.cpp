@@ -139,7 +139,7 @@ void CUtils::SearchReplace(std::wstring& str, const std::wstring& toreplace, con
 {
     std::wstring result;
     std::wstring::size_type pos = 0;
-    for ( ; ; )	// while (true)
+    for ( ; ; ) // while (true)
     {
         std::wstring::size_type next = str.find(toreplace, pos);
         result.append(str, pos, next-pos);
