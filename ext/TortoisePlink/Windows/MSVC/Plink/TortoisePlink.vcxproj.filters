@@ -186,7 +186,9 @@
     <ClCompile Include="..\..\..\sshrsag.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
+    <ClCompile Include="..\..\..\conf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\charset\charset.h">
       <Filter>Header Files</Filter>
