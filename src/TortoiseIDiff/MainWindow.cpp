@@ -71,8 +71,8 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
     SendMessage(hwndTB, TB_AUTOSIZE, 0, 0);
     GetWindowRect(hwndTB, &tbRect);
     LONG tbHeight = tbRect.bottom-tbRect.top-1;
-    HDWP hdwp = BeginDeferWindowPos(2);
-    if (bOverlap)
+    HDWP hdwp = BeginDeferWindowPos(3);
+    if (bOverlap && selectionPaths.empty())
     {
         SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+tbHeight, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-tbHeight, SWP_SHOWWINDOW);
     }
@@ -80,32 +80,73 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
     {
         if (bVertical)
         {
-            RECT child;
-            child.left = clientrect->left;
-            child.top = clientrect->top+tbHeight;
-            child.right = clientrect->right;
-            child.bottom = nSplitterPos-(SPLITTER_BORDER/2);
-            if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-            child.top = nSplitterPos+(SPLITTER_BORDER/2);
-            child.bottom = clientrect->bottom;
-            if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            if (selectionPaths.size() != 3)
+            {
+                // two image windows
+                RECT child;
+                child.left = clientrect->left;
+                child.top = clientrect->top+tbHeight;
+                child.right = clientrect->right;
+                child.bottom = nSplitterPos-(SPLITTER_BORDER/2);
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.top = nSplitterPos+(SPLITTER_BORDER/2);
+                child.bottom = clientrect->bottom;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            }
+            else
+            {
+                // three image windows
+                RECT child;
+                child.left = clientrect->left;
+                child.top = clientrect->top+tbHeight;
+                child.right = clientrect->right;
+                child.bottom = nSplitterPos-(SPLITTER_BORDER/2);
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.top = nSplitterPos+(SPLITTER_BORDER/2);
+                child.bottom = nSplitterPos2-(SPLITTER_BORDER/2);
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.top = nSplitterPos2+(SPLITTER_BORDER/2);
+                child.bottom = clientrect->bottom;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow3, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            }
         }
         else
         {
-            RECT child;
-            child.left = clientrect->left;
-            child.top = clientrect->top+tbHeight;
-            child.right = nSplitterPos-(SPLITTER_BORDER/2);
-            child.bottom = clientrect->bottom;
-            if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-            child.left = nSplitterPos+(SPLITTER_BORDER/2);
-            child.right = clientrect->right;
-            if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            if (selectionPaths.size() != 3)
+            {
+                // two image windows
+                RECT child;
+                child.left = clientrect->left;
+                child.top = clientrect->top+tbHeight;
+                child.right = nSplitterPos-(SPLITTER_BORDER/2);
+                child.bottom = clientrect->bottom;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.left = nSplitterPos+(SPLITTER_BORDER/2);
+                child.right = clientrect->right;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            }
+            else
+            {
+                // three image windows
+                RECT child;
+                child.left = clientrect->left;
+                child.top = clientrect->top+tbHeight;
+                child.right = nSplitterPos-(SPLITTER_BORDER/2);
+                child.bottom = clientrect->bottom;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.left = nSplitterPos+(SPLITTER_BORDER/2);
+                child.right = nSplitterPos2-(SPLITTER_BORDER/2);
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+                child.left = nSplitterPos2+(SPLITTER_BORDER/2);
+                child.right = clientrect->right;
+                if (hdwp) hdwp = DeferWindowPos(hdwp, picWindow3, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+            }
         }
     }
     if (hdwp) EndDeferWindowPos(hdwp);
     picWindow1.SetTransparentColor(transparentColor);
     picWindow2.SetTransparentColor(transparentColor);
+    picWindow3.SetTransparentColor(transparentColor);
     InvalidateRect(*this, NULL, FALSE);
 }
 
@@ -121,20 +162,43 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         {
             m_hwnd = hwnd;
             picWindow1.RegisterAndCreateWindow(hwnd);
-            picWindow1.SetPic(leftpicpath, leftpictitle, true);
             picWindow2.RegisterAndCreateWindow(hwnd);
-            picWindow2.SetPic(rightpicpath, rightpictitle, false);
+            if (selectionPaths.empty())
+            {
+                picWindow1.SetPic(leftpicpath, leftpictitle, true);
+                picWindow2.SetPic(rightpicpath, rightpictitle, false);
 
-            picWindow1.SetOtherPicWindow(&picWindow2);
-            picWindow2.SetOtherPicWindow(&picWindow1);
+                picWindow1.SetOtherPicWindow(&picWindow2);
+                picWindow2.SetOtherPicWindow(&picWindow1);
+            }
+            else
+            {
+                picWindow3.RegisterAndCreateWindow(hwnd);
+
+                picWindow1.SetPic(selectionPaths[FileTypeMine], selectionTitles[FileTypeMine], false);
+                picWindow2.SetPic(selectionPaths[FileTypeBase], selectionTitles[FileTypeBase], false);
+                picWindow3.SetPic(selectionPaths[FileTypeTheirs], selectionTitles[FileTypeTheirs], false);
+            }
+
             CreateToolbar();
             // center the splitter
             RECT rect;
             GetClientRect(hwnd, &rect);
-            nSplitterPos = (rect.right-rect.left)/2;
+            if (selectionPaths.size() != 3)
+            {
+                nSplitterPos = (rect.right-rect.left)/2;
+                nSplitterPos2 = 0;
+            }
+            else
+            {
+                nSplitterPos = (rect.right-rect.left)/3;
+                nSplitterPos2 = (rect.right-rect.left)*2/3;
+            }
+
             PositionChildren(&rect);
             picWindow1.FitImageInWindow();
             picWindow2.FitImageInWindow();
+            picWindow3.FitImageInWindow();
         }
         break;
     case WM_COMMAND:
@@ -172,10 +236,30 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 RECT tbRect;
                 GetWindowRect(hwndTB, &tbRect);
                 LONG tbHeight = tbRect.bottom-tbRect.top-1;
-                nSplitterPos = (rect.bottom-rect.top+tbHeight)/2;
+                if (selectionPaths.size() != 3)
+                {
+                    nSplitterPos = (rect.bottom-rect.top)/2+tbHeight;
+                    nSplitterPos2 = 0;
+                }
+                else
+                {
+                    nSplitterPos = (rect.bottom-rect.top)/3+tbHeight;
+                    nSplitterPos2 = (rect.bottom-rect.top)*2/3+tbHeight;
+                }
             }
             else
-                nSplitterPos = (rect.right-rect.left)/2;
+            {
+                if (selectionPaths.size() != 3)
+                {
+                    nSplitterPos = (rect.right-rect.left)/2;
+                    nSplitterPos2 = 0;
+                }
+                else
+                {
+                    nSplitterPos = (rect.right-rect.left)/3;
+                    nSplitterPos2 = (rect.right-rect.left)*2/3;
+                }
+            }
             PositionChildren(&rect);
         }
         break;
@@ -239,6 +323,14 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 {
                     picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
                 }
+                else
+                {
+                    GetWindowRect(picWindow3, &rect);
+                    if (PtInRect(&rect, pt))
+                    {
+                        picWindow3.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+                    }
+                }
             }
         }
         break;
@@ -262,6 +354,14 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 if (PtInRect(&rect, pt))
                 {
                     picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
+                }
+                else
+                {
+                    GetWindowRect(picWindow3, &rect);
+                    if (PtInRect(&rect, pt))
+                    {
+                        picWindow3.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
+                    }
                 }
             }
         }
@@ -340,6 +440,7 @@ LRESULT CMainWindow::DoCommand(int id)
 
             picWindow1.ShowInfo(bShowInfo);
             picWindow2.ShowInfo(bShowInfo);
+            picWindow3.ShowInfo(bShowInfo);
 
             // change the state of the toolbar button
             TBBUTTONINFO tbi;
@@ -452,6 +553,7 @@ LRESULT CMainWindow::DoCommand(int id)
                 transparentColor = ccDlg.rgbResult;
                 picWindow1.SetTransparentColor(transparentColor);
                 picWindow2.SetTransparentColor(transparentColor);
+                picWindow3.SetTransparentColor(transparentColor);
                 // The color picker takes the focus and we don't get it back.
                 ::SetFocus(picWindow1);
             }
@@ -462,6 +564,7 @@ LRESULT CMainWindow::DoCommand(int id)
             bFitWidths = !bFitWidths;
             picWindow1.FitWidths(bFitWidths);
             picWindow2.FitWidths(bFitWidths);
+            picWindow3.FitWidths(bFitWidths);
 
             HMENU hMenu = GetMenu(*this);
             UINT uCheck = MF_BYCOMMAND;
@@ -481,6 +584,7 @@ LRESULT CMainWindow::DoCommand(int id)
             bFitHeights = !bFitHeights;
             picWindow1.FitHeights(bFitHeights);
             picWindow2.FitHeights(bFitHeights);
+            picWindow3.FitHeights(bFitHeights);
 
             HMENU hMenu = GetMenu(*this);
             UINT uCheck = MF_BYCOMMAND;
@@ -500,6 +604,7 @@ LRESULT CMainWindow::DoCommand(int id)
             bLinkedPositions = !bLinkedPositions;
             picWindow1.LinkPositions(bLinkedPositions);
             picWindow2.LinkPositions(bLinkedPositions);
+            picWindow3.LinkPositions(bLinkedPositions);
 
             HMENU hMenu = GetMenu(*this);
             UINT uCheck = MF_BYCOMMAND;
@@ -528,30 +633,39 @@ LRESULT CMainWindow::DoCommand(int id)
         break;
     case ID_VIEW_FITIMAGESINWINDOW:
         {
-            picWindow2.FitImageInWindow();
             picWindow1.FitImageInWindow();
+            picWindow2.FitImageInWindow();
+            picWindow3.FitImageInWindow();
         }
         break;
     case ID_VIEW_ORININALSIZE:
         {
-            picWindow2.SetZoom(100, false);
             picWindow1.SetZoom(100, false);
+            picWindow2.SetZoom(100, false);
+            picWindow3.SetZoom(100, false);
             picWindow1.CenterImage();
             picWindow2.CenterImage();
+            picWindow3.CenterImage();
         }
         break;
     case ID_VIEW_ZOOMIN:
         {
             picWindow1.Zoom(true, false);
             if ((!(bFitWidths || bFitHeights))&&(!bOverlap))
+            {
                 picWindow2.Zoom(true, false);
+                picWindow3.Zoom(true, false);
+            }
         }
         break;
     case ID_VIEW_ZOOMOUT:
         {
             picWindow1.Zoom(false, false);
             if ((!(bFitWidths || bFitHeights))&&(!bOverlap))
+            {
                 picWindow2.Zoom(false, false);
+                picWindow3.Zoom(false, false);
+            }
         }
         break;
     case ID_VIEW_ARRANGEVERTICAL:
@@ -564,11 +678,29 @@ LRESULT CMainWindow::DoCommand(int id)
                 RECT tbRect;
                 GetWindowRect(hwndTB, &tbRect);
                 LONG tbHeight = tbRect.bottom-tbRect.top-1;
-                nSplitterPos = (rect.bottom-rect.top+tbHeight)/2;
+                if (selectionPaths.size() != 3)
+                {
+                    nSplitterPos = (rect.bottom-rect.top)/2+tbHeight;
+                    nSplitterPos2 = 0;
+                }
+                else
+                {
+                    nSplitterPos = (rect.bottom-rect.top)/3+tbHeight;
+                    nSplitterPos2 = (rect.bottom-rect.top)*2/3+tbHeight;
+                }
             }
             else
             {
-                nSplitterPos = (rect.right-rect.left)/2;
+                if (selectionPaths.size() != 3)
+                {
+                    nSplitterPos = (rect.right-rect.left)/2;
+                    nSplitterPos2 = 0;
+                }
+                else
+                {
+                    nSplitterPos = (rect.right-rect.left)/3;
+                    nSplitterPos2 = (rect.right-rect.left)*2/3;
+                }
             }
             HMENU hMenu = GetMenu(*this);
             UINT uCheck = MF_BYCOMMAND;
@@ -642,9 +774,27 @@ LRESULT CMainWindow::Splitter_OnLButtonDown(HWND hwnd, UINT /*iMsg*/, WPARAM /*w
     ClientToScreen(hwnd, &zero);
     OffsetRect(&clientrect, zero.x-rect.left, zero.y-rect.top);
 
+    ClientToScreen(hwnd, &pt);
+    // find out which drag bar is used
+    bDrag2 = false;
+    if (!selectionPaths.empty())
+    {
+        RECT pic2Rect;
+        GetWindowRect(picWindow2, &pic2Rect);
+        if (bVertical)
+        {
+            if (pic2Rect.bottom <= pt.y)
+                bDrag2 = true;
+        }
+        else
+        {
+            if (pic2Rect.right <= pt.x)
+                bDrag2 = true;
+        }
+    }
+
     //convert the mouse coordinates relative to the top-left of
     //the window
-    ClientToScreen(hwnd, &pt);
     pt.x -= rect.left;
     pt.y -= rect.top;
 
@@ -736,10 +886,37 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT /*iMsg*/, WPARAM /*wPa
     //now convert into CLIENT coordinates
     ScreenToClient(hwnd, &pt);
     GetClientRect(hwnd, &rect);
+#define MINWINSIZE 10
     if (bVertical)
-        nSplitterPos = pt.y;
+    {
+        if (bDrag2)
+        {
+            if (pt.y < (nSplitterPos+MINWINSIZE))
+                pt.y = nSplitterPos+MINWINSIZE;
+            nSplitterPos2 = pt.y;
+        }
+        else
+        {
+            if (pt.y > (nSplitterPos2-MINWINSIZE))
+                pt.y = nSplitterPos2-MINWINSIZE;
+            nSplitterPos = pt.y;
+        }
+    }
     else
-        nSplitterPos = pt.x;
+    {
+        if (bDrag2)
+        {
+            if (pt.x < (nSplitterPos+MINWINSIZE))
+                pt.x = nSplitterPos+MINWINSIZE;
+            nSplitterPos2 = pt.x;
+        }
+        else
+        {
+            if (pt.x > (nSplitterPos2-MINWINSIZE))
+                pt.x = nSplitterPos2-MINWINSIZE;
+            nSplitterPos = pt.x;
+        }
+    }
 
     ReleaseCapture();
 
@@ -1035,5 +1212,10 @@ bool CMainWindow::CreateToolbar()
     SendMessage(hwndTB, TB_AUTOSIZE, 0, 0);
     ShowWindow(hwndTB, SW_SHOW);
     return true;
+}
 
+void CMainWindow::SetSelectionImage( FileType ft, const std::wstring& path, const std::wstring& title )
+{
+    selectionPaths[ft] = path;
+    selectionTitles[ft] = title;
 }
