@@ -50,7 +50,10 @@ bool CMainWindow::RegisterAndCreateWindow()
     wcx.lpszClassName = clsname;
     wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
     wcx.hbrBackground = (HBRUSH)(COLOR_3DFACE+1);
-    wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
+    if (selectionPaths.empty())
+        wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
+    else
+        wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF2);
     wcx.hIconSm = LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
     if (RegisterWindow(&wcx))
     {
@@ -1105,53 +1108,56 @@ bool CMainWindow::CreateToolbar()
     if (hToolbarImgList == NULL)
         return false;
     int index = 0;
-    HICON hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
-    tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
-    tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES;
-    tbb[index].fsState = TBSTATE_ENABLED;
-    tbb[index].fsStyle = BTNS_BUTTON;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
+    HICON hIcon = NULL;
+    if (selectionPaths.empty())
+    {
+        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
+        tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
+        tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES;
+        tbb[index].fsState = TBSTATE_ENABLED;
+        tbb[index].fsStyle = BTNS_BUTTON;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_BLEND));
-    tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
-    tbb[index].idCommand = ID_VIEW_BLENDALPHA;
-    tbb[index].fsState = 0;
-    tbb[index].fsStyle = BTNS_BUTTON;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
+        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_BLEND));
+        tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
+        tbb[index].idCommand = ID_VIEW_BLENDALPHA;
+        tbb[index].fsState = 0;
+        tbb[index].fsStyle = BTNS_BUTTON;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_LINK));
-    tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
-    tbb[index].idCommand = ID_VIEW_LINKIMAGESTOGETHER;
-    tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED;
-    tbb[index].fsStyle = BTNS_BUTTON;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
+        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_LINK));
+        tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
+        tbb[index].idCommand = ID_VIEW_LINKIMAGESTOGETHER;
+        tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED;
+        tbb[index].fsStyle = BTNS_BUTTON;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITWIDTHS));
-    tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
-    tbb[index].idCommand = ID_VIEW_FITIMAGEWIDTHS;
-    tbb[index].fsState = TBSTATE_ENABLED;
-    tbb[index].fsStyle = BTNS_BUTTON;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
+        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITWIDTHS));
+        tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
+        tbb[index].idCommand = ID_VIEW_FITIMAGEWIDTHS;
+        tbb[index].fsState = TBSTATE_ENABLED;
+        tbb[index].fsStyle = BTNS_BUTTON;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITHEIGHTS));
-    tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
-    tbb[index].idCommand = ID_VIEW_FITIMAGEHEIGHTS;
-    tbb[index].fsState = TBSTATE_ENABLED;
-    tbb[index].fsStyle = BTNS_BUTTON;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
+        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITHEIGHTS));
+        tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
+        tbb[index].idCommand = ID_VIEW_FITIMAGEHEIGHTS;
+        tbb[index].fsState = TBSTATE_ENABLED;
+        tbb[index].fsStyle = BTNS_BUTTON;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
 
-    tbb[index].iBitmap = 0;
-    tbb[index].idCommand = 0;
-    tbb[index].fsState = TBSTATE_ENABLED;
-    tbb[index].fsStyle = BTNS_SEP;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
-
+        tbb[index].iBitmap = 0;
+        tbb[index].idCommand = 0;
+        tbb[index].fsState = TBSTATE_ENABLED;
+        tbb[index].fsStyle = BTNS_SEP;
+        tbb[index].dwData = 0;
+        tbb[index++].iString = 0;
+    }
     hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_VERTICAL));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_ARRANGEVERTICAL;
