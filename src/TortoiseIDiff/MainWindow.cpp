@@ -183,6 +183,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 picWindow3.SetPic(selectionPaths[FileTypeTheirs], selectionTitles[FileTypeTheirs], false);
             }
 
+            picWindow1.SetSelectionMode(!selectionPaths.empty());
+            picWindow2.SetSelectionMode(!selectionPaths.empty());
+            picWindow3.SetSelectionMode(!selectionPaths.empty());
+
             CreateToolbar();
             // center the splitter
             RECT rect;
@@ -206,7 +210,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         break;
     case WM_COMMAND:
         {
-            return DoCommand(LOWORD(wParam));
+            return DoCommand(LOWORD(wParam), lParam);
         }
         break;
     case WM_PAINT:
@@ -407,7 +411,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     return 0;
 };
 
-LRESULT CMainWindow::DoCommand(int id)
+LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
 {
     switch (id)
     {
@@ -723,6 +727,29 @@ LRESULT CMainWindow::DoCommand(int id)
         {
             CAboutDlg dlg(*this);
             dlg.DoModal(hInst, IDD_ABOUT, *this);
+        }
+        break;
+    case SELECTBUTTON_ID:
+        {
+            HWND hSource = (HWND)lParam;
+            if (picWindow1 == hSource)
+            {
+                if (!selectionResult.empty())
+                    CopyFile(selectionPaths[FileTypeMine].c_str(), selectionResult.c_str(), FALSE);
+                PostQuitMessage(FileTypeMine);
+            }
+            if (picWindow2 == hSource)
+            {
+                if (!selectionResult.empty())
+                    CopyFile(selectionPaths[FileTypeBase].c_str(), selectionResult.c_str(), FALSE);
+                PostQuitMessage(FileTypeBase);
+            }
+            if (picWindow3 == hSource)
+            {
+                if (!selectionResult.empty())
+                    CopyFile(selectionPaths[FileTypeTheirs].c_str(), selectionResult.c_str(), FALSE);
+                PostQuitMessage(FileTypeTheirs);
+            }
         }
         break;
     case IDM_EXIT:

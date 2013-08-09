@@ -19,6 +19,7 @@
 #define IDS_IMAGEINFOTT                 111
 #define IDS_DUALIMAGEINFOTT             112
 #define IDS_ALPHABUTTONTT               113
+#define IDS_SELECT                      114
 #define IDD_OPEN                        130
 #define IDR_TORTOISEIDIFF               131
 #define IDI_OVERLAP                     134
@@ -39,7 +40,6 @@
 #define IDI_BLEND                       152
 #define IDD_ABOUT                       153
 #define IDI_FITHEIGHTS                  154
-#define IDR_TORTOISEIDIFF2              155
 #define IDC_TORTOISEIDIFF2              155
 #define IDC_LEFTIMAGE                   1000
 #define IDC_RIGHTIMAGE                  1001

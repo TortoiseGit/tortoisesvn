@@ -95,7 +95,7 @@ protected:
     /// the message handler for this window
     LRESULT CALLBACK                    WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
     /// Handles all the WM_COMMAND window messages (e.g. menu commands)
-    LRESULT                             DoCommand(int id);
+    LRESULT                             DoCommand(int id, LPARAM lParam);
 
     /// Positions the child windows. Call this after the window sizes/positions have changed.
     void                                PositionChildren(RECT * clientrect = NULL);

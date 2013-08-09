@@ -417,6 +417,11 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                     InvalidateRect(*this, NULL, TRUE);
                 }
                 break;
+            case SELECTBUTTON_ID:
+                {
+                    SendMessage(GetParent(m_hwnd), WM_COMMAND, MAKEWPARAM(SELECTBUTTON_ID, SELECTBUTTON_ID), (LPARAM)m_hwnd);
+                }
+                break;
             }
         }
         break;
@@ -1444,6 +1449,18 @@ bool CPicWindow::CreateButtons()
     ti.rect.right = 0;
     ti.rect.bottom = 0;
     SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
+    ResString sSelect(hResource, IDS_SELECT);
+    hwndSelectBtn = CreateWindowEx(0,
+                                   _T("BUTTON"),
+                                   sSelect,
+                                   WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                                   0, 0, 0, 0,
+                                   *this,
+                                   (HMENU)SELECTBUTTON_ID,
+                                   hResource,
+                                   NULL);
+    if (hwndPlayBtn == INVALID_HANDLE_VALUE)
+        return false;
 
     return true;
 }
@@ -1467,6 +1484,10 @@ void CPicWindow::PositionChildren()
         ShowWindow(hwndRightBtn, SW_HIDE);
         ShowWindow(hwndPlayBtn, SW_HIDE);
     }
+    if (bSelectionMode)
+        SetWindowPos(hwndSelectBtn, HWND_TOP, rect.right-100, rect.bottom-HEADER_HEIGHT, 100, HEADER_HEIGHT, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
+    else
+        ShowWindow(hwndSelectBtn, SW_HIDE);
     PositionTrackBar();
 }
 
