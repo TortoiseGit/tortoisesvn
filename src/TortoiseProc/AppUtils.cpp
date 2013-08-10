@@ -101,12 +101,27 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 
     if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
     {
-        // use TortoiseMerge
-        bInternal = true;
-        com = CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe");
-        com = _T("\"") + com + _T("\"");
-        com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
-        com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
+        // Maybe we should use TortoiseIDiff?
+        if ((ext == _T(".jpg")) || (ext == _T(".jpeg")) ||
+            (ext == _T(".bmp")) || (ext == _T(".gif"))  ||
+            (ext == _T(".png")) || (ext == _T(".ico"))  ||
+            (ext == _T(".tif")) || (ext == _T(".tiff"))  ||
+            (ext == _T(".dib")) || (ext == _T(".emf")))
+        {
+            com = CPathUtils::GetAppDirectory() + _T("TortoiseIDiff.exe");
+            com = _T("\"") + com + _T("\"");
+            com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /result:%merged");
+            com = com + _T(" /basetitle:%bname /theirstitle:%tname /minetitle:%yname");
+        }
+        else
+        {
+            // use TortoiseMerge
+            bInternal = true;
+            com = CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe");
+            com = _T("\"") + com + _T("\"");
+            com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
+            com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
+        }
         if (!g_sGroupingUUID.IsEmpty())
         {
             com += L" /groupuuid:\"";
