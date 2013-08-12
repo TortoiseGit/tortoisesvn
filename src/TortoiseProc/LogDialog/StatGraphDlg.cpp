@@ -945,7 +945,7 @@ void CStatGraphDlg::ShowStats()
         nWeeks = 1;
     // Adjust the labels with the unit type (week, month, ...)
     CString labelText;
-    labelText.Format(IDS_STATGRAPH_NUMBEROFUNIT, GetUnitString());
+    labelText.Format(IDS_STATGRAPH_NUMBEROFUNIT, GetUnitsString());
     SetDlgItemText(IDC_NUMWEEK, labelText);
     labelText.Format(IDS_STATGRAPH_COMMITSBYUNIT, GetUnitString());
     SetDlgItemText(IDC_COMMITSEACHWEEK, labelText);
@@ -1090,6 +1090,19 @@ CString CStatGraphDlg::GetUnitString()
     if (m_nWeeks < 320)
         return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXQUARTER));
     return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXYEAR));
+}
+
+CString CStatGraphDlg::GetUnitsString()
+{
+    if (m_nDays < 8)
+        return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXDAYS));
+    if (m_nWeeks < 15)
+        return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXWEEKS));
+    if (m_nWeeks < 80)
+        return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXMONTHS));
+    if (m_nWeeks < 320)
+        return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXQUARTERS));
+    return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXYEARS));
 }
 
 CString CStatGraphDlg::GetUnitLabel(int unit, CTime &lasttime)
