@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -185,7 +185,7 @@ public:
     CCrashReportTSVN(LPCTSTR appname)
     {
         CR_INSTALL_INFO info;
-        memset(&info, 0, sizeof(CR_INSTALL_INFO));
+        SecureZeroMemory(&info, sizeof(CR_INSTALL_INFO));
         info.cb = sizeof(CR_INSTALL_INFO);
         info.pszAppName = appname;
         info.pszAppVersion = _T(STRPRODUCTVER);

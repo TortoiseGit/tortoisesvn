@@ -416,7 +416,7 @@ void CShellExt::SetExtraColumnStatus
     TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
 
     URL_COMPONENTS urlComponents;
-    memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
+    SecureZeroMemory(&urlComponents, sizeof(URL_COMPONENTS));
     urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
     urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
     urlComponents.lpszUrlPath = urlpath;

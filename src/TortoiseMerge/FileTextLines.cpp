@@ -350,7 +350,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 
     // fill in the lines into the array
     size_t countEOLs[EOL__COUNT];
-    memset(countEOLs, 0, sizeof(countEOLs));
+    SecureZeroMemory(countEOLs, sizeof(countEOLs));
     CFileTextLine oTextLine;
     for (int i = nReadChars; i; --i)
     {

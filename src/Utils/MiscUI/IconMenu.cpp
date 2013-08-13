@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009, 2011 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,7 +59,7 @@ BOOL CIconMenu::SetMenuStyle(void)
 
     MENUINFO MenuInfo;
 
-    memset(&MenuInfo, 0, sizeof(MenuInfo));
+    SecureZeroMemory(&MenuInfo, sizeof(MenuInfo));
 
     MenuInfo.cbSize  = sizeof(MenuInfo);
     MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -286,7 +286,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             // so no right side on newob
             // newob will be the moved part only, later after we split off any suffix from it
             svn_diff_t * newob = (svn_diff_t *)apr_palloc(pool, sizeof(svn_diff_t));
-            memset(newob, 0, sizeof(*newob));
+            SecureZeroMemory(newob, sizeof(*newob));
 
             tail->base = newob;
             newob->type = svn_diff__type_diff_modified;
@@ -311,7 +311,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             // break off any suffix from tempdiff
             // newob will be the suffix, and will get all the right side
             svn_diff_t * newob = (svn_diff_t *) apr_palloc(pool, sizeof (*newob));
-            memset(newob, 0, sizeof(*newob));
+            SecureZeroMemory(newob, sizeof(*newob));
             newob->type = svn_diff__type_diff_modified;
 
             newob->original_start = i2 + 1;
@@ -426,7 +426,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             // so no right side on newob
             // newob will be the moved part only, later after we split off any suffix from it
             svn_diff_t * newob = (svn_diff_t *) apr_palloc(pool, sizeof (*newob));
-            memset(newob, 0, sizeof(*newob));
+            SecureZeroMemory(newob, sizeof(*newob));
             newob->type = svn_diff__type_diff_modified;
 
             if(existing == newTail)
@@ -459,7 +459,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             // break off any suffix from tempdiff
             // newob will be the suffix, and will get all the left side
             svn_diff_t * newob = (svn_diff_t *) apr_palloc(pool, sizeof (*newob));
-            memset(newob, 0, sizeof(*newob));
+            SecureZeroMemory(newob, sizeof(*newob));
             tsvn_svn_diff_t_extension * eNewOb = CreateDiffExtension(newob, pool);
 
             newob->type = svn_diff__type_diff_modified;

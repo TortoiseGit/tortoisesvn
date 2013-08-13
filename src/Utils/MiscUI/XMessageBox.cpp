@@ -775,14 +775,14 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         default:             m_nDefButton = 1; break;
     }
 
-    memset(m_szHelpPath, 0, sizeof(m_szHelpPath));
+    SecureZeroMemory(m_szHelpPath, sizeof(m_szHelpPath));
     _tcscpy(m_szHelpPath, pXMB->szHelpPath);
     // store company name to use for saving checkbox state in registry
-    memset(m_szCompanyName, 0, sizeof(m_szCompanyName));
+    SecureZeroMemory(m_szCompanyName, sizeof(m_szCompanyName));
     _tcscpy(m_szCompanyName, pXMB->szCompanyName);
 
     // m_szDefaultButton is used to save text for timeout option
-    memset(m_szDefaultButton, 0, sizeof(m_szDefaultButton));
+    SecureZeroMemory(m_szDefaultButton, sizeof(m_szDefaultButton));
 
     ///////////////////////////////////////////////////////////////////////////
     // allocate buffers for message and caption - buffers must be allocated
@@ -791,12 +791,12 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     m_lpszMessage = new TCHAR [MessageSize];
     if (m_lpszMessage)
         m_lpszMessage[0] = _T('\0');
-    memset(m_lpszMessage, 0, MessageSize*sizeof(TCHAR));
+    SecureZeroMemory(m_lpszMessage, MessageSize*sizeof(TCHAR));
 
     m_lpszCaption = new TCHAR [MessageSize];
     if (m_lpszCaption)
         m_lpszCaption[0] = _T('\0');
-    memset(m_lpszCaption, 0, MessageSize*sizeof(TCHAR));
+    SecureZeroMemory(m_lpszCaption, MessageSize*sizeof(TCHAR));
 
     ///////////////////////////////////////////////////////////////////////////
     // set instance handle for strings
@@ -848,7 +848,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 
     ///////////////////////////////////////////////////////////////////////////
     // load custom buttons from resource or string
-    memset(m_szCustomButtons, 0, sizeof(m_szCustomButtons));
+    SecureZeroMemory(m_szCustomButtons, sizeof(m_szCustomButtons));
 
     if (pXMB->nIdCustomButtons)
     {
@@ -869,7 +869,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 
     ///////////////////////////////////////////////////////////////////////////
     // load report button caption from resource or string
-    memset(&m_szButtonText[eReport], 0, MaxButtonStringSize*sizeof(TCHAR));
+    SecureZeroMemory(&m_szButtonText[eReport], MaxButtonStringSize*sizeof(TCHAR));
 
     if (pXMB->nIdReportButtonCaption)
     {
@@ -2372,7 +2372,7 @@ int CXDialogTemplate::Display()
 
     // transfer title
     WCHAR *pchCaption = new WCHAR[nTitleLen + 100];
-    memset(pchCaption, 0, nTitleLen*sizeof(WCHAR) + 2);
+    SecureZeroMemory(pchCaption, nTitleLen*sizeof(WCHAR) + 2);
 
 #ifdef _UNICODE
     memcpy(pchCaption, szTitle, nTitleLen * sizeof(TCHAR));
@@ -2406,7 +2406,7 @@ int CXDialogTemplate::Display()
         WCHAR * pchCaption = new WCHAR[nChars+100];
 
 #ifdef _UNICODE
-        memset(pchCaption, 0, nChars*sizeof(TCHAR) + 2);
+        SecureZeroMemory(pchCaption, nChars*sizeof(WCHAR) + 2);
         memcpy(pchCaption, m_pDlgItemArray[i]->m_pszCaption, nChars * sizeof(TCHAR));   //+++1.5
         int nActualChars = nChars;
 #else
@@ -2438,7 +2438,7 @@ int CXDialogTemplate::Display()
         ::EnableWindow(m_hWndOwner, FALSE);
 
         MSG msg;
-        memset(&msg, 0, sizeof(msg));
+        SecureZeroMemory(&msg, sizeof(msg));
 
         // message loop for dialog
 

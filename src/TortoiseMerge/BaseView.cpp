@@ -2028,7 +2028,7 @@ int CBaseView::OnCreate(LPCREATESTRUCT lpCreateStruct)
     if (CView::OnCreate(lpCreateStruct) == -1)
         return -1;
 
-    memset(&m_lfBaseFont, 0, sizeof(m_lfBaseFont));
+    SecureZeroMemory(&m_lfBaseFont, sizeof(m_lfBaseFont));
     //lstrcpy(m_lfBaseFont.lfFaceName, _T("Courier New"));
     //lstrcpy(m_lfBaseFont.lfFaceName, _T("FixedSys"));
     m_lfBaseFont.lfHeight = 0;

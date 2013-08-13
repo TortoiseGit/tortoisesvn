@@ -220,7 +220,7 @@ HRESULT __stdcall SubWCRev::GetWCInfo2(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOO
     if (wcPath==NULL)
         return E_INVALIDARG;
 
-    memset (&SubStat, 0, sizeof (SubStat));
+    SecureZeroMemory(&SubStat, sizeof(SubStat));
     SubStat.bExternalsNoMixedRevision = externalsNoMixed;
     return GetWCInfoInternal(wcPath, folders, externals);
 }
@@ -230,7 +230,7 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
     if (wcPath==NULL)
         return E_INVALIDARG;
 
-    memset (&SubStat, 0, sizeof (SubStat));
+    SecureZeroMemory(&SubStat, sizeof(SubStat));
     return GetWCInfoInternal(wcPath, folders, externals);
 }
 

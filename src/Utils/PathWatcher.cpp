@@ -358,7 +358,7 @@ CPathWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& Directo
 {
     ATLASSERT( hDir && !DirectoryName.IsEmpty());
     m_Buffer[0] = 0;
-    memset(&m_Overlapped, 0, sizeof(m_Overlapped));
+    SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
     m_DirPath = m_DirName.GetWinPathString();
     if (m_DirPath.GetAt(m_DirPath.GetLength()-1) != '\\')
         m_DirPath += _T("\\");

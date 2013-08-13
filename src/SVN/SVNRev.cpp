@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ void SVNRev::Create(CString sRev)
     sRev.Trim();
     sDate.Empty();
     m_bIsValid = FALSE;
-    memset (&rev, 0, sizeof (rev));
+    SecureZeroMemory(&rev, sizeof(rev));
     if (sRev.Left(1).Compare(_T("{"))==0)
     {
         // brackets denote a date
@@ -124,7 +124,7 @@ SVNRev::SVNRev(svn_revnum_t nRev)
 void SVNRev::Create(svn_revnum_t nRev)
 {
     m_bIsValid = TRUE;
-    memset (&rev, 0, sizeof (rev));
+    SecureZeroMemory(&rev, sizeof(rev));
     if(nRev == SVNRev::REV_HEAD)
     {
         rev.kind = svn_opt_revision_head;

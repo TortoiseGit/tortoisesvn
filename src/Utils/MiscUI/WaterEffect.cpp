@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -99,8 +99,8 @@ void CWaterEffect::Blob(int x, int y, int radius, int height, int page)
 void CWaterEffect::ClearWater()
 {
     // clear height fields
-    memset(m_iBuffer1.get(),0, (m_iWidth*m_iHeight)*sizeof(int));
-    memset(m_iBuffer2.get(),0, (m_iWidth*m_iHeight)*sizeof(int));
+    SecureZeroMemory(m_iBuffer1.get(), (m_iWidth*m_iHeight)*sizeof(int));
+    SecureZeroMemory(m_iBuffer2.get(), (m_iWidth*m_iHeight)*sizeof(int));
 }
 
 void CWaterEffect::Render(DWORD* pSrcImage, DWORD* pTargetImage)

@@ -39,9 +39,9 @@ CBrowseFolder::CBrowseFolder(void)
 :   m_style(0),
     m_root(NULL)
 {
-    memset(m_displayName, 0, sizeof(m_displayName));
-    memset(m_title, 0, sizeof(m_title));
-    memset(m_CheckText, 0, sizeof(m_CheckText));
+    SecureZeroMemory(m_displayName, sizeof(m_displayName));
+    SecureZeroMemory(m_title, sizeof(m_title));
+    SecureZeroMemory(m_CheckText, sizeof(m_CheckText));
 }
 
 CBrowseFolder::~CBrowseFolder(void)

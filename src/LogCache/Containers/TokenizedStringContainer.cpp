@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -428,7 +428,7 @@ struct SDelimiterTable
 
     SDelimiterTable (const std::string& delimiters)
     {
-        memset (data, false, sizeof (data));
+        SecureZeroMemory(data, sizeof(data));
         for (size_t i = 0; i < delimiters.size(); ++i)
             data[delimiters[i]] = true;
     }

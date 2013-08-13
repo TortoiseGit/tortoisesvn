@@ -549,7 +549,7 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
         {
             static COLORREF customColors[16] = {0};
             CHOOSECOLOR ccDlg;
-            memset(&ccDlg, 0, sizeof(ccDlg));
+            SecureZeroMemory(&ccDlg, sizeof(ccDlg));
             ccDlg.lStructSize = sizeof(ccDlg);
             ccDlg.hwndOwner = m_hwnd;
             ccDlg.rgbResult = transparentColor;

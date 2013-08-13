@@ -138,12 +138,12 @@ struct XMSGBOXPARAMS
         crText                        = CLR_INVALID;    //+++1.8
         crBackground                  = CLR_INVALID;    //+++1.8
 
-        memset(szHelpPath, 0, sizeof(szHelpPath));
-        memset(szIcon, 0, sizeof(szIcon));
-        memset(szCustomButtons, 0, sizeof(szCustomButtons));
-        memset(szReportButtonCaption, 0, sizeof(szReportButtonCaption));
-        memset(szCompanyName, 0, sizeof(szCompanyName));
-        memset(&UserDefinedButtonCaptions, 0, sizeof(UserDefinedButtonCaptions));   //+++1.5
+        SecureZeroMemory(szHelpPath, sizeof(szHelpPath));
+        SecureZeroMemory(szIcon, sizeof(szIcon));
+        SecureZeroMemory(szCustomButtons, sizeof(szCustomButtons));
+        SecureZeroMemory(szReportButtonCaption, sizeof(szReportButtonCaption));
+        SecureZeroMemory(szCompanyName, sizeof(szCompanyName));
+        SecureZeroMemory(&UserDefinedButtonCaptions, sizeof(UserDefinedButtonCaptions));   //+++1.5
     }
 
     TCHAR       szHelpPath[MAX_PATH];           // path to the chm help section

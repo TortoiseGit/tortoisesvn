@@ -223,7 +223,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
             return FALSE; // value specifier too big
         }
         exp = pEnd - pStart + 1;
-        memset(format,0,1024);
+        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,pEnd - pStart);
         unsigned long number = strtoul(format, NULL, 0);
         if (strcmp(def,VERDEFAND) == 0)
@@ -311,7 +311,7 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
             return FALSE; // Format specifier too big
         }
         exp = pEnd - pStart + 1;
-        memset(format,0,1024*sizeof(wchar_t));
+        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
         unsigned long number = wcstoul(format, NULL, 0);
         if (wcscmp(def,TEXT(VERDEFAND)) == 0)
@@ -432,7 +432,7 @@ int InsertDate(char * def, char * pBuf, size_t & index,
         {
             return FALSE; // Format specifier too big
         }
-        memset(format,0,1024);
+        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,pEnd - pStart);
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
@@ -526,7 +526,7 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         {
             return FALSE; // Format specifier too big
         }
-        memset(format,0,1024*sizeof(wchar_t));
+        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
@@ -749,7 +749,7 @@ int _tmain(int argc, _TCHAR* argv[])
     BOOL bErrOnMixed = FALSE;
     BOOL bQuiet = FALSE;
     SubWCRev_t SubStat;
-    memset (&SubStat, 0, sizeof (SubStat));
+    SecureZeroMemory(&SubStat, sizeof(SubStat));
     SubStat.bFolders = FALSE;
 
     SetDllDirectory(L"");

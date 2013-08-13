@@ -528,7 +528,7 @@ void CHistoryCombo::CreateToolTip()
         NULL);
 
     // initialize tool info struct
-    memset(&m_ToolInfo, 0, sizeof(m_ToolInfo));
+    SecureZeroMemory(&m_ToolInfo, sizeof(m_ToolInfo));
     m_ToolInfo.cbSize = sizeof(m_ToolInfo);
     m_ToolInfo.uFlags = TTF_TRANSPARENT;
     m_ToolInfo.hwnd = m_hWnd;
