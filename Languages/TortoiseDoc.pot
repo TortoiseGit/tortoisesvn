@@ -8983,6 +8983,14 @@ msgid "The auto-completion list shown in the commit message editor displays the 
 msgstr ""
 
 #. (para)
+msgid "File externals that are pegged to a specific revision are blocked by default from being selected for a commit. This is because a subsequent update would revert those changes again unless the pegged revision of the external is adjusted."
+msgstr ""
+
+#. (para)
+msgid "Set this value to <literal>false</literal> in case you still want to commit changes to such external files."
+msgstr ""
+
+#. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
 msgstr ""
 

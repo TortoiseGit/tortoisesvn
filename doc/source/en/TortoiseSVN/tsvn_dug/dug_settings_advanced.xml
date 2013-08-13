@@ -74,6 +74,21 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">BlockPeggedExternals</term>
+            <listitem>
+                <para>
+                    File externals that are pegged to a specific revision are
+                    blocked by default from being selected for a commit. This
+                    is because a subsequent update would revert those changes again
+                    unless the pegged revision of the external is adjusted.
+                </para>
+                <para>
+                    Set this value to <literal>false</literal> in case you still
+                    want to commit changes to such external files.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">BlockStatus</term>
             <listitem>
                 <para>
