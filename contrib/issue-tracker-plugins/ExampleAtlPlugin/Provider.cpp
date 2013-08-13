@@ -109,7 +109,7 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
     }
 
     TCHAR szTempPath[MAX_PATH];
-    GetTempPath(ARRAYSIZE(szTempPath), szTempPath);
+    GetTempPath(_countof(szTempPath), szTempPath);
 
     // Create a temporary file to hold the path list, and write the list to the file.
     TCHAR szPathListTempFile[MAX_PATH];
@@ -154,7 +154,7 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
         HANDLE hOrig = CreateFile(szOriginalMessageTempFile, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
         DWORD cb = GetFileSize(hOrig, NULL);
         BYTE *buffer = (BYTE *)malloc(cb + 1);
-        memset(buffer, 0, cb + 1);
+        SecureZeroMemory(buffer, cb + 1);
         DWORD bytesRead;
         ReadFile(hOrig, buffer, cb, &bytesRead, NULL);
         CloseHandle(hOrig);

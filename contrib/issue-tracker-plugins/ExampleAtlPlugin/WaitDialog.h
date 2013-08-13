@@ -41,5 +41,3 @@ private:
 
     unsigned int ThreadRoutine();
 };
-
-
