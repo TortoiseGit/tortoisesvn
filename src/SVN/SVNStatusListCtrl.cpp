@@ -218,6 +218,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_dwContextMenus(0)
     , m_nIconFolder(0)
     , m_bResortAfterShow(false)
+    , m_bAllowPeggedExternals(false)
 {
     m_tooltipbuf[0] = 0;
 }
@@ -303,6 +304,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
         m_dwContextMenus = dwContextMenus;
         m_bHasCheckboxes = bHasCheckboxes;
         m_bFixCaseRenames = !!CRegDWORD(_T("Software\\TortoiseSVN\\FixCaseRenames"), TRUE);
+        m_bAllowPeggedExternals = (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\BlockPeggedExternals"), TRUE)) == 0);
         m_bWaitCursor = true;
         // set the extended style of the listcontrol
         // the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
@@ -1378,7 +1380,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                 {
                     if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
                     {
-                        if (!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())
+                        if (!entry->IsFromDifferentRepository() && (m_bAllowPeggedExternals || !entry->IsPeggedExternal()))
                             entry->checked = true;
                         break;
                     }
@@ -1390,7 +1392,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                         m_arListArray.push_back(i);
                         if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                         {
-                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && (m_bAllowPeggedExternals || !entry->IsPeggedExternal()))&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                                 entry->checked = true;
                         }
                         AddEntry(entry, listIndex++);
@@ -1401,7 +1403,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     m_arListArray.push_back(i);
                     if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                     {
-                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && (m_bAllowPeggedExternals || !entry->IsPeggedExternal()))&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                             entry->checked = true;
                     }
                     AddEntry(entry, listIndex++);
@@ -1411,7 +1413,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     m_arListArray.push_back(i);
                     if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                     {
-                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && (m_bAllowPeggedExternals || !entry->IsPeggedExternal()))&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                             entry->checked = true;
                     }
                     AddEntry(entry, listIndex++);
@@ -1457,7 +1459,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         {
             // don't restore selection mark on non-selectable items
             FileEntry * entry = GetListEntry(selMark);
-            if (entry&&(((m_dwShow & SVNSLC_SHOWEXTDISABLED)==0)||(!entry->IsFromDifferentRepository() && !entry->IsNested() && !entry->IsPeggedExternal())))
+            if (entry&&(((m_dwShow & SVNSLC_SHOWEXTDISABLED)==0)||(!entry->IsFromDifferentRepository() && !entry->IsNested() && (m_bAllowPeggedExternals || !entry->IsPeggedExternal()))))
             {
                 SetSelectionMark(selMark);
                 SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
@@ -1985,7 +1987,7 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
     if (readLock.IsAcquired())
     {
         FileEntry * entry = GetListEntry(pNMLV->iItem);
-        if (entry&&(m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || entry->IsPeggedExternal()))
+        if (entry&&(m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || (!m_bAllowPeggedExternals && entry->IsPeggedExternal())))
         {
             // if we're blocked or an item from a different repository, prevent changing of the check state
             if ((!ISCHECKED(pNMLV->uOldState) && ISCHECKED(pNMLV->uNewState))||
@@ -4650,7 +4652,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     if (entry->isConflicted)
                         crText = m_Colors.GetColor(CColors::Conflict);
 
-                    if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || entry->IsPeggedExternal()))
+                    if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || (!m_bAllowPeggedExternals && entry->IsPeggedExternal())))
                     {
                         crText = GetSysColor(COLOR_GRAYTEXT);
                     }

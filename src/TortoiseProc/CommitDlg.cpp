@@ -272,6 +272,10 @@ void CCommitDlg::OnOK()
             {
                 bCheckedInExternal = true;
             }
+            if (entry->IsPeggedExternal())
+            {
+                bCheckedInExternal = true;
+            }
             if (entry->IsLocked() && entry->status == svn_wc_status_normal)
             {
                 itemsToUnlock.AddPath (entry->GetPath());

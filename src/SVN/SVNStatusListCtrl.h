@@ -1098,6 +1098,7 @@ private:
     bool                        m_bOwnDrag;
     bool                        m_bDepthInfinity;
     bool                        m_bResortAfterShow;
+    bool                        m_bAllowPeggedExternals;
 
     int                         m_nIconFolder;
 
