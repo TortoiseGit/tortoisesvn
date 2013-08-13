@@ -157,7 +157,7 @@ bool CBugTraqAssociations::FindProviderForPath(CTSVNPath path, CBugTraqAssociati
 CString CBugTraqAssociations::LookupProviderName(const CLSID &provider_clsid)
 {
     OLECHAR szClsid[40];
-    StringFromGUID2(provider_clsid, szClsid, ARRAYSIZE(szClsid));
+    StringFromGUID2(provider_clsid, szClsid, _countof(szClsid));
 
     TCHAR szSubKey[MAX_PATH];
     _stprintf_s(szSubKey, _T("CLSID\\%ls"), szClsid);
@@ -229,7 +229,7 @@ void CBugTraqAssociations::RemoveByPath(const CTSVNPath &path)
 CString CBugTraqAssociation::GetProviderClassAsString() const
 {
     OLECHAR szTemp[40];
-    StringFromGUID2(m_provider.clsid, szTemp, ARRAYSIZE(szTemp));
+    StringFromGUID2(m_provider.clsid, szTemp, _countof(szTemp));
 
     return CString(szTemp);
 }
@@ -253,7 +253,7 @@ std::vector<CBugTraqProvider> CBugTraqAssociations::GetAvailableProviders()
                 CLSID clsids[5];
                 ULONG cClsids;
 
-                hrEnum = pEnum->Next(ARRAYSIZE(clsids), clsids, &cClsids);
+                hrEnum = pEnum->Next(_countof(clsids), clsids, &cClsids);
                 if (SUCCEEDED(hrEnum))
                 {
                     for (ULONG i = 0; i < cClsids; ++i)

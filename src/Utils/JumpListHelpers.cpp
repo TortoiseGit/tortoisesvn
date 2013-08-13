@@ -47,7 +47,7 @@ HRESULT CreateShellLink(PCWSTR pszArguments, PCWSTR pszTitle, int iconIndex, ISh
         return hr;
 
     WCHAR szAppPath[MAX_PATH];
-    if (GetModuleFileName(NULL, szAppPath, ARRAYSIZE(szAppPath)) == 0)
+    if (GetModuleFileName(NULL, szAppPath, _countof(szAppPath)) == 0)
     {
         hr = HRESULT_FROM_WIN32(GetLastError());
         return hr;
