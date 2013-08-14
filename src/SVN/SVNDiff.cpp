@@ -176,7 +176,7 @@ bool SVNDiff::DiffFileAgainstBase(
     svn_wc_status_kind prop_status /* = svn_wc_status_none */)
 {
     bool retvalue = false;
-
+    bool fileexternal = false;
     if ((text_status == svn_wc_status_none)||(prop_status == svn_wc_status_none))
     {
         SVNStatus stat;
@@ -185,6 +185,7 @@ bool SVNDiff::DiffFileAgainstBase(
             return false;
         text_status = stat.status->text_status;
         prop_status = stat.status->prop_status;
+        fileexternal = stat.status->file_external != 0;
     }
     if (prop_status > svn_wc_status_normal)
     {
@@ -210,7 +211,8 @@ bool SVNDiff::DiffFileAgainstBase(
             }
         }
         // If necessary, convert the line-endings on the file before diffing
-        if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
+        // note: file externals can not be exported
+        if (((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE)) && (!fileexternal))
         {
             CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
             if (!m_pSVN->Export(filePath, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
