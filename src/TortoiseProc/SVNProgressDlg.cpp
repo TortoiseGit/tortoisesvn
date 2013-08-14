@@ -478,6 +478,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             break;
         }
         data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
+        m_basePath = path;
         m_bConflictWarningShown = false;
         m_bExternalStartInfoShown = false;
         break;
