@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-19 08:20+0000\n"
+"PO-Revision-Date: 2013-08-16 08:00+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14361,6 +14361,20 @@ msgid ""
 "names of files listed for commit. To also include these names with "
 "extensions removed, set this value to <literal>true</literal>."
 msgstr "Die automatisch Vervollständigen Liste im Übertragen-Dialog enthält die Namen der zu übertragenden Dateien. Um die Dateinamen zusätzlich ohne Erweiterung in die Liste aufzunehmen, setzen Sie diesen Wert auf <literal>true</literal>."
+
+#. (para)
+msgid ""
+"File externals that are pegged to a specific revision are blocked by default"
+" from being selected for a commit. This is because a subsequent update would"
+" revert those changes again unless the pegged revision of the external is "
+"adjusted."
+msgstr "Externe Dateien, die an eine bestimmte Revision gekoppelt sind, werden standardmäßig vom Übertragen ausgeschlossen. Das geschieht, weil eine nachfolgende Aktualisierung diese Änderungen so lange wieder rückgängig machen würde, bis die fixe Revision der externen Datei angepasst wird."
+
+#. (para)
+msgid ""
+"Set this value to <literal>false</literal> in case you still want to commit "
+"changes to such external files."
+msgstr "Setzen Sie diesen Wert auf <literal>false</literal>, falls Sie Änderungen an solchen externen Dateien trotzdem übertragen wollen."
 
 #. (para)
 msgid ""

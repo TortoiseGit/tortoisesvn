@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-11 06:40+0000\n"
+"PO-Revision-Date: 2013-08-14 12:42+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14355,6 +14355,20 @@ msgid ""
 "names of files listed for commit. To also include these names with "
 "extensions removed, set this value to <literal>true</literal>."
 msgstr "コミットメッセージのエディターでは、コミットするファイルが自動保管リストで表示されます。 <literal>true</literal> に設定すると、拡張子を除外した名前を表示するようになります。"
+
+#. (para)
+msgid ""
+"File externals that are pegged to a specific revision are blocked by default"
+" from being selected for a commit. This is because a subsequent update would"
+" revert those changes again unless the pegged revision of the external is "
+"adjusted."
+msgstr "特定のペグリビジョンに関連付けられたを外部ファイルは、デフォルトではコミット時に選択できないようになっています。これは、後に更新するときに、外部ファイルのペグリビジョンが修正されていないと変更が元に戻ってしまわないようにするためです。"
+
+#. (para)
+msgid ""
+"Set this value to <literal>false</literal> in case you still want to commit "
+"changes to such external files."
+msgstr "それでもこの様な外部ファイルの変更をコミットしたいのであれば、この値を <literal>false</literal> に設定してください。"
 
 #. (para)
 msgid ""

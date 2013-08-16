@@ -14,6 +14,7 @@
 # Entong Shen <dexter_shen@hotmail.com>, 2011
 # fang zheng <fz0000@sina.com>, 2011, 2012
 # Garfield Yao <field977@gmail.com>, 2011
+# Gongong <gongong83@gmail.com>, 2013
 # Hong Xu <icehong@gmail.com>, 2012-2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
@@ -21,10 +22,10 @@
 # pluwen <pluwen@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
 # qingxianhao <qinghao1@foxmail.com>, 2012
-# Verplusor <sailen@live.com>, 2011
+# Verplusor, 2011
 # shengbinmeng <shengbinmeng@gmail.com>, 2013
 # wwj402 <wwj402@gmail.com>, 2013
-# YFdyh000 Yang <yfdyh000@gmail.com>, 2013
+# Y.F Yang <yfdyh000@gmail.com>, 2013
 # loveyu <yuht@qq.com>, 2012
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 msgid ""
@@ -32,8 +33,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-01 15:01+0000\n"
-"Last-Translator: YFdyh000 Yang <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2013-08-15 10:25+0000\n"
+"Last-Translator: Gongong <gongong83@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3130,7 +3131,7 @@ msgstr "要执行的命令行: "
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "要执行的命令行:\n要在工作副本内指定一个路径，在版本库内指定地址时请使用 %REPOROOT% 作为版本库根目录地址，或者使用 %REPOROOT+% d作为工作副本根目录的下级目录。"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3689,7 +3690,7 @@ msgstr "创建补丁"
 
 #. Resource IDs: (64)
 msgid "Create code collaborator revie&w..."
-msgstr ""
+msgstr "创建代码合作者审查(&W)..."
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -4155,7 +4156,7 @@ msgstr "你确定要恢复此版本对\n%s\n的所有修改吗？这些修改将
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr ""
+msgstr "您想将此第三方代码分支(vendor branch)纳入工作副本 \"%s\" 中吗？"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -5501,11 +5502,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5545,7 +5546,7 @@ msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -6423,7 +6424,7 @@ msgstr "已选定多项来显示差异"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
-msgstr ""
+msgstr "标记为已解决(&R) (这将导致变成一份副本)"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6768,7 +6769,7 @@ msgstr "移动和改名项到此"
 
 #. Resource IDs: (266)
 msgid "Move broken"
-msgstr ""
+msgstr "步骤中断"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -7324,7 +7325,7 @@ msgstr "打开图像文件..."
 
 #. Resource IDs: (64)
 msgid "Open multiple &local..."
-msgstr ""
+msgstr "打开多个本地项目(&L)..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -7954,7 +7955,7 @@ msgstr "在你卡住之前, 请先阅读日常使用指南…"
 
 #. Resource IDs: (349)
 msgid "Realm String"
-msgstr ""
+msgstr "域字符串"
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -8819,13 +8820,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "保存左侧文件\n此次修改被保存到\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "右侧文件另存为\n输入右侧文件的保存位置"
 
 #. Resource IDs: (316)
 #, c-format
@@ -9359,7 +9360,7 @@ msgstr "显示日志(&G)"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
-msgstr ""
+msgstr "显示多个更改(&C)..."
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10820,7 +10821,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11384,7 +11385,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions (reintegrate/automatic merge), leave the box empty."
-msgstr ""
+msgstr "使用日志对话框来选择您想要合并的版本，或输入要合并的版本号，以逗号分隔。可以通过短划线来指定版本号范围。\n\n例如: 4-7,9,11,15-HEAD@pegrevision\n\n若要合并所有版本 (复兴/自动合并)，将此处留空。"
 
 #. Resource IDs: (314)
 #, c-format
