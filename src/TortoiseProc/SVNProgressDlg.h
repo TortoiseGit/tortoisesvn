@@ -275,6 +275,7 @@ private:
     void        ReportCmd(const CString& sCmd);
     void        ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
     void        AddItemToList(NotificationData * data);
+    void        RemoveItemFromList(size_t index);
     CString     BuildInfoString();
     CString     GetPathFromColumnText(const CString& sColumnText);
     bool        IsCommittingToTag(CString& url);

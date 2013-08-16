@@ -294,6 +294,49 @@ void CSVNProgressDlg::AddItemToList(NotificationData * data)
     }
 }
 
+void CSVNProgressDlg::RemoveItemFromList( size_t index )
+{
+    if (index >= m_arData.size())
+        return;
+
+    // adjust the id's of all items following the one to remove
+    for (auto it = m_arData.begin() + index; it != m_arData.end(); ++it)
+    {
+        (*it)->id--;
+    }
+
+    m_arData.erase(m_arData.begin() + index);
+
+    int totalcount = m_ProgList.GetItemCount();
+
+    m_ProgList.SetItemCountEx(totalcount-1, LVSICF_NOSCROLL|LVSICF_NOINVALIDATEALL);
+    // make columns width fit
+    if (iFirstResized < 30)
+    {
+        // only resize the columns for the first 30 or so entries.
+        // after that, don't resize them anymore because that's an
+        // expensive function call and the columns will be sized
+        // close enough already.
+        ResizeColumns();
+        iFirstResized++;
+    }
+
+    // Make sure the item is *entirely* visible even if the horizontal
+    // scroll bar is visible.
+    int count = m_ProgList.GetCountPerPage();
+    if (totalcount <= (m_ProgList.GetTopIndex() + count + nEnsureVisibleCount + 2))
+    {
+        nEnsureVisibleCount++;
+        m_bLastVisible = true;
+    }
+    else
+    {
+        nEnsureVisibleCount = 0;
+        if (IsIconic() == 0)
+            m_bLastVisible = false;
+    }
+}
+
 BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
                              svn_node_kind_t kind, const CString& mime_type,
                              svn_wc_notify_state_t content_state,
@@ -408,19 +451,50 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             // Try to find the corresponding entry and change it so it does
             // not appear as conflicted anymore.
             size_t index = 0;
-            for (auto it : m_arData)
+            size_t removeit = (size_t)-1;
+            for (const auto& it : m_arData)
             {
                 if ((it->bTreeConflict||it->bConflictedActionItem) && (it->path.IsEquivalentToWithoutCase(data->path)))
                 {
                     it->bConflictedActionItem = false;
                     it->bTreeConflict = false;
-                    m_nConflicts--;
                     m_nTotalConflicts--;
+                    if (m_nConflicts)
+                    {
+                        m_nConflicts--;
+                    }
+                    else
+                    {
+                        // there's already a line shown that says:
+                        // Warning!: One or more files are in a conflicted state.
+                        // search downwards for this message while counting the conflicts:
+                        // if there are no more conflicts, remove that message
+                        int nConflicts = 0;
+                        size_t rind = index;
+                        for (auto down = m_arData.cbegin() + index; down != m_arData.cend(); ++down)
+                        {
+                            if ((*down)->bConflictedActionItem)
+                                ++nConflicts;
+                            if ((*down)->bConflictSummary)
+                            {
+                                if (nConflicts == 0)
+                                    removeit = rind;
+                                break;
+                            }
+                            if ((*down)->bAuxItem)
+                                break;
+                            ++rind;
+                        }
+                    }
                     it->sActionColumnText = it->sActionColumnText + L" (" + data->sActionColumnText + L")";
                     it->color = m_Colors.GetColor(CColors::Merged);
                     m_ProgList.RedrawItems((int)index-1, (int)index);
                 }
                 ++index;
+            }
+            if (removeit != (size_t)-1)
+            {
+                RemoveItemFromList(removeit);
             }
         }
         break;
