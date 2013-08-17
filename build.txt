@@ -1,5 +1,5 @@
 // To build this file, execute "nant APIDocs"
-// After that, you can read the compiled version at TortoiseSVN\doc\output\TortoiseSVNAPI.chm
+// After that, you can read the compiled version at doc\output\TortoiseSVNAPI.chm
 
 /**
 \page build Build instructions
@@ -83,13 +83,13 @@ Now you're almost ready. Only a few more steps to do:
 \verbatim
   > nant setup
 \endverbatim
-  will compile everything, including docs and languagepacks and create the msi installer
+  will compile everything, including docs and language packs and create the msi installer
 
   If you encounter any build errors, you can run nant again like this:
 \verbatim
   > nant setup -l:buildlog.txt
 \endverbatim
-  which will create a build log file which you can use to analyse where
+  which will create a build log file which you can use to analyze where
   exactly the build failed.
 
   Now you need to build the Subversion libraries:
@@ -142,7 +142,7 @@ Now you're almost ready. Only a few more steps to do:
   > nant release clean
 \endverbatim
 
-  You have to run the clean target when alterning between x86 and x64 builds. You will find that
+  You have to run the clean target when altering between x86 and x64 builds. You will find that
   Language\Tortoise.pot gets deleted, which is normal behavior. This generated file is
   present in the repository so the translators don't need to execute the entire
   build if they only wish to update documentation.
