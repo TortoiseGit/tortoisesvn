@@ -6,6 +6,8 @@ rem set LOCAL_FOP_HOME=C:\DocTools\fop\
 rem set CMD="java"
 rem set FONT_DIR=C:\Windows\Fonts
 
+pushd %~dp0
+
 rem auto-create configuration file
 if not exist config.bat copy config.bat.sample config.bat
 
@@ -58,3 +60,5 @@ set CMD=%CMD% org.apache.fop.fonts.apps.TTFReader
 %CMD% -ttcname "MS YaHei Bold" %FONT_DIR%\msyhbd.ttc msyhbd.xml
 %CMD% -ttcname "SimHei" %FONT_DIR%\simhei.ttc simhei.xml
 %CMD% -ttcname "SimSun" %FONT_DIR%\simsun.ttc simsun.xml
+
+popd
