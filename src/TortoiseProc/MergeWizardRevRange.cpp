@@ -107,6 +107,17 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 
     CString sUrl;
     m_URLCombo.GetWindowText(sUrl);
+    // check if the url has a revision appended to it and remove it if there is one
+    auto atposurl = sUrl.ReverseFind('@');
+    if (atposurl >= 0)
+    {
+        CString sRev = sUrl.Mid(atposurl+1);
+        SVNRev rev(sRev);
+        if (rev.IsValid())
+        {
+            sUrl = sUrl.Left(atposurl);
+        }
+    }
     CTSVNPath url(sUrl);
     if (!url.IsUrl())
     {
@@ -118,10 +129,10 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 
     CString sRegKey = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
     CRegString regMergeUrlForWC = CRegString(sRegKey);
-    regMergeUrlForWC = m_URLCombo.GetString();
+    regMergeUrlForWC = sUrl;
 
-    ((CMergeWizard*)GetParent())->URL1 = m_URLCombo.GetString();
-    ((CMergeWizard*)GetParent())->URL2 = m_URLCombo.GetString();
+    ((CMergeWizard*)GetParent())->URL1 = sUrl;
+    ((CMergeWizard*)GetParent())->URL2 = sUrl;
 
     if (GetCheckedRadioButton(IDC_MERGERADIO_ALL, IDC_MERGERADIO_SPECIFIC)==IDC_MERGERADIO_ALL)
         m_sRevRange.Empty();
@@ -221,6 +232,21 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
     CString sUrl;
     m_URLCombo.GetWindowText(sUrl);
+
+    SVNRev rev;
+
+    // check if the url has a revision appended to it
+    auto atposurl = sUrl.ReverseFind('@');
+    if (atposurl >= 0)
+    {
+        CString sRev = sUrl.Mid(atposurl+1);
+        rev = SVNRev(sRev);
+        if (rev.IsValid())
+        {
+            sUrl = sUrl.Left(atposurl);
+        }
+    }
+
     CTSVNPath url(sUrl);
 
     if (!url.IsEmpty() && url.IsUrl())
@@ -235,7 +261,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
+        m_pLogDlg->SetParams(url, rev, rev, 1, TRUE, FALSE);
         m_pLogDlg->SetProjectPropertiesPath(wcPath);
         m_pLogDlg->SetMergePath(wcPath);
 
