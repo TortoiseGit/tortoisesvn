@@ -5290,6 +5290,7 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         SVNRev copyrev = dlg.m_CopyRev;
         CString logmsg = dlg.m_sLogMessage;
         SVNExternals exts = dlg.GetExternalsToTag();
+        bool bMakeParents = !!dlg.m_bMakeParents;
         auto f = [=]() mutable
         {
             CoInitialize(NULL);
@@ -5297,7 +5298,7 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             // should we show a progress dialog here? Copies are done really fast
             // and without much network traffic.
-            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, copyrev, logmsg))
+            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, copyrev, logmsg, bMakeParents, bMakeParents))
                 ShowErrorDialog(m_hWnd);
             else
             {
