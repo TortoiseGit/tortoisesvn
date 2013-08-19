@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-14 12:23+0000\n"
+"PO-Revision-Date: 2013-08-17 23:16+0000\n"
 "Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -93,12 +93,12 @@ msgstr "%1!d! fitxers seleccionats, %2!d! fitxers en total"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr ""
+msgstr "%1!d! autor(s) més actiu(s) amb almenys %2!d! entregues cadascun (%3!d! %%)"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!ld! minute(s) and %2!ld! second(s)"
-msgstr ""
+msgstr "%1!ld! minut(s) i %2!ld! segon(s)"
 
 #. Resource IDs: (115)
 #, c-format
@@ -108,12 +108,12 @@ msgstr ""
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!s! - at revision: %2!d!"
-msgstr ""
+msgstr "%1!s! - en revisió: %2!d!"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
-msgstr ""
+msgstr "%1!s! : Base de treball, revisió %2!ld!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -242,7 +242,7 @@ msgstr "%s : Còpia de Treball"
 #. Resource IDs: (3887)
 #, c-format
 msgid "%s [Recovered]"
-msgstr ""
+msgstr "%s [Recuperat]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -282,7 +282,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr ""
+msgstr "%s, però el directori estava obstruït a la còpia de treball."
 
 #. Resource IDs: (609)
 #, c-format
@@ -327,7 +327,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%s, però el fitxer estava obstruït a la còpia de treball."
 
 #. Resource IDs: (609)
 #, c-format
@@ -1860,7 +1860,7 @@ msgstr "Afegeix a la barra de Ràpid Accès"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
-msgstr "Afegeixh..."
+msgstr "Afegeix..."
 
 #. Resource IDs: (171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -2271,7 +2271,7 @@ msgstr "Tanca automàticament si no hi ha fusions, afegits o supressions"
 msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
-msgstr "Autocompleta sugereix paraules (normalment noms de classes o membres)\r\ndels fitxers que heu canviat quan escriviu un texte de log."
+msgstr "Autocompleta sugereix paraules (normalment noms de classes o membres)\ndels fitxers que heu canviat quan escriviu un texte de log."
 
 #. Resource IDs: (221)
 #, c-format
@@ -2520,31 +2520,31 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Do not commit to a tag."
-msgstr ""
+msgstr "Cancel·lar⏎\nNo associar a una etiqueta."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "Cancel·lar⏎\nNo suprimir"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "Cancel·lar⏎\nNo tornar."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "Cancel·lar⏎\nNo actualitzar la còpia de treball."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
-msgstr ""
+msgstr "Cancel·lar⏎\nNo surt de TortoiseMerge"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2574,25 +2574,25 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "Cancel·lar⏎\nTornar i introduir un número de tema."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "Cancel·lar⏎\nTornar i seleccionar una carpeta diferent."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "Cancel·lar⏎\nIntroduiré un path/URL diferent."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "Cancel·lar⏎\nConservar la URL actual."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2604,7 +2604,7 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "Cancel·lar⏎\nDeixa el cache al disc."
 
 #. Resource IDs: (148)
 msgid ""
@@ -2640,25 +2640,25 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "Cancel·lar⏎\nEl fitxer no es copiarà."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "Cancel·lar⏎\nLa carpeta no s'exportarà."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "Cancel·lar⏎\nEls items no s'importen."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
-msgstr ""
+msgstr "Cancel·lar⏎\nEls item no es desplacen."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2670,19 +2670,19 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "Cancel·lar⏎\nEl fitxer destí es deixa com està"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "Cancel·lar⏎\nHas d'afegir la carpeta manualment."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "Cancel·lar⏎\nmanté el format actual."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2755,7 +2755,7 @@ msgstr "Fitxers canviats"
 #. Resource IDs: (324)
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
-msgstr ""
+msgstr "Fitxers canviats entre %1!s!, %2!s! i %3!s!, %4!s!"
 
 #. Resource IDs: (163)
 #, c-format
@@ -3164,8 +3164,8 @@ msgstr "Entregues per data"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
-msgstr "Entregues cada %s"
+msgid "Commits each %s:"
+msgstr "Entregues cada %s:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -3882,7 +3882,7 @@ msgstr "Suprimeix items sense versionar"
 msgid ""
 "Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "Suprimir⏎\nSuprimeix els arxius de cache."
 
 #. Resource IDs: (314)
 msgid ""
@@ -3921,7 +3921,7 @@ msgstr "Esborrant"
 
 #. Resource IDs: (348)
 msgid "Deleting cached data"
-msgstr ""
+msgstr "Esborrant dades en cache"
 
 #. Resource IDs: (348)
 msgid "Deleting file"
@@ -4859,8 +4859,8 @@ msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "El fitxer canvia cada %s"
+msgid "File changes each %s:"
+msgstr ""
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5812,7 +5812,7 @@ msgstr "Importa"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "Importa %1!s! a %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -5832,7 +5832,7 @@ msgstr "Importa un conjunt de propietats desat prèviament a un fitxer"
 msgid ""
 "Import file %1!s!\r\n"
 "to %2!s!"
-msgstr ""
+msgstr "Importa fitxer %1!s!↩⏎\na %2!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -5846,7 +5846,7 @@ msgstr "Importa fitxer a\r\n%s"
 msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
-msgstr ""
+msgstr "Importa carpeta %1!s!↩⏎\na %2!s!"
 
 #. Resource IDs: (613)
 #, c-format
@@ -5857,7 +5857,7 @@ msgstr "Importa a %1"
 msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "Importar⏎\nEls items s'importen, creant una nova revisió per cada item."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5866,7 +5866,7 @@ msgstr "Estructura de carpetes importada"
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
-msgstr ""
+msgstr "Important fitxer %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -6106,7 +6106,7 @@ msgstr "Idioma:"
 
 #. Resource IDs: (65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Darrer autor canviat:"
 
 #. Resource IDs: (65535)
 msgid "Last changed revision:"
@@ -7113,8 +7113,8 @@ msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
-msgstr "Nombre de %s"
+msgid "Number of %s:"
+msgstr ""
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -7507,7 +7507,7 @@ msgstr "Eina de Llapis\nLlapis"
 
 #. Resource IDs: (245)
 msgid "Percent of authorship"
-msgstr ""
+msgstr "Percentatge d'autoria"
 
 #. Resource IDs: (245)
 msgid "Percents"
@@ -7781,7 +7781,7 @@ msgstr ""
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %1!s! : Working Base, Revision %2!ld!"
-msgstr ""
+msgstr "Propietat %1!s! : Base de treball, revisió %2!ld!"
 
 #. Resource IDs: (151)
 #, c-format
@@ -7876,7 +7876,7 @@ msgstr "Surt de l'aplicació; confirma si es vol desar els documents\nSurt"
 msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
-msgstr ""
+msgstr "Sortir⏎\nSurt de TortoiseMerge sense desar les modificacions"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -8947,6 +8947,10 @@ msgstr "Cercant un camí millor on aplicar el pedaç..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "Cerca fallida a %1"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr ""
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -12044,6 +12048,10 @@ msgstr ""
 msgid "day"
 msgstr "dia"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr ""
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "suprimit"
@@ -12205,6 +12213,10 @@ msgstr "modificat / copiat"
 msgid "month"
 msgstr "mes"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr ""
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12274,6 +12286,10 @@ msgstr "prn"
 #. Resource IDs: (245)
 msgid "quarter of year"
 msgstr "trimestre"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
+msgstr ""
 
 #. Resource IDs: (195)
 msgid "readonly"
@@ -12671,6 +12687,10 @@ msgstr "webviewer:revision\r\nURL apuntant al repositori per a una revisió espe
 msgid "week"
 msgstr "setmana"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "tokens de paraula: "
@@ -12682,6 +12702,10 @@ msgstr "paraules [sense comprimir]: "
 #. Resource IDs: (245)
 msgid "year"
 msgstr "any"
+
+#. Resource IDs: (248)
+msgid "years"
+msgstr ""
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
 msgid "yes"

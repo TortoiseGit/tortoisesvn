@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-15 10:25+0000\n"
+"PO-Revision-Date: 2013-08-16 12:14+0000\n"
 "Last-Translator: Gongong <gongong83@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3179,8 +3179,8 @@ msgstr "按日提交次数"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
-msgstr "每%s提交次数"
+msgid "Commits each %s:"
+msgstr "每 %s 提交次数:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -4874,8 +4874,8 @@ msgstr "文件已经存在。"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "每%s修改次数"
+msgid "File changes each %s:"
+msgstr "每 %s 文件更改次数:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -7128,8 +7128,8 @@ msgstr "提示: 如果你升级工作副本，你将不可使用 1.8 版以前�
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
-msgstr "%s数"
+msgid "Number of %s:"
+msgstr "%s 数:"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8962,6 +8962,10 @@ msgstr "正在搜索应用补丁的更合适的路径..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "查找错误: %1"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr "选择"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -12059,6 +12063,10 @@ msgstr "当前大小: %1!s!\n旧版本大小: %2!s!\n改变: %3!s!"
 msgid "day"
 msgstr "天"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr "天"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "已删除"
@@ -12220,6 +12228,10 @@ msgstr "已修改/已复制"
 msgid "month"
 msgstr "月"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr "月"
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12288,6 +12300,10 @@ msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
+msgstr "季度"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
 msgstr "季度"
 
 #. Resource IDs: (195)
@@ -12686,6 +12702,10 @@ msgstr "webviewer:revision\r\n指向版本库的指定版本的 URL，用于在 
 msgid "week"
 msgstr "周"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr "周"
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "词组: "
@@ -12696,6 +12716,10 @@ msgstr "单词数[非压缩]: "
 
 #. Resource IDs: (245)
 msgid "year"
+msgstr "年"
+
+#. Resource IDs: (248)
+msgid "years"
 msgstr "年"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)

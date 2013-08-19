@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-11 09:32+0000\n"
+"PO-Revision-Date: 2013-08-16 18:01+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3165,7 +3165,7 @@ msgstr "時期別コミット数"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
+msgid "Commits each %s:"
 msgstr "%sあたりのコミット数:"
 
 #. Resource IDs: (1135)
@@ -4860,8 +4860,8 @@ msgstr "ファイルはすでに存在しています"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "各%sでのファイルの変更数:"
+msgid "File changes each %s:"
+msgstr "%sあたりのファイル変更数:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -7114,7 +7114,7 @@ msgstr "注意: 作業コピーをアップグレードすると、アップグ�
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
+msgid "Number of %s:"
 msgstr "%sの数:"
 
 #. Resource IDs: (338)
@@ -8948,6 +8948,10 @@ msgstr "パッチを適用する適切なパスを探索中..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "%1 のシークに失敗しました。"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr "選択"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -12045,6 +12049,10 @@ msgstr "現在のサイズ: %1!s!\r\n従来のサイズ: %2!s!\r\n差分: %3!s!"
 msgid "day"
 msgstr "日"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr "日"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "削除"
@@ -12206,6 +12214,10 @@ msgstr "変更/コピー"
 msgid "month"
 msgstr "月"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr "月"
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12274,6 +12286,10 @@ msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
+msgstr "四半期"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
 msgstr "四半期"
 
 #. Resource IDs: (195)
@@ -12672,6 +12688,10 @@ msgstr "webviewer:revision\r\nリポジトリ内で、特定のリビジョン�
 msgid "week"
 msgstr "週"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr "週"
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "単語数: "
@@ -12682,6 +12702,10 @@ msgstr "単語 [未圧縮]: "
 
 #. Resource IDs: (245)
 msgid "year"
+msgstr "年"
+
+#. Resource IDs: (248)
+msgid "years"
 msgstr "年"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)

@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-29 14:33+0000\n"
+"PO-Revision-Date: 2013-08-19 08:38+0000\n"
 "Last-Translator: Jarosław Pękala <jaroslaw.pekala@gmail.com>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3170,8 +3170,8 @@ msgstr "Zatwierdzenia zmian z podziałem na daty"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
-msgstr "Liczba zatwierdzeń w każdym %s"
+msgid "Commits each %s:"
+msgstr "Liczba zatwierdzeń w każdym %s:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -4865,8 +4865,8 @@ msgstr "Plik już istnieje"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "Zmiany w plikach w każdym %s"
+msgid "File changes each %s:"
+msgstr "Zmiany w plikach w każdym %s:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -7119,8 +7119,8 @@ msgstr "Uwaga: jeśli zaktualizujesz kopię roboczą, nie będziesz już w stani
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
-msgstr "Liczba %s"
+msgid "Number of %s:"
+msgstr "Liczba %s:"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8953,6 +8953,10 @@ msgstr "Szukam lepszej ścieżki do zastosowania poprawki..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "Przeszukiwanie %1 zakończone niepowodzeniem"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr "Zaznacz"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -12050,6 +12054,10 @@ msgstr "bieżący rozmiar: %1!s!\npoprzedni rozmiar: %2!s!\nzmiana: %3!s!"
 msgid "day"
 msgstr "dzień"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr "dni"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "usunięte"
@@ -12211,6 +12219,10 @@ msgstr "zmodyfikowany / skopiowany"
 msgid "month"
 msgstr "miesiąc"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr "miesięcy"
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12280,6 +12292,10 @@ msgstr "prn"
 #. Resource IDs: (245)
 msgid "quarter of year"
 msgstr "kwartał roku"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
+msgstr "kwartałów"
 
 #. Resource IDs: (195)
 msgid "readonly"
@@ -12677,6 +12693,10 @@ msgstr "webviewer:revision\r\nURL wskazujący do przeglądarki www repozytorium 
 msgid "week"
 msgstr "tydzień"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr "tygodni"
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "tokenów słów: "
@@ -12688,6 +12708,10 @@ msgstr "słów [rozpakowanych]: "
 #. Resource IDs: (245)
 msgid "year"
 msgstr "rok"
+
+#. Resource IDs: (248)
+msgid "years"
+msgstr "lat"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
 msgid "yes"

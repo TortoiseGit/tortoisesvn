@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-30 13:51+0000\n"
+"PO-Revision-Date: 2013-08-16 08:29+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3163,8 +3163,8 @@ msgstr "Odevzdání dle data"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
-msgstr "Odevzdání za každý %s"
+msgid "Commits each %s:"
+msgstr "Odevzdání za každý %s:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -4858,8 +4858,8 @@ msgstr "Soubor již existuje"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "Počet změn souborů za každý %s"
+msgid "File changes each %s:"
+msgstr "Počet změn souborů za každý %s:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -7112,8 +7112,8 @@ msgstr "Upozornění: pokud vaší pracovní kopii aktualizujete, už nebudete m
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
-msgstr "Počet %s"
+msgid "Number of %s:"
+msgstr "Počet %s:"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8946,6 +8946,10 @@ msgstr "Hledám lepší cestu pro použití záplaty..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "Hledání selhalo na %1"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr "Vybrat"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -12043,6 +12047,10 @@ msgstr "současná velikost: %1!s!\nstará velikost: %2!s!\nzměna: %3!s!"
 msgid "day"
 msgstr "den"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr "dní"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "smazáno"
@@ -12204,6 +12212,10 @@ msgstr "změněno / kopírováno"
 msgid "month"
 msgstr "měsíc"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr "měsíců"
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12273,6 +12285,10 @@ msgstr "prn"
 #. Resource IDs: (245)
 msgid "quarter of year"
 msgstr "roční kvartál"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
+msgstr "čtvrtletí"
 
 #. Resource IDs: (195)
 msgid "readonly"
@@ -12670,6 +12686,10 @@ msgstr "web prohlížeč:revize\r\nURL ukazující na web prohlížeč pro úlo�
 msgid "week"
 msgstr "týden"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr "týdnů"
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "slovní části:"
@@ -12681,6 +12701,10 @@ msgstr "slova [nekomprimováno]: "
 #. Resource IDs: (245)
 msgid "year"
 msgstr "rok"
+
+#. Resource IDs: (248)
+msgid "years"
+msgstr "let"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
 msgid "yes"

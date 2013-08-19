@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-07-29 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-08-19 07:18+0000\n"
+"Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3168,8 +3168,8 @@ msgstr "Innsendinger etter dato"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Commits each %s"
-msgstr "Innsendinger per %s"
+msgid "Commits each %s:"
+msgstr "Innsendinger per %s:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -4145,7 +4145,7 @@ msgstr "Vil du virkelig tilbakestille endringene i\n%s\nsom ble gjort i denne re
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr ""
+msgstr "Vil du du legge leverandørgrenen i arbeidskopien \"%s\"?"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -4863,8 +4863,8 @@ msgstr "Filen finnes allerede"
 
 #. Resource IDs: (247)
 #, c-format
-msgid "File changes each %s"
-msgstr "Filendringer per %s"
+msgid "File changes each %s:"
+msgstr "Filendringer per %s:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5030,11 +5030,11 @@ msgstr "Tilpass høyde"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights"
-msgstr ""
+msgstr "Tilpass bilde&høyder"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths"
-msgstr ""
+msgstr "Tilpass bilde&bredder"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5491,11 +5491,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6509,7 +6509,7 @@ msgstr "&Mønster for flettelogg"
 
 #. Resource IDs: (345)
 msgid "Merge Log Templates"
-msgstr ""
+msgstr "Mønstre For Flettelogg"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6913,7 +6913,7 @@ msgstr "Nytt navn for %s"
 
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
-msgstr ""
+msgstr "Det nye navnet kan ikke være tomt eller likt det gamle navnet!"
 
 #. Resource IDs: (98)
 msgid "New name:"
@@ -7117,8 +7117,8 @@ msgstr "Merk: Hvis du oppgraderer arbeidskopien, vil du ikke kunne bruke den opp
 
 #. Resource IDs: (247)
 #, c-format
-msgid "Number of %s"
-msgstr "Antall %s"
+msgid "Number of %s:"
+msgstr "Antall %s:"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8288,7 +8288,7 @@ msgstr "Omdøp %s"
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
-msgstr ""
+msgstr "Omdøp '%s':"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8951,6 +8951,10 @@ msgstr "Leter etter en bedre sti til å anvende korreksjonen på..."
 #, c-format
 msgid "Seek failed on %1"
 msgstr "Søk feilet på %1"
+
+#. Resource IDs: (8)
+msgid "Select"
+msgstr "Velg"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -11015,7 +11019,7 @@ msgstr "Angre 1 Handling"
 
 #. Resource IDs: (14)
 msgid "Undo Add..."
-msgstr ""
+msgstr "Angre Legg Til..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -11241,7 +11245,7 @@ msgstr "Bruk Bånd"
 
 #. Resource IDs: (1500)
 msgid "Use Task Dialog"
-msgstr ""
+msgstr "Bruk Oppgave-dialogen"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11374,7 +11378,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions (reintegrate/automatic merge), leave the box empty."
-msgstr ""
+msgstr "Bruk loggdialogen til å velge de revisjonene du vil flette, eller skriv inn revisjonene som skal flettes, skilt av kommaer. Et revisjonsintervall kan angis med bindestrek.\n\nEksempel: 4-7,9,11,15-HEAD@spikerrevisjon\n\nFor å flette alle revisjoner (reintegrer/automatisk fletting), la boksen stå tom."
 
 #. Resource IDs: (314)
 #, c-format
@@ -12048,6 +12052,10 @@ msgstr "nåværende størrelse: %1!s!\ngammel størrelse: %2!s!\nendring: %3!s!"
 msgid "day"
 msgstr "dag"
 
+#. Resource IDs: (247)
+msgid "days"
+msgstr "dager"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "slettet"
@@ -12111,7 +12119,7 @@ msgstr "ufullstendig"
 
 #. Resource IDs: (589)
 msgid "inherited from"
-msgstr ""
+msgstr "arvet fra"
 
 #. Resource IDs: (583)
 msgid "it does not exist."
@@ -12209,6 +12217,10 @@ msgstr "endret / kopiert"
 msgid "month"
 msgstr "måned"
 
+#. Resource IDs: (248)
+msgid "months"
+msgstr "måneder"
+
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
@@ -12278,6 +12290,10 @@ msgstr "prn"
 #. Resource IDs: (245)
 msgid "quarter of year"
 msgstr "kvartal"
+
+#. Resource IDs: (248)
+msgid "quarters of year"
+msgstr "kvartaler"
 
 #. Resource IDs: (195)
 msgid "readonly"
@@ -12675,6 +12691,10 @@ msgstr "webviewer:revision\r\nURL som peker til nettvisning for depotet for en g
 msgid "week"
 msgstr "uke"
 
+#. Resource IDs: (247)
+msgid "weeks"
+msgstr "uker"
+
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "ord-symboler: "
@@ -12685,6 +12705,10 @@ msgstr "ord [ukomprimert]: "
 
 #. Resource IDs: (245)
 msgid "year"
+msgstr "år"
+
+#. Resource IDs: (248)
+msgid "years"
 msgstr "år"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
