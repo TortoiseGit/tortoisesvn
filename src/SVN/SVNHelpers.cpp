@@ -125,6 +125,7 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
         case SVN_ERR_WC_NOT_WORKING_COPY:
         case SVN_ERR_WC_NOT_FILE:
         case SVN_ERR_WC_PATH_NOT_FOUND:
+        case SVN_ERR_UNSUPPORTED_FEATURE:       // junctions and hardlinks are not supported
             {
                 svn_error_clear(err);
                 svn_wc_context_destroy(pctx);
