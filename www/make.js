@@ -49,8 +49,8 @@
 
         // pack.css
 
-        var inCss = cat(["css/jquery.fancybox.css",
-                         "css/normalize.css",
+        var inCss = cat(["css/normalize.css",
+                         "css/jquery.fancybox.css",
                          "css/style.css"
         ]);
 
