@@ -783,6 +783,19 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
     if (strUrl.GetLength() > 1)
     {
         strUrl = SVNExternals::GetFullExternalUrl(strUrl, root, selUrl);
+        // check if the url has a revision appended to it
+        auto atposurl = strUrl.ReverseFind('@');
+        if (atposurl >= 0)
+        {
+            CString sRev = strUrl.Mid(atposurl+1);
+            SVNRev urlrev(sRev);
+            if (urlrev.IsValid())
+            {
+                strUrl = strUrl.Left(atposurl);
+                if (!rev.IsValid() || rev.IsHead())
+                    rev = urlrev;
+            }
+        }
     }
 
     if (strUrl.Left(7) == _T("file://"))
