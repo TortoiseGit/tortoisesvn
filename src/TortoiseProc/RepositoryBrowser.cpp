@@ -490,7 +490,7 @@ void CRepositoryBrowser::InitRepo()
     // we have to first find out the real url here and store that real/final
     // url in m_InitialUrl.
     SVNInfo inf;
-    const SVNInfoData * pInfData = inf.GetFirstFileInfo(CTSVNPath(m_InitialUrl), m_repository.peg_revision, m_repository.revision);
+    const SVNInfoData * pInfData = inf.GetFirstFileInfo(CTSVNPath(m_InitialUrl), m_repository.peg_revision.IsValid() ? m_repository.peg_revision : m_repository.revision, m_repository.revision);
     if (pInfData)
     {
         m_repository.root = CPathUtils::PathUnescape(pInfData->reposRoot);
@@ -526,7 +526,7 @@ void CRepositoryBrowser::InitRepo()
     CString userCancelledError;
     userCancelledError.LoadStringW (IDS_SVN_USERCANCELLED);
 
-    SVNRev pegRev = m_repository.peg_revision;
+    SVNRev pegRev = m_repository.peg_revision.IsValid() ? m_repository.peg_revision : m_repository.revision;
 
     std::deque<CItem> dummy;
     CString redirectedUrl;
