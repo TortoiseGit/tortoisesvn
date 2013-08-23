@@ -1933,7 +1933,15 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
             m_pTaskbarList->SetProgressValue(m_hWnd, pProgressData->progress, pProgressData->total);
         }
     }
-    SetDlgItemText(IDC_PROGRESSLABEL, (LPCTSTR)pProgressData->SpeedString);
+    CString progText;
+    if (pProgressData->overall_total < 1024LL)
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pProgressData->overall_total);
+    else if (pProgressData->overall_total < 1200000LL)
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
+    else
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));
+    progText.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)pProgressData->SpeedString);
+    SetDlgItemText(IDC_PROGRESSLABEL, progText);
     return 0;
 }
 
@@ -1941,11 +1949,11 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 {
     if (nIDEvent == TRANSFERTIMER)
     {
+        CString progText;
         CString progSpeed;
         progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0i64);
-        CString s;
-        s.Format(IDS_SVN_PROGRESS_SPEED, (LPCWSTR)progSpeed);
-        SetDlgItemText(IDC_PROGRESSLABEL, (LPCTSTR)s);
+        progText.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)progSpeed);
+        SetDlgItemText(IDC_PROGRESSLABEL, progText);
         KillTimer(TRANSFERTIMER);
     }
     if (nIDEvent == VISIBLETIMER)

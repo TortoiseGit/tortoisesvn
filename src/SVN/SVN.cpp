@@ -2829,16 +2829,8 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
     if ((pSVN==0)||((pSVN->m_progressWnd == 0)&&(pSVN->m_pProgressDlg == 0)))
         return;
     apr_off_t delta = progress;
-    if ((progress >= pSVN->progress_lastprogress)&&(total == pSVN->progress_lasttotal))
+    if ((progress >= pSVN->progress_lastprogress)&&((total == pSVN->progress_lasttotal) || (total < 0)))
         delta = progress - pSVN->progress_lastprogress;
-    // because of http://subversion.tigris.org/issues/show_bug.cgi?id=3260
-    // the progress information can be horribly wrong.
-    // We cut the delta here to 8kb because SVN does not send/receive packets
-    // bigger than this, and we can therefore reduce the error that way a little bit
-    if (delta > 8192LL)
-    {
-        delta = delta % 8192LL;
-    }
 
     pSVN->progress_lastprogress = progress;
     pSVN->progress_lasttotal = total;
@@ -2886,7 +2878,18 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
         {
             if ((pSVN->m_bShowProgressBar && (progress > 1000LL) && (total > 0LL)))
                 pSVN->m_pProgressDlg->SetProgress64(progress, total);
-            pSVN->m_pProgressDlg->SetLine(2, pSVN->m_SVNProgressMSG.SpeedString);
+
+            CString sTotal;
+            CString temp;
+            if (pSVN->m_SVNProgressMSG.overall_total < 1024LL)
+                sTotal.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total);
+            else if (pSVN->m_SVNProgressMSG.overall_total < 1200000LL)
+                sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024LL);
+            else
+                sTotal.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pSVN->m_SVNProgressMSG.overall_total / 1024000.0));
+            temp.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
+
+            pSVN->m_pProgressDlg->SetLine(2, temp);
         }
         pSVN->progress_vector.clear();
     }
