@@ -233,7 +233,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
     CString sUrl;
     m_URLCombo.GetWindowText(sUrl);
 
-    SVNRev rev;
+    SVNRev rev(SVNRev::REV_HEAD);
 
     // check if the url has a revision appended to it
     auto atposurl = sUrl.ReverseFind('@');
