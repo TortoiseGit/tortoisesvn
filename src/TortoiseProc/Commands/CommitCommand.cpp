@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -184,6 +184,13 @@ bool CommitCommand::Execute()
             CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\OutOfDateRetry"), TRUE);
             if (DWORD(bFailRepeat)==0)
                 bFailed = false;        // do not repeat if the user chose not to in the settings.
+        }
+    }
+    if (!restorepaths.empty())
+    {
+        for (auto it = restorepaths.cbegin(); it != restorepaths.cend(); ++it)
+        {
+            CopyFile(it->first, it->second, FALSE);
         }
     }
     return bRet;
