@@ -3513,6 +3513,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (CopyFile(entry2->GetPath().GetWinPath(), tempFile.GetWinPath(), FALSE))
                         {
                             entry2->restorepath = tempFile.GetWinPathString();
+                            m_restorepaths[entry2->GetRestorePath()] = entry2->GetPath().GetWinPathString();
                             SetItemState(index, INDEXTOOVERLAYMASK(OVL_RESTORE), LVIS_OVERLAYMASK);
                         }
                     }
@@ -3577,6 +3578,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             continue;
                         if (CopyFile(entry2->GetRestorePath() ,entry2->GetPath().GetWinPath(), FALSE))
                         {
+                            m_restorepaths.erase(entry2->GetRestorePath());
                             entry2->restorepath.Empty();
                             // restore the original overlay
                             UINT state = 0;
