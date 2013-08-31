@@ -1213,6 +1213,10 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         // column 6: lock owner
         temp.LoadString(IDS_STATUSLIST_COLLOCK);
         m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
+        //
+        // column 7: lock comment
+        temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
+        m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
     }
 
     int files = 0;
@@ -4601,6 +4605,8 @@ void CRepositoryBrowser::SetListItemInfo( int index, const CItem * it )
     {
         // lock owner
         m_RepoList.SetItemText(index, 6, it->lockowner);
+        // lock comment
+        m_RepoList.SetItemText(index, 7, m_ProjectProperties.MakeShortMessage(it->lockcomment));
     }
 }
 
