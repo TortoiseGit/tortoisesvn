@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 24565)
+--- include/Scintilla.h	(Revision 24723)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -996,6 +996,8 @@
+@@ -1002,6 +1002,8 @@
  #define SCI_DISTANCETOSECONDARYSTYLES 4025
  #define SCI_GETSUBSTYLEBASES 4026
  #endif
@@ -13,9 +13,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 24565)
+--- src/Editor.cxx	(Revision 24723)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -2851,6 +2851,17 @@
+@@ -2859,6 +2859,17 @@
  		}
  	}
  
@@ -30,14 +30,14 @@ Index: src/Editor.cxx
 +		overrideBackground = true;
 +	}
 +
- 	bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
- 	        (!overrideBackground) && (vsDraw.whitespaceBackgroundSet);
+ 	const bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
+ 	        (!overrideBackground) && (vsDraw.whitespaceColours.back.isSet);
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 24565)
+--- src/Editor.h	(Revision 24723)
 +++ src/Editor.h	(Arbeitskopie)
-@@ -495,6 +495,7 @@
+@@ -493,6 +493,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -47,9 +47,9 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 24565)
+--- win32/ScintillaWin.cxx	(Revision 24723)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
-@@ -256,6 +256,7 @@
+@@ -257,6 +257,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -57,7 +57,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1436,6 +1437,13 @@
+@@ -1446,6 +1447,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
