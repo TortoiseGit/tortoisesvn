@@ -531,6 +531,7 @@ void CSciEdit::CheckSpelling()
             else
             {
                 //mark word as correct (remove the squiggle line)
+                Call(SCI_INDICATORCLEARRANGE, textrange.chrg.cpMin, textrange.chrg.cpMax - textrange.chrg.cpMin);
                 Call(SCI_INDICATORCLEARRANGE, textrange.chrg.cpMin, textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
             }
         }
