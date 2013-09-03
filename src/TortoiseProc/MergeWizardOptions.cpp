@@ -60,6 +60,12 @@ BOOL CMergeWizardOptions::OnInitDialog()
 {
     CMergeWizardBasePage::OnInitDialog();
 
+    CMergeWizard * pWizard = (CMergeWizard*)GetParent();
+
+    CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + pWizard->sUUID;
+    CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
+    pWizard->m_bIgnoreAncestry = (DWORD)regIgnoreAncestryOpt;
+
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
@@ -115,6 +121,8 @@ BOOL CMergeWizardOptions::OnInitDialog()
     AddAnchor(IDC_REINTEGRATEOLDSTYLE, TOP_LEFT);
     AddAnchor(IDC_DRYRUN, BOTTOM_RIGHT);
 
+    UpdateData(FALSE);
+
     return TRUE;
 }
 
@@ -154,6 +162,10 @@ BOOL CMergeWizardOptions::OnWizardFinish()
     {
         pWizard->bAllowMixedRev = false;
     }
+
+    CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + pWizard->sUUID;
+    CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
+    regIgnoreAncestryOpt = pWizard->m_bIgnoreAncestry;
 
     return CMergeWizardBasePage::OnWizardFinish();
 }
