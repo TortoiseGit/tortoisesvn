@@ -320,7 +320,7 @@ private:
     int                 m_nExternalOvl;
     int                 m_nSVNParentPath;
 
-    volatile bool       m_blockEvents;
+    volatile int        m_blockEvents;
 
     static bool         s_bSortLogical;
     bool                m_bSortAscending;

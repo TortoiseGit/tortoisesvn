@@ -107,7 +107,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_bSparseCheckoutMode(false)
     , m_InitialUrl(url)
     , m_bInitDone(false)
-    , m_blockEvents(false)
+    , m_blockEvents(0)
     , m_bSortAscending(true)
     , m_nSortedColumn(0)
     , m_pTreeDropTarget(NULL)
@@ -137,7 +137,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_bSparseCheckoutMode(false)
     , m_InitialUrl(url)
     , m_bInitDone(false)
-    , m_blockEvents(false)
+    , m_blockEvents(0)
     , m_bSortAscending(true)
     , m_nSortedColumn(0)
     , m_pTreeDropTarget(NULL)
@@ -1153,10 +1153,10 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     m_RepoTree.Expand(hItem, TVE_EXPAND);
     FillList(pTreeItem);
 
-    m_blockEvents = true;
+    ++m_blockEvents;
     m_RepoTree.EnsureVisible(hItem);
     m_RepoTree.SelectItem(hItem);
-    m_blockEvents = false;
+    --m_blockEvents;
 
     m_RepoList.ClearText();
     m_RepoTree.ClearText();
@@ -1751,11 +1751,11 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     CWaitCursorEx wait;
     CAutoReadLock locker(m_guard);
     // block all events until the list control is refreshed as well
-    m_blockEvents = true;
+    ++m_blockEvents;
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
     if (!pTreeItem || pTreeItem->svnparentpathroot)
     {
-        m_blockEvents = false;
+        --m_blockEvents;
         return false;
     }
     HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
@@ -1790,7 +1790,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
         if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem())||(m_pListCtrlTreeItem == nullptr))
             FillList(pTreeItem);
-    m_blockEvents = false;
+    --m_blockEvents;
     return true;
 }
 
@@ -1968,7 +1968,7 @@ void CRepositoryBrowser::OnInlineedit()
     if (pos == NULL)
         return;
     int selIndex = m_RepoList.GetNextSelectedItem(pos);
-    m_blockEvents = true;
+    ++m_blockEvents;
     if (selIndex >= 0)
     {
         CAutoReadLock locker(m_guard);
@@ -1991,14 +1991,14 @@ void CRepositoryBrowser::OnInlineedit()
                 m_RepoTree.EditLabel(hTreeItem);
         }
     }
-    m_blockEvents = false;
+    --m_blockEvents;
 }
 
 void CRepositoryBrowser::OnRefresh()
 {
     CWaitCursorEx waitCursor;
 
-    m_blockEvents = true;
+    ++m_blockEvents;
 
     // try to get the tree node to refresh
 
@@ -2008,7 +2008,7 @@ void CRepositoryBrowser::OnRefresh()
 
     if (hSelected == NULL)
     {
-        m_blockEvents = false;
+        --m_blockEvents;
         if (m_InitialUrl.IsEmpty())
             return;
         // try re-init
@@ -2025,7 +2025,7 @@ void CRepositoryBrowser::OnRefresh()
 
     RefreshNode(m_RepoTree.GetSelectedItem(), true);
 
-    m_blockEvents = false;
+    --m_blockEvents;
 }
 
 void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2244,10 +2244,10 @@ void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
         m_bSortAscending = !m_bSortAscending;
     m_nSortedColumn = phdr->iItem;
 
-    m_blockEvents = true;
+    ++m_blockEvents;
     ListView_SortItemsEx(m_RepoList, ListSort, this);
     SetSortArrow();
-    m_blockEvents = false;
+    --m_blockEvents;
     *pResult = 0;
 }
 
@@ -3083,19 +3083,19 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 // Seems to be a right-click on the list view background.
                 // Use the currently selected item in the tree view as the source.
-                m_blockEvents = true;
+                ++m_blockEvents;
                 hSelectedTreeItem = m_RepoTree.GetSelectedItem();
                 if (hSelectedTreeItem)
                 {
                     m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
-                    m_blockEvents = false;
+                    --m_blockEvents;
                     m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
                     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (hSelectedTreeItem);
                     bSVNParentPathUrl = pTreeItem->svnparentpathroot;
                     selection.Add (pTreeItem);
                 }
                 else
-                    m_blockEvents = false;
+                    --m_blockEvents;
             }
         }
     }
@@ -3111,10 +3111,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         // the context menu will work on
         if ((hItem) && (uFlags & TVHT_ONITEM) && (hItem != m_RepoTree.GetSelectedItem()))
         {
-            m_blockEvents = true;
+            ++m_blockEvents;
             hSelectedTreeItem = m_RepoTree.GetSelectedItem();
             m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_SELECTED);
-            m_blockEvents = false;
+            --m_blockEvents;
             m_RepoTree.SetItemState(hItem, TVIS_DROPHILITED, TVIS_DROPHILITED);
         }
         if (hItem)
@@ -3311,19 +3311,19 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             // restore the previously selected item state
             if ((hItem) && (uFlags & TVHT_ONITEM) && (hItem != m_RepoTree.GetSelectedItem()))
             {
-                m_blockEvents = true;
+                ++m_blockEvents;
                 m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_SELECTED, TVIS_SELECTED);
-                m_blockEvents = false;
+                --m_blockEvents;
                 m_RepoTree.SetItemState(hItem, 0, TVIS_DROPHILITED);
             }
         }
         if (hSelectedTreeItem)
         {
             CAutoWriteLock locker(m_guard);
-            m_blockEvents = true;
+            ++m_blockEvents;
             m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_DROPHILITED);
             m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_SELECTED, TVIS_SELECTED);
-            m_blockEvents = false;
+            --m_blockEvents;
         }
         DialogEnableWindow(IDOK, FALSE);
         bool bOpenWith = false;
