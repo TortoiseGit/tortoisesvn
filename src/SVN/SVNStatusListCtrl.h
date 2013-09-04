@@ -1123,7 +1123,7 @@ private:
     WCHAR                       m_tooltipbuf[4096];
 
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
-    int                         m_bBlockItemChangeHandler;
+    int                         m_nBlockItemChangeHandler;
     std::set<CTSVNPath>         m_externalSet;
     std::map<CString, CString>  m_restorepaths;
     mutable CReaderWriterLock   m_guard;
