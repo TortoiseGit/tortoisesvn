@@ -2322,6 +2322,14 @@ int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam
 {
     CTreeItem * Item1 = (CTreeItem*)lParam1;
     CTreeItem * Item2 = (CTreeItem*)lParam2;
+
+    // directories are always above the other nodes
+    if(Item1->kind == svn_node_dir && Item2->kind != svn_node_dir)
+        return -1;
+
+    if(Item1->kind != svn_node_dir && Item2->kind == svn_node_dir)
+        return 1;
+
     return SortStrCmp(Item1->unescapedname, Item2->unescapedname);
 }
 
