@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-18 08:10+0000\n"
+"PO-Revision-Date: 2013-08-22 11:40+0000\n"
 "Last-Translator: Gongong <gongong83@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11453,7 +11453,7 @@ msgstr "要用 TortoiseSVN 导出单个文件，您必须使用版本库浏览�
 
 #. (title)
 msgid "Exporting a Change Tree"
-msgstr ""
+msgstr "导出更改树"
 
 #. (para)
 msgid ""
@@ -11461,7 +11461,7 @@ msgid ""
 "only the files which have changed in a particular revision, or between any "
 "two revisions, use the compare revisions feature described in <xref linkend"
 "=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "如果您想导出项目树结构的副本，但只包含在某特定修订版本中或任意两个修订版本之间发生更改的文件，请使用在 <xref linkend=\"tsvn-dug-compare-revs\"/> 中所描述的版本比较功能。"
 
 #. (para)
 msgid ""
@@ -11540,7 +11540,7 @@ msgstr ""
 msgid ""
 "This operation only works on working copy <emphasis>roots</emphasis>. So the"
 " context menu entry is only shown for working copy roots."
-msgstr ""
+msgstr "此操作仅适用于工作副本的<emphasis>根目录</emphasis>。所以此上下文菜单项仅显示于工作副本根目录。"
 
 #. (para)
 msgid ""
@@ -11548,7 +11548,7 @@ msgid ""
 "part of this operation. All it is doing is performing some simple checks to "
 "make sure that the new URL really does refer to the same repository as the "
 "existing working copy."
-msgstr ""
+msgstr "您可能会惊讶地发现 TortoiseSVN 会将版本库牵扯到此操作中来。这样做完全是为了执行一些简单的检查以确保新地址确实不会将相同的版本库当作现有的工作副本。"
 
 #. (para)
 msgid "The IP address of the server has changed."
@@ -11666,7 +11666,7 @@ msgid ""
 "this, you have to define some properties, which start with "
 "<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
 "=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "您可以在 TortoiseSVN 中为您的选择集成一个错误跟踪工具。为此，您必须定义一些属性，用 <literal>bugtraq:</literal> 开头。它们必须设置于文件夹: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
@@ -11698,7 +11698,7 @@ msgid ""
 "In case the domain name ever changes, you don't have to adjust the "
 "<literal>bugtraq:url</literal> property. There are two ways to specify a "
 "relative URL:"
-msgstr ""
+msgstr "您也可以使用相对地址来代替绝对地址。当您的问题跟踪器和源版本库在同一域/服务器上时，这非常有用。即使在域名称发生更改的情况下，您也不必调整 <literal>bugtraq:url</literal> 属性。有两种方式来指定相对地址:"
 
 #. (para)
 msgid ""
@@ -11709,7 +11709,7 @@ msgid ""
 "class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located on <systemitem "
 "class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr ""
+msgstr "如果它以字符串 <literal>^/</literal> 开头，它被假定为对应于版本库的根目录。例如，如果您的版本库位于 <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>，<literal>^/../?do=details&amp;id=%BUGID%</literal> 将解析为 <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>。"
 
 #. (para)
 msgid ""
@@ -11719,7 +11719,7 @@ msgid ""
 "class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located anywhere on <systemitem "
 "class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr ""
+msgstr "以字符串 <literal>/</literal> 开头的地址被假定为相对于服务器的主机名。例如，如果您的版本库位于 <systemitem class=\"url\">http://tortoisesvn.net</systemitem> 的任何地方，<literal>/?do=details&amp;id=%BUGID%</literal> 将解析为 <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>。"
 
 #. (para)
 msgid ""
@@ -11735,11 +11735,11 @@ msgid ""
 "based on simple strings, the other is based on <emphasis>regular "
 "expressions</emphasis>. The properties used by both approaches are: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "有两种方式将问题跟踪器集成于 TortoiseSVN。一种基于简单的字符串，另一种基于 <emphasis>正则表达式</emphasis>。两种方法使用的属性为: <placeholder-1/>"
 
 #. (title)
 msgid "Issue Number in Text Box"
-msgstr ""
+msgstr "文本框中的问题单编号"
 
 #. (para)
 msgid ""
@@ -11753,7 +11753,7 @@ msgid ""
 "tracking tool to associate the issue number with a particular commit. As an "
 "example you might use <literal>Issue : %BUGID%</literal>, but this depends "
 "on your Tool."
-msgstr ""
+msgstr "此属性以<emphasis>输入字段</emphasis>模式激活问题跟踪系统。如果设置了此属性，在提交更改时，TortoiseSVN 将提示您输入问题单编号。它通常会在日志信息后面添加一行。必须包含 <literal>%BUGID%</literal>，在提交时会被替换为问题单编号。这确保了您的提交日志包含了对总是保持一致格式并且可被问题跟踪工具解析的问题单编号的引用，从而将问题与特定提交相关联。例如，您可能使用 <literal>Issue : %BUGID%</literal>，但是这取决于您的工具。"
 
 #. (para)
 msgid ""
@@ -11770,7 +11770,7 @@ msgid ""
 "number text field. An exception is the comma, so you can comma separate "
 "several numbers. Valid values are <literal>true/false</literal>. <emphasis> "
 "If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "如果设置为 <literal>true</literal>，在问题单编号文本字段中只允许输入数字。逗号除外，因此您可以使用逗号来分隔多个数字。有效的值为 <literal>true/false</literal>。<emphasis>如果未定义，假定为 <literal>true</literal>。</emphasis>"
 
 #. (para)
 msgid ""
@@ -11797,7 +11797,7 @@ msgid ""
 "This property activates the bug tracking system in "
 "<emphasis>Regex</emphasis> mode. It contains either a single regular "
 "expressions, or two regular expressions separated by a newline."
-msgstr ""
+msgstr "此属性以<emphasis>正则表达式</emphasis>模式激活问题追踪系统。它既可包含单个正则表达式，也可包含以新行来分隔的两个正则表达式。"
 
 #. (para)
 msgid ""
@@ -11807,7 +11807,7 @@ msgid ""
 "you to use a list of bug IDs and natural language expressions if you wish. "
 "e.g. you might fix several bugs and include a string something like this: "
 "<quote>This change resolves issues #23, #24 and #25</quote>."
-msgstr ""
+msgstr "如果设置了两个表达式，那么第一个表达式用作为一个预过滤器来查找包含 bug ID 的表达式。然后第二个表达式从第一个正则表达式的结果中提取显现出的 bug ID。这允许您使用 bug ID 列表和自然语言表达式，如果您愿意的话。例如，您可能修复几个 bug 并包括像这样的字符串: <quote>This change resolves issues #23, #24 and #25</quote>。"
 
 #. (para)
 msgid ""
@@ -11816,7 +11816,7 @@ msgid ""
 "by the TortoiseSVN project: "
 "<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
 "<literal>(\\d+)</literal>."
-msgstr ""
+msgstr "如果您想像上述日志信息中的表达式那样捕获 bug ID，您可以使用下面的 TortoiseSVN 项目所使用的正则表达式字符串: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> 和 <literal>(\\d+)</literal>。"
 
 #. (para)
 msgid ""
@@ -11824,7 +11824,7 @@ msgid ""
 "the surrounding log message. The second regex extracts plain decimal numbers"
 " from the output of the first regex, so it will return <quote>23</quote>, "
 "<quote>24</quote> and <quote>25</quote> to use as bug IDs."
-msgstr ""
+msgstr "第一个表达式从日志消息中筛选出 <quote>issues #23, #24 and #25</quote>。第二个正则表达式从第一个正则表达式的输出中提取纯粹的十进制数， 因此它将返回 <quote>23</quote>, <quote>24</quote> 和 <quote>25</quote> 并用作为 bug ID。"
 
 #. (para)
 msgid ""
@@ -11834,7 +11834,7 @@ msgid ""
 "followed by one or more groups each having zero or more leading whitespace, "
 "an optional comma or <quote>and</quote> and more optional space. Finally "
 "there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr ""
+msgstr "稍微分解一下第一个正则表达式，它必须以 <quote>issue</quote> 开头，可以大写。其后也可以跟一个 <quote>s</quote> (多个问题) 和一个冒号。这之后跟一个或多个组，每个都有零个或多个前导空格、可选的逗号或 <quote>and</quote> 以及更多的可选空格。最后强制使用 <quote>#</quote> 和十进制数。"
 
 #. (para)
 msgid ""
@@ -11843,7 +11843,7 @@ msgid ""
 "#?(\\d+)</literal> This method is required by a few issue trackers, e.g. "
 "trac, but it is harder to construct the regex. We recommend that you only "
 "use this method if your issue tracker documentation tells you to."
-msgstr ""
+msgstr "如果只设置了一个表达式，则出现的 bug ID 必须按正则表达式字符串组匹配。例如: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> 此方法是一些问题跟踪器所必需的，比如 trac，但它构建正则表达式会更难。我们建议您仅使用此方法，如果您的问题跟踪器文档告诉你如此。"
 
 #. (para)
 msgid ""
@@ -11872,7 +11872,7 @@ msgid ""
 " the user writes the log message. This also means that the bug ID can be "
 "anywhere inside a log message! This method is much more flexible, and is the"
 " one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr ""
+msgstr "在含<emphasis>正则表达式</emphasis>的方法中，TortoiseSVN 不会显示一个单独的输入字段，而是标记用户所输入的日志信息的一部分，这可以被问题追踪工具所识别。这是在用户编写日志信息的时候完成的，这也意味着 bug ID 可以出现在日志信息的任何位置！这种方法更为灵活，也是 TortoiseSVN 项目本身使用的方法。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11893,7 +11893,7 @@ msgid ""
 "And even if you don't need the links, the issue numbers show up as a "
 "separate column in the log dialog, making it easier to find the changes "
 "which relate to a particular issue."
-msgstr ""
+msgstr "即使您不需要链接，问题单编号会在日志对话框中显示为一个单独的列，可更容易找到相对于某特定问题单的变动。"
 
 #. (para)
 msgid ""
@@ -11922,11 +11922,11 @@ msgid ""
 "properties recursively on each sub-folder. A property setting deeper in the "
 "project hierarchy overrides settings on higher levels (closer to "
 "<filename>trunk/</filename>)."
-msgstr ""
+msgstr "为了系统能够工作，这个属性必须设置到文件夹上。当您提交文件或文件夹时，属性会从文件夹上读取。如果没有发现属性，TortoiseSVN 会向上级搜索整个目录树，直到一个没有版本控制的文件夹或发现根目录(例如<literal>C:\\</literal>)为止。如果您能够确定每个用户只从 <filename>trunk/</filename> 检出，而不是一些子目录，那么您只在 <filename>trunk/</filename> 上设置属性就足够了。如果不能确定，您必须为每个子目录设置这些属性。在较深的项目层次结构中的属性设置将重写较高级别上的设置(更靠近 <filename>trunk/</filename> 的)。"
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr ""
+msgstr "没有来自版本库浏览器的问题跟踪器信息"
 
 #. (para)
 msgid ""
@@ -11943,7 +11943,7 @@ msgstr ""
 msgid ""
 "For the same reason, project properties will not be propagated automatically"
 " when a child folder is added using the repo browser."
-msgstr ""
+msgstr "出于同样的原因，当使用版本库浏览器添加子文件夹时，项目属性将不会被自动传递到子文件夹。"
 
 #. (para)
 msgid ""
@@ -11957,7 +11957,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "从问题跟踪器中获取信息"
 
 #. (para)
 msgid ""
@@ -11967,7 +11967,7 @@ msgid ""
 "program that can talk to your tracker. Typically you might want to query the"
 " tracker to get a list of open issues assigned to you, so that you can pick "
 "the issues that are being addressed in this commit."
-msgstr ""
+msgstr "前一节介绍了在日志信息中添加问题单信息，那如何从问题跟踪器中获取信息呢？提交对话框有一个 COM 接口，可允许集成一个能够跟跟踪器交互的外部程序。通常，您可能想查询跟踪器以得到分配给您的开放问题列表，以便于您能选取提交中正在解决的问题。"
 
 #. (para)
 msgid ""
@@ -11985,11 +11985,11 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "任何此类接口当然都是高度针对于您的问题跟踪系统，所以我们无法提供这部分，描述如何创建这样的程序已超出了本手册的范围。C# 和 C++/ATL 接口定义和示例插件可以从<ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN 版本库</citetitle></ulink> 中的 <literal>contrib</literal> 目录中获得。(<xref linkend=\"tsvn-preface-source\"/> 解释了如何访问版本库。) <xref linkend=\"tsvn-ibugtraqprovider\"/> 中也给出了 API 摘要。另一个 C# 示例插件(开发中)是 <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>，它实现了可与 <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> 问题跟踪器交互的所需 COM 接口。"
 
 #. (title)
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "问题跟踪查询对话框示例"
 
 #. (para)
 msgid ""
@@ -12001,7 +12001,7 @@ msgid ""
 "button at the top of the dialog. <placeholder-1/> In this example you can "
 "select one or more open issues. The plugin can then generate specially "
 "formatted text which it adds to your log message."
-msgstr ""
+msgstr "为便于说明，假设您的系统管理员已向您提供了已安装的问题跟踪器插件，并且您已让一些工作副本使用了 TortoiseSVN 设置对话框中的插件。当您从已分配了插件的工作副本中打开提交对话框时，您会在对话框顶部看到一个新的按钮。<placeholder-1/> 在此示例中，您可以选择一个或多个开放问题。然后，该插件可以生成特殊格式的文本，并将其添加到您的日志消息中。"
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
@@ -12017,11 +12017,11 @@ msgstr "版本库浏览器"
 
 #. (primary)
 msgid "ViewVC"
-msgstr ""
+msgstr "ViewVC"
 
 #. (primary)
 msgid "WebSVN"
-msgstr ""
+msgstr "WebSVN"
 
 #. (para)
 msgid ""
@@ -12038,7 +12038,7 @@ msgid ""
 "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, "
 "you have to define some properties which define the linkage. They must be "
 "set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "您可以在 TortoiseSVN 中集成一个您自己选择的版本库查看器。为此，您必须定义一些属性，这些属性定义了连接。它们必须设置于文件夹: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid ""
@@ -12063,7 +12063,7 @@ msgid ""
 "you right click in the log dialog bottom pane on a file entry "
 "<literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the"
 " URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "为您的版本库查看器的地址设置此属性以查看某特定版本中的某特定文件的更改。它必须是完全的 URI 编码并且要包含 <literal>%REVISION%</literal> 和 <literal>%PATH%</literal>。<literal>%PATH%</literal> 用相对于版本库根目录的路径来替换。这允许 TortoiseSVN 在日志对话框中显示一个上下文菜单项 <menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>在网络查看器中查看路径版本</guimenuitem></menuchoice> 例如，如果您在日志对话框的底部窗格中右击一个文件项 <literal>/trunk/src/file</literal>，那么地址中的 <literal>%PATH%</literal> 将被 <literal>/trunk/src/file</literal> 所替换。"
 
 #. (para)
 msgid ""
@@ -12074,7 +12074,7 @@ msgid ""
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
 "as for the <literal>bugtraq:url</literal> property. See <xref linkend"
 "=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "您也可以使用相对地址来代替绝对地址。当您的网络查看器和源版本库在同一域/服务器上时，这非常有用。即使在域名称发生更改的情况下，您也不必调整 <literal>webviewer:revision</literal> 和 <literal>webviewer:pathrevision</literal> 属性。地址格式与 <literal>bugtraq:url</literal> 属性的一样，请查 <xref linkend=\"tsvn-dug-bugtracker\"/>。"
 
 #. (para)
 msgid ""
@@ -12139,7 +12139,7 @@ msgid ""
 " if you want an answer right away. The new version will not be downloaded; "
 "you simply receive an information dialog telling you that the new version is"
 " available."
-msgstr ""
+msgstr "TortoiseSVN 将定期联系它的下载站点以查看是否有更新的程序版本可用。如果有，它将在提交对话框中显示一个通知链接。如果您想立即知晓，请使用<guibutton>现在检查</guibutton>。新版本将不会被下载；您只是简单地接收到一个信息对话框来告诉您有新的版本可用。"
 
 #. (term)
 msgid "System sounds"
@@ -12207,7 +12207,7 @@ msgid ""
 "Note also that there is no way to differentiate between files and "
 "directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more "
 "information on the pattern-matching syntax."
-msgstr ""
+msgstr "全局忽略模式是用来防止非版本控制的文件被显示出来，比如在提交对话框中等等。那些符合模式的文件在执行导入操作时同样被忽略。通过输入文件名或扩展名来忽略文件或文件夹。模式之间以空格分隔，例如 <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>。这些模式不应该包含任何路径分隔符。还请注意没有办法来区分文件和目录。请阅读 <xref linkend=\"tsvn-dug-ignore-glob\"/> 以获得更多模式匹配语法信息。"
 
 #. (para)
 msgid ""
@@ -12234,7 +12234,7 @@ msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
-msgstr ""
+msgstr "将文件日期设置为<quote>最后提交时间</quote>"
 
 #. (para)
 msgid ""
@@ -12245,7 +12245,7 @@ msgid ""
 "decide which files need compiling. If you use <quote>last commit "
 "time</quote> and revert to an older file revision, your project may not "
 "compile as you expect it to."
-msgstr ""
+msgstr "该选项通知 TortoiseSVN 在做检出或更新操作时，把文件日期设置为最后提交的时间。否则 TortoiseSVN 将使用当前日期。如果您正在进行软件开发，总的来说最好使用当前日期，因为软件生成系统通常通过查看时间戳来决定需要编译哪些文件。如果您使用<quote>最后提交时间</quote>并恢复到了一个更旧的文件版本，您的项目可能无法如您预期的那样编译。"
 
 #. (term)
 msgid "Subversion configuration file"
@@ -12326,7 +12326,7 @@ msgid ""
 "If there are some paths on your computer where you just don't want "
 "TortoiseSVN's context menu to appear at all, you can list them in the box at"
 " the bottom."
-msgstr ""
+msgstr "如果您不想在计算机中的某些路径中显示 TortoiseSVN 的上下文菜单，您可以在底部的框中列出它们。"
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
@@ -12378,7 +12378,7 @@ msgstr "如果标准长度的日期/时间信息占在用了过多的屏幕空�
 
 #. (term)
 msgid "Can double click in log list to compare with previous revision"
-msgstr ""
+msgstr "可以在日志列表中双击以便与以前的版本比较"
 
 #. (para)
 msgid ""
@@ -12387,11 +12387,11 @@ msgid ""
 " is not enabled by default because fetching the diff is often a long "
 "process, and many people prefer to avoid the wait after an accidental double"
 " click, which is why this option is not enabled by default."
-msgstr ""
+msgstr "如果您经常在日志对话框的顶部窗格中进行版本比较，您可以使用此选项来允许双击操作。默认情况下是不启用的，因为获取差异是相当漫长的过程，并且许多人在意外双击后都不愿等待，这就是此选项默认禁用的原因。"
 
 #. (term)
 msgid "Auto-close"
-msgstr ""
+msgstr "自动关闭"
 
 #. (para)
 msgid ""
@@ -12439,7 +12439,7 @@ msgid ""
 "contact the repository and complete quickly, so the progress dialog is often"
 " of little interest. Select this option if you want the progress dialog to "
 "close automatically after these operations, unless there are errors."
-msgstr ""
+msgstr "像添加文件或恢复更改这样的本地操作不需要联系版本库并且可快速完成，因此进度对话框通常意义不大。如果您想要进程对话框在这些操作后自动关闭，则选择此选项，除非有错误发生。"
 
 #. (term)
 msgid "Use recycle bin when reverting"
@@ -12451,11 +12451,11 @@ msgid ""
 " gives you an extra safety net by sending the modified file to the recycle "
 "bin before bringing back the pristine copy. If you prefer to skip the "
 "recycle bin, uncheck this option."
-msgstr ""
+msgstr "当您恢复本地修改时，您的更改将被丢弃。TortoiseSVN 通过在恢复至原始副本之前将已修改文件发送至回收站来赋予您额外的安全保证。如果您想跳过回收站，则不要选择此选项。"
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
-msgstr ""
+msgstr "将工作副本 URL 用作默认的 <quote>来源:</quote> URL"
 
 #. (para)
 msgid ""
@@ -12517,7 +12517,7 @@ msgid ""
 "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to "
 "see ignored items. If this box is checked then whenever an ignored folder is"
 " found, all child items will be shown as well."
-msgstr ""
+msgstr "在 <guilabel>检查修改</guilabel> 对话框中您可以选择查看被忽略的项目。如果选中该复选框，那么每当找到一个被忽略的文件夹，所有的子项也将被显示。"
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
@@ -12529,7 +12529,7 @@ msgid ""
 "committed. When you type the first 3 letters of an item in the list, the "
 "auto-completion box pops up, and you can press Enter to complete the "
 "filename. Check the box to enable this feature."
-msgstr ""
+msgstr "提交对话框包含了一项功能，可以解析被提交的文件名列表。当您输入列表中某个项目的前三个字母时，自动完成框就会弹出，您就可以按回车来完成该文件名。选中该框以启用此功能。"
 
 #. (term)
 msgid "Timeout in seconds to stop the auto-completion parsing"
@@ -12541,7 +12541,7 @@ msgid ""
 "files to check. This timeout stops the commit dialog being held up for too "
 "long. If you are missing important auto-completion information, you can "
 "extend the timeout."
-msgstr ""
+msgstr "如果有许多大文件要检查，自动完成解析器可能会非常慢。该超时时间设置可以防止提交对话框被长时间挂起。若您错过了某些重要的自动完成信息，您可以延长该超时时间。"
 
 #. (term)
 msgid ""
@@ -12566,13 +12566,13 @@ msgid ""
 "for each repository, but you can customize that number here. If you have "
 "many different repositories, you may wish to reduce this to avoid filling "
 "your registry."
-msgstr ""
+msgstr "当您在提交对话框中输入日志消息时，TortoiseSVN 会存储起来以便以后可能重新使用。默认情况下，它将为每个版本库保存最后 25 条日志信息，但是您可以在此自定义该数目。若您有很多不同的版本库，您可能会希望减少该数目以防止向注册表中填入过多信息。"
 
 #. (para)
 msgid ""
 "Note that this setting applies only to messages that you type in on this "
 "computer. It has nothing to do with the log cache."
-msgstr ""
+msgstr "请注意此设置仅应用于您在此计算机上键入的消息。它跟日志缓存毫不相关。"
 
 #. (term)
 msgid "Select items automatically"
@@ -12583,7 +12583,7 @@ msgid ""
 "The normal behaviour in the commit dialog is for all modified (versioned) "
 "items to be selected for commit automatically. If you prefer to start with "
 "nothing selected and pick the items for commit manually, uncheck this box."
-msgstr ""
+msgstr "在提交对话框中的正常行为就是选择所有更改的(受版本控制的)项目以备自动提交。如果您想在启动时不选择任何项目并且手动挑选项目以备提交，则不要选择此框。"
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -12779,7 +12779,7 @@ msgstr "过滤器匹配"
 msgid ""
 "When using filtering in the log dialog, search terms are highlighted in the "
 "results using this colour."
-msgstr ""
+msgstr "当在日志对话框中使用筛选时，在结果中使用颜色来突出显示搜索对象。"
 
 #. (title)
 msgid "Revision Graph Settings"
@@ -12970,13 +12970,13 @@ msgstr "图标叠加设置"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
-msgstr ""
+msgstr "设置对话框，图标覆盖页面"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This page allows you to choose the items for which "
 "TortoiseSVN will display icon overlays."
-msgstr ""
+msgstr "<placeholder-1/> 此页面允许您选择 TortoiseSVN 要显示图标覆盖的项目。"
 
 #. (term)
 msgid "Default"
@@ -12991,7 +12991,7 @@ msgid ""
 "programs don't get hogged because of it. That also means that the status "
 "information is not <emphasis>real time</emphasis> but it can take a few "
 "seconds for the overlays to change."
-msgstr ""
+msgstr "以一个单独的进程(<filename>TSVNCache.exe</filename>)来缓存所有的状态信息。该进程监视所有驱动器的更改，并在工作副本中的文件被修改时重新获取其状态。该进程以最低优先级运行，所以其他程序不会被它挤占。这也意味着状态信息并不是 <emphasis>实时</emphasis> 的，因为它需要几秒钟时间处理图标重载的变化。"
 
 #. (para)
 msgid ""
@@ -13000,7 +13000,7 @@ msgid ""
 "will also show the modified overlay. And since the process can send "
 "notifications to the shell, the overlays on the left tree view usually "
 "change too."
-msgstr ""
+msgstr "优点: 图标覆盖递归地显示状态，就是说，如果一个处在工作副本深处的文件被修改了，所有上级目录直到工作副本的根目录都会显示出已修改的覆盖图标。由于该进程可以向 Windows 外壳发送通知，所以资源管理器左侧树视图通常也会更改。"
 
 #. (para)
 msgid ""
@@ -13057,7 +13057,7 @@ msgid ""
 "Disadvantage: Status information of files and folders is not shown in "
 "Explorer. To see if your working copies are modified, you have to use the "
 "<quote>Check for modifications</quote> dialog."
-msgstr ""
+msgstr "缺点: 文件和文件夹的状态信息不会显示在资源管理器中。要获知工作副本是否被修改，您需要使用 <quote>检查修改</quote> 对话框。"
 
 #. (para)
 msgid ""
@@ -13066,7 +13066,7 @@ msgid ""
 "hogged too much when showing the overlays. You can choose which type of "
 "cache TortoiseSVN should use according to your system and working copy size "
 "here: <placeholder-1/>"
-msgstr ""
+msgstr "因为它要花费一段时间来获取工作副本的状态，TortoiseSVN 将使用一个缓存来存储这些状态，从而使资源管理器在显示图标覆盖时，不会消耗太多资源。您可以根据您的系统和工作副本大小来选择让 TortoiseSVN 使用哪种类型的缓存: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -13074,7 +13074,7 @@ msgid ""
 "dialogs as well as in Windows Explorer. If you want them to appear "
 "<emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show "
 "overlays and context menu only in explorer</guilabel> box."
-msgstr ""
+msgstr "默认情况下，覆盖图标和上下文菜单将出现在所有的打开/保存对话框中，就像在 Windows 资源管理器中一样。如果您想让它们<emphasis>仅</emphasis>出现在 Windows 资源管理器中，选择 <guilabel>仅在资源管理器中显示图标覆盖和上下文菜单</guilabel>。"
 
 #. (para)
 msgid ""
@@ -13082,20 +13082,20 @@ msgid ""
 "items. This could be useful for reminding you that you have created new "
 "files which are not yet versioned. This option is only available when you "
 "use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr ""
+msgstr "您还可以选择将文件夹标记为已修改，如果它们包含非版本控制的项目。这很有用，可以提醒您已经创建了尚未受版本控制的新文件。此选项仅适用于在使用 <emphasis>默认</emphasis> 状态缓存选项时(见下文)。"
 
 #. (para)
 msgid ""
 "The next group allows you to select which classes of storage should show "
 "overlays. By default, only hard drives are selected. You can even disable "
 "all icon overlays, but where's the fun in that?"
-msgstr ""
+msgstr "下一组允许您选择要显示图标覆盖的存储器种类。默认情况下，仅硬盘驱动器被选中。您甚至可以禁用所有的图标覆盖，但这样做还有何乐趣？"
 
 #. (para)
 msgid ""
 "Network drives can be very slow, so by default icons are not shown for "
 "working copies located on network shares."
-msgstr ""
+msgstr "网络驱动器可能会很慢，所以默认情况下不会为位于网络共享上的工作副本显示图标。"
 
 #. (para)
 msgid ""
@@ -13112,7 +13112,7 @@ msgid ""
 "containing only libraries which you won't change at all and therefore don't "
 "need the overlays, or if you only want TortoiseSVN to look in specific "
 "folders."
-msgstr ""
+msgstr "<guilabel>排除路径</guilabel> 是用来告诉 TortoiseSVN <emphasis>不用</emphasis> 在哪些路径下显示图标覆盖和状态列。如果您有些很大的工作副本，而这些工作副本仅仅包含您完全不会改变的库文件，因此也就不需要显示图标覆盖，或者您只想 TortoiseSVN 在特定的目录中查看。"
 
 #. (para)
 msgid ""
@@ -13120,7 +13120,7 @@ msgid ""
 "child folders will show overlays either. If you want to exclude "
 "<emphasis>only</emphasis> the named folder, append <literal>?</literal> "
 "after the path."
-msgstr ""
+msgstr "您在此指定的任何路径都被假定为递归应用，因此子文件夹也都不会显示图标覆盖。如果您 <emphasis>只</emphasis> 想排除有名称的目录，在路径后追加 <literal>?</literal>。"
 
 #. (para)
 msgid ""
@@ -13137,7 +13137,7 @@ msgid ""
 "include or exclude rule. If there is a conflict, a single directory spec "
 "takes precedence over a recursive spec, then inclusion takes precedence over"
 " exclusion."
-msgstr ""
+msgstr "用户有时会问这三种设置如何相互作用。对于任何给定的路径，检查包含和排除列表，向上搜寻整个目录结构直到找到匹配。当找到第一个匹配时，遵循包含或排除规则。如果有冲突，单个目录规范的优先级高于递归规范，然后包含优先级高于排除。"
 
 #. (para)
 msgid ""
@@ -13151,7 +13151,7 @@ msgid ""
 "Include:\n"
 "       C:\\develop\n"
 "</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr ""
+msgstr "此例将有助理解: <screen>\n排除:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\n包含:\n       C:\\develop\n</screen> 这些设置为 C: 驱动器禁用图标覆盖，除了 <literal>c:\\develop</literal>外。该目录下的所有项目都将显示图标覆盖，除了 <literal>c:\\develop</literal> 目录自身外，其被专门忽略。高变动的二进制文件夹也被排除在外。"
 
 #. (para)
 msgid ""
@@ -13173,14 +13173,14 @@ msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr ""
+msgstr "使用 <literal>SUBST</literal> 驱动器访问您的工作副本通常很方便，比如，使用命令 <screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen> 然而这可能会导致图标覆盖不更新，因为 <literal>TSVNCache</literal> 在文件更改时只会收到一个通知，这对于原始路径来说是正常的。这意味着您在 <literal>subst</literal> 路径上的图标覆盖可能从不会更新。"
 
 #. (para)
 msgid ""
 "An easy way to work around this is to exclude the original path from showing"
 " overlays, so that the overlays show up on the <literal>subst</literal> path"
 " instead."
-msgstr ""
+msgstr "解决此问题的一个简单方法就是排除原始路径，使其不显示图标覆盖，以便于图标覆盖显示于 <literal>subst</literal> 路径。"
 
 #. (para)
 msgid ""
@@ -13203,7 +13203,7 @@ msgid ""
 "folders as 'normal'</guilabel> option. This is because Windows is forced to "
 "look on the drive, which can result in a delay of several seconds when "
 "starting Explorer, even if your PC does have a floppy drive."
-msgstr ""
+msgstr "作为一个特殊例外， 从不为 <guilabel>将排除文件夹显示为 '正常'</guilabel> 选项考虑驱动器 <literal>A:</literal> 和 <literal>B:</literal>。这是因为 Windows 强制查看驱动器，这可能导致在资源管理器启动时延迟数秒钟，即使您的 PC 确实有一个软盘驱动器。"
 
 #. (title)
 msgid "Icon Set Selection"
@@ -13226,7 +13226,7 @@ msgstr "启用的图标覆盖"
 
 #. (title)
 msgid "The Settings Dialog, Icon Handlers Page"
-msgstr ""
+msgstr "设置对话框，图标处理器页面"
 
 #. (para)
 msgid ""
@@ -13279,7 +13279,7 @@ msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "</screen>"
-msgstr ""
+msgstr "您必须指定可执行文件的完整路径。对于 TortoisePlink.exe 这是在标准的 TortoiseSVN bin 目录。使用 <guibutton>浏览</guibutton> 按钮来帮助找到它。请注意，如果路径中包含空格，则必须将其用引号括起来，例如 <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -13298,14 +13298,14 @@ msgid ""
 "<ulink "
 "url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY "
 "website</citetitle></ulink>."
-msgstr ""
+msgstr "TortoisePlink 自身没有任何文档，因为它只是 Plink.的小变种。从 <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY 网站</citetitle></ulink> 了解有关命令行参数。"
 
 #. (para)
 msgid ""
 "To avoid being prompted for a password repeatedly, you might also consider "
 "using a password caching tool such as Pageant. This is also available for "
 "download from the PuTTY website."
-msgstr ""
+msgstr "为了避免反复提示输入密码，您也可以考虑使用如 Pageant 之类的密码缓存工具。这也可从 PuTTY 网站下载。"
 
 #. (para)
 msgid ""
@@ -13314,7 +13314,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
 "SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "最后，在服务器和客户端上设置 SSH 是一个重要的过程，这已经超出了本帮助文件的范畴。然而，您可以在下面列出的 TortoiseSVN FAQ 中找到指南 <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>。"
 
 #. (title)
 msgid "External Program Settings"
@@ -13396,7 +13396,7 @@ msgid ""
 " from a file in revision 123 with a file in your working copy, the names "
 "will be <filename>filename : revision 123</filename> and <filename>filename "
 ": working copy</filename>."
-msgstr ""
+msgstr "窗口标题并不纯是文件名。TortoiseSVN 将其当作名称来显示并创建相应的名称。因此，假设您正在将版本 123 中的一个文件同工作副本中的一个文件做差异对比时，名称将显示为 <filename>文件名 : 版本 123</filename> 和 <filename>文件名 : 工作副本</filename>。"
 
 #. (para)
 msgid ""
@@ -13430,7 +13430,7 @@ msgid ""
 "However, this can take a long time with large files. If <guilabel>Convert "
 "files when diffing against BASE</guilabel> is unchecked then TortoiseSVN "
 "will skip pre-processing the files."
-msgstr ""
+msgstr "如果您使用 <literal>svn:keywords</literal> 属性来扩展关键词，特别是一个文件的<emphasis>修订版本</emphasis>，那么只要关键词不同，文件之间也会存在差异。同样如果您使用 <literal>svn:eol-style = native</literal>，原 BASE 文件只有纯 <literal>LF</literal> 行结尾，而您的文件将会是 <literal>CR-LF</literal> 行结尾。TortoiseSVN 将通常在做 diff 操作之前先解析 BASE 文件以扩展关键词和行结尾，从而自动隐藏这些差异。然而，对于大文件这可能要花上很长的时间。如果不选择 <guilabel>与基础版本比较时转换文件</guilabel>，那么 TortoiseSVN 将跳过对这些文件的预处理。"
 
 #. (para)
 msgid ""
@@ -13448,7 +13448,7 @@ msgid ""
 "diff tool, and <keycap>Shift</keycap>+ <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the "
 "secondary diff tool."
-msgstr ""
+msgstr "如果您已经配置了备用的 diff 工具，您可以从上下文菜单访问 TortoiseMerge <emphasis>和</emphasis>第三方工具。<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> 使用主 diff 工具，and <keycap>Shift</keycap>+ <menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> 使用第二 diff 工具。"
 
 #. (para)
 msgid ""
@@ -13533,7 +13533,7 @@ msgid ""
 " Photoshop as the <quote>Diff</quote> Program for <filename>.jpg</filename> "
 "files :-) You can also associate the <literal>svn:mime-type</literal> "
 "property with a diff or merge program."
-msgstr ""
+msgstr "<placeholder-1/> 在高级设置中，您可以为每种文件类型都定义一个不同的差异比较及合并程序。例如，您可以将 Photoshop 关联为 <filename>.jpg</filename> 文件的 <quote>Diff</quote> 程序 :-) 也可以将 <literal>svn:mime-type</literal> 属性同差异比较/合并程序关联起来。"
 
 #. (para)
 msgid ""
@@ -13575,7 +13575,7 @@ msgid ""
 "If you want to remove a single item from one of the combo boxes you can do "
 "that in-place. Just click on the arrow to drop the combo box down, move the "
 "mouse over the item you want to remove and type <keycap>Shift+Del</keycap>."
-msgstr ""
+msgstr "如果您想要从一个组合框中删除单个项目，只要点击箭头向下拉动组合框，将鼠标移动到要删除的项目上并按 <keycap>Shift+Del</keycap>。"
 
 #. (term)
 msgid "Log messages (Input dialog)"
@@ -13599,7 +13599,7 @@ msgid ""
 "already have that message cached, you will not see the change until you "
 "clear the cache. Log message caching is enabled on the <guilabel>Log "
 "Cache</guilabel> tab."
-msgstr ""
+msgstr "TortoiseSVN 将通过显示日志对话框而获取的日志消息缓存起来，从而节省下次显示日志的时间。如果其他人编辑了日志消息而您已缓存了该消息，您将无法看到更改，除非您清除缓存。可在 <guilabel>日志缓存</guilabel> 标签中启用日志消息缓存。"
 
 #. (term)
 msgid "Dialog sizes and positions"
@@ -13638,18 +13638,18 @@ msgid ""
 "TortoiseSVN keeps a log of everything written to its progress dialogs. This "
 "can be useful when, for example, you want to check what happened in a recent"
 " update command."
-msgstr ""
+msgstr "TortoiseSVN 保存了一个日志，包含了进度对话框的一切写入。这很有用，比如您想要检查在最近的更新命令中都发生了什么。"
 
 #. (para)
 msgid ""
 "The log file is limited in length and when it grows too big the oldest "
 "content is discarded. By default 4000 lines are kept, but you can customize "
 "that number."
-msgstr ""
+msgstr "日志文件有长度限制，文件过大时最旧的内容将被丢弃。默认保留 4000 行，但是您可以自定义该数字。"
 
 #. (para)
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "您可以从这里查看日志文件内容，也可清理它。"
 
 #. (title)
 msgid "Log Caching"
@@ -13670,7 +13670,7 @@ msgid ""
 "paths to avoid time-consuming downloads from the server. Using the log cache"
 " can dramatically speed up the log dialog and the revision graph. Another "
 "useful feature is that the log messages can still be accessed when offline."
-msgstr ""
+msgstr "<placeholder-1/> 此对话框允许您配置 TortoiseSVN 的日志缓存功能，其保留了日志消息和变更路径的本地副本以便避免从服务器耗时的下载过程。使用日志缓存可以大大加快日志对话框和版本图。另一个有用的功能就是在离线时仍然可以访问日志消息。"
 
 #. (term)
 msgid "Enable log caching"
@@ -13681,17 +13681,17 @@ msgid ""
 "Enables log caching whenever log data is requested. If checked, data will be"
 " retrieved from the cache when available, and any messages not in the cache "
 "will be retrieved from the server and added to the cache."
-msgstr ""
+msgstr "每当请求日志数据时启用日志缓存。如果选中，在可用时将从缓存中检索数据，任何不在缓存中的消息都将从服务器中检索并添加至缓存中。"
 
 #. (para)
 msgid ""
 "If caching is disabled, data will always be retrieved directly from the "
 "server and not stored locally."
-msgstr ""
+msgstr "如果禁用缓存，总是直接从服务器中检索数据并且不会存储在本地。"
 
 #. (term)
 msgid "Allow ambiguous URLs"
-msgstr ""
+msgstr "允许不明确的 URL"
 
 #. (para)
 msgid ""
@@ -13699,11 +13699,11 @@ msgid ""
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
 "option. If you don't, leave it unchecked to improve performance."
-msgstr ""
+msgstr "有时您可能必须连接到一个为所有版本库使用同一 URL 的服务器。<literal>svnbridge</literal> 的旧版本就会这样做。如果您需要访问此类版本库，就必须选中此选项。如果不需要，则不用选择以便提高性能。"
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
-msgstr ""
+msgstr "允许不明确的 UUID"
 
 #. (para)
 msgid ""
@@ -13713,7 +13713,7 @@ msgid ""
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
 "situation if you check this box. If you don't need it, leave it unchecked to"
 " improve performance."
-msgstr ""
+msgstr "某些主机服务会为其所有版本库给予相同的 UUID。您甚至可能也这样做过，当通过复制一个版本库文件夹来创建一个新的版本库时。出于各种原因，这不是个好主意 - UUID 应该是<emphasis>唯一的</emphasis>。然而，如果选中此复选框，日志缓存仍然会在这种情况下工作。如果不需要它，请不要选择以提高性能。"
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -13725,17 +13725,17 @@ msgid ""
 "cache can still be used to supply log messages already held in the cache. Of"
 " course the cache may not be up-to-date, so there are options to allow you "
 "to select whether this feature should be used."
-msgstr ""
+msgstr "如果您正在离线工作或者版本库服务器已关闭，日志缓存仍可用来提供保留在缓存中的日志消息。当然缓存可能不是最新的，因此有选项可供您选择是否使用此功能。"
 
 #. (para)
 msgid ""
 "When log data is being taken from the cache without contacting the server, "
 "the dialog using those message will show the offline state in its title bar."
-msgstr ""
+msgstr "当从缓存中提取日志数据而不联系服务器时，使用这些消息的对话框将在标题栏中显示离线状态。"
 
 #. (term)
 msgid "Timeout before updating the HEAD revision"
-msgstr ""
+msgstr "更新 HEAD 版本之前的超时时间"
 
 #. (para)
 msgid ""
@@ -13746,11 +13746,11 @@ msgid ""
 "log dialog frequently and the server is slow, but the data shown may not be "
 "completely up-to-date. If you want to use this feature we suggest using a "
 "value of 300 (5 minutes) as a compromise."
-msgstr ""
+msgstr "当您调用日志对话框时，您通常会希望联系服务器以检查是否有任何新的日志消息。如果此处设置的超时值非零，那么将只在自最后一次联系起超时时间已过时联系服务器。这样可以减少服务器往返过程，如果您经常打开日志对话框并且该服务器很缓慢的话，但所显示的数据可能无法完全保持最新。如果您想要使用此功能，我们建议使用值 300 (5 分钟) 作为权衡考量。"
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "不活动的小缓存过期天数"
 
 #. (para)
 msgid ""
@@ -13758,21 +13758,21 @@ msgid ""
 "caches. If you're not actively using them, the cache will not grow very big,"
 " so TortoiseSVN purges them after a set time by default. Use this item to "
 "control cache purging."
-msgstr ""
+msgstr "如果您浏览过很多版本库，您将积累大量的日志缓存。如果您不常使用它们，缓存将不会变得很大，因此 TortoiseSVN 将在默认的设定时间后清除它们。使用此项目来控制缓存清除。"
 
 #. (term)
 msgid "Maximum size of removed inactive caches"
-msgstr ""
+msgstr "删除不活动缓存的最大尺寸"
 
 #. (para)
 msgid ""
 "Larger caches are more expensive to reacquire, so TortoiseSVN only purges "
 "small caches. Fine tune the threshold with this value."
-msgstr ""
+msgstr "较大的缓存要重新获取可不容易，因此 TortoiseSVN 仅清除小的缓存。用此值来微调阈值。"
 
 #. (term)
 msgid "Maximum number of tool failures before cache removal"
-msgstr ""
+msgstr "在删除缓存之前的最大失败次数"
 
 #. (para)
 msgid ""
@@ -13780,7 +13780,7 @@ msgid ""
 "this happens the cache is normally deleted automatically to prevent a "
 "recurrence of the problem. If you use the less stable nightly build you may "
 "opt to keep the cache anyway."
-msgstr ""
+msgstr "有时缓存出错并导致崩溃。如果出现这种情况，缓存通常被自动删除以避免问题复发。如果您使用不太稳定的每日编译版本，您可以选择总是保留缓存。"
 
 #. (title)
 msgid "Cached Repositories"
@@ -13791,7 +13791,7 @@ msgid ""
 "On this page you can see a list of the repositories that are cached locally,"
 " and the space used for the cache. If you select one of the repositories you"
 " can then use the buttons underneath."
-msgstr ""
+msgstr "在此页面上，您可以看到已经缓存至本地的版本库列表，以及用作缓存的空间。如果您选择一个版本库，您就可以使用下面的按钮。"
 
 #. (para)
 msgid ""
@@ -13799,7 +13799,7 @@ msgid ""
 "and fill in any holes. For a large repository this could be very time "
 "consuming, but useful if you are about to go offline and want the best "
 "available cache."
-msgstr ""
+msgstr "点击 <guibutton>更新</guibutton> 可完全刷新缓存并填满所有空隙。对于大版本库，这可能会耗用很长时间。但这很有用，比如您转至离线并希望获得最佳的可用缓存。"
 
 #. (para)
 msgid ""
@@ -13807,14 +13807,14 @@ msgid ""
 " as a set of CSV files. This could be useful if you want to process the log "
 "data using an external program, although it is mainly useful to the "
 "developers."
-msgstr ""
+msgstr "点击 <guibutton>导出</guibutton> 按钮以导出整个缓存作为 CSV 文件集。这很有用，比如您想使用外部程序来处理日志数据，尽管它主要用于开发人员。"
 
 #. (para)
 msgid ""
 "Click on <guibutton>Delete</guibutton> to remove all cached data for the "
 "selected repositories. This does not disable caching for the repository so "
 "the next time you request log data, a new cache will be created."
-msgstr ""
+msgstr "点击 <guibutton>删除</guibutton> 为所选版本库删除所有缓存的数据。这不会禁用版本库缓存，因此您下次请求日志数据时，一个新的缓存将被创建。"
 
 #. (title)
 msgid "Log Cache Statistics"
@@ -13830,7 +13830,7 @@ msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
-msgstr ""
+msgstr "缓存服务所需的内存量。"
 
 #. (term)
 msgid "Disk"
@@ -13840,7 +13840,7 @@ msgstr "磁盘"
 msgid ""
 "The amount of disk space used for the cache. Data is compressed, so disk "
 "usage is generally fairly modest."
-msgstr ""
+msgstr "用于缓存的磁盘空间量。数据被压缩，因此磁盘使用率通常相当适度。"
 
 #. (term)
 msgid "Connection"
@@ -13849,7 +13849,7 @@ msgstr "连接"
 #. (para)
 msgid ""
 "Shows whether the repository was available last time the cache was used."
-msgstr ""
+msgstr "显示版本库在最后一次使用缓存时是否可用。"
 
 #. (term)
 msgid "Last update"
@@ -13857,15 +13857,15 @@ msgstr "最近更新"
 
 #. (para)
 msgid "The last time the cache content was changed."
-msgstr ""
+msgstr "最后一次缓存内容更改时间。"
 
 #. (term)
 msgid "Last head update"
-msgstr ""
+msgstr "最后一次 HEAD 更新"
 
 #. (para)
 msgid "The last time we requested the HEAD revision from the server."
-msgstr ""
+msgstr "最后一次我们从服务器请求 HEAD 版本的时间。"
 
 #. (term)
 msgid "Authors"
@@ -13873,7 +13873,7 @@ msgstr "作者"
 
 #. (para)
 msgid "The number of different authors with messages recorded in the cache."
-msgstr ""
+msgstr "缓存中记录的消息的不同作者的数量。"
 
 #. (term)
 msgid "Paths"
@@ -13883,18 +13883,18 @@ msgstr "路径"
 msgid ""
 "The number of paths listed, as you would see using <literal>svn log "
 "-v</literal>."
-msgstr ""
+msgstr "列出的路径数量，正如您使用 <literal>svn log -v</literal> 所看到的一样。"
 
 #. (term)
 msgid "Skip ranges"
-msgstr ""
+msgstr "跳过范围"
 
 #. (para)
 msgid ""
 "The number of revision ranges which we have not fetched, simply because they"
 " haven't been requested. This is a measure of the number of holes in the "
 "cache."
-msgstr ""
+msgstr "我们还未获取的版本范围数量，只是因为它们还没有被请求。这是对缓存中空位数量的测量。"
 
 #. (term)
 msgid "Max revision"
@@ -13902,7 +13902,7 @@ msgstr "最大版本号"
 
 #. (para)
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "缓存中存储的最高版本号。"
 
 #. (term)
 msgid "Revision count"
@@ -13912,7 +13912,7 @@ msgstr "版本计数"
 msgid ""
 "The number of revisions stored in the cache. This is another measure of "
 "cache completeness."
-msgstr ""
+msgstr "存储在缓存中的版本数量。这是缓存完整性的另一项测量。"
 
 #. (para)
 msgid ""
@@ -13920,7 +13920,7 @@ msgid ""
 "detailed statistics for a particular cache. Many of the fields shown here "
 "are mainly of interest to the developers of TortoiseSVN, so they are not all"
 " described in detail. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> 点击 <guibutton>详细信息</guibutton> 按钮来查看特定缓存的详细统计。此处显示的许多字段主要对 TortoiseSVN 的开发者有意义，因此不会全部对它们进行详细说明。<placeholder-2/>"
 
 #. (title)
 msgid "Client Side Hook Scripts"

@@ -12,6 +12,8 @@
 # Translators:
 # pascow <clogaffo@gmail.com>, 2011
 # cuscu <agua.cuscu@gmail.com>, 2011
+# Dharth <emilpg@gmail.com>, 2013
+# Dharth <emilpg@gmail.com>, 2013
 # Erik Chacon <erikchacon@gmail.com>, 2011
 # juancentro <jmtruppia@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -24,8 +26,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-09-05 17:03+0000\n"
+"Last-Translator: Dharth <emilpg@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,7 +225,7 @@ msgstr "%s (sin conexión)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (recursivamente)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1102,7 +1104,7 @@ msgstr "&Opciones"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Otro"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1898,7 +1900,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Añadido el patrón(es) de fichero\n%s\na la lista global de ignorados"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1938,7 +1940,7 @@ msgstr "Ajustar la configuración\nConfiguración"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "Ajustar a la versión HEAD"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -2568,7 +2570,7 @@ msgstr "Cancelar\nNo resolver el ítem."
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "Cancela.\nNo muestres la diflerencia."
 
 #. Resource IDs: (315)
 msgid ""
@@ -3122,7 +3124,7 @@ msgstr "Línea de comandos a ejecutar:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Línea de comandos a ejecutar:\nPara especificar una ruta dentro de la copia de trabajo, especifica la URL en el repositorio con la ruta raíz del repositorio como %REPOROOT%, o %REPOROOT+% dentro del raíz de la copia de trabajo."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3689,7 +3691,7 @@ msgstr "Crear una copia en el repositorio desde:"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "Crear carpetas intermedias."
 
 #. Resource IDs: (126)
 #, c-format
@@ -3778,7 +3780,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr ""
+msgstr "Cadena de titulo personalizada. Las claves disponibles son:\n{url unida}: la url origen de la unión\n{revisiones}: Una lista separada por comas de revisiones mezcladas, es decir, 3,5,6,7 \n{revisionesr}: Como {revisiones} pero con una 'r' delante de las revisiones \n{revrangos}: Una lista separada por comas de revisiones mezcladas, agrupadas en rangos si es posible, es decir, 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4172,7 +4174,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "¿Quieres marcar el fichero \n%s\ncomo resuelto? "
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4250,7 +4252,7 @@ msgstr "No recuperar los documentos auto-grabados\nUsar la ultima version explic
 msgid ""
 "Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "No ejecutar.\nNo ejecutar el script."
 
 #. Resource IDs: (315)
 msgid ""
@@ -4487,7 +4489,7 @@ msgstr ""
 
 #. Resource IDs: (200)
 msgid "Enforce"
-msgstr ""
+msgstr "Cumple"
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -4822,7 +4824,7 @@ msgstr "¡Falló!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "Mira la revisión HEAD y cíñete a ella."
 
 #. Resource IDs: (199)
 msgid ""
@@ -4882,7 +4884,7 @@ msgstr "Diferencias de archivos"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "El fichero no tiene confictos"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -5006,11 +5008,11 @@ msgstr "Buscar"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "Buscar Revisión &HEAD"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "Buscar revisiones HEAD"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5292,7 +5294,7 @@ msgstr "Nodo HEAD"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "La revisión HEAD es %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -6146,7 +6148,7 @@ msgstr "Autor menos activo:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Dejar como conflictivo.\nEl estado de conflicto del fichero se mantiene."
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6431,7 +6433,7 @@ msgstr "Marcar como resuelto\nEl conflicto es resuelto"
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Marca como resuelto\nEl estado del fichero se cambia a modificado."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -7115,7 +7117,7 @@ msgstr "Atención"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Ojo: si actualizas tu copia de trabajo, ¡no podrás acceder a la copia detrabajo zctualizada con la versión 1.8 nunca más!\n¿Quires continuar con la actualización de esta carpeta de trabajo?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -8242,7 +8244,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Eliminado el patrón de archivo(s)\n%s\ndel la lista general de ignorados."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8376,7 +8378,7 @@ msgstr "Repositorio creado"
 
 #. Resource IDs: (105)
 msgid "Repository query failed. Refresh to retry."
-msgstr ""
+msgstr "Petición de repositorio errónea. Refrescar para intentar de nuevo."
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -8655,7 +8657,7 @@ msgstr "Ejecutar la limpieza &ahora"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Ejecutar\nEjecutar "
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9600,7 +9602,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr ""
+msgstr "Especifica cómo el texto para cada revisión unificada debe verse.\nLas siguientes claves pueden usarse:\n{msg}: El mensaje bitácora de la revisión unificada, como fue introducido.\n{msgoneline}: El mensaje de bitácora forzado en una línea.\n{author}: El autor de la revisión unificada.\n{rev}: La revisión unificada en sí misma.\n{bugid}: El identificador de error de la revisión unificada."
 
 #. Resource IDs: (1572)
 msgid ""
@@ -10059,7 +10061,7 @@ msgid ""
 "The file\n"
 "%s\n"
 "is not a valid text file!"
-msgstr ""
+msgstr "El fichero\n%s\n no es un fichero de texto válido"
 
 #. Resource IDs: (145)
 #, c-format
@@ -10557,7 +10559,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "Esta corrección no es recursiva,  y hay carpetas movidas/renombradas/copiadas seleccionadas para unificar.\nEstos movimientos/renombrados son siempre realizados recursivamente en el repositorio. ¿Quieres continuar y subir los cambios de todos modos?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10566,7 +10568,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "Esta subida de cambios no es recursiva, y hay carpetas \nmovidas/renombradas/copiadas seleccionadas para subir. \nDichos movimientos/renombrados son siempre realizados\nrecursivamente en el repositorio.\n\n¿Desea continuar con la subida de cambios de todos modos?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10665,7 +10667,7 @@ msgstr "Esto eliminará el registro de los comandos que ha usado en esta aplicac
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Esto actualizará tu copia de trabajo al nuevo formato 1.8 y la hará inutilizable para clientes de versiones anteriores."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10755,7 +10757,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "¡¡TortoiseBlame no debe comenzarse directamente!!\nUsa el comando ToroiseProc.exe /commmand:blame /path:\"path_to_file\""
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -11183,7 +11185,7 @@ msgstr "Actualizando la caché de registro"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Actualiza la copia de trabajo\nal nuevo formato 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11243,7 +11245,7 @@ msgstr "Usar Bloques"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "Utiliza listones"
 
 #. Resource IDs: (1500)
 msgid "Use Task Dialog"
@@ -11487,7 +11489,7 @@ msgstr "ATENCIÓN:\r\nSolo modifique estos parametros si esta absolutamente segu
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Revisión WC:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11553,7 +11555,7 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
+msgstr "Cuando resolvemos conflictos, siempre tienes que salvar incluso si no hay conflictos mostrados.\n¡¡¡TortoiseMerge puede unificar cambios que SVN no puede y no mostrará un conflito por este motivo!!!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -12093,11 +12095,11 @@ msgstr "archivo externo:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "obtener revisión HEAD:"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "Obtener URLs raíz del repositorio"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -12145,7 +12147,7 @@ msgstr "dejar la lista de archivos en Inglés"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "última modificación HEAD:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -12161,7 +12163,7 @@ msgstr "bloqueado"
 
 #. Resource IDs: (65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "bloqueado (limpieza requerido)"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

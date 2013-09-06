@@ -30,7 +30,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 21:20+0000\n"
+"PO-Revision-Date: 2013-09-02 19:30+0000\n"
 "Last-Translator: pabloFiumi <plf.asser@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -824,7 +824,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Ahora que tenemos un proyecto en nuestro repositorio, necesitamos crear una copia de trabajo para usar en el trabajo del día a día. Note que la sola acción de importar una carpeta no convierte automáticamente esa carpeta en una copia de trabajo. El término de Subversion para la creación de una nueva copia de trabajo es <literal>Checkout</literal>. Vamos a hacer un checkout de la carpeta Widget1 de nuestro repositorio a una carpeta de desarrollo en la PC llamada <filename>C:\\Projects\\Widget1-Dev</filename>. Cree esa carpeta, haga clic derecho en ella y seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Ingrese la URL para hacer el checkout, en este caso <filename>file:///c:/svn_repos/trunk/Widget1</filename> y finalmente haga clic en <guibutton>OK</guibutton>. Nuestra carpeta de desarrollo será cargada por los archivos de nuestro repositorio."
 
 #. (para)
 msgid ""
@@ -1298,7 +1298,7 @@ msgid ""
 "copy. Subversion 1.7 takes a completely different approach and each working "
 "copy now has only one administrative subdirectory which is an immediate "
 "child of the root of that working copy."
-msgstr ""
+msgstr "Una copia de trabajo contiene además algunos archivos adicionales, creados y mantendidos por Subversion, para ayudarlo a llevar a cabo estos comandos. En particular, tu copia de trabajo contiene un subdirectorio llamado <filename>.svn</filename>, también conocido como el <firstterm>directorio administrativo</firstterm> de la copia de trabajo. Los archivos en este directorio administrativo ayudan a Subversion a reconocer qué archivos contienen cambios no publicados, y cuáles están desactualizados respecto del trabajo de otros. Antes de la versión 1.7 Subversion mantenía los subdirectorios administrativos <filename>.svn</filename> en cada uno de los directorios versionados de tu copia de trabajo. Subversion 1.7 toma un camino completamente diferente y ahora cada copia de trabajo tiene un sólo subdirectorio administrativo que es un hijo inmediato de la raíz de esa copia de trabajo."
 
 #. (para)
 msgid ""
@@ -1777,7 +1777,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
-msgstr ""
+msgstr "Puede crear un repositorio con el backend de FSFS o con el viejo formato Berkeley Database (BDB). El formato FSFS es generalmente más rápido y fácil de administrar, y funciona en recursos compartidos en red y en Windows 98 sin problemas. El formato BDB fue considerado más estable simplemente porque se ha usado por más tiempo, pero desde que FSFS ya se se incorporó al campo por varios años, ese es un argumento demasiado débil. Lea <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Eligiendo un Data Store</citetitle></ulink> en el libro de Subversion para más información."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -2177,7 +2177,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "La herramienta <literal>svnadmin</literal> se instala automáticamente cuando usted instala el cliente de línea de comandos Subversion. La manera más sencilla de obtener esto es chequear la opción de incluir las herramientas de línea de comandos cuando instala TortoiseSVN, pero si lo prefiere, puede descargar la última versión de las herramientas de línea de comandos directamente desde el sitio web de <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2208,7 +2208,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr ""
+msgstr "Un script gancho es un programa lanzado desde algún evento de repositorio, como la creación de una nueva revisión o la modificación de una propiedad no versionada. Cada gancho maneja suficiente información para decir de que evento se trata, con que destino(s)  está operando, y el nombre de usuario de la persona que lanzó el evento. Dependiendo del resultado del gancho o del estado de la respuesta, el programa gancho puede continuar la acción, detenerla o suspenderla de alguna manera. Por favor dirígase al capítulo <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Scripts gancho</citetitle></ulink> en el libro de Subversion para ver todos los detalles acerca de los ganchos que están implementados."
 
 #. (para)
 msgid ""
@@ -2374,7 +2374,7 @@ msgid ""
 "Subversion book under <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "Puede encontrar información detallada sobre las opciones del servidor de Subversion, y de cómo elegir la mejor arquitectura para su situación en el libro de Subversion: <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Configuración del Servidor</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
