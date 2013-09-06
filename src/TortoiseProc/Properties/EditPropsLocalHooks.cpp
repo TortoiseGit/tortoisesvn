@@ -90,11 +90,11 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     cmd.bEnforce = false;
     cmd.bApproved = false;
     hooktype htype = unknown_hook;
-    int pos = 0;
     CString temp;
     CString strhook = CUnicodeUtils::GetUnicode(m_PropValue.c_str());
     if (!strhook.IsEmpty())
     {
+        int pos = 0;
         temp = strhook.Tokenize(_T("\n"), pos);
         htype = CHooks::GetHookType(temp);
         if (!temp.IsEmpty())

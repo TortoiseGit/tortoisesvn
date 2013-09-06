@@ -245,8 +245,6 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
 {
     struct tm newtime;
     SYSTEMTIME systime;
-    TCHAR timebuf[MAX_STRING_LENGTH];
-    TCHAR datebuf[MAX_STRING_LENGTH];
 
     bool bUseSystemLocale = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
     LCID locale = bUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
@@ -266,12 +264,14 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
         systime.wSecond = (WORD)newtime.tm_sec;
         systime.wYear = (WORD)newtime.tm_year+1900;
         int ret = 0;
+        TCHAR datebuf[MAX_STRING_LENGTH];
         if (CRegStdDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
             ret = GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_STRING_LENGTH);
         else
             ret = GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_STRING_LENGTH);
         if (ret == 0)
             datebuf[0] = '\0';
+        TCHAR timebuf[MAX_STRING_LENGTH];
         ret = GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_STRING_LENGTH);
         if (ret == 0)
             timebuf[0] = '\0';
@@ -291,10 +291,10 @@ void CSVNPropertyPage::InitWorkfileView()
         if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
         {
             const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(filenames.front().c_str()), SVNRev(), SVNRev());
-            TCHAR buf[MAX_STRING_LENGTH];
             __time64_t  time;
             if (svn.status->versioned)
             {
+                TCHAR buf[MAX_STRING_LENGTH];
                 LoadLangDll();
                 if (svn.status->node_status == svn_wc_status_added)
                 {

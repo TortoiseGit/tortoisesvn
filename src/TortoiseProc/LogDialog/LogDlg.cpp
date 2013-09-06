@@ -1469,7 +1469,6 @@ void CLogDlg::LogThread()
         if (Err == NULL)
         {
             // now check the relative paths
-            apr_hash_index_t *hi;
             const void *key;
             void *val;
 
@@ -1481,7 +1480,7 @@ void CLogDlg::LogThread()
                 CStringA sUrl = CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL));
                 sUrl.TrimRight('/');
 
-                for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
+                for (apr_hash_index_t *hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
                 {
                     apr_hash_this(hi, &key, NULL, &val);
                     CStringA sKey = (char*)key;
@@ -1979,7 +1978,6 @@ void CLogDlg::UpdateSelectedRevs()
     std::vector<svn_revnum_t> revisions;
     revisions.reserve (m_logEntries.GetVisibleCount());
 
-    PLOGENTRYDATA pLogEntry = NULL;
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     if (pos)
     {
@@ -1988,7 +1986,7 @@ void CLogDlg::UpdateSelectedRevs()
             int index = m_LogList.GetNextSelectedItem(pos);
             if (index < (int)m_logEntries.GetVisibleCount())
             {
-                pLogEntry = m_logEntries.GetVisible (index);
+                PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
                 if (pLogEntry)
                     revisions.push_back (pLogEntry->GetRevision());
             }
@@ -6385,7 +6383,6 @@ bool CLogDlg::IsProcessRunningInHighIntegrity(DWORD pid)
     DWORD dwLengthNeeded = 0;
     DWORD dwError = ERROR_SUCCESS;
     PTOKEN_MANDATORY_LABEL pTIL = NULL;
-    DWORD dwIntegrityLevel = 0;
     CAutoGeneralHandle hProcess = OpenProcess(MAXIMUM_ALLOWED, FALSE, pid);
     CAutoGeneralHandle hToken;
 
@@ -6406,7 +6403,7 @@ bool CLogDlg::IsProcessRunningInHighIntegrity(DWORD pid)
                     if (GetTokenInformation(hToken, TokenIntegrityLevel,
                         pTIL, dwLengthNeeded, &dwLengthNeeded))
                     {
-                        dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid,
+                        DWORD dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid,
                             (DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid)-1));
 
                         if (dwIntegrityLevel >= SECURITY_MANDATORY_HIGH_RID)
@@ -6422,9 +6419,8 @@ bool CLogDlg::IsProcessRunningInHighIntegrity(DWORD pid)
 
 void CLogDlg::ActivateVisualStudioWindow(CComPtr<EnvDTE::_DTE>& pDTE)
 {
-    HRESULT result = E_FAIL;
     CComPtr<EnvDTE::Window> pMainWindow;
-    result = pDTE->get_MainWindow(&pMainWindow);
+    HRESULT result = pDTE->get_MainWindow(&pMainWindow);
     if (FAILED(result))
         return;
     long hwnd = 0;
@@ -6682,7 +6678,6 @@ bool CLogDlg::CheckMultipleDiffs( UINT selCount )
 
 void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi)
 {
-    INT_PTR selIndex = 0;
     int nPaths = (int)pCmi->ChangedLogPathIndices.size();
 
     // warn if we exceed Software\\TortoiseSVN\\NumDiffWarning or 15 if not set
@@ -6691,7 +6686,7 @@ void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr 
 
     for (int i = 0; i < nPaths; ++i)
     {
-        selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
+        INT_PTR selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
         ExecuteDiffChangedPaths(pCmi, selIndex);
     }
 }

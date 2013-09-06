@@ -36,7 +36,6 @@ CLangDll::~CLangDll()
 HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
 {
     TCHAR langpath[MAX_PATH];
-    TCHAR langdllpath[MAX_PATH];
     TCHAR sVer[MAX_PATH];
     _tcscpy_s(sVer, _T(STRPRODUCTVER));
     GetModuleFileName(NULL, langpath, _countof(langpath));
@@ -52,6 +51,7 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
             assert(m_hInstance == NULL);
             do
             {
+                TCHAR langdllpath[MAX_PATH];
                 _stprintf_s(langdllpath, _T("%s%s%d.dll"), langpath, appname, langID);
 
                 m_hInstance = LoadLibrary(langdllpath);

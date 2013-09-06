@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,6 @@ bool RemoveCommand::Execute()
     //
     // removing items from an URL in the repository requires that we
     // ask the user for a log message.
-    bool bForce = false;
     SVN svn;
     if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0])))
     {
@@ -62,6 +61,7 @@ bool RemoveCommand::Execute()
     }
     else
     {
+        bool bForce = false;
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": remove file %s\n"), (LPCTSTR)pathList[nPath].GetUIPathString());

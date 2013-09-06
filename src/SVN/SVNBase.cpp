@@ -69,10 +69,10 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 {
     CString msg;
     CString temp;
-    char errbuf[256];
 
     if (Err != NULL)
     {
+        char errbuf[256];
         svn_error_t * ErrPtr = Err;
         if (ErrPtr->message)
             msg = CUnicodeUtils::GetUnicode(ErrPtr->message);

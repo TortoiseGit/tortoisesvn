@@ -251,7 +251,6 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
 
     m_lowestRev = LONG_MAX;
     m_highestRev = 0;
-    size_t len = 0;
     LONG linenumber = 0;
     svn_revnum_t rev = 0;
     svn_revnum_t merged_rev = 0;
@@ -262,7 +261,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
         rev = 0;
         merged_rev = 0;
         // line number
-        len = fread(&linenumber, sizeof(LONG), 1, File);
+        size_t len = fread(&linenumber, sizeof(LONG), 1, File);
         if (len == 0)
             break;
         // revision

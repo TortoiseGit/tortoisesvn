@@ -957,7 +957,6 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT /*iMsg*/, WPARAM /*wPa
 
 LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT /*iMsg*/, WPARAM wParam, LPARAM lParam)
 {
-    HDC hdc;
     RECT rect;
     RECT clientrect;
 
@@ -995,7 +994,7 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT /*iMsg*/, WPARAM wPara
 
     if ((wParam & MK_LBUTTON) && ((bVertical && (pt.y != oldy)) || (!bVertical && (pt.x != oldx))))
     {
-        hdc = GetWindowDC(hwnd);
+        HDC hdc = GetWindowDC(hwnd);
 
         if (bVertical)
         {

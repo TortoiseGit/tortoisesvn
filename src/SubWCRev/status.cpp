@@ -65,7 +65,6 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
             }
 
             char nValue = '?';
-            char * pszLow = NULL;
             char * pszHigh = NULL;
             pszSource++;
 
@@ -76,7 +75,7 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
             {
                 pszSource++;
                 up = (char) toupper(*pszSource);
-                pszLow = strchr(szHex, up);
+                char *pszLow = strchr(szHex, up);
 
                 if (pszLow != NULL)
                 {

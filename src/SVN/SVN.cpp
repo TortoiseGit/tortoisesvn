@@ -2429,7 +2429,6 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
                                            , {0, 0}, {0, 0}, {0, 0}, {0, 0} };
     static TCHAR lastResult[CACHE_SIZE][SVN_DATE_BUFFER];
     static bool formats[CACHE_SIZE];
-    static size_t victim = 0;
 
     // we have to serialize access to the cache
 
@@ -2453,6 +2452,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
     {
         // evict an entry from the cache
 
+        static size_t victim = 0;
         lastTime[victim] = filetime;
         result = lastResult[victim];
         formats[victim] = force_short_fmt;

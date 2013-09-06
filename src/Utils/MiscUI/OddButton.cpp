@@ -162,7 +162,7 @@ UINT COddButton::GetControlType() const
 BOOL COddButton::IsDefault() const
 {
     // if we have default state, we must like it!
-    ASSERT((m_bCanBeDefault && m_bDefault) == m_bDefault);
+    ASSERT((m_bCanBeDefault && m_bDefault) == !!m_bDefault);
 
     return m_bDefault;
 }

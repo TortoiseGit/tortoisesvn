@@ -149,9 +149,7 @@ BOOL CDib::Draw(CDC* pDC, CPoint ptDest)
     CSize size = GetSize();
     CPoint SrcOrigin = CPoint(0,0);
 
-    BOOL resVal = FALSE;
-
-    resVal = SetDIBitsToDevice(pDC->GetSafeHdc(),
+    BOOL resVal = SetDIBitsToDevice(pDC->GetSafeHdc(),
                                 ptDest.x, ptDest.y,
                                 size.cx, size.cy,
                                 SrcOrigin.x, SrcOrigin.y,
