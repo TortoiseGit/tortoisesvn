@@ -277,6 +277,9 @@ protected:
     void HandleDividerMove(CPoint point, bool bDraw);
     bool CheckoutDepthForItem( HTREEITEM hItem );
     void CheckTreeItem( HTREEITEM hItem, bool bCheck );
+    void CheckTreeItemRecursive( HTREEITEM hItem, bool bCheck );
+    bool HaveAllChildrenSameCheckState( HTREEITEM hItem, bool bChecked = false );
+    void CheckParentsOfTreeItem( HTREEITEM hItem );
     bool CheckAndConfirmPath(const CTSVNPath& path);
     void SaveDividerPosition();
 

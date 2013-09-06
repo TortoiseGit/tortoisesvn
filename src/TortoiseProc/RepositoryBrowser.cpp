@@ -1691,8 +1691,19 @@ HTREEITEM CRepositoryBrowser::Insert
             }
         }
         else
-            m_RepoTree.SetCheck(hNewItem, false);
-
+        {
+            if (!m_wcPath.IsEmpty() || m_RepoTree.GetRootItem() == hParent)
+            {
+                // node without depth in already checked out WC or item on second (below root) level.
+                // this nodes should be unchecked
+                m_RepoTree.SetCheck(hNewItem, false);
+            }
+            else
+            {
+                // other nodes inherit parent state
+                m_RepoTree.SetCheck(hNewItem, m_RepoTree.GetCheck(hParent));
+            }
+        }
     }
 
     return hNewItem;
@@ -4328,7 +4339,7 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
     NMTVITEMCHANGE *pNMTVItemChange = reinterpret_cast<NMTVITEMCHANGE*>(pNMHDR);
     *pResult = 0;
 
-    if (!m_bSparseCheckoutMode)
+    if (!m_bSparseCheckoutMode || m_blockEvents)
         return;
 
     if (pNMTVItemChange->uStateOld == 0 && pNMTVItemChange->uStateNew == 0)
@@ -4348,6 +4359,8 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
 
     bChecked = m_RepoTree.GetCheck(pNMTVItemChange->hItem);
 
+    m_blockEvents++;
+
     CheckTreeItem(pNMTVItemChange->hItem, !!bChecked);
 
     if (pNMTVItemChange->uStateNew & TVIS_SELECTED)
@@ -4364,6 +4377,7 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
             hItem = m_RepoTree.GetNextItem(hItem, TVGN_NEXTSELECTED);
         }
     }
+    m_blockEvents--;
 }
 
 bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
@@ -4435,39 +4449,108 @@ void CRepositoryBrowser::OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult)
     if (TVHT_ONITEMSTATEICON & ht.flags)
     {
         CheckTreeItem(ht.hItem, !m_RepoTree.GetCheck(ht.hItem));
+        // invert check. tree control inverts it again after this method
+        m_RepoTree.SetCheck(ht.hItem, !m_RepoTree.GetCheck(ht.hItem));
     }
 }
 
+void CRepositoryBrowser::CheckParentsOfTreeItem( HTREEITEM hItem )
+{
+    HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
+    while (hParent)
+    {
+        m_RepoTree.SetCheck(hParent, TRUE);
+        hParent = m_RepoTree.GetParentItem(hParent);
+    }
+}
+
+void CRepositoryBrowser::CheckTreeItemRecursive( HTREEITEM hItem, bool bCheck )
+{
+    // process item
+    m_RepoTree.SetCheck(hItem, bCheck);
+
+    // process all children
+    HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
+    while (hChild)
+    {
+        CheckTreeItemRecursive(hChild, bCheck);
+        hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+    }
+}
+
+bool CRepositoryBrowser::HaveAllChildrenSameCheckState( HTREEITEM hItem, bool bChecked /* = false */ )
+{
+    // analyze all children
+    HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
+    while (hChild)
+    {
+        // child item doesn't have expected state. interrupt walk and return false
+        if(m_RepoTree.GetCheck(hChild) != bChecked)
+            return false;
+
+        // check condition on all descendants.
+        if(!HaveAllChildrenSameCheckState(hChild))
+            return false;
+
+        hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+    }
+
+    return true;
+}
+
+// Check item has next logic for emulate tri-state checkbox:
+// if user click collapsed item or selected more then one item or item without children - proposed check
+// state propogated to whole subtree. (depth: 'Fully recursive' or 'Exclude')
+// otherwise:
+// if user click unchecked item - only this item will be checked. (Depth: 'Only this item')
+// if user click checked item and all children unchecked then item and all children
+// will be checked. (subtree depth: 'Fully recursive')
+//
+// summary: item will be cyclicaly switched:
+// unchecked -> checked only item -> checked whole subtree -> unchecked whole subtree
+// for collapsed items (and when more than one item selected) will be cyclicaly switched:
+// unchecked -> checked whole subtree -> unchecked whole subtree
 void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
 {
-    if (bCheck)
+    bool itemExpanded = m_RepoTree.GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED;
+    bool multiselectMode = m_RepoTree.GetSelectedCount() > 1;
+
+    // tri-state logic will be emulated for expanded, checked items, in single selection mode,
+    // with at least one child, when all children unchecked
+    if(!bCheck && !multiselectMode && itemExpanded && m_RepoTree.GetChildItem(hItem) != NULL && HaveAllChildrenSameCheckState(hItem))
     {
-        // check all parents
-        HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
-        while (hParent)
+        // instead of reseting item itself - set all children to checked state
+        CheckTreeItemRecursive(hItem, TRUE);
+        return;
+    }
+
+    if(bCheck)
+    {
+        if(!itemExpanded || multiselectMode)
         {
-            m_RepoTree.SetCheck(hParent, TRUE);
-            CheckTreeItem(hParent, true);
-            hParent = m_RepoTree.GetParentItem(hParent);
+            // perform check recursively for special cases
+            CheckTreeItemRecursive(hItem, bCheck);
         }
+        else
+        {
+            // 'Only this item' depth
+            m_RepoTree.SetCheck(hItem, bCheck);
+        }
+
+        // check all parents
+        CheckParentsOfTreeItem(hItem);
     }
     else
     {
-        // uncheck all children
-        HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
-        while (hChild)
-        {
-            m_RepoTree.SetCheck(hChild, FALSE);
-            CheckTreeItem(hChild, false);
-            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
-        }
+        // uncheck item and all children
+        CheckTreeItemRecursive(hItem, bCheck);
+
         // force the root item to be checked
         if (hItem == m_RepoTree.GetRootItem())
         {
             m_RepoTree.SetCheck(hItem);
         }
     }
-
 }
 
 
@@ -4488,6 +4571,8 @@ void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
         if (item)
         {
             CheckTreeItem(item, !m_RepoTree.GetCheck(item));
+            // invert check. tree control inverts it again after this method
+            m_RepoTree.SetCheck(item, !m_RepoTree.GetCheck(item));
         }
     }
 }
