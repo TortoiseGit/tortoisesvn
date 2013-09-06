@@ -4485,7 +4485,7 @@ bool CRepositoryBrowser::HaveAllChildrenSameCheckState( HTREEITEM hItem, bool bC
     while (hChild)
     {
         // child item doesn't have expected state. interrupt walk and return false
-        if(m_RepoTree.GetCheck(hChild) != bChecked)
+        if(!!m_RepoTree.GetCheck(hChild) != bChecked)
             return false;
 
         // check condition on all descendants.
@@ -4512,7 +4512,7 @@ bool CRepositoryBrowser::HaveAllChildrenSameCheckState( HTREEITEM hItem, bool bC
 // unchecked -> checked whole subtree -> unchecked whole subtree
 void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
 {
-    bool itemExpanded = m_RepoTree.GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED;
+    bool itemExpanded = !!(m_RepoTree.GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED);
     bool multiselectMode = m_RepoTree.GetSelectedCount() > 1;
 
     // tri-state logic will be emulated for expanded, checked items, in single selection mode,
