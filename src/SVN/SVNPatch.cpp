@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -490,7 +490,7 @@ CString SVNPatch::GetErrorMessage(svn_error_t * Err) const
     return msg;
 }
 
-CString	 SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
+CString SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
 {
     CString msg;
     char errbuf[256];
@@ -553,4 +553,3 @@ bool SVNPatch::RemoveFile( const CString& path )
     }
     return true;
 }
-

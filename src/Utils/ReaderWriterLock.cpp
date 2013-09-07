@@ -155,7 +155,7 @@ bool CReaderWriterLockNonReentrance::_WriterWaitAndLeaveCSIfSuccess(DWORD dwTime
 
     // Increase Writer-counter & reset Reader-event if necessary
     INT _iNumOfWriter = ++m_iNumOfWriter;
-    if(	(1 == _iNumOfWriter) && (NULL != m_hSafeToReadEvent) )
+    if( (1 == _iNumOfWriter) && (NULL != m_hSafeToReadEvent) )
     {
         ResetEvent(m_hSafeToReadEvent);
     }
