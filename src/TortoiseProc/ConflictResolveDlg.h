@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,9 +52,12 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
+    bool        IsImage(const std::string& path);
+
 private:
     const svn_wc_conflict_description2_t *  m_pConflictDescription;
     svn_wc_conflict_choice_t                m_choice;
     CString                                 m_mergedfile;
     bool                                    m_bCancelled;
+    bool                                    m_bIsImage;
 };

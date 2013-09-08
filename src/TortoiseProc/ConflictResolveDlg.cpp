@@ -32,6 +32,7 @@ CConflictResolveDlg::CConflictResolveDlg(CWnd* pParent /*=NULL*/)
     , m_pConflictDescription(NULL)
     , m_choice(svn_wc_conflict_choose_postpone)
     , m_bCancelled(false)
+    , m_bIsImage(false)
 {
 
 }
@@ -144,9 +145,25 @@ BOOL CConflictResolveDlg::OnInitDialog()
     // use it as the result of the edit.
     if (m_pConflictDescription->is_binary)
     {
-        GetDlgItem(IDC_RESOLVELABEL)->EnableWindow(FALSE);
-        GetDlgItem(IDC_EDITCONFLICT)->EnableWindow(FALSE);
-        GetDlgItem(IDC_RESOLVED)->EnableWindow(FALSE);
+        // in case the binary file is an image, we can use TortoiseIDiff
+        m_bIsImage = false;
+        if (m_pConflictDescription->property_name == nullptr)
+        {
+            if (m_pConflictDescription->base_abspath)
+                m_bIsImage |= IsImage(m_pConflictDescription->base_abspath);
+            if (m_pConflictDescription->local_abspath)
+                m_bIsImage |= IsImage(m_pConflictDescription->local_abspath);
+            if (m_pConflictDescription->my_abspath)
+                m_bIsImage |= IsImage(m_pConflictDescription->my_abspath);
+            if (m_pConflictDescription->their_abspath)
+                m_bIsImage |= IsImage(m_pConflictDescription->their_abspath);
+        }
+        if (!m_bIsImage && m_pConflictDescription->merged_file)
+        {
+            GetDlgItem(IDC_RESOLVELABEL)->EnableWindow(FALSE);
+            GetDlgItem(IDC_EDITCONFLICT)->EnableWindow(FALSE);
+            GetDlgItem(IDC_RESOLVED)->EnableWindow(FALSE);
+        }
     }
 
     // the "resolved" button must not be enabled as long as the user hasn't used
@@ -238,11 +255,11 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
             myfile = CTempFiles::Instance().GetTempFilePath(true);
     }
     CAppUtils::StartExtMerge(flags,
-        basefile,
-        theirfile,
-        myfile,
-        CTSVNPath(m_mergedfile), true,
-        n2, n3, n1, n4);
+                             basefile,
+                             theirfile,
+                             myfile,
+                             CTSVNPath(m_mergedfile), true,
+                             n2, n3, n1, n4);
 
     GetDlgItem(IDC_RESOLVED)->EnableWindow(TRUE);
 }
@@ -278,4 +295,27 @@ void CConflictResolveDlg::OnBnClickedAbort()
     m_bCancelled = true;
     m_choice = svn_wc_conflict_choose_postpone;
     CResizableStandAloneDialog::OnCancel();
+}
+
+bool CConflictResolveDlg::IsImage( const std::string& path )
+{
+    size_t dotpos = path.find_last_of('.');
+    if (dotpos != std::string::npos)
+    {
+        std::string sExt = path.substr(dotpos+1);
+        if ( (_stricmp(sExt.c_str(), "jpg") == 0) ||
+             (_stricmp(sExt.c_str(), "jpeg") == 0) ||
+             (_stricmp(sExt.c_str(), "bmp") == 0) ||
+             (_stricmp(sExt.c_str(), "gif") == 0) ||
+             (_stricmp(sExt.c_str(), "png") == 0) ||
+             (_stricmp(sExt.c_str(), "ico") == 0) ||
+             (_stricmp(sExt.c_str(), "tif") == 0) ||
+             (_stricmp(sExt.c_str(), "tiff") == 0) ||
+             (_stricmp(sExt.c_str(), "dib") == 0) ||
+             (_stricmp(sExt.c_str(), "emf") == 0))
+        {
+            return true;
+        }
+    }
+    return false;
 }
