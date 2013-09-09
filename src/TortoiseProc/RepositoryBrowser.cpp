@@ -3555,7 +3555,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_EXPORT:
             {
-                CExportDlg dlg;
+                CExportDlg dlg(this);
                 dlg.m_URL = selection.GetURL (0, 0).GetSVNPathString();
                 dlg.Revision = selection.GetRepository (0).revision;
                 if (dlg.DoModal()==IDOK)
@@ -3825,7 +3825,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 const CTSVNPath& path = selection.GetURL (0, 0);
                 const SVNRev& revision = selection.GetRepository(0).revision;
 
-                CRenameDlg dlg;
+                CRenameDlg dlg(this);
                 dlg.m_name = path.GetSVNPathString();
                 dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
                 dlg.SetRenameRequired(GetRevision().IsHead() != FALSE);
@@ -3909,7 +3909,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         case ID_MKDIR:
             {
                 const CTSVNPath& path = selection.GetURL (0, 0);
-                CRenameDlg dlg;
+                CRenameDlg dlg(this);
                 dlg.m_name = _T("");
                 dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_MKDIR);
                 CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
@@ -4028,7 +4028,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 const SVNRev& revision = selection.GetRepository(0).revision;
                 if (revision.IsHead())
                 {
-                    CEditPropertiesDlg dlg;
+                    CEditPropertiesDlg dlg(this);
                     dlg.SetProjectProperties(&m_ProjectProperties);
                     dlg.SetUUID(selection.GetRepository(0).uuid);
                     dlg.SetPathList(selection.GetURLsEscaped(0));
@@ -4038,7 +4038,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
                 else
                 {
-                    CPropDlg dlg;
+                    CPropDlg dlg(this);
                     dlg.m_rev = revision;
                     dlg.m_Path = selection.GetURLEscaped (0,0);
                     dlg.DoModal();
@@ -4047,7 +4047,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_REVPROPS:
             {
-                CEditPropertiesDlg dlg;
+                CEditPropertiesDlg dlg(this);
                 dlg.SetProjectProperties(&m_ProjectProperties);
                 dlg.SetUUID(selection.GetRepository(0).uuid);
                 dlg.SetPathList(selection.GetURLsEscaped(0));
@@ -4058,7 +4058,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_BLAME:
             {
-                CBlameDlg dlg;
+                CBlameDlg dlg(this);
                 dlg.EndRev = selection.GetRepository(0).revision;
                 dlg.PegRev = m_repository.revision;
                 if (dlg.DoModal() == IDOK)
