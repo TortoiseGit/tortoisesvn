@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-05 17:03+0000\n"
+"PO-Revision-Date: 2013-09-06 22:32+0000\n"
 "Last-Translator: Dharth <emilpg@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,12 +280,12 @@ msgstr "%s, pero el directorio ya ha sido eliminado, movido o renombrado localme
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, pero el directorio fue movido fuera"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, pero el directorio fue movido aquí"
 
 #. Resource IDs: (609)
 #, c-format
@@ -325,12 +325,12 @@ msgstr "%s, pero el archivo fue borrado, movido o renombrado localmente."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, pero el fichero fue movido fuera"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, pero el fichero fue movido aquí"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1144,7 +1144,7 @@ msgstr "Valores por defecto de usuario a&vanzado"
 
 #. Resource IDs: (1562)
 msgid "&Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "Carpeta de &Pre-búsqueda para mostrado más rápido"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -1513,11 +1513,11 @@ msgstr "(valor binario)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(contenido y propiedades)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(sólo contenido)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -2100,7 +2100,7 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "Otro proceso está bloqueando la base de la copia de trabajo, o el sistema de ficheros subyacente no soporta bloqueo de ficheros; si la copia de trabjo está en un sistema de ficheros de red, asegúrate que el bloqueo de ficheros está habilitado en el servidor."
 
 #. Resource IDs: (251)
 msgid "Append right block"
@@ -2261,7 +2261,7 @@ msgstr "Auto Renombrar"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-unificación"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2284,7 +2284,7 @@ msgstr "Autocompletar le sugiere palabras (usualmente nombres de clases o métod
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-unificación %1!s! sobre %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2833,7 +2833,7 @@ msgstr "Obtiene una copia de trabajo desde un repositorio"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Comprueba los elementos de autentificación que quieras borrar de abajo"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2949,11 +2949,11 @@ msgstr "Herramienta limpiar\nLimpiar"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Borrar todos"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Borrar..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3219,7 +3219,7 @@ msgstr ""
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Compara revisiones (con&tenido sólo)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -3231,7 +3231,7 @@ msgstr "Comparar espacios en blanco"
 
 #. Resource IDs: (138)
 msgid "Compare with &HEAD and BASE"
-msgstr ""
+msgstr "Comparar con &HEAD y BASE"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -4833,11 +4833,11 @@ msgstr "Trae los contenidos de carpetas en el fondo para que la navegación sea 
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Buscando lista de ficheros fuente"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Buscando lista de ficheros destino"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -6098,7 +6098,7 @@ msgstr "Teclas"
 
 #. Resource IDs: (349)
 msgid "Kind"
-msgstr ""
+msgstr "Tipo"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -6164,7 +6164,7 @@ msgstr "Imagen izquierda"
 
 #. Resource IDs: (266)
 msgid "Left local modifications"
-msgstr ""
+msgstr "mantener al modificaciones locales"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
@@ -6285,7 +6285,7 @@ msgstr "Bloquear Archivos"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Bloqueo roto"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6413,7 +6413,7 @@ msgstr "Administrar las propiedades de Subversion"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr ""
+msgstr "Demasiados elementos seleccionados para mostrar la diferencia"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6445,7 +6445,7 @@ msgstr "Marcar para comparación"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Marcar ficheros perdidos como eliminados"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6805,7 +6805,7 @@ msgstr "Movido desde"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Movido desde\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6820,7 +6820,7 @@ msgstr "Movido a"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Movido a\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -7600,7 +7600,7 @@ msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Por favor espere mientras comprobamos los parámetros para la unificación."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -8693,7 +8693,7 @@ msgstr "SSH"
 
 #. Resource IDs: (17)
 msgid "SVN &Vendorbranch here"
-msgstr ""
+msgstr "SVN &Distribuidor aquí"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -9233,11 +9233,11 @@ msgstr "Mostrar &cambios"
 
 #. Resource IDs: (1480)
 msgid "Show &externals"
-msgstr ""
+msgstr "Mostrar &Externos"
 
 #. Resource IDs: (1529)
 msgid "Show &locks"
-msgstr ""
+msgstr "Mostrar &Bloqueos"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
@@ -9423,7 +9423,7 @@ msgstr "Mostrar etiquetas en la copia de origen, no como nodos separados"
 msgid ""
 "Show the diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "Mostrar la diferencia\nLa vista de comparación se inicia para todo elemento seleccionado."
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -9480,7 +9480,7 @@ msgstr "Muestra el valor de la propiedad eol-style"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr ""
+msgstr "Mostrar al propietario del bloqueo de los ficheros. Deshabilitar esto para mejorar el rendimiento con servidores antiguos."
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9540,7 +9540,7 @@ msgstr "Omitida copia de trabajo que bloqueaba"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "desestimado, acceso denegado"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9548,7 +9548,7 @@ msgstr "Omitido, sin padres versionados"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Desestimado, permanece en conflicto"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10096,7 +10096,7 @@ msgstr "El script gancho devolvió un error:\n%s"
 
 #. Resource IDs: (84)
 msgid "The hook script was not approved to run"
-msgstr ""
+msgstr "El script de captura no fue autorizado a ejecutarse"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
@@ -10369,13 +10369,13 @@ msgstr "El repositorio fue creado correctamente.\nDesea crear la estructura de c
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "La unificación automática requerida es como un reintegrado, y la opción \"único registro unificado\" no puede usarse."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "La unificación automática requerida es como una reintegración.\nSólo la opción de la unificación profunda \"copia de trabajo\" puede usarse."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10538,7 +10538,7 @@ msgstr "No hay nada que añadir. Todos los archivos y carpetas o están bajo el 
 
 #. Resource IDs: (64)
 msgid "There's already a plugin configured for this path"
-msgstr ""
+msgstr "Hay todavía un plugin configurado para esta ruta"
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -11437,7 +11437,7 @@ msgstr "Valor"
 
 #. Resource IDs: (92)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Rama de proveedor"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11698,7 +11698,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr ""
+msgstr "Has seleccionado %d elementos para mostrar la diferencia.\nPara cada uno de estos elementos una nueva instancia del visor de diferencias se iniciará.\n¿Quieres realmente mostrar la diferencia de tantos elementos a la vez?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
@@ -11885,7 +11885,7 @@ msgstr "[Sin asignar]"
 
 #. Resource IDs: (1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
-msgstr ""
+msgstr "Los ficheros marcados como \"ignorar al subir\" no marcarán la carpeta padre como modificada"
 
 #. Resource IDs: (346)
 msgid ""
@@ -12115,7 +12115,7 @@ msgstr "ignorando ancestros"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "Propiedades incluidas"
 
 #. Resource IDs: (13)
 msgid "incomplete"
