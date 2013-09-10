@@ -286,7 +286,7 @@ void CCommitDlg::OnOK()
             }
             if (!entry->GetRestorePath().IsEmpty())
             {
-                m_restorepaths[entry->GetRestorePath()] = entry->GetPath().GetWinPathString();
+                m_restorepaths[entry->GetRestorePath()] = std::make_tuple(entry->GetPath().GetWinPathString(), entry->GetChangeList());
             }
             checkedLists.insert(entry->GetChangeList());
         }
@@ -755,9 +755,11 @@ void CCommitDlg::OnCancel()
     }
     if (!m_restorepaths.empty())
     {
+        SVN svn;
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
-            CopyFile(it->first, it->second, FALSE);
+            CopyFile(it->first, std::get<0>(it->second), FALSE);
+            svn.AddToChangeList(CTSVNPathList(CTSVNPath(std::get<0>(it->second))), std::get<1>(it->second), svn_depth_empty);
         }
     }
 

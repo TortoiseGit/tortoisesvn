@@ -863,7 +863,7 @@ public:
     /**
      * Sets restore paths from a previous run
      */
-    void SetRestorePaths(const std::map<CString,CString>& restorepaths) {m_restorepaths = restorepaths;}
+    void SetRestorePaths(const std::map<CString,std::tuple<CString, CString>>& restorepaths) {m_restorepaths = restorepaths;}
 
     CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -1125,7 +1125,7 @@ private:
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
     int                         m_nBlockItemChangeHandler;
     std::set<CTSVNPath>         m_externalSet;
-    std::map<CString, CString>  m_restorepaths;
+    std::map<CString, std::tuple<CString, CString>>  m_restorepaths;
     mutable CReaderWriterLock   m_guard;
 
     friend class CSVNStatusListCtrlDropTarget;

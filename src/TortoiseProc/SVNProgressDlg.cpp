@@ -2857,9 +2857,13 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     }
     if (!m_restorepaths.empty())
     {
+        // use a separate SVN object to avoid getting the notifications when
+        // we re-set the changelists
+        SVN svn;
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
-            CopyFile(it->first, it->second, FALSE);
+            CopyFile(it->first, std::get<0>(it->second), FALSE);
+            svn.AddToChangeList(CTSVNPathList(CTSVNPath(std::get<0>(it->second))), std::get<1>(it->second), svn_depth_empty);
         }
         m_restorepaths.clear();
     }

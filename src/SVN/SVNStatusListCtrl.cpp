@@ -1841,11 +1841,14 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
     if (!m_restorepaths.empty())
     {
+        SVN svn;
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
-            if (entry->path.IsEquivalentTo(CTSVNPath(it->second)))
+            if (entry->path.IsEquivalentTo(CTSVNPath(std::get<0>(it->second))))
             {
                 entry->restorepath = it->first;
+                entry->changelist = std::get<1>(it->second);
+                svn.AddToChangeList(CTSVNPathList(entry->path), entry->changelist, svn_depth_empty);
                 lvItem.state = INDEXTOOVERLAYMASK(OVL_RESTORE);
                 break;
             }
@@ -3513,7 +3516,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (CopyFile(entry2->GetPath().GetWinPath(), tempFile.GetWinPath(), FALSE))
                         {
                             entry2->restorepath = tempFile.GetWinPathString();
-                            m_restorepaths[entry2->GetRestorePath()] = entry2->GetPath().GetWinPathString();
+                            m_restorepaths[entry2->GetRestorePath()] = std::make_tuple(entry2->GetPath().GetWinPathString(), entry2->GetChangeList());
                             SetItemState(index, INDEXTOOVERLAYMASK(OVL_RESTORE), LVIS_OVERLAYMASK);
                         }
                     }

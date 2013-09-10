@@ -144,7 +144,7 @@ public:
     INT_PTR             m_itemsCount;
     bool                m_bSelectFilesForCommit;
     CComPtr<IBugTraqProvider> m_BugTraqProvider;
-    std::map<CString, CString> m_restorepaths;
+    std::map<CString, std::tuple<CString, CString>> m_restorepaths;
 private:
     CWinThread*         m_pThread;
     std::set<CString>   m_autolist;

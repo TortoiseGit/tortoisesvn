@@ -102,7 +102,7 @@ bool CommitCommand::Execute()
     }
     CTSVNPathList updatelist = pathList;
     CTSVNPathList origPathList = pathList;
-    std::map<CString, CString> restorepaths;
+    std::map<CString, std::tuple<CString, CString>> restorepaths;
     while (bFailed)
     {
         bFailed = false;
@@ -184,13 +184,17 @@ bool CommitCommand::Execute()
             CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\OutOfDateRetry"), TRUE);
             if (DWORD(bFailRepeat)==0)
                 bFailed = false;        // do not repeat if the user chose not to in the settings.
+
+            restorepaths = progDlg.GetRestorePaths();
         }
     }
     if (!restorepaths.empty())
     {
+        SVN svn;
         for (auto it = restorepaths.cbegin(); it != restorepaths.cend(); ++it)
         {
-            CopyFile(it->first, it->second, FALSE);
+            CopyFile(it->first, std::get<0>(it->second), FALSE);
+            svn.AddToChangeList(CTSVNPathList(CTSVNPath(std::get<0>(it->second))), std::get<1>(it->second), svn_depth_empty);
         }
     }
     return bRet;

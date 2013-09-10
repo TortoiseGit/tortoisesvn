@@ -143,7 +143,8 @@ public:
     void SetRevisionRanges(const SVNRevRangeArray& revArray) {m_revisionArray = revArray;}
     void SetBugTraqProvider(const CComPtr<IBugTraqProvider>& pBugtraqProvider) { m_BugTraqProvider = pBugtraqProvider;}
     void SetRevisionProperties(const RevPropHash& revProps) {m_revProps = revProps;}
-    void SetRestorePaths(const std::map<CString,CString>& restorepaths) {m_restorepaths = restorepaths;}
+    void SetRestorePaths(const std::map<CString,std::tuple<CString, CString>>& restorepaths) {m_restorepaths = restorepaths;}
+    std::map<CString,std::tuple<CString, CString>> GetRestorePaths() const { return m_restorepaths; }
     /**
      * If the number of items for which the operation is done on is known
      * beforehand, that number can be set here. It is then used to show a more
@@ -349,7 +350,7 @@ private:
     RevPropHash             m_revProps;
     SVNExternals            m_externals;
     std::map<CString,svn_depth_t> m_pathdepths;
-    std::map<CString,CString> m_restorepaths;
+    std::map<CString,std::tuple<CString, CString>> m_restorepaths;
 
     DWORD                   m_dwCloseOnEnd;
     DWORD                   m_bCloseLocalOnEnd;
