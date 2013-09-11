@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-  <property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe" />
+  <property name="SubWCRevFileName" value="..\..\bin\${configuration}${bindirextension}\bin\SubWCRev.exe" />
   <property name="solutionname" value="TortoiseOverlays.sln" />
 
   <target name="all">
-
+    <if test="${not file::exists(SubWCRevFileName)}">
+      <property name="SubWCRevFileName" value="SubWCRev.exe" />
+    </if>
     <exec program="${SubWCRevFileName}">
       <arg value="." />
       <arg value="version.build.in" />
