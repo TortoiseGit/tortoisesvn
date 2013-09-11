@@ -33,7 +33,7 @@
     </rc>
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
-      <arg value="/Oy–" if="${configuration == 'release' and platform == 'win32'}" />
+      <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
@@ -102,7 +102,7 @@
 
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
-      <arg value="/Oy–" if="${configuration == 'release' and platform == 'win32'}" />
+      <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
@@ -180,7 +180,7 @@
 
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
-      <arg value="/Oy–" if="${configuration == 'release' and platform == 'win32'}" />
+      <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />

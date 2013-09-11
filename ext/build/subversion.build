@@ -68,7 +68,7 @@
         <mkdir dir="${configuration}_${platform}\${fname}" />
         <cl outputdir="${configuration}_${platform}\${fname}">
           <arg value="/O2" if="${configuration == 'release'}" />
-          <arg value="/Oy–" if="${configuration == 'release' and platform == 'win32'}" />
+          <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
           <arg value="/Od" if="${configuration == 'debug'}" />
           <arg value="/EHsc" />
           <arg value="/MD" if="${configuration == 'release'}" />
@@ -225,7 +225,7 @@ TSVN_ClearLastUsedAuthCache' />
         <echo message="now building ${toolname}" />
         <cl outputdir="${configuration}_${platform}\${toolname}">
           <arg value="/O2" if="${configuration == 'release'}" />
-          <arg value="/Oy–" if="${configuration == 'release' and platform == 'win32'}" />
+          <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
           <arg value="/Od" if="${configuration == 'debug'}" />
           <arg value="/EHsc" />
           <arg value="/MD" if="${configuration == 'release'}" />
