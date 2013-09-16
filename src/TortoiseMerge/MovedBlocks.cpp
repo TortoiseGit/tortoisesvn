@@ -184,6 +184,8 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             continue;
 
         baseLine = (LONG)tempdiff->original_start;
+        if (m_arBaseFile.GetCount() <= (baseLine+tempdiff->original_length))
+            return NULL;
         for(int i = 0; i < tempdiff->original_length; ++i, ++baseLine)
         {
             const CString &sCurrentBaseLine = m_arBaseFile.GetAt(baseLine);
@@ -193,6 +195,8 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
                 map.Add(baseLine, sCurrentBaseLine, 0);
         }
         yourLine = (LONG)tempdiff->modified_start;
+        if (m_arYourFile.GetCount() <= (yourLine+tempdiff->modified_length))
+            return NULL;
         for(int i = 0; i < tempdiff->modified_length; ++i, ++yourLine)
         {
             const CString &sCurrentYourLine = m_arYourFile.GetAt(yourLine);
