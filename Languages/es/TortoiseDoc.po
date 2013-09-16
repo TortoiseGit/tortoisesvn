@@ -14,6 +14,7 @@
 # cuscu <agua.cuscu@gmail.com>, 2011
 # dark_nexus <cool.dark.nexus@gmail.com>, 2011
 # cuscu <agua.cuscu@gmail.com>, 2011
+# Dharth <emilpg@gmail.com>, 2013
 # Francisco Javier Rodríguez Mesa <javier.rodriguez@fjrodriguez.com>, 2011
 # ggh <gdelahuebra@hotmail.com>, 2011
 # juancentro <jmtruppia@gmail.com>, 2011
@@ -23,6 +24,7 @@
 # luiceur <luiceur@gmail.com>, 2011
 # Luis Valencia <luis.valencia.medina@gmail.com>, 2012
 # pabloFiumi <plf.asser@gmail.com>, 2013
+# RGomez, 2013
 # Tomás Christie <tommychristie@gmail.com>, 2011-2012
 # toro <victor.velazco@gmail.com>, 2011
 msgid ""
@@ -30,8 +32,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-02 19:30+0000\n"
-"Last-Translator: pabloFiumi <plf.asser@gmail.com>\n"
+"PO-Revision-Date: 2013-09-13 18:40+0000\n"
+"Last-Translator: RGomez\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3443,7 +3445,7 @@ msgstr "El diálogo de confirmación da soporte a las listas de cambios de Subve
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Confirmar ficheros parcialmente"
 
 #. (para)
 msgid ""
@@ -3451,7 +3453,7 @@ msgid ""
 "Such a situation usually happens when you're working on something but then "
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
-msgstr ""
+msgstr "Quizá quiera confirmar únicamente parte de las modificaciones que ha hecho en un fichero. Esta situación normalmente sucede cuando se trabaja en algo y aparece la necesidad de una corrección urgente, y esa corrección resulta estar en el mismo fichero en el que se está trabajando."
 
 #. (para)
 msgid ""
@@ -3461,14 +3463,14 @@ msgid ""
 " is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
-msgstr ""
+msgstr "<actionHaga click con el botón derecho</action> en el fichero y utilice <menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Restaurar después de confirmar</guimenuitem></menuchoice>. Esto creará una copia del fichero tal y como está. Entonces puede editar el fichero, p.e. en TortoiseMerge y deshacer todos los cambios que no desee actualizar. Tras guardar esos cambios puede confirmar el fichero."
 
 #. (para)
 msgid ""
 "After the commit is done, the copy of the file is restored automatically, "
 "and you have the file with all your modifications that were not committed "
 "back."
-msgstr ""
+msgstr "Cuando la confirmación se haya hecho, la copia del fichero se restaurará automáticamente, y su fichero contendrá de nuevo las modificaciones que no fueron confirmadas."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -16742,7 +16744,7 @@ msgid ""
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr ""
+msgstr "Versiones 1.4.0 y posteriores  de TortoiseSVN te permites redirigir esa comprobación de actualización a tu servidor de intranet. Puedes establecer la clave de registro \n<filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value)  \na una ruta de un fichero de texto en tu intranet.  Ese fichero de texto debe tener el siguiente formato:\n<screen>\n1.4.1.6000\nA new version of TortoiseSVN is available for you to download!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n</screen>\nLa primera fila es la versión de programa. Asegúrate de que es la misma versión que el paquete de instalación de TortoisseSVN\nLa seguna línea es un mensaje personalizado, mostrado en el diálogo de actualización. Puedes escribir lo que quieras, pero date cuenta que la capacidad del texto a mostrar es limitada. Mensajes largos será cortados. \nLa tercera línea es la ruta del nuevo paquete de instalación Esta URL se abrirá cuando el usuario pinche en la etiqueta del mensaje personalizado. Puedes redirigir al usuario a una página en vez del msi directamente.La URL se abrirá con el navegador por defecto,  así que si especificas la página web, ésta será abierta y mostrada al usuario.Si especificas el paquete MSI se preguntará si quieres salvarlo localmente."
 
 #. (title)
 msgid ""
@@ -17329,7 +17331,7 @@ msgid ""
 " a predefined log message to the import dialog. Or, if you don't want to "
 "pass the log message on the command line, use <placeholder-3/>, where "
 "<placeholder-4/> points to a file containing the log message."
-msgstr ""
+msgstr "Abre el dialogo de importación. <placeholder-1> especifica el directorio con los datos a importar. Puedes especificar <placeholder-2> switch para pasar un mensaje log predefinido al diálogo de importación. O, si no quiere pasar el mensaje de log de la línea de comandos, usa <placeholder-3>, donde <placeholder-4> apunta a un fichero que contiene el mensaje de log."
 
 #. (option)
 msgid "/rev"
