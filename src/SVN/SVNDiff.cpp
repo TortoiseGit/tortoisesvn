@@ -271,7 +271,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     plist.AddPath(url2);
     CTSVNPath relativeTo = plist.GetCommonRoot();
     // the 'relativeTo' path must be a path: svn throws an error if it's used for urls.
-    if (relativeTo.IsEquivalentTo(url1) || relativeTo.IsEquivalentTo(url2) || url1.IsUrl() || url2.IsUrl())
+    if ((!url2.IsEquivalentTo(url1) && (relativeTo.IsEquivalentTo(url1) || relativeTo.IsEquivalentTo(url2))) || url1.IsUrl() || url2.IsUrl())
         relativeTo.Reset();
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
