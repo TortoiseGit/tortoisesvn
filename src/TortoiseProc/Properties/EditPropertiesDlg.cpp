@@ -869,6 +869,7 @@ void CEditPropertiesDlg::RemoveProps()
 {
     CString sLogMsg;
     POSITION pos = m_propList.GetFirstSelectedItemPosition();
+    UINT selCount = m_propList.GetSelectedCount();
     UINT defaultRet = 0;
     while ( pos )
     {
@@ -907,11 +908,11 @@ void CEditPropertiesDlg::RemoveProps()
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(IDCUSTOM1);
-                if (m_pathlist.GetCount() > 1)
+                if ((m_pathlist.GetCount() > 1) || (selCount > 1))
                     taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                 ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
-                if (m_pathlist.GetCount() > 1)
+                if ((m_pathlist.GetCount() > 1) || (selCount > 1))
                 {
                     if (taskdlg.GetVerificationCheckboxState())
                         defaultRet = ret;
