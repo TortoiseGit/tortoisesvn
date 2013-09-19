@@ -144,7 +144,7 @@ std::string CUnicodeUtils::StdAnsiToUTF8( const std::string& ansi )
     if (len==0)
         return ansi;
     CBuffer<char> buffer2 (4 * size);
-    len = WideCharToMultiByte(CP_UTF8, 0, buffer, size, buffer2, 4*size, 0, NULL);
+    len = WideCharToMultiByte(CP_UTF8, 0, buffer, len, buffer2, 4*size, 0, NULL);
     if (len == 0)
         return ansi;
     return std::string (buffer2, len-1);
