@@ -4,7 +4,7 @@ import shutil
 
 searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
 replacewith = ['1.8.2', '1.8.2.24708', '1.8.3']
-setpath = 'C:\\Program Files\\EasyPHP-DevServer-13.1VC11\\data\\localweb'
+setpath = '/var/www/domains/tortoisesvn.net/htdocs'
 
 for root, dirs, files in os.walk(setpath, topdown = False):
     for name in files:
