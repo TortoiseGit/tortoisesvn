@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-08 19:10+0000\n"
+"PO-Revision-Date: 2013-09-17 13:12+0000\n"
 "Last-Translator: kathjal\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1197,7 +1197,7 @@ msgid ""
 "necessary intelligent choices. Once Harry has manually resolved the "
 "overlapping changes (perhaps by discussing the conflict with Sally!), he can"
 " safely save the merged file back to the repository."
-msgstr ""
+msgstr "Ma cosa accade se i cambiamenti di Sally si sovrappongono a quelli di Harry? Questa situazione è denominata <firstterm>conflitto</firstterm>, e solitamente non è un grosso problema. Quando Harry chiede al suo client di unire le modifiche più recenti del repository nella propria copia funzionante, la sua copia del file A ha un flag che indica che si trova in uno stato di conflitto:  lui potrà visualizzare le modifiche in conflitto e scegliere manualmente quale tenere tra le due versioni. Si noti che il software non può risolvere i conflitti in maniera automatica; solo gli utenti sono capaci di capire e compiere le scelte intelligenti. Una volta che Harry ha manualmente risolto i conflitti (eventualmente discutendone anche con Sally!), può salvare la copia del file unita nel repository."
 
 #. (para)
 msgid ""
@@ -1207,7 +1207,7 @@ msgid ""
 "concurrent changes don't overlap at all; conflicts are infrequent. And the "
 "amount of time it takes to resolve conflicts is far less than the time lost "
 "by a locking system."
-msgstr ""
+msgstr "Il modello copia-modifica-unisci potrebbe sembrare un po' caotico, ma in pratica, viene utilizzato senza alcun problema. Gli utenti possono lavorare in parallelo, senza doversi aspettare a vicenda. Quando lavorano sullo stesso file, la maggior parte delle loro modifiche non si sovrappone per nulla; i conflitti non sono frequenti. E la quantità di tempo necessaria per risolvere i conflitti è minore rispetto al tempo perso utilizzando un sistema di locking."
 
 #. (para)
 msgid ""
@@ -1217,7 +1217,7 @@ msgid ""
 "can detect semantic conflicts. So there's no point in being lulled into a "
 "false promise that a locking system will somehow prevent conflicts; in "
 "practice, locking seems to inhibit productivity more than anything else."
-msgstr ""
+msgstr "Alla fine dei conti, tutto deriva da un fattore critico: la comunicazione tra utenti. Quando gli utenti comunicano poco, crescono sia i conflitti sintattici che semantici. Nessun sistema può forzare gli utenti a comunicare perfettamente e nessun sistema può identificare problemi semantici.\nQuindi non c'è modo di farsi illudere dalla falsa promessa che un sistema di locking in qualche modo possa prevenire conflitti; in pratica, sembrerebbe che il locking inibisca la produttività più che altro."
 
 #. (para)
 msgid ""
@@ -1226,7 +1226,7 @@ msgid ""
 "repository contains some graphic images, and two people change the image at "
 "the same time, there is no way for those changes to be merged together. "
 "Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "Esiste una situazione comune in cui il modello blocca-modifica-sblocca funziona meglio, e questo è quando i file non possono essere uniti. Per esempio se il tuo repository contiene alcune immagini grafiche, e due persone cambiano l'immagine nello stesso momento, non c'è modo per unire i cambiamenti effettuati. Sia Harry che Sally perderanno i propri cambiamenti."
 
 #. (title)
 msgid "What does Subversion Do?"
@@ -1239,7 +1239,7 @@ msgid ""
 " supports file locking, so if you have unmergeable files, or if you are "
 "simply forced into a locking policy by management, Subversion will still "
 "provide the features you need."
-msgstr ""
+msgstr "Subversion utilizza la soluzione copia-modifica-unisci di default, e in molti casi è tutto quello di cui avete bisogno. Comunque, dalla versione 1.2 , Subversion supporta anche il locking dei file in modo che se ci sono file che non possono essere uniti, oppure se siete forzati ad utilizzare una politica di locking dal management, Subversion produrrà ugualmente tutte le funzionalità di cui avete bisogno."
 
 #. (title)
 msgid "Subversion in Action"
@@ -1267,7 +1267,7 @@ msgid ""
 "from them in the usual way. Your working copy is your own private work area:"
 " Subversion will never incorporate other people's changes, nor make your own"
 " changes available to others, until you explicitly tell it to do so."
-msgstr ""
+msgstr "Una copia locale di Subversion è un albero di cartelle ordinarie sul vostro sistema locale, che contiene un insieme di file. Potete modificare questi file come desiderate, e se sono sorgenti di codice, potete compilare il vostro programma nel solito modo. La vostra copia locale è la vostra area privata: Subversion non incorpora i cambiamenti effettuati da altre persone, nè rende le vostre modifiche disponibili agli altri, a meno che esplicitamente non lo richiediate. "
 
 #. (para)
 msgid ""
@@ -1324,7 +1324,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Per ottenere una copia locale, dovete effettuare il <firstterm>check out</firstterm> di alcuni subtree del repository. (Il termine <emphasis>check out</emphasis> potrebbe sembrare che abbia qualcosa a che fare con il locking o il riservare risorse, ma non è così; semplicemente crea una copia locale del progetto per te.)"
 
 #. (para)
 msgid ""
@@ -1349,7 +1349,7 @@ msgid ""
 " repository; if another user checks out a working copy of "
 "<filename>/calc</filename>, they will see your changes in the latest version"
 " of the file."
-msgstr ""
+msgstr "Ora le modifiche apportate a <filename>button.c</filename> sono state confermate al repository; se un altro utente effettua un check out di una copia locale della cartella <filename>/calc</filename>, vedrà i vostri cambiamenti nella versione del file più recente."
 
 #. (para)
 msgid ""
@@ -1357,7 +1357,7 @@ msgid ""
 "<filename>/calc</filename> at the same time you did. When you commit your "
 "change to <filename>button.c</filename>, Sally's working copy is left "
 "unchanged; Subversion only modifies working copies at the user's request."
-msgstr ""
+msgstr "Ipotizziamo che abbiate un collaboratore, Sally, che effettua il check out producendo una copia locale di <filename>/calc</filename> nello stesso momento in cui lo avete effettuato voi. Quando voi confermate le vostre modifiche a <filename>button.c</filename>, la copia locale di Sally non viene alterata; Subversion modifica le copie locali solo su richiesta dell'utente."
 
 #. (para)
 msgid ""
@@ -1366,7 +1366,7 @@ msgid ""
 "<command>update</command> command. This will incorporate your changes into "
 "her working copy, as well as any others that have been committed since she "
 "checked it out."
-msgstr ""
+msgstr "Per tenere la propria copia del progetto aggiornata, Sally può chiedere a Subversion di <firstterm>aggiornare</firstterm> la propria copia locale. Questo incorporerà i vostri cambiamenti nella sua copia locale, insieme a tutti gli altri che sono stati confermati da quando lei ha effettuato il check out."
 
 #. (para)
 msgid ""
@@ -1385,7 +1385,7 @@ msgid ""
 "Subversion repositories can be accessed through many different methods - on "
 "local disk, or through various network protocols. A repository location, "
 "however, is always a URL. The URL schema indicates the access method:"
-msgstr ""
+msgstr "I repository di Subversion possono essere acceduti in molti diversi modi - su di un disco locale, oppure attraverso vari protocolli di rete. L'ubicazione di un repository, comunque, è sempre un URL. Lo schema dell'URL indica il metodo di accesso:"
 
 #. (title)
 msgid "Repository Access URLs"
@@ -1528,7 +1528,7 @@ msgid ""
 "all the commits changes take place, or none of them take place. Subversion "
 "retains this atomicity in the face of program crashes, system crashes, "
 "network problems, and other users' actions."
-msgstr ""
+msgstr "Nel repository, ogni commit è trattato come fosse una transazione atomica: o tutte le modifiche vengono applicate, oppure nessuna di queste è applicata.\nSubversion conserva questa atomicità per far fronte a crash del programma, crash del sistema, problemi di rete, e altre azioni compiute dall'utente."
 
 #. (para)
 msgid ""
@@ -1606,7 +1606,7 @@ msgid ""
 "<filename>integer.c</filename>, creating revision 6. If you use <command>svn"
 " update</command> to bring your working copy up to date, then it will look "
 "like this:"
-msgstr ""
+msgstr "Supponiamo che, a questo punto, Sally conferma un cambiamento a <filename>integer.c</filename>, creando la revisione 6. Se utilizzate la <command>svn update</command> per aggiornare la vostra copia locale, allora accadrà quanto segue:"
 
 #. (screen)
 #, no-wrap
@@ -9671,7 +9671,7 @@ msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Gestire i conflitti durante il merge"
 
 #. (primary)
 msgid "merge conflicts"
@@ -9813,11 +9813,11 @@ msgstr ""
 
 #. (title)
 msgid "Locking"
-msgstr ""
+msgstr "Locking"
 
 #. (primary)
 msgid "locking"
-msgstr ""
+msgstr "locking"
 
 #. (primary)
 msgid "readonly"
@@ -10037,11 +10037,11 @@ msgstr ""
 
 #. (title)
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "Controllando lo stato del Lock"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "La finestra di controllo delle modifiche"
 
 #. (para)
 msgid ""
@@ -10061,7 +10061,7 @@ msgstr ""
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Evitare di rompere e rubare i lock"
 
 #. (para)
 msgid ""
@@ -10074,7 +10074,7 @@ msgstr ""
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Rendere i file non bloccati di sola lettura"
 
 #. (para)
 msgid ""
@@ -10130,15 +10130,15 @@ msgstr ""
 
 #. (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "Creare ed applicare patch"
 
 #. (primary)
 msgid "patch"
-msgstr ""
+msgstr "patch"
 
 #. (primary)
 msgid "unified diff"
-msgstr ""
+msgstr "Confronto unificato"
 
 #. (para)
 msgid ""
@@ -10160,7 +10160,7 @@ msgstr ""
 
 #. (title)
 msgid "Creating a Patch File"
-msgstr ""
+msgstr "Come creare un file di patch"
 
 #. (para)
 msgid ""
@@ -10557,7 +10557,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr ""
+msgstr "Il Repository Browser"
 
 #. (primary)
 msgid "repo-browser"
