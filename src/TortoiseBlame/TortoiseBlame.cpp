@@ -395,7 +395,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                     bUTF8 = false;
                     break;
                 }
-                if ((*utf8CheckBuf & 0xE0)==0xC0)
+                else if ((*utf8CheckBuf & 0xE0)==0xC0)
                 {
                     bUTF8 = true;
                     utf8CheckBuf++;
@@ -407,7 +407,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                         break;
                     }
                 }
-                if ((*utf8CheckBuf & 0xF0)==0xE0)
+                else if ((*utf8CheckBuf & 0xF0)==0xE0)
                 {
                     bUTF8 = true;
                     utf8CheckBuf++;
@@ -427,7 +427,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                         break;
                     }
                 }
-                if ((*utf8CheckBuf & 0xF8)==0xF0)
+                else if ((*utf8CheckBuf & 0xF8)==0xF0)
                 {
                     bUTF8 = true;
                     utf8CheckBuf++;
@@ -454,6 +454,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                         bUTF8 = false;
                         break;
                     }
+                }
+                else if (*utf8CheckBuf >= 0x80)
+                {
+                    bUTF8 = false;
+                    break;
                 }
 
                 utf8CheckBuf++;
