@@ -346,10 +346,13 @@ bool SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
     SVNPool subpool(pool);
     Prepare();
 
+    if (changelist.IsEmpty())
+        return RemoveFromChangeList(pathList, CStringArray(), depth);
+
     apr_array_header_t *clists = MakeChangeListArray(changelists, subpool);
 
     Err = svn_client_add_to_changelist(pathList.MakePathArray(subpool),
-        changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist),
+        (LPCSTR)CUnicodeUtils::GetUTF8(changelist),
         depth,
         clists,
         m_pctx,
