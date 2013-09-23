@@ -129,9 +129,10 @@ bool RenameCommand::Execute()
                 if (!filefind.IsDirectory())
                     renlist.AddPath(CTSVNPath(filefind.GetFilePath()));
             }
-            if (renlist.GetCount()<=1)
+            if ((renlist.GetCount() <= 1) ||
+                (renlist.GetCount() > 10))  // arbitrary value of ten
             {
-                // we couldn't find any other matching files
+                // Either no matching files to rename, or way too many of them:
                 // just do the default...
                 if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
                 {
