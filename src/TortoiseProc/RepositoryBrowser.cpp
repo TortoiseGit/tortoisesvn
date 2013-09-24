@@ -1135,9 +1135,15 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
         m_path = CTSVNPath(m_repository.root);
         CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), m_origDlgTitle);
         root = m_repository.root;
+
+        if (m_InitialUrl.Compare(url))
+        {
+            // url changed (redirect), update the combobox control
+            url = m_InitialUrl;
+        }
     }
 
-    HTREEITEM hItem = AutoInsert (url);
+    HTREEITEM hItem = AutoInsert (m_InitialUrl);
     if (hItem == NULL)
         return false;
 
