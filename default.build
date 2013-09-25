@@ -331,28 +331,146 @@
       <arg value="/symbols=bin\${configuration}${platformfoldername}\bin\" />
       <arg value="/source=.;ext\apr;ext\apr-util;ext\subversion" />
     </exec>
-    <exec program="ext\CrashServer\SymUpload.exe">
-      <arg value="-publish" />
-      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-      <arg value="${verstring}" />
-      <arg value="0" />
-      <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
-    </exec>
-    <exec program="ext\CrashServer\SymUpload.exe">
-      <arg value="-publish" />
-      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-      <arg value="${verstring}" />
-      <arg value="0" />
-      <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
-    </exec>
-    <exec program="ext\CrashServer\SymUpload.exe">
-      <arg value="-publish" />
-      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-      <arg value="${verstring}" />
-      <arg value="0" />
-      <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
-    </exec>
+    <trycatch>
+      <try>
+        <exec program="ext\CrashServer\SymUpload.exe">
+          <arg value="-publish" />
+          <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+          <arg value="${verstring}" />
+          <arg value="0" />
+          <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
+        </exec>
+      </try>
+      <catch>
+        <trycatch>
+          <try>
+            <exec program="ext\CrashServer\SymUpload.exe">
+              <arg value="-publish" />
+              <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+              <arg value="${verstring}" />
+              <arg value="0" />
+              <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
+            </exec>
+          </try>
+          <catch>
+            <trycatch>
+              <try>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
+                </exec>
+              </try>
+              <catch>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
+                </exec>
+              </catch>
+            </trycatch>
+          </catch>
+        </trycatch>
+      </catch>
+    </trycatch>
 
+    <trycatch>
+      <try>
+        <exec program="ext\CrashServer\SymUpload.exe">
+          <arg value="-publish" />
+          <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+          <arg value="${verstring}" />
+          <arg value="0" />
+          <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
+        </exec>
+      </try>
+      <catch>
+        <trycatch>
+          <try>
+            <exec program="ext\CrashServer\SymUpload.exe">
+              <arg value="-publish" />
+              <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+              <arg value="${verstring}" />
+              <arg value="0" />
+              <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
+            </exec>
+          </try>
+          <catch>
+            <trycatch>
+              <try>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
+                </exec>
+              </try>
+              <catch>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
+                </exec>
+              </catch>
+            </trycatch>
+          </catch>
+        </trycatch>
+      </catch>
+    </trycatch>
+
+    <trycatch>
+      <try>
+        <exec program="ext\CrashServer\SymUpload.exe">
+          <arg value="-publish" />
+          <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+          <arg value="${verstring}" />
+          <arg value="0" />
+          <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
+        </exec>
+      </try>
+      <catch>
+        <trycatch>
+          <try>
+            <exec program="ext\CrashServer\SymUpload.exe">
+              <arg value="-publish" />
+              <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+              <arg value="${verstring}" />
+              <arg value="0" />
+              <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
+            </exec>
+          </try>
+          <catch>
+            <trycatch>
+              <try>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
+                </exec>
+              </try>
+              <catch>
+                <exec program="ext\CrashServer\SymUpload.exe">
+                  <arg value="-publish" />
+                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                  <arg value="${verstring}" />
+                  <arg value="0" />
+                  <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
+                </exec>
+              </catch>
+            </trycatch>
+          </catch>
+        </trycatch>
+      </catch>
+    </trycatch>
   </target>
 
   <target name="init" depends="VSNET,env">
