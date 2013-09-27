@@ -106,7 +106,8 @@ bool RenameCommand::Execute()
         CString sNewMask = sNewName;
         if (sNewMask.ReverseFind('.')>=0)
         {
-            sNewMask = sNewMask.Left(sNewMask.ReverseFind('.'));
+            while (sNewMask.ReverseFind('.')>=0)
+                sNewMask = sNewMask.Left(sNewMask.ReverseFind('.'));
         }
         else
             sNewMask.Empty();
