@@ -342,6 +342,7 @@
         </exec>
       </try>
       <catch>
+        <sleep minutes="5" />
         <trycatch>
           <try>
             <exec program="ext\CrashServer\SymUpload.exe">
@@ -353,6 +354,7 @@
             </exec>
           </try>
           <catch>
+            <sleep minutes="5" />
             <trycatch>
               <try>
                 <exec program="ext\CrashServer\SymUpload.exe">
@@ -364,6 +366,7 @@
                 </exec>
               </try>
               <catch>
+                <sleep minutes="5" />
                 <exec program="ext\CrashServer\SymUpload.exe">
                   <arg value="-publish" />
                   <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
@@ -389,6 +392,7 @@
         </exec>
       </try>
       <catch>
+        <sleep minutes="5" />
         <trycatch>
           <try>
             <exec program="ext\CrashServer\SymUpload.exe">
@@ -400,6 +404,7 @@
             </exec>
           </try>
           <catch>
+            <sleep minutes="5" />
             <trycatch>
               <try>
                 <exec program="ext\CrashServer\SymUpload.exe">
@@ -411,6 +416,7 @@
                 </exec>
               </try>
               <catch>
+                <sleep minutes="5" />
                 <exec program="ext\CrashServer\SymUpload.exe">
                   <arg value="-publish" />
                   <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
@@ -436,6 +442,7 @@
         </exec>
       </try>
       <catch>
+        <sleep minutes="5" />
         <trycatch>
           <try>
             <exec program="ext\CrashServer\SymUpload.exe">
@@ -447,6 +454,7 @@
             </exec>
           </try>
           <catch>
+            <sleep minutes="5" />
             <trycatch>
               <try>
                 <exec program="ext\CrashServer\SymUpload.exe">
@@ -458,6 +466,7 @@
                 </exec>
               </try>
               <catch>
+                <sleep minutes="5" />
                 <exec program="ext\CrashServer\SymUpload.exe">
                   <arg value="-publish" />
                   <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
