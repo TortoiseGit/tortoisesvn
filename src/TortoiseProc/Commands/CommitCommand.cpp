@@ -76,7 +76,7 @@ bool CommitCommand::IsOutOfDate(const svn_error_t* pErr) const
 bool CommitCommand::Execute()
 {
     bool bRet = false;
-    bool bFailed = true;
+    bool bRepeat = true;
     CTSVNPathList selectedList;
     if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
     {
@@ -103,9 +103,9 @@ bool CommitCommand::Execute()
     CTSVNPathList updatelist = pathList;
     CTSVNPathList origPathList = pathList;
     std::map<CString, std::tuple<CString, CString>> restorepaths;
-    while (bFailed)
+    while (bRepeat)
     {
-        bFailed = false;
+        bRepeat = false;
         CCommitDlg dlg;
         if (parser.HasKey(_T("bugid")))
         {
@@ -164,9 +164,9 @@ bool CommitCommand::Execute()
                     // (don't pass update errors to caller and *never*
                     // auto-reopen commit dialog upon error)
 
-                    bFailed =    !updateProgDlg.DidErrorsOccur()
+                    bRepeat =    !updateProgDlg.DidErrorsOccur()
                               && !updateProgDlg.DidConflictsOccur();
-                    bRet = bFailed;
+                    bRet = bRepeat;
                     CRegDWORD (_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE)
                         = bRet ? TRUE : FALSE;
 
@@ -179,12 +179,28 @@ bool CommitCommand::Execute()
 
             CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
-            bFailed = progDlg.DidErrorsOccur();
+            bRepeat = progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
             CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\OutOfDateRetry"), TRUE);
             if (DWORD(bFailRepeat)==0)
-                bFailed = false;        // do not repeat if the user chose not to in the settings.
+                bRepeat = false;        // do not repeat if the user chose not to in the settings.
 
+            if (bRet)
+            {
+                // commit succeeded
+                CRegDWORD bIncompleteReopen = CRegDWORD(_T("Software\\TortoiseSVN\\IncompleteReopen"), FALSE);
+                if (DWORD(bIncompleteReopen))
+                {
+                    // user wants to reopen the commit dialog after a commit
+                    // but we do this only if the commit wasn't complete, i.e. if not all files have
+                    // been committed. So check for that first.
+                    if (!dlg.m_bRecursive || !restorepaths.empty() || !dlg.m_sChangeList.IsEmpty() || dlg.m_bUnchecked)
+                    {
+                        // reopen the dialog
+                        bRepeat = true;
+                    }
+                }
+            }
             restorepaths = progDlg.GetRestorePaths();
         }
     }

@@ -482,6 +482,16 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
+                <term>Reopen dialog after commit if items were left uncommitted</term>
+                <listitem>
+                    <para>
+                        This reopens the commit dialog automatically at the same
+                        directory after a successful commit. The dialog is reopened
+                        only if there still are items left to commit.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
                 <term>Contact the repository on startup</term>
                 <listitem>
                     <para>

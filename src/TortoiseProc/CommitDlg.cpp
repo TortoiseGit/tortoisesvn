@@ -60,6 +60,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
     , m_bSelectFilesForCommit(TRUE)
     , m_nPopupPasteListCmd(0)
     , m_bCancelled(FALSE)
+    , m_bUnchecked(false)
 {
 }
 
@@ -234,6 +235,7 @@ void CCommitDlg::OnOK()
     //first add all the unversioned files the user selected
     //and check if all versioned files are selected
     int nUnchecked = 0;
+    m_bUnchecked = false;
     m_bRecursive = true;
     int nListItems = m_ListCtrl.GetItemCount();
 
@@ -247,6 +249,7 @@ void CCommitDlg::OnOK()
     std::set<CString> checkedLists;
     std::set<CString> uncheckedLists;
     m_restorepaths.clear();
+    bool bAllowPeggedExternals = !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\BlockPeggedExternals"), TRUE));
     for (int j=0; j<nListItems; j++)
     {
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
@@ -306,6 +309,9 @@ void CCommitDlg::OnOK()
                         (entry->propstatus > svn_wc_status_normal) ||
                         (entry->IsCopied()))
                     {
+                        // items that can't be checked don't count as unchecked.
+                        if (!(DWORD(m_regShowExternals)&&(entry->IsFromDifferentRepository() || entry->IsNested() || (!bAllowPeggedExternals && entry->IsPeggedExternal()))))
+                            m_bUnchecked = true;
                         // This algorithm is for the sake of simplicity of the complexity O(N²)
                         for (int k=0; k<nListItems; k++)
                         {

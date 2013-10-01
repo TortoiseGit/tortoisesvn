@@ -134,6 +134,7 @@ public:
     CTSVNPathList       m_selectedPathList;
     CTSVNPathList       m_checkedPathList;
     BOOL                m_bRecursive;
+    bool                m_bUnchecked;
     CSciEdit            m_cLogMessage;
     CString             m_sLogMessage;
     std::map<CString, CString> m_revProps;

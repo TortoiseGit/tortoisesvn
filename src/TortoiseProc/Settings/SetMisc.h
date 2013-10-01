@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,4 +65,6 @@ private:
     BOOL            m_bShowLockDlg;
     CRegDWORD       m_regAutoSelect;
     BOOL            m_bAutoSelect;
+    CRegDWORD       m_regIncompleteReopen;
+    BOOL            m_bIncompleteReopen;
 };

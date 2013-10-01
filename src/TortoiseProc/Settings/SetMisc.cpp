@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ CSetMisc::CSetMisc()
     , m_dwMaxHistory(25)
     , m_bShowLockDlg(FALSE)
     , m_bAutoSelect(TRUE)
+    , m_bIncompleteReopen(FALSE)
 {
     m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
     m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
@@ -49,6 +50,8 @@ CSetMisc::CSetMisc()
     m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
     m_regAutoSelect = CRegDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE);
     m_bAutoSelect = (BOOL)(DWORD)m_regAutoSelect;
+    m_regIncompleteReopen = CRegDWORD(_T("Software\\TortoiseSVN\\IncompleteReopen"), TRUE);
+    m_bIncompleteReopen = (BOOL)(DWORD)m_regIncompleteReopen;
 }
 
 CSetMisc::~CSetMisc()
@@ -68,6 +71,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
     DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
     DDX_Check(pDX, IDC_SHOWLOCKDLG, m_bShowLockDlg);
     DDX_Check(pDX, IDC_SELECTFILESONCOMMIT, m_bAutoSelect);
+    DDX_Check(pDX, IDC_INCOMPLETEREOPEN, m_bIncompleteReopen);
 }
 
 
@@ -81,6 +85,7 @@ BEGIN_MESSAGE_MAP(CSetMisc, ISettingsPropPage)
     ON_BN_CLICKED(IDC_REOPENCOMMIT, &CSetMisc::OnChanged)
     ON_BN_CLICKED(IDC_SHOWLOCKDLG, &CSetMisc::OnChanged)
     ON_BN_CLICKED(IDC_SELECTFILESONCOMMIT, &CSetMisc::OnChanged)
+    ON_BN_CLICKED(IDC_INCOMPLETEREOPEN, &CSetMisc::OnChanged)
 END_MESSAGE_MAP()
 
 void CSetMisc::OnChanged()
@@ -100,6 +105,7 @@ BOOL CSetMisc::OnApply()
     Store (m_dwMaxHistory, m_regMaxHistory);
     Store (m_bShowLockDlg, m_regShowLockDlg);
     Store (m_bAutoSelect, m_regAutoSelect);
+    Store (m_bIncompleteReopen, m_regIncompleteReopen);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
@@ -120,6 +126,7 @@ BOOL CSetMisc::OnInitDialog()
     m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);
     m_tooltips.AddTool(IDC_SHOWLOCKDLG, IDS_SETTINGS_SHOWLOCKDLG_TT);
     m_tooltips.AddTool(IDC_SELECTFILESONCOMMIT, IDS_SETTINGS_SELECTFILESONCOMMIT_TT);
+    m_tooltips.AddTool(IDC_INCOMPLETEREOPEN, IDS_SETTINGS_INCOMPLETEREOPEN_TT);
     return TRUE;
 }
 
