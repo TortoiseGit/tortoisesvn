@@ -116,11 +116,21 @@ Don't touch these lines:
                         <row>
                             <entry condition="pot">/merged</entry>
                             <entry>
-                                Specifies the resulting <emphasis>merged</emphasis> file used
-                                in three way diffs. This is the file path where the result of
-                                the merge/conflict resolving is saved.
-                                If this is not set, then TortoiseMerge will ask the user where
-                                to save the result.
+                                <para>
+                                    Specifies the resulting <emphasis>merged</emphasis> file used
+                                    in diffs. This is the file path where the result of
+                                    the merge/conflict resolving is saved.
+                                </para>
+                                <para>
+                                    If this is not set for a three-way diff, then
+                                    TortoiseMerge will ask the user where to save the result.
+                                </para>
+                                <para>
+                                    If this is not set for a two-way diff, then
+                                    TortoiseMerge will automatically use the path
+                                    of the file shown in the right view as the save
+                                    path.
+                                </para>
                             </entry>
                         </row>
                         <row>
