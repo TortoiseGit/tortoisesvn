@@ -967,7 +967,7 @@ void TortoiseBlame::DiffPreviousRevision()
 void TortoiseBlame::ShowLog()
 {
     TCHAR bufRev[20];
-    _stprintf_s(bufRev, 20, _T("%ld"), m_selectedOrigRev);
+    _stprintf_s(bufRev, _countof(bufRev), _T("%ld"), m_selectedOrigRev);
 
     tstring svnCmd = _T(" /command:log ");
     svnCmd += _T(" /path:\"");
