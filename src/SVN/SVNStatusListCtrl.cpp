@@ -4374,7 +4374,7 @@ CString CSVNStatusListCtrl::GetStatisticsString()
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, buf, _countof(buf), langID);
     sUnversioned = buf;
     CString sToolTip;
-    sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
+    sToolTip.Format(_T("%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld\n%s = %ld"),
         (LPCTSTR)sNormal, m_nNormal,
         (LPCTSTR)sUnversioned, m_nUnversioned,
         (LPCTSTR)sModified, m_nModified,

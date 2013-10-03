@@ -429,7 +429,7 @@ private:
         CWaitCursor wait;
 
         CString cmd;
-        cmd.Format(_T("HH.exe -mapid %ld \"%s\""), dwData, pApp->m_pszHelpFilePath);
+        cmd.Format(_T("HH.exe -mapid %lu \"%s\""), dwData, pApp->m_pszHelpFilePath);
         if (!CCreateProcessHelper::CreateProcessDetached(NULL,
             cmd.GetBuffer()))
         {

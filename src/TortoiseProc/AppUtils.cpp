@@ -424,7 +424,7 @@ bool CAppUtils::StartExtDiff(
     {
         viewer += _T(" /line:");
         CString temp;
-        temp.Format(_T("%ld"), line);
+        temp.Format(_T("%d"), line);
         viewer += temp;
     }
 

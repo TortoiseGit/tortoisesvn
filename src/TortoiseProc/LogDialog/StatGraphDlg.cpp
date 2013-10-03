@@ -792,7 +792,7 @@ void CStatGraphDlg::ShowCommitsByDate()
     tstring othersName;
     if (!others.empty())
     {
-        temp.Format(_T(" (%ld)"), others.size());
+        temp.Format(_T(" (%Iu)"), others.size());
         sOthers += temp;
         othersName = (LPCWSTR)sOthers;
         authorGraphMap[othersName] = m_graph.AppendGroup(sOthers);
@@ -953,11 +953,11 @@ void CStatGraphDlg::ShowStats()
     SetDlgItemText(IDC_FILECHANGESEACHWEEK, labelText);
     // We have now all data we want and we can fill in the labels...
     CString number;
-    number.Format(_T("%ld"), nWeeks);
+    number.Format(_T("%d"), nWeeks);
     SetDlgItemText(IDC_NUMWEEKVALUE, number);
-    number.Format(_T("%ld"), nAuthors);
+    number.Format(_T("%Iu"), nAuthors);
     SetDlgItemText(IDC_NUMAUTHORVALUE, number);
-    number.Format(_T("%ld"), m_nTotalCommits);
+    number.Format(_T("%d"), m_nTotalCommits);
     SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
     number.Format(_T("%ld"), m_nTotalFileChanges);
     SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
@@ -1569,7 +1569,7 @@ void CStatGraphDlg::DrawOthers(const std::list<tstring> &others, MyGraphSeries *
     }
 
     CString temp;
-    temp.Format(_T(" (%ld)"), others.size());
+    temp.Format(_T(" (%Iu)"), others.size());
 
     CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
     sOthers += temp;

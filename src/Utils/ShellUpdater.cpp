@@ -195,7 +195,7 @@ bool CShellUpdater::RebuildIcons()
     dwRegValue = _ttoi(buf);
     dwRegValueTemp = dwRegValue-1;
 
-    dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%d"), dwRegValueTemp) + sizeof(TCHAR);
+    dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%lu"), dwRegValueTemp) + sizeof(TCHAR);
     lRegResult = RegSetValueEx(hRegKey, sRegValueName, 0, REG_SZ,
         (LPBYTE) buf, dwSize);
     if (lRegResult != ERROR_SUCCESS)
@@ -207,7 +207,7 @@ bool CShellUpdater::RebuildIcons()
         0, SMTO_ABORTIFHUNG, 5000, &dwResult);
 
     // Reset registry value
-    dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%d"), dwRegValue) + sizeof(TCHAR);
+    dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%lu"), dwRegValue) + sizeof(TCHAR);
     lRegResult = RegSetValueEx(hRegKey, sRegValueName, 0, REG_SZ,
         (LPBYTE) buf, dwSize);
     if(lRegResult != ERROR_SUCCESS)

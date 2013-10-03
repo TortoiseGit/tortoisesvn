@@ -141,7 +141,7 @@ BOOL CTortoiseProcApp::InitInstance()
     HINSTANCE hInst = NULL;
     do
     {
-        langDll.Format(_T("%sLanguages\\TortoiseProc%d.dll"), (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
+        langDll.Format(_T("%sLanguages\\TortoiseProc%ld.dll"), (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
 
         hInst = LoadLibrary(langDll);
 

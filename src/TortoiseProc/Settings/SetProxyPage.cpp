@@ -189,14 +189,14 @@ BOOL CSetProxyPage::OnApply()
         CString temp;
         Store (m_serveraddress, m_regServeraddress);
         m_regServeraddress_copy = m_serveraddress;
-        temp.Format(_T("%d"), m_serverport);
+        temp.Format(_T("%u"), m_serverport);
         Store (temp, m_regServerport);
         m_regServerport_copy = temp;
         Store (m_username, m_regUsername);
         m_regUsername_copy = m_username;
         Store (m_password, m_regPassword);
         m_regPassword_copy = m_password;
-        temp.Format(_T("%d"), m_timeout);
+        temp.Format(_T("%u"), m_timeout);
         Store (temp, m_regTimeout);
         m_regTimeout_copy = temp;
         Store (m_Exceptions, m_regExceptions);
@@ -213,11 +213,11 @@ BOOL CSetProxyPage::OnApply()
 
         CString temp;
         m_regServeraddress_copy = m_serveraddress;
-        temp.Format(_T("%d"), m_serverport);
+        temp.Format(_T("%u"), m_serverport);
         m_regServerport_copy = temp;
         m_regUsername_copy = m_username;
         m_regPassword_copy = m_password;
-        temp.Format(_T("%d"), m_timeout);
+        temp.Format(_T("%u"), m_timeout);
         m_regTimeout_copy = temp;
         m_regExceptions_copy = m_Exceptions;
     }
