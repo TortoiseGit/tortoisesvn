@@ -123,10 +123,12 @@ const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 #define IDSVNLC_UPDATEREV           44
 #define IDSVNLC_IGNOREGLOBAL        45
 #define IDSVNLC_IGNOREMASKGLOBAL    46
+#define IDSVNLC_COMPARE_CONTENTONLY 47
+#define IDSVNLC_COMPAREWC_CONTENTONLY 48
 
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS            47
+#define IDSVNLC_MOVETOCS            49
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -3024,7 +3026,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     if (entry->remotestatus > svn_wc_status_normal)
                         popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHHEAD, IDI_DIFF);
                     else
+                    {
                         popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
+                        if ((entry->propstatus > svn_wc_status_normal) && (entry->textstatus > svn_wc_status_normal))
+                            popup.AppendMenuIcon(IDSVNLC_COMPARE_CONTENTONLY, IDS_LOG_COMPAREWITHBASE_CONTENTONLY, IDI_DIFF);
+                    }
                     if ((wcStatus != svn_wc_status_normal)||(entry->remotestatus > svn_wc_status_normal))
                         popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
                 }
@@ -3067,6 +3073,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (m_dwContextMenus & SVNSLC_POPCOMPARE)
                         {
                             popup.AppendMenuIcon(IDSVNLC_COMPAREWC, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
+                            if ((entry->propstatus > svn_wc_status_normal) && (entry->textstatus > svn_wc_status_normal))
+                                popup.AppendMenuIcon(IDSVNLC_COMPAREWC_CONTENTONLY, IDS_LOG_COMPAREWITHBASE_CONTENTONLY, IDI_DIFF);
                             popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
                             bEntryAdded = true;
                         }
@@ -3454,6 +3462,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             m_bWaitCursor = true;
             int iItemCountBeforeMenuCmd = GetItemCount();
             size_t iChangelistCountBeforeMenuCmd = m_changelists.size();
+            bool bIgnoreProps = false;
             switch (cmd)
             {
             case IDSVNLC_COPY:
@@ -3606,24 +3615,28 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     Invalidate();
                 }
                 break;
+            case IDSVNLC_COMPARE_CONTENTONLY:
+                bIgnoreProps = true;
             case IDSVNLC_COMPARE:
                 {
                     if (CheckMultipleDiffs())
                     {
                         POSITION pos = GetFirstSelectedItemPosition();
                         if (pos == NULL)
-                            StartDiff(entry);
+                            StartDiff(entry, bIgnoreProps);
                         else
                         {
                             while ( pos )
                             {
                                 int index = GetNextSelectedItem(pos);
-                                StartDiff(index);
+                                StartDiff(index, bIgnoreProps);
                             }
                         }
                     }
                 }
                 break;
+            case IDSVNLC_COMPAREWC_CONTENTONLY:
+                bIgnoreProps = true;
             case IDSVNLC_COMPAREWC:
                 {
                     if (CheckMultipleDiffs())
@@ -3640,7 +3653,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
                             svn_revnum_t baseRev = entry2->Revision;
                             diff.DiffFileAgainstBase(
-                                entry2->path, baseRev, false, entry2->textstatus, entry2->propstatus);
+                                entry2->path, baseRev, bIgnoreProps, entry2->textstatus, entry2->propstatus);
                         }
                     }
                 }
@@ -4256,17 +4269,17 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
     }
 }
 
-void CSVNStatusListCtrl::StartDiff(int fileindex)
+void CSVNStatusListCtrl::StartDiff(int fileindex, bool ignoreprops)
 {
     if (fileindex < 0)
         return;
     CAutoReadLock locker(m_guard);
     FileEntry * entry = GetListEntry(fileindex);
     ASSERT(entry != NULL);
-    StartDiff(entry);
+    StartDiff(entry, ignoreprops);
 }
 
-void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
+void CSVNStatusListCtrl::StartDiff(FileEntry * entry, bool ignoreprops)
 {
     ASSERT(entry != NULL);
     if (entry == NULL)
@@ -4318,7 +4331,7 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
     SVNDiff diff(NULL, m_hWnd, true);
     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     diff.DiffWCFile(
-        entry->path, false, entry->status, entry->textstatus, entry->propstatus,
+        entry->path, ignoreprops, entry->status, entry->textstatus, entry->propstatus,
         entry->remotetextstatus, entry->remotepropstatus);
 }
 
@@ -4334,7 +4347,7 @@ void CSVNStatusListCtrl::StartDiffOrResolve(int fileindex)
     }
     else
     {
-        StartDiff(entry);
+        StartDiff(entry, false);
     }
 }
 
