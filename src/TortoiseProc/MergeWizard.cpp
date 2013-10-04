@@ -139,7 +139,7 @@ void CMergeWizard::OnSysCommand(UINT nID, LPARAM lParam)
 void CMergeWizard::OnCancel()
 {
     CMergeWizardBasePage * page = (CMergeWizardBasePage*)GetActivePage();
-    if (page->OkToCancel())
+    if ((page==nullptr) || page->OkToCancel())
         Default();
 }
 void CMergeWizard::SaveMode()
