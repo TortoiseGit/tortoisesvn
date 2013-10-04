@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,9 +158,11 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
             state = m_pPatch->GetFailedHunks(i);
         }
         m_arFileStates.Add(state);
+        CString sFileName = GetFullPath(i);
+        sFileName = CPathUtils::GetFileNameFromPath(sFileName);
         SHFILEINFO    sfi;
         SHGetFileInfo(
-            GetFullPath(i),
+            sFileName,
             FILE_ATTRIBUTE_NORMAL,
             &sfi,
             sizeof(SHFILEINFO),
