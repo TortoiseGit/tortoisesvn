@@ -1860,7 +1860,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
         SVNDiff diff(NULL, this->m_hWnd, true); // do not pass 'this' as the SVN instance since that would make the diff command invoke this notify handler
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         svn_revnum_t baseRev = 0;
-        diff.DiffFileAgainstBase(data->path, baseRev);
+        diff.DiffFileAgainstBase(data->path, baseRev, false);
     }
     else if ((!data->bAuxItem)&&(data->path.Exists())&&(!data->path.IsDirectory()))
     {

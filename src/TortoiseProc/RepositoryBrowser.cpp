@@ -92,6 +92,7 @@ enum RepoBrowserContextMenuCommands
     ID_REVPROPS,
     ID_GNUDIFF,
     ID_DIFF,
+    ID_DIFF_CONTENTONLY,
     ID_PREPAREDIFF,
     ID_UPDATE,
     ID_CREATELINK,
@@ -3275,6 +3276,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
                         popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, IDI_DIFF);       // "Compare URLs"
+                        popup.AppendMenuIcon(ID_DIFF_CONTENTONLY, IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY, IDI_DIFF);       // "Compare URLs"
                     }
                 }
             }
@@ -3285,6 +3287,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.AppendMenu(MF_SEPARATOR, NULL);
                 popup.AppendMenuIcon(ID_GNUDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);      // "Show differences as unified diff"
                 popup.AppendMenuIcon(ID_DIFF, IDS_REPOBROWSE_SHOWDIFF, ID_DIFF);        // "Compare URLs"
+                popup.AppendMenuIcon(ID_DIFF_CONTENTONLY, IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY, IDI_DIFF);       // "Compare URLs"
                 popup.AppendMenu(MF_SEPARATOR, NULL);
             }
 
@@ -3344,6 +3347,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         }
         DialogEnableWindow(IDOK, FALSE);
         bool bOpenWith = false;
+        bool bIgnoreProps = false;
         switch (cmd)
         {
         case ID_UPDATE:
@@ -3998,6 +4002,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
             }
             break;
+        case ID_DIFF_CONTENTONLY:
+            bIgnoreProps = true;
         case ID_DIFF:
             {
                 const CTSVNPath& path = selection.GetURLEscaped (0, 0);
@@ -4010,10 +4016,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     if (PromptShown())
                         diff.ShowCompare(path, revision,
-                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
+                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), bIgnoreProps, L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                     else
                         CAppUtils::StartShowCompare(m_hWnd, path, revision,
-                                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), L"",
+                                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), bIgnoreProps, L"",
                                         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                 }
                 else
@@ -4021,10 +4027,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     const CTSVNPath& path2 = selection.GetURLEscaped (0, 1);
                     if (PromptShown())
                         diff.ShowCompare(path, revision,
-                                        path2, revision, SVNRev(), L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
+                                        path2, revision, SVNRev(), bIgnoreProps, L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                     else
                         CAppUtils::StartShowCompare(m_hWnd, path, revision,
-                                        path2, revision, SVNRev(), SVNRev(), L"",
+                                        path2, revision, SVNRev(), SVNRev(), bIgnoreProps, L"",
                                         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                 }
             }

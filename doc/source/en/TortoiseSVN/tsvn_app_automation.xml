@@ -434,7 +434,10 @@ Don't touch these lines:
                                 is set, then the diff program is started with those
                                 two files. If <option>/path2</option> is omitted,
                                 then the diff is done between the file in
-                                <option>/path</option> and its BASE.
+                                <option>/path</option> and its BASE. If the specified
+                                file also has property modifications, the external
+                                diff tool is also started for each modified property.
+                                To prevent that, pass the option <option>/ignoreprops</option>.
                                 To explicitly set the revision numbers use
                                 <option>/startrev:xxx</option> and
                                 <option>/endrev:xxx</option>, and for the optional
@@ -462,6 +465,11 @@ Don't touch these lines:
                                 must be specified. The options <option>pegrevision</option>,
                                 <option>ignoreancestry</option>, <option>blame</option> and
                                 <option>unified</option> are optional.
+                                </para>
+                                <para>
+                                If the specified url also has property modifications, the external
+                                diff tool is also started for each modified property.
+                                To prevent that, pass the option <option>/ignoreprops</option>.
                                 </para>
                             </entry>
                         </row>

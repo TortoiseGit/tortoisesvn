@@ -30,6 +30,7 @@ bool DiffCommand::Execute()
     CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
     bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
     bool bBlame = !!parser.HasKey(_T("blame"));
+    bool ignoreprops = !!parser.HasKey(_T("ignoreprops"));
     if (path2.IsEmpty())
     {
         SVNDiff diff(NULL, GetExplorerHWND());
@@ -45,14 +46,15 @@ bool DiffCommand::Execute()
             CString diffoptions;
             if (parser.HasVal(L"diffoptions"))
                 diffoptions = parser.GetVal(L"diffoptions");
-            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, diffoptions, false, bBlame);
+            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, diffoptions, false, bBlame);
         }
         else
         {
             svn_revnum_t baseRev = 0;
             if (cmdLinePath.IsDirectory())
             {
-                bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
+                if (!ignoreprops)
+                    bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
                 if (bRet == false)
                 {
                     CChangedDlg dlg;
@@ -63,7 +65,7 @@ bool DiffCommand::Execute()
             }
             else
             {
-                bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev);
+                bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev, ignoreprops);
             }
         }
     }

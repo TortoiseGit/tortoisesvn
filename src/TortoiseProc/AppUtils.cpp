@@ -957,10 +957,10 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
                                  const CTSVNPath& url2, const SVNRev& rev2,
                                  const SVNRev& peg, const SVNRev& headpeg,
-                                 const CString& options,
-                                 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */,
-                                 bool blame /* = false */, svn_node_kind_t nodekind /* = svn_node_unknown */,
-                                 int line /* = 0 */)
+                                 bool ignoreprops, const CString& options,
+                                 bool bAlternateDiff /*= false*/, bool bIgnoreAncestry /*= false*/,
+                                 bool blame /*= false*/, svn_node_kind_t nodekind /*= svn_node_unknown*/,
+                                 int line /*= 0*/ )
 {
     CString sCmd;
     sCmd.Format(_T("/command:showcompare /nodekind:%d"), nodekind);
@@ -984,6 +984,8 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
         sCmd += _T(" /ignoreancestry");
     if (blame)
         sCmd += _T(" /blame");
+    if (ignoreprops)
+        sCmd += _T(" /ignoreprops");
 
     if (hWnd)
     {

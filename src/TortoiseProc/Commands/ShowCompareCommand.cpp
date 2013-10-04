@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011 - TortoiseSVN
+// Copyright (C) 2008-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ bool ShowCompareCommand::Execute()
     bool        ignoreancestry = !!parser.HasKey(_T("ignoreancestry"));
     bool        blame = !!parser.HasKey(_T("blame"));
     bool        unified = !!parser.HasKey(_T("unified"));
+    bool        ignoreprops = !!parser.HasKey(_T("ignoreprops"));
 
     if (parser.HasVal(_T("revision1")))
         rev1 = SVNRev(parser.GetVal(_T("revision1")));
@@ -57,7 +58,7 @@ bool ShowCompareCommand::Execute()
     if (unified)
         bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry);
     else
-        bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry, blame, nodekind);
+        bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreprops, diffoptions, ignoreancestry, blame, nodekind);
 
     return bRet;
 }

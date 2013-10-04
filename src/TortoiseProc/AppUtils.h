@@ -155,12 +155,12 @@ public:
      * Replacement for SVNDiff::ShowCompare(), but started as a separate process.
      */
     static bool StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
-                                const CTSVNPath& url2, const SVNRev& rev2,
-                                const SVNRev& peg, const SVNRev& headpeg,
-                                const CString& options,
-                                bool bAlternateDiff = false, bool ignoreancestry = false,
-                                bool blame = false, svn_node_kind_t nodekind = svn_node_unknown,
-                                int line = 0);
+                                 const CTSVNPath& url2, const SVNRev& rev2,
+                                 const SVNRev& peg, const SVNRev& headpeg,
+                                 bool ignoreprops, const CString& options,
+                                 bool bAlternateDiff = false, bool bIgnoreAncestry = false,
+                                 bool blame = false, svn_node_kind_t nodekind = svn_node_unknown,
+                                 int line = 0);
 
     /**
      * Sets up all the default diff and merge scripts.
