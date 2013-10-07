@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-17 13:12+0000\n"
+"PO-Revision-Date: 2013-10-01 16:28+0000\n"
 "Last-Translator: kathjal\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1277,7 +1277,7 @@ msgid ""
 "you on your project (by writing to the repository). If other people publish "
 "their own changes, Subversion provides you with commands to merge those "
 "changes into your working directory (by reading from the repository)."
-msgstr ""
+msgstr "Dopo aver apportato alcune modifiche ai file nella tua copia locale e verificato che funzioni correttamente, Subversion ti offre la possibilità  di <emphasis>pubblicare</emphasis> i tuoi cambiamenti in modo che le altre persone che lavorano al tuo stesso progetto possano vederli (scrivendoli nel repository). Se altre persone pubblicano le loro modifiche, Subversion fornisce i comandi per unire tali cambiamenti nella tua copia locale (leggendoli dal repository)."
 
 #. (para)
 msgid ""
@@ -1300,7 +1300,7 @@ msgid ""
 "several projects; usually, each project is a subdirectory in the "
 "repository's filesystem tree. In this arrangement, a user's working copy "
 "will usually correspond to a particular subtree of the repository."
-msgstr ""
+msgstr "Un tipico repository di Subversion spesso contiene i file (o file sorgenti) di diversi progetti; solitamente, ogni progetto è una sotto-cartella nel filesystem del repository. In questa disposizione, la copia locale di un utente solitamente corrisponde ad una particolare diramazione del repository."
 
 #. (para)
 msgid ""
@@ -1335,7 +1335,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "Suppioniamo che modifichi <filename>button.c</filename>. Dal momento che la cartella <filename>.svn</filename> ricorda  le date di modifica dei file ed il loro contenuto originale, Subversion può dire se hai modificato il file. Comunque, Subversion non pubblica le modifiche fino a che non sei tu a richiederlo esplicitamente. L'atto di pubblicazione è comunemente conosciuto come <firstterm>commit</firstterm> (o <firstterm>check in</firstterm>) dei cambiamenti al repository."
 
 #. (para)
 msgid ""
@@ -2252,7 +2252,7 @@ msgstr "link per TortoiseSVN"
 
 #. (primary)
 msgid "link"
-msgstr ""
+msgstr "collegamento"
 
 #. (primary)
 msgid "website"

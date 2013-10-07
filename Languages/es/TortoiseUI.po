@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-26 22:50+0000\n"
+"PO-Revision-Date: 2013-10-06 00:19+0000\n"
 "Last-Translator: Dharth <emilpg@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -231,7 +231,7 @@ msgstr "%s (recursivamente)"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Merged file"
-msgstr ""
+msgstr "%s: fichero mezclado"
 
 #. Resource IDs: (151)
 #, c-format
@@ -590,7 +590,7 @@ msgstr "&Cerrar ventana(s)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "Usuario &colaborador"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -1317,7 +1317,7 @@ msgstr "&Parar en copia/cambio de nombre"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "Usuario de &Subversion"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -2105,11 +2105,11 @@ msgstr "Otro proceso está bloqueando la base de la copia de trabajo, o el siste
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "Añadir bloque de la derecha"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "Añadir este bloque a la izquierda"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2370,7 +2370,7 @@ msgstr "Tanto la ruta al archivo parche como la ruta destino deben ser absolutas
 
 #. Resource IDs: (188)
 msgid "Bottom View:"
-msgstr ""
+msgstr "Vista inferior:"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -3048,7 +3048,7 @@ msgstr "Cerrar la ventana activa y solicitar confirmación para guardar los docu
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Ajustes de colaborador de código"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
@@ -3056,7 +3056,7 @@ msgstr "Col&apsar árbol de origen"
 
 #. Resource IDs: (65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Clave de Colaborador"
 
 #. Resource IDs: (156)
 msgid "Collapse"
@@ -3351,11 +3351,11 @@ msgstr "Contraer ventana acoplada"
 
 #. Resource IDs: (501)
 msgid "Convert spaces to tabs"
-msgstr ""
+msgstr "Convertir espacios en tabulaciones"
 
 #. Resource IDs: (501)
 msgid "Convert tabs to spaces"
-msgstr ""
+msgstr "Convertir tabulaciones en espacios"
 
 #. Resource IDs: (15)
 msgid "Converts the working copy format to the new version"
@@ -3684,7 +3684,7 @@ msgstr "Crear Parche"
 
 #. Resource IDs: (64)
 msgid "Create code collaborator revie&w..."
-msgstr ""
+msgstr "Crear revisión de colaborador de código"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -4096,7 +4096,7 @@ msgstr "No mostrar el menú contextual para las siguientes rutas:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge (old style)"
-msgstr ""
+msgstr "Haz reintegrar en vez de unión automática (método antiguo)"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4259,7 +4259,7 @@ msgstr "No ejecutar.\nNo ejecutar el script."
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "No salvar.\nCierra las vistas sin salvar las modificaciones."
 
 #. Resource IDs: (315)
 msgid ""
@@ -4330,7 +4330,7 @@ msgstr "E&xportar..."
 
 #. Resource IDs: (303)
 msgid "EOL"
-msgstr ""
+msgstr "Fin de línea"
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -4449,7 +4449,7 @@ msgstr "Habilita el corrector ortográfico únicamente\nsi la propiedad tsvn:pro
 
 #. Resource IDs: (300, 301)
 msgid "Encoding"
-msgstr ""
+msgstr "Codificando"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4486,7 +4486,7 @@ msgstr "Revisión de Fin"
 
 #. Resource IDs: (252)
 msgid "End of Line Style"
-msgstr ""
+msgstr "Estilo fin de línea"
 
 #. Resource IDs: (200)
 msgid "Enforce"
@@ -4860,7 +4860,7 @@ msgstr "Archivo"
 
 #. Resource IDs: (252)
 msgid "File Encoding"
-msgstr ""
+msgstr "Codificando fichero"
 
 #. Resource IDs: (90)
 msgid "File already exists"
@@ -6083,7 +6083,7 @@ msgstr "Mantener &listas de cambios"
 msgid ""
 "Keep resolving\n"
 "Jump to first unresolved conflict"
-msgstr ""
+msgstr "Sigue resolviendo\nSaltar al primer conflicto sin resolver"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -7319,7 +7319,7 @@ msgstr "Abrir archivo de imagen..."
 
 #. Resource IDs: (64)
 msgid "Open multiple &local..."
-msgstr ""
+msgstr "Abrir múltiples ficheros &locales"
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -7795,7 +7795,7 @@ msgstr "Propiedad %1!s! : Base de trabajo, revisión %2!ld!"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : merged"
-msgstr ""
+msgstr "Propiedad %s: mezclada"
 
 #. Resource IDs: (151)
 #, c-format
@@ -8391,7 +8391,7 @@ msgstr "Pide un usuario y una contraseña"
 
 #. Resource IDs: (8)
 msgid "Res&olve..."
-msgstr ""
+msgstr "Res&olver..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -8796,7 +8796,7 @@ msgstr "Guardar como"
 msgid ""
 "Save Bottom File as\n"
 "You're asked where to save the bottom file"
-msgstr ""
+msgstr "Guardar Archivo de abajo como\nSerás preguntado por dónde guardar el fichero de abajo"
 
 #. Resource IDs: (316)
 msgid "Save File"
@@ -8806,7 +8806,7 @@ msgstr "Salvar archivo"
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr ""
+msgstr "Salvar el fichero de la izquierda como\nSerás preguntado dónde salvar el fichero de la parte izquierda"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8814,13 +8814,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "Salvar fichero de la parte izquierda\nLas modificaciones serán salvadas en\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "Salvar fichero de la parte derecha como\nserás preguntado dónde salvar el fichero de la parte derecha"
 
 #. Resource IDs: (316)
 #, c-format
@@ -8828,13 +8828,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
+msgstr "Salvar fichero de la derecha\nLas modificaciones será salvadas en\n%s"
 
 #. Resource IDs: (316)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "Salvar todo\nAmbos ficheros serán salvados"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9112,13 +9112,13 @@ msgstr "Seleccionar visor para archivos de diferencias"
 
 #. Resource IDs: (316)
 msgid "Select what file you want to save as"
-msgstr ""
+msgstr "Selecciona qué fichero quieres salvar "
 
 #. Resource IDs: (316)
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr ""
+msgstr "Selecciona qué fichero quieres salvar como\nNota: Hay conflictos sin resolver"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -9358,7 +9358,7 @@ msgstr "Mostrar re&gistro"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
-msgstr ""
+msgstr "Mostrar múltiples &cambios"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10500,7 +10500,7 @@ msgstr "Existen actualmente %d controladores de superposición además del que u
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "Hay más vistas editables.\nQué vista quieres salvar?"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -10798,7 +10798,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s\nlibsvn_diff %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -10819,7 +10819,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10896,7 +10896,7 @@ msgstr "Fusión de árboles"
 
 #. Resource IDs: (501)
 msgid "Trim right"
-msgstr ""
+msgstr "Recortar por la derecha"
 
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
@@ -11312,7 +11312,7 @@ msgstr "Utilizar expresión regular"
 
 #. Resource IDs: (251)
 msgid "Use right block"
-msgstr ""
+msgstr "Usar el bloque de la derecha"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11399,7 +11399,7 @@ msgstr "Utilizar este &archivo completo"
 
 #. Resource IDs: (251)
 msgid "Use this block on left"
-msgstr ""
+msgstr "Usar este bloque en la izquierda"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
