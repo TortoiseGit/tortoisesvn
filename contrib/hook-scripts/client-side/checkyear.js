@@ -14,7 +14,7 @@ var objArgs, num;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
-if (num !== 4)
+if ((num !== 4)&&(num != 3))
 {
     WScript.Echo("Usage: [CScript | WScript] checkyear.js path/to/pathsfile depth path/to/messagefile path/to/CWD");
     WScript.Quit(1);
