@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,6 +72,8 @@ BOOL CSetHooksAdv::OnInitDialog()
     m_cHookTypeCombo.SetItemData(index, start_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECOMMIT)));
     m_cHookTypeCombo.SetItemData(index, pre_commit_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_MANUALPRECOMMIT)));
+    m_cHookTypeCombo.SetItemData(index, manual_precommit);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTCOMMIT)));
     m_cHookTypeCombo.SetItemData(index, post_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTUPDATE)));

@@ -35,6 +35,7 @@
 #include "../version.h"
 #include "BstrSafeVector.h"
 #include "SmartHandle.h"
+#include "Hooks.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -103,6 +104,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CCommitDlg::OnBnClickedShowexternals)
     ON_BN_CLICKED(IDC_LOG, &CCommitDlg::OnBnClickedLog)
     ON_WM_QUERYENDSESSION()
+    ON_BN_CLICKED(IDC_RUNHOOK, &CCommitDlg::OnBnClickedRunhook)
 END_MESSAGE_MAP()
 
 
@@ -134,6 +136,7 @@ BOOL CCommitDlg::OnInitDialog()
     AddDirectoriesToPathWatcher();
     GetAsyncFileListStatus();
     ShowBalloonInCaseOfError();
+    GetDlgItem(IDC_RUNHOOK)->ShowWindow(CHooks::Instance().IsHookPresent(manual_precommit, m_pathList) ? SW_SHOW : SW_HIDE);
     return FALSE;  // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -1638,6 +1641,7 @@ void CCommitDlg::SubclassControls()
     m_aeroControls.SubclassControl(this, IDC_KEEPLOCK);
     m_aeroControls.SubclassControl(this, IDC_KEEPLISTS);
     m_aeroControls.SubclassControl(this, IDC_LOG);
+    m_aeroControls.SubclassControl(this, IDC_RUNHOOK);
     m_aeroControls.SubclassOkCancelHelp(this);
 }
 
@@ -1838,6 +1842,7 @@ void CCommitDlg::AddAnchorsToFacilitateResizing()
     AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_KEEPLOCK, BOTTOM_LEFT);
     AddAnchor(IDC_KEEPLISTS, BOTTOM_LEFT);
+    AddAnchor(IDC_RUNHOOK, BOTTOM_RIGHT);
     AddAnchor(IDC_LOG, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -1919,4 +1924,47 @@ void CCommitDlg::ShowBalloonInCaseOfError()
         m_tooltips.ShowBalloon(IDC_HISTORY, IDS_COMMITDLG_HISTORYHINT_TT, IDS_WARN_NOTE, TTI_INFO);
     }
     err = FALSE;
+}
+
+
+void CCommitDlg::OnBnClickedRunhook()
+{
+    UpdateData();
+    // create a list of all checked items
+    CTSVNPathList checkedItems;
+    m_ListCtrl.WriteCheckedNamesToPathList(checkedItems);
+    DWORD exitcode = 0;
+    CString error;
+    CHooks::Instance().SetProjectProperties(checkedItems.GetCommonRoot(), m_ProjectProperties);
+    if (CHooks::Instance().ManualPreCommit(m_hWnd, checkedItems, m_sLogMessage, exitcode, error))
+    {
+        if (exitcode)
+        {
+            ::MessageBox(m_hWnd, error, L"TortoiseSVN hook", MB_ICONERROR);
+            // parse the error message and select all mentioned paths if there are any
+            // the paths must be separated by newlines!
+            CTSVNPathList errorpaths;
+            error.Replace(L"\r\n", L"*");
+            error.Replace(L"\n", L"*");
+            errorpaths.LoadFromAsteriskSeparatedString(error);
+            m_ListCtrl.SetSelectionMark(-1);
+            for (int i = 0; i < errorpaths.GetCount(); ++i)
+            {
+                CTSVNPath errorpath = errorpaths[i];
+                int nListItems = m_ListCtrl.GetItemCount();
+                for (int j = 0; j < nListItems; j++)
+                {
+                    const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
+                    if (entry->GetPath().IsEquivalentTo(errorpath))
+                    {
+                        m_ListCtrl.SetItemState(j, TVIS_SELECTED, TVIS_SELECTED);
+                        break;
+                    }
+                }
+            }
+
+            return;
+        }
+        m_tooltips.ShowBalloon(IDC_RUNHOOK, IDS_COMMITDLG_HOOKSUCCESSFUL_TT, IDS_WARN_NOTE, TTI_INFO);
+    }
 }

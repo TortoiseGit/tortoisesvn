@@ -70,6 +70,8 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     m_cHookTypeCombo.SetItemData(index, start_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECOMMIT)));
     m_cHookTypeCombo.SetItemData(index, pre_commit_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_MANUALPRECOMMIT)));
+    m_cHookTypeCombo.SetItemData(index, manual_precommit);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTCOMMIT)));
     m_cHookTypeCombo.SetItemData(index, post_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTUPDATE)));
@@ -123,6 +125,8 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
             htype = start_commit_hook;
         if (m_PropName.compare(PROJECTPROPNAME_PRECOMMITHOOK)==0)
             htype = pre_commit_hook;
+        if (m_PropName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK)==0)
+            htype = manual_precommit;
         if (m_PropName.compare(PROJECTPROPNAME_POSTCOMMITHOOK)==0)
             htype = post_commit_hook;
         if (m_PropName.compare(PROJECTPROPNAME_STARTUPDATEHOOK)==0)
@@ -216,6 +220,9 @@ void CEditPropsLocalHooks::OnOK()
         break;
     case pre_commit_hook:
         m_PropName = PROJECTPROPNAME_PRECOMMITHOOK;
+        break;
+    case manual_precommit:
+        m_PropName = PROJECTPROPNAME_MANUALPRECOMMITHOOK;
         break;
     case post_commit_hook:
         m_PropName = PROJECTPROPNAME_POSTCOMMITHOOK;

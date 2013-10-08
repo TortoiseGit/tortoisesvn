@@ -204,6 +204,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         CheckStringProp(sLogRevRegex, sPropName, sPropVal, PROJECTPROPNAME_LOGREVREGEX);
         CheckStringProp(sStartCommitHook, sPropName, sPropVal, PROJECTPROPNAME_STARTCOMMITHOOK);
         CheckStringProp(sPreCommitHook, sPropName, sPropVal, PROJECTPROPNAME_PRECOMMITHOOK);
+        CheckStringProp(sManualPreCommitHook, sPropName, sPropVal, PROJECTPROPNAME_MANUALPRECOMMITHOOK);
         CheckStringProp(sPostCommitHook, sPropName, sPropVal, PROJECTPROPNAME_POSTCOMMITHOOK);
         CheckStringProp(sStartUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_STARTUPDATEHOOK);
         CheckStringProp(sPreUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_PREUPDATEHOOK);
@@ -672,6 +673,8 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(PROJECTPROPNAME_STARTCOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sStartCommitHook)) && bRet;
     if (!sPreCommitHook.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_PRECOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPreCommitHook)) && bRet;
+    if (!sManualPreCommitHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_MANUALPRECOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sManualPreCommitHook)) && bRet;
     if (!sPostCommitHook.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_POSTCOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPostCommitHook)) && bRet;
     if (!sStartUpdateHook.IsEmpty())

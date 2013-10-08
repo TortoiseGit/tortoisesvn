@@ -66,6 +66,7 @@
 #define PROJECTPROPNAME_STARTUPDATEHOOK   "tsvn:startupdatehook"
 #define PROJECTPROPNAME_PREUPDATEHOOK     "tsvn:preupdatehook"
 #define PROJECTPROPNAME_POSTUPDATEHOOK    "tsvn:postupdatehook"
+#define PROJECTPROPNAME_MANUALPRECOMMITHOOK "tsvn:manualprecommithook"
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     "webviewer:revision"
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV "webviewer:pathrevision"
@@ -268,6 +269,8 @@ public:
     CString     sStartCommitHook;
     /// multi line string containing the data for a pre-commit-hook
     CString     sPreCommitHook;
+    /// multi line string containing the data for a manual pre-commit-hook
+    CString     sManualPreCommitHook;
     /// multi line string containing the data for a post-commit-hook
     CString     sPostCommitHook;
     /// multi line string containing the data for a start-update-hook

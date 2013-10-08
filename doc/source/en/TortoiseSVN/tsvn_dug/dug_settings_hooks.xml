@@ -55,6 +55,18 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
+                <term>Manual Pre-commit</term>
+                <listitem>
+                    <para>
+                        If this is specified, the commit dialog shows a button
+                        <guibutton>Run Hook</guibutton> which when clicked runs
+                        the specified hook script. The hook script receives a list
+                        of all checkec files and folders and the commit message
+                        if there was one entered.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
                 <term>Pre-commit</term>
                 <listitem>
                     <para>
@@ -127,6 +139,16 @@
         <variablelist>
             <varlistentry>
                 <term>Start-commit</term>
+                <listitem condition="pot">
+                    <para>
+                        <literal>PATH</literal>
+                        <literal>MESSAGEFILE</literal>
+                        <literal>CWD</literal>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Manual Pre-commit</term>
                 <listitem condition="pot">
                     <para>
                         <literal>PATH</literal>

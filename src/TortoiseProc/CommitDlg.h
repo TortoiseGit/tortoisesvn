@@ -172,4 +172,6 @@ private:
     CPathEdit           m_CommitTo;
     CBugTraqAssociation m_bugtraq_association;
     CHyperLink          m_cUpdateLink;
+public:
+    afx_msg void OnBnClickedRunhook();
 };
