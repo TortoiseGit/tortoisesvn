@@ -19,14 +19,15 @@
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2013
 # peu <peu@rekoba.de>, 2013
+# peu <peu@rekoba.de>, 2013
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-05 10:20+0000\n"
-"Last-Translator: Sven Strickroth <sstrickroth@googlemail.com>\n"
+"PO-Revision-Date: 2013-10-09 06:59+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2442,6 +2443,10 @@ msgstr "Teilbäume E&inklappen"
 msgid "C&ommands:"
 msgstr "B&efehle:"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr "V&ergleiche URLs (nur Inhalt)"
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "E&rstelle Zweig/Marke von Revision"
@@ -3239,6 +3244,10 @@ msgstr "Vergleiche mit &Arbeitskopie"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "Vergleiche mit B&asis"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr "Vergleiche mit Basis (nur Inhalt)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6795,10 +6804,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Verschieben\nDie Objekte werden in den Zielpfad verschoben."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Verschoben von"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6809,10 +6814,6 @@ msgstr "Verschoben von\n\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Im Projektarchiv verschoben"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Verschoben nach"
 
 #. Resource IDs: (210)
 #, c-format
@@ -8323,6 +8324,16 @@ msgstr "Im Projektarchiv umbenannt"
 msgid "Renames files / folders inside version control"
 msgstr "Benennt Dateien / Ordner unter Versionskontrolle um"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr "Übertragen-Dialog wieder öffnen, wenn Objekte nicht übertragen wurden"
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr "Öffnet den Übertragen-Dialog nach einer erfolgreichen Übertragung erneut, falls Dateien oder Ordner nicht übertragen wurden."
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Kopie reparieren"
@@ -8594,7 +8605,7 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
 msgstr "Revision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDatum: %6!s!\r\n\r\nLogmeldung:\r\n%7!s!"
 
@@ -8608,7 +8619,7 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
 msgstr "Revision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDatum: %6!s!\r\n\r\nMarken (%7!d!): %8!s!\r\n\r\nLogmeldung:\r\n%9!s!"
 
@@ -9322,6 +9333,10 @@ msgstr "Leerzeichen anzeigen"
 msgid "Show an overview of the whole graph"
 msgstr "Gesamtübersicht anzeigen"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr "Zeige &Änderungen (nur Inhalt)"
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Zeige Änderungen als &Standard-Diff"
@@ -9357,6 +9372,10 @@ msgstr "Zeige &Log"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "Mehrere &Änderungen anzeigen..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr "Zeigen mehrere &Änderungen... (nur Inhalt)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
