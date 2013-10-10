@@ -618,6 +618,7 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         dlg = new CEditPropTSVNLang(this);
     else if ((sName.compare(PROJECTPROPNAME_STARTCOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_PRECOMMITHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_CHECKCOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_POSTCOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_STARTUPDATEHOOK) == 0) ||

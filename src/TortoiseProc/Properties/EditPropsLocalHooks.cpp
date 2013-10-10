@@ -68,6 +68,8 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     // initialize the combo box with all the hook types we have
     int index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTCOMMIT)));
     m_cHookTypeCombo.SetItemData(index, start_commit_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_CHECKCOMMIT)));
+    m_cHookTypeCombo.SetItemData(index, check_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECOMMIT)));
     m_cHookTypeCombo.SetItemData(index, pre_commit_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_MANUALPRECOMMIT)));
@@ -123,6 +125,8 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     {
         if (m_PropName.compare(PROJECTPROPNAME_STARTCOMMITHOOK)==0)
             htype = start_commit_hook;
+        if (m_PropName.compare(PROJECTPROPNAME_CHECKCOMMITHOOK)==0)
+            htype = pre_commit_hook;
         if (m_PropName.compare(PROJECTPROPNAME_PRECOMMITHOOK)==0)
             htype = pre_commit_hook;
         if (m_PropName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK)==0)
@@ -217,6 +221,9 @@ void CEditPropsLocalHooks::OnOK()
     {
     case start_commit_hook:
         m_PropName = PROJECTPROPNAME_STARTCOMMITHOOK;
+        break;
+    case check_commit_hook:
+        m_PropName = PROJECTPROPNAME_CHECKCOMMITHOOK;
         break;
     case pre_commit_hook:
         m_PropName = PROJECTPROPNAME_PRECOMMITHOOK;

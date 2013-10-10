@@ -67,6 +67,22 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
+                <term>Check-commit</term>
+                <listitem>
+                    <para>
+                        Called after the user clicks <guibutton>OK</guibutton>
+                        in the commit dialog, and before the commit dialog closes.
+                        This hook gets a list of all the checked files. If the
+                        hook returns an error, the commit dialog stays open.
+                    </para>
+                    <para>
+                        If the returned error message contains paths on newline
+                        separated lines, those paths will get selected in the commit
+                        dialog after the error message is shown.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
                 <term>Pre-commit</term>
                 <listitem>
                     <para>

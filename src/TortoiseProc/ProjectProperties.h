@@ -61,6 +61,7 @@
 #define PROJECTPROPNAME_AUTOPROPS         "tsvn:autoprops"
 #define PROJECTPROPNAME_LOGREVREGEX       "tsvn:logrevregex"
 #define PROJECTPROPNAME_STARTCOMMITHOOK   "tsvn:startcommithook"
+#define PROJECTPROPNAME_CHECKCOMMITHOOK   "tsvn:checkcommithook"
 #define PROJECTPROPNAME_PRECOMMITHOOK     "tsvn:precommithook"
 #define PROJECTPROPNAME_POSTCOMMITHOOK    "tsvn:postcommithook"
 #define PROJECTPROPNAME_STARTUPDATEHOOK   "tsvn:startupdatehook"
@@ -267,6 +268,8 @@ public:
 
     /// multi line string containing the data for a start-commit-hook
     CString     sStartCommitHook;
+    /// multi line string containing the data for a check-commit-hook
+    CString     sCheckCommitHook;
     /// multi line string containing the data for a pre-commit-hook
     CString     sPreCommitHook;
     /// multi line string containing the data for a manual pre-commit-hook

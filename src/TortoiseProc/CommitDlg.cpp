@@ -543,6 +543,46 @@ void CCommitDlg::OnOK()
         }
     }
 
+    // run the check-commit hook script
+    CTSVNPathList checkedItems;
+    m_ListCtrl.WriteCheckedNamesToPathList(checkedItems);
+    DWORD exitcode = 0;
+    CString error;
+    CHooks::Instance().SetProjectProperties(checkedItems.GetCommonRoot(), m_ProjectProperties);
+    if (CHooks::Instance().CheckCommit(m_hWnd, checkedItems, m_sLogMessage, exitcode, error))
+    {
+        if (exitcode)
+        {
+            CString sErrorMsg;
+            sErrorMsg.Format(IDS_HOOK_ERRORMSG, (LPCWSTR)error);
+            UINT msgRet = TSVNMessageBox(m_hWnd, sErrorMsg, L"TortoiseSVN", IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_MSGBOX_ABORT)), CString(MAKEINTRESOURCE(IDS_HOOK_FORCEDPROCEED)));
+            if (msgRet==IDCUSTOM1)
+            {
+                // parse the error message and select all mentioned paths if there are any
+                // the paths must be separated by newlines!
+                CTSVNPathList errorpaths;
+                error.Replace(L"\r\n", L"*");
+                error.Replace(L"\n", L"*");
+                errorpaths.LoadFromAsteriskSeparatedString(error);
+                m_ListCtrl.SetSelectionMark(-1);
+                for (int i = 0; i < errorpaths.GetCount(); ++i)
+                {
+                    CTSVNPath errorpath = errorpaths[i];
+                    int nListItems = m_ListCtrl.GetItemCount();
+                    for (int j = 0; j < nListItems; j++)
+                    {
+                        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
+                        if (entry->GetPath().IsEquivalentTo(errorpath))
+                        {
+                            m_ListCtrl.SetItemState(j, TVIS_SELECTED, TVIS_SELECTED);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     if (!m_sLogMessage.IsEmpty())
     {
         m_History.AddEntry(m_sLogMessage);
