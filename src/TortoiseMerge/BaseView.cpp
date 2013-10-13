@@ -1653,6 +1653,16 @@ void CBaseView::DrawTextLine(
         {
             int nMarkStart = static_cast<int>(findText - text);
             int nMarkEnd = nMarkStart + nMarkLength;
+            findText += nMarkLength;
+            ECharGroup eLeft = GetCharGroup(sViewLine, nMarkStart - 1);
+            ECharGroup eStart = GetCharGroup(sViewLine, nMarkStart);
+            if (eLeft == eStart)
+                continue;
+            ECharGroup eRight = GetCharGroup(sViewLine, nMarkEnd);
+            ECharGroup eEnd = GetCharGroup(sViewLine, nMarkEnd - 1);
+            if (eRight == eEnd)
+                continue;
+
             // First enforce start and end point
             lineCols.SplitBlock(nMarkStart);
             lineCols.SplitBlock(nMarkEnd);
