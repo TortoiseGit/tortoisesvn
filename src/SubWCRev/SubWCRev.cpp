@@ -250,20 +250,20 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     if (MinRev == -1 || MinRev == MaxRev)
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, "%LX", MaxRev);
+            sprintf_s(destbuf, "%lX", MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, "%#LX", MaxRev);
+            sprintf_s(destbuf, "%#lX", MaxRev);
         else
-            sprintf_s(destbuf, "%Ld", MaxRev);
+            sprintf_s(destbuf, "%ld", MaxRev);
     }
     else
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, "%LX:%LX", MinRev, MaxRev);
+            sprintf_s(destbuf, "%lX:%lX", MinRev, MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, "%#LX:%#LX", MinRev, MaxRev);
+            sprintf_s(destbuf, "%#lX:%#lX", MinRev, MaxRev);
         else
-            sprintf_s(destbuf, "%Ld:%Ld", MinRev, MaxRev);
+            sprintf_s(destbuf, "%ld:%ld", MinRev, MaxRev);
     }
     // Replace the $WCxxx$ string with the actual revision number
     char * pBuild = pBuf + index;
@@ -339,20 +339,20 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     if (MinRev == -1 || MinRev == MaxRev)
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            swprintf_s(destbuf, L"%LX", MaxRev);
+            swprintf_s(destbuf, L"%lX", MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            swprintf_s(destbuf, L"%#LX", MaxRev);
+            swprintf_s(destbuf, L"%#lX", MaxRev);
         else
-            swprintf_s(destbuf, L"%Ld", MaxRev);
+            swprintf_s(destbuf, L"%ld", MaxRev);
     }
     else
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            swprintf_s(destbuf, L"%LX:%LX", MinRev, MaxRev);
+            swprintf_s(destbuf, L"%lX:%lX", MinRev, MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            swprintf_s(destbuf, L"%#LX:%#LX", MinRev, MaxRev);
+            swprintf_s(destbuf, L"%#lX:%#lX", MinRev, MaxRev);
         else
-            swprintf_s(destbuf, L"%Ld:%Ld", MinRev, MaxRev);
+            swprintf_s(destbuf, L"%ld:%ld", MinRev, MaxRev);
     }
     // Replace the $WCxxx$ string with the actual revision number
     wchar_t * pBuild = pBuf + index;

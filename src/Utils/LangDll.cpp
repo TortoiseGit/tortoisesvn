@@ -52,7 +52,7 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
             do
             {
                 TCHAR langdllpath[MAX_PATH];
-                _stprintf_s(langdllpath, _T("%s%s%d.dll"), langpath, appname, langID);
+                _stprintf_s(langdllpath, _T("%s%s%lu.dll"), langpath, appname, langID);
 
                 m_hInstance = LoadLibrary(langdllpath);
 
@@ -105,8 +105,8 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
 
         if (pBuffer != (void*) NULL)
         {
-            UINT        nInfoSize = 0,
-                nFixedLength = 0;
+            UINT        nInfoSize = 0;
+            UINT        nFixedLength = 0;
             LPSTR       lpVersion = NULL;
             VOID*       lpFixedPointer;
             TRANSARRAY* lpTransArray;

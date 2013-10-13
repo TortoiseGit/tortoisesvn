@@ -999,7 +999,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
     {
         sCmd += _T(" /line:");
         CString temp;
-        temp.Format(_T("%ld"), line);
+        temp.Format(_T("%d"), line);
         sCmd += temp;
     }
 

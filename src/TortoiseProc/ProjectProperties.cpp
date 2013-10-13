@@ -634,19 +634,19 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(BUGTRAQPROPNAME_PROVIDERPARAMS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sProviderParams)) && bRet;
     if (nLogWidthMarker)
     {
-        sprintf_s(buf, "%ld", nLogWidthMarker);
+        sprintf_s(buf, "%d", nLogWidthMarker);
         bRet = props.Add(PROJECTPROPNAME_LOGWIDTHLINE, buf) && bRet;
     }
     if (!sLogTemplate.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_LOGTEMPLATE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogTemplate)) && bRet;
     if (nMinLogSize)
     {
-        sprintf_s(buf, "%ld", nMinLogSize);
+        sprintf_s(buf, "%d", nMinLogSize);
         bRet = props.Add(PROJECTPROPNAME_LOGMINSIZE, buf) && bRet;
     }
     if (nMinLockMsgSize)
     {
-        sprintf_s(buf, "%ld", nMinLockMsgSize);
+        sprintf_s(buf, "%d", nMinLockMsgSize);
         bRet = props.Add(PROJECTPROPNAME_LOCKMSGMINSIZE, buf) && bRet;
     }
     if (!bFileListInEnglish)

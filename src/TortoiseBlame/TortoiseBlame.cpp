@@ -896,10 +896,10 @@ void TortoiseBlame::BlamePreviousRevision()
     }
 
     TCHAR bufStartRev[20];
-    _stprintf_s(bufStartRev, _T("%d"), nSmallestRevision);
+    _stprintf_s(bufStartRev, _T("%ld"), nSmallestRevision);
 
     TCHAR bufEndRev[20];
-    _stprintf_s(bufEndRev, _T("%d"), nRevisionTo);
+    _stprintf_s(bufEndRev, _T("%ld"), nRevisionTo);
 
     TCHAR bufLine[20];
     _stprintf_s(bufLine, _T("%d"), m_selectedLine+1); //using the current line is a good guess.
@@ -941,10 +941,10 @@ void TortoiseBlame::DiffPreviousRevision()
     LONG nRevisionFrom = nRevisionTo-1;
 
     TCHAR bufStartRev[20];
-    _stprintf_s(bufStartRev, _T("%d"), nRevisionFrom);
+    _stprintf_s(bufStartRev, _T("%ld"), nRevisionFrom);
 
     TCHAR bufEndRev[20];
-    _stprintf_s(bufEndRev, _T("%d"), nRevisionTo);
+    _stprintf_s(bufEndRev, _T("%ld"), nRevisionTo);
 
     tstring svnCmd = _T(" /command:diff ");
     svnCmd += _T(" /path:\"");

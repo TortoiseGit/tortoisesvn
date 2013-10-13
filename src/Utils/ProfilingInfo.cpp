@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -239,7 +239,7 @@ std::string CProfilingInfo::GetReport() const
         RegQueryValueEx(hKey, L"~MHz", NULL, NULL, (LPBYTE) &dwMHz, &BufSize);
         RegCloseKey(hKey);
 
-        sprintf_s ( lineBuffer, "processor speed is %ld MHz\n", dwMHz);
+        sprintf_s ( lineBuffer, "processor speed is %lu MHz\n", dwMHz);
         result += lineBuffer;
     }
 
