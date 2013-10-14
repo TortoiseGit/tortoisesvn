@@ -21,9 +21,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-24 20:00+0000\n"
-"Last-Translator: hyagli <hyagli@hotmail.com>\n"
-"Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2438,6 +2438,10 @@ msgstr "A&lt ağaçları kapat"
 msgid "C&ommands:"
 msgstr "K&omutlar"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "&Revizyondan dal/etiket oluştur"
@@ -2854,6 +2858,10 @@ msgstr "Günlük mesajlarında daha az gereksiz sözcük kullanarak tarihi ve za
 msgid "Check working copy for modifications"
 msgstr "Çalışan kopyayı değişiklikler için kontrol et"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Kontrol et:"
@@ -3235,6 +3243,10 @@ msgstr "&Çalışan kopya ile karşılaştır"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "&Taban ile karşılaştır"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6406,6 +6418,10 @@ msgstr "Varsayılan olarak ata"
 msgid "Manage Subversion properties"
 msgstr "Subversion özelliklerini yönet:"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Farkı göstermek için birden fazla öğe seçildi"
@@ -6791,10 +6807,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Taşı\nÖğeler hedef adrese taşınır."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Buradan taşındı"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6805,10 +6817,6 @@ msgstr "Buradan taşındı\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Uzaktan taşındı"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Buraya taşındı"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7717,6 +7725,10 @@ msgstr "Yazıcı Dosyaları (*.prn)|*.prn|Tüm dosyalar (*.*)|*.*||"
 msgid "Printing"
 msgstr "Yazdırılıyor"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8319,6 +8331,16 @@ msgstr "Uzaktan tekrar adlandırıldı"
 msgid "Renames files / folders inside version control"
 msgstr "Versiyon kontrolündeki dosya / klasörleri tekrar adlandırır"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Kopyayı onar"
@@ -8590,9 +8612,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Revizyon: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Yaratan: %5!s!\r\nTarih: %6!s!\r\n\r\nGünlük mesajı:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8604,9 +8626,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Revizyon: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Yaratan: %5!s!\r\nTarih: %6!s!\r\n\r\nEtiketler (%7!d!):%8!s!\r\n\r\nGünlük mesajı:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8647,6 +8669,10 @@ msgstr "Satır yukarı"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Temizlemeyi &şimdi çalıştır"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9318,6 +9344,10 @@ msgstr "Boşluk karakterlerini göster"
 msgid "Show an overview of the whole graph"
 msgstr "Tüm diyagramın bir genel bakışını göster"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Değişiklikleri &birleştirilmiş karşılaştırma dosyası olarak göster"
@@ -9352,6 +9382,10 @@ msgstr "Günlüğü &göster"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
 msgstr ""
 
 #. Resource IDs: (2051)
@@ -10081,6 +10115,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "%s\nklasörü\nzaten mevcut!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

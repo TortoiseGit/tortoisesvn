@@ -22,9 +22,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-18 01:12+0000\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
-"Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2439,6 +2439,10 @@ msgstr "서브-트리들 축소하기(&O)"
 msgid "C&ommands:"
 msgstr "명령들(&O):"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "리비전으로부터 태그/브랜치 생성(&R)"
@@ -2855,6 +2859,10 @@ msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시합�
 msgid "Check working copy for modifications"
 msgstr "수정사항에 대해 작업사본 체크하기"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "체크:"
@@ -3236,6 +3244,10 @@ msgstr "작업사본과 비교(&W)"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "작업하기 위해 꺼냈던 것과 비교(&A)"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6407,6 +6419,10 @@ msgstr "기본값으로 지정"
 msgid "Manage Subversion properties"
 msgstr "Subversion 속성 관리"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "차이를 보기위해 많은 항목이 선택되었습니다"
@@ -6792,10 +6808,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "이동\n아이템들이 대상 경로로 이동되었습니다."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "다음에서 이동됨"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6806,10 +6818,6 @@ msgstr "Moved from\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "옮겨짐"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "다음으로 이동됨"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7718,6 +7726,10 @@ msgstr "프린터 파일들 (*.prn)|*.prn|모든 파일들 (*.*)|*.*||"
 msgid "Printing"
 msgstr "프린팅"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8320,6 +8332,16 @@ msgstr "원격지의 파일이름 수정됨"
 msgid "Renames files / folders inside version control"
 msgstr "버전 컨트롤안의 파일 폴더의 이름 바꾸기"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "복사 복원하기"
@@ -8591,9 +8613,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "리비전: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!작성자: %5!s!\r\n날짜: %6!s!\r\n\r\n로그메시지:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8605,9 +8627,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "리비전: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!작성자: %5!s!\r\n날짜: %6!s!\r\n\r\n태그 (%7!d!):%8!s!\r\n\r\n로그메시지:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8648,6 +8670,10 @@ msgstr "행 위로"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "지금 정리하기 수행(&N)"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9319,6 +9345,10 @@ msgstr "공백 보이기"
 msgid "Show an overview of the whole graph"
 msgstr "그래프 전체에 대한 개관을 보여줌"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "통합 비교 형식으로 차이점 보기(&U)"
@@ -9354,6 +9384,10 @@ msgstr "로그 보기(&G)"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "여러 변경점을 표시하기(&C)..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10082,6 +10116,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "폴더\n%s\n이(가) 이미 존재합니다."
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

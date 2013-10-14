@@ -17,9 +17,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 08:50+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
-"Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8629,11 +8629,11 @@ msgid ""
 "backdate your working copy to a previous revision, your externals "
 "definitions will also revert to the way they looked in that previous "
 "revision, which in turn means that the external working copies will be "
-"updated to match they way <emphasis>they</emphasis> looked back when your "
+"updated to match the way <emphasis>they</emphasis> looked back when your "
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr "Měli byste vážně uvažovat o používání jednoznačných čísel revizí pro všechny vaše externí definice, jak je popsáno výše. Pokud tak učiníte, znamená to, že můžete rozhodnout, kdy a který záběr externích informací přesně stáhnout. Kromě hlediska zdravého rozumu nebýt překvapen změnami v úložištích třetí strany, nad kterými nemusíte mít žádnou kontrolu, používání jednoznačných čísel revizí také znamená, že jak Vaše pracovní kopie postupuje zpět na předchozí revizi, Vaše externí nastavení  se také vrátit do stavu, jak vypadali v té předchozí revizi, což znamená, že externí pracovní kopie bude aktualizována, aby odpovídala způsobu, jak <emphasis>ony </emphasis> vypadaly, když Vaše úložiště bylo v předchozí revizi. U softwarových projektů, toto může být rozdíl mezi úspěšným a neúspěšným sestavením staršího záběru Vašeho komplexní sady kódu."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12574,6 +12574,17 @@ msgid ""
 msgstr "Normální chování v dialogovém okně odevzdání je pro všechny změněné položky (s verzí), aby byly vybrány k odevzdání automaticky. Pokud dáváte přednost, aby ze  začátku nic nebylo vybráno a vybírat položky k odevzdání ručně, zrušte zaškrtnutí tohoto políčka."
 
 #. (term)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. (para)
+msgid ""
+"This reopens the commit dialog automatically at the same directory after a "
+"successful commit. The dialog is reopened only if there still are items left"
+" to commit."
+msgstr ""
+
+#. (term)
 msgid "Contact the repository on startup"
 msgstr "Kontaktovat úložiště při spuštění"
 
@@ -13967,6 +13978,37 @@ msgid ""
 "hook is called at an early stage, the full list of objects selected for "
 "commit is not available."
 msgstr "Volán před zobrazením dialogového okna odevzdání. Toto byste mohli chtít použít, pokud hák upravuje soubor s verzí a ovlivňuje seznam souborů, které musí být odevzdány a/nebo zprávu odevzdání. Nicméně byste měli vzít na vědomí, že hák je volán v rané fázi, úplný seznam objektů vybraných pro odevzdání není k dispozici."
+
+#. (term)
+#. (term)
+msgid "Manual Pre-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is specified, the commit dialog shows a button <guibutton>Run "
+"Hook</guibutton> which when clicked runs the specified hook script. The hook"
+" script receives a list of all checkec files and folders and the commit "
+"message if there was one entered."
+msgstr ""
+
+#. (term)
+msgid "Check-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
+" and before the commit dialog closes. This hook gets a list of all the "
+"checked files. If the hook returns an error, the commit dialog stays open."
+msgstr ""
+
+#. (para)
+msgid ""
+"If the returned error message contains paths on newline separated lines, "
+"those paths will get selected in the commit dialog after the error message "
+"is shown."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -17586,6 +17628,10 @@ msgid "/path2"
 msgstr "/path2"
 
 #. (option)
+msgid "/ignoreprops"
+msgstr ""
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/pegrevision:xxx"
 
@@ -17603,13 +17649,15 @@ msgid ""
 "<placeholder-1/> specifies the first file. If the option <placeholder-2/> is"
 " set, then the diff program is started with those two files. If "
 "<placeholder-3/> is omitted, then the diff is done between the file in "
-"<placeholder-4/> and its BASE. To explicitly set the revision numbers use "
-"<placeholder-5/> and <placeholder-6/>, and for the optional peg revision use"
-" <placeholder-7/>. If <placeholder-8/> is set and <placeholder-9/> is not "
-"set, then the diff is done by first blaming the files with the given "
-"revisions. The parameter <placeholder-10/> specifies the line to jump to "
-"when the diff is shown."
-msgstr "Spustí externí program rozdílů, jak je uvedeno v nastavení TortoiseSVN. <placeholder-1/> určuje první soubor. Pokud je možnost <placeholder-2/> nastavena, pak je program rozdílů spuštěn s těmito dvěma soubory. Pokud je <placeholder-3/> vynechán, pak rozdíl je proveden mezi souborem v <placeholder-4/> a jeho originálem. Chcete-li explicitně nastavit čísla revizí použijte <placeholder-5/> a <placeholder-6/> a pro nepovinnou zavěšenou revizi použijte <placeholder-7/>. Pokud je nastaven <placeholder-8/> a <placeholder-9/> není, pak rozdíl je proveden tak, že nejprve obviní soubory s danými revizemi. Parametr <placeholder-10/> určuje na který řádek skočit, když je rozdíl zobrazen."
+"<placeholder-4/> and its BASE. If the specified file also has property "
+"modifications, the external diff tool is also started for each modified "
+"property. To prevent that, pass the option <placeholder-5/>. To explicitly "
+"set the revision numbers use <placeholder-6/> and <placeholder-7/>, and for "
+"the optional peg revision use <placeholder-8/>. If <placeholder-9/> is set "
+"and <placeholder-10/> is not set, then the diff is done by first blaming the"
+" files with the given revisions. The parameter <placeholder-11/> specifies "
+"the line to jump to when the diff is shown."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17626,6 +17674,13 @@ msgid ""
 " The options <option>pegrevision</option>, <option>ignoreancestry</option>, "
 "<option>blame</option> and <option>unified</option> are optional."
 msgstr "Možnosti <option>url1</option>, <option>url2</option>, <option>revize1</option> a <option>revize2</option> musí být zadány. Možnosti <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> a <option>unified</option> jsou volitelné."
+
+#. (para)
+msgid ""
+"If the specified url also has property modifications, the external diff tool"
+" is also started for each modified property. To prevent that, pass the "
+"option <option>/ignoreprops</option>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -20316,17 +20371,23 @@ msgid ""
 "file path."
 msgstr "Název mého souboru. Je zobrazen v zobrazení názvu namísto cesty k souboru."
 
-#. (emphasis)
-msgid "merged"
-msgstr "sloučený"
-
-#. (entry)
+#. (para)
 msgid ""
-"Specifies the resulting <placeholder-1/> file used in three way diffs. This "
-"is the file path where the result of the merge/conflict resolving is saved. "
-"If this is not set, then TortoiseMerge will ask the user where to save the "
-"result."
-msgstr "Určuje výsledný <placeholder-1/> soubor používaný v trojím porovnávání. Je to cesta k souboru, kde je v důsledku sloučení/řešení konfliktů uložen. Pokud toto není nastaveno, pak TortoiseMerge požádá uživatele, kam se výsledek má uložit."
+"Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
+" is the file path where the result of the merge/conflict resolving is saved."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a three-way diff, then TortoiseMerge will ask the "
+"user where to save the result."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a two-way diff, then TortoiseMerge will automatically"
+" use the path of the file shown in the right view as the save path."
+msgstr ""
 
 #. (entry)
 msgid ""

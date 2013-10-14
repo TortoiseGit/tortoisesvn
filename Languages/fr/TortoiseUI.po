@@ -32,9 +32,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-22 14:53+0000\n"
-"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
-"Language-Team: French <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2449,6 +2449,10 @@ msgstr "&Réduire les arborescences"
 msgid "C&ommands:"
 msgstr "C&ommandes:"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "C&réer une branche/étiquette depuis une révision"
@@ -2865,6 +2869,10 @@ msgstr "Sélectionnez pour utiliser un format de date et heure moins détaillé 
 msgid "Check working copy for modifications"
 msgstr "Vérifier les modifications de la copie de travail"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Vérifier:"
@@ -3246,6 +3254,10 @@ msgstr "Comparaison avec la copie de travai&l"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "Comparer avec la b&ase"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6417,6 +6429,10 @@ msgstr "Définir comme valeurs par défaut"
 msgid "Manage Subversion properties"
 msgstr "Gérer les propriétés Subversion"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Trop d'éléments sélectionnés pour afficher le différentiel"
@@ -6802,10 +6818,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Déplacer\nLes éléments sont déplacés vers le chemin cible."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Déplacé depuis"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6816,10 +6828,6 @@ msgstr "Déplacé depuis\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Déplacé à distance"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Déplacé vers"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7728,6 +7736,10 @@ msgstr "Fichiers d'Imprimantes (*.prn)|*.prn|Tous les Fichiers (*.*)|*.*||"
 msgid "Printing"
 msgstr "Impression"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8330,6 +8342,16 @@ msgstr "Renommé à distance"
 msgid "Renames files / folders inside version control"
 msgstr "Renomme des fichiers / des répertoires sous contrôle de version"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Réparer la copie"
@@ -8601,9 +8623,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Révision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Auteur: %5!s!\r\nDate: %6!s!\r\n\r\nCommentaires:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8615,9 +8637,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Révision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Auteur: %5!s!\r\nDate: %6!s!\r\n\r\nMarqueurs (%7!d!):%8!s!\r\n\r\nCommentaires:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8658,6 +8680,10 @@ msgstr "Ligne vers le Haut"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Exécuter le &nettoyage maintenant"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9329,6 +9355,10 @@ msgstr "Montrer les caractères d'espacement"
 msgid "Show an overview of the whole graph"
 msgstr "Afficher une vue d'ensemble de tout le graphe"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Voir les différences en mode diff &unifié"
@@ -9364,6 +9394,10 @@ msgstr "&Voir le journal"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "Afficher les modifi&cations multiples..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10092,6 +10126,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "Le dossier\n%s\nexiste déjà !"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

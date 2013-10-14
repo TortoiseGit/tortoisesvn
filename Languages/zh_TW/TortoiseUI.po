@@ -23,9 +23,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 16:16+0000\n"
+"PO-Revision-Date: 2013-10-12 10:00+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
-"Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2440,6 +2440,10 @@ msgstr "展開子目錄樹(&O)"
 msgid "C&ommands:"
 msgstr "命令(&O):"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr "比對 URL(僅內容) (&O)"
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "從版本建立標記(&R)"
@@ -2856,6 +2860,10 @@ msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
 msgid "Check working copy for modifications"
 msgstr "檢查工作複本中的變更"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr "送交檢查掛勾"
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "檢查:"
@@ -3237,6 +3245,10 @@ msgstr "與工作複本比對(&W)"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "與基礎檔比對(&A)"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr "與基礎檔比對 (僅內容)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6408,6 +6420,10 @@ msgstr "設為預設值"
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 屬性"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr "手動式送交前掛勾"
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "選擇了多個要顯示差異的項目"
@@ -6793,10 +6809,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "移動\n已移動項目至目標路徑."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "移動自"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6807,10 +6819,6 @@ msgstr "自 %s\n移動而來"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "遠端移動完成"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "移動至"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7719,6 +7727,10 @@ msgstr "印表檔案 (*.prn)|*.prn|全部檔案 (*.*)|*.*||"
 msgid "Printing"
 msgstr "列印中"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr "強制執行"
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8321,6 +8333,16 @@ msgstr "遠端重新命名完成"
 msgid "Renames files / folders inside version control"
 msgstr "重新命名版本控制樹中的檔案/目錄"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr "有未送交的項目時, 送交後重新顯示視窗"
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr "如果有檔案或是目錄未被送交, 在送交成功之後重新顯示送交視窗."
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "修復複製"
@@ -8592,9 +8614,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "版本: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!作者: %5!s!\r\n日期: %6!s!\r\n\r\n記錄訊息:\r\n%7!s!"
+msgstr "版本: %1!ld! %2!s!↩⏎\nURL: %3!s!↩⏎\n%4!s!作者: %5!s!↩⏎\n日期: %6!s!↩⏎\n↩⏎\n紀錄訊息:↩⏎\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8606,9 +8628,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "版本: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!作者: %5!s!\r\n日期: %6!s!\r\n\r\n標籤 (%7!d!):%8!s!\r\n\r\n記錄訊息:\r\n%9!s!"
+msgstr "版本: %1!ld! %2!s!↩⏎\nURL: %3!s!↩⏎\n%4!s!作者r: %5!s!↩⏎\n日期: %6!s!↩⏎\n↩⏎\n標籤 (%7!d!):%8!s!↩⏎\n↩⏎\n記錄訊息:↩⏎\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8649,6 +8671,10 @@ msgstr "往上一行"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "立即執行清理(&N)"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr "執行掛勾指令檔(&K)"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9320,6 +9346,10 @@ msgstr "顯示空白字元"
 msgid "Show an overview of the whole graph"
 msgstr "顯示整個圖表的概觀"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr "顯示變更(僅內容) (&H)"
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "以單一異動檔顯示異動(&W)"
@@ -9355,6 +9385,10 @@ msgstr "顯示記錄(&G)"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "顯示多筆變更(&C)..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr "顯示多筆變更 (僅內容)(&C)..."
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10083,6 +10117,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "目的目錄\n%s\n已經存在!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr "掛勾指令檔執行成功"
 
 #. Resource IDs: (83)
 #, c-format

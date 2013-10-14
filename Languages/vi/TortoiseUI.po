@@ -17,9 +17,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 08:26+0000\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2434,6 +2434,10 @@ msgstr "&Đóng các cây con"
 msgid "C&ommands:"
 msgstr "&Lệnh:"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "&Tạo nhánh/thẻ từ bản chỉnh sửa"
@@ -2850,6 +2854,10 @@ msgstr "Kiểm tra để dùng định dạng cho ngày và giờ bớt dài dò
 msgid "Check working copy for modifications"
 msgstr "Kiểm tra bản sao đang làm xem có thay đổi"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Kiểm tra:"
@@ -3231,6 +3239,10 @@ msgstr "So sánh với bản đang &làm"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "So sánh với bản &gốc"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6402,6 +6414,10 @@ msgstr "Lấy cái này làm mặc định"
 msgid "Manage Subversion properties"
 msgstr "Quản lý thuộc tính của Subversion"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr ""
@@ -6787,10 +6803,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Di chuyển\nCác món được di chuyển tới đường dẫn đích."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Được chuyển từ"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6801,10 +6813,6 @@ msgstr ""
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Được chuyển từ xa"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Được chuyển đến"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7713,6 +7721,10 @@ msgstr "Các tập tin máy in (*.prn)|*.prn|All Files (*.*)|*.*||"
 msgid "Printing"
 msgstr "Đang in"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8315,6 +8327,16 @@ msgstr "Đã đổi từ xa"
 msgid "Renames files / folders inside version control"
 msgstr "Đổi tên tập tin/thư mục trong kiểm soát phiên bản"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Sửa chữa sao chép"
@@ -8586,9 +8608,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Bản chỉnh sửa: %1!ld! %2!s!\nURL: %3!s!\n%4!s!Tác giả: %5!s!\nNgày tháng: %6!s!\n\nThông điệp tường trình:\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8600,9 +8622,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Bản chỉnh sửa: %1!ld! %2!s!\nURL: %3!s!\n%4!s!Tác giả: %5!s!\nNgày tháng: %6!s!\n\nThẻ (%7!d!):%8!s!\n\nThông điệp tường trình:\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8643,6 +8665,10 @@ msgstr "Dòng lên"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Chạy trình dọn dẹp ngay &bây giờ"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9314,6 +9340,10 @@ msgstr "Hiển thị Khoảng Trắng"
 msgid "Show an overview of the whole graph"
 msgstr "Hiển thị tổng quát của toàn bộ biểu đồ"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Hiển thị các thay đổi dưới dạng khác biệt &thống nhất"
@@ -9348,6 +9378,10 @@ msgstr "Hiển thị t&ường trình"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
 msgstr ""
 
 #. Resource IDs: (2051)
@@ -10077,6 +10111,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "Thư mục\n%s\nđã tồn tại!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

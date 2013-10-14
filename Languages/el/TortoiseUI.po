@@ -11,14 +11,15 @@
 # Authors:
 # Translators:
 # Stavros <stavros.labrou@gmail.com>, 2011
+# Stavros <stavros.labrou@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 08:26+0000\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2433,6 +2434,10 @@ msgstr "Κ&ατάρρευση υπο-δένδρων"
 msgid "C&ommands:"
 msgstr "Ε&ντολές:"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "Δ&ημιουργία διακλάδωσης/ετικέτας από αναθεώρηση"
@@ -2849,6 +2854,10 @@ msgstr ""
 msgid "Check working copy for modifications"
 msgstr "Έλεγχος αντιγράφου εργασίας για μεταβολές"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Έλεγχος:"
@@ -3230,6 +3239,10 @@ msgstr "Σύγκριση με το αντίγραφο &εργασίας"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "Συγκριση με τη &βάση"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6401,6 +6414,10 @@ msgstr "Κάνει το προκείμενο το πρότυπο"
 msgid "Manage Subversion properties"
 msgstr "Διαχείρηση ιδιοτήτων του Subversion"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr ""
@@ -6786,10 +6803,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr ""
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6800,10 +6813,6 @@ msgstr ""
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Μετακινήθηκε από απόμακρη τοποθεσία"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr ""
 
 #. Resource IDs: (210)
 #, c-format
@@ -7712,6 +7721,10 @@ msgstr "Αρχεία εκτυπωτη (*.prn)|*.prn|Όλα τα αρχεία (*.
 msgid "Printing"
 msgstr "Εκτύπωση"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8314,6 +8327,16 @@ msgstr "Το αίτημα ακυρώθηκε από το TSVN"
 msgid "Renames files / folders inside version control"
 msgstr "Μετονομάζει αρχεία / καταλόγους μέσα στον έλεγχο εκδόσεων"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Διόρθωση αντιγραφής"
@@ -8585,9 +8608,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Αναθεώρηση: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Συγγραφέας: %5!s!\r\nΗμερομηνία: %6!s!\r\n\r\nΜήνυμα καταγραφής:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8599,9 +8622,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Αναθεώρηση: %1!ld! %2!s!\r\nURL:  %3!s!\r\n%4!s!Συγγραφέας: %5!s!\r\nΗμερομηνία:%6!s!\r\n\r\nΕτικέτες (%7!d!):%8!s!\r\n\r\nΜύνημα καταγραφής:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8641,6 +8664,10 @@ msgstr ""
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
+msgstr ""
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
 msgstr ""
 
 #. Resource IDs: (363)
@@ -9313,6 +9340,10 @@ msgstr ""
 msgid "Show an overview of the whole graph"
 msgstr "Εμφάνιση επισκόπισης ολόκληρου του γραφήματος"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Εμφάνιση μεταβολών ως &ενοποιημένες διαφορές"
@@ -9347,6 +9378,10 @@ msgstr "Εμφάνιση &αρχείου καταγραφής"
 
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
+msgstr ""
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
 msgstr ""
 
 #. Resource IDs: (2051)
@@ -10076,6 +10111,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "Ο φάκελος\n%s\nυπάρχει ήδη!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

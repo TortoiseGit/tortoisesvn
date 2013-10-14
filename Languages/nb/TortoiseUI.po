@@ -22,9 +22,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-19 07:18+0000\n"
-"Last-Translator: okloster <okl@sintef.no>\n"
-"Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2439,6 +2439,10 @@ msgstr "&Trekk sammen undertrær"
 msgid "C&ommands:"
 msgstr "K&ommandoer:"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "&Lag gren/merke fra revisjon"
@@ -2855,6 +2859,10 @@ msgstr "Huk av for å bruke kortere dato- og tids-formater i loggmeldinger."
 msgid "Check working copy for modifications"
 msgstr "Se etter endringer i arbeidskopi"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Huk av:"
@@ -3236,6 +3244,10 @@ msgstr "Sammenlign med &arbeidskopi"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "Sammenlign med &basis"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6407,6 +6419,10 @@ msgstr "Gjør dette til standard"
 msgid "Manage Subversion properties"
 msgstr "Behandle Subversion-egenskaper"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Mange elementer er valgt for diff-visning"
@@ -6792,10 +6808,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Flytt\nElementene flyttes til målstien."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Flyttet fra"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6806,10 +6818,6 @@ msgstr "Flyttet fra\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Flyttet eksternt"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Flyttet til"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7718,6 +7726,10 @@ msgstr "Skriverfiler (*.prn)|*.prn|Alle Filer (*.*)|*.*||"
 msgid "Printing"
 msgstr "Skriving"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8320,6 +8332,16 @@ msgstr "Omdøpt eksternt"
 msgid "Renames files / folders inside version control"
 msgstr "Omdøper filer/mapper under kildekontroll"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Reparer kopi"
@@ -8591,9 +8613,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Revisjon: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Forfatter: %5!s!\r\nDato: %6!s!\r\n\r\nLoggmelding:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8605,9 +8627,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Revisjon: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Forfatter: %5!s!\r\nDato: %6!s!\r\n\r\nTagger (%7!d!):%8!s!\r\n\r\nLoggmelding:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8648,6 +8670,10 @@ msgstr "Rad Opp"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Kjør opprydding &nå"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9319,6 +9345,10 @@ msgstr "Vis Blanktegn"
 msgid "Show an overview of the whole graph"
 msgstr "Vis oversikt over hele grafen"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Vis endringer som &enhetlig diff"
@@ -9354,6 +9384,10 @@ msgstr "Vis &logg"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "Vis mange &endinger..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10082,6 +10116,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "Mappen\n%s\nfinnes allerede!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

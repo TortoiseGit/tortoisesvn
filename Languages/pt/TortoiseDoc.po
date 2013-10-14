@@ -22,9 +22,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-16 08:19+0000\n"
+"PO-Revision-Date: 2013-10-12 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
+"Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8634,11 +8634,11 @@ msgid ""
 "backdate your working copy to a previous revision, your externals "
 "definitions will also revert to the way they looked in that previous "
 "revision, which in turn means that the external working copies will be "
-"updated to match they way <emphasis>they</emphasis> looked back when your "
+"updated to match the way <emphasis>they</emphasis> looked back when your "
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr "Deverás considerar seriamente, o uso de números de revisão explícitos em todos as tuas definições externas, como descrito acima. Fazendo-o significa que, terás de decidir a altura de  puxar uma diferente fotografia da informação externa, e exactamente qual a fotografia a puxar. Aparte do senso comum de não ser supreendido por alterações de repositórios de terceiros, que não possas controlar, usar números de revisões explicitos, também significa que se reverters a tua cópia de trabalho para uma revisão anterior, as tuas definições externas irão também reverter para o estado que tinham nessa revisão prévia. O que por sua vez significa que, as cópias de trabalho externas serão actualizadas para corresponder o estado que <emphasis>elas</emphasis> tinham, quando o teu repositório estava nessa revisão prévia. Para projectos de software isto pode ser a diferença entre uma construção(build) falhada ou com sucesso, de uma fotografia antiga da tua complexa base de código. "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12579,6 +12579,17 @@ msgid ""
 msgstr "O comportamento normal na caixa de diálogo submeter é para todos os itens (versionados) modificados serem seleccionados automaticamente para submissão. Se preferires começar com nada seleccionado, e escolher manualmente os itens a submeter, desmarca esta caixa."
 
 #. (term)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. (para)
+msgid ""
+"This reopens the commit dialog automatically at the same directory after a "
+"successful commit. The dialog is reopened only if there still are items left"
+" to commit."
+msgstr ""
+
+#. (term)
 msgid "Contact the repository on startup"
 msgstr "Contactar o repositório ao iniciar"
 
@@ -13972,6 +13983,37 @@ msgid ""
 "hook is called at an early stage, the full list of objects selected for "
 "commit is not available."
 msgstr "Chamado antes de aparecer a caixa de diálogo submeter. Poderás querer usa-lo, se o gancho modificar um ficheiro versionado e afectar uma lista de ficheiros que necessitam de ser submetidos e/ou de uma mensagem de submissão. No entanto deverás ter em conta que, devido ao gancho ser chamado num estágio inicial, a lista completa de objectos seleccionados para submissão não está ainda disponível."
+
+#. (term)
+#. (term)
+msgid "Manual Pre-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is specified, the commit dialog shows a button <guibutton>Run "
+"Hook</guibutton> which when clicked runs the specified hook script. The hook"
+" script receives a list of all checkec files and folders and the commit "
+"message if there was one entered."
+msgstr ""
+
+#. (term)
+msgid "Check-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
+" and before the commit dialog closes. This hook gets a list of all the "
+"checked files. If the hook returns an error, the commit dialog stays open."
+msgstr ""
+
+#. (para)
+msgid ""
+"If the returned error message contains paths on newline separated lines, "
+"those paths will get selected in the commit dialog after the error message "
+"is shown."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -17591,6 +17633,10 @@ msgid "/path2"
 msgstr "/path2"
 
 #. (option)
+msgid "/ignoreprops"
+msgstr ""
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/ Pegrevision: xxx"
 
@@ -17608,13 +17654,15 @@ msgid ""
 "<placeholder-1/> specifies the first file. If the option <placeholder-2/> is"
 " set, then the diff program is started with those two files. If "
 "<placeholder-3/> is omitted, then the diff is done between the file in "
-"<placeholder-4/> and its BASE. To explicitly set the revision numbers use "
-"<placeholder-5/> and <placeholder-6/>, and for the optional peg revision use"
-" <placeholder-7/>. If <placeholder-8/> is set and <placeholder-9/> is not "
-"set, then the diff is done by first blaming the files with the given "
-"revisions. The parameter <placeholder-10/> specifies the line to jump to "
-"when the diff is shown."
-msgstr "Inicia o programa diff externo especificado nas configurações do TortoiseSVN. O <placeholder-1/> especifica o primeiro ficheiro. Se a opção <placeholder-2/> está definido, então o programa diff é iniciado com esses dois ficheiros. Se <placeholder-3/> for omitido, então a comparação é feita entre o ficheiro em <placeholder-4/> e sua base. Definir explicitamente os números de revisão uso <placeholder-5/> e <placeholder-6/> , E para o uso opcional revisão peg <placeholder-7/> . Se <placeholder-8/> está definido e <placeholder-9/> não está definido, então a comparação é feita pelo primeiro culpando os ficheiros com as revisões dadas. O parâmetro <placeholder-10/> especifica a linha para saltar para quando a comparação é mostrada."
+"<placeholder-4/> and its BASE. If the specified file also has property "
+"modifications, the external diff tool is also started for each modified "
+"property. To prevent that, pass the option <placeholder-5/>. To explicitly "
+"set the revision numbers use <placeholder-6/> and <placeholder-7/>, and for "
+"the optional peg revision use <placeholder-8/>. If <placeholder-9/> is set "
+"and <placeholder-10/> is not set, then the diff is done by first blaming the"
+" files with the given revisions. The parameter <placeholder-11/> specifies "
+"the line to jump to when the diff is shown."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17631,6 +17679,13 @@ msgid ""
 " The options <option>pegrevision</option>, <option>ignoreancestry</option>, "
 "<option>blame</option> and <option>unified</option> are optional."
 msgstr "As opções <option>url1</option>, <option>url2</option>, <option>revision1</option> e <option>revision2</option> devem ser especificadas. As opções <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> and <option>unified</option> são opcionais."
+
+#. (para)
+msgid ""
+"If the specified url also has property modifications, the external diff tool"
+" is also started for each modified property. To prevent that, pass the "
+"option <option>/ignoreprops</option>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -20321,17 +20376,23 @@ msgid ""
 "file path."
 msgstr "O nome do meu ficheiro. É exibido no título da vista em vez do caminho do ficheiro."
 
-#. (emphasis)
-msgid "merged"
-msgstr "integrado"
-
-#. (entry)
+#. (para)
 msgid ""
-"Specifies the resulting <placeholder-1/> file used in three way diffs. This "
-"is the file path where the result of the merge/conflict resolving is saved. "
-"If this is not set, then TortoiseMerge will ask the user where to save the "
-"result."
-msgstr "Especifica o ficheiro <placeholder-1/> resultante, usado nas comparações a três caminhos. Este é o caminho do ficheiro onde é guardado o resultado da resolução da integração/conflito. Se este não for especificado, então o tortoiseMerge irá perguntar ao utilizador onde poderá guardar o resultado."
+"Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
+" is the file path where the result of the merge/conflict resolving is saved."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a three-way diff, then TortoiseMerge will ask the "
+"user where to save the result."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a two-way diff, then TortoiseMerge will automatically"
+" use the path of the file shown in the right view as the save path."
+msgstr ""
 
 #. (entry)
 msgid ""

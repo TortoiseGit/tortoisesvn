@@ -18,9 +18,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-09-10 21:13+0000\n"
-"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
-"Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2435,6 +2435,10 @@ msgstr "&Zbaliť podstromy"
 msgid "C&ommands:"
 msgstr "&Príkazy"
 
+#. Resource IDs: (102)
+msgid "C&ompare URLs (content only)"
+msgstr ""
+
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
 msgstr "Vytvo&r vetvu/značku z revízie"
@@ -2851,6 +2855,10 @@ msgstr "Zaškrtnite ak chcete menej výpisov dátumu a času v správach denník
 msgid "Check working copy for modifications"
 msgstr "Skontrolovať pracovnú kópiu na zmeny"
 
+#. Resource IDs: (570)
+msgid "Check-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (1504)
 msgid "Check:"
 msgstr "Skontrolovať:"
@@ -3232,6 +3240,10 @@ msgstr "Porovnať s &pracovnou kópiou"
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
 msgstr "Porovnať so zákl&adom"
+
+#. Resource IDs: (138)
+msgid "Compare with base (content only)"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -6403,6 +6415,10 @@ msgstr "Nastaviť ako predvolené"
 msgid "Manage Subversion properties"
 msgstr "Spravovať vlastnosti Subversion"
 
+#. Resource IDs: (570)
+msgid "Manual Pre-Commit Hook"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Vybraných veľa položiek na zobrazenie rozdielov"
@@ -6788,10 +6804,6 @@ msgid ""
 "The items are moved to the target path."
 msgstr "Presunúť\nObjekty sú presunuté do cielovej cesty."
 
-#. Resource IDs: (65535)
-msgid "Moved from"
-msgstr "Presunuté z"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6802,10 +6814,6 @@ msgstr "Presunuté z\n%s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Presunuté vzdialene"
-
-#. Resource IDs: (65535)
-msgid "Moved to"
-msgstr "Presunuté do"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7714,6 +7722,10 @@ msgstr "Súbory tlačiarne (*.prn)|*.prn|Všetky súbory (*.*)|*.*||"
 msgid "Printing"
 msgstr "Tlačenie"
 
+#. Resource IDs: (364)
+msgid "Proceed anyway"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8316,6 +8328,16 @@ msgstr "Vzdialene premenované"
 msgid "Renames files / folders inside version control"
 msgstr "Premenuje súbory/adresáre vo správe verzií"
 
+#. Resource IDs: (1562)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid ""
+"Reopens the commit dialog after a successful commit if there were files "
+"and/or folders left uncommitted."
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Repair copy"
 msgstr "Opraviť kopírovanie"
@@ -8587,9 +8609,9 @@ msgid ""
 "%4!s!Author: %5!s!\r\n"
 "Date: %6!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%7!s!"
-msgstr "Revízia: %1!ld! (%2!s!)\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDátum: %6!s!\r\n\r\nSpráva denníka:\r\n%7!s!"
+msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
@@ -8601,9 +8623,9 @@ msgid ""
 "\r\n"
 "Tags (%7!d!):%8!s!\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Log message:\r\n"
 "%9!s!"
-msgstr "Revízia: %1!ld! (%2!s!)\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDátum: %6!s!\r\n\r\nZnačky (%7!d!):%8!s!\r\n\r\nSpráva denníka:\r\n%9!s!"
+msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8644,6 +8666,10 @@ msgstr "Riadok hore"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Spustiť čistenie &teraz"
+
+#. Resource IDs: (1542)
+msgid "Run hoo&k script"
+msgstr ""
 
 #. Resource IDs: (363)
 msgid ""
@@ -9315,6 +9341,10 @@ msgstr "Zobraziť biele znaky"
 msgid "Show an overview of the whole graph"
 msgstr "Zobrazí náhľad na celý graf"
 
+#. Resource IDs: (115)
+msgid "Show c&hanges (content only)"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
 msgstr "Zobraziť zmeny &unifikovaným porovnaním"
@@ -9350,6 +9380,10 @@ msgstr "Zobraziť &denník"
 #. Resource IDs: (64)
 msgid "Show multiple &changes..."
 msgstr "Zobraziť viacero &zmien..."
+
+#. Resource IDs: (115)
+msgid "Show multiple &changes... (content only)"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10078,6 +10112,10 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr "Adresár\n%s\nuž existuje!"
+
+#. Resource IDs: (170)
+msgid "The hook script executed successfully"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format

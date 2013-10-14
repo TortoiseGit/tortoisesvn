@@ -17,9 +17,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-08-19 22:20+0000\n"
-"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
-"Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2013-10-12 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8629,11 +8629,11 @@ msgid ""
 "backdate your working copy to a previous revision, your externals "
 "definitions will also revert to the way they looked in that previous "
 "revision, which in turn means that the external working copies will be "
-"updated to match they way <emphasis>they</emphasis> looked back when your "
+"updated to match the way <emphasis>they</emphasis> looked back when your "
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr "Sinun kannattaa vakavasti harkita versionumeroiden käyttöä kaikissa ulkoisissa viittauksissa, kuten edellä kuvattiin. Kun teet näin, pääset itse päättämään, milloin otat käyttöön uuden ulkoisen komponentin version (ja minkä version siitä). Sen itsestään selvyyden ohella, että et joudu yllätetyksi jonkun kolmannen osapuolen arkistomuutosten takia (joihin et ehkä voi vaikuttaa), versionumeroiden käyttö ulkoisissa viittauksissa auttaa myös silloin, kun haluat palauttaa jonkun projektisi vanhan version - tällöin ulkoiset viittaukset palautuvat oikeisiin arvoihin. Tästä johtuen ulkoiset työkopiot päivittyvät myös tavalla, joka vastaa sitä, miltä <emphasis>ne</emphasis> näyttivät aiemmassa versiossa. Ohjelmistoprojekteille tämä voi merkitä eroa onnistuneen tai epäonnistuneen käännöksen välillä."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12574,6 +12574,17 @@ msgid ""
 msgstr "Toimitusikkuna valitsee tavallisesti kaikki muutetut (ja versioidut) osat automaattisesti arkistoon toimitettaviksi. Jos haluat poimia kaikki toimitettavat kohteet käsin, poista tämä valinta."
 
 #. (term)
+msgid "Reopen dialog after commit if items were left uncommitted"
+msgstr ""
+
+#. (para)
+msgid ""
+"This reopens the commit dialog automatically at the same directory after a "
+"successful commit. The dialog is reopened only if there still are items left"
+" to commit."
+msgstr ""
+
+#. (term)
 msgid "Contact the repository on startup"
 msgstr "Ota yhteys arkistoon käynnistettäessä"
 
@@ -13967,6 +13978,37 @@ msgid ""
 "hook is called at an early stage, the full list of objects selected for "
 "commit is not available."
 msgstr "Komentojonoa kutsutaan ennen kuin toimitusikkuna aukeaa. Tämä on tarpeen, jos komentojonosi muuttaa versioituja tiedostoja ja vaikuttaa siten toimitettaviin tiedostoihin ja/tai toimitusviestiin. Huomaa kuitenkin, että koska komentoa kutsutaan varhaisessa vaiheessa, kaikki toimitettaviksi valitut tiedostot eivät ole saatavilla."
+
+#. (term)
+#. (term)
+msgid "Manual Pre-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is specified, the commit dialog shows a button <guibutton>Run "
+"Hook</guibutton> which when clicked runs the specified hook script. The hook"
+" script receives a list of all checkec files and folders and the commit "
+"message if there was one entered."
+msgstr ""
+
+#. (term)
+msgid "Check-commit"
+msgstr ""
+
+#. (para)
+msgid ""
+"Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
+" and before the commit dialog closes. This hook gets a list of all the "
+"checked files. If the hook returns an error, the commit dialog stays open."
+msgstr ""
+
+#. (para)
+msgid ""
+"If the returned error message contains paths on newline separated lines, "
+"those paths will get selected in the commit dialog after the error message "
+"is shown."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -17586,6 +17628,10 @@ msgid "/path2"
 msgstr "/path2"
 
 #. (option)
+msgid "/ignoreprops"
+msgstr ""
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/pegrevision:xxx"
 
@@ -17603,13 +17649,15 @@ msgid ""
 "<placeholder-1/> specifies the first file. If the option <placeholder-2/> is"
 " set, then the diff program is started with those two files. If "
 "<placeholder-3/> is omitted, then the diff is done between the file in "
-"<placeholder-4/> and its BASE. To explicitly set the revision numbers use "
-"<placeholder-5/> and <placeholder-6/>, and for the optional peg revision use"
-" <placeholder-7/>. If <placeholder-8/> is set and <placeholder-9/> is not "
-"set, then the diff is done by first blaming the files with the given "
-"revisions. The parameter <placeholder-10/> specifies the line to jump to "
-"when the diff is shown."
-msgstr "Käynnistää TortoiseSVN-asetuksissa määritellyn ulkoisen vertailuohjelman. Valitsin <placeholder-1/> määrittää ensimmäisen tiedoston. Jos valitsin <placeholder-2/> on annettu, vertailuohjelma käynnistetään annetuilla kahdella tiedostolla. Jos <placeholder-3/> jätetään antamatta, vertailu tehdään tiedoston <placeholder-4/> ja sen kantaversion (BASE) kanssa. Asettaaksesi versionumerot eksplisiittisesti käytä valitsimia <placeholder-5/> ja <placeholder-6/> sekä tarvittaessa valitsinta <placeholder-7/> ankkuriversion määrittämiseen. Jos valitsin <placeholder-8/> on annettu ja valitsin <placeholder-9/> puuttuu, vertailu tehdään selvittämällä ensin tekijät annetuille versioille. Valitsin <placeholder-10/> määrittää rivin, jolle siirrytään eroja näytettäessä."
+"<placeholder-4/> and its BASE. If the specified file also has property "
+"modifications, the external diff tool is also started for each modified "
+"property. To prevent that, pass the option <placeholder-5/>. To explicitly "
+"set the revision numbers use <placeholder-6/> and <placeholder-7/>, and for "
+"the optional peg revision use <placeholder-8/>. If <placeholder-9/> is set "
+"and <placeholder-10/> is not set, then the diff is done by first blaming the"
+" files with the given revisions. The parameter <placeholder-11/> specifies "
+"the line to jump to when the diff is shown."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17626,6 +17674,13 @@ msgid ""
 " The options <option>pegrevision</option>, <option>ignoreancestry</option>, "
 "<option>blame</option> and <option>unified</option> are optional."
 msgstr "Valitsimet <option>url1</option>, <option>url2</option>, <option>revision1</option> and <option>revision2</option> ovat pakollisia. Valitsimet <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> ja <option>unified</option> ovat valinnaisia."
+
+#. (para)
+msgid ""
+"If the specified url also has property modifications, the external diff tool"
+" is also started for each modified property. To prevent that, pass the "
+"option <option>/ignoreprops</option>."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -20316,17 +20371,23 @@ msgid ""
 "file path."
 msgstr "Minun-tiedoston nimi.  Tämä näytetään otsikossa tiedostopolun sijaan."
 
-#. (emphasis)
-msgid "merged"
-msgstr "yhdistetty"
-
-#. (entry)
+#. (para)
 msgid ""
-"Specifies the resulting <placeholder-1/> file used in three way diffs. This "
-"is the file path where the result of the merge/conflict resolving is saved. "
-"If this is not set, then TortoiseMerge will ask the user where to save the "
-"result."
-msgstr "Määrittelee kolmiosaisissa vertailuissa käytetyn tulostiedoston <placeholder-1/> nimen. Yhdistämisen / ristiriitojen ratkonnan tulos talletetaan tähän tiedostoon. Mikäli polku on asettamatta, TortoiseMerge kysyy käyttäjältä, mihin tulos talletetaan."
+"Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
+" is the file path where the result of the merge/conflict resolving is saved."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a three-way diff, then TortoiseMerge will ask the "
+"user where to save the result."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is not set for a two-way diff, then TortoiseMerge will automatically"
+" use the path of the file shown in the right view as the save path."
+msgstr ""
 
 #. (entry)
 msgid ""
