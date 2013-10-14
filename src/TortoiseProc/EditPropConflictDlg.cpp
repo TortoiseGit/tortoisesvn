@@ -133,6 +133,6 @@ void CEditPropConflictDlg::OnBnClickedEditprops()
 void CEditPropConflictDlg::OnBnClickedResolvetheirs()
 {
     SVN svn;
-    svn.Resolve(m_conflictItem, svn_wc_conflict_choose_theirs_full, FALSE);
+    svn.Resolve(m_conflictItem, svn_wc_conflict_choose_theirs_full, FALSE, true, svn_wc_conflict_kind_property);
     EndDialog(IDC_RESOLVETHEIRS);
 }

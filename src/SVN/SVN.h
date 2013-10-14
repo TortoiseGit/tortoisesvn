@@ -355,9 +355,11 @@ public:
      * \param path the path to resolve
      * \param result
      * \param recurse
+     * \param typeonly if true, only the specified conflict \c kind is resolved
+     * \param kind the conflict kind (text, property, tree) to resolve, only used if \c typeonly is true
      * \return TRUE if successful
      */
-    bool Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse);
+    bool Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse, bool typeonly, svn_wc_conflict_kind_t kind);
     /**
      * Export the contents of either a subversion repository or a subversion
      * working copy into a 'clean' directory (meaning a directory with no
@@ -946,6 +948,8 @@ protected:
     bool *                      m_pbCancel;
     bool                        m_bListComplete;///< used for the List() command
     CTSVNPath                   m_redirectedUrl;///< the target url in case of a redirect
+    svn_wc_conflict_kind_t      m_resolvekind;  ///< resolve kind for the conflict resolver callback
+    svn_wc_conflict_choice_t    m_resolveresult;///< resolve result for the conflict resolver callback
 
     static LCID                 s_locale;
     static bool                 s_useSystemLocale;

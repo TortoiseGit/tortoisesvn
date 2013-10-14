@@ -2319,7 +2319,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     continue;
                 if (!(data2->bConflictedActionItem))
                     continue;
-                if (!svn.Resolve(data2->path, result, FALSE))
+                if (!svn.Resolve(data2->path, result, FALSE, false, svn_wc_conflict_kind_text))
                 {
                     svn.ShowErrorDialog(m_hWnd, data2->path);
                     DialogEnableWindow(IDOK, TRUE);
@@ -3485,7 +3485,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
         ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
         for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
         {
-            if (!Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true))
+            if (!Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true, false, svn_wc_conflict_kind_text))
             {
                 ReportSVNError();
             }

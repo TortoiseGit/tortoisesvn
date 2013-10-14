@@ -395,7 +395,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
     else
     {
         SVN svn;
-        if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
+        if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false, true, svn_wc_conflict_kind_tree))
         {
             svn.ShowErrorDialog(m_hWnd, m_path);
             retVal = IDCANCEL;
@@ -417,7 +417,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
     else
     {
         SVN svn;
-        if (!svn.Resolve(m_path, svn_wc_conflict_choose_mine_conflict, false))
+        if (!svn.Resolve(m_path, svn_wc_conflict_choose_mine_conflict, false, true, svn_wc_conflict_kind_tree))
         {
             svn.ShowErrorDialog(m_hWnd, m_path);
             retVal = IDCANCEL;

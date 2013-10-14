@@ -5849,7 +5849,7 @@ void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
         {
             int index = GetNextSelectedItem(pos);
             FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-            if (!svn.Resolve(fentry->GetPath(), resolveStrategy, FALSE))
+            if (!svn.Resolve(fentry->GetPath(), resolveStrategy, FALSE, false, svn_wc_conflict_kind_text))
             {
                 svn.ShowErrorDialog(m_hWnd);
                 continue;

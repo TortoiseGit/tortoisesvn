@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,7 +39,7 @@ bool ResolveCommand::Execute()
                 bool bRet = true;
                 for (auto i = 0; i < pathList.GetCount(); ++i)
                 {
-                    bRet = bRet && svn.Resolve(pathList[i], svn_wc_conflict_choose_merged, true);
+                    bRet = bRet && svn.Resolve(pathList[i], svn_wc_conflict_choose_merged, true, false, svn_wc_conflict_kind_text);
                 }
 
                 HWND   resolveMsgWnd    = parser.HasVal(L"resolvemsghwnd")   ? (HWND)parser.GetLongLongVal(L"resolvemsghwnd")     : 0;

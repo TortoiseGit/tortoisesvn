@@ -108,6 +108,8 @@ SVN::SVN(bool suppressUI)
     , m_progressWndIsCProgress(false)
     , progress_averagehelper(0)
     , progress_lastTicks(0)
+    , m_resolvekind((svn_wc_conflict_kind_t)-1)
+    , m_resolveresult(svn_wc_conflict_choose_postpone)
 {
     parentpool = svn_pool_create(NULL);
     svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), parentpool));
@@ -179,7 +181,13 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
                      bool is_dav_comment, apr_time_t lock_creationdate,
                      apr_time_t lock_expirationdate, const CString& absolutepath,
                      const CString& externalParentUrl, const CString& externalTarget) {return TRUE;}
-svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile) {return svn_wc_conflict_choose_postpone;}
+svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
+{
+    if (m_resolvekind == description->kind)
+        return m_resolveresult;
+
+    return svn_wc_conflict_choose_postpone;
+}
 
 #pragma warning(pop)
 
@@ -558,36 +566,55 @@ bool SVN::CleanUp(const CTSVNPath& path)
     return (Err == NULL);
 }
 
-bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse)
+bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse, bool typeonly, svn_wc_conflict_kind_t kind)
 {
     SVNPool subpool(pool);
     Prepare();
 
-    // before marking a file as resolved, we move the conflicted parts
-    // to the trash bin: just in case the user later wants to get those
-    // files back anyway
-    SVNInfo info;
-    const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev(), SVNRev());
-    if (infodata)
+    if (typeonly)
     {
-        CTSVNPathList conflictedEntries;
+        m_resolvekind = kind;
+        m_resolveresult = result;
+        // change result to unspecified so the conflict resolve callback is invoked
+        result = svn_wc_conflict_choose_unspecified;
+    }
 
-        for (auto it = infodata->conflicts.cbegin(); it != infodata->conflicts.cend(); ++it)
+    switch (kind)
+    {
+    case svn_wc_conflict_kind_property:
+    case svn_wc_conflict_kind_tree:
+        break;
+    case svn_wc_conflict_kind_text:
+    default:
         {
-            if ((it->conflict_new.GetLength())&&(result != svn_wc_conflict_choose_theirs_full))
+            // before marking a file as resolved, we move the conflicted parts
+            // to the trash bin: just in case the user later wants to get those
+            // files back anyway
+            SVNInfo info;
+            const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev(), SVNRev());
+            if (infodata)
             {
-                conflictedEntries.AddPath(CTSVNPath(it->conflict_new));
-            }
-            if ((it->conflict_old.GetLength())&&(result != svn_wc_conflict_choose_merged))
-            {
-                conflictedEntries.AddPath(CTSVNPath(it->conflict_old));
-            }
-            if ((it->conflict_wrk.GetLength())&&(result != svn_wc_conflict_choose_mine_full))
-            {
-                conflictedEntries.AddPath(CTSVNPath(it->conflict_wrk));
+                CTSVNPathList conflictedEntries;
+
+                for (auto it = infodata->conflicts.cbegin(); it != infodata->conflicts.cend(); ++it)
+                {
+                    if ((it->conflict_new.GetLength())&&(result != svn_wc_conflict_choose_theirs_full))
+                    {
+                        conflictedEntries.AddPath(CTSVNPath(it->conflict_new));
+                    }
+                    if ((it->conflict_old.GetLength())&&(result != svn_wc_conflict_choose_merged))
+                    {
+                        conflictedEntries.AddPath(CTSVNPath(it->conflict_old));
+                    }
+                    if ((it->conflict_wrk.GetLength())&&(result != svn_wc_conflict_choose_mine_full))
+                    {
+                        conflictedEntries.AddPath(CTSVNPath(it->conflict_wrk));
+                    }
+                }
+                conflictedEntries.DeleteAllPaths(true, false, NULL);
             }
         }
-        conflictedEntries.DeleteAllPaths(true, false, NULL);
+        break;
     }
 
     const char* svnPath = path.GetSVNApiPath(subpool);
@@ -600,6 +627,9 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
         svnPath
     );
 
+    // reset the conflict resolve callback data
+    m_resolvekind = (svn_wc_conflict_kind_t)-1;
+    m_resolveresult = svn_wc_conflict_choose_postpone;
     return (Err == NULL);
 }
 
