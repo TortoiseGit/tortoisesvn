@@ -1710,6 +1710,8 @@ void CBaseView::DrawTextLine(
             }
             searchLine = searchLine.Mid(nMarkEnd);
             nStringPos = nMarkEnd;
+			nMarkStart = 0;
+			nMarkEnd = 0;
         }
     }
 
@@ -4345,6 +4347,8 @@ void CBaseView::BuildFindStringArray()
                     {
                         if (!m_bMatchCase)
                             line = line.MakeLower();
+						s = 0;
+						e = 0;
                         m_arFindStringLines.push_back(StringFound(line, SearchNext, s, e));
                         break;
                     }
@@ -5152,7 +5156,7 @@ void CBaseView::OnEditFindprevStart()
 
 bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const
 {
-    start = str.Find(m_sFindText);
+    start = str.Find(m_sFindText, start);
     if ((srchDir==SearchPrevious)&&(start>=0))
     {
         int laststart = start;
@@ -5277,8 +5281,8 @@ void CBaseView::Search(SearchDirection srchDir)
                     sSelectedText = srchDir==SearchNext ? sSelectedText.Mid(start.x) : sSelectedText.Left(start.x);
                 if (!m_bMatchCase)
                     sSelectedText = sSelectedText.MakeLower();
-                int startfound = -1;
-                int endfound = -1;
+                int startfound = 0;
+                int endfound = 0;
                 if (StringFound(sSelectedText, srchDir, startfound, endfound))
                 {
                     HighlightViewLines(nViewLine, nViewLine);
