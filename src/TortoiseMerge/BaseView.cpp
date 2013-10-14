@@ -1710,8 +1710,8 @@ void CBaseView::DrawTextLine(
             }
             searchLine = searchLine.Mid(nMarkEnd);
             nStringPos = nMarkEnd;
-			nMarkStart = 0;
-			nMarkEnd = 0;
+            nMarkStart = 0;
+            nMarkEnd = 0;
         }
     }
 
@@ -4347,8 +4347,8 @@ void CBaseView::BuildFindStringArray()
                     {
                         if (!m_bMatchCase)
                             line = line.MakeLower();
-						s = 0;
-						e = 0;
+                        s = 0;
+                        e = 0;
                         m_arFindStringLines.push_back(StringFound(line, SearchNext, s, e));
                         break;
                     }
