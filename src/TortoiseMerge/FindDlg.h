@@ -43,6 +43,12 @@ public:
 // Dialog Data
     enum { IDD = IDD_FIND };
 
+    enum FindType
+    {
+        Find,
+        Count
+    };
+
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
@@ -52,6 +58,7 @@ protected:
     virtual void OnOK();
     virtual BOOL OnInitDialog();
     afx_msg void OnCbnEditchangeFindcombo();
+    afx_msg void OnBnClickedCount();
 private:
     UINT            m_FindMsg;
     bool            m_bTerminating;
