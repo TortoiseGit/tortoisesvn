@@ -383,7 +383,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     if (SysInfo::Instance().IsVistaOrLater())
     {
-        DWORD exStyle = TVS_EX_FADEINOUTEXPANDOS | TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
+        // TVS_EX_FADEINOUTEXPANDOS style must not be set:
+        // if it is set, there's an UI glitch when editing labels:
+        // the text vanishes if the mouse cursor is moved away from
+        // the edit control
+        DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
         if (m_bSparseCheckoutMode)
             exStyle |= TVS_EX_MULTISELECT;
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
