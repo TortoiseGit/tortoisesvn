@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 24723)
+--- include/Scintilla.h	(Revision 24853)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -1002,6 +1002,8 @@
+@@ -1006,6 +1006,8 @@
  #define SCI_DISTANCETOSECONDARYSTYLES 4025
  #define SCI_GETSUBSTYLEBASES 4026
  #endif
@@ -13,9 +13,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 24723)
+--- src/Editor.cxx	(Revision 24853)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -2859,6 +2859,17 @@
+@@ -2864,6 +2864,17 @@
  		}
  	}
  
@@ -35,7 +35,7 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 24723)
+--- src/Editor.h	(Revision 24853)
 +++ src/Editor.h	(Arbeitskopie)
 @@ -493,6 +493,7 @@
  	virtual void SetCtrlID(int identifier);
@@ -47,7 +47,7 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 24723)
+--- win32/ScintillaWin.cxx	(Revision 24853)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
 @@ -257,6 +257,7 @@
  	virtual void SetCtrlID(int identifier);
@@ -57,7 +57,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1446,6 +1447,13 @@
+@@ -1447,6 +1448,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
