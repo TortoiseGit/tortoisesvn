@@ -187,6 +187,9 @@
 #define IDC_COUNT                       1501
 #define IDS_FIND_COUNT                  1502
 #define IDC_FINDSTATUS                  1503
+#define IDS_FIND_NOTFOUND               1504
+#define IDS_FIND_BOTTOMREACHED          1505
+#define IDS_FIND_TOPREACHED             1506
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
 #define IDS_SETTINGSTITLE               1702

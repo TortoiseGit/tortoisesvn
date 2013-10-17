@@ -640,6 +640,9 @@ END
 STRINGTABLE
 BEGIN
     IDS_FIND_COUNT          "Count: %d matches."
+    IDS_FIND_NOTFOUND       "Find: Can't find the text ""%s"""
+    IDS_FIND_BOTTOMREACHED  "Find: First occurrence from the top found. End of document reached."
+    IDS_FIND_TOPREACHED     "Find: First occurrence from the bottom found. Beginning of document reached."
 END
 
 STRINGTABLE
