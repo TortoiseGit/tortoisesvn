@@ -5122,7 +5122,7 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
             format.LoadString(IDS_FIND_COUNT);
             CString matches;
             matches.Format(format, count);
-            ::MessageBox(m_hWnd, matches, _T("TortoiseMerge"), MB_ICONINFORMATION);
+            m_pFindDialog->SetStatusText(matches);
         }
     }
 
