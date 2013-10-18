@@ -188,7 +188,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
     if (m_RepoTree.ItemHasChildren(hItem))
     {
         HTREEITEM childItem;
-        for (childItem = m_RepoTree.GetChildItem(hItem);childItem != NULL; childItem = m_RepoTree.GetNextItem(childItem, TVGN_NEXT))
+        for (childItem = m_RepoTree.GetChildItem(hItem);childItem != NULL;)
         {
             RecursiveRemove(childItem);
             if (bChildrenOnly)
@@ -201,8 +201,12 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
                 }
                 delete pTreeItem;
                 m_RepoTree.SetItemData(childItem, 0);
-                m_RepoTree.DeleteItem(childItem);
+                HTREEITEM hDelItem = childItem;
+                childItem = m_RepoTree.GetNextItem(childItem, TVGN_NEXT);
+                m_RepoTree.DeleteItem(hDelItem);
             }
+            else
+                childItem = m_RepoTree.GetNextItem(childItem, TVGN_NEXT);
         }
     }
 
