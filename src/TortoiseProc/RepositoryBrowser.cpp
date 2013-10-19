@@ -96,7 +96,8 @@ enum RepoBrowserContextMenuCommands
     ID_PREPAREDIFF,
     ID_UPDATE,
     ID_CREATELINK,
-
+    ID_ADDTOBOOKMARKS,
+    ID_REMOVEBOOKMARKS,
 };
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -127,6 +128,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_bRightDrag(false)
     , oldy(0)
     , oldx(0)
+    , m_nBookmarksIcon(0)
 {
     ConstructorInit(rev);
 }
@@ -174,10 +176,12 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
     m_bShowExternals = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
     m_bShowLocks     = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", true);
+    LoadBookmarks();
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
+    SaveBookmarks();
 }
 
 void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
@@ -194,7 +198,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
             if (bChildrenOnly)
             {
                 CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(childItem);
-                if (m_pListCtrlTreeItem == pTreeItem)
+                if (pTreeItem && !pTreeItem->bookmark && (m_pListCtrlTreeItem == pTreeItem))
                 {
                     m_RepoList.DeleteAllItems();
                     m_pListCtrlTreeItem = nullptr;
@@ -213,7 +217,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
     if ((hItem)&&(!bChildrenOnly))
     {
         CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
-        if (m_pListCtrlTreeItem == pTreeItem)
+        if (pTreeItem && !pTreeItem->bookmark && (m_pListCtrlTreeItem == pTreeItem))
         {
             m_RepoList.DeleteAllItems();
             m_pListCtrlTreeItem = nullptr;
@@ -228,7 +232,13 @@ void CRepositoryBrowser::ClearUI()
     CAutoWriteLock locker(m_guard);
     m_RepoList.DeleteAllItems();
 
-    RecursiveRemove (m_RepoTree.GetRootItem());
+    HTREEITEM hRoot = m_RepoTree.GetRootItem();
+    do 
+    {
+        RecursiveRemove(hRoot);
+        m_RepoTree.DeleteItem(hRoot);
+        hRoot = m_RepoTree.GetRootItem();
+    } while (hRoot);
 
     m_RepoTree.DeleteAllItems();
 }
@@ -384,6 +394,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         m_RepoList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
         ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
     }
+    m_nBookmarksIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BOOKMARKS), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     if (SysInfo::Instance().IsVistaOrLater())
     {
@@ -723,6 +734,7 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
     m_barRepository.SetRevision (m_repository.revision);
     m_barRepository.ShowUrl (m_InitialUrl, m_repository.revision);
     ChangeToUrl (m_InitialUrl, m_repository.revision, true);
+    RefreshBookmarks();
 
     m_bInitDone = TRUE;
     return 0;
@@ -1126,8 +1138,6 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     CString partUrl = url;
     if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot)
     {
-        // if the revision changed, then invalidate everything
-        ClearUI();
         ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 
         // if the repository root has changed, initialize all data from scratch
@@ -1136,7 +1146,10 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
             m_ProjectProperties = ProjectProperties();
         m_InitialUrl = url;
         m_repository.revision = rev;
+        // if the revision changed, then invalidate everything
+        ClearUI();
         InitRepo();
+        RefreshBookmarks();
 
         if (m_repository.root.IsEmpty())
             return false;
@@ -1444,6 +1457,15 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
         {
             CAutoWriteLock locker(m_guard);
             node = m_RepoTree.GetRootItem();
+            if (node)
+            {
+                CAutoReadLock locker(m_guard);
+                CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+                if (pTreeItem == nullptr)
+                    node = NULL;
+                else if (pTreeItem->bookmark)
+                    node = NULL;
+            }
             if (node == NULL)
             {
                 // the tree view is empty, just fill in the repository root
@@ -1456,7 +1478,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 
                 TVINSERTSTRUCT tvinsert = {0};
                 tvinsert.hParent = TVI_ROOT;
-                tvinsert.hInsertAfter = TVI_ROOT;
+                tvinsert.hInsertAfter = TVI_FIRST;
                 tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
                 tvinsert.itemex.pszText = currentPath.GetBuffer (currentPath.GetLength());
                 tvinsert.itemex.cChildren = 1;
@@ -2013,7 +2035,7 @@ void CRepositoryBrowser::OnInlineedit()
         if (hTreeItem != m_RepoTree.GetRootItem())
         {
             CTreeItem* pItem = (CTreeItem*)m_RepoTree.GetItemData (hTreeItem);
-            if (!pItem->is_external)
+            if (!pItem->is_external && !pItem->bookmark)
                 m_RepoTree.EditLabel(hTreeItem);
         }
     }
@@ -2083,17 +2105,30 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelItem);
             if (pTreeItem)
             {
-                if (!pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
+                if (pTreeItem->bookmark)
                 {
-                    CAutoWriteLock locker(m_guard);
-                    m_RepoList.DeleteAllItems();
-                    RefreshNode(hSelItem);
+                    if (!pTreeItem->url.IsEmpty())
+                    {
+                        SVNRev r = SVNRev::REV_HEAD;
+                        CString url = pTreeItem->url;
+                        ChangeToUrl(url, r, false);
+                        m_barRepository.ShowUrl (url, r);
+                    }
                 }
+                else
+                {
+                    if (!pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
+                    {
+                        CAutoWriteLock locker(m_guard);
+                        m_RepoList.DeleteAllItems();
+                        RefreshNode(hSelItem);
+                    }
 
-                FillList(pTreeItem);
+                    FillList(pTreeItem);
 
-                m_barRepository.ShowUrl ( pTreeItem->url
-                                        , pTreeItem->repository.revision);
+                    m_barRepository.ShowUrl ( pTreeItem->url
+                                            , pTreeItem->repository.revision);
+                }
             }
         }
     }
@@ -2113,6 +2148,8 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
     CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
 
     if (pTreeItem == NULL)
+        return;
+    if (pTreeItem->bookmark)
         return;
 
     if (pNMTreeView->action == TVE_COLLAPSE)
@@ -2688,7 +2725,11 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 
     CRepositoryBrowserSelection selection;
     LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
-    selection.Add ((CTreeItem *)pNMTreeView->itemNew.lParam);
+    CTreeItem * pItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
+    if (pItem && pItem->bookmark)
+        return;
+
+    selection.Add (pItem);
 
     BeginDrag(m_RepoTree, selection, pNMTreeView->ptDrag, false);
 }
@@ -3085,6 +3126,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
     }
 
     bool bSVNParentPathUrl = false;
+    bool bIsBookmark = false;
     CRepositoryBrowserSelection selection;
     if (pWnd == &m_RepoList)
     {
@@ -3148,6 +3190,12 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             hChosenTreeItem = hItem;
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
             bSVNParentPathUrl = pTreeItem->svnparentpathroot;
+            if (pTreeItem->bookmark)
+            {
+                bIsBookmark = true;
+                if (pTreeItem->url.IsEmpty())
+                    return;
+            }
             selection.Add (pTreeItem);
         }
     }
@@ -3158,7 +3206,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
     CIconMenu popup;
     if (popup.CreatePopupMenu())
     {
-        if (!bSVNParentPathUrl)
+        if (!bSVNParentPathUrl && !bIsBookmark)
         {
             if (selection.GetPathCount (0) == 1)
             {
@@ -3211,7 +3259,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             popup.AppendMenuIcon(ID_CHECKOUT, IDS_MENUCHECKOUT, IDI_CHECKOUT);      // "Checkout.."
         }
 
-        if (selection.GetPathCount (0) == 1)
+        if ((selection.GetPathCount (0) == 1) && !bIsBookmark)
         {
             if (selection.IsFolder (0, 0))
             {
@@ -3239,9 +3287,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     popup.AppendMenuIcon(ID_BREAKLOCK, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK);   // "Break Lock"
                 }
             }
+            popup.AppendMenuIcon(ID_ADDTOBOOKMARKS, IDS_REPOBROWSE_ADDBOOKMARK, IDI_BOOKMARKS); // "add to bookmarks"
         }
 
-        if (!bSVNParentPathUrl)
+        if (!bSVNParentPathUrl && !bIsBookmark)
         {
             if (selection.GetRepository(0).revision.IsHead() && !selection.IsRoot (0, 0))
             {
@@ -3253,7 +3302,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
         }
         popup.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_REPOBROWSE_URLTOCLIPBOARD, IDI_COPYCLIP);   // "Copy URL to clipboard"
-        if (!bSVNParentPathUrl)
+        if (!bSVNParentPathUrl && !bIsBookmark)
         {
             if (   (selection.GetFolderCount(0) == selection.GetPathCount(0))
                 || (selection.GetFolderCount(0) == 0))
@@ -3326,6 +3375,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
         }
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
+        if (bIsBookmark)
+            popup.AppendMenuIcon(ID_REMOVEBOOKMARKS, IDS_REPOBROWSE_REMOVEBOOKMARK, IDI_BOOKMARKS);
         int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
 
         auto stopJobs (m_lister.SuspendJobs());
@@ -4141,6 +4192,18 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
             }
             break;
+        case ID_ADDTOBOOKMARKS:
+            {
+                m_bookmarks.insert((LPCWSTR)selection.GetURL(0, 0).GetSVNPathString());
+                RefreshBookmarks();
+            }
+            break;
+        case ID_REMOVEBOOKMARKS:
+            {
+                m_bookmarks.erase((LPCWSTR)selection.GetURL(0, 0).GetSVNPathString());
+                RefreshBookmarks();
+            }
+            break;
         default:
             break;
         }
@@ -4237,6 +4300,8 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node)
     {
         CAutoReadLock locker(m_guard);
         CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+        if (pItem->bookmark)
+            return;
         r = pItem->repository.revision;
     }
     InvalidateData (node, r);
@@ -4251,6 +4316,8 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
         if (node != NULL)
         {
             pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+            if (pItem->bookmark)
+                return;
             url = pItem->url;
         }
     }
@@ -5006,5 +5073,103 @@ bool CRepositoryBrowser::RunPostCommit( const CTSVNPathList& pathlist, svn_depth
         }
     }
     return true;
+}
+
+HTREEITEM CRepositoryBrowser::FindBookmarkRoot()
+{
+    HTREEITEM hRoot = m_RepoTree.GetRootItem();
+    while (hRoot)
+    {
+        CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hRoot);
+        if (pItem && pItem->bookmark)
+            return hRoot;
+        hRoot = m_RepoTree.GetNextItem(hRoot, TVGN_NEXT);
+    }
+    return NULL;
+}
+
+void CRepositoryBrowser::RefreshBookmarks()
+{
+    HTREEITEM hBookmarkRoot = FindBookmarkRoot();
+    if (hBookmarkRoot)
+        RecursiveRemove(hBookmarkRoot, true);
+    else
+    {
+        if (m_bSparseCheckoutMode)
+            return;
+        // the tree view is empty, just fill in the repository root
+        CTreeItem * pTreeItem = new CTreeItem();
+        pTreeItem->kind = svn_node_dir;
+        pTreeItem->bookmark = true;
+
+        CString sBook(MAKEINTRESOURCE(IDS_BOOKMARKS));
+        TVINSERTSTRUCT tvinsert = {0};
+        tvinsert.hParent = TVI_ROOT;
+        tvinsert.hInsertAfter = TVI_LAST;
+        tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+        tvinsert.itemex.pszText = sBook.GetBuffer();
+        tvinsert.itemex.cChildren = 1;
+        tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+        tvinsert.itemex.iImage = m_nBookmarksIcon;
+        tvinsert.itemex.iSelectedImage = m_nBookmarksIcon;
+        hBookmarkRoot = m_RepoTree.InsertItem(&tvinsert);
+        sBook.ReleaseBuffer();
+    }
+    if (hBookmarkRoot)
+    {
+        for (const auto& bm : m_bookmarks)
+        {
+            CString bookmark = bm.c_str();
+            CTreeItem * pTreeItem = new CTreeItem();
+            pTreeItem->kind = svn_node_file;
+            pTreeItem->bookmark = true;
+            pTreeItem->url = bookmark;
+
+            CString sBook(MAKEINTRESOURCE(IDS_BOOKMARKS));
+            TVINSERTSTRUCT tvinsert = {0};
+            tvinsert.hParent = hBookmarkRoot;
+            tvinsert.hInsertAfter = TVI_LAST;
+            tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+            tvinsert.itemex.pszText = bookmark.GetBuffer();
+            tvinsert.itemex.cChildren = 0;
+            tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+            tvinsert.itemex.iImage = m_nIconFolder;
+            tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+            m_RepoTree.InsertItem(&tvinsert);
+            bookmark.ReleaseBuffer();
+        }
+    }
+}
+
+void CRepositoryBrowser::LoadBookmarks()
+{
+    m_bookmarks.clear();
+    CString sFilepath = CPathUtils::GetAppDataDirectory() + L"repobrowserbookmarks";
+    CStdioFile file;
+    if (file.Open(sFilepath, CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite))
+    {
+        CString strLine;
+        while (file.ReadString(strLine))
+        {
+            m_bookmarks.insert((LPCWSTR)strLine);
+        }
+        file.Close();
+    }
+}
+
+void CRepositoryBrowser::SaveBookmarks()
+{
+    CString sFilepath = CPathUtils::GetAppDataDirectory() + L"repobrowserbookmarks";
+
+    CStdioFile file;
+    if (file.Open(sFilepath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
+    {
+        for (const auto& bm : m_bookmarks)
+        {
+            file.WriteString(bm.c_str());
+            file.WriteString(L"\n");
+        }
+        file.Close();
+    }
 }
 

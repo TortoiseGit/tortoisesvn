@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,6 +41,8 @@ bool CTreeDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
         CTreeItem* pItem = (CTreeItem*)m_pRepoBrowser->m_RepoTree.GetItemData(hDropTarget);
         if (pItem == NULL)
             return false;
+        if (pItem->bookmark)
+            return false;
 
         targetUrl = pItem->url;
         root = pItem->repository.root;
@@ -80,10 +82,10 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
         m_dwHoverStartTicks = 0;
     hLastItem = hItem;
 
+    bool nodrop = false;
 
     if (hItem != NULL)
     {
-        TreeView_SelectDropTarget(m_hTargetWnd, hItem);
         TVITEMEX tvItem = {0};
         tvItem.mask = TVIF_TEXT;
         tvItem.hItem = hItem;
@@ -106,28 +108,42 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
         }
         else
             m_dwHoverStartTicks = 0;
+        CTreeItem * pItem = (CTreeItem*)m_pRepoBrowser->m_RepoTree.GetItemData(hItem);
+        if (pItem && pItem->bookmark)
+        {
+            TreeView_SelectDropTarget(m_hTargetWnd, NULL);
+            *pdwEffect = DROPEFFECT_NONE;
+            SetDropDescription(DROPIMAGE_NONE, sNoDrop, targetName);
+            nodrop = true;
+        }
+        else
+            TreeView_SelectDropTarget(m_hTargetWnd, hItem);
     }
     else
     {
         TreeView_SelectDropTarget(m_hTargetWnd, NULL);
         *pdwEffect = DROPEFFECT_NONE;
+        nodrop = true;
         m_dwHoverStartTicks = 0;
     }
 
-    *pdwEffect = DROPEFFECT_MOVE;
-    if (m_bFiles)
+    if (!nodrop)
     {
-        *pdwEffect = DROPEFFECT_COPY;
-        SetDropDescription(DROPIMAGE_COPY, sImportDrop, targetName);
-    }
-    else if (grfKeyState & MK_CONTROL)
-    {
-        *pdwEffect = DROPEFFECT_COPY;
-        SetDropDescription(DROPIMAGE_COPY, sCopyDrop, targetName);
-    }
-    else
-    {
-        SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
+        *pdwEffect = DROPEFFECT_MOVE;
+        if (m_bFiles)
+        {
+            *pdwEffect = DROPEFFECT_COPY;
+            SetDropDescription(DROPIMAGE_COPY, sImportDrop, targetName);
+        }
+        else if (grfKeyState & MK_CONTROL)
+        {
+            *pdwEffect = DROPEFFECT_COPY;
+            SetDropDescription(DROPIMAGE_COPY, sCopyDrop, targetName);
+        }
+        else
+        {
+            SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
+        }
     }
     m_pRepoBrowser->SetRightDrag((grfKeyState & MK_RBUTTON)!=0);
     CRect rect;

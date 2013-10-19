@@ -942,7 +942,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Resources\Bookmarks.ico" />
     <Image Include="..\Resources\ccollabgui.ico" />
+    <Image Include="Bookmarks.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
