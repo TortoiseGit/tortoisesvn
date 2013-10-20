@@ -78,6 +78,7 @@
 #include <vector>
 #include <fstream>
 #include <memory>
+#include <algorithm>
 
 // Commonly used log cache streams
 // (others may be included locally)
