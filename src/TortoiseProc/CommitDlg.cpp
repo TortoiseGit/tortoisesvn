@@ -579,6 +579,7 @@ void CCommitDlg::OnOK()
                         }
                     }
                 }
+                return;
             }
         }
     }
