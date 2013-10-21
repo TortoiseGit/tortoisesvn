@@ -3522,6 +3522,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (!entry2->GetRestorePath().IsEmpty())
                             continue;
                         CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
+                        // delete the temp file: the temp file has the FILE_ATTRIBUTE_TEMPORARY flag set
+                        // and copying the real file over it would leave that temp flag.
+                        DeleteFile(tempFile.GetWinPath());
                         if (CopyFile(entry2->GetPath().GetWinPath(), tempFile.GetWinPath(), FALSE))
                         {
                             entry2->restorepath = tempFile.GetWinPathString();
