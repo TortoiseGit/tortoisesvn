@@ -63,6 +63,8 @@ protected:
     afx_msg void OnBnClickedAbort();
 
 private:
+    CString GetShowLogCmd(const CTSVNPath &logPath, const CString &sFile);
+
     svn_wc_conflict_choice_t    m_theirsChoice;
     svn_wc_conflict_choice_t    m_mineChoice;
     CTSVNPath                   m_path;

@@ -359,14 +359,31 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
     // EXCEPTION: OCX Property Pages should return FALSE
 }
 
+CString CTreeConflictEditorDlg::GetShowLogCmd(const CTSVNPath &logPath, const CString &sFile)
+{
+    CString sFilter;
+    if (!sFile.IsEmpty())
+        sFilter.Format(_T("/findstring:\"%s\" /findtype:2 /findtext"), (LPCTSTR)sFile);
+
+    CString sCmd;
+    sCmd.Format(_T("/command:log /path:\"%s\" /pegrev:%ld %s"),
+        (LPCTSTR)logPath.GetSVNPathString(),
+        (svn_revnum_t)src_left_version_rev,
+        (LPCTSTR)sFilter);
+
+    return sCmd;
+}
+
 void CTreeConflictEditorDlg::OnBnClickedShowlog()
 {
+    CString sFile;
     CTSVNPath logPath = m_path;
     if (SVNHelper::IsVersioned(logPath.GetContainingDirectory(), true))
+    {
+        sFile = logPath.GetFilename();
         logPath = logPath.GetContainingDirectory();
-    CString sCmd;
-    sCmd.Format(_T("/command:log /path:\"%s\""), logPath.GetWinPath());
-    CAppUtils::RunTortoiseProc(sCmd);
+    }
+    CAppUtils::RunTortoiseProc(GetShowLogCmd(logPath, sFile));
 }
 
 void CTreeConflictEditorDlg::OnBnClickedBranchlog()
@@ -374,14 +391,15 @@ void CTreeConflictEditorDlg::OnBnClickedBranchlog()
     CString sTemp;
     sTemp.Format(_T("%s/%s"), (LPCTSTR)src_left_version_url, (LPCTSTR)src_left_version_path);
 
+    CString sFile;
     CTSVNPath logPath = CTSVNPath(sTemp);
     if (src_left_version_kind != svn_node_dir)
+    {
+        sFile = logPath.GetFilename();
         logPath = logPath.GetContainingDirectory();
-    CString sCmd;
-    sCmd.Format(_T("/command:log /path:\"%s\" /pegrev:%ld"),
-        (LPCTSTR)logPath.GetSVNPathString(),
-        (svn_revnum_t)src_left_version_rev);
-    CAppUtils::RunTortoiseProc(sCmd);
+    }
+
+    CAppUtils::RunTortoiseProc(GetShowLogCmd(logPath, sFile));
 }
 
 void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
