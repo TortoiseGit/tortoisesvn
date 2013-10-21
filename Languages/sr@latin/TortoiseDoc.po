@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-14 10:50+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8635,7 +8635,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Morate čvrsto da rešite da koristite eksplicitno revizione brojeve u svim vašim eksternim definicijama, kako je opisano gore. Takav rad znači da ste odlučili kada povući različite slike eksternih informacija i tačno koje slike povući. Pored zajedničkog osećaja da nema iznenađenja spremišta trećeg-lica koja mogu da nemaju bilo kakvu kontrolu nad tim, koristeći eksplicitne revizione brojeve takođe znači to da ako unazad datirate vašu radnu kopiju  prema prethodnoj reviziji vaše eksterne definicije će se vratiti na način kako su izgledali u prethodnoj reviziji, što znači da ćete eksterne radne kopije uskladiti sa načinom <emphasis>njihov</emphasis> po izgledu kada je vaša radna kopija imala prethodnu reviziju. Za projekat softvera ovo može biti razlika između uspešne i neuspešne izrade starije slike vaše kompleksne osnove koda."
 
 #. (para)
 msgid ""
@@ -12577,14 +12577,14 @@ msgstr "Normalno ponašanje u dijalogu urezivanja za sve modifikovane (verzionis
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Ponovo otvaranje dijaloga posle urezivanja ako su stavke preostale neurezane"
 
 #. (para)
 msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Ovo ponovo otvara dijalog urezivanja automatski u istom direktorijumu posle uspešnog urezivanja. Dijalog je ponovo otvoren samo ako ima još stavki da se urežu."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13984,7 +13984,7 @@ msgstr "Pozvan pre nego se pojavi dijalog urezivanja. Možete žieleti da korist
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Ručno pre-urezivanje"
 
 #. (para)
 msgid ""
@@ -13992,25 +13992,25 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Ako je ovo specificirano dijalog urezivanja prikazuje dugme  <guibutton>Izvrši zakačaljku</guibutton> koji kada se pritisne izvršava specificiranu zakačivu skriptu. Zakačiva skripta prima listu čekiranih fajlova i foldera i poruku urezivanja ako se neka uneta."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Čekira-urezivanje"
 
 #. (para)
 msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Pozvan posle korisnikovog klika na <guibutton>OK</guibutton> u dijalogu urezivanja i pre nego se dijalog urezivanja zatvori. Zakačaljka dobija listu čekiranih fajlova. Ako zakačaljka vrati grešku dijalog urezivanja ostaje otvoren."
 
 #. (para)
 msgid ""
 "If the returned error message contains paths on newline separated lines, "
 "those paths will get selected in the commit dialog after the error message "
 "is shown."
-msgstr ""
+msgstr "Ako vraćena poruka greške sadrži putanje u linijama razdvojenim separatorima novih linija ove putanje se biraju u dijalogu urezivanja posle prikazivanja poruke greške.  "
 
 #. (term)
 #. (term)
@@ -17631,7 +17631,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"
@@ -17659,7 +17659,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Pokreće eksterni dif program označen u TortoiseSVN podešavanju. <placeholder-1/> specificira prvi fajl. Ako je opcija <placeholder-2/> izabrana onda dif program počinje sa ta dva fajla. Ako <placeholder-3/> nedostaje onda dif radi između fajla u <placeholder-4/>  i OSNOVE. Ako je specificiran fajl sa izmenjenim osobinama eksterni dif  alat takođe počinje za svaku izmenjenu osobinu. Da se predupredi to pošaljite opciju <placeholder-5/>. Da se eksplicitno izaberu revizioni brojevi koristite  <placeholder-6/> i <placeholder-7/>, i za opcione peg revizije koristite  <placeholder-8/>. Ako je <placeholder-9/> izabrana i <placeholder-10/> nije izabrana onda dif najpre okrivi fajlove datom revizijom. Parametar <placeholder-11/> specificira liniju za skok gde je dif prikazan."
 
 #. (para)
 msgid ""
@@ -17682,7 +17682,7 @@ msgid ""
 "If the specified url also has property modifications, the external diff tool"
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
-msgstr ""
+msgstr "Ako specificiran url takođe ima izmene osobina eksterni dif alat takođe se pokreće za svaku izmenjenu osobinu. Da se to predupredi prosledite opiciju <option>/ignoreprops</option>."
 
 #. (entry)
 msgid ""
@@ -20377,19 +20377,19 @@ msgstr "Ime mog fajla. Ovo je prikazano u pregledu naslova umesto putanje fajla.
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr ""
+msgstr "Specificira rezultantni <emphasis>stopljeni</emphasis>  fajl korišćen u dif. Ovo je putanja fajla gde je rezultat stopljen/konflikt rešenje sačuvano."
 
 #. (para)
 msgid ""
 "If this is not set for a three-way diff, then TortoiseMerge will ask the "
 "user where to save the result."
-msgstr ""
+msgstr "Ako ovo nije izabrano za tri-načina dif onda TortoiseMerge pita korisnika gde da sačuva rezultat."
 
 #. (para)
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
-msgstr ""
+msgstr "Ako ovo nije izabrano za dva-načina dif onda će TortoiseMerge automatski koristiti putanju fajla prikazanom u desnom pregledu kao putanju čuvanja."
 
 #. (entry)
 msgid ""

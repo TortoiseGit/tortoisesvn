@@ -12,11 +12,13 @@
 # Translators:
 # shcham <shcham@gmail.com>, 2013
 # Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011
-# _deniska <denis_levin@mail.ru>, 2011
+# _deniska <denis_levin@mail.ru>, 2011,2013
 # _deniska <denis_levin@mail.ru>, 2013
+# sassy <sassy.but.classic@gmail.com>, 2013
 # Dmitry Sytkov <sytkov@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011-2012
+# sassy <sassy.but.classic@gmail.com>, 2013
 # shcham <shcham@gmail.com>, 2013
 # Dmitry Sytkov <sytkov@gmail.com>, 2011
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012-2013
@@ -25,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:29+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-19 20:20+0000\n"
+"Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2444,7 +2446,7 @@ msgstr "Ко&манды:"
 
 #. Resource IDs: (102)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "С&равнить URL (только содержимое)"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2864,7 +2866,7 @@ msgstr "Проверка рабочей копии на наличие изме�
 
 #. Resource IDs: (570)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Ловушка проверки фиксации"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3250,7 +3252,7 @@ msgstr "Сравнить с б&азой"
 
 #. Resource IDs: (138)
 msgid "Compare with base (content only)"
-msgstr ""
+msgstr "Сравнить с базой (только содержимое)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3675,6 +3677,15 @@ msgstr "Не могу запустить программу просмотра �
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Не могу запустить поток!"
+
+#. Resource IDs: (1501)
+msgid "Coun&t"
+msgstr "Подсчё&т"
+
+#. Resource IDs: (94)
+#, c-format
+msgid "Count: %d matches."
+msgstr "Подсчёт: %d совпадений."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -4160,7 +4171,7 @@ msgstr "Вы действительно желаете убрать все из�
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
-msgstr "Вы хотите разместить ветку поставщика в рабочей копии \"%s\"?"
+msgstr "Вы хотите разместить ветку вендора в рабочей копии \"%s\"?"
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -4827,7 +4838,7 @@ msgstr "Не удалось создать/ликвидировать групп
 msgid ""
 "Failed to start the issue tracker COM provider '%1!s!'.\n"
 "%2!s!"
-msgstr "Не удалось запустить поставщика системы отслеживания проблем '%1!s!'.\n%2!s!"
+msgstr "Не удалось запустить COM провайдера системы отслеживания проблем '%1!s!'.\n%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -6262,7 +6273,7 @@ msgstr "Загрузить изменения\nПредставления обн
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr "Локальные &обработчики"
+msgstr "Локальные &ловушки"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6424,7 +6435,7 @@ msgstr "Управление свойствами Subversion "
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
-msgstr ""
+msgstr "Ручная ловушка перед-фиксацией"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -7731,7 +7742,7 @@ msgstr "Идёт печать"
 
 #. Resource IDs: (364)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Продолжить в любом случае"
 
 #. Resource IDs: (170)
 msgid ""
@@ -8343,7 +8354,7 @@ msgstr "Открыть диалог после фиксации если ест�
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr ""
+msgstr "Открыть диалог фиксации после успешной фиксации, если остались не зафиксированные файлы и/или папки."
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -8618,7 +8629,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%7!s!"
-msgstr ""
+msgstr "Ревизия: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Автор: %5!s!\r\nДата: %6!s!\r\n\r\nСообщение журнала:\r\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8632,7 +8643,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%9!s!"
-msgstr ""
+msgstr "Ревизия: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Автор: %5!s!\r\nДата: %6!s!\r\n\r\nМетки (%7!d!):%8!s!\r\n\r\nСообщение журнала:\r\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8676,7 +8687,7 @@ msgstr "Запустить очистку &сейчас"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "Выполнить скрипт ловуш&ки"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9350,7 +9361,7 @@ msgstr "Показать окно с изображением всего гра�
 
 #. Resource IDs: (115)
 msgid "Show c&hanges (content only)"
-msgstr ""
+msgstr "Показать и&зменения (только содержимое)"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -9390,7 +9401,7 @@ msgstr "Показать множество &изменений..."
 
 #. Resource IDs: (115)
 msgid "Show multiple &changes... (content only)"
-msgstr ""
+msgstr "Показать несколько &изменений... (только содержимое)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10122,7 +10133,7 @@ msgstr "Папка\n%s\nуже существует!"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Скрипт ловушки выполнен успешно"
 
 #. Resource IDs: (83)
 #, c-format
@@ -10143,11 +10154,11 @@ msgstr "Не могу показать изображение."
 msgid ""
 "The issue-tracker provider could not be created. Please check that it is "
 "installed correctly."
-msgstr "Поставщик системы отслеживания проблем не может быть создан. Убедитесь, что он установлен корректно."
+msgstr "Провайдер системы отслеживания проблем не может быть создан. Убедитесь, что он установлен корректно."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "Поставщик системы отслеживания проблем не принял строку параметров"
+msgstr "Провайдер системы отслеживания проблем не смог проверить строку параметров"
 
 #. Resource IDs: (597)
 #, c-format
@@ -10540,7 +10551,7 @@ msgstr "Остались еще редактируемые виды.\nКакой
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
-msgstr "Нет поставщиков интеграции с системами отслеживания проблем."
+msgstr "Нет доступных провайдеров систем отслеживания проблем."
 
 #. Resource IDs: (66)
 #, c-format

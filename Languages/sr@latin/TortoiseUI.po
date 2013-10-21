@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:29+0000\n"
+"PO-Revision-Date: 2013-10-16 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -2438,7 +2438,7 @@ msgstr "K&omande:"
 
 #. Resource IDs: (102)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "Up&oređuje URLove (samo sadržaj)"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2858,7 +2858,7 @@ msgstr "Provera radne kopije za izmene"
 
 #. Resource IDs: (570)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Proveri-Ureži zakačaljke"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3244,7 +3244,7 @@ msgstr "Uporedi s o&snovom"
 
 #. Resource IDs: (138)
 msgid "Compare with base (content only)"
-msgstr ""
+msgstr "Upoređuje sa osnovom (samo sadržaj)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3669,6 +3669,15 @@ msgstr "Ne može pokrenuti tekst pregledač!\n%s"
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Nije bilo moguće pokrenuti nit!"
+
+#. Resource IDs: (1501)
+msgid "Coun&t"
+msgstr ""
+
+#. Resource IDs: (94)
+#, c-format
+msgid "Count: %d matches."
+msgstr ""
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -6418,7 +6427,7 @@ msgstr "Upravljanje osobinama Subverzije"
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
-msgstr ""
+msgstr "Ručne Pre-ureuivanja zakačaljka"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -7725,7 +7734,7 @@ msgstr "Ispisivanje"
 
 #. Resource IDs: (364)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Razmotri svakako"
 
 #. Resource IDs: (170)
 msgid ""
@@ -8331,13 +8340,13 @@ msgstr "Preimenuje fajlove / foldere  unutar upravljanja verzijama"
 
 #. Resource IDs: (1562)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Ponovo otvori dijalog posle urezivanja njegovih stavki koje su preostale neurezane"
 
 #. Resource IDs: (197)
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr ""
+msgstr "Ponovo otvori dijalog urezivanja posle uspešnog urezivanja ako je bilo fajlova i/ili folderi preostalih neurezanih"
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -8612,7 +8621,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%7!s!"
-msgstr ""
+msgstr "Revizija: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDatum: %6!s!\r\n\r\nPoruka dnevnika:\r\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8626,7 +8635,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%9!s!"
-msgstr ""
+msgstr "Revizija: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Autor: %5!s!\r\nDatum: %6!s!\r\n\r\nZnaci (%7!d!):%8!s!\r\n\r\nPoruka dnevnika:\r\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8670,7 +8679,7 @@ msgstr "Pokre&ni čišćenje sada"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "Izvrši skriptu za&kačaljke"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9344,7 +9353,7 @@ msgstr "Prikaži pregled celog grafa"
 
 #. Resource IDs: (115)
 msgid "Show c&hanges (content only)"
-msgstr ""
+msgstr "Prikaži i&zmene (samo sadržaj)"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -9384,7 +9393,7 @@ msgstr "Prikaži višestruke &izmene..."
 
 #. Resource IDs: (115)
 msgid "Show multiple &changes... (content only)"
-msgstr ""
+msgstr "Prikaži višestruke i&zmen... (samo sadržaj)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10116,7 +10125,7 @@ msgstr "Folder\n%s\nveć postoji!"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Skripta zakačaljke izvršena uspešno"
 
 #. Resource IDs: (83)
 #, c-format

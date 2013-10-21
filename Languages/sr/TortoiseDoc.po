@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-14 10:50+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8635,7 +8635,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Морате чврсто да решите да користите експлицитно ревизионе бројеве у свим вашим екстерним дефиницијама, како је описано горе. Такав рад значи да сте одлучили када повући различите слике екстерних информација и тачно које слике повући. Поред заједничког осећаја да нема изненађења спремишта трећег-лица која могу да немају било какву контролу над тим, користећи експлицитне ревизионе бројеве такође значи то да ако уназад датирате вашу радну копију  према претходној ревизији ваше екстерне дефиниције ће се вратити на начин како су изгледали у претходној ревизији, што значи да ћете екстерне радне копије ускладити са начином <emphasis>њихов</emphasis> по изгледу када је ваша радна копија имала претходну ревизију. За пројекат софтвера ово може бити разлика између успешне и неуспешне израде старије слике ваше комплексне основе кода."
 
 #. (para)
 msgid ""
@@ -12577,14 +12577,14 @@ msgstr "Нормално понашање у дијалогу урезивања
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Поново отварање дијалога после урезивања ако су ставке преостале неурезане"
 
 #. (para)
 msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Ово поново отвара дијалог урезивања аутоматски у истом директоријуму после успешног урезивања. Дијалог је поново отворен само ако има још ставки да се урежу."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13984,7 +13984,7 @@ msgstr "Позван пре него се појави дијалог урези
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Ручно пре-урезивање"
 
 #. (para)
 msgid ""
@@ -13992,25 +13992,25 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Ако је ово специфицирано дијалог урезивања приказује дугме  <guibutton>Изврши закачаљку</guibutton> који када се притисне извршава специфицирану закачиву скрипту. Закачива скрипта прима листу чекираних фајлова и фолдера и поруку урезивања ако се нека унета."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Чекира-урезивање"
 
 #. (para)
 msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Позван после корисниковог клика на <guibutton>ОК</guibutton> у дијалогу урезивања и пре него се дијалог урезивања затвори. Закачаљка добија листу чекираних фајлова. Ако закачаљка врати грешку дијалог урезивања остаје отворен."
 
 #. (para)
 msgid ""
 "If the returned error message contains paths on newline separated lines, "
 "those paths will get selected in the commit dialog after the error message "
 "is shown."
-msgstr ""
+msgstr "Ако враћена порука грешке садржи путање у линијама раздвојеним сепараторима нових линија ове путање се бирају у дијалогу урезивања после приказивања поруке грешке.  "
 
 #. (term)
 #. (term)
@@ -17631,7 +17631,7 @@ msgstr "/патх2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"
@@ -17659,7 +17659,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Покреће екстерни диф програм означен у ТортоисеСВН подешавању. <placeholder-1/> специфицира први фајл. Ако је опција <placeholder-2/> изабрана онда диф програм почиње са та два фајла. Ако <placeholder-3/> недостаје онда диф ради између фајла у <placeholder-4/>  и ОСНОВЕ. Ако је специфициран фајл са измењеним особинама екстерни диф  алат такође почиње за сваку измењену особину. Да се предупреди то пошаљите опцију <placeholder-5/>. Да се експлицитно изаберу ревизиони бројеви користите  <placeholder-6/> и <placeholder-7/>, и за опционе пег ревизије користите  <placeholder-8/>. Ако је <placeholder-9/> изабрана и <placeholder-10/> није изабрана онда диф најпре окриви фајлове датом ревизијом. Параметар <placeholder-11/> специфицира линију за скок где је диф приказан."
 
 #. (para)
 msgid ""
@@ -17682,7 +17682,7 @@ msgid ""
 "If the specified url also has property modifications, the external diff tool"
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
-msgstr ""
+msgstr "Ако специфициран урл такође има измене особина екстерни диф алат такође се покреће за сваку измењену особину. Да се то предупреди проследите опицију <option>/ignoreprops</option>."
 
 #. (entry)
 msgid ""
@@ -20377,19 +20377,19 @@ msgstr "Име мог фајла. Ово је приказано у прегле
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr ""
+msgstr "Специфицира резултантни <emphasis>стопљени</emphasis>  фајл коришћен у диф. Ово је путања фајла где је резултат стопљен/конфликт решење сачувано."
 
 #. (para)
 msgid ""
 "If this is not set for a three-way diff, then TortoiseMerge will ask the "
 "user where to save the result."
-msgstr ""
+msgstr "Ако ово није изабрано за три-начина диф онда ТортоисеМерге пита корисника где да сачува резултат."
 
 #. (para)
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
-msgstr ""
+msgstr "Ако ово није изабрано за два-начина диф онда ће ТортоисеМерге аутоматски користити путању фајла приказаном у десном прегледу као путању чувања."
 
 #. (entry)
 msgid ""

@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-14 16:30+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8633,7 +8633,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Měli byste vážně uvažovat o používání jednoznačných čísel revizí pro všechny vaše externí definice, jak je popsáno výše. Pokud tak učiníte, znamená to, že můžete rozhodnout, kdy a který snímek externích informací přesně stáhnout. Kromě hlediska zdravého rozumu kdy nebudete překvapeni změnami v úložištích třetí strany, nad kterými nemusíte mít žádnou kontrolu, používání jednoznačných čísel revizí také znamená, že jak vaše pracovní kopie postupuje zpět na předchozí revizi, vaše externí nastavení se také vrátí do stavu v té předchozí revizi, což znamená, že externí pracovní kopie budou aktualizovány tak, aby odpovídaly způsobu, jak <emphasis>ony</emphasis> vypadaly, když vaše úložiště bylo v předchozí revizi. U softwarových projektů, toto může být rozdíl mezi úspěšným a neúspěšným sestavením staršího snímku vaší komplexní sady kódu."
 
 #. (para)
 msgid ""
@@ -12575,7 +12575,7 @@ msgstr "Normální chování v dialogovém okně odevzdání je pro všechny zm�
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Znovu otevřít dialogové okno po odevzdání, pokud položky nebyly odevzdány"
 
 #. (para)
 msgid ""
@@ -17657,7 +17657,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Spustí externí program rozdílů, jak je uvedeno v nastavení TortoiseSVN. <placeholder-1/> určuje první soubor. Pokud je možnost <placeholder-2/> nastavena, pak je program rozdílů spuštěn s těmito dvěma soubory. Pokud je <placeholder-3/> vynechán, pak rozdíl je proveden mezi souborem v <placeholder-4/> a jeho originálem. Pokud zadaný sobour má také změny ve vlastnostech, nástroj je také spuštěn pro každou změněnou vlastnost. Abyste tomuto zabránili, zadejte volbu <placeholder-5/>. Chcete-li nastavit konkrétní čísla revizí použijte <placeholder-6/> a <placeholder-7/> a pro nepovinnou zavěšenou revizi použijte <placeholder-8/>. Pokud je nastaven <placeholder-9/> a <placeholder-10/> není, pak je rozdíl proveden tak, že nejprve obviní soubory s danými revizemi. Parametr <placeholder-11/> určuje na který řádek skočit, když je rozdíl zobrazen."
 
 #. (para)
 msgid ""
@@ -20375,7 +20375,7 @@ msgstr "Název mého souboru. Je zobrazen v zobrazení názvu namísto cesty k s
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr ""
+msgstr "Určuje výsledný <emphasis>sloučený</emphasis>soubor používaný v trojím porovnávání. Je to cesta k souboru, kde je v důsledku sloučení/řešení konfliktů uložen."
 
 #. (para)
 msgid ""

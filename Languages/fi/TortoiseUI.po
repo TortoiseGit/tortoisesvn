@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:29+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-19 16:15+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2438,7 +2438,7 @@ msgstr "K&omennot:"
 
 #. Resource IDs: (102)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "&Vertaa paikantimia (vain sisältö)"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2858,7 +2858,7 @@ msgstr "Tarkista työkopion muutokset"
 
 #. Resource IDs: (570)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Tarkista toimitus -komento"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3244,7 +3244,7 @@ msgstr "Vertaa kantaversion (&BASE) kanssa"
 
 #. Resource IDs: (138)
 msgid "Compare with base (content only)"
-msgstr ""
+msgstr "Vertaa kantaversion kanssa (vain sisältö)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3669,6 +3669,15 @@ msgstr "Katseluohjelman käynnistys epäonnistui!\n%s"
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Säikeen käynnistys epäonnistui!"
+
+#. Resource IDs: (1501)
+msgid "Coun&t"
+msgstr "Luku&määrä"
+
+#. Resource IDs: (94)
+#, c-format
+msgid "Count: %d matches."
+msgstr "Lukumäärä: %d vastaavuutta"
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -6418,7 +6427,7 @@ msgstr "Hallitse Subversion-ominaisuuksia"
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
-msgstr ""
+msgstr "Käsivarainen Ennen toimitusta -komento"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -7725,7 +7734,7 @@ msgstr "Tulostamassa"
 
 #. Resource IDs: (364)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Jatka silti"
 
 #. Resource IDs: (170)
 msgid ""
@@ -8331,13 +8340,13 @@ msgstr "Nimeää uudelleen tiedostoja/kansioita versionhallinnassa"
 
 #. Resource IDs: (1562)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Avaa toimitusikkuna uudelleen, mikäli kaikkia tiedostoja ei toimitettu kerralla"
 
 #. Resource IDs: (197)
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr ""
+msgstr "Avaa toimitusikkunan onnistuneen toimituksen jälkeen, mikäli jäljelle jäi toimittamattomia tiedostoja."
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -8612,7 +8621,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%7!s!"
-msgstr ""
+msgstr "Versio: %1!ld! %2!s!\nPaikannin: %3!s!\n%4!s!Tekijä: %5!s!\nPäiväys: %6!s!\n\nLokiviesti:\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8626,7 +8635,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%9!s!"
-msgstr ""
+msgstr "Versio: %1!ld! %2!s!\nPaikannin: %3!s!\n%4!s!Tekijä: %5!s!\nPäiväys: %6!s!\n\nMerkityt versiot (%7!d!):%8!s!\n\nLokiviesti:\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8670,7 +8679,7 @@ msgstr "Siivoa työkopio &nyt"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "Suorita &komento"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9344,7 +9353,7 @@ msgstr "Näytä yleisnäkymä koko graafista"
 
 #. Resource IDs: (115)
 msgid "Show c&hanges (content only)"
-msgstr ""
+msgstr "Näytä &muutokset (vain sisältö)"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -9384,7 +9393,7 @@ msgstr "Näytä &useita muutoksia..."
 
 #. Resource IDs: (115)
 msgid "Show multiple &changes... (content only)"
-msgstr ""
+msgstr "Näytä useita m&uutoksia... (vain sisältö)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10116,7 +10125,7 @@ msgstr "Kansio\n%s\non jo olemassa!"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Komento suoritettiin onnistuneesti"
 
 #. Resource IDs: (83)
 #, c-format

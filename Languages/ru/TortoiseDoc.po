@@ -11,18 +11,20 @@
 # Authors:
 # Translators:
 # Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011
-# _deniska <denis_levin@mail.ru>, 2012
+# _deniska <denis_levin@mail.ru>, 2012-2013
 # _deniska <denis_levin@mail.ru>, 2013
 # _deniska <denis_levin@mail.ru>, 2012
+# sassy <sassy.but.classic@gmail.com>, 2013
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
+# sassy <sassy.but.classic@gmail.com>, 2013
 # Вячеслав Третьяков <tret2003@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:41+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-19 21:30+0000\n"
+"Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8637,7 +8639,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Вы должны серьёзно рассмотреть использование явных номеров ревизии во всех ваших определениях внешних включений, как описано выше. Применение этого \"подхода означает, что вы будете решать, когда скачивать другую копию внешней информации, и какую конкретно копию. Помимо соображений здравого смысла, заключающихся в том, чтобы вы не будете неприятно удивлены изменениями в стороннем хранилище, управлять которым у вас нет возможности, использование явных номеров ревизий означает также, что при возвращении вашей рабочей копии к предыдущей ревизии определения внешних включений тоже вернутся к тому, какими они были в предыдущей ревизии, что, в свою очередь, означает, что внешние рабочие копии будут обновлены до того состояния, в котором <emphasis>они</emphasis> были тогда, когда ваше хранилище было на этой предыдущей ревизии. Для программных проектов это может означать разницу между успешной и не успешной сборкой старого снимка состояния вашей сложной базы исходного кода."
 
 #. (para)
 msgid ""
@@ -12586,7 +12588,7 @@ msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Это автоматически повторно откроет диалог фиксации в той же директории после успешной фиксации. Диалог открывается только если остались ещё элементы для фиксации."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13986,7 +13988,7 @@ msgstr "Вызывается перед показом диалога фикса
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Ручная перед-фиксацией"
 
 #. (para)
 msgid ""
@@ -13994,25 +13996,25 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Если указано, то в диалоге фиксации отображается кнопка <guibutton>Выполнить скрипт ловушки</guibutton>, которая при нажатии выполняет указанный скрипт ловушки. Скрипт ловушки получает список всех отмеченных файлов и папок, и сообщение фиксации, если оно было введено."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Проверка-фиксации"
 
 #. (para)
 msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Вызывается после того как пользователь нажмет кнопку <guibutton>OK</guibutton> в диалоге фиксации, но до закрытия диалога фиксации. Эта ловушка получает список всех отмеченных файлов. Если ловушка вернет ошибку, то диалог фиксации останется открытым."
 
 #. (para)
 msgid ""
 "If the returned error message contains paths on newline separated lines, "
 "those paths will get selected in the commit dialog after the error message "
 "is shown."
-msgstr ""
+msgstr "Если возвращённое сообщение об ошибке содержит пути разделённые символами перевода строки, то такие пути станут выделенными в диалоге фиксации после отображения сообщения об ошибке."
 
 #. (term)
 #. (term)
@@ -17633,7 +17635,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"
@@ -17661,7 +17663,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Запускает внешнюю программу сравнения, указанную в настройках TortoiseSVN. Параметр <placeholder-1/> задает первый файл. Если параметр <placeholder-2/> указан, то программа сравнения запускается с этими двумя файлами. Если не указан параметр <placeholder-3/>, то файл <placeholder-4/> сравнивается с его Базовой версией. Если у указанного файла изменились свойства, то внешняя программа сравнения запускается для каждого измененного свойства. Чтобы предотвратить это - укажите параметр <placeholder-5/>. Чтобы указать номера конкретных ревизий используйте параметр <placeholder-6/> и <placeholder-7/>, и для указания стержневой (peg) ревизии используйте параметр <placeholder-8/>. Если параметр <placeholder-9/> указан, а <placeholder-10/> - нет, тогда сравнение авторства выполнится для указанных ревизий первого файла. Параметр <placeholder-11/> задает строку, на которую будет перемещен курсор в окне с результатами сравнения."
 
 #. (para)
 msgid ""
@@ -17684,7 +17686,7 @@ msgid ""
 "If the specified url also has property modifications, the external diff tool"
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
-msgstr ""
+msgstr "Если у указанного URL также изменились свойства, то внешнее средство сравнения будет запущено для каждого измененного свойства. Чтобы предотвратить это - укажите параметр <option>/ignoreprops</option>."
 
 #. (entry)
 msgid ""
@@ -20379,19 +20381,19 @@ msgstr "Имя 'моего' файла, которое показывается 
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr ""
+msgstr "Определяет результирующий <emphasis>объединённый</emphasis> файл используемый в различиях. Это путь файла, в котором сохраняются результаты слияния или разрешения конфликтов."
 
 #. (para)
 msgid ""
 "If this is not set for a three-way diff, then TortoiseMerge will ask the "
 "user where to save the result."
-msgstr ""
+msgstr "Если это не задано для трёхстороннего сравнения, то TortoiseMerge спросит у пользователя куда сохранить результат."
 
 #. (para)
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
-msgstr ""
+msgstr "Если это не задано для двухстороннего сравнения, то TortoiseMerge автоматически использует путь файла, отображаемого в правой панели, как путь сохранения."
 
 #. (entry)
 msgid ""

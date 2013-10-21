@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-10-20 14:40+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8636,7 +8636,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Należy poważnie rozważyć używanie jawnych numerów wersji we wszystkich definicjach zewnętrznych, jak to opisano powyżej. Działanie takie oznacza, że trzeba samemu decydować, kiedy wypuścić kolejną migawkę informacji zewnętrznych i jaką dokładnie migawkę wypuścić. Poza zdroworozsądkowym aspektem braku zdziwienia zmianami repozytoriów firm trzecich, nad którymi nie ma żadnej kontroli, użycie jawnych numerów wersji oznacza również, że cofnięcie czasowe kopii roboczej do poprzedniej wersji spowoduje, że wasze zewnętrzne definicje będą także przywrócone do wyglądu z tej wcześniejszej wersji, co z kolei oznacza, że zewnętrzne kopie robocze zostaną zaktualizowane, aby dopasować <emphasis>ich</ emphasis> wygląd do repozytorium z tej wcześniejszej wersji. Dla projektów oprogramowania może to oznaczać różnicę między pomyślnie a niepoprawnie zbudowanym produktem ze starszej migawki złożonego kodu podstawowego."
 
 #. (para)
 msgid ""
@@ -12578,14 +12578,14 @@ msgstr "Normalne postępowanie w oknie zatwierdzenia dla wszystkich zmodyfikowan
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Ponownie otwórz okno po zatwierdzeniu jeśli pozostaną niezatwierdzone elementy"
 
 #. (para)
 msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Otwiera to okno dialogowe zatwierdzenia automatycznie w tym samym folderze po poprawnym zatwierdzeniu. Okno jest otwierane tylko jeśli pozostały jeszcze elementy do zatwierdzenia."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13985,7 +13985,7 @@ msgstr "Wykonywany zanim zostanie wyświetlone okno dialogowe zatwierdzenia. Mo�
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Ręczne pre-zatwierdzenie"
 
 #. (para)
 msgid ""
@@ -13993,25 +13993,25 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Jeśli został zaznaczony, okno zatwierdzenia wyświetla przycisk <guibutton>Uruchom Przechwycenie</guibutton>, który po kliknięciu uruchamia wskazany skrypt przechwytujący.Skrypt przechwytujący dostaje listę wszystkich sprawdzanych plików i folderów oraz komunikat zatwierdzenia jeśli został wprowadzony."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Sprawdzenie zatwierdzenia"
 
 #. (para)
 msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Wywoływany gdy użytkownik naciśnie  <guibutton>OK</guibutton> na oknie zatwierdzenia a przed zamknięciem okna. To przechwycenie pobiera listę wszystkich zaznaczonych plików. Jeśli przechwycenie zwróci błąd, okno zatwierdzenia pozostanie otwarte."
 
 #. (para)
 msgid ""
 "If the returned error message contains paths on newline separated lines, "
 "those paths will get selected in the commit dialog after the error message "
 "is shown."
-msgstr ""
+msgstr "Jeśli zwrócony błąd zawiera ścieżki w oddzielone znakiem nowej linii, ścieżki te zostaną wybrane w oknie zatwierdzenia po wyświetleniu komunikatu błędu."
 
 #. (term)
 #. (term)
@@ -17632,7 +17632,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"
@@ -17660,7 +17660,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Uruchamia zewnętrzne narzędzie porównania wskazane w ustawieniach TortoiseSVN. <placeholder-1/> wskazuje pierwszy plik. jeśli ustawiono opcję <placeholder-2/>, program porównujący uruchamia się z tymi dwoma plikami. jeżeli pominięto <placeholder-3/>, porównywanie wykonuje się pomiędzy plikiem z <placeholder-4/> a jego BASE. Jeśli wskazany plik ma również zmienione atrybuty, zewnętrzne narzędzie porównywania jest odpalane dla każdego zmienionego atrybutu. By do tego nie dopuścić, przekażcie opcję <placeholder-5/>. By jawnie wskazać numery wersji należy podać <placeholder-6/> i <placeholder-7/>, a przy opcjonalnej wersji wieszakowej użyć <placeholder-8/>. Jeżeli ustawiono <placeholder-9/> a nie wskazano <placeholder-10/>, to porównywanie zostaje zakończone przez adnotowanie na początku plików ze wskazanymi wersjami. Parametr <placeholder-11/> wskazuje linię od której zaczyna się wyświetlać porównywanie."
 
 #. (para)
 msgid ""
@@ -17683,7 +17683,7 @@ msgid ""
 "If the specified url also has property modifications, the external diff tool"
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
-msgstr ""
+msgstr "Jeżeli wskazany adres url ma również zmienione atrybuty, zewnętrzne narzędzie różnicujące zostanie uruchomione również dla każdego zmienionego atrybutu. By temu zapobiec, wykonajcie z opcją <option>/ignoreprops</option>."
 
 #. (entry)
 msgid ""
@@ -20378,19 +20378,19 @@ msgstr "Nazwa mojego pliku. Pokazywany w tytule widoku zamiast ścieżki do plik
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr ""
+msgstr "Wskazuje wynikowy <emphasis>scalony</emphasis> plik wykorzystywany w róznicach. Jest to ścieżka w której zapisywany jest wynik scalenina/rozwiązania konfliktu."
 
 #. (para)
 msgid ""
 "If this is not set for a three-way diff, then TortoiseMerge will ask the "
 "user where to save the result."
-msgstr ""
+msgstr "Jeśli nie został on ustalony dla trójdrożnego porównania, to TortoiseMerge  będzie pytać użytkownika gdzie zapisać wynik."
 
 #. (para)
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
-msgstr ""
+msgstr "jeśli nie jest on ustalony dla porównania dwudrożnego, TortoiseMerge będzie używać ścieżki pliku wyświetlanego w prawym panelu jako ścieżki zapisu."
 
 #. (entry)
 msgid ""
