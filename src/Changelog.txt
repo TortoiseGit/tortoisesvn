@@ -46,6 +46,8 @@ Version 1.8.3
        corrupted icon file. (Stefan)
 - BUG: Issue #581: Restore-after-commit leaves
        temp file flag. (Stefan)
+- BUG: Issue #583: Tagging with fixed externals revision
+       fails if spaces in target path is used. (Stefan)
 - NEW: Issue #551: Remember the 'ignore ancestry'
        option. (Stefan)
 - NEW: Issue #552: Tri-State checkbox handling

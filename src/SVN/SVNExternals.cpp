@@ -363,13 +363,17 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
         else
             peg.Empty();
 
+        CString targetDir = it->targetDir;
+        if (targetDir.FindOneOf(L" \t") > 0)
+            targetDir = L"\'" + targetDir + L"\'";
+
         CString temp;
         if (it->adjust && !rev.IsHead())
-            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
+            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
         else if (origrev.IsValid() && !origrev.IsHead())
-            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)origrev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
+            temp.Format(_T("-r %s %s%s %s"), (LPCWSTR)origrev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
         else
-            temp.Format(_T("%s%s %s"), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)it->targetDir);
+            temp.Format(_T("%s%s %s"), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
 
         sb val = externals[it->path];
         if (!val.extvalue.empty())
