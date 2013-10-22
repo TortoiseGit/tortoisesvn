@@ -15,7 +15,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
 # peu <peu@rekoba.de>, 2012-2013
 # peu <peu@rekoba.de>, 2012
 # peu <peu@rekoba.de>, 2013
@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-12 08:41+0000\n"
+"PO-Revision-Date: 2013-10-22 07:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -8642,7 +8642,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr ""
+msgstr "Sie sollten in Erwägung ziehen, in allen <quote>Externals</quote> Definitionen explizite Revisionsnummern anzugeben. Diese Vorgehensweise ermöglicht es Ihnen, exakt zu bestimmen zu welchem Zeitpunkt welcher Stand der externen Informationen herangezogen wird. Neben dem sofort zu erkennenden Aspekt, dass Sie nicht mehr von Änderungen in externen Bibliotheken, über die Sie keine Kontrolle haben, überrascht werden können, bietet die Verwendung expliziter Revisionsnummern den Vorteil, dass, wenn Sie Ihre Arbeitskopie zurückdatieren, auch die externen Verweise entsprechend zurückdatiert werden. Andernfalls enthalten die externen Verweise die HEAD Revision. Für ein Softwareprojekt kann das den Unterschied zwischen einem erfolgreichen und einem fehlgeschlagenen Erzeugen eines älteren Projektstandes ausmachen."
 
 #. (para)
 msgid ""
@@ -10802,6 +10802,16 @@ msgid ""
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr "Manchmal werden Sie, wenn Sie einen Pfad öffnen wollen, eine Fehlermeldung anstelle der Details erhalten. Das kann daran liegen, dass Sie eine falsche URL angegeben haben, nicht über entsprechende Zugriffsrechte verfügen oder dass ein Serverfehler vorliegt. Wenn Sie diese Meldung z.B. in eine E-Mail kopieren wollen, machen Sie einen Rechtsklick darauf und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Fehlermeldung in die Zwischenablage kopieren</guimenuitem> </menuchoice> oder einfach <keycap>Strg+C</keycap>."
 
+#. (para)
+msgid ""
+"Bookmarked urls/repositories are shown below the current repository folders "
+"in the left tree view. You can add entries there by <action>right "
+"clicking</action> on any file or folder and select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Add to "
+"Bookmarks</guimenuitem></menuchoice>. Clicking on a bookmark will browse to "
+"that repository and file/folder."
+msgstr ""
+
 #. (title)
 msgid "Revision Graphs"
 msgstr "Revisionsgraphen"
@@ -12591,7 +12601,7 @@ msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Öffnet den Übertragen-Dialog nach einer erfolgreichen Übertragung erneut, falls Dateien oder Ordner nicht übertragen wurden. Der Dialog wird nur geöffnet, wenn es noch zu übertragende Objekte gibt."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13991,7 +14001,7 @@ msgstr "Wird aufgerufen, bevor der Übertragen-Dialog angezeigt wird. Dieses Skr
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Manuell vor der Übertragung"
 
 #. (para)
 msgid ""
@@ -13999,25 +14009,25 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Wenn dieser Wert ausgefüllt ist, zeigt der Übertragen-Dialog eine <guibutton>Aktionsskript ausführen</guibutton> Schaltfläche, mit der Sie die angegebene Aktion starten können. Das Aktionsskript erhält eine Liste aller markierten Dateien und Ordner sowie die Logmeldung, falls eine angegeben wurde."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Übertragung prüfen"
 
 #. (para)
 msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Wird aufgerufen, nachdem der Anwender die <guibutton>OK</guibutton> Schaltfläche im Übertragen-Dialog geklickt hat und bevor der Übertragen-Dialog geschlossen wird. Wenn das Aktionsskript einen Fehler zurückgibt, bleibt der Übertragen-Dialog geöffnet."
 
 #. (para)
 msgid ""
 "If the returned error message contains paths on newline separated lines, "
 "those paths will get selected in the commit dialog after the error message "
 "is shown."
-msgstr ""
+msgstr "Falls der zurückgegebene Fehler Pfade in durch Zeilenumbrüche getrennte Zeilen enthält, werden diese im Übertragen-Dialog markiert, nachdem der Fehler angezeigt wurde."
 
 #. (term)
 #. (term)
@@ -17638,7 +17648,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"
@@ -17666,7 +17676,7 @@ msgid ""
 "and <placeholder-10/> is not set, then the diff is done by first blaming the"
 " files with the given revisions. The parameter <placeholder-11/> specifies "
 "the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Startet das externe, in den TortoiseSVN Einstellungen angegebene Vergleichsprogramm. Der <placeholder-1/> spezifiziert die erste Datei. Bei Angabe von <placeholder-2/>, werden diese beiden Dateien verglichen. Ohne Angabe von <placeholder-3/>, wird die Datei in <placeholder-4/> mit ihrer BASE Revision verglichen. Falls die Datei obendrein Eigenschaftsänderungen hat, wird das Vergleichsprogramm auch für jede geänderte Eigenschaft gestartet. Um das zu vermeiden, übergeben Sie den Parameter <placeholder-5/> Um die Revisionsnummern vorzugeben, verwenden Sie <placeholder-6/> und <placeholder-7/> sowie für die optionale fixe Revision <placeholder-8/>. Wenn <placeholder-9/>, aber nicht <placeholder-10/> angegeben ist, wird der Vergleich durchgeführt, indem zunächst die Dateien in den gegebenen Revisionen annotiert werden. Der Parameter <placeholder-11/> gibt die Zeile an, in die beim Anzeigen des Vergleichs gesprungen werden soll."
 
 #. (para)
 msgid ""
@@ -17689,7 +17699,7 @@ msgid ""
 "If the specified url also has property modifications, the external diff tool"
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
-msgstr ""
+msgstr "Falls die angegebene URL obendrein Eigenschaftsänderungen hat, wird das Vergleichsprogramm auch für jede geänderte Eigenschaft gestartet. Um das zu vermeiden, übergeben Sie den Parameter <option>/ignoreprops</option>."
 
 #. (entry)
 msgid ""

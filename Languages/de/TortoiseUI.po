@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-18 07:19+0000\n"
+"PO-Revision-Date: 2013-10-22 07:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -460,8 +460,8 @@ msgid "&Apply property recursively"
 msgstr "Eigenschaft rekursiv &anwenden"
 
 #. Resource IDs: (610)
-msgid "&Apply the udpate to the move destination"
-msgstr "Die &Aktualisierung auf das Ziel anwenden"
+msgid "&Apply the update to the move destination"
+msgstr "Änderung auf das Ziel der Verschiebung &anwenden"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1862,6 +1862,10 @@ msgstr "Zu %1 hinzufügen"
 msgid "Add to &ignore list"
 msgstr "&Ignorieren"
 
+#. Resource IDs: (102)
+msgid "Add to Bookmarks"
+msgstr "Zu Lesezeichen hinzufügen"
+
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
 msgstr "Zur Schnellzugriffsleiste hinzufügen"
@@ -2355,6 +2359,10 @@ msgstr "Differenz / Überblenden"
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blauer Stil"
+
+#. Resource IDs: (616)
+msgid "Bookmarks"
+msgstr "Lesezeichen"
 
 #. Resource IDs: (83)
 msgid ""
@@ -5040,6 +5048,20 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr "Angegebenen Text suchen\nSuchen"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Find: Can't find the text \"%s\""
+msgstr "Suchen: Kann den Text \"%s\" nicht finden"
+
+#. Resource IDs: (95)
+msgid ""
+"Find: First occurrence from the bottom found. Beginning of document reached."
+msgstr "Suchen: Erster Treffer von unten gefunden. Anfang des Dokuments erreicht."
+
+#. Resource IDs: (95)
+msgid "Find: First occurrence from the top found. End of document reached."
+msgstr "Suchen: Erster Treffer von oben gefunden. Ende des Dokuments erreicht."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -8197,6 +8219,10 @@ msgstr "Lösche %ld Objekte"
 #, c-format
 msgid "Remove %s"
 msgstr "Löschen %s"
+
+#. Resource IDs: (102)
+msgid "Remove Bookmark"
+msgstr "Lesezeichen entfernen"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
