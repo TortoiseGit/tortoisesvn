@@ -13,7 +13,7 @@
 # brunzefb <brunzefb@yahoo.com>, 2013
 # brunzefb <brunzefb@yahoo.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
 # peu <peu@rekoba.de>, 2012-2013
@@ -24,16 +24,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: "
+"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-22 07:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2013-10-23 09:30+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #. (title)
 #. (secondary)
@@ -10811,6 +10813,12 @@ msgid ""
 "Bookmarks</guimenuitem></menuchoice>. Clicking on a bookmark will browse to "
 "that repository and file/folder."
 msgstr ""
+"Lesezeichen für URLs/Projektarchive werden unterhalb der aktuellen Ordner in "
+"der linken Baumansicht angezeigt. Sie können Dateien oder Ordner "
+"per<action>Rechtsklick</action><menuchoice><guimenu><guimenuitem>Zu "
+"Lesezeichen hinzufügen</guimenuitem></menuchoice>. Per Klick auf ein "
+"Lesezeichen wechseln Sie zum entsprechenden Projektarchiv beziehungsweise "
+"Ordner."
 
 #. (title)
 msgid "Revision Graphs"
@@ -20395,18 +20403,26 @@ msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
 msgstr ""
+"Legt die <emphasis>zusammegeführte</emphasis> Ergebnisdatei fest, die in "
+"Vergleichen verwendet wird. Dies ist der Dateipfad, in dem das Ergebnis des "
+"Zusammeführens, bzw. des Konfliktauflösens gespeichert wird."
 
 #. (para)
 msgid ""
 "If this is not set for a three-way diff, then TortoiseMerge will ask the "
 "user where to save the result."
 msgstr ""
+"Wenn dieser Parameter für einen Dreiwegevergleich nicht angegeben wurde, "
+"fragt TortoiseSVN den Anwender, wo die Ergebnisse gespeichert werden sollen."
 
 #. (para)
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
 msgstr ""
+"Wenn dieser Parameter für einen Zweiwegevergleich nicht angegeben wurde, "
+"wird TortoiseSVN automatisch die im rechten angezeigte Datei als Ziel "
+"verwenden."
 
 #. (entry)
 msgid ""
