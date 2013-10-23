@@ -2725,6 +2725,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     POSITION pos = GetFirstSelectedItemPosition();
     if (pos == NULL)
         bConfirm = true;
+
+    std::map<CTSVNPath, CTSVNPath> restoremap;
+
     int index;
     while (pos)
     {
@@ -2745,9 +2748,16 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                 bRecursive = true;
             }
         }
-        if (entryStatus != svn_wc_status_added)
+        if ((entryStatus != svn_wc_status_added)||(fentry->IsCopied()))
         {
             bConfirm = true;
+            if (fentry->IsCopied())
+            {
+                CTSVNPath tempPath = CTempFiles::Instance().GetTempFilePath(true);
+                DeleteFile(tempPath.GetWinPath());
+                CopyFile(fentry->GetPath().GetWinPath(), tempPath.GetWinPath(), FALSE);
+                restoremap[tempPath] = fentry->GetPath();
+            }
         }
         if (bConfirm && bRecursive && bNonRecursive)
         {
@@ -2859,6 +2869,11 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         return;
     }
 
+    for (const auto& p : restoremap)
+    {
+        CopyFile(p.first.GetWinPath(), p.second.GetWinPath(), FALSE);
+    }
+
     // since the entries got reverted we need to remove
     // them from the list too, if no remote changes are shown,
     // if the unmodified files are not shown
@@ -2884,7 +2899,6 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             }
 
             BOOL bAdded = ((fentry->textstatus == svn_wc_status_added)||(fentry->status == svn_wc_status_added));
-            bool copied = fentry->copied;
             fentry->status = svn_wc_status_normal;
             fentry->propstatus = svn_wc_status_normal;
             fentry->textstatus = svn_wc_status_normal;
@@ -2896,27 +2910,15 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             {
                 if ( bAdded )
                 {
-                    if ( copied )
-                    {
-                        // reverting copied items are removed
-                        m_nTotal--;
-                        if (GetCheck(index))
-                            m_nSelected--;
-                        itemstoremove.push_back(index);
-                        Invalidate();
-                    }
+                    // reverting added items makes them unversioned, not 'normal'
+                    if (fentry->IsFolder())
+                        fentry->propstatus = svn_wc_status_none;
                     else
-                    {
-                        // reverting added items makes them unversioned, not 'normal'
-                        if (fentry->IsFolder())
-                            fentry->propstatus = svn_wc_status_none;
-                        else
-                            fentry->propstatus = svn_wc_status_unversioned;
-                        fentry->status = svn_wc_status_unversioned;
-                        fentry->textstatus = svn_wc_status_unversioned;
-                        SetItemState(index, 0, LVIS_SELECTED);
-                        SetEntryCheck(fentry, index, false);
-                    }
+                        fentry->propstatus = svn_wc_status_unversioned;
+                    fentry->status = svn_wc_status_unversioned;
+                    fentry->textstatus = svn_wc_status_unversioned;
+                    SetItemState(index, 0, LVIS_SELECTED);
+                    SetEntryCheck(fentry, index, false);
                 }
                 else if ((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL))
                 {
