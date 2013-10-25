@@ -1679,7 +1679,6 @@ void CBaseView::DrawTextLine(
                 it->second.background = crBk;
                 it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
             }
-            findText += nMarkLength;
         }
     }
     if (!m_sFindText.IsEmpty())
