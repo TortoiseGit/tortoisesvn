@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-16 08:31+0000\n"
+"PO-Revision-Date: 2013-10-21 13:41+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -457,7 +457,7 @@ msgid "&Apply property recursively"
 msgstr "套用屬性至子項目(&A)"
 
 #. Resource IDs: (610)
-msgid "&Apply the udpate to the move destination"
+msgid "&Apply the update to the move destination"
 msgstr "套用更新至移動目標(&A)"
 
 #. Resource IDs: (1013)
@@ -1859,6 +1859,10 @@ msgstr "加入至 %1"
 msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
 
+#. Resource IDs: (102)
+msgid "Add to Bookmarks"
+msgstr "新增至書籤"
+
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
 msgstr "加入至快速存取工具列"
@@ -2352,6 +2356,10 @@ msgstr "透明度"
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "藍色樣式"
+
+#. Resource IDs: (616)
+msgid "Bookmarks"
+msgstr "書籤"
 
 #. Resource IDs: (83)
 msgid ""
@@ -5037,6 +5045,20 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr "搜尋指定文字\n搜尋"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Find: Can't find the text \"%s\""
+msgstr "搜尋: 找不到文字 '%s'"
+
+#. Resource IDs: (95)
+msgid ""
+"Find: First occurrence from the bottom found. Beginning of document reached."
+msgstr "搜尋: 找到自文件結尾算起的第一筆. 已抵達文件開始."
+
+#. Resource IDs: (95)
+msgid "Find: First occurrence from the top found. End of document reached."
+msgstr "搜尋: 找到自文件開始的第一筆. 已抵達文件結尾."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -8194,6 +8216,10 @@ msgstr "移除 %ld 項"
 #, c-format
 msgid "Remove %s"
 msgstr "移除 %s"
+
+#. Resource IDs: (102)
+msgid "Remove Bookmark"
+msgstr "刪除書籤"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

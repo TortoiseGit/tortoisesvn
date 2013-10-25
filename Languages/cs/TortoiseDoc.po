@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-14 16:30+0000\n"
+"PO-Revision-Date: 2013-10-21 19:20+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -10793,6 +10793,16 @@ msgid ""
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr "Někdy, když se pokusíte otevřít cestu, obdržíte chybovou zprávu namísto detailů položky. K tomu může dojít, pokud jste zadali neplatnou adresu URL, nebo pokud nemáte oprávnění k přístupu, nebo pokud je na serveru nějaký jiný  problém. Pokud potřebujete zkopírovat tuto zprávu a zahrnout ji do e-mailu, stačí na ni kliknout pravým tlačítkem myši a zvolit <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Kopírovat chybovou zprávu do schránky</guimenuitem></menuchoice>, nebo jednoduše použít <keycap>Ctrl+C</keycap>."
 
+#. (para)
+msgid ""
+"Bookmarked urls/repositories are shown below the current repository folders "
+"in the left tree view. You can add entries there by <action>right "
+"clicking</action> on any file or folder and select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Add to "
+"Bookmarks</guimenuitem></menuchoice>. Clicking on a bookmark will browse to "
+"that repository and file/folder."
+msgstr ""
+
 #. (title)
 msgid "Revision Graphs"
 msgstr "Grafy Revizí"
@@ -12582,7 +12592,7 @@ msgid ""
 "This reopens the commit dialog automatically at the same directory after a "
 "successful commit. The dialog is reopened only if there still are items left"
 " to commit."
-msgstr ""
+msgstr "Toto znovu automaticky otevře dialogové okno odevzdání ve stejném adresáři po úspěšném odevzdání. Dialogové okno je znovu otevřeno pouze když některé položky ještě nebyly odevzdány."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -13982,7 +13992,7 @@ msgstr "Volán před zobrazením dialogového okna odevzdání. Toto byste mohli
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Ručně před odevzdáním"
 
 #. (para)
 msgid ""
@@ -13990,7 +14000,7 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Pokud je toto zadáno, pak v dialogovém okně odevzdání je zobrazeno tlačítko <guibutton>Spustit hák</guibutton>, které spustí zadaný hák při kliknutí. Hákový skript obdrží seznam všech zaškrtnutých souborů a s složek a zprávu odevzdání, pokud byla zadána."
 
 #. (term)
 msgid "Check-commit"
@@ -14001,7 +14011,7 @@ msgid ""
 "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog,"
 " and before the commit dialog closes. This hook gets a list of all the "
 "checked files. If the hook returns an error, the commit dialog stays open."
-msgstr ""
+msgstr "Volán když uživatel klikne na <guibutton>OK</guibutton> v dialogovém okně odevzdání a před uzavřením okna. Tento hák obdrží seznam všech zaškrtnutých souborů. Pokud hák vrátí chybu, zůstane okno otevřeno."
 
 #. (para)
 msgid ""
@@ -17629,7 +17639,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/pegrevision:xxx"

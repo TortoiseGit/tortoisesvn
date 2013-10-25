@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-19 16:15+0000\n"
+"PO-Revision-Date: 2013-10-24 21:58+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -453,8 +453,8 @@ msgid "&Apply property recursively"
 msgstr "Aseta ominaisuus &palautuvasti"
 
 #. Resource IDs: (610)
-msgid "&Apply the udpate to the move destination"
-msgstr "&Tee päivitys siirtokohteeseen"
+msgid "&Apply the update to the move destination"
+msgstr "&Päivitä siirron kohde"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1855,6 +1855,10 @@ msgstr "Lisää kohteeseen %1"
 msgid "Add to &ignore list"
 msgstr "Lisää &ohituslistaan"
 
+#. Resource IDs: (102)
+msgid "Add to Bookmarks"
+msgstr "Lisää kirjanmerkkeihin"
+
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
 msgstr "Lisää pikavalintapalkkiin"
@@ -2348,6 +2352,10 @@ msgstr "Läpinäkyvyystila"
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Sininen tyyli"
+
+#. Resource IDs: (616)
+msgid "Bookmarks"
+msgstr "Kirjanmerkit"
 
 #. Resource IDs: (83)
 msgid ""
@@ -5033,6 +5041,20 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr "Löydä määritelty teksti\nEtsi"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Find: Can't find the text \"%s\""
+msgstr "Haku: Tekstiä \"%s\" ei löydy"
+
+#. Resource IDs: (95)
+msgid ""
+"Find: First occurrence from the bottom found. Beginning of document reached."
+msgstr "Haku: Ensimmäinen esiintymä lopusta löytyi. Dokumentin alku saavutettu."
+
+#. Resource IDs: (95)
+msgid "Find: First occurrence from the top found. End of document reached."
+msgstr "Haku: Ensimmäinen esiintymä alusta löytyi. Dokumentin loppu saavutettu."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -8190,6 +8212,10 @@ msgstr "Poista %ld kohdetta"
 #, c-format
 msgid "Remove %s"
 msgstr "Poista %s"
+
+#. Resource IDs: (102)
+msgid "Remove Bookmark"
+msgstr "Poista kirjanmerkki"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

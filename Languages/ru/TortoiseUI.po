@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-19 20:20+0000\n"
+"PO-Revision-Date: 2013-10-21 15:13+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -461,8 +461,8 @@ msgid "&Apply property recursively"
 msgstr "&Применить свойство рекурсивно"
 
 #. Resource IDs: (610)
-msgid "&Apply the udpate to the move destination"
-msgstr "&применить обновление к месту назначения"
+msgid "&Apply the update to the move destination"
+msgstr "&Применить обновление к месту назначения"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1863,6 +1863,10 @@ msgstr "Добавить в %1"
 msgid "Add to &ignore list"
 msgstr "Добавить в список &игнорирования"
 
+#. Resource IDs: (102)
+msgid "Add to Bookmarks"
+msgstr "Добавить в закладки"
+
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
 msgstr "Добавить к панели быстрого доступа"
@@ -2356,6 +2360,10 @@ msgstr "Смешать альфа-канал"
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Синий стиль"
+
+#. Resource IDs: (616)
+msgid "Bookmarks"
+msgstr "Закладки"
 
 #. Resource IDs: (83)
 msgid ""
@@ -5041,6 +5049,20 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr "Найти текст\nНайти"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Find: Can't find the text \"%s\""
+msgstr "Поиск: Не могу найти текст \"%s\""
+
+#. Resource IDs: (95)
+msgid ""
+"Find: First occurrence from the bottom found. Beginning of document reached."
+msgstr "Поиск: Первое вхождение снизу найдено. Достигнуто начало документа."
+
+#. Resource IDs: (95)
+msgid "Find: First occurrence from the top found. End of document reached."
+msgstr "Поиск: Первое вхождение сверху найдено. Достигнут конец документа."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -8198,6 +8220,10 @@ msgstr "Удаление %ld элементов"
 #, c-format
 msgid "Remove %s"
 msgstr "Удаление %s"
+
+#. Resource IDs: (102)
+msgid "Remove Bookmark"
+msgstr "Удалить закладку"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

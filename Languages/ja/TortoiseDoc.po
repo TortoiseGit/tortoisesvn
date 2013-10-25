@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-17 10:45+0000\n"
+"PO-Revision-Date: 2013-10-23 12:30+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -579,11 +579,11 @@ msgid ""
 "is all about and give it a test drive. It explains how to install "
 "TortoiseSVN and set up a local repository, and it walks you through the most"
 " commonly used operations."
-msgstr "この章は、 TortoiseSVN を初めて試す方を対象にしたものです。 TortoiseSVN のインストールの仕方や、ローカルのリポジトリをセットアップする方法、よく使われる一連の操作を説明します。"
+msgstr "この章は、TortoiseSVNを初めて試す方を対象にしたものです。TortoiseSVNのインストールの仕方や、ローカルのリポジトリをセットアップする方法、よく使われる一連の操作を説明します。"
 
 #. (title)
 msgid "Installing TortoiseSVN"
-msgstr "TortoiseSVN のインストール"
+msgstr "TortoiseSVNのインストール"
 
 #. (title)
 msgid "System requirements"
@@ -596,21 +596,21 @@ msgid ""
 "Windows also includes the 32-bit extension parts. Which means you don't need"
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
-msgstr "TortoiseSVN は Windows XP Service Pack 3 以上で動作し、32ビット版と64ビット版のどちらでも使用できます。64ビット版 Windows 用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションで TortoiseSVN のコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
+msgstr "TortoiseSVNはWindows XP Service Pack 3以上で動作し、32ビット版と64ビット版のどちらも使用できます。64ビット版Windows用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションでTortoiseSVNのコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
 
 #. (para)
 msgid ""
 "If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
-msgstr "Windows XP を使用している場合は、<emphasis>必ず</emphasis> Service Pack 3 以上をインストールしてください。サービスパックをインストールしないと、動作しないかもしれません。"
+msgstr "Windows XPを使用している場合は、<emphasis>必ず</emphasis>Service Pack 3以上をインストールしてください。サービスパックをインストールしないと、動作しないかもしれません。"
 
 #. (para)
 msgid ""
 "Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
 "can still download and install older versions if you need them."
-msgstr "Windows 98、Windows ME、Windows NT4 に対するサポートはバージョン 1.2.0 以前で終了し、 Windows 2000 と XP の SP2 までは 1.7.0 以前で終了しました。もしそれらが必要であれば、まだ旧バージョンをダウンロードしてインストールすることができます。"
+msgstr "Windows 98、Windows ME、Windows NT4に対するサポートはバージョン1.2.0以前で終了し、Windows 2000とXPのSP2までは1.7.0以前で終了しました。もし必要であれば、旧バージョンをダウンロードしてインストールすることができます。"
 
 #. (title)
 msgid "Installation"
@@ -625,11 +625,11 @@ msgid ""
 "TortoiseSVN comes with an easy to use installer. Double click on the "
 "installer file and follow the instructions. The installer will take care of "
 "the rest. Don't forget to reboot after installation."
-msgstr "TortoiseSVN はインストーラーを使用すると簡単にインストールできます。インストーラーのファイルをダブルクリックし、画面の指示に従ってください。後はインストーラーが面倒を見てくれます。最後に PC を再起動するのをお忘れなく。"
+msgstr "TortoiseSVNはインストーラーを使用すると簡単にインストールできます。インストーラーのファイルをダブルクリックし、画面の指示に従ってください。後はインストーラーが面倒を見てくれます。最後にPCを再起動するのをお忘れなく。"
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr "TortoiseSVN をインストールするには、管理者権限が必要です。"
+msgstr "TortoiseSVNをインストールするには、管理者権限が必要です。"
 
 #. (para)
 msgid ""
@@ -671,7 +671,7 @@ msgid ""
 " Subversion clients (like TortoiseSVN) on request. If you only back up one "
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
-msgstr "Subversion は、すべてのバージョン管理対象のファイルとその履歴を格納するデータベースを使用します。このデータベースを<emphasis>リポジトリ</emphasis>と呼びます。一般に、リポジトリは Subversion のサーバープログラムが動作しているファイルサーバーに配置し、必要に応じて（TortoiseSVN のような） Subversion クライアントに内容を提供します。バックアップを1つしか取らないならば、すべてのデータの重要なマスターコピーであるリポジトリのバックアップを取ってください。"
+msgstr "Subversionは、すべてのバージョン管理対象のファイルとその履歴を格納するデータベースを使用します。このデータベースを<emphasis>リポジトリ</emphasis>と呼びます。一般に、リポジトリはSubversionのサーバープログラムが動作しているファイルサーバーに配置し、必要に応じて（TortoiseSVNのような）Subversionクライアントに内容を提供します。バックアップを1つしか取らないならば、すべてのデータの重要なマスターコピーであるリポジトリのバックアップを取ってください。"
 
 #. (term)
 #. (glossterm)
@@ -10795,6 +10795,16 @@ msgid ""
 "Menu</guimenu><guimenuitem>Copy error message to "
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr "時々パスを開こうとしたときに、項目の詳細の箇所にエラーメッセージが表示されることがあります。これはおそらく、無効な URL を指定したか、アクセス権限がないか、その他サーバーの問題だと思われます。このメッセージをコピーして email に含める場合、右クリックして <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>クリップボードにエラーメッセージをコピーする</guimenuitem></menuchoice> を使用するか、単純に <keycap>Ctrl+C</keycap> としてください。"
+
+#. (para)
+msgid ""
+"Bookmarked urls/repositories are shown below the current repository folders "
+"in the left tree view. You can add entries there by <action>right "
+"clicking</action> on any file or folder and select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Add to "
+"Bookmarks</guimenuitem></menuchoice>. Clicking on a bookmark will browse to "
+"that repository and file/folder."
+msgstr "ブックマークしたURLやリポジトリは、左のツリービューの中で現在のリポジトリにおけるフォルダーの下に表示されます。項目を追加するには、ファイルやフォルダーを<action>右クリック</action>して<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>ブックマークに追加</guimenuitem></menuchoice>を選択してください。ブックマークをクリックすると、そのリポジトリやファイル、フォルダーを見ることができます。"
 
 #. (title)
 msgid "Revision Graphs"

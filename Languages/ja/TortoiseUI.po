@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-17 07:08+0000\n"
+"PO-Revision-Date: 2013-10-23 12:26+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -453,8 +453,8 @@ msgid "&Apply property recursively"
 msgstr "プロパティを再帰的に適用(&A)"
 
 #. Resource IDs: (610)
-msgid "&Apply the udpate to the move destination"
-msgstr "移動方向への更新を適用(&A)"
+msgid "&Apply the update to the move destination"
+msgstr "移動方向への更新を了承(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1855,6 +1855,10 @@ msgstr "%1 に追加"
 msgid "Add to &ignore list"
 msgstr "無視リストに追加(&I)"
 
+#. Resource IDs: (102)
+msgid "Add to Bookmarks"
+msgstr "ブックマークに追加"
+
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
 msgstr "クイックアクセスツールバーに追加"
@@ -2348,6 +2352,10 @@ msgstr "アルファブレンド"
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blue Style"
+
+#. Resource IDs: (616)
+msgid "Bookmarks"
+msgstr "ブックマーク"
 
 #. Resource IDs: (83)
 msgid ""
@@ -5034,6 +5042,20 @@ msgid ""
 "Find"
 msgstr "指定された文字列を検索する\n検索"
 
+#. Resource IDs: (95)
+#, c-format
+msgid "Find: Can't find the text \"%s\""
+msgstr "検索: テキスト「%s」が見つかりません"
+
+#. Resource IDs: (95)
+msgid ""
+"Find: First occurrence from the bottom found. Beginning of document reached."
+msgstr "検索: ドキュメントの先頭に達したため、末尾から最初のものを検索しました。"
+
+#. Resource IDs: (95)
+msgid "Find: First occurrence from the top found. End of document reached."
+msgstr "検索: ドキュメントの末尾に達したため、先頭から最初のものを検索しました。"
+
 #. Resource IDs: (77)
 msgid "Finished!"
 msgstr "終了"
@@ -5084,7 +5106,7 @@ msgstr "フォント"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "ヘルプは F1  横スクロールは Ctrl + ホイール操作"
+msgstr "F1でヘルプ、Ctrl+ホイール操作で横スクロール"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -5898,7 +5920,7 @@ msgstr "ディレクトリをリポジトリにインポート"
 msgid ""
 "In order to show this dialog in the future, press <Ctrl> while executing the"
 " Code Collaborator menu command."
-msgstr "後でこのダイアログを表示するには、Ctrlを押しながらCode Collaboratorのメニューコマンドを実行してください。"
+msgstr "後でこのダイアログを表示するには、［Ctrl］を押しながらCode Collaboratorのメニューコマンドを実行してください。"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -7132,7 +7154,7 @@ msgstr "注意: 作業コピーをアップグレードすると、アップグ�
 #. Resource IDs: (247)
 #, c-format
 msgid "Number of %s:"
-msgstr "%sの数:"
+msgstr "%s数:"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8191,6 +8213,10 @@ msgstr "%ld件の項目を削除"
 msgid "Remove %s"
 msgstr "%s を削除"
 
+#. Resource IDs: (102)
+msgid "Remove Bookmark"
+msgstr "ブックマークを削除"
+
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "保存された認証データを削除"
@@ -8340,13 +8366,13 @@ msgstr "バージョン管理内のファイル/フォルダーの名前を変�
 
 #. Resource IDs: (1562)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr "未コミットの項目が残ったときはコミット後に再度ダイアログを開く"
+msgstr "コミットされなかった項目が残ったときはコミット後に再度ダイアログを開く"
 
 #. Resource IDs: (197)
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr "コミットされていないファイルやフォルダーがあった場合、コミット完了後に再度コミットダイアログを開きます。"
+msgstr "コミットされなかったファイルやフォルダーが残った場合、コミット完了後に再度コミットダイアログを開きます。"
 
 #. Resource IDs: (209)
 msgid "Repair copy"

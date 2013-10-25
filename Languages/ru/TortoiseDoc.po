@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-19 21:30+0000\n"
+"PO-Revision-Date: 2013-10-23 09:10+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -2450,7 +2450,7 @@ msgstr "Вы должны установить и настроить серве�
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr "Для того, чтобы пользы от Руководства по ежедневному использованию: <placeholder-1/>"
+msgstr "Для того, чтобы получить максимальную пользу от Руководства по ежедневному использованию: <placeholder-1/>"
 
 #. (title)
 msgid "General Features"
@@ -10798,6 +10798,16 @@ msgid ""
 "Menu</guimenu><guimenuitem>Copy error message to "
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr "Иногда, при попытке открыть какой-нибудь путь, вы можете получить сообщение об ошибке вместо деталей описания элемента. Это может случиться, если вы указали неправильный URL, или у вас нет достаточных прав на доступ к хранилищу, или из-за наличия какой-нибудь другой проблемы на сервере. Если вам необходимо скопировать это сообщение для включения в сообщение электронной почты, щёлкните на нём правой клавишей и выберите <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Скопировать сообщение об ошибке в буфер обмена</guimenuitem></menuchoice>, или же просто воспользуйтесь <keycap>Ctrl+C</keycap>."
+
+#. (para)
+msgid ""
+"Bookmarked urls/repositories are shown below the current repository folders "
+"in the left tree view. You can add entries there by <action>right "
+"clicking</action> on any file or folder and select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Add to "
+"Bookmarks</guimenuitem></menuchoice>. Clicking on a bookmark will browse to "
+"that repository and file/folder."
+msgstr "Добавленные в закладки адреса URL/хранилища показаны ниже папок текущего хранилища в левом дереве просмотра. Вы можете добавить туда пункты сделав <action>правый щелчок</action> мышью на любом файле или папке и выбрав <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Добавить в закладки</guimenuitem></menuchoice>. Правый щелчок на закладке приведёт к просмотру этого хранилища и файла/папки."
 
 #. (title)
 msgid "Revision Graphs"
