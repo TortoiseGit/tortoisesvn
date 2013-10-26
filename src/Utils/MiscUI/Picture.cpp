@@ -208,7 +208,7 @@ bool CPicture::Load(tstring sFilePathName)
                                     nCurrentIcon = 0;
                                     hIcons = new HICON[lpIconDir->idCount];
                                     // check that the pointers point to data that we just loaded
-                                    if (((BYTE*)lpIconDir->idEntries > (BYTE*)lpIconDir) && 
+                                    if (((BYTE*)lpIconDir->idEntries > (BYTE*)lpIconDir) &&
                                         (((BYTE*)lpIconDir->idEntries)+(lpIconDir->idCount * sizeof(ICONDIRENTRY)) < ((BYTE*)lpIconDir)+fileinfo.nFileIndexLow))
                                     {
                                         m_Width = lpIconDir->idEntries[0].bWidth;

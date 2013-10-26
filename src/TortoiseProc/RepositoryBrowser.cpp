@@ -233,7 +233,7 @@ void CRepositoryBrowser::ClearUI()
     m_RepoList.DeleteAllItems();
 
     HTREEITEM hRoot = m_RepoTree.GetRootItem();
-    do 
+    do
     {
         RecursiveRemove(hRoot);
         m_RepoTree.DeleteItem(hRoot);
@@ -399,7 +399,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     if (SysInfo::Instance().IsVistaOrLater())
     {
         // TVS_EX_FADEINOUTEXPANDOS style must not be set:
-        // if it is set, there's an UI glitch when editing labels:
+        // if it is set, there's a UI glitch when editing labels:
         // the text vanishes if the mouse cursor is moved away from
         // the edit control
         DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;

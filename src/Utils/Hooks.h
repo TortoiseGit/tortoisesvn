@@ -230,7 +230,7 @@ public:
                                     CString& message, DWORD& exitcode,
                                     CString& error);
     /**
-     * Executes the Manual Pre-Commit-Hook 
+     * Executes the Manual Pre-Commit-Hook
      * \param pathList a list of paths that are checked in the commit dialog
      * \param message the commit message if there already is one
      * \param exitcode on return, contains the exit code of the hook script

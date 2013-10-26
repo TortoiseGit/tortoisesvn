@@ -62,7 +62,7 @@ SVNDiff::~SVNDiff(void)
 }
 
 bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
-                         bool ignoreprops, 
+                         bool ignoreprops,
                          svn_wc_status_kind status, /* = svn_wc_status_none */
                          svn_wc_status_kind text_status /* = svn_wc_status_none */,
                          svn_wc_status_kind prop_status /* = svn_wc_status_none */,
