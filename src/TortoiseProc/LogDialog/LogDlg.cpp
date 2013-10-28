@@ -6776,6 +6776,7 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
         dlg.SetPathList(CTSVNPathList(CTSVNPath(pCmi->fileUrl)));
         dlg.SetUrl(pCmi->wcPath);
         dlg.SetRevision(pCmi->Rev2);
+        dlg.SetPegRevision(pCmi->Rev2);
     }
     else
     {
