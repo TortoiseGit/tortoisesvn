@@ -1,3 +1,60 @@
+Version 1.8.3
+- BUG: Issue #546: "Restore after commit" fails
+       to restore in some situations. (Stefan)
+- BUG: Issue #547: "Show Log" fails from
+       the merge dialog. (Stefan)
+- BUG: Issue #549: spell checker misses last
+       char in a word. (Stefan)
+- BUG: Issue #550: shell column handler
+       not registered. (Stefan)
+- BUG: Issue #556: Crash closing properties
+       dialog. (Stefan)
+- BUG: Issue #557: Ignored items always set
+       global ignores. (Stefan)
+- BUG: Issue #554: newline symbol is always
+       the same in TortoiseMerge. (Stefan)
+- BUG: Issue #558: Crash in log dialog. (Stefan)
+- BUG: Issue #559: Crash in moved-blocks
+       detection in TortoiseMerge. (Stefan)
+- BUG: Issue #561: unified diff shows
+       absolute paths. (Stefan)
+- BUG: Issue #565: spurious NUL chars
+       shown in blame. (Stefan)
+- BUG: Issue #566: Wrong encoding detection
+       in TortoiseBlame. (Stefan)
+- BUG: Issue #567: too many rename
+       suggestions. (Stefan)
+- BUG: Issue #568: missing autocompletion for
+       filenames with '-'. (Stefan)
+- BUG: Issue #569: Redirects not fully followed
+       in repo browser. (Stefan)
+- BUG: Issue #570: moved-blocks detection
+       changes diff blocks. (Stefan)
+- BUG: Issue #571: multi-rename renames
+       the first file wrong. (Stefan)
+- BUG: Issue #573: Crash applying patch
+       with urls. (Stefan)
+- BUG: Issue #576: TortoiseMerge: Double-click word
+       should highlight whole word only. (Sup Yut Sum)
+- BUG: Issue #577: TortoiseMerge: LocationBar highlights
+       should respect all options in FindDlg. (Sup Yut Sum)
+- BUG: Issue #578: resolving types of conflicts
+       individually. (Stefan)
+- BUG: Issue #579: UI glitch renaming in tree
+       view in repo browser. (Stefan)
+- BUG: Issue #580: Crash in TortoiseIDiff loading
+       corrupted icon file. (Stefan)
+- BUG: Issue #581: Restore-after-commit leaves
+       temp file flag. (Stefan)
+- BUG: Issue #583: Tagging with fixed externals revision
+       fails if spaces in target path is used. (Stefan)
+- NEW: Issue #551: Remember the 'ignore ancestry'
+       option. (Stefan)
+- NEW: Issue #552: Tri-State checkbox handling
+       in repo browser. (Sergey Azarkevich)
+- NEW: Issue 563: Add "do this for all items" checkbox
+       when removing multiple properties. (Stefan)
+
 Version 1.8.2
 - BUG: Issue #522: OK button falsely enabled
        in lock dialog. (Stefan)
