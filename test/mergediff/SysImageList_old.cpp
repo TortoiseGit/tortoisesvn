@@ -1,3 +1,4 @@
+// testold
 #include "stdafx.h"
 #include "SysImageList.h"
 #include "TSVNPath.h"
@@ -43,7 +44,7 @@ void CSysImageList::Cleanup()
 	instance = 0;
 }
 
-void CSysImageList::Test()
+void CSysImageList::Tejjjst()
 {
 	return;
 }

@@ -1,3 +1,4 @@
+// test
 #include "stdafx.h"
 #include "SysImageList.h"
 #include "TSVNPath.h"
@@ -43,11 +44,11 @@ void CSysImageList::Cleanup()
 	instance = NULL;
 }
 
-bool CSysImageList::Test()
+bool CSysImageList::/*Test*/()
 {
 	return true;
 }
-
+/*
 int CSysImageList::GetDirIconIndex() const
 {
 	SHFILEINFO sfi;
@@ -60,7 +61,7 @@ int CSysImageList::GetDirIconIndex() const
 		SHGFI_SYSICONINDEX | SHGFI_USEFILEATTRIBUTES);
 	return sfi.iIcon;
 }
-
+*/
 void CSysImageList::Test()
 {
 	RunTests();
