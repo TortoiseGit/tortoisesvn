@@ -669,6 +669,7 @@ void CMainFrame::ClearViewNamesAndPaths()
 
 bool CMainFrame::LoadViews(int line)
 {
+    LoadIgnoreCommentData();
     m_Data.SetBlame(m_bBlame);
     m_Data.SetMovedBlocks(m_bViewMovedBlocks);
     m_bHasConflicts = false;
@@ -682,6 +683,23 @@ bool CMainFrame::LoadViews(int line)
         ptOldCaretPos = m_pwndRightView->GetCaretPosition();
     if (m_pwndBottomView && m_pwndBottomView->IsTarget())
         ptOldCaretPos = m_pwndBottomView->GetCaretPosition();
+    CString sExt = CPathUtils::GetFileExtFromPath(m_Data.m_baseFile.GetFilename()).MakeLower();
+    sExt.TrimLeft(L".");
+    auto sC = m_IgnoreCommentsMap.find(sExt);
+    if (sC == m_IgnoreCommentsMap.end())
+    {
+        sExt = CPathUtils::GetFileExtFromPath(m_Data.m_yourFile.GetFilename()).MakeLower();
+        sC = m_IgnoreCommentsMap.find(sExt);
+        if (sC == m_IgnoreCommentsMap.end())
+        {
+            sExt = CPathUtils::GetFileExtFromPath(m_Data.m_theirFile.GetFilename()).MakeLower();
+            sC = m_IgnoreCommentsMap.find(sExt);
+        }
+    }
+    if (sC != m_IgnoreCommentsMap.end())
+        m_Data.SetCommentTokens(std::get<0>(sC->second), std::get<1>(sC->second), std::get<2>(sC->second));
+    else
+        m_Data.SetCommentTokens(L"", L"", L"");
     if (!m_Data.Load())
     {
         m_pwndLeftView->BuildAllScreen2ViewVector();
@@ -2900,4 +2918,85 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
     }
 
     __super::OnTimer(nIDEvent);
+}
+
+void CMainFrame::LoadIgnoreCommentData()
+{
+    static bool bLoaded = false;
+    if (bLoaded)
+        return;
+    CRegDWORD regIgnoreComments = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE);
+    if (DWORD(regIgnoreComments) == FALSE)
+        return;
+    CString sPath = CPathUtils::GetAppDataDirectory() + L"IgnoreComments";
+    if (!PathFileExists(sPath))
+    {
+        CStdioFile file;
+        if (file.Open(sPath, CFile::modeReadWrite|CFile::modeCreate))
+        {
+            file.WriteString(L"js,c,cc,cpp,cxx,h,hh,hpp,hxx,ipp,m,mm,sma,cs,vb,vbs,rs,st,il,osx,ecl,eclattr,hql,powerpro,impl,sign,prg,gui,gc,v,vh,em,src,pov,inc,java,jad,pde,es,ch,chs,chf,go,rc,rc2,dlg,idl,odl,as,asc,jsfl,vala,pike=//,/*,*/\n");
+            file.WriteString(L"html,htm,asp,shtml,htd,jsp,htt,cfm,tpl,dtd,hta,wxi,wxs,wxl,php,php3,phtml,vxml,xml,xsl,svg,xul,xsd,xslt,axl,xrc,rdf,build,docbook,mako=,<!--,-->\n");
+            file.WriteString(L"kvs,nim,po,pot,ps1,g,gd,gi,cmake,ctest,sh,bsh,ksh,yaml,yml,lt,ant,tab,tcl,exp,rb,rbw,rake,rjs,rakefile,conf,htaccess,pl,pm,pod,py,pyw,mak,mk,configure,properties,session,ini,inf,reg,url,cfg,cnf,aut,=#,,\n");
+            file.WriteString(L"pro,=%,/*,*/\n");
+            file.WriteString(L"coffee,=#,###,###\n");
+            file.WriteString(L"m3,i3,mg,ig,dpr,dpk,pas,dfm,pp=,(*,*)\n");
+            file.WriteString(L"t2t,erl,hrl,mp,mpx,mms,ps,asm,octave=%,,\n");
+            file.WriteString(L"avs,avsi=#,/*,*/\n");
+            file.WriteString(L"ins,iss,isl,orc,sco,csd,au3,kix,nsi,nsh,=;,,\n");
+            file.WriteString(L"tacl===,,\n");
+            file.WriteString(L"cob=*>,,\n");
+            file.WriteString(L"tal,vhdl,vhd,asn1,mib,e,ada,adb=--,,\n");
+            file.WriteString(L"r,reb,lisp,lsp,el=;,;;,;;\n");
+            file.WriteString(L"inp,dat,msg=**,,\n");
+            file.WriteString(L"d=//,/+,+/\n");
+            file.WriteString(L"als,cir,sch,scp=*,,\n");
+            file.WriteString(L"hs=-,{-,-}\n");
+            file.WriteString(L"bas,bi,pb,bb,=',/','/\n");
+            file.WriteString(L"forth,spf=\\,(,)\n");
+            file.WriteString(L"css=,/*,*/\n");
+            file.WriteString(L"f,for,90,f95,f2k,app,apl=!,,\n");
+            file.WriteString(L"ave='--,,\n");
+            file.WriteString(L"lua=--,--[[,]]\n");
+            file.WriteString(L"sql,spec,body,sps,spb,sf,sp=-- ,/*,*/\n");
+
+            file.Close();
+        }
+    }
+    CStdioFile file;
+    if (file.Open(sPath, CFile::modeRead))
+    {
+        CString sLine;
+        while (file.ReadString(sLine))
+        {
+            int eqpos = sLine.Find('=');
+            if (eqpos >= 0)
+            {
+                CString sExts = sLine.Left(eqpos);
+                CString sComments = sLine.Mid(eqpos+1);
+
+                int pos = sComments.Find(',');
+                CString sLineStart = sComments.Left(pos);
+                pos = sComments.Find(',', pos);
+                int pos2 = sComments.Find(',', pos+1);
+                CString sBlockStart = sComments.Mid(pos+1, pos2-pos-1);
+                CString sBlockEnd = sComments.Mid(pos2+1);
+
+                auto commentTuple = std::make_tuple(sLineStart, sBlockStart, sBlockEnd);
+
+                pos = 0;
+                CString temp;
+                for (;;)
+                {
+                    temp = sExts.Tokenize(_T(","),pos);
+                    if (temp.IsEmpty())
+                    {
+                        break;
+                    }
+                    ASSERT(m_IgnoreCommentsMap.find(temp) == m_IgnoreCommentsMap.end());
+                    m_IgnoreCommentsMap[temp] = commentTuple;
+                }
+            }
+        }
+    }
+    bLoaded = true;
 }

@@ -26,6 +26,8 @@
 #include "XSplitter.h"
 #include "SVNPatch.h"
 
+#include <tuple>
+
 class CLeftView;
 class CRightView;
 class CBottomView;
@@ -159,6 +161,7 @@ protected:
     bool            FileSave(bool bCheckResolved=true);
     void            PatchSave();
     bool            FileSaveAs(bool bCheckResolved=true);
+    void            LoadIgnoreCommentData();
     /// checks if there are modifications and asks the user to save them first
     /// IDCANCEL is returned if the user wants to cancel.
     /// If the user wanted to save the modifications, this method does the saving
@@ -224,6 +227,8 @@ protected:
     CRegDWORD       m_regInlineDiff;
     CRegDWORD       m_regUseRibbons;
     CRegDWORD       m_regUseTaskDialog;
+
+    std::map<CString, std::tuple<CString, CString, CString>>    m_IgnoreCommentsMap;
 public:
     CLeftView *     m_pwndLeftView;
     CRightView *    m_pwndRightView;

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010-2012 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,7 @@ public:
     void                        SetMovedBlocks(bool bViewMovedBlocks = true);
     int                         GetLineCount() const;
     CString                     GetError() const  {return m_sError;}
+    void                        SetCommentTokens(const CString& sLineStart, const CString& sBlockStart, const CString& sBlockEnd);
 
     bool    IsBaseFileInUse() const     { return m_baseFile.InUse(); }
     bool    IsTheirFileInUse() const    { return m_theirFile.InUse(); }
@@ -104,4 +105,7 @@ public:
 protected:
     bool                        m_bBlame;
     bool                        m_bViewMovedBlocks;
+    CString                     m_CommentLineStart;
+    CString                     m_CommentBlockStart;
+    CString                     m_CommentBlockEnd;
 };

@@ -467,13 +467,21 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
         - get cached encoded eol
         - save eol
 */
-BOOL CFileTextLines::Save(const CString& sFilePath
-                         , bool bSaveAsUTF8 /*= false*/
-                         , bool bUseSVNCompatibleEOLs /*= false*/
-                         , DWORD dwIgnoreWhitespaces /*=0*/
-                         , BOOL bIgnoreCase /*= FALSE*/
-                         , bool bBlame /*= false*/) const
+BOOL CFileTextLines::Save( const CString& sFilePath
+                         , bool bSaveAsUTF8 /*= false */
+                         , bool bUseSVNCompatibleEOLs /*= false */
+                         , DWORD dwIgnoreWhitespaces /*= 0 */
+                         , BOOL bIgnoreCase /*= FALSE */
+                         , bool bBlame /*= false*/
+                         , bool bIgnoreComments /*= false*/
+                         , const CString& linestart /*= CString()*/
+                         , const CString& blockstart /*= CString()*/
+                         , const CString& blockend /*= CString()*/)
 {
+    m_sCommentLine = linestart;
+    m_sCommentBlockStart = blockstart;
+    m_sCommentBlockEnd = blockend;
+
     try
     {
         CString destPath = sFilePath;
@@ -575,9 +583,12 @@ BOOL CFileTextLines::Save(const CString& sFilePath
                 ? EOL_CRLF
                 : m_SaveParams.m_LineEndings];
 
+        bool bInBlockComment = false;
         for (int i=0; i<GetCount(); i++)
         {
             CString sLineT = GetAt(i);
+            if (bIgnoreComments)
+                bInBlockComment = StripComments(sLineT, bInBlockComment);
             StripWhiteSpace(sLineT, dwIgnoreWhitespaces, bBlame);
             if (bIgnoreCase)
                 sLineT = sLineT.MakeLower();
@@ -638,6 +649,48 @@ const wchar_t * CFileTextLines::GetEncodingName(UnicodeType eEncoding)
         return L"UTF-8 BOM";
     }
     return L"";
+}
+
+bool CFileTextLines::StripComments( CString& sLine, bool bInBlockComment )
+{
+    int startpos = 0;
+
+    do 
+    {
+        if (bInBlockComment)
+        {
+            int endpos = sLine.Find(m_sCommentBlockEnd);
+            if (endpos >= 0)
+            {
+                sLine = sLine.Left(startpos) + sLine.Mid(endpos+m_sCommentBlockEnd.GetLength());
+                bInBlockComment = false;
+            }
+            else
+            {
+                sLine.Empty();
+                startpos = -1;
+            }
+        }
+        if (!bInBlockComment)
+        {
+            startpos = sLine.Find(m_sCommentBlockStart);
+            int startpos2 = sLine.Find(m_sCommentLine);
+            if ( ((startpos2 < startpos) && (startpos2 >= 0)) ||
+                 ((startpos2 >= 0) && (startpos < 0)) )
+            {
+                // line comment, erase the rest of the line
+                sLine = sLine.Left(startpos2);
+                startpos = -1;
+            }
+            else if (startpos >= 0)
+            {
+                // starting block comment
+                bInBlockComment = true;
+            }
+        }
+    } while (startpos >= 0);
+
+    return bInBlockComment;
 }
 
 
