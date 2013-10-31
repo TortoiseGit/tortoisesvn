@@ -20,28 +20,9 @@
     </if>
   </target>
 
+  <!-- Note: do not use the asm parts since they're buggy -->
   <target name="build" depends="clean">
     <mkdir dir="${configuration}_${platform}" />
-    <if test="${platform == 'win32'}">
-      <copy todir="." overwrite="true">
-        <fileset basedir="contrib\masmx86">
-          <include name="*.asm" />
-          <include name="*.c" />
-        </fileset>
-      </copy>
-      <if test="${file::exists('gvmat32.asm')}">
-        <exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF -Fo${configuration}_${platform}\gvmat32.obj gvmat32.asm" />
-      </if>
-    </if>
-    <if test="${platform == 'x64'}">
-      <copy todir="." overwrite="true">
-        <fileset basedir="contrib\masmx64">
-          <include name="*.asm" />
-          <include name="*.c" />
-        </fileset>
-      </copy>
-      <exec program="ml64" commandline="-nologo -c -Zi -Fo${configuration}_${platform}\gvmat64.obj gvmat64.asm" />
-    </if>
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
       <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
