@@ -147,6 +147,8 @@ protected:
     afx_msg void    OnIndicatorRightview();
     afx_msg void    OnIndicatorBottomview();
     afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    afx_msg void    OnViewIgnorecomments();
+    afx_msg void    OnUpdateViewIgnorecomments(CCmdUI *pCmdUI);
 
     DECLARE_MESSAGE_MAP()
 protected:
@@ -227,6 +229,7 @@ protected:
     CRegDWORD       m_regInlineDiff;
     CRegDWORD       m_regUseRibbons;
     CRegDWORD       m_regUseTaskDialog;
+    CRegDWORD       m_regIgnoreComments;
 
     std::map<CString, std::tuple<CString, CString, CString>>    m_IgnoreCommentsMap;
 public:

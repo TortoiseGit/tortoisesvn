@@ -139,6 +139,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_COMMAND(ID_INDICATOR_RIGHTVIEW, &CMainFrame::OnIndicatorRightview)
     ON_COMMAND(ID_INDICATOR_BOTTOMVIEW, &CMainFrame::OnIndicatorBottomview)
     ON_WM_TIMER()
+    ON_COMMAND(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnViewIgnorecomments)
+    ON_UPDATE_COMMAND_UI(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnUpdateViewIgnorecomments)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -181,6 +183,7 @@ CMainFrame::CMainFrame()
     , m_regInlineDiff(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE)
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
+    , m_regIgnoreComments(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
@@ -2925,9 +2928,6 @@ void CMainFrame::LoadIgnoreCommentData()
     static bool bLoaded = false;
     if (bLoaded)
         return;
-    CRegDWORD regIgnoreComments = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE);
-    if (DWORD(regIgnoreComments) == FALSE)
-        return;
     CString sPath = CPathUtils::GetAppDataDirectory() + L"IgnoreComments";
     if (!PathFileExists(sPath))
     {
@@ -2999,4 +2999,35 @@ void CMainFrame::LoadIgnoreCommentData()
         }
     }
     bLoaded = true;
+}
+
+void CMainFrame::OnViewIgnorecomments()
+{
+    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+        return;
+    m_regIgnoreComments = !DWORD(m_regIgnoreComments);
+    LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateViewIgnorecomments(CCmdUI *pCmdUI)
+{
+    // only enable if we have comments defined for this file extension
+    CString sExt = CPathUtils::GetFileExtFromPath(m_Data.m_baseFile.GetFilename()).MakeLower();
+    sExt.TrimLeft(L".");
+    auto sC = m_IgnoreCommentsMap.find(sExt);
+    if (sC == m_IgnoreCommentsMap.end())
+    {
+        sExt = CPathUtils::GetFileExtFromPath(m_Data.m_yourFile.GetFilename()).MakeLower();
+        sExt.TrimLeft(L".");
+        sC = m_IgnoreCommentsMap.find(sExt);
+        if (sC == m_IgnoreCommentsMap.end())
+        {
+            sExt = CPathUtils::GetFileExtFromPath(m_Data.m_theirFile.GetFilename()).MakeLower();
+            sExt.TrimLeft(L".");
+            sC = m_IgnoreCommentsMap.find(sExt);
+        }
+    }
+    pCmdUI->Enable(sC != m_IgnoreCommentsMap.end());
+
+    pCmdUI->SetCheck(DWORD(m_regIgnoreComments) != 0);
 }

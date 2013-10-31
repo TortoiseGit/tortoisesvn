@@ -367,6 +367,7 @@
 #define ID_EDIT_GOTOLINE                32893
 #define ID_EDIT_GOTOLINE32895           32895
 #define ID_BUTTON2                      32896
+#define ID_VIEW_IGNORECOMMENTS          32896
 #define ID_LOGOBUTTON                   32897
 #define ID_USEBLOCKS                    32914
 #define ID_BUTTON20                     32916
