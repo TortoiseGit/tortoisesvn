@@ -1165,7 +1165,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
         }
     }
 
-    HTREEITEM hItem = AutoInsert (m_InitialUrl);
+    HTREEITEM hItem = AutoInsert (url);
     if (hItem == NULL)
         return false;
 
