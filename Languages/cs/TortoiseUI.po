@@ -15,10 +15,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-21 08:29+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-11-02 20:10+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -452,7 +452,7 @@ msgstr "&Použít vlastnost rekurzivně"
 
 #. Resource IDs: (610)
 msgid "&Apply the update to the move destination"
-msgstr ""
+msgstr "&Použít aktualizaci pro přesun cíle"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1855,7 +1855,7 @@ msgstr "Přidat do seznamu k &ignorování"
 
 #. Resource IDs: (102)
 msgid "Add to Bookmarks"
-msgstr ""
+msgstr "Přidat do záložek"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
@@ -2353,7 +2353,7 @@ msgstr "Modrý styl"
 
 #. Resource IDs: (616)
 msgid "Bookmarks"
-msgstr ""
+msgstr "Záložky"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2444,7 +2444,7 @@ msgstr "&Příkazy:"
 
 #. Resource IDs: (102)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "P&orovnat URL (pouze obsah)"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2864,7 +2864,7 @@ msgstr "Zkontrolovat změny v pracovní kopii."
 
 #. Resource IDs: (570)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Hák kontroly odevzdání"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3250,7 +3250,7 @@ msgstr "Porovn&at s původním"
 
 #. Resource IDs: (138)
 msgid "Compare with base (content only)"
-msgstr ""
+msgstr "Porovnat s originálem (pouze obsah)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3678,12 +3678,12 @@ msgstr "Nelze spustit vlákno!"
 
 #. Resource IDs: (1501)
 msgid "Coun&t"
-msgstr ""
+msgstr "Spočíta&t"
 
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %d matches."
-msgstr ""
+msgstr "Počet: %d shod."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -5043,16 +5043,16 @@ msgstr "Najít určitý text\nNajít"
 #. Resource IDs: (95)
 #, c-format
 msgid "Find: Can't find the text \"%s\""
-msgstr ""
+msgstr "Hledání: Nelze najít text \"%s\""
 
 #. Resource IDs: (95)
 msgid ""
 "Find: First occurrence from the bottom found. Beginning of document reached."
-msgstr ""
+msgstr "Hledání: Nalezen první výskyt při hledání zdola. Dosaženo začátku dokumentu."
 
 #. Resource IDs: (95)
 msgid "Find: First occurrence from the top found. End of document reached."
-msgstr ""
+msgstr "Hledání: Nalezen první výskyt při hledání shora. Dosaženo konce dokumentu."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -6447,7 +6447,7 @@ msgstr "Spravovat vlastnosti Subversion"
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
-msgstr ""
+msgstr "Ruční hák před odevzdáním"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -7754,7 +7754,7 @@ msgstr "Tisk"
 
 #. Resource IDs: (364)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Přesto pokračovat"
 
 #. Resource IDs: (170)
 msgid ""
@@ -8213,7 +8213,7 @@ msgstr "Odstranit %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
-msgstr ""
+msgstr "Odstranit záložku"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -8370,7 +8370,7 @@ msgstr "Znovu otevřít dialogové okno po odevzdání, pokud položky nebyly od
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr ""
+msgstr "Znovu otevře dialogové okno odevzdání po úspěšném odevzdání, pokud existují neodevzdané soubory a/nebo složky."
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -8645,7 +8645,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%7!s!"
-msgstr ""
+msgstr "Revize: %1!ld! %2!s!\nURL: %3!s!\n%4!s!Autor: %5!s!\nDatum: %6!s!\n\nZpráva záznamu:\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8659,7 +8659,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%9!s!"
-msgstr ""
+msgstr "Revize: %1!ld! %2!s!\nURL: %3!s!\n%4!s!Autor: %5!s!\nDatum: %6!s!\n\nZnačky (%7!d!):%8!s!\n\nZpráva záznamu:\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8703,7 +8703,7 @@ msgstr "Spustit čištění &nyní"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "Spustit há&kový skript"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9377,7 +9377,7 @@ msgstr "Zobrazit přehled celého grafu"
 
 #. Resource IDs: (115)
 msgid "Show c&hanges (content only)"
-msgstr ""
+msgstr "Zobrazit z&měny (pouze obsah)"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -9417,7 +9417,7 @@ msgstr "&Zobrazit více změn...."
 
 #. Resource IDs: (115)
 msgid "Show multiple &changes... (content only)"
-msgstr ""
+msgstr "&Zobrazit více změn.... (pouze obsah)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -10149,7 +10149,7 @@ msgstr "Cílový adresář\n%s\njiž existuje!"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Hákový skript byl úspěšně spuštěn"
 
 #. Resource IDs: (83)
 #, c-format
