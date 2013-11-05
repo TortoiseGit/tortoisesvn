@@ -7,13 +7,13 @@ Licensed under GNU GPL v2.
 
 Installation:
     1. Open TSVN Settings.
-    2. Go to 'Hooks' item in a treeview.
-    3. Tab to the 'Add' button and press it.
+    2. Go to "Hooks" item in a treeview.
+    3. Tab to the "Add" button and press it.
     4. From the dialogue opened select post update hook, then set the path to the JAWS user folder
-       (e. g. 'c:\documents and settings\Administrator\application data\freedom scientific\jaws\11.0\settings\enu').
-    5. In the command line field type 'WScript ReCompileJAWSScriptsWC.js'.
+       (e. g. "c:\documents and settings\Administrator\application data\freedom scientific\jaws\11.0\settings\enu").
+    5. In the command line field type "WScript ReCompileJAWSScriptsWC.js".
     6. Select the checkboxes according to your choice.
-    7. Issue an 'Ok' button.
+    7. Issue an "Ok" button.
     8. Save the changes.
     9. Enjoy the automatic compilation of your scripts after updating...
 *****************************************************************/
@@ -26,21 +26,21 @@ var WorkingFolder = "Working directory: ";
 var StartedIncorrectly = "The script was started either from the command line or from a wrong hook - the script is intended to be started only from the post update hook.";
 var Finished = "Compiled...";
 // End of lines to translate...
-var ShellObject = WScript.CreateObject ("WScript.Shell");
-var SAPI5Object = WScript.CreateObject ("SAPI.SpVoice");
+var ShellObject = WScript.CreateObject("WScript.Shell");
+var SAPI5Object = WScript.CreateObject("SAPI.SpVoice");
 var ArgumentsObject = WScript.Arguments;
 var Version, PathParts, PathToSCompile;
 
 if (ArgumentsObject.length !== 5)
 {
-    SAPI5Object.Speak (StartedIncorrectly, 0);
+    SAPI5Object.Speak(StartedIncorrectly, 0);
     WScript.Quit(1);
 }
 
-SAPI5Object.Speak (LastRevision + ArgumentsObject.Item (2), 0);
-SAPI5Object.Speak (WorkingFolder + ArgumentsObject.Item (4), 0);
-PathParts = WScript.ScriptFullName.split ("\\");
+SAPI5Object.Speak(LastRevision + ArgumentsObject.Item(2), 0);
+SAPI5Object.Speak(WorkingFolder + ArgumentsObject.Item(4), 0);
+PathParts = WScript.ScriptFullName.split("\\");
 Version = PathParts[PathParts.length - 4];
 PathToSCompile = "\"" + ShellObject.RegRead ("HKLM\\SOFTWARE\\Freedom Scientific\\JAWS\\" + Version + "\\Target") + "scompile.exe\"";
-ShellObject.Run (PathToSCompile + ScriptName, 0, true);
-SAPI5Object.Speak (Finished, 0);
+ShellObject.Run(PathToSCompile + ScriptName, 0, true);
+SAPI5Object.Speak(Finished, 0);

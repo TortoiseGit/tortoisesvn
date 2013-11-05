@@ -45,7 +45,7 @@ var vOffice2003 = 11;
 
 // ----- main -----
 
-var aWarningMessages = Array();
+var aWarningMessages = [];
 
 var objArgs = WScript.Arguments;
 if (objArgs.length < 2)
@@ -278,10 +278,10 @@ function ToAbsoluteReference(objWorksheet)
 function convertFormula(sFormula)
 {
     var worksheet = objSpecialWorkbook.Sheets(1);
-    var original_content = worksheet.Cells(1,1).Formula;
-    worksheet.Cells(1,1).Formula = sFormula;
-    sFormula = worksheet.Cells(1,1).FormulaLocal;
-    worksheet.Cells(1,1).Formula = original_content;
+    var original_content = worksheet.Cells(1, 1).Formula;
+    worksheet.Cells(1, 1).Formula = sFormula;
+    sFormula = worksheet.Cells(1, 1).FormulaLocal;
+    worksheet.Cells(1, 1).Formula = original_content;
     return sFormula;
 }
 
