@@ -2,7 +2,7 @@
 '
 ' TortoiseSVN Merge script for Open Office Calc files
 '
-' Copyright (C) 2004-2009, 2012-2013 the TortoiseSVN team
+' Copyright (C) 2004-2009 the TortoiseSVN team
 ' This file is distributed under the same license as TortoiseSVN
 '
 ' Last commit by:
