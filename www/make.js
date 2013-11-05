@@ -24,7 +24,7 @@
 
     require("shelljs/make");
     var fs = require("fs"),
-        cleanCSS = require("clean-css"),
+        CleanCSS = require("clean-css"),
         UglifyJS = require("uglify-js"),
         ROOT_DIR = __dirname + "/";     // absolute path to project's root
 
@@ -37,29 +37,31 @@
         echo("### Minifying css files...");
 
         // prettify.min.css
-        var prettifyMinCss = cleanCSS.process(cat("css/prettify.css"), {
-            removeEmpty: true,
-            keepSpecialComments: 0
-        });
+        var inCss1 = cat("css/prettify.css");
 
-        fs.writeFileSync("css/prettify.min.css", prettifyMinCss, "utf8");
+        var minifier1 = new CleanCSS({
+                keepSpecialComments: 1,
+                selectorsMergeMode: "ie8"
+            });
+
+        fs.writeFileSync("css/prettify.min.css", minifier1.minify(inCss1), "utf8");
 
         echo();
         echo("### Finished css/prettify.min.css.");
 
         // pack.css
 
-        var inCss = cat(["css/normalize.css",
+        var inCss2 = cat(["css/normalize.css",
                          "css/jquery.fancybox.css",
                          "css/style.css"
         ]);
 
-        var packCss = cleanCSS.process(inCss, {
-            removeEmpty: true,
-            keepSpecialComments: 0
-        });
+        var minifier2 = new CleanCSS({
+                keepSpecialComments: 0,
+                selectorsMergeMode: "ie8"
+            });
 
-        fs.writeFileSync("css/pack.css", packCss, "utf8");
+        fs.writeFileSync("css/pack.css", minifier2.minify(inCss2), "utf8");
 
         echo();
         echo("### Finished css/pack.css.");
