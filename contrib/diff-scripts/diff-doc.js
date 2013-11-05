@@ -93,7 +93,7 @@ catch (e)
     if ((objFile.Attributes & 1) === 1)
     {
         // reset the readonly attribute
-        objFile.Attributes = objFile.Attributes & (~1);
+        objFile.Attributes = objFile.Attributes & ~1;
     }
     //Create the DesktopSet
     var objDesktop = OO.createInstance("com.sun.star.frame.Desktop");
@@ -118,7 +118,7 @@ catch (e)
     oPropertyValue[0].Name = "ShowTrackedChanges";
     oPropertyValue[0].Value = true;
     // objDocument is needed
-    var objDocument = objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue);
+    var objDocument = objDesktop.loadComponentFromURL(sNewDoc, "_blank", 0, oPropertyValue);
 
     //Set the frame
     var Frame = objDesktop.getCurrentFrame();
@@ -146,7 +146,7 @@ word.visible = true;
 // Open the new document
 try
 {
-    destination = word.Documents.Open(sNewDoc, true, (parseInt(word.Version, 10) < vOffice2013));
+    destination = word.Documents.Open(sNewDoc, true, parseInt(word.Version, 10) < vOffice2013);
 }
 catch (e)
 {
@@ -154,7 +154,7 @@ catch (e)
     {
         // open empty document to prevent bug where first Open() call fails
         word.Documents.Add();
-        destination = word.Documents.Open(sNewDoc, true, (parseInt(word.Version, 10) < vOffice2013));
+        destination = word.Documents.Open(sNewDoc, true, parseInt(word.Version, 10) < vOffice2013);
     }
     catch (e)
     {
@@ -165,7 +165,7 @@ catch (e)
 }
 
 // If the Type property returns either wdOutlineView or wdMasterView and the Count property returns zero, the current document is an outline.
-if ((destination.ActiveWindow.View.Type === wdOutlineView) || ((destination.ActiveWindow.View.Type === wdMasterView) || (destination.ActiveWindow.View.Type === wdReadingView)) && (destination.Subdocuments.Count === 0))
+if (destination.ActiveWindow.View.Type === wdOutlineView || (destination.ActiveWindow.View.Type === wdMasterView || destination.ActiveWindow.View.Type === wdReadingView) && destination.Subdocuments.Count === 0)
 {
     // Change the Type property of the current document to normal
     destination.ActiveWindow.View.Type = wdNormalView;

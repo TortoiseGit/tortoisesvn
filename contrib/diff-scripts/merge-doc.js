@@ -115,7 +115,7 @@ if (parseInt(word.Version, 10) < vOffice2007)
 }
 
 // Close the first document
-if ((parseInt(word.Version, 10) >= vOffice2002) && (parseInt(word.Version, 10) < vOffice2010))
+if (parseInt(word.Version, 10) >= vOffice2002 && parseInt(word.Version, 10) < vOffice2010)
 {
     baseDoc.Close();
 }
