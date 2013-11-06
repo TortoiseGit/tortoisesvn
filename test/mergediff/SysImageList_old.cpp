@@ -1,4 +1,9 @@
 // testold
+// Last commit by:
+// $Author:$
+// $Date:$
+// $Rev:$
+
 #include "stdafx.h"
 #include "SysImageList.h"
 #include "TSVNPath.h"
