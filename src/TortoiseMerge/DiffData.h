@@ -48,6 +48,7 @@ public:
     int                         GetLineCount() const;
     CString                     GetError() const  {return m_sError;}
     void                        SetCommentTokens(const CString& sLineStart, const CString& sBlockStart, const CString& sBlockEnd);
+    void                        SetRegexTokens(const std::wregex& rx, const std::wstring& replacement);
 
     bool    IsBaseFileInUse() const     { return m_baseFile.InUse(); }
     bool    IsTheirFileInUse() const    { return m_theirFile.InUse(); }
@@ -108,4 +109,6 @@ protected:
     CString                     m_CommentLineStart;
     CString                     m_CommentBlockStart;
     CString                     m_CommentBlockEnd;
+    std::wregex                 m_rx;
+    std::wstring                m_replacement;
 };

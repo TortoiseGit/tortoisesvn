@@ -476,7 +476,9 @@ BOOL CFileTextLines::Save( const CString& sFilePath
                          , bool bIgnoreComments /*= false*/
                          , const CString& linestart /*= CString()*/
                          , const CString& blockstart /*= CString()*/
-                         , const CString& blockend /*= CString()*/)
+                         , const CString& blockend /*= CString()*/
+                         , const std::wregex& rx /*= std::wregex(L"")*/
+                         , const std::wstring& replacement /*=L""*/)
 {
     m_sCommentLine = linestart;
     m_sCommentBlockStart = blockstart;
@@ -589,6 +591,8 @@ BOOL CFileTextLines::Save( const CString& sFilePath
             CString sLineT = GetAt(i);
             if (bIgnoreComments)
                 bInBlockComment = StripComments(sLineT, bInBlockComment);
+            if (!rx._Empty())
+                LineRegex(sLineT, rx, replacement);
             StripWhiteSpace(sLineT, dwIgnoreWhitespaces, bBlame);
             if (bIgnoreCase)
                 sLineT = sLineT.MakeLower();
@@ -691,6 +695,13 @@ bool CFileTextLines::StripComments( CString& sLine, bool bInBlockComment )
     } while (startpos >= 0);
 
     return bInBlockComment;
+}
+
+void CFileTextLines::LineRegex( CString& sLine, const std::wregex& rx, const std::wstring& replacement )
+{
+    std::wstring str = (LPCTSTR)sLine;
+    std::wstring str2 = std::regex_replace(str, rx, replacement);
+    sLine = str2.c_str();
 }
 
 

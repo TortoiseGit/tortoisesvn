@@ -25,6 +25,7 @@
 #include "TempFile.h"
 #include "XSplitter.h"
 #include "SVNPatch.h"
+#include "SimpleIni.h"
 
 #include <tuple>
 
@@ -149,6 +150,8 @@ protected:
     afx_msg void    OnTimer(UINT_PTR nIDEvent);
     afx_msg void    OnViewIgnorecomments();
     afx_msg void    OnUpdateViewIgnorecomments(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateViewRegexFilter(CCmdUI *pCmdUI);
+    afx_msg void    OnRegexfilter(UINT cmd);
 
     DECLARE_MESSAGE_MAP()
 protected:
@@ -195,6 +198,7 @@ protected:
     static bool     HasNextConflict(CBaseView* view);
     static bool     HasPrevInlineDiff(CBaseView* view);
     static bool     HasNextInlineDiff(CBaseView* view);
+    void            BuildRegexSubitems();
 
     static svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool);
 
@@ -232,6 +236,8 @@ protected:
     CRegDWORD       m_regIgnoreComments;
 
     std::map<CString, std::tuple<CString, CString, CString>>    m_IgnoreCommentsMap;
+    CSimpleIni      m_regexIni;
+    int             m_regexIndex;
 public:
     CLeftView *     m_pwndLeftView;
     CRightView *    m_pwndRightView;

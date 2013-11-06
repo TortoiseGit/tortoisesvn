@@ -19,6 +19,7 @@
 #pragma once
 #include "EOL.h"
 #include <deque>
+#include <regex>
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
 // is in fact based on a STL vector, which is much faster at large sizes
@@ -128,7 +129,9 @@ public:
              , bool bIgnoreComments = false
              , const CString& linestart = CString()
              , const CString& blockstart = CString()
-             , const CString& blockend = CString());
+             , const CString& blockend = CString()
+             , const std::wregex& rx = std::wregex(L"")
+             , const std::wstring& replacement = L"");
     /**
      * Returns an error string of the last failed operation
      */
@@ -167,6 +170,7 @@ private:
 
     static void     StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, bool blame);
     bool            StripComments(CString& sLine, bool bInBlockComment);
+    void            LineRegex(CString& sLine, const std::wregex& rx, const std::wstring& replacement);
 
 
 private:

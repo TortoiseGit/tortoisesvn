@@ -242,7 +242,7 @@ BOOL CDiffData::Load()
             m_sError = m_arBaseFile.GetErrorString();
             return FALSE;
         }
-        bBaseNeedConvert = bIgnoreCase || bIgnoreComments || (m_arBaseFile.NeedsConversion());
+        bBaseNeedConvert = bIgnoreCase || bIgnoreComments || (m_arBaseFile.NeedsConversion()) || !m_rx._Empty();
         bBaseIsUtf8 = (m_arBaseFile.GetUnicodeType()!=CFileTextLines::ASCII) || bBaseNeedConvert;
         bIsNotUtf8 |= !bBaseIsUtf8;
     }
@@ -256,7 +256,7 @@ BOOL CDiffData::Load()
             m_sError = m_arTheirFile.GetErrorString();
             return FALSE;
         }
-        bTheirNeedConvert = bIgnoreCase || bIgnoreComments || (m_arTheirFile.NeedsConversion());
+        bTheirNeedConvert = bIgnoreCase || bIgnoreComments || (m_arTheirFile.NeedsConversion()) || !m_rx._Empty();
         bTheirIsUtf8 = (m_arTheirFile.GetUnicodeType()!=CFileTextLines::ASCII) || bTheirNeedConvert;
         bIsNotUtf8 |= !bTheirIsUtf8;
     }
@@ -270,7 +270,7 @@ BOOL CDiffData::Load()
             m_sError = m_arYourFile.GetErrorString();
             return FALSE;
         }
-        bYourNeedConvert = bIgnoreCase || bIgnoreComments || (m_arYourFile.NeedsConversion());
+        bYourNeedConvert = bIgnoreCase || bIgnoreComments || (m_arYourFile.NeedsConversion()) || !m_rx._Empty();
         bYourIsUtf8 = (m_arYourFile.GetUnicodeType()!=CFileTextLines::ASCII) || bYourNeedConvert;
         bIsNotUtf8 |= !bYourIsUtf8;
     }
@@ -282,21 +282,27 @@ BOOL CDiffData::Load()
     {
         sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
         m_baseFile.SetConvertedFileName(sConvertedBaseFilename);
-        m_arBaseFile.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame, bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd);
+        m_arBaseFile.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame
+                        , bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd
+                        , m_rx, m_replacement);
     }
     bYourNeedConvert |= (IsYourFileInUse() && !bYourIsUtf8 && bIsUtf8);
     if (bYourNeedConvert)
     {
         sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
         m_yourFile.SetConvertedFileName(sConvertedYourFilename);
-        m_arYourFile.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame, bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd);
+        m_arYourFile.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame
+                        , bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd
+                        , m_rx, m_replacement);
     }
     bTheirNeedConvert |= (IsTheirFileInUse() && !bTheirIsUtf8 && bIsUtf8);
     if (bTheirNeedConvert)
     {
         sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
         m_theirFile.SetConvertedFileName(sConvertedTheirFilename);
-        m_arTheirFile.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame, bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd);
+        m_arTheirFile.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame
+                         , bIgnoreComments, m_CommentLineStart, m_CommentBlockStart, m_CommentBlockEnd
+                         , m_rx, m_replacement);
     }
 
     // Calculate the number of lines in the largest of the three files
@@ -1040,4 +1046,10 @@ void CDiffData::SetCommentTokens( const CString& sLineStart, const CString& sBlo
     m_CommentLineStart  = sLineStart;
     m_CommentBlockStart = sBlockStart;
     m_CommentBlockEnd   = sBlockEnd;
+}
+
+void CDiffData::SetRegexTokens( const std::wregex& rx, const std::wstring& replacement )
+{
+    m_rx          = rx;
+    m_replacement = replacement;
 }

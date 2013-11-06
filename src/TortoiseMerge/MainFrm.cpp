@@ -35,6 +35,7 @@
 #include "TaskbarUUID.h"
 #include "SVNHelpers.h"
 #include "SVNConfig.h"
+#include "RegexFiltersDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -141,6 +142,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_TIMER()
     ON_COMMAND(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnViewIgnorecomments)
     ON_UPDATE_COMMAND_UI(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnUpdateViewIgnorecomments)
+    ON_COMMAND_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnRegexfilter)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnUpdateViewRegexFilter)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -184,6 +187,7 @@ CMainFrame::CMainFrame()
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
     , m_regIgnoreComments(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE)
+    , m_regexIndex(-1)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
@@ -249,6 +253,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
                 }
             }
         }
+        BuildRegexSubitems();
     }
     else
     {
@@ -3030,4 +3035,111 @@ void CMainFrame::OnUpdateViewIgnorecomments(CCmdUI *pCmdUI)
     pCmdUI->Enable(sC != m_IgnoreCommentsMap.end());
 
     pCmdUI->SetCheck(DWORD(m_regIgnoreComments) != 0);
+}
+
+
+void CMainFrame::OnRegexfilter(UINT cmd)
+{
+    if ((cmd == ID_REGEXFILTER)||(cmd == (ID_REGEXFILTER+1)))
+    {
+        CRegexFiltersDlg dlg(this);
+        dlg.SetIniFile(&m_regexIni);
+        dlg.DoModal();
+        BuildRegexSubitems();
+        FILE * pFile = NULL;
+        _tfopen_s(&pFile, CPathUtils::GetAppDataDirectory() + L"regexfilters.ini", _T("wb"));
+        m_regexIni.SaveFile(pFile);
+        fclose(pFile);
+    }
+    else
+    {
+        if (cmd == (UINT)m_regexIndex)
+        {
+            if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+                return;
+            m_Data.SetRegexTokens(std::wregex(), L"");
+            m_regexIndex = -1;
+            LoadViews(-1);
+        }
+        else
+        {
+            CSimpleIni::TNamesDepend sections;
+            m_regexIni.GetAllSections(sections);
+            int index = ID_REGEXFILTER + 2;
+            m_regexIndex = -1;
+            for (const auto& section : sections)
+            {
+                if (cmd == (UINT)index)
+                {
+                    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+                        break;
+                    std::wregex rx(m_regexIni.GetValue(section, L"regex", L""));
+                    m_Data.SetRegexTokens(rx, m_regexIni.GetValue(section, L"replace", L""));
+                    m_regexIndex = index;
+                    LoadViews(-1);
+                    break;
+                }
+                ++index;
+            }
+        }
+    }
+}
+
+void CMainFrame::OnUpdateViewRegexFilter( CCmdUI *pCmdUI )
+{
+    pCmdUI->Enable();
+    pCmdUI->SetCheck(pCmdUI->m_nID == (UINT)m_regexIndex);
+}
+
+void CMainFrame::BuildRegexSubitems()
+{
+    CArray<CMFCRibbonBaseElement*, CMFCRibbonBaseElement*> arButtons;
+    m_wndRibbonBar.GetElementsByID(ID_REGEXFILTER, arButtons);
+    if (arButtons.GetCount() == 1)
+    {
+        CMFCRibbonButton * pButton = (CMFCRibbonButton*)arButtons.GetAt(0);
+        if (pButton)
+        {
+            pButton->RemoveAllSubItems();
+            pButton->AddSubItem(new CMFCRibbonButton(ID_REGEXFILTER+1, CString(MAKEINTRESOURCE(IDS_CONFIGUREREGEXES)), 47));
+
+            CString sIniPath = CPathUtils::GetAppDataDirectory() + L"regexfilters.ini";
+            if (!PathFileExists(sIniPath))
+            {
+                // ini file does not exist (yet), so create a default one
+                HRSRC hRes = FindResource(NULL, MAKEINTRESOURCE(IDR_REGEXFILTERINI), L"config");
+                if (hRes)
+                {
+                    HGLOBAL hResourceLoaded = LoadResource(NULL, hRes);
+                    if (hResourceLoaded)
+                    {
+                        char * lpResLock = (char *) LockResource(hResourceLoaded);
+                        DWORD dwSizeRes = SizeofResource(NULL, hRes);
+                        if (lpResLock)
+                        {
+                            HANDLE hFile = CreateFile(sIniPath, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+                            if (hFile != INVALID_HANDLE_VALUE)
+                            {
+                                DWORD dwWritten = 0;
+                                WriteFile(hFile, lpResLock, dwSizeRes, &dwWritten, NULL);
+                                CloseHandle(hFile);
+                            }
+                        }
+                    }
+                }
+            }
+
+            m_regexIni.LoadFile(sIniPath);
+            CSimpleIni::TNamesDepend sections;
+            m_regexIni.GetAllSections(sections);
+            if (!sections.empty())
+                pButton->AddSubItem(new CMFCRibbonSeparator(TRUE));
+            int cmdIndex = 2;
+            for (const auto& section : sections)
+            {
+                pButton->AddSubItem(new CMFCRibbonButton(ID_REGEXFILTER+cmdIndex, section, 46));
+                cmdIndex++;
+            }
+        }
+    }
 }
