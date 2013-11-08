@@ -150,6 +150,7 @@
 #define IDC_BKMODIFIED                  1071
 #define IDC_UNIDIFFGROUP                1072
 #define IDC_MERGEGROUP                  1073
+#define IDC_SEARCHUP                    1074
 #define IDC_CHECK1                      1074
 #define IDC_FIRSTCONFLICTONLOAD         1074
 #define IDC_VERSIONBOX                  1075

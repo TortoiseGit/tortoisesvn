@@ -5111,7 +5111,12 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
 
         BuildFindStringArray();
         if ((CFindDlg::FindType)wParam == CFindDlg::FindType::Find)
-            OnEditFindnext();
+        {
+            if (m_pFindDialog->SearchUp())
+                OnEditFindprev();
+            else
+                OnEditFindnext();
+        }
         else if ((CFindDlg::FindType)wParam == CFindDlg::FindType::Count)
         {
             int count = 0;
