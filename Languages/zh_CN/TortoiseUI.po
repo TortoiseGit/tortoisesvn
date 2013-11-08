@@ -31,9 +31,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-28 15:50+0000\n"
+"PO-Revision-Date: 2013-11-06 21:30+0000\n"
 "Last-Translator: Y.F Yang <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -584,7 +584,7 @@ msgstr "清理工作副本的状态(&C)"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr "清理(&C)"
+msgstr "清理(&C)..."
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -1271,11 +1271,11 @@ msgstr "图片另存为(&S)..."
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
-msgstr "保存选择文件列表(&S)"
+msgstr "保存选择文件列表(&S)..."
 
 #. Resource IDs: (619, 1308)
 msgid "&Save value..."
-msgstr "另存值...(&S)"
+msgstr "另存值...(&S)..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -2958,7 +2958,7 @@ msgstr "清理以下路径成功: \n%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "清理未完成的操作，锁定文件等…"
+msgstr "清理未完成的操作、锁定的文件等…"
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
@@ -3511,7 +3511,7 @@ msgstr "复制至工作副本…"
 
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
-msgstr "复制至工作副本…"
+msgstr "复制至工作副本..."
 
 #. Resource IDs: (98)
 #, c-format
@@ -3920,7 +3920,7 @@ msgstr "删除非版本控制的条目 ..."
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "删除非版本控制的条目 ..."
+msgstr "删除非版本控制的条目..."
 
 #. Resource IDs: (199)
 msgid ""
@@ -5169,7 +5169,7 @@ msgstr "GDI+ 无法创建位图对象，有可能是由于系统内存不足造�
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
-msgstr "正在获取信息。请等待 ..."
+msgstr "正在获取信息。请等待..."
 
 #. Resource IDs: (107, 143)
 msgid "General"
@@ -7342,7 +7342,7 @@ msgstr "打开本地项目(&l)"
 
 #. Resource IDs: (115)
 msgid "Open &with local..."
-msgstr "从本地打开...(&w)"
+msgstr "从本地打开(&W)..."
 
 #. Resource IDs: (76)
 msgid "Open client certificate file"
@@ -7630,7 +7630,7 @@ msgstr "请稍候，此操作可能需要实实在在的数分钟时间！"
 
 #. Resource IDs: (13)
 msgid "Please wait while cancelling..."
-msgstr "正在取消, 请稍候…"
+msgstr "正在取消，请稍候..."
 
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
@@ -7642,7 +7642,7 @@ msgstr "正在获取外部定义，请稍候..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
-msgstr "请稍候，正在启动版本库浏览器 ..."
+msgstr "正在启动版本库浏览器，请稍候..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
@@ -7994,7 +7994,7 @@ msgstr "版本(&V)"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "在你卡住之前, 请先阅读日常使用指南…"
+msgstr "在你卡住时，请先阅读日常使用指南..."
 
 #. Resource IDs: (349)
 msgid "Realm String"
@@ -8486,7 +8486,7 @@ msgstr "使用“我的”解决有冲突的文件"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'theirs'"
-msgstr "使用“他们的”解决有冲突的文件"
+msgstr "使用“他们的”文本块解决冲突"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -9433,7 +9433,7 @@ msgstr "显示多个更改(&C)..."
 
 #. Resource IDs: (115)
 msgid "Show multiple &changes... (content only)"
-msgstr "显示多个更改(仅内容)(&C)... "
+msgstr "显示多个更改（仅内容）(&C)... "
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -9756,7 +9756,7 @@ msgstr "启动注册表编辑器"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr "开始外部模块"
+msgstr "开始外部模块..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10959,7 +10959,7 @@ msgstr "修剪树(&E)"
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
-msgstr "从 %s 开始传输"
+msgstr "传输中，速度 %s"
 
 #. Resource IDs: (32816)
 msgid "Transparent &color..."
@@ -11255,7 +11255,7 @@ msgstr "更新 ActiveX 对象"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
-msgstr "更新并重新锁定..."
+msgstr "正在更新并重新锁定..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
