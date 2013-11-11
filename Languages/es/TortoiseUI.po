@@ -26,10 +26,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-29 22:30+0000\n"
-"Last-Translator: Dharth <emilpg@gmail.com>\n"
+"PO-Revision-Date: 2013-11-09 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -404,15 +404,6 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%s\nes un directorio, no un archivo!\nTortoiseMerge no puede diferenciar directorios."
 
-#. Resource IDs: (286)
-#, c-format
-msgid ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
-msgstr "%s\nr%s | %s\n\n%s\n"
-
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
@@ -436,6 +427,10 @@ msgstr "&Añadir"
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Añadir >>"
+
+#. Resource IDs: (1505)
+msgid "&Add Filter"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -673,6 +668,10 @@ msgstr "&Eliminar..."
 msgid "&Delete (keep local)"
 msgstr "&Eliminar (mantener local)"
 
+#. Resource IDs: (1507)
+msgid "&Delete Filter"
+msgstr ""
+
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
 msgstr " &Eliminar ítems sin versionar..."
@@ -712,6 +711,10 @@ msgstr "&Fin de Línea"
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
 msgstr "&Editar"
+
+#. Resource IDs: (1506)
+msgid "&Edit Filter"
+msgstr ""
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1436,6 +1439,10 @@ msgstr "Diff &unificado"
 msgid "&Unknown drives"
 msgstr "&Unidades desconocidas"
 
+#. Resource IDs: (1074)
+msgid "&Up"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Actualizar"
@@ -1637,10 +1644,6 @@ msgstr "....."
 #, c-format
 msgid ": Revision %d"
 msgstr ": Revisión %d"
-
-#. Resource IDs: (151)
-msgid ": working base"
-msgstr ": base de trabajo"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1884,18 +1887,6 @@ msgstr "Añadir programa de diferencias/fusión según la extensión"
 msgid "Added"
 msgstr "Añadido"
 
-#. Resource IDs: (126)
-msgid "Added a file remotely"
-msgstr "Añadido un archivo de forma remota"
-
-#. Resource IDs: (126)
-msgid "Added a folder remotely"
-msgstr "Añadida una carpeta de forma remota"
-
-#. Resource IDs: (126)
-msgid "Added items remotely"
-msgstr "Ítems añadidos de forma remota"
-
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Nodo añadido"
@@ -2123,12 +2114,6 @@ msgstr "Menús del marco de la aplicación: "
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Aplica un archivo en formato diff unificado a una copia de trabajo"
-
-#. Resource IDs: (581)
-msgid ""
-"Applies the properties recursively to all files/folders.\r\n"
-"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr "Aplica las propiedades recursivamente a todos los archivos/carpetas.\r\nLas propiedades bugtraq:, tsvn: y webviewer: sólo se aplican a las carpetas."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2401,10 +2386,6 @@ msgstr "Rama/e&tiqueta..."
 msgid "Break loc&k"
 msgstr "Romper blo&queo"
 
-#. Resource IDs: (78)
-msgid "Browse for the external diff program"
-msgstr "Buscar el programa de diferencias externo"
-
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Buscar..."
@@ -2485,10 +2466,6 @@ msgstr "Tamaño de caché [kB]"
 msgid "Cached Repositories"
 msgstr "Repositorios cacheados"
 
-#. Resource IDs: (197)
-msgid "Caches the log messages to speed up log fetching"
-msgstr "Cachea los mensajes de registro para acelerar la obtención del registro"
-
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Doble-click en la lista de registro para comparar con revisión anterior"
@@ -2567,12 +2544,6 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Cancelar\nNo cierre TortoiseMerge"
-
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Don't reload views"
-msgstr "Cancelar\nNo recargar la vista"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2682,12 +2653,6 @@ msgid ""
 "The items are not moved."
 msgstr "Cancelar\nLos elementos no son movidos."
 
-#. Resource IDs: (589)
-msgid ""
-"Cancel\n"
-"The property is not removed."
-msgstr "Cancelar\nLa propiedad no se eliminó."
-
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2735,10 +2700,6 @@ msgid "Cate&gories:"
 msgstr "Cate&gorías:"
 
 #. Resource IDs: (82)
-msgid "Certificate expired or not yet valid"
-msgstr "El certificado ha expirado o no es válido aún"
-
-#. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "El certificado ha expirado. Ha sido válido hasta: %s"
@@ -2778,11 +2739,6 @@ msgstr "Archivos Cambiados"
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr "Archivos cambiados entre %1!s!, %2!s! y %3!s!, %4!s!"
-
-#. Resource IDs: (163)
-#, c-format
-msgid "Changed files: %d"
-msgstr "Archivos cambiados: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2848,12 +2804,6 @@ msgstr "Obtiene una copia de trabajo desde un repositorio"
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
 msgstr "Comprueba los elementos de autentificación que quieras borrar de abajo"
-
-#. Resource IDs: (95)
-msgid ""
-"Check the files which you want to\n"
-"delete before importing."
-msgstr "Marque los archivos que desea eliminar\nantes de importar."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2999,12 +2949,6 @@ msgstr "Limpiar todos los %ld script gancho aprobados del cliente."
 #, c-format
 msgid "Clears cached logs from %ld repositories"
 msgstr "Limpia la caché de mensajes de registro de %ld repositorios"
-
-#. Resource IDs: (195)
-msgid ""
-"Clears the stored authentication.\r\n"
-"You will have to enter your username/password again for all repositories."
-msgstr "Elimina los datos de autenticación almacenados.\r\nDeberá volver a introducir usuario y contraseña para todos los repositorios."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3283,11 +3227,6 @@ msgstr "Compara el archivo con la última versión confirmada para mostrarle los
 msgid "Compares the selected file with a file in the repository"
 msgstr "Compara el archivo seleccionado con un archivo en el repositorio"
 
-#. Resource IDs: (120)
-#, c-format
-msgid "Comparing %1!s! to %2!s!"
-msgstr "Comparando %1!s! con %2!s!"
-
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Completado"
@@ -3299,6 +3238,10 @@ msgstr "Completado!"
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Configurar &TortoiseSVN para que nunca use la papelera de reciclaje"
+
+#. Resource IDs: (7)
+msgid "Configure Filter Regexes"
+msgstr ""
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3362,10 +3305,6 @@ msgstr "Tamaños de contenedores"
 msgid "Context Menus: "
 msgstr "Menús contextuales:"
 
-#. Resource IDs: (564)
-msgid "Continue"
-msgstr "Continuar"
-
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Contraer ventana acoplada"
@@ -3390,22 +3329,10 @@ msgstr "&Copiar"
 msgid "Copied"
 msgstr "Copiado"
 
-#. Resource IDs: (208)
-msgid "Copied from URL"
-msgstr "Copiado de la URL"
-
-#. Resource IDs: (208)
-msgid "Copied from revision"
-msgstr "copiado de revisión"
-
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Copiado de: %1!s!@%2!ld!\r\n"
-
-#. Resource IDs: (126)
-msgid "Copied remotely"
-msgstr "Copiado de forma remota"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3429,11 +3356,6 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Copiar %1!s!\r\na %2!s!"
-
-#. Resource IDs: (103)
-#, c-format
-msgid "Copy %s"
-msgstr "Copiar %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3464,10 +3386,6 @@ msgstr "Copiar aquí el ítem y renombrarlo"
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
 msgstr "Copiar columna al portapapeles"
-
-#. Resource IDs: (101)
-msgid "Copy error message to clipboard"
-msgstr "Copiar mensaje de error al portapapeles"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3500,10 +3418,6 @@ msgstr "Copiar a %1"
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
 
-#. Resource IDs: (103)
-msgid "Copy to working copy"
-msgstr "Copiar a la copia de trabajo"
-
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
 msgstr "Copiar a la copia de trabajo..."
@@ -3525,10 +3439,6 @@ msgstr "Copiando desde URL de repositorio externo"
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Copiando..."
-
-#. Resource IDs: (188)
-msgid "Corrections"
-msgstr "Correcciones"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3646,11 +3556,6 @@ msgid ""
 "Patching is not possible!"
 msgstr "¡No se puede obtener la versión %1!s! del archivo %2!s!.\n¡No se puede aplicar el parche!"
 
-#. Resource IDs: (64)
-#, c-format
-msgid "Could not save the file %s!"
-msgstr "¡No se puede guardar el archivo %s!"
-
 #. Resource IDs: (70, 81)
 #, c-format
 msgid ""
@@ -3742,10 +3647,6 @@ msgstr "Crear un repositor&io aquí"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "Crear atajo"
-
-#. Resource IDs: (126)
-msgid "Created folder remotely"
-msgstr "Carpeta creada de forma remota"
 
 #. Resource IDs: (10)
 msgid ""
@@ -4064,12 +3965,6 @@ msgstr "Directorios"
 msgid "Directory:"
 msgstr "Directorio:"
 
-#. Resource IDs: (195)
-msgid ""
-"Disable this option if you have really big working copies and experience\r\n"
-"too much disk access when browsing the working copy."
-msgstr "Deshabilite esta opción si tiene copias de trabajo realmente grandes y nota\r\ndemasiados accesos a disco cuando navega por su copia de trabajo."
-
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
 msgstr "Descarta cambios locales sobre los borrados entrantes"
@@ -4157,10 +4052,6 @@ msgstr "Hacer esto para todos los ítems sin versionar / modificados"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "¿Realmente desea eliminar la barra de herramientas '%s'?"
 
-#. Resource IDs: (145)
-msgid "Do you really want to move this file or folder?"
-msgstr "¿Realmente desea mover este archivo o carpeta?"
-
 #. Resource IDs: (119)
 #, c-format
 msgid ""
@@ -4247,10 +4138,6 @@ msgid ""
 "which were made in this revision?"
 msgstr "Desea revertir todos los cambios en\n%s\nque se hicieron en esta revision?"
 
-#. Resource IDs: (313)
-msgid "Do you want to save your changes?"
-msgstr "¿Desea guardar sus cambios?"
-
 #. Resource IDs: (65535)
 msgid "Document :"
 msgstr "Documento :"
@@ -4258,12 +4145,8 @@ msgstr "Documento :"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr "Documentación : Simon Large\nCódigo : Tobias Schäfer, Stefan Fuhrmann"
-
-#. Resource IDs: (564)
-msgid "Don't ask me again"
-msgstr "No preguntarme de nuevo."
+"Code : Tobias SchÃ¤fer, Stefan Fuhrmann"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4296,14 +4179,6 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "No Guardar\nVuelve a cargar las vistas sin guardar las modificaciones."
-
-#. Resource IDs: (80, 564)
-msgid "Don't show this message again"
-msgstr "No mostrar este mensaje de nuevo"
-
-#. Resource IDs: (564)
-msgid "Don't tell me again"
-msgstr "No decirme de nuevo."
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4530,10 +4405,6 @@ msgstr "Agrandar la ventana al tamaño máximo"
 msgid "Enter Log Message"
 msgstr "Introducir Mensaje de Registro"
 
-#. Resource IDs: (80)
-msgid "Enter URL"
-msgstr "Introduzca URL"
-
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
 msgstr "Introduzca un &nombre para la lista de cambios:"
@@ -4710,10 +4581,6 @@ msgstr "Exportar"
 msgid "Export &directory:"
 msgstr "&Directorio de exportación:"
 
-#. Resource IDs: (94)
-msgid "Export directory:"
-msgstr "Directorio de exportación:"
-
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4836,11 +4703,6 @@ msgstr "Fallo al realizar operación del servidor."
 #. Resource IDs: (3857)
 msgid "Failed to save document."
 msgstr "Fallo al guardar documento."
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist '%s'"
-msgstr "No es posible asignar/eliminar lista de cambios '%s'"
 
 #. Resource IDs: (83)
 #, c-format
@@ -5202,14 +5064,6 @@ msgstr "Obtener blo&queo..."
 msgid "Get merge logs"
 msgstr "Obtener registros de fusión"
 
-#. Resource IDs: (89)
-msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
-msgstr "Obtener un bloqueo para archivos que no tienen la propiedad 'svn:needs-lock' no evitará que otros puedan editarlos en sus copias de trabajo.\nPara habilitar un bloqueo estricto, por favor añada la propiedad 'svn:needs-lock' a todos los archivos que necesiten bloqueo, y confirme esos archivos.\nCada archivo tendrá la bandera de sólo lectura del sistema de archivos, y al obtener un bloqueo se convertirán en ficheros modificables.\nTenga en cuenta que los demás usuarios tendrán que actualizar sus copias de trabajo antes de que vean estos ficheros como de sólo lectura."
-
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
@@ -5231,10 +5085,6 @@ msgstr "Obteniendo información del repositorio..."
 #. Resource IDs: (120)
 msgid "Getting information..."
 msgstr "Obteniendo información..."
-
-#. Resource IDs: (132)
-msgid "Getting log info..."
-msgstr "Obteniendo información de seguimiento..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5682,12 +5532,6 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr "Si se activa, se muestra la entrada de menú 'Obtener bloqueo' en el menú de nivel superior\nsi el archivo seleccionado tiene activada la propiedad svn:needs-lock."
 
-#. Resource IDs: (95)
-msgid ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
-msgstr "Si está marcada, se creará una nueva carpeta en el repositorio.\nSi no, la importación irá directamente a la URL especificada."
-
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
@@ -5759,10 +5603,6 @@ msgid ""
 "the repository browser."
 msgstr "Si quiere romper el bloqueo, utilice el diálogo 'Comprobar Modificaciones' o el navegador de repositorios."
 
-#. Resource IDs: (563)
-msgid "Ignore"
-msgstr "Ignorar"
-
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5780,9 +5620,9 @@ msgstr "Ignorar &todos los espacios en blanco"
 msgid "Ignore &ancestry"
 msgstr "Ignorar &ancestros"
 
-#. Resource IDs: (564)
-msgid "Ignore all"
-msgstr "Ignorar todo."
+#. Resource IDs: (156)
+msgid "Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5961,10 +5801,6 @@ msgstr "Nombre de archivo incorrecto."
 msgid "Index colors:"
 msgstr "Colores de los índices:"
 
-#. Resource IDs: (76)
-msgid "Initial import"
-msgstr "Importación inicial"
-
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Dif en linea"
@@ -6006,10 +5842,6 @@ msgstr "Valor interno que indica la calidad de la compresión"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Moneda no válida."
-
-#. Resource IDs: (102)
-msgid "Invalid data object dropped!"
-msgstr "¡Ha soltado un objeto con datos no válidos!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6270,10 +6102,6 @@ msgstr "Lista de repositorios para los que existe información de registro cache
 msgid "List1"
 msgstr "List1"
 
-#. Resource IDs: (104)
-msgid "Listing repository recursively..."
-msgstr "Listando repositorio recursivamente..."
-
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
 msgstr "Ruta Lo&cal:"
@@ -6297,10 +6125,6 @@ msgstr "Cargar cambios\nLas vistas serán actualizadas con el nuevo contenido."
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr "&Ganchos locales"
-
-#. Resource IDs: (63)
-msgid "Local status"
-msgstr "Estado local"
 
 #. Resource IDs: (94)
 msgid ""
@@ -6379,10 +6203,6 @@ msgstr "¡El bloqueo falló porque hay existe una versión más nueva!\n¿Desea 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Bloquea un archivo para los demás usuarios y le hace editable para usted."
-
-#. Resource IDs: (126)
-msgid "Log"
-msgstr "Registro"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
@@ -6604,11 +6424,6 @@ msgstr "Fusionar revisión en..."
 msgid "Merge revisions to..."
 msgstr "Fusionar revisiones en..."
 
-#. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into '%s'"
-msgstr "Fusionar los cambios en '%s'"
-
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
 msgstr "Fusiona dos árboles dis&tintos"
@@ -6660,11 +6475,6 @@ msgstr "Fusionando de r%1!ld! a r%2!ld!"
 #, c-format
 msgid "Merging r%ld"
 msgstr "Fusionando r%ld"
-
-#. Resource IDs: (83)
-msgid ""
-"Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Fusionar necesita revisiones diferentes o URLs diferentes en 'Desde:' y 'Hasta:'"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6852,10 +6662,6 @@ msgid ""
 "%s"
 msgstr "Movido desde\n%s"
 
-#. Resource IDs: (126)
-msgid "Moved remotely"
-msgstr "Movido de forma remota"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6892,6 +6698,10 @@ msgstr "NUM"
 msgid "Name"
 msgstr "Nombre"
 
+#. Resource IDs: (65535)
+msgid "Name:"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Navigate"
 msgstr "Navegar"
@@ -6909,10 +6719,6 @@ msgstr "Panel de opciones de navegación"
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
 msgstr "Panel de opciones de navegación..."
-
-#. Resource IDs: (208)
-msgid "Needs lock"
-msgstr "Necesita bloqueo"
 
 #. Resource IDs: (32845)
 msgid "Needs-&Lock"
@@ -6951,18 +6757,13 @@ msgstr "&Nuevo nombre:"
 msgid "New Menu"
 msgstr "Nuevo menú"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "New name for %s"
-msgstr "Nuevo nombre de %s"
-
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr "El nuevo nombre no puede estar vacío o ser igual al nombre original!"
 
-#. Resource IDs: (98)
-msgid "New name:"
-msgstr "Nuevo nombre:"
+#. Resource IDs: (101)
+msgid "Newlines"
+msgstr ""
 
 #. Resource IDs: (3633)
 msgid ""
@@ -6982,19 +6783,11 @@ msgstr "Siguiente diferencia"
 msgid "Next inline difference"
 msgstr "Siguiente diferencia en linea"
 
-#. Resource IDs: (564)
-msgid "No"
-msgstr "No"
-
 #. Resource IDs: (81)
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr "¡No se especificó comando!\n¡TortoiseProc.exe es utilizado por la extensión del Shell y no debe ser invocado directamente!"
-
-#. Resource IDs: (81)
-msgid "No command value specified!"
-msgstr "¡No se especificó valor para el comando!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -7011,12 +6804,6 @@ msgstr "No ocurrió ningún error."
 #. Resource IDs: (281)
 msgid "No externals found"
 msgstr "¡No existen referencias externas!"
-
-#. Resource IDs: (82)
-msgid ""
-"No files or folders were modified. There is nothing for TortoiseSVN to "
-"revert!"
-msgstr "No ha habido cambios en carpetas ni archivos. No hay nada que TortoiseSVN pueda revertir!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7053,10 +6840,6 @@ msgstr "No se encuentra un codificador de imagen para %s."
 msgid "No path or pathfile specified on the command line!"
 msgstr "No se especificó una ruta o archivo en la línea de comandos!"
 
-#. Resource IDs: (188)
-msgid "No spell corrections"
-msgstr "Sin correcciones ortográficas"
-
 #. Resource IDs: (196)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -7071,10 +6854,6 @@ msgstr "No existe la revisión '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "No hay sugerencias de sinónimos"
-
-#. Resource IDs: (564)
-msgid "No to all"
-msgstr "No a todo."
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7103,10 +6882,6 @@ msgstr "Normal"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "No se eliminaron todas las entradas del registro del sistema (o del archivo INI)."
-
-#. Resource IDs: (83)
-msgid "Not enough memory to complete operation."
-msgstr "No hay memoria suficiente para completar la operación."
 
 #. Resource IDs: (273)
 msgid ""
@@ -7297,10 +7072,6 @@ msgstr "Unos o más archivos están en estado en conflicto."
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Únicamente &registrar la fusión (las revisiones se bloquearán para no ser fusionadas)"
 
-#. Resource IDs: (99)
-msgid "Only check out the &top folder"
-msgstr "Sólo obtener la carpeta &superior"
-
 #. Resource IDs: (19)
 msgid "Only file children"
 msgstr "Sólo archivo hijo"
@@ -7446,14 +7217,6 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr "Sobreescribir\nEl archivo destino es reemplazado"
-
-#. Resource IDs: (76)
-msgid "PEM"
-msgstr "PEM"
-
-#. Resource IDs: (76)
-msgid "PKCS12"
-msgstr "PKCS12"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7615,10 +7378,6 @@ msgstr "Por favor, resuelva el conflicto eligiendo una de las siguientes opcione
 msgid "Please select a hook type"
 msgstr "Por favor seleccione un tipo de gancho"
 
-#. Resource IDs: (76)
-msgid "Please specify the certificate type"
-msgstr "Por favor, especifique el tipo de certificado"
-
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Esta tarea puede tardar varios minutos. ¡En serio!.  Espere ..."
@@ -7638,10 +7397,6 @@ msgstr "Por favor espere mientras se obtienen las referencias externas..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
-
-#. Resource IDs: (280)
-msgid "Please wait while we check the parameters for the merge."
-msgstr "Por favor espere mientras comprobamos los parámetros para la unificación."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7914,11 +7669,6 @@ msgstr "Configuración del Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Poner \"Obtener bloqueo\" en el menú superior si está marcado svn:needs-lock"
 
-#. Resource IDs: (246)
-#, c-format
-msgid "Q%d/%.2d"
-msgstr "Q%d/%.2d"
-
 #. Resource IDs: (3605)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8096,6 +7846,18 @@ msgstr "Actualizar capas del &shell"
 msgid "Refreshing shell for %1!s!"
 msgstr "Actualizando shell para %1!s!"
 
+#. Resource IDs: (32, 156, 165)
+msgid "Regex Filter"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Regex Filters"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Regex:"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Expresión Regular"
@@ -8230,6 +7992,12 @@ msgstr ""
 msgid "Remove Saved Authentication Data"
 msgstr "Elimina datos de autentificación salvados"
 
+#. Resource IDs: (2057)
+msgid ""
+"Remove all comments before doing the diff so changes inside comments don't "
+"show as different"
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Quitar de la lista de &ignorados"
@@ -8278,10 +8046,6 @@ msgstr "Eliminar\nElimina la propiedad solo para este ítem."
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Eliminado"
-
-#. Resource IDs: (126)
-msgid "Removed file/folder"
-msgstr "Carpeta/archivo eliminada(o)"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8333,11 +8097,6 @@ msgstr "Reno&mbrar..."
 msgid "Rename"
 msgstr "Renombrar"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "Rename %s"
-msgstr "Renombrar %s"
-
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
@@ -8364,10 +8123,6 @@ msgstr "Renombrar\nLa carpeta es exportada como '%s'."
 #. Resource IDs: (65535)
 msgid "Renamed node"
 msgstr "Nodo renombrado"
-
-#. Resource IDs: (126)
-msgid "Renamed remotely"
-msgstr "Renombrado de forma remota"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -8403,13 +8158,13 @@ msgid ""
 "Replace"
 msgstr "Reemplazar un texto específico con otro texto diferente\nReemplazar"
 
+#. Resource IDs: (65535)
+msgid "Replace:"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Replacing"
 msgstr "Reemplazando"
-
-#. Resource IDs: (564)
-msgid "Report"
-msgstr "Reporte."
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8536,10 +8291,6 @@ msgstr "Restaurar la ventana a su tamaño normal"
 msgid "Restored"
 msgstr "Restaurado"
 
-#. Resource IDs: (563)
-msgid "Retry"
-msgstr "Reintentar"
-
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr "Revision(es) {revrange} fusionada(s) inversamente desde {mergeurl}:\n"
@@ -8598,11 +8349,6 @@ msgstr "Revierte una adición al control de versiones"
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
 msgstr "Revisión"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Revision %1!d!"
-msgstr "Revisión %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
@@ -8970,11 +8716,6 @@ msgid "Saves the selected property value to a file"
 msgstr "Guarda el valor de la propiedad seleccionada a un archivo"
 
 #. Resource IDs: (103)
-#, c-format
-msgid "Saving file %s"
-msgstr "Guardando el archivo %s"
-
-#. Resource IDs: (103)
 msgid "Saving files"
 msgstr "Guardando archivos"
 
@@ -9077,10 +8818,6 @@ msgstr "Seleccione lista de cambios"
 msgid "Select diff application"
 msgstr "Seleccionar aplicación de diferencias"
 
-#. Resource IDs: (99)
-msgid "Select directory to check out to"
-msgstr "Seleccione el directorio en donde obtener"
-
 #. Resource IDs: (279)
 msgid "Select end revision"
 msgstr "Seleccione revisión final"
@@ -9130,10 +8867,6 @@ msgstr "Seleccione rango de revisiones"
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Seleccione revisión de inicio"
-
-#. Resource IDs: (79)
-msgid "Select text editor application"
-msgstr "Seleccione aplicación de edición de texto"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9589,14 +9322,6 @@ msgstr "Tamaño del archivo de caché en el disco"
 msgid "Size of the cache if it were not compressed"
 msgstr "Tamaño de la caché si no estuviera comprimida"
 
-#. Resource IDs: (564)
-msgid "Skip"
-msgstr "Omitir."
-
-#. Resource IDs: (564)
-msgid "Skip all"
-msgstr "Omitir todo."
-
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Saltado"
@@ -9799,8 +9524,8 @@ msgid "Steal the lock"
 msgstr "Robar el bloqueo"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan KÃ¼ng, LÃ¼bbe Onken"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9881,13 +9606,6 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr "¡Subversion reportó un error mientras creaba un repositorio!\nAsegúrese de que la carpeta está vacía y no está protegida contra escritura."
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
-"Subversion reported an error while doing a cleanup!\n"
-"%s"
-msgstr "¡Subversion reportó un error mientras se realizaba una limpieza!\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -10008,11 +9726,6 @@ msgstr "Tamaño de tabulación:"
 msgid "Tag nodes"
 msgstr "Nodos etiqueta"
 
-#. Resource IDs: (79)
-#, c-format
-msgid "Tagged the working copy to %s"
-msgstr "La copia de trabajo se etiquetó como %s"
-
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr "Carpeta destino no esta vacía"
@@ -10051,11 +9764,6 @@ msgstr "Los cambios serán aplicados a su copia de trabajo con una operación de
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "¡El tamaño de bloque no coincide con el número de líneas añadidas/eliminadas!"
-
-#. Resource IDs: (63)
-#, c-format
-msgid "The chunk start '@@' was expected in line %d !"
-msgstr "¡Se esperaba el comienzo de bloque '@@' en la línea %d!"
 
 #. Resource IDs: (346)
 msgid ""
@@ -10140,15 +9848,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "La carpeta %s\ncontiene archivos no versionados y/o modificados. ¿Desea eliminarlos de todas formas?"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
-msgstr "La carpeta \n%s\nno existe.\n¿Desea crearla primero?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -10331,11 +10030,6 @@ msgstr "¡No se ha encontrado la línea 'Index: '!\nO bien esto no es un archivo
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "¡La línea que indica el nuevo archivo se esperaba en la línea %d !"
 
-#. Resource IDs: (63)
-#, c-format
-msgid "The line indicating the old file was expected in line %d !"
-msgstr "¡La línea que indicaba el archivo antiguo se esperaba en la línea %d !"
-
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
@@ -10350,12 +10044,6 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr "El número máximo de líneas del registro de acciones a mantener.\nSe eliminarán las líneas más antiguas del archivo cuando se añadan nuevas líneas tras alcanzar el límite."
-
-#. Resource IDs: (63)
-msgid ""
-"The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
-msgstr "El archivo antiguo no coincide con el archivo nuevo.\n¡El renombrado de archivos no está soportado actualmente!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10400,33 +10088,11 @@ msgstr "¡La ruta o URL que ha introducido parece ser ilegal en Windows!\nPuede 
 msgid ""
 "The path\n"
 "%1!s!\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"%2!s!\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr "La ruta\n%1!s!\nen el archivo de parche no existe.\nTortoiseMerge encontró la ruta relativa\n%2!s!\nque parece que coincide con el directorio donde está aplicando el parche.\n\n¿Desea usar la ruta propuesta? Si responde 'no' se cerrará TortoiseMerge."
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%1!s!\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr "La ruta\n%1!s!\nparece que no se corresponde con las rutas en el archivo de parche.\nPero TortoiseMerge encontró la ruta\n%2!s!\nque se acerca mejor. ¿Desea usar la ruta propuesta?"
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%s\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr "La ruta\n%s\nen el archivo de parche no existe.\nTortoiseMerge intentó aplicar el parche eliminando prefijos pero no pudo encontrarse una ruta coincidente."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10440,18 +10106,6 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "El repositorio fue creado correctamente.\nDesea crear la estructura de carpetas por defecto (trunk/branches/tags) ahora?"
 
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like, and the \"only record the "
-"merge\" option can not be used."
-msgstr "La unificación automática requerida es como un reintegrado, y la opción \"único registro unificado\" no puede usarse."
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like.\n"
-"Only the merge depth option \"Working copy\" can be used."
-msgstr "La unificación automática requerida es como una reintegración.\nSólo la opción de la unificación profunda \"copia de trabajo\" puede usarse."
-
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -10464,14 +10118,6 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "El archivo seleccionado parece tener todavía una o más marcas de conflicto.\n ¿Estás seguro de marcar el archivo como resuelto?"
-
-#. Resource IDs: (102)
-#, c-format
-msgid ""
-"The target URL\n"
-"%s\n"
-"already exists!"
-msgstr "¡La URL destino\n%s\nya existe!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10516,6 +10162,12 @@ msgid ""
 "Do you want to merge anyway?"
 msgstr "La copia de trabajo destino tien emodificaciones locales.\n¿Desea fusionarlas de todas formas?"
 
+#. Resource IDs: (101)
+msgid ""
+"The text is identical, but the files do not match!\r\n"
+"The following differences were found:"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
@@ -10536,18 +10188,6 @@ msgstr "El usuario que hizo la última confirmación"
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
 msgstr "El usuario que es dueño del bloqueo del archivo"
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy has changed!\n"
-"Please commit your changes first or revert."
-msgstr "¡La copia de trabajo ha cambiado!\nPor favor, confirme sus cambios o reviertalos."
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy is not up to date!\n"
-"Please Update first."
-msgstr "¡La copia de trabajo no está actualizada!\nPor favor, Actualicela antes."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10707,9 +10347,9 @@ msgstr "Este producto incluye software desarrollado por el Proyecto OpenSSL para
 
 #. Resource IDs: (1531)
 msgid ""
-"This product includes software from Apache™ Subversion® "
+"This product includes software from Apacheâ„¢ SubversionÂ® "
 "(http://subversion.apache.org)"
-msgstr "Este producto incluye software de Apache™ Subversion® (http://subversion.apache.org)"
+msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10880,11 +10520,6 @@ msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-
-#. Resource IDs: (107)
-#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -10980,10 +10615,6 @@ msgstr "Nodos tronco"
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Intente un 'Cleanup' (limpieza). Si esto no funciona necesita efectuar una Obtención desde cero."
 
-#. Resource IDs: (564)
-msgid "Try again"
-msgstr "Intentar de nuevo"
-
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Manipula TortoiseSVN"
@@ -11003,11 +10634,6 @@ msgstr "URL"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "Historial de URL"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "URL not known (UUID: %s)"
-msgstr "URL desconocida (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -11238,11 +10864,6 @@ msgstr "Actualiza la copia de trabajo a la revisión actual"
 #. Resource IDs: (265)
 msgid "Updating"
 msgstr "Actualizando"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "Updating %s"
-msgstr "Actualizando %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -11625,12 +11246,9 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr "Cuando se bloquea uno o varios archivos, muestra un diálogo\npidiendo un mensaje descriptivo sobre el bloqueo."
 
-#. Resource IDs: (316)
-msgid ""
-"When resolving conflicts, you always have to save even if there is no "
-"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
-"show a conflict for those!"
-msgstr "Cuando resolvemos conflictos, siempre tienes que salvar incluso si no hay conflictos mostrados.\n¡¡¡TortoiseMerge puede unificar cambios que SVN no puede y no mostrará un conflito por este motivo!!!"
+#. Resource IDs: (101)
+msgid "Whitespace changes (tabs, spaces)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11655,10 +11273,6 @@ msgstr "Windows 7"
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
 msgstr "Windows XP"
-
-#. Resource IDs: (146)
-msgid "With URL:"
-msgstr "Con URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -11694,33 +11308,9 @@ msgid ""
 "Wrap long lines"
 msgstr "Envolver líneas largas a la derecha de la vista\nEnvolver líneas largas"
 
-#. Resource IDs: (563)
-msgid "Yes"
-msgstr "Si"
-
-#. Resource IDs: (564)
-msgid "Yes to all"
-msgstr "Sí a todo"
-
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
 msgstr "Ya tiene instalada la versión más reciente."
-
-#. Resource IDs: (144)
-msgid ""
-"You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:// on a network share may corrupt your data!\n"
-"Create the repository anyway?"
-msgstr "Está creando un repositorio en una carpeta compartida en red.\nEsta operación es segura, pero una vez que el repositorio esté creado deberá acceder a él por otros medios.\n¡El acceso al repositorio utilizando file:// en un recurso compartido de red podría corromper sus datos!\n¿Desea crear el repositorio de todas formas?"
-
-#. Resource IDs: (88)
-msgid ""
-"You are trying to access a repository via file:// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
-msgstr "Está intentando acceder a un repositorio utilizando file://\nsobre una unidad compartida de red.\n¡Esto puede llegar a corromper gravemente el repositorio!\n¿Está seguro de querer hacer esto?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11798,12 +11388,6 @@ msgstr "Puede definir hasta %d herramientas."
 msgid "You must restart your system for the changes to take effect."
 msgstr "Debe reiniciar su sistema para que los cambios sean efectivos."
 
-#. Resource IDs: (77)
-msgid ""
-"You selected an unversioned file.\n"
-"The file will be added to version control when you commit."
-msgstr "Usted seleccionó un archivo no versionado.\nEl Archivo se añadirá al control de versiones cuando usted lo confirme."
-
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Ha seleccionado una carpeta sin versionar para confimar!"
@@ -11859,13 +11443,6 @@ msgid ""
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
 msgstr "Su copia de trabajo contiene modificaciones.\nRevisión inferior en la copia de trabajo: %1!ld!\nRuta: %2!s!"
-
-#. Resource IDs: (88)
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't lose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
-msgstr "¡Su copia de trabajo tiene modificaciones locales!\nNota: ¡Actualizar a otra revisión no perderá esas modificaciones, por lo que la copia de trabajo\nno será exactamente la que tendría que ser en la revisión a la que está actualizando!"
 
 #. Resource IDs: (89)
 msgid ""
@@ -12151,15 +11728,6 @@ msgstr "dummy"
 msgid "eol style"
 msgstr "eol style"
 
-#. Resource IDs: (79)
-#, c-format
-msgid ""
-"exported\n"
-"%s\n"
-"to\n"
-"%s"
-msgstr "exportado\n%s\na\n%s"
-
 #. Resource IDs: (13)
 msgid "external"
 msgstr "externo"
@@ -12211,10 +11779,6 @@ msgstr "ya ha sido eliminado."
 #. Resource IDs: (583)
 msgid "it is unversioned."
 msgstr "no está versionado."
-
-#. Resource IDs: (214)
-msgid "item kept locally"
-msgstr "ítem mantenido localmente"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
@@ -12299,11 +11863,6 @@ msgstr "mes"
 #. Resource IDs: (248)
 msgid "months"
 msgstr "meses"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "multiple URLs (e.g. %s)"
-msgstr "múltiples URLs (por ejemplo %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -12571,11 +12130,6 @@ msgstr "a %1"
 msgid "to %1!s!"
 msgstr "a %1!s!"
 
-#. Resource IDs: (103)
-#, c-format
-msgid "to %s"
-msgstr "a %s"
-
 #. Resource IDs: (208)
 msgid "tree conflict"
 msgstr "conflicto de árbol"
@@ -12696,30 +12250,11 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\r\nEstablezca el número del idioma en el que desea escribir sus mensajes de registro.\r\nTortoiseSVN cargará entonces el módulo del corrector ortográfico apropiado si está disponible."
 
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfileproperties\r\n"
-"Newline separated list of user defined properties for files which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfileproperties\r\nIndicar en cada linea una propiedad definida por el usuario para los archivos,\r\nque se mostrará en el desplegable del diálogo de propiedades para poder elegirla."
-
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfolderproperties\r\n"
-"Newline separated list of user defined properties for folders which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfolderproperties\r\nIndicar en cada linea una propiedad definida por el usuario para las carpetas,\r\nque se mostrará en el desplegable del diálogo de propiedades para poder elegirla."
-
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\r\nMárquelo a 'yes' si quiere que aparezca un mensaje de advertencia cuando no se introduzca un número de incidente en el diálogo de confirmación."
-
-#. Resource IDs: (104)
-#, c-format
-msgid "url: %1!s!"
-msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

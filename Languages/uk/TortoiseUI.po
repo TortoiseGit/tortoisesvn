@@ -16,9 +16,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-28 15:50+0000\n"
+"PO-Revision-Date: 2013-11-09 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -394,15 +394,6 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%s\n- це каталог, а не файл!\nTortoiseMerge не вміє шукати відмінності каталогів."
 
-#. Resource IDs: (286)
-#, c-format
-msgid ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
-msgstr "%s\nr%s | %s\n\n%s\n"
-
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
@@ -426,6 +417,10 @@ msgstr "&Додати"
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Додати >>"
+
+#. Resource IDs: (1505)
+msgid "&Add Filter"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -663,6 +658,10 @@ msgstr "Зни&щити"
 msgid "&Delete (keep local)"
 msgstr "Зни&щити (залишити локально)"
 
+#. Resource IDs: (1507)
+msgid "&Delete Filter"
+msgstr ""
+
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
 msgstr "Зни&щити неверсійні  елементи..."
@@ -702,6 +701,10 @@ msgstr ""
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
 msgstr "&Редагувати"
+
+#. Resource IDs: (1506)
+msgid "&Edit Filter"
+msgstr ""
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1426,6 +1429,10 @@ msgstr "&Об'єднані відмінності"
 msgid "&Unknown drives"
 msgstr "&Невідомі диски"
 
+#. Resource IDs: (1074)
+msgid "&Up"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Оновити"
@@ -1627,10 +1634,6 @@ msgstr "....."
 #, c-format
 msgid ": Revision %d"
 msgstr ": Модифікація %d"
-
-#. Resource IDs: (151)
-msgid ": working base"
-msgstr ": робоча база"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1874,18 +1877,6 @@ msgstr "Додати/Редагувати характерну для розши
 msgid "Added"
 msgstr "Додано"
 
-#. Resource IDs: (126)
-msgid "Added a file remotely"
-msgstr "Файл додано на віддалі"
-
-#. Resource IDs: (126)
-msgid "Added a folder remotely"
-msgstr "Каталог додано на віддалі"
-
-#. Resource IDs: (126)
-msgid "Added items remotely"
-msgstr "Елементи додано на віддалі"
-
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Додано вузол"
@@ -2113,12 +2104,6 @@ msgstr "Меню кістяка програми:"
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Застосовує файл об'єднаних відмінностей до робочої копії"
-
-#. Resource IDs: (581)
-msgid ""
-"Applies the properties recursively to all files/folders.\r\n"
-"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr "Застосовує усі властивості рекурсивно до усіх файлів/каталогів.\r\nbugtraq:, tsvn: i webviewer: ці властивості застосовуються лише для каталогів."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2391,10 +2376,6 @@ msgstr "Гілка/&зріз"
 msgid "Break loc&k"
 msgstr "Скасувати бло&кування"
 
-#. Resource IDs: (78)
-msgid "Browse for the external diff program"
-msgstr "Вибрати зовнішню програму для злиття"
-
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Проглянути..."
@@ -2475,10 +2456,6 @@ msgstr "Розмір кеша [кБ]"
 msgid "Cached Repositories"
 msgstr "Кешовані репозиторії"
 
-#. Resource IDs: (197)
-msgid "Caches the log messages to speed up log fetching"
-msgstr "Кешувати повідомлення логу, щоб прискорити його видобування"
-
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Можна двічі клацнути у списку логу, щоб порівняти з попередньою модифікацією"
@@ -2556,12 +2533,6 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
-msgstr ""
-
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Don't reload views"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -2672,12 +2643,6 @@ msgid ""
 "The items are not moved."
 msgstr ""
 
-#. Resource IDs: (589)
-msgid ""
-"Cancel\n"
-"The property is not removed."
-msgstr ""
-
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2725,10 +2690,6 @@ msgid "Cate&gories:"
 msgstr "Кате&горії:"
 
 #. Resource IDs: (82)
-msgid "Certificate expired or not yet valid"
-msgstr "Сертифікат застарілий або ще недійсний"
-
-#. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Сертифікат застарілий. Дійсний до: %s"
@@ -2768,11 +2729,6 @@ msgstr "Змінені файли"
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr "Файли, змінені від %1!s!, %2!s! до %3!s!, %4!s!"
-
-#. Resource IDs: (163)
-#, c-format
-msgid "Changed files: %d"
-msgstr "Змінені файли: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2838,12 +2794,6 @@ msgstr "Вивірити робочу копію зі сховища"
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
 msgstr ""
-
-#. Resource IDs: (95)
-msgid ""
-"Check the files which you want to\n"
-"delete before importing."
-msgstr "Позначте файли, які потрібно\nзнищити перед імпортуванням."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2989,12 +2939,6 @@ msgstr ""
 #, c-format
 msgid "Clears cached logs from %ld repositories"
 msgstr "Очищує кешовані логи з %ld репозиторіїв"
-
-#. Resource IDs: (195)
-msgid ""
-"Clears the stored authentication.\r\n"
-"You will have to enter your username/password again for all repositories."
-msgstr "Очищує збережену автентифікацію.\r\nДоведеться знову вводити імена/паролі для всіх репозиторіїв. "
 
 #. Resource IDs: (196)
 #, c-format
@@ -3273,11 +3217,6 @@ msgstr "Порівнює файл з останньою зафіксованою
 msgid "Compares the selected file with a file in the repository"
 msgstr "Порівнює вибраний файл із файлом у сховищі"
 
-#. Resource IDs: (120)
-#, c-format
-msgid "Comparing %1!s! to %2!s!"
-msgstr "Порівнюються %1!s! з %2!s!"
-
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Готово"
@@ -3288,6 +3227,10 @@ msgstr "Готово!"
 
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid "Configure Filter Regexes"
 msgstr ""
 
 #. Resource IDs: (236)
@@ -3352,10 +3295,6 @@ msgstr "Розміри контейнерів"
 msgid "Context Menus: "
 msgstr "Контекстні меню:"
 
-#. Resource IDs: (564)
-msgid "Continue"
-msgstr "Продовжити"
-
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Стиснути пристиковане вікно"
@@ -3380,22 +3319,10 @@ msgstr "&Копіювати"
 msgid "Copied"
 msgstr "Скопійовано"
 
-#. Resource IDs: (208)
-msgid "Copied from URL"
-msgstr "Скопійовано з URL"
-
-#. Resource IDs: (208)
-msgid "Copied from revision"
-msgstr "Скопійовано з модифікації"
-
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Скопійовано з: %1!s!@%2!ld!\r\n"
-
-#. Resource IDs: (126)
-msgid "Copied remotely"
-msgstr "Скопійовано на віддалі"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3419,11 +3346,6 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Копіювати %1!s!\r\nдо %2!s!"
-
-#. Resource IDs: (103)
-#, c-format
-msgid "Copy %s"
-msgstr "Копіювати %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3454,10 +3376,6 @@ msgstr "Перейменувати та копіювати елемент сюд
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
 msgstr "Копіювати колонку до буфера обміну"
-
-#. Resource IDs: (101)
-msgid "Copy error message to clipboard"
-msgstr "Копіювати повідомлення про помилку до буфера обміну"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3490,10 +3408,6 @@ msgstr "Копіювати до %1"
 msgid "Copy to clipboard"
 msgstr "Копіювати до буфера обміну"
 
-#. Resource IDs: (103)
-msgid "Copy to working copy"
-msgstr "Копіювати до робочої копії"
-
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
 msgstr "Копіювати до робочої копії..."
@@ -3515,10 +3429,6 @@ msgstr ""
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Копіювання..."
-
-#. Resource IDs: (188)
-msgid "Corrections"
-msgstr "Виправлення"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3636,11 +3546,6 @@ msgid ""
 "Patching is not possible!"
 msgstr "Не вдалося віднайти модифікацію %1!s! файла %2!s!.\nЛатання неможливе!"
 
-#. Resource IDs: (64)
-#, c-format
-msgid "Could not save the file %s!"
-msgstr "Не вдалося зберегти файл %s"
-
 #. Resource IDs: (70, 81)
 #, c-format
 msgid ""
@@ -3732,10 +3637,6 @@ msgstr "Створити репозиторі&й тут"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "Створити ярлик"
-
-#. Resource IDs: (126)
-msgid "Created folder remotely"
-msgstr "Каталог створено на віддалі"
 
 #. Resource IDs: (10)
 msgid ""
@@ -4054,12 +3955,6 @@ msgstr "Каталоги"
 msgid "Directory:"
 msgstr "Каталог:"
 
-#. Resource IDs: (195)
-msgid ""
-"Disable this option if you have really big working copies and experience\r\n"
-"too much disk access when browsing the working copy."
-msgstr "Унеможливіть цей параметр, якщо у вас дійсно великі робочі копії, і під час\r\nпроглядання робочої копії буває надто багато звернень до диску."
-
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
 msgstr "Скасовує локальні зміни у випадку знищення"
@@ -4147,10 +4042,6 @@ msgstr ""
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Дійсно знищити стрічку знаряддь '%s'?"
 
-#. Resource IDs: (145)
-msgid "Do you really want to move this file or folder?"
-msgstr "Дійсно перемістити цей файл чи каталог?"
-
 #. Resource IDs: (119)
 #, c-format
 msgid ""
@@ -4237,10 +4128,6 @@ msgid ""
 "which were made in this revision?"
 msgstr ""
 
-#. Resource IDs: (313)
-msgid "Do you want to save your changes?"
-msgstr "Зберегти зміни?"
-
 #. Resource IDs: (65535)
 msgid "Document :"
 msgstr "Документ :"
@@ -4248,12 +4135,8 @@ msgstr "Документ :"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr "Документація : Simon Large (Семен Великий)\nКод : Tobias Schäfer (Тобіас Шофер), Stefan Fuhrmann (Степан Фірман)"
-
-#. Resource IDs: (564)
-msgid "Don't ask me again"
-msgstr "Більше не запитувати"
+"Code : Tobias SchÃ¤fer, Stefan Fuhrmann"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4285,14 +4168,6 @@ msgstr ""
 msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
-msgstr ""
-
-#. Resource IDs: (80, 564)
-msgid "Don't show this message again"
-msgstr "Більше не показувати це повідомлення"
-
-#. Resource IDs: (564)
-msgid "Don't tell me again"
 msgstr ""
 
 #. Resource IDs: (1002)
@@ -4520,10 +4395,6 @@ msgstr "Збільшити вікно до повного розміру"
 msgid "Enter Log Message"
 msgstr "Введіть повідомлення для логу"
 
-#. Resource IDs: (80)
-msgid "Enter URL"
-msgstr "Введіть URL"
-
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
 msgstr "Введіть &ім'я для списку змін:"
@@ -4700,10 +4571,6 @@ msgstr "Експортувати"
 msgid "Export &directory:"
 msgstr "Експортувати &каталог:"
 
-#. Resource IDs: (94)
-msgid "Export directory:"
-msgstr "Експортувати каталог:"
-
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4826,11 +4693,6 @@ msgstr "Не вдалося виконати операцію на сервер�
 #. Resource IDs: (3857)
 msgid "Failed to save document."
 msgstr "Не вдалося зберегти документ."
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist '%s'"
-msgstr "Не вдалося встановити/видалити список змін '%s'"
 
 #. Resource IDs: (83)
 #, c-format
@@ -5192,14 +5054,6 @@ msgstr "Отримати б&локування..."
 msgid "Get merge logs"
 msgstr "Отримати логи злиття"
 
-#. Resource IDs: (89)
-msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
-msgstr "Блокування файлів без властивості 'svn:needs-lock' не запобігатиме їх редагуванню іншими користувачами у їхніх робочих копіях.\nЩоб уможливити строге блокування слід додати властивість 'svn:needs-lock' до всіх файлів, які потребують блокування, і зафіксувати ці файли.\nКожен файл матиме встановлену ознаку файлової системи тільки-для-читання, і отримання блокування дозволятиме запис у файл.\nЗауважте, що інші користувачі побачать ці файли як тільки-для-читання лише після оновлення їхніх робочих копій."
-
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
@@ -5221,10 +5075,6 @@ msgstr "Отримується інформація зі сховища..."
 #. Resource IDs: (120)
 msgid "Getting information..."
 msgstr "Отримується інформація..."
-
-#. Resource IDs: (132)
-msgid "Getting log info..."
-msgstr "Отримується логова інформація..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5672,12 +5522,6 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr "Якщо активовано, то пункт меню 'Отримати блокування' завжди відображаєтся в меню верхнього рівня,\nякщо у вибраного файла задано властивість svn:needs-lock"
 
-#. Resource IDs: (95)
-msgid ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
-msgstr "Якщо відмічено, то у сховищі створюється новий каталог.\nЯкщо ні, то імпорт відбувається безпосередньо на вказаний URL."
-
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
@@ -5749,10 +5593,6 @@ msgid ""
 "the repository browser."
 msgstr ""
 
-#. Resource IDs: (563)
-msgid "Ignore"
-msgstr "Ігнорувати"
-
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5770,9 +5610,9 @@ msgstr "Ігнорувати &всі пробіли"
 msgid "Ignore &ancestry"
 msgstr "Ігнорувати по&ходження"
 
-#. Resource IDs: (564)
-msgid "Ignore all"
-msgstr "Ігнорувати все"
+#. Resource IDs: (156)
+msgid "Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5951,10 +5791,6 @@ msgstr "Невірне ім'я файла"
 msgid "Index colors:"
 msgstr ""
 
-#. Resource IDs: (76)
-msgid "Initial import"
-msgstr "Початковий імпорт"
-
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5996,10 +5832,6 @@ msgstr "Внутрішня величина, що означає якість у
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Неправильна грошова одиниця."
-
-#. Resource IDs: (102)
-msgid "Invalid data object dropped!"
-msgstr "Скинуто некоректний об'єкт даних!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6260,10 +6092,6 @@ msgstr "Список репозиторіїв, для яких закешова�
 msgid "List1"
 msgstr "Список1"
 
-#. Resource IDs: (104)
-msgid "Listing repository recursively..."
-msgstr ""
-
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
 msgstr "Локальний шлях:"
@@ -6287,10 +6115,6 @@ msgstr ""
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr ""
-
-#. Resource IDs: (63)
-msgid "Local status"
-msgstr "Локальний стан"
 
 #. Resource IDs: (94)
 msgid ""
@@ -6369,10 +6193,6 @@ msgstr "Блокування зазнало невдачі, бо існує но
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Блокує файл для інших користувачів і дозволяє вам його редагувати."
-
-#. Resource IDs: (126)
-msgid "Log"
-msgstr "Лог"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
@@ -6594,11 +6414,6 @@ msgstr "Злити модифікацію з..."
 msgid "Merge revisions to..."
 msgstr "Злити модифікації з..."
 
-#. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into '%s'"
-msgstr "Злити зміни у '%s'"
-
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
 msgstr "Злити два різних &дерева"
@@ -6650,11 +6465,6 @@ msgstr "Зливаються від r%1!ld! до r%2!ld!"
 #, c-format
 msgid "Merging r%ld"
 msgstr "Зливається r%ld"
-
-#. Resource IDs: (83)
-msgid ""
-"Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Злиття вимагає різних модифікацій або різних URL у 'Від:' і 'До:'"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6842,10 +6652,6 @@ msgid ""
 "%s"
 msgstr ""
 
-#. Resource IDs: (126)
-msgid "Moved remotely"
-msgstr "Переміщено на віддалі"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6882,6 +6688,10 @@ msgstr "NUM"
 msgid "Name"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Name:"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Navigate"
 msgstr ""
@@ -6899,10 +6709,6 @@ msgstr "Параметри панелі навігіції"
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
 msgstr "Параметри панелі навігіції..."
-
-#. Resource IDs: (208)
-msgid "Needs lock"
-msgstr "Потребує блокування"
 
 #. Resource IDs: (32845)
 msgid "Needs-&Lock"
@@ -6941,18 +6747,13 @@ msgstr "&Нова назва:"
 msgid "New Menu"
 msgstr "Нове меню"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "New name for %s"
-msgstr "Нове ім'я для %s"
-
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr ""
 
-#. Resource IDs: (98)
-msgid "New name:"
-msgstr "Нове ім'я:"
+#. Resource IDs: (101)
+msgid "Newlines"
+msgstr ""
 
 #. Resource IDs: (3633)
 msgid ""
@@ -6972,19 +6773,11 @@ msgstr ""
 msgid "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (564)
-msgid "No"
-msgstr "Ні"
-
 #. Resource IDs: (81)
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr "Не вказано команду!\nTortoiseProc.exe використовується розширенням оболонки і не повинен безпосередньо викликатися!"
-
-#. Resource IDs: (81)
-msgid "No command value specified!"
-msgstr "Не вказано значення команди!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -7001,12 +6794,6 @@ msgstr "Помилки не трапилось."
 #. Resource IDs: (281)
 msgid "No externals found"
 msgstr "Зовнішних посилань не знайдено"
-
-#. Resource IDs: (82)
-msgid ""
-"No files or folders were modified. There is nothing for TortoiseSVN to "
-"revert!"
-msgstr "У файлах та каталогах не було змін. TortoiseSVN не має чого відвертати!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7043,10 +6830,6 @@ msgstr "Не знайдено кодувальник зображень для %
 msgid "No path or pathfile specified on the command line!"
 msgstr "У командному рядку не вказано шлях або файл шляху!"
 
-#. Resource IDs: (188)
-msgid "No spell corrections"
-msgstr "Немає виправлень правопису"
-
 #. Resource IDs: (196)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -7061,10 +6844,6 @@ msgstr "Нема такої модифікації: '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Тезаурус припущень не має"
-
-#. Resource IDs: (564)
-msgid "No to all"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7093,10 +6872,6 @@ msgstr "Нормальних"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не всі входження до системного реєстру (чи INI файлу) було видалено."
-
-#. Resource IDs: (83)
-msgid "Not enough memory to complete operation."
-msgstr "Недостатньо пам'яті для завершення операції."
 
 #. Resource IDs: (273)
 msgid ""
@@ -7287,10 +7062,6 @@ msgstr "Деяка кількість файлів у конфліктному �
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Ті&льки занотувати злиття (убезпечує модифікації від зливання)"
 
-#. Resource IDs: (99)
-msgid "Only check out the &top folder"
-msgstr "Вивірити лише &верхній каталог"
-
 #. Resource IDs: (19)
 msgid "Only file children"
 msgstr "Лише нащадки файла"
@@ -7436,14 +7207,6 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
-
-#. Resource IDs: (76)
-msgid "PEM"
-msgstr "PEM"
-
-#. Resource IDs: (76)
-msgid "PKCS12"
-msgstr "PKCS12"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7605,10 +7368,6 @@ msgstr "Оберіть один з вказаних варіантів, щоб �
 msgid "Please select a hook type"
 msgstr "Виберіть тип скрипта зачіпки"
 
-#. Resource IDs: (76)
-msgid "Please specify the certificate type"
-msgstr "Вкажіть тип сертифіката"
-
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Зачекайте, це затягнеться на декілька хвилин. Їй-бо!"
@@ -7628,10 +7387,6 @@ msgstr "Зачекайте, поки отримуються зовнішні п�
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Зачекайте, поки оглядач сховища ініціалізується..."
-
-#. Resource IDs: (280)
-msgid "Please wait while we check the parameters for the merge."
-msgstr ""
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7904,11 +7659,6 @@ msgstr "Налаштування проксі"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Поставити \"Отримати блокування\" у верхнє меню, коли задано svn:needs-lock"
 
-#. Resource IDs: (246)
-#, c-format
-msgid "Q%d/%.2d"
-msgstr "Q%d/%.2d"
-
 #. Resource IDs: (3605)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8086,6 +7836,18 @@ msgstr ""
 msgid "Refreshing shell for %1!s!"
 msgstr ""
 
+#. Resource IDs: (32, 156, 165)
+msgid "Regex Filter"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Regex Filters"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Regex:"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Регулярний вираз"
@@ -8220,6 +7982,12 @@ msgstr ""
 msgid "Remove Saved Authentication Data"
 msgstr ""
 
+#. Resource IDs: (2057)
+msgid ""
+"Remove all comments before doing the diff so changes inside comments don't "
+"show as different"
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Видалити зі списку &ігнорованих"
@@ -8268,10 +8036,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Видалено"
-
-#. Resource IDs: (126)
-msgid "Removed file/folder"
-msgstr "Видалено файл/каталог"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8323,11 +8087,6 @@ msgstr "Перей&менувати..."
 msgid "Rename"
 msgstr "Перейменувати"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "Rename %s"
-msgstr "Перейменувати %s"
-
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
@@ -8354,10 +8113,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Renamed node"
 msgstr "Перейменований вузол"
-
-#. Resource IDs: (126)
-msgid "Renamed remotely"
-msgstr "Перейменовано на віддалі"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -8393,13 +8148,13 @@ msgid ""
 "Replace"
 msgstr "Замінити певний текст іншим текстом\nЗамінити"
 
+#. Resource IDs: (65535)
+msgid "Replace:"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Replacing"
 msgstr "Замінюється"
-
-#. Resource IDs: (564)
-msgid "Report"
-msgstr ""
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8526,10 +8281,6 @@ msgstr "Відновити вікно до нормального розміру
 msgid "Restored"
 msgstr "Відновлено"
 
-#. Resource IDs: (563)
-msgid "Retry"
-msgstr "Спробуй ще раз"
-
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr ""
@@ -8588,11 +8339,6 @@ msgstr "Відвертає додаток до керування версіям
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
 msgstr "Модифікація"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Revision %1!d!"
-msgstr "Модифікація %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
@@ -8960,11 +8706,6 @@ msgid "Saves the selected property value to a file"
 msgstr "Зберігає значення вибраної властивості у файл"
 
 #. Resource IDs: (103)
-#, c-format
-msgid "Saving file %s"
-msgstr "Зберігається файл %s"
-
-#. Resource IDs: (103)
 msgid "Saving files"
 msgstr "Зберігаються файли"
 
@@ -9067,10 +8808,6 @@ msgstr "Вибрати список змін"
 msgid "Select diff application"
 msgstr "Виберіть програму для відмінностей"
 
-#. Resource IDs: (99)
-msgid "Select directory to check out to"
-msgstr "Виберіть каталог, до якого вивіряти"
-
 #. Resource IDs: (279)
 msgid "Select end revision"
 msgstr "Вибрати кінцеву модифікацію"
@@ -9120,10 +8857,6 @@ msgstr "Вибрати діапазон модифікацій"
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Вибрати початкову модифікацію"
-
-#. Resource IDs: (79)
-msgid "Select text editor application"
-msgstr "Вибрати програму для редагування тексту"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9579,14 +9312,6 @@ msgstr "Розмір кеш-файла на диску"
 msgid "Size of the cache if it were not compressed"
 msgstr "Розмір нестиснутого кеша"
 
-#. Resource IDs: (564)
-msgid "Skip"
-msgstr "Пропустити"
-
-#. Resource IDs: (564)
-msgid "Skip all"
-msgstr "Пропустити все"
-
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Пропущено"
@@ -9789,8 +9514,8 @@ msgid "Steal the lock"
 msgstr "Перехопити блокування"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan KÃ¼ng, LÃ¼bbe Onken"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9871,13 +9596,6 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr "Subversion доповіло про помилку під час створення сховища!\nПереконайтеся, що каталог порожній і не захищений від запису."
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
-"Subversion reported an error while doing a cleanup!\n"
-"%s"
-msgstr "Subversion доповідає про помилку під час виконання прибирання!\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -9998,11 +9716,6 @@ msgstr "Розмір табуляції:"
 msgid "Tag nodes"
 msgstr "Вузли зрізів"
 
-#. Resource IDs: (79)
-#, c-format
-msgid "Tagged the working copy to %s"
-msgstr "Зріз робочої копії внесено до %s"
-
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr ""
@@ -10041,11 +9754,6 @@ msgstr ""
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Розмір кавалка не співпадає з кількістю доданих/видалених рядків!"
-
-#. Resource IDs: (63)
-#, c-format
-msgid "The chunk start '@@' was expected in line %d !"
-msgstr "Початок кавалка '@@' очікувався в рядку %d !"
 
 #. Resource IDs: (346)
 msgid ""
@@ -10130,15 +9838,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "Каталог %s\nмістить неверсійні та/або модифіковані файли. Видалити його не зважаючи на це?"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
-msgstr "Каталог \n%s\nне існує.\nХочете його, для початку, створити? "
 
 #. Resource IDs: (99)
 #, c-format
@@ -10321,11 +10020,6 @@ msgstr "Не знайдено рядок 'Index: ' !\nАбо це не файл 
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "У рядку %d мав би бути рядок, який вказує на новий файл!"
 
-#. Resource IDs: (63)
-#, c-format
-msgid "The line indicating the old file was expected in line %d !"
-msgstr "У рядку %d мав би бути рядок, який вказує на старий файл!"
-
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
@@ -10340,12 +10034,6 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr "Максимальна кількість збережених рядків логу дій.\nРядки додані поверх цього ліміту витіснятимуть з файлу найдавніші рядки."
-
-#. Resource IDs: (63)
-msgid ""
-"The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
-msgstr "Старий файл не співпадає з новим.\nПерейменовування файлів не підтримується (поки що)!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10390,33 +10078,11 @@ msgstr "Здається введений шлях чи URL під Windows не�
 msgid ""
 "The path\n"
 "%1!s!\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"%2!s!\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr "Шлях\n%1!s!\nз файлу-латки не існує.\nTortoiseMerge знайшло відносний шлях\n%2!s!\nякий ніби співпадає з каталогом, що латається.\n\nВикористати запропонований шлях? Відповідь 'ні' призведе до виходу з TortoiseMerge."
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%1!s!\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr "Шлях\n%1!s!\nніби не співпадає зі шляхами з файлу-латки.\nАле TortoiseMerge снайшло шлях\n%2!s!\nякий краще співпадає. Хочете натомість використати запропонований шлях?"
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%s\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr "Шлях\n%s\nз файлу-латки не існує.\nTortoiseMerge намагався латати обрізаючи префікси, але не знайшов підходящого шляху."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10428,18 +10094,6 @@ msgstr ""
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
-msgstr ""
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like, and the \"only record the "
-"merge\" option can not be used."
-msgstr ""
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like.\n"
-"Only the merge depth option \"Working copy\" can be used."
 msgstr ""
 
 #. Resource IDs: (616)
@@ -10454,14 +10108,6 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Вибраний файл ще ніби-то має позначки конфліктів.\nЧи дійсно потрібно позначити його вирішеним?"
-
-#. Resource IDs: (102)
-#, c-format
-msgid ""
-"The target URL\n"
-"%s\n"
-"already exists!"
-msgstr "Цільовий URL\n%s\nвже існує!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10506,6 +10152,12 @@ msgid ""
 "Do you want to merge anyway?"
 msgstr "Цільова робоча копія містить локальні зміни.\nХочете злити полюбому?"
 
+#. Resource IDs: (101)
+msgid ""
+"The text is identical, but the files do not match!\r\n"
+"The following differences were found:"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
@@ -10526,18 +10178,6 @@ msgstr "Користувач, який робив останню фіксаці�
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
 msgstr "Користувач, який володіє блокуванням файлу"
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy has changed!\n"
-"Please commit your changes first or revert."
-msgstr "Робоча копія змінилась!\nСпочатку зафіксуйте зміни, або відверніть їх."
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy is not up to date!\n"
-"Please Update first."
-msgstr "Робоча копія не свіжа!\nСпочатку її слід оновити."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10697,9 +10337,9 @@ msgstr "Цей виріб включає програмне забезпечен
 
 #. Resource IDs: (1531)
 msgid ""
-"This product includes software from Apache™ Subversion® "
+"This product includes software from Apacheâ„¢ SubversionÂ® "
 "(http://subversion.apache.org)"
-msgstr "Цей продукт включає програмне забезпечення від Apache™ Subversion® (http://subversion.apache.org)"
+msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10870,11 +10510,6 @@ msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr "TortoiseSVN %d.%d.%d, Побудова %d - %s, %s"
-
-#. Resource IDs: (107)
-#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -10970,10 +10605,6 @@ msgstr "Вузли стовбура"
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Спробуйте 'Прибрати'. Якщо це не спрацює, доведеться зробити свіжу вивірку."
 
-#. Resource IDs: (564)
-msgid "Try again"
-msgstr "Спробуй ще раз"
-
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Підлаштувати TortoiseSVN"
@@ -10993,11 +10624,6 @@ msgstr "URL"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "Історія URL"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "URL not known (UUID: %s)"
-msgstr "URL невідомий (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -11228,11 +10854,6 @@ msgstr "Оновлює робочу копію до поточної модиф�
 #. Resource IDs: (265)
 msgid "Updating"
 msgstr "Оновлення"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "Updating %s"
-msgstr "Оновлюється %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -11615,11 +11236,8 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr "У випадку блокування вибраних файлів показує\nдіалог для вводу повідомлення з описом блокування"
 
-#. Resource IDs: (316)
-msgid ""
-"When resolving conflicts, you always have to save even if there is no "
-"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
-"show a conflict for those!"
+#. Resource IDs: (101)
+msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -11645,10 +11263,6 @@ msgstr "Windows 7"
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
 msgstr "Windows XP"
-
-#. Resource IDs: (146)
-msgid "With URL:"
-msgstr "З URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -11684,33 +11298,9 @@ msgid ""
 "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (563)
-msgid "Yes"
-msgstr "Так"
-
-#. Resource IDs: (564)
-msgid "Yes to all"
-msgstr "Завжди так"
-
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
 msgstr "У вас уже встановлено найновішу версію."
-
-#. Resource IDs: (144)
-msgid ""
-"You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:// on a network share may corrupt your data!\n"
-"Create the repository anyway?"
-msgstr "Ви створюєте сховище на спільному мережевому ресурсі.\nЦе безпечно, але щойно сховище буде створено, доступ до нього необхідно буде здійснювати якимось іншими способами.\nДоступ до сховища через протокол file:// на спільному мережевому ресурсі може пошкодити дані!\nВсеодно створити сховище?"
-
-#. Resource IDs: (88)
-msgid ""
-"You are trying to access a repository via file:// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
-msgstr "Ви намагаєтеся дістатися до сховища через протокол file:// на\nспільному мережевому диску.\nЦе може призвести до значних пошкоджень сховища!\nНевже ви цього хочете?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11788,12 +11378,6 @@ msgstr "Можна визначити до %d знаряддь"
 msgid "You must restart your system for the changes to take effect."
 msgstr "Необхідно перезапустити систему, щоб внесені зміни подіяли."
 
-#. Resource IDs: (77)
-msgid ""
-"You selected an unversioned file.\n"
-"The file will be added to version control when you commit."
-msgstr "Ви вибрали неверсійний файл.\nЙого буде додано до керування версіями після фіксації."
-
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
 msgstr ""
@@ -11849,13 +11433,6 @@ msgid ""
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
 msgstr "Робоча копія містить зміни.\nНайнижча модифікація у робочій копії: %1!ld!\nШлях: %2!s!"
-
-#. Resource IDs: (88)
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't lose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
-msgstr "Ваша робоча копія локально змінена!\nЗауваження: оновлення до іншої модифікації не знищить ці зміни, тому робоча копія\nне буде ідентичною до модифікації, до якої ви оновлюєте!"
 
 #. Resource IDs: (89)
 msgid ""
@@ -12141,15 +11718,6 @@ msgstr "фіктивний"
 msgid "eol style"
 msgstr "стиль кінцівки рядка"
 
-#. Resource IDs: (79)
-#, c-format
-msgid ""
-"exported\n"
-"%s\n"
-"to\n"
-"%s"
-msgstr "%s\nекспортовано до\n%s"
-
 #. Resource IDs: (13)
 msgid "external"
 msgstr "зовнішній"
@@ -12201,10 +11769,6 @@ msgstr "вже знищено."
 #. Resource IDs: (583)
 msgid "it is unversioned."
 msgstr "воно неверсійне."
-
-#. Resource IDs: (214)
-msgid "item kept locally"
-msgstr "елемент залишений локально"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
@@ -12289,11 +11853,6 @@ msgstr "місяць"
 #. Resource IDs: (248)
 msgid "months"
 msgstr "місяців"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "multiple URLs (e.g. %s)"
-msgstr "численні URL (напр. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -12561,11 +12120,6 @@ msgstr "до %1"
 msgid "to %1!s!"
 msgstr "до %1!s!"
 
-#. Resource IDs: (103)
-#, c-format
-msgid "to %s"
-msgstr "до %s"
-
 #. Resource IDs: (208)
 msgid "tree conflict"
 msgstr "конфлікт дерева"
@@ -12686,30 +12240,11 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\r\nЗадайте тут номер мови, на якій слід писати логові повідомлення.\r\nTortoiseSVN завантажить відповідний модуль перевірки правопису, за наявності останнього."
 
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfileproperties\r\n"
-"Newline separated list of user defined properties for files which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfileproperties\r\nСписок розділених новими рядками визначених користувачем властивостей для файлів,\r\nякі відображатимуться для вибору в діалозі властивостей."
-
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfolderproperties\r\n"
-"Newline separated list of user defined properties for folders which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfolderproperties\r\nСписок розділених новими рядками визначених користувачем властивостей для каталогів,\r\nякі відображатимуться для вибору в діалозі властивостей."
-
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\r\nВстановіть у 'yes', якщо потрібно показувати попередження, коли у діалозі фіксації не введено проблеми."
-
-#. Resource IDs: (104)
-#, c-format
-msgid "url: %1!s!"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

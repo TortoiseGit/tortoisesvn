@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-21 08:29+0000\n"
+"PO-Revision-Date: 2013-11-09 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -393,15 +393,6 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%s\nείναι ένας κατάλογος και όχι ένα αρχείο!\nΤο TortoiseMerge δεν μπορεί να συγκρίνει καταλόγους."
 
-#. Resource IDs: (286)
-#, c-format
-msgid ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
-msgstr "%s\nr%s | %s\n\n%s\n"
-
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
@@ -425,6 +416,10 @@ msgstr "&Προσθήκη"
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Προσθήκη >>"
+
+#. Resource IDs: (1505)
+msgid "&Add Filter"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -662,6 +657,10 @@ msgstr "&Διαγραφή"
 msgid "&Delete (keep local)"
 msgstr "&Διαγραφή (Διατήρηση τοπικού)"
 
+#. Resource IDs: (1507)
+msgid "&Delete Filter"
+msgstr ""
+
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
 msgstr "&Διαγραφή στοιχείων χωρίς έκδοση..."
@@ -701,6 +700,10 @@ msgstr "&Τέλος γραμμής"
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
 msgstr "&Επεξεργασία"
+
+#. Resource IDs: (1506)
+msgid "&Edit Filter"
+msgstr ""
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1425,6 +1428,10 @@ msgstr "&Ενοποιημένες διαφορές"
 msgid "&Unknown drives"
 msgstr "&Άγνωστοι οδηγοί συσκευών"
 
+#. Resource IDs: (1074)
+msgid "&Up"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Ενημέρωση"
@@ -1626,10 +1633,6 @@ msgstr "....."
 #, c-format
 msgid ": Revision %d"
 msgstr ": Έκδοση %d"
-
-#. Resource IDs: (151)
-msgid ": working base"
-msgstr ": βασική έκδοση πάνω στην οποία εργάζεστε"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1873,18 +1876,6 @@ msgstr "Προσθήκη/Επεξεργασία συγκεκριμένου πρ�
 msgid "Added"
 msgstr "Προσθέθηκε"
 
-#. Resource IDs: (126)
-msgid "Added a file remotely"
-msgstr "Προστέθηκε ένα απομακρυσμένο αρχείο"
-
-#. Resource IDs: (126)
-msgid "Added a folder remotely"
-msgstr "Προστέθηκε ένας απομακρυσμένος φάκελος"
-
-#. Resource IDs: (126)
-msgid "Added items remotely"
-msgstr "Προστέθηκαν απομακρυσμένα αντικείμενα"
-
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Προσθήκη βρόγχου"
@@ -2112,12 +2103,6 @@ msgstr "Μενού πλαισίων εφαρμογής: "
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Εφαρμόζει ένα ενοποιημένο αρχείο διαφορών στο εργαζομενο αντίγραφο"
-
-#. Resource IDs: (581)
-msgid ""
-"Applies the properties recursively to all files/folders.\r\n"
-"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr "Εφαρμόζει τις ιδιότητες σε όλα τα αρχεία/φάκελους.\r\nbugtraq:, tsvn: και webviewer: οι ιδιότητες εφαρμόζονται μόνο σε φακέλους."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2390,10 +2375,6 @@ msgstr "Διακλάδωση/&ετικέτα..."
 msgid "Break loc&k"
 msgstr "Παραβίαση κλει&δώματος"
 
-#. Resource IDs: (78)
-msgid "Browse for the external diff program"
-msgstr "Αναζήτηση εξωτερικού πρόγραμματος απεικόνισης διαφορών"
-
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Αναζήτηση..."
@@ -2474,10 +2455,6 @@ msgstr "Mέγεθος της κρυφής μνήμης [kB]"
 msgid "Cached Repositories"
 msgstr "Αποθήκες στην cache"
 
-#. Resource IDs: (197)
-msgid "Caches the log messages to speed up log fetching"
-msgstr ""
-
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Μπορεί να διπλοκλικάρει στη λίστα καταγραφής για σύγκριση με προηγούμενη έκδοση"
@@ -2555,12 +2532,6 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
-msgstr ""
-
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Don't reload views"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -2671,12 +2642,6 @@ msgid ""
 "The items are not moved."
 msgstr ""
 
-#. Resource IDs: (589)
-msgid ""
-"Cancel\n"
-"The property is not removed."
-msgstr ""
-
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2724,10 +2689,6 @@ msgid "Cate&gories:"
 msgstr "&Κατηγορίες"
 
 #. Resource IDs: (82)
-msgid "Certificate expired or not yet valid"
-msgstr "Το πιστοποιητικό έχει λήξει ή δεν είναι ακόμα επικυρωμένο"
-
-#. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Το πιστοποιητικό έχει λήξει. Ήταν έγκυρο μέχρι την: %s"
@@ -2767,11 +2728,6 @@ msgstr "Αρχεία με μεταβολές"
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr "Αλλάχθηκαν τα αρχεία μεταξύ %1!s!, %2!s! και %3!s!, %4!s!"
-
-#. Resource IDs: (163)
-#, c-format
-msgid "Changed files: %d"
-msgstr "Αρχεία με μεταβολές: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2837,12 +2793,6 @@ msgstr "Έλεγχος τρέχον αντίγραφο εργασίας από �
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
 msgstr ""
-
-#. Resource IDs: (95)
-msgid ""
-"Check the files which you want to\n"
-"delete before importing."
-msgstr "Έλεγχος των αρχείων που θέλετε να\nσβήσετε πριν από την εισαγωγή."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2988,12 +2938,6 @@ msgstr ""
 #, c-format
 msgid "Clears cached logs from %ld repositories"
 msgstr ""
-
-#. Resource IDs: (195)
-msgid ""
-"Clears the stored authentication.\r\n"
-"You will have to enter your username/password again for all repositories."
-msgstr "Καθαρίζει την αποθηκευμένη πιστοποίηση. \r\nΘα χρειαστεί να εισάγετε το όνομα χρήστη/κωδικό ξανά για όλα τα αποθετήρια."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3272,11 +3216,6 @@ msgstr "Συγκρίνει το αρχείο με την τελευταία δε
 msgid "Compares the selected file with a file in the repository"
 msgstr "Συγκρίνει το επιλεγμένο αρχείο με το αρχείο στο αποθετήριο"
 
-#. Resource IDs: (120)
-#, c-format
-msgid "Comparing %1!s! to %2!s!"
-msgstr "Σύγκριση του %1!s! με το %2!s!"
-
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Ολοκληρωθηκε"
@@ -3287,6 +3226,10 @@ msgstr "Ολοκληρώθηκε!"
 
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid "Configure Filter Regexes"
 msgstr ""
 
 #. Resource IDs: (236)
@@ -3351,10 +3294,6 @@ msgstr "Μεγέθη δοχείων"
 msgid "Context Menus: "
 msgstr "Αναδυόμενο μενού"
 
-#. Resource IDs: (564)
-msgid "Continue"
-msgstr "Συνέχεια"
-
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr ""
@@ -3379,22 +3318,10 @@ msgstr "Αντ&ιγραφή"
 msgid "Copied"
 msgstr "Αντιγράφτηκε"
 
-#. Resource IDs: (208)
-msgid "Copied from URL"
-msgstr "Αντιγράφηκε από τη URL"
-
-#. Resource IDs: (208)
-msgid "Copied from revision"
-msgstr "Αντιγράφηκε από αναθεώρηση"
-
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Αντιγράφηκε από: %1!s!@%2!ld!\r\n"
-
-#. Resource IDs: (126)
-msgid "Copied remotely"
-msgstr "Αντιγράφηκε απομακρυσμένα"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3418,11 +3345,6 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Αντιγραφή %1!s!\r\nστο %2!s!"
-
-#. Resource IDs: (103)
-#, c-format
-msgid "Copy %s"
-msgstr "Αντιγραφή %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3453,10 +3375,6 @@ msgstr "Αντιγραφή και μετονομασία αντικειμένω�
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
 msgstr "Αντιγραφή στήλης στο πρόχειρο"
-
-#. Resource IDs: (101)
-msgid "Copy error message to clipboard"
-msgstr "Αντιγραφή μυνήματος λάθους εδώ"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3489,10 +3407,6 @@ msgstr "Αντιγραφή στο %1"
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
 
-#. Resource IDs: (103)
-msgid "Copy to working copy"
-msgstr "Αντιγραφή στο εργαζόμενο αντίγραφο"
-
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
 msgstr "Αντιγραφή στο εργαζόμενο αντίγραφο..."
@@ -3514,10 +3428,6 @@ msgstr ""
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Γίνεται αντιγραφή..."
-
-#. Resource IDs: (188)
-msgid "Corrections"
-msgstr "Διορθώσεις"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3635,11 +3545,6 @@ msgid ""
 "Patching is not possible!"
 msgstr "Δεν ήταν δυνατό να ανακτηθεί η έκδοση %1!s! του αρχείου %2!s!.\nΔεν μπορεί να γίνει διόρθωση!"
 
-#. Resource IDs: (64)
-#, c-format
-msgid "Could not save the file %s!"
-msgstr "Το αρχείο %s δεν μπορούσε να σωθεί!"
-
 #. Resource IDs: (70, 81)
 #, c-format
 msgid ""
@@ -3731,10 +3636,6 @@ msgstr "Δημιουργία απο&θητηρίου εδώ"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "Δημιουργεία συντόμευσης"
-
-#. Resource IDs: (126)
-msgid "Created folder remotely"
-msgstr "Δημιουργεία φακέλου απομακρυσμένα"
 
 #. Resource IDs: (10)
 msgid ""
@@ -4053,12 +3954,6 @@ msgstr "Κατάλογοι:"
 msgid "Directory:"
 msgstr "Κατάλογος:"
 
-#. Resource IDs: (195)
-msgid ""
-"Disable this option if you have really big working copies and experience\r\n"
-"too much disk access when browsing the working copy."
-msgstr "Απενεργοποιήστε αυτή την επιλογή αν πραγματικά έχετε μεγάλα αντίγραφα εργασίας \r\nκαι αντιμετωπίζετε συνεχείς προσβάσεις στο δίσκο όταν περιηγήστε στο αντίγραφο εργασίας."
-
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
 msgstr "Απόρριψη τοπικών αλλαγών κατά τον ερχομό διαγραφών"
@@ -4146,10 +4041,6 @@ msgstr ""
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Θέλετε πραγματικά να διαγράψετε την εργαλειοθήκη '%s';"
 
-#. Resource IDs: (145)
-msgid "Do you really want to move this file or folder?"
-msgstr "Πραγματικά θέλετε να μετακινήσετε αυτό το αρχείο ή φάκελο;"
-
 #. Resource IDs: (119)
 #, c-format
 msgid ""
@@ -4236,10 +4127,6 @@ msgid ""
 "which were made in this revision?"
 msgstr ""
 
-#. Resource IDs: (313)
-msgid "Do you want to save your changes?"
-msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές σας;"
-
 #. Resource IDs: (65535)
 msgid "Document :"
 msgstr "Έγγραφο :"
@@ -4247,11 +4134,7 @@ msgstr "Έγγραφο :"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr "Τεκμηρίωση : Simon Large\nΚώδικας : Tobias Schäfer, Stefan Fuhrmann"
-
-#. Resource IDs: (564)
-msgid "Don't ask me again"
+"Code : Tobias SchÃ¤fer, Stefan Fuhrmann"
 msgstr ""
 
 #. Resource IDs: (94)
@@ -4284,14 +4167,6 @@ msgstr ""
 msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
-msgstr ""
-
-#. Resource IDs: (80, 564)
-msgid "Don't show this message again"
-msgstr "Να μην ξαναεμφανιστεί αυτό το μύνημα"
-
-#. Resource IDs: (564)
-msgid "Don't tell me again"
 msgstr ""
 
 #. Resource IDs: (1002)
@@ -4519,10 +4394,6 @@ msgstr "Μεγέθυνση του παραθύρου στο μέγιστο μέ�
 msgid "Enter Log Message"
 msgstr "Εισάγετε μήνυμα για το αρχείο ιστορικότητας"
 
-#. Resource IDs: (80)
-msgid "Enter URL"
-msgstr "Εισαγώγή URL"
-
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
 msgstr "Εισάγετε ένα &όνομα για λίστα αλλαγών:"
@@ -4699,10 +4570,6 @@ msgstr "Εξαγωγή"
 msgid "Export &directory:"
 msgstr "Εξαγωγή &φακέλου:"
 
-#. Resource IDs: (94)
-msgid "Export directory:"
-msgstr "Εξαγωγή φακέλου:"
-
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4825,11 +4692,6 @@ msgstr "Αποτυχία εκτέλεσης διαδικασίας του δια
 #. Resource IDs: (3857)
 msgid "Failed to save document."
 msgstr "Δεν ήταν δυνατό να αποθηκευθεί το έγγραφο."
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist '%s'"
-msgstr "Σφάλμα προσθήκης/αφαίρεσης της λίστας αλλαγών '%s'"
 
 #. Resource IDs: (83)
 #, c-format
@@ -5191,14 +5053,6 @@ msgstr "Προμήθεια κλείσ&θρου..."
 msgid "Get merge logs"
 msgstr ""
 
-#. Resource IDs: (89)
-msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
-msgstr ""
-
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
@@ -5220,10 +5074,6 @@ msgstr "Λήψη πληροφορίες από αποθετήριο..."
 #. Resource IDs: (120)
 msgid "Getting information..."
 msgstr "Λήψη πληροφοριών..."
-
-#. Resource IDs: (132)
-msgid "Getting log info..."
-msgstr "Λήψη αρχείο ιστορικότητας..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5671,12 +5521,6 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr "Εφόσον ενεργό, η εγγραφή καταλόγου 'Πάρε Κλείδωμα' εμφανίζεται πάντα στον κατάλογο ανώτατου επιπέδου\nόταν στο επιλεγμένο αρχείο έχει τεθεί η ιδιότητα svn:needs-lock"
 
-#. Resource IDs: (95)
-msgid ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
-msgstr "Αν τεθεί τότε ένας νέος φάκελος δημιουργείται στην αποθήκη δεδομένων.\nΑν δεν τεθεί τότε η εισαγωγή γίνεται απευθείας στην επιλεγμένη διέυθηνση."
-
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
@@ -5748,10 +5592,6 @@ msgid ""
 "the repository browser."
 msgstr ""
 
-#. Resource IDs: (563)
-msgid "Ignore"
-msgstr "Παράβλεψη"
-
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5769,8 +5609,8 @@ msgstr "Παράβλεψη ό&λου του κενού χώρου"
 msgid "Ignore &ancestry"
 msgstr "Να παραβλεφθεί η &προέλευση"
 
-#. Resource IDs: (564)
-msgid "Ignore all"
+#. Resource IDs: (156)
+msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (32873)
@@ -5950,10 +5790,6 @@ msgstr "Λανθασμένο όνομα αρχείου."
 msgid "Index colors:"
 msgstr ""
 
-#. Resource IDs: (76)
-msgid "Initial import"
-msgstr "Αρχική εισαγωγή"
-
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5995,10 +5831,6 @@ msgstr "Εσωτερική τιμή ενδεικτική της ποιότητα
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Μη έγκυρο νόμισμα."
-
-#. Resource IDs: (102)
-msgid "Invalid data object dropped!"
-msgstr "Ρίψη μη επιτρεπτού δεδομένου!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6259,10 +6091,6 @@ msgstr "Απαρίθμηση των αποθηκών για τις αποίες 
 msgid "List1"
 msgstr "Απαρίθμηση1"
 
-#. Resource IDs: (104)
-msgid "Listing repository recursively..."
-msgstr ""
-
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
 msgstr ""
@@ -6286,10 +6114,6 @@ msgstr ""
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr ""
-
-#. Resource IDs: (63)
-msgid "Local status"
-msgstr "Τοπική κατάσταση"
 
 #. Resource IDs: (94)
 msgid ""
@@ -6368,10 +6192,6 @@ msgstr "Η προσπάθεια κλειδώματος απέτυχε γιατί
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Κλειδώνει ένα αρχείο για τους υπόλοιπους χρήστες και επιτρέπει σε εσάς να κάνετε αλλαγές "
-
-#. Resource IDs: (126)
-msgid "Log"
-msgstr "Αρχείο ιστορικότητας"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
@@ -6593,11 +6413,6 @@ msgstr "Συγχώνευση έκδωσης στο..."
 msgid "Merge revisions to..."
 msgstr "Συγχώνευση εκδώσεων στο..."
 
-#. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into '%s'"
-msgstr "Συγχώνευση των αλλαγών στο '%s'"
-
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
 msgstr "Συγχώνευση δύο διαφορετικών &δέντρων"
@@ -6649,11 +6464,6 @@ msgstr "Συγχώνευση r%1!ld! μέσω r%2!ld!"
 #, c-format
 msgid "Merging r%ld"
 msgstr "Συγχώνευση r%ld"
-
-#. Resource IDs: (83)
-msgid ""
-"Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Η συγχώνευση απαιτεί διαφορετικές εκδόσεις ή διαφορετικά URL στο 'Από:' και 'Προς:'"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6841,10 +6651,6 @@ msgid ""
 "%s"
 msgstr ""
 
-#. Resource IDs: (126)
-msgid "Moved remotely"
-msgstr "Μετακινήθηκε από απόμακρη τοποθεσία"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6881,6 +6687,10 @@ msgstr "NUM"
 msgid "Name"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Name:"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Navigate"
 msgstr ""
@@ -6898,10 +6708,6 @@ msgstr "Επιλογές παραθύρου πλοήγησης"
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
 msgstr "Επιλογές παραθύρου πλοήγησης..."
-
-#. Resource IDs: (208)
-msgid "Needs lock"
-msgstr "Χρειάζεται κλείστρο"
 
 #. Resource IDs: (32845)
 msgid "Needs-&Lock"
@@ -6940,18 +6746,13 @@ msgstr "Νέο &όνομα:"
 msgid "New Menu"
 msgstr "Νέο μενού"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "New name for %s"
-msgstr "Nέο όνομα για το %s"
-
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr ""
 
-#. Resource IDs: (98)
-msgid "New name:"
-msgstr "Νέο όνομα:"
+#. Resource IDs: (101)
+msgid "Newlines"
+msgstr ""
 
 #. Resource IDs: (3633)
 msgid ""
@@ -6971,19 +6772,11 @@ msgstr ""
 msgid "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (564)
-msgid "No"
-msgstr "Όχι"
-
 #. Resource IDs: (81)
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr "Δεν έχει οριστεί εντολή!\nΤο εκτελέσιμο αρχείο Tortoise.exe είναι σε χρήση από την επέκταση κελύφους και δεν πρέπει να καλείται άμεσα!"
-
-#. Resource IDs: (81)
-msgid "No command value specified!"
-msgstr "Δεν έχει οριστεί τιμή για την εντολή!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -7000,12 +6793,6 @@ msgstr "Δεν υπήρξε λάθος"
 #. Resource IDs: (281)
 msgid "No externals found"
 msgstr "Δεν βρέθηκαν εξωτερικά"
-
-#. Resource IDs: (82)
-msgid ""
-"No files or folders were modified. There is nothing for TortoiseSVN to "
-"revert!"
-msgstr "Κανένα αρχείο ή φάκελος δεν έχει αλλάξει. Δεν υπάρχει τίποτα το οποίο θα μπορούσε να αναστραφεί απο το TortoiseSVN!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7042,10 +6829,6 @@ msgstr "Δεν βρέθηκε κωδικοποιητής εικόνων για �
 msgid "No path or pathfile specified on the command line!"
 msgstr "Δεν έχει οριστεί μονοπάτι η αρχείο μονοπάτιου στην γραμμή εντολών!"
 
-#. Resource IDs: (188)
-msgid "No spell corrections"
-msgstr "Δεν υπάρχουν ορθογραφικές διορθώσεις"
-
 #. Resource IDs: (196)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -7060,10 +6843,6 @@ msgstr "Δεν υπάρχει έκδοση '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Δεν υπάρχουν υποδείξεις θυσαυρού"
-
-#. Resource IDs: (564)
-msgid "No to all"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7092,10 +6871,6 @@ msgstr "Κανονικό"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Δεν διαγράφηκαν όλες οι καταχωρήσεισ στο Μητρώο του συστήματος (ή στα ΙΝΙ αρχεία)."
-
-#. Resource IDs: (83)
-msgid "Not enough memory to complete operation."
-msgstr "Δεν υπάρχει αρκετή μνήμη για να ολοκληρωθεί η λειτουργία."
 
 #. Resource IDs: (273)
 msgid ""
@@ -7286,10 +7061,6 @@ msgstr "Ένα ή περισσότερα αρχεία βρίσκονται σε 
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr ""
 
-#. Resource IDs: (99)
-msgid "Only check out the &top folder"
-msgstr ""
-
 #. Resource IDs: (19)
 msgid "Only file children"
 msgstr ""
@@ -7435,14 +7206,6 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
-
-#. Resource IDs: (76)
-msgid "PEM"
-msgstr "PEM"
-
-#. Resource IDs: (76)
-msgid "PKCS12"
-msgstr "PKCS12"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7604,10 +7367,6 @@ msgstr "Παρακαλώ επιλύστε τη διένεξη διαλέγοντ
 msgid "Please select a hook type"
 msgstr "Παρακαλώ επιλέξτε τύπο hook"
 
-#. Resource IDs: (76)
-msgid "Please specify the certificate type"
-msgstr "Παρακαλώ προσδιορίστε τον τύπο του πιστοποιτικού."
-
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Παρακαλώ περιμέντε - μπορεί να πάρει αρκετά λεπτά - Πραγματικά!"
@@ -7627,10 +7386,6 @@ msgstr "Παρακαλώ περιμένετε όσο συγκεντρώνοντ�
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Παρακαλώ περιμένετε όσο ο περιηγητής αποθηκών αρχικοποιείται..."
-
-#. Resource IDs: (280)
-msgid "Please wait while we check the parameters for the merge."
-msgstr ""
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7903,11 +7658,6 @@ msgstr "Ρυθμίσεις Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr ""
 
-#. Resource IDs: (246)
-#, c-format
-msgid "Q%d/%.2d"
-msgstr "Q%d/%.2d"
-
 #. Resource IDs: (3605)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8085,6 +7835,18 @@ msgstr ""
 msgid "Refreshing shell for %1!s!"
 msgstr ""
 
+#. Resource IDs: (32, 156, 165)
+msgid "Regex Filter"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Regex Filters"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Regex:"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr ""
@@ -8219,6 +7981,12 @@ msgstr ""
 msgid "Remove Saved Authentication Data"
 msgstr ""
 
+#. Resource IDs: (2057)
+msgid ""
+"Remove all comments before doing the diff so changes inside comments don't "
+"show as different"
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Αφαίρεση από τη λίστα &αγνοημένων"
@@ -8267,10 +8035,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Αφαιρέθηκε"
-
-#. Resource IDs: (126)
-msgid "Removed file/folder"
-msgstr "Διαγράφηκε αρχείο/φάκελος"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8322,11 +8086,6 @@ msgstr "Με&τονομασία..."
 msgid "Rename"
 msgstr "Μετονομασία"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "Rename %s"
-msgstr "Μετονομασία %s"
-
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
@@ -8353,10 +8112,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Renamed node"
 msgstr "Μετονομασμένος κόμβος"
-
-#. Resource IDs: (126)
-msgid "Renamed remotely"
-msgstr "Το αίτημα ακυρώθηκε από το TSVN"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -8392,13 +8147,13 @@ msgid ""
 "Replace"
 msgstr "Αντικατάσταση συγκεκριμμένου κειμένου με διαφορετικό\nΑντικατάσταση"
 
+#. Resource IDs: (65535)
+msgid "Replace:"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Replacing"
 msgstr "Επανατοποθέτηση"
-
-#. Resource IDs: (564)
-msgid "Report"
-msgstr ""
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8525,10 +8280,6 @@ msgstr "Επαναφορά παραθύρου σε κανονικό μέγεθο
 msgid "Restored"
 msgstr "Αποκαταστάθηκαν"
 
-#. Resource IDs: (563)
-msgid "Retry"
-msgstr "Επανάληψη προσπαθειας"
-
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr ""
@@ -8587,11 +8338,6 @@ msgstr "Επαναφέρει μια προσθήκη στον έλεγχο εκ�
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
 msgstr "Έκδοση"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Revision %1!d!"
-msgstr "Έκδοση %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
@@ -8959,11 +8705,6 @@ msgid "Saves the selected property value to a file"
 msgstr "Αποθηκεύει την τιμή της επιλεγμένης ιδιότητας σε αρχείο"
 
 #. Resource IDs: (103)
-#, c-format
-msgid "Saving file %s"
-msgstr "Αποθήκευση αρχείου %s"
-
-#. Resource IDs: (103)
 msgid "Saving files"
 msgstr "Εγγραφή αρχείων"
 
@@ -9066,10 +8807,6 @@ msgstr "Επιλογή λίστας αλλαγών"
 msgid "Select diff application"
 msgstr ""
 
-#. Resource IDs: (99)
-msgid "Select directory to check out to"
-msgstr ""
-
 #. Resource IDs: (279)
 msgid "Select end revision"
 msgstr "Διαλέκτε τελική έκδοση"
@@ -9119,10 +8856,6 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr ""
-
-#. Resource IDs: (79)
-msgid "Select text editor application"
-msgstr "Επιλογή κειμενογράφου"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9578,14 +9311,6 @@ msgstr ""
 msgid "Size of the cache if it were not compressed"
 msgstr ""
 
-#. Resource IDs: (564)
-msgid "Skip"
-msgstr ""
-
-#. Resource IDs: (564)
-msgid "Skip all"
-msgstr ""
-
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Παρελήφθη"
@@ -9788,8 +9513,8 @@ msgid "Steal the lock"
 msgstr "Παρεισφρήση του κλείθρου"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Στεφαν Κουνγκ, Λουμπε Ονκεν"
+msgid "Stefan KÃ¼ng, LÃ¼bbe Onken"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9869,13 +9594,6 @@ msgstr ""
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
-msgstr ""
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
-"Subversion reported an error while doing a cleanup!\n"
-"%s"
 msgstr ""
 
 #. Resource IDs: (15)
@@ -9997,11 +9715,6 @@ msgstr "Μέγεθος στηλογνώμονα: "
 msgid "Tag nodes"
 msgstr "Ετικέτες κόμβων"
 
-#. Resource IDs: (79)
-#, c-format
-msgid "Tagged the working copy to %s"
-msgstr ""
-
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr ""
@@ -10039,11 +9752,6 @@ msgstr ""
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr ""
-
-#. Resource IDs: (63)
-#, c-format
-msgid "The chunk start '@@' was expected in line %d !"
 msgstr ""
 
 #. Resource IDs: (346)
@@ -10128,15 +9836,6 @@ msgstr ""
 msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
 msgstr ""
 
 #. Resource IDs: (99)
@@ -10320,11 +10019,6 @@ msgstr ""
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "Η γραμμή δείχνει ότι το νέο αρχείο αναμενόταν στη γραμμή %d !"
 
-#. Resource IDs: (63)
-#, c-format
-msgid "The line indicating the old file was expected in line %d !"
-msgstr "Η γραμμή δείχνει ότι το παλιό αρχείο αναμενόταν στη γραμμή %d !"
-
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
@@ -10339,12 +10033,6 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
-
-#. Resource IDs: (63)
-msgid ""
-"The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
-msgstr "Το παλιό αρχείο δεν ταιριάζει με το νέο.\nΗ μετονομασία αρχείων δεν υποστηρίζεται (ακόμα)!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10389,32 +10077,10 @@ msgstr ""
 msgid ""
 "The path\n"
 "%1!s!\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"%2!s!\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%1!s!\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
-msgstr ""
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%s\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 
 #. Resource IDs: (84)
@@ -10429,18 +10095,6 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr ""
 
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like, and the \"only record the "
-"merge\" option can not be used."
-msgstr ""
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like.\n"
-"Only the merge depth option \"Working copy\" can be used."
-msgstr ""
-
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -10453,14 +10107,6 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
-
-#. Resource IDs: (102)
-#, c-format
-msgid ""
-"The target URL\n"
-"%s\n"
-"already exists!"
-msgstr "Το εστιαζόμενο URL\n%s\nΥπάρχει ήδη!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10505,6 +10151,12 @@ msgid ""
 "Do you want to merge anyway?"
 msgstr "Το αντίγραφο εργασίας (στόχος) έχει τοπικές μεταβολές.\nΘέλετε να τις συγχωνεύσετε οποσδήποτε;"
 
+#. Resource IDs: (101)
+msgid ""
+"The text is identical, but the files do not match!\r\n"
+"The following differences were found:"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
@@ -10525,18 +10177,6 @@ msgstr "Ο χρήστης που διέπραξε την τελευταία πα
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
 msgstr "Ο χρήστης που έχει την κατοχή του κλειδώματος στο αρχείο"
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy has changed!\n"
-"Please commit your changes first or revert."
-msgstr "Το επεξεργαζόμενο αρχείο έχει υποστεί αλλαγές!\nΠαρακαλώ δεσμεύστε τις αλλαγές σας πρώτα ή επαναφέρετε το αρχείο."
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy is not up to date!\n"
-"Please Update first."
-msgstr "Το επεξεργαζόμενο αντίγραφο δεν είναι ενήμερο!\nΠαρακαλώ Ενημερώστε το, πρώτα."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10696,7 +10336,7 @@ msgstr ""
 
 #. Resource IDs: (1531)
 msgid ""
-"This product includes software from Apache™ Subversion® "
+"This product includes software from Apacheâ„¢ SubversionÂ® "
 "(http://subversion.apache.org)"
 msgstr ""
 
@@ -10869,11 +10509,6 @@ msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-
-#. Resource IDs: (107)
-#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -10969,10 +10604,6 @@ msgstr "Κόμβοι κορμού"
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Δοκιμάστε ΄Καθαρισμό'. Αν δεν δουλέψει πρέπει να κάνετε νέο checkout."
 
-#. Resource IDs: (564)
-msgid "Try again"
-msgstr "Προσπαθήστε ξανά"
-
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Βελτιστοποίηση παραμέτρων του TortoiseSVN"
@@ -10992,11 +10623,6 @@ msgstr "URL"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "URL ιστορικότητα"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "URL not known (UUID: %s)"
-msgstr "Άγνωστο URL (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -11227,11 +10853,6 @@ msgstr "Ενημερώνει το αντίγραφο εργασίας στην �
 #. Resource IDs: (265)
 msgid "Updating"
 msgstr ""
-
-#. Resource IDs: (226)
-#, c-format
-msgid "Updating %s"
-msgstr "Γίνεται ενημέρωση %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -11614,11 +11235,8 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr ""
 
-#. Resource IDs: (316)
-msgid ""
-"When resolving conflicts, you always have to save even if there is no "
-"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
-"show a conflict for those!"
+#. Resource IDs: (101)
+msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -11644,10 +11262,6 @@ msgstr ""
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
 msgstr ""
-
-#. Resource IDs: (146)
-msgid "With URL:"
-msgstr "Με URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -11683,33 +11297,9 @@ msgid ""
 "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (563)
-msgid "Yes"
-msgstr "Ναι"
-
-#. Resource IDs: (564)
-msgid "Yes to all"
-msgstr "Ναι σε όλα"
-
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
 msgstr "Έχετε ήδη εγκατεστημένη την τελευταία έκδοση"
-
-#. Resource IDs: (144)
-msgid ""
-"You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:// on a network share may corrupt your data!\n"
-"Create the repository anyway?"
-msgstr ""
-
-#. Resource IDs: (88)
-msgid ""
-"You are trying to access a repository via file:// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11787,12 +11377,6 @@ msgstr "Μπορείτε να ορίσετε εως και %d εργαλεία."
 msgid "You must restart your system for the changes to take effect."
 msgstr "Πρέπει να επανεκκινήσετε το σύστημα για να ολοκληρωθούν οι αλλαγές."
 
-#. Resource IDs: (77)
-msgid ""
-"You selected an unversioned file.\n"
-"The file will be added to version control when you commit."
-msgstr ""
-
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
 msgstr ""
@@ -11847,13 +11431,6 @@ msgid ""
 "Your working copy contains modifications.\n"
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
-msgstr ""
-
-#. Resource IDs: (88)
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't lose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 
 #. Resource IDs: (89)
@@ -12140,15 +11717,6 @@ msgstr "ψελυτικος"
 msgid "eol style"
 msgstr "τέλος της γραμμής τρόπος"
 
-#. Resource IDs: (79)
-#, c-format
-msgid ""
-"exported\n"
-"%s\n"
-"to\n"
-"%s"
-msgstr "εξήχθη\n%s\nσε\n%s"
-
 #. Resource IDs: (13)
 msgid "external"
 msgstr "εξωτερικό"
@@ -12200,10 +11768,6 @@ msgstr "είναι ήδη διαγραμένω"
 #. Resource IDs: (583)
 msgid "it is unversioned."
 msgstr "δεν έχει έκδοση"
-
-#. Resource IDs: (214)
-msgid "item kept locally"
-msgstr "το στοιχείο κρατήθηκε τοπικά"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
@@ -12288,11 +11852,6 @@ msgstr "μήνας"
 #. Resource IDs: (248)
 msgid "months"
 msgstr ""
-
-#. Resource IDs: (199)
-#, c-format
-msgid "multiple URLs (e.g. %s)"
-msgstr "πολλαπλά URLs (π.χ. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -12560,11 +12119,6 @@ msgstr "σε %1"
 msgid "to %1!s!"
 msgstr "σε %1!s!"
 
-#. Resource IDs: (103)
-#, c-format
-msgid "to %s"
-msgstr "πρός %s"
-
 #. Resource IDs: (208)
 msgid "tree conflict"
 msgstr "διένεξη δένδρου"
@@ -12685,29 +12239,10 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfileproperties\r\n"
-"Newline separated list of user defined properties for files which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr ""
-
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfolderproperties\r\n"
-"Newline separated list of user defined properties for folders which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr ""
-
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr ""
-
-#. Resource IDs: (104)
-#, c-format
-msgid "url: %1!s!"
 msgstr ""
 
 #. Resource IDs: (65535)

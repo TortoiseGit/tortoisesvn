@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-21 08:29+0000\n"
+"PO-Revision-Date: 2013-11-09 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -393,15 +393,6 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%s\nlà một thư mục, không phải một tập tin!\nTortoiseMerge không thể so sánh khác biệt giữa các thư mục."
 
-#. Resource IDs: (286)
-#, c-format
-msgid ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
-msgstr "%s\nr%s | %s\n\n%s\n"
-
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
@@ -425,6 +416,10 @@ msgstr "&Thêm"
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Thêm >>"
+
+#. Resource IDs: (1505)
+msgid "&Add Filter"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -662,6 +657,10 @@ msgstr "&Xóa"
 msgid "&Delete (keep local)"
 msgstr "&Xóa (giữ bản trên máy)"
 
+#. Resource IDs: (1507)
+msgid "&Delete Filter"
+msgstr ""
+
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
 msgstr "&Xóa các thứ không được lập phiên bản"
@@ -701,6 +700,10 @@ msgstr "&EOL"
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
 msgstr "&Biên tập"
+
+#. Resource IDs: (1506)
+msgid "&Edit Filter"
+msgstr ""
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1425,6 +1428,10 @@ msgstr "&So sánh thống nhất"
 msgid "&Unknown drives"
 msgstr "&Ổ đĩa không nhận ra"
 
+#. Resource IDs: (1074)
+msgid "&Up"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Cập nhật"
@@ -1626,10 +1633,6 @@ msgstr "....."
 #, c-format
 msgid ": Revision %d"
 msgstr ": Bản chỉnh sửa %d"
-
-#. Resource IDs: (151)
-msgid ": working base"
-msgstr ": bản làm việc gốc"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1873,18 +1876,6 @@ msgstr "Thêm/Biên tập chương trình So sánh/Hợp nhất cho mở rộng 
 msgid "Added"
 msgstr "Đã thêm"
 
-#. Resource IDs: (126)
-msgid "Added a file remotely"
-msgstr "Đã thêm một tập tin từ xa"
-
-#. Resource IDs: (126)
-msgid "Added a folder remotely"
-msgstr "Đã thêm một thư mục từ xa"
-
-#. Resource IDs: (126)
-msgid "Added items remotely"
-msgstr "Đã thêm các món từ xa"
-
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Đã thêm nút"
@@ -2112,12 +2103,6 @@ msgstr "Thực đơn cho khung ứng dụng:"
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Áp dụng một phép so sánh thống nhất vào bản sao đang làm"
-
-#. Resource IDs: (581)
-msgid ""
-"Applies the properties recursively to all files/folders.\r\n"
-"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr "Áp dụng tính chất một cách đệ quy vào tất cả tập tin/thư mục.\nbugtraq:, tsvn: và webviewer: các tính chất chỉ được áp dụng cho thư mục."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2390,10 +2375,6 @@ msgstr "Nhánh/&thẻ..."
 msgid "Break loc&k"
 msgstr "Phá &khóa"
 
-#. Resource IDs: (78)
-msgid "Browse for the external diff program"
-msgstr "Duyệt tìm đến cho chương trình so sánh bên ngoài"
-
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Duyệt..."
@@ -2474,10 +2455,6 @@ msgstr "Kích thước bộ nhớ tạm [kB]"
 msgid "Cached Repositories"
 msgstr "Các kho chứa trong bộ nhớ tạm"
 
-#. Resource IDs: (197)
-msgid "Caches the log messages to speed up log fetching"
-msgstr "Lưu các thông điệp tường trình vào bộ nhớ tạm để tăng tốc đọc"
-
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Có thể nháy kép chuột vào danh sách các tường trình để so sánh với bản tường trình trước"
@@ -2556,12 +2533,6 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Hủy bỏ\nĐừng thoát TortoiseMerge"
-
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Don't reload views"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -2671,12 +2642,6 @@ msgid ""
 "The items are not moved."
 msgstr "Hủy bỏ\nCác món không được di dời."
 
-#. Resource IDs: (589)
-msgid ""
-"Cancel\n"
-"The property is not removed."
-msgstr "Hủy bỏ\nThuộc tính không chưa được loại bỏ."
-
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2724,10 +2689,6 @@ msgid "Cate&gories:"
 msgstr "Các &danh mục:"
 
 #. Resource IDs: (82)
-msgid "Certificate expired or not yet valid"
-msgstr "Chứng nhận hết hạn hoặc không hợp lệ"
-
-#. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Chứng nhận hết hạn. Hợp lệ cho đến: %s"
@@ -2767,11 +2728,6 @@ msgstr "Những tập tin bị thay đổi"
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr "Những tập tin bị thay đổi giữa %1!s!, %2!s! và %3!s!, %4!s!"
-
-#. Resource IDs: (163)
-#, c-format
-msgid "Changed files: %d"
-msgstr "Những tập tin bị thay đổi: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2837,12 +2793,6 @@ msgstr "Lấy ra một bản đang làm từ kho chứa"
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
 msgstr ""
-
-#. Resource IDs: (95)
-msgid ""
-"Check the files which you want to\n"
-"delete before importing."
-msgstr "Kiểm tra những tập tin mà bạn muốn\nxoá trước khi nhập khẩu."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2988,12 +2938,6 @@ msgstr "Xóa tất cả %ld kịch bản hook máy khách được phê duyệt"
 #, c-format
 msgid "Clears cached logs from %ld repositories"
 msgstr "Dọn dẹp tường trình lưu tạm từ %ld các kho chứa"
-
-#. Resource IDs: (195)
-msgid ""
-"Clears the stored authentication.\r\n"
-"You will have to enter your username/password again for all repositories."
-msgstr "Dọn dẹp các xác nhận đã lưu.\nBạn sẽ phải nhập lại tên đăng nhập/mật khẩu cho tất cả các kho chứa."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3272,11 +3216,6 @@ msgstr "So sánh tập tin với bản chỉnh sửa cuối cùng được cam k
 msgid "Compares the selected file with a file in the repository"
 msgstr "So sánh các tập tin được lựa chọn với một tập tin trong kho chứa"
 
-#. Resource IDs: (120)
-#, c-format
-msgid "Comparing %1!s! to %2!s!"
-msgstr "Đang so sánh %1!s! với %2!s!"
-
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Đã hoàn tất"
@@ -3288,6 +3227,10 @@ msgstr "Đã hoàn tất!"
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Điều chỉnh &TortoiseSVN để không bao giờ dùng thùng rác"
+
+#. Resource IDs: (7)
+msgid "Configure Filter Regexes"
+msgstr ""
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3351,10 +3294,6 @@ msgstr "Kích thước đồ chứa"
 msgid "Context Menus: "
 msgstr "Thực đơn ngữ cảnh:"
 
-#. Resource IDs: (564)
-msgid "Continue"
-msgstr "Tiếp tục"
-
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Hợp đồng gắn cửa sổ"
@@ -3379,22 +3318,10 @@ msgstr "&Sao chép"
 msgid "Copied"
 msgstr "Đã sao chép"
 
-#. Resource IDs: (208)
-msgid "Copied from URL"
-msgstr "Đã sao chép từ URL"
-
-#. Resource IDs: (208)
-msgid "Copied from revision"
-msgstr "Đã sao chép từ bản chỉnh sửa"
-
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Sao chép từ: %1!s!@%2!ld!\n"
-
-#. Resource IDs: (126)
-msgid "Copied remotely"
-msgstr "Sao chép từ xa"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3418,11 +3345,6 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Sao chép %1!s!\nsang %2!s!"
-
-#. Resource IDs: (103)
-#, c-format
-msgid "Copy %s"
-msgstr "Sao chép %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3453,10 +3375,6 @@ msgstr "Sao chép và đổi tên món sang đây"
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
 msgstr "Sao chép cột sang bảng kẹp tạm"
-
-#. Resource IDs: (101)
-msgid "Copy error message to clipboard"
-msgstr "Sao chép thông báo lỗi sang bảng kẹp tạm"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3489,10 +3407,6 @@ msgstr "Sao chép vào %1"
 msgid "Copy to clipboard"
 msgstr "Sao chép vào clipboard"
 
-#. Resource IDs: (103)
-msgid "Copy to working copy"
-msgstr "Đang sao chép vào bản sao đang làm"
-
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
 msgstr "Đang sao chép vào bản sao đang làm..."
@@ -3514,10 +3428,6 @@ msgstr ""
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Đang sao chép..."
-
-#. Resource IDs: (188)
-msgid "Corrections"
-msgstr "Các sửa lỗi"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3635,11 +3545,6 @@ msgid ""
 "Patching is not possible!"
 msgstr "Không thể lấy về bản chỉnh sửa %1!s! của tập tin %2!s!.\nKhông thể vá được!"
 
-#. Resource IDs: (64)
-#, c-format
-msgid "Could not save the file %s!"
-msgstr "Không thể lưu tập tin %s!"
-
 #. Resource IDs: (70, 81)
 #, c-format
 msgid ""
@@ -3731,10 +3636,6 @@ msgstr "Tạo kho &chứa tại đây"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "Tạo đường tắt"
-
-#. Resource IDs: (126)
-msgid "Created folder remotely"
-msgstr "Tạo thư mục từ xa"
 
 #. Resource IDs: (10)
 msgid ""
@@ -4053,12 +3954,6 @@ msgstr "Các thư mục"
 msgid "Directory:"
 msgstr "Thư mục:"
 
-#. Resource IDs: (195)
-msgid ""
-"Disable this option if you have really big working copies and experience\r\n"
-"too much disk access when browsing the working copy."
-msgstr "Vô hiệu lựa chọn này nếu bạn đã có những bản sao đang làm thật lớn và kinh nghiệm\ncó quá nhiều truy cập đĩa khi đang duyệt bản sao đang làm."
-
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
 msgstr "Huỷ bỏ những thay đổi nội bộ trên những xóa bỏ tiếp theo"
@@ -4146,10 +4041,6 @@ msgstr "Làm việc này với tất cả các món không được phiên bản
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Bạn có thật sự muốn xoá thanh công cụ '%s'?"
 
-#. Resource IDs: (145)
-msgid "Do you really want to move this file or folder?"
-msgstr "Bạn có thật sự muốn di chuyển tập tin hay thư mục này?"
-
 #. Resource IDs: (119)
 #, c-format
 msgid ""
@@ -4236,10 +4127,6 @@ msgid ""
 "which were made in this revision?"
 msgstr "Bạn có muốn quay lui tất cả thay đổi trong\n%s\nđược làm trong bản chỉnh sửa này?"
 
-#. Resource IDs: (313)
-msgid "Do you want to save your changes?"
-msgstr "Bạn có muốn lưu các thay đổi của bạn?"
-
 #. Resource IDs: (65535)
 msgid "Document :"
 msgstr "Tài liệu :"
@@ -4247,12 +4134,8 @@ msgstr "Tài liệu :"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr "Tài liệu : Simon Large\nMã : Tobias Schäfer, Stefan Fuhrmann"
-
-#. Resource IDs: (564)
-msgid "Don't ask me again"
-msgstr "Đừng hỏi tôi nữa"
+"Code : Tobias SchÃ¤fer, Stefan Fuhrmann"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4285,14 +4168,6 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Đừng lưu\nTải lại trình xem mà không lưu các sửa đổi"
-
-#. Resource IDs: (80, 564)
-msgid "Don't show this message again"
-msgstr "Đừng hiện lại thông điệp này nữa"
-
-#. Resource IDs: (564)
-msgid "Don't tell me again"
-msgstr "Đừng nói cho tôi nữa"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4519,10 +4394,6 @@ msgstr "Phóng to cửa sổ đến kích thước đầy đủ"
 msgid "Enter Log Message"
 msgstr "Nhập vào thông điệp tường trình"
 
-#. Resource IDs: (80)
-msgid "Enter URL"
-msgstr "Nhập vào URL"
-
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
 msgstr "Nhập vào &tên cho danh sách thay đổi:"
@@ -4699,10 +4570,6 @@ msgstr "Xuất"
 msgid "Export &directory:"
 msgstr "Xuất &thư mục:"
 
-#. Resource IDs: (94)
-msgid "Export directory:"
-msgstr "Xuất thư mục:"
-
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4825,11 +4692,6 @@ msgstr "Thất bại trong việc thực hiện tác vụ máy chủ."
 #. Resource IDs: (3857)
 msgid "Failed to save document."
 msgstr "Thất bại trong việc lưu tài liệu."
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist '%s'"
-msgstr "Thất bại trong việc bật/bỏ danh sách thay đổi '%s'"
 
 #. Resource IDs: (83)
 #, c-format
@@ -5191,14 +5053,6 @@ msgstr "Lấy &khoá..."
 msgid "Get merge logs"
 msgstr "Lấy các tường trình hợp nhất"
 
-#. Resource IDs: (89)
-msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
-msgstr "Lấy khoá cho tập tin mà không cần thuộc tính 'svn:needs-lock' sẽ không ngăn người khác biên tập bản sao đang làm của họ.\nĐể bật việc khoá nghiêm ngặt xin vui lòng thêm thuộc tính 'svn:needs-lock'  vào tất cả các tập tin cần khóa, và cam kết những tập tin đó.\nMỗi tập tin sẽ có cờ tập tin hệ thống chỉ đọc bật, và lấy được khoá sẽ làm cho tập tin có thể ghi được.\nGhi nhớ rằng những người dùng khác sẽ cần cập nhật bản đang làm của họ trước khi họ thấy những tập tin chỉ đọc."
-
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
@@ -5220,10 +5074,6 @@ msgstr "Đang lấy thông tin từ kho chứa..."
 #. Resource IDs: (120)
 msgid "Getting information..."
 msgstr "Đang lấy thông tin..."
-
-#. Resource IDs: (132)
-msgid "Getting log info..."
-msgstr "Đang lấy thông tin tường trình..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5671,12 +5521,6 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr "lựa chọn 'Lấy Khoá' trong thực đơn luôn luôn hiện trong thực đơn cấp cao nhất\nNếu tập tin được chọn có thuộc tính svn:needs-lock bật"
 
-#. Resource IDs: (95)
-msgid ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
-msgstr "Nếu được đánh dấu thì một thư mục mới được tạo ra trong kho chứa.\nNếu không được đánh dấu thì những thứ nhập vào sẽ đi trực tiếp vào URL chỉ định."
-
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
@@ -5748,10 +5592,6 @@ msgid ""
 "the repository browser."
 msgstr "Nếu bạn muốn phá khóa, dùng hộp thoại 'Kiểm Tra Sửa Đổi' hoặc trình duyệt kho chứa."
 
-#. Resource IDs: (563)
-msgid "Ignore"
-msgstr "Bỏ qua"
-
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5769,9 +5609,9 @@ msgstr "Bỏ qua tất cả &khoảng trắng"
 msgid "Ignore &ancestry"
 msgstr "Bỏ qua &tổ tiên"
 
-#. Resource IDs: (564)
-msgid "Ignore all"
-msgstr "Bỏ qua tất cả"
+#. Resource IDs: (156)
+msgid "Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5950,10 +5790,6 @@ msgstr "Tên tập tin sai."
 msgid "Index colors:"
 msgstr "Màu danh mục:"
 
-#. Resource IDs: (76)
-msgid "Initial import"
-msgstr "Nhập ban đầu"
-
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Diff nội tuyến"
@@ -5995,10 +5831,6 @@ msgstr "Giá trị bên trong thể hiện chất lượng nén"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Tiền tệ không hợp lệ"
-
-#. Resource IDs: (102)
-msgid "Invalid data object dropped!"
-msgstr "Đối tượng dữ liệu không hợp lệ bị bỏ!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6259,10 +6091,6 @@ msgstr "Danh sách các kho chứa mà thông tin tường trình được lưu 
 msgid "List1"
 msgstr "Danh sách 1"
 
-#. Resource IDs: (104)
-msgid "Listing repository recursively..."
-msgstr "Liệt kê các kho chứa một cách đệ quy..."
-
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
 msgstr "Đường &amp;dẫn địa phương:"
@@ -6286,10 +6114,6 @@ msgstr "Tải các thay đổi\nMàn xem được cập nhật với nội dung 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr "Các &Hook địa cục bộ"
-
-#. Resource IDs: (63)
-msgid "Local status"
-msgstr "Trạng thái địa phương"
 
 #. Resource IDs: (94)
 msgid ""
@@ -6368,10 +6192,6 @@ msgstr "Khóa thất bại bởi một phiên bản mới hơn đang tồn tại
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Khóa một tập tin cho những người dùng khác và làm cho nó có thể biên tập được bởi bạn."
-
-#. Resource IDs: (126)
-msgid "Log"
-msgstr "Tường trình"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
@@ -6593,11 +6413,6 @@ msgstr "Hợp nhất bản chỉnh sửa đến..."
 msgid "Merge revisions to..."
 msgstr "Hợp nhất các bản chỉnh sửa đến..."
 
-#. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into '%s'"
-msgstr "Hợp nhất các thay đổi vào '%s'"
-
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
 msgstr "Hợp nhất hai &cây khác nhau"
@@ -6649,11 +6464,6 @@ msgstr "Đang hợp nhất r%1!ld! tới r%2!ld!"
 #, c-format
 msgid "Merging r%ld"
 msgstr "Đang hợp nhất r%ld"
-
-#. Resource IDs: (83)
-msgid ""
-"Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Việc hợp nhất đòi hỏi các bản chỉnh sửa khác nhau hoặc URL khác nhau trong 'Từ:' và 'Đến:'"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6841,10 +6651,6 @@ msgid ""
 "%s"
 msgstr ""
 
-#. Resource IDs: (126)
-msgid "Moved remotely"
-msgstr "Được chuyển từ xa"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6881,6 +6687,10 @@ msgstr "NUM"
 msgid "Name"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Name:"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Navigate"
 msgstr "Định hướng"
@@ -6898,10 +6708,6 @@ msgstr "Tuỳ chọn cho bảng định hướng"
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
 msgstr "Tuỳ chọn cho bảng định hướng..."
-
-#. Resource IDs: (208)
-msgid "Needs lock"
-msgstr "Cần khóa"
 
 #. Resource IDs: (32845)
 msgid "Needs-&Lock"
@@ -6940,18 +6746,13 @@ msgstr "&Tên mới"
 msgid "New Menu"
 msgstr "Thực đơn mới"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "New name for %s"
-msgstr "Tên mới cho %s"
-
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr ""
 
-#. Resource IDs: (98)
-msgid "New name:"
-msgstr "Tên mới:"
+#. Resource IDs: (101)
+msgid "Newlines"
+msgstr ""
 
 #. Resource IDs: (3633)
 msgid ""
@@ -6971,19 +6772,11 @@ msgstr "Khác biệt tiếp theo"
 msgid "Next inline difference"
 msgstr "Khác biệt nội tuyến tiếp theo"
 
-#. Resource IDs: (564)
-msgid "No"
-msgstr "Không"
-
 #. Resource IDs: (81)
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr "Không có lệnh nào được chỉ ra\nTortoisePRoc.exe được sử dụng bởi phần mở rộng Shell và không nên được gọi trực tiếp!"
-
-#. Resource IDs: (81)
-msgid "No command value specified!"
-msgstr "Không có giá trị lệnh nào được chỉ ra!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -7000,12 +6793,6 @@ msgstr "Không có lỗi nào xảy ra."
 #. Resource IDs: (281)
 msgid "No externals found"
 msgstr "Không có thành phần ngoài nào được tìm thấy"
-
-#. Resource IDs: (82)
-msgid ""
-"No files or folders were modified. There is nothing for TortoiseSVN to "
-"revert!"
-msgstr "Không có tập tin hay thư mục nào bị sửa đổi. Không có gì cho TortoiseSVN thực hiện quay lui!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7042,10 +6829,6 @@ msgstr "Không có bộ mã hoá ảnh nào tìm thấy cho %s."
 msgid "No path or pathfile specified on the command line!"
 msgstr "Không có đường dẫn hay tập tin đường dẫn nào được chỉ ra trên dòng lệnh!"
 
-#. Resource IDs: (188)
-msgid "No spell corrections"
-msgstr "Không có chỉnh lý đánh vần nào"
-
 #. Resource IDs: (196)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -7060,10 +6843,6 @@ msgstr "Không có bản chỉnh sửa nào '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Không có đề nghị nào từ bộ từ điển"
-
-#. Resource IDs: (564)
-msgid "No to all"
-msgstr "Không với tất cả"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7092,10 +6871,6 @@ msgstr "Bình thường"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Không phải tất cả các mục trong registry hệ thống (hay tập tin INI) được loại bỏ"
-
-#. Resource IDs: (83)
-msgid "Not enough memory to complete operation."
-msgstr "Không đủ bộ nhớ để hoàn tất tác vụ."
 
 #. Resource IDs: (273)
 msgid ""
@@ -7286,10 +7061,6 @@ msgstr "Một hay nhiều tập tin ở trong trạng thái mâu thuẫn."
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "&Chỉ ghi chép việc hợp nhất (ngăn chặn các bản chỉnh sửa khỏi bị hợp nhất)"
 
-#. Resource IDs: (99)
-msgid "Only check out the &top folder"
-msgstr "Chỉ lấy ra thư mục &trên cùng"
-
 #. Resource IDs: (19)
 msgid "Only file children"
 msgstr "Chỉ con tập tin"
@@ -7435,14 +7206,6 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr "Ghi đè\nTập tin đích đã được thay thế."
-
-#. Resource IDs: (76)
-msgid "PEM"
-msgstr "PEM"
-
-#. Resource IDs: (76)
-msgid "PKCS12"
-msgstr "PKCS12"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7604,10 +7367,6 @@ msgstr "Vui lòng giải quyết mâu thuẫn bằng cách chọn một trong c�
 msgid "Please select a hook type"
 msgstr "Vui lòng chọn kiểu hook"
 
-#. Resource IDs: (76)
-msgid "Please specify the certificate type"
-msgstr "Vui lòng chỉ ra loại chứng thực"
-
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Vui lòng chờ - việc này có thể mất nhiều phút. Nghiêm túc!"
@@ -7627,10 +7386,6 @@ msgstr "Vui lòng chờ trong khi các thành phần bên ngoài đang được 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Vui lòng chờ trong khi trình duyệt kho chứa đang được khởi tạo..."
-
-#. Resource IDs: (280)
-msgid "Please wait while we check the parameters for the merge."
-msgstr ""
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7903,11 +7658,6 @@ msgstr "Thiết lập Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Đặt 'Lấy Khóa' vào thực đơn trên cùng khi svn:needs-lock được bật"
 
-#. Resource IDs: (246)
-#, c-format
-msgid "Q%d/%.2d"
-msgstr "Q%d/%.2d"
-
 #. Resource IDs: (3605)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8085,6 +7835,18 @@ msgstr "Làm mới nạp chồng &shell"
 msgid "Refreshing shell for %1!s!"
 msgstr "Làm mới shell cho %1!s!"
 
+#. Resource IDs: (32, 156, 165)
+msgid "Regex Filter"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Regex Filters"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Regex:"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Biểu thức thông thường"
@@ -8219,6 +7981,12 @@ msgstr ""
 msgid "Remove Saved Authentication Data"
 msgstr ""
 
+#. Resource IDs: (2057)
+msgid ""
+"Remove all comments before doing the diff so changes inside comments don't "
+"show as different"
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Loại bỏ khỏi danh sách &bỏ qua"
@@ -8267,10 +8035,6 @@ msgstr "Loại bỏ\nChỉ loại bỏ thuộc tính khỏi món này."
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Đã loại bỏ"
-
-#. Resource IDs: (126)
-msgid "Removed file/folder"
-msgstr "Tập tin/thư mục đã loại bỏ"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8322,11 +8086,6 @@ msgstr "Đổi &tên..."
 msgid "Rename"
 msgstr "Đổi tên"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "Rename %s"
-msgstr "Đổi tên %s"
-
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
@@ -8353,10 +8112,6 @@ msgstr "Đổi tên\nThư mục được xuất khẩu dưới tên '%s'."
 #. Resource IDs: (65535)
 msgid "Renamed node"
 msgstr "Đã đổi tên nút"
-
-#. Resource IDs: (126)
-msgid "Renamed remotely"
-msgstr "Đã đổi từ xa"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -8392,13 +8147,13 @@ msgid ""
 "Replace"
 msgstr "Thay thế văn bản được chỉ ra với văn bản khác\nThay thế"
 
+#. Resource IDs: (65535)
+msgid "Replace:"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Replacing"
 msgstr "Đang thay thế"
-
-#. Resource IDs: (564)
-msgid "Report"
-msgstr "Báo cáo"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8525,10 +8280,6 @@ msgstr "Khôi phục cửa sổ về kích thước bình thường"
 msgid "Restored"
 msgstr "Khôi phục"
 
-#. Resource IDs: (563)
-msgid "Retry"
-msgstr "Thử lại"
-
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr "Các bản chỉnh sửa kết hợp ngược {revrange} từ {mergeurl}:\n"
@@ -8587,11 +8338,6 @@ msgstr "Quay lui việc thêm vào kiểm soát phiên bản"
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
 msgstr "Bản chỉnh sửa"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Revision %1!d!"
-msgstr "Bản chỉnh sửa %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
@@ -8959,11 +8705,6 @@ msgid "Saves the selected property value to a file"
 msgstr "Lưu các thuộc tính được lựa chọn vào một tập tin"
 
 #. Resource IDs: (103)
-#, c-format
-msgid "Saving file %s"
-msgstr "Đang lưu tập tin %s"
-
-#. Resource IDs: (103)
 msgid "Saving files"
 msgstr "Đang lưu các tập tin"
 
@@ -9066,10 +8807,6 @@ msgstr "Chọn danh sách thay đổi"
 msgid "Select diff application"
 msgstr "Chọn ứng dụng tìm khác biệt"
 
-#. Resource IDs: (99)
-msgid "Select directory to check out to"
-msgstr "Chọn thư mục để lấy ra"
-
 #. Resource IDs: (279)
 msgid "Select end revision"
 msgstr "Chọn bản chỉnh sửa cuối"
@@ -9119,10 +8856,6 @@ msgstr "Chọn phạm vi chỉnh sửa"
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Chọn bản chỉnh sửa bắt đầu"
-
-#. Resource IDs: (79)
-msgid "Select text editor application"
-msgstr "Chọn ứng dụng biên tập văn bản"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9578,14 +9311,6 @@ msgstr "Kích thước của tập tin nhớ tạm trên đĩa"
 msgid "Size of the cache if it were not compressed"
 msgstr "Kích thước của bộ nhớ tạm nếu nó chưa được nén"
 
-#. Resource IDs: (564)
-msgid "Skip"
-msgstr "Bỏ qua"
-
-#. Resource IDs: (564)
-msgid "Skip all"
-msgstr "Bỏ qua tất cả"
-
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Bỏ qua"
@@ -9788,8 +9513,8 @@ msgid "Steal the lock"
 msgstr "Lấy cắp khóa"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan KÃ¼ng, LÃ¼bbe Onken"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9870,13 +9595,6 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr "Subversion đã báo cáo lỗi trong khi đang tạo một kho chứa!\nHãy đảm bảo rằng thư mục trống và không có bảo vệ chống ghi."
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
-"Subversion reported an error while doing a cleanup!\n"
-"%s"
-msgstr "báo lỗi khi đang thực hiện dọn dẹp!\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -9997,11 +9715,6 @@ msgstr "Kích thước dấu tab:"
 msgid "Tag nodes"
 msgstr "Các nút thẻ"
 
-#. Resource IDs: (79)
-#, c-format
-msgid "Tagged the working copy to %s"
-msgstr "Đánh thẻ bản làm việc đến %s"
-
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr "Thư mục đích không trống"
@@ -10040,11 +9753,6 @@ msgstr "Các thay đổi sẽ được áp dụng vào bản sao làm việc c�
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Kích thước một mẩu không khớp số dòng được thêm/loại bỏ!"
-
-#. Resource IDs: (63)
-#, c-format
-msgid "The chunk start '@@' was expected in line %d !"
-msgstr "Mẩu bắt đầu bằng '@@' cần có trong dòng %d !"
 
 #. Resource IDs: (346)
 msgid ""
@@ -10129,15 +9837,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "Thư mục %s\nchứa các tập tin không đánh văn bản và/hay được sửa đổi. Bạn có muốn loại bỏ nó không?"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
-msgstr "Thư mục\n%s\nkhông tồn tại.\nBạn có muốn tạo nó trước không?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -10320,11 +10019,6 @@ msgstr "Dòng 'Index: ' không tìm thấy!\nHoặc là đây không phải là 
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "Dòng thể hiện tập tin mới phải có trong dòng %d !"
 
-#. Resource IDs: (63)
-#, c-format
-msgid "The line indicating the old file was expected in line %d !"
-msgstr "Dòng thể hiện tập tin cũ phải có trong dòng %d !"
-
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
@@ -10339,12 +10033,6 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr "Số tối đa các dòng tường trình hành động để giữ.\nBất kỳ dòng nào thêm vào quá giới hạn này sẽ loại bỏ dòng cũ nhất khỏi tập tin."
-
-#. Resource IDs: (63)
-msgid ""
-"The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
-msgstr "Tập tin cũ không khớp tập tin mới.\nĐổi tên các tập tin chưa được hỗ trợ!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10389,33 +10077,11 @@ msgstr "bạn vừa nhập vào dường nhu không hợp lệ trên Windows!\nB
 msgid ""
 "The path\n"
 "%1!s!\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"%2!s!\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr "Đường dẫn\n%1!s!\ntrong patchfile không tồn tại .\nTortoiseMerge tìm thấy đường dẫn tương đối\n%2!s!\ncó vẻ khớp thư mục bạn vừa áp dụng bản vá.\n\nBạn có muốn sử dụng đường dẫn được đề nghị không? Trả lời 'không' sẽ thoát TortoiseMerge."
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%1!s!\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr "Đường dẫn\n%1!s!\ncó vẻ không khớp các đường dẫn trong patchfile.\nNhưng TortoiseMerge tìm thấy đường dẫn\n%2!s!\nkhớp nó tốt hơn. Thay vào đó bạn có muốn sử dụng đường dẫn được đề nghị không?"
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%s\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr "Đường dẫn\n%s\ntrong tập tin vá không tồn tài.\nTortoiseMerge cố áp dụng vá bằng cách loại bỏ các chữ đầu nhưng không có đường dẫn nào khớp được tìm thấy."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10429,18 +10095,6 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Kho chứa đã được tạo thành công.\nBạn có muốn tạo cấu trúc thư mục mặc định bây giờ không (cột/nhánh/thẻ)?"
 
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like, and the \"only record the "
-"merge\" option can not be used."
-msgstr ""
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like.\n"
-"Only the merge depth option \"Working copy\" can be used."
-msgstr ""
-
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -10453,14 +10107,6 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Đường dẫn được lựa chọn có vẻ vẫn còn một hay nhiều đánh dấu mâu thuẫn trong đó.\nBạn có chắc là muốn đánh dấu tập tin đã được giải quyết?"
-
-#. Resource IDs: (102)
-#, c-format
-msgid ""
-"The target URL\n"
-"%s\n"
-"already exists!"
-msgstr "URL đích\n%s\nđã tồn tại!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10505,6 +10151,12 @@ msgid ""
 "Do you want to merge anyway?"
 msgstr "Bản làm việc đích có sửa đổi địa phương.\nBạn có muốn hợp nhất không?"
 
+#. Resource IDs: (101)
+msgid ""
+"The text is identical, but the files do not match!\r\n"
+"The following differences were found:"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
@@ -10525,18 +10177,6 @@ msgstr "Người dùng thực hiện việc cam kết cuối cùng"
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
 msgstr "Người dùng sở hữu khóa của tập tin"
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy has changed!\n"
-"Please commit your changes first or revert."
-msgstr "Bản đang làm đã thay đổi!\nVui lòng cam kết các thay đổi của bạn trước hay quay lui."
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy is not up to date!\n"
-"Please Update first."
-msgstr "Bản đang làm không được cập nhật!\nVui lòng cập nhật trước."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10696,9 +10336,9 @@ msgstr "Sản phẩm này bao gồm phần mềm phát triển bởi Dự Án Op
 
 #. Resource IDs: (1531)
 msgid ""
-"This product includes software from Apache™ Subversion® "
+"This product includes software from Apacheâ„¢ SubversionÂ® "
 "(http://subversion.apache.org)"
-msgstr "Sản phẩm này bao gồm phần mềm từ Apache™ Subversion® (http://subversion.apache.org)"
+msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10869,11 +10509,6 @@ msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr "TortoiseSVN %d.%d.%d, Bản %d - %s, %s"
-
-#. Resource IDs: (107)
-#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -10969,10 +10604,6 @@ msgstr "Các nút thân"
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Thử 'Dọn dẹp'. Nếu nó không được thì bạn cần phải làm việc lấy ra mới."
 
-#. Resource IDs: (564)
-msgid "Try again"
-msgstr "Thử lần nữa"
-
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Điều chỉnh TortoiseSVN"
@@ -10992,11 +10623,6 @@ msgstr "URL"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "Lịch sử URL"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "URL not known (UUID: %s)"
-msgstr "URL không biết (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -11227,11 +10853,6 @@ msgstr "Cập nhật bản đang làm tới một bản chỉnh sửa hiện th�
 #. Resource IDs: (265)
 msgid "Updating"
 msgstr "Đang cập nhật"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "Updating %s"
-msgstr "Đang cập nhật %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -11614,12 +11235,9 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr "Khi khóa một hay nhiều tập tin, hiển thị một thông báo\nhỏi nhập vào một thông điệp mô tả về việc khóa"
 
-#. Resource IDs: (316)
-msgid ""
-"When resolving conflicts, you always have to save even if there is no "
-"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
-"show a conflict for those!"
-msgstr "Khi giải quyết các mâu thuẫn, bạn luôn phải lưu ngay cả khi không có mâu thuẫn nào được hiện ra. TortoiseMerge có thể hợp nhất các thay đổi mà SVN không thể và sẽ không hiện mâu thuẫn cho các thay đổi đó."
+#. Resource IDs: (101)
+msgid "Whitespace changes (tabs, spaces)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11644,10 +11262,6 @@ msgstr "Windows 7"
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
 msgstr "Windows XP"
-
-#. Resource IDs: (146)
-msgid "With URL:"
-msgstr "Với URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -11683,33 +11297,9 @@ msgid ""
 "Wrap long lines"
 msgstr "Gói các dòng dài ở biên bên phải của màn xem\nGói các dòng dài"
 
-#. Resource IDs: (563)
-msgid "Yes"
-msgstr "Vâng"
-
-#. Resource IDs: (564)
-msgid "Yes to all"
-msgstr "Vâng cho tất cả"
-
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
 msgstr "Bạn đã có phiên bản mới nhất cài đặt."
-
-#. Resource IDs: (144)
-msgid ""
-"You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:// on a network share may corrupt your data!\n"
-"Create the repository anyway?"
-msgstr "Bạn đang tạo một kho chứa trên một mạng chia sẻ.\nViệc này thì an toàn, nhưng một khi kho chứa được tạo ra bạn phải truy cập nó bằng những cách khác.\nTruy cập kho chứa thông qua file:// trên một mạng chia sẻ có thể làm hỏng dữ liệu của bạn!\nVẫn tạo kho chứa chứ?"
-
-#. Resource IDs: (88)
-msgid ""
-"You are trying to access a repository via file:// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
-msgstr "Bạn đang cố truy cập một kho chứa thông qua file:// trên\nmột ổ đĩa mạng chia sẻ.\nViệc này có thể dẫn tới hỏng kho chứa nghiêm trọng!\nBạn thật sự muốn làm chứ?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11787,12 +11377,6 @@ msgstr "Bạn có thể định nghĩa nhiều nhất %d công cụ."
 msgid "You must restart your system for the changes to take effect."
 msgstr "Bạn phải khởi động lại hệ thống để các thay đổi có hiệu lực."
 
-#. Resource IDs: (77)
-msgid ""
-"You selected an unversioned file.\n"
-"The file will be added to version control when you commit."
-msgstr "Bạn đã chọn một tập tin chưa được đánh phiên bản.\nTập tin sẽ được thêm vào kiểm soát phiên bản khi bạn cam kết."
-
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Bạn lựa chọn một thư mục chưa đánh phiên bản để cam kết!"
@@ -11848,13 +11432,6 @@ msgid ""
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
 msgstr "Bản làm việc của bạn chứa các sửa đổi.\nBản chỉnh sửa thấp nhất trong bản làm việc là: %1!ld!\nĐường dẫn: %2!s!"
-
-#. Resource IDs: (88)
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't lose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
-msgstr "Bản làm việc có các sửa đổi địa phương!\nGhi chú: cập nhật vào bản chỉnh sửa khác sẽ không mất các sửa đổi đó nên bản làm việc\nsẽ không nhìn giống chính xác như nó trong bản chỉnh sửa bạn đang cập nhật!"
 
 #. Resource IDs: (89)
 msgid ""
@@ -12140,15 +11717,6 @@ msgstr "vật giả"
 msgid "eol style"
 msgstr "kiểu eol"
 
-#. Resource IDs: (79)
-#, c-format
-msgid ""
-"exported\n"
-"%s\n"
-"to\n"
-"%s"
-msgstr "đã xuất\n%s\nsang\n%s"
-
 #. Resource IDs: (13)
 msgid "external"
 msgstr "bên ngoài"
@@ -12200,10 +11768,6 @@ msgstr "nó đã được xóa."
 #. Resource IDs: (583)
 msgid "it is unversioned."
 msgstr "nó không được đánh phiên bản."
-
-#. Resource IDs: (214)
-msgid "item kept locally"
-msgstr "món được giữ một cách địa phương"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
@@ -12288,11 +11852,6 @@ msgstr "tháng"
 #. Resource IDs: (248)
 msgid "months"
 msgstr ""
-
-#. Resource IDs: (199)
-#, c-format
-msgid "multiple URLs (e.g. %s)"
-msgstr "nhiều URLs (ví dụ: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -12560,11 +12119,6 @@ msgstr "sang %1"
 msgid "to %1!s!"
 msgstr "sang %1!s!"
 
-#. Resource IDs: (103)
-#, c-format
-msgid "to %s"
-msgstr "sang %s"
-
 #. Resource IDs: (208)
 msgid "tree conflict"
 msgstr "mâu thuẫn cây"
@@ -12685,30 +12239,11 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\nĐặt nó thành số ngôn ngữ mà bạn muốn thông điệp tường trình của bạn được viết.\nTortoiseSVN sẽ tải bộ kiểm tra lỗi chính tả phù hợp nếu tìm được."
 
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfileproperties\r\n"
-"Newline separated list of user defined properties for files which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfileproperties\nDanh sách các thuộc tính do người dùng định nghĩa phân cách bởi các dòng mới cho các tập tin\nđược hiển thị trong hộp thoại thuộc tính để chọn."
-
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfolderproperties\r\n"
-"Newline separated list of user defined properties for folders which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfolderproperties\nDanh sách các thuộc tính do người dùng định nghĩa phân cách bởi các dòng mới cho các thư mục\nđược hiển thị trong hộp thoại thuộc tính để chọn."
-
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\nĐặt thành 'có' nếu một cảnh báo phải được hiển thị khi không có vấn đề nào được nhập vào trong hộp thoại cam kết."
-
-#. Resource IDs: (104)
-#, c-format
-msgid "url: %1!s!"
-msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

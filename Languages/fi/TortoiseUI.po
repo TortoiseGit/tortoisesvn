@@ -17,10 +17,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-10-24 21:58+0000\n"
-"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
+"PO-Revision-Date: 2013-11-09 08:29+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -395,15 +395,6 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%s\non hakemisto, ei tiedosto!\nTortoiseMerge ei osaa vertailla hakemistoja."
 
-#. Resource IDs: (286)
-#, c-format
-msgid ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
-msgstr "%s\nr%s | %s\n\n%s\n"
-
 #. Resource IDs: (16923)
 msgid "&..."
 msgstr "&..."
@@ -427,6 +418,10 @@ msgstr "&Lisää"
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Lisää >>"
+
+#. Resource IDs: (1505)
+msgid "&Add Filter"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -664,6 +659,10 @@ msgstr "P&oista"
 msgid "&Delete (keep local)"
 msgstr "&Poista (säilytä paikallinen)"
 
+#. Resource IDs: (1507)
+msgid "&Delete Filter"
+msgstr ""
+
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
 msgstr "&Poista versioimattomat kohteet..."
@@ -703,6 +702,10 @@ msgstr "Rivinlopetus (svn:&eol-style)"
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
 msgstr "&Muokkaa"
+
+#. Resource IDs: (1506)
+msgid "&Edit Filter"
+msgstr ""
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1427,6 +1430,10 @@ msgstr "&Unified diff"
 msgid "&Unknown drives"
 msgstr "&Tuntemattomat asemat"
 
+#. Resource IDs: (1074)
+msgid "&Up"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Päivitä"
@@ -1628,10 +1635,6 @@ msgstr "....."
 #, c-format
 msgid ": Revision %d"
 msgstr ": Versio %d"
-
-#. Resource IDs: (151)
-msgid ": working base"
-msgstr ": kantatiedosto"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1875,18 +1878,6 @@ msgstr "Lisää/muokkaa päätekohtaista vertailu/yhdistämisohjelmaa"
 msgid "Added"
 msgstr "Lisätty"
 
-#. Resource IDs: (126)
-msgid "Added a file remotely"
-msgstr "Tiedosto lisätty etänä"
-
-#. Resource IDs: (126)
-msgid "Added a folder remotely"
-msgstr "Kansio lisätty etänä"
-
-#. Resource IDs: (126)
-msgid "Added items remotely"
-msgstr "Kohteet lisätty etäoperaationa"
-
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Lisätty solmu"
@@ -2114,12 +2105,6 @@ msgstr "Sovelluskehyksen valikot:"
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Yhdistää unified diff -tiedoston työkopioon"
-
-#. Resource IDs: (581)
-msgid ""
-"Applies the properties recursively to all files/folders.\r\n"
-"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr "Asettaa ominaisuudet palautuvasti kaikkiin tiedostoihin/kansioihin.\r\nbugtraq:, tsvn: ja webviewer: -ominaisuudet asetetaan vain kansioille."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2392,10 +2377,6 @@ msgstr "Luo &haara / merkitty versio..."
 msgid "Break loc&k"
 msgstr "Riko lu&kko"
 
-#. Resource IDs: (78)
-msgid "Browse for the external diff program"
-msgstr "Selaa ulkoinen diff-ohjelma"
-
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Selaa..."
@@ -2476,10 +2457,6 @@ msgstr "Koko [kt]"
 msgid "Cached Repositories"
 msgstr "Välimuistissa olevat arkistot"
 
-#. Resource IDs: (197)
-msgid "Caches the log messages to speed up log fetching"
-msgstr "Säilyttää lokiviestit paikallisesti lokihaun nopeuttamiseksi"
-
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Voit kaksoisnapsauttaa lokiviestiä verrataksesi sitä edellisen version kanssa"
@@ -2558,12 +2535,6 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Peruuta\nÄlä poistu TortoiseMergestä"
-
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Don't reload views"
-msgstr "Peru\nÄlä lue näkymiä uudelleen"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2673,12 +2644,6 @@ msgid ""
 "The items are not moved."
 msgstr "Peruuta\nTiedostoja ei siirretä."
 
-#. Resource IDs: (589)
-msgid ""
-"Cancel\n"
-"The property is not removed."
-msgstr "Peruuta\nOminaisuutta ei poisteta."
-
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2726,10 +2691,6 @@ msgid "Cate&gories:"
 msgstr "Kate&goriat:"
 
 #. Resource IDs: (82)
-msgid "Certificate expired or not yet valid"
-msgstr "Sertifikaatti on vanhentunut tai ei ole vielä voimassaoleva"
-
-#. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Sertifikaatti on vanhentunut. Viimeinen voimassaolopäivä: %s"
@@ -2769,11 +2730,6 @@ msgstr "Muuttuneet tiedostot"
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr "Muuttuneet tiedostot välillä %1!s!, %2!s! ja %3!s!, %4!s!"
-
-#. Resource IDs: (163)
-#, c-format
-msgid "Changed files: %d"
-msgstr "Muuttuneet tiedostot: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2839,12 +2795,6 @@ msgstr "Hae työkopio arkistosta"
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
 msgstr "Valitse poistettavat tunnistustiedot"
-
-#. Resource IDs: (95)
-msgid ""
-"Check the files which you want to\n"
-"delete before importing."
-msgstr "Valitse tiedostot, jotka haluat poistaa\nennen arkistoon tuontia."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2990,12 +2940,6 @@ msgstr "Tyhjentää kaikki %ld hyväksyttyä asiakaspään toimintokomentoa"
 #, c-format
 msgid "Clears cached logs from %ld repositories"
 msgstr "Tyhjentää talletetut lokit %ld arkistosta"
-
-#. Resource IDs: (195)
-msgid ""
-"Clears the stored authentication.\r\n"
-"You will have to enter your username/password again for all repositories."
-msgstr "Tyhjentää talletetut tunnistustiedot.\r\nSinun on syötettävä käyttäjätunnus ja salasana uudelleen kaikille arkistoille."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3274,11 +3218,6 @@ msgstr "Vertaa tiedostoa viimeiseen arkistoon toimitettuun versioon näyttääks
 msgid "Compares the selected file with a file in the repository"
 msgstr "Vertaa valittua tiedostoa arkistossa olevaan tiedostoon"
 
-#. Resource IDs: (120)
-#, c-format
-msgid "Comparing %1!s! to %2!s!"
-msgstr "Verrataan: %1!s! ja %2!s!"
-
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Valmis"
@@ -3290,6 +3229,10 @@ msgstr "Valmis!"
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Säädä &TortoiseSVN olemaan koskaan käyttämättä roskakoria"
+
+#. Resource IDs: (7)
+msgid "Configure Filter Regexes"
+msgstr ""
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3353,10 +3296,6 @@ msgstr "Säiliöiden koot"
 msgid "Context Menus: "
 msgstr "Kontekstivalikot:"
 
-#. Resource IDs: (564)
-msgid "Continue"
-msgstr "Jatka"
-
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Kutista ankkuroitu ikkuna"
@@ -3381,22 +3320,10 @@ msgstr "&Kopioi"
 msgid "Copied"
 msgstr "Kopioitu"
 
-#. Resource IDs: (208)
-msgid "Copied from URL"
-msgstr "Kopioitu paikantimesta"
-
-#. Resource IDs: (208)
-msgid "Copied from revision"
-msgstr "Kopioitu versiosta"
-
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Kopioitu paikasta: %1!s!@%2!ld!\r\n"
-
-#. Resource IDs: (126)
-msgid "Copied remotely"
-msgstr "Kopioitu etänä"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3420,11 +3347,6 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopioi %1!s!\r\ntiedostoon %2!s!"
-
-#. Resource IDs: (103)
-#, c-format
-msgid "Copy %s"
-msgstr "Kopioi %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3455,10 +3377,6 @@ msgstr "Kopioi ja uudelleennimeä kohde tänne"
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
 msgstr "Kopioi sarake leikepöydälle"
-
-#. Resource IDs: (101)
-msgid "Copy error message to clipboard"
-msgstr "Kopioi virheilmoitus leikepöydälle"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3491,10 +3409,6 @@ msgstr "Kopioi kohteeseen %1"
 msgid "Copy to clipboard"
 msgstr "Kopioi leikepöydälle"
 
-#. Resource IDs: (103)
-msgid "Copy to working copy"
-msgstr "Kopioi työkopioon"
-
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
 msgstr "Kopioi työkopioon..."
@@ -3516,10 +3430,6 @@ msgstr "Kopioidaan ulkoisesta arkistopaikantimesta"
 #. Resource IDs: (80)
 msgid "Copying..."
 msgstr "Kopioimassa..."
-
-#. Resource IDs: (188)
-msgid "Corrections"
-msgstr "Korjaukset"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3637,11 +3547,6 @@ msgid ""
 "Patching is not possible!"
 msgstr "Tiedoston %1!s! version %2!s! haku epäonnistui.\nPaikkaus ei onnistu!"
 
-#. Resource IDs: (64)
-#, c-format
-msgid "Could not save the file %s!"
-msgstr "Tiedoston %s talletus epäonnistui!"
-
 #. Resource IDs: (70, 81)
 #, c-format
 msgid ""
@@ -3733,10 +3638,6 @@ msgstr "&Luo arkisto tänne"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "Luo pikakuvake"
-
-#. Resource IDs: (126)
-msgid "Created folder remotely"
-msgstr "Hakemisto luotu etänä"
 
 #. Resource IDs: (10)
 msgid ""
@@ -4055,12 +3956,6 @@ msgstr "Hakemistot"
 msgid "Directory:"
 msgstr "Hakemisto:"
 
-#. Resource IDs: (195)
-msgid ""
-"Disable this option if you have really big working copies and experience\r\n"
-"too much disk access when browsing the working copy."
-msgstr "Poista tämä valinta jos työkopiosi ovat todella suuria ja navigointi\r\nniiden sisällä aiheuttaa liikaa levyoperaatioita."
-
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
 msgstr "Unohtaa paikalliset muutokset saapuvien poistojen yhteydessä"
@@ -4148,10 +4043,6 @@ msgstr "Tee tämä kaikille versioimattomille/muutetuille tiedostoille"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Haluatko todella poistaa valintapalkin '%s'?"
 
-#. Resource IDs: (145)
-msgid "Do you really want to move this file or folder?"
-msgstr "Haluatko todella siirtää tämän tiedoston tai kansion?"
-
 #. Resource IDs: (119)
 #, c-format
 msgid ""
@@ -4238,10 +4129,6 @@ msgid ""
 "which were made in this revision?"
 msgstr "Haluatko palauttaa kaikki muutokset tiedostoon\n%s\njotka tehtiin tässä versiossa?"
 
-#. Resource IDs: (313)
-msgid "Do you want to save your changes?"
-msgstr "Haluatko tallentaa muutokset?"
-
 #. Resource IDs: (65535)
 msgid "Document :"
 msgstr "Dokumentti :"
@@ -4249,12 +4136,8 @@ msgstr "Dokumentti :"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr "Käyttöohjeet : Simon Large\nKoodi : Tobias Schäfer, Stefan Fuhrmann"
-
-#. Resource IDs: (564)
-msgid "Don't ask me again"
-msgstr "Älä kysy uudelleen"
+"Code : Tobias SchÃ¤fer, Stefan Fuhrmann"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -4287,14 +4170,6 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr "Älä talleta\nAvaa näkymät uudelleen tallettamatta muutoksia"
-
-#. Resource IDs: (80, 564)
-msgid "Don't show this message again"
-msgstr "Älä näytä tätä viestiä uudestaan"
-
-#. Resource IDs: (564)
-msgid "Don't tell me again"
-msgstr "Älä kerro uudelleen"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4521,10 +4396,6 @@ msgstr "Suurenna ikkuna koko ruudun kokoiseksi"
 msgid "Enter Log Message"
 msgstr "Syötä lokiviesti"
 
-#. Resource IDs: (80)
-msgid "Enter URL"
-msgstr "Syötä paikannin"
-
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
 msgstr "&Muutoslistan nimi:"
@@ -4701,10 +4572,6 @@ msgstr "Vie"
 msgid "Export &directory:"
 msgstr "&Vientihakemisto:"
 
-#. Resource IDs: (94)
-msgid "Export directory:"
-msgstr "Vientihakemisto:"
-
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4827,11 +4694,6 @@ msgstr "Palvelinoperaation suoritus epäonnistui."
 #. Resource IDs: (3857)
 msgid "Failed to save document."
 msgstr "Tiedoston tallentaminen epäonnistui."
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist '%s'"
-msgstr "Muutoslistan '%s' asetus/poisto epäonnistui"
 
 #. Resource IDs: (83)
 #, c-format
@@ -5193,14 +5055,6 @@ msgstr "&Lukitse..."
 msgid "Get merge logs"
 msgstr "Hae yhdistämisloki"
 
-#. Resource IDs: (89)
-msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
-msgstr "Ilman 'svn:needs-lock' -ominaisuutta olevan tiedoston lukitseminen ei estä muita muokkaamasta tiedostoa omissa työkopioissaan.\nPakottaaksesi voimakkaamman lukituksen sinun tulee lisätä 'svn:needs-lock'-ominaisuus kaikille lukitusta tarvitseville tiedostoille ja toimittaa ne arkistoon.\nTällaisia tiedostoja voi vain lukea, ja vasta lukitseminen tekee niistä kirjoitettavia.\nHuomaa, että muiden käyttäjien pitää päivittää työkopionsa ennen kuin he näkevät muutokset."
-
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
@@ -5222,10 +5076,6 @@ msgstr "Haetaan tietoja arkistosta..."
 #. Resource IDs: (120)
 msgid "Getting information..."
 msgstr "Haetaan tietoja..."
-
-#. Resource IDs: (132)
-msgid "Getting log info..."
-msgstr "Haetaan lokia..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5673,12 +5523,6 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr "Toiminto 'Lukitse' näytetään aina päävalikossa, mikäli valitulla tiedostolla on svn:needs-lock -ominaisuus asetettuna"
 
-#. Resource IDs: (95)
-msgid ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
-msgstr "Mikäli valittu, arkistoon luodaan uusi kansio.\nMuussa tapauksessa arkistoon tuonti käyttää määritettyä paikanninta."
-
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
@@ -5750,10 +5594,6 @@ msgid ""
 "the repository browser."
 msgstr "Jos haluat rikkoa lukon, käytä 'Tarkista muutokset'-toimintoa tai arkistoselainta."
 
-#. Resource IDs: (563)
-msgid "Ignore"
-msgstr "Selvitä tekijät"
-
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5771,9 +5611,9 @@ msgstr "Ohita &kaikki tyhjämerkit"
 msgid "Ignore &ancestry"
 msgstr "Älä välitä &edeltäjistä"
 
-#. Resource IDs: (564)
-msgid "Ignore all"
-msgstr "Ohita kaikki"
+#. Resource IDs: (156)
+msgid "Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5952,10 +5792,6 @@ msgstr "Väärä tiedostonimi."
 msgid "Index colors:"
 msgstr "Indeksointivärit:"
 
-#. Resource IDs: (76)
-msgid "Initial import"
-msgstr "Ensimmäinen tuonti arkistoon"
-
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Vertailu rivin sisällä"
@@ -5997,10 +5833,6 @@ msgstr "Sisäinen arvo, joka kuvaa pakkauksen laatua"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Laiton rahayksikkö."
-
-#. Resource IDs: (102)
-msgid "Invalid data object dropped!"
-msgstr "Viallinen tieto jätetty pois!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6261,10 +6093,6 @@ msgstr "Luettelo arkistoista, joiden lokitietoja on tallennettu välimuistiin"
 msgid "List1"
 msgstr "List1"
 
-#. Resource IDs: (104)
-msgid "Listing repository recursively..."
-msgstr "Listataan arkisto palautuvasti..."
-
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
 msgstr "&Paikallinen polku:"
@@ -6288,10 +6116,6 @@ msgstr "Nouda muutokset\nNäkymät päivitetään uuteen sisältöön."
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr "Paikalliset &toimintokomennot"
-
-#. Resource IDs: (63)
-msgid "Local status"
-msgstr "Paikallinen tila"
 
 #. Resource IDs: (94)
 msgid ""
@@ -6370,10 +6194,6 @@ msgstr "Lukitus epäonnistui, koska uudempi versio on olemassa!\nHaluatko päivi
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Lukitsee tiedoston muilta käyttäjiltä ja sallii sinun muokata sitä."
-
-#. Resource IDs: (126)
-msgid "Log"
-msgstr "Loki"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
@@ -6595,11 +6415,6 @@ msgstr "Yhdistä versio..."
 msgid "Merge revisions to..."
 msgstr "Yhdistä versiot..."
 
-#. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into '%s'"
-msgstr "Yhdistä muutokset kohteeseen '%s'"
-
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
 msgstr "Yhdistä &kaksi eri puuta"
@@ -6651,11 +6466,6 @@ msgstr "Yhdistetään versiosta %1!ld! versioon %2!ld!"
 #, c-format
 msgid "Merging r%ld"
 msgstr "Yhdistämässä versiota %ld"
-
-#. Resource IDs: (83)
-msgid ""
-"Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Yhdistäminen vaatii eri versioita tai eri paikantimia 'Mistä:'- ja 'Mihin'-kentissä"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6843,10 +6653,6 @@ msgid ""
 "%s"
 msgstr "Siirretty paikasta\r\n%s"
 
-#. Resource IDs: (126)
-msgid "Moved remotely"
-msgstr "Siirretty etänä"
-
 #. Resource IDs: (210)
 #, c-format
 msgid ""
@@ -6883,6 +6689,10 @@ msgstr "NUM"
 msgid "Name"
 msgstr "Nimi"
 
+#. Resource IDs: (65535)
+msgid "Name:"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Navigate"
 msgstr "Siirry"
@@ -6900,10 +6710,6 @@ msgstr "Navigointipaneelin asetukset"
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
 msgstr "Navigointipaneelin asetukset..."
-
-#. Resource IDs: (208)
-msgid "Needs lock"
-msgstr "Tarvitsee lukon"
 
 #. Resource IDs: (32845)
 msgid "Needs-&Lock"
@@ -6942,18 +6748,13 @@ msgstr "&Uusi nimi:"
 msgid "New Menu"
 msgstr "Uusi valikko"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "New name for %s"
-msgstr "Uudelleennimeä %s"
-
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr "Uusi nimi ei saa olla tyhjä tai sama kuin alkuperäinen nimi!"
 
-#. Resource IDs: (98)
-msgid "New name:"
-msgstr "Uusi nimi:"
+#. Resource IDs: (101)
+msgid "Newlines"
+msgstr ""
 
 #. Resource IDs: (3633)
 msgid ""
@@ -6973,19 +6774,11 @@ msgstr "Seuraava ero"
 msgid "Next inline difference"
 msgstr "Seuraava rivin sisäinen ero"
 
-#. Resource IDs: (564)
-msgid "No"
-msgstr "Ei"
-
 #. Resource IDs: (81)
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr "Komento antamatta!\nTortoiseProc.exe on käytössä komentotulkin laajennuksena eikä sitä tulisi käynnistää suoraan!"
-
-#. Resource IDs: (81)
-msgid "No command value specified!"
-msgstr "Komento antamatta!"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
@@ -7002,12 +6795,6 @@ msgstr "Ei virheitä."
 #. Resource IDs: (281)
 msgid "No externals found"
 msgstr "Ulkoisia viitteitä ei löytynyt"
-
-#. Resource IDs: (82)
-msgid ""
-"No files or folders were modified. There is nothing for TortoiseSVN to "
-"revert!"
-msgstr "Tiedostoja tai kansioita ei ole muokattu.  TortoiseSVN ei löydä mitään palautettavaa!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7044,10 +6831,6 @@ msgstr "Kuvaenkooderia ei löydetty tiedostolle %s."
 msgid "No path or pathfile specified on the command line!"
 msgstr "Polku tai polkutiedosto puuttuu komentoriviltä!"
 
-#. Resource IDs: (188)
-msgid "No spell corrections"
-msgstr "Ei tavutuskorjausta"
-
 #. Resource IDs: (196)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -7062,10 +6845,6 @@ msgstr "Versiota '%1!s!' ei ole olemassa"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Ei asiasanastoehdotuksia"
-
-#. Resource IDs: (564)
-msgid "No to all"
-msgstr "Ei kaikkeen"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7094,10 +6873,6 @@ msgstr "Normaali"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Kaikkia järjestelmän rekisteriasetuksia (tai INI-tiedostoa) ei poistettu."
-
-#. Resource IDs: (83)
-msgid "Not enough memory to complete operation."
-msgstr "Liian vähän muistia operaation suorittamiseen."
 
 #. Resource IDs: (273)
 msgid ""
@@ -7288,10 +7063,6 @@ msgstr "Yksi tai useampi tiedosto on ristiriitatilassa."
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "&Pelkkä yhdistämismerkintä (estä versioiden yhdistäminen jatkossa)"
 
-#. Resource IDs: (99)
-msgid "Only check out the &top folder"
-msgstr "Hae vain &ylin hakemistotaso"
-
 #. Resource IDs: (19)
 msgid "Only file children"
 msgstr "Vain tiedostot"
@@ -7437,14 +7208,6 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr "Kirjoita yli\nKohdetiedosto korvataan."
-
-#. Resource IDs: (76)
-msgid "PEM"
-msgstr "PEM"
-
-#. Resource IDs: (76)
-msgid "PKCS12"
-msgstr "PKCS12"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7606,10 +7369,6 @@ msgstr "Ratkaise ristiriita valitsemalla jokin seuraavista:"
 msgid "Please select a hook type"
 msgstr "Valitse toimintotyyppi"
 
-#. Resource IDs: (76)
-msgid "Please specify the certificate type"
-msgstr "Anna sertifikaattityyppi"
-
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "Odota - tämä voi kestää useita minuutteja..."
@@ -7629,10 +7388,6 @@ msgstr "Odota hetki, kerätään ulkoisia viitteitä..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Odota, arkistoselain käynnistyy..."
-
-#. Resource IDs: (280)
-msgid "Please wait while we check the parameters for the merge."
-msgstr "Odota hetki, tarkistetaan yhdistämiseparametreja."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7905,11 +7660,6 @@ msgstr "Välityspalvelimen asetukset"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Lisää \"Lukitse\" päävalikkoon kun svn:needs-lock on asetettu"
 
-#. Resource IDs: (246)
-#, c-format
-msgid "Q%d/%.2d"
-msgstr "Q%d/%.2d"
-
 #. Resource IDs: (3605)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8087,6 +7837,18 @@ msgstr "Päivitä &kuvakepäällykset"
 msgid "Refreshing shell for %1!s!"
 msgstr "Päivitetään resurssienhallinta: %1!s!"
 
+#. Resource IDs: (32, 156, 165)
+msgid "Regex Filter"
+msgstr ""
+
+#. Resource IDs: (164)
+msgid "Regex Filters"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Regex:"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Säännöllinen lauseke"
@@ -8221,6 +7983,12 @@ msgstr "Poista kirjanmerkki"
 msgid "Remove Saved Authentication Data"
 msgstr "Poista tallennetut tunnistustiedot"
 
+#. Resource IDs: (2057)
+msgid ""
+"Remove all comments before doing the diff so changes inside comments don't "
+"show as different"
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Poista &ohitettujen listasta"
@@ -8269,10 +8037,6 @@ msgstr "Poista\nPoista ominaisuus vain tästä alkiosta."
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Poistettu"
-
-#. Resource IDs: (126)
-msgid "Removed file/folder"
-msgstr "Poistettu tiedosto/hakemisto"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8324,11 +8088,6 @@ msgstr "&Nimeä uudelleen..."
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#. Resource IDs: (97)
-#, c-format
-msgid "Rename %s"
-msgstr "Uudelleennimeä %s"
-
 #. Resource IDs: (95)
 #, c-format
 msgid "Rename '%s':"
@@ -8355,10 +8114,6 @@ msgstr "Nimeä uudelleen\nKansio viedään nimellä '%s'."
 #. Resource IDs: (65535)
 msgid "Renamed node"
 msgstr "Uudelleen nimetty solmu"
-
-#. Resource IDs: (126)
-msgid "Renamed remotely"
-msgstr "Nimetty uudelleen etänä"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -8394,13 +8149,13 @@ msgid ""
 "Replace"
 msgstr "Korvaa tekstin toisella\nKorvaa"
 
+#. Resource IDs: (65535)
+msgid "Replace:"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Replacing"
 msgstr "Korvaa"
-
-#. Resource IDs: (564)
-msgid "Report"
-msgstr "Raportti"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8527,10 +8282,6 @@ msgstr "Palauta ikkuna normaalin kokoiseksi"
 msgid "Restored"
 msgstr "Palautettu"
 
-#. Resource IDs: (563)
-msgid "Retry"
-msgstr "Yritä uudestaan"
-
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr "Yhdistettiin käänteisesti versio(t) {revrange} paikantimesta {mergeurl}:\n"
@@ -8589,11 +8340,6 @@ msgstr "Peruu lisäyksen versionhallintaan"
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
 msgstr "Versio"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Revision %1!d!"
-msgstr "Versio %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
@@ -8961,11 +8707,6 @@ msgid "Saves the selected property value to a file"
 msgstr "Tallettaa valitun ominaisuuden tiedostoon"
 
 #. Resource IDs: (103)
-#, c-format
-msgid "Saving file %s"
-msgstr "Tallennetaan tiedostoa %s"
-
-#. Resource IDs: (103)
 msgid "Saving files"
 msgstr "Tallennetaan tiedostoja"
 
@@ -9068,10 +8809,6 @@ msgstr "Valitse muutoslista"
 msgid "Select diff application"
 msgstr "Valitse vertailuohjelma"
 
-#. Resource IDs: (99)
-msgid "Select directory to check out to"
-msgstr "Valitse kansio johon tiedostot haetaan"
-
 #. Resource IDs: (279)
 msgid "Select end revision"
 msgstr "Valitse loppuversio"
@@ -9121,10 +8858,6 @@ msgstr "Valitse versioväli"
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Valitse alkuversio"
-
-#. Resource IDs: (79)
-msgid "Select text editor application"
-msgstr "Valitse tekstieditoriohjelma"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9580,14 +9313,6 @@ msgstr "Välimuistitiedoston koko levyllä"
 msgid "Size of the cache if it were not compressed"
 msgstr "Välimuistin koko pakkaamattomana"
 
-#. Resource IDs: (564)
-msgid "Skip"
-msgstr "Ohita"
-
-#. Resource IDs: (564)
-msgid "Skip all"
-msgstr "Ohita kaikki"
-
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Hypätty yli"
@@ -9790,8 +9515,8 @@ msgid "Steal the lock"
 msgstr "Varasta lukko"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan KÃ¼ng, LÃ¼bbe Onken"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9872,13 +9597,6 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr "Subversion raportoi virheen luotaessa arkistoa!\nVarmista, että kansio on tyhjä eikä ole kirjoitussuojattu."
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
-"Subversion reported an error while doing a cleanup!\n"
-"%s"
-msgstr "Subversion raportoi virheen siivottaessa!\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -9999,11 +9717,6 @@ msgstr "Sarkaimen koko:"
 msgid "Tag nodes"
 msgstr "Merkittyjen versioiden solmut"
 
-#. Resource IDs: (79)
-#, c-format
-msgid "Tagged the working copy to %s"
-msgstr "Työkopiosta tehtiin merkitty versio %s"
-
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr "Kohdekansio ei ole tyhjä"
@@ -10042,11 +9755,6 @@ msgstr "Muutokset tehdään työkopioosi käänteisesti yhdistäen. Arkisto ei m
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Lohkon koko ei täsmännyt lisättyjen/poistettujen rivien lukumäärän kanssa!"
-
-#. Resource IDs: (63)
-#, c-format
-msgid "The chunk start '@@' was expected in line %d !"
-msgstr "Lohkon alkua '@@' odotettiin rivillä %d !"
 
 #. Resource IDs: (346)
 msgid ""
@@ -10131,15 +9839,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "Kansio %s\nsisältää versioimattomia ja/tai muuttuneita tiedostoja.  Haluatko poistaa sen silti?"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
-msgstr "Kansiota\n%s\nei ole olemassa.\nHaluatko luoda sen ensin?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -10322,11 +10021,6 @@ msgstr "Riviä 'Index: ' ei löydy!\nJoko tiedosto ei ole vertailutiedosto tai v
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "Uudesta tiedostosta kertovaa riviä odotettiin rivillä %d!"
 
-#. Resource IDs: (63)
-#, c-format
-msgid "The line indicating the old file was expected in line %d !"
-msgstr "Vanhasta tiedostosta kertovaa riviä odotettiin rivillä %d!"
-
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
@@ -10341,12 +10035,6 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr "Suurin toimenpidelokissa säilytettävien rivien määrä.\nMikäli lokiin lisätään enemmän rivejä, sen vanhimmat rivit poistetaan."
-
-#. Resource IDs: (63)
-msgid ""
-"The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
-msgstr "Vanha tiedosto ei täsmää uuden tiedoston kanssa.\nTiedostojen uudelleennimeämistä ei (vielä) tueta!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10391,33 +10079,11 @@ msgstr "Syöttämäsi polku/paikannin on virheellinen Windowsissa!\nVoit koettaa
 msgid ""
 "The path\n"
 "%1!s!\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge found the relative path\n"
-"%2!s!\n"
-"which seems to match the directory you're applying the patch.\n"
-"\n"
-"Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr "Paikkatiedoston polkua\n%1!s!\nei ole olemassa.\nTortoiseMerge huomasi, että suhteellinen polku\n%2!s!\nnäyttäisi täsmäävän paikattavaan kansioon.\n\nHaluatko käyttää ehdotettua polkua?  Vastaus 'ei' lopettaa TortoiseMergen suorituksen."
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%1!s!\n"
 "seems not to match the paths in the patchfile.\n"
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr "Polku\n%1!s!\nei täsmää paikkatiedostossa olevien polkujen kanssa.\nTortoiseMerge huomasi, että polku\n%2!s!\ntäsmää paremmin.  Haluatko käyttää ehdotettua polkua?"
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"%s\n"
-"in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr "Paikkatiedoston polkua\n%s\nei ole olemassa.\nTortoiseMerge koetti käyttää paikan poistamalla polusta erilaisia alkuosia, mutta ei onnistunut."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10431,18 +10097,6 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Arkisto luotiin onnistuneesti.\nHaluatko luoda arkistolle oletuskansiorakenteen (trunk/branches/tags)?"
 
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like, and the \"only record the "
-"merge\" option can not be used."
-msgstr "Tarvittava automaattinen yhdistäminen on takaisin yhdistämisen kaltainen, eikä \"pelkkä yhdistämismerkintä\"-valintaa voida käyttää."
-
-#. Resource IDs: (279)
-msgid ""
-"The required automatic merge is reintegrate like.\n"
-"Only the merge depth option \"Working copy\" can be used."
-msgstr "Tarvittava automaattinen yhdistäminen on takaisin yhdistämisen kaltainen.\n\"Työkopio\" on ainoa mahdollinen yhdistämissyvyysvalinta."
-
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -10455,14 +10109,6 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Valitussa tiedostossa näyttää yhä olevan yksi tai useampia ristiriitoja.\nOletko varma, että haluat merkitä tiedoston ratkaistuksi?"
-
-#. Resource IDs: (102)
-#, c-format
-msgid ""
-"The target URL\n"
-"%s\n"
-"already exists!"
-msgstr "Kohdepaikannin\n%s\non jo olemassa!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10507,6 +10153,12 @@ msgid ""
 "Do you want to merge anyway?"
 msgstr "Kohdetyökopiossa on paikallisia muutoksia.\nHaluatko jatkaa yhdistämistä?"
 
+#. Resource IDs: (101)
+msgid ""
+"The text is identical, but the files do not match!\r\n"
+"The following differences were found:"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
@@ -10527,18 +10179,6 @@ msgstr "Käyttäjä, joka teki viimeisimmän toimituksen arkistoon"
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
 msgstr "Käyttäjä, joka omistaa lukon tähän tiedostoon"
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy has changed!\n"
-"Please commit your changes first or revert."
-msgstr "Työkopio on muuttunut!\nToimita ensin muutoksesi arkistoon tai tee palautus."
-
-#. Resource IDs: (81)
-msgid ""
-"The working copy is not up to date!\n"
-"Please Update first."
-msgstr "Työkopio ei ole ajan tasalla!\nPäivitä ensin."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10698,9 +10338,9 @@ msgstr "Tämä tuote sisältää OpenSSL-projektin  (http://www.openssl.org/) ke
 
 #. Resource IDs: (1531)
 msgid ""
-"This product includes software from Apache™ Subversion® "
+"This product includes software from Apacheâ„¢ SubversionÂ® "
 "(http://subversion.apache.org)"
-msgstr "Tämä tuote sisältää osia Apache™ Subversion® -ohjelmistosta (http://subversion.apache.org)"
+msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10871,11 +10511,6 @@ msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr "TortoiseSVN versio %d.%d.%d, käännös %d - %s, %s"
-
-#. Resource IDs: (107)
-#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -10971,10 +10606,6 @@ msgstr "Päähaaran solmut"
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Kokeile 'Siivoa'-komentoa. Jos se ei toimi, sinun täytyy hakea uusimman version työkopio uudelleen."
 
-#. Resource IDs: (564)
-msgid "Try again"
-msgstr "Kokeile uudestaan"
-
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Viritä TortoiseSVN:ää"
@@ -10994,11 +10625,6 @@ msgstr "Paikannin"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "Paikanninhistoria"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "URL not known (UUID: %s)"
-msgstr "Tuntematon paikannin (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -11229,11 +10855,6 @@ msgstr "Päivittää työkopion nykyiseen versioon"
 #. Resource IDs: (265)
 msgid "Updating"
 msgstr "Päivittämässä"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "Updating %s"
-msgstr "Päivitetään %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -11616,12 +11237,9 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr "Lukittaessa yhtä tai useampaa tiedostoa, näyttää ikkunan, jossa pyydetään antamaan lukitsemisen syy ennen kutakin lukitusyritystä"
 
-#. Resource IDs: (316)
-msgid ""
-"When resolving conflicts, you always have to save even if there is no "
-"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
-"show a conflict for those!"
-msgstr "Ristiriitoja ratkaistaessa sinun on aina talletettava vaikka ristiriitoja ei näy. TortoiseMerge osaa yhdistää muutoksia, joita SVN ei osaa, eikä myöskään näytä näitä ristiriitoina!"
+#. Resource IDs: (101)
+msgid "Whitespace changes (tabs, spaces)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11646,10 +11264,6 @@ msgstr "Windows 7"
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
 msgstr "Windows XP"
-
-#. Resource IDs: (146)
-msgid "With URL:"
-msgstr "Paikannin:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -11685,33 +11299,9 @@ msgid ""
 "Wrap long lines"
 msgstr "Rivitä pitkät rivit näkymän oikeassa reunassa\nRivitä pitkät rivit"
 
-#. Resource IDs: (563)
-msgid "Yes"
-msgstr "Kyllä"
-
-#. Resource IDs: (564)
-msgid "Yes to all"
-msgstr "Kyllä kaikkiin"
-
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
 msgstr "Sinulla on jo uusin ohjelmaversio."
-
-#. Resource IDs: (144)
-msgid ""
-"You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:// on a network share may corrupt your data!\n"
-"Create the repository anyway?"
-msgstr "Olet luomassa arkistoa verkkojaolle (jaettuun verkkokansioon).\nTämä on turvallista, mutta kun arkisto on luotu, sinun on kytkeydyttävä siihen jollain toisella tavalla.\nVerkkojaossa sijaitsevan arkiston käyttö file://-käytännöllä voi korruptoida tiedot!\nLuodaanko arkisto silti?"
-
-#. Resource IDs: (88)
-msgid ""
-"You are trying to access a repository via file:// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
-msgstr "Yrität kytkeytyä jaetulla verkkolevyllä olevaan arkistoon file://-yhteyskäytännöllä.\nTämä voi johtaa arkiston korruptoitumiseen!\nHaluatko todella jatkaa?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11789,12 +11379,6 @@ msgstr "Voit määritellä korkeintaan %d työkalua."
 msgid "You must restart your system for the changes to take effect."
 msgstr "Tietokone pitää käynnistää uudelleen, jotta muutokset tulevat voimaan."
 
-#. Resource IDs: (77)
-msgid ""
-"You selected an unversioned file.\n"
-"The file will be added to version control when you commit."
-msgstr "Valitsit versioimattoman tiedoston.\nTiedosto lisätään versionhallintaan kun toimitat sen arkistoon."
-
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Valitsit toimitettavaksi versioimattoman kansion!"
@@ -11850,13 +11434,6 @@ msgid ""
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
 msgstr "Työkopiossasi on muutoksia.\nTyökopion pienin versio: %1!ld!\nPolku: %2!s!"
-
-#. Resource IDs: (88)
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't lose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
-msgstr "Työkopiossasi on paikallisia muutoksia!\nHuomaa: päivittäminen toiseen versioon ei poista näitä muutoksia, joten työkopio\nei ole aivan sama kuin versio, johon olet päivittämässä!"
 
 #. Resource IDs: (89)
 msgid ""
@@ -12142,15 +11719,6 @@ msgstr "dummy"
 msgid "eol style"
 msgstr "rivinvaihtotyyli"
 
-#. Resource IDs: (79)
-#, c-format
-msgid ""
-"exported\n"
-"%s\n"
-"to\n"
-"%s"
-msgstr "viety\n%s\npaikkaan\n%s"
-
 #. Resource IDs: (13)
 msgid "external"
 msgstr "ulkoinen"
@@ -12202,10 +11770,6 @@ msgstr "se on jo poistettu."
 #. Resource IDs: (583)
 msgid "it is unversioned."
 msgstr "se on versioimaton"
-
-#. Resource IDs: (214)
-msgid "item kept locally"
-msgstr "kohde säilytetään paikallisesti"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
@@ -12290,11 +11854,6 @@ msgstr "kuukausi"
 #. Resource IDs: (248)
 msgid "months"
 msgstr "kuukautta"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "multiple URLs (e.g. %s)"
-msgstr "useita paikantimia (esim. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -12562,11 +12121,6 @@ msgstr "%1:een"
 msgid "to %1!s!"
 msgstr "%1!s!:een"
 
-#. Resource IDs: (103)
-#, c-format
-msgid "to %s"
-msgstr "%s"
-
 #. Resource IDs: (208)
 msgid "tree conflict"
 msgstr "puuristiriita"
@@ -12687,30 +12241,11 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr "tsvn:projectlanguage\r\nAseta tähän sen kielen numero, millä lokiviestit kirjoitetaan.\r\nTortoiseSVN käyttää kielen oikeinkirjoituksen tarkistusmoduulia, mikäli sellainen on saatavilla."
 
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfileproperties\r\n"
-"Newline separated list of user defined properties for files which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfileproperties\r\nRivinvaihdoin eroteltu lista käyttäjän määrittelemiä, tiedostoihin sovellettavia ominaisuuksia.\r\nOminaisuudet näkyvät ja voidaan valita ominaisuusikkunan pudotusvalikosta."
-
-#. Resource IDs: (581)
-msgid ""
-"tsvn:userfolderproperties\r\n"
-"Newline separated list of user defined properties for folders which will\r\n"
-"be shown in the property dialog to choose from."
-msgstr "tsvn:userfolderproperties\r\nRivinvaihdoin eroteltu lista käyttäjän määrittelemiä, kansioihin sovellettavia ominaisuuksia.\r\nOminaisuudet näkyvät ja voidaan valita ominaisuusikkunan pudotusvalikosta."
-
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\r\nAseta arvoon 'yes', mikäli haluat, että vikatunnuksen pois jättäminen toimitusikkunassa aiheuttaa varoituksen."
-
-#. Resource IDs: (104)
-#, c-format
-msgid "url: %1!s!"
-msgstr "Paikannin: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
