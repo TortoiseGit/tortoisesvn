@@ -322,6 +322,7 @@ private:
     bool                m_bFetchChildren;
     bool                m_bShowExternals;
     bool                m_bShowLocks;
+    bool                m_bTrySVNParentPath;
     CTreeItem *         m_pListCtrlTreeItem;
 
     int                 m_nBookmarksIcon;

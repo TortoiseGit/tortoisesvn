@@ -129,6 +129,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , oldy(0)
     , oldx(0)
     , m_nBookmarksIcon(0)
+    , m_bTrySVNParentPath(true)
 {
     ConstructorInit(rev);
 }
@@ -159,6 +160,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_bRightDrag(false)
     , oldy(0)
     , oldx(0)
+    , m_bTrySVNParentPath(true)
 {
     ConstructorInit(rev);
 }
@@ -173,9 +175,10 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
     std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
-    m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
-    m_bShowExternals = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
-    m_bShowLocks     = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", true);
+    m_bFetchChildren    = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
+    m_bShowExternals    = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
+    m_bShowLocks        = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", true);
+    m_bTrySVNParentPath = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserTrySVNParentPath", true);
     LoadBookmarks();
 }
 
@@ -4828,6 +4831,8 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 bool CRepositoryBrowser::TrySVNParentPath()
 {
     if (m_bSparseCheckoutMode)
+        return false;
+    if (!m_bTrySVNParentPath)
         return false;
 
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true);

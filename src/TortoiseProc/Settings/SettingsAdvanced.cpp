@@ -137,6 +137,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
 
+    settings[i].sName   = L"RepoBrowserTrySVNParentPath";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
     settings[i].sName   = L"ScintillaDirect2D";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = false;
@@ -169,7 +173,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 36 so far...
+    // 37 so far...
     ASSERT(i < _countof(settings));
 }
 
