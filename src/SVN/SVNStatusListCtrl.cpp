@@ -5197,7 +5197,7 @@ void CSVNStatusListCtrl::OnPaint()
         ReleaseDC(pDC);
     }
     CRect rc;
-    GetUpdateRect(&rc, FALSE);
+    GetUpdateRect(&rc, TRUE);
     ValidateRect(rc);
 }
 
