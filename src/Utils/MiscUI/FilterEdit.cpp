@@ -353,7 +353,7 @@ void CFilterEdit::OnPaint()
 
     DrawDimText();
     CRect rc;
-    GetUpdateRect(&rc, TRUE);
+    GetUpdateRect(&rc, FALSE);
     ValidateRect(rc);
 
     return;
