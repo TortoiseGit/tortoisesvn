@@ -1001,7 +1001,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
     case SCN_GETBKCOLOR:
         if ((m_colorby != COLORBYNONE)&&(notification->line < (int)m_revs.size()))
         {
-            notification->lParam = GetLineColor(notification->line);
+            notification->lParam = GetLineColor(notification->line, false);
         }
         break;
     case SCN_UPDATEUI:
@@ -1449,7 +1449,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
     for (std::vector<LONG>::const_iterator it = m_revs.begin(); it != m_revs.end(); ++it)
     {
         // get the line color
-        COLORREF cr = GetLineColor(currentLine);
+        COLORREF cr = GetLineColor(currentLine, true);
         currentLine++;
         if ((currentLine > line)&&(currentLine <= (line + linesonscreen)))
         {
@@ -1871,7 +1871,7 @@ void TortoiseBlame::InitSize()
         ::ShowWindow(wLocator, SW_HIDE);
 }
 
-COLORREF TortoiseBlame::GetLineColor(int line)
+COLORREF TortoiseBlame::GetLineColor(int line, bool bLocatorBar)
 {
     switch (m_colorby)
     {
@@ -1879,7 +1879,10 @@ COLORREF TortoiseBlame::GetLineColor(int line)
         return m_revcolormap[m_revs[line]];
         break;
     case COLORBYAGECONT:
-        return InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (m_revs[line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
+        if (bLocatorBar)
+            return InterColor(DWORD(m_regLocatorOldLinesColor), DWORD(m_regLocatorNewLinesColor), (m_revs[line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
+        else
+            return InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (m_revs[line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
         break;
     case COLORBYAUTHOR:
         return m_authorcolormap[m_authors[line]];

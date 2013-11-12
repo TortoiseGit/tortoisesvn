@@ -139,7 +139,7 @@ protected:
     void SetupLexer(LPCTSTR fileName);
     void SetupCppLexer();
     COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
-    COLORREF GetLineColor(int line);
+    COLORREF GetLineColor(int line, bool bLocatorBar);
     void SetupColoring();
     static std::wstring GetAppDirectory();
 
