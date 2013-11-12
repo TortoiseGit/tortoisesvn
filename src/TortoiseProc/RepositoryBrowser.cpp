@@ -522,8 +522,11 @@ void CRepositoryBrowser::InitRepo()
     }
     else
     {
-        if (TrySVNParentPath())
-            return;
+        if ((m_InitialUrl.Left(7) == L"http://")||(m_InitialUrl.Left(8) == L"https://"))
+        {
+            if (TrySVNParentPath())
+                return;
+        }
         m_repository.root = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
     }
 
