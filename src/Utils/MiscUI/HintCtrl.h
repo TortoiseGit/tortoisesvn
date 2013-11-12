@@ -95,7 +95,8 @@ protected:
         }
         CRect rc;
         GetUpdateRect(&rc, FALSE);
-        ValidateRect(rc);
+        if (!rc.IsRectEmpty())
+            ValidateRect(rc);
     }
 
 private:

@@ -354,7 +354,8 @@ void CFilterEdit::OnPaint()
     DrawDimText();
     CRect rc;
     GetUpdateRect(&rc, FALSE);
-    ValidateRect(rc);
+    if (!rc.IsRectEmpty())
+        ValidateRect(rc);
 
     return;
 }

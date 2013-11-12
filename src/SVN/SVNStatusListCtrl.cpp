@@ -5198,7 +5198,8 @@ void CSVNStatusListCtrl::OnPaint()
     }
     CRect rc;
     GetUpdateRect(&rc, FALSE);
-    ValidateRect(rc);
+    if (!rc.IsRectEmpty())
+        ValidateRect(rc);
 }
 
 // prevent users from extending our hidden (size 0) columns
