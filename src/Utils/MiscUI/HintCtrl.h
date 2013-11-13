@@ -53,7 +53,7 @@ protected:
 
     afx_msg void CHintCtrl::OnPaint()
     {
-        Default();
+        LRESULT defres = Default();
         if (!m_sText.IsEmpty())
         {
             COLORREF clrText = ::GetSysColor(COLOR_WINDOWTEXT);
@@ -93,10 +93,16 @@ protected:
             }
             ReleaseDC(pDC);
         }
-        CRect rc;
-        GetUpdateRect(&rc, FALSE);
-        if (!rc.IsRectEmpty())
-            ValidateRect(rc);
+        if (defres)
+        {
+            // the Default() call did not process the WM_PAINT message!
+            // Validate the update region ourselves to avoid
+            // an endless loop repainting
+            CRect rc;
+            GetUpdateRect(&rc, FALSE);
+            if (!rc.IsRectEmpty())
+                ValidateRect(rc);
+        }
     }
 
 private:
