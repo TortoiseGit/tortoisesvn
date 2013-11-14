@@ -359,13 +359,13 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     ptrdiff_t Expansion = wcslen(destbuf) - exp - wcslen(def);
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf))*sizeof(wchar_t));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
         if (maxlength < Expansion + filelength) return FALSE;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf))*sizeof(wchar_t));
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += (Expansion*sizeof(wchar_t));
@@ -560,13 +560,13 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     // Replace the def string with the actual commit date
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf))*sizeof(wchar_t));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
         if (maxlength < Expansion + filelength) return FALSE;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf))*sizeof(wchar_t));
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
@@ -615,13 +615,13 @@ int InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
     ptrdiff_t Expansion = wcslen(pUrl) - wcslen(def);
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf))*sizeof(wchar_t));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
         if (maxlength < Expansion + filelength) return FALSE;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf))*sizeof(wchar_t));
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, pUrl, wcslen(pUrl)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
@@ -713,17 +713,17 @@ int InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filel
         filelength -= ((pEnd + 1 - pSplit)*sizeof(wchar_t));
         // Remove $WCxxx?
         size_t deflen = wcslen(def);
-        memmove(pBuild, pBuild + deflen, (filelength - (pBuild + deflen - pBuf))*sizeof(wchar_t));
+        memmove(pBuild, pBuild + deflen, (filelength - (pBuild + deflen - pBuf)));
         filelength -= (deflen*sizeof(wchar_t));
     }
     else
     {
         // Replace $WCxxx?TrueText:FalseText$ with FalseText
         // Remove terminating $
-        memmove(pEnd, pEnd + 1, (filelength - (pEnd + 1 - pBuf))*sizeof(wchar_t));
+        memmove(pEnd, pEnd + 1, (filelength - (pEnd + 1 - pBuf)));
         filelength -= sizeof(wchar_t);
         // Remove $WCxxx?TrueText:
-        memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf))*sizeof(wchar_t));
+        memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf)));
         filelength -= ((pSplit + 1 - pBuild)*sizeof(wchar_t));
     }
     return TRUE;
