@@ -113,7 +113,14 @@ enum LogDlgContextMenuCommands
     ID_EDITLOG,
     ID_DIFF,
     ID_DIFF_CONTENTONLY,
-    ID_COPYCLIPBOARD,
+    ID_COPYCLIPBOARDFULL,
+    ID_COPYCLIPBOARDFULLNOPATHS,
+    ID_COPYCLIPBOARDREVS,
+    ID_COPYCLIPBOARDAUTHORS,
+    ID_COPYCLIPBOARDMESSAGES,
+    ID_COPYCLIPBOARDURL,
+    ID_COPYCLIPBOARDRELPATH,
+    ID_COPYCLIPBOARDFILENAMES,
     ID_CHECKOUT,
     ID_REVERTTOREV,
     ID_BLAME,
@@ -1723,6 +1730,62 @@ void CLogDlg::CopyCommaSeparatedRevisionsToClipboard()
     }
 }
 
+void CLogDlg::CopyCommaSeparatedAuthorsToClipboard()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    CString sAuthors;
+    CString sAuthor;
+
+    if (pos != NULL)
+    {
+        while(pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
+            if (pLogEntry)
+            {
+                sAuthor.Format(L"%s, ", CUnicodeUtils::StdGetUnicode(pLogEntry->GetAuthor()).c_str());
+                sAuthors += sAuthor;
+            }
+        }
+
+        // trim trailing comma and space
+        int authorsLength = sAuthors.GetLength() - 2;
+        if (authorsLength > 0)
+        {
+            sAuthors = sAuthors.Left(authorsLength);
+            CStringUtils::WriteAsciiStringToClipboard(sAuthors, GetSafeHwnd());
+        }
+    }
+}
+
+void CLogDlg::CopyMessagesToClipboard()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    CString sMessages;
+    CString sMessage;
+
+    if (pos != NULL)
+    {
+        while(pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
+            if (pLogEntry)
+            {
+                sMessage.Format(L"%s\r\n----\r\n", CUnicodeUtils::StdGetUnicode(pLogEntry->GetMessageW()).c_str());
+                sMessages += sMessage;
+            }
+        }
+
+        CStringUtils::WriteAsciiStringToClipboard(sMessages, GetSafeHwnd());
+    }
+}
+
 void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
 {
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -1785,7 +1848,12 @@ void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
                 CString nlMessage = CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str());
                 nlMessage.Remove(L'\r');
                 nlMessage.Replace(L"\n", L"\r\n");
-                sLogCopyText.Format(L"%s\r\n----\r\n", (LPCTSTR)nlMessage);
+                sLogCopyText.Format(L"%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n",
+                    (LPCTSTR)sRev, pLogEntry->GetRevision(),
+                    (LPCTSTR)sAuthor,  (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str()),
+                    (LPCTSTR)sDate,
+                    (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetDateString().c_str()),
+                    (LPCTSTR)sMessage, (LPCTSTR)nlMessage);
             }
             sClipdata +=  sLogCopyText;
         }
@@ -4777,7 +4845,7 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
     return true;
 }
 
-void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup)
+void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu)
 {
     if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth()==0))
     {
@@ -4887,7 +4955,15 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
     }
     if (m_LogList.GetSelectedCount() != 0)
     {
-        popup.AppendMenuIcon(ID_COPYCLIPBOARD, IDS_LOG_POPUP_COPYTOCLIPBOARD, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULL, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULLNOPATHS, IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDREVS, IDS_LOG_POPUP_CLIPBOARD_REVS, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDAUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDMESSAGES, IDS_LOG_POPUP_CLIPBOARD_MSGS, IDI_COPYCLIP);
+
+        CString temp;
+        temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+        popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)clipSubMenu.m_hMenu, temp);
     }
     popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND, IDI_FILTEREDIT);
     // this menu shows only if Code Collaborator Installed & Registry configured
@@ -4914,9 +4990,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     CIconMenu popup;
     if (!popup.CreatePopupMenu())
        return;
-
+    CIconMenu clipSubMenu;
+    if (!clipSubMenu.CreatePopupMenu())
+        return;
     // get the menu items
-    PopulateContextMenuForRevisions(pCmi, popup);
+    PopulateContextMenuForRevisions(pCmi, popup, clipSubMenu);
 
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
                                         TPM_RIGHTBUTTON, point.x, point.y, this, 0);
@@ -4998,8 +5076,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         case ID_REVPROPS:
             ExecuteRevisionPropsMenuRevisions(pCmi);
             break;
-        case ID_COPYCLIPBOARD:
-            CopySelectionToClipBoard();
+        case ID_COPYCLIPBOARDFULL:
+            CopySelectionToClipBoard(true);
+            break;
+        case ID_COPYCLIPBOARDFULLNOPATHS:
+            CopySelectionToClipBoard(false);
+            break;
+        case ID_COPYCLIPBOARDREVS:
+            CopyCommaSeparatedRevisionsToClipboard();
+            break;
+        case ID_COPYCLIPBOARDAUTHORS:
+            CopyCommaSeparatedAuthorsToClipboard();
+            break;
+        case ID_COPYCLIPBOARDMESSAGES:
+            CopyMessagesToClipboard();
             break;
         case ID_EXPORT:
             ExecuteExportMenuRevisions(pCmi);
@@ -5745,7 +5835,11 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
 
     //entry is selected, now show the popup menu
     CIconMenu popup;
-    PopulateContextMenuForChangedPaths(pCmi, popup);
+    CIconMenu clipSubMenu;
+    if (!clipSubMenu.CreatePopupMenu())
+        return;
+
+    PopulateContextMenuForChangedPaths(pCmi, popup, clipSubMenu);
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
                                     TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     CLogWndHourglass wait;
@@ -5815,6 +5909,12 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
     case ID_VIEWPATHREV:
         ExecuteViewPathRevisionChangedPaths(selIndex);
         break;
+    case ID_COPYCLIPBOARDURL:
+    case ID_COPYCLIPBOARDRELPATH:
+    case ID_COPYCLIPBOARDFILENAMES:
+        CopyChangedPathInfoToClipboard(pCmi, cmd);
+        break;
+
     default:
         break;
     } // switch (cmd)
@@ -6573,7 +6673,7 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
     return true;
 }
 
-bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup)
+bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu)
 {
     INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 
@@ -6647,6 +6747,16 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                 popup.AppendMenuIcon(ID_OPENLOCAL_MULTIPLE, IDS_LOG_POPUP_OPENLOCAL_MULTIPLE, IDI_OPEN);
             }
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
+
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURL, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDRELPATH, IDS_LOG_POPUP_CLIPBOARD_RELPATH, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFILENAMES, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
+
+            CString temp;
+            temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+            popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)clipSubMenu.m_hMenu, temp);
+
+
             bEntryAdded = true;
         }
 
@@ -7151,4 +7261,31 @@ void CLogDlg::ExecuteViewPathRevisionChangedPaths( INT_PTR selIndex )
         if (!url.IsEmpty())
             ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
     }
+}
+
+void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr pCmi, int cmd)
+{
+    int nPaths = (int)pCmi->ChangedLogPathIndices.size();
+
+    CString sClipboard;
+    for (int i = 0; i < nPaths; ++i)
+    {
+        INT_PTR selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
+
+        CLogChangedPath path = m_currentChangedArray[selIndex];
+        switch (cmd)
+        {
+        case ID_COPYCLIPBOARDURL:
+            sClipboard += (m_sRepositoryRoot + path.GetPath());
+            break;
+        case ID_COPYCLIPBOARDRELPATH:
+            sClipboard += path.GetPath();
+            break;
+        case ID_COPYCLIPBOARDFILENAMES:
+            sClipboard += CPathUtils::GetFileNameFromPath(path.GetPath());
+            break;
+        }
+        sClipboard += L"\r\n";
+    }
+    CStringUtils::WriteAsciiStringToClipboard(sClipboard);
 }

@@ -193,6 +193,10 @@ private:
     void CopySelectionToClipBoard(bool bIncludeChangedList);
     void CopyCommaSeparatedRevisionsToClipboard();
     void CopyChangedSelectionToClipBoard();
+    void CopyCommaSeparatedAuthorsToClipboard();
+    void CopyMessagesToClipboard();
+    void CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr pCmi, int cmd);
+
     CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch,
                                                                 CLogChangedPathArray& currentChangedArray);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);
@@ -252,7 +256,7 @@ private:
     void ResizeAllListCtrlCols(bool bOnlyVisible);
 
     void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
-    void PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup);
+    void PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu);
     bool GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
     void AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint &point, int selIndex, CListCtrl& listControl);
     bool VerifyContextMenuForRevisionsAllowed(int selIndex);
@@ -298,7 +302,7 @@ private:
     void ExecuteRevertChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
     bool VerifyContextMenuForChangedPathsAllowed(INT_PTR selIndex);
     bool GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi);
-    bool PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup);
+    bool PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu);
     void ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, bool ignoreprops);
     bool CheckMultipleDiffs(UINT selCount);
     int  OpenWorkingCopyFileWithRegisteredProgram(CString& fullPath);
