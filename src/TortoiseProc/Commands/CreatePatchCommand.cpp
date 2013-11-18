@@ -110,7 +110,10 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
             hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
             if (paths.GetCount() == 1)
-                pfd->SetFileName(paths[0].GetFilename() + L".patch");
+                pfd->SetFileName(paths[0].GetFileOrDirectoryName() + L".patch");
+            else
+                pfd->SetFileName(paths.GetCommonDirectory().GetFileOrDirectoryName() + L".patch");
+
             // set the default folder
             if (SUCCEEDED(hr))
             {
