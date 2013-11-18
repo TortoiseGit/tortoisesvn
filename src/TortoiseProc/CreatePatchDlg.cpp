@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,6 +79,7 @@ BOOL CCreatePatch::OnInitDialog()
     m_PatchList.SetSelectButton(&m_SelectAll);
     m_PatchList.SetCancelBool(&m_bCancelled);
     m_PatchList.EnableFileDrop();
+    m_PatchList.SetRevertMode(true);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);

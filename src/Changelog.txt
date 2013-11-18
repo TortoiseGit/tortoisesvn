@@ -7,6 +7,8 @@ Version 1.8.4
        in TortoiseBlame. (Stefan)
 - BUG: Issue #588: subwcrev crash after replacing
        $WCREV$ in UTF-16 encoded file. (Stefan)
+- BUG: Issue #590: "create patch" for added files
+       always includes parent folders. (Stefan)
 - NEW: Issue #586: Option to disable SVNParentPath
        handling in repo browser. (Stefan)
 
