@@ -87,7 +87,11 @@ enum RepoBrowserContextMenuCommands
     ID_RENAME,
     ID_COPYTOWC,
     ID_COPYTO,
+    ID_FULLTOCLIPBOARD,
     ID_URLTOCLIPBOARD,
+    ID_NAMETOCLIPBOARD,
+    ID_AUTHORTOCLIPBOARD,
+    ID_REVISIONTOCLIPBOARD,
     ID_PROPS,
     ID_REVPROPS,
     ID_GNUDIFF,
@@ -3210,6 +3214,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         return;
 
     CIconMenu popup;
+    CIconMenu clipSubMenu;
     if (popup.CreatePopupMenu())
     {
         if (!bSVNParentPathUrl && !bIsBookmark)
@@ -3307,7 +3312,23 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.AppendMenuIcon(ID_SAVEAS, IDS_REPOBROWSE_SAVEAS, IDI_SAVEAS);     // "Save as..."
             }
         }
-        popup.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_REPOBROWSE_URLTOCLIPBOARD, IDI_COPYCLIP);   // "Copy URL to clipboard"
+        if (clipSubMenu.CreatePopupMenu())
+        {
+            if (pWnd == &m_RepoList)
+                clipSubMenu.AppendMenuIcon(ID_FULLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_NAMETOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
+            if (pWnd == &m_RepoList)
+            {
+                clipSubMenu.AppendMenuIcon(ID_REVISIONTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_REVS, IDI_COPYCLIP);
+                clipSubMenu.AppendMenuIcon(ID_AUTHORTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_AUTHORS, IDI_COPYCLIP);
+            }
+
+            CString temp;
+            temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+            popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)clipSubMenu.m_hMenu, temp);
+
+        }
         if (!bSVNParentPathUrl && !bIsBookmark)
         {
             if (   (selection.GetFolderCount(0) == selection.GetPathCount(0))
@@ -3467,20 +3488,87 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
             break;
         case ID_URLTOCLIPBOARD:
+        case ID_FULLTOCLIPBOARD:
+        case ID_NAMETOCLIPBOARD:
+        case ID_AUTHORTOCLIPBOARD:
+        case ID_REVISIONTOCLIPBOARD:
             {
-                CString url;
-                for (size_t i=0; i < selection.GetPathCount(0); ++i)
+                CString sClipboard;
+
+                if (pWnd == &m_RepoList)
                 {
-                    CString path = selection.GetURL (0, i).GetSVNPathString();
-                    url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
-                    if (!GetRevision().IsHead())
+                    POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+                    if (pos)
                     {
-                        url += _T("?r=") + GetRevision().ToString();
+                        int index = -1;
+                        while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+                        {
+                            CItem * pItem = (CItem *)m_RepoList.GetItemData (index);
+                            if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                            {
+                                CString path = pItem->absolutepath;
+                                path.Replace (L"\\", L"%5C");
+                                sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
+                            }
+                            if (cmd == ID_FULLTOCLIPBOARD)
+                                sClipboard += L", ";
+                            if (cmd == ID_URLTOCLIPBOARD)
+                            {
+                                if (!GetRevision().IsHead())
+                                {
+                                    sClipboard += _T("?r=") + GetRevision().ToString();
+                                }
+                            }
+                            if (cmd == ID_NAMETOCLIPBOARD)
+                            {
+                                CString u = pItem->absolutepath;
+                                u.Replace (L"\\", L"%5C");
+                                CTSVNPath path = CTSVNPath(u);
+                                CString name = path.GetFileOrDirectoryName();
+                                sClipboard += name;
+                            }
+                            if ((cmd == ID_AUTHORTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                            {
+                                sClipboard += pItem->author;
+                            }
+                            if (cmd == ID_FULLTOCLIPBOARD)
+                                sClipboard += L", ";
+                            if ((cmd == ID_REVISIONTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                            {
+                                CString temp;
+                                temp.Format(_T("%ld"), pItem->created_rev);
+                                sClipboard += temp;
+                            }
+                            sClipboard += _T("\r\n");
+                        }
                     }
-                    url += _T("\r\n");
                 }
-                url.TrimRight(_T("\r\n"));
-                CStringUtils::WriteAsciiStringToClipboard(url);
+                else
+                {
+                    for (size_t i=0; i < selection.GetPathCount(0); ++i)
+                    {
+                        if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                        {
+                            CString path = selection.GetURL (0, i).GetSVNPathString();
+                            sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
+                        }
+                        if (cmd == ID_URLTOCLIPBOARD)
+                        {
+                            if (!GetRevision().IsHead())
+                            {
+                                sClipboard += _T("?r=") + GetRevision().ToString();
+                            }
+                        }
+                        if (cmd == ID_NAMETOCLIPBOARD)
+                        {
+                            CString name = selection.GetURL (0, i).GetFileOrDirectoryName();
+                            sClipboard += name;
+                        }
+                        sClipboard += _T("\r\n");
+                    }
+                }
+                sClipboard.TrimRight(_T("\r\n"));
+                CStringUtils::WriteAsciiStringToClipboard(sClipboard);
             }
             break;
         case ID_SAVEAS:
