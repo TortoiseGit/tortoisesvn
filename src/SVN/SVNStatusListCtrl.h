@@ -666,7 +666,7 @@ public:
      * are separated by newlines.
      * \param dwCols the columns to copy. Each column is separated by a tab.
      */
-    bool CopySelectedEntriesToClipboard(DWORD dwCols);
+    bool CopySelectedEntriesToClipboard(DWORD dwCols, int cmd);
 
     /**
      * If during the call to GetStatus() some svn:externals are found from different

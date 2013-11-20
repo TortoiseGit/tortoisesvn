@@ -100,7 +100,7 @@ const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 #define IDSVNLC_REMOVE              21
 #define IDSVNLC_COMMIT              22
 #define IDSVNLC_PROPERTIES          23
-#define IDSVNLC_COPY                24
+#define IDSVNLC_COPYRELPATHS        24
 #define IDSVNLC_COPYEXT             25
 #define IDSVNLC_COPYCOL             26
 #define IDSVNLC_REPAIRMOVE          27
@@ -125,10 +125,12 @@ const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 #define IDSVNLC_IGNOREMASKGLOBAL    46
 #define IDSVNLC_COMPARE_CONTENTONLY 47
 #define IDSVNLC_COMPAREWC_CONTENTONLY 48
+#define IDSVNLC_COPYFULL            49
+#define IDSVNLC_COPYFILENAMES       50
 
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS            49
+#define IDSVNLC_MOVETOCS            51
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -3019,6 +3021,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
         CIconMenu popup;
         CMenu changelistSubMenu;
         CMenu ignoreSubMenu;
+        CIconMenu clipSubMenu;
         if (popup.CreatePopupMenu())
         {
             if ((wcStatus >= svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_external))
@@ -3407,11 +3410,24 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 if (!bInactiveItem)
                 {
-                    popup.AppendMenu(MF_SEPARATOR);
-                    popup.AppendMenuIcon(IDSVNLC_COPY, IDS_STATUSLIST_CONTEXT_COPY, IDI_COPYCLIP);
-                    popup.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
-                    if (selSubitem >= 0)
-                        popup.AppendMenuIcon(IDSVNLC_COPYCOL, IDS_STATUSLIST_CONTEXT_COPYCOL, IDI_COPYCLIP);
+                    if (clipSubMenu.CreatePopupMenu())
+                    {
+                        CString temp;
+
+                        clipSubMenu.AppendMenuIcon(IDSVNLC_COPYFULL, IDS_STATUSLIST_CONTEXT_COPYFULLPATHS, IDI_COPYCLIP);
+                        clipSubMenu.AppendMenuIcon(IDSVNLC_COPYRELPATHS, IDS_STATUSLIST_CONTEXT_COPYRELPATHS, IDI_COPYCLIP);
+                        clipSubMenu.AppendMenuIcon(IDSVNLC_COPYFILENAMES, IDS_STATUSLIST_CONTEXT_COPYFILENAMES, IDI_COPYCLIP);
+                        clipSubMenu.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
+                        if (selSubitem >= 0)
+                        {
+                            CString temp;
+                            temp.Format(IDS_STATUSLIST_CONTEXT_COPYCOL, (LPCWSTR)m_ColumnManager.GetName(selSubitem));
+                            clipSubMenu.AppendMenuIcon(IDSVNLC_COPYCOL, temp, IDI_COPYCLIP);
+                        }
+
+                        temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+                        popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)clipSubMenu.m_hMenu, temp);
+                    }
                 }
                 if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)
                     &&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
@@ -3467,14 +3483,16 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             bool bIgnoreProps = false;
             switch (cmd)
             {
-            case IDSVNLC_COPY:
-                CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH);
+            case IDSVNLC_COPYFULL:
+            case IDSVNLC_COPYRELPATHS:
+            case IDSVNLC_COPYFILENAMES:
+                CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH, cmd);
                 break;
             case IDSVNLC_COPYEXT:
-                CopySelectedEntriesToClipboard((DWORD)-1);
+                CopySelectedEntriesToClipboard((DWORD)-1, 0);
                 break;
             case IDSVNLC_COPYCOL:
-                CopySelectedEntriesToClipboard((DWORD)1 << selSubitem);
+                CopySelectedEntriesToClipboard((DWORD)1 << selSubitem, 0);
                 break;
             case IDSVNLC_PROPERTIES:
                 {
@@ -5396,9 +5414,9 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
                 {
                     // copy all selected paths to the clipboard
                     if (GetAsyncKeyState(VK_SHIFT)&0x8000)
-                        CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH|SVNSLC_COLSTATUS|SVNSLC_COLURL);
+                        CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH|SVNSLC_COLSTATUS|SVNSLC_COLURL, IDSVNLC_COPYRELPATHS);
                     else
-                        CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH);
+                        CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH, IDSVNLC_COPYRELPATHS);
                     return TRUE;
                 }
             }
@@ -5444,7 +5462,7 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
     return CListCtrl::PreTranslateMessage(pMsg);
 }
 
-bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
+bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols, int cmd)
 {
     static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
     static HINSTANCE hResourceHandle(AfxGetResourceHandle());
@@ -5493,7 +5511,28 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
         // we selected only cols we want, so not other then select test needed
         for (int column = 0; column < count; ++column)
         {
-            if (selection & (1<<column))
+            if (cmd && (SVNSLC_COLFILEPATH & (1<<column)))
+            {
+                FileEntry * entry = GetListEntry(index);
+                if (entry)
+                {
+                    CString sPath;
+                    switch (cmd)
+                    {
+                    case IDSVNLC_COPYFULL:
+                        sPath = entry->GetPath().GetWinPathString();
+                        break;
+                    case IDSVNLC_COPYRELPATHS:
+                        sPath = entry->GetRelativeSVNPath(false);
+                        break;
+                    case IDSVNLC_COPYFILENAMES:
+                        sPath = entry->GetPath().GetFileOrDirectoryName();
+                        break;
+                    }
+                    ADDTOCLIPBOARDSTRING(sPath);
+                }
+            }
+            else if (selection & (1<<column))
                 ADDTOCLIPBOARDSTRING(GetCellText(index, column));
         }
 
