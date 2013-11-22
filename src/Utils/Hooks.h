@@ -163,6 +163,7 @@ public:
      * \param pathList a list of paths to look for the hook scripts
      * \param depth the depth of the commit
      * \param rev the revision the update was done to
+     * \param updatedList list of paths that were touched by the update in some way
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
      * \remark the string "%PATHS% in the command line of the hook script is
@@ -174,7 +175,7 @@ public:
      * the string representation of \c rev.
      */
     bool                PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
-                                    SVNRev rev, DWORD& exitcode, CString& error);
+                                    SVNRev rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error);
 
     /**
      * Executes the Start-Commit-Hook that first matches one of the paths in

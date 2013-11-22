@@ -226,6 +226,7 @@
                         <literal>REVISION</literal>
                         <literal>ERROR</literal>
                         <literal>CWD</literal>
+                        <literal>RESULTPATH</literal>
                     </para>
                 </listitem>
             </varlistentry>
@@ -356,6 +357,16 @@
                     <para>
                         The current working directory with which the script is run.
                         This is set to the common root directory of all affected paths.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term condition="pot">RESULTPATH</term>
+                <listitem>
+                    <para>
+                        A path to a temporary file which contains all the
+                        paths which were somehow touched by the operation.
+                        Each path is on a separate line in the temp file.
                     </para>
                 </listitem>
             </varlistentry>

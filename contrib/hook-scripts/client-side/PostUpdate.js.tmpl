@@ -5,9 +5,9 @@ var objArgs, num;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
-if (num !== 5)
+if (num !== 6)
 {
-    WScript.Echo("Usage: [CScript | WScript] PostUpdate.js path/to/pathsfile depth revision error path/to/CWD ");
+    WScript.Echo("Usage: [CScript | WScript] PostUpdate.js path/to/pathsfile depth revision error path/to/CWD path/to/updatepathsfile");
     WScript.Quit(1);
 }
 
@@ -23,8 +23,18 @@ message = message + "depth is: " + objArgs(1) + "\n";
 message = message + "result revision is: " + objArgs(2) + "\n";
 message = message + "file containing error message is: " + objArgs(3) + "\n";
 message = message + "CWD is: " + objArgs(4) + "\n";
+message = message + "file containing list of paths that were updated is: " + objArgs(5) + "\n";
 
 WScript.Echo(message);
+
+paths = readPaths(objArgs(5));
+message = "list of paths updated:\n";
+for (var i = 0; i < paths.length; i++)
+{
+    message = message + paths[i] + "\n";
+}
+WScript.Echo(message);
+
 WScript.Quit(0);
 
 

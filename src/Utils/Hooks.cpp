@@ -435,7 +435,7 @@ bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
     return true;
 }
 
-bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error)
+bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error)
 {
     hookiterator it = FindItem(post_update_hook, pathList);
     if (it == end())
@@ -448,6 +448,7 @@ bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
     AddParam(sCmd, rev.ToString());
     AddErrorParam(sCmd, error);
     AddCWDParam(sCmd, pathList);
+    AddPathParam(sCmd, updatedList);
     exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }

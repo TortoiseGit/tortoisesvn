@@ -286,6 +286,7 @@ private:
     void        MergeAfterCommit();
     void        GenerateMergeLogMessage();
     void        CompareWithWC(NotificationData * data);
+    CTSVNPathList GetPathsForUpdateHook(const CTSVNPathList& pathList);
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.
