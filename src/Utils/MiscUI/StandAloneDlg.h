@@ -97,7 +97,7 @@ protected:
 
     BOOL OnEraseBkgnd(CDC*  pDC)
     {
-        BaseType::OnEraseBkgnd(pDC);
+        BOOL baseRet = BaseType::OnEraseBkgnd(pDC);
         if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
         {
             // draw the frame margins in black
@@ -130,7 +130,7 @@ protected:
                 pDC->FillSolidRect(rc.left, rc.bottom-m_margins.cyBottomHeight, rc.right-rc.left, m_margins.cyBottomHeight, RGB(0,0,0));
             }
         }
-        return TRUE;
+        return baseRet;
     }
 
     LRESULT OnNcHitTest(CPoint pt)
