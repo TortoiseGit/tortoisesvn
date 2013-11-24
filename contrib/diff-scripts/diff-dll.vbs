@@ -2,7 +2,7 @@
 '
 ' TortoiseSVN Diff script for binary files
 '
-' Copyright (C) 2010 the TortoiseSVN team
+' Copyright (C) 2010-2013 the TortoiseSVN team
 ' This file is distributed under the same license as TortoiseSVN
 '
 ' Last commit by:
