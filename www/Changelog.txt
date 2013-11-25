@@ -1,3 +1,17 @@
+Version 1.8.4
+- BUG: Issue 584: Revert from log dialog bottom pane
+       fails if the file was deleted. (Sergey Azarkevich)
+- BUG: Issue #585: repo browser doesn't refresh directory
+       browser when clicking "up a directory". (Stefan)
+- BUG: Issue #587: wrong colors in locatorbar
+       in TortoiseBlame. (Stefan)
+- BUG: Issue #588: subwcrev crash after replacing
+       $WCREV$ in UTF-16 encoded file. (Stefan)
+- BUG: Issue #590: "create patch" for added files
+       always includes parent folders. (Stefan)
+- NEW: Issue #586: Option to disable SVNParentPath
+       handling in repo browser. (Stefan)
+
 Version 1.8.3
 - BUG: Issue #546: "Restore after commit" fails
        to restore in some situations. (Stefan)

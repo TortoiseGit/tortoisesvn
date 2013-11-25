@@ -3,7 +3,7 @@ import string
 import shutil
 
 searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
-replacewith = ['1.8.3', '1.8.3.24901', '1.8.4']
+replacewith = ['1.8.4', '1.8.4.24972', '1.8.5']
 setpath = '/var/www/domains/tortoisesvn.net/htdocs'
 
 for root, dirs, files in os.walk(setpath, topdown = False):
