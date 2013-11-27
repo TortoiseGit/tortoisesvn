@@ -40,7 +40,6 @@ class CBottomView;
  */
 class CMainFrame : public CFrameWndEx, public CPatchFilesDlgCallBack //CFrameWndEx
 {
-
 public:
     CMainFrame();
     virtual ~CMainFrame();
@@ -152,6 +151,19 @@ protected:
     afx_msg void    OnUpdateViewIgnorecomments(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateViewRegexFilter(CCmdUI *pCmdUI);
     afx_msg void    OnRegexfilter(UINT cmd);
+    afx_msg void    OnDummyEnabled() {};
+    afx_msg void    OnEncodingLeft(UINT cmd);
+    afx_msg void    OnEncodingRight(UINT cmd);
+    afx_msg void    OnEncodingBottom(UINT cmd);
+    afx_msg void    OnEOLLeft(UINT cmd);
+    afx_msg void    OnEOLRight(UINT cmd);
+    afx_msg void    OnEOLBottom(UINT cmd);
+    afx_msg void    OnUpdateEncodingLeft(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEncodingRight(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEncodingBottom(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEOLLeft(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEOLRight(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEOLBottom(CCmdUI *pCmdUI);
 
     DECLARE_MESSAGE_MAP()
 protected:
@@ -204,6 +216,7 @@ protected:
 
 protected:
     CMFCStatusBar   m_wndStatusBar;
+    CMFCRibbonStatusBar m_wndRibbonStatusBar;
     CLocatorBar     m_wndLocatorBar;
     CLineDiffBar    m_wndLineDiffBar;
     CXSplitter      m_wndSplitter;
@@ -258,6 +271,8 @@ public:
     LPARAM          resolveMsgLParam;
 
     const CMFCToolBar *   GetToolbar() const { return &m_wndToolBar; }
+    void            FillEncodingButton( CMFCRibbonButton * pButton, int start );
+    void            FillEOLButton( CMFCRibbonButton * pButton, int start );
     CMFCMenuBar     m_wndMenuBar;
     CMFCToolBar     m_wndToolBar;
 };
