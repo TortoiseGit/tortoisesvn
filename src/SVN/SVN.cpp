@@ -389,7 +389,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                  bool ignoreexternals, bool bAllow_unver_obstructions,
                  bool makeParents)
 {
-    SVNPool(localpool);
+    SVNPool localpool(pool);
     Prepare();
     CHooks::Instance().PreConnect(pathList);
     SVNTRACE(
