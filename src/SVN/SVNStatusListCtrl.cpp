@@ -5465,7 +5465,6 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols, int cmd)
 {
     static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
-    static HINSTANCE hResourceHandle(AfxGetResourceHandle());
 
     if (GetSelectedCount() == 0)
         return false;
