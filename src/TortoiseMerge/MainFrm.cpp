@@ -3294,7 +3294,7 @@ void CMainFrame::OnUpdateEncodingLeft( CCmdUI *pCmdUI )
 {
     if (m_pwndLeftView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_LEFTENCODINGSTART) == m_pwndLeftView->GetTextType());
+        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_LEFTENCODINGSTART) == m_pwndLeftView->GetTextType());
         pCmdUI->Enable(m_pwndLeftView->IsWritable());
     }
     else
@@ -3305,7 +3305,7 @@ void CMainFrame::OnUpdateEncodingRight( CCmdUI *pCmdUI )
 {
     if (m_pwndRightView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_RIGHTENCODINGSTART) == m_pwndRightView->GetTextType());
+        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_RIGHTENCODINGSTART) == m_pwndRightView->GetTextType());
         pCmdUI->Enable(m_pwndRightView->IsWritable());
     }
     else
@@ -3316,7 +3316,7 @@ void CMainFrame::OnUpdateEncodingBottom( CCmdUI *pCmdUI )
 {
     if (m_pwndBottomView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_BOTTOMENCODINGSTART) == m_pwndBottomView->GetTextType());
+        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_BOTTOMENCODINGSTART) == m_pwndBottomView->GetTextType());
         pCmdUI->Enable(m_pwndBottomView->IsWritable());
     }
     else
@@ -3327,7 +3327,7 @@ void CMainFrame::OnUpdateEOLLeft( CCmdUI *pCmdUI )
 {
     if (m_pwndLeftView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_LEFTEOLSTART) == m_pwndLeftView->GetLineEndings());
+        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_LEFTEOLSTART) == m_pwndLeftView->GetLineEndings());
         pCmdUI->Enable(m_pwndLeftView->IsWritable());
     }
     else
@@ -3338,7 +3338,7 @@ void CMainFrame::OnUpdateEOLRight( CCmdUI *pCmdUI )
 {
     if (m_pwndRightView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_RIGHTEOLSTART) == m_pwndRightView->GetLineEndings());
+        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_RIGHTEOLSTART) == m_pwndRightView->GetLineEndings());
         pCmdUI->Enable(m_pwndRightView->IsWritable());
     }
     else
@@ -3349,7 +3349,7 @@ void CMainFrame::OnUpdateEOLBottom( CCmdUI *pCmdUI )
 {
     if (m_pwndBottomView)
     {
-        pCmdUI->SetCheck((pCmdUI->m_nID - ID_INDICATOR_BOTTOMEOLSTART) == m_pwndBottomView->GetLineEndings());
+        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_BOTTOMEOLSTART) == m_pwndBottomView->GetLineEndings());
         pCmdUI->Enable(m_pwndBottomView->IsWritable());
     }
     else

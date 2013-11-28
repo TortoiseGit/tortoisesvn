@@ -129,7 +129,7 @@ BOOL CRegexFiltersDlg::OnInitDialog()
 
 void CRegexFiltersDlg::OnNMDblclkRegexlist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+    //LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
     *pResult = 0;
     OnBnClickedEdit();
 }
@@ -163,7 +163,7 @@ void CRegexFiltersDlg::SetupListControl()
 
 void CRegexFiltersDlg::OnLvnItemchangedRegexlist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+    //LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
     bool bOneItemSelected = (m_RegexList.GetSelectedCount() == 1);
     GetDlgItem(IDC_EDIT)  ->EnableWindow(bOneItemSelected);
