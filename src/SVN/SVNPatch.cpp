@@ -493,7 +493,6 @@ CString SVNPatch::GetErrorMessage(svn_error_t * Err) const
 CString SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
 {
     CString msg;
-    char errbuf[256];
     if (Err != NULL)
     {
         svn_error_t * ErrPtr = Err;
@@ -501,6 +500,7 @@ CString SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
             msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
         else
         {
+            char errbuf[256] = {0};
             /* Is this a Subversion-specific error code? */
             if ((ErrPtr->apr_err > APR_OS_START_USEERR)
                 && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
