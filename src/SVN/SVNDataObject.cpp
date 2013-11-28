@@ -710,7 +710,6 @@ HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, L
     fetc.dwAspect = DVASPECT_CONTENT;
     fetc.lindex = -1;
     fetc.tymed = TYMED_HGLOBAL;
-    fetc.tymed = TYMED_HGLOBAL;
 
     STGMEDIUM medium = {0};
     medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
