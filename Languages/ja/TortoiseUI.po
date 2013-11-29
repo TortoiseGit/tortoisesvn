@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 14:00+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -3375,10 +3375,6 @@ msgstr "コピーツール\nコピー"
 msgid "Copy URL to clipboard"
 msgstr "URLをクリップボードにコピー"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "すべての情報をクリップボードにコピー"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "コピーして名前を変更"
@@ -3387,10 +3383,6 @@ msgstr "コピーして名前を変更"
 msgid "Copy and rename item to here"
 msgstr "ここにコピーして名前を変更"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "列をクリップボードにコピー"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "コピー元のパス"
@@ -3398,10 +3390,6 @@ msgstr "コピー元のパス"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "ここに項目をコピー"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "クリップボードにパスをコピー"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4871,6 +4859,10 @@ msgstr "ファイル名、拡張子、もしくはMIMEタイプ:"
 msgid "Filename/Extension"
 msgstr "ファイル名/拡張子"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr "ファイル名"
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "ファイル"
@@ -5014,6 +5006,14 @@ msgstr "開始:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "フルスクリーン"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr "フルデータ"
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr "パス変更のないリビジョンデータ全体"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7310,6 +7310,10 @@ msgstr "パッチに適合するパスが見つかりました。"
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "パス"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr "ルートからの相対パス"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10896,6 +10900,10 @@ msgstr "作業コピーをアップグレード"
 msgid "Upgrading '%1!s!'"
 msgstr "「%1!s!」をアップグレード中"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr "URL"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "デフォルトの画像を使用(&D): "
@@ -11579,6 +11587,10 @@ msgstr "エイリアス: %s"
 msgid "all &revisions"
 msgstr "すべてのリビジョン(&R)"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr "すべての情報"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "名称未設定ファイル"
@@ -11673,6 +11685,11 @@ msgstr "bugtraq:url\r\n課題追跡システムを示すURL。\r\n課題IDで置
 msgid "changes total: "
 msgstr "総変更数: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr "「%s」列"
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "コミット"
@@ -11739,6 +11756,14 @@ msgstr "外部"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "外部ファイル:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr "ファイル/フォルダー名"
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr "フルパス"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11940,6 +11965,10 @@ msgstr "四半期"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "読み取り専用"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr "相対パス"
 
 #. Resource IDs: (10)
 msgid "replaced"

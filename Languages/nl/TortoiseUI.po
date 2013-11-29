@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -3365,10 +3365,6 @@ msgstr "Kopieer-gereedschap\nKopiëren"
 msgid "Copy URL to clipboard"
 msgstr "URL naar klembord kopiëren"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopiëer alle informatie naar klembord"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopiëer en hernoem"
@@ -3377,10 +3373,6 @@ msgstr "Kopiëer en hernoem"
 msgid "Copy and rename item to here"
 msgstr "Kopiëer en hernoem onderdeel hierheen"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kolom naar klembord kopiëren"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopie van pad"
@@ -3388,10 +3380,6 @@ msgstr "Kopie van pad"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopiëer onderdelen hierheen"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopiëer paden naar klembord"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4861,6 +4849,10 @@ msgstr "Bestandsnaam, extensie of mime-type:"
 msgid "Filename/Extension"
 msgstr "Bestandsnaam/Extensie"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Bestanden"
@@ -5004,6 +4996,14 @@ msgstr "Van:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Volledig scherm"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7300,6 +7300,10 @@ msgstr "Pad gevonden dat beter past bij de patch."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Paden"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10886,6 +10890,10 @@ msgstr "Werkkopie opwaarderen"
 msgid "Upgrading '%1!s!'"
 msgstr "Opwaarderen '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Gebruik &standaardbeeld:"
@@ -11569,6 +11577,10 @@ msgstr "alias: %s"
 msgid "all &revisions"
 msgstr "alle &revisies"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "een bestand zonder naam"
@@ -11663,6 +11675,11 @@ msgstr "bugtraq:url\r\nURL verwijzend naar de issue tracker. Het dient '%BUGID%'
 msgid "changes total: "
 msgstr "totaal wijzigingen: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "vastleggingen"
@@ -11729,6 +11746,14 @@ msgstr "extern"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "extern bestand:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11930,6 +11955,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "alleen lezen"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

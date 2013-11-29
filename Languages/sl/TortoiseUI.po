@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -3361,10 +3361,6 @@ msgstr "Orodje za kopiranje\nKopiraj"
 msgid "Copy URL to clipboard"
 msgstr "Kopiraj URL na odložišče"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopiraj vse podatke na odložišče"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopiraj in preimenuj"
@@ -3373,10 +3369,6 @@ msgstr "Kopiraj in preimenuj"
 msgid "Copy and rename item to here"
 msgstr "Kopiraj element sem in ga preimenuj"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kopiraj stolpec v odložišče"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopirano iz poti"
@@ -3384,10 +3376,6 @@ msgstr "Kopirano iz poti"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopiraj elemente sem"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopiraj poti na odložišče"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4857,6 +4845,10 @@ msgstr "Ime datoteke, končnica ali tip MIME:"
 msgid "Filename/Extension"
 msgstr "Ime datoteke/Končnica"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Datoteke"
@@ -5000,6 +4992,14 @@ msgstr "Od:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Celozaslonski način"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7296,6 +7296,10 @@ msgstr "Napel pot, ki bolj odgovarja popravku."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Poti"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10882,6 +10886,10 @@ msgstr "Posodobitev delovne kopije"
 msgid "Upgrading '%1!s!'"
 msgstr "Posodabljanje '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Uporabi &privzeto sliko: "
@@ -11565,6 +11573,10 @@ msgstr "vzdevek: %s"
 msgid "all &revisions"
 msgstr "vse &revizije"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "neimenovana datoteka"
@@ -11659,6 +11671,11 @@ msgstr "bugtraq:url\r\nURL sledilnika zadev. Vsebovati mora '%BUGID%', ki\r\nga 
 msgid "changes total: "
 msgstr "skupno število sprememb: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "objave"
@@ -11725,6 +11742,14 @@ msgstr "zunanje"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "zunanja datoteka:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11926,6 +11951,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "samo za branje"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

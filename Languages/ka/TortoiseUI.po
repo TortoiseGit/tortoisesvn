@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -3359,10 +3359,6 @@ msgstr "კოპირების სამარჯვი\nკოპირე
 msgid "Copy URL to clipboard"
 msgstr "URL-ს ბუფერში კოპირება"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "სრული ინფორმაიის ბუფერში კოპირება"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "კოპირება და გადარქმევა"
@@ -3371,10 +3367,6 @@ msgstr "კოპირება და გადარქმევა"
 msgid "Copy and rename item to here"
 msgstr "ელემენტების კოპირება და გადარქმევა აქ"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "სვეტის კოპირება ბუფერში"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "კოპირება გეზიდან"
@@ -3382,10 +3374,6 @@ msgstr "კოპირება გეზიდან"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "ელემენტის კოპირება აქ"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "გეზების ბუფერში კოპირება"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4855,6 +4843,10 @@ msgstr "ფაილის სახელი, ტიპი ან mime ტი�
 msgid "Filename/Extension"
 msgstr "ფაილის სახელი/ტიპი"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "ფაილები"
@@ -4998,6 +4990,14 @@ msgstr "აქედან:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "სრული ეკრანი"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7294,6 +7294,10 @@ msgstr "მოიძებნა გეზი, რომელიც უკე�
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "გამოტოვებული გეზები:"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10880,6 +10884,10 @@ msgstr "სამუშაო ასლის განახლება"
 msgid "Upgrading '%1!s!'"
 msgstr "განახლება: '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "&ნაგულისხმები გამოსახულება"
@@ -11563,6 +11571,10 @@ msgstr "ფსევდონიმი: %s"
 msgid "all &revisions"
 msgstr "ყველა &ვერსია"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "უსახელო ფაილი"
@@ -11657,6 +11669,11 @@ msgstr "bugtraq:url\r\nURL მიუთითებს პრობლემი�
 msgid "changes total: "
 msgstr "სულ ცვლილებები:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "ფიქსაცია..."
@@ -11723,6 +11740,14 @@ msgstr "გარე"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "გარე ფაილი:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11924,6 +11949,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "მხოლოდ კითხვადი"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

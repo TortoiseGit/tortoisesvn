@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -3360,10 +3360,6 @@ msgstr "Công cụ sao chép\nSao chép"
 msgid "Copy URL to clipboard"
 msgstr "Sao chép URL sang bảng kẹp tạm"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Sao chép tất cả thông tin sang bảng kẹp tạm"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Sao chép và đổi tên"
@@ -3372,10 +3368,6 @@ msgstr "Sao chép và đổi tên"
 msgid "Copy and rename item to here"
 msgstr "Sao chép và đổi tên món sang đây"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Sao chép cột sang bảng kẹp tạm"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Sao chép từ đường dẫn"
@@ -3383,10 +3375,6 @@ msgstr "Sao chép từ đường dẫn"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Sao chép các món sang đây"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Sao chép các đường dẫn sang bảng kẹp tạm"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4856,6 +4844,10 @@ msgstr "Tên tập tin, phần mở rộng hoặc kiểu mime:"
 msgid "Filename/Extension"
 msgstr "Tên tập tin/Phần mở rộng"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Các tập tin"
@@ -4999,6 +4991,14 @@ msgstr "Từ:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Toàn màn hình"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7295,6 +7295,10 @@ msgstr "Đường dẫn được tìm thấy khớp đường dẫn tốt hơn."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Các đường dẫn"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10881,6 +10885,10 @@ msgstr "Nâng cấp bản sao làm việc"
 msgid "Upgrading '%1!s!'"
 msgstr "Đang nâng cấp '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Sử dụng ảnh &mặc định: "
@@ -11564,6 +11572,10 @@ msgstr "bí danh: %s"
 msgid "all &revisions"
 msgstr "tất cả các &bản sửa đổi"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "một tập tin không tên"
@@ -11658,6 +11670,11 @@ msgstr "bugtraq:url\nURL chỉ tới bộ theo dõi vấn đề. Nó phải ch�
 msgid "changes total: "
 msgstr "tổng cộng thay đổi: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "các cam kết"
@@ -11724,6 +11741,14 @@ msgstr "bên ngoài"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "tập tin bên ngoài:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11925,6 +11950,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "chỉ đọc"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

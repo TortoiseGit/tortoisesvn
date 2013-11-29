@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -3360,10 +3360,6 @@ msgstr "Εργαλείο αντιγραφής\nΑντιγραφή"
 msgid "Copy URL to clipboard"
 msgstr "Αντιγραφή URL στο πρόχειρο"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Αντιγραφή όλων των πληροφοριών στο Πρόχειρο"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Αντιγραφή και μετονομασία"
@@ -3372,10 +3368,6 @@ msgstr "Αντιγραφή και μετονομασία"
 msgid "Copy and rename item to here"
 msgstr "Αντιγραφή και μετονομασία αντικειμένων προς τα εδώ"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Αντιγραφή στήλης στο πρόχειρο"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Αντιγραφή από τη διαδρομή"
@@ -3383,10 +3375,6 @@ msgstr "Αντιγραφή από τη διαδρομή"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Αντιγραφή αντικειμένων εδώ"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Αντιγραφή ενεργειών στο Πρόχειρο"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4856,6 +4844,10 @@ msgstr "Όνομα αρχείου, επέκταση ή τύπος-mime:"
 msgid "Filename/Extension"
 msgstr "Όνομα αρχείου/Επέκταση"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Αρχεία"
@@ -4999,6 +4991,14 @@ msgstr "Από:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Πλήρης οθόνη"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7295,6 +7295,10 @@ msgstr ""
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Διαδρομές"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10881,6 +10885,10 @@ msgstr "Αναβάθμιση αντιγράφου εργασίας"
 msgid "Upgrading '%1!s!'"
 msgstr ""
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Χρήση &προεπιλεγμένης εικόνας:"
@@ -11564,6 +11572,10 @@ msgstr "ψευδώνυμο: %s"
 msgid "all &revisions"
 msgstr ""
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "ένα ανεπώνυμο αρχείο"
@@ -11658,6 +11670,11 @@ msgstr ""
 msgid "changes total: "
 msgstr "συνολικές αλλαγές: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "καταγραφές"
@@ -11724,6 +11741,14 @@ msgstr "εξωτερικό"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "εξωτερικό αρχείο:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11925,6 +11950,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "μόνο για ανάγνωση"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

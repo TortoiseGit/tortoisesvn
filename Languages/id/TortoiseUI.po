@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -3369,10 +3369,6 @@ msgstr "Alat Salin\nSalin"
 msgid "Copy URL to clipboard"
 msgstr "Copy URL ke clipboard"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Copy semua informasi ke clipboard"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Salin dan ganti nama"
@@ -3381,10 +3377,6 @@ msgstr "Salin dan ganti nama"
 msgid "Copy and rename item to here"
 msgstr "Salin dan ganti nama item ke sini"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Salin kolom ke clipboard"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Copy dari path"
@@ -3392,10 +3384,6 @@ msgstr "Copy dari path"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Salin item ke sini"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Copy path ke clipboard"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4865,6 +4853,10 @@ msgstr "Nama berkas, ekstensi atau tipe-mime:"
 msgid "Filename/Extension"
 msgstr "Nama Berkas/Ekstensi"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Berkas-berkas"
@@ -5008,6 +5000,14 @@ msgstr "Dari:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Layar Penuh"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7304,6 +7304,10 @@ msgstr "Path menemukan adanya persamaan pada patch yang lebih baik."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Path"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10890,6 +10894,10 @@ msgstr "Upgrade salinan bekerja"
 msgid "Upgrading '%1!s!'"
 msgstr "Upgrade '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Gunakan Gambar &Bawaan:"
@@ -11573,6 +11581,10 @@ msgstr "alias: %s"
 msgid "all &revisions"
 msgstr ""
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "berkas tidak bernama"
@@ -11667,6 +11679,11 @@ msgstr "bugtraq:url\r\nURL yang merujuk ke pelacak isu. Ia harus berisi '%BUGID%
 msgid "changes total: "
 msgstr "jumlah perubahan:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "komit"
@@ -11733,6 +11750,14 @@ msgstr "eksternal"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "berkas eksternal:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11934,6 +11959,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "hanya baca"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -421,7 +421,7 @@ msgstr "&Lisää >>"
 
 #. Resource IDs: (1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "&Lisää suodatin"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -661,7 +661,7 @@ msgstr "&Poista (säilytä paikallinen)"
 
 #. Resource IDs: (1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "&Poista suodatin"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -705,7 +705,7 @@ msgstr "&Muokkaa"
 
 #. Resource IDs: (1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Muokkaa suodatinta"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1432,7 +1432,7 @@ msgstr "&Tuntemattomat asemat"
 
 #. Resource IDs: (1074)
 msgid "&Up"
-msgstr ""
+msgstr "&Ylös"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -3232,7 +3232,7 @@ msgstr "Säädä &TortoiseSVN olemaan koskaan käyttämättä roskakoria"
 
 #. Resource IDs: (7)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Määritä suodattimet"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3362,10 +3362,6 @@ msgstr "Kopiointityökalu\nKopioi"
 msgid "Copy URL to clipboard"
 msgstr "Kopioi paikannin leikepöydälle"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopioi kaikki tiedot leikepöydälle"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopioi ja uudelleennimeä"
@@ -3374,10 +3370,6 @@ msgstr "Kopioi ja uudelleennimeä"
 msgid "Copy and rename item to here"
 msgstr "Kopioi ja uudelleennimeä kohde tänne"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kopioi sarake leikepöydälle"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopio polusta"
@@ -3385,10 +3377,6 @@ msgstr "Kopio polusta"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopioi kohteet tänne"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopioi polut leikepöydälle"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4858,6 +4846,10 @@ msgstr "Tiedostonimi, pääte tai mime-tyyppi:"
 msgid "Filename/Extension"
 msgstr "TIedostonimi/pääte"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Tiedostot"
@@ -5001,6 +4993,14 @@ msgstr "Mistä:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Koko ruutu"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -5613,7 +5613,7 @@ msgstr "Älä välitä &edeltäjistä"
 
 #. Resource IDs: (156)
 msgid "Ignore Comments"
-msgstr ""
+msgstr "Ohita kommentit"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -6691,7 +6691,7 @@ msgstr "Nimi"
 
 #. Resource IDs: (65535)
 msgid "Name:"
-msgstr ""
+msgstr "Nimi:"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6754,7 +6754,7 @@ msgstr "Uusi nimi ei saa olla tyhjä tai sama kuin alkuperäinen nimi!"
 
 #. Resource IDs: (101)
 msgid "Newlines"
-msgstr ""
+msgstr "Rivinvaihdot"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7298,6 +7298,10 @@ msgstr "Löydettin polku joka täsmää paremmin paikkatiedoston kanssa."
 msgid "Paths"
 msgstr "Polut"
 
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
+
 #. Resource IDs: (218)
 msgid "Peg"
 msgstr "Ankkuri"
@@ -7839,15 +7843,15 @@ msgstr "Päivitetään resurssienhallinta: %1!s!"
 
 #. Resource IDs: (32, 156, 165)
 msgid "Regex Filter"
-msgstr ""
+msgstr "Suodatin"
 
 #. Resource IDs: (164)
 msgid "Regex Filters"
-msgstr ""
+msgstr "Suodattimet"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
-msgstr ""
+msgstr "Säännöllinen lauseke:"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -7987,7 +7991,7 @@ msgstr "Poista tallennetut tunnistustiedot"
 msgid ""
 "Remove all comments before doing the diff so changes inside comments don't "
 "show as different"
-msgstr ""
+msgstr "Poista kaikki kommentit ennen vertailua, jotta kommenttimuutokset eivät näy vertailussa"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -8151,7 +8155,7 @@ msgstr "Korvaa tekstin toisella\nKorvaa"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
-msgstr ""
+msgstr "Korvaa:"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -10157,7 +10161,7 @@ msgstr "Kohdetyökopiossa on paikallisia muutoksia.\nHaluatko jatkaa yhdistämis
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr ""
+msgstr "Tekstit ovat identtisiä, mutta tiedostot eivät täsmää!\nLöydetyt eroavaisuudet:"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10883,6 +10887,10 @@ msgstr "Muunna työkopio uuteen muotoon"
 msgid "Upgrading '%1!s!'"
 msgstr "Päivitetään '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Käytä &oletuskuvaa:"
@@ -11239,7 +11247,7 @@ msgstr "Lukittaessa yhtä tai useampaa tiedostoa, näyttää ikkunan, jossa pyyd
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
-msgstr ""
+msgstr "Tyhjämerkkimuutokset (välilyönnit, tabulaattorit)"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11566,6 +11574,10 @@ msgstr "toinen nimi: %s"
 msgid "all &revisions"
 msgstr "kaikki &versiot"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "nimetön tiedosto"
@@ -11660,6 +11672,11 @@ msgstr "bugtraq:url\r\nPaikannin, joka osoittaa vikaseurantaohjelmaan. Merkkijon
 msgid "changes total: "
 msgstr "muutoksia:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "toimitukset arkistoon"
@@ -11726,6 +11743,14 @@ msgstr "ulkoinen"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "ulkoinen tiedosto:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11927,6 +11952,10 @@ msgstr "neljännesvuotta"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "vain luettavissa oleva"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

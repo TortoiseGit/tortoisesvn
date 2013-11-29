@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -3365,10 +3365,6 @@ msgstr "Kopi-verktøy\nKopiér"
 msgid "Copy URL to clipboard"
 msgstr "Kopiér URL til utklippstavlen"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopiér alt til utklippstavlen"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopiér og omdøp"
@@ -3377,10 +3373,6 @@ msgstr "Kopiér og omdøp"
 msgid "Copy and rename item to here"
 msgstr "Kopiér og omdøp element hit"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kopiér kolonne til utklippstavlen"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopiert fra sti"
@@ -3388,10 +3380,6 @@ msgstr "Kopiert fra sti"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopiér elementer hit"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopiér stier til utklippstavlen"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4861,6 +4849,10 @@ msgstr "Filnavn, endelse eller mime-type:"
 msgid "Filename/Extension"
 msgstr "Filnavn/Endelse"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Filer"
@@ -5004,6 +4996,14 @@ msgstr "Fra:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Full Skjerm"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7300,6 +7300,10 @@ msgstr "Fant sti som passer korreksjonen bedre."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Filstier"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10886,6 +10890,10 @@ msgstr "Oppgrader arbeidskopi"
 msgid "Upgrading '%1!s!'"
 msgstr "Oppgraderer '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Bruk &Standard Bilde:"
@@ -11569,6 +11577,10 @@ msgstr "alias: %s"
 msgid "all &revisions"
 msgstr "alle &revisjoner"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "fil uten navn"
@@ -11663,6 +11675,11 @@ msgstr "bugtraq:url\r\nURL til 'Issue Tracker'. Den må inneholde '%BUGID%' som\
 msgid "changes total: "
 msgstr "endringer totalt: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "Innsendinger"
@@ -11729,6 +11746,14 @@ msgstr "ekstern"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "ekstern fil:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11930,6 +11955,10 @@ msgstr "kvartaler"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "ikke skrivbar"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

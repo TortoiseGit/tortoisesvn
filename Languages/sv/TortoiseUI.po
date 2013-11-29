@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -3364,10 +3364,6 @@ msgstr "Kopieringsverktyg\nKopiera"
 msgid "Copy URL to clipboard"
 msgstr "Kopiera URL till urklipp"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopiera all information till urklipp"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopiera och byt namn"
@@ -3376,10 +3372,6 @@ msgstr "Kopiera och byt namn"
 msgid "Copy and rename item to here"
 msgstr "Kopiera och byt namn på objekten hit"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kopiera kolumn till urklipp"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopierad från"
@@ -3387,10 +3379,6 @@ msgstr "Kopierad från"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopiera objekten hit"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopiera sökvägar till urklipp"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4860,6 +4848,10 @@ msgstr "Filnamn, filändelse eller mime-typ:"
 msgid "Filename/Extension"
 msgstr "Filnamn/Filändelse"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Filer"
@@ -5003,6 +4995,14 @@ msgstr "Från:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Fullskärm"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7299,6 +7299,10 @@ msgstr "Sökväg funnen som matchar patchen bättre."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Sökvägar"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10885,6 +10889,10 @@ msgstr "Uppgradera arbetskopia"
 msgid "Upgrading '%1!s!'"
 msgstr "Uppgraderar '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Använd &standardbild:"
@@ -11568,6 +11576,10 @@ msgstr "alias: %s"
 msgid "all &revisions"
 msgstr ""
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "en namnlös fil"
@@ -11662,6 +11674,11 @@ msgstr "bugtraq:url\r\nURL till bug-/ärendespårningssystem. Måste innehålla 
 msgid "changes total: "
 msgstr "antal ändringar:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "arkiveringar"
@@ -11728,6 +11745,14 @@ msgstr "extern"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "extern fil:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11929,6 +11954,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "skrivskyddad"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

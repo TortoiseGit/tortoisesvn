@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/tortoisesvn/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -3360,10 +3360,6 @@ msgstr "Инструмент за копиране\nКопиране"
 msgid "Copy URL to clipboard"
 msgstr "Копиране на URL в системния буфер"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Копиране на цялата информация в системния буфер"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Копиране и преименуване"
@@ -3372,10 +3368,6 @@ msgstr "Копиране и преименуване"
 msgid "Copy and rename item to here"
 msgstr "Копиране и преименуване на обект до тук"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Копиране на колоната в системния буфер"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Копиране от път"
@@ -3383,10 +3375,6 @@ msgstr "Копиране от път"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Копиране на обектите до тук"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Копиране на пътищата в системния буфер"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4856,6 +4844,10 @@ msgstr "Име на файл, разширение или MIME-тип:"
 msgid "Filename/Extension"
 msgstr "Име на файл/Разширение"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Файлове"
@@ -4999,6 +4991,14 @@ msgstr "От:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Цял екран"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7295,6 +7295,10 @@ msgstr "Пътя намери, че съвпада с парчто по-добр
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Пътища"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10881,6 +10885,10 @@ msgstr "Надстройване на работното копие"
 msgid "Upgrading '%1!s!'"
 msgstr "Актуализиран '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Използване на изображението по &подразбиране:"
@@ -11564,6 +11572,10 @@ msgstr "псевдоним: %s"
 msgid "all &revisions"
 msgstr ""
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "неозаглавен файл"
@@ -11658,6 +11670,11 @@ msgstr "bugtraq:url\r\nURL, сочещ към програмата за прос
 msgid "changes total: "
 msgstr "промени общо:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "поверявания"
@@ -11724,6 +11741,14 @@ msgstr "външни"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "външен файл:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11925,6 +11950,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "само за четене"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

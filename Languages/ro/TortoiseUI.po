@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -3362,10 +3362,6 @@ msgstr "Unealta copiere\nCopiază"
 msgid "Copy URL to clipboard"
 msgstr "Copiază URL-ul în clipboard"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Copiază toate informaţiile în clipboard"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Copiază şi redenumeşte"
@@ -3374,10 +3370,6 @@ msgstr "Copiază şi redenumeşte"
 msgid "Copy and rename item to here"
 msgstr "Copiază aici şi redenumeşte elementul"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Copiază coloana la clipboard"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Copiat din calea"
@@ -3385,10 +3377,6 @@ msgstr "Copiat din calea"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Copiază aici elementele"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Copiază căile în clipboard"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4858,6 +4846,10 @@ msgstr "Nume de fișier, Extensie sau tip mime:"
 msgid "Filename/Extension"
 msgstr "Nume de fișier/Extensie"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Fişiere"
@@ -5001,6 +4993,14 @@ msgstr "De la:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Ecran întreg"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7297,6 +7297,10 @@ msgstr "S-a găsit o cale care se potrivește mai bine cu petic"
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Căi"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10883,6 +10887,10 @@ msgstr "Înnoieşte copia de lucru"
 msgid "Upgrading '%1!s!'"
 msgstr "Se actualizează '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Foloseşte imaginea pre&definită:"
@@ -11566,6 +11574,10 @@ msgstr "alias: %s"
 msgid "all &revisions"
 msgstr "toate %reviziile"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "un fişier fără nume"
@@ -11660,6 +11672,11 @@ msgstr "bugtraq:url\r\nURL-ul indicând monitorul de probleme. Acesta trebuie s�
 msgid "changes total: "
 msgstr "număr total de scimbări:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "transmiteri"
@@ -11726,6 +11743,14 @@ msgstr "extern"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "fişier extern:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11927,6 +11952,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "doar citire"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

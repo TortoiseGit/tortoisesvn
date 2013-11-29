@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -3360,10 +3360,6 @@ msgstr "Kopírovací Nástroj\nKopírování"
 msgid "Copy URL to clipboard"
 msgstr "Kopírovat URL do schránky"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopírovat všechny informace do schránky"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopírovat a přejmenovat"
@@ -3372,10 +3368,6 @@ msgstr "Kopírovat a přejmenovat"
 msgid "Copy and rename item to here"
 msgstr "Kopírovat a přejmenovat položku sem"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Zkopírovat sloupec do schránky"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopírovat z cesty"
@@ -3383,10 +3375,6 @@ msgstr "Kopírovat z cesty"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Kopírovat položky sem"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopírovat cesty do schránky"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4856,6 +4844,10 @@ msgstr "Název souboru, přípona, nebo mime-type:"
 msgid "Filename/Extension"
 msgstr "Název souboru/přípona"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Soubory"
@@ -4999,6 +4991,14 @@ msgstr "Od:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Celá obrazovka"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7295,6 +7295,10 @@ msgstr "Zjištěna cesta, která se lépe shoduje se záplatou."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Cesty"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10881,6 +10885,10 @@ msgstr "Aktualizovat pracovní kopii"
 msgid "Upgrading '%1!s!'"
 msgstr "Aktualizuji '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Použít &Výchozí Obrázek: "
@@ -11564,6 +11572,10 @@ msgstr "přezdívka: %s"
 msgid "all &revisions"
 msgstr "všechny &revize"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "soubor bez názvu"
@@ -11658,6 +11670,11 @@ msgstr "bugtraq:url\r\nURL odkazující na hlídač problémů. Musí obsahovat 
 msgid "changes total: "
 msgstr "Změn celkem:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "počet odevzdání"
@@ -11724,6 +11741,14 @@ msgstr "externí"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "externí soubor:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11925,6 +11950,10 @@ msgstr "čtvrtletí"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "pouze ke čtení"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

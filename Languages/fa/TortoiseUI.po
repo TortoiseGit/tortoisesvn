@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-27 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -3363,10 +3363,6 @@ msgstr "ابزار کپی برداری\nکپی برداری"
 msgid "Copy URL to clipboard"
 msgstr "کپی‌کردن URL به کلیپ بورد"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "تمام اطلاعات به کلیپ بوردکپی شود "
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "کپی و تغییر نام"
@@ -3375,10 +3371,6 @@ msgstr "کپی و تغییر نام"
 msgid "Copy and rename item to here"
 msgstr "کپی و تغییر نام قلم به اینجا"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "کپی کردن ستون به کلیپ بورد"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "کپی شده از مسیر"
@@ -3386,10 +3378,6 @@ msgstr "کپی شده از مسیر"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "اقلام را به اینجا کپی کنید"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "مسیرها به کلیپ بوردکپی شود "
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4859,6 +4847,10 @@ msgstr "نام فایل، پسوند یا mime-type:"
 msgid "Filename/Extension"
 msgstr "نام فایل/پسوند"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr ""
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "فایلها"
@@ -5002,6 +4994,14 @@ msgstr "از:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "تمام صفحه"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr ""
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr ""
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7298,6 +7298,10 @@ msgstr "Path found that matches the patch better."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "مسیرها"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr ""
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10884,6 +10888,10 @@ msgstr "بروزرسانی نسخه کاری"
 msgid "Upgrading '%1!s!'"
 msgstr "ارتقاء '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr ""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "استفاده از تصویر &پیشفرض:"
@@ -11567,6 +11575,10 @@ msgstr "نام مستعار: %s"
 msgid "all &revisions"
 msgstr "همه ویرایشها"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "یک پرونده فاقد نام "
@@ -11661,6 +11673,11 @@ msgstr "bugtraq:url\r\nآدرس سیستم ردیابی ایرادات. این �
 msgid "changes total: "
 msgstr "مجموع تغییرات:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr ""
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "اعمال ها"
@@ -11727,6 +11744,14 @@ msgstr "خارجی"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "فایل خارجی : "
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr ""
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11928,6 +11953,10 @@ msgstr ""
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "فقط خواندنی"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "replaced"

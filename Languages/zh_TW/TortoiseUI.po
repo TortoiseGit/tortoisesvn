@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
+"PO-Revision-Date: 2013-11-28 23:50+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -3366,10 +3366,6 @@ msgstr "複製工具\n複製"
 msgid "Copy URL to clipboard"
 msgstr "複製URL至剪貼簿"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "複製所有訊息至剪貼簿"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "複製及重新命名"
@@ -3378,10 +3374,6 @@ msgstr "複製及重新命名"
 msgid "Copy and rename item to here"
 msgstr "複製及重新命名項目至此"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "複製行至剪貼簿"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "從路徑複製"
@@ -3389,10 +3381,6 @@ msgstr "從路徑複製"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "複製項目至此"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "複製路徑至剪貼簿"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4862,6 +4850,10 @@ msgstr "檔名, 副檔名或 mime-類型:"
 msgid "Filename/Extension"
 msgstr "檔名/副檔名"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr "檔案名稱"
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Files"
@@ -5005,6 +4997,14 @@ msgstr "從:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "全螢幕"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr "全部資料"
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr "所有的版本資料但不含變動的路徑"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7301,6 +7301,10 @@ msgstr "已找到更符合補綴的路徑."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "路徑"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr "相對於根目錄的路徑"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10887,6 +10891,10 @@ msgstr "升級工作複本"
 msgid "Upgrading '%1!s!'"
 msgstr "正在升級 '%1!s!'"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr "URL"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "使用預設影像(&D):"
@@ -11570,6 +11578,10 @@ msgstr "別名: %s"
 msgid "all &revisions"
 msgstr "所有版本 (&R)"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr "全部資訊"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "無名檔案"
@@ -11664,6 +11676,11 @@ msgstr "bugtraq:url\n指向問題追蹤系統的 URL. 必須含有 '%BUGID%', \n
 msgid "changes total: "
 msgstr "變更總數:"
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr "'%s' 列"
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "送交記錄"
@@ -11730,6 +11747,14 @@ msgstr "外部"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "檔案外部設定:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr "檔名/目錄名"
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr "完整路徑"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11931,6 +11956,10 @@ msgstr "季"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "唯讀"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr "相對路徑"
 
 #. Resource IDs: (10)
 msgid "replaced"

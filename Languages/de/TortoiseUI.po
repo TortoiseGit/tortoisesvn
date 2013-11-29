@@ -15,7 +15,7 @@
 # djungbeck, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2013
 # peu <peu@rekoba.de>, 2013
@@ -26,16 +26,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-11-20 11:51+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2013-11-29 09:23+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -49,6 +49,7 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
+#. Resource IDs: (188)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -3369,10 +3370,6 @@ msgstr "Kopierwerkzeug\nKopieren"
 msgid "Copy URL to clipboard"
 msgstr "URL in Zwischenablage kopieren"
 
-#. Resource IDs: (209)
-msgid "Copy all information to clipboard"
-msgstr "Kopiere alle Informationen in die Zwischenablage"
-
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopieren und umbenennen"
@@ -3381,10 +3378,6 @@ msgstr "Kopieren und umbenennen"
 msgid "Copy and rename item to here"
 msgstr "Objekt hierher kopieren und umbenennen"
 
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Kopiere Spalte in die Zwischenablage"
-
 #. Resource IDs: (76)
 msgid "Copy from path"
 msgstr "Kopiert von"
@@ -3392,10 +3385,6 @@ msgstr "Kopiert von"
 #. Resource IDs: (103)
 msgid "Copy items to here"
 msgstr "Objekte hierher kopieren"
-
-#. Resource IDs: (209)
-msgid "Copy paths to clipboard"
-msgstr "Kopiere Pfade in die Zwischenablage"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -4865,6 +4854,10 @@ msgstr "Dateiname, Erweiterung oder MIME-Typ:"
 msgid "Filename/Extension"
 msgstr "Dateiname/Erweiterung"
 
+#. Resource IDs: (116)
+msgid "Filenames"
+msgstr "Dateinamen"
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Dateien"
@@ -5008,6 +5001,14 @@ msgstr "Von:"
 #. Resource IDs: (1065)
 msgid "Full Screen"
 msgstr "Vollbild"
+
+#. Resource IDs: (113)
+msgid "Full data"
+msgstr "Vollständige Daten"
+
+#. Resource IDs: (116)
+msgid "Full revision data without changed paths"
+msgstr "Vollständige Revisionsdaten ohne geänderte Pfade"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -7304,6 +7305,10 @@ msgstr "Pfad gefunden, der besser zum Patch passt."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Pfade"
+
+#. Resource IDs: (116)
+msgid "Paths relative to root"
+msgstr "Pfade relativ zum Stammverzeichnis"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -10890,6 +10895,10 @@ msgstr "Arbeitskopie hochstufen"
 msgid "Upgrading '%1!s!'"
 msgstr "'%1!s!' hochstufen"
 
+#. Resource IDs: (116)
+msgid "Urls"
+msgstr "URLs"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Verwende &Standardbild: "
@@ -11573,6 +11582,10 @@ msgstr "Alias: %s"
 msgid "all &revisions"
 msgstr "Alle &Revisionen"
 
+#. Resource IDs: (209)
+msgid "all information"
+msgstr "Alle Informationen"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "eine unbenannte Datei"
@@ -11667,6 +11680,11 @@ msgstr "bugtraq:url\r\nURL, die zum Fehlerverfolgungssystem zeigt. Muss '%BUGID%
 msgid "changes total: "
 msgstr "Änderungen insgesamt: "
 
+#. Resource IDs: (209)
+#, c-format
+msgid "column '%s'"
+msgstr "Spalte '%s'"
+
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "Übertragungen"
@@ -11733,6 +11751,14 @@ msgstr "Extern"
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "Externe Datei:"
+
+#. Resource IDs: (210)
+msgid "file/foldernames"
+msgstr "Datei-/Ordnernamen"
+
+#. Resource IDs: (210)
+msgid "full paths"
+msgstr "Vollständige Pfade"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11934,6 +11960,10 @@ msgstr "Quartale"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "schreibgeschützt"
+
+#. Resource IDs: (209)
+msgid "relative paths"
+msgstr "Relative Pfade"
 
 #. Resource IDs: (10)
 msgid "replaced"
