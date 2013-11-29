@@ -271,8 +271,14 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
         if (!relativeTo.IsDirectory())
             relativeTo = relativeTo.GetContainingDirectory();
     }
+    if (relativeTo.IsEmpty() && url1.Exists() && url2.IsUrl())
+    {
+        // the source path exists, i.e. it's a local path, so
+        // use this as the relative url
+        relativeTo = url1.GetDirectory();
+    }
     // the 'relativeTo' path must be a path: svn throws an error if it's used for urls.
-    if ((!url2.IsEquivalentTo(url1) && (relativeTo.IsEquivalentTo(url1) || relativeTo.IsEquivalentTo(url2))) || url1.IsUrl() || url2.IsUrl())
+    else if ((!url2.IsEquivalentTo(url1) && (relativeTo.IsEquivalentTo(url1) || relativeTo.IsEquivalentTo(url2))) || url1.IsUrl() || url2.IsUrl())
         relativeTo.Reset();
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
