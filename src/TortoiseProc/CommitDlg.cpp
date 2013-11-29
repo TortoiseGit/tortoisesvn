@@ -803,6 +803,7 @@ void CCommitDlg::OnCancel()
         m_History.AddEntry(m_sLogMessage);
         m_History.Save();
     }
+    m_restorepaths = m_ListCtrl.GetRestorePaths();
     if (!m_restorepaths.empty())
     {
         SVN svn;

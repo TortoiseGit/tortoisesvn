@@ -864,6 +864,7 @@ public:
      * Sets restore paths from a previous run
      */
     void SetRestorePaths(const std::map<CString,std::tuple<CString, CString>>& restorepaths) {m_restorepaths = restorepaths;}
+    const std::map<CString,std::tuple<CString, CString>>& GetRestorePaths() const { return m_restorepaths; }
 
     CString GetLastErrorMessage() {return m_sLastError;}
 
