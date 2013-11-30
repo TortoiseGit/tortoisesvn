@@ -6,7 +6,7 @@ searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
 replacewith = ['1.8.4', '1.8.4.24972', '1.8.5']
 setpath = '/var/www/domains/tortoisesvn.net/htdocs'
 
-for root, dirs, files in os.walk(setpath, topdown = False):
+for root, dirs, files in os.walk(setpath, topdown=False):
     for name in files:
         os.remove(os.path.join(root, name))
     for name in dirs:
