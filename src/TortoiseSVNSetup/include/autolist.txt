@@ -7,7 +7,7 @@
 .c, .cc, .cpp, .cxx = \s(?:[\w]+)::([\w]+)|[ \t:.>]([\w]+)\s?\([\w\s,.)]*\);|^#\s*define\s+(\w+)
 .asp, .aspx, .cs = (?:public|protected|private|internal)\s+(?:[\w.]+\s+)*([\w.]+)
 .h, .hpp, .hxx = ^\s*(?:class|struct)\s+([\w]+)|^\s+(?:\w+\s+)*([\w]+)\s*\(|^#define\s+(\w+)
-.html = \"#(\w+)\"
+.html, .htm = \"#(\w+)\"
 .java = (?:public|protected|private|internal)\s+(?:[\w.]+\s+)*([\w.]+)|class\s+([\w]+)(?:(?:\s+)?(?:extends|implements)(?:\s+)?([\w]+)?)
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
 .pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
