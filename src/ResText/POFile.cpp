@@ -75,7 +75,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
         if (line.get()[0]==0)
         {
             //empty line means end of entry!
-            RESOURCEENTRY resEntry;
+            RESOURCEENTRY resEntry = {0};
             std::wstring msgid;
             int type = 0;
             for (std::vector<std::wstring>::iterator I = entry.begin(); I != entry.end(); ++I)
