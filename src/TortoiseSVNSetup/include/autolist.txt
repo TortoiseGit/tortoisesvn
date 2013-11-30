@@ -17,4 +17,4 @@
 .py, .pyw, .rb = ^\s*(?:class|def)\s+(\w+)
 .sd = ^\s*(?:procedure|function)\s+(\w+)
 .vb, .vb6 = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
-.xaml = \sname\s*=\s*\"(\w+)\"
+.xaml = \s(x:)?Name\s*=\s*\"(\w+)\"
