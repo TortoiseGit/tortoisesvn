@@ -164,7 +164,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_bRightDrag(false)
     , oldy(0)
     , oldx(0)
-	, m_nBookmarksIcon(0)
+    , m_nBookmarksIcon(0)
     , m_bTrySVNParentPath(true)
 {
     ConstructorInit(rev);
