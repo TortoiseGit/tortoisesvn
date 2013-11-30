@@ -38,6 +38,7 @@ CTreeConflictEditorDlg::CTreeConflictEditorDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CTreeConflictEditorDlg::IDD, pParent)
     , conflict_reason(svn_wc_conflict_reason_edited)
     , conflict_action(svn_wc_conflict_action_edit)
+    , conflict_operation(svn_wc_operation_none)
     , src_right_version_kind(svn_node_unknown)
     , src_left_version_kind(svn_node_unknown)
     , m_theirsChoice(svn_wc_conflict_choose_merged)
@@ -45,6 +46,7 @@ CTreeConflictEditorDlg::CTreeConflictEditorDlg(CWnd* pParent /*=NULL*/)
     , m_choice(svn_wc_conflict_choose_postpone)
     , m_bInteractive(false)
     , m_bCancelled(false)
+    , kind(svn_node_none)
 {
 
 }
