@@ -1223,7 +1223,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
         lpDlgItem = GetControlInfo((WORD *) lpDlgItem, &dlgItem, dlg.dialogEx, &bCode);
 
         if (bCode == FALSE)
-            _tcscpy(szTitle, dlgItem.windowName);
+            _tcsncpy(szTitle, dlgItem.windowName, _countof(szTitle) - 1);
 
         if (_tcslen(szTitle) > 0)
         {
