@@ -1138,6 +1138,8 @@ BOOL CResModule::ReplaceAccelerator(LPCTSTR lpszType, WORD wLanguage)
 
     // Create the new accelerator table
     hglAccTableNew = LocalAlloc(LPTR, cAccelerators * 4 * sizeof(WORD));
+    if (hglAccTableNew == NULL)
+        goto DONE_ERROR;
     p = (WORD *)hglAccTableNew;
     lpaccelNew[cAccelerators-1].fVirt |= 0x80;
     for (i = 0; i < cAccelerators; i++)
