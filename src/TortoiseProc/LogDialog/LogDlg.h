@@ -37,15 +37,7 @@
 #include "ListViewAccServer.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
-#pragma warning(disable : 4278)
-#pragma warning(disable : 4146)
-#pragma warning(disable : 4298)
 #include "dte80a.tlh"
-#pragma warning(default : 4146)
-#pragma warning(default : 4278)
-#pragma warning(default : 4298)
-
-
 
 #define MERGE_REVSELECTSTART     1
 #define MERGE_REVSELECTEND       2

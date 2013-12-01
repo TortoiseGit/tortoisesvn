@@ -47,8 +47,6 @@
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #pragma comment(lib, "Shlwapi.lib")
 
-#pragma warning(push)
-#pragma warning(disable:4127)       // conditional expression is constant
 
 // Global Variables:
 TCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -58,6 +56,8 @@ std::wstring szOrigPath;
 std::wstring szPegRev;
 TCHAR searchstringnotfound[MAX_LOADSTRING];
 
+#pragma warning(push)
+#pragma warning(disable: 4127)       // conditional expression is constant due to the following bools
 const bool ShowDate = false;
 const bool ShowAuthor = true;
 const bool ShowLine = true;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,17 +44,10 @@ CIndexPairDictionary::CHashFunction::CHashFunction
 
 // construction / destruction
 
-#pragma warning (push)
-#pragma warning (disable:4355)
-
-// passing 'this' during construction is fine here
-
 CIndexPairDictionary::CIndexPairDictionary(void)
     : hashIndex (CHashFunction (this))
 {
 }
-
-#pragma warning (pop)
 
 CIndexPairDictionary::~CIndexPairDictionary(void)
 {

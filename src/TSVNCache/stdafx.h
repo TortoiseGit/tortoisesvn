@@ -40,14 +40,11 @@
 
 using namespace ATL;
 
-#pragma warning(push)
-#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <vector>
 #include <map>
 #include <algorithm>
 #include <deque>
-#pragma warning(pop)
 
 #pragma warning(push)
 #include "svn_wc.h"
@@ -65,7 +62,7 @@ typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 #ifdef _WIN64
 #   define APP_X64_STRING   "x64"
 #else
-#   define APP_X64_STRING ""
+#   define APP_X64_STRING   ""
 #endif
 
 #include "ProfilingInfo.h"

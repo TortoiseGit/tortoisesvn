@@ -31,9 +31,6 @@
 #include "UnicodeUtils.h"
 #include <algorithm>
 
-#pragma warning(push)
-#pragma warning(disable:4127)   //conditional expression is constant (cause of SVN_ERR)
-
 CRegStdString regTagsPattern = CRegStdString(_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
 
 // Copy the URL from src to dest, unescaping on the fly.
@@ -401,4 +398,3 @@ svn_status (    const char *path,
 
     return SVN_NO_ERROR;
 }
-#pragma warning(pop)

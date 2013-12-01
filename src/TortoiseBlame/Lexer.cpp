@@ -18,7 +18,7 @@
 #include "stdafx.h"
 
 // disable "dead code eleminated" warning
-#pragma warning(disable:4505)
+#pragma warning(disable: 4505)
 
 #include "TortoiseBlame.h"
 

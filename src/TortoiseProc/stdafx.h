@@ -49,8 +49,6 @@
 #include "svn_props.h"
 #pragma warning(pop)
 
-#pragma warning(push)
-#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <vector>
 #include <map>
@@ -58,10 +56,7 @@
 #include <algorithm>
 #include <deque>
 #include <regex>
-#pragma warning(pop)
 
-#pragma warning(push)
-#pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union (in MMSystem.h)
 #include <vfw.h>
 #include <shlobj.h>
 #include <Shlwapi.h>
@@ -73,10 +68,7 @@
 #include <assert.h>
 #include <math.h>
 #include <gdiplus.h>
-#pragma warning(pop)
 
-#pragma warning(push)
-#pragma warning(disable: 4005)  // macro redefinition
 #include "apr_version.h"
 #include "apu_version.h"
 #ifdef _WIN64
@@ -85,7 +77,6 @@
 #include "openssl/opensslv.h"
 #endif
 #include "../../ext/zlib/zlib.h"
-#pragma warning(pop)
 
 #define __WIN32__
 #include "boost/pool/object_pool.hpp"
@@ -104,7 +95,3 @@
 #endif
 
 #define HAVE_APPUTILS
-
-#pragma warning(disable: 4512)  // assignment operator could not be generated
-#pragma warning(disable: 4355)  // used in base member initializer list
-

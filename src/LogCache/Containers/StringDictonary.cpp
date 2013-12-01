@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,10 +147,6 @@ void CStringDictionary::Initialize()
 
 // construction / destruction
 
-#pragma warning (push)
-#pragma warning (disable:4355)
-
-// passing 'this' during construction is fine here
 
 CStringDictionary::CStringDictionary (void)
         : hashIndex (CHashFunction (this))
@@ -158,8 +154,6 @@ CStringDictionary::CStringDictionary (void)
 {
     Initialize();
 }
-
-#pragma warning (pop)
 
 CStringDictionary::~CStringDictionary (void)
 {

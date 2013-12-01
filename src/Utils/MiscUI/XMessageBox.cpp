@@ -120,8 +120,9 @@
 
 #include "XMessageBox.h"
 
-#pragma warning(disable : 4127)     // conditional expression is constant
-#pragma warning(disable : 4996)     // disable bogus deprecation warning
+#pragma warning(push)
+#pragma warning(disable: 4127)     // conditional expression is constant
+#pragma warning(disable: 4996)     // disable bogus deprecation warning
 
 #define countof(array) (sizeof(array)/sizeof(array[0]))
 
@@ -2823,3 +2824,5 @@ DWORD XMessageBoxGetCheckBox(XMSGBOXPARAMS& xmb)
 }
 
 #endif  // XMESSAGEBOX_DO_NOT_SAVE_CHECKBOX
+
+#pragma warning(pop)

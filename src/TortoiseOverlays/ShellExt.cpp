@@ -1,13 +1,10 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2013 - TortoiseSVN
 #include "stdafx.h"
-
-#pragma warning (disable : 4786)
 
 // Initialize GUIDs (should be done only and at-least once per DLL/EXE)
 #include <initguid.h>
 #include "Guids.h"
-
 #include "ShellExt.h"
 
 // *********************** CShellExt *************************
