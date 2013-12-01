@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "RegexFilterDlg.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 
 
 // CRegexFilterDlg dialog
@@ -32,7 +32,6 @@ CRegexFilterDlg::CRegexFilterDlg(CWnd* pParent /*=NULL*/)
     , m_sRegex(_T(""))
     , m_sReplace(_T(""))
 {
-
 }
 
 CRegexFilterDlg::~CRegexFilterDlg()

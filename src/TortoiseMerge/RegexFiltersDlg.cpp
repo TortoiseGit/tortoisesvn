@@ -20,7 +20,7 @@
 #include "TortoiseMerge.h"
 #include "RegexFiltersDlg.h"
 #include "RegexFilterDlg.h"
-#include "afxdialogex.h"
+#include <afxdialogex.h>
 
 
 // CRegexFiltersDlg dialog
@@ -31,7 +31,6 @@ CRegexFiltersDlg::CRegexFiltersDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CRegexFiltersDlg::IDD, pParent)
     , m_pIni(nullptr)
 {
-
 }
 
 CRegexFiltersDlg::~CRegexFiltersDlg()
