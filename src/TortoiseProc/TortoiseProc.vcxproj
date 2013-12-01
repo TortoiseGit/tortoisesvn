@@ -169,9 +169,7 @@
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\DirFileEnum.cpp" />
-    <ClCompile Include="..\Utils\DragDropImpl.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="..\Utils\DragDropImpl.cpp" />
     <ClCompile Include="..\Utils\Hooks.cpp" />
     <ClCompile Include="..\Utils\IconExtractor.cpp" />
     <ClCompile Include="..\Utils\JumpListHelpers.cpp" />

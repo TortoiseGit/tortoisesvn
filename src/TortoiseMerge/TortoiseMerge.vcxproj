@@ -146,9 +146,7 @@
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\DirFileEnum.cpp" />
-    <ClCompile Include="..\Utils\DragDropImpl.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="..\Utils\DragDropImpl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
