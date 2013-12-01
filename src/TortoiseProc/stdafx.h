@@ -77,13 +77,12 @@
 
 #pragma warning(push)
 #pragma warning(disable: 4005)  // macro redefinition
-#include "../../ext/apr/include/apr_version.h"
-#include "../../ext/apr-util/include/apu_version.h"
-//#include "../../ext/berkeley-db/db4.3-win32/include/db.h"
+#include "apr_version.h"
+#include "apu_version.h"
 #ifdef _WIN64
-#include "../../ext/openssl/inc64/openssl/opensslv.h"
+#include "openssl/opensslv.h"
 #else
-#include "../../ext/openssl/inc32/openssl/opensslv.h"
+#include "openssl/opensslv.h"
 #endif
 #include "../../ext/zlib/zlib.h"
 #pragma warning(pop)

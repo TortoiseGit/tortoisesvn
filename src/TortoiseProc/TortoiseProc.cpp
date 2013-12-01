@@ -36,8 +36,8 @@
 #include "SVNGlobal.h"
 #include "svn_types.h"
 #include "svn_dso.h"
-#include <openssl/ssl.h>
-#include <openssl/err.h>
+#include "openssl/ssl.h"
+#include "openssl/err.h"
 #include "Commands/Command.h"
 #include "../version.h"
 #include "JumpListHelpers.h"
