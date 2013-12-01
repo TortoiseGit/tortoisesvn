@@ -19,6 +19,9 @@ set "PATH=%NANT_PATH%;%PERL_PATH%;%PYTHON_PATH%;%PATH%"
 
 call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" x86
 
+rem cleanup the cov-dir if it's present
+if exist "cov-int" rd /q /s "cov-int"
+
 rem we need to build the libraries before our files
 title nant clean ipv6 xp Subversion
 nant clean ipv6 xp Subversion
@@ -26,6 +29,7 @@ nant clean ipv6 xp Subversion
 rem the actual coverity command
 title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant clean ipv6 xp TortoiseSVN
 "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant clean ipv6 xp TortoiseSVN
+"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant clean xp Overlays
 
 if exist "TortoiseSVN.tar" del "TortoiseSVN.tar"
 if exist "TortoiseSVN.tgz" del "TortoiseSVN.tgz"
