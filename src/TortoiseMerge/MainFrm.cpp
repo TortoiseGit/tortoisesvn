@@ -1700,7 +1700,7 @@ void CMainFrame::OnFileSaveAs()
             FileSaveAs();
             break;
         case 204: // continue resolving
-            if (m_pwndBottomView)
+            if (IsViewGood(m_pwndBottomView))
             {
                 m_pwndBottomView->GoToLine(CheckResolved());
             }
