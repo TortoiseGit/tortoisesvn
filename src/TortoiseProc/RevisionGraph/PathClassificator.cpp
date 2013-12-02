@@ -114,9 +114,6 @@ bool CPathClassificator::CWildCardPattern::WildCardMatch
     }
 
     // we should never get here
-
-    assert (0);
-    return false;
 }
 
 bool CPathClassificator::CWildCardPattern::StraightMatch
