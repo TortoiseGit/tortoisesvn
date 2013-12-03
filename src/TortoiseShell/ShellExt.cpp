@@ -292,7 +292,7 @@ UINT __stdcall CShellExt::CopyCallback(HWND hWnd, UINT wFunc, UINT wFlags, LPCTS
     {
         return CopyCallback_Wrap(hWnd, wFunc, wFlags, pszSrcFile, dwSrcAttribs, pszDestFile, dwDestAttribs);
     }
-    __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
+    __except(GetExceptionCode() == 0xc0000194/*EXCEPTION_POSSIBLE_DEADLOCK*/ ? EXCEPTION_CONTINUE_EXECUTION : CCrashReport::Instance().SendReport(GetExceptionInformation()))
     {
     }
     return IDYES;
@@ -310,6 +310,8 @@ UINT __stdcall CShellExt::CopyCallback_Wrap(HWND /*hWnd*/, UINT wFunc, UINT /*wF
             if (g_ShellCache.IsPathAllowed(pszSrcFile))
                 m_remoteCacheLink.ReleaseLockForPath(CTSVNPath(pszSrcFile));
         }
+        break;
+    default:
         break;
     }
 
