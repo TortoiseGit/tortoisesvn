@@ -359,8 +359,10 @@ BEGIN
     IDS_CLOSE               "&Close"
     IDS_SVN_DEPTH_CUSTOM    "Custom depths"
     IDS_DROPVENDORMENU      "SVN &Vendorbranch here"
+    IDS_MENUDIFFLATER       "Diff later"
     IDS_MENUDELUNVERSIONED  "Delete unversioned items..."
     IDS_MENUDESCDELUNVERSIONED "Removes all unversioned and ignored items"
+    IDS_MENUDESCDIFFLATER   "Stores the path of the file to be used for a diff on a later right-click. Hold down the Ctrl key to remove the last saved path."
     IDS_MENUREMOVEKEEP      "&Delete (keep local)"
 END
 
@@ -390,6 +392,8 @@ BEGIN
     IDS_MENUDESCREMOVEKEEP  "Deletes files / folders from version control but keeps the file"
     IDS_YES                 "yes"
     IDS_NO                  "no"
+    IDS_MENUDIFFNOW         "Diff with"
+    IDS_MENUDESCDIFFNOW     "Starts the diff viewer with the currently selected file and the one marked before for diffing later."
 END
 
 STRINGTABLE

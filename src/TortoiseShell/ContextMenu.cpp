@@ -54,6 +54,12 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
     { ShellMenuDiff,                        MENUDIFF,           IDI_DIFF,               IDS_MENUDIFF,               IDS_MENUDESCDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_TWO, 0}, {ITEMIS_PROPMODIFIED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, _T("tsvn_diff") },
 
+    { ShellMenuDiffLater,                   MENUDIFFLATER,      IDI_DIFF,               IDS_MENUDIFFLATER,          IDS_MENUDESCDIFFLATER,
+        {ITEMIS_ONLYONE, ITEMIS_FOLDER}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_difflater") },
+
+    { ShellMenuDiffNow,                     MENUDIFFNOW,        IDI_DIFF,               IDS_MENUDIFFNOW,            IDS_MENUDESCDIFFNOW,
+        {ITEMIS_ONLYONE|ITEMIS_HASDIFFLATER, ITEMIS_FOLDER}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_diffnow") },
+
     { ShellMenuPrevDiff,                    MENUPREVDIFF,           IDI_DIFF,               IDS_MENUPREVDIFF,           IDS_MENUDESCPREVDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_prevdiff") },
 
@@ -230,6 +236,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
     itemStatesFolder = 0;
     tstring statuspath;
     svn_wc_status_kind fetchedstatus = svn_wc_status_none;
+
     // get selected files/folders
     if (pDataObj)
     {
@@ -677,6 +684,16 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
         }
     }
     _tcscat_s(menutextbuffer, stringtablebuffer);
+    if (com == ShellMenuDiffNow)
+    {
+        // add the path of the saved file
+        wcscat_s(menutextbuffer, L" \"");
+        wchar_t compact[40] = {0};
+        std::wstring sPath = regDiffLater;
+        PathCompactPathEx(compact, sPath.c_str(), _countof(compact)-1, 0);
+        wcscat_s(menutextbuffer, compact);
+        wcscat_s(menutextbuffer, L"\"");
+    }
 
     MENUITEMINFO menuiteminfo = {0};
     menuiteminfo.cbSize = sizeof(menuiteminfo);
@@ -978,6 +995,11 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
     if ((uFlags & CMF_EXTENDEDVERBS)||(g_ShellCache.AlwaysExtended()))
         itemStates |= ITEMIS_EXTENDED;
 
+    regDiffLater.read();
+    if (!std::wstring(regDiffLater).empty())
+        itemStates |= ITEMIS_HASDIFFLATER;
+
+
     const BOOL bShortcut = !!(uFlags & CMF_VERBSONLY);
     if ( bShortcut && (files_.size()==1))
     {
@@ -1035,7 +1057,8 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
             // another 'normal' menu entry after we insert a separator.
             // we simply set a flag here, indicating that before the next
             // 'normal' menu entry, a separator should be added.
-            bAddSeparator = true;
+            if (bMenuEntryAdded)
+                bAddSeparator = true;
             continue;
         }
         // check the conditions whether to show the menu entry or not
@@ -1408,6 +1431,25 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
                 svnCmd += _T(" /alternative");
             break;
+        case ShellMenuDiffLater:
+            svnCmd.clear();
+            if (lpcmi->fMask & CMIC_MASK_CONTROL_DOWN)
+            {
+                regDiffLater.removeValue();
+            }
+            else if (files_.size() == 1)
+            {
+                regDiffLater = files_[0];
+            }
+            break;
+        case ShellMenuDiffNow:
+            AddPathCommand(svnCmd, L"diff", true);
+            svnCmd += _T("\" /path2:\"");
+            svnCmd += std::wstring(regDiffLater);
+            svnCmd += _T("\"");
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                svnCmd += _T(" /alternative");
+            break;
         case ShellMenuPrevDiff:
             AddPathCommand(svnCmd, L"prevdiff", true);
             if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
@@ -1621,28 +1663,31 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             break;
             //#endregion
         } // switch (id_it->second)
-        svnCmd += _T(" /hwnd:");
-        TCHAR buf[30];
-        _stprintf_s(buf, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
-        svnCmd += buf;
-        if (!uuidSource.empty())
+        if (!svnCmd.empty())
         {
-            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
-            switch (DWORD(groupSetting))
+            svnCmd += _T(" /hwnd:");
+            TCHAR buf[30];
+            _stprintf_s(buf, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
+            svnCmd += buf;
+            if (!uuidSource.empty())
             {
-            case 1:
-            case 2:
+                CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
+                switch (DWORD(groupSetting))
                 {
-                    svnCmd += _T(" /groupuuid:");
-                    svnCmd += uuidSource;
+                case 1:
+                case 2:
+                    {
+                        svnCmd += _T(" /groupuuid:");
+                        svnCmd += uuidSource;
+                    }
+                    break;
                 }
-                break;
             }
+            myIDMap.clear();
+            myVerbsIDMap.clear();
+            myVerbsMap.clear();
+            RunCommand(tortoiseProcPath, svnCmd, cwdFolder.c_str(), _T("TortoiseProc Launch failed"));
         }
-        myIDMap.clear();
-        myVerbsIDMap.clear();
-        myVerbsMap.clear();
-        RunCommand(tortoiseProcPath, svnCmd, cwdFolder.c_str(), _T("TortoiseProc Launch failed"));
         return S_OK;
     } // if (id_it != myIDMap.end() && id_it->first == idCmd)
     return hr;

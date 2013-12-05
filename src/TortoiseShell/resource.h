@@ -175,12 +175,16 @@
 #define IDS_CLOSE                       264
 #define IDS_SVN_DEPTH_CUSTOM            265
 #define IDS_DROPVENDORMENU              266
+#define IDS_MENUDIFFLATER               267
 #define IDS_MENUDELUNVERSIONED          268
 #define IDS_MENUDESCDELUNVERSIONED      269
+#define IDS_MENUDESCDIFFLATER           270
 #define IDS_MENUREMOVEKEEP              271
 #define IDS_MENUDESCREMOVEKEEP          272
 #define IDS_YES                         273
 #define IDS_NO                          274
+#define IDS_MENUDIFFNOW                 275
+#define IDS_MENUDESCDIFFNOW             276
 #define IDS_SVN_DEPTH_INFINITE          300
 #define IDS_SVN_DEPTH_IMMEDIATE         301
 #define IDS_SVN_DEPTH_FILES             302

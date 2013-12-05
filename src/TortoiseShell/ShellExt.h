@@ -110,6 +110,8 @@ protected:
         ShellMenuRename,
         ShellMenuUpdateExt,
         ShellMenuDiff,
+        ShellMenuDiffLater,
+        ShellMenuDiffNow,
         ShellMenuPrevDiff,
         ShellMenuUrlDiff,
         ShellMenuDropCopyAdd,
@@ -207,6 +209,7 @@ protected:
     tstring                         owner;
     svn_revnum_t                    columnrev;          ///< holds the corresponding revision to the file/dir above
     svn_wc_status_kind              filestatus;
+    CRegStdString                   regDiffLater;
 
     SVNFolderStatus                 m_CachedStatus;     // status cache
     CRemoteCacheLink                m_remoteCacheLink;
