@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-05 11:22+0000\n"
+"PO-Revision-Date: 2013-12-08 20:34+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -3925,9 +3925,17 @@ msgstr "差分ビューアー::マージツール"
 msgid "Diff file:"
 msgstr "差分ファイル:"
 
+#. Resource IDs: (17)
+msgid "Diff later"
+msgstr "比較元として選択"
+
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "差分設定"
+
+#. Resource IDs: (18)
+msgid "Diff with"
+msgstr "次のファイルと比較:"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -9486,6 +9494,12 @@ msgstr "レジストリエディターを起動する"
 msgid "Starting externals..."
 msgstr "外部参照の処理を開始..."
 
+#. Resource IDs: (18)
+msgid ""
+"Starts the diff viewer with the currently selected file and the one marked "
+"before for diffing later."
+msgstr "比較元として選択したファイルと現在選択しているファイルで差分ビューアーを起動します。"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Static"
@@ -9534,6 +9548,12 @@ msgstr "ロックを横取りする"
 #. Resource IDs: (65535)
 msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
+
+#. Resource IDs: (17)
+msgid ""
+"Stores the path of the file to be used for a diff on a later right-click. "
+"Hold down the Ctrl key to remove the last saved path."
+msgstr "後で右クリックして比較を行うパスを記憶します。Ctrlキーを押しながらクリックすると、保存されたパスを削除します。"
 
 #. Resource IDs: (65535)
 msgid "Stripes"

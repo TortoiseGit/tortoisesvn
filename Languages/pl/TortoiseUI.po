@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-02 08:28+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-12-07 19:00+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3584,7 +3584,7 @@ msgstr "Zlic&z"
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Zliczono: %u dopasowań."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -3918,9 +3918,17 @@ msgstr "Przeglądarka różnic::Narzędzie scalania"
 msgid "Diff file:"
 msgstr "Plik różnicowy:"
 
+#. Resource IDs: (17)
+msgid "Diff later"
+msgstr "Porównaj później"
+
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Opcje porównywania"
+
+#. Resource IDs: (18)
+msgid "Diff with"
+msgstr "Porównaj z"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -9479,6 +9487,12 @@ msgstr "Uruchom edytor rejestru"
 msgid "Starting externals..."
 msgstr "Rozpoczęcie zewnętrznych..."
 
+#. Resource IDs: (18)
+msgid ""
+"Starts the diff viewer with the currently selected file and the one marked "
+"before for diffing later."
+msgstr "Uruchamia przeglądarkę różnic z aktualnie wybranym plikiem i zaznaczonym wcześniej do późniejszych porównań."
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statyczny"
@@ -9527,6 +9541,12 @@ msgstr "Przejmuje blokadę"
 #. Resource IDs: (65535)
 msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
+
+#. Resource IDs: (17)
+msgid ""
+"Stores the path of the file to be used for a diff on a later right-click. "
+"Hold down the Ctrl key to remove the last saved path."
+msgstr "Zapisuje ścieżkę do pliku by jej użyć do porównania podczas kolejnych prawoklików. Trzymaj wciśnięty klawisz Ctrl by usunąć ostatnio zapisaną ścieżkę."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
