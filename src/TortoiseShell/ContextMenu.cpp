@@ -683,17 +683,20 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
             _tcscpy_s(stringtablebuffer, temp.c_str());
         }
     }
-    _tcscat_s(menutextbuffer, stringtablebuffer);
     if (com == ShellMenuDiffNow)
     {
-        // add the path of the saved file
-        wcscat_s(menutextbuffer, L" \"");
+        // get the path of the saved file and compact it
         wchar_t compact[40] = {0};
         std::wstring sPath = regDiffLater;
         PathCompactPathEx(compact, sPath.c_str(), _countof(compact)-1, 0);
-        wcscat_s(menutextbuffer, compact);
-        wcscat_s(menutextbuffer, L"\"");
+
+        CString sMenu;
+        sMenu.Format(IDS_MENUDIFFNOW, compact);
+
+        wcscat_s(menutextbuffer, (LPCWSTR)sMenu);
     }
+    else
+        _tcscat_s(menutextbuffer, stringtablebuffer);
 
     MENUITEMINFO menuiteminfo = {0};
     menuiteminfo.cbSize = sizeof(menuiteminfo);
