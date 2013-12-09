@@ -83,4 +83,5 @@ private:
     CString             m_sTitleText;
     CString             m_sCheckText;
     int                 m_iCheck;
+    bool                m_bLock;
 };

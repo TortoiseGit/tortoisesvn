@@ -35,6 +35,7 @@ CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
     , m_pProjectProperties(NULL)
     , m_iCheck(0)
+    , m_bLock(false)
 {
 
 }
@@ -181,6 +182,7 @@ BOOL CInputLogDlg::OnInitDialog()
         m_cInput.SetFocus();
     }
 
+    m_bLock = m_sSVNAction.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0;
 
     AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -210,12 +212,12 @@ void CInputLogDlg::OnOK()
         CString id;
         GetDlgItemText(IDC_BUGID, id);
         id.Trim(_T("\n\r"));
-        if (!m_pProjectProperties->CheckBugID(id))
+        if (!m_bLock && !m_pProjectProperties->CheckBugID(id))
         {
             ShowEditBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, TTI_ERROR);
             return;
         }
-        if ((m_pProjectProperties->bWarnIfNoIssue) && (id.IsEmpty() && !m_pProjectProperties->HasBugID(m_sLogMsg)))
+        if (!m_bLock && (m_pProjectProperties->bWarnIfNoIssue) && (id.IsEmpty() && !m_pProjectProperties->HasBugID(m_sLogMsg)))
         {
             if (CTaskDialog::IsSupported())
             {
@@ -252,39 +254,42 @@ void CInputLogDlg::OnOK()
             else
                 m_sLogMsg = sBugID + _T("\n") + m_sLogMsg;
         }
-        // now let the bugtraq plugin check the commit message
-        CComPtr<IBugTraqProvider2> pProvider2 = NULL;
-        if (m_BugTraqProvider)
+        if (!m_bLock)
         {
-            HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
-            if (SUCCEEDED(hr))
+            // now let the bugtraq plugin check the commit message
+            CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+            if (m_BugTraqProvider)
             {
-                ATL::CComBSTR temp;
-                CString common = m_rootpath.GetSVNPathString();
-                ATL::CComBSTR repositoryRoot;
-                repositoryRoot.Attach(common.AllocSysString());
-                ATL::CComBSTR parameters;
-                parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
-                ATL::CComBSTR commonRoot(m_pathlist.GetCommonRoot().GetDirectory().GetWinPath());
-                ATL::CComBSTR commitMessage;
-                commitMessage.Attach(m_sLogMsg.AllocSysString());
-                CBstrSafeVector pathList(m_pathlist.GetCount());
-
-                for (LONG index = 0; index < m_pathlist.GetCount(); ++index)
-                    pathList.PutElement(index, m_pathlist[index].GetSVNPathString());
-
-                hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp);
-                if (FAILED(hr))
+                HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+                if (SUCCEEDED(hr))
                 {
-                    OnComError(hr);
-                }
-                else
-                {
-                    CString sError = temp == 0 ? _T("") : temp;
-                    if (!sError.IsEmpty())
+                    ATL::CComBSTR temp;
+                    CString common = m_rootpath.GetSVNPathString();
+                    ATL::CComBSTR repositoryRoot;
+                    repositoryRoot.Attach(common.AllocSysString());
+                    ATL::CComBSTR parameters;
+                    parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+                    ATL::CComBSTR commonRoot(m_pathlist.GetCommonRoot().GetDirectory().GetWinPath());
+                    ATL::CComBSTR commitMessage;
+                    commitMessage.Attach(m_sLogMsg.AllocSysString());
+                    CBstrSafeVector pathList(m_pathlist.GetCount());
+
+                    for (LONG index = 0; index < m_pathlist.GetCount(); ++index)
+                        pathList.PutElement(index, m_pathlist[index].GetSVNPathString());
+
+                    hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp);
+                    if (FAILED(hr))
                     {
-                        CAppUtils::ReportFailedHook(m_hWnd, sError);
-                        return;
+                        OnComError(hr);
+                    }
+                    else
+                    {
+                        CString sError = temp == 0 ? _T("") : temp;
+                        if (!sError.IsEmpty())
+                        {
+                            CAppUtils::ReportFailedHook(m_hWnd, sError);
+                            return;
+                        }
                     }
                 }
             }
@@ -428,7 +433,10 @@ void CInputLogDlg::OnEnChangeLogmessage()
 void CInputLogDlg::UpdateOKButton()
 {
     CString sTemp = m_cInput.GetText();
-    if (((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
+    int minsize = 0;
+    if (m_pProjectProperties)
+        minsize = m_bLock ? m_pProjectProperties->nMinLockMsgSize : m_pProjectProperties->nMinLogSize;
+    if (sTemp.GetLength() >= minsize)
     {
         DialogEnableWindow(IDOK, TRUE);
     }
