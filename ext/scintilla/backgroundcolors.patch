@@ -1,7 +1,7 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 24853)
-+++ include/Scintilla.h	(Arbeitskopie)
+--- include/Scintilla.h	(revision 25042)
++++ include/Scintilla.h	(working copy)
 @@ -1006,6 +1006,8 @@
  #define SCI_DISTANCETOSECONDARYSTYLES 4025
  #define SCI_GETSUBSTYLEBASES 4026
@@ -13,9 +13,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 24853)
-+++ src/Editor.cxx	(Arbeitskopie)
-@@ -2864,6 +2864,17 @@
+--- src/Editor.cxx	(revision 25042)
++++ src/Editor.cxx	(working copy)
+@@ -2872,6 +2872,17 @@
  		}
  	}
  
@@ -35,9 +35,9 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 24853)
-+++ src/Editor.h	(Arbeitskopie)
-@@ -493,6 +493,7 @@
+--- src/Editor.h	(revision 25042)
++++ src/Editor.h	(working copy)
+@@ -494,6 +494,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -47,8 +47,8 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 24853)
-+++ win32/ScintillaWin.cxx	(Arbeitskopie)
+--- win32/ScintillaWin.cxx	(revision 25042)
++++ win32/ScintillaWin.cxx	(working copy)
 @@ -257,6 +257,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
@@ -57,7 +57,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1447,6 +1448,13 @@
+@@ -1444,6 +1445,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
