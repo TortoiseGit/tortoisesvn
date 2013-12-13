@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-07 08:28+0000\n"
+"PO-Revision-Date: 2013-12-10 08:30+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -3920,13 +3920,14 @@ msgstr ""
 msgid "Diff options"
 msgstr "Vertailuasetukset"
 
-#. Resource IDs: (18)
-msgid "Diff with"
-msgstr ""
-
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
 msgstr "Vertaa paikantimen kanssa"
+
+#. Resource IDs: (18)
+#, c-format
+msgid "Diff with \"%s\""
+msgstr ""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
