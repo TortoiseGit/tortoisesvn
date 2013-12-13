@@ -1139,14 +1139,45 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
         CheckForReload();
     }
     // workaround for ribbon interface when the task bar is on the left or top
+    // TODO: The bug has been fixed in VS2013, so once we switch to VS2013 we can
+    // remove this workaround.
+    // http://connect.microsoft.com/VisualStudio/feedback/details/791229/cmfcribbonbar-app-does-not-maximize-correctly-if-windows-7-taskbar-is-docked-on-left
     if (nType == SIZE_MAXIMIZED)
     {
-        WINDOWPLACEMENT wp;
-        GetWindowPlacement(&wp);
-        if (wp.ptMaxPosition.x || wp.ptMaxPosition.y)
+        HMONITOR hMon = MonitorFromWindow(this->m_hWnd, MONITOR_DEFAULTTONEAREST);
+        MONITORINFOEX mix;
+        mix.cbSize = sizeof(MONITORINFOEX);
+        bool primary = true;    // assume primary monitor
+        if (GetMonitorInfo(hMon, &mix))
         {
-            wp.ptMaxPosition.x = wp.ptMaxPosition.y = 0;
-            SetWindowPlacement(&wp);
+            primary = (mix.dwFlags == MONITORINFOF_PRIMARY);
+        }
+        if (primary)
+        {
+            WINDOWPLACEMENT wp;
+            GetWindowPlacement(&wp);
+            if (wp.ptMaxPosition.x || wp.ptMaxPosition.y)
+            {
+                wp.ptMaxPosition.x = wp.ptMaxPosition.y = 0;
+                SetWindowPlacement(&wp);
+            }
+        }
+        else
+        {
+            CRect rect(0, 0, 0, 0);
+
+            MONITORINFO mi;
+            mi.cbSize = sizeof(MONITORINFO);
+
+            if (GetMonitorInfo(hMon, &mi))
+            {
+                rect = mi.rcWork;
+            }
+            else
+            {
+                ::SystemParametersInfo(SPI_GETWORKAREA, 0, &rect, 0);
+            }
+            MoveWindow(rect);
         }
     }
 }
