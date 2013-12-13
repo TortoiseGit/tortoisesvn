@@ -1148,9 +1148,15 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
         MONITORINFOEX mix;
         mix.cbSize = sizeof(MONITORINFOEX);
         bool primary = true;    // assume primary monitor
+        CRect rect(0, 0, 0, 0);
         if (GetMonitorInfo(hMon, &mix))
         {
             primary = (mix.dwFlags == MONITORINFOF_PRIMARY);
+            rect = mix.rcWork;
+        }
+        else
+        {
+            ::SystemParametersInfo(SPI_GETWORKAREA, 0, &rect, 0);
         }
         if (primary)
         {
@@ -1164,19 +1170,6 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
         }
         else
         {
-            CRect rect(0, 0, 0, 0);
-
-            MONITORINFO mi;
-            mi.cbSize = sizeof(MONITORINFO);
-
-            if (GetMonitorInfo(hMon, &mi))
-            {
-                rect = mi.rcWork;
-            }
-            else
-            {
-                ::SystemParametersInfo(SPI_GETWORKAREA, 0, &rect, 0);
-            }
             MoveWindow(rect);
         }
     }
