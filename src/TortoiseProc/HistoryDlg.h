@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,12 +19,13 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "RegHistory.h"
+#include "FilterEdit.h"
 
 /**
  * \ingroup TortoiseProc
  * Dialog showing the log message history.
  */
-class CHistoryDlg : public CResizableStandAloneDialog
+class CHistoryDlg : public CResizableStandAloneDialog, IFilterEditValidator
 {
     DECLARE_DYNAMIC(CHistoryDlg)
 public:
@@ -41,13 +42,22 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual bool Validate( LPCTSTR string );
+
     afx_msg void OnBnClickedOk();
     afx_msg void OnLbnDblclkHistorylist();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnEnChangeSearchedit();
+
+    afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
 
     DECLARE_MESSAGE_MAP()
+
+    void UpdateMessageList();
+
 private:
     CListBox        m_List;
     CString         m_SelectedText;
     CRegHistory*    m_history;
+    CFilterEdit     m_cFilter;
 };

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ void CHistoryDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_HISTORYLIST, m_List);
+    DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
 }
 
 
@@ -45,6 +46,8 @@ BEGIN_MESSAGE_MAP(CHistoryDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDOK, OnBnClickedOk)
     ON_LBN_DBLCLK(IDC_HISTORYLIST, OnLbnDblclkHistorylist)
     ON_WM_KEYDOWN()
+    ON_EN_CHANGE(IDC_SEARCHEDIT, &CHistoryDlg::OnEnChangeSearchedit)
+    ON_REGISTERED_MESSAGE(CFilterEdit::WM_FILTEREDIT_CANCELCLICKED, &CHistoryDlg::OnClickedCancelFilter)
 END_MESSAGE_MAP()
 
 
@@ -53,7 +56,8 @@ void CHistoryDlg::OnBnClickedOk()
     int pos = m_List.GetCurSel();
     if (pos != LB_ERR)
     {
-        m_SelectedText = m_history->GetEntry(pos);
+        int index = (int)m_List.GetItemData(pos);
+        m_SelectedText = m_history->GetEntry(index);
     }
     else
         m_SelectedText.Empty();
@@ -64,25 +68,13 @@ BOOL CHistoryDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
 
-    ExtendFrameIntoClientArea(IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST);
-    m_aeroControls.SubclassOkCancel(this);
+    m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
+    m_cFilter.SetValidator(this);
 
-    // calculate and set listbox width
-    CDC* pDC=m_List.GetDC();
-    CSize itemExtent;
-    int horizExtent = 1;
-    for (size_t i = 0; i < m_history->GetCount(); ++i)
-    {
-        CString sEntry = m_history->GetEntry(i);
-        sEntry.Remove(_T('\r'));
-        sEntry.Replace('\n', ' ');
-        m_List.AddString(sEntry);
-        itemExtent = pDC->GetTextExtent(sEntry);
-        horizExtent = max(horizExtent, itemExtent.cx+5);
-    }
-    m_List.SetHorizontalExtent(horizExtent);
-    ReleaseDC(pDC);
+    UpdateMessageList();
 
+    AddAnchor(IDC_FILTERLABEL, TOP_LEFT);
+    AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_HISTORYLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -96,7 +88,8 @@ void CHistoryDlg::OnLbnDblclkHistorylist()
     int pos = m_List.GetCurSel();
     if (pos != LB_ERR)
     {
-        m_SelectedText = m_history->GetEntry(pos);
+        int index = (int)m_List.GetItemData(pos);
+        m_SelectedText = m_history->GetEntry(index);
         OnOK();
     }
     else
@@ -112,11 +105,79 @@ BOOL CHistoryDlg::PreTranslateMessage(MSG* pMsg)
         {
             m_List.DeleteString(pos);
             m_List.SetCurSel(min(pos, m_List.GetCount() - 1));
-            m_history->RemoveEntry(pos);
+            int index = (int)m_List.GetItemData(pos);
+            m_history->RemoveEntry(index);
             m_history->Save();
             return TRUE;
         }
     }
 
     return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+}
+
+void CHistoryDlg::OnEnChangeSearchedit()
+{
+    UpdateMessageList();
+}
+
+void CHistoryDlg::UpdateMessageList()
+{
+    CString sFilter;
+    GetDlgItemText(IDC_SEARCHEDIT, sFilter);
+    int pos = 0;
+    CString temp;
+    std::vector<CString> tokens;
+    for(;;)
+    {
+        temp = sFilter.Tokenize(_T(" "), pos);
+        if(temp.IsEmpty())
+        {
+            break;
+        }
+        tokens.push_back(temp);
+    }
+
+    m_List.ResetContent();
+
+    // calculate and set listbox width
+    CDC* pDC=m_List.GetDC();
+    CSize itemExtent;
+    int horizExtent = 1;
+    for (size_t i = 0; i < m_history->GetCount(); ++i)
+    {
+        CString sEntry = m_history->GetEntry(i);
+        CString sLowerEntry = sEntry;
+        sLowerEntry.MakeLower();
+        bool match = true;
+        for (const auto& filter : tokens)
+        {
+            if (sLowerEntry.Find(filter) < 0)
+            {
+                match = false;
+                break;
+            }
+        }
+        if (match)
+        {
+            sEntry.Remove(_T('\r'));
+            sEntry.Replace('\n', ' ');
+            int index = m_List.AddString(sEntry);
+            m_List.SetItemData(index, i);
+            itemExtent = pDC->GetTextExtent(sEntry);
+            horizExtent = max(horizExtent, itemExtent.cx+5);
+        }
+    }
+    m_List.SetHorizontalExtent(horizExtent);
+    ReleaseDC(pDC);
+}
+
+bool CHistoryDlg::Validate( LPCTSTR /*string*/ )
+{
+    return true;
+}
+
+LRESULT CHistoryDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    UpdateMessageList();
+    return 0;
 }
