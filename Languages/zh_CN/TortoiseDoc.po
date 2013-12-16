@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-12 15:20+0000\n"
+"PO-Revision-Date: 2013-12-15 10:20+0000\n"
 "Last-Translator: Gones <liejie050911@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -14286,7 +14286,7 @@ msgid ""
 "tracker plugins, and any parameters to pass. The parameters will be specific"
 " to the plugin, but might include your user name on the issue tracker so "
 "that the plugin can query for issues which are assigned to you."
-msgstr ""
+msgstr "<placeholder-1/> 点击 <guibutton>增加...</guibutton>按钮,在工作副本上使用这个插件.可以指定工作副本的路径.可以在所有注册过的问题跟踪器插件列表中,选择要使用的插件和要传递的参数.这些参数指定到插件,但是可能包含在问题跟踪器上的用户名,这样插件才能查找分配给用户的问题."
 
 #. (para)
 msgid ""
@@ -14297,17 +14297,17 @@ msgid ""
 "provider</citetitle></ulink>, which is a provider for the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker.)"
-msgstr ""
+msgstr "这个属性为COM组件的IBugtraqProvider接口指定UUID,例如, <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>.(这个例子是 <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>的UUID,它是<ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>的问题追踪器.)"
 
 #. (para)
 msgid ""
 "This is the same as <literal>bugtraq:provideruuid</literal>, but for the "
 "64-bit version of the IBugtraqProvider."
-msgstr ""
+msgstr "这和 <literal>bugtraq:provideruuid</literal>相同,但是是针对IBugtraqProvider接口的64位版本."
 
 #. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr ""
+msgstr "这个属性指定了传递给IBugtraqProvider的参数."
 
 #. (para)
 msgid ""
@@ -14318,7 +14318,7 @@ msgid ""
 "<literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the"
 " documentation of your IBugtraqProvider plugin to find out what to specify "
 "in these two properties."
-msgstr ""
+msgstr "如果希望项目中的所有的用户使用同样的COM组件,可以为插件指定如下的属性,<literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> 和<literal>bugtraq:providerparams</literal>.  <placeholder-1/>请检查IBugtraqProvider 插件的相关文档,查明如何设置这两个属性."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -14388,7 +14388,7 @@ msgid ""
 "the settings dialog. These settings modify the registry directly and you "
 "have to know what each of these settings is used for and what it does. Do "
 "not modify these settings unless you are sure you need to change them."
-msgstr ""
+msgstr "一些不常用的设置只在设置对话框的高级页面上,这些设置直接修改注册表.需要知道这些设置是做什么用的以及它们做出了什么改动.除非确定需要修改这些设置,否则不要修改它们."
 
 #. (para)
 msgid ""
@@ -14413,7 +14413,7 @@ msgid ""
 "<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
 "force TortoiseSVN to always show those extended commands, set this value to "
 "<literal>true</literal>."
-msgstr ""
+msgstr "和桌面一样,当上下文菜单打开的时候,按下<keycap>Shift</keycap>键,TortoiseSVN就会显示附件的命令.要强制TortoiseSVN总是显示这些拓展的命令,需要设置参数值为 <literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -14454,7 +14454,7 @@ msgid ""
 "To add a cache tray icon for the TSVNCache program, set this value to "
 "<literal>true</literal>. This is really only useful for developers as it "
 "allows you to terminate the program gracefully."
-msgstr ""
+msgstr "要为TSVNCache程序增加一个缓存托盘图标,可以设置这个值为<literal>true</literal>.这实际只是对开发人员有作用,它允许开发人员以优雅的方式终止程序."
 
 #. (para)
 msgid ""
@@ -14482,7 +14482,7 @@ msgstr ""
 msgid ""
 "Set this to <literal>true</literal> if you want a dialog to pop up for every"
 " command showing the command line used to start TortoiseProc.exe."
-msgstr ""
+msgstr "如果希望在每一次在启动TortoiseProc.exe的命令行时都弹出对话框,可以设置这为<literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -14529,7 +14529,7 @@ msgid ""
 "This is fine, but the selected row then also covers the background image on "
 "the bottom right, which can look ugly. To disable full row select, set this "
 "value to <literal>false</literal>."
-msgstr ""
+msgstr "这个状态列表控件在多个对话框中使用(例如,commit, check-for-modifications, add, revert, ...),可以选择整行(例如,如果选择一个项,这一行会被选中,而不仅仅是这一列).这很好,但是选中的行也覆盖了底部右侧的背景图片.设置参数值<literal>false</literal>可以取消选中整行."
 
 #. (para)
 msgid ""
@@ -14658,7 +14658,7 @@ msgid ""
 "this requires that the log dialog fetches the status of that path. Since for"
 " very big working copies this can take a while, you can set this value to "
 "<literal>false</literal> to deactivate this feature."
-msgstr ""
+msgstr "日志对话框显示了版本修订信息,其中工作路径以粗体显示.这需要日志对话框获取此路径的状态信息.对于一个非常大的工作副本来来说,这可能需要一些时间.设置参数值为<literal>false</literal>可以使这个特性无效."
 
 #. (para)
 msgid ""
@@ -14716,7 +14716,7 @@ msgid ""
 " <literal>Copy</literal> entry of explorer). If you don't want or need the "
 "accelerators of the TortoiseSVN entries, set this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "TortoiseSVN 为上下文菜单设置快捷键.这可能导致快捷键重复(例如,<literal>SVN Commit</literal>使用快捷键<keycap>Alt-C</keycap>,但是这也是 <literal>Copy</literal>的快捷键).如果不希望使用或者不需要使用TortoiseSVN快捷键,设置参数值为<literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -14725,20 +14725,20 @@ msgid ""
 "value to <literal>false</literal> if you don't want TortoiseSVN to show "
 "icons for the shell context menu items. Set this value to "
 "<literal>true</literal> to show the icons again."
-msgstr ""
+msgstr "如果使用windows桌面或者遇到上下文菜单显示不正确的问题时,这很有用.如果不希望TortoiseSVN为shell上下文菜单选项显示图标,设置参数值为<literal>false</literal>.设置参数值为<literal>true</literal>则可以再次显示图标."
 
 #. (para)
 msgid ""
 "If you don't want TortoiseSVN to show icons for the context menus in its own"
 " dialogs, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "如果不希望TortoiseSVN为上下文菜单对话框显示图标,设置参数值为<literal>false</literal>."
 
 #. (para)
 msgid ""
 "The commit and log dialog use styling (e.g. bold, italic) in commit messages"
 " (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't "
 "want to do this, set the value to <literal>false</literal>."
-msgstr ""
+msgstr "提交和日志对话框在提交信息中使用不同的字体风格(例如,粗体,斜体) (详情请见<xref linkend=\"tsvn-dug-commit-log\"/>).如果不希望这样显示,可以设置参数值为 <literal>false</literal>."
 
 #. (para)
 msgid ""
