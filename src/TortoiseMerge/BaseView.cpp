@@ -5867,11 +5867,14 @@ int CBaseView::GetIndentCharsForLine(int x, int y)
     else
         nTabMode = m_nTabMode & TABMODE_USESPACES;
 
-    if (nTabMode >= 0)
+    if (nTabMode > 0)
     {
+		// use spaces
         x = CountExpandedChars(line, x);
         return x % m_nTabSize ? m_nTabSize - (x % m_nTabSize) : m_nTabSize;
     }
+
+	// use tab
     return 0;
 }
 
