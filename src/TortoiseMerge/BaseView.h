@@ -213,7 +213,7 @@ public: // methods
     static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
     static CBaseView * GetFirstGoodView();
 
-    int             GetTabModeForLine(int x, int y);
+    int             GetIndentCharsForLine(int x, int y);
     void            AddIndentationForSelectedBlock();
     void            RemoveIndentationForSelectedBlock();
     void            ConvertTabToSpaces();

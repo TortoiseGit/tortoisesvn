@@ -3612,11 +3612,11 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         viewdata lineData = GetViewData(nViewLine);
         if (nChar == VK_TAB)
         {
-            int nTabMode = GetTabModeForLine(ptCaretViewPos.x, nViewLine);
-            if (nTabMode == 1)
+            int indentChars = GetIndentCharsForLine(ptCaretViewPos.x, nViewLine);
+            if (indentChars > 0)
             {
-                lineData.sLine.Insert(ptCaretViewPos.x, CString(_T(' '), m_nTabSize));
-                charCount = m_nTabSize;
+                lineData.sLine.Insert(ptCaretViewPos.x, CString(_T(' '), indentChars));
+                charCount = indentChars;
             }
             else
                 lineData.sLine.Insert(ptCaretViewPos.x, _T('\t'));
@@ -5830,48 +5830,48 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
     RefreshViews();
 }
 
-int CBaseView::GetTabModeForLine(int x, int y)
+int CBaseView::GetIndentCharsForLine(int x, int y)
 {
     const int maxGuessLine = 100;
-    if (m_nTabMode == 2 || m_nTabMode == 3)
+    int nTabMode = -1;
+    CString line = GetViewLine(y);
+    if (m_nTabMode & 2)
     {
-        int nTabMode = m_nTabMode == 3 ? 1 : 0;
-        if (x > 0)
-        {
-            TCHAR c = GetViewLine(y)[x - 1];
-            return c == ' ' ? 1 : c == '\t' ? 0 : nTabMode;
-        }
+        // detect left char and right char
+        TCHAR lc = x > 0 ? line[x - 1] : '\0';
+        TCHAR rc = x < line.GetLength() ? line[x] : '\0';
+        if (lc == ' ' && rc != '\t' || rc == ' ' && lc != '\t')
+            nTabMode = 1;
+        if (lc == '\t' && rc != ' ' || rc == '\t' && lc != ' ')
+            nTabMode = 0;
+        if (lc == ' ' && rc == '\t' || rc == ' ' && lc == '\t')
+            nTabMode = m_nTabMode & 1;
 
-        for (int i = y - 1, j = y + 1; ; --i, ++j)
+        // detect lines nearby
+        for (int i = y - 1, j = y + 1; nTabMode == -1; --i, ++j)
         {
-            bool test = false;
-            if (i > 0 && i >= y - maxGuessLine)
-            {
-                TCHAR c = GetViewLine(i)[0];
-                if (c == ' ')
-                    return 1;
-                if (c == '\t')
-                    return 0;
-                test = true;
-            }
-            if (j < GetLineCount() && j <= y + maxGuessLine)
-            {
-                TCHAR c = GetViewLine(j)[0];
-                if (c == ' ')
-                    return 1;
-                if (c == '\t')
-                    return 0;
-                test = true;
-            }
-            if (!test)
+            bool above = i > 0 && i >= y - maxGuessLine;
+            bool below = j < GetLineCount() && j <= y + maxGuessLine;
+            if (!(above || below))
                 break;
+            TCHAR ac = above ? GetViewLine(i)[0] : '\0';
+            TCHAR bc = below ? GetViewLine(j)[0] : '\0';
+            if (ac == ' ' && bc != '\t' || bc == ' ' && ac != '\t')
+                nTabMode = 1;
+            else if (ac == '\t' && bc != ' ' || bc == '\t' && ac != ' ')
+                nTabMode = 0;
+            else if (ac == ' ' && bc == '\t' || bc == ' ' && ac == '\t')
+                nTabMode = m_nTabMode & 1;
         }
-
-        return nTabMode;
     }
+    else
+        nTabMode = m_nTabMode & 1;
 
-    if (m_nTabMode == 0 || m_nTabMode == 1)
-        return m_nTabMode;
+    if (nTabMode)
+    {
+        x = CountExpandedChars(line, x);
+        return x % m_nTabSize ? m_nTabSize - (x % m_nTabSize) : m_nTabSize;
+    }
     return 0;
 }
 
@@ -5899,8 +5899,8 @@ void CBaseView::AddIndentationForSelectedBlock()
         }
         // add tab to line start (alternatively m_nTabSize spaces can be used)
         CString tabStr;
-        int nTabMode = GetTabModeForLine(0, nViewLine);
-        tabStr = nTabMode == 1 ? CString(_T(' '), m_nTabSize) : _T("\t");
+        int indentChars = GetIndentCharsForLine(0, nViewLine);
+        tabStr = indentChars > 0 ? CString(_T(' '), indentChars) : _T("\t");
         SetViewLine(nViewLine, tabStr + sLine);
         bModified = true;
     }
