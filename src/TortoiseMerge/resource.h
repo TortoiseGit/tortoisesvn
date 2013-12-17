@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by D:\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
+// Used by D:\Development\SVN\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
 #define IDCANCEL2                       4
 #define IDR_MAINFRAME                   100
