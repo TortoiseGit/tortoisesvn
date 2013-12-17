@@ -209,7 +209,7 @@ CMainFrame::CMainFrame()
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
     , m_regIgnoreComments(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE)
-    , m_regTabMode(L"Software\\TortoiseMerge\\TabMode", 0)
+    , m_regTabMode(L"Software\\TortoiseMerge\\TabMode", TABMODE_NONE)
     , m_regexIndex(-1)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
