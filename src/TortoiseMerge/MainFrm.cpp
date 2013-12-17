@@ -209,6 +209,7 @@ CMainFrame::CMainFrame()
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
     , m_regIgnoreComments(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE)
+    , m_regTabMode(L"Software\\TortoiseMerge\\TabMode", 0)
     , m_regexIndex(-1)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
@@ -2825,16 +2826,15 @@ void CMainFrame::OnEditCreateunifieddifffile()
 void CMainFrame::OnUpdateEditTabspace(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(true);
-    int nTabMode = CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), 0);
-    pCmdUI->SetCheck(nTabMode & 1);
+    int nTabMode = m_regTabMode;
+    pCmdUI->SetCheck(nTabMode & TABMODE_USESPACES);
 }
 
 void CMainFrame::OnEditTabspace()
 {
-    CRegDWORD regTabMode(_T("Software\\TortoiseMerge\\TabMode"), 0);
-    int nTabMode = regTabMode;
-    nTabMode ^= 1;
-    regTabMode = nTabMode;
+    int nTabMode = m_regTabMode;
+    nTabMode ^= TABMODE_USESPACES;
+    m_regTabMode = nTabMode;
     if (IsViewGood(m_pwndLeftView))
         m_pwndLeftView->m_nTabMode = nTabMode;
     if (IsViewGood(m_pwndRightView))
@@ -2846,16 +2846,15 @@ void CMainFrame::OnEditTabspace()
 void CMainFrame::OnUpdateEditSmartTab(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(true);
-    int nTabMode = CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), 0);
-    pCmdUI->SetCheck(nTabMode & 2);
+    int nTabMode = m_regTabMode;
+    pCmdUI->SetCheck(nTabMode & TABMODE_SMARTINDENT);
 }
 
 void CMainFrame::OnEditSmartTab()
 {
-    CRegDWORD regTabMode(_T("Software\\TortoiseMerge\\TabMode"), 0);
-    int nTabMode = regTabMode;
-    nTabMode ^= 2;
-    regTabMode = nTabMode;
+    int nTabMode = m_regTabMode;
+    nTabMode ^= TABMODE_SMARTINDENT;
+    m_regTabMode = nTabMode;
     if (IsViewGood(m_pwndLeftView))
         m_pwndLeftView->m_nTabMode = nTabMode;
     if (IsViewGood(m_pwndRightView))

@@ -34,6 +34,11 @@ class CRightView;
 class CBottomView;
 #define MOVESTOIGNORE 3
 
+#define TABMODE_NONE        0x00
+#define TABMODE_USESPACES   0x01
+#define TABMODE_SMARTINDENT 0x02
+
+
 /**
  * \ingroup TortoiseMerge
  * The main frame of TortoiseMerge. Handles all the menu and toolbar commands.
@@ -251,6 +256,7 @@ protected:
     CRegDWORD       m_regUseRibbons;
     CRegDWORD       m_regUseTaskDialog;
     CRegDWORD       m_regIgnoreComments;
+    CRegDWORD       m_regTabMode;
 
     std::map<CString, std::tuple<CString, CString, CString>>    m_IgnoreCommentsMap;
     CSimpleIni      m_regexIni;
