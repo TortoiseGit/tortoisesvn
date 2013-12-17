@@ -215,6 +215,17 @@
                 and click on <guibutton>OK</guibutton>. Our development folder is then populated
                 with files from the repository.
             </para>
+            <important>
+                <para>
+                    In the default setting, the checkout menu item is not
+                    located in the TortoiseSVN submenu but is shown at the top
+                    explorer menu. TortoiseSVN commands that are not in the submenu
+                    have <literal>SVN</literal> prepended:
+                    <menuchoice>
+                        <guimenuitem>SVN Checkout...</guimenuitem>
+                    </menuchoice>
+                </para>
+            </important>
             <para>
                 You will notice that the appearance of this folder is different from our
                 original folder. Every file has a green check mark in the bottom left corner.

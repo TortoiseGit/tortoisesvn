@@ -35,6 +35,17 @@
         If you enter a folder name that does not yet exist, then a
         directory with that name is created.
     </para>
+    <important>
+        <para>
+            In the default setting, the checkout menu item is not
+            located in the TortoiseSVN submenu but is shown at the top
+            explorer menu. TortoiseSVN commands that are not in the submenu
+            have <literal>SVN</literal> prepended:
+            <menuchoice>
+                <guimenuitem>SVN Checkout...</guimenuitem>
+            </menuchoice>
+        </para>
+    </important>
     <sect2 id="tsvn-dug-checkout-depth">
         <title>Checkout Depth</title>
         <para>
