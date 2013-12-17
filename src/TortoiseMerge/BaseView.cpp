@@ -120,6 +120,7 @@ CBaseView::CBaseView()
     m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?"));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
+    m_nTabMode = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), 0);
     std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
     m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
     m_hConflictedIgnoredIcon = LoadIcon(IDI_CONFLICTEDIGNOREDLINE);
@@ -240,6 +241,7 @@ void CBaseView::DocumentUpdated()
     m_nDigits = 0;
     m_nMouseLine = -1;
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
+    m_nTabMode = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), 0);
     m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
     m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
@@ -3606,8 +3608,21 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         int nViewLine = ptCaretViewPos.y;
         if ((nViewLine==0)&&(GetViewCount()==0))
             OnChar(VK_RETURN, 0, 0);
+        int charCount = 1;
         viewdata lineData = GetViewData(nViewLine);
-        lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
+        if (nChar == VK_TAB)
+        {
+            int nTabMode = GetTabModeForLine(ptCaretViewPos.x, nViewLine);
+            if (nTabMode == 1)
+            {
+                lineData.sLine.Insert(ptCaretViewPos.x, CString(_T(' '), m_nTabSize));
+                charCount = m_nTabSize;
+            }
+            else
+                lineData.sLine.Insert(ptCaretViewPos.x, _T('\t'));
+        }
+        else
+            lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
         if (IsStateEmpty(lineData.state))
         {
             // if not last line set EOL
@@ -3647,7 +3662,8 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         {
             UpdateViewLineNumbers();
         }
-        MoveCaretRight();
+        for (int i = 0; i < charCount; ++i)
+            MoveCaretRight();
         UpdateGoalPos();
     }
     else if (nChar == 10)
@@ -5814,6 +5830,51 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
     RefreshViews();
 }
 
+int CBaseView::GetTabModeForLine(int x, int y)
+{
+    const int maxGuessLine = 100;
+    if (m_nTabMode == 2 || m_nTabMode == 3)
+    {
+        int nTabMode = m_nTabMode == 3 ? 1 : 0;
+        if (x > 0)
+        {
+            TCHAR c = GetViewLine(y)[x - 1];
+            return c == ' ' ? 1 : c == '\t' ? 0 : nTabMode;
+        }
+
+        for (int i = y - 1, j = y + 1; ; --i, ++j)
+        {
+            bool test = false;
+            if (i > 0 && i >= y - maxGuessLine)
+            {
+                TCHAR c = GetViewLine(i)[0];
+                if (c == ' ')
+                    return 1;
+                if (c == '\t')
+                    return 0;
+                test = true;
+            }
+            if (j < GetLineCount() && j <= y + maxGuessLine)
+            {
+                TCHAR c = GetViewLine(j)[0];
+                if (c == ' ')
+                    return 1;
+                if (c == '\t')
+                    return 0;
+                test = true;
+            }
+            if (!test)
+                break;
+        }
+
+        return nTabMode;
+    }
+
+    if (m_nTabMode == 0 || m_nTabMode == 1)
+        return m_nTabMode;
+    return 0;
+}
+
 void CBaseView::AddIndentationForSelectedBlock()
 {
     bool bModified = false;
@@ -5837,7 +5898,10 @@ void CBaseView::AddIndentationForSelectedBlock()
             continue;
         }
         // add tab to line start (alternatively m_nTabSize spaces can be used)
-        SetViewLine(nViewLine, CString("\t") + sLine);
+        CString tabStr;
+        int nTabMode = GetTabModeForLine(0, nViewLine);
+        tabStr = nTabMode == 1 ? CString(_T(' '), m_nTabSize) : _T("\t");
+        SetViewLine(nViewLine, tabStr + sLine);
         bModified = true;
     }
     if (bModified)
