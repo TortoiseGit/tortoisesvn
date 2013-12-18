@@ -659,7 +659,7 @@ bool CFileTextLines::StripComments( CString& sLine, bool bInBlockComment )
 {
     int startpos = 0;
 
-    do 
+    do
     {
         if (bInBlockComment)
         {
