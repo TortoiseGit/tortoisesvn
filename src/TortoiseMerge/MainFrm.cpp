@@ -250,7 +250,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         CMFCRibbonCategory * pMainCat = m_wndRibbonBar.GetCategory(1);
         if (pMainCat)
         {
-            CMFCRibbonPanel * pPanel = pMainCat->GetPanel(3);
+            CMFCRibbonPanel * pPanel = pMainCat->GetPanel(0);
             if (pPanel)
                 pPanel->EnableLaunchButton(ID_VIEW_OPTIONS);
         }
