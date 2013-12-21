@@ -671,14 +671,14 @@ bool CFileTextLines::StripComments( CString& sLine, bool bInBlockComment )
             }
             else
             {
-                sLine.Empty();
+                sLine = sLine.Left(startpos);
                 startpos = -1;
             }
         }
         if (!bInBlockComment)
         {
-            startpos = sLine.Find(m_sCommentBlockStart);
-            int startpos2 = sLine.Find(m_sCommentLine);
+            startpos = m_sCommentBlockStart.IsEmpty() ? -1 : sLine.Find(m_sCommentBlockStart);
+            int startpos2 = m_sCommentLine.IsEmpty() ? -1 : sLine.Find(m_sCommentLine);
             if ( ((startpos2 < startpos) && (startpos2 >= 0)) ||
                  ((startpos2 >= 0) && (startpos < 0)) )
             {
