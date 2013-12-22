@@ -87,6 +87,7 @@ enum LISTITEMSTATES_MINE {
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
+#define WM_TSVN_REFRESH_SELECTION   (WM_APP + 1)
 
 enum LogDlgContextMenuCommands
 {
@@ -252,6 +253,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
+    ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -944,6 +946,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         regexRunner.GetResult();
         CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.idRanges);
         CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.revRanges);
+        CHARRANGE range;
+        range.cpMin = 0;
+        range.cpMax = 0;
+        pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 
         pMsgView->SetRedraw(TRUE);
         pMsgView->Invalidate();
@@ -2963,6 +2969,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                             m_LogList.EnsureVisible((int)i, FALSE);
                             m_LogList.SetSelectionMark((int)i);
                             m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
+                            PostMessage(WM_TSVN_REFRESH_SELECTION, 0, 0);
                             return;
                         }
                         try
@@ -3001,6 +3008,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                                         m_LogList.EnsureVisible((int)i, FALSE);
                                         m_LogList.SetSelectionMark((int)i);
                                         m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
+                                        PostMessage(WM_TSVN_REFRESH_SELECTION, 0, 0);
                                         return;
                                     }
                                 }
@@ -7288,4 +7296,17 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
         sClipboard += L"\r\n";
     }
     CStringUtils::WriteAsciiStringToClipboard(sClipboard);
+}
+
+LRESULT CLogDlg::OnRefreshSelection( WPARAM /*wParam*/, LPARAM /*lParam*/ )
+{
+    // it's enough to deselect, then select again one item of the whole selection
+    int selMark = m_LogList.GetSelectionMark();
+    if (selMark>=0)
+    {
+        m_LogList.SetSelectionMark(selMark);
+        m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+        m_LogList.SetItemState(selMark, LVIS_SELECTED, LVIS_SELECTED);
+    }
+    return 0;
 }

@@ -115,6 +115,7 @@ protected:
 
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
+    afx_msg LRESULT OnRefreshSelection(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedInfoIcon(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
