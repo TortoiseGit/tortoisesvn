@@ -246,7 +246,7 @@
     </description>
   </target>
 
-  <target name="setup" depends="env,binaries,docs,LanguagePacks">
+  <target name="setup" depends="env,binaries,docs,LanguagePacks,changelog">
     <description>
       Uses WiX to create an msi installer file.
     </description>
@@ -277,6 +277,7 @@
     </description>
     <if test="${devrelease != '-dev'}">
       <call target="uploadsymbols" />
+      <call target="changelog" />
     </if>
     <nant target="setup">
       <buildfiles>
@@ -500,7 +501,58 @@
       <unzip zipfile="tools.zip" />
       <touch file="Tools\ver-1.8.0" />
     </if>
+  </target>
 
+  <target name="changelog" depends="VSNET,env">
+    <description>
+      Creates an md file (markdown) from the changelog file
+    </description>
+
+    <!-- do regex replace to get the markdown output -->
+    <script language="C#">
+      <code>
+        <![CDATA[
+          public static void ScriptMain(Project project)
+          {
+            StreamReader reader = new StreamReader( @"src\Changelog.txt" );
+            string content = reader.ReadToEnd();
+            reader.Close();
+
+            string header = @"![TortoiseSVN logo](https://tortoisesvn.googlecode.com/svn/trunk/www/img/tortoisesvn_logo_hor468x64.png)
+
+Make sure to also check the [changelog of Subversion](http://svn.apache.org/repos/asf/subversion/trunk/CHANGES).
+
+";
+            // remove older entries
+            content = Regex.Replace( content, "(Version 1\\.6\\.17.+)", "", RegexOptions.Singleline );
+            // add header with logo
+            content = header + content;
+            // format version titles as headings
+            content = Regex.Replace( content, "(Version [^\\r\\n]*)", "### $0 ###" );
+            // convert issues to links
+            content = Regex.Replace( content, "Issue #?(\\d+)", "Issue #[$1](http://code.google.com/p/tortoisesvn/issues/detail?id=$1)" );
+            // convert my name to links
+            content = Regex.Replace( content, "\\(Stefan\\)", "[(Stefan)](http://tortoisesvn.net/stefan_kueng.html)" );
+            // convert the link to the release notes to markdown links
+            content = Regex.Replace( content, "http://tortoisesvn.net/tsvn_(1\\.\\d+)_releasenotes.html", "[http://tortoisesvn.net/tsvn\\\\_$1\\\\_releasenotes.html](http://tortoisesvn.net/tsvn_$1_releasenotes.html)" );
+
+            // save the file as README.md so sourceforge recognizes it
+            StreamWriter writer = new StreamWriter( @"bin\README.md" );
+            writer.Write( content );
+            writer.Close();
+          }
+        ]]>
+      </code>
+      <references>
+        <include name="System.dll" />
+        <include name="System.Xml.dll" />
+      </references>
+      <imports>
+        <import namespace="System.Text.RegularExpressions" />
+        <import namespace="System.Xml" />
+        <import namespace="System.Xml.XPath" />
+      </imports>
+    </script>
   </target>
 
   <!-- ====================================================================== -->
