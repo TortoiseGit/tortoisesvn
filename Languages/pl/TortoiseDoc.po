@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-07 18:50+0000\n"
+"PO-Revision-Date: 2013-12-19 10:00+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -815,6 +815,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Teraz gdy już mamy projekt w naszym repozytorium, potrzebujemy utworzyć kopię roboczą do codziennej pracy. Zauważcie, że sam import folderu nie zmienił go automatycznie w kopię roboczą. Terminem używanym przez Subversion dla utworzenia świeżej kopii roboczej jest <literal>Pobranie</literal>. Przejdźmy do pobrania folderu Widget1 z naszego repozytorium do folderu rozwojowego na PCcie, który nazwiemy <filename>C:\\Projects\\Widget1-Dev</filename>. Utwórzcie ten folder, po czym kliknijcie prawym przyciskiem myszy i wybierzcie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pobierz...</guimenuitem></menuchoice>. Wpiszcie adres URL do pobrania, w tym przypadku <filename>file:///c:/svn_repos/trunk/Widget1</filename> i wciśnijcie <guibutton>OK</guibutton>. Nasz folder rozwojowy zostaje wtedy zapełniony plikami z repozytorium."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr "W ustawieniach domyślnych pozycja menu pobierz nie znajduje się w podmenu TortoiseSVN ale pokazywana jest w głównym menu eksploratora. Polecenia TortoiseSVN nie umieszczone w podmenu posiadają przedrostek <literal>SVN</literal>: <menuchoice><guimenuitem>SVN Pobierz...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""

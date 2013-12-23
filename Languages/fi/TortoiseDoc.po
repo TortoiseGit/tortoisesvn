@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-07 08:20+0000\n"
+"PO-Revision-Date: 2013-12-18 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -812,6 +812,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Nyt, kun arkistossa on projekti, tarvitaan siitä työkopio, jota käytetään päivittäisessä työssä.  Huomaa, että kansion tuonti arkistoon ei automaattisesti tee siitä työkopiota. Subversion-termi uuden työkopion luomiseksi on <literal>Hae työkopio</literal> (engl. checkout). Hae arkiston Widget1-kansiosta työkopio hakemistoon <filename>C:\\Projects\\Widget1-Dev</filename> seuraavasti: Luo kansio, napsauta sitä hiiren oikealla näppäimellä ja anna komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Hae työkopio...</guimenuitem></menuchoice>. Anna haettava paikannin, tässä tapauksessa <filename>file:///c:/svn_repos/trunk/Widget1</filename> ja napsauta <guibutton>OK</guibutton>. Arkiston tiedostot lisätään uuteen kansioon."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr ""
 
 #. (para)
 msgid ""

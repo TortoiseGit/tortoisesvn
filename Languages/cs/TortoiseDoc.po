@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-11 21:50+0000\n"
+"PO-Revision-Date: 2013-12-21 21:00+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -812,6 +812,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Nyní, když máme projekt v našem úložišti, musíme vytvořit pracovní kopii pro každodenní práci. Všimněte si, že importováním adresáře automaticky neznamená, že tento adresář je pracovní kopie. Termín pro vytvoření nové pracovní kopie Subversion je <literal>Získat</literal>. Chceme získat složku z našeho úložiště do vývojového adresáře na PC nazvaný <filename>C:\\Projekty\\Widget1-Dev</filename>. Vytvořte tento adresář, klepněte na něj pravým tlačítkem myši a zvolte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Získat</guimenuitem></menuchoice> . Zadejte URL pro získání, v tomto případě <filename>file:///c:/svn_repos/trunk/Widget1</filename> a klikněte na <guibutton>OK</guibutton>. Náš vývojový adresář je pak naplněn soubory z úložiště."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr "Ve výchozím nastavení se položka Získání nenachází v podnabídce TortoiseSVN, ale je zobrazena v nejvyšší nabídce Průzkumníka.\nPříkazy TortoiseSVn, které nejsou v podnabídce mají předponu <literal>SVN</literal>: <menuchoice><guimenuitem>SVN Získat...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""

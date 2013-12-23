@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-10 17:30+0000\n"
+"PO-Revision-Date: 2013-12-18 16:20+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -815,6 +815,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "これでプロジェクトがリポジトリに登録されましたので、次に日常の作業に使用する作業コピーを作成します。フォルダーをインポートしたとき、フォルダーが自動的に作業コピーになる訳ではないので注意してください。 Subversion では、新しい作業コピーを作ることを <literal>チェックアウト</literal> といいます。リポジトリの Widget1 フォルダーを、PC上の開発用フォルダー <filename>C:\\Projects\\Widget1-Dev</filename> にチェックアウトしてみましょう。フォルダーを作成し、次にそれを右クリックして、 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>チェックアウト... </guimenuitem></menuchoice> を選択します。チェックアウト元のURLを、 <filename>file:///c:/svn_repos/trunk/Widget1</filename> のような形式で入力し、 <guibutton>OK</guibutton> をクリックします。これで開発用フォルダーに、リポジトリからファイルが読み込まれます。"
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr "初期設定では、チェックアウトのメニュー項目はTortoiseSVNのサブメニューではなく、エクスプローラーのメニューの最上位にあります。サブメニューの外にあるTortoiseSVNのコマンドは、先頭が<literal>SVN</literal>で始まっており、<menuchoice><guimenuitem>SVN チェックアウト...</guimenuitem></menuchoice>となっています。"
 
 #. (para)
 msgid ""

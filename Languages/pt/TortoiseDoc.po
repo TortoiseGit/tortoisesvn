@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-07 08:20+0000\n"
+"PO-Revision-Date: 2013-12-18 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -817,6 +817,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Agora que temos um projecto no nosso repositório, precisamos de criar uma cópia de trabalho para o trabalho do dia a dia. Ter em atenção que o acto de importar uma pasta não a torna automaticamente numa cópia de trabalho. O termo Subversion para criar uma cópia de trabalho fresca é <literal>checkout</literal>. Vamos efectuar checkout à pasta Widget1 do nosso repositório para a pasta de desenvolvimento do teu PC chamada <filename>C:\\Projects\\Widget1-Dev</filename>. Cria essa pasta, e então clica à direita nela e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>.  Introduz o URL para o checkout, neste caso <filename>file:///c:/svn_repos/trunk/Widget1</filename> and clica em <guibutton>OK</guibutton>. A nossa pasta de desenvolvimento está então povoada com ficheiros e pastas do repositório."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr ""
 
 #. (para)
 msgid ""

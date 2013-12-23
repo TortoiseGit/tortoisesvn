@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-10 19:10+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2013-12-18 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -815,6 +815,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Сада имамо пројекат у нашем спремишту, потребно нам је да креирамо радну копију за коришћење у свакодневном раду. Приметимо да чин увоза фолдера не пребацује тај фолдер у радну копију. Субверзиони термин за креирање свеже радне копије је <literal>Преузимање</literal>.  Намеравамо да преузмемо Widget1 фолдер нашег спремишта у развојни фолдер на ПЦ званом <filename>C:\\Projects\\Widget1-Dev</filename>. Креирајте тај фолдер, затим десни клик на њега и изаберите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Преузимање...</guimenuitem></menuchoice>. Унесите УРЛ преузимања, у овом случају  <filename>file:///c:/svn_repos/trunk/Widget1</filename> и кликните на <guibutton>OK</guibutton>.  Наш развојни фолдер је попуњен фајловима из тог спремишта."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr ""
 
 #. (para)
 msgid ""

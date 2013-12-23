@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-09 10:24+0000\n"
+"PO-Revision-Date: 2013-12-23 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -821,6 +821,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Nun, da wir ein Projekt in unserem Projektarchiv haben, müssen wir eine Arbeitskopie für die tägliche Arbeit erstellen. Beachten Sie, dass das Importieren eines Ordners diesen nicht automatisch in eine Arbeitskopie verwandelt. Der Subversion Begriff für das Erstellen einer frischen Arbeitskopie lautet <literal>Auschecken</literal>. Wir werden jetzt den Widget1 Ordner unseres Projektarchivs in einen Entwicklungsordner auf dem PC, <filename>C:\\Projects\\Widget1-Dev</filename> genannt, auschecken. Erstellen Sie diesen Ordner, klicken dann mit der rechten Maustaste darauf und wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken...</guimenuitem></menuchoice>. Geben Sie die auszucheckende URL, in diesem Fall <filename>file:///c:/svn_repos/trunk/Widget1</filename> ein, und klicken Sie auf <guibutton>OK</guibutton>. Unser Entwicklung-Ordner wird dann mit Dateien aus dem Projektarchiv gefüllt."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr "In der Standardeinstellung befindet sich der Auschecken Befehl nicht im TortoiseSVN Untermenü, sondern im Explorermenü. TortoiseSVN Befehle, die sich nicht im Untermenü befinden, wird ein <literal>SVN</literal> Präfix vorangestellt: <menuchoice><guimenuitem>SVN Auschecken...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""

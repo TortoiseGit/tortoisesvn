@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-10 08:30+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2013-12-19 09:40+0000\n"
+"Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -898,7 +898,7 @@ msgstr "&Ajunta tot"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr "&Ajunta amb sub-arbres"
+msgstr "&Ajunta amb subarbres"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -1952,7 +1952,7 @@ msgstr "Edat"
 
 #. Resource IDs: (32822)
 msgid "Align trees on top"
-msgstr "Alínia els arbres a dalt"
+msgstr "Alinea els arbres a dalt"
 
 #. Resource IDs: (1505)
 msgid "All"
@@ -2419,7 +2419,7 @@ msgstr "&Comprova repositori"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr "C&ontrau sub-arbres"
+msgstr "C&ontrau subarbres"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -3914,7 +3914,7 @@ msgstr "Fitxer Diff:"
 
 #. Resource IDs: (17)
 msgid "Diff later"
-msgstr ""
+msgstr "Compara més endavant"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3927,7 +3927,7 @@ msgstr "Compara amb URL"
 #. Resource IDs: (18)
 #, c-format
 msgid "Diff with \"%s\""
-msgstr ""
+msgstr "Compara amb \"%s\""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4211,7 +4211,7 @@ msgstr "E&xpand tot"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr "E&xpandeix sub-arbres"
+msgstr "E&xpandeix subarbres"
 
 #. Resource IDs: (1437)
 msgid "E&xport"
@@ -8033,7 +8033,7 @@ msgstr "Treu el(s) cache(s) seleccionat(s) del disc"
 
 #. Resource IDs: (1352)
 msgid "Remove the whole subtree(s)"
-msgstr "Treu l'/els arbre/s sencer/s"
+msgstr "Suprimeix el(s) subarbre(s) sencer(s)"
 
 #. Resource IDs: (147)
 msgid ""
@@ -9354,6 +9354,10 @@ msgstr "Ignorat, segueix en conflicte"
 msgid "Slide"
 msgstr "Desplaça"
 
+#. Resource IDs: (156)
+msgid "Smart tab char"
+msgstr "Caràcter tabulador intel·ligent"
+
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
@@ -9442,7 +9446,7 @@ msgstr "Parteix línies"
 
 #. Resource IDs: (275)
 msgid "Split sub-trees"
-msgstr "Parteix sub-arbres"
+msgstr "Parteix subarbres"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -9486,7 +9490,7 @@ msgstr "Iniciant externs..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Inicia el visualitzador de diferències entre el fitxer seleccionat actualment i el fitxer triat abans per comparar més endavant."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9541,7 +9545,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Desa el path del fitxer que s'utilitzará per la comparació en un clic posterior amb el botó dret. Manté premuda la tecla Ctrl per suprimir el darrer path desat."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -11029,6 +11033,10 @@ msgstr "Utilitzar expressió regular "
 msgid "Use right block"
 msgstr "Utilitza bloc dret"
 
+#. Resource IDs: (156)
+msgid "Use spaces"
+msgstr "Utilitza espais"
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Utilitzeu la configuració local per la data/hora"
@@ -11265,6 +11273,18 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Quan es bloquegen fitxers, mostra un diàleg\ndemanant una descripció del bloqueig"
+
+#. Resource IDs: (2062)
+msgid ""
+"When selected, Spaces will be used instead of tab\n"
+"Use spaces"
+msgstr "Quan està seleccionat, Espais s'utilitzarà enlloc de tabulador\nUtilitza espais"
+
+#. Resource IDs: (2062)
+msgid ""
+"When selected, it tries to infer tab / spaces to use\n"
+"Smart tab char"
+msgstr "Quan està seleccionat, intenta inferir tabulador / espais a utilitzar\nCaràcter tabulador intel·ligent"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"

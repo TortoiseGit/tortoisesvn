@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-07 08:20+0000\n"
+"PO-Revision-Date: 2013-12-18 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -811,6 +811,15 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr "Bây giờ chúng ta có một dự án trong kho của chúng ta, chúng ta cần tạo ra một bản sao hoạt động để sử dụng cho công việc ngày-sang-ngày. Lưu ý rằng các hành vi nhập khẩu một thư mục không tự động chuyển thư mục đó vào một bản sao làm việc. Thuật ngữ Subversion để tạo ra một bản sao làm việc tươi mới là <literal> Kiểm xuất </literal> . Chúng tôi sẽ kiểm xuất thư mục Widget1 của kho lưu trữ của chúng ta vào một thư mục phát triển trên máy tính được gọi là <filename> C:\\Projects\\Widget1-Dev </filename> . Tạo thư mục đó, sau đó nhấp chuột phải vào nó và chọn <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Kiểm xuất ... </guimenuitem></menuchoice> . Nhập URL để kiểm xuất, trong trường hợp này <filename> file:///c:/svn_repos/trunk/Widget1 </filename> và nhấp vào <guibutton> OK </guibutton> . Thư mục phát triển của chúng ta sau đó được lấp đầy với các tập tin từ kho."
+
+#. (para)
+#. (para)
+msgid ""
+"In the default setting, the checkout menu item is not located in the "
+"TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
+"commands that are not in the submenu have <literal>SVN</literal> prepended: "
+"<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
+msgstr ""
 
 #. (para)
 msgid ""

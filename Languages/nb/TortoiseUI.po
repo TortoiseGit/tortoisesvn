@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-10 08:30+0000\n"
+"PO-Revision-Date: 2013-12-17 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -424,7 +424,7 @@ msgstr "&Legg til >>"
 
 #. Resource IDs: (1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "&Legg Til Filter"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -664,7 +664,7 @@ msgstr "&Slett (behold lokalt)"
 
 #. Resource IDs: (1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "&Slett Filter"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -708,7 +708,7 @@ msgstr "&Rediger"
 
 #. Resource IDs: (1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Editer Filter"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1435,7 +1435,7 @@ msgstr "&Ukjente disker"
 
 #. Resource IDs: (1074)
 msgid "&Up"
-msgstr ""
+msgstr "&Opp"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -3235,7 +3235,7 @@ msgstr "Sett opp &TortoiseSVN til aldri å bruke papirkurven"
 
 #. Resource IDs: (7)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Konfigurer Regulært Uttrykk-filtre"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3581,7 +3581,7 @@ msgstr "An&tall"
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Antall: %u treff."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -3917,7 +3917,7 @@ msgstr "Forskjells-fil:"
 
 #. Resource IDs: (17)
 msgid "Diff later"
-msgstr ""
+msgstr "Sammenlign senere"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3930,7 +3930,7 @@ msgstr "Sammenlign med URL"
 #. Resource IDs: (18)
 #, c-format
 msgid "Diff with \"%s\""
-msgstr ""
+msgstr "Sammenlign med \"%s\""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4860,7 +4860,7 @@ msgstr "Filnavn/Endelse"
 
 #. Resource IDs: (116)
 msgid "Filenames"
-msgstr ""
+msgstr "Filnavn"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -5008,11 +5008,11 @@ msgstr "Full Skjerm"
 
 #. Resource IDs: (113)
 msgid "Full data"
-msgstr ""
+msgstr "Alle data"
 
 #. Resource IDs: (116)
 msgid "Full revision data without changed paths"
-msgstr ""
+msgstr "Alle revisjonsdata unntatt endrede stier"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -5625,7 +5625,7 @@ msgstr "Ignorer &opphav"
 
 #. Resource IDs: (156)
 msgid "Ignore Comments"
-msgstr ""
+msgstr "Ignorer Kommetarer"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -6703,7 +6703,7 @@ msgstr "Navn"
 
 #. Resource IDs: (65535)
 msgid "Name:"
-msgstr ""
+msgstr "Navn:"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6766,7 +6766,7 @@ msgstr "Det nye navnet kan ikke være tomt eller likt det gamle navnet!"
 
 #. Resource IDs: (101)
 msgid "Newlines"
-msgstr ""
+msgstr "Linjeskift"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7312,7 +7312,7 @@ msgstr "Filstier"
 
 #. Resource IDs: (116)
 msgid "Paths relative to root"
-msgstr ""
+msgstr "Stier relativt til roten"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -7855,15 +7855,15 @@ msgstr "Oppfrisker ikonlag for %1!s!"
 
 #. Resource IDs: (32, 156, 165)
 msgid "Regex Filter"
-msgstr ""
+msgstr "Regulært Uttrykk-filter"
 
 #. Resource IDs: (164)
 msgid "Regex Filters"
-msgstr ""
+msgstr "Regulært Uttrykk-filtre"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
-msgstr ""
+msgstr "Regulært uttrykk:"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8003,7 +8003,7 @@ msgstr "Fjern Lagrede Autentiseringsdata"
 msgid ""
 "Remove all comments before doing the diff so changes inside comments don't "
 "show as different"
-msgstr ""
+msgstr "Fjern alle kommentarer før sammenligning slik at endringer inne i kommentarer ikke vises som forskjeller"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -8167,7 +8167,7 @@ msgstr "Bytt spesifisert tekst med annen tekst\nBytt"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
-msgstr ""
+msgstr "Erstatt:"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9357,6 +9357,10 @@ msgstr "Hoppet over, forblir i konflikt"
 msgid "Slide"
 msgstr "Gli"
 
+#. Resource IDs: (156)
+msgid "Smart tab char"
+msgstr ""
+
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
@@ -9489,7 +9493,7 @@ msgstr "Starter eksterne..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Starter sammenligning mellom den valgte filen og den som ble markert for sammenligning tidligere."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9544,7 +9548,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Lagrer stien til filen for bruk i sammenligning ved et senere høyreklikk. Hold nede Ctrl-tasten for å fjerne sist lagrede sti."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -10185,7 +10189,7 @@ msgstr "Arbeidskopien har lokale endringer!\nVil du flette likevel?"
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr ""
+msgstr "Teksten er identisk, men filene matcher ikke!\nFølgende forskjeller ble funnet:"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10913,7 +10917,7 @@ msgstr "Oppgraderer '%1!s!'"
 
 #. Resource IDs: (116)
 msgid "Urls"
-msgstr ""
+msgstr "Url-er"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11031,6 +11035,10 @@ msgstr "Bruk regulært uttrykk"
 #. Resource IDs: (251)
 msgid "Use right block"
 msgstr "Bruk høyre blokk"
+
+#. Resource IDs: (156)
+msgid "Use spaces"
+msgstr ""
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11269,9 +11277,21 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr "Når en eller flere filer sperres, vises en dialog som spør\netter en beskrivelse for sperringen"
 
+#. Resource IDs: (2062)
+msgid ""
+"When selected, Spaces will be used instead of tab\n"
+"Use spaces"
+msgstr ""
+
+#. Resource IDs: (2062)
+msgid ""
+"When selected, it tries to infer tab / spaces to use\n"
+"Smart tab char"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
-msgstr ""
+msgstr "Endringer i blanktegn (tab, mellomrom)"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11600,7 +11620,7 @@ msgstr "alle &revisjoner"
 
 #. Resource IDs: (209)
 msgid "all information"
-msgstr ""
+msgstr "all informasjon"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -11699,7 +11719,7 @@ msgstr "endringer totalt: "
 #. Resource IDs: (209)
 #, c-format
 msgid "column '%s'"
-msgstr ""
+msgstr "kolonne '%s'"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -11770,11 +11790,11 @@ msgstr "ekstern fil:"
 
 #. Resource IDs: (210)
 msgid "file/foldernames"
-msgstr ""
+msgstr "fil/mappenavn"
 
 #. Resource IDs: (210)
 msgid "full paths"
-msgstr ""
+msgstr "fulle stier"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11979,7 +11999,7 @@ msgstr "ikke skrivbar"
 
 #. Resource IDs: (209)
 msgid "relative paths"
-msgstr ""
+msgstr "relative stier"
 
 #. Resource IDs: (10)
 msgid "replaced"

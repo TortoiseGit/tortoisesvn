@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-14 00:20+0000\n"
+"PO-Revision-Date: 2013-12-18 08:25+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -9358,6 +9358,10 @@ msgstr "尚有衝突存在, 已略過"
 msgid "Slide"
 msgstr "滑動"
 
+#. Resource IDs: (156)
+msgid "Smart tab char"
+msgstr "智慧 Tab"
+
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
@@ -11033,6 +11037,10 @@ msgstr "使用正規表示式"
 msgid "Use right block"
 msgstr "使用右方區塊"
 
+#. Resource IDs: (156)
+msgid "Use spaces"
+msgstr "轉換為空白"
+
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "使用系統語系表示日期/時間"
@@ -11269,6 +11277,18 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "在鎖定檔案時, 顯示一個用來詢問\n鎖定原因的視窗."
+
+#. Resource IDs: (2062)
+msgid ""
+"When selected, Spaces will be used instead of tab\n"
+"Use spaces"
+msgstr "一律使用空白鍵而不使用 tab\n轉換為空白"
+
+#. Resource IDs: (2062)
+msgid ""
+"When selected, it tries to infer tab / spaces to use\n"
+"Smart tab char"
+msgstr "自動猜測要使用空白或是tab\n智慧 tab"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
