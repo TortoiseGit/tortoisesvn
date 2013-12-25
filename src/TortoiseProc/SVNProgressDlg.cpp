@@ -2876,6 +2876,82 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         SetDlgItemText(IDC_LOGBUTTON, CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
         GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+
+        // find out whether this committed item was an external
+        CTSVNPath parentPath = m_origPathList[0].GetContainingDirectory();
+        if (!parentPath.IsEquivalentTo(m_origPathList[0]))
+        {
+            SVNProperties props(parentPath, SVNRev::REV_WC, false, false);
+            if (props.HasProperty("svn:externals"))
+            {
+                std::string extval = props.GetItemValue(props.IndexOf("svn:externals"));
+                SVNExternals exts;
+                exts.Add(parentPath, extval, false);
+                bool bFound = false;
+                for (auto it = exts.begin(); it != exts.end(); ++it)
+                {
+                    if (it->targetDir.CompareNoCase(m_origPathList[0].GetFileOrDirectoryName()) == 0)
+                    {
+                        if ((it->pegrevision.kind != svn_opt_revision_head) || (it->origrevision.kind != svn_opt_revision_head))
+                        {
+                            it->pegrevision.kind = ((const svn_opt_revision_t*)m_RevisionEnd)->kind;
+                            it->pegrevision.value = ((const svn_opt_revision_t*)m_RevisionEnd)->value;
+                            it->revision.kind = svn_opt_revision_head;
+                            it->revision.value.number = (svn_revnum_t)-1;
+                            it->origrevision.kind = svn_opt_revision_head;
+                            it->origrevision.value.number = (svn_revnum_t)-1;
+                            it->adjust = true;
+                            bFound = true;
+                            break;
+                        }
+                    }
+                }
+                if (bFound)
+                {
+                    // now ask the user whether to tag the external to the new HEAD revision after this commit
+                    bool bTag = false;
+                    if (CTaskDialog::IsSupported())
+                    {
+                        // tagging external
+                        // You've committed changes to external item that is tagged to a specific revision.
+                        // Do you want to change the tagged revision now to the just committed revision?
+                        //
+                        // Change the tagged revision
+                        //  The svn:external property of the parent folder is changed accordingly
+                        // Cancel
+                        //  The tagged revision of the external is left as is
+                        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1)),
+                            CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)));
+                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)));
+                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                        taskdlg.SetDefaultCommandControl(2);
+                        taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+                        if (taskdlg.DoModal(GetExplorerHWND()) == 1)
+                            bTag = true;
+                    }
+                    else
+                    {
+                        CString sWarning, sWarningTitle, sHelpPath;
+                        sWarning.LoadString(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2);
+                        sWarningTitle.LoadString(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1);
+                        if (TSVNMessageBox((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2)==IDYES)
+                            bTag = true;
+                    }
+                    if (bTag)
+                    {
+                        exts.TagExternals(false);
+                        // now start the commit dialog with the folder where we changed the external tag
+                        CString sCmd;
+                        sCmd.Format(_T("/command:commit /path:\"%s\""), parentPath.GetWinPath());
+                        CAppUtils::RunTortoiseProc(sCmd);
+                    }
+                }
+            }
+        }
     }
 
     return true;
