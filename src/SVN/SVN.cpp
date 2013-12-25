@@ -1350,7 +1350,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
         CSVNLogQuery svnQuery (m_pctx, localpool);
 
         // cached-based queries.
-        // Use & update exisiting cache
+        // Use & update existing cache
 
         std::unique_ptr<CCacheLogQuery> cacheQuery
             (new CCacheLogQuery (GetLogCachePool(), &svnQuery));

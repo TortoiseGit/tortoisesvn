@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
 
-// disable "dead code eleminated" warning
+// disable "dead code eliminated" warning
 #pragma warning(disable: 4505)
 
 #include "TortoiseBlame.h"
@@ -317,7 +317,7 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
                 SendEditor(SCI_STYLESETFONT, bstyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, bstyle, lightBlue);
-                // This call extends the backround colour of the last style on the line to the edge of the window
+                // This call extends the background colour of the last style on the line to the edge of the window
                 SendEditor(SCI_STYLESETEOLFILLED, bstyle, 1);
             }
             SendEditor(SCI_STYLESETBACK, SCE_HB_STRINGEOL, RGB(0x7F,0x7F,0xFF));
@@ -337,7 +337,7 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
                 SendEditor(SCI_STYLESETFONT, bastyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, bastyle, RGB(0xFF, 0xFF, 0));
-                // This call extends the backround colour of the last style on the line to the edge of the window
+                // This call extends the background colour of the last style on the line to the edge of the window
                 SendEditor(SCI_STYLESETEOLFILLED, bastyle, 1);
             }
             SendEditor(SCI_STYLESETBACK, SCE_HBA_STRINGEOL, RGB(0xCF,0xCF,0x7F));

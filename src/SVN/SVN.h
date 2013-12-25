@@ -108,7 +108,7 @@ public:
         __time64_t creation_date;
         __time64_t expiration_date;
 
-        /// Ensure a definined initial state
+        /// Ensure a defined initial state
         SVNLock();
     };
 
@@ -120,7 +120,7 @@ public:
         apr_off_t BytesPerSecond;   ///< Speed in bytes per second
         CString   SpeedString;      ///< String for speed. Either "xxx Bytes/s" or "xxx kBytes/s"
 
-        /// Ensure a definined initial state
+        /// Ensure a defined initial state
         SVNProgress();
     };
 

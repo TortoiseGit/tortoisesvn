@@ -5502,7 +5502,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols, int cmd)
     if ( bMultipleColumnSelected )
         ADDNEWLINETOCLIPBOARDSTRING();
 
-    // maybe clear first line when only one column is selected (btw by select not by dwCols) is simplier(not faster) way
+    // maybe clear first line when only one column is selected (btw by select not by dwCols) is simpler(not faster) way
     // but why no title on single column output ?
     // if (selection & selection-1) == 0 ) sClipboard = "";
 
