@@ -428,4 +428,5 @@ void TortoiseBlame::SetupCppLexer()
     SetAStyle(SCE_C_IDENTIFIER, RGB(0, 0, 0));
     SetAStyle(SCE_C_PREPROCESSOR, RGB(0x80, 0, 0));
     SetAStyle(SCE_C_OPERATOR, RGB(0x80, 0x80, 0));
+    SendEditor(SCI_SETPROPERTY, (WPARAM)"lexer.cpp.track.preprocessor", (LPARAM)"0");
 }
