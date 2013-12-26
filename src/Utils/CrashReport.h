@@ -256,7 +256,7 @@ public:
     CCrashReportTSVN(LPCTSTR appname, bool bOwnProcess = true)
         : m_nInstallStatus(0)
     {
-        char s_month[6];
+        char s_month[6] = { 0 };
         int month, day, year;
         struct tm t = {0};
         static const char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";

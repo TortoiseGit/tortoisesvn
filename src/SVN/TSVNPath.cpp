@@ -1199,7 +1199,7 @@ private:
     {
         // Bit tricky, this test, because we need to know something about the file
         // layout on the machine which is running the test
-        TCHAR winDir[MAX_PATH+1];
+        TCHAR winDir[MAX_PATH + 1] = { 0 };
         GetWindowsDirectory(winDir, _countof(winDir));
         CString sWinDir(winDir);
 
