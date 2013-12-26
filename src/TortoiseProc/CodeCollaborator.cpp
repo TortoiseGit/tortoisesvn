@@ -86,7 +86,7 @@ CString CodeCollaboratorInfo::GetCommandLine()
     if (!((CString)SvnUser).IsEmpty())
     {
         arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s --svn-user %s --svn-passwd %s addchangelist new %s",
-            GetPathToCollabGuiExe(),
+            (LPCWSTR)GetPathToCollabGuiExe(),
             (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
             (LPCWSTR)(CString)SvnUser,(LPCWSTR)(CString)SvnPassword, (LPCWSTR)m_Revisions);
     }
@@ -94,7 +94,7 @@ CString CodeCollaboratorInfo::GetCommandLine()
     {
         // allow for anonymous svn access
         arguments.Format(L"%s --user %s --password %s --scm svn --svn-repo-url %s addchangelist new %s",
-            GetPathToCollabGuiExe(),
+            (LPCWSTR)GetPathToCollabGuiExe(),
             (LPCWSTR)(CString)CollabUser, (LPCWSTR)(CString)CollabPassword, (LPCWSTR)RepoUrl,
             (LPCWSTR)m_Revisions);
     }
