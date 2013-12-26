@@ -3700,8 +3700,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (secondentry == NULL)
                             break;
                         CString sCmd;
-                        sCmd.Format(_T("/command:diff /path:\"%s\" /path2:\"%s\" /hwnd:%ld"),
-                            firstentry->GetPath().GetWinPath(), secondentry->GetPath().GetWinPath(), (unsigned long)m_hWnd);
+                        sCmd.Format(_T("/command:diff /path:\"%s\" /path2:\"%s\" /hwnd:%p"),
+                            firstentry->GetPath().GetWinPath(), secondentry->GetPath().GetWinPath(), (void*)m_hWnd);
                         CAppUtils::RunTortoiseProc(sCmd);
                     }
                 }

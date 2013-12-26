@@ -947,7 +947,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
     {
         sCmd += _T(" /hwnd:");
         TCHAR buf[30];
-        _stprintf_s(buf, _T("%ld"), (DWORD)hWnd);
+        _stprintf_s(buf, _T("%p"), (void*)hWnd);
         sCmd += buf;
     }
 
@@ -991,7 +991,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
     {
         sCmd += _T(" /hwnd:");
         TCHAR buf[30];
-        _stprintf_s(buf, _T("%ld"), (DWORD)hWnd);
+        _stprintf_s(buf, _T("%p"), (void*)hWnd);
         sCmd += buf;
     }
 

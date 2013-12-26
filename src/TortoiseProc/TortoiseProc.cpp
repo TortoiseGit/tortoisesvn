@@ -249,7 +249,9 @@ BOOL CTortoiseProcApp::InitInstance()
     hWndExplorer = NULL;
     CString sVal = parser.GetVal(_T("hwnd"));
     if (!sVal.IsEmpty())
-        hWndExplorer = (HWND)_ttoi64(sVal);
+    {
+        hWndExplorer = (HWND)_wcstoui64(sVal, NULL, 16);
+    }
 
     while (GetParent(hWndExplorer)!=NULL)
         hWndExplorer = GetParent(hWndExplorer);

@@ -272,7 +272,7 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
     if (AfxGetMainWnd()->GetSafeHwnd() && (sCommandLine.Find(L"/hwnd:")<0))
     {
         CString sCmdLine;
-        sCmdLine.Format(L"%s /hwnd:%ld", (LPCTSTR)sCommandLine, AfxGetMainWnd()->GetSafeHwnd());
+        sCmdLine.Format(L"%s /hwnd:%p", (LPCTSTR)sCommandLine, (void*)AfxGetMainWnd()->GetSafeHwnd());
         sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
     }
     if (!g_sGroupingUUID.IsEmpty())
@@ -367,8 +367,8 @@ bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int w
                 }
                 ::DeleteDC(dst_hdc);
             }
+            ::ReleaseDC(desktop, screen_dev);
         }
-        ::ReleaseDC(desktop, screen_dev);
     }
 
     // Restore settings
