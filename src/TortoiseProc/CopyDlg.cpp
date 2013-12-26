@@ -779,7 +779,7 @@ void CCopyDlg::OnEnChangeLogmessage()
 LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%ld"), lParam);
+    temp.Format(_T("%Id"), lParam);
     SetDlgItemText(IDC_COPYREVTEXT, temp);
     CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
     return 0;

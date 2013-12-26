@@ -517,7 +517,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
 LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%ld"), lParam);
+    temp.Format(_T("%Id"), lParam);
     SetDlgItemText(IDC_REVISION_NUM, temp);
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;

@@ -239,7 +239,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_MOUSEMOVE:
             {
                 CString sInfoTip;
-                sInfoTip.Format(_T("Cached Directories : %ld\nWatched paths : %ld"),
+                sInfoTip.Format(_T("Cached Directories : %Id\nWatched paths : %d"),
                     CSVNStatusCache::Instance().GetCacheSize(),
                     CSVNStatusCache::Instance().GetNumberOfWatchedPaths());
 

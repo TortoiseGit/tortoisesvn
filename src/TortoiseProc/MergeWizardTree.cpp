@@ -383,13 +383,13 @@ LPARAM CMergeWizardTree::OnRevSelected(WPARAM wParam, LPARAM lParam)
     {
         if (wParam & MERGE_REVSELECTMINUSONE)
             lParam--;
-        temp.Format(_T("%ld"), lParam);
+        temp.Format(_T("%Id"), lParam);
         SetDlgItemText(IDC_REVISION_START, temp);
         CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
     }
     if (wParam & MERGE_REVSELECTEND)
     {
-        temp.Format(_T("%ld"), lParam);
+        temp.Format(_T("%Id"), lParam);
         SetDlgItemText(IDC_REVISION_END, temp);
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     }
