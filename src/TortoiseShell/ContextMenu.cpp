@@ -66,6 +66,9 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
     { ShellMenuUrlDiff,                     MENUURLDIFF,        IDI_DIFF,               IDS_MENUURLDIFF,            IDS_MENUDESCURLDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_urldiff") },
 
+    { ShellMenuUnifiedDiff,                 MENUUNIDIFF,        IDI_DIFF,               IDS_MENUUNIDIFF,            IDS_MENUUNIDESCDIFF,
+        {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_unifieddiff") },
+
     { ShellMenuLog,                         MENULOG,            IDI_LOG,                IDS_MENULOG,                IDS_MENUDESCLOG,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ADDEDWITHHISTORY|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, _T("tsvn_log") },
 
@@ -1460,6 +1463,10 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             break;
         case ShellMenuUrlDiff:
             AddPathCommand(svnCmd, L"urldiff", true);
+            break;
+        case ShellMenuUnifiedDiff:
+            AddPathCommand(svnCmd, L"diff", true);
+            svnCmd += _T(" /unified");
             break;
         case ShellMenuDropCopyAdd:
             AddPathFileDropCommand(svnCmd, L"dropcopyadd");

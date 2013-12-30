@@ -51,21 +51,34 @@ bool DiffCommand::Execute()
         else
         {
             svn_revnum_t baseRev = 0;
-            if (cmdLinePath.IsDirectory())
+            if (parser.HasKey(L"unified"))
             {
-                if (!ignoreprops)
-                    bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
-                if (bRet == false)
-                {
-                    CChangedDlg dlg;
-                    dlg.m_pathList = CTSVNPathList(cmdLinePath);
-                    dlg.DoModal();
-                    bRet = true;
-                }
+                SVNRev pegRevision;
+                if (parser.HasVal(L"pegrevision"))
+                    pegRevision = SVNRev(parser.GetVal(L"pegrevision"));
+                CString diffoptions;
+                if (parser.HasVal(L"diffoptions"))
+                    diffoptions = parser.GetVal(L"diffoptions");
+                diff.ShowUnifiedDiff(cmdLinePath, SVNRev::REV_BASE, cmdLinePath, SVNRev::REV_WC, pegRevision, diffoptions, false, bBlame, false);
             }
             else
             {
-                bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev, ignoreprops);
+                if (cmdLinePath.IsDirectory())
+                {
+                    if (!ignoreprops)
+                        bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
+                    if (bRet == false)
+                    {
+                        CChangedDlg dlg;
+                        dlg.m_pathList = CTSVNPathList(cmdLinePath);
+                        dlg.DoModal();
+                        bRet = true;
+                    }
+                }
+                else
+                {
+                    bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev, ignoreprops);
+                }
             }
         }
     }
