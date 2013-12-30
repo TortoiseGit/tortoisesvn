@@ -249,7 +249,7 @@ bool SVNDiff::DiffFileAgainstBase( const CTSVNPath& filePath, svn_revnum_t & bas
     return retvalue;
 }
 
-bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, const CString& options, bool bIgnoreAncestry /* = false */)
+bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, const CString& options, bool bIgnoreAncestry /* = false */, bool bIgnoreProperties /* = true */)
 {
     tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
     bool bIsUrl = !!SVN::PathIsURL(url1);
@@ -282,7 +282,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
         relativeTo.Reset();
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
-        if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, true, false, options, bIgnoreAncestry, tempfile))
+        if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, options, bIgnoreAncestry, tempfile))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -294,7 +294,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     {
         if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, true, false, options, false, tempfile))
         {
-            if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, true, false, options, false, tempfile))
+            if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, options, false, tempfile))
             {
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -320,10 +320,11 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
                               SVNRev peg,
                               const CString& options,
                               bool bIgnoreAncestry /* = false */,
-                              bool /*blame*/)
+                              bool /*blame*/,
+                              bool bIgnoreProperties /* = true */)
 {
     CTSVNPath tempfile;
-    if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, options, bIgnoreAncestry))
+    if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, options, bIgnoreAncestry, bIgnoreProperties))
     {
         CString title;
         CTSVNPathList list;

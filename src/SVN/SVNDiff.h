@@ -68,14 +68,14 @@ public:
      *
      * \remark the peg revision is only used if \a url1 is the same as \a url2
      */
-    bool ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, const CString& options, bool bIgnoreAncestry = false, bool /*blame*/ = false);
+    bool ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, const CString& options, bool bIgnoreAncestry = false, bool /*blame*/ = false, bool bIgnoreProperties = true);
 
     /**
      * See ShowUnifiedDiff().
      * Unlike ShowUnifiedDiff(), this method returns the path to the saved unified diff
      * without starting the diff viewer.
      */
-    bool UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, const CString& options, bool bIgnoreAncestry = false);
+    bool UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, const CString& options, bool bIgnoreAncestry = false, bool bIgnoreProperties = true);
 
     /**
      * Compares two revisions of a path and shows them in a GUI.
