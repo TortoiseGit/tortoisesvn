@@ -31,7 +31,7 @@
     <!-- Launch Condition related properties ................................................................................. -->
     <Property Id="ALLUSERS" Secure="yes">1</Property>
 
-    <Condition Message="[ProductName] requires Windows XP SP3 or later."><![CDATA[(VersionNT > 501) OR ((VersionNT = 501) AND (ServicePackLevel >= 3))]]></Condition>
+    <Condition Message="[ProductName] requires Windows Vista or later."><![CDATA[(VersionNT >= 600)]]></Condition>
     <?if $(env.Platform) = "win32" ?>
     <Condition Message="You are attempting to run the 32-bit installer on a 64-bit version of Windows. Please install the 64-bit version of TortoiseSVN instead.">NOT Msix64</Condition>
     <?endif ?>
