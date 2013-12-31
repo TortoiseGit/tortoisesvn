@@ -19,9 +19,9 @@
   <!-- These two targets have to exist in doc.build.user                      -->
   <!-- ====================================================================== -->
 
-  <target name="VSNET" description="Checks if the env variables for VS2012 are set">
+  <target name="VSNET" description="Checks if the env variables for VS2013 are set">
     <if test="${not environment::variable-exists('VCINSTALLDIR')}">
-      <fail>You must first call "%VS110COMNTOOLS%\vsvars32.bat"</fail>
+      <fail>You must first call "%VS120COMNTOOLS%\vsvars32.bat"</fail>
     </if>
 
     <!-- Uncomment and modify the path of the statement below if you're building
@@ -42,7 +42,7 @@
     <if test="${not environment::variable-exists('WIX')}">
       <setenv>
         <!-- TODO: change path value, if WIX is not defined -->
-        <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.7" />
+        <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.8" />
       </setenv>
     </if>
     <if test="${file::exists(environment::get-variable('WIX') + '\bin\candle.exe')}">
