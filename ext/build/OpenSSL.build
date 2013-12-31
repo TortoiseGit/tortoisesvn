@@ -32,7 +32,6 @@
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="-D_USING_V110_SDK71_" />
       </exec>
       <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />
@@ -57,7 +56,6 @@
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="-D_USING_V110_SDK71_" />
       </exec>
       <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />

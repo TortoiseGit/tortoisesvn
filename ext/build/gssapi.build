@@ -35,7 +35,6 @@
       </sources>
       <defines>
         <define name="WIN64" if="${platform == 'x64'}" />
-        <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
 

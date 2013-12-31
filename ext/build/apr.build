@@ -22,6 +22,11 @@
 
   <target name="build" depends="clean">
     <mkdir dir="${configuration}_${platform}" />
+    <!-- patch apr to fix an issue when _WIN32_WINNT is >= 0x0502 in the latest (8.1) Windows SDK.
+         TODO: this fix is required for apr 1.5.0 at least, check this requirement for every
+         new apr release and remove it once apr has this fixed. -->
+    <move file="atomic\win32\apr_atomic.c" tofile="atomic\win32\apr_atomic.save" overwrite="true" />
+    <copy file="..\build\apr_atomic.c" tofile="atomic\win32\apr_atomic.c" overwrite="true" />
     <loadfile file="include\apr.hw" property="configfile">
       <filterchain>
         <replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" if="${ipv6 == 'enabled'}" />
@@ -98,12 +103,11 @@
         <define name="_WINDOWS" />
         <define name="_WIN32" />
         <define name="WINNT" />
-        <define name="_WIN32_WINNT" value="0x0501" />
+        <define name="_WIN32_WINNT" value="0x0600" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="_WINDLL" />
         <define name="NDEBUG" if="${configuration == 'release'}" />
         <define name="_DEBUG" if="${configuration == 'debug'}" />
-        <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
@@ -125,6 +129,7 @@
       <arg value='/outputresource:"${configuration}_${platform}\libapr_tsvn${platext}.dll;#2"' />
     </exec>
     <delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
+    <move file="atomic\win32\apr_atomic.save" tofile="atomic\win32\apr_atomic.c" overwrite="true" />
   </target>
 
 </project>
