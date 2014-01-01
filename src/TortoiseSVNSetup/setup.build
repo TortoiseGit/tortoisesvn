@@ -47,9 +47,9 @@
         </setenv>
       </if>
 
-      <!-- we're using VS2012 -->
+      <!-- we're using VS2013 -->
       <setenv>
-        <variable name="VCVERSION" value="110" />
+        <variable name="VCVERSION" value="120" />
       </setenv>
 
       <!-- find the path to the merge modules -->
