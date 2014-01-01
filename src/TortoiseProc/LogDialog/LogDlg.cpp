@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3586,31 +3586,13 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             DrawText(pLVCD->nmcd.hdc, text.c_str(), -1, &rc, DT_CALCRECT|DT_SINGLELINE|
                                                             DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
             rect.left = rect.right-(rc.right-rc.left);
-            if (!IsAppThemed() || SysInfo::Instance().IsXP())
+            if (!IsAppThemed())
             {
                 rect.left += 2*borderWidth;
                 rect.right += 2*borderWidth;
             }
         }
         COLORREF textColor = pLVCD->clrText;
-        if ((item.state & LVIS_SELECTED)&&(::GetFocus() == listCtrl.m_hWnd))
-        {
-            // the theme API really is ridiculous. Instead of returning
-            // what was asked for, in most cases we get an "unsupported" error
-            // and have to fall back ourselves to the plain windows API to get
-            // whatever we want (colors, metrics, ...)
-            // What the API should do is to do the fallback automatically and
-            // return that value - Windows knows best to what it falls back
-            // if something isn't defined in the .msstyles file!
-            if (SysInfo::Instance().IsXP())
-            {
-                // we only do that on XP, because on Vista/Win7, the COLOR_HIGHLIGHTTEXT
-                // is *not* used but some other color I don't know where to get from
-                if (FAILED(GetThemeColor(hTheme, LVP_LISTITEM, 0, TMT_HIGHLIGHTTEXT, &textColor)))
-                    textColor = GetSysColor(COLOR_HIGHLIGHTTEXT);
-            }
-        }
-
         SetTextColor(pLVCD->nmcd.hdc, textColor);
         SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
         for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
