@@ -21,8 +21,8 @@
   <!-- default: we build in a user session -->
   <property name="schedule" value="no" />
   <!-- the ${subsystem} to use -->
-  <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.01" />
-  <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE,5.01" />
+  <property name="subsystem" value="/SUBSYSTEM:WINDOWS" />
+  <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE" />
 
   <!-- make sure the user config file exists -->
   <property name="userconfigfile"
@@ -71,8 +71,8 @@
     </description>
     <property name="platform" value="x64" />
     <property name="bindirextension" value="64" />
-    <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.02" />
-    <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE,5.02" />
+    <property name="subsystem" value="/SUBSYSTEM:WINDOWS" />
+    <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE" />
   </target>
 
   <target name="cross" depends="x64">
@@ -106,19 +106,6 @@
   <!-- ====================================================================== -->
   <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
-
-  <target name="xp">
-    <!--
-      To target Windows XP with VS2012 as well, we have to set a few
-      environment variables up.
-    -->
-    <setenv>
-      <variable name="INCLUDE" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Include;%INCLUDE%" />
-      <variable name="PATH" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Bin;%PATH%" />
-      <variable name="LIB" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib;%LIB%" if="${platform == 'win32'}" />
-      <variable name="LIB" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib\x64;%LIB%" if="${platform == 'x64'}" />
-    </setenv>
-  </target>
 
   <target name="clean" depends="VSNET">
     <description>
@@ -586,7 +573,6 @@ Make sure to also check the [changelog of Subversion](http://svn.apache.org/repo
     <echo message="           those targets are built with debug support" />
     <echo message="release  : call this if you want to create official releases." />
     <echo message="           It removes the '-dev' string from some builds" />
-    <echo message="xp       : target Windows XP" />
     <echo message="x64      : call this if you want to create native 64 bit builds." />
     <echo message="           (AMD64/EM64T only -- will not work on Itanium systems.)" />
     <echo message="cross    : cross-compile on win32 for the given target platform." />
