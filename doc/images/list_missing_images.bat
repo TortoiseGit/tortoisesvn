@@ -7,9 +7,9 @@ for %%i in (en\*.png) do call :check %lang% %%~nxi
 goto :eof
 
 :usage
-echo Usage: list_missing_images language
+echo Usage: %~nx0 language
 echo This script lists all english images that are absent for 'language'
-echo Example: list_missing_images fi
+echo Example: %~nx0 fi
 goto :eof
 
 :check
