@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
+ *   Copyright (C) 2009-2010, 2014 by Stefan Fuhrmann                      *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -22,10 +22,12 @@
 
 #define NOMINMAX
 
-#define WINVER 0x0600           // Change this to the appropriate value to target other versions of Windows.
-#define _WIN32_WINNT 0x0600     // Change this to the appropriate value to target other versions of Windows.
-#define _WIN32_WINDOWS 0x0410 // Change this to the appropriate value to target Windows Me or later.
-#define _WIN32_IE 0x0600        // Change this to the appropriate value to target other versions of IE.
+// Including SDKDDKVer.h defines the highest available Windows platform.
+
+// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
+// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
+
+#include <SDKDDKVer.h>
 
 #define VC_EXTRALEAN            // Exclude rarely-used stuff from Windows headers
 

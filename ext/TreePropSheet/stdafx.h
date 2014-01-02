@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,12 @@
 //
 
 #pragma once
+// Including SDKDDKVer.h defines the highest available Windows platform.
+
+// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
+// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
+
+#include <SDKDDKVer.h>
 
 #define WIN32_LEAN_AND_MEAN // Exclude rarely-used stuff from Windows headers
 
@@ -25,9 +31,6 @@
 
 #define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
 
-#ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0600
-#endif
 
 #include <afx.h>
 #include <afxwin.h>         // MFC core and standard components
