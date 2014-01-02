@@ -32,6 +32,6 @@ private:
 public:
     static const SysInfo& Instance();
 
-    bool            IsVistaOrLater() const { return IsWindowsVistaSP2OrGreater(); }
-    bool            IsWin7OrLater() const { return IsWindows7SP1OrGreater(); }
+    bool            IsVistaOrLater() const { return IsWindowsVistaOrGreater(); }
+    bool            IsWin7OrLater() const { return IsWindows7OrGreater(); }
 };
