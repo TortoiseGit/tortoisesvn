@@ -55,7 +55,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_diff-nonet.lib;libsvn_ra-nonet.lib;libsvn_wc-nonet.lib;libsvn_subr-nonet.lib;libsvn_client-nonet.lib;libsvn_delta-nonet.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -68,11 +68,15 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_diff-nonet.lib;libsvn_ra-nonet.lib;libsvn_wc-nonet.lib;libsvn_subr-nonet.lib;libsvn_client-nonet.lib;libsvn_delta-nonet.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;wininet.lib;shfolder.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\SVN\SVNConfig.cpp" />
+    <ClCompile Include="..\..\src\SVN\SVNGlobal.cpp" />
+    <ClCompile Include="..\..\src\Utils\DebugOutput.cpp" />
+    <ClCompile Include="..\..\src\Utils\MiscUI\XMessageBox.cpp" />
     <ClCompile Include="Cache.cpp" />
     <ClCompile Include="CacheDlg.cpp" />
     <ClCompile Include="..\..\src\TSVNCache\CacheInterface.cpp" />
@@ -90,6 +94,10 @@
     <ClCompile Include="..\..\src\Utils\UnicodeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\SVN\SVNConfig.h" />
+    <ClInclude Include="..\..\src\SVN\SVNGlobal.h" />
+    <ClInclude Include="..\..\src\Utils\DebugOutput.h" />
+    <ClInclude Include="..\..\src\Utils\MiscUI\XMessageBox.h" />
     <ClInclude Include="Cache.h" />
     <ClInclude Include="CacheDlg.h" />
     <ClInclude Include="..\..\src\TSVNCache\CacheInterface.h" />

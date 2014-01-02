@@ -5,29 +5,12 @@
 
 #pragma once
 
-#define _WIN32_IE 0x600
+// Including SDKDDKVer.h defines the highest available Windows platform.
 
-#ifdef UNICODE
-#   ifndef WINVER
-#       define WINVER 0x0501
-#   endif
-#   ifndef _WIN32_WINNT
-#       define _WIN32_WINNT 0x0501
-#   endif
-#   ifndef _WIN32_WINDOWS
-#       define _WIN32_WINDOWS 0x0501
-#   endif
-#else
-#   ifndef WINVER
-#       define WINVER 0x0410
-#   endif
-#   ifndef _WIN32_WINNT
-#       define _WIN32_WINNT 0x0500
-#   endif
-#   ifndef _WIN32_WINDOWS
-#       define _WIN32_WINDOWS 0x0410
-#   endif
-#endif
+// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
+// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
+
+#include <SDKDDKVer.h>
 
 #define _AFX_ALL_WARNINGS
 
@@ -72,5 +55,7 @@ using namespace ATL;
 #include "svn_path.h"
 #include "svn_pools.h"
 
+#include "registry.h"
 
 typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
+
