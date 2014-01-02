@@ -53,4 +53,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\compatibility.manifest" />
+  </ItemGroup>
 </Project>

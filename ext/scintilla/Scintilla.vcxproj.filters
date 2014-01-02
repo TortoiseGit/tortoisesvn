@@ -557,4 +557,7 @@
       <Filter>win32</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\..\src\compatibility.manifest" />
+  </ItemGroup>
 </Project>

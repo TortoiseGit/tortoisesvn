@@ -203,6 +203,19 @@ TSVN_ClearLastUsedAuthCache' />
         <include name="..\openssl\out${sslplat}${ssldbg}" />
       </libdirs>
     </link>
+    <exec program="mt.exe">
+      <arg value="-nologo" />
+      <arg value="-manifest" />
+      <arg value="${configuration}_${platform}\libsvn_tsvn${platext}.dll.intermediate.manifest" />
+      <arg value="..\..\src\compatibility.manifest" />
+      <arg value="/out:${configuration}_${platform}\libsvn_tsvn${platext}.dll.intermediate.manifest" />
+    </exec>
+    <exec program="mt.exe">
+      <arg value="-nologo" />
+      <arg value="-manifest" />
+      <arg value="${configuration}_${platform}\libsvn_tsvn${platext}.dll.intermediate.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\libsvn_tsvn${platext}.dll;#2"' />
+    </exec>
     <foreach item="Folder" property="foldername">
       <in>
         <items>
@@ -298,6 +311,13 @@ TSVN_ClearLastUsedAuthCache' />
             <include name="${configuration}_${platform}\libsvn_ra_svn\*.obj" if="${toolname == 'svnserve'}" />
           </sources>
         </link>
+        <exec program="mt.exe">
+          <arg value="-nologo" />
+          <arg value="-manifest" />
+          <arg value="${configuration}_${platform}\${toolname}.exe.intermediate.manifest" />
+          <arg value="..\..\src\compatibility.manifest" />
+          <arg value="/out:${configuration}_${platform}\${toolname}.exe.intermediate.manifest" />
+        </exec>
         <exec program="mt.exe">
           <arg value="-nologo" />
           <arg value="-manifest" />

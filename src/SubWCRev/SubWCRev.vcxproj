@@ -141,6 +141,9 @@
   <ItemGroup>
     <ResourceCompile Include="SubWCRev.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\compatibility.manifest" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

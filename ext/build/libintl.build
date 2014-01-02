@@ -31,6 +31,13 @@
       <arg value="DLL=1" />
       <arg value="MFLAGS=-MD" />
     </exec>
+    <exec program="mt.exe">
+      <arg value="-nologo" />
+      <arg value="-manifest" />
+      <arg value="gettext-0.14.6\gettext-runtime\intl\intl3_tsvn.dll.manifest" />
+      <arg value="..\..\src\compatibility.manifest" />
+      <arg value="/out:gettext-0.14.6\gettext-runtime\intl\intl3_tsvn.dll.manifest" />
+    </exec>
     <exec program="mt.exe" workingdir="gettext-0.14.6\gettext-runtime\intl">
       <arg value="-nologo" />
       <arg value="-manifest" />
