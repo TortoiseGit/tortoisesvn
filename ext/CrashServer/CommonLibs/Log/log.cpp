@@ -24,6 +24,10 @@
 #include <crtdbg.h>
 #include "log_media.h"
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#include <VersionHelpers.h>
+#endif
+
 #define ASSERT(f) assert(f)
 
 #ifndef VERIFY
@@ -274,6 +278,27 @@ CString GetSystemInformation()
 {
     CString info = _T("Microsoft Windows ");
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+    if (IsWindows8Point1OrGreater())
+        info += _T(">= 8.1");
+    else if (IsWindows8OrGreater())
+        info += _T("8.1");
+    else if (IsWindows7SP1OrGreater())
+        info += _T("7 SP1");
+    else if (IsWindows7OrGreater())
+        info += _T("7");
+    else if (IsWindowsVistaSP2OrGreater())
+        info += _T("Vista SP2");
+    else if (IsWindowsVistaSP1OrGreater())
+        info += _T("Vista SP1");
+    else if (IsWindowsVistaOrGreater())
+        info += _T("Vista");
+
+    if (IsWindowsServer())
+        info += _T(" Server");
+    else
+        info += _T(" Client");
+#else
     OSVERSIONINFOEX rcOS;
     ZeroMemory(&rcOS, sizeof(rcOS));
     rcOS.dwOSVersionInfoSize = sizeof(rcOS);
@@ -325,6 +350,7 @@ CString GetSystemInformation()
             info += rcOS.szCSDVersion;
         }
     }
+#endif
     return info;
 }
 

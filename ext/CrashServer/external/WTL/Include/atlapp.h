@@ -60,6 +60,9 @@
   #include "atlresce.h"
 #endif // _WIN32_WCE
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#include <VersionHelpers.h>
+#endif
 // We need to disable this warning because of template class arguments
 #pragma warning(disable: 4127)
 
@@ -484,10 +487,14 @@ namespace WTL
 // Windows version helper
 inline bool AtlIsOldWindows()
 {
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+    return !IsWindowsXPOrGreater();
+#else
     OSVERSIONINFO ovi = { 0 };
     ovi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
     BOOL bRet = ::GetVersionEx(&ovi);
     return (!bRet || !((ovi.dwMajorVersion >= 5) || (ovi.dwMajorVersion == 4 && ovi.dwMinorVersion >= 90)));
+#endif
 }
 
 // default GUI font helper
@@ -579,9 +586,13 @@ namespace RunTimeHelper
 
     inline bool IsVista()
     {
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+        return IsWindowsVistaOrGreater();
+#else
         OSVERSIONINFO ovi = { sizeof(OSVERSIONINFO) };
         BOOL bRet = ::GetVersionEx(&ovi);
         return ((bRet != FALSE) && (ovi.dwMajorVersion >= 6));
+#endif
     }
 #endif // !_WIN32_WCE
 

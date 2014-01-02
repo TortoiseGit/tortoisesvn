@@ -42,6 +42,8 @@ public:
 
     template <typename T>
     friend Serializer& operator << (Serializer& ser, T& val);
+    template <typename T>
+    friend Serializer& operator << (Serializer& ser, std::vector<T>& val);
 };
 
 Serializer& operator << (Serializer& ser, MINIDUMP_EXCEPTION_INFORMATION& val);
