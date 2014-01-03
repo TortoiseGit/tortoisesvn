@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008, 2011-2012 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,7 +123,7 @@ void CDirectoryWatcher::BlockPath(const CTSVNPath& path)
 {
     blockedPath = path;
     // block the path from being watched for 4 seconds
-    blockTickCount = GetTickCount()+4000;
+    blockTickCount = GetTickCount64()+4000;
 }
 
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
@@ -132,7 +132,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
         return false;
     if ((!blockedPath.IsEmpty())&&(blockedPath.IsAncestorOf(path)))
     {
-        if (GetTickCount() < blockTickCount)
+        if (GetTickCount64() < blockTickCount)
         {
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Path %s prevented from being watched\n"), path.GetWinPath());
             return false;

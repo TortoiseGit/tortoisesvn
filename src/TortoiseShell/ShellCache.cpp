@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ ShellCache::ShellCache()
     getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
     excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
     alwaysextended = CRegStdDWORD(_T("Software\\TortoiseSVN\\AlwaysExtendedMenu"), FALSE);
-    cachetypeticker = GetTickCount();
+    cachetypeticker = GetTickCount64();
     recursiveticker = cachetypeticker;
     folderoverlayticker = cachetypeticker;
     driveticker = cachetypeticker;
@@ -77,7 +77,7 @@ ShellCache::ShellCache()
         drivetypecache[1] = DRIVE_REMOVABLE;
     }
     TCHAR szBuffer[5];
-    columnrevformatticker = GetTickCount();
+    columnrevformatticker = GetTickCount64();
     SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], _countof(szThousandsSep));
@@ -127,9 +127,9 @@ void ShellCache::ForceRefresh()
 
 ShellCache::CacheType ShellCache::GetCacheType()
 {
-    if ((GetTickCount() - cachetypeticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - cachetypeticker) > REGISTRYTIMEOUT)
     {
-        cachetypeticker = GetTickCount();
+        cachetypeticker = GetTickCount64();
         cachetype.read();
     }
     return CacheType(DWORD((cachetype)));
@@ -137,9 +137,9 @@ ShellCache::CacheType ShellCache::GetCacheType()
 
 DWORD ShellCache::BlockStatus()
 {
-    if ((GetTickCount() - blockstatusticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - blockstatusticker) > REGISTRYTIMEOUT)
     {
-        blockstatusticker = GetTickCount();
+        blockstatusticker = GetTickCount64();
         blockstatus.read();
     }
     return (blockstatus);
@@ -147,9 +147,9 @@ DWORD ShellCache::BlockStatus()
 
 unsigned __int64 ShellCache::GetMenuLayout()
 {
-    if ((GetTickCount() - layoutticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - layoutticker) > REGISTRYTIMEOUT)
     {
-        layoutticker = GetTickCount();
+        layoutticker = GetTickCount64();
         menulayoutlow.read();
         menulayouthigh.read();
     }
@@ -160,9 +160,9 @@ unsigned __int64 ShellCache::GetMenuLayout()
 
 unsigned __int64 ShellCache::GetMenuMask()
 {
-    if ((GetTickCount() - menumaskticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - menumaskticker) > REGISTRYTIMEOUT)
     {
-        menumaskticker = GetTickCount();
+        menumaskticker = GetTickCount64();
         menumasklow_lm.read();
         menumaskhigh_lm.read();
         menumasklow_cu.read();
@@ -177,9 +177,9 @@ unsigned __int64 ShellCache::GetMenuMask()
 
 BOOL ShellCache::IsRecursive()
 {
-    if ((GetTickCount() - recursiveticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - recursiveticker)>REGISTRYTIMEOUT)
     {
-        recursiveticker = GetTickCount();
+        recursiveticker = GetTickCount64();
         showrecursive.read();
     }
     return (showrecursive);
@@ -187,9 +187,9 @@ BOOL ShellCache::IsRecursive()
 
 BOOL ShellCache::IsFolderOverlay()
 {
-    if ((GetTickCount() - folderoverlayticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - folderoverlayticker)>REGISTRYTIMEOUT)
     {
-        folderoverlayticker = GetTickCount();
+        folderoverlayticker = GetTickCount64();
         folderoverlay.read();
     }
     return (folderoverlay);
@@ -198,9 +198,9 @@ BOOL ShellCache::IsFolderOverlay()
 
 BOOL ShellCache::HasShellMenuAccelerators()
 {
-    if ((GetTickCount() - shellmenuacceleratorsticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - shellmenuacceleratorsticker)>REGISTRYTIMEOUT)
     {
-        shellmenuacceleratorsticker = GetTickCount();
+        shellmenuacceleratorsticker = GetTickCount64();
         shellmenuaccelerators.read();
     }
     return (shellmenuaccelerators!=0);
@@ -208,9 +208,9 @@ BOOL ShellCache::HasShellMenuAccelerators()
 
 BOOL ShellCache::IsUnversionedAsModified()
 {
-    if ((GetTickCount() - unversionedasmodifiedticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - unversionedasmodifiedticker)>REGISTRYTIMEOUT)
     {
-        unversionedasmodifiedticker = GetTickCount();
+        unversionedasmodifiedticker = GetTickCount64();
         unversionedasmodified.read();
     }
     return (unversionedasmodified);
@@ -218,9 +218,9 @@ BOOL ShellCache::IsUnversionedAsModified()
 
 BOOL ShellCache::IsIgnoreOnCommitIgnored()
 {
-    if ((GetTickCount() - ignoreoncommitignoredticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - ignoreoncommitignoredticker)>REGISTRYTIMEOUT)
     {
-        ignoreoncommitignoredticker = GetTickCount();
+        ignoreoncommitignoredticker = GetTickCount64();
         ignoreoncommitignored.read();
     }
     return (ignoreoncommitignored);
@@ -228,9 +228,9 @@ BOOL ShellCache::IsIgnoreOnCommitIgnored()
 
 BOOL ShellCache::IsGetLockTop()
 {
-    if ((GetTickCount() - getlocktopticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - getlocktopticker)>REGISTRYTIMEOUT)
     {
-        getlocktopticker = GetTickCount();
+        getlocktopticker = GetTickCount64();
         getlocktop.read();
     }
     return (getlocktop);
@@ -238,9 +238,9 @@ BOOL ShellCache::IsGetLockTop()
 
 BOOL ShellCache::ShowExcludedAsNormal()
 {
-    if ((GetTickCount() - excludedasnormalticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - excludedasnormalticker)>REGISTRYTIMEOUT)
     {
-        excludedasnormalticker = GetTickCount();
+        excludedasnormalticker = GetTickCount64();
         excludedasnormal.read();
     }
     return (excludedasnormal);
@@ -248,9 +248,9 @@ BOOL ShellCache::ShowExcludedAsNormal()
 
 BOOL ShellCache::AlwaysExtended()
 {
-    if ((GetTickCount() - alwaysextendedticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - alwaysextendedticker)>REGISTRYTIMEOUT)
     {
-        alwaysextendedticker = GetTickCount();
+        alwaysextendedticker = GetTickCount64();
         alwaysextended.read();
     }
     return (alwaysextended);
@@ -258,9 +258,9 @@ BOOL ShellCache::AlwaysExtended()
 
 BOOL ShellCache::HideMenusForUnversionedItems()
 {
-    if ((GetTickCount() - hidemenusforunversioneditemsticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - hidemenusforunversioneditemsticker)>REGISTRYTIMEOUT)
     {
-        hidemenusforunversioneditemsticker = GetTickCount();
+        hidemenusforunversioneditemsticker = GetTickCount64();
         hidemenusforunversioneditems.read();
     }
     return (hidemenusforunversioneditems);
@@ -335,13 +335,13 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
     if ((drivenumber >=0)&&(drivenumber < 25))
     {
         drivetype = drivetypecache[drivenumber];
-        if ((drivetype == -1)||((GetTickCount() - drivetypeticker)>DRIVETYPETIMEOUT))
+        if ((drivetype == -1)||((GetTickCount64() - drivetypeticker)>DRIVETYPETIMEOUT))
         {
             if ((DWORD(drivefloppy) == 0)&&((drivenumber == 0)||(drivenumber == 1)))
                 drivetypecache[drivenumber] = DRIVE_REMOVABLE;
             else
             {
-                drivetypeticker = GetTickCount();
+                drivetypeticker = GetTickCount64();
                 TCHAR pathbuf[MAX_PATH+4];      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
                 _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
                 PathStripToRoot(pathbuf);
@@ -391,9 +391,9 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
 
 DWORD ShellCache::GetLangID()
 {
-    if ((GetTickCount() - langticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - langticker) > REGISTRYTIMEOUT)
     {
-        langticker = GetTickCount();
+        langticker = GetTickCount64();
         langid.read();
     }
     return (langid);
@@ -401,10 +401,10 @@ DWORD ShellCache::GetLangID()
 
 NUMBERFMT * ShellCache::GetNumberFmt()
 {
-    if ((GetTickCount() - columnrevformatticker) > NUMBERFMTTIMEOUT)
+    if ((GetTickCount64() - columnrevformatticker) > NUMBERFMTTIMEOUT)
     {
         TCHAR szBuffer[5];
-        columnrevformatticker = GetTickCount();
+        columnrevformatticker = GetTickCount64();
         SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], _countof(szThousandsSep));
@@ -430,7 +430,7 @@ BOOL ShellCache::IsVersioned(LPCTSTR path, bool bIsDir, bool mustbeok)
     std::map<tstring, BoolTimeout>::iterator iter;
     if ((iter = admindircache.find(folder)) != admindircache.end())
     {
-        if ((GetTickCount() - iter->second.timeout) < ADMINDIRTIMEOUT)
+        if ((GetTickCount64() - iter->second.timeout) < ADMINDIRTIMEOUT)
             return iter->second.bBool;
     }
 
@@ -438,7 +438,7 @@ BOOL ShellCache::IsVersioned(LPCTSTR path, bool bIsDir, bool mustbeok)
     CTSVNPath p;
     p.SetFromWin(folder.c_str());
     bt.bBool = SVNHelper::IsVersioned(p, mustbeok);
-    bt.timeout = GetTickCount();
+    bt.timeout = GetTickCount64();
     Locker lock(m_critSec);
     admindircache[folder] = bt;
     return bt.bBool;
@@ -446,9 +446,9 @@ BOOL ShellCache::IsVersioned(LPCTSTR path, bool bIsDir, bool mustbeok)
 
 bool ShellCache::IsColumnsEveryWhere()
 {
-    if ((GetTickCount() - columnseverywhereticker) > REGISTRYTIMEOUT)
+    if ((GetTickCount64() - columnseverywhereticker) > REGISTRYTIMEOUT)
     {
-        columnseverywhereticker = GetTickCount();
+        columnseverywhereticker = GetTickCount64();
         columnseverywhere.read();
     }
     return !!(DWORD)columnseverywhere;
@@ -456,9 +456,9 @@ bool ShellCache::IsColumnsEveryWhere()
 
 void ShellCache::DriveValid()
 {
-    if ((GetTickCount() - driveticker)>REGISTRYTIMEOUT)
+    if ((GetTickCount64() - driveticker)>REGISTRYTIMEOUT)
     {
-        driveticker = GetTickCount();
+        driveticker = GetTickCount64();
         driveremote.read();
         drivefixed.read();
         drivecdrom.read();
@@ -469,10 +469,10 @@ void ShellCache::DriveValid()
 
 void ShellCache::ExcludeContextValid()
 {
-    if ((GetTickCount() - excontextticker)>EXCLUDELISTTIMEOUT)
+    if ((GetTickCount64() - excontextticker)>EXCLUDELISTTIMEOUT)
     {
         Locker lock(m_critSec);
-        excontextticker = GetTickCount();
+        excontextticker = GetTickCount64();
         nocontextpaths.read();
         if (excludecontextstr.compare((tstring)nocontextpaths)==0)
             return;
@@ -500,7 +500,7 @@ void ShellCache::ExcludeContextValid()
 
 void ShellCache::ValidatePathFilter()
 {
-    DWORD ticks = GetTickCount();
+    ULONGLONG ticks = GetTickCount64();
     if ((ticks - pathfilterticker) > EXCLUDELISTTIMEOUT)
     {
         Locker lock(m_critSec);

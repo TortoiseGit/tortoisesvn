@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -128,7 +128,7 @@ public:
 
 private:
     const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
-    DWORD               GetTimeoutValue();
+    ULONGLONG           GetTimeoutValue();
     static svn_error_t* fillstatusmap (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
     static svn_error_t* findfolderstatus (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
     static CTSVNPath    folderpath;
@@ -137,7 +137,7 @@ private:
     int                 m_nCounter;
     typedef std::map<tstring, FileStatusCacheEntry> FileStatusMap;
     FileStatusMap           m_cache;
-    DWORD                   m_TimeStamp;
+    ULONGLONG               m_TimeStamp;
     FileStatusCacheEntry    dirstat;
     const svn_client_status_t * dirstatus;
     apr_pool_t *            rootpool;

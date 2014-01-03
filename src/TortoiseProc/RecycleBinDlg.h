@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@ public:
     // Dialog Data
     enum { IDD = IDD_RECYCLEBIN };
 
-    DWORD       StartTime();
+    ULONGLONG   StartTime();
     void        EndTime(int filecount);
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -45,7 +45,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    DWORD       m_startTicks;
+    ULONGLONG   m_startTicks;
     CRegDWORD   m_regDontDoAgain;
     CString     m_sLabel;
     BOOL        m_bDontAskAgain;

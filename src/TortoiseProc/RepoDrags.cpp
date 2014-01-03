@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 
 CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser)
     : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoTree.GetSafeHwnd())
-    , m_dwHoverStartTicks(0)
+    , m_ullHoverStartTicks(0)
     , hLastItem(NULL)
 {
 }
@@ -64,7 +64,7 @@ HRESULT CTreeDropTarget::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKey
         m_bFiles = true;
     else
         m_bFiles = false;
-    m_dwHoverStartTicks = 0;
+    m_ullHoverStartTicks = 0;
     hLastItem = NULL;
     SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
     return hr;
@@ -79,7 +79,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
     hit.flags = TVHT_ONITEM;
     HTREEITEM hItem = TreeView_HitTest(m_hTargetWnd,&hit);
     if (hItem != hLastItem)
-        m_dwHoverStartTicks = 0;
+        m_ullHoverStartTicks = 0;
     hLastItem = hItem;
 
     bool nodrop = false;
@@ -94,20 +94,20 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
         TreeView_GetItem(m_hTargetWnd, &tvItem);
         if ((m_pRepoBrowser->m_RepoTree.GetItemState(hItem, TVIS_EXPANDED)&TVIS_EXPANDED) != TVIS_EXPANDED)
         {
-            if (m_dwHoverStartTicks == 0)
-                m_dwHoverStartTicks = GetTickCount();
+            if (m_ullHoverStartTicks == 0)
+                m_ullHoverStartTicks = GetTickCount64();
             UINT timeout = 0;
             //SystemParametersInfo(SPI_GETMOUSEHOVERTIME, 0, &timeout, 0);
             timeout = 2000;
-            if ((GetTickCount() - m_dwHoverStartTicks) > timeout)
+            if ((GetTickCount64() - m_ullHoverStartTicks) > timeout)
             {
                 // expand the item
                 m_pRepoBrowser->m_RepoTree.Expand(hItem, TVE_EXPAND);
-                m_dwHoverStartTicks = 0;
+                m_ullHoverStartTicks = 0;
             }
         }
         else
-            m_dwHoverStartTicks = 0;
+            m_ullHoverStartTicks = 0;
         CTreeItem * pItem = (CTreeItem*)m_pRepoBrowser->m_RepoTree.GetItemData(hItem);
         if (pItem && pItem->bookmark)
         {
@@ -124,7 +124,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
         TreeView_SelectDropTarget(m_hTargetWnd, NULL);
         *pdwEffect = DROPEFFECT_NONE;
         nodrop = true;
-        m_dwHoverStartTicks = 0;
+        m_ullHoverStartTicks = 0;
     }
 
     if (!nodrop)
@@ -153,12 +153,12 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
         if (pt.y > (rect.bottom-20))
         {
             m_pRepoBrowser->m_RepoTree.SendMessage(WM_VSCROLL, MAKEWPARAM (SB_LINEDOWN, 0), NULL);
-            m_dwHoverStartTicks = 0;
+            m_ullHoverStartTicks = 0;
         }
         if (pt.y < (rect.top+20))
         {
             m_pRepoBrowser->m_RepoTree.SendMessage(WM_VSCROLL, MAKEWPARAM (SB_LINEUP, 0), NULL);
-            m_dwHoverStartTicks = 0;
+            m_ullHoverStartTicks = 0;
         }
     }
 
@@ -169,7 +169,7 @@ HRESULT CTreeDropTarget::DragLeave(void)
 {
     TreeView_SelectDropTarget(m_hTargetWnd, NULL);
     SetDropDescription(DROPIMAGE_INVALID, NULL, NULL);
-    m_dwHoverStartTicks = 0;
+    m_ullHoverStartTicks = 0;
     return CIDropTarget::DragLeave();
 }
 

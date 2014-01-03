@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006, 2010, 2013 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006, 2010, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,8 +19,8 @@
 #pragma once
 
 struct TSVNCacheResponse;
-#define CACHETIMEOUT    0x7FFFFFFF
-extern DWORD cachetimeout;
+#define CACHETIMEOUT    0x7FFFFFFFFFFFFFFF
+extern ULONGLONG cachetimeout;
 
 /**
  * \ingroup TSVNCache
@@ -31,7 +31,7 @@ class CStatusCacheEntry
 public:
     CStatusCacheEntry();
     CStatusCacheEntry(const svn_client_status_t* pSVNStatus, bool needsLock, __int64 lastWriteTime, bool forceNormal);
-    bool HasExpired(long now) const;
+    bool HasExpired(LONGLONG now) const;
     void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
     bool IsVersioned() const;
     bool DoesFileTimeMatch(__int64 testTime) const;
@@ -50,7 +50,7 @@ private:
 
 private:
     __int64             m_lastWriteTime;
-    long                m_discardAtTime;
+    LONGLONG            m_discardAtTime;
     svn_revnum_t        m_commitRevision;
 
     struct

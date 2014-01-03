@@ -98,7 +98,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_previewWidth(0)
     , m_previewHeight(0)
     , m_previewZoom(1)
-    , m_dwTicks(0)
+    , m_ullTicks(0)
 {
     SecureZeroMemory(&m_lfBaseFont, sizeof(LOGFONT));
     std::fill_n(m_apFonts, MAXFONTS, (CFont*)NULL);
@@ -208,7 +208,7 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
     m_lfBaseFont.lfQuality = DEFAULT_QUALITY;
     m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
 
-    m_dwTicks = GetTickCount();
+    m_ullTicks = GetTickCount64();
 
     m_parent = dynamic_cast<CRevisionGraphDlg*>(pParent);
 }

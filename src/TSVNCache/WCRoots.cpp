@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2010 - TortoiseSVN
+// External Cache Copyright (C) 2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ __int64 CWCRoots::GetDBFileTime( const CTSVNPath& path )
     {
         if (it->first.IsAncestorOf(path))
         {
-            DWORD ticks = GetTickCount();
+            ULONGLONG ticks = GetTickCount64();
             if (ticks - it->second.LastTicks > DBTIMEOUT)
             {
                 // refresh the file time
@@ -94,7 +94,7 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
         else
         {
             WCRootsTimes dbTimes;
-            dbTimes.LastTicks = GetTickCount();
+            dbTimes.LastTicks = GetTickCount64();
             dbTimes.FileTime = dbPath.GetLastWriteTime();
             return m_WCDBs.insert(std::pair<CTSVNPath, WCRootsTimes>(p, dbTimes)).first;
         }
@@ -127,7 +127,7 @@ void CWCRoots::NotifyChange( const CTSVNPath& path )
             if (wcDbFile.Exists())
             {
                 WCRootsTimes dbTimes;
-                dbTimes.LastTicks = GetTickCount();
+                dbTimes.LastTicks = GetTickCount64();
                 dbTimes.FileTime = wcDbFile.GetLastWriteTime();
                 it->second = dbTimes;
             }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2013 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -281,7 +281,7 @@ void CSVNStatusCache::Refresh()
 bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
 {
     AutoLocker lock(m_NoWatchPathCritSec);
-    for (std::map<CTSVNPath, DWORD>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
+    for (std::map<CTSVNPath, ULONGLONG>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
     {
         if (it->first.IsAncestorOf(path))
         {
@@ -292,7 +292,7 @@ bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
     return true;
 }
 
-bool CSVNStatusCache::BlockPath(const CTSVNPath& path, bool specific, DWORD timeout /* = 0 */)
+bool CSVNStatusCache::BlockPath(const CTSVNPath& path, bool specific, ULONGLONG timeout /* = 0 */)
 {
     if (timeout == 0)
         timeout = BLOCK_PATH_DEFAULT_TIMEOUT;
@@ -300,7 +300,7 @@ bool CSVNStatusCache::BlockPath(const CTSVNPath& path, bool specific, DWORD time
     if (timeout > BLOCK_PATH_MAX_TIMEOUT)
         timeout = BLOCK_PATH_MAX_TIMEOUT;
 
-    timeout = GetTickCount() + (timeout * 1000);    // timeout is in seconds, but we need the milliseconds
+    timeout = GetTickCount64() + (timeout * 1000);    // timeout is in seconds, but we need the milliseconds
 
     if (!specific)
     {
@@ -342,7 +342,7 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
         else
         {
             AutoLocker lock(m_NoWatchPathCritSec);
-            std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(p);
+            std::map<CTSVNPath, ULONGLONG>::iterator it = m_NoWatchPaths.find(p);
             if (it != m_NoWatchPaths.end())
             {
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path removed from no good: %s\n"), it->first.GetWinPath());
@@ -354,7 +354,7 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
     } while (!p.IsEmpty());
 
     AutoLocker lock(m_NoWatchPathCritSec);
-    std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path.GetDirectory());
+    std::map<CTSVNPath, ULONGLONG>::iterator it = m_NoWatchPaths.find(path.GetDirectory());
     if (it != m_NoWatchPaths.end())
     {
         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path removed from no good: %s\n"), it->first.GetWinPath());
@@ -368,10 +368,10 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
 
 bool CSVNStatusCache::RemoveTimedoutBlocks()
 {
-    const DWORD currentTicks = GetTickCount();
+    const ULONGLONG currentTicks = GetTickCount64();
     AutoLocker lock(m_NoWatchPathCritSec);
     std::vector<CTSVNPath> toRemove;
-    for (std::map<CTSVNPath, DWORD>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
+    for (std::map<CTSVNPath, ULONGLONG>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
     {
         if (currentTicks > it->second)
         {
@@ -545,7 +545,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
     bool bRecursive = !!(flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
 
     // Check a very short-lived 'mini-cache' of the last thing we were asked for.
-    long now = (long)GetTickCount();
+    LONGLONG now = (LONGLONG)GetTickCount64();
     if(now-m_mostRecentExpiresAt < 0)
     {
         if(path.IsEquivalentToWithoutCase(m_mostRecentAskedPath))

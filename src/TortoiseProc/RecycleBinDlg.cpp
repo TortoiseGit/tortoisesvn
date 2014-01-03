@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2013 - TortoiseSVN
+// Copyright (C) 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,16 +68,16 @@ BOOL CRecycleBinDlg::OnInitDialog()
     return TRUE;
 }
 
-DWORD CRecycleBinDlg::StartTime()
+ULONGLONG CRecycleBinDlg::StartTime()
 {
-    m_startTicks = GetTickCount();
+    m_startTicks = GetTickCount64();
     return m_startTicks;
 }
 
 void CRecycleBinDlg::EndTime(int filecount)
 {
     bool tooSlow = false;
-    if (((GetTickCount() - m_startTicks)/1000) > (5UL+filecount))
+    if (((GetTickCount64() - m_startTicks)/1000) > (5UL+filecount))
         tooSlow = true;
 
     if ((tooSlow)&&(DWORD(m_regDontDoAgain)==0))

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -455,7 +455,7 @@ bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
 
 bool CHooks::PreConnect(const CTSVNPathList& pathList)
 {
-    if ((m_lastPreConnectTicks == 0) || ((GetTickCount() - m_lastPreConnectTicks) > 5*60*1000))
+    if ((m_lastPreConnectTicks == 0) || ((GetTickCount64() - m_lastPreConnectTicks) > 5*60*1000))
     {
         hookiterator it = FindItem(pre_connect_hook, pathList);
         if (it == end())
@@ -485,7 +485,7 @@ bool CHooks::PreConnect(const CTSVNPathList& pathList)
         CString sCmd = it->second.commandline;
         CString error;
         RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-        m_lastPreConnectTicks = GetTickCount();
+        m_lastPreConnectTicks = GetTickCount64();
         return true;
     }
     return false;

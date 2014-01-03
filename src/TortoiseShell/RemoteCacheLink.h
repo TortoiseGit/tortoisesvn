@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,6 +59,6 @@ private:
 
     CComCriticalSection m_critSec;
     svn_client_status_t m_dummyStatus;
-    long m_lastTimeout;
+    LONGLONG m_lastTimeout;
 
 };

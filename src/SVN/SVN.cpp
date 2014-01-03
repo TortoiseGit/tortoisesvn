@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2821,7 +2821,7 @@ void SVN::SetAndClearProgressInfo(HWND hWnd)
     progress_total = 0;
     progress_lastprogress = 0;
     progress_lasttotal = 0;
-    progress_lastTicks = GetTickCount();
+    progress_lastTicks = GetTickCount64();
 }
 
 void SVN::SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar/* = false*/)
@@ -2831,7 +2831,7 @@ void SVN::SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgres
     progress_total = 0;
     progress_lastprogress = 0;
     progress_lasttotal = 0;
-    progress_lastTicks = GetTickCount();
+    progress_lastTicks = GetTickCount64();
     m_bShowProgressBar = bShowProgressBar;
 }
 
@@ -2868,7 +2868,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
     pSVN->progress_lastprogress = progress;
     pSVN->progress_lasttotal = total;
 
-    DWORD ticks = GetTickCount();
+    ULONGLONG ticks = GetTickCount64();
     pSVN->progress_vector.push_back(delta);
     pSVN->progress_total += delta;
     //ATLTRACE("progress = %I64d, total = %I64d, delta = %I64d, overall total is : %I64d\n", progress, total, delta, pSVN->progress_total);

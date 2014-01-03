@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,8 +33,8 @@ typedef CComCritSecLock<CComCriticalSection> Locker;
 
 struct BoolTimeout
 {
-    bool    bBool;
-    DWORD   timeout;
+    bool        bBool;
+    ULONGLONG   timeout;
 };
 
 /**
@@ -223,25 +223,25 @@ private:
 
     CPathFilter pathFilter;
 
-    DWORD cachetypeticker;
-    DWORD recursiveticker;
-    DWORD folderoverlayticker;
-    DWORD getlocktopticker;
-    DWORD driveticker;
-    DWORD drivetypeticker;
-    DWORD layoutticker;
-    DWORD menumaskticker;
-    DWORD langticker;
-    DWORD blockstatusticker;
-    DWORD columnrevformatticker;
-    DWORD pathfilterticker;
-    DWORD shellmenuacceleratorsticker;
-    DWORD unversionedasmodifiedticker;
-    DWORD ignoreoncommitignoredticker;
-    DWORD excludedasnormalticker;
-    DWORD alwaysextendedticker;
-    DWORD hidemenusforunversioneditemsticker;
-    DWORD columnseverywhereticker;
+    ULONGLONG cachetypeticker;
+    ULONGLONG recursiveticker;
+    ULONGLONG folderoverlayticker;
+    ULONGLONG getlocktopticker;
+    ULONGLONG driveticker;
+    ULONGLONG drivetypeticker;
+    ULONGLONG layoutticker;
+    ULONGLONG menumaskticker;
+    ULONGLONG langticker;
+    ULONGLONG blockstatusticker;
+    ULONGLONG columnrevformatticker;
+    ULONGLONG pathfilterticker;
+    ULONGLONG shellmenuacceleratorsticker;
+    ULONGLONG unversionedasmodifiedticker;
+    ULONGLONG ignoreoncommitignoredticker;
+    ULONGLONG excludedasnormalticker;
+    ULONGLONG alwaysextendedticker;
+    ULONGLONG hidemenusforunversioneditemsticker;
+    ULONGLONG columnseverywhereticker;
     UINT  drivetypecache[27];
     TCHAR drivetypepathcache[MAX_PATH];     // MAX_PATH ok.
     NUMBERFMT columnrevformat;
@@ -251,7 +251,7 @@ private:
     CRegStdString nocontextpaths;
     tstring excludecontextstr;
     std::vector<tstring> excontextvector;
-    DWORD excontextticker;
+    ULONGLONG excontextticker;
     CComCriticalSection m_critSec;
 };
 

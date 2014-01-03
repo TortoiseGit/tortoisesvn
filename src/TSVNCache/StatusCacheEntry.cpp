@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008, 2010, 2012-2013 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008, 2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 
 #define CACHEENTRYDISKVERSION 10
 
-DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
+ULONGLONG cachetimeout = (ULONGLONG)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), LONG_MAX);
 
 CStatusCacheEntry::CStatusCacheEntry()
     : m_bSet(false)
@@ -46,7 +46,7 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_client_status_t* pSVNStatus, bool
 
     SetStatus(pSVNStatus, needsLock, forceNormal);
     m_lastWriteTime = lastWriteTime;
-    m_discardAtTime = GetTickCount()+cachetimeout;
+    m_discardAtTime = GetTickCount64()+cachetimeout;
 }
 
 bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
@@ -109,7 +109,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
     LOADCOPYVALUEFROMFILE(m_treeconflict, svn_boolean_t);
     LOADCOPYVALUEFROMFILE(m_bIgnoreOnCommit, svn_boolean_t);
 
-    m_discardAtTime = GetTickCount()+cachetimeout;
+    m_discardAtTime = GetTickCount64()+cachetimeout;
     return true;
 }
 
@@ -178,7 +178,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
         }
         m_treeconflict = pSVNStatus->conflicted != 0;
     }
-    m_discardAtTime = GetTickCount()+cachetimeout;
+    m_discardAtTime = GetTickCount64()+cachetimeout;
     m_bSet = true;
 }
 
@@ -186,7 +186,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
 void CStatusCacheEntry::SetAsUnversioned()
 {
     SecureZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
-    m_discardAtTime = GetTickCount()+cachetimeout;
+    m_discardAtTime = GetTickCount64()+cachetimeout;
     svn_wc_status_kind status = svn_wc_status_none;
     if (m_highestPriorityLocalStatus == svn_wc_status_ignored)
         status = svn_wc_status_ignored;
@@ -202,7 +202,7 @@ void CStatusCacheEntry::SetAsUnversioned()
     m_needsLock = false;
 }
 
-bool CStatusCacheEntry::HasExpired(long now) const
+bool CStatusCacheEntry::HasExpired(LONGLONG now) const
 {
     return m_discardAtTime != 0 && (now - m_discardAtTime) >= 0;
 }
@@ -250,7 +250,7 @@ bool CStatusCacheEntry::ForceStatus(svn_wc_status_kind forcedStatus)
         m_svnStatus.node_status = newStatus;
         m_svnStatus.prop_status = newStatus;
         m_svnStatus.text_status = newStatus;
-        m_discardAtTime = GetTickCount()+cachetimeout;
+        m_discardAtTime = GetTickCount64()+cachetimeout;
         return true;
     }
     return false;

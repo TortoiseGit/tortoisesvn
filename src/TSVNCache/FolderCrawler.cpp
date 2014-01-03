@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2012 - TortoiseSVN
+// External Cache Copyright (C) 2005-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 
 CFolderCrawler::CFolderCrawler(void)
     : m_lCrawlInhibitSet(0)
-    , m_crawlHoldoffReleasesAt((long)GetTickCount())
+    , m_crawlHoldoffReleasesAt((LONGLONG)GetTickCount64())
     , m_bRun(false)
     , m_bPathsAddedSinceLastCrawl(false)
     , m_bItemsAddedSinceLastCrawl(false)
@@ -170,7 +170,7 @@ void CFolderCrawler::WorkerThread()
                 bFirstRunAfterWakeup = false;
                 continue;
             }
-            if ((m_blockReleasesAt < GetTickCount())&&(!m_blockedPath.IsEmpty()))
+            if ((m_blockReleasesAt < GetTickCount64())&&(!m_blockedPath.IsEmpty()))
             {
                 m_blockedPath.Reset();
             }
@@ -402,7 +402,7 @@ void CFolderCrawler::WorkerThread()
 
 bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 {
-    long tick = (long)GetTickCount();
+    LONGLONG tick = (LONGLONG)GetTickCount64();
     bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
     m_crawlHoldoffReleasesAt = tick + milliseconds;
     return ret;
@@ -410,7 +410,7 @@ bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 
 bool CFolderCrawler::IsHoldOff()
 {
-    return (((long)GetTickCount() - m_crawlHoldoffReleasesAt) < 0);
+    return (((LONGLONG)GetTickCount64() - m_crawlHoldoffReleasesAt) < 0);
 }
 
 void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
@@ -418,7 +418,7 @@ void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
     AutoLocker lock(m_critSec);
     m_blockedPath = path;
     if (ticks == 0)
-        m_blockReleasesAt = GetTickCount()+10000;
+        m_blockReleasesAt = GetTickCount64()+10000;
     else
-        m_blockReleasesAt = GetTickCount()+ticks;
+        m_blockReleasesAt = GetTickCount64()+ticks;
 }

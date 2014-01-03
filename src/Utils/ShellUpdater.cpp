@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ void CShellUpdater::Flush()
 void CShellUpdater::UpdateShell()
 {
     // Tell the shell extension to purge its cache
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Setting cache invalidation event %d\n", GetTickCount());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Setting cache invalidation event %U64u\n", GetTickCount64());
     SetEvent(m_hInvalidationEvent);
 
     // We use the SVN 'notify' call-back to add items to the list
@@ -119,7 +119,7 @@ void CShellUpdater::UpdateShell()
 
     for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Cache Item Update for %s (%I64u)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount64());
         if (!m_pathsForUpdating[nPath].IsDirectory())
         {
             // send notifications to the shell for changed files - folders are updated by the cache itself.

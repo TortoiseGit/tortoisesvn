@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2010 - TortoiseSVN
+// External Cache Copyright (C) 2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,8 +23,8 @@
 
 struct WCRootsTimes
 {
-    __int64 FileTime;
-    DWORD   LastTicks;
+    __int64     FileTime;
+    ULONGLONG   LastTicks;
 };
 
 class CWCRoots

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2009, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,7 +62,7 @@ public:
 private:
     CTraceToOutputDebugString()
     {
-        m_LastTick = GetTickCount();
+        m_LastTick = GetTickCount64();
         m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
     }
     ~CTraceToOutputDebugString()
@@ -70,7 +70,7 @@ private:
         delete m_pInstance;
     }
 
-    DWORD m_LastTick;
+    ULONGLONG m_LastTick;
     bool    m_bActive;
     static CTraceToOutputDebugString * m_pInstance;
 
@@ -96,9 +96,9 @@ private:
 #ifdef DEBUG
         return true;
 #else
-        if (GetTickCount() - m_LastTick > 10000)
+        if (GetTickCount64() - m_LastTick > 10000)
         {
-            m_LastTick = GetTickCount();
+            m_LastTick = GetTickCount64();
             m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
         }
         return m_bActive;

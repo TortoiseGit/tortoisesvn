@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -210,7 +210,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
                 dirstat.lock = dirstatus->lock;
             }
             m_cache[filepath.GetWinPath()] = dirstat;
-            m_TimeStamp = GetTickCount();
+            m_TimeStamp = GetTickCount64();
             svn_error_clear(err);
             svn_pool_destroy (pool);                //free allocated memory
             return &dirstat;
@@ -268,7 +268,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 
     svn_error_clear(err);
     svn_pool_destroy (pool);                //free allocated memory
-    m_TimeStamp = GetTickCount();
+    m_TimeStamp = GetTickCount64();
     const FileStatusCacheEntry * ret = NULL;
     FileStatusMap::const_iterator iter;
     if ((iter = m_cache.find(filepath.GetWinPath())) != m_cache.end())
@@ -299,10 +299,10 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     return &invalidstatus;
 }
 
-DWORD SVNFolderStatus::GetTimeoutValue()
+ULONGLONG SVNFolderStatus::GetTimeoutValue()
 {
-    DWORD timeout = SVNFOLDERSTATUS_CACHETIMEOUT;
-    DWORD factor = (DWORD)m_cache.size()/200;
+    ULONGLONG timeout = SVNFOLDERSTATUS_CACHETIMEOUT;
+    ULONGLONG factor = (ULONGLONG)m_cache.size() / 200UL;
     if (factor==0)
         factor = 1;
     return factor*timeout;
@@ -370,7 +370,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
     if(retVal != NULL)
     {
         // We found something in a cache - check that the cache is not timed-out or force-invalidated
-        DWORD now = GetTickCount();
+        ULONGLONG now = GetTickCount64();
 
         if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
         {

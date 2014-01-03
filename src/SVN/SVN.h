@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1028,7 +1028,7 @@ protected:
     apr_off_t   progress_averagehelper;
     apr_off_t   progress_lastprogress;
     apr_off_t   progress_lasttotal;
-    DWORD       progress_lastTicks;
+    ULONGLONG   progress_lastTicks;
     std::vector<apr_off_t> progress_vector;
 
 private:

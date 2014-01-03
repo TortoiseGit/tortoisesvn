@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1042,7 +1042,7 @@ void CCommitDlg::GetAutocompletionList()
     std::map<CString, CString> mapRegex;
     CString sRegexFile = CPathUtils::GetAppDirectory();
     CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
-    DWORD timeoutvalue = regtimeout*1000;
+    ULONGLONG timeoutvalue = regtimeout * 1000;
     if (timeoutvalue == 0)
         return;
     sRegexFile += _T("autolist.txt");
@@ -1057,7 +1057,7 @@ void CCommitDlg::GetAutocompletionList()
     if (PathFileExists(sRegexFile))
         ParseRegexFile(sRegexFile, mapRegex);
 
-    DWORD starttime = GetTickCount();
+    ULONGLONG starttime = GetTickCount64();
 
     // now we have two arrays of strings, where the first array contains all
     // file extensions we can use and the second the corresponding regex strings
@@ -1070,7 +1070,7 @@ void CCommitDlg::GetAutocompletionList()
     for (int i=0; i<nListItems && m_bRunThread; ++i)
     {
         // stop parsing after timeout
-        if ((!m_bRunThread) || (GetTickCount() - starttime > timeoutvalue))
+        if ((!m_bRunThread) || (GetTickCount64() - starttime > timeoutvalue))
             return;
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
@@ -1122,7 +1122,7 @@ void CCommitDlg::GetAutocompletionList()
                 ScanFile(basePath.GetWinPathString(), rdata, sExt);
         }
     }
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Auto completion list loaded in %d msec\n"), GetTickCount() - starttime);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Auto completion list loaded in %d msec\n"), GetTickCount64() - starttime);
 }
 
 void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt)

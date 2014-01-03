@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -292,15 +292,15 @@ private:
      * time stamp of the last registry lookup, i.e \ref read() call
      */
 
-    DWORD lastRead;
+    ULONGLONG lastRead;
 
     /**
      * \ref read() will be called, if \ref lastRead differs from the
      * current time stamp by more than this.
-     * (DWORD)(-1) -> no automatic refresh.
+     * (ULONGLONG)(-1) -> no automatic refresh.
      */
 
-    DWORD lookupInterval;
+    ULONGLONG lookupInterval;
 
     /**
      * Check time stamps etc.
@@ -379,7 +379,7 @@ void CRegTypedBase<T, Base>::HandleAutoRefresh()
 {
     if (m_read && (lookupInterval != (DWORD)(-1)))
     {
-        DWORD currentTime = GetTickCount();
+        ULONGLONG currentTime = GetTickCount64();
         if (   (currentTime < lastRead)
             || (currentTime > lastRead + lookupInterval))
         {
@@ -393,7 +393,7 @@ CRegTypedBase<T, Base>::CRegTypedBase (const T& def)
     : m_value (def)
     , m_defaultvalue (def)
     , lastRead (0)
-    , lookupInterval ((DWORD)-1)
+    , lookupInterval((ULONGLONG)-1)
 {
 }
 
@@ -440,7 +440,7 @@ void CRegTypedBase<T, Base>::read()
     }
 
     m_read = true;
-    lastRead = GetTickCount();
+    lastRead = GetTickCount64();
 }
 
 template<class T, class Base>
@@ -462,7 +462,7 @@ void CRegTypedBase<T, Base>::write()
     }
     LastError = RegCloseKey(hKey);
 
-    lastRead = GetTickCount();
+    lastRead = GetTickCount64();
 }
 
 template<class T, class Base>

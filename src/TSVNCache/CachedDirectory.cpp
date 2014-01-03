@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2011 - TortoiseSVN
+// External Cache Copyright (C) 2005-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -313,7 +313,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
             if(itMap != m_entryCache.end())
             {
                 // We've hit the cache - check for timeout
-                if(!itMap->second.HasExpired((long)GetTickCount()))
+                if (!itMap->second.HasExpired((LONGLONG)GetTickCount64()))
                 {
                     if(itMap->second.DoesFileTimeMatch(path.GetLastWriteTime()))
                     {
@@ -731,7 +731,7 @@ bool
 CCachedDirectory::IsOwnStatusValid() const
 {
     return m_ownStatus.HasBeenSet() &&
-           !m_ownStatus.HasExpired(GetTickCount()) &&
+           !m_ownStatus.HasExpired(GetTickCount64()) &&
            // 'external' isn't a valid status. That just
            // means the folder is not part of the current working
            // copy but it still has its own 'real' status
@@ -868,7 +868,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
     CTSVNPathList crawlPathList;
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
 
-    DWORD now = GetTickCount();
+    ULONGLONG now = GetTickCount64();
     {
         // get the file write times with FindFirstFile/FindNextFile since those
         // APIs only access the folder, not each file individually.

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,7 +62,7 @@ CShellExt::~CShellExt()
 
 void LoadLangDll()
 {
-    if ((g_langid != g_ShellCache.GetLangID())&&((g_langTimeout == 0)||(g_langTimeout < GetTickCount())))
+    if ((g_langid != g_ShellCache.GetLangID())&&((g_langTimeout == 0)||(g_langTimeout < GetTickCount64())))
     {
         g_langid = g_ShellCache.GetLangID();
         DWORD langId = g_langid;
@@ -184,7 +184,7 @@ void LoadLangDll()
             g_langid = 1033;
             // set a timeout of 10 seconds
             if (g_ShellCache.GetLangID() != 1033)
-                g_langTimeout = GetTickCount() + 10000;
+                g_langTimeout = GetTickCount64() + 10000;
         }
         else
             g_langTimeout = 0;

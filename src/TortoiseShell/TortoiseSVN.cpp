@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ HINSTANCE           g_hmodThisDll = NULL;           ///< handle to this DLL itse
 int                 g_cAprInit = 0;
 ShellCache          g_ShellCache;                   ///< caching of registry entries, ...
 DWORD               g_langid;
-DWORD               g_langTimeout = 0;
+ULONGLONG           g_langTimeout = 0;
 HINSTANCE           g_hResInst = NULL;
 tstring         g_filepath;
 svn_wc_status_kind  g_filestatus = svn_wc_status_none;  ///< holds the corresponding status to the file/dir above
