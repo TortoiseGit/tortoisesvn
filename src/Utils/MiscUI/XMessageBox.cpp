@@ -107,6 +107,9 @@
 #include "stdafx.h"
 ///////////////////////////////////////////////////////////////////////////////
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#include <VersionHelpers.h>
+#endif
 
 #ifndef _MFC_VER
 #include <windows.h>
@@ -482,6 +485,9 @@ struct CXDialogTemplate::ButtonInfo CXDialogTemplate::g_ButtonText[] =
 // IsVistaOrLater
 static BOOL IsVistaOrLater()
 {
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+    return IsWindowsVistaOrGreater();
+#else
     BOOL rc = FALSE;
 
     OSVERSIONINFO osvi = { 0 };
@@ -493,6 +499,7 @@ static BOOL IsVistaOrLater()
     }
 
     return rc;
+#endif
 }
 #endif // XMESSAGEBOX_AUTO_VISTA_STYLE
 
