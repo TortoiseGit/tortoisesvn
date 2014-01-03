@@ -64,25 +64,6 @@
 
 #include "../LogCache/Streams/StreamException.h"
 
-#if (NTDDI_VERSION < NTDDI_LONGHORN)
-
-enum LISTITEMSTATES_MINE {
-    LISS_NORMAL = 1,
-    LISS_HOT = 2,
-    LISS_SELECTED = 3,
-    LISS_DISABLED = 4,
-    LISS_SELECTEDNOTFOCUS = 5,
-    LISS_HOTSELECTED = 6,
-};
-
-#define MCS_NOTRAILINGDATES  0x0040
-#define MCS_SHORTDAYSOFWEEK  0x0080
-#define MCS_NOSELCHANGEONNAV 0x0100
-
-#define DTM_SETMCSTYLE    (DTM_FIRST + 11)
-
-#endif
-
 #define ICONITEMBORDER 5
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
