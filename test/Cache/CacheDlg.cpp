@@ -21,7 +21,7 @@
 #include "DirFileEnum.h"
 #include "CacheInterface.h"
 #include <WinInet.h>
-#include ".\cachedlg.h"
+#include "cachedlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -34,6 +34,7 @@
 CCacheDlg::CCacheDlg(CWnd* pParent /*=NULL*/)
 : CDialog(CCacheDlg::IDD, pParent)
 , m_sRootPath(_T(""))
+, m_hEvent(INVALID_HANDLE_VALUE)
 , m_hPipe(INVALID_HANDLE_VALUE)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
