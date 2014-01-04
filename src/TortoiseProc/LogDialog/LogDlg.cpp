@@ -390,7 +390,7 @@ void CLogDlg::SetupLogListControl()
     // very confused because selected items are not checked.
     // Also, while handling checkboxes is implemented, most code paths in this
     // file still only work on the selected items, not the checked ones.
-    if (m_bSelect && SysInfo::Instance().IsVistaOrLater())
+    if (m_bSelect)
         dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
     m_LogList.SetExtendedStyle(dwStyle);
     m_LogList.SetTooltipProvider(this);
@@ -2804,34 +2804,10 @@ void CLogDlg::OnBnClickedHelp()
 
 void CLogDlg::ToggleCheckbox(size_t item)
 {
-    if (!SysInfo::Instance().IsVistaOrLater())
-    {
-        if (item < m_logEntries.GetVisibleCount())
-        {
-            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(item);
-            if (pLogEntry)
-            {
-                pLogEntry->SetChecked (!pLogEntry->GetChecked());
-                m_LogList.RedrawItems ((int)item, (int)item);
-            }
-        }
-    }
 }
 
 void CLogDlg::SelectAllVisibleRevisions()
 {
-    if (!SysInfo::Instance().IsVistaOrLater())
-    {
-        for ( size_t i = 0, count = m_logEntries.GetVisibleCount()
-            ; i < count
-            ; ++i)
-        {
-            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
-            if (pLogEntry)
-                pLogEntry->SetChecked (true);
-        }
-    }
-
     m_LogList.SetItemState (-1, LVIS_SELECTED, LVIS_SELECTED);
     if (m_bStrict && m_bStrictStopped)
         m_LogList.SetItemState(m_LogList.GetItemCount()-1, 0, LVIS_SELECTED);
@@ -2866,15 +2842,12 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         {
             FillLogMessageCtrl();
             UpdateData(FALSE);
-            if (SysInfo::Instance().IsVistaOrLater())
+            if (item < m_logEntries.GetVisibleCount())
             {
-                if (item < m_logEntries.GetVisibleCount())
+                PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(item);
+                if (pLogEntry)
                 {
-                    PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(item);
-                    if (pLogEntry)
-                    {
-                        pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
-                    }
+                    pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
                 }
             }
         }
@@ -3127,7 +3100,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     {
                         // only change the background color if the item is not 'hot' (on vista
                         // with themes enabled)
-                        if (!IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() ||
+                        if (!IsAppThemed() ||
                             ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
                             pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
                     }
@@ -3377,7 +3350,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
         rect.right = listCtrl.GetColumnWidth(0);
 
     // Fill the background
-    if (IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+    if (IsAppThemed())
     {
         HTHEME hTheme = OpenThemeData(m_hWnd, L"Explorer");
         int state = LISS_NORMAL;
@@ -3478,7 +3451,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
         int borderWidth = 0;
-        if (IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+        if (IsAppThemed())
         {
             HTHEME hTheme = OpenThemeData(m_hWnd, L"LISTVIEW");
             GetThemeMetric(hTheme, pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE,
@@ -3916,32 +3889,16 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (pLogEntry)
         {
-            if (SysInfo::Instance().IsVistaOrLater())
+            UINT state = m_LogList.GetItemState(pItem->iItem, LVIS_SELECTED);
+            if (state & LVIS_SELECTED)
             {
-                UINT state = m_LogList.GetItemState(pItem->iItem, LVIS_SELECTED);
-                if (state & LVIS_SELECTED)
-                {
-                    //Turn check box on
-                    pItem->state = INDEXTOSTATEIMAGEMASK(2);
-                }
-                else
-                {
-                    //Turn check box off
-                    pItem->state = INDEXTOSTATEIMAGEMASK(1);
-                }
+                //Turn check box on
+                pItem->state = INDEXTOSTATEIMAGEMASK(2);
             }
             else
             {
-                if (pLogEntry->GetChecked())
-                {
-                    //Turn check box on
-                    pItem->state = INDEXTOSTATEIMAGEMASK(2);
-                }
-                else
-                {
-                    //Turn check box off
-                    pItem->state = INDEXTOSTATEIMAGEMASK(1);
-                }
+                //Turn check box off
+                pItem->state = INDEXTOSTATEIMAGEMASK(1);
             }
         }
     }
@@ -4578,7 +4535,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
                 cx = nMinimumWidth;
             }
         }
-        if ((col == 0)&&(m_bSelect)&&(SysInfo::Instance().IsVistaOrLater()))
+        if ((col == 0) && m_bSelect)
         {
             cx += 16;   // add space for the checkbox
         }

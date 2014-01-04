@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5651,11 +5651,8 @@ LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId, int ind
     lvgroup.pszHeader = groupName;
     lvgroup.iGroupId = groupId;
     lvgroup.uAlign = LVGA_HEADER_LEFT;
-    if (SysInfo::Instance().IsVistaOrLater())
-    {
-        lvgroup.mask |= LVGF_STATE;
-        lvgroup.state = LVGS_COLLAPSIBLE;
-    }
+    lvgroup.mask |= LVGF_STATE;
+    lvgroup.state = LVGS_COLLAPSIBLE;
     return InsertGroup(index, &lvgroup);
 }
 

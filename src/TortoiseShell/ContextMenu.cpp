@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -707,7 +707,7 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
     menuiteminfo.fType = MFT_STRING;
     menuiteminfo.dwTypeData = menutextbuffer;
     if (icon)
-        menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, icon) : HBMMENU_CALLBACK;
+        menuiteminfo.hbmpItem = m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, icon);
     menuiteminfo.wID = (UINT)id;
     InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
 
@@ -1170,7 +1170,7 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
 
     menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
     if (bShowIcons)
-        menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, uIcon) : HBMMENU_CALLBACK;
+        menuiteminfo.hbmpItem = m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, uIcon);
     menuiteminfo.hbmpChecked = bmp;
     menuiteminfo.hbmpUnchecked = bmp;
     menuiteminfo.hSubMenu = subMenu;
@@ -2311,9 +2311,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         menuiteminfo.cbSize = sizeof(menuiteminfo);
         menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
         menuiteminfo.fType = MFT_STRING;
-        HBITMAP bmp = SysInfo::Instance().IsVistaOrLater() ? m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, icon) : m_iconBitmapUtils.IconToBitmap(g_hResInst, icon);
+        HBITMAP bmp = m_iconBitmapUtils.IconToBitmapPARGB32(g_hResInst, icon);
         if (icon)
-            menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? bmp : HBMMENU_CALLBACK;
+            menuiteminfo.hbmpItem = bmp;
         menuiteminfo.hbmpChecked = bmp;
         menuiteminfo.hbmpUnchecked = bmp;
         menuiteminfo.hSubMenu = ignoresubmenu;

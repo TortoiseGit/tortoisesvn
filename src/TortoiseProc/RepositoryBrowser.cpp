@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -404,17 +404,14 @@ BOOL CRepositoryBrowser::OnInitDialog()
     }
     m_nBookmarksIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BOOKMARKS), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
-    if (SysInfo::Instance().IsVistaOrLater())
-    {
-        // TVS_EX_FADEINOUTEXPANDOS style must not be set:
-        // if it is set, there's a UI glitch when editing labels:
-        // the text vanishes if the mouse cursor is moved away from
-        // the edit control
-        DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
-        if (m_bSparseCheckoutMode)
-            exStyle |= TVS_EX_MULTISELECT;
-        m_RepoTree.SetExtendedStyle(exStyle, exStyle);
-    }
+    // TVS_EX_FADEINOUTEXPANDOS style must not be set:
+    // if it is set, there's a UI glitch when editing labels:
+    // the text vanishes if the mouse cursor is moved away from
+    // the edit control
+    DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
+    if (m_bSparseCheckoutMode)
+        exStyle |= TVS_EX_MULTISELECT;
+    m_RepoTree.SetExtendedStyle(exStyle, exStyle);
 
     SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
     SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
@@ -4613,27 +4610,6 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
 void CRepositoryBrowser::OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;
-    if (SysInfo::Instance().IsVistaOrLater())
-        return;
-
-    // on XP, there's no TVN_ITEMCHANGED message, so we have to handle
-    // mouse clicks on the checkbox ourselves
-
-    DWORD dwpos = GetMessagePos();
-
-    TVHITTESTINFO ht = {0};
-    ht.pt.x = GET_X_LPARAM(dwpos);
-    ht.pt.y = GET_Y_LPARAM(dwpos);
-    ::MapWindowPoints(HWND_DESKTOP, pNMHDR->hwndFrom, &ht.pt, 1);
-
-    TreeView_HitTest(pNMHDR->hwndFrom, &ht);
-
-    if (TVHT_ONITEMSTATEICON & ht.flags)
-    {
-        CheckTreeItem(ht.hItem, !m_RepoTree.GetCheck(ht.hItem));
-        // invert check. tree control inverts it again after this method
-        m_RepoTree.SetCheck(ht.hItem, !m_RepoTree.GetCheck(ht.hItem));
-    }
 }
 
 void CRepositoryBrowser::CheckParentsOfTreeItem( HTREEITEM hItem )
@@ -4740,23 +4716,6 @@ void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMTVKEYDOWN pTVKeyDown = reinterpret_cast<LPNMTVKEYDOWN>(pNMHDR);
     *pResult = 0;
-    if (SysInfo::Instance().IsVistaOrLater())
-        return;
-
-    // on XP, there's no TVN_ITEMCHANGED message, so we have to handle
-    // changes of the check state with the space key ourselves
-
-    if (pTVKeyDown -> wVKey == VK_SPACE)
-    {
-        HTREEITEM item = m_RepoTree.GetSelectedItem();
-
-        if (item)
-        {
-            CheckTreeItem(item, !m_RepoTree.GetCheck(item));
-            // invert check. tree control inverts it again after this method
-            m_RepoTree.SetCheck(item, !m_RepoTree.GetCheck(item));
-        }
-    }
 }
 
 bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)

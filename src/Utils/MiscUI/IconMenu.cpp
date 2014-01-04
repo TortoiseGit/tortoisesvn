@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,9 +54,6 @@ BOOL CIconMenu::CreatePopupMenu()
 
 BOOL CIconMenu::SetMenuStyle(void)
 {
-    if (!SysInfo::Instance().IsVistaOrLater())
-        return FALSE;
-
     MENUINFO MenuInfo;
 
     SecureZeroMemory(&MenuInfo, sizeof(MenuInfo));
@@ -84,14 +81,7 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
     info.fType = MFT_STRING;
     info.wID = (UINT)nIDNewItem;
     info.dwTypeData = menutextbuffer;
-    if (SysInfo::Instance().IsVistaOrLater())
-    {
-        info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(AfxGetResourceHandle(), uIcon);
-    }
-    else
-    {
-        info.hbmpItem = HBMMENU_CALLBACK;
-    }
+    info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(AfxGetResourceHandle(), uIcon);
     icons[nIDNewItem] = uIcon;
 
     return InsertMenuItem((UINT)nIDNewItem, &info);
@@ -122,14 +112,7 @@ BOOL CIconMenu::AppendMenuIcon( UINT_PTR nIDNewItem, UINT_PTR nNewItem, HICON hI
     info.fType = MFT_STRING;
     info.wID = (UINT)nIDNewItem;
     info.dwTypeData = menutextbuffer;
-    if (SysInfo::Instance().IsVistaOrLater())
-    {
-        info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(hIcon);
-    }
-    else
-    {
-        info.hbmpItem = HBMMENU_CALLBACK;
-    }
+    info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(hIcon);
     iconhandles[nIDNewItem] = hIcon;
 
     return InsertMenuItem((UINT)nIDNewItem, &info);

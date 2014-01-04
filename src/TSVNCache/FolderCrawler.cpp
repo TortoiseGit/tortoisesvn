@@ -120,11 +120,7 @@ void CFolderCrawler::WorkerThread()
     for(;;)
     {
         bool bRecursive = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
-
-        if (SysInfo::Instance().IsVistaOrLater())
-        {
-            SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
-        }
+        SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
         DWORD waitResult = WaitForMultipleObjects(_countof(hWaitHandles), hWaitHandles, FALSE, INFINITE);
 
         // exit event/working loop if the first event (m_hTerminationEvent)
@@ -325,10 +321,7 @@ void CFolderCrawler::WorkerThread()
             }
             if (m_foldersToUpdate.size())
             {
-                if (SysInfo::Instance().IsVistaOrLater())
-                {
-                    SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
-                }
+                SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
                 {
                     AutoLocker lock(m_critSec);
 

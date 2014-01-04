@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2013 - TortoiseSVN
+// Copyright (C) 2006-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1306,12 +1306,6 @@ void CPicWindow::Paint(HWND hwnd)
                 // set the font
                 NONCLIENTMETRICS metrics = {0};
                 metrics.cbSize = sizeof(NONCLIENTMETRICS);
-
-                if (!SysInfo::Instance().IsVistaOrLater())
-                {
-                    metrics.cbSize -= sizeof(int);  // subtract the size of the iPaddedBorderWidth member which is not available on XP
-                }
-
                 SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
                 HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
                 HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
@@ -1347,10 +1341,6 @@ void CPicWindow::Paint(HWND hwnd)
             // set the font
             NONCLIENTMETRICS metrics = {0};
             metrics.cbSize = sizeof(NONCLIENTMETRICS);
-            if (!SysInfo::Instance().IsVistaOrLater())
-            {
-                metrics.cbSize -= sizeof(int);  // subtract the size of the iPaddedBorderWidth member which is not available on XP
-            }
             SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
             HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
             HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
