@@ -293,8 +293,6 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
     ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
     ON_NOTIFY(TVN_ITEMCHANGED, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangedRepotree)
-    ON_NOTIFY(NM_CLICK, IDC_REPOTREE, &CRepositoryBrowser::OnNMClickRepotree)
-    ON_NOTIFY(TVN_KEYDOWN, IDC_REPOTREE, &CRepositoryBrowser::OnTvnKeydownRepotree)
     ON_WM_CAPTURECHANGED()
     ON_REGISTERED_MESSAGE(WM_SVNAUTHCANCELLED, OnAuthCancelled)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOLIST, &CRepositoryBrowser::OnNMCustomdrawRepolist)
@@ -4604,14 +4602,6 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
     return bChecked;
 }
 
-
-
-
-void CRepositoryBrowser::OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult)
-{
-    *pResult = 0;
-}
-
 void CRepositoryBrowser::CheckParentsOfTreeItem( HTREEITEM hItem )
 {
     HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
@@ -4709,13 +4699,6 @@ void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
             m_RepoTree.SetCheck(hItem);
         }
     }
-}
-
-
-void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
-{
-    LPNMTVKEYDOWN pTVKeyDown = reinterpret_cast<LPNMTVKEYDOWN>(pNMHDR);
-    *pResult = 0;
 }
 
 bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)

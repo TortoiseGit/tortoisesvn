@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -154,7 +154,6 @@ protected:
     afx_msg void OnLogCancel();
     afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnKeydownFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnEnscrollMsgview();
     afx_msg void OnDestroy();
 
@@ -207,7 +206,6 @@ private:
     void DiffSelectedFile(bool ignoreprops);
     void DiffSelectedRevWithPrevious();
     void SetDlgTitle(bool bOffline);
-    void ToggleCheckbox(size_t item);
     void SelectAllVisibleRevisions();
     void AddMainAnchors();
     void RemoveMainAnchors();

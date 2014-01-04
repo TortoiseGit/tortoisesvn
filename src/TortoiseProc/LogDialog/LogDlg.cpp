@@ -273,7 +273,6 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, &CLogDlg::OnLvnKeydownLoglist)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, &CLogDlg::OnLvnKeydownFilelist)
-    ON_NOTIFY(NM_CLICK, IDC_LOGLIST, &CLogDlg::OnNMClickLoglist)
     ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_EN_HSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_WM_CLOSE()
@@ -2800,10 +2799,6 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 void CLogDlg::OnBnClickedHelp()
 {
     OnHelp();
-}
-
-void CLogDlg::ToggleCheckbox(size_t item)
-{
 }
 
 void CLogDlg::SelectAllVisibleRevisions()
@@ -5903,15 +5898,7 @@ void CLogDlg::OnEditCopy()
 void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLVKEYDOWN pLVKeyDown = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
-    // If user press space, toggle flag on selected item
-    if (pLVKeyDown->wVKey == VK_SPACE)
-    {
-        // Toggle checked for the focused item.
-        int nFocusedItem = m_LogList.GetNextItem(-1, LVNI_FOCUSED);
-        if (nFocusedItem >= 0)
-            ToggleCheckbox(nFocusedItem);
-    }
-    else if ((pLVKeyDown->wVKey == 'A') && (GetKeyState (VK_CONTROL) < 0))
+    if ((pLVKeyDown->wVKey == 'A') && (GetKeyState (VK_CONTROL) < 0))
     {
         // Ctrl-A: select all visible revision
         SelectAllVisibleRevisions();
@@ -5927,29 +5914,6 @@ void CLogDlg::OnLvnKeydownFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     // Ctrl-A: select all files
     if ((pLVKeyDown->wVKey == 'A') && (GetKeyState (VK_CONTROL) < 0))
         m_ChangedFileListCtrl.SetItemState (-1, LVIS_SELECTED, LVIS_SELECTED);
-
-    *pResult = 0;
-}
-
-void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-    LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
-
-    UINT flags = 0;
-    CPoint point(pNMItemActivate->ptAction);
-
-    //Make the hit test...
-    int item = m_LogList.HitTest(point, &flags);
-
-    if (item != -1)
-    {
-        //We hit one item... did we hit state image (check box)?
-        //This test only works if we are in list or report mode.
-        if( (flags & LVHT_ONITEMSTATEICON) != 0)
-        {
-            ToggleCheckbox(item);
-        }
-    }
 
     *pResult = 0;
 }

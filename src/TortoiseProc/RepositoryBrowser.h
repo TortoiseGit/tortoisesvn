@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -138,8 +138,6 @@ protected:
     afx_msg void OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
