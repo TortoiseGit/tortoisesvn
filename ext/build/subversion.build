@@ -181,7 +181,7 @@ TSVN_ClearLastUsedAuthCache' />
     <property name="sslplat" value="64" if="${platform == 'x64'}" />
 
     <delete file="${configuration}_${platform}\svn.res" />
-    <rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res">
+    <rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res" options="/nologo">
       <includedirs>
         <include name="..\apr\include" />
         <include name="..\apr-util\include" />
@@ -290,7 +290,7 @@ TSVN_ClearLastUsedAuthCache' />
           </defines>
         </cl>
         <delete file="${configuration}_${platform}\svn.res" />
-        <rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res">
+        <rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res" options="/nologo">
           <includedirs>
             <include name="..\apr\include" />
             <include name="..\apr-util\include" />

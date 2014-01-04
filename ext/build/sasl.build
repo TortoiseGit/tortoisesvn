@@ -26,7 +26,7 @@
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <mkdir dir="${configuration}_${platform}" />
-    <rc rcfile="win32\include\CyrusSasl.rc" output="${configuration}_${platform}\libsasl.res">
+    <rc rcfile="win32\include\CyrusSasl.rc" output="${configuration}_${platform}\libsasl.res" options="/nologo">
       <includedirs>
         <include name="include" />
       </includedirs>

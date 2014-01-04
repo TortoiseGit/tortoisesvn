@@ -35,7 +35,7 @@
     <echo file="include\apr.h" message="${configfile}" />
 
     <copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
-    <rc rcfile="libapr.rc" output="${configuration}_${platform}\libapr_tsvn.res">
+    <rc rcfile="libapr.rc" output="${configuration}_${platform}\libapr_tsvn.res" options="/nologo">
       <includedirs>
         <include name="include" />
       </includedirs>
