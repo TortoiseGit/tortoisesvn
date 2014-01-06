@@ -1,4 +1,4 @@
-// Copyright 2012 Idol Software, Inc.
+// Copyright 2012, 2014 Idol Software, Inc.
 //
 // This file is part of CrashHandler library.
 //
@@ -327,6 +327,7 @@ void InitCrtErrorHandlers()
         _T("msvcr100"), _T("msvcr100d"),
         _T("msvcr110"), _T("msvcr110d"),
         _T("msvcr120"), _T("msvcr120d"),
+        _T("msvcr130"), _T("msvcr130d"),
     };
 
     HMODULE hMsvcrDll = NULL;
