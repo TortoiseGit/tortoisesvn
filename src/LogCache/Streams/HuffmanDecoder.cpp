@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,7 +74,7 @@ void CHuffmanDecoder::BuildDecodeTable (const BYTE*& first)
         BYTE l = keyLength[i];
         BYTE v = values[i];
 
-        size_t delta = 1 << l;
+        size_t delta = (size_t)(1ULL << l);
         for (size_t k = key[i]; k < 1 << MAX_ENCODING_LENGTH; k += delta)
         {
             value[k] = v;
