@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -957,12 +957,12 @@ void CStatGraphDlg::ShowStats()
     SetDlgItemText(IDC_NUMWEEKVALUE, number);
     number.Format(_T("%Iu"), nAuthors);
     SetDlgItemText(IDC_NUMAUTHORVALUE, number);
-    number.Format(_T("%d"), m_nTotalCommits);
+    number.Format(_T("%Id"), m_nTotalCommits);
     SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
     number.Format(_T("%ld"), m_nTotalFileChanges);
     SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
 
-    number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
+    number.Format(_T("%Id"), m_parAuthors->GetCount() / nWeeks);
     SetDlgItemText(IDC_COMMITSEACHWEEKAVG, number);
     number.Format(_T("%ld"), nCommitsMax);
     SetDlgItemText(IDC_COMMITSEACHWEEKMAX, number);
