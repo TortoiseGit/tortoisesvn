@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,13 +48,17 @@ STDMETHODIMP CCallback::Authenticate( HWND * phwnd, LPWSTR * pszUsername, LPWSTR
     if (m_username.size())
     {
         *pszUsername = (LPWSTR)CoTaskMemAlloc((m_username.size()+1)*2);
-        _tcscpy_s(*pszUsername, m_username.size()+1, m_username.c_str());
+        if (pszUsername == nullptr)
+            return E_OUTOFMEMORY;
+        _tcscpy_s(*pszUsername, m_username.size() + 1, m_username.c_str());
     }
     else
         pszUsername = NULL;
     if (m_password.size())
     {
         *pszPassword = (LPWSTR)CoTaskMemAlloc((m_password.size()+1)*2);
+        if (pszPassword == nullptr)
+            return E_OUTOFMEMORY;
         _tcscpy_s(*pszPassword, m_password.size()+1, m_password.c_str());
     }
     else
