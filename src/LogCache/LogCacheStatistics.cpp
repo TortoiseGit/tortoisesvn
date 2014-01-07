@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -139,7 +139,7 @@ bool CLogCacheStatistics::CacheExists() const
 
 __time64_t CLogCacheStatistics::GetTime (FILETIME& fileTime)
 {
-    SYSTEMTIME systemTime;
+    SYSTEMTIME systemTime = { 0 };
     FileTimeToSystemTime (&fileTime, &systemTime);
 
     tm time = {0,0,0, 0,0,0, 0,0,0};

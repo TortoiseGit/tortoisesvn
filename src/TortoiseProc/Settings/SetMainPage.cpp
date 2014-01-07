@@ -177,7 +177,7 @@ BOOL CSetMainPage::OnApply()
 
 void CSetMainPage::OnBnClickedEditconfig()
 {
-    TCHAR buf[MAX_PATH];
+    TCHAR buf[MAX_PATH] = { 0 };
     SVN::EnsureConfigFile();
     SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
     CString path = buf;
@@ -187,7 +187,7 @@ void CSetMainPage::OnBnClickedEditconfig()
 
 void CSetMainPage::OnBnClickedChecknewerbutton()
 {
-    TCHAR com[MAX_PATH+100];
+    TCHAR com[MAX_PATH + 100] = { 0 };
     GetModuleFileName(NULL, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck /visible");

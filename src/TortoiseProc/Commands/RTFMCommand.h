@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2012 - TortoiseSVN
+// Copyright (C) 2007, 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ public:
         // If the user tries to start TortoiseProc from the link in the programs start menu
         // show an explanation about what TSVN is (shell extension) and open up an explorer window
         TSVNMessageBox(GetExplorerHWND(), IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
-        TCHAR path[MAX_PATH];
+        TCHAR path[MAX_PATH] = { 0 };
         SHGetFolderPath(GetExplorerHWND(), CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
         ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
         return true;
