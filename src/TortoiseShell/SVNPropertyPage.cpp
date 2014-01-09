@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -264,14 +264,14 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
         systime.wSecond = (WORD)newtime.tm_sec;
         systime.wYear = (WORD)newtime.tm_year+1900;
         int ret = 0;
-        TCHAR datebuf[MAX_STRING_LENGTH];
+        TCHAR datebuf[MAX_STRING_LENGTH] = { 0 };
         if (CRegStdDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
             ret = GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_STRING_LENGTH);
         else
             ret = GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_STRING_LENGTH);
         if (ret == 0)
             datebuf[0] = '\0';
-        TCHAR timebuf[MAX_STRING_LENGTH];
+        TCHAR timebuf[MAX_STRING_LENGTH] = { 0 };
         ret = GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_STRING_LENGTH);
         if (ret == 0)
             timebuf[0] = '\0';
@@ -294,7 +294,7 @@ void CSVNPropertyPage::InitWorkfileView()
             __time64_t  time;
             if (svn.status->versioned)
             {
-                TCHAR buf[MAX_STRING_LENGTH];
+                TCHAR buf[MAX_STRING_LENGTH] = { 0 };
                 LoadLangDll();
                 if (svn.status->node_status == svn_wc_status_added)
                 {
@@ -434,7 +434,7 @@ void CSVNPropertyPage::InitWorkfileView()
             if (svn.status->repos_relpath)
             {
                 CPathUtils::Unescape((char*)svn.status->repos_relpath);
-                TCHAR tbuf[MAX_STRING_LENGTH];
+                TCHAR tbuf[MAX_STRING_LENGTH] = { 0 };
                 _tcsncpy_s(tbuf, CUnicodeUtils::StdGetUnicode(svn.status->repos_relpath).c_str(), _countof(tbuf)-1);
                 TCHAR * ptr = _tcsrchr(tbuf, '/');
                 if (ptr != 0)

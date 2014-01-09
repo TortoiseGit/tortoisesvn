@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2013 - TortoiseSVN
+// Copyright (C) 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,7 +103,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
                     int foundUUIDIndex = 0;
                     do
                     {
-                        wchar_t buf[MAX_PATH];
+                        wchar_t buf[MAX_PATH] = { 0 };
                         swprintf_s(buf, _countof(buf), L"%s%d", L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\", foundUUIDIndex);
                         CRegStdString r = CRegStdString(buf);
                         std::wstring sr = r;

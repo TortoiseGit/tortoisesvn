@@ -662,7 +662,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
             RESOURCEENTRY entry = m_StringEntries[wstr];
             entry.resourceIDs.insert(id);
 
-            TCHAR szTempBuf[1024];
+            TCHAR szTempBuf[1024] = { 0 };
             _stprintf(szTempBuf, _T("#: MenuEntry; ID:%u"), id);
             MENUENTRY menu_entry;
             menu_entry.wID = id;
@@ -787,7 +787,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
             res += 2;
 
             entry.resourceIDs.insert(menuId);
-            TCHAR szTempBuf[1024];
+            TCHAR szTempBuf[1024] = { 0 };
             _stprintf(szTempBuf, _T("#: MenuExPopupEntry; ID:%lu"), menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
@@ -810,7 +810,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
             RESOURCEENTRY entry = m_StringEntries[wstr];
             entry.resourceIDs.insert(menuId);
 
-            TCHAR szTempBuf[1024];
+            TCHAR szTempBuf[1024] = { 0 };
             _stprintf(szTempBuf, _T("#: MenuExEntry; ID:%lu"), menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
@@ -1003,7 +1003,7 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         std::wstring wstr = std::wstring(pBuf2.get());
         RESOURCEENTRY AKey_entry = m_StringEntries[wstr];
 
-        TCHAR szTempBuf[1024];
+        TCHAR szTempBuf[1024] = { 0 };
         SecureZeroMemory(szTempBuf, sizeof (szTempBuf));
         std::wstring wmenu = _T("");
         pME_iter = m_MenuEntries.find(wID);
@@ -1215,7 +1215,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
 
     while (bNumControls-- != 0)
     {
-        TCHAR szTitle[500];
+        TCHAR szTitle[500] = { 0 };
         SecureZeroMemory(szTitle, sizeof(szTitle));
         BOOL  bCode;
 

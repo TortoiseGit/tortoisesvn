@@ -162,7 +162,7 @@ bool CSVNStatusCache::SaveCache()
     // save the cache to disk
     FILE * pFile = NULL;
     // find a location to write the cache to
-    TCHAR path[MAX_PATH];       //MAX_PATH ok here.
+    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
     if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
     {
         _tcscat_s(path, _T("\\TSVNCache"));
@@ -236,7 +236,7 @@ CSVNStatusCache::CSVNStatusCache(void)
 {
 #define forever DWORD(-1)
     AutoLocker lock(m_NoWatchPathCritSec);
-    TCHAR path[MAX_PATH];
+    TCHAR path[MAX_PATH] = { 0 };
     SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
     m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
     SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);

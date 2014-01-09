@@ -1024,7 +1024,7 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
     //we check that by iterating through all menu entries and check if
     //the dwItemData member points to our global ID string. That string is set
     //by our shell extension when the folder menu is inserted.
-    TCHAR menubuf[MAX_PATH];
+    TCHAR menubuf[MAX_PATH] = { 0 };
     int count = GetMenuItemCount(hMenu);
     for (int i=0; i<count; ++i)
     {
@@ -1676,7 +1676,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
         if (!svnCmd.empty())
         {
             svnCmd += _T(" /hwnd:");
-            TCHAR buf[30];
+            TCHAR buf[30] = { 0 };
             _stprintf_s(buf, _T("%p"), (void*)lpcmi->hwnd);
             svnCmd += buf;
             if (!uuidSource.empty())
@@ -1942,7 +1942,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2_Wrap(UINT uMsg, WPARAM wParam, LPARAM lPa
 
 LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 {
-    TCHAR textbuf[255];
+    TCHAR textbuf[255] = { 0 };
     LPCTSTR resource = NULL;
     unsigned __int64 layout = g_ShellCache.GetMenuLayout();
     space = 6;
@@ -1995,7 +1995,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 
 bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
 {
-    TCHAR buf[MAX_PATH];    //MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
+    TCHAR buf[MAX_PATH] = { 0 };    //MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
     PIDLIST_ABSOLUTE pidl = NULL;
     for (int i = 0; csidlarray[i]; i++)
     {
@@ -2026,8 +2026,8 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
     HMENU ignoresubmenu = NULL;
     int indexignoresub = 0;
     bool bShowIgnoreMenu = false;
-    TCHAR maskbuf[MAX_PATH];        // MAX_PATH is ok, since this only holds a filename
-    TCHAR ignorepath[MAX_PATH];     // MAX_PATH is ok, since this only holds a filename
+    TCHAR maskbuf[MAX_PATH] = { 0 };        // MAX_PATH is ok, since this only holds a filename
+    TCHAR ignorepath[MAX_PATH] = { 0 };     // MAX_PATH is ok, since this only holds a filename
     if (files_.empty())
         return;
     UINT icon = bShowIcons ? IDI_IGNORE : 0;

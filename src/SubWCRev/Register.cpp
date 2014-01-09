@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2005-2008, 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -160,7 +160,7 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
     // Add the value to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
 
-    TCHAR szKey2[MAX_PATH];
+    TCHAR szKey2[MAX_PATH] = { 0 };
     _tcscpy_s(szKey2, szKey);
     _tcscat_s(szKey2, _T("\\ProxyStubClsID"));
     // Add the server filename subkey under the IID key.
@@ -450,7 +450,7 @@ HRESULT RegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
     HRESULT hr = LoadTypeLib(hInstTypeLib, lpszIndex, &bstrPath, &pTypeLib);
     if (SUCCEEDED(hr))
     {
-        OLECHAR szDir[MAX_PATH];
+        OLECHAR szDir[MAX_PATH] = { 0 };
         ocscpy_s(szDir, _countof(szDir), bstrPath);
         // If index is specified remove it from the path
         if (lpszIndex != NULL)

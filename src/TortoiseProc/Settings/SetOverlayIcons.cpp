@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -105,7 +105,7 @@ BOOL CSetOverlayIcons::OnInitDialog()
             m_cIconSet.SetCurSel(i);
     }
     WORD langID = (WORD)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-    TCHAR statustext[MAX_STATUS_STRING_LENGTH];
+    TCHAR statustext[MAX_STATUS_STRING_LENGTH] = { 0 };
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, statustext, _countof(statustext), langID);
     m_sNormal = statustext;
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, statustext, _countof(statustext), langID);

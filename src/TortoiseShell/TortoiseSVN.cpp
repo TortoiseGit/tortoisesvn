@@ -63,7 +63,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     if (!SysInfo::Instance().IsWin7OrLater())
     {
         bool bInShellTest = false;
-        TCHAR buf[MAX_PATH + 1];       // MAX_PATH ok, the test really is for debugging anyway.
+        TCHAR buf[MAX_PATH + 1] = { 0 };       // MAX_PATH ok, the test really is for debugging anyway.
         DWORD pathLength = GetModuleFileName(NULL, buf, MAX_PATH);
         if(pathLength >= 14)
         {

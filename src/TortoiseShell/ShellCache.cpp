@@ -76,7 +76,7 @@ ShellCache::ShellCache()
         drivetypecache[0] = DRIVE_REMOVABLE;
         drivetypecache[1] = DRIVE_REMOVABLE;
     }
-    TCHAR szBuffer[5];
+    TCHAR szBuffer[5] = { 0 };
     columnrevformatticker = GetTickCount64();
     SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));
@@ -342,7 +342,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
             else
             {
                 drivetypeticker = GetTickCount64();
-                TCHAR pathbuf[MAX_PATH+4];      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
+                TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
                 _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
@@ -354,7 +354,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
     }
     else
     {
-        TCHAR pathbuf[MAX_PATH+4];      // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
+        TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
         _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
@@ -403,7 +403,7 @@ NUMBERFMT * ShellCache::GetNumberFmt()
 {
     if ((GetTickCount64() - columnrevformatticker) > NUMBERFMTTIMEOUT)
     {
-        TCHAR szBuffer[5];
+        TCHAR szBuffer[5] = { 0 };
         columnrevformatticker = GetTickCount64();
         SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));

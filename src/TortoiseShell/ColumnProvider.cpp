@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -464,7 +464,7 @@ void CShellExt::SetExtraColumnStatus
 
     if (status)
     {
-        char url[INTERNET_MAX_URL_LENGTH];
+        char url[INTERNET_MAX_URL_LENGTH] = { 0 };
         strcpy_s(url, status->url);
         CPathUtils::Unescape(url);
         itemurl = CUnicodeUtils::StdGetUnicode(url);

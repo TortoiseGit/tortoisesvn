@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -168,7 +168,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 langId = 0;
         }
     } while ((hInst == NULL) && (langId != 0));
-    TCHAR buf[6];
+    TCHAR buf[6] = { 0 };
     _tcscpy_s(buf, _T("en"));
     langId = loc;
     CString sHelppath;
@@ -310,7 +310,7 @@ BOOL CTortoiseProcApp::InitInstance()
             if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
             {
                 // just open the config file
-                TCHAR buf2[MAX_PATH];
+                TCHAR buf2[MAX_PATH] = { 0 };
                 SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf2);
                 CString path = buf2;
                 path += _T("\\Subversion\\config");
@@ -436,7 +436,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
             }
         }
-        TCHAR pathbuf[MAX_PATH];
+        TCHAR pathbuf[MAX_PATH] = { 0 };
         GetTempPath(_countof(pathbuf), pathbuf);
         SetCurrentDirectory(pathbuf);
     }
@@ -628,7 +628,7 @@ void CTortoiseProcApp::CheckForNewerVersion()
 
     oldweek = week;
 
-    TCHAR com[MAX_PATH+100];
+    TCHAR com[MAX_PATH + 100] = { 0 };
     GetModuleFileName(NULL, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck");

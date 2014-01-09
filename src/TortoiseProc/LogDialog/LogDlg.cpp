@@ -4482,7 +4482,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
     }
     for (int col = 0; col <= maxcol; col++)
     {
-        TCHAR textbuf[MAX_PATH + 1] = {};
+        TCHAR textbuf[MAX_PATH + 1] = { 0 };
         HDITEM hdi = {0};
         hdi.mask = HDI_TEXT;
         hdi.pszText = textbuf;

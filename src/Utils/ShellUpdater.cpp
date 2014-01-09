@@ -159,7 +159,7 @@ void CShellUpdater::UpdateShell()
 bool CShellUpdater::RebuildIcons()
 {
     const int BUFFER_SIZE = 1024;
-    TCHAR buf[BUFFER_SIZE];
+    TCHAR buf[BUFFER_SIZE] = { 0 };
     HKEY hRegKey = 0;
     DWORD dwRegValue;
     DWORD dwRegValueTemp;

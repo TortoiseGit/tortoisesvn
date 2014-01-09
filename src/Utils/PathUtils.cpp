@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -350,7 +350,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 {
     if (path.IsEmpty())
         return path;
-    TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
+    TCHAR pathbufcanonicalized[MAX_PATH] = { 0 }; // MAX_PATH ok.
     DWORD ret = 0;
     CString sRet = path;
     if (!PathIsURL(path) && PathIsRelative(path))
@@ -597,7 +597,7 @@ CString CPathUtils::ParsePathInString(const CString& Str)
 
 CString CPathUtils::GetAppDataDirectory()
 {
-    TCHAR path[MAX_PATH];       //MAX_PATH ok here.
+    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
         return CString();
 

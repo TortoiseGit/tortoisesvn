@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,7 +130,7 @@ CString CAppUtils::GetErrorString(svn_error_t * Err)
 
     if (Err != NULL)
     {
-        char errbuf[256];
+        char errbuf[256] = { 0 };
         svn_error_t * ErrPtr = Err;
         if (ErrPtr->message)
             msg = CUnicodeUtils::GetUnicode(ErrPtr->message);

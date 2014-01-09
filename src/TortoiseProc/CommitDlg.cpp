@@ -1211,7 +1211,7 @@ bool CCommitDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
     if (cmd == m_nPopupPasteListCmd)
     {
         CString logmsg;
-        TCHAR buf[MAX_STATUS_STRING_LENGTH];
+        TCHAR buf[MAX_STATUS_STRING_LENGTH] = { 0 };
         int nListItems = m_ListCtrl.GetItemCount();
         for (int i=0; i<nListItems; ++i)
         {

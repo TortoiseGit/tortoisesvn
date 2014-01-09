@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -256,7 +256,7 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
 
     date->vt = VT_BSTR;
 
-    WCHAR destbuf[32];
+    WCHAR destbuf[32] = { 0 };
     HRESULT result = CopyDateToString(destbuf, _countof(destbuf), SubStat.CmtDate) ? S_OK : S_FALSE;
     if(S_FALSE == result)
     {
@@ -356,7 +356,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
 
     date->vt = VT_BSTR;
 
-    WCHAR destbuf[32];
+    WCHAR destbuf[32] = { 0 };
     HRESULT result = S_OK;
     if(FALSE == IsLockDataAvailable())
     {

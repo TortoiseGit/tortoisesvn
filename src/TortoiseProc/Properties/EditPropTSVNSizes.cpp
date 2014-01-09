@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -104,7 +104,7 @@ void CEditPropTSVNSizes::OnOK()
     TProperties newProps;
     PropValue pVal;
 
-    char numBuf[20];
+    char numBuf[20] = { 0 };
     sprintf_s(numBuf, "%d", m_LogMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LogMinSize == 0);

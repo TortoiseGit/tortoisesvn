@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ bool ExportCommand::Execute()
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
         CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
         CBrowseFolder::m_bCheck = regExtended;
-        TCHAR saveto[MAX_PATH];
+        TCHAR saveto[MAX_PATH] = { 0 };
         if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto))==CBrowseFolder::OK)
         {
             CString saveplace = CString(saveto);

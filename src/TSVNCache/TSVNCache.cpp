@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009, 2011-2012 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,7 +129,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     }
 
     // set the current directory to the users temp dir
-    TCHAR pathbuf[MAX_PATH];
+    TCHAR pathbuf[MAX_PATH] = { 0 };
     GetTempPath(_countof(pathbuf), pathbuf);
     SetCurrentDirectory(pathbuf);
 

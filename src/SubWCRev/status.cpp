@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -247,7 +247,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     {
         if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_root_url))
         {
-            char EntryUrl[URL_BUF];
+            char EntryUrl[URL_BUF] = { 0 };
             UnescapeCopy(status->repos_root_url, status->repos_relpath,EntryUrl, URL_BUF);
             if (strncmp(sb->SubStat->Url, EntryUrl, URL_BUF) == 0)
             {

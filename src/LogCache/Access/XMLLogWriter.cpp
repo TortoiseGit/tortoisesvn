@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ void CXMLLogWriter::WriteTimeStamp ( CBufferedOutFile& file
                                    , __time64_t timeStamp )
 {
     enum {BUFFER_SIZE = 100};
-    char buffer[BUFFER_SIZE];
+    char buffer[BUFFER_SIZE] = { 0 };
 
     Time64ToZuluString (buffer, timeStamp);
     if (buffer[0] != 0)

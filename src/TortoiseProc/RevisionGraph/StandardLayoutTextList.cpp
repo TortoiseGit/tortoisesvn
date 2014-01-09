@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -121,7 +121,7 @@ CStandardLayoutTextList::GetText (index_t index) const
         }
         else
         {
-            TCHAR buffer[20];
+            TCHAR buffer[20] = { 0 };
             _itot_s (nodeInfo.node->GetRevision(), buffer, 10);
             text = buffer;
         }

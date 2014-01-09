@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,7 +118,7 @@ void CProfilingInfo::DumpReport()
         // write profile to file
 
 #ifdef _WIN32
-        char buffer [MAX_PATH];
+        char buffer[MAX_PATH] = { 0 };
         if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, _countof(buffer)) > 0)
 #else
         const char* buffer = "application";
@@ -148,7 +148,7 @@ void CProfilingInfo::DumpReport()
 
 static std::string IntToStr (unsigned __int64 value)
 {
-    char buffer[100];
+    char buffer[100] = { 0 };
     _ui64toa_s (value, buffer, _countof(buffer), 10);
 
     std::string result = buffer;

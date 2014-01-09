@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013 - TortoiseSVN
+// Copyright (C) 2009-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,7 +46,7 @@ HRESULT CreateShellLink(PCWSTR pszArguments, PCWSTR pszTitle, int iconIndex, ISh
     if (FAILED(hr))
         return hr;
 
-    WCHAR szAppPath[MAX_PATH];
+    WCHAR szAppPath[MAX_PATH] = { 0 };
     if (GetModuleFileName(NULL, szAppPath, _countof(szAppPath)) == 0)
     {
         hr = HRESULT_FROM_WIN32(GetLastError());

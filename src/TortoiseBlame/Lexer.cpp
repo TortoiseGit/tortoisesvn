@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2008, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ void TortoiseBlame::SetupLexer(LPCTSTR filename)
 
     if (lineptr)
     {
-        TCHAR line[20];
+        TCHAR line[20] = { 0 };
         _tcscpy_s(line, lineptr+1);
         _tcslwr_s(line);
         if ((_tcscmp(line, _T("py"))==0)||

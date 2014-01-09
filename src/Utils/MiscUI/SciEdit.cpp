@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -190,7 +190,7 @@ void CSciEdit::Init(const ProjectProperties& props)
 BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
     //Setup the spell checker and thesaurus
-    TCHAR buf[6];
+    TCHAR buf[6] = { 0 };
     CString sFolder = CPathUtils::GetAppDirectory();
     CString sFolderUp = CPathUtils::GetAppParentDirectory();
     CString sFile;
@@ -706,7 +706,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     {
                         // URL is relative to the repository root
                         CString url1 = m_sRepositoryRoot + url.Mid(1);
-                        TCHAR buf[INTERNET_MAX_URL_LENGTH];
+                        TCHAR buf[INTERNET_MAX_URL_LENGTH] = { 0 };
                         DWORD len = url.GetLength();
                         if (UrlCanonicalize((LPCTSTR)url1, buf, &len, 0) == S_OK)
                             url = CString(buf, len);
@@ -723,7 +723,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                         {
                             sHost = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemepos+3));
                             CString url1 = sHost + url;
-                            TCHAR buf[INTERNET_MAX_URL_LENGTH];
+                            TCHAR buf[INTERNET_MAX_URL_LENGTH] = { 0 };
                             DWORD len = url.GetLength();
                             if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
                                 url = CString(buf, len);

@@ -294,7 +294,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         if(inFile)
         {
             CStringA sClipdata;
-            char chunkBuffer[16384];
+            char chunkBuffer[16384] = { 0 };
             while(!feof(inFile))
             {
                 size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);

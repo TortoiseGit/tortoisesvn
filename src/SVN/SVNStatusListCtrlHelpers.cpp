@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2013 - TortoiseSVN
+// Copyright (C) 2008-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -886,7 +886,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     // regular columns
 
-    TCHAR buf[10];
+    TCHAR buf[10] = { 0 };
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
         _stprintf_s (buf, _T("%08X"), columns[i].width);
@@ -912,7 +912,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 {
     CString result;
 
-    TCHAR buf[3];
+    TCHAR buf[3] = { 0 };
     for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
     {
         if (columnOrder[i] < SVNSLC_MAXCOLUMNCOUNT)

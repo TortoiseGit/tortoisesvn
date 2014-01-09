@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1365,7 +1365,7 @@ private:
 #if defined(_MFC_VER)
     void ListLoadingTest()
     {
-        TCHAR buf[MAX_PATH];
+        TCHAR buf[MAX_PATH] = { 0 };
         GetCurrentDirectory(_countof(buf), buf);
         CString sPathList(_T("Path1*c:\\path2 with spaces and stuff*\\funnypath\\*"));
         CTSVNPathList testList;

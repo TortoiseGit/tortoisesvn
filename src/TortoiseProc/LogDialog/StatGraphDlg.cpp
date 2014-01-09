@@ -402,7 +402,7 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
     int iYear = time.GetYear();
     int iFirstDayOfWeek = 0;
     int iFirstWeekOfYear = 0;
-    TCHAR loc[2];
+    TCHAR loc[2] = { 0 };
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, _countof(loc));
     iFirstDayOfWeek = int(loc[0]-'0');
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, _countof(loc));
@@ -1446,7 +1446,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
         }
         catch (CException * pE)
         {
-            TCHAR szErrorMsg[2048];
+            TCHAR szErrorMsg[2048] = { 0 };
             pE->GetErrorMessage(szErrorMsg, 2048);
             pE->Delete();
             ::MessageBox(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);

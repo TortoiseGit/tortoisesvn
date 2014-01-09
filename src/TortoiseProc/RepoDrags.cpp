@@ -394,7 +394,7 @@ void CBaseDropTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, D
         if(hDrop != NULL)
         {
             CTSVNPathList urlList;
-            TCHAR szFileName[MAX_PATH];
+            TCHAR szFileName[MAX_PATH] = { 0 };
 
             UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
             for(UINT i = 0; i < cFiles; ++i)

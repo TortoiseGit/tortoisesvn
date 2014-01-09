@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2013 - TortoiseSVN
+// Copyright (C) 2006-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1066,7 +1066,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
             break;
         case IDOK:
             {
-                TCHAR path[MAX_PATH];
+                TCHAR path[MAX_PATH] = { 0 };
                 if (!GetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path, _countof(path)))
                     *path = 0;
                 leftpicpath = path;

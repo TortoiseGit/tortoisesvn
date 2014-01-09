@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,7 +145,7 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 
 void CAboutDlg::OnBnClickedUpdate()
 {
-    TCHAR com[MAX_PATH+100];
+    TCHAR com[MAX_PATH + 100] = { 0 };
     GetModuleFileName(NULL, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck /visible");

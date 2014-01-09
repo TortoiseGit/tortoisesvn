@@ -569,9 +569,9 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     error.Empty();
 
     // Create Temp File for redirection
-    TCHAR szTempPath[MAX_PATH];
-    TCHAR szOutput[MAX_PATH];
-    TCHAR szErr[MAX_PATH];
+    TCHAR szTempPath[MAX_PATH] = { 0 };
+    TCHAR szOutput[MAX_PATH] = { 0 };
+    TCHAR szErr[MAX_PATH] = { 0 };
     GetTempPath(_countof(szTempPath),szTempPath);
     GetTempFileName(szTempPath, _T("svn"), 0, szErr);
 

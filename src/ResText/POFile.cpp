@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
     int nTranslated = 0;
     //since stream classes still expect the filepath in char and not wchar_t
     //we need to convert the filepath to multibyte
-    char filepath[MAX_PATH+1];
+    char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, _countof(filepath)-1, NULL, NULL);
 
@@ -169,7 +169,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
 {
     //since stream classes still expect the filepath in char and not wchar_t
     //we need to convert the filepath to multibyte
-    char filepath[MAX_PATH+1];
+    char filepath[MAX_PATH + 1] = { 0 };
     int nEntries = 0;
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, _countof(filepath)-1, NULL, NULL);

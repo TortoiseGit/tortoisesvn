@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,19 +39,19 @@ bool CPersonalDictionary::Load()
 
     if (m_bLoaded)
         return true;
-    TCHAR path[MAX_PATH];       //MAX_PATH ok here.
+    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
     _tcscpy_s (path, CPathUtils::GetAppDataDirectory());
 
     if (m_lLanguage==0)
         m_lLanguage = GetUserDefaultLCID();
 
-    TCHAR sLang[10];
+    TCHAR sLang[10] = { 0 };
     _stprintf_s(sLang, _T("%ld"), m_lLanguage);
     _tcscat_s(path, sLang);
     _tcscat_s(path, _T(".dic"));
 
     std::wifstream File;
-    char filepath[MAX_PATH+1];
+    char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath);
@@ -96,19 +96,19 @@ bool CPersonalDictionary::Save()
 {
     if (!m_bLoaded)
         return false;
-    TCHAR path[MAX_PATH];       //MAX_PATH ok here.
+    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
     _tcscpy_s (path, CPathUtils::GetAppDataDirectory());
 
     if (m_lLanguage==0)
         m_lLanguage = GetUserDefaultLCID();
 
-    TCHAR sLang[10];
+    TCHAR sLang[10] = { 0 };
     _stprintf_s(sLang, _T("%ld"), m_lLanguage);
     _tcscat_s(path, sLang);
     _tcscat_s(path, _T(".dic"));
 
     std::wofstream File;
-    char filepath[MAX_PATH+1];
+    char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath, std::ios_base::binary);

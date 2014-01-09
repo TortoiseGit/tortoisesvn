@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2009-2011, 2013 - TortoiseSVN
+// Copyright (C) 2007, 2009-2011, 2013-2014 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -116,7 +116,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     // Get folder icons from registry
     // Default icons are stored in LOCAL MACHINE
     // User selected icons are stored in CURRENT USER
-    TCHAR regVal[1024];
+    TCHAR regVal[1024] = { 0 };
 
     std::wstring icon;
     HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
@@ -237,8 +237,8 @@ int CShellExt::GetInstalledOverlays()
         _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
         0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
     {
-        TCHAR value[2048];
-        TCHAR keystring[2048];
+        TCHAR value[2048] = { 0 };
+        TCHAR keystring[2048] = { 0 };
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
             DWORD size = _countof(value);
@@ -291,15 +291,15 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
     {
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            TCHAR k[MAX_PATH];
-            TCHAR value[MAX_PATH];
+            TCHAR k[MAX_PATH] = { 0 };
+            TCHAR value[MAX_PATH] = { 0 };
             DWORD sizek = _countof(k);
             DWORD sizev = _countof(value);
             rc = RegEnumValue(hKey, i, k, &sizek, NULL, NULL, (LPBYTE)value, &sizev);
             if (rc == ERROR_SUCCESS)
             {
-                TCHAR comobj[MAX_PATH];
-                TCHAR modpath[MAX_PATH];
+                TCHAR comobj[MAX_PATH] = { 0 };
+                TCHAR modpath[MAX_PATH] = { 0 };
                 _tcscpy_s(comobj, _T("CLSID\\"));
                 _tcscat_s(comobj, value);
                 _tcscat_s(comobj, _T("\\InprocServer32"));

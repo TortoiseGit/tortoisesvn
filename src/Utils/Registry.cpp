@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -170,7 +170,7 @@ bool CRegistryKey::getValues(CStringList& values)
     {
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            TCHAR value[255];
+            TCHAR value[255] = { 0 };
             DWORD size = _countof(value);
             rc = RegEnumValue(m_hKey, i, value, &size, NULL, NULL, NULL, NULL);
             if (rc == ERROR_SUCCESS)
@@ -191,7 +191,7 @@ bool CRegistryKey::getSubKeys(CStringList& subkeys)
     {
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            TCHAR value[1024];
+            TCHAR value[1024] = { 0 };
             DWORD size = _countof(value);
             FILETIME last_write_time;
             rc = RegEnumKeyEx(m_hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);

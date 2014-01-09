@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -272,7 +272,7 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
             = (presenceFlags & CRevisionInfoContainer::HAS_USERREVPROPS) != 0;
 
         enum {BUFFER_SIZE = 100};
-        char buffer[BUFFER_SIZE];
+        char buffer[BUFFER_SIZE] = { 0 };
 
         __time64_t timestamp = logInfo.GetTimeStamp(index);
 

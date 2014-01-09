@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013 - TortoiseSVN
+// Copyright (C) 2009-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ bool AeroControlBase::SubclassControl(HWND hControl)
     bool bRet = false;
     if (!(DWORD)m_regEnableDWMFrame)
         return bRet;
-    TCHAR szWndClassName[MAX_PATH];
+    TCHAR szWndClassName[MAX_PATH] = { 0 };
     if (GetClassName(hControl, szWndClassName, _countof(szWndClassName)))
     {
         if (!_tcscmp(szWndClassName, _T("Static")))

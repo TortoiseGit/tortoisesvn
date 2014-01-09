@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013 - TortoiseSVN
+// Copyright (C) 2009-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -576,7 +576,7 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 
                     scratch.Append ('|');
 
-                    char buffer[10];
+                    char buffer[10] = { 0 };
                     _itoa_s (cpath.GetCopyFromRev(), buffer, 10);
                     scratch.Append (buffer);
                 }
@@ -593,7 +593,7 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     {
         scratch.Append (' ');
 
-        char buffer[10];
+        char buffer[10] = { 0 };
         _itoa_s (entry.GetRevision(), buffer, 10);
         scratch.Append (buffer);
     }

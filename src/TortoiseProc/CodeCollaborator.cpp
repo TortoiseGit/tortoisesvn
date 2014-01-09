@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,8 +41,8 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
 
 CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
 {
-    TCHAR szProgramFiles[MAX_PATH];
-    TCHAR szPath[MAX_PATH];
+    TCHAR szProgramFiles[MAX_PATH] = { 0 };
+    TCHAR szPath[MAX_PATH] = { 0 };
 
     // this will work for X86 and X64 if the matching 'bitness' client has been installed
     if (S_OK == SHGetFolderPath(NULL,

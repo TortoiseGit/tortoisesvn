@@ -360,7 +360,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
     if (uMsg == BFFM_SELCHANGED)
     {
         // Set the status window to the currently selected path.
-        TCHAR szDir[MAX_PATH];
+        TCHAR szDir[MAX_PATH] = { 0 };
         if (SHGetPathFromIDList((PCIDLIST_ABSOLUTE)lParam, szDir))
         {
             SendMessage(hwnd,BFFM_SETSTATUSTEXT, 0, (LPARAM)szDir);

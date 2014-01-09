@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -290,7 +290,7 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 {
     int maxcol = ((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItemCount()-1;
     int nItemCount = pListCtrl->GetItemCount();
-    TCHAR textbuf[MAX_PATH];
+    TCHAR textbuf[MAX_PATH] = { 0 };
     CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(pListCtrl->GetDlgItem(0));
     if (pHdrCtrl)
     {
@@ -501,7 +501,7 @@ CString CCommonAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, cons
     {
         // URL is relative to the repository root
         CString url1 = root + url.Mid(1);
-        TCHAR buf[INTERNET_MAX_URL_LENGTH];
+        TCHAR buf[INTERNET_MAX_URL_LENGTH] = { 0 };
         DWORD len = url.GetLength();
         if (UrlCanonicalize((LPCTSTR)url1, buf, &len, 0) == S_OK)
             return CString(buf, len);
@@ -517,7 +517,7 @@ CString CCommonAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, cons
         {
             sHost = root.Left(root.Find('/', schemepos+3));
             CString url1 = sHost + url;
-            TCHAR buf[INTERNET_MAX_URL_LENGTH];
+            TCHAR buf[INTERNET_MAX_URL_LENGTH] = { 0 };
             DWORD len = url.GetLength();
             if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
                 return CString(buf, len);

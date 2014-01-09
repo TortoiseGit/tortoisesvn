@@ -1513,7 +1513,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
     static WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
     CAutoReadLock locker(m_guard);
-    TCHAR buf[SVN_DATE_BUFFER];
+    TCHAR buf[SVN_DATE_BUFFER] = { 0 };
     const FileEntry * entry = GetListEntry (listIndex);
     if (entry == NULL)
         return empty;
@@ -3566,7 +3566,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     strTemp.LoadString(IDS_PROC_EXPORT_1);
                     folderBrowser.SetInfo(strTemp);
                     folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE | BIF_EDITBOX;
-                    TCHAR saveto[MAX_PATH];
+                    TCHAR saveto[MAX_PATH] = { 0 };
                     if (folderBrowser.Show(m_hWnd, saveto, _countof(saveto))==CBrowseFolder::OK)
                     {
                         CString saveplace = CString(saveto);
@@ -4200,7 +4200,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     SVN svn;
     if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
     {
-        TCHAR groupname[1024];
+        TCHAR groupname[1024] = { 0 };
         _tcsncpy_s(groupname, name, _countof(groupname)-1);
         m_changelists[name] = (int)DoInsertGroup(groupname, (int)m_changelists.size(), -1);
 
@@ -4402,7 +4402,7 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 {
     CString sNormal, sAdded, sDeleted, sModified, sConflicted, sUnversioned;
     WORD langID = (WORD)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-    TCHAR buf[MAX_STATUS_STRING_LENGTH];
+    TCHAR buf[MAX_STATUS_STRING_LENGTH] = { 0 };
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, _countof(buf), langID);
     sNormal = buf;
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, _countof(buf), langID);
@@ -5574,7 +5574,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     RemoveAllGroups();
     EnableGroupView(bHasGroups);
 
-    TCHAR groupname[1024];
+    TCHAR groupname[1024] = { 0 };
 
     m_bHasIgnoreGroup = false;
 
@@ -6351,7 +6351,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 
 void CSVNStatusListCtrlDropTarget::OnDrop(HDROP hDrop, POINTL pt)
 {
-    TCHAR szFileName[MAX_PATH];
+    TCHAR szFileName[MAX_PATH] = { 0 };
 
     const UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
 

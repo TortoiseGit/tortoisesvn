@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -208,7 +208,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     ptrdiff_t exp = 0;
     if ((strcmp(def,VERDEFAND) == 0) || (strcmp(def,VERDEFOFFSET1) == 0) || (strcmp(def,VERDEFOFFSET2) == 0))
     {
-        char format[1024];
+        char format[1024] = { 0 };
         char * pStart = pBuf + index + strlen(def);
         char * pEnd = pStart;
 
@@ -246,7 +246,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
         }
     }
     // Format the text to insert at the placeholder
-    char destbuf[40];
+    char destbuf[40] = { 0 };
     if (MinRev == -1 || MinRev == MaxRev)
     {
         if ((SubStat)&&(SubStat->bHexPlain))
@@ -411,14 +411,14 @@ int InsertDate(char * def, char * pBuf, size_t & index,
         if (_localtime64_s(&newtime, &ttime))
             return FALSE;
     }
-    char destbuf[1024];
+    char destbuf[1024] = { 0 };
     char * pBuild = pBuf + index;
     ptrdiff_t Expansion;
     if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0) || (strcmp(def,LOCKWFMTDEF) == 0) ||
         (strcmp(def,DATEWFMTDEFUTC) == 0) || (strcmp(def,NOWWFMTDEFUTC) == 0) || (strcmp(def,LOCKWFMTDEFUTC) == 0))
     {
         // Format the date/time according to the supplied strftime format string
-        char format[1024];
+        char format[1024] = { 0 };
         char * pStart = pBuf + index + strlen(def);
         char * pEnd = pStart;
 
@@ -1003,7 +1003,7 @@ int _tmain(int argc, _TCHAR* argv[])
     {
         svn_handle_error2(svnerr, stdout, FALSE, "SubWCRev : ");
     }
-    TCHAR wcfullpath[MAX_PATH];
+    TCHAR wcfullpath[MAX_PATH] = { 0 };
     LPTSTR dummy;
     GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
     apr_status_t e = 0;
@@ -1023,7 +1023,7 @@ int _tmain(int argc, _TCHAR* argv[])
         return ERR_SVN_ERR;
     }
 
-    char wcfull_oem[MAX_PATH];
+    char wcfull_oem[MAX_PATH] = { 0 };
     CharToOem(wcfullpath, wcfull_oem);
     _tprintf(_T("SubWCRev: '%hs'\n"), wcfull_oem);
 
