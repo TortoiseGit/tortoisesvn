@@ -16,18 +16,18 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2013
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
-# Sven Strickroth <sstrickroth@googlemail.com>, 2012-2013
+# Sven Strickroth <sstrickroth@googlemail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-24 01:50+0000\n"
-"Last-Translator: Sven Strickroth <sstrickroth@googlemail.com>\n"
+"PO-Revision-Date: 2014-01-09 09:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2341,6 +2341,10 @@ msgstr "Zeigt, welcher Autor eine Zeile zuletzt geändert hat."
 msgid "Blend alpha"
 msgstr "Differenz / Überblenden"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr "Blöcke"
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blauer Stil"
@@ -2651,6 +2655,12 @@ msgid ""
 "The items are not moved."
 msgstr "Abbrechen\nDie Objekte werden nicht verschoben."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr "Abbrechen\nDie markierte Revision des Externals bleibt wie sie ist."
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2720,6 +2730,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Aussehen der Anwendung ändern\nStil ändern"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr "Die markierte Revision ändern\nDie svn:externals Eigenschaft des Elternordners wird entsprechend geändert."
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3903,6 +3919,10 @@ msgstr "Dialog"
 msgid "Dialog sizes and positions"
 msgstr "Dialoggrößen und -positionen"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "Vergleich"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Vergleichsoptionen"
@@ -4893,6 +4913,10 @@ msgstr "Pfade ausfiltern, die eine der folgenden Zeichenketten enthalten\n(mehrf
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Pfade filtern"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr "Filter:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6270,10 +6294,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "Mail System DLL ist ungültig."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "Hauptseite"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9265,6 +9285,12 @@ msgstr "Zeige Graphen für %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Zeigt eine graphische Darstellung der Zweige/Marken"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr "Zeigt einen Standard-Diff aller Änderungen des Pfades und darunter, einschließlich Eigenschaftsänderungen."
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10777,6 +10803,10 @@ msgstr "Unformatierter Text\nText ohne Formatierung"
 msgid "Unified &diff of HEAD revisions"
 msgstr "Standard-&Diff der HEAD Revisionen"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr "Standard-Diff"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10965,10 +10995,6 @@ msgstr "Verwende 'deren' Textblock vor 'meinem'"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Verwende Aero Dialoge"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "Verwende Blöcke"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11459,6 +11485,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "Sie versuchen folgendes Objekt hinzuzufügen:\n'%1!s!',\nEs existiert aber bereits ein Objekt namens:\n'%2!s!'\n\nEs scheint, dass dieses Objekt außerhalb von Subversion umbenannt wurde\nund sich nur die Groß-/Kleinschreibung geändert hat.\nWollen Sie es wirklich hinzufügen?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr "Sie haben Änderungen an ein externes Objekt übertragen, das an eine spezifische Revision gebunden ist.\nWollen Sie diese Revision auf die gerade übertragene Revision setzen?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -12171,6 +12203,10 @@ msgstr "gewechselt zu\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "gewechselt zu:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr "Externals markieren"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
