@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -2331,6 +2331,10 @@ msgstr "ყოველი სტრიქონისთვის ავტო�
 msgid "Blend alpha"
 msgstr "ალფა არხის შერევა"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr ""
@@ -2641,6 +2645,12 @@ msgid ""
 "The items are not moved."
 msgstr "გაუქმება\nჭდე არ გადატანილა."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2709,6 +2719,12 @@ msgstr "სერთიფიკატები|*.p12;*.pkcs12;*.pfx|ყვე�
 msgid ""
 "Change the style of the application\n"
 "Change Style"
+msgstr ""
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
 msgstr ""
 
 #. Resource IDs: (3825)
@@ -3893,6 +3909,10 @@ msgstr "დიალოგი"
 msgid "Dialog sizes and positions"
 msgstr "დიალოგის ზომები და მდებარეობა"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr ""
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "შედარების პარამეტრები"
@@ -4883,6 +4903,10 @@ msgstr "შემდეგი კონტექსტის შემცვე�
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "ფილტრის გეზები"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6260,10 +6284,6 @@ msgstr "სიმკვეთრე"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "საფოსტო სისტემის DLL–ი მცდარია."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr ""
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9255,6 +9275,12 @@ msgstr "გარფიკის ჩვენება - %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "ასლების/ჭდეების/შტოების გრაფიკული სახით ჩვენება"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10767,6 +10793,10 @@ msgstr "დაუფორმატებეოი ტექსტი\nტექ
 msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD ვერსიების გაერთიანებული &ბებკი"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10955,10 +10985,6 @@ msgstr ""
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "სარგებლობა Aero დიალოგებით"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr ""
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11449,6 +11475,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "თქვენ ელემენტის დამატებას ცდილობთ\n'%1!s!',\nმაგრამ ელემენტი\n'%2!s!'\nუკვე არსებობს.\n\nჩანს ელემენტს ქვევერსიის გარეთ სახელი გადაერქვა მხოლოდ რეგისტრის ცვლილებებით.\nნამდვილად გსურთ მისი დამატება?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12161,6 +12193,10 @@ msgstr "გადართვა -\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "გადართულია:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

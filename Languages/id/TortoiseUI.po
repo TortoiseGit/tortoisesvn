@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -2341,6 +2341,10 @@ msgstr "Menyalahkan setiap baris dari berkas pada pembuat"
 msgid "Blend alpha"
 msgstr "Campuran alpha"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr ""
@@ -2651,6 +2655,12 @@ msgid ""
 "The items are not moved."
 msgstr "Batal\nItem tidak di pindahkan."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2719,6 +2729,12 @@ msgstr "Sertifikat|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgid ""
 "Change the style of the application\n"
 "Change Style"
+msgstr ""
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
 msgstr ""
 
 #. Resource IDs: (3825)
@@ -3903,6 +3919,10 @@ msgstr ""
 msgid "Dialog sizes and positions"
 msgstr "Ukuran dan posisi dialog"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "Diff"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Opsi Diff"
@@ -4893,6 +4913,10 @@ msgstr "Saring path-path berikut (pisahkan path berlipatganda dengan karakter '*
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Saring path"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6270,10 +6294,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "DLL sistem Mail tidak benar."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr ""
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9265,6 +9285,12 @@ msgstr "Menampilkan grafik untuk %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Menampilkan gambaran grafik copy/tags/cabang"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10777,6 +10803,10 @@ msgstr "Teks tanpa Susunan\nteks tanpa susunan apapun"
 msgid "Unified &diff of HEAD revisions"
 msgstr "Unified &diff dari revisi HEAD"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10965,10 +10995,6 @@ msgstr ""
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Menggunakan dialog Aero"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr ""
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11459,6 +11485,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "Anda sedang mencoba menambahkan item\n'%1!s!',\ntapi item\n'%2!s!'\nsudah ada.\n\nSepertinya nama item sudah diganti di luar Subversion, tetapi hanya dengan perubahan-perubahan kasus.\nApakah Anda benar-benar ingin menambahkan item itu?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12171,6 +12203,10 @@ msgstr "beralih ke\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "ditukar:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

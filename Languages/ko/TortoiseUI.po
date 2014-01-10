@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -2337,6 +2337,10 @@ msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 �
 msgid "Blend alpha"
 msgstr "알파 혼합"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blue Style"
@@ -2647,6 +2651,12 @@ msgid ""
 "The items are not moved."
 msgstr "취소\n아이템들이 이동되지 않았습니다."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2716,6 +2726,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "어플리케이션의 스타일을 변경\n스타일 변경"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3899,6 +3915,10 @@ msgstr "대화상자"
 msgid "Dialog sizes and positions"
 msgstr "대화상자의 크기와 위치"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr ""
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "차이점 보기 옵션"
@@ -4889,6 +4909,10 @@ msgstr "다음의 스트링중 하나를 포함하는 필터링할 경로들\n(�
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "필터 경로"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6266,10 +6290,6 @@ msgstr "휘도"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "메인"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9261,6 +9281,12 @@ msgstr "%s의 그래프 보이기"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "복사/태그/브랜치를 그래프로 보기"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10773,6 +10799,10 @@ msgstr "포멧팅되지않은 텍스트\n포멧팅 정보가 없는 텍스트"
 msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD 리비전에 대한 통합 비교 보기 (&D)"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10961,10 +10991,6 @@ msgstr "'theirs'→'mine'의 순서로 텍스트 블럭을 사용"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Aero 다이얼로그들 사용"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "블럭 사용"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11455,6 +11481,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "다음 아이템을 추가하려고 시도하고 있습니다.\n'%1!s!',\n그러나 다음 아이템이 이미 존재합니다.\n'%2!s!'\n\n아마 Subversion 외부에서 아이템의 대소문자만 바뀌어서 이름이 변경된 것 같습니다.\n정말로 추가하시겠습니까?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12167,6 +12199,10 @@ msgstr "전환됨:\r\n%s 로"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "전환됨:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

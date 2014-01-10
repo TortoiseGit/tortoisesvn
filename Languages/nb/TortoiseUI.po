@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -2337,6 +2337,10 @@ msgstr "Gir skylden for hver linje i en fil til en forfatter"
 msgid "Blend alpha"
 msgstr "Blandings-alfa"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blå stil"
@@ -2647,6 +2651,12 @@ msgid ""
 "The items are not moved."
 msgstr "Avbryt\nElementene blir ikke flyttet."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2716,6 +2726,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Endre applikasjons-stilen\nEndre stil"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3899,6 +3915,10 @@ msgstr "Dialog"
 msgid "Dialog sizes and positions"
 msgstr "Størrelse og posisjon for dialogvinduer"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr ""
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Forskjellsopsjoner"
@@ -4889,6 +4909,10 @@ msgstr "Filtrer vekk stier som inneholder en av følgende strenger\n(skill stien
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Filtrer stier"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6266,10 +6290,6 @@ msgstr "Lys"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "Dynamisk bibliotek for e-postsystemet er ugyldig."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "Hoved"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9261,6 +9281,12 @@ msgstr "Viser graf for %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Viser en grafisk representasjon av kopier/merker/grener"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10773,6 +10799,10 @@ msgstr "Uformatert Tekst\ntekst uten noen formatering"
 msgid "Unified &diff of HEAD revisions"
 msgstr "Enhetlige &differ fra HEAD-revisjoner"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10961,10 +10991,6 @@ msgstr "Bruk 'deres' tekstblokk, deretter 'min'"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Bruk Aero-dialoger"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "Bruk Blokker"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11455,6 +11481,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "Du prøver å legge til elementet\n'%1!s!',\nmen elementet\n'%2!s!'\nfinnes allerede.\n\nDet ser ut til at elementet ble omdøpt utenfor Subversion, men bare med forskjeller i små/store bokstaver.\nVil du virkelig legge det til?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12167,6 +12199,10 @@ msgstr "byttet til \r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "byttet:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

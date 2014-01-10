@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -2333,6 +2333,10 @@ msgstr "Okrivi avtorja za vsako vrstico datoteke"
 msgid "Blend alpha"
 msgstr "Dodaj alfa"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr ""
@@ -2643,6 +2647,12 @@ msgid ""
 "The items are not moved."
 msgstr "Preklic \nPostavke niso premaknjene."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2711,6 +2721,12 @@ msgstr "Certifikati|*.p12;*.pkcs12;*.pfx|Vse|*.*||"
 msgid ""
 "Change the style of the application\n"
 "Change Style"
+msgstr ""
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
 msgstr ""
 
 #. Resource IDs: (3825)
@@ -3895,6 +3911,10 @@ msgstr "Dialog"
 msgid "Dialog sizes and positions"
 msgstr "Velikosti in položaji pogovornih oken"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "Razlikuj"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Možnosti za diff"
@@ -4885,6 +4905,10 @@ msgstr "Izloči poti, ki vsebujejo eno od naslednjih besed\n(poti ločite z znak
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Filter poti"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6262,10 +6286,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "Dinamična knjižnica (DLL) poštnega sistema ni veljavna."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr ""
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9257,6 +9277,12 @@ msgstr "Prikazovanje grafa za %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Pokaže grafičen prikaz kopij/oznak/vej"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10769,6 +10795,10 @@ msgstr "Neformatirano besedilo\nbesedilo brez formatiranja"
 msgid "Unified &diff of HEAD revisions"
 msgstr "Poenotene &razlike revizij HEAD"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10957,10 +10987,6 @@ msgstr ""
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Prikaz Aero dialogov"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr ""
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11451,6 +11477,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "Poizkušate dodati element\n'%1!s!',\nvendar\n'%2!s!'\nže obstaja.\n\nOčitno je bil preimenovan zunaj Subversion okolja.\nSte prepričani, da ga želite vseeno dodati?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12163,6 +12195,10 @@ msgstr "preklopljeno na\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "preklopljeno"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

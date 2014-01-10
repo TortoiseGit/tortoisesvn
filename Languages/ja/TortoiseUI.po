@@ -15,7 +15,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008
 # Ilias-Dimitrios Vrachnis, 2013
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2013
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2014
 # Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013
 # Nozomu Kaneko <nozom.kaneko@gmail.com>, 2013
 # Osamu NAKAMURA <osamu0329nakamura@gmail.com>, 2013
@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-18 14:20+0000\n"
+"PO-Revision-Date: 2014-01-08 09:50+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -2347,6 +2347,10 @@ msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 msgid "Blend alpha"
 msgstr "アルファブレンド"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr "ブロック"
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Blue Style"
@@ -2657,6 +2661,12 @@ msgid ""
 "The items are not moved."
 msgstr "キャンセル\n項目は移動しません。"
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr "キャンセル\n外部参照のタグ付けされたリビジョンはそのまま残ります。"
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2726,6 +2736,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "アプリケーションのスタイルを変更する\nスタイルの変更"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr "タグ付けされたリビジョンを変更\n親フォルダーのsvn:externalプロパティが変更されます。"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3909,6 +3925,10 @@ msgstr "ダイアログ"
 msgid "Dialog sizes and positions"
 msgstr "ダイアログのサイズと位置"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "差分"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "差分設定"
@@ -4899,6 +4919,10 @@ msgstr "次のいずれかの文字列を含むパスを除外する\n （「*�
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "パスフィルター"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr "フィルター:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6276,10 +6300,6 @@ msgstr "明度"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "メールシステムDLLは無効です。"
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "メイン"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9271,6 +9291,12 @@ msgstr "%sのグラフを表示"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "コピー/タグ/ブランチをグラフ表示する"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr "パスとそれ以下のすべての変更（プロパティの変更を含む）をUnified差分ファイルで表示します。"
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10783,6 +10809,10 @@ msgstr "書式が設定されていないテキスト\n書式設定の無いテ�
 msgid "Unified &diff of HEAD revisions"
 msgstr "HEADリビジョン同士のUnified形式の差分(&D)"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr "Unified差分ファイル"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10971,10 +11001,6 @@ msgstr "「theirs」→「mine」の順でテキストブロックを使用"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Aeroダイアログを使用"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "ブロックを使用する"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11465,6 +11491,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "「%1!s!」\nを追加しようとしていますが、\n「%2!s!」\nがすでに存在しています。\n\n項目は Subversion の外側で大文字/小文字のみが変更されているようです。\n本当に追加してもよろしいですか？"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr "タグ付けした特定リビジョンの外部参照に変更をコミットしました。\nタグ付けされたリビジョンをコミットしたリビジョンに変更しますか？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -12177,6 +12209,10 @@ msgstr "切り替え\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "切り替え:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr "外部参照をタグ付け"
 
 #. Resource IDs: (601)
 msgid "temp. offline"

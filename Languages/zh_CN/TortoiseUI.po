@@ -26,7 +26,7 @@
 # Verplusor, 2011
 # shengbinmeng <shengbinmeng@gmail.com>, 2013
 # wwj402 <wwj402@gmail.com>, 2013
-# Y.F Yang <yfdyh000@gmail.com>, 2013
+# Y.F Yang <yfdyh000@gmail.com>, 2013-2014
 # loveyu <yuht@qq.com>, 2012
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 msgid ""
@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-18 13:50+0000\n"
+"PO-Revision-Date: 2014-01-08 16:10+0000\n"
 "Last-Translator: Y.F Yang <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -170,7 +170,7 @@ msgstr "%1!s!\n修定版本 %2!s!, 作者 %3!s!, 大小 %4!s!, 日期 %5!s!"
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr "%1!s!\n显示 %2!d! 个文件和 %3!d! 文件夹, %4!d!  总共。"
+msgstr "%1!s!\n已显示 %2!d! 个文件和 %3!d! 文件夹，总共 %4!d! 项。"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -2349,6 +2349,10 @@ msgstr "列出文件每一行的作者"
 msgid "Blend alpha"
 msgstr "Alpha 混和"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "蓝色样式"
@@ -2659,6 +2663,12 @@ msgid ""
 "The items are not moved."
 msgstr "取消\n未移动项目。"
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr "取消\n标记的外部修订保持原样。"
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2728,6 +2738,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "更改应用风格\n更改风格"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr "取消标记的修订\n父文件夹的 svn:external 属性相应改变。"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3911,6 +3927,10 @@ msgstr "对话框"
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "差异"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "差异 选项"
@@ -4901,6 +4921,10 @@ msgstr "过滤掉包含下述字符串的路径（多个路径之间用“*”�
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "过滤器路径"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr "过滤器："
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6278,10 +6302,6 @@ msgstr "亮度"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "Main"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9273,6 +9293,12 @@ msgstr "显示 %s 的图形"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "以图形方式显示版本和标签的分支图"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr "在下面统一显示该路径的所有变更的差异比较，包括属性变更。"
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10785,6 +10811,10 @@ msgstr "未格式化的文本\n没有任何格式的文本"
 msgid "Unified &diff of HEAD revisions"
 msgstr "与最新版本的标准差异(&D)"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr "统一差异"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10973,10 +11003,6 @@ msgstr "使用‘它们的’文件块在前面 然后是‘我的’"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "使用Aero对话框"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "使用文本块"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11467,6 +11493,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "你正试图增加条目\n“%1!s!”，\n但是条目\n“%2!s!”\n已经存在。\n\n好象是此条目没有使用 svn 改名成只有大小写不同。\n你真的要增加它吗？"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12179,6 +12211,10 @@ msgstr "切换到\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "已经切换: "
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr "标记外部"
 
 #. Resource IDs: (601)
 msgid "temp. offline"

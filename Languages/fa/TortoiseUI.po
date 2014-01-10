@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -2335,6 +2335,10 @@ msgstr "مولف هر خط از یک فایل را نمایش می‌دهد"
 msgid "Blend alpha"
 msgstr "Blend alpha"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr ""
@@ -2645,6 +2649,12 @@ msgid ""
 "The items are not moved."
 msgstr "ابطال\nاقلام جابجا نشدند."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2714,6 +2724,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "تغییر استیبل برنامه\nتغییر استیل"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3897,6 +3913,10 @@ msgstr "محاوره"
 msgid "Dialog sizes and positions"
 msgstr "اندازه و مکان پنجره های محاوره ای"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr ""
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "تنظیمات مقایسه"
@@ -4887,6 +4907,10 @@ msgstr "این مسیرها فیلتر شوند\n (مسیرهای مختلف ر�
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "مسیرهای فیلتر"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6264,10 +6288,6 @@ msgstr "نوک"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "فایل کتابخانه ای  سیستم ایمیل نامعتبر است."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "اصلی"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9259,6 +9279,12 @@ msgstr "درحال نمایش نمودار %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Shows a graphical representation of copies/tags/branches"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10771,6 +10797,10 @@ msgstr "متن فاقد فرمت\nمتنی که فاقد هرگونه فرمت �
 msgid "Unified &diff of HEAD revisions"
 msgstr "ایجاد فایل &مقایسه متحد از نسخه های اصلی"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10959,10 +10989,6 @@ msgstr ""
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "استفاده از پنجره های Aero"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr ""
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11453,6 +11479,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "شما می خواهید این قلم را اضافه نمایید\n'%1!s!',\nاما قلم\n'%2!s!'\nوجود دارد\n\nبه نظر میرسد این قلم خارج از سابورژن تغییر نام داده ولی فقط حروف کوچک و بزرگ تغییر کرده.\nآیا از اضافه کردن آن اطمینان دارید؟"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12165,6 +12197,10 @@ msgstr "سوئیچ شده به\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "سوئیچ شده:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

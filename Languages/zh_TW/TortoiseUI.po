@@ -12,7 +12,7 @@
 # Translators:
 # Arith Hsu <arithmandar@gmail.com>, 2011,2013
 # binota <binota@binota.org>, 2013
-# zcecil <zcecil@csie.org>, 2013
+# zcecil <zcecil@csie.org>, 2013-2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Nick Vrvilo <nick@vrvilo.com>, 2011
 # zcecil <zcecil@csie.org>, 2013
@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-18 08:25+0000\n"
-"Last-Translator: zcecil <zcecil@csie.org>\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2338,6 +2338,10 @@ msgstr "列出檔案每一行的作者"
 msgid "Blend alpha"
 msgstr "透明度"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr "區塊"
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "藍色樣式"
@@ -2648,6 +2652,12 @@ msgid ""
 "The items are not moved."
 msgstr "取消\n項目沒有移動完成."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr "取消\n標記的外部連結版號不作變更."
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2717,6 +2727,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "變更應用程式的顯示樣式\n變更樣式"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr "修改標記的版號\n上層目錄的 svn:external 屬性會有對應的改變."
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3900,6 +3916,10 @@ msgstr "視窗"
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "比對差異"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "比對差異選項"
@@ -4890,6 +4910,10 @@ msgstr "過濾含有下列任一字串的路徑\n (以 '*' 分隔多個路徑)"
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "過濾路徑"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr "過濾條件:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6267,10 +6291,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "郵件系統 DLL 錯誤."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "主選單"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9262,6 +9282,12 @@ msgstr "顯示 %s 的圖"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "以圖型方式顯示複製/標記/分支"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10774,6 +10800,10 @@ msgstr "無格式文字\n沒有設定格式的文字"
 msgid "Unified &diff of HEAD revisions"
 msgstr "與最新版本的單一差異檔(&D)"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10962,10 +10992,6 @@ msgstr "先套用遠端再套用本地的文字區塊"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "使用 Aero 風格半透明視窗"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "使用文字區塊"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11456,6 +11482,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "您試圖要新增項目\n'%1!s!',\n但是項目\n'%2!s!'\n已經存在了.\n\n它的檔案似乎以 Subversion 之外的方式變更了, 但是只有大小寫不一樣.\n是否要新增?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr "您對外部連結項目送交了變更. 此外部項目目前標記為特定的版號.\n要更新標記中的版號為最新的版本嗎?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -12168,6 +12200,10 @@ msgstr "切換至\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "切換:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr "正在標記外部連結"
 
 #. Resource IDs: (601)
 msgid "temp. offline"

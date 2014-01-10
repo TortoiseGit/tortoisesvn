@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -2332,6 +2332,10 @@ msgstr "Trách cứ mỗi dòng của một tập tin của tác giả"
 msgid "Blend alpha"
 msgstr "Trộn alpha"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Kiểu Màu Xanh Dương"
@@ -2642,6 +2646,12 @@ msgid ""
 "The items are not moved."
 msgstr "Hủy bỏ\nCác món không được di dời."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2711,6 +2721,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Thay đổi phong cách của ứng dụng\nThay đổi phong cách"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3894,6 +3910,10 @@ msgstr "Hộp thoại"
 msgid "Dialog sizes and positions"
 msgstr "Kích thước và vị trí của hộp thoại"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "Tìm Khác Biệt"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Tùy chọn khác biệt"
@@ -4884,6 +4904,10 @@ msgstr "Lọc ra các đường dẫn chứa một trong những chuỗi sau\n(n
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Lọc đường dẫn"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6261,10 +6285,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "DLL của hệ thống thư không hợp lệ."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "Chính"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9256,6 +9276,12 @@ msgstr "Hiển thị biểu đồ cho %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Hiển thị biểu diễn đồ hoạ của các bản sao/thẻ/nhánh"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10768,6 +10794,10 @@ msgstr "Văn bản không được định dạng\nvăn bản không có định
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Khác biệt thống nhất của các bản chỉnh sửa HEAD"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10956,10 +10986,6 @@ msgstr "Sử dụng khối văn bản 'của họ' rồi đến 'của tôi'"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Dùng hộp thoại kiểu Aero"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "Sử dụng các khối"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11450,6 +11476,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "Bạn đang cố thêm vào món\n'%1!s!',\nnhưng món này\n'%2!s!'\nđã tồn tại rồi.\n\nCó vẻ món đó đã được đổi tên bên ngoài Subversion nhưng chỉ với thay đổi chữ hoa..\nBạn có thật sự muốn thêm nó không?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12162,6 +12194,10 @@ msgstr "chuyển sang\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "đã chuyển sang:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"

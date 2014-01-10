@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-17 08:29+0000\n"
+"PO-Revision-Date: 2014-01-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -2343,6 +2343,10 @@ msgstr "Muestra el 'autor' de cada línea de un archivo"
 msgid "Blend alpha"
 msgstr "Combinar alfa"
 
+#. Resource IDs: (156)
+msgid "Blocks"
+msgstr ""
+
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
 msgstr "Estilo Azul"
@@ -2653,6 +2657,12 @@ msgid ""
 "The items are not moved."
 msgstr "Cancelar\nLos elementos no son movidos."
 
+#. Resource IDs: (288)
+msgid ""
+"Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
@@ -2722,6 +2732,12 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Cambiar el estilo de la aplicación\nCambiar estilo"
+
+#. Resource IDs: (288)
+msgid ""
+"Change the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3905,6 +3921,10 @@ msgstr "Diálogo"
 msgid "Dialog sizes and positions"
 msgstr "Tamaños y posiciones de los diálogos"
 
+#. Resource IDs: (156)
+msgid "Diff"
+msgstr "Diff"
+
 #. Resource IDs: (325)
 msgid "Diff Options"
 msgstr "Opciones de Diff"
@@ -4895,6 +4915,10 @@ msgstr "Excluír las rutas que contengan una de las siguientes cadenas\n(separar
 #. Resource IDs: (321)
 msgid "Filter paths"
 msgstr "Filtrar rutas"
+
+#. Resource IDs: (1644)
+msgid "Filter:"
+msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -6272,10 +6296,6 @@ msgstr "Lum"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "La DLL del sistema de correo no es válida."
-
-#. Resource IDs: (156)
-msgid "Main"
-msgstr "Principal"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -9267,6 +9287,12 @@ msgstr "Mostrando gráfico para %s"
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Muestra una representación gráfica de las copias/etiquetas/ramas"
 
+#. Resource IDs: (18)
+msgid ""
+"Shows a unified diff of all changes of the path and those below, including "
+"property changes."
+msgstr ""
+
 #. Resource IDs: (13)
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
@@ -10779,6 +10805,10 @@ msgstr "Texto sin formato\ntexto sin ningún formato"
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Diff unificado de las revisiones HEAD"
 
+#. Resource IDs: (18)
+msgid "Unified Diff"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -10967,10 +10997,6 @@ msgstr "Utilizar el bloque de texto de 'ellos' y luego el 'mio'"
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Utilizar diálogos Aero"
-
-#. Resource IDs: (156)
-msgid "Use Blocks"
-msgstr "Usar Bloques"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
@@ -11461,6 +11487,12 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr "está intentando añadir el ítem\n'%1!s!',\npero el ítem\n'%2!s!'\nya existe.\n\nParece que el ítem se renombró fuera de Subversionpero cambiando únicamente mayúsculas y minúsculas.\n¿Desea realmente añadirlo?"
+
+#. Resource IDs: (288)
+msgid ""
+"You've committed changes to external item that is tagged to a specific revision.\n"
+"Do you want to change the tagged revision now to the just committed revision?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
@@ -12173,6 +12205,10 @@ msgstr "cambiado a\r\n%s"
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "cambiado:"
+
+#. Resource IDs: (288)
+msgid "tagging externals"
+msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"
