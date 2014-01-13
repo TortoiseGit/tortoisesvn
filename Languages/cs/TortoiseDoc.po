@@ -11,13 +11,13 @@
 # Authors:
 # Translators:
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2013
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-28 13:56+0000\n"
+"PO-Revision-Date: 2014-01-10 15:50+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -6825,7 +6825,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>"
 " (note: not the standard Windows <action>Paste</action>) to copy or move "
 "those items to the new working copy location."
-msgstr "Můžete také kopírovat nebo přesouvat soubory va adresářích do pracovní kopie, nebo mezi dvěma pracovními kopiemi, pomocí známé metody vyjmout a vložit. Použijte standardní Windows <action>Kopírovat</action> nebo <action>Vyjmout</action> ke zkopírování jedné nebo více položek s verzí do schránky. Pokud schránka obsahuje takové položek s verzí, můžete pak použít <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vložit</guimenuitem></menuchoice> (Poznámka: ne standardní Windows <action>Vložit</action>) ke zkopírování nebo přesunu položek do nového umístění v pracovní kopii."
+msgstr "Můžete také kopírovat nebo přesouvat soubory v adresářích do pracovní kopie, nebo mezi dvěma pracovními kopiemi, pomocí známé metody vyjmout a vložit. Použijte standardní Windows <action>Kopírovat</action> nebo <action>Vyjmout</action> ke zkopírování jedné nebo více položek s verzí do schránky. Pokud schránka obsahuje takové položek s verzí, můžete pak použít <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vložit</guimenuitem></menuchoice> (Poznámka: ne standardní Windows <action>Vložit</action>) ke zkopírování nebo přesunu položek do nového umístění v pracovní kopii."
 
 #. (para)
 msgid ""
@@ -6901,7 +6901,7 @@ msgid ""
 "The best way to avoid these problems is to add the derived files to the "
 "project's ignore list. That way they will never show up in the commit "
 "dialog, but genuine unversioned source files will still be flagged up."
-msgstr "Nejlepší způsob, jak se těmto problémům vyhnout, je přidat nepůvodní soubory do seznamu ignorovaných v projektu. Tak se nikdy objeví v dialogovém okně, ale skutečný zdrojový soubor bez verze bude stále označen."
+msgstr "Nejlepší způsob, jak se těmto problémům vyhnout, je přidat nepůvodní soubory do seznamu ignorovaných v projektu. Tak se nikdy neobjeví v dialogovém okně, ale skutečný zdrojový soubor bez verze bude stále označen."
 
 #. (para)
 msgid ""
@@ -6960,7 +6960,7 @@ msgid ""
 "Versioned files and folders can never be ignored - that's a feature of "
 "Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-"
 "howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
-msgstr "Soubory s verzí a adresáře nikdy nemůžou být ignorovány - to je rys Subversion. Pokud přidáte verzi soubor omylem, přečtěte si <xref linkend=\"tsvn-howto-unversion\"/> pro postup, jak mu verzi <quote>odstranit</quote>."
+msgstr "Soubory s verzí a adresáře nikdy nemůžou být ignorovány - to je rys Subversion. Pokud přidáte verzi souboru omylem, přečtěte si <xref linkend=\"tsvn-howto-unversion\"/> pro postup, jak mu verzi <quote>odstranit</quote>."
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
@@ -7227,7 +7227,7 @@ msgid ""
 "externals folder you should use an ordinary shell move, then adjust the "
 "<literal>svn:externals</literal> properties of the source and destination "
 "parent folders."
-msgstr "<emphasis>Neměli</emphasis> byste používat TortoiseSVN příkazy <guilabel>Přesunout</guilabel> nebo <guilabel>Přejmenovat</guilabel> na adresář, kter byl vytvořen pomocí <literal>svn:externals</literal>. Tato akce by způsobila, že vnější položky jsou smazány z jejich nadřazeného úložiště. Tím pravděpodobně rozčílíte mnoho dalších lidí. Pokud potřebujete přesunout externí adresář, měli byste použít obyčejný přesun v rozhraní a poté nastavit vlastnost <literal>svn:externals</literal> v nadřazených adresářích zdroje a určení."
+msgstr "<emphasis>Neměli</emphasis> byste používat TortoiseSVN příkazy <guilabel>Přesunout</guilabel> nebo <guilabel>Přejmenovat</guilabel> na adresář, který byl vytvořen pomocí <literal>svn:externals</literal>. Tato akce by způsobila, že vnější položky jsou smazány z jejich nadřazeného úložiště. Tím pravděpodobně rozčílíte mnoho dalších lidí. Pokud potřebujete přesunout externí adresář, měli byste použít obyčejný přesun v rozhraní a poté nastavit vlastnost <literal>svn:externals</literal> v nadřazených adresářích zdroje a určení."
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -7446,7 +7446,7 @@ msgid ""
 "the internal states of the working copy database. This is the actual "
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
-msgstr "Jak je uvedeno výše, tato možnost se snaží dostat praovní kopii v rozporu v rozporu do práceschopného a použitelného stavu. Toto nemá žádný vliv na data, která máte, ale pouze na vnitřní stavy databáze pracovní kopie. Toto je ve skutečnosti příkaz <literal>Vyčistit</literal>, který znáte ze starších klientů TortoiseSVN nebo jiných klientů SVN."
+msgstr "Jak je uvedeno výše, tato možnost se snaží dostat pracovní kopii v rozporu do práceschopného a použitelného stavu. Toto nemá žádný vliv na data, která máte, ale pouze na vnitřní stavy databáze pracovní kopie. Toto je ve skutečnosti příkaz <literal>Vyčistit</literal>, který znáte ze starších klientů TortoiseSVN nebo jiných klientů SVN."
 
 #. (term)
 msgid "Refresh shell overlays"
@@ -7968,7 +7968,7 @@ msgid ""
 "You can enter this value in decimal, or in hexadecimal if prefixed with "
 "<literal>0x</literal>. For example English (US) can be entered as "
 "<literal>0x0409</literal> or <literal>1033</literal>."
-msgstr "Tuto hodnotu mžete zadat v desítkové, nebo v šestnáctkové soustavě, pokud má předponu <literal>0x</literal>. Například angličtina (US) může být zapsána buď jako <literal>0x0409</literal> nebo <literal>1033</literal>."
+msgstr "Tuto hodnotu můžete zadat v desítkové, nebo v šestnáctkové soustavě, pokud má předponu <literal>0x</literal>. Například angličtina (US) může být zapsána buď jako <literal>0x0409</literal> nebo <literal>1033</literal>."
 
 #. (para)
 msgid ""
@@ -8853,7 +8853,7 @@ msgid ""
 "the repository, an internal link is created, pointing to a specific "
 "tree/revision. As a result branches and tags are very quick to create, and "
 "take up almost no extra space in the repository."
-msgstr "Subversion nemá žádné speciální příkazy pro větvení a značkování, míst toho používá takzvané <quote>laciné kopie</quote>. Laciné kopie jsou podobné pevným odkazům v Unixu, což znamená, že namísto toho, aby tvořili kompletní kopii v úložišti, je vytvořen interní odkaz, odkazující na konkrétní strom/revize. Výsledkem je, že větve a značky jsou velmi rychle vytvořeny a v úložišti nezabírají téměř žádný prostor navíc."
+msgstr "Subversion nemá žádné speciální příkazy pro větvení a značkování, místo toho používá takzvané <quote>laciné kopie</quote>. Laciné kopie jsou podobné pevným odkazům v Unixu, což znamená, že namísto toho, aby tvořili kompletní kopii v úložišti, je vytvořen interní odkaz, odkazující na konkrétní strom/revize. Výsledkem je, že větve a značky jsou velmi rychle vytvořeny a v úložišti nezabírají téměř žádný prostor navíc."
 
 #. (title)
 msgid "Creating a Branch or Tag"
@@ -9567,7 +9567,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr "Pro změnu této vytvořené zprávy nastavte odpovídající vlastnosti projektu ve vaší pracovní kopii. Viz <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/"
+msgstr "Pro změnu této vytvořené zprávy nastavte odpovídající vlastnosti projektu ve vaší pracovní kopii. Viz <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -10257,7 +10257,7 @@ msgid ""
 "need to apply the patch to the <filename>doc/source/</filename> folder. "
 "However, provided you are in the correct working copy, if you pick the wrong"
 " folder level, TortoiseSVN will notice and suggest the correct level."
-msgstr "Záplatové soubory jsou aplikovány na Vaší pracovní kopii. Toto mělo být provedeno ze stejné úrovni adresáře, která byla použita k vytvoření záplaty. Pokud si nejste jisti, která to je, stačí se podívat na první řádek záplatového soubor. Například, pokud první soubor, na kterém se pracovalo byl <filename>dok/zdroj/česky/kapitola1.xml</filename> a první řádek v záplatovém souboru je <filename>Index: česky/kapitola1.xml</filename> pak je třeba záplatu použít v adresáři <filename>dok/zdroj/</filename>. Nicméně pokud jste ve správné pracovní kopii, pokud vyberete špatnou úroveň adresáře, TortoiseSVN si toho všimne a navrhne správnou úroveň."
+msgstr "Záplatové soubory jsou aplikovány na Vaší pracovní kopii. Toto mělo být provedeno ze stejné úrovni adresáře, která byla použita k vytvoření záplaty. Pokud si nejste jisti, která to je, stačí se podívat na první řádek záplatového souboru. Například, pokud první soubor, na kterém se pracovalo byl <filename>dok/zdroj/česky/kapitola1.xml</filename> a první řádek v záplatovém souboru je <filename>Index: česky/kapitola1.xml</filename> pak je třeba záplatu použít v adresáři <filename>dok/zdroj/</filename>. Nicméně pokud jste ve správné pracovní kopii, pokud vyberete špatnou úroveň adresáře, TortoiseSVN si toho všimne a navrhne správnou úroveň."
 
 #. (para)
 msgid ""
@@ -19081,7 +19081,7 @@ msgid ""
 "still exists in earlier repository revisions, so you can still access it. If"
 " necessary, you can copy a deleted item and <quote>resurrect</quote> it "
 "complete with history."
-msgstr "Když odstraníte položku s verzí (a změnit odevzdáte), položka již v úložišti po odevzdané revizi neexistuje. Ale samozřejmě, že ještě existuje v předchozích revizích úložiště, takže můžete stále k ní mít přístup. Pokud je to nutné, můžete zkopírovat odstraněnou položku a <quote>vzkřísit</quote> ji úplně i s historií."
+msgstr "Když odstraníte položku s verzí (a změnu odevzdáte), položka již v úložišti po odevzdané revizi neexistuje. Ale samozřejmě, že ještě existuje v předchozích revizích úložiště, takže můžete stále k ní mít přístup. Pokud je to nutné, můžete zkopírovat odstraněnou položku a <quote>vzkřísit</quote> ji úplně i s historií."
 
 #. (para)
 msgid ""
