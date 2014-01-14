@@ -185,56 +185,76 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         {
             com.Replace(_T("/basename:%bname"), _T(""));
             com.Replace(_T("%bname"), _T(""));
+            com.Replace(_T("%nqbname"), _T(""));
         }
         else
         {
             com.Replace(_T("%bname"), _T("\"") + basefile.GetUIFileOrDirectoryName() + _T("\""));
+            com.Replace(_T("%nqbname"), basefile.GetUIFileOrDirectoryName());
         }
     }
     else
+    {
         com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
+        com.Replace(_T("%nqbname"), basename);
+    }
     if (theirname.IsEmpty())
     {
         if (theirfile.IsEmpty())
         {
             com.Replace(_T("/theirsname:%tname"), _T(""));
             com.Replace(_T("%tname"), _T(""));
+            com.Replace(_T("%nqtname"), _T(""));
         }
         else
         {
             com.Replace(_T("%tname"), _T("\"") + theirfile.GetUIFileOrDirectoryName() + _T("\""));
+            com.Replace(_T("%nqtname"), theirfile.GetUIFileOrDirectoryName());
         }
     }
     else
+    {
         com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
+        com.Replace(_T("%nqtname"), theirname);
+    }
     if (yourname.IsEmpty())
     {
         if (yourfile.IsEmpty())
         {
             com.Replace(_T("/minename:%yname"), _T(""));
             com.Replace(_T("%yname"), _T(""));
+            com.Replace(_T("%nqyname"), _T(""));
         }
         else
         {
             com.Replace(_T("%yname"), _T("\"") + yourfile.GetUIFileOrDirectoryName() + _T("\""));
+            com.Replace(_T("%nqyname"), yourfile.GetUIFileOrDirectoryName());
         }
     }
     else
+    {
         com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
+        com.Replace(_T("%nqyname"), yourname);
+    }
     if (mergedname.IsEmpty())
     {
         if (mergedfile.IsEmpty())
         {
             com.Replace(_T("/mergedname:%mname"), _T(""));
             com.Replace(_T("%mname"), _T(""));
+            com.Replace(_T("%nqmname"), _T(""));
         }
         else
         {
             com.Replace(_T("%mname"), _T("\"") + mergedfile.GetUIFileOrDirectoryName() + _T("\""));
+            com.Replace(_T("%nqmname"), mergedfile.GetUIFileOrDirectoryName());
         }
     }
     else
+    {
         com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
+        com.Replace(_T("%nqmname"), mergedname);
+    }
 
     if ((flags.bReadOnly)&&(bInternal))
         com += _T(" /readonly");
@@ -384,39 +404,51 @@ bool CAppUtils::StartExtDiff(
         viewer.Replace(_T("%mine"),  _T("\"")+file2.GetWinPathString()+_T("\""));
     }
     if (sName1.IsEmpty())
+    {
         viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
+        viewer.Replace(_T("%nqbname"), file1.GetUIFileOrDirectoryName());
+    }
     else
+    {
         viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
+        viewer.Replace(_T("%nqbname"), sName1);
+    }
 
     if (sName2.IsEmpty())
+    {
         viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
+        viewer.Replace(_T("%nqyname"), file2.GetUIFileOrDirectoryName());
+    }
     else
+    {
         viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+        viewer.Replace(_T("%nqyname"), sName2);
+    }
 
     if (viewer.Find(_T("%burl")) >= 0)
     {
-        CString s = L"\""+url1.GetSVNPathString();
+        CString s = L"\"" + url1.GetSVNPathString();
         s += L"\"";
         viewer.Replace(_T("%burl"), s);
     }
+    viewer.Replace(_T("%nqburl"), url1.GetSVNPathString());
+
     if (viewer.Find(_T("%yurl")) >= 0)
     {
-        CString s = L"\""+url2.GetSVNPathString();
+        CString s = L"\"" + url2.GetSVNPathString();
         s += L"\"";
         viewer.Replace(_T("%yurl"), s);
     }
-    if (viewer.Find(_T("%brev")) >= 0)
-    {
-        viewer.Replace(_T("%brev"),  _T("\"")+rev1.ToString()+_T("\""));
-    }
-    if (viewer.Find(_T("%yrev")) >= 0)
-    {
-        viewer.Replace(_T("%yrev"),  _T("\"")+rev2.ToString()+_T("\""));
-    }
-    if (viewer.Find(_T("%peg")) >= 0)
-    {
-        viewer.Replace(_T("%peg"),  _T("\"")+pegRev.ToString()+_T("\""));
-    }
+    viewer.Replace(_T("%nqyurl"), url2.GetSVNPathString());
+
+    viewer.Replace(_T("%brev"), _T("\"") + rev1.ToString() + _T("\""));
+    viewer.Replace(_T("%nqbrev"), rev1.ToString());
+
+    viewer.Replace(_T("%yrev"), _T("\"") + rev2.ToString() + _T("\""));
+    viewer.Replace(_T("%nqyrev"), rev2.ToString());
+
+    viewer.Replace(_T("%peg"), _T("\"") + pegRev.ToString() + _T("\""));
+    viewer.Replace(_T("%nqpeg"), pegRev.ToString());
 
     if (flags.bReadOnly && bInternal)
         viewer += _T(" /readonly");
@@ -468,14 +500,26 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
     }
 
     if (sName1.IsEmpty())
+    {
         viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
+        viewer.Replace(_T("%nqbname"), file1.GetUIFileOrDirectoryName());
+    }
     else
+    {
         viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
+        viewer.Replace(_T("%nqbname"), sName1);
+    }
 
     if (sName2.IsEmpty())
+    {
         viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
+        viewer.Replace(_T("%nqyname"), file2.GetUIFileOrDirectoryName());
+    }
     else
+    {
         viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+        viewer.Replace(_T("%nqyname"), sName2);
+    }
 
     if ((bReadOnly)&&(bInternal))
         viewer += _T(" /readonly");
