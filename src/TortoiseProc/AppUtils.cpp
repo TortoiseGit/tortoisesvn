@@ -56,7 +56,7 @@ bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 
 BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
     const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile, bool bSaveRequired,
-    const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
+    const CString& basename /*= CString()*/, const CString& theirname /*= CString()*/, const CString& yourname /*= CString()*/, const CString& mergedname /*= CString()*/, const CString& filename /*= CString()*/)
 {
 
     CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
@@ -255,6 +255,16 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
         com.Replace(_T("%nqmname"), mergedname);
     }
+    if (filename.IsEmpty())
+    {
+        com.Replace(_T("%fname"), _T(""));
+        com.Replace(_T("%nqfname"), _T(""));
+    }
+    else
+    {
+        com.Replace(_T("%fname"), _T("\"") + filename + _T("\""));
+        com.Replace(_T("%nqfname"), filename);
+    }
 
     if ((flags.bReadOnly)&&(bInternal))
         com += _T(" /readonly");
@@ -342,9 +352,9 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 
 bool CAppUtils::StartExtDiff(
     const CTSVNPath& file1, const CTSVNPath& file2,
-    const CString& sName1, const CString& sName2, const DiffFlags& flags, int line)
+    const CString& sName1, const CString& sName2, const DiffFlags& flags, int line, const CString& sName)
 {
-    return StartExtDiff(file1, file2, sName1, sName2, CTSVNPath(), CTSVNPath(), SVNRev(), SVNRev(), SVNRev(), flags, line);
+    return StartExtDiff(file1, file2, sName1, sName2, CTSVNPath(), CTSVNPath(), SVNRev(), SVNRev(), SVNRev(), flags, line, sName);
 }
 
 bool CAppUtils::StartExtDiff(
@@ -352,7 +362,7 @@ bool CAppUtils::StartExtDiff(
     const CString& sName1, const CString& sName2,
     const CTSVNPath& url1, const CTSVNPath& url2,
     const SVNRev& rev1, const SVNRev& rev2,
-    const SVNRev& pegRev, const DiffFlags& flags, int line)
+    const SVNRev& pegRev, const DiffFlags& flags, int line, const CString& sName)
 {
     CString viewer;
 
@@ -423,6 +433,17 @@ bool CAppUtils::StartExtDiff(
     {
         viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
         viewer.Replace(_T("%nqyname"), sName2);
+    }
+
+    if (sName.IsEmpty())
+    {
+        viewer.Replace(_T("%fname"), L"");
+        viewer.Replace(_T("%nqfname"), L"");
+    }
+    else
+    {
+        viewer.Replace(_T("%fname"), _T("\"") + sName + _T("\""));
+        viewer.Replace(_T("%nqfname"), sName);
     }
 
     if (viewer.Find(_T("%burl")) >= 0)

@@ -2341,10 +2341,10 @@ void CLogDlg::DiffSelectedFile( bool ignoreprops )
             flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             if (changedpath.GetAction() == LOGACTIONS_DELETED)
                 CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1,
-                                            url, url, r, SVNRev(), r, flags, 0);
+                                        url, url, r, SVNRev(), r, flags, 0, url.GetFileOrDirectoryName());
             else
                 CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1,
-                                            url, url, r, SVNRev(), r, flags, 0);
+                                        url, url, r, SVNRev(), r, flags, 0, url.GetFileOrDirectoryName());
         }
     }
 }

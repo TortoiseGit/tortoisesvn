@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -366,7 +366,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
     flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     flags.Blame(blame);
     CAppUtils::StartExtDiff(
-        tempfile, tempfile2, rev1name, rev2name, url1, url2, m_rev1, m_rev2, m_bDoPegDiff ? m_peg : SVNRev(), flags, 0);
+        tempfile, tempfile2, rev1name, rev2name, url1, url2, m_rev1, m_rev2, m_bDoPegDiff ? m_peg : SVNRev(), flags, 0, L"");
 }
 
 void CFileDiffDlg::DiffProps(int selIndex)

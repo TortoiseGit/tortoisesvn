@@ -4280,7 +4280,7 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
         flags.bReadOnly = true;
-        CAppUtils::StartExtMerge(flags, basefile, theirfile, data->path, data->path, false, basename, revname, wcname);
+        CAppUtils::StartExtMerge(flags, basefile, theirfile, data->path, data->path, false, basename, revname, wcname, CString(), data->path.GetFileOrDirectoryName());
     }
     else
     {
@@ -4298,7 +4298,8 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
         CAppUtils::StartExtDiff(
             tempfile, data->path, revname, wcname, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
-            CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
+            CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0,
+            data->path.GetUIFileOrDirectoryName());
     }
 }
 

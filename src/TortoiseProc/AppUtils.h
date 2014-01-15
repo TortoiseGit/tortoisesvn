@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,7 +67,7 @@ public:
         const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
         bool bSaveRequired,
         const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(),
-        const CString& mergedname = CString());
+        const CString& mergedname = CString(), const CString& filename = CString());
 
     /**
      * Starts the external patch program (currently always TortoiseMerge)
@@ -82,7 +82,7 @@ public:
     static bool StartExtDiff(
         const CTSVNPath& file1, const CTSVNPath& file2,
         const CString& sName1, const CString& sName2, const DiffFlags& flags,
-        int line);
+        int line, const CString& sName);
 
     /**
      * Starts the external diff application
@@ -93,7 +93,7 @@ public:
         const CTSVNPath& url1, const CTSVNPath& url2,
         const SVNRev& rev1, const SVNRev& rev2,
         const SVNRev& pegRev, const DiffFlags& flags,
-        int line);
+        int line, const CString& sName);
 
     /**
      * Starts the external diff application for properties

@@ -4353,7 +4353,7 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry, bool ignoreprops)
         CTSVNPath url = CTSVNPath(m_sRepositoryRoot + L"/" + entry->GetURL());
         CAppUtils::StartExtDiff(filePath, filePath, n1, n2,
           url, url, rev, rev, rev,
-          CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
+          CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0, entry->path.GetFileOrDirectoryName());
         return;
     }
 

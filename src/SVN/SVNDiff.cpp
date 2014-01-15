@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -152,7 +152,8 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
     {
         // Hasn't changed locally - diff remote against WC
         return CAppUtils::StartExtDiff(
-            filePath, remotePath, n1, n3, filePath, filePath, SVNRev::REV_WC, remoteRev, remoteRev, CAppUtils::DiffFlags().AlternativeTool(m_bAlternativeTool), m_JumpLine);
+            filePath, remotePath, n1, n3, filePath, filePath, SVNRev::REV_WC, remoteRev, remoteRev, CAppUtils::DiffFlags().AlternativeTool(m_bAlternativeTool),
+            m_JumpLine, filePath.GetFileOrDirectoryName());
     }
     else if (remotePath.IsEmpty())
     {
@@ -165,7 +166,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         flags.bAlternativeTool = m_bAlternativeTool;
         flags.bReadOnly = true;
         return !!CAppUtils::StartExtMerge(flags,
-            basePath, remotePath, filePath, CTSVNPath(), false, n2, n3, n1);
+            basePath, remotePath, filePath, CTSVNPath(), false, n2, n3, n1, CString(), filePath.GetFileOrDirectoryName());
     }
 }
 
@@ -244,7 +245,7 @@ bool SVNDiff::DiffFileAgainstBase( const CTSVNPath& filePath, svn_revnum_t & bas
         retvalue = CAppUtils::StartExtDiff(
             basePath, wcFilePath, n2, n1,
             filePath, filePath, SVNRev::REV_BASE, SVNRev::REV_WC, SVNRev::REV_BASE,
-            CAppUtils::DiffFlags().Wait().AlternativeTool(m_bAlternativeTool), m_JumpLine);
+            CAppUtils::DiffFlags().Wait().AlternativeTool(m_bAlternativeTool), m_JumpLine, name);
     }
     return retvalue;
 }
@@ -589,7 +590,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                         revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetSVNPathString(), (LPCTSTR)rev2.ToString());
                 }
             }
-            return CAppUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, url1, url2, rev1, rev2, peg, diffFlags.Blame(blame), m_JumpLine);
+            return CAppUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, url1, url2, rev1, rev2, peg, diffFlags.Blame(blame), m_JumpLine, L"");
         }
     }
     else
@@ -660,7 +661,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                 revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
                 wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                return CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine);
+                return CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName());
             }
             else
             {
@@ -690,7 +691,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                 CString revname, wcname;
                 revname.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFilename(), (LPCTSTR)rev2.ToString());
                 wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-                return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine);
+                return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName());
             }
         }
     }
