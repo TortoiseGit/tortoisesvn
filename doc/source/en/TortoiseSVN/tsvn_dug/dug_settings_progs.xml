@@ -157,6 +157,22 @@
                         </para>
                     </listitem>
                 </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%fname</term>
+                    <listitem>
+                        <para>
+                            The name of the conflicted file
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%nqfname</term>
+                    <listitem>
+                        <para>
+                            The name of the conflicted file, without quotes
+                        </para>
+                    </listitem>
+                </varlistentry>
             </variablelist>
         </para>
         <para>
@@ -348,6 +364,24 @@ C:\Path-To\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine
                     <listitem>
                         <para>
                             The window title for the merged file, without quotes
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%fname</term>
+                    <listitem>
+                        <para>
+                            The name of the file. This is an empty string if two
+                            different files are diffed instead of two states of
+                            the same file.
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%nqfname</term>
+                    <listitem>
+                        <para>
+                            The name of the file, without quotes
                         </para>
                     </listitem>
                 </varlistentry>
