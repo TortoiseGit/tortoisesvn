@@ -98,13 +98,13 @@ BOOL CTortoiseMergeApp::InitInstance()
     }
 
     //set the resource dll for the required language
-    CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+    CRegDWORD loc = CRegDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long langId = loc;
     CString langDll;
     HINSTANCE hInst = NULL;
     do
     {
-        langDll.Format(_T("%sLanguages\\TortoiseMerge%ld.dll"), (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
+        langDll.Format(L"%sLanguages\\TortoiseMerge%ld.dll", (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
 
         hInst = LoadLibrary(langDll);
         CString sVer = _T(STRPRODUCTVER);
@@ -129,39 +129,39 @@ BOOL CTortoiseMergeApp::InitInstance()
         }
     } while ((hInst == NULL) && (langId != 0));
     TCHAR buf[6] = { 0 };
-    _tcscpy_s(buf, _T("en"));
+    _tcscpy_s(buf, L"en");
     langId = loc;
     CString sHelppath;
     sHelppath = this->m_pszHelpFilePath;
     sHelppath = sHelppath.MakeLower();
-    sHelppath.Replace(_T(".chm"), _T("_en.chm"));
+    sHelppath.Replace(L".chm", L"_en.chm");
     free((void*)m_pszHelpFilePath);
     m_pszHelpFilePath=_tcsdup(sHelppath);
-    sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseMerge_en.chm");
+    sHelppath = CPathUtils::GetAppParentDirectory() + L"Languages\\TortoiseMerge_en.chm";
     do
     {
         GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf));
-        CString sLang = _T("_");
+        CString sLang = L"_";
         sLang += buf;
-        sHelppath.Replace(_T("_en"), sLang);
+        sHelppath.Replace(L"_en", sLang);
         if (PathFileExists(sHelppath))
         {
             free((void*)m_pszHelpFilePath);
             m_pszHelpFilePath=_tcsdup(sHelppath);
             break;
         }
-        sHelppath.Replace(sLang, _T("_en"));
+        sHelppath.Replace(sLang, L"_en");
         GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf));
-        sLang += _T("_");
+        sLang += L"_";
         sLang += buf;
-        sHelppath.Replace(_T("_en"), sLang);
+        sHelppath.Replace(L"_en", sLang);
         if (PathFileExists(sHelppath))
         {
             free((void*)m_pszHelpFilePath);
             m_pszHelpFilePath=_tcsdup(sHelppath);
             break;
         }
-        sHelppath.Replace(sLang, _T("_en"));
+        sHelppath.Replace(sLang, L"_en");
 
         DWORD lid = SUBLANGID(langId);
         lid--;
@@ -204,11 +204,11 @@ BOOL CTortoiseMergeApp::InitInstance()
 
     g_sGroupingUUID = parser.GetVal(L"groupuuid");
 
-    if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
+    if (parser.HasKey(L"?") || parser.HasKey(L"help"))
     {
         CString sHelpText;
         sHelpText.LoadString(IDS_COMMANDLINEHELP);
-        MessageBox(NULL, sHelpText, _T("TortoiseMerge"), MB_ICONINFORMATION);
+        MessageBox(NULL, sHelpText, L"TortoiseMerge", MB_ICONINFORMATION);
         return FALSE;
     }
 
@@ -224,9 +224,9 @@ BOOL CTortoiseMergeApp::InitInstance()
     // of your final executable, you should remove from the following
     // the specific initialization routines you do not need
     // Change the registry key under which our settings are stored
-    SetRegistryKey(_T("TortoiseMerge"));
+    SetRegistryKey(L"TortoiseMerge");
 
-    if (CRegDWORD(_T("Software\\TortoiseMerge\\Debug"), FALSE)==TRUE)
+    if (CRegDWORD(L"Software\\TortoiseMerge\\Debug", FALSE)==TRUE)
         AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
     // To create the main window, this code creates a new frame window
@@ -241,43 +241,43 @@ BOOL CTortoiseMergeApp::InitInstance()
         return FALSE;
 
     // Fill in the command line options
-    pFrame->m_Data.m_baseFile.SetFileName(parser.GetVal(_T("base")));
-    pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(_T("basename")));
-    pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(_T("theirs")));
-    pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(_T("theirsname")));
-    pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(_T("mine")));
-    pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(_T("minename")));
-    pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(_T("merged")));
-    pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(_T("mergedname")));
-    pFrame->m_Data.m_sPatchPath = parser.HasVal(_T("patchpath")) ? parser.GetVal(_T("patchpath")) : _T("");
+    pFrame->m_Data.m_baseFile.SetFileName(parser.GetVal(L"base"));
+    pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(L"basename"));
+    pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(L"theirs"));
+    pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(L"theirsname"));
+    pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(L"mine"));
+    pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(L"minename"));
+    pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(L"merged"));
+    pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(L"mergedname"));
+    pFrame->m_Data.m_sPatchPath = parser.HasVal(L"patchpath") ? parser.GetVal(L"patchpath") : L"";
     pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
-    if (parser.HasKey(_T("patchoriginal")))
-        pFrame->m_Data.m_sPatchOriginal = parser.GetVal(_T("patchoriginal"));
-    if (parser.HasKey(_T("patchpatched")))
-        pFrame->m_Data.m_sPatchPatched = parser.GetVal(_T("patchpatched"));
-    pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
+    if (parser.HasKey(L"patchoriginal"))
+        pFrame->m_Data.m_sPatchOriginal = parser.GetVal(L"patchoriginal");
+    if (parser.HasKey(L"patchpatched"))
+        pFrame->m_Data.m_sPatchPatched = parser.GetVal(L"patchpatched");
+    pFrame->m_Data.m_sDiffFile = parser.GetVal(L"diff");
     pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
-    if (parser.HasKey(_T("oneway")))
+    if (parser.HasKey(L"oneway"))
         pFrame->m_bOneWay = TRUE;
-    if (parser.HasKey(_T("diff")))
+    if (parser.HasKey(L"diff"))
         pFrame->m_bOneWay = FALSE;
-    if (parser.HasKey(_T("reversedpatch")))
+    if (parser.HasKey(L"reversedpatch"))
         pFrame->m_bReversedPatch = TRUE;
-    if (parser.HasKey(_T("saverequired")))
+    if (parser.HasKey(L"saverequired"))
         pFrame->m_bSaveRequired = true;
-    if (parser.HasKey(_T("saverequiredonconflicts")))
+    if (parser.HasKey(L"saverequiredonconflicts"))
         pFrame->m_bSaveRequiredOnConflicts = true;
     if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
     {
         pFrame->m_Data.m_yourFile.TransferDetailsFrom(pFrame->m_Data.m_theirFile);
     }
 
-    if ((!parser.HasKey(_T("patchpath")))&&(parser.HasVal(_T("diff"))))
+    if ((!parser.HasKey(L"patchpath"))&&(parser.HasVal(L"diff")))
     {
         // a patchfile was given, but not folder path to apply the patch to
         // If the patchfile is located inside a working copy, then use the parent directory
         // of the patchfile as the target directory, otherwise ask the user for a path.
-        if (parser.HasKey(_T("wc")))
+        if (parser.HasKey(L"wc"))
             pFrame->m_Data.m_sPatchPath = pFrame->m_Data.m_sDiffFile.Left(pFrame->m_Data.m_sDiffFile.ReverseFind('\\'));
         else
         {
@@ -288,7 +288,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         }
     }
 
-    if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff"))))
+    if ((parser.HasKey(L"patchpath"))&&(!parser.HasVal(L"diff")))
     {
         // A path was given for applying a patchfile, but
         // the patchfile itself was not.
@@ -328,7 +328,7 @@ BOOL CTortoiseMergeApp::InitInstance()
                 {
                     // check if there's a unified diff on the clipboard and
                     // add a button to the fileopen dialog if there is.
-                    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+                    UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
                     if ((cFormat)&&(OpenClipboard(NULL)))
                     {
                         HGLOBAL hglb = GetClipboardData(cFormat);
@@ -449,24 +449,24 @@ BOOL CTortoiseMergeApp::InitInstance()
         LocalFree(szArglist);
     }
 
-    pFrame->m_bReadOnly = !!parser.HasKey(_T("readonly"));
+    pFrame->m_bReadOnly = !!parser.HasKey(L"readonly");
     if (GetFileAttributes(pFrame->m_Data.m_yourFile.GetFilename()) & FILE_ATTRIBUTE_READONLY)
         pFrame->m_bReadOnly = true;
-    pFrame->m_bBlame = !!parser.HasKey(_T("blame"));
+    pFrame->m_bBlame = !!parser.HasKey(L"blame");
     // diffing a blame means no editing!
     if (pFrame->m_bBlame)
         pFrame->m_bReadOnly = true;
 
     pFrame->SetWindowTitle();
 
-    if (parser.HasKey(_T("createunifieddiff")))
+    if (parser.HasKey(L"createunifieddiff"))
     {
         // user requested to create a unified diff file
-        CString origFile = parser.GetVal(_T("origfile"));
-        CString modifiedFile = parser.GetVal(_T("modifiedfile"));
+        CString origFile = parser.GetVal(L"origfile");
+        CString modifiedFile = parser.GetVal(L"modifiedfile");
         if (!origFile.IsEmpty() && !modifiedFile.IsEmpty())
         {
-            CString outfile = parser.GetVal(_T("outfile"));
+            CString outfile = parser.GetVal(L"outfile");
             if (outfile.IsEmpty())
             {
                 CCommonAppUtils::FileOpenSave(outfile, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, NULL);
@@ -495,9 +495,9 @@ BOOL CTortoiseMergeApp::InitInstance()
     }
 
     int line = -2;
-    if (parser.HasVal(_T("line")))
+    if (parser.HasVal(L"line"))
     {
-        line = parser.GetLongVal(_T("line"));
+        line = parser.GetLongVal(L"line");
         line--; // we need the index
     }
 
@@ -535,7 +535,7 @@ int CTortoiseMergeApp::ExitInstance()
 {
     // Look for temporary files left around by TortoiseMerge and
     // remove them. But only delete 'old' files
-    CTempFiles::DeleteOldTempFiles(_T("*svn*.*"));
+    CTempFiles::DeleteOldTempFiles(L"*svn*.*");
 
     return CWinAppEx::ExitInstance();
 }
@@ -543,7 +543,7 @@ int CTortoiseMergeApp::ExitInstance()
 bool CTortoiseMergeApp::HasClipboardPatch()
 {
     // check if there's a patchfile in the clipboard
-    const UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+    const UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
     if (cFormat == 0)
         return false;
 
@@ -568,7 +568,7 @@ bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
 {
     resultFile.clear();
 
-    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+    UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
     if (cFormat == 0)
         return false;
     if (OpenClipboard(NULL) == 0)
@@ -581,11 +581,11 @@ bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
     std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
     std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
     GetTempPath (len+1, path.get());
-    GetTempFileName (path.get(), _T("tsm"), 0, tempF.get());
+    GetTempFileName (path.get(), L"tsm", 0, tempF.get());
     std::wstring sTempFile = std::wstring(tempF.get());
 
     FILE* outFile = 0;
-    _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
+    _tfopen_s(&outFile, sTempFile.c_str(), L"wb");
     if (outFile != 0)
     {
         size_t patchlen = strlen(lpstr);

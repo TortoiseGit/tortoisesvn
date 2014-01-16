@@ -153,7 +153,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
     m_cFilter.SetInfoIcon(IDI_FILTEREDIT);
     temp.LoadString(IDS_FILEDIFF_FILTERCUE);
-    temp = _T("   ")+temp;
+    temp = L"   "+temp;
     m_cFilter.SetCueBanner(temp);
 
     int c = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
@@ -187,7 +187,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     sPropertiesOnly     = CString(MAKEINTRESOURCE(IDS_PROPONLY));
     sContentAndProps    = CString(MAKEINTRESOURCE(IDS_CONTENTANDPROP));
 
-    EnableSaveRestore(_T("FileDiffDlg"));
+    EnableSaveRestore(L"FileDiffDlg");
 
     InterlockedExchange(&m_bThreadRunning, TRUE);
     if (AfxBeginThread(DiffThreadEntry, this)==NULL)
@@ -270,15 +270,15 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
 {
     CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
-    CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-    CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+    CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
+    CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
 
     if (fd.kind == svn_client_diff_summarize_kind_deleted)
     {
         if (!PathIsURL(url1))
-            url1 = CTSVNPath(GetURLFromPath(m_path1) + _T("/") + fd.path.GetSVNPathString());
+            url1 = CTSVNPath(GetURLFromPath(m_path1) + L"/" + fd.path.GetSVNPathString());
         if (!PathIsURL(url2))
-            url2 = m_bDoPegDiff ? url1 : CTSVNPath(GetURLFromPath(m_path2) + _T("/") + fd.path.GetSVNPathString());
+            url2 = m_bDoPegDiff ? url1 : CTSVNPath(GetURLFromPath(m_path2) + L"/" + fd.path.GetSVNPathString());
     }
 
     if (fd.propchanged && bProps && (!blame || bProps))
@@ -310,9 +310,9 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
             return;
         }
     }
-    else if ((fd.kind != svn_client_diff_summarize_kind_added)&&(blame)&&(!m_blamer.BlameToFile(url1, 1, m_rev1, m_bDoPegDiff ? m_peg : m_rev1, tempfile, _T(""), TRUE, TRUE)))
+    else if ((fd.kind != svn_client_diff_summarize_kind_added)&&(blame)&&(!m_blamer.BlameToFile(url1, 1, m_rev1, m_bDoPegDiff ? m_peg : m_rev1, tempfile, L"", TRUE, TRUE)))
     {
-        if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url1, 1, m_rev1, m_rev1, tempfile, _T(""), TRUE, TRUE)))
+        if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url1, 1, m_rev1, m_rev1, tempfile, L"", TRUE, TRUE)))
         {
             SetAndClearProgressInfo((HWND)NULL);
             m_blamer.SetAndClearProgressInfo(NULL, 3);
@@ -335,9 +335,9 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
             return;
         }
     }
-    else if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(blame)&&(!m_blamer.BlameToFile(url2, 1, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, tempfile2, _T(""), TRUE, TRUE)))
+    else if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(blame)&&(!m_blamer.BlameToFile(url2, 1, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, tempfile2, L"", TRUE, TRUE)))
     {
-        if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url2, 1, m_rev2, m_rev2, tempfile2, _T(""), TRUE, TRUE)))
+        if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url2, 1, m_rev2, m_rev2, tempfile2, L"", TRUE, TRUE)))
         {
             SetAndClearProgressInfo((HWND)NULL);
             m_blamer.SetAndClearProgressInfo(NULL, 3);
@@ -354,13 +354,13 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
     CString rev1name, rev2name;
     if (m_bDoPegDiff)
     {
-        rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
-        rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
+        rev1name.Format(L"%s Revision %ld", (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
+        rev2name.Format(L"%s Revision %ld", (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
     }
     else
     {
-        rev1name = m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
-        rev2name = m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
+        rev1name = m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString();
+        rev2name = m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString();
     }
     CAppUtils::DiffFlags flags;
     flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -373,8 +373,8 @@ void CFileDiffDlg::DiffProps(int selIndex)
 {
     CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
-    CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-    CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+    CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
+    CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
 
     SVNProperties propsurl1(url1, m_rev1, false, false);
     SVNProperties propsurl2(url2, m_rev2, false, false);
@@ -403,7 +403,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
     {
         const std::string& url1name = *iter;
 
-        tstring url1value = _T(""); // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
+        tstring url1value = L""; // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
         for (int url1index = 0; url1index < propsurl1.GetCount(); ++url1index)
         {
             if (propsurl1.GetItemName(url1index).compare(url1name)==0)
@@ -412,7 +412,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
             }
         }
 
-        tstring url2value = _T("");
+        tstring url2value = L"";
         for (int url2index = 0; url2index < propsurl2.GetCount(); ++url2index)
         {
             if (propsurl2.GetItemName(url2index).compare(url1name)==0)
@@ -427,13 +427,13 @@ void CFileDiffDlg::DiffProps(int selIndex)
             CTSVNPath url1propfile = CTempFiles::Instance().GetTempFilePath(false);
             CTSVNPath url2propfile = CTempFiles::Instance().GetTempFilePath(false);
             FILE * pFile;
-            _tfopen_s(&pFile, url1propfile.GetWinPath(), _T("wb"));
+            _tfopen_s(&pFile, url1propfile.GetWinPath(), L"wb");
             if (pFile)
             {
                 fputs(CUnicodeUtils::StdGetUTF8(url1value).c_str(), pFile);
                 fclose(pFile);
                 FILE * pFile2;
-                _tfopen_s(&pFile2, url2propfile.GetWinPath(), _T("wb"));
+                _tfopen_s(&pFile2, url2propfile.GetWinPath(), L"wb");
                 if (pFile2)
                 {
                     fputs(CUnicodeUtils::StdGetUTF8(url2value).c_str(), pFile2);
@@ -455,13 +455,13 @@ void CFileDiffDlg::DiffProps(int selIndex)
             {
                 if (m_bDoPegDiff)
                 {
-                    n1.Format(_T("%s : %s Revision %ld"), CUnicodeUtils::StdGetUnicode(url1name).c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
+                    n1.Format(L"%s : %s Revision %ld", CUnicodeUtils::StdGetUnicode(url1name).c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
                 }
                 else
                 {
                     CString sTemp (CUnicodeUtils::StdGetUnicode(url1name).c_str());
-                    sTemp += _T(" : ");
-                    n1 = sTemp + m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
+                    sTemp += L" : ";
+                    n1 = sTemp + m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString();
                 }
             }
             if (m_rev2.IsWorking())
@@ -472,13 +472,13 @@ void CFileDiffDlg::DiffProps(int selIndex)
             {
                 if (m_bDoPegDiff)
                 {
-                    n2.Format(_T("%s : %s Revision %ld"), CUnicodeUtils::StdGetUnicode(url1name).c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
+                    n2.Format(L"%s : %s Revision %ld", CUnicodeUtils::StdGetUnicode(url1name).c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
                 }
                 else
                 {
                     CString sTemp (CUnicodeUtils::StdGetUnicode (url1name).c_str());
-                    sTemp += _T(" : ");
-                    n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
+                    sTemp += L" : ";
+                    n2 = sTemp + m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString();
                 }
             }
             CAppUtils::StartExtDiffProps(url1propfile, url2propfile, n1, n2, TRUE);
@@ -508,7 +508,7 @@ void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     if (pGetInfoTip->iItem >= (int)m_arFilteredList.size())
         return;
 
-    CString path = m_path1.GetSVNPathString() + _T("/") + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
+    CString path = m_path1.GetSVNPathString() + L"/" + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
     if (pGetInfoTip->cchTextMax > path.GetLength())
             _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
 }
@@ -817,10 +817,10 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
             int index = m_cFileList.GetNextSelectedItem(pos);
             CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
-            CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+            CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
             CString sCmd;
             SVNRev rmax = max((LONG)m_rev1, (LONG)m_rev2);
-            sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /pegrev:%s"),
+            sCmd.Format(L"/command:log /path:\"%s\" /startrev:%s /pegrev:%s",
                 (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)rmax.ToString(), (LPCTSTR)m_peg.ToString());
             CAppUtils::RunTortoiseProc(sCmd);
         }
@@ -842,14 +842,14 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 CStdioFile file(savePath.GetWinPathString(), CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
                 CString temp;
                 temp.FormatMessage(IDS_FILEDIFF_CHANGEDLISTINTRO, (LPCTSTR)m_path1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_path2.GetSVNPathString(), (LPCTSTR)m_rev2.ToString());
-                file.WriteString(temp + _T("\n"));
+                file.WriteString(temp + L"\n");
                 POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
                 while (pos)
                 {
                     int index = m_cFileList.GetNextSelectedItem(pos);
                     FileDiff fd = m_arFilteredList[index];
                     file.WriteString(fd.path.GetSVNPathString());
-                    file.WriteString(_T("\n"));
+                    file.WriteString(L"\n");
                 }
                 file.Close();
             }
@@ -910,12 +910,12 @@ UINT CFileDiffDlg::ExportThread()
     for (INT_PTR i=0; (i<m_arSelectedFileList.GetCount())&&(!m_pProgDlg->HasUserCancelled()); ++i)
     {
         CFileDiffDlg::FileDiff fd = m_arSelectedFileList[i];
-        CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-        CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+        CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
+        CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
         if ((fd.node == svn_node_dir)&&(fd.kind != svn_client_diff_summarize_kind_added))
         {
             // just create the directory
-            CreateDirectoryEx(NULL, m_strExportDir+_T("\\")+CPathUtils::PathUnescape(fd.path.GetWinPathString()), NULL);
+            CreateDirectoryEx(NULL, m_strExportDir+L"\\"+CPathUtils::PathUnescape(fd.path.GetWinPathString()), NULL);
             continue;
         }
 
@@ -923,7 +923,7 @@ UINT CFileDiffDlg::ExportThread()
         m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
 
         CTSVNPath savepath = CTSVNPath(m_strExportDir);
-        savepath.AppendPathString(_T("\\") + CPathUtils::PathUnescape(fd.path.GetWinPathString()));
+        savepath.AppendPathString(L"\\" + CPathUtils::PathUnescape(fd.path.GetWinPathString()));
         CPathUtils::MakeSureDirectoryPathExists(fd.node == svn_node_file ? savepath.GetContainingDirectory().GetWinPath() : savepath.GetDirectory().GetWinPath());
         if (fd.node == svn_node_dir)
         {
@@ -1247,7 +1247,7 @@ LRESULT CFileDiffDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/
     m_arFilteredList.clear();
     m_cFileList.DeleteAllItems();
 
-    Filter(_T(""));
+    Filter(L"");
 
     m_cFileList.SetRedraw(TRUE);
     return 0L;
@@ -1303,9 +1303,9 @@ void CFileDiffDlg::CopySelectionToClipboard()
     while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
     {
         sTextForClipboard += m_cFileList.GetItemText(index, 0);
-        sTextForClipboard += _T("\t");
+        sTextForClipboard += L"\t";
         sTextForClipboard += m_cFileList.GetItemText(index, 1);
-        sTextForClipboard += _T("\r\n");
+        sTextForClipboard += L"\r\n";
     }
     CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
 }
@@ -1317,9 +1317,9 @@ void CFileDiffDlg::GetSelectedPaths(CTSVNPathList& urls1, CTSVNPathList& urls2)
     {
         int index = m_cFileList.GetNextSelectedItem(pos);
         CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
-        CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+        CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
         urls1.AddPath(url1);
-        CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+        CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + L"/" + fd.path.GetSVNPathString());
         urls2.AddPath(url2);
     }
 }

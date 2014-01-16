@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2011-2013 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,31 +29,31 @@
 IMPLEMENT_DYNAMIC(CSetDialogs, ISettingsPropPage)
 CSetDialogs::CSetDialogs()
     : ISettingsPropPage(CSetDialogs::IDD)
-    , m_sDefaultLogs(_T(""))
+    , m_sDefaultLogs(L"")
     , m_bShortDateFormat(FALSE)
     , m_dwFontSize(0)
-    , m_sFontName(_T(""))
+    , m_sFontName(L"")
     , m_bUseWCURL(FALSE)
-    , m_sDefaultCheckoutPath(_T(""))
-    , m_sDefaultCheckoutUrl(_T(""))
+    , m_sDefaultCheckoutPath(L"")
+    , m_sDefaultCheckoutUrl(L"")
     , m_bDiffByDoubleClick(FALSE)
     , m_bUseSystemLocaleForDates(FALSE)
     , m_bUseRecycleBin(TRUE)
     , m_bAutoCloseLocal(FALSE)
     , m_dwAutoClose(0)
 {
-    m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
-    m_regAutoCloseLocal = CRegDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"));
-    m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-    m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
-    m_regUseSystemLocaleForDates = CRegDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
-    m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
-    m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
-    m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
-    m_regDefaultCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
-    m_regDefaultCheckoutUrl = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
-    m_regDiffByDoubleClick = CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE);
-    m_regUseRecycleBin = CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE);
+    m_regAutoClose = CRegDWORD(L"Software\\TortoiseSVN\\AutoClose");
+    m_regAutoCloseLocal = CRegDWORD(L"Software\\TortoiseSVN\\AutoCloseLocal");
+    m_regDefaultLogs = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
+    m_regShortDateFormat = CRegDWORD(L"Software\\TortoiseSVN\\LogDateFormat", FALSE);
+    m_regUseSystemLocaleForDates = CRegDWORD(L"Software\\TortoiseSVN\\UseSystemLocaleForDates", TRUE);
+    m_regFontName = CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New");
+    m_regFontSize = CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8);
+    m_regUseWCURL = CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE);
+    m_regDefaultCheckoutPath = CRegString(L"Software\\TortoiseSVN\\DefaultCheckoutPath");
+    m_regDefaultCheckoutUrl = CRegString(L"Software\\TortoiseSVN\\DefaultCheckoutUrl");
+    m_regDiffByDoubleClick = CRegDWORD(L"Software\\TortoiseSVN\\DiffByDoubleClickInLog", FALSE);
+    m_regUseRecycleBin = CRegDWORD(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -140,7 +140,7 @@ BOOL CSetDialogs::OnInitDialog()
             m_cAutoClose.SetCurSel(i);
 
     CString temp;
-    temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
+    temp.Format(L"%ld", (DWORD)m_regDefaultLogs);
     m_sDefaultLogs = temp;
 
     m_tooltips.Create(this);
@@ -158,7 +158,7 @@ BOOL CSetDialogs::OnInitDialog()
     int count = 0;
     for (int i=6; i<32; i=i+2)
     {
-        temp.Format(_T("%d"), i);
+        temp.Format(L"%d", i);
         m_cFontSizes.AddString(temp);
         m_cFontSizes.SetItemData(count++, i);
     }
@@ -173,7 +173,7 @@ BOOL CSetDialogs::OnInitDialog()
     }
     if (!foundfont)
     {
-        temp.Format(_T("%lu"), m_dwFontSize);
+        temp.Format(L"%lu", m_dwFontSize);
         m_cFontSizes.SetWindowText(temp);
     }
 

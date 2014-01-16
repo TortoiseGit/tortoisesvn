@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2008, 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 
 bool PasteMoveCommand::Execute()
 {
-    CString sDroppath = parser.GetVal(_T("droptarget"));
+    CString sDroppath = parser.GetVal(L"droptarget");
     CTSVNPath dropPath(sDroppath);
     ProjectProperties props;
     props.ReadProps(dropPath);
@@ -48,9 +48,9 @@ bool PasteMoveCommand::Execute()
     {
         CTSVNPath destPath;
         if (sNewName.IsEmpty())
-            destPath = CTSVNPath(sDroppath+_T("\\")+pathList[nPath].GetFileOrDirectoryName());
+            destPath = CTSVNPath(sDroppath+L"\\"+pathList[nPath].GetFileOrDirectoryName());
         else
-            destPath = CTSVNPath(sDroppath+_T("\\")+sNewName);
+            destPath = CTSVNPath(sDroppath+L"\\"+sNewName);
         if (destPath.Exists())
         {
             CString name = pathList[nPath].GetFileOrDirectoryName();
@@ -66,7 +66,7 @@ bool PasteMoveCommand::Execute()
             {
                 return FALSE;
             }
-            destPath.SetFromWin(sDroppath+_T("\\")+dlg.m_name);
+            destPath.SetFromWin(sDroppath+L"\\"+dlg.m_name);
         }
         svn_wc_status_kind s = status.GetAllStatus(pathList[nPath]);
         if ((s == svn_wc_status_none)||(s == svn_wc_status_unversioned)||(s == svn_wc_status_ignored))

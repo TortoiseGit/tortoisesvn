@@ -56,12 +56,12 @@
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
 
-static UINT WM_RESOLVEMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MSG"));
+static UINT WM_RESOLVEMSG = RegisterWindowMessage(L"TORTOISESVN_RESOLVEDONE_MSG");
 
 #define TRANSFERTIMER   100
 #define VISIBLETIMER    101
 
-#define REG_KEY_ALLOW_UNV_OBSTRUCTIONS _T("Software\\TortoiseSVN\\AllowUnversionedObstruction")
+#define REG_KEY_ALLOW_UNV_OBSTRUCTIONS L"Software\\TortoiseSVN\\AllowUnversionedObstruction"
 
 enum SVNProgressDlgContextMenuCommands
 {
@@ -81,7 +81,7 @@ enum SVNProgressDlgContextMenuCommands
 IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableStandAloneDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSVNProgressDlg::IDD, pParent)
-    , m_Revision(_T("HEAD"))
+    , m_Revision(L"HEAD")
     , m_RevisionEnd(0)
     , m_bLockWarning(false)
     , m_bLockExists(false)
@@ -128,7 +128,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
 {
     m_arData.reserve(10000);
-    m_bHideExternalInfo = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\HideExternalInfo"), TRUE);
+    m_bHideExternalInfo = !!CRegStdDWORD(L"Software\\TortoiseSVN\\HideExternalInfo", TRUE);
     m_columnbuf[0] = 0;
 
 }
@@ -598,7 +598,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         if (lock_state == svn_wc_notify_lock_state_unlocked)
         {
             CString temp(MAKEINTRESOURCE(IDS_SVNACTION_UNLOCKED));
-            data->sActionColumnText += _T(", ") + temp;
+            data->sActionColumnText += L", " + temp;
         }
         break;
 
@@ -1054,85 +1054,85 @@ CString CSVNProgressDlg::BuildInfoString()
     {
         temp.LoadString(IDS_SVNACTION_CONFLICTED);
         infotext += temp;
-        temp.Format(_T(":%d "), conflicted);
+        temp.Format(L":%d ", conflicted);
         infotext += temp;
     }
     if (skipped)
     {
         temp.LoadString(IDS_SVNACTION_SKIP);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), skipped);
+        infotext.AppendFormat(L":%d ", skipped);
     }
     if (merged)
     {
         temp.LoadString(IDS_SVNACTION_MERGED);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), merged);
+        infotext.AppendFormat(L":%d ", merged);
     }
     if (added)
     {
         temp.LoadString(IDS_SVNACTION_ADD);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), added);
+        infotext.AppendFormat(L":%d ", added);
     }
     if (deleted)
     {
         temp.LoadString(IDS_SVNACTION_DELETE);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), deleted);
+        infotext.AppendFormat(L":%d ", deleted);
     }
     if (modified)
     {
         temp.LoadString(IDS_SVNACTION_MODIFIED);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), modified);
+        infotext.AppendFormat(L":%d ", modified);
     }
     if (copied)
     {
         temp.LoadString(IDS_SVNACTION_COPY);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), copied);
+        infotext.AppendFormat(L":%d ", copied);
     }
     if (replaced)
     {
         temp.LoadString(IDS_SVNACTION_REPLACED);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), replaced);
+        infotext.AppendFormat(L":%d ", replaced);
     }
     if (updated)
     {
         temp.LoadString(IDS_SVNACTION_UPDATE);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), updated);
+        infotext.AppendFormat(L":%d ", updated);
     }
     if (restored)
     {
         temp.LoadString(IDS_SVNACTION_RESTORE);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), restored);
+        infotext.AppendFormat(L":%d ", restored);
     }
     if (reverted)
     {
         temp.LoadString(IDS_SVNACTION_REVERT);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), reverted);
+        infotext.AppendFormat(L":%d ", reverted);
     }
     if (resolved)
     {
         temp.LoadString(IDS_SVNACTION_RESOLVE);
         infotext += temp;
-        infotext.AppendFormat(_T(":%d "), resolved);
+        infotext.AppendFormat(L":%d ", resolved);
     }
     return infotext;
 }
 
 void CSVNProgressDlg::SetAutoClose(const CCmdLineParser& parser)
 {
-    if (parser.HasVal(_T("closeonend")))
-        SetAutoClose(parser.GetLongVal(_T("closeonend")));
-    if (parser.HasKey(_T("closeforlocal")))
+    if (parser.HasVal(L"closeonend"))
+        SetAutoClose(parser.GetLongVal(L"closeonend"));
+    if (parser.HasKey(L"closeforlocal"))
         SetAutoCloseLocal(TRUE);
-    if (parser.HasKey(_T("hideprogress")))
+    if (parser.HasKey(L"hideprogress"))
         SetHidden (true);
 }
 
@@ -1224,7 +1224,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     // not elevated, this is a no-op.
     CHANGEFILTERSTRUCT cfs = { sizeof(CHANGEFILTERSTRUCT) };
     typedef BOOL STDAPICALLTYPE ChangeWindowMessageFilterExDFN(HWND hWnd, UINT message, DWORD action, PCHANGEFILTERSTRUCT pChangeFilterStruct);
-    CAutoLibrary hUser = ::LoadLibrary(_T("user32.dll"));
+    CAutoLibrary hUser = ::LoadLibrary(L"user32.dll");
     if (hUser)
     {
         ChangeWindowMessageFilterExDFN *pfnChangeWindowMessageFilterEx = (ChangeWindowMessageFilterExDFN*)GetProcAddress(hUser, "ChangeWindowMessageFilterEx");
@@ -1286,7 +1286,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     SetPromptParentWindow(this->m_hWnd);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("SVNProgressDlg"));
+    EnableSaveRestore(L"SVNProgressDlg");
     GetDlgItem(IDOK)->SetFocus();
 
     m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
@@ -1364,7 +1364,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
             data->sPathColumnText = sMessage.Left(sMessage.Find('\n'));
         else
             data->sPathColumnText = sMessage;
-        data->sPathColumnText.Trim(_T("\n\r"));
+        data->sPathColumnText.Trim(L"\n\r");
         data->color = color;
         if (sMessage.Find('\n')>=0)
         {
@@ -1482,7 +1482,7 @@ UINT CSVNProgressDlg::ProgressThread()
         temp.LoadString(IDS_PROGRS_TITLEFAILED);
     else
         temp.LoadString(IDS_PROGRS_TITLEFIN);
-    sWindowTitle = sWindowTitle + _T(" ") + temp;
+    sWindowTitle = sWindowTitle + L" " + temp;
     SetWindowText(sWindowTitle);
 
     KillTimer(TRANSFERTIMER);
@@ -1522,7 +1522,7 @@ UINT CSVNProgressDlg::ProgressThread()
         for (size_t i=0; i<m_arData.size(); i++)
         {
             NotificationData * data = m_arData[i];
-            temp.Format(_T("%-20s : %s"), (LPCTSTR)data->sActionColumnText, (LPCTSTR)data->sPathColumnText);
+            temp.Format(L"%-20s : %s", (LPCTSTR)data->sActionColumnText, (LPCTSTR)data->sPathColumnText);
             logfile.AddLine(temp);
         }
         if (!sFinalInfo.IsEmpty())
@@ -1562,8 +1562,8 @@ UINT CSVNProgressDlg::ProgressThread()
         GetDlgItem(IDOK)->SetFocus();
     }
 
-    DWORD dwAutoClose = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
-    BOOL bAutoCloseLocal = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"), FALSE);
+    DWORD dwAutoClose = CRegStdDWORD(L"Software\\TortoiseSVN\\AutoClose");
+    BOOL bAutoCloseLocal = CRegStdDWORD(L"Software\\TortoiseSVN\\AutoCloseLocal", FALSE);
     if ((m_options & ProgOptDryRun)||(!m_bLastVisible))
     {
         // don't autoclose for dry-runs or if the user scrolled the
@@ -1622,7 +1622,7 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
         }
         SVNRev endRev(rev);
         CString sCmd;
-        sCmd.Format(_T("/command:log /path:\"%s\" /endrev:%s"),
+        sCmd.Format(L"/command:log /path:\"%s\" /endrev:%s",
                     m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
         CAppUtils::RunTortoiseProc(sCmd);
     }
@@ -1844,13 +1844,13 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     {
         // We've double-clicked on a conflicted item - do a three-way merge on it
         CString sCmd;
-        sCmd.Format(_T("/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d"),
+        sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d",
                     (LPCTSTR)data->path.GetWinPath(), (__int64)GetSafeHwnd(), (__int64)data->id);
         if (!data->path.IsUrl())
         {
-            sCmd += _T(" /propspath:\"");
+            sCmd += L" /propspath:\"";
             sCmd += data->path.GetWinPathString();
-            sCmd += _T("\"");
+            sCmd += L"\"";
         }
         CAppUtils::RunTortoiseProc(sCmd);
     }
@@ -1870,8 +1870,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
             bOpenWith = true;
         if (bOpenWith)
         {
-            CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-            cmd += data->path.GetWinPathString() + _T(" ");
+            CString cmd = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
+            cmd += data->path.GetWinPathString() + L" ";
             CAppUtils::LaunchApplication(cmd, NULL, false);
         }
     }
@@ -2113,7 +2113,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
                             CString sPath = m_ProgList.GetItemText(nItem, 1);
                             CString sMime = m_ProgList.GetItemText(nItem, 2);
                             CString sLogCopyText;
-                            sLogCopyText.Format(_T("%s: %s  %s\r\n"),
+                            sLogCopyText.Format(L"%s: %s  %s\r\n",
                                 (LPCTSTR)sAction, (LPCTSTR)sPath, (LPCTSTR)sMime);
                             sClipdata +=  sLogCopyText;
                         }
@@ -2245,7 +2245,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 if (data2)
                 {
                     sLines += data2->sPathColumnText;
-                    sLines += _T("\r\n");
+                    sLines += L"\r\n";
                 }
             }
             sLines.TrimRight();
@@ -2261,7 +2261,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 break;
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CTSVNPath path = CTSVNPath(sPath);
-            ShellExecute(m_hWnd, _T("explore"), path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
+            ShellExecute(m_hWnd, L"explore", path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
         }
         break;
     case ID_COMPARE:
@@ -2286,7 +2286,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 break;
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
-            sCmd.Format(_T("/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d"),
+            sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d",
                         (LPCTSTR)sPath, (__int64)GetSafeHwnd(), (__int64)data->id);
             CAppUtils::RunTortoiseProc(sCmd);
         }
@@ -2352,7 +2352,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                         ++index;
                     }
                 }
-                sResolvedPaths += data2->path.GetWinPathString() + _T("\n");
+                sResolvedPaths += data2->path.GetWinPathString() + L"\n";
             }
             m_ProgList.Invalidate();
             CString info = BuildInfoString();
@@ -2362,7 +2362,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 CString msg;
                 msg.Format(IDS_SVNPROGRESS_RESOLVED, (LPCTSTR)sResolvedPaths);
-                ::MessageBox(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+                ::MessageBox(m_hWnd, msg, L"TortoiseSVN", MB_OK | MB_ICONINFORMATION);
             }
         }
         break;
@@ -2375,7 +2375,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             // revisions.
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
-            sCmd.Format(_T("/command:log /path:\"%s\""),
+            sCmd.Format(L"/command:log /path:\"%s\"",
                 (LPCTSTR)sPath);
 
             CAppUtils::RunTortoiseProc(sCmd);
@@ -2394,8 +2394,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 const int ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
                 if ((ret <= HINSTANCE_ERROR)||bOpenWith)
                 {
-                    CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-                    c += sWinPath + _T(" ");
+                    CString c = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
+                    c += sWinPath + L" ";
                     CAppUtils::LaunchApplication(c, NULL, false);
                 }
             }
@@ -2946,7 +2946,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                         exts.TagExternals(false);
                         // now start the commit dialog with the folder where we changed the external tag
                         CString sCmd;
-                        sCmd.Format(_T("/command:commit /path:\"%s\""), parentPath.GetWinPath());
+                        sCmd.Format(L"/command:commit /path:\"%s\"", parentPath.GetWinPath());
                         CAppUtils::RunTortoiseProc(sCmd);
                     }
                 }
@@ -3027,14 +3027,14 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
             m_targetPathList[0].GetWinPath(),
             (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
         ReportCmd(sCmdInfo);
-        if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
+        if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
         {
             if (m_ProgList.GetItemCount()>1)
             {
                 ReportSVNError();
                 return false;
             }
-            else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
+            else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
             {
                 ReportSVNError();
                 return false;
@@ -3072,11 +3072,11 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
     SetBackgroundImage(IDI_EXPORT_BKG);
     CString eol;
     if (m_options & ProgOptEolCRLF)
-        eol = _T("CRLF");
+        eol = L"CRLF";
     if (m_options & ProgOptEolLF)
-        eol = _T("LF");
+        eol = L"LF";
     if (m_options & ProgOptEolCR)
-        eol = _T("CR");
+        eol = L"CR";
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
 
     CTSVNPath targetPath = m_targetPathList[0];
@@ -3114,7 +3114,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_IMPORT,
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
-        m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
+        m_options & ProgOptIncludeIgnored ? (LPCTSTR)(L", " + sIgnoredIncluded) : L"");
     ReportCmd(sCmdInfo);
     if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, (m_options & ProgOptUseAutoprops) != 0, m_options & ProgOptIncludeIgnored ? true : false, false, m_revProps))
     {
@@ -3174,7 +3174,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         if (bDoIt)
         {
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-            if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
+            if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), true))
             {
                 ReportSVNError();
                 return false;
@@ -3192,7 +3192,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         // if the locking-dialog is skipped in the settings, tell the
         // user how to steal the lock anyway (i.e., how to get the lock
         // dialog back without changing the settings)
-        if (!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)))
+        if (!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\ShowLockDlg", TRUE)))
         {
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_LOCKHINT)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
         }
@@ -3209,17 +3209,17 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     SetBackgroundImage(IDI_MERGE_BKG);
     if (m_options & ProgOptDryRun)
     {
-        sWindowTitle += _T(" ") + sDryRun;
+        sWindowTitle += L" " + sDryRun;
     }
     if (m_options & ProgOptRecordOnly)
     {
-        sWindowTitle += _T(" ") + sRecordOnly;
+        sWindowTitle += L" " + sRecordOnly;
     }
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     if (DWORD(nonint))
     {
         ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
@@ -3241,8 +3241,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)sReportUrl,
             m_targetPathList[0].GetWinPath(),
             m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""),
-            m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
+            m_options & ProgOptDryRun ? ((LPCTSTR)L", " + sDryRun) : L"",
+            m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         SVNRev firstRevOfRange;
@@ -3282,8 +3282,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
             m_targetPathList[0].GetWinPath(),
             m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""),
-            m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
+            m_options & ProgOptDryRun ? ((LPCTSTR)L", " + sDryRun) : L"",
+            m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0],
@@ -3305,11 +3305,11 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     SetBackgroundImage(IDI_MERGE_BKG);
     if (m_options & ProgOptDryRun)
     {
-        sWindowTitle += _T(" ") + sDryRun;
+        sWindowTitle += L" " + sDryRun;
     }
     if (m_options & ProgOptRecordOnly)
     {
-        sWindowTitle += _T(" ") + sRecordOnly;
+        sWindowTitle += L" " + sRecordOnly;
     }
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
@@ -3336,11 +3336,11 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
         (LPCTSTR)suggestedSources[0].GetSVNPathString(),
         m_targetPathList[0].GetWinPath(),
         m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-        m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
+        m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
     ReportCmd(sCmdInfo);
 
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     if (DWORD(nonint))
     {
         ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
@@ -3371,11 +3371,11 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
     SetBackgroundImage(IDI_MERGE_BKG);
     if (m_options & ProgOptDryRun)
     {
-        sWindowTitle += _T(" ") + sDryRun;
+        sWindowTitle += L" " + sDryRun;
     }
     if (m_options & ProgOptRecordOnly)
     {
-        sWindowTitle += _T(" ") + sRecordOnly;
+        sWindowTitle += L" " + sRecordOnly;
     }
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
@@ -3386,7 +3386,7 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
     ReportCmd(sCmdInfo);
 
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     if (DWORD(nonint))
     {
         ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
@@ -3424,11 +3424,11 @@ bool CSVNProgressDlg::CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& /
     SetBackgroundImage(IDI_MERGE_BKG);
     if (m_options & ProgOptDryRun)
     {
-        sWindowTitle += _T(" ") + sDryRun;
+        sWindowTitle += L" " + sDryRun;
     }
     if (m_options & ProgOptRecordOnly)
     {
-        sWindowTitle += _T(" ") + sRecordOnly;
+        sWindowTitle += L" " + sRecordOnly;
     }
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
@@ -3439,7 +3439,7 @@ bool CSVNProgressDlg::CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& /
     ReportCmd(sCmdInfo);
 
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     if (DWORD(nonint))
     {
         ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
@@ -3504,7 +3504,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                             if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)
                             {
                                 CString mimetype = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
-                                if ((!mimetype.IsEmpty())&&(mimetype.Left(4).CompareNoCase(_T("text"))))
+                                if ((!mimetype.IsEmpty())&&(mimetype.Left(4).CompareNoCase(L"text")))
                                 {
                                     doCheck = false;    // do not check files with a non-text mimetype
                                     break;
@@ -3514,10 +3514,10 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                         if (doCheck)
                         {
                             CStdioFile file(targetPath.GetWinPath(), CFile::typeBinary | CFile::modeRead);
-                            CString strLine = _T("");
+                            CString strLine = L"";
                             while (file.ReadString(strLine))
                             {
-                                if (strLine.Find(_T("<<<<<<<"))==0)
+                                if (strLine.Find(L"<<<<<<<")==0)
                                 {
                                     bMarkers = TRUE;
                                     break;
@@ -3581,7 +3581,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
     SetBackgroundImage(IDI_REVERT_BKG);
 
     CTSVNPathList delList = m_selectedPaths;
-    if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
+    if (DWORD(CRegDWORD(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE)))
     {
         CRecycleBinDlg rec;
         rec.StartTime();
@@ -3633,7 +3633,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-    if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
+    if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
     {
         ReportSVNError();
         return false;
@@ -3837,7 +3837,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     }
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-    if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
+    if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), true))
     {
         ReportSVNError();
         return false;
@@ -3897,7 +3897,7 @@ void CSVNProgressDlg::OnBnClickedNoninteractive()
 {
     LRESULT res = ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_GETCHECK, 0, 0);
     m_AlwaysConflicted = (res == BST_CHECKED);
-    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     nonint = m_AlwaysConflicted;
 }
 
@@ -3913,7 +3913,7 @@ CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
     if (sPath.Find(':')<0)
     {
         // the path is not absolute: add the common root of all paths to it
-        sPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(sColumnText);
+        sPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + L"\\" + CPathUtils::ParsePathInString(sColumnText);
     }
     return sPath;
 }
@@ -3930,7 +3930,7 @@ LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*
 bool CSVNProgressDlg::IsCommittingToTag(CString& url)
 {
     bool isTag = false;
-    CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+    CRegString regTagsPattern (L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
     for (int i=0; (i<m_targetPathList.GetCount()) && (!isTag); ++i)
     {
         url = GetURLFromPath(m_targetPathList[i]);
@@ -3949,7 +3949,7 @@ bool CSVNProgressDlg::IsCommittingToTag(CString& url)
         CString temp;
         while (!isTag)
         {
-            temp = sTags.Tokenize(_T(";"), pos);
+            temp = sTags.Tokenize(L";", pos);
             if (temp.IsEmpty())
                 break;
 
@@ -3957,7 +3957,7 @@ bool CSVNProgressDlg::IsCommittingToTag(CString& url)
             CString temp2;
             for(;;)
             {
-                temp2 = urllower.Tokenize(_T("/"), urlpos);
+                temp2 = urllower.Tokenize(L"/", urlpos);
                 if (temp2.IsEmpty())
                     break;
 
@@ -4013,7 +4013,7 @@ bool CSVNProgressDlg::CheckUpdateAndRetry()
 
 void CSVNProgressDlg::ResetVars()
 {
-    m_Revision = SVNRev(_T("HEAD"));
+    m_Revision = SVNRev(L"HEAD");
     m_RevisionEnd = 0;
     m_bLockWarning = false;
     m_bLockExists = false;
@@ -4128,7 +4128,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
     CString sUUID = GetUUIDFromPath(m_targetPathList[0]);
     CString sRepositoryRoot = GetRepositoryRoot(m_targetPathList[0]);
     CString relUrl = m_url.GetSVNPathString().Mid(sRepositoryRoot.GetLength()+1);
-    CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
+    CString sSeparator = CRegString(L"Software\\TortoiseSVN\\MergeLogSeparator", L"........");
     CString sRevListRange;
     CString sRevList;
     CString sRevListR;
@@ -4221,10 +4221,10 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
     sSuggestedMessage += sLogMessages;
 
     CRegHistory history;
-    history.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+    history.SetMaxHistoryItems((LONG)CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25));
     CString reg;
-    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCWSTR)GetUUIDFromPath(m_targetPathList[0]));
-    history.Load(reg, _T("logmsgs"));
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCWSTR)GetUUIDFromPath(m_targetPathList[0]));
+    history.Load(reg, L"logmsgs");
     history.AddEntry(sSuggestedMessage);
     history.Save();
 }
@@ -4274,7 +4274,7 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 
         CString revname, wcname, basename;
-        revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
+        revname.Format(L"%s Revision %ld", (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
         wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
         basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
         CAppUtils::MergeFlags flags;
@@ -4294,7 +4294,7 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         }
         SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
         CString revname, wcname;
-        revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
+        revname.Format(L"%s Revision %ld", (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
         wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
         CAppUtils::StartExtDiff(
             tempfile, data->path, revname, wcname, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,

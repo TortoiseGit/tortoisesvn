@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,8 +27,8 @@ IMPLEMENT_DYNAMIC(CSetHooksAdv, CResizableStandAloneDialog)
 
 CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSetHooksAdv::IDD, pParent)
-    , m_sPath(_T(""))
-    , m_sCommandLine(_T(""))
+    , m_sPath(L"")
+    , m_sCommandLine(L"")
     , m_bWait(FALSE)
     , m_bHide(FALSE)
     , m_bEnforce(FALSE)
@@ -120,7 +120,7 @@ BOOL CSetHooksAdv::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("SetHooksAdvDlg"));
+    EnableSaveRestore(L"SetHooksAdvDlg");
     return TRUE;
 }
 

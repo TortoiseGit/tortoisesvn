@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,14 +26,14 @@
 bool MergeCommand::Execute()
 {
     DWORD nMergeWizardMode =
-        (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+        (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\MergeWizardMode", 0);
 
-    if (parser.HasVal(_T("fromurl")))
+    if (parser.HasVal(L"fromurl"))
     {
         // fromurl means merging a revision range
         nMergeWizardMode = 2;
     }
-    if (parser.HasVal(_T("tourl")))
+    if (parser.HasVal(L"tourl"))
     {
         // tourl means merging a tree
         nMergeWizardMode = 1;
@@ -42,17 +42,17 @@ bool MergeCommand::Execute()
     CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
     wizard.wcPath = cmdLinePath;
 
-    if (parser.HasVal(_T("fromurl")))
+    if (parser.HasVal(L"fromurl"))
     {
-        wizard.URL1 = parser.GetVal(_T("fromurl"));
-        wizard.url = parser.GetVal(_T("fromurl"));
-        wizard.revRangeArray.FromListString(parser.GetVal(_T("revrange")));
+        wizard.URL1 = parser.GetVal(L"fromurl");
+        wizard.url = parser.GetVal(L"fromurl");
+        wizard.revRangeArray.FromListString(parser.GetVal(L"revrange"));
     }
-    if (parser.HasVal(_T("tourl")))
+    if (parser.HasVal(L"tourl"))
     {
-        wizard.URL2 = parser.GetVal(_T("tourl"));
-        wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
-        wizard.endRev = SVNRev(parser.GetVal(_T("torev")));
+        wizard.URL2 = parser.GetVal(L"tourl");
+        wizard.startRev = SVNRev(parser.GetVal(L"fromrev"));
+        wizard.endRev = SVNRev(parser.GetVal(L"torev"));
     }
     if (wizard.DoModal() == ID_WIZFINISH)
     {

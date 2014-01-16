@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ BOOL CURLDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancel(this);
 
     m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
 
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_URLCOMBO);
 
@@ -66,7 +66,7 @@ BOOL CURLDlg::OnInitDialog()
     AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("URLDlg"));
+    EnableSaveRestore(L"URLDlg");
 
     // Now, after the combo size might have changed, select the proper string and
     // put focus into it so that if the text was too wide to be displayed with

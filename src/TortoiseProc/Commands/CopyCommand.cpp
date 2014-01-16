@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,13 +27,13 @@ bool CopyCommand::Execute()
 {
     bool bRet = false;
     CString msg;
-    if (parser.HasKey(_T("logmsg")))
+    if (parser.HasKey(L"logmsg"))
     {
-        msg = parser.GetVal(_T("logmsg"));
+        msg = parser.GetVal(L"logmsg");
     }
-    if (parser.HasKey(_T("logmsgfile")))
+    if (parser.HasKey(L"logmsgfile"))
     {
-        CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+        CString logmsgfile = parser.GetVal(L"logmsgfile");
         CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
     }
 
@@ -41,10 +41,10 @@ bool CopyCommand::Execute()
     CCopyDlg dlg;
 
     dlg.m_path = cmdLinePath;
-    CString url = parser.GetVal(_T("url"));
+    CString url = parser.GetVal(L"url");
     CString logmessage = msg;
     SVNRev copyRev = SVNRev::REV_HEAD;
-    BOOL doSwitch = parser.HasKey(_T("switchaftercopy"));
+    BOOL doSwitch = parser.HasKey(L"switchaftercopy");
     do
     {
         repeat = FALSE;
@@ -71,11 +71,11 @@ bool CopyCommand::Execute()
             copyRev = dlg.m_CopyRev;
             doSwitch = dlg.m_bDoSwitch;
             progDlg.DoModal();
-            CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+            CRegDWORD err = CRegDWORD(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
             repeat = progDlg.DidErrorsOccur();
-            CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+            CRegDWORD bFailRepeat = CRegDWORD(L"Software\\TortoiseSVN\\CommitReopen", FALSE);
             if (DWORD(bFailRepeat) == FALSE)
                 repeat = false;     // do not repeat if the user chose not to in the settings.
         }

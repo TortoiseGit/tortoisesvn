@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007,2009-2012 - TortoiseSVN
+// External Cache Copyright (C) 2007,2009-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,7 +51,7 @@ CString GetCacheID()
             std::unique_ptr<BYTE[]> data (new BYTE[len]);
             GetTokenInformation(token, TokenStatistics, data.get(), len, &len);
             LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
-            t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
+            t.Format(L"-%08x%08x", uid.HighPart, uid.LowPart);
         }
     }
     return t;

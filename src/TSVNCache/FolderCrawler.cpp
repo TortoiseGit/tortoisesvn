@@ -119,7 +119,7 @@ void CFolderCrawler::WorkerThread()
 
     for(;;)
     {
-        bool bRecursive = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
+        bool bRecursive = !!(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE);
         SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
         DWORD waitResult = WaitForMultipleObjects(_countof(hWaitHandles), hWaitHandles, FALSE, INFINITE);
 
@@ -210,9 +210,9 @@ void CFolderCrawler::WorkerThread()
                     {
                         CString lowerpath = workingPath.GetWinPathString();
                         lowerpath.MakeLower();
-                        if (lowerpath.Find(_T("\\wc.db-journal"))>0)
+                        if (lowerpath.Find(L"\\wc.db-journal")>0)
                             continue;
-                        if (lowerpath.Find(_T("\\wc.db"))>0)
+                        if (lowerpath.Find(L"\\wc.db")>0)
                         {
                             CSVNStatusCache::Instance().WCRoots()->NotifyChange(workingPath);
                         }
@@ -231,11 +231,11 @@ void CFolderCrawler::WorkerThread()
 
                     {
                         AutoLocker print(critSec);
-                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
+                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, L"Invalidating and refreshing folder: %s", workingPath.GetWinPath());
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Invalidating/refreshing folder %s\n"), workingPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Invalidating/refreshing folder %s\n", workingPath.GetWinPath());
                     }
                     InvalidateRect(hWnd, NULL, FALSE);
                     {
@@ -285,11 +285,11 @@ void CFolderCrawler::WorkerThread()
                     }
                     {
                         AutoLocker print(critSec);
-                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Updating path: %s"), workingPath.GetWinPath());
+                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, L"Updating path: %s", workingPath.GetWinPath());
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": updating path %s\n"), workingPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": updating path %s\n", workingPath.GetWinPath());
                     }
                     InvalidateRect(hWnd, NULL, FALSE);
                     {
@@ -348,11 +348,11 @@ void CFolderCrawler::WorkerThread()
 
                 {
                     AutoLocker print(critSec);
-                    _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Crawling folder: %s"), workingPath.GetWinPath());
+                    _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, L"Crawling folder: %s", workingPath.GetWinPath());
                     nCurrentCrawledpathIndex++;
                     if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                         nCurrentCrawledpathIndex = 0;
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Crawling folder %s\n"), workingPath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Crawling folder %s\n", workingPath.GetWinPath());
                 }
                 InvalidateRect(hWnd, NULL, FALSE);
                 {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ BOOL CPropDlg::OnInitDialog()
 
     AddAnchor(IDC_PROPERTYLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_CENTER);
-    EnableSaveRestore(_T("PropDlg"));
+    EnableSaveRestore(L"PropDlg");
     return TRUE;
 }
 
@@ -116,7 +116,7 @@ UINT CPropDlg::PropThread()
         int nFound = -1;
         do
         {
-            nFound = val.FindOneOf(_T("\r\n"));
+            nFound = val.FindOneOf(L"\r\n");
             m_proplist.InsertItem(row, name);
             if (nFound >= 0)
                 m_proplist.SetItemText(row++, 1, val.Left(nFound));

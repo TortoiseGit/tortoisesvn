@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRevisionDlg::IDD, pParent)
-    , SVNRev(_T("HEAD"))
+    , SVNRev(L"HEAD")
     , m_bAllowWCRevs(true)
 {
 }
@@ -67,7 +67,7 @@ BOOL CRevisionDlg::OnInitDialog()
         if (IsDate())
             sRev = GetDateString();
         else
-            sRev.Format(_T("%ld"), (LONG)(*this));
+            sRev.Format(L"%ld", (LONG)(*this));
         SetDlgItemText(IDC_REVNUM, sRev);
     }
     if (!m_logPath.IsEmpty())
@@ -88,8 +88,8 @@ void CRevisionDlg::OnOK()
     // if head revision, set revision as -1
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        SVNRev::Create(_T("HEAD"));
-        m_sRevision = _T("HEAD");
+        SVNRev::Create(L"HEAD");
+        m_sRevision = L"HEAD";
     }
     if ((!IsValid())||((!m_bAllowWCRevs)&&(IsPrev() || IsCommitted() || IsBase())))
     {

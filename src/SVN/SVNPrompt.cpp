@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -156,7 +156,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 void SVNPrompt::ShowErrorMessage()
 {
     CFormatMessageWrapper errorDetails;
-    MessageBox( FindParentWindow(m_hParentWnd), errorDetails, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
+    MessageBox( FindParentWindow(m_hParentWnd), errorDetails, L"TortoiseSVN", MB_OK | MB_ICONINFORMATION );
 }
 
 svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)
@@ -222,7 +222,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 
     CString msg;
     msg.Format(IDS_ERR_SSL_VALIDATE, (LPCTSTR)CUnicodeUtils::GetUnicode(realm));
-    msg += _T("\n");
+    msg += L"\n";
     CString temp;
     if (failures & SVN_AUTH_SSL_UNKNOWNCA)
     {
@@ -233,7 +233,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
     if (failures & SVN_AUTH_SSL_CNMISMATCH)
     {
         if (prev)
-            msg += _T("\n");
+            msg += L"\n";
         temp.Format(IDS_ERR_SSL_CNMISMATCH, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->hostname));
         msg += temp;
         prev = TRUE;
@@ -241,7 +241,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
     if (failures & SVN_AUTH_SSL_NOTYETVALID)
     {
         if (prev)
-            msg += _T("\n");
+            msg += L"\n";
         temp.Format(IDS_ERR_SSL_NOTYETVALID, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->valid_from));
         msg += temp;
         prev = TRUE;
@@ -249,13 +249,13 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
     if (failures & SVN_AUTH_SSL_EXPIRED)
     {
         if (prev)
-            msg += _T("\n");
+            msg += L"\n";
         temp.Format(IDS_ERR_SSL_EXPIRED, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->valid_until));
         msg += temp;
         prev = TRUE;
     }
     if (prev)
-        msg += _T("\n");
+        msg += L"\n";
     temp.LoadString(IDS_SSL_ACCEPTQUESTION);
     msg += temp;
 
@@ -284,7 +284,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
                 sAcceptAlways.LoadString(IDS_SSL_ACCEPTALWAYS);
                 sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
                 sReject.LoadString(IDS_SSL_REJECT);
-                ret = TSVNMessageBox(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3|MB_ICONQUESTION, sAcceptAlways, sAcceptTemp, sReject);
+                ret = TSVNMessageBox(svn->m_hParentWnd, msg, L"TortoiseSVN", MB_DEFBUTTON3|MB_ICONQUESTION, sAcceptAlways, sAcceptTemp, sReject);
             }
             if (ret == IDCUSTOM1)
             {
@@ -318,7 +318,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             }
             else
             {
-                bAccept = (TSVNMessageBox(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES);
+                bAccept = (TSVNMessageBox(svn->m_hParentWnd, msg, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION)==IDYES);
             }
             if (bAccept)
             {
@@ -449,9 +449,9 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
         // We do the saving here ourselves (until subversion implements its own saving)
         if (may_save)
         {
-            CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
+            CString regpath = L"Software\\tigris.org\\Subversion\\Servers\\";
             CString groups = regpath;
-            groups += _T("groups\\");
+            groups += L"groups\\";
             CString server = CString(realm);
             int f1 = server.Find('<')+9;
             int len = server.Find(':', 10)-f1;
@@ -461,7 +461,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             CRegString server_groups = CRegString(groups);
             server_groups = server;
             regpath += server;
-            regpath += _T("\\ssl-client-cert-file");
+            regpath += L"\\ssl-client-cert-file";
             CRegString client_cert_filepath_reg = CRegString(regpath);
             client_cert_filepath_reg = filename;
         }

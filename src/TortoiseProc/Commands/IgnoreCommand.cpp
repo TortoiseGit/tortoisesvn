@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,13 +28,13 @@ bool IgnoreCommand::Execute()
 {
     BOOL err = FALSE;
     std::set<CString> addeditems;
-    bool bRecursive = !!parser.HasKey(_T("recursive"));
+    bool bRecursive = !!parser.HasKey(L"recursive");
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
-        if (parser.HasKey(_T("onlymask")))
+        if (parser.HasKey(L"onlymask"))
         {
-            name = _T("*")+CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirExtension());
+            name = L"*"+CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirExtension());
         }
         addeditems.insert(name);
         CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
@@ -63,32 +63,32 @@ bool IgnoreCommand::Execute()
             ignoreItems.insert(name);
             CString token;
             int curPos = 0;
-            token = value.Tokenize(_T("\n"),curPos);
+            token = value.Tokenize(L"\n",curPos);
             while (!token.IsEmpty())
             {
                 token.Trim();
                 ignoreItems.insert(token);
-                token = value.Tokenize(_T("\n"), curPos);
+                token = value.Tokenize(L"\n", curPos);
             };
             value.Empty();
             for (std::set<CString>::iterator it = ignoreItems.begin(); it != ignoreItems.end(); ++it)
             {
                 value += *it;
-                value += _T("\n");
+                value += L"\n";
             }
         }
         if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
         {
             CString temp;
             temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
-            temp += _T("\n");
+            temp += L"\n";
             temp += props.GetLastErrorMessage();
-            MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
             err = TRUE;
             break;
         }
     }
-    if ((err == FALSE)&&(parser.HasKey(_T("delete"))))
+    if ((err == FALSE)&&(parser.HasKey(L"delete")))
     {
         SVN svn;
         if (!svn.Remove(pathList, TRUE))
@@ -107,7 +107,7 @@ bool IgnoreCommand::Execute()
         }
         CString temp;
         temp.Format(bRecursive ? IDS_PROC_IGNORERECURSIVESUCCESS : IDS_PROC_IGNORESUCCESS, (LPCTSTR)filelist);
-        MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONINFORMATION);
         return true;
     }
     return false;

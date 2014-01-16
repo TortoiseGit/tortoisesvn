@@ -33,7 +33,7 @@ bool ConflictEditorCommand::Execute()
     CTSVNPath merge = cmdLinePath;
     CTSVNPath directory = merge.GetDirectory();
     bool bRet = false;
-    bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
+    bool bAlternativeTool = !!parser.HasKey(L"alternative");
 
     // we have the conflicted file (%merged)
     // now look for the other required files

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,9 +38,9 @@
 IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CCopyDlg::IDD, pParent)
-    , m_URL(_T(""))
-    , m_sLogMessage(_T(""))
-    , m_sBugID(_T(""))
+    , m_URL(L"")
+    , m_sLogMessage(L"")
+    , m_sBugID(L"")
     , m_CopyRev(SVNRev::REV_HEAD)
     , m_bDoSwitch(false)
     , m_bMakeParents(false)
@@ -125,7 +125,7 @@ BOOL CCopyDlg::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, path.GetUIPathString(), sWindowTitle);
 
-    m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+    m_History.SetMaxHistoryItems((LONG)CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25));
 
     SetRevision(m_CopyRev);
 
@@ -149,10 +149,10 @@ BOOL CCopyDlg::OnInitDialog()
         CString Wrong_URL=path.GetSVNPathString();
         CString temp;
         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
-        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(this->m_hWnd, temp, L"TortoiseSVN", MB_ICONERROR);
         this->EndDialog(IDCANCEL);      //exit
     }
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoPaths\\"+sUUID, L"url");
     m_URLCombo.SetCurSel(0);
     CString relPath = m_wcURL.Mid(m_repoRoot.GetLength());
     if (!m_URL.IsEmpty())
@@ -167,15 +167,15 @@ BOOL CCopyDlg::OnInitDialog()
     SetDlgItemText(IDC_FROMURL, m_wcURL);
 
     CString reg;
-    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
-    m_History.Load(reg, _T("logmsgs"));
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)sUUID);
+    m_History.Load(reg, L"logmsgs");
 
     m_ProjectProperties.ReadProps(m_path);
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\AlwaysWarnIfNoIssue"), FALSE))
+    if (CRegDWORD(L"Software\\TortoiseSVN\\AlwaysWarnIfNoIssue", FALSE))
         m_ProjectProperties.bWarnIfNoIssue = TRUE;
 
     m_cLogMessage.Init(m_ProjectProperties);
-    m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+    m_cLogMessage.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
 
     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
@@ -195,7 +195,7 @@ BOOL CCopyDlg::OnInitDialog()
             hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
             if (SUCCEEDED(hr))
             {
-                SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
+                SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : temp);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
             }
@@ -237,14 +237,14 @@ BOOL CCopyDlg::OnInitDialog()
 
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
-    CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
+    CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
 
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
 
-    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));
+    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));
 
     AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
@@ -280,7 +280,7 @@ BOOL CCopyDlg::OnInitDialog()
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("CopyDlg"));
+    EnableSaveRestore(L"CopyDlg");
 
     m_bSettingChanged = false;
     if (!m_path.IsUrl())
@@ -487,7 +487,7 @@ void CCopyDlg::OnOK()
     {
         CString temp;
         temp.FormatMessage(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
-        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(this->m_hWnd, temp, L"TortoiseSVN", MB_ICONERROR);
         return;
     }
 
@@ -547,7 +547,7 @@ void CCopyDlg::OnOK()
             }
             else
             {
-                CString sError = temp == 0 ? _T("") : temp;
+                CString sError = temp == 0 ? L"" : temp;
                 if (!sError.IsEmpty())
                 {
                     CAppUtils::ReportFailedHook(m_hWnd, sError);
@@ -566,14 +566,14 @@ void CCopyDlg::OnOK()
     m_sBugID.Trim();
     if (!m_sBugID.IsEmpty())
     {
-        m_sBugID.Replace(_T(", "), _T(","));
-        m_sBugID.Replace(_T(" ,"), _T(","));
+        m_sBugID.Replace(L", ", L",");
+        m_sBugID.Replace(L" ,", L",");
         CString sBugID = m_ProjectProperties.sMessage;
-        sBugID.Replace(_T("%BUGID%"), m_sBugID);
+        sBugID.Replace(L"%BUGID%", m_sBugID);
         if (m_ProjectProperties.bAppend)
-            m_sLogMessage += _T("\n") + sBugID + _T("\n");
+            m_sLogMessage += L"\n" + sBugID + L"\n";
         else
-            m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
+            m_sLogMessage = sBugID + L"\n" + m_sLogMessage;
         UpdateData(FALSE);
     }
     CResizableStandAloneDialog::OnOK();
@@ -682,7 +682,7 @@ void CCopyDlg::OnComError( HRESULT hr )
     COMError ce(hr);
     CString sErr;
     sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-    ::MessageBox(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+    ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -779,7 +779,7 @@ void CCopyDlg::OnEnChangeLogmessage()
 LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%Id"), lParam);
+    temp.Format(L"%Id", lParam);
     SetDlgItemText(IDC_COPYREVTEXT, temp);
     CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
     return 0;
@@ -845,7 +845,7 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
                 // and of course, we only change it if the radio button for a REPO-to-REPO copy
                 // is enabled for HEAD and if there are no local modifications
                 CString temp;
-                temp.Format(_T("%ld"), m_maxrev);
+                temp.Format(L"%ld", m_maxrev);
                 SetDlgItemText(IDC_COPYREVTEXT, temp);
                 CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
             }
@@ -903,7 +903,7 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
     {
         CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
         CString temp;
-        temp.Format(_T("%ld"), (LONG)rev);
+        temp.Format(L"%ld", (LONG)rev);
         SetDlgItemText(IDC_COPYREVTEXT, temp);
     }
 }
@@ -1018,7 +1018,7 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                         SVNRev peg(ext.pegrevision);
                         if (peg.IsValid() && !peg.IsHead())
                         {
-                            _tcscat_s(m_columnbuf, _T("@"));
+                            _tcscat_s(m_columnbuf, L"@");
                             _tcscat_s(m_columnbuf, peg.ToString());
                         }
                         int cWidth = m_ExtList.GetColumnWidth(1);
@@ -1036,12 +1036,12 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                 case 2: // revision
                     m_columnbuf[0] = 0;
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
-                        _stprintf_s(m_columnbuf, _T("%ld"), ext.revision.value.number);
+                        _stprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
                     break;
                 case 3: // tagged
                     m_columnbuf[0] = 0;
                     if (ext.origrevision.kind == svn_opt_revision_number)
-                        _stprintf_s(m_columnbuf, _T("%ld"), ext.origrevision.value.number);
+                        _stprintf_s(m_columnbuf, L"%ld", ext.origrevision.value.number);
                     else if (ext.origrevision.kind == svn_opt_revision_date)
                     {
                         SVNRev r(ext.origrevision);

@@ -102,7 +102,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 
     rootpool = svn_pool_create (NULL);
 
-    m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
+    m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, L"TortoiseSVNCacheInvalidationEvent");
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
@@ -121,7 +121,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     //access of the .svn directory).
     if (g_ShellCache.BlockStatus())
     {
-        CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
+        CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, L"TortoiseProc.exe");
         if (TSVNMutex != NULL)
         {
             if (::GetLastError() == ERROR_ALREADY_EXISTS)
@@ -147,7 +147,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     urls.clear();
     owners.clear();
 
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": building cache for %s\n"), filepath);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": building cache for %s\n", filepath);
     if (bIsFolder)
     {
         if (bDirectFolder)
@@ -352,12 +352,12 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
     if(m_mostRecentPath.IsEquivalentTo(CTSVNPath(sCacheKey.c_str())))
     {
         // We've hit the same result as we were asked for last time
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": fast cache hit for %s\n"), filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": fast cache hit for %s\n", filepath);
         retVal = m_mostRecentStatus;
     }
     else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": cache found for %s\n"), filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": cache found for %s\n", filepath);
         retVal = &iter->second;
         m_mostRecentStatus = retVal;
         m_mostRecentPath = CTSVNPath(sCacheKey.c_str());
@@ -414,7 +414,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
         std::replace(str.begin(), str.end(), '/', '\\');
     }
     else
-        str = _T(" ");
+        str = L" ";
     (*cache)[str] = s;
 
     return SVN_NO_ERROR;

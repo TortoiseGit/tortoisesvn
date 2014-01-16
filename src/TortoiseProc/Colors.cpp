@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,38 +28,38 @@ static DWORD SysColorAsColor (int index)
     return color.GetValue();
 }
 
-CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), RGB(100, 0, 100))
-    , m_regCmd(_T("Software\\TortoiseSVN\\Colors\\Cmd"), ::GetSysColor(COLOR_GRAYTEXT))
-    , m_regConflict(_T("Software\\TortoiseSVN\\Colors\\Conflict"), RGB(255, 0, 0))
-    , m_regModified(_T("Software\\TortoiseSVN\\Colors\\Modified"), RGB(0, 50, 160))
-    , m_regMerged(_T("Software\\TortoiseSVN\\Colors\\Merged"), RGB(0, 100, 0))
-    , m_regDeleted(_T("Software\\TortoiseSVN\\Colors\\Deleted"), RGB(100, 0, 0))
-    , m_regLastCommit(_T("Software\\TortoiseSVN\\Colors\\LastCommit"), RGB(100, 100, 100))
-    , m_regDeletedNode(_T("Software\\TortoiseSVN\\Colors\\DeletedNode"), RGB(255, 0, 0))
-    , m_regAddedNode(_T("Software\\TortoiseSVN\\Colors\\AddedNode"), RGB(0, 255, 0))
-    , m_regReplacedNode(_T("Software\\TortoiseSVN\\Colors\\ReplacedNode"), RGB(0, 255, 0))
-    , m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
-    , m_regLastCommitNode(_T("Software\\TortoiseSVN\\Colors\\LastCommitNode"), RGB(200, 200, 200))
-    , m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
-    , m_regFilterMatch(_T("Software\\TortoiseSVN\\Colors\\FilterMatch"), RGB(200, 0, 0))
+CColors::CColors(void) : m_regAdded(L"Software\\TortoiseSVN\\Colors\\Added", RGB(100, 0, 100))
+    , m_regCmd(L"Software\\TortoiseSVN\\Colors\\Cmd", ::GetSysColor(COLOR_GRAYTEXT))
+    , m_regConflict(L"Software\\TortoiseSVN\\Colors\\Conflict", RGB(255, 0, 0))
+    , m_regModified(L"Software\\TortoiseSVN\\Colors\\Modified", RGB(0, 50, 160))
+    , m_regMerged(L"Software\\TortoiseSVN\\Colors\\Merged", RGB(0, 100, 0))
+    , m_regDeleted(L"Software\\TortoiseSVN\\Colors\\Deleted", RGB(100, 0, 0))
+    , m_regLastCommit(L"Software\\TortoiseSVN\\Colors\\LastCommit", RGB(100, 100, 100))
+    , m_regDeletedNode(L"Software\\TortoiseSVN\\Colors\\DeletedNode", RGB(255, 0, 0))
+    , m_regAddedNode(L"Software\\TortoiseSVN\\Colors\\AddedNode", RGB(0, 255, 0))
+    , m_regReplacedNode(L"Software\\TortoiseSVN\\Colors\\ReplacedNode", RGB(0, 255, 0))
+    , m_regRenamedNode(L"Software\\TortoiseSVN\\Colors\\RenamedNode", RGB(0, 0, 255))
+    , m_regLastCommitNode(L"Software\\TortoiseSVN\\Colors\\LastCommitNode", RGB(200, 200, 200))
+    , m_regPropertyChanged(L"Software\\TortoiseSVN\\Colors\\PropertyChanged", RGB(0, 50, 160))
+    , m_regFilterMatch(L"Software\\TortoiseSVN\\Colors\\FilterMatch", RGB(200, 0, 0))
 
-    , m_regGDPDeletedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+DeletedNode"), (DWORD)Color::Red)
-    , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)0xff00ff00)
-    , m_regGDPRenamedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+RenamedNode"), (DWORD)Color::Blue)
-    , m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPDeletedNode (L"Software\\TortoiseSVN\\Colors\\GDI+DeletedNode", (DWORD)Color::Red)
+    , m_regGDPAddedNode (L"Software\\TortoiseSVN\\Colors\\GDI+AddedNode", (DWORD)0xff00ff00)
+    , m_regGDPRenamedNode (L"Software\\TortoiseSVN\\Colors\\GDI+RenamedNode", (DWORD)Color::Blue)
+    , m_regGDPLastCommit (L"Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode", SysColorAsColor(COLOR_WINDOW))
 
-    , m_regGDPModifiedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode"), SysColorAsColor(COLOR_WINDOWTEXT))
-    , m_regGDPWCNode (_T("Software\\TortoiseSVN\\Colors\\GDI+WCNode"), SysColorAsColor(COLOR_WINDOW))
-    , m_regGDPUnchangedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode"), SysColorAsColor(COLOR_WINDOW))
-    , m_regGDPTagOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TagOverlay"), 0x80fafa60)
-    , m_regGDPTrunkOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TrunkOverlay"), 0x4040FF40)
+    , m_regGDPModifiedNode (L"Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode", SysColorAsColor(COLOR_WINDOWTEXT))
+    , m_regGDPWCNode (L"Software\\TortoiseSVN\\Colors\\GDI+WCNode", SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPUnchangedNode (L"Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode", SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPTagOverlay (L"Software\\TortoiseSVN\\Colors\\GDI+TagOverlay", 0x80fafa60)
+    , m_regGDPTrunkOverlay (L"Software\\TortoiseSVN\\Colors\\GDI+TrunkOverlay", 0x4040FF40)
 
-    , m_regGDPStripeColor1 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe1"), 0x18F0F0C0)
-    , m_regGDPStripeColor2 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe2"), 0x18A0D0E0)
+    , m_regGDPStripeColor1 (L"Software\\TortoiseSVN\\Colors\\GDI+Stripe1", 0x18F0F0C0)
+    , m_regGDPStripeColor2 (L"Software\\TortoiseSVN\\Colors\\GDI+Stripe2", 0x18A0D0E0)
 
-    , m_regGDPWCNodeBorder (_T("Software\\TortoiseSVN\\Colors\\GDI+WCBorder"), 0xFFD00000)
+    , m_regGDPWCNodeBorder (L"Software\\TortoiseSVN\\Colors\\GDI+WCBorder", 0xFFD00000)
 
-    , m_regCTMarkers (_T("Software\\TortoiseSVN\\Colors\\MarkersTable"), 0)
+    , m_regCTMarkers (L"Software\\TortoiseSVN\\Colors\\MarkersTable", 0)
 {
     m_regCTMarkers.GetDefaults()[0] = Color::MakeARGB (255, 250, 250, 92);
     m_regCTMarkers.GetDefaults()[1] = Color::MakeARGB (255, 160, 92, 250);

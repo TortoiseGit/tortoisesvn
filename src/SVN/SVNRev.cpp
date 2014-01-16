@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ void SVNRev::Create(CString sRev)
     sDate.Empty();
     m_bIsValid = FALSE;
     SecureZeroMemory(&rev, sizeof(rev));
-    if (sRev.Left(1).Compare(_T("{"))==0)
+    if (sRev.Left(1).Compare(L"{")==0)
     {
         // brackets denote a date
         SVNPool pool;
@@ -62,27 +62,27 @@ void SVNRev::Create(CString sRev)
             svn_error_clear(err);
         }
     }
-    else if (sRev.CompareNoCase(_T("HEAD"))==0)
+    else if (sRev.CompareNoCase(L"HEAD")==0)
     {
         rev.kind = svn_opt_revision_head;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(_T("BASE"))==0)
+    else if (sRev.CompareNoCase(L"BASE")==0)
     {
         rev.kind = svn_opt_revision_base;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(_T("WC"))==0)
+    else if (sRev.CompareNoCase(L"WC")==0)
     {
         rev.kind = svn_opt_revision_working;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(_T("PREV"))==0)
+    else if (sRev.CompareNoCase(L"PREV")==0)
     {
         rev.kind = svn_opt_revision_previous;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(_T("COMMITTED"))==0)
+    else if (sRev.CompareNoCase(L"COMMITTED")==0)
     {
         rev.kind = svn_opt_revision_committed;
         m_bIsValid = TRUE;
@@ -192,13 +192,13 @@ CString SVNRev::ToString() const
     CString sRev;
     switch (rev.kind)
     {
-    case svn_opt_revision_head:         return _T("HEAD");
-    case svn_opt_revision_base:         return _T("BASE");
-    case svn_opt_revision_working:      return _T("WC");
-    case svn_opt_revision_number:       sRev.Format(_T("%ld"), rev.value.number);return sRev;
-    case svn_opt_revision_committed:    return _T("COMMITTED");
-    case svn_opt_revision_previous:     return _T("PREV");
-    case svn_opt_revision_unspecified:  return _T("UNSPECIFIED");
+    case svn_opt_revision_head:         return L"HEAD";
+    case svn_opt_revision_base:         return L"BASE";
+    case svn_opt_revision_working:      return L"WC";
+    case svn_opt_revision_number:       sRev.Format(L"%ld", rev.value.number);return sRev;
+    case svn_opt_revision_committed:    return L"COMMITTED";
+    case svn_opt_revision_previous:     return L"PREV";
+    case svn_opt_revision_unspecified:  return L"UNSPECIFIED";
     case svn_opt_revision_date:         return GetDateString();
     }
     return sRev;
@@ -418,7 +418,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
     if (string.GetLength())
     {
         const TCHAR * str = (LPCTSTR)string;
-        const TCHAR * result = _tcspbrk((LPCTSTR)string, _T(",-"));
+        const TCHAR * result = _tcspbrk((LPCTSTR)string, L",-");
         SVNRev prevRev;
         while (result)
         {
@@ -449,7 +449,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
             }
             result++;
             str = result;
-            result = _tcspbrk(result, _T(",-"));
+            result = _tcspbrk(result, L",-");
         }
         SVNRev rev = SVNRev(CString(str));
         if (!rev.IsValid())
@@ -482,12 +482,12 @@ CString SVNRevRangeArray::ToListString(bool bReverse /* = false */) const
     for (int i = 0; i < GetCount(); ++i)
     {
         if (!sRet.IsEmpty())
-            sRet += _T(",");
+            sRet += L",";
         SVNRevRange range = revrange[i];
         if (range.GetStartRevision().IsEqual(range.GetEndRevision()))
             sRet += range.GetStartRevision().ToString();
         else
-            sRet += range.GetStartRevision().ToString() + _T("-") + range.GetEndRevision().ToString();
+            sRet += range.GetStartRevision().ToString() + L"-" + range.GetEndRevision().ToString();
     }
     return sRet;
 }
@@ -525,7 +525,7 @@ public:
         array.AddRevRange(SVNRev(26), SVNRev(30));
         array.AddRevision(SVNRev(4896), false);
         array.AddRevRange(SVNRev(4898), SVNRev(4900));
-        ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), _T("1,3-5,7-9,20,25-30,4896,4898-4900"))==0);
+        ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), L"1,3-5,7-9,20,25-30,4896,4898-4900")==0);
         SVNRevRangeArray array2;
         array2.FromListString(array.ToListString());
         ATLASSERT(array2.GetCount()==7);
@@ -539,9 +539,9 @@ public:
         ATLASSERT(array.GetCount()==8);
         SVNRevRangeArray revarray;
         ATLASSERT(revarray.AddRevRange(25, 24)==1);
-        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), _T("25-24"))==0);
+        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), L"25-24")==0);
         revarray.AdjustForMerge(true);
-        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), _T("25-23"))==0);
+        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), L"25-23")==0);
     }
 } SVNRevListTests;
 #endif

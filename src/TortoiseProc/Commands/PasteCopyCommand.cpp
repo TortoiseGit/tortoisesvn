@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2008, 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@
 
 bool PasteCopyCommand::Execute()
 {
-    CString sDroppath = parser.GetVal(_T("droptarget"));
+    CString sDroppath = parser.GetVal(L"droptarget");
     CTSVNPath dropPath(sDroppath);
     ProjectProperties props;
     props.ReadProps(dropPath);

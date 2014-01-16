@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008, 2011-2012 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -133,13 +133,13 @@ void CShellUpdater::WorkerThread()
             }
             if (workingPath.IsEmpty())
                 continue;
-            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": shell notification for %s\n"), workingPath.GetWinPath());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": shell notification for %s\n", workingPath.GetWinPath());
             if (workingPath.IsDirectory())
             {
                 // first send a notification about a sub folder change, so explorer doesn't discard
                 // the folder notification. Since we only know for sure that the subversion admin
                 // dir is present, we send a notification for that folder.
-                CString admindir = workingPath.GetWinPathString() + _T("\\") + g_SVNAdminDir.GetAdminDirName();
+                CString admindir = workingPath.GetWinPathString() + L"\\" + g_SVNAdminDir.GetAdminDirName();
                 SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
                 SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
                 // Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without

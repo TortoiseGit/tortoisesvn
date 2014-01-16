@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropertyValueDlg::IDD, pParent)
     , EditPropBase()
-    , m_sPropValue(_T(""))
+    , m_sPropValue(L"")
 {
 }
 
@@ -93,14 +93,14 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
             m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_MERGEINFO));
         if (!m_ProjectProperties.sFPPath.IsEmpty())
         {
-            resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+            resToken = m_ProjectProperties.sFPPath.Tokenize(L"\n",curPos);
             while (!resToken.IsEmpty())
             {
                 int equalpos = resToken.Find('=');
                 if (equalpos >= 0)
                     resToken = resToken.Left(equalpos);
                 m_PropNames.AddString(resToken);
-                resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+                resToken = m_ProjectProperties.sFPPath.Tokenize(L"\n",curPos);
             }
         }
 
@@ -143,7 +143,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
             if (!m_ProjectProperties.sDPPath.IsEmpty())
             {
                 curPos = 0;
-                resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+                resToken = m_ProjectProperties.sDPPath.Tokenize(L"\n",curPos);
 
                 while (!resToken.IsEmpty())
                 {
@@ -151,7 +151,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
                     if (equalpos >= 0)
                         resToken = resToken.Left(equalpos);
                     m_PropNames.AddString(resToken);
-                    resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+                    resToken = m_ProjectProperties.sDPPath.Tokenize(L"\n",curPos);
                 }
             }
         }
@@ -200,7 +200,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("EditPropertyValueDlg"));
+    EnableSaveRestore(L"EditPropertyValueDlg");
 
     if (!bFound)
     {
@@ -232,7 +232,7 @@ void CEditPropertyValueDlg::SetPropertyValue(const std::string& sValue)
     {
         m_bIsBinary = false;
         m_sPropValue = CUnicodeUtils::UTF8ToUTF16 (sValue);
-        m_sPropValue.Replace(_T("\n"), _T("\r\n"));
+        m_sPropValue.Replace(L"\n", L"\r\n");
     }
 }
 
@@ -252,8 +252,8 @@ void CEditPropertyValueDlg::OnOK()
     UpdateData();
     if (!m_bIsBinary)
     {
-        m_sPropValue.Replace(_T("\r\n"), _T("\n"));
-        m_sPropValue.Replace(_T("\n\n"), _T("\n"));
+        m_sPropValue.Replace(L"\r\n", L"\n");
+        m_sPropValue.Replace(L"\n\n", L"\n");
         m_PropValue = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropValue);
     }
     m_PropNames.GetWindowText(m_sPropName);
@@ -432,7 +432,7 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
     {
         DWORD size = GetFileSize(hFile, NULL);
         FILE * stream;
-        _tfopen_s(&stream, openPath, _T("rbS"));
+        _tfopen_s(&stream, openPath, L"rbS");
         std::unique_ptr<char[]> buf(new char[size]);
         if (fread(buf.get(), sizeof(char), size, stream)==size)
         {

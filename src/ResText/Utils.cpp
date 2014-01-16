@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -132,7 +132,7 @@ void CUtils::Error()
 {
     CFormatMessageWrapper errorDetails;
     if (errorDetails)
-        _ftprintf (stderr, _T("%s\n"), (LPCTSTR)errorDetails);
+        _ftprintf (stderr, L"%s\n", (LPCTSTR)errorDetails);
 }
 
 void CUtils::SearchReplace(std::wstring& str, const std::wstring& toreplace, const std::wstring& replacewith)

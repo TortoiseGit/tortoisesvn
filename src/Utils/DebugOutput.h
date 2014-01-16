@@ -63,7 +63,7 @@ private:
     CTraceToOutputDebugString()
     {
         m_LastTick = GetTickCount64();
-        m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
+        m_bActive = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
     }
     ~CTraceToOutputDebugString()
     {
@@ -99,7 +99,7 @@ private:
         if (GetTickCount64() - m_LastTick > 10000)
         {
             m_LastTick = GetTickCount64();
-            m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
+            m_bActive = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
         }
         return m_bActive;
 #endif

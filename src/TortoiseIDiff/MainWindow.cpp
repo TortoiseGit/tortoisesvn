@@ -419,8 +419,8 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
         {
             if (OpenDialog())
             {
-                picWindow1.SetPic(leftpicpath, _T(""), true);
-                picWindow2.SetPic(rightpicpath, _T(""), false);
+                picWindow1.SetPic(leftpicpath, L"", true);
+                picWindow2.SetPic(rightpicpath, L"", false);
                 if (bOverlap)
                 {
                     picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
@@ -1095,7 +1095,7 @@ bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
     ofn.lpstrTitle = sTitle;
     ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
     ofn.hInstance = ::hResource;
-    TCHAR filters[] = _T("Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf\0All (*.*)\0*.*\0\0");
+    TCHAR filters[] = L"Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf\0All (*.*)\0*.*\0\0";
     ofn.lpstrFilter = filters;
     ofn.nFilterIndex = 1;
     // Display the Open dialog box.

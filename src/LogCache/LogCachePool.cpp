@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,12 +83,12 @@ void CLogCachePool::AutoRemoveUnused()
 
     // find all files in the cache and fill the above sets
 
-    static const CString lockExtension = _T(".lock");
+    static const CString lockExtension = L".lock";
     CString datFile
         = repositoryInfo->GetFileName().Mid (cacheFolderPath.GetLength());
 
     WIN32_FIND_DATA dirEntry;
-    CAutoFindFile handle = FindFirstFile (cacheFolderPath + _T("*.*"), &dirEntry);
+    CAutoFindFile handle = FindFirstFile (cacheFolderPath + L"*.*", &dirEntry);
     if (handle)
     {
         do

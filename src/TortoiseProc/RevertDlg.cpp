@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,7 +74,7 @@ BOOL CRevertDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, ID_OK);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_RevertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
+    m_RevertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, L"RevertDlg");
     m_RevertList.SetConfirmButton((CButton*)GetDlgItem(ID_OK));
     m_RevertList.SetSelectButton(&m_SelectAll);
     m_RevertList.SetCancelBool(&m_bCancelled);
@@ -95,7 +95,7 @@ BOOL CRevertDlg::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("RevertDlg"));
+    EnableSaveRestore(L"RevertDlg");
 
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
@@ -137,7 +137,7 @@ UINT CRevertDlg::RevertThread()
 
     if (m_RevertList.HasUnversionedItems())
     {
-        if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE)))
+        if (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE)))
         {
             GetDlgItem(IDC_UNVERSIONEDITEMS)->ShowWindow(SW_SHOW);
         }
@@ -306,7 +306,7 @@ LRESULT CRevertDlg::OnFileDropped(WPARAM, LPARAM lParam)
 
     // Always start the timer, since the status of an existing item might have changed
     SetTimer(REFRESHTIMER, 200, NULL);
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Item %s dropped, timer started\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
 
@@ -335,7 +335,7 @@ void CRevertDlg::OnBnClickedDelunversioned()
 {
     CString sCmd;
 
-    sCmd.Format(_T("/command:delunversioned /path:\"%s\""),
+    sCmd.Format(L"/command:delunversioned /path:\"%s\"",
         (LPCTSTR)m_pathList.CreateAsteriskSeparatedString());
     CAppUtils::RunTortoiseProc(sCmd);
 }

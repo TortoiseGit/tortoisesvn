@@ -38,7 +38,7 @@ AeroControlBase::AeroControlBase()
     : gdiplusToken(0)
 {
     GdiplusStartupInput gdiplusStartupInput;
-    m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
+    m_regEnableDWMFrame = CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE);
 
     if (GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL)==Ok)
     {
@@ -67,17 +67,17 @@ bool AeroControlBase::SubclassControl(HWND hControl)
     TCHAR szWndClassName[MAX_PATH] = { 0 };
     if (GetClassName(hControl, szWndClassName, _countof(szWndClassName)))
     {
-        if (!_tcscmp(szWndClassName, _T("Static")))
+        if (!_tcscmp(szWndClassName, L"Static"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Static, (DWORD_PTR)this);
             subclassedControls[hControl] = Static;
         }
-        if (!_tcscmp(szWndClassName, _T("Button")))
+        if (!_tcscmp(szWndClassName, L"Button"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Button, (DWORD_PTR)this);
             subclassedControls[hControl] = Button;
         }
-        if(!_tcscmp(szWndClassName, _T("msctls_progress32")))
+        if(!_tcscmp(szWndClassName, L"msctls_progress32"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Progressbar, (DWORD_PTR)this);
             subclassedControls[hControl] = Progressbar;

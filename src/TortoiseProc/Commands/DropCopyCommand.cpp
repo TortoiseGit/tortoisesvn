@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,14 +28,14 @@
 
 bool DropCopyCommand::Execute()
 {
-    CString sDroppath = parser.GetVal(_T("droptarget"));
+    CString sDroppath = parser.GetVal(L"droptarget");
     if (CTSVNPath(sDroppath).IsAdminDir())
         return FALSE;
     SVN svn;
     unsigned long count = 0;
     CString sNewName;
     pathList.RemoveAdminPaths();
-    if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
+    if ((parser.HasKey(L"rename"))&&(pathList.GetCount()==1))
     {
         // ask for a new name of the source item
         CRenameDlg renDlg;
@@ -117,7 +117,7 @@ bool DropCopyCommand::Execute()
                     }
                     else
                     {
-                        msgRet = TSVNMessageBox(GetExplorerHWND(), sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO|MB_YESTOALL|MB_NOTOALL);
+                        msgRet = TSVNMessageBox(GetExplorerHWND(), sReplace, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO|MB_YESTOALL|MB_NOTOALL);
                     }
                 }
 
@@ -162,10 +162,10 @@ CString DropCopyCommand::Validate(const int /*nID*/, const CString& input)
 {
     CString sError;
 
-    CString sDroppath = parser.GetVal(_T("droptarget"));
+    CString sDroppath = parser.GetVal(L"droptarget");
     if (input.IsEmpty())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
-    else if (!CTSVNPath(sDroppath+_T("\\")+input).IsValidOnWindows())
+    else if (!CTSVNPath(sDroppath+L"\\"+input).IsValidOnWindows())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
 
     return sError;

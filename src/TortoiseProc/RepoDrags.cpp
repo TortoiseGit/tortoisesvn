@@ -351,7 +351,7 @@ void CBaseDropTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, D
             urls = pStr;
         }
         GlobalUnlock(medium.hGlobal);
-        urls.Replace(_T("\r\n"), _T("*"));
+        urls.Replace(L"\r\n", L"*");
         CTSVNPathList urlList;
         urlList.LoadFromAsteriskSeparatedString(urls);
 
@@ -367,7 +367,7 @@ void CBaseDropTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, D
             urls = pStr;
         }
         GlobalUnlock(medium.hGlobal);
-        urls.Replace(_T("\r\n"), _T("*"));
+        urls.Replace(L"\r\n", L"*");
         CTSVNPathList urlListRevs;
         urlListRevs.LoadFromAsteriskSeparatedString(urls);
         CTSVNPathList urlList;

@@ -94,7 +94,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         Err = svn_error_create(NULL, NULL, tempA);
 #else
         TCHAR string[1024] = { 0 };
-        LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, _countof(string), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+        LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, _countof(string), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
         std::string stringA = CUnicodeUtils::StdGetUTF8(string);
         Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
@@ -114,7 +114,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 Err = svn_error_create(NULL, NULL, tempA);
 #else
                 TCHAR string[1024] = { 0 };
-                LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 std::string stringA = CUnicodeUtils::StdGetUTF8(string);
                 Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
@@ -362,7 +362,7 @@ void SVNProperties::PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool )
 {
     if (m_path.IsUrl())
     {
-        CString msg = message ? message : _T("");
+        CString msg = message ? message : L"";
         msg.Remove(_T('\r'));
         log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
         baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));

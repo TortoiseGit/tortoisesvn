@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@ CCheckForUpdatesDlg::CCheckForUpdatesDlg(CWnd* pParent /*=NULL*/)
     , m_bVisible(FALSE)
     , m_bThreadRunning(FALSE)
 {
-    m_sUpdateDownloadLink = _T("http://tortoisesvn.net");
+    m_sUpdateDownloadLink = L"http://tortoisesvn.net";
 }
 
 CCheckForUpdatesDlg::~CCheckForUpdatesDlg()
@@ -109,14 +109,14 @@ UINT CCheckForUpdatesDlg::CheckThread()
     CString temp;
     CString tempfile = CTempFiles::Instance().GetTempFilePath(true).GetWinPathString();
 
-    CRegString checkurluser = CRegString(_T("Software\\TortoiseSVN\\UpdateCheckURL"), _T(""));
-    CRegString checkurlmachine = CRegString(_T("Software\\TortoiseSVN\\UpdateCheckURL"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
+    CRegString checkurluser = CRegString(L"Software\\TortoiseSVN\\UpdateCheckURL", L"");
+    CRegString checkurlmachine = CRegString(L"Software\\TortoiseSVN\\UpdateCheckURL", L"", FALSE, HKEY_LOCAL_MACHINE);
     CString sCheckURL = checkurluser;
     if (sCheckURL.IsEmpty())
     {
         sCheckURL = checkurlmachine;
         if (sCheckURL.IsEmpty())
-            sCheckURL = _T("http://tortoisesvn.googlecode.com/svn/trunk/version.txt");
+            sCheckURL = L"http://tortoisesvn.googlecode.com/svn/trunk/version.txt";
     }
     HRESULT res = URLDownloadToFile(NULL, sCheckURL, tempfile, 0, NULL);
     if (res == S_OK)
@@ -149,7 +149,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
                 {
                     temp.Format(IDS_CHECKNEWER_CURRENTVERSION, (LPCTSTR)ver);
                     SetDlgItemText(IDC_CURRENTVERSION, temp);
-                    temp.Format(_T("%d.%d.%d.%d"), TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+                    temp.Format(L"%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
                 }
 
                 if (_ttoi(ver)==0)
@@ -162,7 +162,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
                     if(file.ReadString(temp) && !temp.IsEmpty())
                     {   // Read the next line, it could contain a message for the user
                         CString tempLink;
-                        CRegString regDownLink(_T("Software\\TortoiseSVN\\NewVersionLink"));
+                        CRegString regDownLink(L"Software\\TortoiseSVN\\NewVersionLink");
                         regDownLink = tempLink;
                         if(file.ReadString(tempLink) && !tempLink.IsEmpty())
                         {   // Read another line to find out the download link-URL, if any
@@ -174,14 +174,14 @@ UINT CCheckForUpdatesDlg::CheckThread()
                     {
                         temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
                     }
-                    CRegString regDownText(_T("Software\\TortoiseSVN\\NewVersionText"));
+                    CRegString regDownText(L"Software\\TortoiseSVN\\NewVersionText");
                     regDownText = temp;
                     SetDlgItemText(IDC_CHECKRESULT, temp);
                     // only show the dialog for newer versions if the 'old style' update check
                     // is requested. The current update check shows the info in the commit dialog.
-                    if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\OldVersionCheck"))))
+                    if (DWORD(CRegDWORD(L"Software\\TortoiseSVN\\OldVersionCheck")))
                         m_bShowInfo = TRUE;
-                    CRegString regVer(_T("Software\\TortoiseSVN\\NewVersion"));
+                    CRegString regVer(L"Software\\TortoiseSVN\\NewVersion");
                     regVer = ver;
                 }
                 else
@@ -231,10 +231,10 @@ UINT CCheckForUpdatesDlg::CheckThread()
 void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 {
     // user clicked on the label, start the browser with our web page
-    HINSTANCE result = ShellExecute(NULL, _T("opennew"), m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
+    HINSTANCE result = ShellExecute(NULL, L"opennew", m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
     if ((UINT)result <= HINSTANCE_ERROR)
     {
-        ShellExecute(NULL, _T("open"), m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
+        ShellExecute(NULL, L"open", m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
     }
 }
 

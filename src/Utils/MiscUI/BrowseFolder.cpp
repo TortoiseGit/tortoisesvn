@@ -71,7 +71,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             CString p = path.Left(path.ReverseFind('\\'));
             if ((p.GetLength() == 2)&&(p[1] == ':'))
             {
-                p += _T("\\");
+                p += L"\\";
                 if (p.Compare(path) == 0)
                     p.Empty();
             }
@@ -252,7 +252,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
             bool bSecondCheckbox = (m_CheckText2[0] != 0);
             //Rectangles for getting the positions
             checkbox = CreateWindowEx(  0,
-                _T("BUTTON"),
+                L"BUTTON",
                 m_CheckText,
                 WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
                 0,100,100,50,
@@ -267,7 +267,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
             {
                 //Rectangles for getting the positions
                 checkbox2 = CreateWindowEx( 0,
-                    _T("BUTTON"),
+                    L"BUTTON",
                     m_CheckText2,
                     WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
                     0,100,100,50,
@@ -279,9 +279,9 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
                     return 0;
             }
 
-            ListView = FindWindowEx(hwnd,NULL,_T("SysTreeView32"),NULL);
+            ListView = FindWindowEx(hwnd,NULL,L"SysTreeView32",NULL);
             if (ListView == NULL)
-                ListView = FindWindowEx(hwnd,NULL,_T("SHBrowseForFolder ShellNameSpace Control"),NULL);
+                ListView = FindWindowEx(hwnd,NULL,L"SHBrowseForFolder ShellNameSpace Control",NULL);
 
             if (ListView == NULL)
                 return 0;
@@ -321,7 +321,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
                     controlHeight,
                     SWP_NOZORDER);
             }
-            HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
+            HWND label = FindWindowEx(hwnd, NULL, L"STATIC", NULL);
             if (label)
             {
                 HFONT hFont = (HFONT)::SendMessage(label, WM_GETFONT, 0, 0);
@@ -335,9 +335,9 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
             else
             {
                 //Sets the fonts of static controls
-                SetFont(checkbox,_T("MS Sans Serif"),12);
+                SetFont(checkbox,L"MS Sans Serif",12);
                 if (bSecondCheckbox)
-                    SetFont(checkbox2,_T("MS Sans Serif"),12);
+                    SetFont(checkbox2,L"MS Sans Serif",12);
             }
 
             // Subclass the checkbox control.

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -153,23 +153,23 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     if (m_pProjectProperties)
     {
         int curPos = 0;
-        CString resToken = m_pProjectProperties->sFPPath.Tokenize(_T("\n"),curPos);
+        CString resToken = m_pProjectProperties->sFPPath.Tokenize(L"\n",curPos);
         while (!resToken.IsEmpty())
         {
             UserProp up(true);
             if (up.Parse(resToken))
                 m_userProperties.push_back(up);
-            resToken = m_pProjectProperties->sFPPath.Tokenize(_T("\n"),curPos);
+            resToken = m_pProjectProperties->sFPPath.Tokenize(L"\n",curPos);
         }
 
         curPos = 0;
-        resToken = m_pProjectProperties->sDPPath.Tokenize(_T("\n"),curPos);
+        resToken = m_pProjectProperties->sDPPath.Tokenize(L"\n",curPos);
         while (!resToken.IsEmpty())
         {
             UserProp up(false);
             if (up.Parse(resToken))
                 m_userProperties.push_back(up);
-            resToken = m_pProjectProperties->sDPPath.Tokenize(_T("\n"),curPos);
+            resToken = m_pProjectProperties->sDPPath.Tokenize(L"\n",curPos);
         }
     }
 
@@ -252,7 +252,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("EditPropertiesDlg"));
+    EnableSaveRestore(L"EditPropertiesDlg");
 
     InterlockedExchange(&m_bThreadRunning, TRUE);
     if (AfxBeginThread(PropsThreadEntry, this)==NULL)
@@ -925,7 +925,7 @@ void CEditPropertiesDlg::RemoveProps()
                 CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
                 CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
                 CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
-                ret = TSVNMessageBox(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sRecursive, sNotRecursive, sCancel);
+                ret = TSVNMessageBox(m_hWnd, sQuestion, L"TortoiseSVN", MB_DEFBUTTON1|MB_ICONQUESTION, sRecursive, sNotRecursive, sCancel);
             }
         }
         else if (ret == 0)
@@ -1036,7 +1036,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 
             FILE * stream;
             errno_t err = 0;
-            if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, _T("wbS")))==0)
+            if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, L"wbS"))==0)
             {
                 fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
                 fclose(stream);
@@ -1045,7 +1045,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             {
                 TCHAR strErr[4096] = {0};
                 _tcserror_s(strErr, 4096, err);
-                ::MessageBox(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
             }
         }
     }
@@ -1061,10 +1061,10 @@ void CEditPropertiesDlg::OnBnClickedExport()
     if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, IDS_PROPSFILEFILTER, false, m_hWnd))
         return;
 
-    if (CPathUtils::GetFileExtFromPath(savePath).Compare(_T(".svnprops")))
+    if (CPathUtils::GetFileExtFromPath(savePath).Compare(L".svnprops"))
     {
         // append the default ".svnprops" extension since the user did not specify it himself
-        savePath += _T(".svnprops");
+        savePath += L".svnprops";
     }
     // we save the list of selected properties not in a text file but in our own
     // binary format. That's because properties can be binary themselves, a text
@@ -1074,7 +1074,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
     FILE * stream;
     errno_t err = 0;
 
-    if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, _T("wbS")))==0)
+    if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, L"wbS"))==0)
     {
         POSITION pos = m_propList.GetFirstSelectedItemPosition();
         int len = m_propList.GetSelectedCount();
@@ -1098,7 +1098,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
     {
         TCHAR strErr[4096] = {0};
         _tcserror_s(strErr, 4096, err);
-        ::MessageBox(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
     }
 }
 
@@ -1112,7 +1112,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
     }
     // first check the size of the file
     FILE * stream = nullptr;
-    _tfopen_s(&stream, openPath, _T("rbS"));
+    _tfopen_s(&stream, openPath, L"rbS");
     int nProperties = 0;
     if (fread(&nProperties, sizeof(int), 1, stream) == 1)
     {

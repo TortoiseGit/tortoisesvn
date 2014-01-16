@@ -137,7 +137,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
         break;
     }
 
-    sInfoText = filepath + _T("\r\n") + sActionText + _T(" ") + sReasonText;
+    sInfoText = filepath + L"\r\n" + sActionText + L" " + sReasonText;
     SetDlgItemText(IDC_INFOLABEL, sInfoText);
 
     // if we deal with a binary file, editing the conflict isn't possible

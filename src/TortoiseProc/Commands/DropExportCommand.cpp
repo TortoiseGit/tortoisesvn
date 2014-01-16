@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 bool DropExportCommand::Execute()
 {
     bool bRet = true;
-    CString droppath = parser.GetVal(_T("droptarget"));
+    CString droppath = parser.GetVal(L"droptarget");
     if (CTSVNPath(droppath).IsAdminDir())
         return false;
     SVN::SVNExportType exportType = SVN::SVNExportNormal;
@@ -65,7 +65,7 @@ bool DropExportCommand::Execute()
         }
         else
         {
-            if (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) != IDYES)
+            if (MessageBox(GetExplorerHWND(), msg, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO) != IDYES)
                 return false;
         }
 
@@ -105,7 +105,7 @@ bool DropExportCommand::Execute()
         UINT retDefault = bAutorename ? IDCUSTOM1 : 0;
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
-            CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
+            CString dropper = droppath + L"\\" + pathList[nPath].GetFileOrDirectoryName();
             if ((!bOverwrite)&&(PathFileExists(dropper)))
             {
                 CString renameddropper;
@@ -146,7 +146,7 @@ bool DropExportCommand::Execute()
                         CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
                         CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
                         CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
-                        ret = TSVNMessageBox(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2, sBtn3);
+                        ret = TSVNMessageBox(GetExplorerHWND(), sMsg, L"TortoiseSVN", MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2, sBtn3);
                     }
                 }
 

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2012 - TortoiseSVN
+// Copyright (C) 2006-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ IMPLEMENT_DYNAMIC(CLocatorBar, CPaneDialog)
 CLocatorBar::CLocatorBar() : CPaneDialog()
     , m_pMainFrm(NULL)
     , m_pCacheBitmap(NULL)
-    , m_regUseFishEye(_T("Software\\TortoiseMerge\\UseFishEye"), TRUE)
+    , m_regUseFishEye(L"Software\\TortoiseMerge\\UseFishEye", TRUE)
     , m_nLines(-1)
 {
 }

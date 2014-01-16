@@ -47,7 +47,7 @@ __int64 CWCRoots::GetDBFileTime( const CTSVNPath& path )
             {
                 // refresh the file time
                 CTSVNPath wcDbFile(it->first);
-                wcDbFile.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+                wcDbFile.AppendPathString(g_SVNAdminDir.GetAdminDirName() + L"\\wc.db");
                 if (wcDbFile.Exists())
                 {
                     WCRootsTimes dbTimes;
@@ -88,7 +88,7 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
     do
     {
         CTSVNPath dbPath(p);
-        dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+        dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + L"\\wc.db");
         if (!dbPath.Exists())
             p = p.GetContainingDirectory();
         else
@@ -123,7 +123,7 @@ void CWCRoots::NotifyChange( const CTSVNPath& path )
         {
             // refresh the file time
             CTSVNPath wcDbFile(it->first);
-            wcDbFile.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+            wcDbFile.AppendPathString(g_SVNAdminDir.GetAdminDirName() + L"\\wc.db");
             if (wcDbFile.Exists())
             {
                 WCRootsTimes dbTimes;

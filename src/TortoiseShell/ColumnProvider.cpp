@@ -217,7 +217,7 @@ STDMETHODIMP CShellExt::GetItemData_Wrap(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA ps
         {
             case 0: // SVN Status
                 GetMainColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-                SVNStatus::GetStatusString(g_hResInst, filestatus, buf, _countof(buf), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetStatusString(g_hResInst, filestatus, buf, _countof(buf), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 szInfo = buf;
                 break;
             case 1: // SVN Revision
@@ -438,19 +438,19 @@ void CShellExt::SetExtraColumnStatus
             // Note: this will strip too much if such a folder is *below* the repository
             // root - but it's called 'short url' and we're free to shorten it the way we
             // like :)
-            ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/trunk"));
+            ptr = _tcsstr(urlComponents.lpszUrlPath, L"/trunk");
             if (ptr == NULL)
-                ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\trunk"));
+                ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\trunk");
             if ((ptr == NULL)||((*(ptr+6) != 0)&&(*(ptr+6) != '/')&&(*(ptr+6) != '\\')))
             {
-                ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/branches"));
+                ptr = _tcsstr(urlComponents.lpszUrlPath, L"/branches");
                 if (ptr == NULL)
-                    ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\branches"));
+                    ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\branches");
                 if ((ptr == NULL)||((*(ptr+9) != 0)&&(*(ptr+9) != '/')&&(*(ptr+9) != '\\')))
                 {
-                    ptr = _tcsstr(urlComponents.lpszUrlPath, _T("/tags"));
+                    ptr = _tcsstr(urlComponents.lpszUrlPath, L"/tags");
                     if (ptr == NULL)
-                        ptr = _tcsstr(urlComponents.lpszUrlPath, _T("\\tags"));
+                        ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\tags");
                     if ((ptr)&&(*(ptr+5) != 0)&&(*(ptr+5) != '/')&&(*(ptr+5) != '\\'))
                         ptr = NULL;
                 }

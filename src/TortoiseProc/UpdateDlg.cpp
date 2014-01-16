@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CUpdateDlg::IDD, pParent)
-    , Revision(_T("HEAD"))
+    , Revision(L"HEAD")
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(TRUE)
     , m_pLogDlg(NULL)
@@ -118,7 +118,7 @@ void CUpdateDlg::OnOK()
     Revision = SVNRev(m_sRevision);
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        Revision = SVNRev(_T("HEAD"));
+        Revision = SVNRev(L"HEAD");
     }
     if (!Revision.IsValid())
     {
@@ -184,7 +184,7 @@ void CUpdateDlg::OnBnClickedShowLog()
 LPARAM CUpdateDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%Id"), lParam);
+    temp.Format(L"%Id", lParam);
     SetDlgItemText(IDC_REVNUM, temp);
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;

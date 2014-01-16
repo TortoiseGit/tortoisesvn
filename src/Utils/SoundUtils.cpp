@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,48 +36,48 @@ CSoundUtils::~CSoundUtils(void)
 void CSoundUtils::RegisterTSVNSounds()
 {
     // create the event labels
-    CRegString eventlabelerr = CRegString(_T("AppEvents\\EventLabels\\TSVN_Error\\"));
+    CRegString eventlabelerr = CRegString(L"AppEvents\\EventLabels\\TSVN_Error\\");
     eventlabelerr = CString(MAKEINTRESOURCE(IDS_ERR_ERROR));
-    CRegString eventlabelwarn = CRegString(_T("AppEvents\\EventLabels\\TSVN_Warning\\"));
+    CRegString eventlabelwarn = CRegString(L"AppEvents\\EventLabels\\TSVN_Warning\\");
     eventlabelwarn = CString(MAKEINTRESOURCE(IDS_WARN_WARNING));
-    CRegString eventlabelnote = CRegString(_T("AppEvents\\EventLabels\\TSVN_Notification\\"));
+    CRegString eventlabelnote = CRegString(L"AppEvents\\EventLabels\\TSVN_Notification\\");
     eventlabelnote = CString(MAKEINTRESOURCE(IDS_WARN_NOTE));
 
-    CRegString appscheme = CRegString(_T("AppEvents\\Schemes\\Apps\\TortoiseProc\\"));
-    appscheme = _T("TortoiseSVN");
+    CRegString appscheme = CRegString(L"AppEvents\\Schemes\\Apps\\TortoiseProc\\");
+    appscheme = L"TortoiseSVN";
 
     CString apppath = CPathUtils::GetAppDirectory();
 
-    CRegistryKey schemenamekey = CRegistryKey(_T("AppEvents\\Schemes\\Names"));
+    CRegistryKey schemenamekey = CRegistryKey(L"AppEvents\\Schemes\\Names");
     CStringList schemenames;
     schemenamekey.getSubKeys(schemenames);
     // if the sound scheme has been modified but not save under a different name,
     // the name of the sound scheme is ".current" and not under the names list.
     // so add the .current scheme to the list too
-    schemenames.AddHead(_T(".current"));
+    schemenames.AddHead(L".current");
     POSITION pos;
     for (pos = schemenames.GetHeadPosition(); pos != NULL;)
     {
         CString name = schemenames.GetNext(pos);
-        if ((name.CompareNoCase(_T(".none"))!=0)&&(name.CompareNoCase(_T(".nosound"))!=0))
+        if ((name.CompareNoCase(L".none")!=0)&&(name.CompareNoCase(L".nosound")!=0))
         {
-            CString errorkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Error\\") + name + _T("\\");
+            CString errorkey = L"AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Error\\" + name + L"\\";
             CRegString errorkeyval = CRegString(errorkey);
             if (((CString)(errorkeyval)).IsEmpty())
             {
-                errorkeyval = apppath + _T("TortoiseSVN_Error.wav");
+                errorkeyval = apppath + L"TortoiseSVN_Error.wav";
             }
-            CString warnkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Warning\\") + name + _T("\\");
+            CString warnkey = L"AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Warning\\" + name + L"\\";
             CRegString warnkeyval = CRegString(warnkey);
             if (((CString)(warnkeyval)).IsEmpty())
             {
-                warnkeyval = apppath + _T("TortoiseSVN_Warning.wav");
+                warnkeyval = apppath + L"TortoiseSVN_Warning.wav";
             }
-            CString notificationkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Notification\\") + name + _T("\\");
+            CString notificationkey = L"AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Notification\\" + name + L"\\";
             CRegString notificationkeyval = CRegString(notificationkey);
             if (((CString)(notificationkeyval)).IsEmpty())
             {
-                notificationkeyval = apppath + _T("TortoiseSVN_Notification.wav");
+                notificationkeyval = apppath + L"TortoiseSVN_Notification.wav";
             }
         }
     }
@@ -85,15 +85,15 @@ void CSoundUtils::RegisterTSVNSounds()
 
 void CSoundUtils::PlayTSVNWarning()
 {
-    PlaySound(_T("TSVN_Warning"), NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
+    PlaySound(L"TSVN_Warning", NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
 }
 
 void CSoundUtils::PlayTSVNError()
 {
-    PlaySound(_T("TSVN_Error"), NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
+    PlaySound(L"TSVN_Error", NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
 }
 
 void CSoundUtils::PlayTSVNNotification()
 {
-    PlaySound(_T("TSVN_Notification"), NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
+    PlaySound(L"TSVN_Notification", NULL, SND_APPLICATION | SND_ASYNC | SND_NODEFAULT);
 }

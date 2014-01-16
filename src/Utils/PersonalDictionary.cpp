@@ -46,9 +46,9 @@ bool CPersonalDictionary::Load()
         m_lLanguage = GetUserDefaultLCID();
 
     TCHAR sLang[10] = { 0 };
-    _stprintf_s(sLang, _T("%ld"), m_lLanguage);
+    _stprintf_s(sLang, L"%ld", m_lLanguage);
     _tcscat_s(path, sLang);
-    _tcscat_s(path, _T(".dic"));
+    _tcscat_s(path, L".dic");
 
     std::wifstream File;
     char filepath[MAX_PATH + 1] = { 0 };
@@ -103,9 +103,9 @@ bool CPersonalDictionary::Save()
         m_lLanguage = GetUserDefaultLCID();
 
     TCHAR sLang[10] = { 0 };
-    _stprintf_s(sLang, _T("%ld"), m_lLanguage);
+    _stprintf_s(sLang, L"%ld", m_lLanguage);
     _tcscat_s(path, sLang);
-    _tcscat_s(path, _T(".dic"));
+    _tcscat_s(path, L".dic");
 
     std::wofstream File;
     char filepath[MAX_PATH + 1] = { 0 };
@@ -114,7 +114,7 @@ bool CPersonalDictionary::Save()
     File.open(filepath, std::ios_base::binary);
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)
     {
-        File << (LPCTSTR)*it << _T("\n");
+        File << (LPCTSTR)*it << L"\n";
     }
     File.close();
     return true;

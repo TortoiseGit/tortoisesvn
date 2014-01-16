@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2013 - TortoiseSVN
+// Copyright (C) 2008-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ bool CEditPropConflictDlg::SetPrejFile(const CTSVNPath& prejFile)
     // open the prej file to get the info text
     char contentbuf[10000+1];
     FILE * File;
-    _tfopen_s(&File, m_prejFile.GetWinPath(), _T("rb, ccs=UTF-8"));
+    _tfopen_s(&File, m_prejFile.GetWinPath(), L"rb, ccs=UTF-8");
     if (File == NULL)
     {
         return false;
@@ -63,7 +63,7 @@ bool CEditPropConflictDlg::SetPrejFile(const CTSVNPath& prejFile)
         {
             fclose(File);
             // we've read the whole file
-            m_sPrejText.Replace(_T("\n"), _T("\r\n"));
+            m_sPrejText.Replace(L"\n", L"\r\n");
             return true;
         }
     }
@@ -123,7 +123,7 @@ void CEditPropConflictDlg::OnBnClickedEditprops()
     // start the properties dialog
     CString sCmd;
 
-    sCmd.Format(_T("/command:properties /path:\"%s\""),
+    sCmd.Format(L"/command:properties /path:\"%s\"",
         (LPCTSTR)m_conflictItem.GetWinPath());
     CAppUtils::RunTortoiseProc(sCmd);
 

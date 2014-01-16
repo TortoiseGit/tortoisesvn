@@ -31,17 +31,17 @@
 #include "SmartHandle.h"
 #include "PreserveChdir.h"
 
-#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      _T(".TSVNPatchToClipboard")
+#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      L".TSVNPatchToClipboard"
 
 
 
 bool CreatePatchCommand::Execute()
 {
     bool bRet = false;
-    CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+    CString savepath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
     CCreatePatch dlg;
     dlg.m_pathList = pathList;
-    if (parser.HasKey(_T("noui"))||(dlg.DoModal()==IDOK))
+    if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
     {
         if (cmdLinePath.IsEmpty())
         {
@@ -177,7 +177,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                         savePath = CTSVNPath(pszPath);
                         CoTaskMemFree(pszPath);
                         if (savePath.GetFileExtension().IsEmpty())
-                            savePath.AppendRawString(_T(".patch"));
+                            savePath.AppendRawString(L".patch");
                     }
                 }
                 else
@@ -232,7 +232,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             if (ofn.nFilterIndex == 1)
             {
                 if (savePath.GetFileExtension().IsEmpty())
-                    savePath.AppendRawString(_T(".patch"));
+                    savePath.AppendRawString(L".patch");
             }
         }
     }
@@ -290,7 +290,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     {
         // The user actually asked for the patch to be written to the clipboard
         FILE * inFile = 0;
-        _tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), _T("rb"));
+        _tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), L"rb");
         if(inFile)
         {
             CStringA sClipdata;

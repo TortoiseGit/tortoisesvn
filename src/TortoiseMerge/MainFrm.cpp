@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2013 - TortoiseSVN
+// Copyright (C) 2004-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -208,12 +208,12 @@ CMainFrame::CMainFrame()
     , m_regInlineDiff(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE)
     , m_regUseRibbons(L"Software\\TortoiseMerge\\UseRibbons", TRUE)
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
-    , m_regIgnoreComments(_T("Software\\TortoiseMerge\\IgnoreComments"), FALSE)
+    , m_regIgnoreComments(L"Software\\TortoiseMerge\\IgnoreComments", FALSE)
     , m_regTabMode(L"Software\\TortoiseMerge\\TabMode", TABMODE_NONE)
     , m_regexIndex(-1)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
-    theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
+    theApp.m_nAppLook = theApp.GetInt(L"ApplicationLook", ID_VIEW_APPLOOK_VS_2005);
     m_bCollapsed = !!(DWORD)m_regCollapsed;
     m_bViewMovedBlocks = !!(DWORD)m_regViewModedBlocks;
     m_bWrapLines = !!(DWORD)m_regWrapLines;
@@ -324,7 +324,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
             TRACE0("Failed to create toolbar\n");
             return -1; // fail to create
         }
-        m_wndToolBar.SetWindowText(_T("Main"));
+        m_wndToolBar.SetWindowText(L"Main");
         if (!m_wndStatusBar.Create(this) ||
             !m_wndStatusBar.SetIndicators(indicators,
             _countof(indicators)))
@@ -451,7 +451,7 @@ void CMainFrame::OnApplicationLook(UINT id)
 
     RedrawWindow(NULL, NULL, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
 
-    theApp.WriteInt(_T("ApplicationLook"), theApp.m_nAppLook);
+    theApp.WriteInt(L"ApplicationLook", theApp.m_nAppLook);
 }
 
 void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
@@ -580,16 +580,16 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
         MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
         return FALSE;
     }
-    sFilePath = m_Patch.GetTargetPath() + _T("\\") + sFilePath;
+    sFilePath = m_Patch.GetTargetPath() + L"\\" + sFilePath;
     sFilePath.Replace('/', '\\');
     if (m_bReversedPatch)
     {
         m_Data.m_baseFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
+        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
         m_Data.m_baseFile.SetDescriptiveName(temp);
         m_Data.m_yourFile.SetFileName(sFilePath);
-        temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
+        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
         m_Data.m_yourFile.SetDescriptiveName(temp);
         m_Data.m_theirFile.SetOutOfUse();
         m_Data.m_mergedFile.SetOutOfUse();
@@ -606,17 +606,17 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
             m_Data.m_baseFile.SetFileName(sFilePath);
         }
         CString sDescription;
-        sDescription.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
+        sDescription.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
         m_Data.m_baseFile.SetDescriptiveName(sDescription);
         m_Data.m_yourFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
+        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
         m_Data.m_yourFile.SetDescriptiveName(temp);
         m_Data.m_theirFile.SetOutOfUse();
         m_Data.m_mergedFile.SetFileName(sFilePath);
         m_Data.m_bPatchRequired = bPropMods;
     }
-    TRACE(_T("comparing %s\nwith the patched result %s\n"), (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
+    TRACE(L"comparing %s\nwith the patched result %s\n", (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
 
     LoadViews();
     if (!sRejectedFile.IsEmpty())
@@ -676,10 +676,10 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     progDlg.SetProgress(100,100);
     progDlg.Stop();
     CString temp;
-    temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL1), (LPCTSTR)sRev1);
+    temp.Format(L"%s Revision %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL1), (LPCTSTR)sRev1);
     m_Data.m_baseFile.SetFileName(tempfile1);
     m_Data.m_baseFile.SetDescriptiveName(temp);
-    temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL2), (LPCTSTR)sRev2);
+    temp.Format(L"%s Revision %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL2), (LPCTSTR)sRev2);
     m_Data.m_yourFile.SetFileName(tempfile2);
     m_Data.m_yourFile.SetDescriptiveName(temp);
 
@@ -699,7 +699,7 @@ void CMainFrame::OnFileOpen()
     }
     m_dlgFilePatches.ShowWindow(SW_HIDE);
     m_dlgFilePatches.Init(NULL, NULL, CString(), NULL);
-    TRACE(_T("got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n"), (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile,
+    TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile,
         (LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
     m_Data.m_baseFile.SetFileName(dlg.m_sBaseFile);
     m_Data.m_theirFile.SetFileName(dlg.m_sTheirFile);
@@ -707,10 +707,10 @@ void CMainFrame::OnFileOpen()
     m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
     m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
     m_Data.m_mergedFile.SetOutOfUse();
-    CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, NULL, _T("Basefile"), CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sTheirFile, NULL, _T("Theirfile"), CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sYourFile, NULL, _T("Yourfile"), CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sUnifiedDiffFile, NULL, _T("Difffile"), CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, NULL, L"Basefile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sTheirFile, NULL, L"Theirfile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sYourFile, NULL, L"Yourfile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sUnifiedDiffFile, NULL, L"Difffile", CR_AF_MAKE_FILE_COPY);
 
     if (!m_Data.IsBaseFileInUse() && m_Data.IsTheirFileInUse() && m_Data.IsYourFileInUse())
     {
@@ -778,7 +778,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndBottomView->DocumentUpdated();
         m_wndLocatorBar.DocumentUpdated();
         m_wndLineDiffBar.DocumentUpdated();
-        ::MessageBox(m_hWnd, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, m_Data.GetError(), L"TortoiseMerge", MB_ICONERROR);
         m_Data.m_mergedFile.SetOutOfUse();
         m_bSaveRequired = false;
         return false;
@@ -852,7 +852,7 @@ bool CMainFrame::LoadViews(int line)
                         m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
                     }
                 }
-                else if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+                else if (::MessageBox(m_hWnd, msg, L"TortoiseMerge", MB_ICONQUESTION | MB_YESNO)==IDYES)
                 {
                     m_Data.m_sPatchPath = betterpatchpath;
                     m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
@@ -884,8 +884,8 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseBoth;
             m_pwndLeftView->SetTextType(m_Data.m_arYourFile.GetUnicodeType());
             m_pwndLeftView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
-            m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + _T(" - ") + m_Data.m_yourFile.GetWindowName();
-            m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename() + _T(" - ") + m_Data.m_yourFile.GetFilename();
+            m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + L" - " + m_Data.m_yourFile.GetWindowName();
+            m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename() + L" - " + m_Data.m_yourFile.GetFilename();
             m_pwndLeftView->m_pWorkingFile = &m_Data.m_yourFile;
             m_pwndLeftView->SetTarget();
             m_pwndLeftView->SetWritableIsChangable(true);
@@ -986,7 +986,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndLeftView->SetTextType(m_Data.m_arTheirFile.GetUnicodeType());
         m_pwndLeftView->SetLineEndingStyle(m_Data.m_arTheirFile.GetLineEndings());
         m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
-        m_pwndLeftView->m_sWindowName += _T(" - ") + m_Data.m_theirFile.GetWindowName();
+        m_pwndLeftView->m_sWindowName += L" - " + m_Data.m_theirFile.GetWindowName();
         m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
         m_pwndLeftView->m_sConvertedFilePath = m_Data.m_theirFile.GetConvertedFileName();
         m_pwndLeftView->m_pWorkingFile = &m_Data.m_theirFile;
@@ -995,7 +995,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndRightView->SetTextType(m_Data.m_arYourFile.GetUnicodeType());
         m_pwndRightView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
         m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
-        m_pwndRightView->m_sWindowName += _T(" - ") + m_Data.m_yourFile.GetWindowName();
+        m_pwndRightView->m_sWindowName += L" - " + m_Data.m_yourFile.GetWindowName();
         m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
         m_pwndRightView->m_sConvertedFilePath = m_Data.m_yourFile.GetConvertedFileName();
         m_pwndRightView->m_pWorkingFile = &m_Data.m_yourFile;
@@ -1004,7 +1004,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndBottomView->SetTextType(m_Data.m_arTheirFile.GetUnicodeType());
         m_pwndBottomView->SetLineEndingStyle(m_Data.m_arTheirFile.GetLineEndings());
         m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
-        m_pwndBottomView->m_sWindowName += _T(" - ") + m_Data.m_mergedFile.GetWindowName();
+        m_pwndBottomView->m_sWindowName += L" - " + m_Data.m_mergedFile.GetWindowName();
         m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();
         m_pwndBottomView->m_sConvertedFilePath = m_Data.m_mergedFile.GetConvertedFileName();
         m_pwndBottomView->m_pWorkingFile = &m_Data.m_mergedFile;
@@ -1056,8 +1056,8 @@ bool CMainFrame::LoadViews(int line)
     }
     else
     {
-        CRegDWORD regFirstDiff = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);
-        CRegDWORD regFirstConflict = CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE);
+        CRegDWORD regFirstDiff = CRegDWORD(L"Software\\TortoiseMerge\\FirstDiffOnLoad", TRUE);
+        CRegDWORD regFirstConflict = CRegDWORD(L"Software\\TortoiseMerge\\FirstConflictOnLoad", TRUE);
         bool bGoFirstDiff = (0 != (DWORD)regFirstDiff);
         bool bGoFirstConflict = (0 != (DWORD)regFirstConflict);
         if (bGoFirstConflict && (CheckResolved()>=0))
@@ -1182,7 +1182,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 
 void CMainFrame::OnViewWhitespaces()
 {
-    CRegDWORD regViewWhitespaces = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
+    CRegDWORD regViewWhitespaces = CRegDWORD(L"Software\\TortoiseMerge\\ViewWhitespaces", 1);
     BOOL bViewWhitespaces = regViewWhitespaces;
     if (m_pwndLeftView)
         bViewWhitespaces = m_pwndLeftView->m_bViewWhitespace;
@@ -1356,17 +1356,17 @@ int CMainFrame::SaveFile(const CString& sFilePath)
                     {
                         last++;
                     } while((last<pViewData->GetCount()) && ((pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED)));
-                    file.Add(_T("<<<<<<< .mine"), EOL_NOENDING);
+                    file.Add(L"<<<<<<< .mine", EOL_NOENDING);
                     for (int j=first; j<last; j++)
                     {
                         file.Add(m_pwndRightView->m_pViewData->GetLine(j), m_pwndRightView->m_pViewData->GetLineEnding(j));
                     }
-                    file.Add(_T("======="), EOL_NOENDING);
+                    file.Add(L"=======", EOL_NOENDING);
                     for (int j=first; j<last; j++)
                     {
                         file.Add(m_pwndLeftView->m_pViewData->GetLine(j), m_pwndLeftView->m_pViewData->GetLineEnding(j));
                     }
-                    file.Add(_T(">>>>>>> .theirs"), EOL_NOENDING);
+                    file.Add(L">>>>>>> .theirs", EOL_NOENDING);
                     i = last-1;
                 }
                 break;
@@ -1386,7 +1386,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         }
         if (!file.Save(sFilePath, false, false))
         {
-            ::MessageBox(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, file.GetErrorString(), L"TortoiseMerge", MB_ICONERROR);
             return -1;
         }
         if (sFilePath == m_Data.m_baseFile.GetFilename())
@@ -1520,11 +1520,11 @@ void CMainFrame::PatchSave()
         m_Data.m_mergedFile.StoreFileAttributes();
         if (m_Data.m_mergedFile.GetFilename() == m_Data.m_yourFile.GetFilename())
             m_Data.m_yourFile.StoreFileAttributes();
-        if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
+        if ((bDoesNotExist)&&(DWORD(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE))))
         {
             // call TortoiseProc to add the new file to version control
-            CString cmd = _T("/command:add /noui /path:\"");
-            cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
+            CString cmd = L"/command:add /noui /path:\"";
+            cmd += m_Data.m_mergedFile.GetFilename() + L"\"";
             CAppUtils::RunTortoiseProc(cmd);
         }
     }
@@ -1553,9 +1553,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if (bCheckResolved && HasConflictsWontKeep())
         return false;
 
-    if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
+    if (((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\Backup")) != 0)
     {
-        MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"), MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
+        MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + L".bak", MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
     }
     if (m_Data.m_bPatchRequired)
     {
@@ -1587,7 +1587,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         {
             CString sTemp;
             sTemp.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
-            bDelete = (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES);
+            bDelete = (TSVNMessageBox(m_hWnd, sTemp, L"TortoiseMerge", MB_YESNO) == IDYES);
         }
         if (bDelete)
         {
@@ -1648,7 +1648,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                 {
                     CString sTemp;
                     sTemp.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
-                    bResolve = (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES);
+                    bResolve = (TSVNMessageBox(m_hWnd, sTemp, L"TortoiseMerge", MB_YESNO) == IDYES);
                 }
                 if (bResolve)
                 {
@@ -1662,11 +1662,11 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     m_bSaveRequired = false;
     m_Data.m_mergedFile.StoreFileAttributes();
 
-    if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
+    if ((bDoesNotExist)&&(DWORD(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE))))
     {
         // call TortoiseProc to add the new file to version control
-        CString cmd = _T("/command:add /noui /path:\"");
-        cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
+        CString cmd = L"/command:add /noui /path:\"";
+        cmd += m_Data.m_mergedFile.GetFilename() + L"\"";
         if(!CAppUtils::RunTortoiseProc(cmd))
             return false;
     }
@@ -1798,7 +1798,7 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
             bEnable = TRUE;
         else if ( (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData)) &&
-                  (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0)) )
+                  (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(L": patched")==0)) )
             bEnable = TRUE;
         else if (IsViewGood(m_pwndLeftView)
                 && (m_pwndLeftView->m_pViewData)
@@ -2086,11 +2086,11 @@ void CMainFrame::ActivateFrame(int nCmdShow)
 
 BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 {
-    CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
+    CRegString placement = CRegString(L"Software\\TortoiseMerge\\WindowPos");
     CString sPlacement = placement;
     if (sPlacement.IsEmpty())
         return FALSE;
-    int nRead = _stscanf_s(sPlacement, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+    int nRead = _stscanf_s(sPlacement, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
                 &pwp->flags, &pwp->showCmd,
                 &pwp->ptMinPosition.x, &pwp->ptMinPosition.y,
                 &pwp->ptMaxPosition.x, &pwp->ptMaxPosition.y,
@@ -2105,10 +2105,10 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 
 void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
-    CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
+    CRegString placement = CRegString(L"Software\\TortoiseMerge\\WindowPos");
     TCHAR szBuffer[_countof("-32767")*8 + sizeof("65535")*2];
 
-    _stprintf_s(szBuffer, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+    _stprintf_s(szBuffer, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
             pwp->flags, pwp->showCmd,
             pwp->ptMinPosition.x, pwp->ptMinPosition.y,
             pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,
@@ -2156,9 +2156,9 @@ BOOL CMainFrame::MarkAsResolved()
     if (!IsViewGood(m_pwndBottomView))
         return FALSE;
 
-    CString cmd = _T("/command:resolve /path:\"");
+    CString cmd = L"/command:resolve /path:\"";
     cmd += m_Data.m_mergedFile.GetFilename();
-    cmd += _T("\" /closeonend:1 /noquestion /skipcheck /silent");
+    cmd += L"\" /closeonend:1 /noquestion /skipcheck /silent";
     if (resolveMsgWnd)
     {
         CString s;
@@ -2897,14 +2897,14 @@ void CMainFrame::OnViewComparewhitespaces()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 0;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 0);
 }
@@ -2913,14 +2913,14 @@ void CMainFrame::OnViewIgnorewhitespacechanges()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 2;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 2);
 }
@@ -2929,14 +2929,14 @@ void CMainFrame::OnViewIgnoreallwhitespacechanges()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 1;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 1);
 }
@@ -3011,38 +3011,38 @@ void CMainFrame::SetWindowTitle()
 {
     // try to find a suitable window title
     CString sYour = m_Data.m_yourFile.GetDescriptiveName();
-    if (sYour.Find(_T(" - "))>=0)
-        sYour = sYour.Left(sYour.Find(_T(" - ")));
-    if (sYour.Find(_T(" : "))>=0)
-        sYour = sYour.Left(sYour.Find(_T(" : ")));
+    if (sYour.Find(L" - ")>=0)
+        sYour = sYour.Left(sYour.Find(L" - "));
+    if (sYour.Find(L" : ")>=0)
+        sYour = sYour.Left(sYour.Find(L" : "));
     CString sTheir = m_Data.m_theirFile.GetDescriptiveName();
     if (sTheir.IsEmpty())
         sTheir = m_Data.m_baseFile.GetDescriptiveName();
-    if (sTheir.Find(_T(" - "))>=0)
-        sTheir = sTheir.Left(sTheir.Find(_T(" - ")));
-    if (sTheir.Find(_T(" : "))>=0)
-        sTheir = sTheir.Left(sTheir.Find(_T(" : ")));
+    if (sTheir.Find(L" - ")>=0)
+        sTheir = sTheir.Left(sTheir.Find(L" - "));
+    if (sTheir.Find(L" : ")>=0)
+        sTheir = sTheir.Left(sTheir.Find(L" : "));
 
     if (!sYour.IsEmpty() && !sTheir.IsEmpty())
     {
         if (sYour.CompareNoCase(sTheir)==0)
-            SetWindowText(sYour + _T(" - TortoiseMerge"));
+            SetWindowText(sYour + L" - TortoiseMerge");
         else if ((sYour.GetLength() < 10) &&
             (sTheir.GetLength() < 10))
-            SetWindowText(sYour + _T(" - ") + sTheir + _T(" - TortoiseMerge"));
+            SetWindowText(sYour + L" - " + sTheir + L" - TortoiseMerge");
         else
         {
             // we have two very long descriptive texts here, which
             // means we have to find a way to use them as a window
             // title in a shorter way.
             // for simplicity, we just use the one from "yourfile"
-            SetWindowText(sYour + _T(" - TortoiseMerge"));
+            SetWindowText(sYour + L" - TortoiseMerge");
         }
     }
     else if (!sYour.IsEmpty())
-        SetWindowText(sYour + _T(" - TortoiseMerge"));
+        SetWindowText(sYour + L" - TortoiseMerge");
     else if (!sTheir.IsEmpty())
-        SetWindowText(sTheir + _T(" - TortoiseMerge"));
+        SetWindowText(sTheir + L" - TortoiseMerge");
     else
         SetWindowText(L"TortoiseMerge");
 }
@@ -3115,7 +3115,7 @@ void CMainFrame::LoadIgnoreCommentData()
                 CString temp;
                 for (;;)
                 {
-                    temp = sExts.Tokenize(_T(","),pos);
+                    temp = sExts.Tokenize(L",",pos);
                     if (temp.IsEmpty())
                     {
                         break;
@@ -3170,7 +3170,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
         if (dlg.DoModal() == IDOK)
         {
             FILE * pFile = NULL;
-            _tfopen_s(&pFile, CPathUtils::GetAppDataDirectory() + L"regexfilters.ini", _T("wb"));
+            _tfopen_s(&pFile, CPathUtils::GetAppDataDirectory() + L"regexfilters.ini", L"wb");
             m_regexIni.SaveFile(pFile);
             fclose(pFile);
         }

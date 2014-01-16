@@ -25,13 +25,13 @@
 #include <Shobjidl.h>
 #include <atlbase.h>
 
-#define APPID (_T("TSVN.TSVN.1"))
+#define APPID (L"TSVN.TSVN.1")
 
 
 void SetTaskIDPerUUID()
 {
     typedef HRESULT STDAPICALLTYPE SetCurrentProcessExplicitAppUserModelIDFN(PCWSTR AppID);
-    HMODULE hShell = AtlLoadSystemLibraryUsingFullPath(_T("shell32.dll"));
+    HMODULE hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
     if (hShell)
     {
         SetCurrentProcessExplicitAppUserModelIDFN *pfnSetCurrentProcessExplicitAppUserModelID = (SetCurrentProcessExplicitAppUserModelIDFN*)GetProcAddress(hShell, "SetCurrentProcessExplicitAppUserModelID");
@@ -46,7 +46,7 @@ void SetTaskIDPerUUID()
 
 std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
 {
-    CRegStdDWORD r = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
+    CRegStdDWORD r = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
     std::wstring id = APPID;
     if ((r < 2)||(r == 3))
     {
@@ -81,9 +81,9 @@ extern CString g_sGroupingUUID;
 
 void SetUUIDOverlayIcon( HWND hWnd )
 {
-    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3))
+    if (CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3))
     {
-        if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay"), TRUE))
+        if (CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay", TRUE))
         {
             std::wstring uuid;
 #ifdef _MFC_VER

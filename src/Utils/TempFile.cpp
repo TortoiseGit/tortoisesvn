@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
     CString possibletempfile;
     if (path.IsEmpty())
     {
-        ::GetTempFileName (temppath.get(), _T("svn"), 0, tempF.get());
+        ::GetTempFileName (temppath.get(), L"svn", 0, tempF.get());
         tempfile = CTSVNPath (tempF.get());
     }
     else
@@ -71,11 +71,11 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
             {
                 if (revision.IsValid())
                 {
-                    possibletempfile.Format(_T("%s%s-rev%s.svn%3.3x.tmp%s"), temppath.get(), (LPCTSTR)filename, (LPCTSTR)revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
+                    possibletempfile.Format(L"%s%s-rev%s.svn%3.3x.tmp%s", temppath.get(), (LPCTSTR)filename, (LPCTSTR)revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
                 }
                 else
                 {
-                    possibletempfile.Format(_T("%s%s.svn%3.3x.tmp%s"), temppath.get(), (LPCTSTR)filename, i, (LPCTSTR)path.GetFileExtension());
+                    possibletempfile.Format(L"%s%s.svn%3.3x.tmp%s", temppath.get(), (LPCTSTR)filename, i, (LPCTSTR)path.GetFileExtension());
                 }
                 tempfile.SetFromWin(possibletempfile);
                 filename = filename.Left(filename.GetLength()-1);

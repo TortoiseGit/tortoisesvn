@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -109,18 +109,18 @@ CBaseView::CBaseView()
     m_ptSelectionViewPosStart = m_ptCaretViewPos;
     m_ptSelectionViewPosEnd = m_ptSelectionViewPosStart;
     m_ptSelectionViewPosOrigin = m_ptSelectionViewPosEnd;
-    m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
-    m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
-    m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
-    m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
-    m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
-    m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
-    m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
-    m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-    m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?"));
-    m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-    m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
-    m_nTabMode = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), TABMODE_NONE);
+    m_bViewWhitespace = CRegDWORD(L"Software\\TortoiseMerge\\ViewWhitespaces", 1);
+    m_bViewLinenumbers = CRegDWORD(L"Software\\TortoiseMerge\\ViewLinenumbers", 1);
+    m_bShowInlineDiff = CRegDWORD(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE);
+    m_nInlineDiffMaxLineLength = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
+    m_InlineAddedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineAdded", INLINEADDED_COLOR);
+    m_InlineRemovedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineRemoved", INLINEREMOVED_COLOR);
+    m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR);
+    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    m_sWordSeparators = CRegString(L"Software\\TortoiseMerge\\WordSeparators", L"[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?");
+    m_bIconLFs = CRegDWORD(L"Software\\TortoiseMerge\\IconLFs", 0);
+    m_nTabSize = (int)(DWORD)CRegDWORD(L"Software\\TortoiseMerge\\TabSize", 4);
+    m_nTabMode = (int)(DWORD)CRegDWORD(L"Software\\TortoiseMerge\\TabMode", TABMODE_NONE);
     std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
     m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
     m_hConflictedIgnoredIcon = LoadIcon(IDI_CONFLICTEDIGNOREDLINE);
@@ -136,7 +136,7 @@ CBaseView::CBaseView()
     m_margincursor = (HCURSOR)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_MARGINCURSOR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
     for (int i=0; i<1024; ++i)
-        m_sConflictedText += _T("??");
+        m_sConflictedText += L"??";
     m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
 
     m_szTip[0]  = 0;
@@ -240,15 +240,15 @@ void CBaseView::DocumentUpdated()
     m_bOtherDiffChecked = false;
     m_nDigits = 0;
     m_nMouseLine = -1;
-    m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
-    m_nTabMode = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), TABMODE_NONE);
-    m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
-    m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
-    m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
-    m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
-    m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-    m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-    m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
+    m_nTabSize = (int)(DWORD)CRegDWORD(L"Software\\TortoiseMerge\\TabSize", 4);
+    m_nTabMode = (int)(DWORD)CRegDWORD(L"Software\\TortoiseMerge\\TabMode", TABMODE_NONE);
+    m_bViewLinenumbers = CRegDWORD(L"Software\\TortoiseMerge\\ViewLinenumbers", 1);
+    m_InlineAddedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineAdded", INLINEADDED_COLOR);
+    m_InlineRemovedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineRemoved", INLINEREMOVED_COLOR);
+    m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR);
+    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    m_bIconLFs = CRegDWORD(L"Software\\TortoiseMerge\\IconLFs", 0);
+    m_nInlineDiffMaxLineLength = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_Eols[EOL_AUTOLINE] = m_Eols[m_lineendings==EOL_AUTOLINE
                                 ? EOL_CRLF
                                 : m_lineendings];
@@ -303,28 +303,28 @@ void CBaseView::UpdateStatusBar()
         sBarText += sBarText.IsEmpty() ? L"" : L" ";
 
         if (sBarText.IsEmpty())
-            sBarText  += _T(" / ");
+            sBarText  += L" / ";
     }
 
     if (nRemovedLines)
     {
         sTemp.Format(IDS_STATUSBAR_REMOVEDLINES, nRemovedLines);
         if (!sBarText.IsEmpty())
-            sBarText += _T(" / ");
+            sBarText += L" / ";
         sBarText += sTemp;
     }
     if (nAddedLines)
     {
         sTemp.Format(IDS_STATUSBAR_ADDEDLINES, nAddedLines);
         if (!sBarText.IsEmpty())
-            sBarText += _T(" / ");
+            sBarText += L" / ";
         sBarText += sTemp;
     }
     if (nConflictedLines)
     {
         sTemp.Format(IDS_STATUSBAR_CONFLICTEDLINES, nConflictedLines);
         if (!sBarText.IsEmpty())
-            sBarText += _T(" / ");
+            sBarText += L" / ";
         sBarText += sTemp;
     }
     if (m_pwndStatusBar || m_pwndRibbonStatusBar)
@@ -444,10 +444,10 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
         CDC * pDC = GetDC();
         if (pDC)
         {
-            m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FontSize"), 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
+            m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
             ReleaseDC(pDC);
         }
-        _tcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\FontName"), _T("Courier New")), 32);
+        _tcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New"), 32);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
@@ -464,7 +464,7 @@ void CBaseView::CalcLineCharDim()
     if (pDC == nullptr)
         return;
     CFont *pOldFont = pDC->SelectObject(GetFont());
-    const CSize szCharExt = pDC->GetTextExtent(_T("X"));
+    const CSize szCharExt = pDC->GetTextExtent(L"X");
     pDC->SelectObject(pOldFont);
     ReleaseDC(pDC);
 
@@ -1253,18 +1253,18 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
                 {
                     // TODO: do not show if there is no number hidden
                     // TODO: show number if there is only one
-                    sLinenumberFormat.Format(_T("%%%ds"), m_nDigits);
-                    sLinenumber.Format(sLinenumberFormat, (m_nDigits>1) ? _T("↕⁞") : _T("⁞")); // alternative …
+                    sLinenumberFormat.Format(L"%%%ds", m_nDigits);
+                    sLinenumber.Format(sLinenumberFormat, (m_nDigits>1) ? L"↕⁞" : L"⁞"); // alternative …
                 }
                 else if (nLineNumber >= 0)
                 {
-                    sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
+                    sLinenumberFormat.Format(L"%%%dd", m_nDigits);
                     sLinenumber.Format(sLinenumberFormat, nLineNumber+1);
                 }
                 else if (m_pMainFrame->m_bWrapLines)
                 {
-                    sLinenumberFormat.Format(_T("%%%ds"), m_nDigits);
-                    sLinenumber.Format(sLinenumberFormat, _T("·"));
+                    sLinenumberFormat.Format(L"%%%ds", m_nDigits);
+                    sLinenumber.Format(sLinenumberFormat, L"·");
                 }
                 if (!sLinenumber.IsEmpty())
                 {
@@ -1288,7 +1288,7 @@ int CBaseView::GetMarginWidth()
             int nLength = (int)m_pViewData->GetCount();
             // find out how many digits are needed to show the highest line number
             CString sMax;
-            sMax.Format(_T("%d"), nLength);
+            sMax.Format(L"%d", nLength);
             m_nDigits = sMax.GetLength();
         }
         int nWidth = GetCharWidth();
@@ -1325,7 +1325,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
     CString sViewTitle;
     if (IsModified())
     {
-         sViewTitle = _T("* ") + m_sWindowName;
+         sViewTitle = L"* " + m_sWindowName;
     }
     else
     {
@@ -1868,7 +1868,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
             pDC->SetTextColor(GetSysColor(COLOR_GRAYTEXT));
             pDC->SetBkColor(crBkgnd);
             CRect rect = rc;
-            pDC->DrawText(_T("{...}"), &rect, DT_NOPREFIX|DT_SINGLELINE|DT_CENTER);
+            pDC->DrawText(L"{...}", &rect, DT_NOPREFIX|DT_SINGLELINE|DT_CENTER);
             return;
         }
     }
@@ -1979,7 +1979,7 @@ void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CStri
 {
     if (nCount <= 0)
     {
-        line = _T("");
+        line = L"";
         return;
     }
 
@@ -2090,8 +2090,8 @@ int CBaseView::OnCreate(LPCREATESTRUCT lpCreateStruct)
         return -1;
 
     SecureZeroMemory(&m_lfBaseFont, sizeof(m_lfBaseFont));
-    //lstrcpy(m_lfBaseFont.lfFaceName, _T("Courier New"));
-    //lstrcpy(m_lfBaseFont.lfFaceName, _T("FixedSys"));
+    //lstrcpy(m_lfBaseFont.lfFaceName, L"Courier New");
+    //lstrcpy(m_lfBaseFont.lfFaceName, L"FixedSys");
     m_lfBaseFont.lfHeight = 0;
     m_lfBaseFont.lfWeight = FW_NORMAL;
     m_lfBaseFont.lfItalic = FALSE;
@@ -2751,7 +2751,7 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
         return FALSE;
 
     CString strTipText;
-    strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
+    strTipText = m_sWindowName + L"\r\n" + m_sFullFilePath;
 
     DWORD pos = GetMessagePos();
     CPoint point(GET_X_LPARAM(pos), GET_Y_LPARAM(pos));
@@ -3381,7 +3381,7 @@ void CBaseView::ShowDiffLines(int nLine)
 
 const viewdata& CBaseView::GetEmptyLineData()
 {
-    static const viewdata emptyLine(_T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+    static const viewdata emptyLine(L"", DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
     return emptyLine;
 }
 
@@ -3778,7 +3778,7 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
     {
          ending = m_lineendings;
     }
-    viewdata newLine(_T(""), DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN);
+    viewdata newLine(L"", DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN);
     if (IsTarget()) // TODO: once more wievs will writable this is not correct anymore
     {
         CString sPartLine = GetViewLineChars(nViewLineIndex);
@@ -3883,7 +3883,7 @@ void CBaseView::PasteText()
     if (sClipboardText.IsEmpty())
         return;
 
-    sClipboardText.Replace(_T("\r\n"), _T("\r"));
+    sClipboardText.Replace(L"\r\n", L"\r");
     sClipboardText.Replace('\n', '\r');
 
     ResetUndoStep();
@@ -3920,7 +3920,7 @@ void CBaseView::PasteText()
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
         EOL eOriginalEnding = GetViewLineEnding(nViewLine);
-        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, m_lineendings, HIDESTATE_SHOWN);
+        viewdata newLine(L"", DIFFSTATE_EDITED, 1, m_lineendings, HIDESTATE_SHOWN);
         if (!lines[0].IsEmpty() || !sLineRight.IsEmpty() || (eOriginalEnding!=m_lineendings))
         {
             newLine.sLine = sLineLeft + lines[0];
@@ -5457,7 +5457,7 @@ CString CBaseView::GetSelectedText() const
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_EDITED:
             sSelectedText += GetViewLineChars(nViewLine);
-            sSelectedText += _T("\r\n");
+            sSelectedText += L"\r\n";
             break;
         }
     }
@@ -5582,17 +5582,17 @@ int CBaseView::SaveFile(int nFlags)
                     {
                         last++;
                     } while((last<m_pViewData->GetCount()) && ((m_pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(m_pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED)));
-                    file.Add(_T("<<<<<<< .mine"), EOL_NOENDING);
+                    file.Add(L"<<<<<<< .mine", EOL_NOENDING);
                     for (int j=first; j<last; j++)
                     {
                         file.Add(m_pwndRight->m_pViewData->GetLine(j), m_pwndRight->m_pViewData->GetLineEnding(j));
                     }
-                    file.Add(_T("======="), EOL_NOENDING);
+                    file.Add(L"=======", EOL_NOENDING);
                     for (int j=first; j<last; j++)
                     {
                         file.Add(m_pwndLeft->m_pViewData->GetLine(j), m_pwndLeft->m_pViewData->GetLineEnding(j));
                     }
-                    file.Add(_T(">>>>>>> .theirs"), EOL_NOENDING);
+                    file.Add(L">>>>>>> .theirs", EOL_NOENDING);
                     i = last-1;
                 }
                 break;
@@ -5620,7 +5620,7 @@ int CBaseView::SaveFile(int nFlags)
                 return -1;
         if (!file.Save(filename))
         {
-            ::MessageBox(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, file.GetErrorString(), L"TortoiseMerge", MB_ICONERROR);
             return -1;
         }
         m_pWorkingFile->SetFileName(filename);
@@ -5903,7 +5903,7 @@ void CBaseView::AddIndentationForSelectedBlock()
         // add tab to line start (alternatively m_nTabSize spaces can be used)
         CString tabStr;
         int indentChars = GetIndentCharsForLine(0, nViewLine);
-        tabStr = indentChars > 0 ? CString(_T(' '), indentChars) : _T("\t");
+        tabStr = indentChars > 0 ? CString(_T(' '), indentChars) : L"\t";
         SetViewLine(nViewLine, tabStr + sLine);
         bModified = true;
     }

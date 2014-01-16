@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -189,27 +189,27 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
     // if the user specified to use another tool to show the blames, there's no
     // need to fetch the log later: only TortoiseBlame uses those logs to give
     // the user additional information for the blame.
-    extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+    extBlame = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
     m_bIncludeMerge = !!includemerge;
     CString temp;
     m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
     if (m_sSavePath.IsEmpty())
-        return _T("");
+        return L"";
     temp = path.GetFileExtension();
     if (!temp.IsEmpty() && !extBlame)
         m_sSavePath += temp;
     if (!m_saveFile.Open(m_sSavePath, (extBlame ? CFile::typeText : CFile::typeBinary) | CFile::modeReadWrite | CFile::modeCreate))
-        return _T("");
+        return L"";
     CString headline;
     m_bNoLineNo = false;
     if (extBlame)
     {
         if(includemerge)
-            headline.Format(_T("%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
+            headline.Format(L"%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n", ' ', L"line", L"rev", L"merged", L"date", L"path", L"author", L"content");
         else
-            headline.Format(_T("%c %-6s %-8s %-8s %-30s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"),_T("author"), _T("content"));
+            headline.Format(L"%c %-6s %-8s %-8s %-30s %-30s %-s \n", ' ', L"line", L"rev", L"merged", L"date",L"author", L"content");
         m_saveFile.WriteString(headline);
-        m_saveFile.WriteString(_T("\n"));
+        m_saveFile.WriteString(L"\n");
     }
 
     m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);

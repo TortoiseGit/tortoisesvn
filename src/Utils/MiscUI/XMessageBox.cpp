@@ -180,7 +180,7 @@
 // wish, as long as 1) there is both a %s and a %d;  and 2) the %s precedes
 // the %d.
 //
-#define XMESSAGEBOX_TIMEOUT_TEXT_FORMAT _T("%s = %d")
+#define XMESSAGEBOX_TIMEOUT_TEXT_FORMAT L"%s = %d"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -188,7 +188,7 @@
 // This identifier specifies the name of the ini file, which by default
 // is "XMessageBox.ini".
 //
-#define XMESSAGEBOX_INI_FILE            _T("XMessageBox.ini")
+#define XMESSAGEBOX_INI_FILE            L"XMessageBox.ini"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -196,7 +196,7 @@
 // This identifier specifies the registry key used to store checkbox values.
 // By default it is "XMessageBox".
 //
-#define XMESSAGEBOX_REGISTRY_KEY        _T("XMessageBox")
+#define XMESSAGEBOX_REGISTRY_KEY        L"XMessageBox"
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -459,25 +459,25 @@ protected:
 // default button strings - must be in same order as EButtons enum
 struct CXDialogTemplate::ButtonInfo CXDialogTemplate::g_ButtonText[] =
 {
-    IDS_ABORT,            _T("&Abort"),
-    IDS_CANCEL,           _T("Cancel"),
-    IDS_CONTINUE,         _T("&Continue"),
-    IDS_DONOTASKAGAIN,    _T("Don't ask me again"),
-    IDS_DONOTTELLAGAIN,   _T("Don't tell me again"),
-    IDS_DONOTSHOWAGAIN,   _T("Don't show again"),
-    IDS_HELP,             _T("&Help"),
-    IDS_IGNORE,           _T("&Ignore"),
-    IDS_IGNOREALL,        _T("I&gnore All"),
-    IDS_NO,               _T("&No"),
-    IDS_NOTOALL,          _T("N&o to All"),
-    IDS_OK,               _T("OK"),
-    IDS_REPORT,           _T("Re&port"),
-    IDS_RETRY,            _T("&Retry"),
-    IDS_SKIP,             _T("&Skip"),
-    IDS_SKIPALL,          _T("S&kip All"),
-    IDS_TRYAGAIN,         _T("&Try Again"),
-    IDS_YES,              _T("&Yes"),
-    IDS_YESTOALL,         _T("Y&es to All")
+    IDS_ABORT,            L"&Abort",
+    IDS_CANCEL,           L"Cancel",
+    IDS_CONTINUE,         L"&Continue",
+    IDS_DONOTASKAGAIN,    L"Don't ask me again",
+    IDS_DONOTTELLAGAIN,   L"Don't tell me again",
+    IDS_DONOTSHOWAGAIN,   L"Don't show again",
+    IDS_HELP,             L"&Help",
+    IDS_IGNORE,           L"&Ignore",
+    IDS_IGNOREALL,        L"I&gnore All",
+    IDS_NO,               L"&No",
+    IDS_NOTOALL,          L"N&o to All",
+    IDS_OK,               L"OK",
+    IDS_REPORT,           L"Re&port",
+    IDS_RETRY,            L"&Retry",
+    IDS_SKIP,             L"&Skip",
+    IDS_SKIPALL,          L"S&kip All",
+    IDS_TRYAGAIN,         L"&Try Again",
+    IDS_YES,              L"&Yes",
+    IDS_YESTOALL,         L"Y&es to All"
 };
 
 #ifdef XMESSAGEBOX_AUTO_VISTA_STYLE
@@ -519,10 +519,10 @@ static BOOL IsVistaOrLater()
 #ifndef XMESSAGEBOX_DO_NOT_ENCODE
 
 // folowing string MUST be at least 64 TCHARs
-static TCHAR *szAlphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-                           _T("0123456789")
-                           _T("abcdefghijklmnopqrstuvwxyz")
-                           _T("98");
+static TCHAR *szAlphabet = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                           L"0123456789"
+                           L"abcdefghijklmnopqrstuvwxyz"
+                           L"98";
 #endif // XMESSAGEBOX_DO_NOT_ENCODE
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -588,7 +588,7 @@ int XMessageBox(HWND hwnd,
                 UINT nStyle /*= MB_OK | MB_ICONEXCLAMATION*/,
                 XMSGBOXPARAMS * pXMB /*= NULL*/)
 {
-    TRACE(_T("in XMessageBox\n"));
+    TRACE(L"in XMessageBox\n");
     _ASSERTE(lpszMessage);
 
     if (hwnd == NULL)
@@ -612,7 +612,7 @@ int XMessageBox(HWND hwnd,
 
 
     if (lpszCaption == NULL)            // +++1.6
-        lpszCaption = _T("Error");
+        lpszCaption = L"Error";
 
     XMSGBOXPARAMS xmb;
     if (pXMB)
@@ -641,7 +641,7 @@ int XMessageBox(HWND hwnd,
                 (dwData & MB_DONOTTELLAGAIN) ||
                 (dwData & MB_DONOTSHOWAGAIN))
             {
-                TRACE(_T("saved DoNotAsk found, returning 0x%08X\n"), dwData);
+                TRACE(L"saved DoNotAsk found, returning 0x%08X\n", dwData);
                 return (int)dwData;
             }
         }
@@ -739,7 +739,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     m_bVistaStyle(pXMB->dwOptions & XMSGBOXPARAMS::VistaStyle),     //+++1.8
     m_bNarrow(pXMB->dwOptions & XMSGBOXPARAMS::Narrow)              //+++1.8
 {
-    TRACE(_T("in CXDialogTemplate::CXDialogTemplate\n"));
+    TRACE(L"in CXDialogTemplate::CXDialogTemplate\n");
 
     if (m_bVistaStyle)  //+++1.8
     {
@@ -909,7 +909,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 
     ///////////////////////////////////////////////////////////////////////////
     // get dc for drawing
-    HDC hdc = ::CreateDC(_T("DISPLAY"), NULL, NULL, NULL);
+    HDC hdc = ::CreateDC(L"DISPLAY", NULL, NULL, NULL);
     _ASSERTE(hdc);
 
     ///////////////////////////////////////////////////////////////////////////
@@ -989,11 +989,11 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         DT_WORDBREAK | DT_CALCRECT | DT_EXPANDTABS);    //+++1.5
 
     int nMessageHeight = m_msgrect.Height();
-    TRACE(_T("nMessageHeight=%d\n"), nMessageHeight);
+    TRACE(L"nMessageHeight=%d\n", nMessageHeight);
 
     // get height of a single line
     SIZE nLineSize;
-    ::GetTextExtentPoint32(hdc, _T("My"), 2, &nLineSize);   //+++1.8
+    ::GetTextExtentPoint32(hdc, L"My", 2, &nLineSize);   //+++1.8
 
     m_msgrect.right  += 12;
     m_msgrect.bottom += 5;
@@ -1071,7 +1071,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     {
         int cxIcon = GetSystemMetrics(SM_CXICON);
         int cyIcon = GetSystemMetrics(SM_CYICON);
-        TRACE(_T("cyIcon=%d\n"), cyIcon);
+        TRACE(L"cyIcon=%d\n", cyIcon);
 
         int icon_x = m_bVistaStyle ? 3*SpacingSize : SpacingSize;       //+++1.8
         int icon_y = m_bVistaStyle ? 3*SpacingSize : SpacingSize;       //+++1.8
@@ -1084,7 +1084,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
             mbrect.right += 2*SpacingSize;
 
         SetRect(&iconrect, icon_x, icon_y, icon_x + cxIcon + 2, icon_y + cyIcon + 2);
-        AddItem(CXDialogItem::STATICTEXT, 1000, &iconrect, _T(""));
+        AddItem(CXDialogItem::STATICTEXT, 1000, &iconrect, L"");
 
         ///+++1.8
         if (m_bVistaStyle)
@@ -1203,7 +1203,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         _tcscpy(szCustomButtons, m_szCustomButtons);
 
         int i = 0;
-        TCHAR * cp = _tcstok(szCustomButtons, _T("\n"));
+        TCHAR * cp = _tcstok(szCustomButtons, L"\n");
         while (cp != NULL)
         {
             if (i >= MaxCustomButtons)
@@ -1221,7 +1221,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 
             nWidthCustomButtons += w;       //+++1.7
 
-            cp = _tcstok(NULL, _T("\n"));
+            cp = _tcstok(NULL, L"\n");
             i++;
         }
 
@@ -1272,13 +1272,13 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 
     if (nHelpButton == m_nDefButton)
     {
-        TRACE(_T("ERROR:  Help button cannot be default button\n"));
+        TRACE(L"ERROR:  Help button cannot be default button\n");
         _ASSERTE(FALSE);
     }
 
     if (nReportButton == m_nDefButton)
     {
-        TRACE(_T("ERROR:  Report button cannot be default button\n"));
+        TRACE(L"ERROR:  Report button cannot be default button\n");
         _ASSERTE(FALSE);
     }
 
@@ -1411,7 +1411,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         _tcsncpy(szCustomButtons, m_szCustomButtons, countof(szCustomButtons)-1);
 
         int i = 0;
-        TCHAR * cp = _tcstok(szCustomButtons, _T("\n"));
+        TCHAR * cp = _tcstok(szCustomButtons, L"\n");
         while (cp != NULL)
         {
             if (i >= MaxCustomButtons)
@@ -1431,7 +1431,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
             rect.SetRect(x, y, x + w, y + m_nButtonHeight);
             AddItem(CXDialogItem::BUTTON, IDCUSTOM1 + i, &rect, cp);
             x += w + ButtonSpacing;
-            cp = _tcstok(NULL, _T("\n"));
+            cp = _tcstok(NULL, L"\n");
             i++;
         }
     }
@@ -1449,7 +1449,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     ///////////////////////////////////////////////////////////////////////////
     // add checkbox
 
-    TRACE(_T("m_nDoNotAskAgainHeight=%d\n"), m_nDoNotAskAgainHeight);
+    TRACE(L"m_nDoNotAskAgainHeight=%d\n", m_nDoNotAskAgainHeight);
     if (checkbox_index != -1)       //+++1.8
     {
         CXRect checkboxrect;
@@ -1477,7 +1477,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
 // CXDialogTemplate dtor
 CXDialogTemplate::~CXDialogTemplate()
 {
-    TRACE(_T("in CXDialogTemplate::~CXDialogTemplate\n"));
+    TRACE(L"in CXDialogTemplate::~CXDialogTemplate\n");
     if (m_hIcon)
         DestroyIcon(m_hIcon);
     m_hIcon = 0;
@@ -1545,7 +1545,7 @@ void CXDialogTemplate::AddCheckBox(int& x,
 void CXDialogTemplate::LoadUserDefinedButtonStrings(
     const XMSGBOXPARAMS::CUserDefinedButtonCaptions& udcs)
 {
-    TRACE(_T("in CXDialogTemplate::LoadUserDefinedButtonStrings\n"));
+    TRACE(L"in CXDialogTemplate::LoadUserDefinedButtonStrings\n");
 
     if (udcs.szAbort[0])
         _tcscpy(m_szButtonText[eAbort],          udcs.szAbort);
@@ -1593,7 +1593,7 @@ void CXDialogTemplate::LoadUserDefinedButtonStrings(
 // LoadButtonStrings - load the default strings
 void CXDialogTemplate::LoadButtonStrings()
 {
-    TRACE(_T("in CXDialogTemplate::LoadButtonStrings\n"));
+    TRACE(L"in CXDialogTemplate::LoadButtonStrings\n");
 
     for (int index = 0; index < LAST_BUTTON; index++)
     {
@@ -1615,7 +1615,7 @@ void CXDialogTemplate::LoadButtonStrings()
 // LoadButtonStringsFromResources
 void CXDialogTemplate::LoadButtonStringsFromResources(HINSTANCE hInstance)
 {
-    TRACE(_T("in CXDialogTemplate::LoadButtonStringsFromResources\n"));
+    TRACE(L"in CXDialogTemplate::LoadButtonStringsFromResources\n");
 
     _ASSERTE(hInstance);
 
@@ -1699,14 +1699,14 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
 
         case WM_INITDIALOG:
         {
-            TRACE(_T("in CXDialogTemplate::MsgBoxDlgProc - WM_INITDIALOG\n"));
+            TRACE(L"in CXDialogTemplate::MsgBoxDlgProc - WM_INITDIALOG\n");
             //m_hWnd = hwnd;
 
             ::SetWindowLongPtr(hwnd, GWLP_USERDATA, lParam);    // save it for the others
             Me = (CXDialogTemplate*) lParam;
             _ASSERTE(Me);
 
-            HDC hdc = ::CreateDC(_T("DISPLAY"), NULL, NULL, NULL);
+            HDC hdc = ::CreateDC(L"DISPLAY", NULL, NULL, NULL);
             _ASSERTE(hdc);
 
             ::SelectObject(hdc, Me->m_hFont);
@@ -1733,7 +1733,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                     {
                         TCHAR szClassName[MAX_PATH];
                         ::GetClassName(hwndChild, szClassName, countof(szClassName)-2);
-                        if (_tcsicmp(szClassName, _T("Button")) == 0)
+                        if (_tcsicmp(szClassName, L"Button") == 0)
                         {
                             ::EnableWindow(hwndChild, FALSE);
                         }
@@ -1814,7 +1814,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
 
         case WM_COMMAND:
         {
-            TRACE(_T("WM_COMMAND\n"));
+            TRACE(L"WM_COMMAND\n");
             // user clicked on something - stop the timer
             ::KillTimer(hwnd, 1);
 
@@ -1833,11 +1833,11 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
             switch (wParam)
             {
                 case IDCLOSE:
-                    TRACE(_T("IDCLOSE\n"));
+                    TRACE(L"IDCLOSE\n");
                     return TRUE;
 
                 case IDCANCEL:
-                    TRACE(_T("IDCANCEL\n"));
+                    TRACE(L"IDCANCEL\n");
                     if (Me->Option(CancelButton))
                     {
                         Me->m_bEnded = TRUE;
@@ -1854,7 +1854,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                 {
                     typedef HWND (WINAPI* FPHH)(HWND, LPCWSTR, UINT, DWORD);
                     FPHH pHtmlHelp=NULL; // Function pointer
-                    HINSTANCE hInstHtmlHelp = LoadLibrary(_T("HHCtrl.ocx"));
+                    HINSTANCE hInstHtmlHelp = LoadLibrary(L"HHCtrl.ocx");
                     HWND hHelp = NULL;
                     if (hInstHtmlHelp != NULL)
                     {
@@ -1863,7 +1863,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                             hHelp = pHtmlHelp(hwnd, Me->m_szHelpPath, HH_DISPLAY_TOPIC, NULL);
                     }
                     if (hHelp == NULL)
-                        ::MessageBox(hwnd, _T("could not show help file"), _T("Help"), MB_ICONERROR);
+                        ::MessageBox(hwnd, L"could not show help file", L"Help", MB_ICONERROR);
                     return FALSE;
                 }
 
@@ -1914,7 +1914,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                         // key is module name and line
                         TCHAR szKey[MAX_PATH*2];
                         _tcscpy(szKey, Me->m_lpszModule);
-                        TRACE(_T("szKey=<%s>\n"), szKey);
+                        TRACE(L"szKey=<%s>\n", szKey);
 
                         encode(szKey);      // simple encoding to obscure module name
 
@@ -1922,21 +1922,21 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                         szLine[0] = _T('\0');
                         _tcscat(szKey, _itot(Me->m_nLine, szLine, 10));
 
-                        TRACE(_T("szKey=<%s>\n"), szKey);
+                        TRACE(L"szKey=<%s>\n", szKey);
 
 #ifndef XMESSAGEBOX_USE_PROFILE_FILE
 
                         WriteRegistry(Me->m_szCompanyName, szKey, (DWORD)wParam);
-                        TRACE(_T("writing data to registry: wParam=0x%08X\n"), wParam);
+                        TRACE(L"writing data to registry: wParam=0x%08X\n", wParam);
 
 #else
 
                         // data string is hex value of XMessageBox return code
                         TCHAR szData[100];
-                        _stprintf(szData, _T("%08X"), wParam);
+                        _stprintf(szData, L"%08X", wParam);
 
 
-                        ::WritePrivateProfileString(_T("DoNotAsk"),     // section name
+                        ::WritePrivateProfileString(L"DoNotAsk",     // section name
                                                     szKey,              // key name
                                                     szData,             // string to add
                                                     szPathName);        // initialization file
@@ -1954,21 +1954,21 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                         // read from registry
 
                         dwData = ReadRegistry(Me->m_szCompanyName, szKey);
-                        TRACE(_T("ReadRegistry: dwData=0x%08X\n"), dwData);
+                        TRACE(L"ReadRegistry: dwData=0x%08X\n", dwData);
 
 #else
                         // read from ini file
 
                         TCHAR szBuf[100];
-                        ::GetPrivateProfileString(_T("DoNotAsk"),   // section name
+                        ::GetPrivateProfileString(L"DoNotAsk",   // section name
                                                   szKey,            // key name
-                                                  _T(""),           // default string
+                                                  L"",           // default string
                                                   szBuf,            // destination buffer
                                                   countof(szBuf)-1, // size of destination buffer
                                                   szPathName);      // initialization file name
 
                         dwData = _tcstoul(szBuf, NULL, 16);
-                        TRACE(_T("szBuf=<%s>  dwData=0x%08X\n"), szBuf, dwData);
+                        TRACE(L"szBuf=<%s>  dwData=0x%08X\n", szBuf, dwData);
 
 #endif  // XMESSAGEBOX_USE_PROFILE_FILE
 
@@ -2063,7 +2063,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                             // enable all buttons
                             TCHAR szClassName[MAX_PATH];
                             ::GetClassName(hwndChild, szClassName, countof(szClassName)-2);
-                            if (_tcsicmp(szClassName, _T("Button")) == 0)
+                            if (_tcsicmp(szClassName, L"Button") == 0)
                             {
                                 ::EnableWindow(hwndChild, TRUE);
                             }
@@ -2086,7 +2086,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                     {
                         TCHAR *pszCaption = new TCHAR [_tcslen(Me->m_lpszCaption) + 100];
                         _tcscpy(pszCaption, Me->m_lpszCaption);
-                        _tcscat(pszCaption, _T(" "));
+                        _tcscat(pszCaption, L" ");
                         _itot(Me->m_nDisabledSeconds, &pszCaption[_tcslen(pszCaption)], 10);
                         ::SetWindowText(hwnd, pszCaption);
                         delete [] pszCaption;
@@ -2196,7 +2196,7 @@ void CXDialogTemplate::AddItem(CXDialogItem::Econtroltype cType,
 // OnKeyDown - returns TRUE if Ctrl-C processed
 BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
 {
-    //TRACE(_T("in CXDialogTemplate::OnKeyDown:  0x%x  0x%x\n"), wParam, lParam);
+    //TRACE(L"in CXDialogTemplate::OnKeyDown:  0x%x  0x%x\n", wParam, lParam);
 
     BOOL rc = FALSE;
 
@@ -2213,20 +2213,20 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
         // user hit Ctrl-C -- copy contents to clipboard
         if (::IsWindow(hWnd))
         {
-            TRACE(_T("_____ CXDialogTemplate::OnKeyDown: Ctrl-C\n"));
-            TCHAR *pszDivider = _T("---------------------------\r\n");
+            TRACE(L"_____ CXDialogTemplate::OnKeyDown: Ctrl-C\n");
+            TCHAR *pszDivider = L"---------------------------\r\n";
             TCHAR *pszText = new TCHAR [8192];
             _tcscpy(pszText, pszDivider);
             size_t n = _tcslen(pszText);
             ::GetWindowText(hWnd, &pszText[n], 1000);       // caption
-            _tcscat(pszText, _T("\r\n"));
+            _tcscat(pszText, L"\r\n");
             _tcscat(pszText, pszDivider);
             HWND hMsgHwnd = ::GetDlgItem(hWnd, MessageControlId);
             if (::IsWindow(hMsgHwnd))
             {
                 n = _tcslen(pszText);
                 ::GetWindowText(hMsgHwnd, &pszText[n], 4000);   // message
-                _tcscat(pszText, _T("\r\n"));
+                _tcscat(pszText, L"\r\n");
                 _tcscat(pszText, pszDivider);
             }
 
@@ -2238,7 +2238,7 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
                 if (::IsWindow(hwndChild))
                 {
                     ::GetClassName(hwndChild, szClassName, countof(szClassName)-2);
-                    if (_tcsicmp(szClassName, _T("Button")) == 0)
+                    if (_tcsicmp(szClassName, L"Button") == 0)
                     {
                         ::GetWindowText(hwndChild, szButton, countof(szButton)-1);  // button text
                         size_t i = _tcslen(pszText);
@@ -2250,12 +2250,12 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
                             cp++;
                         }
                         pszText[i] = 0;
-                        _tcscat(pszText, _T("   "));
+                        _tcscat(pszText, L"   ");
                     }
                 }
                 hwndChild = ::GetWindow(hwndChild, GW_HWNDNEXT);
             }
-            _tcscat(pszText, _T("\r\n"));
+            _tcscat(pszText, L"\r\n");
             _tcscat(pszText, pszDivider);
             SetClipboardText(pszText);
             delete [] pszText;
@@ -2268,7 +2268,7 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
 // CXDialogTemplate::Display
 int CXDialogTemplate::Display()
 {
-    TRACE(_T("in CXDialogTemplate::Display\n"));
+    TRACE(L"in CXDialogTemplate::Display\n");
     // The first step is to allocate memory to define the dialog. The information to be
     // stored in the allocated buffer is the following:
     //
@@ -2434,7 +2434,7 @@ int CXDialogTemplate::Display()
     _ASSERTE(pdest - pBuffer <= nBufferSize); //+++1.5 // just make sure we did not overrun the heap
     HINSTANCE hInstance = GetModuleHandle(NULL);
 
-    TRACE(_T("calling CreateDialogIndirectParam\n"));
+    TRACE(L"calling CreateDialogIndirectParam\n");
 
     HWND hDlg = ::CreateDialogIndirectParam(hInstance, (LPCDLGTEMPLATE) pBuffer,
         m_hWndOwner, MsgBoxDlgProc, (LPARAM) this);
@@ -2476,11 +2476,11 @@ int CXDialogTemplate::Display()
             }
         }
 
-        TRACE(_T("===== message loop ended\n"));
+        TRACE(L"===== message loop ended\n");
 
         if (msg.message == WM_QUIT)
         {
-            TRACE(_T("_____ WM_QUIT seen\n"));
+            TRACE(L"_____ WM_QUIT seen\n");
             PostQuitMessage((int)msg.wParam);
         }
 
@@ -2588,7 +2588,7 @@ void CXDialogItem::AddItem(CXDialogTemplate& dialog,
 
     int stringLength = (int)(lpszCaption ? _tcslen(lpszCaption) : 0);   //+++1.5
     m_pszCaption = new TCHAR [stringLength + 1];                //+++1.5
-    _tcscpy(m_pszCaption, lpszCaption ? lpszCaption : _T(""));  //+++1.5
+    _tcscpy(m_pszCaption, lpszCaption ? lpszCaption : L"");  //+++1.5
 }
 
 #ifndef XMESSAGEBOX_DO_NOT_SAVE_CHECKBOX
@@ -2600,7 +2600,7 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
     if (!lpszKey || lpszKey[0] == _T('\0'))
         return 0;
 
-    TCHAR * szRegPath = _T("Software\\");
+    TCHAR * szRegPath = L"Software\\";
 
     TCHAR szKey[_MAX_PATH*2] = { 0 };
     _tcscpy(szKey, szRegPath);
@@ -2608,7 +2608,7 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
     if (lpszCompanyName && lpszCompanyName[0] != _T('\0'))
     {
         _tcscat(szKey, lpszCompanyName);
-        _tcscat(szKey, _T("\\"));
+        _tcscat(szKey, L"\\");
     }
 
     TCHAR szPathName[_MAX_PATH*2] = { 0 };
@@ -2622,21 +2622,21 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
 
     _tcscat(szKey, cp);
 
-    _tcscat(szKey, _T("\\"));
+    _tcscat(szKey, L"\\");
     _tcscat(szKey, XMESSAGEBOX_REGISTRY_KEY);
 
-    TRACE(_T("szKey=<%s>\n"), szKey);
+    TRACE(L"szKey=<%s>\n", szKey);
 
     // open the registry event source key
     DWORD dwData = 0;
     HKEY hKey = NULL;
-    TRACE(_T("trying to open key\n"));
+    TRACE(L"trying to open key\n");
     LONG lRet = ::RegOpenKeyEx(HKEY_CURRENT_USER, szKey, 0, KEY_READ, &hKey);
 
     if (lRet == ERROR_SUCCESS)
     {
         // registry key was opened or created -
-        TRACE(_T("key opened ok\n"));
+        TRACE(L"key opened ok\n");
 
         // === write EventMessageFile key ===
         DWORD dwType = 0;
@@ -2662,7 +2662,7 @@ static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData
     if (!lpszKey || lpszKey[0] == _T('\0'))
         return;
 
-    TCHAR * szRegPath = _T("Software\\");
+    TCHAR * szRegPath = L"Software\\";
 
     TCHAR szKey[_MAX_PATH*2] = { 0 };
     _tcscpy(szKey, szRegPath);
@@ -2670,7 +2670,7 @@ static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData
     if (lpszCompanyName && lpszCompanyName[0] != _T('\0'))
     {
         _tcscat(szKey, lpszCompanyName);
-        _tcscat(szKey, _T("\\"));
+        _tcscat(szKey, L"\\");
     }
 
     TCHAR szPathName[_MAX_PATH*2] = { 0 };
@@ -2683,10 +2683,10 @@ static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData
         cp++;
 
     _tcscat(szKey, cp);
-    _tcscat(szKey, _T("\\"));
+    _tcscat(szKey, L"\\");
     _tcscat(szKey, XMESSAGEBOX_REGISTRY_KEY);
 
-    TRACE(_T("szKey=<%s>\n"), szKey);
+    TRACE(L"szKey=<%s>\n", szKey);
 
     // open the registry key
     DWORD dwResult = 0;
@@ -2753,19 +2753,19 @@ DWORD XMessageBoxGetCheckBox(LPCTSTR lpszCompanyName,
         TCHAR szKey[MAX_PATH*2];
         _tcsncpy(szKey, lpszModule, countof(szKey)-30);
         szKey[countof(szKey)-30] = 0;
-        TRACE(_T("szKey=<%s>\n"), szKey);
+        TRACE(L"szKey=<%s>\n", szKey);
 
         encode(szKey);      // simple encoding to obscure module name
 
         TCHAR szLine[100];
         szLine[0] = _T('\0');
         _tcscat(szKey, _itot(nLine, szLine, 10));
-        TRACE(_T("szKey=<%s>\n"), szKey);
+        TRACE(L"szKey=<%s>\n", szKey);
 
 
 #ifndef XMESSAGEBOX_USE_PROFILE_FILE
 
-        TRACE(_T("reading from registry\n"));
+        TRACE(L"reading from registry\n");
         dwData = ReadRegistry(lpszCompanyName, szKey);
 
 #else
@@ -2779,27 +2779,27 @@ DWORD XMessageBoxGetCheckBox(LPCTSTR lpszCompanyName,
         if (cp != NULL)
             *(cp+1) = _T('\0');
         _tcscat(szPathName, XMESSAGEBOX_INI_FILE);
-        TRACE(_T("reading from ini file <%s>\n"), szPathName);
+        TRACE(L"reading from ini file <%s>\n", szPathName);
 
         TCHAR szBuf[100];
         szBuf[0] = _T('\0');
 
         // data string is hex value of XMessageBox return code
-        ::GetPrivateProfileString(_T("DoNotAsk"),   // section name
+        ::GetPrivateProfileString(L"DoNotAsk",   // section name
                                   szKey,            // key name
-                                  _T(""),           // default string
+                                  L"",           // default string
                                   szBuf,            // destination buffer
                                   countof(szBuf)-1, // size of destination buffer
                                   szPathName);      // initialization file name
 
         dwData = _tcstoul(szBuf, NULL, 16);
-        TRACE(_T("szBuf=<%s>\n"), szBuf);
+        TRACE(L"szBuf=<%s>\n", szBuf);
 
 #endif  // XMESSAGEBOX_USE_PROFILE_FILE
 
     }
 
-    TRACE(_T("dwData=0x%08X\n"), dwData);
+    TRACE(L"dwData=0x%08X\n", dwData);
     return dwData;
 }
 
@@ -2824,7 +2824,7 @@ DWORD XMessageBoxGetCheckBox(LPCTSTR lpszCompanyName,
 ///////////////////////////////////////////////////////////////////////////////
 DWORD XMessageBoxGetCheckBox(XMSGBOXPARAMS& xmb)
 {
-    TRACE(_T("in XMessageBoxGetCheckBox\n"));
+    TRACE(L"in XMessageBoxGetCheckBox\n");
     return XMessageBoxGetCheckBox(xmb.szCompanyName,
                                   xmb.lpszModule,
                                   xmb.nLine);

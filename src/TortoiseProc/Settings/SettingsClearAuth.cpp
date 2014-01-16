@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ BOOL CSettingsClearAuth::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
-    EnableSaveRestore(_T("SettingsClearAuth"));
+    EnableSaveRestore(L"SettingsClearAuth");
 
     return TRUE;  // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
@@ -140,7 +140,7 @@ void CSettingsClearAuth::FillAuthListControl()
     for (POSITION pos = certList.GetHeadPosition(); pos != NULL; )
     {
         CString certHash = certList.GetNext(pos);
-        CRegDWORD regCert(_T("Software\\TortoiseSVN\\CAPIAuthz\\")+certHash);
+        CRegDWORD regCert(L"Software\\TortoiseSVN\\CAPIAuthz\\"+certHash);
         m_cAuthList.InsertItem (iItem,    L"certificate");
         m_cAuthList.SetItemText(iItem, 1, certHash);
         temp.Format(L"%d", (int)(DWORD)regCert);

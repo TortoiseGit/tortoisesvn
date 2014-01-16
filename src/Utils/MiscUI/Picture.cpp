@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,7 +113,7 @@ tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
     if (bAbbrev)
         StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
-        _stprintf_s(buf, _T("%ld Bytes"), m_nSize);
+        _stprintf_s(buf, L"%ld Bytes", m_nSize);
 
     return tstring(buf);
 }
@@ -132,7 +132,7 @@ bool CPicture::Load(tstring sFilePathName)
         return true;
 
     // Load & initialize the GDI+ library if available
-    HMODULE hGdiPlusLib = AtlLoadSystemLibraryUsingFullPath(_T("gdiplus.dll"));
+    HMODULE hGdiPlusLib = AtlLoadSystemLibraryUsingFullPath(L"gdiplus.dll");
     if (hGdiPlusLib && GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL) == Ok)
     {
         bHaveGDIPlus = true;
@@ -168,8 +168,8 @@ bool CPicture::Load(tstring sFilePathName)
         // the image format is "icon" or not, we also check the
         // file extension for ".ico".
         std::transform(sFilePathName.begin(), sFilePathName.end(), sFilePathName.begin(), ::tolower);
-        bIsIcon = (guid == ImageFormatIcon) || (_tcsstr(sFilePathName.c_str(), _T(".ico")) != NULL);
-        bIsTiff = (guid == ImageFormatTIFF) || (_tcsstr(sFilePathName.c_str(), _T(".tiff")) != NULL);
+        bIsIcon = (guid == ImageFormatIcon) || (_tcsstr(sFilePathName.c_str(), L".ico") != NULL);
+        bIsTiff = (guid == ImageFormatTIFF) || (_tcsstr(sFilePathName.c_str(), L".tiff") != NULL);
         m_Name = sFilePathName;
 
         if (bIsIcon)
@@ -274,7 +274,7 @@ bool CPicture::Load(tstring sFilePathName)
 
             // NOTE: Currently just loading via FreeImage & using GDI+ for drawing.
             // It might be nice to remove this dependency in the future.
-            HMODULE hFreeImageLib = LoadLibrary(_T("FreeImage.dll"));
+            HMODULE hFreeImageLib = LoadLibrary(L"FreeImage.dll");
 
             // FreeImage DLL functions
             typedef const char* (__stdcall *FreeImage_GetVersion_t)(void);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,8 @@
 IMPLEMENT_DYNAMIC(CPromptDlg, CStandAloneDialog)
 CPromptDlg::CPromptDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CPromptDlg::IDD, pParent)
-    , m_info(_T(""))
-    , m_sPass(_T(""))
+    , m_info(L"")
+    , m_sPass(L"")
     , m_saveCheck(FALSE)
     , m_hide(FALSE)
     , m_hParentWnd(NULL)
@@ -62,7 +62,7 @@ BOOL CPromptDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SAVECHECK);
     m_aeroControls.SubclassOkCancel(this);
 
-    DialogEnableWindow(IDC_SAVECHECK, (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\AllowAuthSave"), TRUE));
+    DialogEnableWindow(IDC_SAVECHECK, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\AllowAuthSave", TRUE));
 
     if (m_hide)
     {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -141,7 +141,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_POPRESTORE               0x04000000
 #define SVNSLC_POPEXPORT                0x08000000
 
-#define SVNSLC_IGNORECHANGELIST         _T("ignore-on-commit")
+#define SVNSLC_IGNORECHANGELIST         L"ignore-on-commit"
 
 // This gives up to 64 standard properties and menu entries
 // plus 192 user-defined properties (should be plenty).

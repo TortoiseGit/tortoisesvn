@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
-    , m_name(_T(""))
+    , m_name(L"")
     , m_renameRequired(true)
     , m_pInputValidator(NULL)
     , m_bBalloonVisible(false)
@@ -83,7 +83,7 @@ BOOL CRenameDlg::OnInitDialog()
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_NAME);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("RenameDlg"));
+    EnableSaveRestore(L"RenameDlg");
     m_originalName = m_name;
     return TRUE;
 }

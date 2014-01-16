@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
     lowerpath.MakeLower();
     int ind = -1;
     int ind1 = 0;
-    while ((ind1 = lowerpath.Find(_T("\\.svn"), ind1))>=0)
+    while ((ind1 = lowerpath.Find(L"\\.svn", ind1))>=0)
     {
         ind = ind1++;
         if (ind == (lowerpath.GetLength() - 5))
@@ -95,7 +95,7 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
             bIsAdminDir = true;
             break;
         }
-        else if (lowerpath.Find(_T("\\.svn\\"), ind)>=0)
+        else if (lowerpath.Find(L"\\.svn\\", ind)>=0)
         {
             bIsAdminDir = true;
             break;
@@ -105,7 +105,7 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
     {
         ind = -1;
         ind1 = 0;
-        while ((ind1 = lowerpath.Find(_T("\\_svn"), ind1))>=0)
+        while ((ind1 = lowerpath.Find(L"\\_svn", ind1))>=0)
         {
             ind = ind1++;
             if (ind == (lowerpath.GetLength() - 5))
@@ -113,7 +113,7 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
                 bIsAdminDir = true;
                 break;
             }
-            else if (lowerpath.Find(_T("\\_svn\\"), ind)>=0)
+            else if (lowerpath.Find(L"\\_svn\\", ind)>=0)
             {
                 bIsAdminDir = true;
                 break;
@@ -151,9 +151,9 @@ bool SVNAdminDir::IsWCRoot(const CString& path, bool bDir) const
     {
         sDirName = path.Left(path.ReverseFind('\\'));
     }
-    bIsWCRoot = !!PathFileExists(sDirName + _T("\\.svn"));
+    bIsWCRoot = !!PathFileExists(sDirName + L"\\.svn");
     if (!bIsWCRoot && m_bVSNETHack)
-        bIsWCRoot = !!PathFileExists(sDirName + _T("\\_svn"));
+        bIsWCRoot = !!PathFileExists(sDirName + L"\\_svn");
     return bIsWCRoot;
 }
 

@@ -121,7 +121,7 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
     ret = szDisplayName;
     CoTaskMemFree(szDisplayName);
     if ((resolveLibraries) &&
-        (_tcsncmp(ret.c_str(), _T("::{"), 3)==0))
+        (_tcsncmp(ret.c_str(), L"::{", 3)==0))
     {
         CComPtr<IShellLibrary> plib;
         HRESULT hr = CoCreateInstance(CLSID_ShellLibrary,
@@ -131,7 +131,7 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
         if (SUCCEEDED(hr))
         {
             typedef HRESULT STDAPICALLTYPE SHCreateItemFromParsingNameFN(__in PCWSTR pszPath, __in_opt IBindCtx *pbc, __in REFIID riid, __deref_out void **ppv);
-            CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(_T("shell32.dll"));
+            CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
             if (hShell)
             {
                 CComPtr<IShellItem> psiLibrary;

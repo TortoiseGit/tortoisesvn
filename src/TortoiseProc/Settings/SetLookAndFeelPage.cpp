@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,20 +32,20 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
     , m_bHideMenus(false)
     , m_bModified(false)
 {
-    m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-    m_regTopmenuhigh = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
+    m_regTopmenu = CRegDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+    m_regTopmenuhigh = CRegDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0);
 
     m_topmenu = unsigned __int64(DWORD(m_regTopmenuhigh))<<32;
     m_topmenu |= unsigned __int64(DWORD(m_regTopmenu));
 
-    m_regGetLockTop = CRegDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
+    m_regGetLockTop = CRegDWORD(L"Software\\TortoiseSVN\\GetLockTop", TRUE);
     m_bGetLockTop = m_regGetLockTop;
-    m_regHideMenus = CRegDWORD(_T("Software\\TortoiseSVN\\HideMenusForUnversionedItems"), FALSE);
+    m_regHideMenus = CRegDWORD(L"Software\\TortoiseSVN\\HideMenusForUnversionedItems", FALSE);
     m_bHideMenus = m_regHideMenus;
 
-    m_regNoContextPaths = CRegString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
+    m_regNoContextPaths = CRegString(L"Software\\TortoiseSVN\\NoContextPaths", L"");
     m_sNoContextPaths = m_regNoContextPaths;
-    m_sNoContextPaths.Replace(_T("\n"), _T("\r\n"));
+    m_sNoContextPaths.Replace(L"\n", L"\r\n");
 }
 
 CSetLookAndFeelPage::~CSetLookAndFeelPage()
@@ -86,7 +86,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     int c = ((CHeaderCtrl*)(m_cMenuList.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
         m_cMenuList.DeleteColumn(c--);
-    m_cMenuList.InsertColumn(0, _T(""));
+    m_cMenuList.InsertColumn(0, L"");
 
     SetWindowTheme(m_cMenuList.GetSafeHwnd(), L"Explorer", NULL);
 
@@ -165,12 +165,12 @@ BOOL CSetLookAndFeelPage::OnApply()
     Store (m_bHideMenus, m_regHideMenus);
 
     m_sNoContextPaths.Remove(_T('\r'));
-    if (m_sNoContextPaths.Right(1).Compare(_T("\n"))!=0)
-        m_sNoContextPaths += _T("\n");
+    if (m_sNoContextPaths.Right(1).Compare(L"\n")!=0)
+        m_sNoContextPaths += L"\n";
 
     Store (m_sNoContextPaths, m_regNoContextPaths);
 
-    m_sNoContextPaths.Replace(_T("\n"), _T("\r\n"));
+    m_sNoContextPaths.Replace(L"\n", L"\r\n");
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }

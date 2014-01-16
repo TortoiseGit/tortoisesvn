@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011-2013 - TortoiseSVN
+// Copyright (C) 2006, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,7 +70,7 @@ END_MESSAGE_MAP()
 void CFindDlg::OnCancel()
 {
     m_bTerminating = true;
-    SetStatusText(_T(""));
+    SetStatusText(L"");
     if (m_pParent)
         m_pParent->SendMessage(m_FindMsg);
     else if (GetParent())
@@ -86,7 +86,7 @@ void CFindDlg::PostNcDestroy()
 void CFindDlg::OnOK()
 {
     UpdateData();
-    SetStatusText(_T(""));
+    SetStatusText(L"");
     m_FindCombo.SaveHistory();
     m_regMatchCase = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;
@@ -113,7 +113,7 @@ BOOL CFindDlg::OnInitDialog()
     UpdateData(FALSE);
 
     m_FindCombo.DisableTrimming();
-    m_FindCombo.LoadHistory(_T("Software\\TortoiseMerge\\History\\Find"), _T("Search"));
+    m_FindCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Search");
     m_FindCombo.SetCurSel(0);
 
     m_FindCombo.SetFocus();
@@ -130,7 +130,7 @@ void CFindDlg::OnCbnEditchangeFindcombo()
 void CFindDlg::OnBnClickedCount()
 {
     UpdateData();
-    SetStatusText(_T(""));
+    SetStatusText(L"");
     m_FindCombo.SaveHistory();
     m_regMatchCase = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;

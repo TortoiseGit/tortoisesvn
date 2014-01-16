@@ -156,7 +156,7 @@ LPCTSTR CTSVNPath::GetWinPath() const
 {
     if(IsEmpty())
     {
-        return _T("");
+        return L"";
     }
     if(m_sBackslashPath.IsEmpty())
     {
@@ -164,7 +164,7 @@ LPCTSTR CTSVNPath::GetWinPath() const
     }
     if(m_sBackslashPath.GetLength() >= 248)
     {
-        m_sLongBackslashPath = _T("\\\\?\\") + m_sBackslashPath;
+        m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
         return m_sLongBackslashPath;
     }
     return m_sBackslashPath;
@@ -242,7 +242,7 @@ const CString& CTSVNPath::GetUIPathString() const
         if (IsUrl())
         {
             m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
-            m_sUIPath.Replace(_T("file:////"), _T("file://"));
+            m_sUIPath.Replace(L"file:////", L"file://");
 
         }
         else
@@ -265,7 +265,7 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 
     SanitizeRootPath(m_sFwdslashPath, true);
 
-    m_sFwdslashPath.Replace(_T("file:////"), _T("file://"));
+    m_sFwdslashPath.Replace(L"file:////", L"file://");
 
     m_sUTF8FwdslashPath.Empty();
 }
@@ -288,7 +288,7 @@ void CTSVNPath::SanitizeRootPath(CString& sPath, bool bIsForwardPath) const
     // Make sure to add the trailing slash to root paths such as 'C:'
     if (sPath.GetLength() == 2 && sPath[1] == ':')
     {
-        sPath += (bIsForwardPath) ? _T("/") : _T("\\");
+        sPath += (bIsForwardPath) ? L"/" : L"\\";
     }
 }
 
@@ -382,7 +382,7 @@ void CTSVNPath::UpdateAttributes() const
     EnsureBackslashPathSet();
     WIN32_FILE_ATTRIBUTE_DATA attribs;
     if (m_sBackslashPath.GetLength() >= 248)
-        m_sLongBackslashPath = _T("\\\\?\\") + m_sBackslashPath;
+        m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
     if(GetFileAttributesEx(m_sBackslashPath.GetLength() >= 248 ? m_sLongBackslashPath : m_sBackslashPath, GetFileExInfoStandard, &attribs))
     {
         m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
@@ -726,7 +726,7 @@ void CTSVNPath::AppendPathString(const CString& sAppend)
     cleanAppend.Replace('/', '\\');
     cleanAppend.TrimLeft('\\');
     m_sBackslashPath.TrimRight('\\');
-    CString strCopy = m_sBackslashPath + _T("\\") + cleanAppend;
+    CString strCopy = m_sBackslashPath + L"\\" + cleanAppend;
     SetFromWin(strCopy);
 }
 
@@ -765,12 +765,12 @@ bool CTSVNPath::IsValidOnWindows() const
     {
         CString uipath = CPathUtils::PathUnescape(GetSVNPathString());
         uipath.Replace('/', '\\');
-        checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(_T(":\\\\"))+3)+1);
+        checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(L":\\\\")+3)+1);
     }
     try
     {
         // now check for illegal filenames
-        std::tr1::wregex rx2(_T("(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]"), std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+        std::tr1::wregex rx2(L"(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]", std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
         if (std::tr1::regex_search(checkPath, rx2, std::tr1::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
@@ -786,7 +786,7 @@ bool CTSVNPath::IsSpecialDirectory() const
         return m_bIsSpecialDirectory;
 
     static LPCTSTR specialDirectories[]
-        = { _T("trunk"), _T("tags"), _T("branches") };
+        = { L"trunk", L"tags", L"branches" };
 
     for (int i=0 ; i<_countof(specialDirectories) ; ++i)
     {
@@ -874,7 +874,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     {
         std::unique_ptr<TCHAR[]> error(new TCHAR[10000]);
         pE->GetErrorMessage(error.get(), 10000);
-        ::MessageBox(NULL, error.get(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(NULL, error.get(), L"TortoiseSVN", MB_ICONERROR);
         pE->Delete();
         return false;
     }
@@ -902,7 +902,7 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bANSI /* = false 
             PathVector::const_iterator it;
             for(it = m_paths.begin(); it != m_paths.end(); ++it)
             {
-                file.WriteString(it->GetSVNPathString()+_T("\n"));
+                file.WriteString(it->GetSVNPathString()+L"\n");
             }
             file.Close();
         }
@@ -927,7 +927,7 @@ void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
     CString temp;
     for(;;)
     {
-        temp = sPathString.Tokenize(_T("*"),pos);
+        temp = sPathString.Tokenize(L"*",pos);
         if(temp.IsEmpty())
         {
             break;
@@ -943,7 +943,7 @@ CString CTSVNPathList::CreateAsteriskSeparatedString() const
     for(it = m_paths.begin(); it != m_paths.end(); ++it)
     {
         if (!sRet.IsEmpty())
-            sRet += _T("*");
+            sRet += L"*";
         sRet += it->IsUrl() ? it->GetSVNPathString() : it->GetWinPathString();
     }
     return sRet;
@@ -1205,7 +1205,7 @@ private:
 
         CTSVNPath testPath;
         // This is a file which we know will always be there
-        testPath.SetFromUnknown(sWinDir + _T("\\win.ini"));
+        testPath.SetFromUnknown(sWinDir + L"\\win.ini");
         ATLASSERT(!testPath.IsDirectory());
         ATLASSERT(testPath.GetDirectory().GetWinPathString() == sWinDir);
         ATLASSERT(testPath.GetContainingDirectory().GetWinPathString() == sWinDir);
@@ -1219,46 +1219,46 @@ private:
         ATLASSERT(testPath.GetContainingDirectory().GetWinPathString().GetLength() < sWinDir.GetLength());
 
         // Try a root path
-        testPath.SetFromUnknown(_T("C:\\"));
+        testPath.SetFromUnknown(L"C:\\");
         ATLASSERT(testPath.IsDirectory());
-        ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(_T("C:\\"))==0);
+        ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(L"C:\\")==0);
         ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
         // Try a root UNC path
-        testPath.SetFromUnknown(_T("\\MYSTATION"));
+        testPath.SetFromUnknown(L"\\MYSTATION");
         ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
 
         // test the UI path methods
-        testPath.SetFromUnknown(_T("c:\\testing%20test"));
-        ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("testing%20test")) == 0);
+        testPath.SetFromUnknown(L"c:\\testing%20test");
+        ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(L"testing%20test") == 0);
 #ifdef _MFC_VER
-        testPath.SetFromUnknown(_T("http://server.com/testing%20special%20chars%20%c3%a4%c3%b6%c3%bc"));
-        ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("testing special chars \344\366\374")) == 0);
+        testPath.SetFromUnknown(L"http://server.com/testing%20special%20chars%20%c3%a4%c3%b6%c3%bc");
+        ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(L"testing special chars \344\366\374") == 0);
 #endif
     }
 
     void AdminDirTest()
     {
         CTSVNPath testPath;
-        testPath.SetFromUnknown(_T("c:\\.svndir"));
+        testPath.SetFromUnknown(L"c:\\.svndir");
         ATLASSERT(!testPath.IsAdminDir());
-        testPath.SetFromUnknown(_T("c:\\test.svn"));
+        testPath.SetFromUnknown(L"c:\\test.svn");
         ATLASSERT(!testPath.IsAdminDir());
-        testPath.SetFromUnknown(_T("c:\\.svn"));
+        testPath.SetFromUnknown(L"c:\\.svn");
         ATLASSERT(testPath.IsAdminDir());
-        testPath.SetFromUnknown(_T("c:\\.svndir\\test"));
+        testPath.SetFromUnknown(L"c:\\.svndir\\test");
         ATLASSERT(!testPath.IsAdminDir());
-        testPath.SetFromUnknown(_T("c:\\.svn\\test"));
+        testPath.SetFromUnknown(L"c:\\.svn\\test");
         ATLASSERT(testPath.IsAdminDir());
 
         CTSVNPathList pathList;
-        pathList.AddPath(CTSVNPath(_T("c:\\.svndir")));
-        pathList.AddPath(CTSVNPath(_T("c:\\.svn")));
-        pathList.AddPath(CTSVNPath(_T("c:\\.svn\\test")));
-        pathList.AddPath(CTSVNPath(_T("c:\\test")));
+        pathList.AddPath(CTSVNPath(L"c:\\.svndir"));
+        pathList.AddPath(CTSVNPath(L"c:\\.svn"));
+        pathList.AddPath(CTSVNPath(L"c:\\.svn\\test"));
+        pathList.AddPath(CTSVNPath(L"c:\\test"));
         pathList.RemoveAdminPaths();
         ATLASSERT(pathList.GetCount()==2);
         pathList.Clear();
-        pathList.AddPath(CTSVNPath(_T("c:\\test")));
+        pathList.AddPath(CTSVNPath(L"c:\\test"));
         pathList.RemoveAdminPaths();
         ATLASSERT(pathList.GetCount()==1);
     }
@@ -1267,61 +1267,61 @@ private:
     {
         CTSVNPathList testList;
         CTSVNPath testPath;
-        testPath.SetFromUnknown(_T("c:/Z"));
+        testPath.SetFromUnknown(L"c:/Z");
         testList.AddPath(testPath);
-        testPath.SetFromUnknown(_T("c:/B"));
+        testPath.SetFromUnknown(L"c:/B");
         testList.AddPath(testPath);
-        testPath.SetFromUnknown(_T("c:\\a"));
+        testPath.SetFromUnknown(L"c:\\a");
         testList.AddPath(testPath);
-        testPath.SetFromUnknown(_T("c:/Test"));
+        testPath.SetFromUnknown(L"c:/Test");
         testList.AddPath(testPath);
 
         testList.SortByPathname();
 
-        ATLASSERT(testList[0].GetWinPathString() == _T("c:\\a"));
-        ATLASSERT(testList[1].GetWinPathString() == _T("c:\\B"));
-        ATLASSERT(testList[2].GetWinPathString() == _T("c:\\Test"));
-        ATLASSERT(testList[3].GetWinPathString() == _T("c:\\Z"));
+        ATLASSERT(testList[0].GetWinPathString() == L"c:\\a");
+        ATLASSERT(testList[1].GetWinPathString() == L"c:\\B");
+        ATLASSERT(testList[2].GetWinPathString() == L"c:\\Test");
+        ATLASSERT(testList[3].GetWinPathString() == L"c:\\Z");
     }
 
     void RawAppendTest()
     {
-        CTSVNPath testPath(_T("c:/test/"));
-        testPath.AppendRawString(_T("/Hello"));
-        ATLASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello"));
+        CTSVNPath testPath(L"c:/test/");
+        testPath.AppendRawString(L"/Hello");
+        ATLASSERT(testPath.GetWinPathString() == L"c:\\test\\Hello");
 
-        testPath.AppendRawString(_T("\\T2"));
-        ATLASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello\\T2"));
+        testPath.AppendRawString(L"\\T2");
+        ATLASSERT(testPath.GetWinPathString() == L"c:\\test\\Hello\\T2");
 
-        CTSVNPath testFilePath(_T("C:\\windows\\win.ini"));
-        CTSVNPath testBasePath(_T("c:/temp/myfile.txt"));
+        CTSVNPath testFilePath(L"C:\\windows\\win.ini");
+        CTSVNPath testBasePath(L"c:/temp/myfile.txt");
         testBasePath.AppendRawString(testFilePath.GetFileExtension());
-        ATLASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt.ini"));
+        ATLASSERT(testBasePath.GetWinPathString() == L"c:\\temp\\myfile.txt.ini");
     }
 
     void PathAppendTest()
     {
-        CTSVNPath testPath(_T("c:/test/"));
-        testPath.AppendPathString(_T("/Hello"));
-        ATLASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello"));
+        CTSVNPath testPath(L"c:/test/");
+        testPath.AppendPathString(L"/Hello");
+        ATLASSERT(testPath.GetWinPathString() == L"c:\\test\\Hello");
 
-        testPath.AppendPathString(_T("T2"));
-        ATLASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello\\T2"));
+        testPath.AppendPathString(L"T2");
+        ATLASSERT(testPath.GetWinPathString() == L"c:\\test\\Hello\\T2");
 
-        CTSVNPath testFilePath(_T("C:\\windows\\win.ini"));
-        CTSVNPath testBasePath(_T("c:/temp/myfile.txt"));
+        CTSVNPath testFilePath(L"C:\\windows\\win.ini");
+        CTSVNPath testBasePath(L"c:/temp/myfile.txt");
         // You wouldn't want to do this in real life - you'd use append-raw
         testBasePath.AppendPathString(testFilePath.GetFileExtension());
-        ATLASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt\\.ini"));
+        ATLASSERT(testBasePath.GetWinPathString() == L"c:\\temp\\myfile.txt\\.ini");
     }
 
     void RemoveDuplicatesTest()
     {
         CTSVNPathList list;
-        list.AddPath(CTSVNPath(_T("Z")));
-        list.AddPath(CTSVNPath(_T("A")));
-        list.AddPath(CTSVNPath(_T("E")));
-        list.AddPath(CTSVNPath(_T("E")));
+        list.AddPath(CTSVNPath(L"Z"));
+        list.AddPath(CTSVNPath(L"A"));
+        list.AddPath(CTSVNPath(L"E"));
+        list.AddPath(CTSVNPath(L"E"));
 
         ATLASSERT(list[2].IsEquivalentTo(list[3]));
         ATLASSERT(list[2]==list[3]);
@@ -1332,21 +1332,21 @@ private:
 
         ATLASSERT(list.GetCount() == 3);
 
-        ATLASSERT(list[0].GetWinPathString() == _T("A"));
-        ATLASSERT(list[1].GetWinPathString().Compare(_T("E")) == 0);
-        ATLASSERT(list[2].GetWinPathString() == _T("Z"));
+        ATLASSERT(list[0].GetWinPathString() == L"A");
+        ATLASSERT(list[1].GetWinPathString().Compare(L"E") == 0);
+        ATLASSERT(list[2].GetWinPathString() == L"Z");
     }
 
     void RemoveChildrenTest()
     {
         CTSVNPathList list;
-        list.AddPath(CTSVNPath(_T("c:\\test")));
-        list.AddPath(CTSVNPath(_T("c:\\test\\file")));
-        list.AddPath(CTSVNPath(_T("c:\\testfile")));
-        list.AddPath(CTSVNPath(_T("c:\\parent")));
-        list.AddPath(CTSVNPath(_T("c:\\parent\\child")));
-        list.AddPath(CTSVNPath(_T("c:\\parent\\child1")));
-        list.AddPath(CTSVNPath(_T("c:\\parent\\child2")));
+        list.AddPath(CTSVNPath(L"c:\\test"));
+        list.AddPath(CTSVNPath(L"c:\\test\\file"));
+        list.AddPath(CTSVNPath(L"c:\\testfile"));
+        list.AddPath(CTSVNPath(L"c:\\parent"));
+        list.AddPath(CTSVNPath(L"c:\\parent\\child"));
+        list.AddPath(CTSVNPath(L"c:\\parent\\child1"));
+        list.AddPath(CTSVNPath(L"c:\\parent\\child2"));
 
         ATLASSERT(list.GetCount() == 7);
 
@@ -1357,9 +1357,9 @@ private:
 
         list.SortByPathname();
 
-        ATLASSERT(list[0].GetWinPathString().Compare(_T("c:\\parent")) == 0);
-        ATLASSERT(list[1].GetWinPathString().Compare(_T("c:\\test")) == 0);
-        ATLASSERT(list[2].GetWinPathString().Compare(_T("c:\\testfile")) == 0);
+        ATLASSERT(list[0].GetWinPathString().Compare(L"c:\\parent") == 0);
+        ATLASSERT(list[1].GetWinPathString().Compare(L"c:\\test") == 0);
+        ATLASSERT(list[2].GetWinPathString().Compare(L"c:\\testfile") == 0);
     }
 
 #if defined(_MFC_VER)
@@ -1367,19 +1367,19 @@ private:
     {
         TCHAR buf[MAX_PATH] = { 0 };
         GetCurrentDirectory(_countof(buf), buf);
-        CString sPathList(_T("Path1*c:\\path2 with spaces and stuff*\\funnypath\\*"));
+        CString sPathList(L"Path1*c:\\path2 with spaces and stuff*\\funnypath\\*");
         CTSVNPathList testList;
         testList.LoadFromAsteriskSeparatedString(sPathList);
 
         ATLASSERT(testList.GetCount() == 3);
-        ATLASSERT(testList[0].GetWinPathString() == CString(buf) + _T("\\Path1"));
-        ATLASSERT(testList[1].GetWinPathString() == _T("c:\\path2 with spaces and stuff"));
-        ATLASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
+        ATLASSERT(testList[0].GetWinPathString() == CString(buf) + L"\\Path1");
+        ATLASSERT(testList[1].GetWinPathString() == L"c:\\path2 with spaces and stuff");
+        ATLASSERT(testList[2].GetWinPathString() == L"\\funnypath");
 
         ATLASSERT(testList.GetCommonRoot().GetWinPathString().IsEmpty());
-        sPathList = _T("c:\\path2 with spaces and stuff*c:\\funnypath\\*");
+        sPathList = L"c:\\path2 with spaces and stuff*c:\\funnypath\\*";
         testList.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T("c:\\"));
+        ATLASSERT(testList.GetCommonRoot().GetWinPathString() == L"c:\\");
     }
 #endif
 
@@ -1387,18 +1387,18 @@ private:
     {
 
         CTSVNPath testPath;
-        testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
+        testPath.SetFromWin(L"c:\\a\\b\\c\\d\\e");
         CTSVNPath dir;
         dir = testPath.GetContainingDirectory();
-        ATLASSERT(dir.GetWinPathString() == _T("c:\\a\\b\\c\\d"));
+        ATLASSERT(dir.GetWinPathString() == L"c:\\a\\b\\c\\d");
         dir = dir.GetContainingDirectory();
-        ATLASSERT(dir.GetWinPathString() == _T("c:\\a\\b\\c"));
+        ATLASSERT(dir.GetWinPathString() == L"c:\\a\\b\\c");
         dir = dir.GetContainingDirectory();
-        ATLASSERT(dir.GetWinPathString() == _T("c:\\a\\b"));
+        ATLASSERT(dir.GetWinPathString() == L"c:\\a\\b");
         dir = dir.GetContainingDirectory();
-        ATLASSERT(dir.GetWinPathString() == _T("c:\\a"));
+        ATLASSERT(dir.GetWinPathString() == L"c:\\a");
         dir = dir.GetContainingDirectory();
-        ATLASSERT(dir.GetWinPathString() == _T("c:\\"));
+        ATLASSERT(dir.GetWinPathString() == L"c:\\");
         dir = dir.GetContainingDirectory();
         ATLASSERT(dir.IsEmpty());
         ATLASSERT(dir.GetWinPathString().IsEmpty());
@@ -1407,76 +1407,76 @@ private:
     void AncestorTest()
     {
         CTSVNPath testPath;
-        testPath.SetFromWin(_T("c:\\windows"));
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\")))==false);
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows"))));
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windowsdummy")))==false);
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows\\test.txt"))));
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows\\system32\\test.txt"))));
+        testPath.SetFromWin(L"c:\\windows");
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\"))==false);
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows")));
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windowsdummy"))==false);
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows\\test.txt")));
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows\\system32\\test.txt")));
     }
 
     void SubversionPathTest()
     {
         CTSVNPath testPath;
-        testPath.SetFromWin(_T("c:\\"));
+        testPath.SetFromWin(L"c:\\");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/") == 0);
-        testPath.SetFromWin(_T("c:\\folder"));
+        testPath.SetFromWin(L"c:\\folder");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/folder") == 0);
-        testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
+        testPath.SetFromWin(L"c:\\a\\b\\c\\d\\e");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/a/b/c/d/e") == 0);
-        testPath.SetFromUnknown(_T("http://testing/"));
+        testPath.SetFromUnknown(L"http://testing/");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
         testPath.SetFromSVN(NULL);
         ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
-        testPath.SetFromWin(_T("\\\\a\\b\\c\\d\\e"));
+        testPath.SetFromWin(L"\\\\a\\b\\c\\d\\e");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
         testPath.SetFromWin(L"\\\\?\\C:\\Windows");
         ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
         testPath.SetFromUnknown(L"\\\\?\\C:\\Windows");
         ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
 #if defined(_MFC_VER)
-        testPath.SetFromUnknown(_T("http://testing again"));
+        testPath.SetFromUnknown(L"http://testing again");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
-        testPath.SetFromUnknown(_T("http://testing%20again"));
+        testPath.SetFromUnknown(L"http://testing%20again");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
-        testPath.SetFromUnknown(_T("http://testing special chars \344\366\374"));
+        testPath.SetFromUnknown(L"http://testing special chars \344\366\374");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%c3%a4%c3%b6%c3%bc") == 0);
 #endif
     }
 
     void GetCommonRootTest()
     {
-        CTSVNPath pathA (_T("C:\\Development\\LogDlg.cpp"));
-        CTSVNPath pathB (_T("C:\\Development\\LogDlg.h"));
-        CTSVNPath pathC (_T("C:\\Development\\SomeDir\\LogDlg.h"));
+        CTSVNPath pathA (L"C:\\Development\\LogDlg.cpp");
+        CTSVNPath pathB (L"C:\\Development\\LogDlg.h");
+        CTSVNPath pathC (L"C:\\Development\\SomeDir\\LogDlg.h");
 
         CTSVNPathList list;
         list.AddPath(pathA);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development\\LogDlg.cpp"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development\\LogDlg.cpp")==0);
         list.AddPath(pathB);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development")==0);
         list.AddPath(pathC);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development")==0);
 #ifdef _MFC_VER
-        CString sPathList = _T("D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs");
+        CString sPathList = L"D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("D:\\Development\\StExBar"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"D:\\Development\\StExBar")==0);
 
-        sPathList = _T("c:\\windows\\explorer.exe*c:\\windows");
+        sPathList = L"c:\\windows\\explorer.exe*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
 
-        sPathList = _T("c:\\windows\\*c:\\windows");
+        sPathList = L"c:\\windows\\*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
 
-        sPathList = _T("c:\\windows\\system32*c:\\windows\\system");
+        sPathList = L"c:\\windows\\system32*c:\\windows\\system";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
 
-        sPathList = _T("c:\\windowsdummy*c:\\windows");
+        sPathList = L"c:\\windowsdummy*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\"))==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\")==0);
 
         sPathList = L"https://svn.test.com/appidgd3fbn16y8*https://svn.test.com/appid";
         list.LoadFromAsteriskSeparatedString(sPathList);
@@ -1487,92 +1487,92 @@ private:
     void ValidPathAndUrlTest()
     {
         CTSVNPath testPath;
-        testPath.SetFromWin(_T("c:\\a\\b\\c.test.txt"));
+        testPath.SetFromWin(L"c:\\a\\b\\c.test.txt");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\"));
+        testPath.SetFromWin(L"c:\\");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("D:\\.Net\\SpindleSearch\\"));
+        testPath.SetFromWin(L"D:\\.Net\\SpindleSearch\\");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c"));
+        testPath.SetFromWin(L"c");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\test folder\\file"));
+        testPath.SetFromWin(L"c:\\test folder\\file");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\folder\\"));
+        testPath.SetFromWin(L"c:\\folder\\");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\ext.ext.ext\\ext.ext.ext.ext"));
+        testPath.SetFromWin(L"c:\\ext.ext.ext\\ext.ext.ext.ext");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\.svn"));
+        testPath.SetFromWin(L"c:\\.svn");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\com\\file"));
+        testPath.SetFromWin(L"c:\\com\\file");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\test\\conf"));
+        testPath.SetFromWin(L"c:\\test\\conf");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\LPT"));
+        testPath.SetFromWin(L"c:\\LPT");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\test\\LPT"));
+        testPath.SetFromWin(L"c:\\test\\LPT");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\com1test"));
+        testPath.SetFromWin(L"c:\\com1test");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("\\\\?\\c:\\test\\com1test"));
+        testPath.SetFromWin(L"\\\\?\\c:\\test\\com1test");
         ATLASSERT(testPath.IsValidOnWindows());
 
-        testPath.SetFromWin(_T("\\\\Share\\filename"));
+        testPath.SetFromWin(L"\\\\Share\\filename");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("\\\\Share\\filename.extension"));
+        testPath.SetFromWin(L"\\\\Share\\filename.extension");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("\\\\Share\\.svn"));
+        testPath.SetFromWin(L"\\\\Share\\.svn");
         ATLASSERT(testPath.IsValidOnWindows());
 
         // now the negative tests
-        testPath.SetFromWin(_T("c:\\test:folder"));
+        testPath.SetFromWin(L"c:\\test:folder");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\file<name"));
+        testPath.SetFromWin(L"c:\\file<name");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\something*else"));
+        testPath.SetFromWin(L"c:\\something*else");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\folder\\file?nofile"));
+        testPath.SetFromWin(L"c:\\folder\\file?nofile");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\ext.>ension"));
+        testPath.SetFromWin(L"c:\\ext.>ension");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\com1\\filename"));
+        testPath.SetFromWin(L"c:\\com1\\filename");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\com1"));
+        testPath.SetFromWin(L"c:\\com1");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("c:\\com1\\AuX"));
+        testPath.SetFromWin(L"c:\\com1\\AuX");
         ATLASSERT(!testPath.IsValidOnWindows());
 
-        testPath.SetFromWin(_T("\\\\Share\\lpt9\\filename"));
+        testPath.SetFromWin(L"\\\\Share\\lpt9\\filename");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("\\\\Share\\prn"));
+        testPath.SetFromWin(L"\\\\Share\\prn");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromWin(_T("\\\\Share\\NUL"));
+        testPath.SetFromWin(L"\\\\Share\\NUL");
         ATLASSERT(!testPath.IsValidOnWindows());
 
         // now come some URL tests
-        testPath.SetFromSVN(_T("http://myserver.com/repos/trunk"));
+        testPath.SetFromSVN(L"http://myserver.com/repos/trunk");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("https://myserver.com/repos/trunk/file%20with%20spaces"));
+        testPath.SetFromSVN(L"https://myserver.com/repos/trunk/file%20with%20spaces");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("svn://myserver.com/repos/trunk/file with spaces"));
+        testPath.SetFromSVN(L"svn://myserver.com/repos/trunk/file with spaces");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("svn+ssh://www.myserver.com/repos/trunk"));
+        testPath.SetFromSVN(L"svn+ssh://www.myserver.com/repos/trunk");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("http://localhost:90/repos/trunk"));
+        testPath.SetFromSVN(L"http://localhost:90/repos/trunk");
         ATLASSERT(testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("file:///C:/SVNRepos/Tester/Proj1/tags/t2"));
+        testPath.SetFromSVN(L"file:///C:/SVNRepos/Tester/Proj1/tags/t2");
         ATLASSERT(testPath.IsValidOnWindows());
         // and some negative URL tests
-        testPath.SetFromSVN(_T("https://myserver.com/rep:os/trunk/file%20with%20spaces"));
+        testPath.SetFromSVN(L"https://myserver.com/rep:os/trunk/file%20with%20spaces");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("svn://myserver.com/rep<os/trunk/file with spaces"));
+        testPath.SetFromSVN(L"svn://myserver.com/rep<os/trunk/file with spaces");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("svn+ssh://www.myserver.com/repos/trunk/prn/"));
+        testPath.SetFromSVN(L"svn+ssh://www.myserver.com/repos/trunk/prn/");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/com1"));
+        testPath.SetFromSVN(L"http://localhost:90/repos/trunk/com1");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/Blame3-%3Eblame.cpp"));
+        testPath.SetFromSVN(L"http://localhost:90/repos/trunk/Blame3-%3Eblame.cpp");
         ATLASSERT(!testPath.IsValidOnWindows());
-        testPath.SetFromSVN(_T(""));
+        testPath.SetFromSVN(L"");
         ATLASSERT(!testPath.IsUrl());
     }
 

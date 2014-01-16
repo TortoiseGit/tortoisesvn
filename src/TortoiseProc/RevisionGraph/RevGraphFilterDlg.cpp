@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,10 +25,10 @@ IMPLEMENT_DYNAMIC(CRevGraphFilterDlg, CDialog)
 
 CRevGraphFilterDlg::CRevGraphFilterDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CRevGraphFilterDlg::IDD, pParent)
-    , m_sFilterPaths(_T(""))
+    , m_sFilterPaths(L"")
     , m_removeSubTree (FALSE)
-    , m_sFromRev(_T(""))
-    , m_sToRev(_T(""))
+    , m_sFromRev(L"")
+    , m_sToRev(L"")
     , m_minrev (1)
     , m_maxrev (1)
     , m_HeadRev(-1)

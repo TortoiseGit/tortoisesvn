@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2013 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,9 +21,9 @@
 
 
 const UINT CFilterEdit::WM_FILTEREDIT_INFOCLICKED
-                = ::RegisterWindowMessage(_T("TSVNWM_FILTEREDIT_INFOCLICKED"));
+                = ::RegisterWindowMessage(L"TSVNWM_FILTEREDIT_INFOCLICKED");
 const UINT CFilterEdit::WM_FILTEREDIT_CANCELCLICKED
-                = ::RegisterWindowMessage(_T("TSVNWM_FILTEREDIT_CANCELCLICKED"));
+                = ::RegisterWindowMessage(L"TSVNWM_FILTEREDIT_CANCELCLICKED");
 
 IMPLEMENT_DYNAMIC(CFilterEdit, CEdit)
 
@@ -230,7 +230,7 @@ void CFilterEdit::OnLButtonUp(UINT nFlags, CPoint point)
     InvalidateRect(NULL);
     if (m_rcButtonArea.PtInRect(point))
     {
-        SetWindowText(_T(""));
+        SetWindowText(L"");
         CWnd *pOwner = GetOwner();
         if (pOwner)
         {
@@ -413,7 +413,7 @@ LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
 
         // elimate control chars, especially newlines
 
-        toInsert.Replace(_T("\r\n"), _T(" "));
+        toInsert.Replace(L"\r\n", L" ");
         toInsert.Replace(_T('\r'), _T(' '));
         toInsert.Replace(_T('\n'), _T(' '));
         toInsert.Replace(_T('\t'), _T(' '));

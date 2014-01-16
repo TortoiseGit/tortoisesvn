@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,9 +30,9 @@
 IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableStandAloneDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CCheckoutDlg::IDD, pParent)
-    , Revision(_T("HEAD"))
-    , m_strCheckoutDirectory(_T(""))
-    , m_sCheckoutDirOrig(_T(""))
+    , Revision(L"HEAD")
+    , m_strCheckoutDirectory(L"")
+    , m_sCheckoutDirOrig(L"")
     , m_bNoExternals(FALSE)
     , m_pLogDlg(NULL)
     , m_standardCheckout(true)
@@ -109,12 +109,12 @@ void CCheckoutDlg::UpdateURLsFromCombo()
 
     if ((m_strCheckoutDirectory.IsEmpty()) && !m_blockPathAdjustments)
     {
-        CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+        CRegString lastCheckoutPath = CRegString(L"Software\\TortoiseSVN\\History\\lastCheckoutPath");
         m_strCheckoutDirectory = lastCheckoutPath;
         if (m_strCheckoutDirectory.GetLength() <= 2)
-            m_strCheckoutDirectory += _T("\\");
+            m_strCheckoutDirectory += L"\\";
     }
-    m_strCheckoutDirectory.Replace(_T(":\\\\"), _T(":\\"));
+    m_strCheckoutDirectory.Replace(L":\\\\", L":\\");
 
     // update UI
 
@@ -136,7 +136,7 @@ void CCheckoutDlg::SetRevision(const SVNRev& rev)
     {
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
         CString sRev;
-        sRev.Format(_T("%ld"), (LONG)rev);
+        sRev.Format(L"%ld", (LONG)rev);
         SetDlgItemText(IDC_REVISION_NUM, sRev);
     }
 }
@@ -158,7 +158,7 @@ BOOL CCheckoutDlg::OnInitDialog()
     CString sUrlSave = m_URLs.CreateAsteriskSeparatedString();
     m_URLCombo.SetURLHistory(true, true);
     m_bAutoCreateTargetName = FALSE;
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
     m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sCheckoutDirOrig) || !PathFileExists(m_sCheckoutDirOrig));
     m_URLCombo.SetCurSel(0);
 
@@ -171,7 +171,7 @@ BOOL CCheckoutDlg::OnInitDialog()
     // set radio buttons according to the revision
     SetRevision(Revision);
 
-    m_editRevision.SetWindowText(_T(""));
+    m_editRevision.SetWindowText(L"");
 
     if (!sUrlSave.IsEmpty())
     {
@@ -193,15 +193,15 @@ BOOL CCheckoutDlg::OnInitDialog()
     if (!Revision.IsHead())
     {
         CString temp;
-        temp.Format(_T("%ld"), (LONG)Revision);
+        temp.Format(L"%ld", (LONG)Revision);
         m_editRevision.SetWindowText(temp);
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     }
 
     UpdateURLsFromCombo();
 
-    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_URLOFREPO)));
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKOUTDIRECTORY)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_EXPORT_CHECKOUTDIR)));
+    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_URLOFREPO)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKOUTDIRECTORY)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_EXPORT_CHECKOUTDIR)));
 
     AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
@@ -234,7 +234,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("CheckoutDlg"));
+    EnableSaveRestore(L"CheckoutDlg");
     return TRUE;
 }
 
@@ -278,7 +278,7 @@ void CCheckoutDlg::OnOK()
     if (::PathIsRelative(m_strCheckoutDirectory))
     {
         checkoutDirectory = CTSVNPath(sOrigCWD);
-        checkoutDirectory.AppendPathString(_T("\\") + m_strCheckoutDirectory);
+        checkoutDirectory.AppendPathString(L"\\" + m_strCheckoutDirectory);
         m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
     }
     else
@@ -395,7 +395,7 @@ void CCheckoutDlg::OnOK()
                 }
                 else
                 {
-                    doIt = (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
+                    doIt = (::MessageBox(this->m_hWnd, message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
                 }
 
                 if (!doIt)
@@ -420,7 +420,7 @@ void CCheckoutDlg::OnOK()
         {
             CString message;
             message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strCheckoutDirectory);
-            if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+            if (::MessageBox(this->m_hWnd, message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) != IDYES)
             {
                 m_bAutoCreateTargetName = bAutoCreateTargetName;
                 m_bBlockMessages = false;
@@ -432,7 +432,7 @@ void CCheckoutDlg::OnOK()
     // store state info & close dialog
 
     UpdateData(FALSE);
-    CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+    CRegString lastCheckoutPath = CRegString(L"Software\\TortoiseSVN\\History\\lastCheckoutPath");
     lastCheckoutPath = m_strCheckoutDirectory.Left(m_strCheckoutDirectory.ReverseFind('\\'));
     CResizableStandAloneDialog::OnOK();
 }
@@ -517,7 +517,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
 LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%Id"), lParam);
+    temp.Format(L"%Id", lParam);
     SetDlgItemText(IDC_REVISION_NUM, temp);
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;
@@ -569,7 +569,7 @@ void CCheckoutDlg::OnBnClickedSparse()
     if (strURLs.IsEmpty())
         strURLs = m_URLCombo.GetString();
     strURLs.Replace('\\', '/');
-    strURLs.Replace(_T("%"), _T("%25"));
+    strURLs.Replace(L"%", L"%25");
 
     CTSVNPathList paths;
     paths.LoadFromAsteriskSeparatedString (strURLs);
@@ -593,7 +593,7 @@ void CCheckoutDlg::OnBnClickedSparse()
 SVNRev CCheckoutDlg::GetSelectedRevision()
 {
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-        return SVNRev(_T("HEAD"));
+        return SVNRev(L"HEAD");
 
     return SVNRev(m_sRevision);
 }

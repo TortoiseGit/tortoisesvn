@@ -79,7 +79,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
         } while ((errtemp = errtemp->child) != NULL);
         if (can_return)
             return err;
-        if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+        if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==FALSE)
         {
             CCrashReport::Instance().Uninstall();
             CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 5000);
@@ -91,7 +91,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     CStringA sFormatErr;
     sFormatErr.Format("Subversion error in TSVNCache: file %s, line %ld, error %s\n", file, line, expr);
     OutputDebugStringA(sFormatErr);
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+    if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==FALSE)
     {
         CCrashReport::Instance().Uninstall();
         CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 5000);
@@ -149,7 +149,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     {
         return 0;
     }
-    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
+    if (CRegStdDWORD(L"Software\\TortoiseSVN\\CacheTrayIcon", FALSE)==TRUE)
     {
         SecureZeroMemory(&niData,sizeof(NOTIFYICONDATA));
 
@@ -239,7 +239,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_MOUSEMOVE:
             {
                 CString sInfoTip;
-                sInfoTip.Format(_T("Cached Directories : %Id\nWatched paths : %d"),
+                sInfoTip.Format(L"Cached Directories : %Id\nWatched paths : %d",
                     CSVNStatusCache::Instance().GetCacheSize(),
                     CSVNStatusCache::Instance().GetNumberOfWatchedPaths());
 
@@ -260,7 +260,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 HMENU hMenu = CreatePopupMenu();
                 if(hMenu)
                 {
-                    InsertMenu(hMenu, (UINT)-1, MF_BYPOSITION, TRAYPOP_EXIT, _T("Exit"));
+                    InsertMenu(hMenu, (UINT)-1, MF_BYPOSITION, TRAYPOP_EXIT, L"Exit");
                     SetForegroundWindow(hWnd);
                     TrackPopupMenu(hMenu, TPM_BOTTOMALIGN, pt.x, pt.y, 0, hWnd, NULL);
                     DestroyMenu(hMenu);
@@ -386,7 +386,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         {
                             TCHAR driveletter = 'A' + i;
                             CString drive = CString(driveletter);
-                            drive += _T(":\\");
+                            drive += L":\\";
                             CSVNStatusCache::Instance().CloseWatcherHandles(CTSVNPath(drive));
                         }
                     }
@@ -425,12 +425,12 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
     if (readLock.IsAcquired())
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": app asked for status of %s\n"), pRequest->path);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": app asked for status of %s\n", pRequest->path);
         CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
     }
     else
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": timeout for asked status of %s\n"), pRequest->path);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": timeout for asked status of %s\n", pRequest->path);
         CStatusCacheEntry entry;
         entry.BuildCacheResponse(*pReply, *pResponseLength);
     }
@@ -732,7 +732,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(command.path, true);
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": release handle for path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": release handle for path %s\n", changedpath.GetWinPath());
                     CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                     CSVNStatusCache::Instance().CloseWatcherHandles(changedpath);
                     CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
@@ -742,7 +742,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(command.path);
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": block path %s\n", changedpath.GetWinPath());
                     CSVNStatusCache::Instance().BlockPath(changedpath, false);
                 }
                 break;
@@ -750,7 +750,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(command.path);
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": unblock path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": unblock path %s\n", changedpath.GetWinPath());
                     CSVNStatusCache::Instance().UnBlockPath(changedpath);
                 }
                 break;

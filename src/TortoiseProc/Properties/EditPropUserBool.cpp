@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013 - TortoiseSVN
+// Copyright (C) 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ IMPLEMENT_DYNAMIC(EditPropUserBool, CStandAloneDialog)
 EditPropUserBool::EditPropUserBool(CWnd* pParent, const UserProp * p)
     : CStandAloneDialog(EditPropUserBool::IDD, pParent)
     , EditPropBase()
-    , m_sLabel(_T(""))
+    , m_sLabel(L"")
     , m_bChecked(FALSE)
     , m_userprop(p)
 {

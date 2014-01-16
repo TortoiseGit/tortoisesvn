@@ -59,7 +59,7 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
     const CString& basename /*= CString()*/, const CString& theirname /*= CString()*/, const CString& yourname /*= CString()*/, const CString& mergedname /*= CString()*/, const CString& filename /*= CString()*/)
 {
 
-    CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
+    CRegString regCom = CRegString(L"Software\\TortoiseSVN\\Merge");
     CString ext = mergedfile.GetFileExtension();
     CString com = regCom;
     bool bInternal = false;
@@ -69,7 +69,7 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
     if (!ext.IsEmpty())
     {
         // is there an extension specific merge tool?
-        CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + ext.MakeLower());
+        CRegString mergetool(L"Software\\TortoiseSVN\\MergeTools\\" + ext.MakeLower());
         if (!CString(mergetool).IsEmpty())
         {
             com = mergetool;
@@ -78,14 +78,14 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
     if (GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
     {
         // is there a mime type specific merge tool?
-        CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + mimetype);
+        CRegString mergetool(L"Software\\TortoiseSVN\\MergeTools\\" + mimetype);
         if (CString(mergetool) != "")
         {
             com = mergetool;
         }
     }
     // is there a filename specific merge tool?
-    CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\.") + mergedfile.GetFilename().MakeLower());
+    CRegString mergetool(L"Software\\TortoiseSVN\\MergeTools\\." + mergedfile.GetFilename().MakeLower());
     if (!CString(mergetool).IsEmpty())
     {
         com = mergetool;
@@ -93,34 +93,34 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 
     if ((flags.bAlternativeTool)&&(!com.IsEmpty()))
     {
-        if (com.Left(1).Compare(_T("#"))==0)
+        if (com.Left(1).Compare(L"#")==0)
             com.Delete(0);
         else
             com.Empty();
     }
 
-    if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
+    if (com.IsEmpty()||(com.Left(1).Compare(L"#")==0))
     {
         // Maybe we should use TortoiseIDiff?
-        if ((ext == _T(".jpg")) || (ext == _T(".jpeg")) ||
-            (ext == _T(".bmp")) || (ext == _T(".gif"))  ||
-            (ext == _T(".png")) || (ext == _T(".ico"))  ||
-            (ext == _T(".tif")) || (ext == _T(".tiff"))  ||
-            (ext == _T(".dib")) || (ext == _T(".emf")))
+        if ((ext == L".jpg") || (ext == L".jpeg") ||
+            (ext == L".bmp") || (ext == L".gif")  ||
+            (ext == L".png") || (ext == L".ico")  ||
+            (ext == L".tif") || (ext == L".tiff")  ||
+            (ext == L".dib") || (ext == L".emf"))
         {
-            com = CPathUtils::GetAppDirectory() + _T("TortoiseIDiff.exe");
-            com = _T("\"") + com + _T("\"");
-            com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /result:%merged");
-            com = com + _T(" /basetitle:%bname /theirstitle:%tname /minetitle:%yname");
+            com = CPathUtils::GetAppDirectory() + L"TortoiseIDiff.exe";
+            com = L"\"" + com + L"\"";
+            com = com + L" /base:%base /theirs:%theirs /mine:%mine /result:%merged";
+            com = com + L" /basetitle:%bname /theirstitle:%tname /minetitle:%yname";
         }
         else
         {
             // use TortoiseMerge
             bInternal = true;
-            com = CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe");
-            com = _T("\"") + com + _T("\"");
-            com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
-            com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
+            com = CPathUtils::GetAppDirectory() + L"TortoiseMerge.exe";
+            com = L"\"" + com + L"\"";
+            com = com + L" /base:%base /theirs:%theirs /mine:%mine /merged:%merged";
+            com = com + L" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname";
         }
         if (!g_sGroupingUUID.IsEmpty())
         {
@@ -144,130 +144,130 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         }
     }
     // check if the params are set. If not, just add the files to the command line
-    if ((com.Find(_T("%merged"))<0)&&(com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))
+    if ((com.Find(L"%merged")<0)&&(com.Find(L"%base")<0)&&(com.Find(L"%theirs")<0)&&(com.Find(L"%mine")<0))
     {
-        com += _T(" \"")+basefile.GetWinPathString()+_T("\"");
-        com += _T(" \"")+theirfile.GetWinPathString()+_T("\"");
-        com += _T(" \"")+yourfile.GetWinPathString()+_T("\"");
-        com += _T(" \"")+mergedfile.GetWinPathString()+_T("\"");
+        com += L" \""+basefile.GetWinPathString()+L"\"";
+        com += L" \""+theirfile.GetWinPathString()+L"\"";
+        com += L" \""+yourfile.GetWinPathString()+L"\"";
+        com += L" \""+mergedfile.GetWinPathString()+L"\"";
     }
     if (basefile.IsEmpty())
     {
-        com.Replace(_T("/base:%base"), _T(""));
-        com.Replace(_T("%base"), _T(""));
+        com.Replace(L"/base:%base", L"");
+        com.Replace(L"%base", L"");
     }
     else
-        com.Replace(_T("%base"), _T("\"") + basefile.GetWinPathString() + _T("\""));
+        com.Replace(L"%base", L"\"" + basefile.GetWinPathString() + L"\"");
     if (theirfile.IsEmpty())
     {
-        com.Replace(_T("/theirs:%theirs"), _T(""));
-        com.Replace(_T("%theirs"), _T(""));
+        com.Replace(L"/theirs:%theirs", L"");
+        com.Replace(L"%theirs", L"");
     }
     else
-        com.Replace(_T("%theirs"), _T("\"") + theirfile.GetWinPathString() + _T("\""));
+        com.Replace(L"%theirs", L"\"" + theirfile.GetWinPathString() + L"\"");
     if (yourfile.IsEmpty())
     {
-        com.Replace(_T("/mine:%mine"), _T(""));
-        com.Replace(_T("%mine"), _T(""));
+        com.Replace(L"/mine:%mine", L"");
+        com.Replace(L"%mine", L"");
     }
     else
-        com.Replace(_T("%mine"), _T("\"") + yourfile.GetWinPathString() + _T("\""));
+        com.Replace(L"%mine", L"\"" + yourfile.GetWinPathString() + L"\"");
     if (mergedfile.IsEmpty())
     {
-        com.Replace(_T("/merged:%merged"), _T(""));
-        com.Replace(_T("%merged"), _T(""));
+        com.Replace(L"/merged:%merged", L"");
+        com.Replace(L"%merged", L"");
     }
     else
-        com.Replace(_T("%merged"), _T("\"") + mergedfile.GetWinPathString() + _T("\""));
+        com.Replace(L"%merged", L"\"" + mergedfile.GetWinPathString() + L"\"");
     if (basename.IsEmpty())
     {
         if (basefile.IsEmpty())
         {
-            com.Replace(_T("/basename:%bname"), _T(""));
-            com.Replace(_T("%bname"), _T(""));
-            com.Replace(_T("%nqbname"), _T(""));
+            com.Replace(L"/basename:%bname", L"");
+            com.Replace(L"%bname", L"");
+            com.Replace(L"%nqbname", L"");
         }
         else
         {
-            com.Replace(_T("%bname"), _T("\"") + basefile.GetUIFileOrDirectoryName() + _T("\""));
-            com.Replace(_T("%nqbname"), basefile.GetUIFileOrDirectoryName());
+            com.Replace(L"%bname", L"\"" + basefile.GetUIFileOrDirectoryName() + L"\"");
+            com.Replace(L"%nqbname", basefile.GetUIFileOrDirectoryName());
         }
     }
     else
     {
-        com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
-        com.Replace(_T("%nqbname"), basename);
+        com.Replace(L"%bname", L"\"" + basename + L"\"");
+        com.Replace(L"%nqbname", basename);
     }
     if (theirname.IsEmpty())
     {
         if (theirfile.IsEmpty())
         {
-            com.Replace(_T("/theirsname:%tname"), _T(""));
-            com.Replace(_T("%tname"), _T(""));
-            com.Replace(_T("%nqtname"), _T(""));
+            com.Replace(L"/theirsname:%tname", L"");
+            com.Replace(L"%tname", L"");
+            com.Replace(L"%nqtname", L"");
         }
         else
         {
-            com.Replace(_T("%tname"), _T("\"") + theirfile.GetUIFileOrDirectoryName() + _T("\""));
-            com.Replace(_T("%nqtname"), theirfile.GetUIFileOrDirectoryName());
+            com.Replace(L"%tname", L"\"" + theirfile.GetUIFileOrDirectoryName() + L"\"");
+            com.Replace(L"%nqtname", theirfile.GetUIFileOrDirectoryName());
         }
     }
     else
     {
-        com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
-        com.Replace(_T("%nqtname"), theirname);
+        com.Replace(L"%tname", L"\"" + theirname + L"\"");
+        com.Replace(L"%nqtname", theirname);
     }
     if (yourname.IsEmpty())
     {
         if (yourfile.IsEmpty())
         {
-            com.Replace(_T("/minename:%yname"), _T(""));
-            com.Replace(_T("%yname"), _T(""));
-            com.Replace(_T("%nqyname"), _T(""));
+            com.Replace(L"/minename:%yname", L"");
+            com.Replace(L"%yname", L"");
+            com.Replace(L"%nqyname", L"");
         }
         else
         {
-            com.Replace(_T("%yname"), _T("\"") + yourfile.GetUIFileOrDirectoryName() + _T("\""));
-            com.Replace(_T("%nqyname"), yourfile.GetUIFileOrDirectoryName());
+            com.Replace(L"%yname", L"\"" + yourfile.GetUIFileOrDirectoryName() + L"\"");
+            com.Replace(L"%nqyname", yourfile.GetUIFileOrDirectoryName());
         }
     }
     else
     {
-        com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
-        com.Replace(_T("%nqyname"), yourname);
+        com.Replace(L"%yname", L"\"" + yourname + L"\"");
+        com.Replace(L"%nqyname", yourname);
     }
     if (mergedname.IsEmpty())
     {
         if (mergedfile.IsEmpty())
         {
-            com.Replace(_T("/mergedname:%mname"), _T(""));
-            com.Replace(_T("%mname"), _T(""));
-            com.Replace(_T("%nqmname"), _T(""));
+            com.Replace(L"/mergedname:%mname", L"");
+            com.Replace(L"%mname", L"");
+            com.Replace(L"%nqmname", L"");
         }
         else
         {
-            com.Replace(_T("%mname"), _T("\"") + mergedfile.GetUIFileOrDirectoryName() + _T("\""));
-            com.Replace(_T("%nqmname"), mergedfile.GetUIFileOrDirectoryName());
+            com.Replace(L"%mname", L"\"" + mergedfile.GetUIFileOrDirectoryName() + L"\"");
+            com.Replace(L"%nqmname", mergedfile.GetUIFileOrDirectoryName());
         }
     }
     else
     {
-        com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
-        com.Replace(_T("%nqmname"), mergedname);
+        com.Replace(L"%mname", L"\"" + mergedname + L"\"");
+        com.Replace(L"%nqmname", mergedname);
     }
     if (filename.IsEmpty())
     {
-        com.Replace(_T("%fname"), _T(""));
-        com.Replace(_T("%nqfname"), _T(""));
+        com.Replace(L"%fname", L"");
+        com.Replace(L"%nqfname", L"");
     }
     else
     {
-        com.Replace(_T("%fname"), _T("\"") + filename + _T("\""));
-        com.Replace(_T("%nqfname"), filename);
+        com.Replace(L"%fname", L"\"" + filename + L"\"");
+        com.Replace(L"%nqfname", filename);
     }
 
     if ((flags.bReadOnly)&&(bInternal))
-        com += _T(" /readonly");
+        com += L" /readonly";
 
     if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))
     {
@@ -282,17 +282,17 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
     CString viewer;
     // use TortoiseMerge
     viewer = CPathUtils::GetAppDirectory();
-    viewer += _T("TortoiseMerge.exe");
+    viewer += L"TortoiseMerge.exe";
 
-    viewer = _T("\"") + viewer + _T("\"");
-    viewer = viewer + _T(" /diff:\"") + patchfile.GetWinPathString() + _T("\"");
-    viewer = viewer + _T(" /patchpath:\"") + dir.GetWinPathString() + _T("\"");
+    viewer = L"\"" + viewer + L"\"";
+    viewer = viewer + L" /diff:\"" + patchfile.GetWinPathString() + L"\"";
+    viewer = viewer + L" /patchpath:\"" + dir.GetWinPathString() + L"\"";
     if (bReversed)
-        viewer += _T(" /reversedpatch");
+        viewer += L" /reversedpatch";
     if (!sOriginalDescription.IsEmpty())
-        viewer = viewer + _T(" /patchoriginal:\"") + sOriginalDescription + _T("\"");
+        viewer = viewer + L" /patchoriginal:\"" + sOriginalDescription + L"\"";
     if (!sPatchedDescription.IsEmpty())
-        viewer = viewer + _T(" /patchpatched:\"") + sPatchedDescription + _T("\"");
+        viewer = viewer + L" /patchpatched:\"" + sPatchedDescription + L"\"";
     if (!g_sGroupingUUID.IsEmpty())
     {
         viewer += L" /groupuuid:\"";
@@ -308,10 +308,10 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 
 CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 {
-    CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFilename().MakeLower());
+    CString difftool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + file2.GetFilename().MakeLower());
     if (!difftool.IsEmpty())
         return difftool;
-    difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + file1.GetFilename().MakeLower());
+    difftool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + file1.GetFilename().MakeLower());
     if (!difftool.IsEmpty())
         return difftool;
 
@@ -319,7 +319,7 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
     CString mimetype;
     if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
     {
-        CString mimetool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
+        CString mimetool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + mimetype);
         if (!mimetool.IsEmpty())
             return mimetool;
     }
@@ -328,25 +328,25 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
     CString ext = file2.GetFileExtension().MakeLower();
     if (!ext.IsEmpty())
     {
-        CString exttool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
+        CString exttool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + ext);
         if (!exttool.IsEmpty())
             return exttool;
         // Maybe we should use TortoiseIDiff?
-        if ((ext == _T(".jpg")) || (ext == _T(".jpeg")) ||
-            (ext == _T(".bmp")) || (ext == _T(".gif"))  ||
-            (ext == _T(".png")) || (ext == _T(".ico"))  ||
-            (ext == _T(".tif")) || (ext == _T(".tiff"))  ||
-            (ext == _T(".dib")) || (ext == _T(".emf")))
+        if ((ext == L".jpg") || (ext == L".jpeg") ||
+            (ext == L".bmp") || (ext == L".gif")  ||
+            (ext == L".png") || (ext == L".ico")  ||
+            (ext == L".tif") || (ext == L".tiff")  ||
+            (ext == L".dib") || (ext == L".emf"))
         {
             return
-                _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseIDiff.exe") + _T("\"") +
-                _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname") +
+                L"\"" + CPathUtils::GetAppDirectory() + L"TortoiseIDiff.exe" + L"\"" +
+                L" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname" +
                 L" /groupuuid:\"" + g_sGroupingUUID + L"\"";
         }
     }
 
     // Finally, pick a generic external diff tool
-    difftool = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+    difftool = CRegString(L"Software\\TortoiseSVN\\Diff");
     return difftool;
 }
 
@@ -366,12 +366,12 @@ bool CAppUtils::StartExtDiff(
 {
     CString viewer;
 
-    CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
+    CRegDWORD blamediff(L"Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge", FALSE);
     if (!flags.bBlame || !(DWORD)blamediff)
     {
         viewer = PickDiffTool(file1, file2);
         // If registry entry for a diff program is commented out, use TortoiseMerge.
-        bool bCommentedOut = viewer.Left(1) == _T("#");
+        bool bCommentedOut = viewer.Left(1) == L"#";
         if (flags.bAlternativeTool)
         {
             // Invert external vs. internal diff tool selection.
@@ -388,10 +388,10 @@ bool CAppUtils::StartExtDiff(
     if (bInternal)
     {
         viewer =
-            _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe") + _T("\"") +
-            _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
+            L"\"" + CPathUtils::GetAppDirectory() + L"TortoiseMerge.exe" + L"\"" +
+            L" /base:%base /mine:%mine /basename:%bname /minename:%yname";
         if (flags.bBlame)
-            viewer += _T(" /blame");
+            viewer += L" /blame";
         if (!g_sGroupingUUID.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
@@ -400,84 +400,84 @@ bool CAppUtils::StartExtDiff(
         }
     }
     // check if the params are set. If not, just add the files to the command line
-    if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
+    if ((viewer.Find(L"%base")<0)&&(viewer.Find(L"%mine")<0))
     {
-        viewer += _T(" \"")+file1.GetWinPathString()+_T("\"");
-        viewer += _T(" \"")+file2.GetWinPathString()+_T("\"");
+        viewer += L" \""+file1.GetWinPathString()+L"\"";
+        viewer += L" \""+file2.GetWinPathString()+L"\"";
     }
-    if (viewer.Find(_T("%base")) >= 0)
+    if (viewer.Find(L"%base") >= 0)
     {
-        viewer.Replace(_T("%base"),  _T("\"")+file1.GetWinPathString()+_T("\""));
+        viewer.Replace(L"%base",  L"\""+file1.GetWinPathString()+L"\"");
     }
-    if (viewer.Find(_T("%mine")) >= 0)
+    if (viewer.Find(L"%mine") >= 0)
     {
-        viewer.Replace(_T("%mine"),  _T("\"")+file2.GetWinPathString()+_T("\""));
+        viewer.Replace(L"%mine",  L"\""+file2.GetWinPathString()+L"\"");
     }
     if (sName1.IsEmpty())
     {
-        viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
-        viewer.Replace(_T("%nqbname"), file1.GetUIFileOrDirectoryName());
+        viewer.Replace(L"%bname", L"\"" + file1.GetUIFileOrDirectoryName() + L"\"");
+        viewer.Replace(L"%nqbname", file1.GetUIFileOrDirectoryName());
     }
     else
     {
-        viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
-        viewer.Replace(_T("%nqbname"), sName1);
+        viewer.Replace(L"%bname", L"\"" + sName1 + L"\"");
+        viewer.Replace(L"%nqbname", sName1);
     }
 
     if (sName2.IsEmpty())
     {
-        viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
-        viewer.Replace(_T("%nqyname"), file2.GetUIFileOrDirectoryName());
+        viewer.Replace(L"%yname", L"\"" + file2.GetUIFileOrDirectoryName() + L"\"");
+        viewer.Replace(L"%nqyname", file2.GetUIFileOrDirectoryName());
     }
     else
     {
-        viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
-        viewer.Replace(_T("%nqyname"), sName2);
+        viewer.Replace(L"%yname", L"\"" + sName2 + L"\"");
+        viewer.Replace(L"%nqyname", sName2);
     }
 
     if (sName.IsEmpty())
     {
-        viewer.Replace(_T("%fname"), L"");
-        viewer.Replace(_T("%nqfname"), L"");
+        viewer.Replace(L"%fname", L"");
+        viewer.Replace(L"%nqfname", L"");
     }
     else
     {
-        viewer.Replace(_T("%fname"), _T("\"") + sName + _T("\""));
-        viewer.Replace(_T("%nqfname"), sName);
+        viewer.Replace(L"%fname", L"\"" + sName + L"\"");
+        viewer.Replace(L"%nqfname", sName);
     }
 
-    if (viewer.Find(_T("%burl")) >= 0)
+    if (viewer.Find(L"%burl") >= 0)
     {
         CString s = L"\"" + url1.GetSVNPathString();
         s += L"\"";
-        viewer.Replace(_T("%burl"), s);
+        viewer.Replace(L"%burl", s);
     }
-    viewer.Replace(_T("%nqburl"), url1.GetSVNPathString());
+    viewer.Replace(L"%nqburl", url1.GetSVNPathString());
 
-    if (viewer.Find(_T("%yurl")) >= 0)
+    if (viewer.Find(L"%yurl") >= 0)
     {
         CString s = L"\"" + url2.GetSVNPathString();
         s += L"\"";
-        viewer.Replace(_T("%yurl"), s);
+        viewer.Replace(L"%yurl", s);
     }
-    viewer.Replace(_T("%nqyurl"), url2.GetSVNPathString());
+    viewer.Replace(L"%nqyurl", url2.GetSVNPathString());
 
-    viewer.Replace(_T("%brev"), _T("\"") + rev1.ToString() + _T("\""));
-    viewer.Replace(_T("%nqbrev"), rev1.ToString());
+    viewer.Replace(L"%brev", L"\"" + rev1.ToString() + L"\"");
+    viewer.Replace(L"%nqbrev", rev1.ToString());
 
-    viewer.Replace(_T("%yrev"), _T("\"") + rev2.ToString() + _T("\""));
-    viewer.Replace(_T("%nqyrev"), rev2.ToString());
+    viewer.Replace(L"%yrev", L"\"" + rev2.ToString() + L"\"");
+    viewer.Replace(L"%nqyrev", rev2.ToString());
 
-    viewer.Replace(_T("%peg"), _T("\"") + pegRev.ToString() + _T("\""));
-    viewer.Replace(_T("%nqpeg"), pegRev.ToString());
+    viewer.Replace(L"%peg", L"\"" + pegRev.ToString() + L"\"");
+    viewer.Replace(L"%nqpeg", pegRev.ToString());
 
     if (flags.bReadOnly && bInternal)
-        viewer += _T(" /readonly");
+        viewer += L" /readonly";
     if (line > 0)
     {
-        viewer += _T(" /line:");
+        viewer += L" /line:";
         CString temp;
-        temp.Format(_T("%d"), line);
+        temp.Format(L"%d", line);
         viewer += temp;
     }
 
@@ -486,18 +486,18 @@ bool CAppUtils::StartExtDiff(
 
 BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bReadOnly)
 {
-    CRegString diffpropsexe(_T("Software\\TortoiseSVN\\DiffProps"));
+    CRegString diffpropsexe(L"Software\\TortoiseSVN\\DiffProps");
     CString viewer = diffpropsexe;
     bool bInternal = false;
-    if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
+    if (viewer.IsEmpty()||(viewer.Left(1).Compare(L"#")==0))
     {
         //no registry entry (or commented out) for a diff program
         //use TortoiseMerge
         bInternal = true;
         viewer = CPathUtils::GetAppDirectory();
-        viewer += _T("TortoiseMerge.exe");
-        viewer = _T("\"") + viewer + _T("\"");
-        viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
+        viewer += L"TortoiseMerge.exe";
+        viewer = L"\"" + viewer + L"\"";
+        viewer = viewer + L" /base:%base /mine:%mine /basename:%bname /minename:%yname";
         if (!g_sGroupingUUID.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
@@ -506,44 +506,44 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
         }
     }
     // check if the params are set. If not, just add the files to the command line
-    if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
+    if ((viewer.Find(L"%base")<0)&&(viewer.Find(L"%mine")<0))
     {
-        viewer += _T(" \"")+file1.GetWinPathString()+_T("\"");
-        viewer += _T(" \"")+file2.GetWinPathString()+_T("\"");
+        viewer += L" \""+file1.GetWinPathString()+L"\"";
+        viewer += L" \""+file2.GetWinPathString()+L"\"";
     }
-    if (viewer.Find(_T("%base")) >= 0)
+    if (viewer.Find(L"%base") >= 0)
     {
-        viewer.Replace(_T("%base"),  _T("\"")+file1.GetWinPathString()+_T("\""));
+        viewer.Replace(L"%base",  L"\""+file1.GetWinPathString()+L"\"");
     }
-    if (viewer.Find(_T("%mine")) >= 0)
+    if (viewer.Find(L"%mine") >= 0)
     {
-        viewer.Replace(_T("%mine"),  _T("\"")+file2.GetWinPathString()+_T("\""));
+        viewer.Replace(L"%mine",  L"\""+file2.GetWinPathString()+L"\"");
     }
 
     if (sName1.IsEmpty())
     {
-        viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
-        viewer.Replace(_T("%nqbname"), file1.GetUIFileOrDirectoryName());
+        viewer.Replace(L"%bname", L"\"" + file1.GetUIFileOrDirectoryName() + L"\"");
+        viewer.Replace(L"%nqbname", file1.GetUIFileOrDirectoryName());
     }
     else
     {
-        viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
-        viewer.Replace(_T("%nqbname"), sName1);
+        viewer.Replace(L"%bname", L"\"" + sName1 + L"\"");
+        viewer.Replace(L"%nqbname", sName1);
     }
 
     if (sName2.IsEmpty())
     {
-        viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
-        viewer.Replace(_T("%nqyname"), file2.GetUIFileOrDirectoryName());
+        viewer.Replace(L"%yname", L"\"" + file2.GetUIFileOrDirectoryName() + L"\"");
+        viewer.Replace(L"%nqyname", file2.GetUIFileOrDirectoryName());
     }
     else
     {
-        viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
-        viewer.Replace(_T("%nqyname"), sName2);
+        viewer.Replace(L"%yname", L"\"" + sName2 + L"\"");
+        viewer.Replace(L"%nqyname", sName2);
     }
 
     if ((bReadOnly)&&(bInternal))
-        viewer += _T(" /readonly");
+        viewer += L" /readonly";
 
     if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
     {
@@ -569,7 +569,7 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 {
     LOGFONT logFont;
     HDC hScreenDC = ::GetDC(NULL);
-    logFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(hScreenDC, LOGPIXELSY), 72);
+    logFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8), GetDeviceCaps(hScreenDC, LOGPIXELSY), 72);
     ::ReleaseDC(NULL, hScreenDC);
     logFont.lfWidth          = 0;
     logFont.lfEscapement     = 0;
@@ -583,7 +583,7 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
     logFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
     logFont.lfQuality        = DRAFT_QUALITY;
     logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
-    _tcscpy_s(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
+    _tcscpy_s(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"));
     VERIFY(fontToCreate.CreateFontIndirect(&logFont));
 }
 
@@ -599,16 +599,16 @@ bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile,
 {
     CString viewer = L"\"";
     viewer += CPathUtils::GetAppDirectory();
-    viewer += _T("TortoiseBlame.exe\"");
-    viewer += _T(" \"") + sBlameFile + _T("\"");
-    viewer += _T(" \"") + sOriginalFile + _T("\"");
-    viewer += _T(" ")+sParams;
+    viewer += L"TortoiseBlame.exe\"";
+    viewer += L" \"" + sBlameFile + L"\"";
+    viewer += L" \"" + sOriginalFile + L"\"";
+    viewer += L" "+sParams;
 
     if (startrev.IsValid() && endrev.IsValid())
-        viewer += _T(" /revrange:\"") + startrev.ToString() + _T("-") + endrev.ToString() + _T("\"");
+        viewer += L" /revrange:\"" + startrev.ToString() + L"-" + endrev.ToString() + L"\"";
 
     if (pegrev.IsValid())
-        viewer += _T(" /pegrev:") + pegrev.ToString();
+        viewer += L" /pegrev:" + pegrev.ToString();
 
     if (!g_sGroupingUUID.IsEmpty())
     {
@@ -680,7 +680,7 @@ std::vector<CHARRANGE>
 CAppUtils::FindRegexMatches
     ( const std::wstring& text
     , const CString& matchstring
-    , const CString& matchsubstring /* = _T(".*")*/)
+    , const CString& matchsubstring /* = L".*"*/)
 {
     std::vector<CHARRANGE> result;
     if (matchstring.IsEmpty())
@@ -698,7 +698,7 @@ CAppUtils::FindRegexMatches
             ptrdiff_t matchpos = it->position(0);
             for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
             {
-                ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+                ATLTRACE(L"matched id : %s\n", (*it2)[0].str().c_str());
                 ptrdiff_t matchposID = it2->position(0);
                 CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
                 result.push_back (range);
@@ -779,15 +779,15 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
         strUrl = strUrl.Mid(1);
     }
     strUrl.Replace('\\', '/');
-    strUrl.Replace(_T("%"), _T("%25"));
+    strUrl.Replace(L"%", L"%25");
     strUrl.TrimLeft('/');
 
     CString trimmedRoot = repoRoot;
     trimmedRoot.TrimRight('/');
 
-    strUrl = trimmedRoot + _T("/") + strUrl;
+    strUrl = trimmedRoot + L"/" + strUrl;
 
-    if (strUrl.Left(7) == _T("file://"))
+    if (strUrl.Left(7) == L"file://")
     {
         // browse repository - show repository browser
         SVN::preparePath(strUrl);
@@ -796,7 +796,7 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
         {
             combo.SetCurSel(-1);
             if (bExternalUrl)
-                combo.SetWindowText(_T("^") + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
+                combo.SetWindowText(L"^" + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             else
                 combo.SetWindowText(browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             combo.SetFocus();
@@ -804,10 +804,10 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
             return true;
         }
     }
-    else if ((strUrl.Left(7) == _T("http://")
-        ||(strUrl.Left(8) == _T("https://"))
-        ||(strUrl.Left(6) == _T("svn://"))
-        ||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
+    else if ((strUrl.Left(7) == L"http://"
+        ||(strUrl.Left(8) == L"https://")
+        ||(strUrl.Left(6) == L"svn://")
+        ||(strUrl.Left(4) == L"svn+")) && strUrl.GetLength() > 6)
     {
         // browse repository - show repository browser
         CRepositoryBrowser browser(strUrl, rev, pParent);
@@ -815,7 +815,7 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
         {
             combo.SetCurSel(-1);
             if (bExternalUrl)
-                combo.SetWindowText(_T("^") + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
+                combo.SetWindowText(L"^" + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             else
                 combo.SetWindowText(browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             combo.SetFocus();
@@ -834,7 +834,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
     if (strURLs.IsEmpty())
         strURLs = combo.GetString();
     strURLs.Replace('\\', '/');
-    strURLs.Replace(_T("%"), _T("%25"));
+    strURLs.Replace(L"%", L"%25");
 
     CString strUrl = strURLs;
     if (multiSelection)
@@ -863,7 +863,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
         }
     }
 
-    if (strUrl.Left(7) == _T("file://"))
+    if (strUrl.Left(7) == L"file://")
     {
         CString strFile(strUrl);
         SVN::UrlToPath(strFile);
@@ -901,10 +901,10 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
             }
         }
     }
-    else if ((strUrl.Left(7) == _T("http://")
-        ||(strUrl.Left(8) == _T("https://"))
-        ||(strUrl.Left(6) == _T("svn://"))
-        ||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
+    else if ((strUrl.Left(7) == L"http://"
+        ||(strUrl.Left(8) == L"https://")
+        ||(strUrl.Left(6) == L"svn://")
+        ||(strUrl.Left(4) == L"svn+")) && strUrl.GetLength() > 6)
     {
         // browse repository - show repository browser
         CRepositoryBrowser browser(strUrl, rev, pParent);
@@ -957,23 +957,23 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 CString CAppUtils::GetProjectNameFromURL(CString url)
 {
     CString name;
-    while ((name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
-        (name.CompareNoCase(_T("tags"))==0) ||
-        (name.CompareNoCase(_T("trunk"))==0))&&(!url.IsEmpty()))
+    while ((name.IsEmpty() || (name.CompareNoCase(L"branches")==0) ||
+        (name.CompareNoCase(L"tags")==0) ||
+        (name.CompareNoCase(L"trunk")==0))&&(!url.IsEmpty()))
     {
         name = url.Mid(url.ReverseFind('/')+1);
         url = url.Left(url.ReverseFind('/'));
     }
-    if ((name.Compare(_T("svn")) == 0)||(name.Compare(_T("svnroot")) == 0))
+    if ((name.Compare(L"svn") == 0)||(name.Compare(L"svnroot") == 0))
     {
         // a name of svn or svnroot indicates that it's not really the project name. In that
         // case, we try the first part of the URL
         // of course, this won't work in all cases (but it works for Google project hosting)
-        url.Replace(_T("http://"), _T(""));
-        url.Replace(_T("https://"), _T(""));
-        url.Replace(_T("svn://"), _T(""));
-        url.Replace(_T("svn+ssh://"), _T(""));
-        url.TrimLeft(_T("/"));
+        url.Replace(L"http://", L"");
+        url.Replace(L"https://", L"");
+        url.Replace(L"svn://", L"");
+        url.Replace(L"svn+ssh://", L"");
+        url.TrimLeft(L"/");
         name = url.Left(url.Find('.'));
     }
     return name;
@@ -985,34 +985,34 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
                                      const CString& options,
                                      bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
 {
-    CString sCmd = _T("/command:showcompare /unified");
-    sCmd += _T(" /url1:\"") + url1.GetSVNPathString();
-    sCmd += _T("\"");
+    CString sCmd = L"/command:showcompare /unified";
+    sCmd += L" /url1:\"" + url1.GetSVNPathString();
+    sCmd += L"\"";
     if (rev1.IsValid())
-        sCmd += _T(" /revision1:") + rev1.ToString();
-    sCmd += _T(" /url2:\"") + url2.GetSVNPathString();
-    sCmd += _T("\"");
+        sCmd += L" /revision1:" + rev1.ToString();
+    sCmd += L" /url2:\"" + url2.GetSVNPathString();
+    sCmd += L"\"";
     if (rev2.IsValid())
-        sCmd += _T(" /revision2:") + rev2.ToString();
+        sCmd += L" /revision2:" + rev2.ToString();
     if (peg.IsValid())
-        sCmd += _T(" /pegrevision:") + peg.ToString();
+        sCmd += L" /pegrevision:" + peg.ToString();
     if (headpeg.IsValid())
-        sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+        sCmd += L" /headpegrevision:" + headpeg.ToString();
 
     if (!options.IsEmpty())
         sCmd += L" /diffoptions:\"" + options + L"\"";
 
     if (bAlternateDiff)
-        sCmd += _T(" /alternatediff");
+        sCmd += L" /alternatediff";
 
     if (bIgnoreAncestry)
-        sCmd += _T(" /ignoreancestry");
+        sCmd += L" /ignoreancestry";
 
     if (hWnd)
     {
-        sCmd += _T(" /hwnd:");
+        sCmd += L" /hwnd:";
         TCHAR buf[30] = { 0 };
-        _stprintf_s(buf, _T("%p"), (void*)hWnd);
+        _stprintf_s(buf, L"%p", (void*)hWnd);
         sCmd += buf;
     }
 
@@ -1028,43 +1028,43 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
                                  int line /*= 0*/ )
 {
     CString sCmd;
-    sCmd.Format(_T("/command:showcompare /nodekind:%d"), nodekind);
-    sCmd += _T(" /url1:\"") + url1.GetSVNPathString();
-    sCmd += _T("\"");
+    sCmd.Format(L"/command:showcompare /nodekind:%d", nodekind);
+    sCmd += L" /url1:\"" + url1.GetSVNPathString();
+    sCmd += L"\"";
     if (rev1.IsValid())
-        sCmd += _T(" /revision1:") + rev1.ToString();
-    sCmd += _T(" /url2:\"") + url2.GetSVNPathString();
-    sCmd += _T("\"");
+        sCmd += L" /revision1:" + rev1.ToString();
+    sCmd += L" /url2:\"" + url2.GetSVNPathString();
+    sCmd += L"\"";
     if (rev2.IsValid())
-        sCmd += _T(" /revision2:") + rev2.ToString();
+        sCmd += L" /revision2:" + rev2.ToString();
     if (peg.IsValid())
-        sCmd += _T(" /pegrevision:") + peg.ToString();
+        sCmd += L" /pegrevision:" + peg.ToString();
     if (headpeg.IsValid())
-        sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+        sCmd += L" /headpegrevision:" + headpeg.ToString();
     if (!options.IsEmpty())
         sCmd += L" /diffoptions:\"" + options + L"\"";
     if (bAlternateDiff)
-        sCmd += _T(" /alternatediff");
+        sCmd += L" /alternatediff";
     if (bIgnoreAncestry)
-        sCmd += _T(" /ignoreancestry");
+        sCmd += L" /ignoreancestry";
     if (blame)
-        sCmd += _T(" /blame");
+        sCmd += L" /blame";
     if (ignoreprops)
-        sCmd += _T(" /ignoreprops");
+        sCmd += L" /ignoreprops";
 
     if (hWnd)
     {
-        sCmd += _T(" /hwnd:");
+        sCmd += L" /hwnd:";
         TCHAR buf[30] = { 0 };
-        _stprintf_s(buf, _T("%p"), (void*)hWnd);
+        _stprintf_s(buf, L"%p", (void*)hWnd);
         sCmd += buf;
     }
 
     if (line > 0)
     {
-        sCmd += _T(" /line:");
+        sCmd += L" /line:";
         CString temp;
-        temp.Format(_T("%d"), line);
+        temp.Format(L"%d", line);
         sCmd += temp;
     }
 
@@ -1074,24 +1074,24 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 {
     CString scriptsdir = CPathUtils::GetAppParentDirectory();
-    scriptsdir += _T("Diff-Scripts");
+    scriptsdir += L"Diff-Scripts";
     CSimpleFileFind files(scriptsdir);
     while (files.FindNextFileNoDirectories())
     {
         CString file = files.GetFilePath();
         CString filename = files.GetFileName();
         CString ext = file.Mid(file.ReverseFind('-')+1);
-        ext = _T(".")+ext.Left(ext.ReverseFind('.'));
+        ext = L"."+ext.Left(ext.ReverseFind('.'));
         std::set<CString> extensions;
         extensions.insert(ext);
         CString kind;
-        if (file.Right(3).CompareNoCase(_T("vbs"))==0)
+        if (file.Right(3).CompareNoCase(L"vbs")==0)
         {
-            kind = _T(" //E:vbscript");
+            kind = L" //E:vbscript";
         }
-        if (file.Right(2).CompareNoCase(_T("js"))==0)
+        if (file.Right(2).CompareNoCase(L"js")==0)
         {
-            kind = _T(" //E:javascript");
+            kind = L" //E:javascript";
         }
         // open the file, read the first line and find possible extensions
         // this script can handle
@@ -1102,8 +1102,8 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
             if (f.ReadString(extline))
             {
                 if ( (extline.GetLength() > 15 ) &&
-                    ((extline.Left(15).Compare(_T("// extensions: "))==0) ||
-                     (extline.Left(14).Compare(_T("' extensions: "))==0)) )
+                    ((extline.Left(15).Compare(L"// extensions: ")==0) ||
+                     (extline.Left(14).Compare(L"' extensions: ")==0)) )
                 {
                     if (extline[0] == '/')
                         extline = extline.Mid(15);
@@ -1111,16 +1111,16 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
                         extline = extline.Mid(14);
                     CString sToken;
                     int curPos = 0;
-                    sToken = extline.Tokenize(_T(";"), curPos);
+                    sToken = extline.Tokenize(L";", curPos);
                     while (!sToken.IsEmpty())
                     {
                         if (!sToken.IsEmpty())
                         {
                             if (sToken[0] != '.')
-                                sToken = _T(".") + sToken;
+                                sToken = L"." + sToken;
                             extensions.insert(sToken);
                         }
-                        sToken = extline.Tokenize(_T(";"), curPos);
+                        sToken = extline.Tokenize(L";", curPos);
                     }
                 }
             }
@@ -1133,34 +1133,34 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 
         for (std::set<CString>::const_iterator it = extensions.begin(); it != extensions.end(); ++it)
         {
-            if (type.IsEmpty() || (type.Compare(_T("Diff"))==0))
+            if (type.IsEmpty() || (type.Compare(L"Diff")==0))
             {
-                if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
+                if (filename.Left(5).CompareNoCase(L"diff-")==0)
                 {
-                    CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+*it);
+                    CRegString diffreg = CRegString(L"Software\\TortoiseSVN\\DiffTools\\"+*it);
                     CString diffregstring = diffreg;
                     if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-                        diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
+                        diffreg = L"wscript.exe \"" + file + L"\" %base %mine" + kind;
                 }
             }
-            if (type.IsEmpty() || (type.Compare(_T("Merge"))==0))
+            if (type.IsEmpty() || (type.Compare(L"Merge")==0))
             {
-                if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
+                if (filename.Left(6).CompareNoCase(L"merge-")==0)
                 {
-                    CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+*it);
+                    CRegString diffreg = CRegString(L"Software\\TortoiseSVN\\MergeTools\\"+*it);
                     CString diffregstring = diffreg;
                     if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-                        diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
+                        diffreg = L"wscript.exe \"" + file + L"\" %merged %theirs %mine %base" + kind;
                 }
             }
         }
     }
     // Initialize "Software\\TortoiseSVN\\DiffProps" once with the same value as "Software\\TortoiseSVN\\Diff"
-    CRegString regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"),_T("non-existant"));
+    CRegString regDiffPropsPath = CRegString(L"Software\\TortoiseSVN\\DiffProps",L"non-existant");
     CString strDiffPropsPath = regDiffPropsPath;
-    if ( force || strDiffPropsPath==_T("non-existant") )
+    if ( force || strDiffPropsPath==L"non-existant" )
     {
-        CString strDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+        CString strDiffPath = CRegString(L"Software\\TortoiseSVN\\Diff");
         regDiffPropsPath = strDiffPath;
     }
 
@@ -1248,6 +1248,6 @@ void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
         taskdlg.DoModal(hWnd);
     }
     else
-        ::MessageBox(hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(hWnd, sError, L"TortoiseSVN", MB_ICONERROR);
 }
 

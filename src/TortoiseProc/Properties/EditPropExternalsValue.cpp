@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -97,7 +97,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     }
 
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
     m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.SetWindowText(CPathUtils::PathUnescape(m_External.url));
 
@@ -128,7 +128,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-    EnableSaveRestore(_T("EditPropExternalsValue"));
+    EnableSaveRestore(L"EditPropExternalsValue");
 
     return TRUE;
 }
@@ -183,7 +183,7 @@ void CEditPropExternalsValue::OnOK()
     }
 
     if (m_sPegRev.IsEmpty())
-        m_External.pegrevision = *SVNRev(_T("HEAD"));
+        m_External.pegrevision = *SVNRev(L"HEAD");
     else
         m_External.pegrevision = *SVNRev(m_sPegRev);
     m_External.targetDir = m_sWCPath;
@@ -202,7 +202,7 @@ void CEditPropExternalsValue::OnBnClickedBrowse()
     if (strURLs.IsEmpty())
         strURLs = m_URLCombo.GetString();
     strURLs.Replace('\\', '/');
-    strURLs.Replace(_T("%"), _T("%25"));
+    strURLs.Replace(L"%", L"%25");
 
     CString root = m_RepoRoot.GetSVNPathString();
     int rootlength = root.GetLength();
@@ -249,7 +249,7 @@ void CEditPropExternalsValue::OnBnClickedShowLog()
 LPARAM CEditPropExternalsValue::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%Id"), lParam);
+    temp.Format(L"%Id", lParam);
     SetDlgItemText(IDC_PEGREV, temp);
     SetDlgItemText(IDC_REVISION_NUM, CString());
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);

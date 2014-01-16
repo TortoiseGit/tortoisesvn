@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,13 +27,13 @@ bool UnIgnoreCommand::Execute()
 {
     BOOL err = FALSE;
     std::set<CString> removeditems;
-    bool bRecursive = !!parser.HasKey(_T("recursive"));
+    bool bRecursive = !!parser.HasKey(L"recursive");
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
-        if (parser.HasKey(_T("onlymask")))
+        if (parser.HasKey(L"onlymask"))
         {
-            name = _T("*")+pathList[nPath].GetFileExtension();
+            name = L"*"+pathList[nPath].GetFileExtension();
         }
         removeditems.insert(name);
         CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
@@ -54,15 +54,15 @@ bool UnIgnoreCommand::Execute()
                 break;
             }
         }
-        value = value.Trim(_T("\n\r"));
-        value += _T("\n");
+        value = value.Trim(L"\n\r");
+        value += L"\n";
         value.Remove('\r');
-        value.Replace(_T("\n\n"), _T("\n"));
+        value.Replace(L"\n\n", L"\n");
 
         // Delete all occurrences of 'name'
         // "\n" is temporarily prepended to make the algorithm easier
-        value = _T("\n") + value;
-        value.Replace(_T("\n") + name + _T("\n"), _T("\n"));
+        value = L"\n" + value;
+        value.Replace(L"\n" + name + L"\n", L"\n");
         value = value.Mid(1);
 
         CString sTrimmedvalue = value;
@@ -73,7 +73,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -84,7 +84,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -100,7 +100,7 @@ bool UnIgnoreCommand::Execute()
         }
         CString temp;
         temp.Format(bRecursive ? IDS_PROC_UNIGNORERECURSIVESUCCESS : IDS_PROC_UNIGNORESUCCESS, (LPCTSTR)filelist);
-        MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONINFORMATION);
         return true;
     }
     return false;

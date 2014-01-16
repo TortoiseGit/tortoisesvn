@@ -23,23 +23,23 @@
 
 ShellCache::ShellCache()
 {
-    cachetype = CRegStdDWORD(_T("Software\\TortoiseSVN\\CacheType"), GetSystemMetrics(SM_REMOTESESSION) ? dll : exe);
-    showrecursive = CRegStdDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
-    folderoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
-    driveremote = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
-    drivefixed = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
-    drivecdrom = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
-    driveremove = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
-    drivefloppy = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
-    driveram = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
-    driveunknown = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
-    shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
-    unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
-    ignoreoncommitignored = CRegStdDWORD(_T("Software\\TortoiseSVN\\IgnoreOnCommitIgnored"), TRUE);
-    hidemenusforunversioneditems = CRegStdDWORD(_T("Software\\TortoiseSVN\\HideMenusForUnversionedItems"), FALSE);
-    getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
-    excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
-    alwaysextended = CRegStdDWORD(_T("Software\\TortoiseSVN\\AlwaysExtendedMenu"), FALSE);
+    cachetype = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? dll : exe);
+    showrecursive = CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE);
+    folderoverlay = CRegStdDWORD(L"Software\\TortoiseSVN\\FolderOverlay", TRUE);
+    driveremote = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemote");
+    drivefixed = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskFixed", TRUE);
+    drivecdrom = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskCDROM");
+    driveremove = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemovable");
+    drivefloppy = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskFloppy");
+    driveram = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRAM");
+    driveunknown = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskUnknown");
+    shellmenuaccelerators = CRegStdDWORD(L"Software\\TortoiseSVN\\ShellMenuAccelerators", TRUE);
+    unversionedasmodified = CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE);
+    ignoreoncommitignored = CRegStdDWORD(L"Software\\TortoiseSVN\\IgnoreOnCommitIgnored", TRUE);
+    hidemenusforunversioneditems = CRegStdDWORD(L"Software\\TortoiseSVN\\HideMenusForUnversionedItems", FALSE);
+    getlocktop = CRegStdDWORD(L"Software\\TortoiseSVN\\GetLockTop", TRUE);
+    excludedasnormal = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal", FALSE);
+    alwaysextended = CRegStdDWORD(L"Software\\TortoiseSVN\\AlwaysExtendedMenu", FALSE);
     cachetypeticker = GetTickCount64();
     recursiveticker = cachetypeticker;
     folderoverlayticker = cachetypeticker;
@@ -60,15 +60,15 @@ ShellCache::ShellCache()
     menumaskticker = cachetypeticker;
     blockstatusticker = cachetypeticker;
     excontextticker = 0;
-    menulayoutlow = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-    menulayouthigh = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
-    menumasklow_lm = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0, FALSE, HKEY_LOCAL_MACHINE);
-    menumaskhigh_lm = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh"), 0, FALSE, HKEY_LOCAL_MACHINE);
-    menumasklow_cu = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0);
-    menumaskhigh_cu = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh"), 0);
-    langid = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
-    blockstatus = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
-    columnseverywhere = CRegStdDWORD(_T("Software\\TortoiseSVN\\ColumnsEveryWhere"), FALSE);
+    menulayoutlow = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+    menulayouthigh = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0);
+    menumasklow_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, FALSE, HKEY_LOCAL_MACHINE);
+    menumaskhigh_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0, FALSE, HKEY_LOCAL_MACHINE);
+    menumasklow_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0);
+    menumaskhigh_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0);
+    langid = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
+    blockstatus = CRegStdDWORD(L"Software\\TortoiseSVN\\BlockStatus", 0);
+    columnseverywhere = CRegStdDWORD(L"Software\\TortoiseSVN\\ColumnsEveryWhere", FALSE);
     std::fill_n(drivetypecache, 27, (UINT)-1);
     if (DWORD(drivefloppy) == 0)
     {
@@ -87,7 +87,7 @@ ShellCache::ShellCache()
     columnrevformat.Grouping = _ttoi(szBuffer);
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], _countof(szBuffer));
     columnrevformat.NegativeOrder = _ttoi(szBuffer);
-    nocontextpaths = CRegStdString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
+    nocontextpaths = CRegStdString(L"Software\\TortoiseSVN\\NoContextPaths", L"");
     drivetypepathcache[0] = 0;
     m_critSec.Init();
 }
@@ -346,7 +346,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
                 _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": GetDriveType for %s, Drive %d\n", pathbuf, drivenumber);
                 drivetype = GetDriveType(pathbuf);
                 drivetypecache[drivenumber] = drivetype;
             }
@@ -366,7 +366,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
                 drivetype = drivetypecache[26];
             else
             {
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T("GetDriveType for %s\n"), pathbuf);
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L"GetDriveType for %s\n", pathbuf);
                 drivetype = GetDriveType(pathbuf);
                 drivetypecache[26] = drivetype;
                 _tcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH);            // MAX_PATH ok.
@@ -479,14 +479,14 @@ void ShellCache::ExcludeContextValid()
         excludecontextstr = (tstring)nocontextpaths;
         excontextvector.clear();
         size_t pos = 0, pos_ant = 0;
-        pos = excludecontextstr.find(_T("\n"), pos_ant);
+        pos = excludecontextstr.find(L"\n", pos_ant);
         while (pos != tstring::npos)
         {
             tstring token = excludecontextstr.substr(pos_ant, pos-pos_ant);
             if (!token.empty())
                 excontextvector.push_back(token);
             pos_ant = pos+1;
-            pos = excludecontextstr.find(_T("\n"), pos_ant);
+            pos = excludecontextstr.find(L"\n", pos_ant);
         }
         if (!excludecontextstr.empty())
         {
@@ -708,8 +708,8 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
 // construction
 
 ShellCache::CPathFilter::CPathFilter()
-    : excludelist (_T("Software\\TortoiseSVN\\OverlayExcludeList"))
-    , includelist (_T("Software\\TortoiseSVN\\OverlayIncludeList"))
+    : excludelist (L"Software\\TortoiseSVN\\OverlayExcludeList")
+    , includelist (L"Software\\TortoiseSVN\\OverlayIncludeList")
 {
     Refresh();
 }

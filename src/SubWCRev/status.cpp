@@ -31,7 +31,7 @@
 #include "UnicodeUtils.h"
 #include <algorithm>
 
-CRegStdString regTagsPattern = CRegStdString(_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+CRegStdString regTagsPattern = CRegStdString(L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
 
 // Copy the URL from src to dest, unescaping on the fly.
 void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
@@ -141,7 +141,7 @@ bool IsTaggedVersion(const char * url)
     tstring temp;
     while (!isTag)
     {
-        temp = Tokenize(sTags.c_str(), _T(";"), pos);
+        temp = Tokenize(sTags.c_str(), L";", pos);
         if (!temp.length())
             break;
 
@@ -149,7 +149,7 @@ bool IsTaggedVersion(const char * url)
         tstring temp2;
         for(;;)
         {
-            temp2 = Tokenize(urllower.c_str(), _T("/"), urlpos);
+            temp2 = Tokenize(urllower.c_str(), L"/", urlpos);
             if (!temp2.length())
                 break;
 

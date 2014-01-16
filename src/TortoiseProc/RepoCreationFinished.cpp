@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,13 +62,13 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
         return;
     }
     CTSVNPath tempDirSub = tempDir;
-    tempDirSub.AppendPathString(_T("trunk"));
+    tempDirSub.AppendPathString(L"trunk");
     CreateDirectory(tempDirSub.GetWinPath(), NULL);
     tempDirSub = tempDir;
-    tempDirSub.AppendPathString(_T("branches"));
+    tempDirSub.AppendPathString(L"branches");
     CreateDirectory(tempDirSub.GetWinPath(), NULL);
     tempDirSub = tempDir;
-    tempDirSub.AppendPathString(_T("tags"));
+    tempDirSub.AppendPathString(L"tags");
     CreateDirectory(tempDirSub.GetWinPath(), NULL);
 
     CString url;
@@ -76,10 +76,10 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
     {
         CString p = m_RepoPath.GetWinPathString();
         p.TrimLeft('\\');
-        url = _T("file://")+p;
+        url = L"file://"+p;
     }
     else
-        url = _T("file:///")+m_RepoPath.GetWinPathString();
+        url = L"file:///"+m_RepoPath.GetWinPathString();
 
     // import the folder structure into the new repository
     SVN svn;
@@ -88,7 +88,7 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
         svn.ShowErrorDialog(m_hWnd);
         return;
     }
-    MessageBox(CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTUREFINISHED)), _T("TortoiseSVN"), MB_ICONINFORMATION);
+    MessageBox(CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTUREFINISHED)), L"TortoiseSVN", MB_ICONINFORMATION);
     DialogEnableWindow(IDC_CREATEFOLDERS, FALSE);
 }
 
@@ -96,7 +96,7 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
 void CRepoCreationFinished::OnBnClickedRepobrowser()
 {
     CString sCmd;
-    sCmd.Format(_T("/command:repobrowser /path:\"%s\""),
+    sCmd.Format(L"/command:repobrowser /path:\"%s\"",
         (LPCTSTR)m_RepoPath.GetWinPath());
 
     CAppUtils::RunTortoiseProc(sCmd);
@@ -113,10 +113,10 @@ BOOL CRepoCreationFinished::OnInitDialog()
     {
         CString p = m_RepoPath.GetWinPathString();
         p.TrimLeft('\\');
-        url = _T("file://")+p;
+        url = L"file://"+p;
     }
     else
-        url = _T("file:///")+m_RepoPath.GetWinPathString();
+        url = L"file:///"+m_RepoPath.GetWinPathString();
 
     m_RepoUrl.SetWindowText(url);
 

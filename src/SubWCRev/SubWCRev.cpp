@@ -767,7 +767,7 @@ int _tmain(int argc, _TCHAR* argv[])
         dst = argv[3];
         if (!PathFileExists(src))
         {
-            _tprintf(_T("File '%s' does not exist\n"), src);
+            _tprintf(L"File '%s' does not exist\n", src);
             return ERR_FNF;     // file does not exist
         }
     }
@@ -790,7 +790,7 @@ int _tmain(int argc, _TCHAR* argv[])
             {
                 if ((dst != NULL) && PathFileExists(dst))
                 {
-                    _tprintf(_T("File '%s' already exists\n"), dst);
+                    _tprintf(L"File '%s' already exists\n", dst);
                     return ERR_OUT_EXISTS;
                 }
             }
@@ -821,7 +821,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
     if (wc == NULL)
     {
-        _tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),
+        _tprintf(L"SubWCRev %d.%d.%d, Build %d - %s\n\n",
             TSVN_VERMAJOR, TSVN_VERMINOR,
             TSVN_VERMICRO, TSVN_VERBUILD,
             _T(TSVN_PLATFORM));
@@ -897,17 +897,17 @@ int _tmain(int argc, _TCHAR* argv[])
 
     if (!PathFileExists(wc))
     {
-        _tprintf(_T("Directory or file '%s' does not exist\n"), wc);
+        _tprintf(L"Directory or file '%s' does not exist\n", wc);
         if (_tcschr(wc, '\"') != NULL) // dir contains a quotation mark
         {
-            _tprintf(_T("The WorkingCopyPath contains a quotation mark.\n"));
-            _tprintf(_T("this indicates a problem when calling SubWCRev from an interpreter which treats\n"));
-            _tprintf(_T("a backslash char specially.\n"));
-            _tprintf(_T("Try using double backslashes or insert a dot after the last backslash when\n"));
-            _tprintf(_T("calling SubWCRev\n"));
-            _tprintf(_T("Examples:\n"));
-            _tprintf(_T("SubWCRev \"path to wc\\\\\"\n"));
-            _tprintf(_T("SubWCRev \"path to wc\\.\"\n"));
+            _tprintf(L"The WorkingCopyPath contains a quotation mark.\n");
+            _tprintf(L"this indicates a problem when calling SubWCRev from an interpreter which treats\n");
+            _tprintf(L"a backslash char specially.\n");
+            _tprintf(L"Try using double backslashes or insert a dot after the last backslash when\n");
+            _tprintf(L"calling SubWCRev\n");
+            _tprintf(L"Examples:\n");
+            _tprintf(L"SubWCRev \"path to wc\\\\\"\n");
+            _tprintf(L"SubWCRev \"path to wc\\.\"\n");
         }
         delete [] wc;
         delete [] dst;
@@ -924,7 +924,7 @@ int _tmain(int argc, _TCHAR* argv[])
         CAutoFile hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
         if (!hFile)
         {
-            _tprintf(_T("Unable to open input file '%s'\n"), src);
+            _tprintf(L"Unable to open input file '%s'\n", src);
             delete [] wc;
             delete [] dst;
             delete [] src;
@@ -933,7 +933,7 @@ int _tmain(int argc, _TCHAR* argv[])
         filelength = GetFileSize(hFile, NULL);
         if (filelength == INVALID_FILE_SIZE)
         {
-            _tprintf(_T("Could not determine file size of '%s'\n"), src);
+            _tprintf(L"Could not determine file size of '%s'\n", src);
             delete [] wc;
             delete [] dst;
             delete [] src;
@@ -943,7 +943,7 @@ int _tmain(int argc, _TCHAR* argv[])
         pBuf = new char[maxlength];
         if (pBuf == NULL)
         {
-            _tprintf(_T("Could not allocate enough memory!\n"));
+            _tprintf(L"Could not allocate enough memory!\n");
             delete [] wc;
             delete [] dst;
             delete [] src;
@@ -951,7 +951,7 @@ int _tmain(int argc, _TCHAR* argv[])
         }
         if (!ReadFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL))
         {
-            _tprintf(_T("Could not read the file '%s'\n"), src);
+            _tprintf(L"Could not read the file '%s'\n", src);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;
@@ -960,7 +960,7 @@ int _tmain(int argc, _TCHAR* argv[])
         }
         if (readlength != filelength)
         {
-            _tprintf(_T("Could not read the file '%s' to the end!\n"), src);
+            _tprintf(L"Could not read the file '%s' to the end!\n", src);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;
@@ -1025,12 +1025,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
     char wcfull_oem[MAX_PATH] = { 0 };
     CharToOem(wcfullpath, wcfull_oem);
-    _tprintf(_T("SubWCRev: '%hs'\n"), wcfull_oem);
+    _tprintf(L"SubWCRev: '%hs'\n", wcfull_oem);
 
 
     if (bErrOnMods && SubStat.HasMods)
     {
-        _tprintf(_T("Working copy has local modifications!\n"));
+        _tprintf(L"Working copy has local modifications!\n");
         delete [] pBuf;
         delete [] wc;
         delete [] dst;
@@ -1039,7 +1039,7 @@ int _tmain(int argc, _TCHAR* argv[])
     }
     if (bErrOnUnversioned && SubStat.HasUnversioned)
     {
-        _tprintf(_T("Working copy has unversioned items!\n"));
+        _tprintf(L"Working copy has unversioned items!\n");
         delete [] pBuf;
         delete [] wc;
         delete [] dst;
@@ -1050,11 +1050,11 @@ int _tmain(int argc, _TCHAR* argv[])
     if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
     {
         if (SubStat.bHexPlain)
-            _tprintf(_T("Working copy contains mixed revisions %LX:%LX!\n"), SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(L"Working copy contains mixed revisions %LX:%LX!\n", SubStat.MinRev, SubStat.MaxRev);
         else if (SubStat.bHexX)
-            _tprintf(_T("Working copy contains mixed revisions %#LX:%#LX!\n"), SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(L"Working copy contains mixed revisions %#LX:%#LX!\n", SubStat.MinRev, SubStat.MaxRev);
         else
-            _tprintf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(L"Working copy contains mixed revisions %Ld:%Ld!\n", SubStat.MinRev, SubStat.MaxRev);
         delete [] pBuf;
         delete [] wc;
         delete [] dst;
@@ -1065,39 +1065,39 @@ int _tmain(int argc, _TCHAR* argv[])
     if (!bQuiet)
     {
         if (SubStat.bHexPlain)
-            _tprintf(_T("Last committed at revision %LX\n"), SubStat.CmtRev);
+            _tprintf(L"Last committed at revision %LX\n", SubStat.CmtRev);
         else if (SubStat.bHexX)
-            _tprintf(_T("Last committed at revision %#LX\n"), SubStat.CmtRev);
+            _tprintf(L"Last committed at revision %#LX\n", SubStat.CmtRev);
         else
-            _tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
+            _tprintf(L"Last committed at revision %Ld\n", SubStat.CmtRev);
 
         if (SubStat.MinRev != SubStat.MaxRev)
         {
             if (SubStat.bHexPlain)
-                _tprintf(_T("Mixed revision range %LX:%LX\n"), SubStat.MinRev, SubStat.MaxRev);
+                _tprintf(L"Mixed revision range %LX:%LX\n", SubStat.MinRev, SubStat.MaxRev);
             else if (SubStat.bHexX)
-                _tprintf(_T("Mixed revision range %#LX:%#LX\n"), SubStat.MinRev, SubStat.MaxRev);
+                _tprintf(L"Mixed revision range %#LX:%#LX\n", SubStat.MinRev, SubStat.MaxRev);
             else
-                _tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
+                _tprintf(L"Mixed revision range %Ld:%Ld\n", SubStat.MinRev, SubStat.MaxRev);
         }
         else
         {
             if (SubStat.bHexPlain)
-                _tprintf(_T("Updated to revision %LX\n"), SubStat.MaxRev);
+                _tprintf(L"Updated to revision %LX\n", SubStat.MaxRev);
             else if (SubStat.bHexX)
-                _tprintf(_T("Updated to revision %#LX\n"), SubStat.MaxRev);
+                _tprintf(L"Updated to revision %#LX\n", SubStat.MaxRev);
             else
-                _tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
+                _tprintf(L"Updated to revision %Ld\n", SubStat.MaxRev);
         }
 
         if (SubStat.HasMods)
         {
-            _tprintf(_T("Local modifications found\n"));
+            _tprintf(L"Local modifications found\n");
         }
 
         if (SubStat.HasUnversioned)
         {
-            _tprintf(_T("Unversioned items found\n"));
+            _tprintf(L"Unversioned items found\n");
         }
     }
 
@@ -1255,7 +1255,7 @@ int _tmain(int argc, _TCHAR* argv[])
     CAutoFile hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
     if (!hFile)
     {
-        _tprintf(_T("Unable to open output file '%s' for writing\n"), dst);
+        _tprintf(L"Unable to open output file '%s' for writing\n", dst);
         delete [] pBuf;
         delete [] wc;
         delete [] dst;
@@ -1271,7 +1271,7 @@ int _tmain(int argc, _TCHAR* argv[])
         char * pBufExisting = new char[filelength];
         if (!ReadFile(hFile, pBufExisting, (DWORD)filelengthExisting, &readlengthExisting, NULL))
         {
-            _tprintf(_T("Could not read the file '%s'\n"), dst);
+            _tprintf(L"Could not read the file '%s'\n", dst);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;
@@ -1281,7 +1281,7 @@ int _tmain(int argc, _TCHAR* argv[])
         }
         if (readlengthExisting != filelengthExisting)
         {
-            _tprintf(_T("Could not read the file '%s' to the end!\n"), dst);
+            _tprintf(L"Could not read the file '%s' to the end!\n", dst);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;
@@ -1302,7 +1302,7 @@ int _tmain(int argc, _TCHAR* argv[])
         WriteFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL);
         if (readlength != filelength)
         {
-            _tprintf(_T("Could not write the file '%s' to the end!\n"), dst);
+            _tprintf(L"Could not write the file '%s' to the end!\n", dst);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;
@@ -1312,7 +1312,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
         if (!SetEndOfFile(hFile))
         {
-            _tprintf(_T("Could not truncate the file '%s' to the end!\n"), dst);
+            _tprintf(L"Could not truncate the file '%s' to the end!\n", dst);
             delete [] pBuf;
             delete [] wc;
             delete [] dst;

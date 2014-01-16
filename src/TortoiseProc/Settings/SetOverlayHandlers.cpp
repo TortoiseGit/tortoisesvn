@@ -31,12 +31,12 @@ CSetOverlayHandlers::CSetOverlayHandlers()
     , m_bShowReadonlyOverlay(TRUE)
     , m_bShowDeletedOverlay(TRUE)
 {
-    m_regShowIgnoredOverlay     = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowIgnoredOverlay"), TRUE);
-    m_regShowUnversionedOverlay = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowUnversionedOverlay"), TRUE);
-    m_regShowAddedOverlay       = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowAddedOverlay"), TRUE);
-    m_regShowLockedOverlay      = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowLockedOverlay"), TRUE);
-    m_regShowReadonlyOverlay    = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowReadonlyOverlay"), TRUE);
-    m_regShowDeletedOverlay     = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowDeletedOverlay"), TRUE);
+    m_regShowIgnoredOverlay     = CRegDWORD(L"Software\\TortoiseOverlays\\ShowIgnoredOverlay", TRUE);
+    m_regShowUnversionedOverlay = CRegDWORD(L"Software\\TortoiseOverlays\\ShowUnversionedOverlay", TRUE);
+    m_regShowAddedOverlay       = CRegDWORD(L"Software\\TortoiseOverlays\\ShowAddedOverlay", TRUE);
+    m_regShowLockedOverlay      = CRegDWORD(L"Software\\TortoiseOverlays\\ShowLockedOverlay", TRUE);
+    m_regShowReadonlyOverlay    = CRegDWORD(L"Software\\TortoiseOverlays\\ShowReadonlyOverlay", TRUE);
+    m_regShowDeletedOverlay     = CRegDWORD(L"Software\\TortoiseOverlays\\ShowDeletedOverlay", TRUE);
 
     m_bShowIgnoredOverlay       = m_regShowIgnoredOverlay;
     m_bShowUnversionedOverlay   = m_regShowUnversionedOverlay;
@@ -131,7 +131,7 @@ int CSetOverlayHandlers::GetInstalledOverlays()
     // scan the registry for installed overlay handlers
     HKEY hKey;
     if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,
-        _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
+        L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers",
         0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
     {
         TCHAR value[2048] = { 0 };
@@ -146,7 +146,7 @@ int CSetOverlayHandlers::GetInstalledOverlays()
                 if (_tcsnicmp(&value[1], L"tortoise", 8) != 0)
                 {
                     // check if there's a 'default' entry with a guid
-                    _tcscpy_s(keystring, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
+                    _tcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
                     _tcscat_s(keystring, value);
                     DWORD dwType = 0;
                     DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer",

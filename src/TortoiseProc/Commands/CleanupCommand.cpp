@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ bool CleanupCommand::Execute()
     if (!bCleanup && !bRevert && !bDelUnversioned && !bDelIgnored && !bRefreshShell)
         return false;
 
-    bool bUseTrash = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)) != 0;
+    bool bUseTrash = DWORD(CRegDWORD(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE)) != 0;
     int actionTotal = 0;
     if (bCleanup)
         actionTotal += pathList.GetCount();
@@ -77,7 +77,7 @@ bool CleanupCommand::Execute()
     progress.FormatNonPathLine(2, IDS_PROC_CLEANUP_INFO1, L"");
     progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
     progress.SetProgress(actionCounter++, actionTotal);
-    if (!parser.HasKey(_T("noprogressui")))
+    if (!parser.HasKey(L"noprogressui"))
         progress.ShowModeless(GetExplorerHWND());
 
     CString strFailedString;
@@ -193,7 +193,7 @@ bool CleanupCommand::Execute()
             for (INT_PTR j=0; j<updateList.GetCount(); ++j)
             {
                 SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[j].GetWinPath(), NULL);
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": notify change for path %s\n"), updateList[j].GetWinPath());
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": notify change for path %s\n", updateList[j].GetWinPath());
             }
         }
     }
@@ -214,13 +214,13 @@ bool CleanupCommand::Execute()
     if ( !strFailedString.IsEmpty() )
     {
         if (!strMessage.IsEmpty())
-            strMessage += _T("\n");
+            strMessage += L"\n";
         CString tmp;
         tmp.Format(IDS_PROC_CLEANUPFINISHED_FAILED, (LPCTSTR)strFailedString);
         strMessage += tmp;
     }
-    if (!parser.HasKey(_T("noui")))
-        MessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_OK | (strFailedString.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
+    if (!parser.HasKey(L"noui"))
+        MessageBox(GetExplorerHWND(), strMessage, L"TortoiseSVN", MB_OK | (strFailedString.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
 
     return !bFailed;
 }

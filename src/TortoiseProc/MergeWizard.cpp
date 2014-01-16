@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,7 @@ BOOL CMergeWizard::OnInitDialog()
     margs.cxRightWidth = 0;
     margs.cyBottomHeight = BOTTOMMARG;
 
-    if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE))
+    if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
     {
         m_Dwm.Initialize();
         if (m_Dwm.IsDwmCompositionEnabled())
@@ -144,7 +144,7 @@ void CMergeWizard::OnCancel()
 }
 void CMergeWizard::SaveMode()
 {
-    CRegDWORD regMergeWizardMode(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+    CRegDWORD regMergeWizardMode(L"Software\\TortoiseSVN\\MergeWizardMode", 0);
     if (DWORD(regMergeWizardMode))
     {
         switch (nRevRangeMerge)

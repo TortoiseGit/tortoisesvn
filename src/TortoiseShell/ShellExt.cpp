@@ -95,9 +95,9 @@ void LoadLangDll()
         do
         {
             if (bIsWow)
-                _stprintf_s(langDll, _T("%s\\Languages\\TortoiseProc32%lu.dll"), langdir, langId);
+                _stprintf_s(langDll, L"%s\\Languages\\TortoiseProc32%lu.dll", langdir, langId);
             else
-                _stprintf_s(langDll, _T("%s\\Languages\\TortoiseProc%lu.dll"), langdir, langId);
+                _stprintf_s(langDll, L"%s\\Languages\\TortoiseProc%lu.dll", langdir, langId);
             BOOL versionmatch = TRUE;
 
             struct TRANSARRAY
@@ -127,14 +127,14 @@ void LoadLangDll()
                     {
                         // Query the current language
                         if (VerQueryValue( buffer.get(),
-                            _T("\\VarFileInfo\\Translation"),
+                            L"\\VarFileInfo\\Translation",
                             &lpFixedPointer,
                             &nFixedLength))
                         {
                             TRANSARRAY* lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
                             TCHAR       strLangProductVersion[MAX_PATH];
-                            _stprintf_s(strLangProductVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+                            _stprintf_s(strLangProductVersion, L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
                             if (VerQueryValue(buffer.get(),

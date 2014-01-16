@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2012-2013 - TortoiseSVN
+// Copyright (C) 2006-2008, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,9 +28,9 @@ IMPLEMENT_DYNAMIC(CSetColorPage, CPropertyPage)
 CSetColorPage::CSetColorPage()
     : CPropertyPage(CSetColorPage::IDD)
     , m_bReloadNeeded(FALSE)
-    , m_regInlineAdded(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR)
-    , m_regInlineRemoved(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR)
-    , m_regModifiedBackground(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR)
+    , m_regInlineAdded(L"Software\\TortoiseMerge\\InlineAdded", INLINEADDED_COLOR)
+    , m_regInlineRemoved(L"Software\\TortoiseMerge\\InlineRemoved", INLINEREMOVED_COLOR)
+    , m_regModifiedBackground(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR)
     , m_bInit(false)
 {
 }
@@ -103,7 +103,7 @@ void CSetColorPage::SaveData()
     cFg = m_cFgWhitespaces.GetColor();
     if (cFg == -1)
         cFg = m_cFgWhitespaces.GetAutomaticColor();
-    CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
     regWhitespaceColor = cFg;
 }
 
@@ -193,7 +193,7 @@ BOOL CSetColorPage::OnInitDialog()
     m_cBkConflictResolved.EnableOtherButton(sCustomText);
 
 
-    CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
     m_cFgWhitespaces.SetColor((COLORREF)(DWORD)regWhitespaceColor);
     m_cFgWhitespaces.EnableAutomaticButton(sDefaultText, GetSysColor(COLOR_GRAYTEXT));
     m_cFgWhitespaces.EnableOtherButton(sCustomText);

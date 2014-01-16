@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,16 +27,16 @@ IMPLEMENT_DYNAMIC(CSettingsTBlame, ISettingsPropPage)
 CSettingsTBlame::CSettingsTBlame()
     : ISettingsPropPage(CSettingsTBlame::IDD)
     , m_dwFontSize(0)
-    , m_sFontName(_T(""))
+    , m_sFontName(L"")
     , m_dwTabSize(4)
 {
-    m_regNewLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
-    m_regOldLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
-    m_regNewLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorNewColor"), BLAMENEWCOLORBAR);
-    m_regOldLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), BLAMEOLDCOLORBAR);
-    m_regFontName = CRegString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
-    m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10);
-    m_regTabSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4);
+    m_regNewLinesColor = CRegDWORD(L"Software\\TortoiseSVN\\BlameNewColor", BLAMENEWCOLOR);
+    m_regOldLinesColor = CRegDWORD(L"Software\\TortoiseSVN\\BlameOldColor", BLAMEOLDCOLOR);
+    m_regNewLinesColorBar = CRegDWORD(L"Software\\TortoiseSVN\\BlameLocatorNewColor", BLAMENEWCOLORBAR);
+    m_regOldLinesColorBar = CRegDWORD(L"Software\\TortoiseSVN\\BlameLocatorOldColor", BLAMEOLDCOLORBAR);
+    m_regFontName = CRegString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
+    m_regFontSize = CRegDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10);
+    m_regTabSize = CRegDWORD(L"Software\\TortoiseSVN\\BlameTabSize", 4);
 
     m_regIndexColors[0] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor1", BLAMEINDEXCOLOR1);
     m_regIndexColors[1] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor2", BLAMEINDEXCOLOR2);
@@ -175,7 +175,7 @@ BOOL CSettingsTBlame::OnInitDialog()
     CString temp;
     for (int i=6; i<32; i=i+2)
     {
-        temp.Format(_T("%d"), i);
+        temp.Format(L"%d", i);
         m_cFontSizes.AddString(temp);
         m_cFontSizes.SetItemData(count++, i);
     }
@@ -190,7 +190,7 @@ BOOL CSettingsTBlame::OnInitDialog()
     }
     if (!foundfont)
     {
-        temp.Format(_T("%lu"), m_dwFontSize);
+        temp.Format(L"%lu", m_dwFontSize);
         m_cFontSizes.SetWindowText(temp);
     }
     m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);

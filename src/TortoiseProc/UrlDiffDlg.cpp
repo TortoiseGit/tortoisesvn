@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,8 +27,8 @@
 IMPLEMENT_DYNAMIC(CUrlDiffDlg, CResizableStandAloneDialog)
 CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUrlDiffDlg::IDD, pParent)
-    , m_URL(_T(""))
-    , Revision(_T("HEAD"))
+    , m_URL(L"")
+    , Revision(L"HEAD")
     , m_pLogDlg(NULL)
     , m_bFolder(false)
 {
@@ -71,7 +71,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
     CString url = svn.GetURLFromPath(svnPath);
     CString sUUID = svn.GetUUIDFromPath(svnPath);
     m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sUUID, L"url");
     m_URLCombo.SetCurSel(0);
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
@@ -104,7 +104,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("URLDiff"));
+    EnableSaveRestore(L"URLDiff");
     return TRUE;
 }
 
@@ -149,7 +149,7 @@ void CUrlDiffDlg::OnOK()
     // if head revision, set revision as -1
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        m_rev = _T("HEAD");
+        m_rev = L"HEAD";
     }
     Revision = SVNRev(m_rev);
     if (!Revision.IsValid())
@@ -214,7 +214,7 @@ void CUrlDiffDlg::OnBnClickedLog()
 LPARAM CUrlDiffDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
-    temp.Format(_T("%Id"), lParam);
+    temp.Format(L"%Id", lParam);
     SetDlgItemText(IDC_REVISION_NUM, temp);
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;

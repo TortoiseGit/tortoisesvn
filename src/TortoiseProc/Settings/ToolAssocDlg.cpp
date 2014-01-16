@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,8 +27,8 @@ CToolAssocDlg::CToolAssocDlg(const CString& type, bool add, CWnd* pParent /*=NUL
     : CDialog(CToolAssocDlg::IDD, pParent)
     , m_sType(type)
     , m_bAdd(add)
-    , m_sExtension(_T(""))
-    , m_sTool(_T(""))
+    , m_sExtension(L"")
+    , m_sTool(L"")
 {
 }
 
@@ -46,7 +46,7 @@ void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
     {
         if (m_sExtension.Find('/')<0)
         {
-            m_sExtension.TrimLeft(_T("*"));
+            m_sExtension.TrimLeft(L"*");
         }
     }
 }
@@ -64,7 +64,7 @@ BOOL CToolAssocDlg::OnInitDialog()
     m_tooltips.Create(this);
 
     CString title;
-    if (m_sType == _T("Diff"))
+    if (m_sType == L"Diff")
     {
         title.LoadString(m_bAdd ? IDS_DLGTITLE_ADD_DIFF_TOOL : IDS_DLGTITLE_EDIT_DIFF_TOOL);
         m_tooltips.AddTool(IDC_TOOLEDIT, IDS_SETTINGS_EXTDIFF_TT);

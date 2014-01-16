@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013 - TortoiseSVN
+// Copyright (C) 2009-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@
 
 // auto-schedule upon construction
 
-CRegDWORD fetchingLocksEnabled(_T("Software\\TortoiseSVN\\RepoBrowserShowLocks"), TRUE);
+CRegDWORD fetchingLocksEnabled(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", TRUE);
 
 
 CRepositoryLister::CQuery::CQuery
@@ -129,7 +129,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     // store dir entry
 
     bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
-    CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
+    CString relPath = absolutepath + (abspath_has_slash ? L"" : L"/");
     CItem entry
         ( path
         , externalTarget

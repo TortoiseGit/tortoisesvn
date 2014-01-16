@@ -135,10 +135,10 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
     // where the settings are stored within the registry
 
     registryPrefix
-        = _T("Software\\TortoiseSVN\\StatusColumns\\") + containerName;
+        = L"Software\\TortoiseSVN\\StatusColumns\\" + containerName;
 
     // we accept only the current version
-    bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == SVNSLC_COL_VERSION;
+    bool valid = (DWORD)CRegDWORD (registryPrefix + L"Version", 0xff) == SVNSLC_COL_VERSION;
     if (valid)
     {
         // read (possibly different) column selection
@@ -149,16 +149,16 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
         // read user-prop lists
 
         CString userPropList
-            = CRegString (registryPrefix + _T("UserProps"));
+            = CRegString (registryPrefix + L"UserProps");
         CString shownUserProps
-            = CRegString (registryPrefix + _T("ShownUserProps"));
+            = CRegString (registryPrefix + L"ShownUserProps");
 
         ParseUserPropSettings (userPropList, shownUserProps);
 
         // read column widths
 
         CString colWidths
-            = CRegString (registryPrefix + _T("_Width"));
+            = CRegString (registryPrefix + L"_Width");
 
         ParseWidths (colWidths);
     }
@@ -181,7 +181,7 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
     // restore column ordering
 
     if (valid)
-        ParseColumnOrder (CRegString (registryPrefix + _T("_Order")));
+        ParseColumnOrder (CRegString (registryPrefix + L"_Order"));
     else
         ParseColumnOrder (CString());
 
@@ -197,7 +197,7 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
 void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
 {
-    CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
+    CRegDWORD regVersion (registryPrefix + L"Version", 0, TRUE);
     regVersion = SVNSLC_COL_VERSION;
 
     // write (possibly different) column selection
@@ -207,20 +207,20 @@ void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
 
     // write user-prop lists
 
-    CRegString regUserProps (registryPrefix + _T("UserProps"), CString(), TRUE);
+    CRegString regUserProps (registryPrefix + L"UserProps", CString(), TRUE);
     regUserProps = GetUserPropList();
 
-    CRegString regShownUserProps (registryPrefix + _T("ShownUserProps"), CString(), TRUE);
+    CRegString regShownUserProps (registryPrefix + L"ShownUserProps", CString(), TRUE);
     regShownUserProps = GetShownUserProps();
 
     // write column widths
 
-    CRegString regWidths (registryPrefix + _T("_Width"), CString(), TRUE);
+    CRegString regWidths (registryPrefix + L"_Width", CString(), TRUE);
     regWidths = GetWidthString();
 
     // write column ordering
 
-    CRegString regColumnOrder (registryPrefix + _T("_Order"), CString(), TRUE);
+    CRegString regColumnOrder (registryPrefix + L"_Order", CString(), TRUE);
     regColumnOrder = GetColumnOrderString();
 }
 
@@ -664,7 +664,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings
 {
     assert (userProps.empty());
 
-    static CString delimiters (_T(" "));
+    static CString delimiters (L" ");
 
     // parse list of visible user-props
 
@@ -889,7 +889,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
     TCHAR buf[10] = { 0 };
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
-        _stprintf_s (buf, _T("%08X"), columns[i].width);
+        _stprintf_s (buf, L"%08X", columns[i].width);
         result += buf;
     }
 
@@ -901,7 +901,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
     {
-        _stprintf_s (buf, _T("%08X"), userProps[i].width);
+        _stprintf_s (buf, L"%08X", userProps[i].width);
         result += buf;
     }
 
@@ -917,7 +917,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
     {
         if (columnOrder[i] < SVNSLC_MAXCOLUMNCOUNT)
         {
-            _stprintf_s (buf, _T("%02X"), columnOrder[i]);
+            _stprintf_s (buf, L"%02X", columnOrder[i]);
             result += buf;
         }
     }

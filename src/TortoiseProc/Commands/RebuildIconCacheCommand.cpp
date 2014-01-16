@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 
 bool RebuildIconCacheCommand::Execute()
 {
-    bool bQuiet = !!parser.HasKey(_T("noquestion"));
+    bool bQuiet = !!parser.HasKey(L"noquestion");
     if (CShellUpdater::RebuildIcons())
     {
         if (!bQuiet)

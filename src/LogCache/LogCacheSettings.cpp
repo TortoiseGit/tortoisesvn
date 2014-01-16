@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2009 - TortoiseSVN
+// Copyright (C) 2007-2007, 2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,8 +21,8 @@
 
 // TSVN log cache settings path within the registry
 
-#define REGKEY(x) _T("Software\\TortoiseSVN\\LogCache\\") _T(x)
-#define REGKEY15(x) _T("Software\\TortoiseSVN\\") _T(x)
+#define REGKEY(x) L"Software\\TortoiseSVN\\LogCache\\" L ## x
+#define REGKEY15(x) L"Software\\TortoiseSVN\\" L ## x
 
 // begin namespace LogCache
 

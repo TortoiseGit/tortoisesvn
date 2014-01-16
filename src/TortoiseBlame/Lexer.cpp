@@ -31,13 +31,13 @@ void TortoiseBlame::SetupLexer(LPCTSTR filename)
         TCHAR line[20] = { 0 };
         _tcscpy_s(line, lineptr+1);
         _tcslwr_s(line);
-        if ((_tcscmp(line, _T("py"))==0)||
-            (_tcscmp(line, _T("pyw"))==0))
+        if ((_tcscmp(line, L"py")==0)||
+            (_tcscmp(line, L"pyw")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_PYTHON);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("and assert break class continue def del elif \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and assert break class continue def del elif \
 else except exec finally for from global if import in is lambda None \
-not or pass print raise return try while yield"));
+not or pass print raise return try while yield");
             SetAStyle(SCE_P_DEFAULT, black);
             SetAStyle(SCE_P_COMMENTLINE, darkGreen);
             SetAStyle(SCE_P_NUMBER, RGB(0, 0x80, 0x80));
@@ -53,27 +53,27 @@ not or pass print raise return try while yield"));
             SetAStyle(SCE_P_COMMENTBLOCK, darkGreen);
             SetAStyle(SCE_P_STRINGEOL, red);
         }
-        if ((_tcscmp(line, _T("c"))==0)||
-            (_tcscmp(line, _T("cc"))==0)||
-            (_tcscmp(line, _T("cpp"))==0)||
-            (_tcscmp(line, _T("cxx"))==0)||
-            (_tcscmp(line, _T("h"))==0)||
-            (_tcscmp(line, _T("hh"))==0)||
-            (_tcscmp(line, _T("hpp"))==0)||
-            (_tcscmp(line, _T("hxx"))==0)||
-            (_tcscmp(line, _T("dlg"))==0)||
-            (_tcscmp(line, _T("mak"))==0))
+        if ((_tcscmp(line, L"c")==0)||
+            (_tcscmp(line, L"cc")==0)||
+            (_tcscmp(line, L"cpp")==0)||
+            (_tcscmp(line, L"cxx")==0)||
+            (_tcscmp(line, L"h")==0)||
+            (_tcscmp(line, L"hh")==0)||
+            (_tcscmp(line, L"hpp")==0)||
+            (_tcscmp(line, L"hxx")==0)||
+            (_tcscmp(line, L"dlg")==0)||
+            (_tcscmp(line, L"mak")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("and and_eq asm auto bitand bitor bool break \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and and_eq asm auto bitand bitor bool break \
 case catch char class compl const const_cast continue \
 default delete do double dynamic_cast else enum explicit export extern false float for \
 friend goto if inline int long mutable namespace new not not_eq \
 operator or or_eq private protected public \
 register reinterpret_cast return short signed sizeof static static_cast struct switch \
 template this throw true try typedef typeid typename union unsigned using \
-virtual void volatile wchar_t while xor xor_eq"));
-            SendEditor(SCI_SETKEYWORDS, 3, (LPARAM)_T("a addindex addtogroup anchor arg attention \
+virtual void volatile wchar_t while xor xor_eq");
+            SendEditor(SCI_SETKEYWORDS, 3, (LPARAM)L"a addindex addtogroup anchor arg attention \
 author b brief bug c class code date def defgroup deprecated dontinclude \
 e em endcode endhtmlonly endif endlatexonly endlink endverbatim enum example exception \
 f$ f[ f] file fn hideinitializer htmlinclude htmlonly \
@@ -82,40 +82,40 @@ mainpage name namespace nosubgrouping note overload \
 p page par param post pre ref relates remarks return retval \
 sa section see showinitializer since skip skipline struct subsection \
 test throw todo typedef union until \
-var verbatim verbinclude version warning weakgroup $ @ \\ & < > # { }"));
+var verbatim verbinclude version warning weakgroup $ @ \\ & < > # { }");
             SetupCppLexer();
         }
-        if (_tcscmp(line, _T("cs"))==0)
+        if (_tcscmp(line, L"cs")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("abstract as base bool break byte case catch char checked class \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract as base bool break byte case catch char checked class \
 const continue decimal default delegate do double else enum \
 event explicit extern false finally fixed float for foreach goto if \
 implicit in int interface internal is lock long namespace new null \
 object operator out override params private protected public \
 readonly ref return sbyte sealed short sizeof stackalloc static \
 string struct switch this throw true try typeof uint ulong \
-unchecked unsafe ushort using virtual void while"));
+unchecked unsafe ushort using virtual void while");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, _T("rc"))==0)||
-            (_tcscmp(line, _T("rc2"))==0))
+        if ((_tcscmp(line, L"rc")==0)||
+            (_tcscmp(line, L"rc2")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON \
 BEGIN BITMAP BLOCK BUTTON CAPTION CHARACTERISTICS CHECKBOX CLASS \
 COMBOBOX CONTROL CTEXT CURSOR DEFPUSHBUTTON DIALOG DIALOGEX DISCARDABLE \
 EDITTEXT END EXSTYLE FONT GROUPBOX ICON LANGUAGE LISTBOX LTEXT \
 MENU MENUEX MENUITEM MESSAGETABLE POPUP \
 PUSHBUTTON RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3 \
-STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY"));
+STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, _T("idl"))==0)||
-            (_tcscmp(line, _T("odl"))==0))
+        if ((_tcscmp(line, L"idl")==0)||
+            (_tcscmp(line, L"odl")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("aggregatable allocate appobject arrays async async_uuid \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"aggregatable allocate appobject arrays async async_uuid \
 auto_handle \
 bindable boolean broadcast byte byte_count \
 call_as callback char coclass code comm_status \
@@ -146,55 +146,55 @@ shape short signed size_is small source strict_context_handle \
 string struct switch switch_is switch_type \
 transmit_as typedef \
 uidefault union unique unsigned user_marshal usesgetlasterror uuid \
-v1_enum vararg version void wchar_t wire_marshal"));
+v1_enum vararg version void wchar_t wire_marshal");
             SetupCppLexer();
         }
-        if (_tcscmp(line, _T("java"))==0)
+        if (_tcscmp(line, L"java")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("abstract assert boolean break byte case catch char class \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract assert boolean break byte case catch char class \
 const continue default do double else extends final finally float for future \
 generic goto if implements import inner instanceof int interface long \
 native new null outer package private protected public rest \
 return short static super switch synchronized this throw throws \
-transient try var void volatile while"));
+transient try var void volatile while");
             SetupCppLexer();
         }
-        if (_tcscmp(line, _T("js"))==0)
+        if (_tcscmp(line, L"js")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("abstract boolean break byte case catch char class \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract boolean break byte case catch char class \
 const continue debugger default delete do double else enum export extends \
 final finally float for function goto if implements import in instanceof \
 int interface long native new package private protected public \
 return short static super switch synchronized this throw throws \
-transient try typeof var void volatile while with"));
+transient try typeof var void volatile while with");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, _T("pas"))==0)||
-            (_tcscmp(line, _T("dpr"))==0)||
-            (_tcscmp(line, _T("pp"))==0))
+        if ((_tcscmp(line, L"pas")==0)||
+            (_tcscmp(line, L"dpr")==0)||
+            (_tcscmp(line, L"pp")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_PASCAL);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("and array as begin case class const constructor \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and array as begin case class const constructor \
 destructor div do downto else end except file finally \
 for function goto if implementation in inherited \
 interface is mod not object of on or packed \
 procedure program property raise record repeat \
 set shl shr then threadvar to try type unit \
-until uses var while with xor"));
+until uses var while with xor");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, _T("as"))==0)||
-            (_tcscmp(line, _T("asc"))==0)||
-            (_tcscmp(line, _T("jsfl"))==0))
+        if ((_tcscmp(line, L"as")==0)||
+            (_tcscmp(line, L"asc")==0)||
+            (_tcscmp(line, L"jsfl")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("add and break case catch class continue default delete do \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"add and break case catch class continue default delete do \
 dynamic else eq extends false finally for function ge get gt if implements import in \
 instanceof interface intrinsic le lt ne new not null or private public return \
-set static super switch this throw true try typeof undefined var void while with"));
-            SendEditor(SCI_SETKEYWORDS, 1, (LPARAM)_T("Array Arguments Accessibility Boolean Button Camera Color \
+set static super switch this throw true try typeof undefined var void while with");
+            SendEditor(SCI_SETKEYWORDS, 1, (LPARAM)L"Array Arguments Accessibility Boolean Button Camera Color \
 ContextMenu ContextMenuItem Date Error Function Key LoadVars LocalConnection Math \
 Microphone Mouse MovieClip MovieClipLoader NetConnection NetStream Number Object \
 PrintJob Selection SharedObject Sound Stage String StyleSheet System TextField \
@@ -207,29 +207,29 @@ loadVariables loadVariablesNum maxscroll mbchr mblength mbord mbsubstring MMExec
 NaN newline nextFrame nextScene on onClipEvent onUpdate ord parseFloat parseInt play \
 prevFrame prevScene print printAsBitmap printAsBitmapNum printNum random removeMovieClip \
 scroll set setInterval setProperty startDrag stop stopAllSounds stopDrag substring \
-targetPath tellTarget toggleHighQuality trace unescape unloadMovie unLoadMovieNum updateAfterEvent"));
+targetPath tellTarget toggleHighQuality trace unescape unloadMovie unLoadMovieNum updateAfterEvent");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, _T("html"))==0)||
-            (_tcscmp(line, _T("htm"))==0)||
-            (_tcscmp(line, _T("shtml"))==0)||
-            (_tcscmp(line, _T("htt"))==0)||
-            (_tcscmp(line, _T("xml"))==0)||
-            (_tcscmp(line, _T("asp"))==0)||
-            (_tcscmp(line, _T("xsl"))==0)||
-            (_tcscmp(line, _T("php"))==0)||
-            (_tcscmp(line, _T("xhtml"))==0)||
-            (_tcscmp(line, _T("phtml"))==0)||
-            (_tcscmp(line, _T("cfm"))==0)||
-            (_tcscmp(line, _T("tpl"))==0)||
-            (_tcscmp(line, _T("dtd"))==0)||
-            (_tcscmp(line, _T("hta"))==0)||
-            (_tcscmp(line, _T("htd"))==0)||
-            (_tcscmp(line, _T("wxs"))==0))
+        if ((_tcscmp(line, L"html")==0)||
+            (_tcscmp(line, L"htm")==0)||
+            (_tcscmp(line, L"shtml")==0)||
+            (_tcscmp(line, L"htt")==0)||
+            (_tcscmp(line, L"xml")==0)||
+            (_tcscmp(line, L"asp")==0)||
+            (_tcscmp(line, L"xsl")==0)||
+            (_tcscmp(line, L"php")==0)||
+            (_tcscmp(line, L"xhtml")==0)||
+            (_tcscmp(line, L"phtml")==0)||
+            (_tcscmp(line, L"cfm")==0)||
+            (_tcscmp(line, L"tpl")==0)||
+            (_tcscmp(line, L"dtd")==0)||
+            (_tcscmp(line, L"hta")==0)||
+            (_tcscmp(line, L"htd")==0)||
+            (_tcscmp(line, L"wxs")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_HTML);
             SendEditor(SCI_SETSTYLEBITS, 7);
-            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("a abbr acronym address applet area b base basefont \
+            SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"a abbr acronym address applet area b base basefont \
 bdo big blockquote body br button caption center \
 cite code col colgroup dd del dfn dir div dl dt em \
 fieldset font form frame frameset h1 h2 h3 h4 h5 h6 \
@@ -259,30 +259,30 @@ scheme scope selected shape size span src standby start style \
 summary tabindex target text title topmargin type usemap \
 valign value valuetype version vlink vspace width \
 text password checkbox radio submit reset \
-file hidden image"));
-            SendEditor(SCI_SETKEYWORDS, 1, (LPARAM)_T("assign audio block break catch choice clear disconnect else elseif \
+file hidden image");
+            SendEditor(SCI_SETKEYWORDS, 1, (LPARAM)L"assign audio block break catch choice clear disconnect else elseif \
 emphasis enumerate error exit field filled form goto grammar help \
 if initial link log menu meta noinput nomatch object option p paragraph \
 param phoneme prompt property prosody record reprompt return s say-as \
-script sentence subdialog submit throw transfer value var voice vxml"));
-            SendEditor(SCI_SETKEYWORDS, 2, (LPARAM)_T("accept age alphabet anchor application base beep bridge category charset \
+script sentence subdialog submit throw transfer value var voice vxml");
+            SendEditor(SCI_SETKEYWORDS, 2, (LPARAM)L"accept age alphabet anchor application base beep bridge category charset \
 classid cond connecttimeout content contour count dest destexpr dtmf dtmfterm \
 duration enctype event eventexpr expr expritem fetchtimeout finalsilence \
 gender http-equiv id level maxage maxstale maxtime message messageexpr \
 method mime modal mode name namelist next nextitem ph pitch range rate \
 scope size sizeexpr skiplist slot src srcexpr sub time timeexpr timeout \
-transferaudio type value variant version volume xml:lang"));
-            SendEditor(SCI_SETKEYWORDS, 3, (LPARAM)_T("and assert break class continue def del elif \
+transferaudio type value variant version volume xml:lang");
+            SendEditor(SCI_SETKEYWORDS, 3, (LPARAM)L"and assert break class continue def del elif \
 else except exec finally for from global if import in is lambda None \
-not or pass print raise return try while yield"));
-            SendEditor(SCI_SETKEYWORDS, 4, (LPARAM)_T("and argv as argc break case cfunction class continue declare default do \
+not or pass print raise return try while yield");
+            SendEditor(SCI_SETKEYWORDS, 4, (LPARAM)L"and argv as argc break case cfunction class continue declare default do \
 die echo else elseif empty enddeclare endfor endforeach endif endswitch \
 endwhile e_all e_parse e_error e_warning eval exit extends false for \
 foreach function global http_cookie_vars http_get_vars http_post_vars \
 http_post_files http_env_vars http_server_vars if include include_once \
 list new not null old_function or parent php_os php_self php_version \
 print require require_once return static switch stdclass this true var \
-xor virtual while __file__ __line__ __sleep __wakeup"));
+xor virtual while __file__ __line__ __sleep __wakeup");
 
             SetAStyle(SCE_H_TAG, darkBlue);
             SetAStyle(SCE_H_TAGUNKNOWN, red);

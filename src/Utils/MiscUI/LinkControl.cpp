@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012-2013 - TortoiseSVN
+// Copyright (C) 2009, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,8 +27,8 @@ class CGlobalAtom
 {
 public:
     CGlobalAtom(void)
-    { atom = GlobalAddAtom(_T("_LinkControl_Object_Pointer_")
-             _T("\\{62671D58-E5E8-46e0-A818-FD6547EC60B8}")); }
+    { atom = GlobalAddAtom(L"_LinkControl_Object_Pointer_"
+             L"\\{62671D58-E5E8-46e0-A818-FD6547EC60B8}"); }
     ~CGlobalAtom(void)
     { DeleteAtom(atom); }
 
@@ -38,7 +38,7 @@ public:
 static CGlobalAtom ga;
 
 const UINT CLinkControl::LK_LINKITEMCLICKED
-= ::RegisterWindowMessage(_T("LK_LINKITEMCLICKED"));
+= ::RegisterWindowMessage(L"LK_LINKITEMCLICKED");
 
 
 HCURSOR  CLinkControl::g_hLinkCursor     = NULL;

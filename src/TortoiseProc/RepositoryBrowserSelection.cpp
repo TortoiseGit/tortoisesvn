@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2012 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ void CRepositoryBrowserSelection::Add (const CItem* item)
     SPath path;
     CString absPath = item->absolutepath;
 
-    absPath.Replace (_T("\\"), _T("%5C"));
+    absPath.Replace (L"\\", L"%5C");
     path.url = CTSVNPath (absPath);
 
     // we don't fully escape the urls, because the GetSVNApiPath() method
@@ -95,8 +95,8 @@ void CRepositoryBrowserSelection::Add (const CItem* item)
     // We only escape special chars here:
     // the '%' because we know that this char isn't escaped yet, and
     // the '"' char, because we pass these urls to the command line as well
-    absPath.Replace (_T("%"), _T("%25"));
-    absPath.Replace (_T("\""), _T("%22"));
+    absPath.Replace (L"%", L"%25");
+    absPath.Replace (L"\"", L"%22");
     path.urlEscaped = CTSVNPath (absPath);
 
     path.isExternal = item->is_external;
@@ -124,8 +124,8 @@ void CRepositoryBrowserSelection::Add (const CTreeItem* item)
     // We only escape special chars here:
     // the '%' because we know that this char isn't escaped yet, and
     // the '"' char, because we pass these urls to the command line as well
-    absPath.Replace (_T("%"), _T("%25"));
-    absPath.Replace (_T("\""), _T("%22"));
+    absPath.Replace (L"%", L"%25");
+    absPath.Replace (L"\"", L"%22");
     path.urlEscaped = CTSVNPath (absPath);
 
     path.isExternal = item->is_external;

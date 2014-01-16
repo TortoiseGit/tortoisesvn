@@ -78,7 +78,7 @@ namespace
         toAdd.Format (id);
         target = target.IsEmpty()
                ? toAdd
-               : target + _T(", ") + toAdd;
+               : target + L", " + toAdd;
     }
 }
 
@@ -244,7 +244,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
                 if (attributes.IsEmpty())
                     attributes = attribute;
                 else
-                    attributes += _T(", ") + attribute;
+                    attributes += L", " + attribute;
             }
 
             CString tagInfo;
@@ -266,7 +266,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
                                         , CUnicodeUtils::StdGetUnicode (tagPath).c_str());
             }
 
-            tags +=   _T("\r\n")
+            tags +=   L"\r\n"
                     + CString (' ', (int)tag->GetDepth() * 6)
                     + tagInfo;
         }

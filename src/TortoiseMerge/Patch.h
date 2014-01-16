@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2008, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ public:
     ~CPatch(void);
 
     BOOL        OpenUnifiedDiffFile(const CString& filename);
-    BOOL        PatchFile(const CString& sPath, const CString& sSavePath = _T(""), const CString& sBaseFile = _T(""));
+    BOOL        PatchFile(const CString& sPath, const CString& sSavePath = L"", const CString& sBaseFile = L"");
     int         GetNumberOfFiles() const  {return m_arFileDiffs.GetCount();}
     CString     GetFilename(int nIndex);
     CString     GetRevision(int nIndex);

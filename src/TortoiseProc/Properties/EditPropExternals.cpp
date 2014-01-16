@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,7 +129,7 @@ BOOL CEditPropExternals::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("EditPropsExternals"));
+    EnableSaveRestore(L"EditPropsExternals");
 
     return TRUE;
 }
@@ -257,19 +257,19 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                     break;
                 case 2: // peg
                     if ((ext.pegrevision.kind == svn_opt_revision_number) && (ext.pegrevision.value.number >= 0))
-                        _stprintf_s(m_columnbuf, _T("%ld"), ext.pegrevision.value.number);
+                        _stprintf_s(m_columnbuf, L"%ld", ext.pegrevision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 3: // operative
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegrevision.value.number))
-                        _stprintf_s(m_columnbuf, _T("%ld"), ext.revision.value.number);
+                        _stprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 4: // head revision
                     if (ext.headrev != SVN_INVALID_REVNUM)
-                        _stprintf_s(m_columnbuf, _T("%ld"), ext.headrev);
+                        _stprintf_s(m_columnbuf, L"%ld", ext.headrev);
                     else
                         m_columnbuf[0] = 0;
                     break;

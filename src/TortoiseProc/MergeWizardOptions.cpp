@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012-2013 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -188,7 +188,7 @@ BOOL CMergeWizardOptions::OnSetActive()
         sTitle.LoadString(IDS_MERGEWIZARD_TREETITLE);
         break;
     }
-    sTitle += _T(" : ") + CString(MAKEINTRESOURCE(IDS_MERGEWIZARD_OPTIONSTITLE));
+    sTitle += L" : " + CString(MAKEINTRESOURCE(IDS_MERGEWIZARD_OPTIONSTITLE));
     SetDlgItemText(IDC_MERGEOPTIONSGROUP, sTitle);
 
     return CMergeWizardBasePage::OnSetActive();

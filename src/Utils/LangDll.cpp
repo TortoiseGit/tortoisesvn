@@ -47,12 +47,12 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
         if (pSlash)
         {
             *pSlash = 0;
-            _tcscat_s(langpath, _T("\\Languages\\"));
+            _tcscat_s(langpath, L"\\Languages\\");
             assert(m_hInstance == NULL);
             do
             {
                 TCHAR langdllpath[MAX_PATH] = { 0 };
-                _stprintf_s(langdllpath, _T("%s%s%lu.dll"), langpath, appname, langID);
+                _stprintf_s(langdllpath, L"%s%s%lu.dll", langpath, appname, langID);
 
                 m_hInstance = LoadLibrary(langdllpath);
 
@@ -118,13 +118,13 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
                 pBuffer);
 
             VerQueryValue(  pBuffer,
-                _T("\\VarFileInfo\\Translation"),
+                L"\\VarFileInfo\\Translation",
                 &lpFixedPointer,
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
             _stprintf_s(strLangProductVersion,
-                        _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+                        L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                         lpTransArray[0].wLanguageID,
                         lpTransArray[0].wCharacterSet);
 

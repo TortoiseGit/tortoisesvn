@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,7 @@ public:
     /// Returns true if the admin dir name is set to "_svn".
     bool IsVSNETHackActive() const {return m_bVSNETHack;}
 
-    CString GetAdminDirName() const {return m_bVSNETHack ? _T("_svn") : _T(".svn");}
+    CString GetAdminDirName() const {return m_bVSNETHack ? L"_svn" : L".svn";}
 private:
     apr_pool_t* m_pool;
     bool m_bVSNETHack;

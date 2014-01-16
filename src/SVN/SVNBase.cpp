@@ -59,9 +59,9 @@ CString SVNBase::GetLastErrorMessage(int wrap /* = 80 */)
     if (!PostCommitErr.IsEmpty())
     {
 #ifdef _MFC_VER
-        msg += _T("\n") + CStringUtils::LinesWrap(PostCommitErr, wrap);
+        msg += L"\n" + CStringUtils::LinesWrap(PostCommitErr, wrap);
 #else
-        msg += _T("\n") + CStringUtils::LinesWrap(PostCommitErr, wrap);
+        msg += L"\n" + CStringUtils::LinesWrap(PostCommitErr, wrap);
 #endif
     }
     return msg;
@@ -93,7 +93,7 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
                 if (temp_err)
                 {
                     svn_error_clear (temp_err);
-                    msg = _T("Can't recode error string from APR");
+                    msg = L"Can't recode error string from APR";
                 }
                 else
                 {
@@ -105,7 +105,7 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
         while (ErrPtr->child)
         {
             ErrPtr = ErrPtr->child;
-            msg += _T("\n");
+            msg += L"\n";
             if (ErrPtr->message)
                 temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
             else
@@ -123,7 +123,7 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
                     if (temp_err)
                     {
                         svn_error_clear (temp_err);
-                        temp = _T("Can't recode error string from APR");
+                        temp = L"Can't recode error string from APR";
                     }
                     else
                     {
@@ -193,12 +193,12 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
         }
         if (!temp.IsEmpty())
         {
-            msg += _T("\n") + temp;
+            msg += L"\n" + temp;
         }
 #endif
         return msg;
     }
-    return _T("");
+    return L"";
 }
 
 int SVNBase::ShowErrorDialog( HWND hParent)
@@ -251,7 +251,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
         {
             // run cleanup
             CString sCmd;
-            sCmd.Format(_T("/command:cleanup /path:\"%s\" /cleanup /nodlg /hwnd:%p"),
+            sCmd.Format(L"/command:cleanup /path:\"%s\" /cleanup /nodlg /hwnd:%p",
                         wcPath.GetDirectory().GetWinPath(), (void*)hParent);
             CAppUtils::RunTortoiseProc(sCmd);
         }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,8 @@
 IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
-    , m_sToUrl(_T(""))
-    , m_sFromUrl(_T(""))
+    , m_sToUrl(L"")
+    , m_sFromUrl(L"")
     , m_bIncludeExternals(FALSE)
     , m_height(0)
 {
@@ -82,7 +82,7 @@ BOOL CRelocateDlg::OnInitDialog()
     m_URLCombo.SetWindowText(m_sFromUrl);
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("RelocateDlg"));
+    EnableSaveRestore(L"RelocateDlg");
     return TRUE;
 }
 

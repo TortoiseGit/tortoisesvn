@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ BOOL CHistoryDlg::OnInitDialog()
     AddAnchor(IDC_HISTORYLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("HistoryDlg"));
+    EnableSaveRestore(L"HistoryDlg");
     m_List.SetFocus();
     return FALSE;
 }
@@ -129,7 +129,7 @@ void CHistoryDlg::UpdateMessageList()
     std::vector<CString> tokens;
     for(;;)
     {
-        temp = sFilter.Tokenize(_T(" "), pos);
+        temp = sFilter.Tokenize(L" ", pos);
         if(temp.IsEmpty())
         {
             break;

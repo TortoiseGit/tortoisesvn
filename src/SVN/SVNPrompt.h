@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,5 +77,5 @@ private:
     bool                        m_bSuppressed;
 };
 
-static UINT WM_SVNAUTHCANCELLED = RegisterWindowMessage(_T("TORTOISESVN_SVNAUTHCANCELLED_MSG"));
+static UINT WM_SVNAUTHCANCELLED = RegisterWindowMessage(L"TORTOISESVN_SVNAUTHCANCELLED_MSG");
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,13 +39,13 @@ bool CreateRepositoryCommand::Execute()
         // we extract the icon to use from the resources and write it to disk
         // so even those who don't have TSVN installed can benefit from it.
         CIconExtractor svnIconResource;
-        if (svnIconResource.ExtractIcon(NULL, MAKEINTRESOURCE(IDI_SVNFOLDER), cmdLinePath.GetWinPathString() + _T("\\svn.ico")) == 0)
+        if (svnIconResource.ExtractIcon(NULL, MAKEINTRESOURCE(IDI_SVNFOLDER), cmdLinePath.GetWinPathString() + L"\\svn.ico") == 0)
         {
             DWORD dwWritten = 0;
-            CAutoFile hFile = CreateFile(cmdLinePath.GetWinPathString() + _T("\\Desktop.ini"), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_HIDDEN, NULL);
+            CAutoFile hFile = CreateFile(cmdLinePath.GetWinPathString() + L"\\Desktop.ini", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_HIDDEN, NULL);
             if (hFile)
             {
-                CString sIni = _T("[.ShellClassInfo]\nConfirmFileOp=0\nIconFile=svn.ico\nIconIndex=0\nInfoTip=Subversion Repository\n");
+                CString sIni = L"[.ShellClassInfo]\nConfirmFileOp=0\nIconFile=svn.ico\nIconIndex=0\nInfoTip=Subversion Repository\n";
                 WriteFile(hFile, (LPCTSTR)sIni,  sIni.GetLength()*sizeof(TCHAR), &dwWritten, NULL);
             }
             PathMakeSystemFolder(cmdLinePath.GetWinPath());

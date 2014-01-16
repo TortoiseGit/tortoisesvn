@@ -85,9 +85,9 @@ public:
     virtual ~CLogDlg();
 
     void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
-        BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
+        BOOL bStrict = CRegDWORD(L"Software\\TortoiseSVN\\LastLogStrict", FALSE),
         BOOL bSaveStrict = TRUE,
-        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"),
+        int limit = (int)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs",
         100));
     void SetFilter(const CString& findstr, LONG findtype, bool findregex);
     void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
@@ -436,6 +436,6 @@ private:
 
     bool                m_bVisualStudioRunningAtStart;
 };
-static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
-static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));
-static UINT WM_REVLISTONERANGE = RegisterWindowMessage(_T("TORTOISESVN_REVLISTONERANGE_MSG"));
+static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
+static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
+static UINT WM_REVLISTONERANGE = RegisterWindowMessage(L"TORTOISESVN_REVLISTONERANGE_MSG");

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,11 +28,11 @@
 IMPLEMENT_DYNAMIC(COpenDlg, CStandAloneDialog)
 COpenDlg::COpenDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(COpenDlg::IDD, pParent)
-    , m_sBaseFile(_T(""))
-    , m_sTheirFile(_T(""))
-    , m_sYourFile(_T(""))
-    , m_sUnifiedDiffFile(_T(""))
-    , m_sPatchDirectory(_T(""))
+    , m_sBaseFile(L"")
+    , m_sTheirFile(L"")
+    , m_sYourFile(L"")
+    , m_sUnifiedDiffFile(L"")
+    , m_sPatchDirectory(L"")
     , m_bFromClipboard(FALSE)
     , m_cFormat(0)
     , m_nextViewer(NULL)
@@ -84,7 +84,7 @@ BOOL COpenDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_APPLYRADIO);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
+    CRegDWORD lastRadioButton(L"Software\\TortoiseMerge\\OpenRadio", IDC_MERGERADIO);
     if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))
         lastRadioButton = IDC_MERGERADIO;
     GroupRadio((DWORD)lastRadioButton);
@@ -97,7 +97,7 @@ BOOL COpenDlg::OnInitDialog()
     AutoCompleteOn(IDC_DIFFFILEEDIT);
     AutoCompleteOn(IDC_DIRECTORYEDIT);
 
-    m_cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+    m_cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
     m_nextViewer = SetClipboardViewer();
 
     return TRUE;  // return TRUE unless you set the focus to a control
@@ -241,12 +241,12 @@ void COpenDlg::OnOK()
             std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
             std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
             GetTempPath (len+1, path.get());
-            GetTempFileName (path.get(), _T("tsm"), 0, tempF.get());
+            GetTempFileName (path.get(), L"tsm", 0, tempF.get());
             CString sTempFile = CString(tempF.get());
 
             FILE * outFile;
             size_t patchlen = strlen(lpstr);
-            _tfopen_s(&outFile, sTempFile, _T("wb"));
+            _tfopen_s(&outFile, sTempFile, L"wb");
             if(outFile)
             {
                 size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
@@ -273,7 +273,7 @@ void COpenDlg::OnOK()
         MessageBox(sErr, NULL, MB_ICONERROR);
         return;
     }
-    CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
+    CRegDWORD lastRadioButton(L"Software\\TortoiseMerge\\OpenRadio", IDC_MERGERADIO);
     lastRadioButton = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
     CStandAloneDialog::OnOK();
 }

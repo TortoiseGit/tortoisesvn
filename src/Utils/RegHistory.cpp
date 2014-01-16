@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2012 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
     {
         //keys are of form <lpszKeyPrefix><entrynumber>
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, _T("%s\\%s%d"), lpszSection, lpszKeyPrefix, n++);
+        _stprintf_s(sKey, L"%s\\%s%d", lpszSection, lpszKeyPrefix, n++);
         sText = CRegStdString(sKey);
         if (!sText.empty())
         {
@@ -96,7 +96,7 @@ bool CRegHistory::Save() const
     for (int n = 0; n < (int)m_arEntries.size(); n++)
     {
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, _T("%s\\%s%d"), m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
+        _stprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
         CRegStdString regkey = CRegStdString(sKey);
         regkey = m_arEntries[n];
     }
@@ -104,7 +104,7 @@ bool CRegHistory::Save() const
     for (int n = nMax; ; n++)
     {
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, _T("%s\\%s%d"), m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
+        _stprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
         CRegStdString regkey = CRegStdString(sKey);
         if (((tstring)regkey).empty())
             break;

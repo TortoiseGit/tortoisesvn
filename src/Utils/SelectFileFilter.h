@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,13 +59,13 @@ inline void CSelectFileFilter::Load(UINT stringId)
     CString temp;
     for (;;)
     {
-        temp = sFilter.Tokenize(_T("|"), pos);
+        temp = sFilter.Tokenize(L"|", pos);
         if (temp.IsEmpty())
         {
             break;
         }
         filternames.push_back(temp);
-        temp = sFilter.Tokenize(_T("|"), pos);
+        temp = sFilter.Tokenize(L"|", pos);
         filtermasks.push_back(temp);
     }
     filterspec.reset(new COMDLG_FILTERSPEC[filternames.size()]);

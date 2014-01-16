@@ -120,10 +120,10 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
         CRect rect;
         GetClientRect(&rect);
         SetTitleWithPath(rect.Width());
-        if (m_sPath.Right(1).Compare(_T("\\"))==0)
+        if (m_sPath.Right(1).Compare(L"\\")==0)
             m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
 
-        m_sPath = m_sPath + _T("\\");
+        m_sPath = m_sPath + L"\\";
         for (int i=m_ImgList.GetImageCount();i>0;i--)
         {
             m_ImgList.Remove(0);
@@ -135,7 +135,7 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
     int c = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
         m_cFileList.DeleteColumn(c--);
-    m_cFileList.InsertColumn(0, _T(""));
+    m_cFileList.InsertColumn(0, L"");
 
     m_cFileList.SetRedraw(false);
 
@@ -257,8 +257,8 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         return;
     if (m_sPath.IsEmpty())
     {
-        m_pCallBack->DiffFiles(GetFullPath(pNMLV->iItem), _T(""),
-                               _T(""), _T(""));
+        m_pCallBack->DiffFiles(GetFullPath(pNMLV->iItem), L"",
+                               L"", L"");
         m_ShownIndex = pNMLV->iItem;
         m_cFileList.Invalidate();
     }
@@ -266,7 +266,7 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     {
         if (m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED)
         {
-            m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(pNMLV->iItem), m_pPatch->GetContentMods(pNMLV->iItem), m_pPatch->GetPropMods(pNMLV->iItem), _T(""));
+            m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(pNMLV->iItem), m_pPatch->GetContentMods(pNMLV->iItem), m_pPatch->GetPropMods(pNMLV->iItem), L"");
             m_ShownIndex = pNMLV->iItem;
             m_cFileList.Invalidate();
         }
@@ -366,7 +366,7 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
             int nIndex = m_cFileList.GetSelectionMark();
             if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
             {
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(nIndex), m_pPatch->GetContentMods(nIndex), m_pPatch->GetPropMods(nIndex), _T(""));
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(nIndex), m_pPatch->GetContentMods(nIndex), m_pPatch->GetPropMods(nIndex), L"");
                 m_ShownIndex = nIndex;
                 m_cFileList.Invalidate();
             }
@@ -429,7 +429,7 @@ void CFilePatchesDlg::SetTitleWithPath(int width)
 {
     CString title;
     title.LoadString(IDS_PATCH_TITLE);
-    title += _T("  ") + m_sPath;
+    title += L"  " + m_sPath;
     title = title.Left(MAX_PATH-1);
     CDC * pDC = GetDC();
     if (pDC)
@@ -465,7 +465,7 @@ void CFilePatchesDlg::PatchAll()
             if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(i), true);
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(i), m_pPatch->GetContentMods(i), m_pPatch->GetPropMods(i), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(i), m_pPatch->GetContentMods(i), m_pPatch->GetPropMods(i), L"", TRUE);
                 m_ShownIndex = i;
                 m_cFileList.Invalidate();
             }
@@ -496,7 +496,7 @@ void CFilePatchesDlg::PatchSelected()
             if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(index), true);
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(index), m_pPatch->GetContentMods(index), m_pPatch->GetPropMods(index), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(index), m_pPatch->GetContentMods(index), m_pPatch->GetPropMods(index), L"", TRUE);
                 m_ShownIndex = index;
                 m_cFileList.Invalidate();
             }

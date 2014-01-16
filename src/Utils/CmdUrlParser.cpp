@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,40 +37,40 @@ CString CmdUrlParser::GetCommandLine()
     int pos = 0;
     for(;;)
     {
-        temp = m_cmdUrl.Tokenize(_T("?"), pos);
+        temp = m_cmdUrl.Tokenize(L"?", pos);
         if (temp.IsEmpty())
         {
             break;
         }
-        else if (temp.Left(8).CompareNoCase(_T("tsvncmd:")) == 0)
+        else if (temp.Left(8).CompareNoCase(L"tsvncmd:") == 0)
             temp = temp.Mid(8);
 
-        if (temp.Left(8).CompareNoCase(_T("command:")) == 0)
+        if (temp.Left(8).CompareNoCase(L"command:") == 0)
         {
             CString cmd = temp.Mid(8);
             bool isCmdAllowed = false;
 
-            if (cmd.CompareNoCase(_T("update")) == 0)
+            if (cmd.CompareNoCase(L"update") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("commit")) == 0)
+            else if (cmd.CompareNoCase(L"commit") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("diff")) == 0)
+            else if (cmd.CompareNoCase(L"diff") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("repobrowser")) == 0)
+            else if (cmd.CompareNoCase(L"repobrowser") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("checkout")) == 0)
+            else if (cmd.CompareNoCase(L"checkout") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("export")) == 0)
+            else if (cmd.CompareNoCase(L"export") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("blame")) == 0)
+            else if (cmd.CompareNoCase(L"blame") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("repostatus")) == 0)
+            else if (cmd.CompareNoCase(L"repostatus") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("revisiongraph")) == 0)
+            else if (cmd.CompareNoCase(L"revisiongraph") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("showcompare")) == 0)
+            else if (cmd.CompareNoCase(L"showcompare") == 0)
                 isCmdAllowed = true;
-            else if (cmd.CompareNoCase(_T("log")) == 0)
+            else if (cmd.CompareNoCase(L"log") == 0)
                 isCmdAllowed = true;
 
             if (!isCmdAllowed)
@@ -78,15 +78,15 @@ CString CmdUrlParser::GetCommandLine()
         }
         temp = CPathUtils::PathUnescape(temp);
         // if the param has spaces in it, enquote it
-        if (temp.Find(_T(" ")) >= 0)
+        if (temp.Find(L" ") >= 0)
         {
             // only insert a quote after the first colon: subsequent colons might be
             // part of an url (e.g., http_:_//something)
-            int keyIndex = temp.Find(_T(":")) + 1;
-            temp.Insert(keyIndex, _T("\""));
-            temp = temp + _T("\"");
+            int keyIndex = temp.Find(L":") + 1;
+            temp.Insert(keyIndex, L"\"");
+            temp = temp + L"\"";
         }
-        sCmdLine += _T(" /");
+        sCmdLine += L" /";
         sCmdLine += temp;
     }
 

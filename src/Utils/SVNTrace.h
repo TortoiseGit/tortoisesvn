@@ -2,7 +2,7 @@
 
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,5 +84,5 @@ public:
     SVNTRACE_CONCAT(__svnTrace,__LINE__).Stop();
 
 #define SVNTRACE_BLOCK\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T("<whole_block>"),NULL);
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,L"<whole_block>",NULL);
 

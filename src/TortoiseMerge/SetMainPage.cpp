@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,19 +44,19 @@ CSetMainPage::CSetMainPage()
     , m_nMaxInline(3000)
     , m_dwFontSize(0)
 {
-    m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
-    m_regFirstDiffOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);
-    m_regFirstConflictOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE);
-    m_regTabSize = CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
-    m_regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
-    m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
-    m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
-    m_regFontName = CRegString(_T("Software\\TortoiseMerge\\FontName"), _T("Courier New"));
-    m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\FontSize"), 10);
-    m_regCaseInsensitive = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
-    m_regUTF8Default = CRegDWORD(_T("Software\\TortoiseMerge\\UseUTF8"), FALSE);
-    m_regAutoAdd = CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE);
-    m_regMaxInline = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
+    m_regBackup = CRegDWORD(L"Software\\TortoiseMerge\\Backup");
+    m_regFirstDiffOnLoad = CRegDWORD(L"Software\\TortoiseMerge\\FirstDiffOnLoad", TRUE);
+    m_regFirstConflictOnLoad = CRegDWORD(L"Software\\TortoiseMerge\\FirstConflictOnLoad", TRUE);
+    m_regTabSize = CRegDWORD(L"Software\\TortoiseMerge\\TabSize", 4);
+    m_regIgnoreEOL = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreEOL", TRUE);
+    m_regOnePane = CRegDWORD(L"Software\\TortoiseMerge\\OnePane");
+    m_regViewLinenumbers = CRegDWORD(L"Software\\TortoiseMerge\\ViewLinenumbers", 1);
+    m_regFontName = CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New");
+    m_regFontSize = CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10);
+    m_regCaseInsensitive = CRegDWORD(L"Software\\TortoiseMerge\\CaseInsensitive", FALSE);
+    m_regUTF8Default = CRegDWORD(L"Software\\TortoiseMerge\\UseUTF8", FALSE);
+    m_regAutoAdd = CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE);
+    m_regMaxInline = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_regUseRibbons = CRegDWORD(L"Software\\TortoiseMerge\\UseRibbons", TRUE);
     m_regUseTaskDialog = CRegDWORD(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE);
 
@@ -167,7 +167,7 @@ BOOL CSetMainPage::OnInitDialog()
     int count = 0;
     for (int i=6; i<32; i=i+2)
     {
-        temp.Format(_T("%d"), i);
+        temp.Format(L"%d", i);
         m_cFontSizes.AddString(temp);
         m_cFontSizes.SetItemData(count++, i);
     }
@@ -182,7 +182,7 @@ BOOL CSetMainPage::OnInitDialog()
     }
     if (!foundfont)
     {
-        temp.Format(_T("%lu"), m_dwFontSize);
+        temp.Format(L"%lu", m_dwFontSize);
         m_cFontSizes.SetWindowText(temp);
     }
     m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);

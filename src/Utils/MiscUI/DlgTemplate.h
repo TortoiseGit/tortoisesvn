@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,8 +52,8 @@ public:
 
             //the dialog box doesn't have a menu or a special class
 
-            AppendData(_T("\0"), 2);
-            AppendData(_T("\0"), 2);
+            AppendData(L"\0", 2);
+            AppendData(L"\0", 2);
 
             //add the dialog's caption to the template
 

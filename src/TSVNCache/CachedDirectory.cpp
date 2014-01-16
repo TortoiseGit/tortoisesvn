@@ -463,7 +463,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
                     entry_it->second.GetEffectiveStatus() != nodestatus)
                 {
                     CSVNStatusCache::Instance().UpdateShell(path);
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": shell update for %s\n"), path.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": shell update for %s\n", path.GetWinPath());
                 }
             }
         }
@@ -504,7 +504,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
     revision.kind = svn_opt_revision_unspecified;
 
     SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": stat for %s\n"), m_directoryPath.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": stat for %s\n", m_directoryPath.GetWinPath());
 
     const char * svnapipath = m_directoryPath.GetSVNApiPath(subPool);
     if ((svnapipath == 0)||(svnapipath[0] == 0))
@@ -789,7 +789,7 @@ void CCachedDirectory::UpdateCurrentStatus()
         if ((m_currentFullStatus != svn_wc_status_none)&&(m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored))
         {
             // Our status has changed - tell the shell
-            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Dir %s, status change from %d to %d\n"), m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Dir %s, status change from %d to %d\n", m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);
             CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
         }
         if (m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored)
@@ -866,7 +866,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 
     CTSVNPathList updatePathList;
     CTSVNPathList crawlPathList;
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": RefreshStatus for %s\n", m_directoryPath.GetWinPath());
 
     ULONGLONG now = GetTickCount64();
     {
@@ -958,7 +958,7 @@ void CCachedDirectory::RefreshMostImportant(bool bUpdateShell /* = true */)
     }
     if (bUpdateShell && newStatus != m_mostImportantFileStatus)
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": status change of path %s\n"), m_directoryPath.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": status change of path %s\n", m_directoryPath.GetWinPath());
         CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
     }
     m_mostImportantFileStatus = newStatus;

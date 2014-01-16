@@ -78,7 +78,7 @@ BOOL CAboutDlg::OnInitDialog()
         _T(OPENSSL_VERSION_TEXT),
         _T(ZLIB_VERSION));
     SetDlgItemText(IDC_VERSIONABOUT, temp);
-    this->SetWindowText(_T("TortoiseSVN"));
+    this->SetWindowText(L"TortoiseSVN");
 
     CPictureHolder tmpPic;
     tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);
@@ -89,8 +89,8 @@ BOOL CAboutDlg::OnInitDialog()
     SetTimer(ID_EFFECTTIMER, 40, NULL);
     SetTimer(ID_DROPTIMER, 1500, NULL);
 
-    m_cWebLink.SetURL(_T("http://tortoisesvn.net"));
-    m_cSupportLink.SetURL(_T("http://tortoisesvn.net/donate.html"));
+    m_cWebLink.SetURL(L"http://tortoisesvn.net");
+    m_cSupportLink.SetURL(L"http://tortoisesvn.net/donate.html");
 
     CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDOK)->SetFocus();

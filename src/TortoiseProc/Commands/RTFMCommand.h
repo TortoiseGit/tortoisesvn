@@ -39,7 +39,7 @@ public:
         TSVNMessageBox(GetExplorerHWND(), IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
         TCHAR path[MAX_PATH] = { 0 };
         SHGetFolderPath(GetExplorerHWND(), CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
-        ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
+        ShellExecute(0, L"explore", path, NULL, NULL, SW_SHOWNORMAL);
         return true;
     }
     virtual bool            CheckPaths() override {return true;}

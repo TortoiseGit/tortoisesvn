@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,12 +47,12 @@ public:
  *   CMenu popup;
  *   if (popup.CreatePopupMenu())
  *   {
- *     popup.AppendMenu(MF_STRING | MF_ENABLED, 1, _T("string 1"));
+ *     popup.AppendMenu(MF_STRING | MF_ENABLED, 1, L"string 1");
  *     popup.AppendMenu(MF_SEPARATOR, NULL);
- *     popup.AppendMenu(MF_STRING | MF_ENABLED, 2, _T("string 2"));
- *     popup.AppendMenu(MF_STRING | MF_ENABLED, 3, _T("string 3"));
- *     popup.AppendMenu(MF_STRING | MF_ENABLED, 4, _T("string 4"));
- *     popup.AppendMenu(MF_STRING | MF_ENABLED, 5, _T("string 5"));
+ *     popup.AppendMenu(MF_STRING | MF_ENABLED, 2, L"string 2");
+ *     popup.AppendMenu(MF_STRING | MF_ENABLED, 3, L"string 3");
+ *     popup.AppendMenu(MF_STRING | MF_ENABLED, 4, L"string 4");
+ *     popup.AppendMenu(MF_STRING | MF_ENABLED, 5, L"string 5");
  *     popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
  *   }
  *   return 0;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -408,52 +408,52 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR 
     switch (status)
     {
         case svn_wc_status_none:
-            buf = _T("none\0");
+            buf = L"none\0";
             break;
         case svn_wc_status_unversioned:
-            buf = _T("unversioned\0");
+            buf = L"unversioned\0";
             break;
         case svn_wc_status_normal:
-            buf = _T("normal\0");
+            buf = L"normal\0";
             break;
         case svn_wc_status_added:
-            buf = _T("added\0");
+            buf = L"added\0";
             break;
         case svn_wc_status_missing:
-            buf = _T("missing\0");
+            buf = L"missing\0";
             break;
         case svn_wc_status_deleted:
-            buf = _T("deleted\0");
+            buf = L"deleted\0";
             break;
         case svn_wc_status_replaced:
-            buf = _T("replaced\0");
+            buf = L"replaced\0";
             break;
         case svn_wc_status_modified:
-            buf = _T("modified\0");
+            buf = L"modified\0";
             break;
         case svn_wc_status_merged:
-            buf = _T("merged\0");
+            buf = L"merged\0";
             break;
         case svn_wc_status_conflicted:
-            buf = _T("conflicted\0");
+            buf = L"conflicted\0";
             break;
         case svn_wc_status_obstructed:
-            buf = _T("obstructed\0");
+            buf = L"obstructed\0";
             break;
         case svn_wc_status_ignored:
-            buf = _T("ignored");
+            buf = L"ignored";
             break;
         case svn_wc_status_external:
-            buf = _T("external");
+            buf = L"external";
             break;
         case svn_wc_status_incomplete:
-            buf = _T("incomplete\0");
+            buf = L"incomplete\0";
             break;
         default:
-            buf = _T("\0");
+            buf = L"\0";
             break;
     }
-    _stprintf_s(string, buflen, _T("%s"), buf);
+    _stprintf_s(string, buflen, L"%s", buf);
 }
 
 void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang)

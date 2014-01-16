@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2013 - TortoiseSVN
+// Copyright (C) 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -99,23 +99,23 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     if (!strhook.IsEmpty())
     {
         int pos = 0;
-        temp = strhook.Tokenize(_T("\n"), pos);
+        temp = strhook.Tokenize(L"\n", pos);
         htype = CHooks::GetHookType(temp);
         if (!temp.IsEmpty())
         {
-            temp = strhook.Tokenize(_T("\n"), pos);
+            temp = strhook.Tokenize(L"\n", pos);
             cmd.commandline = temp;
-            temp = strhook.Tokenize(_T("\n"), pos);
+            temp = strhook.Tokenize(L"\n", pos);
             if (!temp.IsEmpty())
             {
-                cmd.bWait = (temp.CompareNoCase(_T("true"))==0);
-                temp = strhook.Tokenize(_T("\n"), pos);
+                cmd.bWait = (temp.CompareNoCase(L"true")==0);
+                temp = strhook.Tokenize(L"\n", pos);
                 if (!temp.IsEmpty())
                 {
-                    cmd.bShow = (temp.CompareNoCase(_T("show"))==0);
+                    cmd.bShow = (temp.CompareNoCase(L"show")==0);
 
-                    temp = strhook.Tokenize(_T("\n"), pos);
-                    cmd.bEnforce = (temp.CompareNoCase(_T("enforce"))==0);
+                    temp = strhook.Tokenize(L"\n", pos);
+                    cmd.bEnforce = (temp.CompareNoCase(L"enforce")==0);
                 }
             }
         }
@@ -175,7 +175,7 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("EditPropsLocalHooks"));
+    EnableSaveRestore(L"EditPropsLocalHooks");
 
     return TRUE;
 }

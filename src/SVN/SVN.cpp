@@ -59,8 +59,8 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-LCID SVN::s_locale = MAKELCID((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
-bool SVN::s_useSystemLocale = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
+LCID SVN::s_locale = MAKELCID((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
+bool SVN::s_useSystemLocale = !!(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\UseSystemLocaleForDates", TRUE);
 
 /* Number of micro-seconds between the beginning of the Windows epoch
 * (Jan. 1, 1601) and the Unix epoch (Jan. 1, 1970)
@@ -128,7 +128,7 @@ SVN::SVN(bool suppressUI)
     m_prompt.Init(parentpool, m_pctx);
 
     m_pctx->log_msg_func3 = svn_cl__get_log_message;
-    m_pctx->log_msg_baton3 = logMessage(_T(""));
+    m_pctx->log_msg_baton3 = logMessage(L"");
     m_pctx->notify_func2 = notify;
     m_pctx->notify_baton2 = this;
     m_pctx->notify_func = NULL;
@@ -327,7 +327,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add file %s\n"), pathList[nItem].GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": add file %s\n", pathList[nItem].GetWinPath());
         if (Cancel())
         {
             Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
@@ -442,7 +442,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
                                   localpool),
         NULL
     );
-    m_pctx->log_msg_baton3 = logMessage(_T(""));
+    m_pctx->log_msg_baton3 = logMessage(L"");
     ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
@@ -490,7 +490,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 }
 
 bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
-               const CString& message /* = _T("")*/,
+               const CString& message /* = L""*/,
                bool move_as_child /* = false*/, bool make_parents /* = false */,
                bool allow_mixed /* = false */,
                bool metadata_only /* = false */,
@@ -767,7 +767,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                         }
                         else
                         {
-                            ret = TSVNMessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_YESNO|MB_YESTOALL|MB_ICONQUESTION);
+                            ret = TSVNMessageBox(GetExplorerHWND(), strMessage, L"TortoiseSVN", MB_YESNO|MB_YESTOALL|MB_ICONQUESTION);
                             if (ret == IDYESTOALL)
                                 force = true;
                         }
@@ -922,7 +922,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
                                  subpool),
         svnPath
     );
-    m_pctx->log_msg_baton3 = logMessage(_T(""));
+    m_pctx->log_msg_baton3 = logMessage(L"");
     ClearCAPIAuthCacheOnError();
     if(Err != NULL)
     {
@@ -1616,7 +1616,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(date_native, time_temp, true);
     }
     else
-        _tcscat_s(date_native, _T("(no date)"));
+        _tcscat_s(date_native, L"(no date)");
 
     prop = svn_prop_get_value(merged_rev_props, SVN_PROP_REVISION_DATE);
     if (prop)
@@ -1631,7 +1631,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(merged_date_native, time_temp, true);
     }
     else
-        _tcscat_s(merged_date_native, _T("(no date)"));
+        _tcscat_s(merged_date_native, L"(no date)");
 
 
     if (!svn->BlameCallback((LONG)line_no, !!local_change, revision, author_native, date_native, merged_revision, merged_author_native, merged_date_native, merged_path_native, line_native, log_msg, merged_log_msg))
@@ -1848,17 +1848,17 @@ void SVN::PathToUrl(CString &path)
 {
     bool bUNC = false;
     path.Trim();
-    if (path.Left(2).Compare(_T("\\\\"))==0)
+    if (path.Left(2).Compare(L"\\\\")==0)
         bUNC = true;
     // convert \ to /
     path.Replace('\\','/');
     path.TrimLeft('/');
     // prepend file://
     if (bUNC)
-        path.Insert(0, _T("file://"));
+        path.Insert(0, L"file://");
     else
-        path.Insert(0, _T("file:///"));
-    path.TrimRight(_T("/\\"));          //remove trailing slashes
+        path.Insert(0, L"file:///");
+    path.TrimRight(L"/\\");          //remove trailing slashes
 }
 
 void SVN::UrlToPath(CString &url)
@@ -1876,7 +1876,7 @@ void SVN::UrlToPath(CString &url)
     // if we don't have a ':' we assume it points to an UNC path, and those
     // actually _need_ the slashes before the paths
     if ((url.Find(':')<0) && (url.Find('|')<0))
-        url.Insert(0, _T("\\\\"));
+        url.Insert(0, L"\\\\");
     SVN::preparePath(url);
     // now we need to unescape the url
     url = CPathUtils::PathUnescape(url);
@@ -1885,20 +1885,20 @@ void SVN::UrlToPath(CString &url)
 void SVN::preparePath(CString &path)
 {
     path.Trim();
-    path.TrimRight(_T("/\\"));          //remove trailing slashes
+    path.TrimRight(L"/\\");          //remove trailing slashes
     path.Replace('\\','/');
 
-    if (path.Left(10).CompareNoCase(_T("file://///"))==0)
+    if (path.Left(10).CompareNoCase(L"file://///")==0)
     {
         if (path.Find('%')<0)
-            path.Replace(_T("file://///"), _T("file://"));
+            path.Replace(L"file://///", L"file://");
         else
-            path.Replace(_T("file://///"), _T("file:////"));
+            path.Replace(L"file://///", L"file:////");
     }
-    else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
+    else if (path.Left(9).CompareNoCase(L"file:////")==0)
     {
         if (path.Find('%')<0)
-            path.Replace(_T("file:////"), _T("file://"));
+            path.Replace(L"file:////", L"file://");
     }
 }
 
@@ -1927,9 +1927,9 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
     SVNPool subpool(pool);
     Err = svn_client_url_from_path2 (&URL, path.GetSVNApiPath(subpool), m_pctx, subpool, subpool);
     if (Err)
-        return _T("");
+        return L"";
     if (URL==NULL)
-        return _T("");
+        return L"";
     return CString(URL);
 }
 
@@ -2394,11 +2394,11 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SV
     );
     ClearCAPIAuthCacheOnError();
     if (Err)
-        return _T("");
+        return L"";
     if (propval==NULL)
-        return _T("");
+        return L"";
     if (propval->len <= 0)
-        return _T("");
+        return L"";
     return CUnicodeUtils::GetUnicode(propval->data);
 }
 
@@ -2443,7 +2443,7 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t date_svn, bool force_short_
 {
     if (date_svn == 0)
     {
-        _tcscpy_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
+        _tcscpy_s(date_native, SVN_DATE_BUFFER, L"(no date)");
         return;
     }
 
@@ -2512,7 +2512,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
         /// reusing this instance is vital for \ref formatDate performance
 
-        static CRegDWORD logDateFormat (500, _T("Software\\TortoiseSVN\\LogDateFormat"));
+        static CRegDWORD logDateFormat (500, L"Software\\TortoiseSVN\\LogDateFormat");
         DWORD flags = force_short_fmt || (logDateFormat == 1)
                     ? DATE_SHORTDATE
                     : DATE_LONGDATE;
@@ -2520,7 +2520,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
         GetDateFormat(locale, flags, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
         GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
         _tcsncat_s(result, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-        _tcsncat_s(result, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
+        _tcsncat_s(result, SVN_DATE_BUFFER, L" ", SVN_DATE_BUFFER);
         _tcsncat_s(result, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
     }
 
@@ -2551,7 +2551,7 @@ CString SVN::formatDate(apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(datebuf, _T("(no date)"));
+        _tcscpy_s(datebuf, L"(no date)");
     }
 
     return datebuf;
@@ -2583,7 +2583,7 @@ CString SVN::formatTime (apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(timebuf, _T("(no time)"));
+        _tcscpy_s(timebuf, L"(no time)");
     }
 
     return timebuf;
@@ -2636,11 +2636,11 @@ CString SVN::GetOptionsString(bool bIgnoreEOL, bool bIgnoreSpaces, bool bIgnoreA
 {
     CString opts;
     if (bIgnoreEOL)
-        opts += _T("--ignore-eol-style ");
+        opts += L"--ignore-eol-style ";
     if (bIgnoreAllSpaces)
-        opts += _T("-w");
+        opts += L"-w";
     else if (bIgnoreSpaces)
-        opts += _T("-b");
+        opts += L"-b";
     opts.Trim();
     return opts;
 }
@@ -2649,14 +2649,14 @@ CString SVN::GetOptionsString(bool bIgnoreEOL, svn_diff_file_ignore_space_t spac
 {
     CString opts;
     if (bIgnoreEOL)
-        opts += _T("--ignore-eol-style ");
+        opts += L"--ignore-eol-style ";
     switch (space)
     {
     case svn_diff_file_ignore_space_change:
-        opts += _T("-b");
+        opts += L"-b";
         break;
     case svn_diff_file_ignore_space_all:
-        opts += _T("-w");
+        opts += L"-w";
         break;
     }
     opts.Trim();
@@ -2687,7 +2687,7 @@ LogCache::CLogCachePool* SVN::GetLogCachePool()
 
     if (logCachePool.get() == NULL)
     {
-        CString cacheFolder = CPathUtils::GetAppDataDirectory() + _T("logcache\\");
+        CString cacheFolder = CPathUtils::GetAppDataDirectory() + L"logcache\\";
         logCachePool.reset (new LogCache::CLogCachePool (*this, cacheFolder));
     }
 
@@ -2801,10 +2801,10 @@ svn_error_t * SVN::commitcallback2(const svn_commit_info_t * commit_info, void *
         pThis->m_commitRev = commit_info->revision;
         if (SVN_IS_VALID_REVNUM(commit_info->revision))
         {
-            pThis->Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""),
+            pThis->Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, L"",
                     svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
                     commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged,
-                    _T(""), _T(""), NULL, NULL, localpool);
+                    L"", L"", NULL, NULL, localpool);
         }
         if (commit_info->post_commit_err)
         {
@@ -2975,11 +2975,11 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     CString sErr(MAKEINTRESOURCE(IDS_ERR_SVNEXCEPTION));
     if (err)
     {
-        sErr += _T("\n\n") + SVN::GetErrorString(err);
-        ::MessageBox(NULL, sErr, _T("Subversion Exception!"), MB_ICONERROR);
+        sErr += L"\n\n" + SVN::GetErrorString(err);
+        ::MessageBox(NULL, sErr, L"Subversion Exception!", MB_ICONERROR);
         if (can_return)
             return err;
-        if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+        if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==FALSE)
         {
             CCrashReport::Instance().AddUserInfoToReport(L"SVNException", sErr);
             CCrashReport::Instance().Uninstall();
@@ -2989,8 +2989,8 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 
     CString sFormatErr;
     sFormatErr.FormatMessage(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
-    ::MessageBox(NULL, sFormatErr, _T("Subversion Exception!"), MB_ICONERROR);
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+    ::MessageBox(NULL, sFormatErr, L"Subversion Exception!", MB_ICONERROR);
+    if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==FALSE)
     {
         CCrashReport::Instance().AddUserInfoToReport(L"SVNException", sFormatErr);
         CCrashReport::Instance().Uninstall();

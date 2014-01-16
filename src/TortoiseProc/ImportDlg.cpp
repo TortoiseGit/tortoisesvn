@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,10 +66,10 @@ BOOL CImportDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_USEAUTOPROPS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+    m_History.SetMaxHistoryItems((LONG)CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25));
 
     m_URLCombo.SetURLHistory(true, true);
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
     m_URLCombo.SetCurSel(0);
     if (!m_url.IsEmpty())
     {
@@ -83,10 +83,10 @@ BOOL CImportDlg::OnInitDialog()
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
-    m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
+    m_History.Load(L"Software\\TortoiseSVN\\History\\commit", L"logmsgs");
     m_ProjectProperties.ReadProps(m_path);
     m_cMessage.Init(m_ProjectProperties);
-    m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+    m_cMessage.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
 
     if (!m_sMessage.IsEmpty())
         m_cMessage.SetText(m_sMessage);
@@ -119,7 +119,7 @@ BOOL CImportDlg::OnInitDialog()
 
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("ImportDlg"));
+    EnableSaveRestore(L"ImportDlg");
     return TRUE;  // return TRUE  unless you set the focus to a control
 }
 

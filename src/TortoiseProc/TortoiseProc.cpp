@@ -131,7 +131,7 @@ BOOL CTortoiseProcApp::InitInstance()
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     CMFCButton::EnableWindowsTheming();
     //set the resource dll for the required language
-    CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+    CRegDWORD loc = CRegDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long langId = loc;
     CString langDll;
     CStringA langpath = CStringA(CPathUtils::GetAppParentDirectory());
@@ -141,7 +141,7 @@ BOOL CTortoiseProcApp::InitInstance()
     HINSTANCE hInst = NULL;
     do
     {
-        langDll.Format(_T("%sLanguages\\TortoiseProc%ld.dll"), (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
+        langDll.Format(L"%sLanguages\\TortoiseProc%ld.dll", (LPCTSTR)CPathUtils::GetAppParentDirectory(), langId);
 
         hInst = LoadLibrary(langDll);
 
@@ -169,24 +169,24 @@ BOOL CTortoiseProcApp::InitInstance()
         }
     } while ((hInst == NULL) && (langId != 0));
     TCHAR buf[6] = { 0 };
-    _tcscpy_s(buf, _T("en"));
+    _tcscpy_s(buf, L"en");
     langId = loc;
     CString sHelppath;
     sHelppath = this->m_pszHelpFilePath;
     sHelppath = sHelppath.MakeLower();
     // MFC uses a help file with the same name as the application by default,
     // which means we have to change that default to our language specific help files
-    sHelppath.Replace(_T("tortoiseproc.chm"), _T("TortoiseSVN_en.chm"));
+    sHelppath.Replace(L"tortoiseproc.chm", L"TortoiseSVN_en.chm");
     free((void*)m_pszHelpFilePath);
     m_pszHelpFilePath=_tcsdup(sHelppath);
-    sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseSVN_en.chm");
+    sHelppath = CPathUtils::GetAppParentDirectory() + L"Languages\\TortoiseSVN_en.chm";
     do
     {
-        CString sLang = _T("_");
+        CString sLang = L"_";
         if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf)))
         {
             sLang += buf;
-            sHelppath.Replace(_T("_en"), sLang);
+            sHelppath.Replace(L"_en", sLang);
             if (PathFileExists(sHelppath))
             {
                 free((void*)m_pszHelpFilePath);
@@ -194,12 +194,12 @@ BOOL CTortoiseProcApp::InitInstance()
                 break;
             }
         }
-        sHelppath.Replace(sLang, _T("_en"));
+        sHelppath.Replace(sLang, L"_en");
         if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf)))
         {
-            sLang += _T("_");
+            sLang += L"_";
             sLang += buf;
-            sHelppath.Replace(_T("_en"), sLang);
+            sHelppath.Replace(L"_en", sLang);
             if (PathFileExists(sHelppath))
             {
                 free((void*)m_pszHelpFilePath);
@@ -207,7 +207,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 break;
             }
         }
-        sHelppath.Replace(sLang, _T("_en"));
+        sHelppath.Replace(sLang, L"_en");
 
         DWORD lid = SUBLANGID(langId);
         lid--;
@@ -237,17 +237,17 @@ BOOL CTortoiseProcApp::InitInstance()
     AfxEnableControlContainer();
     AfxInitRichEdit2();
     CWinAppEx::InitInstance();
-    SetRegistryKey(_T("TortoiseSVN"));
+    SetRegistryKey(L"TortoiseSVN");
 
     CCmdLineParser parser(AfxGetApp()->m_lpCmdLine);
 
     // if HKCU\Software\TortoiseSVN\Debug is not 0, show our command line
     // in a message box
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
+    if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==TRUE)
         AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
     hWndExplorer = NULL;
-    CString sVal = parser.GetVal(_T("hwnd"));
+    CString sVal = parser.GetVal(L"hwnd");
     if (!sVal.IsEmpty())
     {
         hWndExplorer = (HWND)_wcstoui64(sVal, NULL, 16);
@@ -260,9 +260,9 @@ BOOL CTortoiseProcApp::InitInstance()
         hWndExplorer = NULL;
     }
 
-    if ( parser.HasVal(_T("urlcmd")) )
+    if ( parser.HasVal(L"urlcmd") )
     {
-        CmdUrlParser p(parser.GetVal(_T("urlcmd")));
+        CmdUrlParser p(parser.GetVal(L"urlcmd"));
         CString newCmdLine = p.GetCommandLine();
         if (newCmdLine.IsEmpty())
         {
@@ -272,16 +272,16 @@ BOOL CTortoiseProcApp::InitInstance()
         CCmdLineParser p2(newCmdLine);
         parser = p2;
     }
-    if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
+    if ( parser.HasKey(L"path") && parser.HasKey(L"pathfile"))
     {
         TSVNMessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
         return FALSE;
     }
 
-    if (parser.HasVal(_T("configdir")))
+    if (parser.HasVal(L"configdir"))
     {
         // the user can override the location of the Subversion config directory here
-        CString sConfigDir = parser.GetVal(_T("configdir"));
+        CString sConfigDir = parser.GetVal(L"configdir");
         g_SVNGlobal.SetConfigDir(sConfigDir);
     }
     // load the configuration now
@@ -296,24 +296,24 @@ BOOL CTortoiseProcApp::InitInstance()
             while (ErrPtr->child)
             {
                 ErrPtr = ErrPtr->child;
-                msg += _T("\n");
+                msg += L"\n";
                 msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
             }
             if (!temp.IsEmpty())
             {
-                msg += _T("\n") + temp;
+                msg += L"\n" + temp;
             }
 
-            ::MessageBox(hWndExplorer, msg, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(hWndExplorer, msg, L"TortoiseSVN", MB_ICONERROR);
             // Normally, we give-up and exit at this point, but there is a trap here
             // in that the user might need to use the settings dialog to edit the config file.
-            if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
+            if (CString(parser.GetVal(L"command")).Compare(L"settings")==0)
             {
                 // just open the config file
                 TCHAR buf2[MAX_PATH] = { 0 };
                 SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf2);
                 CString path = buf2;
-                path += _T("\\Subversion\\config");
+                path += L"\\Subversion\\config";
                 CAppUtils::StartTextViewer(path);
                 return FALSE;
             }
@@ -324,9 +324,9 @@ BOOL CTortoiseProcApp::InitInstance()
     CTSVNPathList pathList;
     if (g_sGroupingUUID.IsEmpty())
         g_sGroupingUUID = parser.GetVal(L"groupuuid");
-    if ( parser.HasKey(_T("pathfile")) )
+    if ( parser.HasKey(L"pathfile") )
     {
-        CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
+        CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(L"pathfile"));
         if (sPathfileArgument.IsEmpty())
         {
             TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
@@ -335,7 +335,7 @@ BOOL CTortoiseProcApp::InitInstance()
         cmdLinePath.SetFromUnknown(sPathfileArgument);
         if (pathList.LoadFromFile(cmdLinePath)==false)
             return FALSE;       // no path specified!
-        if ( parser.HasKey(_T("deletepathfile")) )
+        if ( parser.HasKey(L"deletepathfile") )
         {
             // We can delete the temporary path file, now that we've loaded it
             ::DeleteFile(cmdLinePath.GetWinPath());
@@ -346,8 +346,8 @@ BOOL CTortoiseProcApp::InitInstance()
     }
     else
     {
-        CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
-        if (parser.HasKey(_T("expaths")))
+        CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(L"path"));
+        if (parser.HasKey(L"expaths"))
         {
             // an /expaths param means we're started via the buttons in our Win7 library
             // and that means the value of /expaths is the current directory, and
@@ -396,7 +396,7 @@ BOOL CTortoiseProcApp::InitInstance()
             // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
             // passed to us. In that case we have to fetch the uuid (or try to) here,
             // otherwise the grouping wouldn't work.
-            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
+            CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
             switch (DWORD(groupSetting))
             {
             case 1:
@@ -448,11 +448,11 @@ BOOL CTortoiseProcApp::InitInstance()
     // Note that SASL doesn't have to be initialized yet for this to work
     sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
 
-    CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
+    CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, L"TortoiseProc.exe");
 
     // execute the requested command
     CommandServer server;
-    Command * cmd = server.GetCommand(parser.GetVal(_T("command")));
+    Command * cmd = server.GetCommand(parser.GetVal(L"command"));
     if (cmd)
     {
         cmd->SetExplorerHwnd(hWndExplorer);
@@ -467,7 +467,7 @@ BOOL CTortoiseProcApp::InitInstance()
     // Look for temporary files left around by TortoiseSVN and
     // remove them. But only delete 'old' files because some
     // apps might still be needing the recent ones.
-    CTempFiles::DeleteOldTempFiles(_T("*svn*.*"));
+    CTempFiles::DeleteOldTempFiles(L"*svn*.*");
 
     // Since the dialog has been closed, return FALSE so that we exit the
     // application, rather than start the application's message pump.
@@ -476,7 +476,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 void CTortoiseProcApp::CheckUpgrade()
 {
-    CRegString regVersion = CRegString(_T("Software\\TortoiseSVN\\CurrentVersion"));
+    CRegString regVersion = CRegString(L"Software\\TortoiseSVN\\CurrentVersion");
     CString sVersion = regVersion;
     if (sVersion.Compare(_T(STRPRODUCTVER))==0)
         return;
@@ -558,7 +558,7 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
     CStringUtils::RemoveAccelerators(sTemp);
 
     ATL::CComPtr<IShellLink> psl;
-    hr = CreateShellLink(_T("/command:settings"), (LPCTSTR)sTemp, 19, &psl);
+    hr = CreateShellLink(L"/command:settings", (LPCTSTR)sTemp, 19, &psl);
     if (SUCCEEDED(hr))
     {
         poc->AddObject(psl);
@@ -566,7 +566,7 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
     sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
     CStringUtils::RemoveAccelerators(sTemp);
     psl.Release(); // Need to release the object before calling operator&()
-    hr = CreateShellLink(_T("/command:help"), (LPCTSTR)sTemp, 18, &psl);
+    hr = CreateShellLink(L"/command:help", (LPCTSTR)sTemp, 18, &psl);
     if (SUCCEEDED(hr))
     {
         poc->AddObject(psl);
@@ -591,7 +591,7 @@ int CTortoiseProcApp::ExitInstance()
 
 void CTortoiseProcApp::CheckForNewerVersion()
 {
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\VersionCheck"), TRUE) == FALSE)
+    if (CRegDWORD(L"Software\\TortoiseSVN\\VersionCheck", TRUE) == FALSE)
         return;
 
     time_t now;
@@ -617,7 +617,7 @@ void CTortoiseProcApp::CheckForNewerVersion()
     // that's not needed.
     int week = ptm.tm_yday / 7;
 
-    CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
+    CRegDWORD oldweek = CRegDWORD(L"Software\\TortoiseSVN\\CheckNewerWeek", (DWORD)-1);
     if (((DWORD)oldweek) == -1)
     {
         oldweek = week;     // first start of TortoiseProc, no update check needed

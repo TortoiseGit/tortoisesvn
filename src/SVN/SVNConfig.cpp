@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010 - 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -100,7 +100,7 @@ bool SVNConfig::SetUpSSH()
     if (config == nullptr)
         return bRet;
     //set up the SVN_SSH param
-    CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+    CString tsvn_ssh = CRegString(L"Software\\TortoiseSVN\\SSH");
     if (tsvn_ssh.IsEmpty() && config)
     {
         // check whether the ssh client is already set in the Subversion config
@@ -111,7 +111,7 @@ bool SVNConfig::SetUpSSH()
             const char * sshValue = NULL;
             svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
             if ((sshValue == NULL)||(sshValue[0] == 0))
-                tsvn_ssh = _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe") + _T("\"");
+                tsvn_ssh = L"\"" + CPathUtils::GetAppDirectory() + L"TortoisePlink.exe" + L"\"";
         }
     }
     tsvn_ssh.Replace('\\', '/');

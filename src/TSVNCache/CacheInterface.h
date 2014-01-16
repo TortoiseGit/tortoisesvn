@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2010 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,10 +21,10 @@
 #include <wininet.h>
 
 // The name of the named-pipe for the cache
-#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
-#define TSVN_CACHE_MUTEX_NAME _T("TSVNCacheMutex")
-#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
-#define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
+#define TSVN_CACHE_WINDOW_NAME L"TSVNCacheWindow"
+#define TSVN_CACHE_MUTEX_NAME L"TSVNCacheMutex"
+#define TSVN_CACHE_COMMANDPIPE_NAME L"\\\\.\\pipe\\TSVNCacheCommand"
+#define TSVN_CACHE_PIPE_NAME L"\\\\.\\pipe\\TSVNCache"
 
 CString GetCachePipeName();
 CString GetCacheCommandPipeName();

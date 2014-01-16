@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,19 +26,19 @@
 IMPLEMENT_DYNAMIC(CSettingsProgsDiff, ISettingsPropPage)
 CSettingsProgsDiff::CSettingsProgsDiff()
     : ISettingsPropPage(CSettingsProgsDiff::IDD)
-    , m_dlgAdvDiff(_T("Diff"))
+    , m_dlgAdvDiff(L"Diff")
     , m_iExtDiff(0)
-    , m_sDiffPath(_T(""))
+    , m_sDiffPath(L"")
     , m_iExtDiffProps(0)
-    , m_sDiffPropsPath(_T(""))
-    , m_regConvertBase(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE)
+    , m_sDiffPropsPath(L"")
+    , m_regConvertBase(L"Software\\TortoiseSVN\\ConvertBase", TRUE)
     , m_bConvertBase(false)
-    , m_sDiffViewerPath(_T(""))
+    , m_sDiffViewerPath(L"")
     , m_iDiffViewer(0)
 {
-    m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
-    m_regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"));
-    m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+    m_regDiffPath = CRegString(L"Software\\TortoiseSVN\\Diff");
+    m_regDiffPropsPath = CRegString(L"Software\\TortoiseSVN\\DiffProps");
+    m_regDiffViewerPath = CRegString(L"Software\\TortoiseSVN\\DiffViewer");
 }
 
 CSettingsProgsDiff::~CSettingsProgsDiff()
@@ -126,23 +126,23 @@ BOOL CSettingsProgsDiff::PreTranslateMessage(MSG* pMsg)
 BOOL CSettingsProgsDiff::OnApply()
 {
     UpdateData();
-    if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != _T("#"))
+    if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != L"#")
     {
-        m_sDiffPath = _T("#") + m_sDiffPath;
+        m_sDiffPath = L"#" + m_sDiffPath;
     }
     m_regDiffPath = m_sDiffPath;
 
-    if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != _T("#"))
+    if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != L"#")
     {
-        m_sDiffPropsPath = _T("#") + m_sDiffPropsPath;
+        m_sDiffPropsPath = L"#" + m_sDiffPropsPath;
     }
     m_regDiffPropsPath = m_sDiffPropsPath;
 
     m_regConvertBase = m_bConvertBase;
     m_dlgAdvDiff.SaveData();
 
-    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
-        m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
+    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != L"#")
+        m_sDiffViewerPath = L"#" + m_sDiffViewerPath;
 
     m_regDiffViewerPath = m_sDiffViewerPath;
 
@@ -230,13 +230,13 @@ void CSettingsProgsDiff::OnEnChangeExtdiffprops()
 void CSettingsProgsDiff::CheckProgComment()
 {
     UpdateData();
-    if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != _T("#"))
-        m_sDiffPath = _T("#") + m_sDiffPath;
+    if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != L"#")
+        m_sDiffPath = L"#" + m_sDiffPath;
     else if (m_iExtDiff == 1)
         m_sDiffPath.TrimLeft('#');
 
-    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
-        m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
+    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != L"#")
+        m_sDiffViewerPath = L"#" + m_sDiffViewerPath;
     else if (m_iDiffViewer == 1)
         m_sDiffViewerPath.TrimLeft('#');
     UpdateData(FALSE);
@@ -245,8 +245,8 @@ void CSettingsProgsDiff::CheckProgComment()
 void CSettingsProgsDiff::CheckProgCommentProps()
 {
     UpdateData();
-    if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != _T("#"))
-        m_sDiffPropsPath = _T("#") + m_sDiffPropsPath;
+    if (m_iExtDiffProps == 0 && !m_sDiffPropsPath.IsEmpty() && m_sDiffPropsPath.Left(1) != L"#")
+        m_sDiffPropsPath = L"#" + m_sDiffPropsPath;
     else if (m_iExtDiffProps == 1)
         m_sDiffPropsPath.TrimLeft('#');
     UpdateData(FALSE);

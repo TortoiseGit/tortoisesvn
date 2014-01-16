@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,14 +31,14 @@ CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropBugtraq::IDD, pParent)
     , EditPropBase()
     , m_bWarnIfNoIssue(FALSE)
-    , m_sBugtraqUrl(_T(""))
-    , m_sBugtraqMessage(_T(""))
-    , m_sBugtraqLabel(_T(""))
-    , m_sBugtraqRegex1(_T(""))
-    , m_sBugtraqRegex2(_T(""))
-    , m_sProviderUUID(_T(""))
-    , m_sProviderUUID64(_T(""))
-    , m_sProviderParams(_T(""))
+    , m_sBugtraqUrl(L"")
+    , m_sBugtraqMessage(L"")
+    , m_sBugtraqLabel(L"")
+    , m_sBugtraqRegex1(L"")
+    , m_sBugtraqRegex2(L"")
+    , m_sProviderUUID(L"")
+    , m_sProviderUUID64(L"")
+    , m_sProviderParams(L"")
     , m_height(0)
 {
 
@@ -128,18 +128,18 @@ BOOL CEditPropBugtraq::OnInitDialog()
         else if (it->first.compare(BUGTRAQPROPNAME_WARNIFNOISSUE) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)));
+            m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(L"yes") == 0)||((sYesNo.CompareNoCase(L"true") == 0)));
         }
         else if (it->first.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(_T("no")) == 0)||((sYesNo.CompareNoCase(_T("false")) == 0)))
+            if ((sYesNo.CompareNoCase(L"no") == 0)||((sYesNo.CompareNoCase(L"false") == 0)))
                 CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_TOPRADIO);
         }
         else if (it->first.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(_T("no")) == 0)||((sYesNo.CompareNoCase(_T("false")) == 0)))
+            if ((sYesNo.CompareNoCase(L"no") == 0)||((sYesNo.CompareNoCase(L"false") == 0)))
                 CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_TEXTRADIO);
         }
     }
@@ -202,7 +202,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("EditPropBugtraq"));
+    EnableSaveRestore(L"EditPropBugtraq");
 
     GetDlgItem(IDC_BUGTRAQURL)->SetFocus();
     return FALSE;
@@ -284,7 +284,7 @@ void CEditPropBugtraq::OnOK()
     newProps[BUGTRAQPROPNAME_APPEND] = pVal;
 
     // bugtraq:logregex
-    CString sLogRegex = m_sBugtraqRegex2 + _T("\n") + m_sBugtraqRegex1;
+    CString sLogRegex = m_sBugtraqRegex2 + L"\n" + m_sBugtraqRegex1;
     if (m_sBugtraqRegex1.IsEmpty() && m_sBugtraqRegex2.IsEmpty())
         sLogRegex.Empty();
     if (m_sBugtraqRegex2.IsEmpty() && !m_sBugtraqRegex1.IsEmpty())

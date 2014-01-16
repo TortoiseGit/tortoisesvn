@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ BOOL CAddDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     // initialize the svn status list control
-    m_addListCtrl.Init(SVNSLC_COLEXT, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCHANGELISTS|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE)); // adding and committing is useless in the add dialog
+    m_addListCtrl.Init(SVNSLC_COLEXT, L"AddDlg", SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCHANGELISTS|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE)); // adding and committing is useless in the add dialog
     m_addListCtrl.SetIgnoreRemoveOnly();    // when ignoring, don't add the parent folder since we're in the add dialog
     m_addListCtrl.SetUnversionedRecurse(true);  // recurse into unversioned folders - user might want to add those too
     m_addListCtrl.SetSelectButton(&m_SelectAll);
@@ -92,7 +92,7 @@ BOOL CAddDlg::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("AddDlg"));
+    EnableSaveRestore(L"AddDlg");
 
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
@@ -156,7 +156,7 @@ UINT CAddDlg::AddThread()
     {
         m_addListCtrl.SetEmptyString(m_addListCtrl.GetLastErrorMessage());
     }
-    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
+    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE));
     m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, CTSVNPathList(),
                         bSelectFilesForCommit ? SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT : 0, true, true);
 
@@ -256,7 +256,7 @@ LRESULT CAddDlg::OnFileDropped(WPARAM, LPARAM lParam)
 
     // Always start the timer, since the status of an existing item might have changed
     SetTimer(REFRESHTIMER, 200, NULL);
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Item %s dropped, timer started\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
 

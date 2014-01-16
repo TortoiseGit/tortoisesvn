@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,13 +28,13 @@
 CString CommitCommand::LoadLogMessage()
 {
     CString msg;
-    if (parser.HasKey(_T("logmsg")))
+    if (parser.HasKey(L"logmsg"))
     {
-        msg = parser.GetVal(_T("logmsg"));
+        msg = parser.GetVal(L"logmsg");
     }
-    if (parser.HasKey(_T("logmsgfile")))
+    if (parser.HasKey(L"logmsgfile"))
     {
-        CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+        CString logmsgfile = parser.GetVal(L"logmsgfile");
         CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
     }
     return msg;
@@ -78,13 +78,13 @@ bool CommitCommand::Execute()
     bool bRet = false;
     bool bRepeat = true;
     CTSVNPathList selectedList;
-    if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
+    if (parser.HasKey(L"logmsg") && (parser.HasKey(L"logmsgfile")))
     {
         TSVNMessageBox(GetExplorerHWND(), IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     CString sLogMsg = LoadLogMessage();
-    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
+    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE));
     DWORD exitcode = 0;
     CString error;
     ProjectProperties props;
@@ -96,7 +96,7 @@ bool CommitCommand::Execute()
         {
             CString temp;
             temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
             return false;
         }
     }
@@ -107,9 +107,9 @@ bool CommitCommand::Execute()
     {
         bRepeat = false;
         CCommitDlg dlg;
-        if (parser.HasKey(_T("bugid")))
+        if (parser.HasKey(L"bugid"))
         {
-            dlg.m_sBugID = parser.GetVal(_T("bugid"));
+            dlg.m_sBugID = parser.GetVal(L"bugid");
         }
         dlg.m_ProjectProperties = props;
         dlg.m_sLogMessage = sLogMsg;
@@ -167,7 +167,7 @@ bool CommitCommand::Execute()
                     bRepeat =    !updateProgDlg.DidErrorsOccur()
                               && !updateProgDlg.DidConflictsOccur();
                     bRet = bRepeat;
-                    CRegDWORD (_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE)
+                    CRegDWORD (L"Software\\TortoiseSVN\\ErrorOccurred", FALSE)
                         = bRet ? TRUE : FALSE;
 
                     continue;
@@ -177,18 +177,18 @@ bool CommitCommand::Execute()
             // If there was an error and the user set the
             // "automatically re-open commit dialog" option, do so.
 
-            CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+            CRegDWORD err = CRegDWORD(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
             bRepeat = progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
-            CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\OutOfDateRetry"), TRUE);
+            CRegDWORD bFailRepeat = CRegDWORD(L"Software\\TortoiseSVN\\OutOfDateRetry", TRUE);
             if (DWORD(bFailRepeat)==0)
                 bRepeat = false;        // do not repeat if the user chose not to in the settings.
 
             if (bRet)
             {
                 // commit succeeded
-                CRegDWORD bIncompleteReopen = CRegDWORD(_T("Software\\TortoiseSVN\\IncompleteReopen"), FALSE);
+                CRegDWORD bIncompleteReopen = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", FALSE);
                 if (DWORD(bIncompleteReopen))
                 {
                     // user wants to reopen the commit dialog after a commit

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,10 +23,10 @@
 IMPLEMENT_DYNAMIC(CSimplePrompt, CStandAloneDialog)
 CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CSimplePrompt::IDD, pParent)
-    , m_sUsername(_T(""))
-    , m_sPassword(_T(""))
+    , m_sUsername(L"")
+    , m_sPassword(L"")
     , m_bSaveAuthentication(FALSE)
-    , m_sRealm(_T(""))
+    , m_sRealm(L"")
     , m_hParentWnd(NULL)
 {
 }

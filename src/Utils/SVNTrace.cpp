@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,12 +44,12 @@ CSVNTrace::CSVNTrace
     if (assignPos > 0)
         svnAPI.Delete (0, assignPos+1);
 
-    svnAPI = svnAPI.TrimLeft().SpanExcluding (_T(" \r\n\t("));
+    svnAPI = svnAPI.TrimLeft().SpanExcluding (L" \r\n\t(");
     CString path;
     if (svnPath)
-        path = CString (_T("Path=")) + CUnicodeUtils::GetUnicode(svnPath);
+        path = CString (L"Path=") + CUnicodeUtils::GetUnicode(svnPath);
 
-    CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(line %d) %s %s\n")
+    CTraceToOutputDebugString::Instance()(L"#%d Thread:%d %s(line %d) %s %s\n"
              , id
              , threadID
              , name
@@ -75,7 +75,7 @@ void CSVNTrace::Stop()
 
 
     CStringA s;
-    CTraceToOutputDebugString::Instance() ( _T("#%d Thread:%d done (%d µs)\n")
+    CTraceToOutputDebugString::Instance() ( L"#%d Thread:%d done (%d µs)\n"
              , id
              , threadID
              , clock.GetMusecsTaken());

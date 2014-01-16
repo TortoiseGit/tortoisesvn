@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,15 +27,15 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CBlameDlg::IDD, pParent)
     , StartRev(1)
     , EndRev(0)
-    , m_sStartRev(_T("1"))
+    , m_sStartRev(L"1")
     , m_bTextView(FALSE)
     , m_bIgnoreEOL(TRUE)
     , m_bIncludeMerge(TRUE)
     , m_IgnoreSpaces(svn_diff_file_ignore_space_none)
 {
-    m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+    m_regTextView = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
     m_bTextView = m_regTextView;
-    m_regIncludeMerge = CRegDWORD(_T("Software\\TortoiseSVN\\BlameIncludeMerge"), FALSE);
+    m_regIncludeMerge = CRegDWORD(L"Software\\TortoiseSVN\\BlameIncludeMerge", FALSE);
     m_bIncludeMerge = m_regIncludeMerge;
 }
 
@@ -118,14 +118,14 @@ void CBlameDlg::OnOK()
     EndRev = SVNRev(m_sEndRev);
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        EndRev = SVNRev(_T("HEAD"));
+        EndRev = SVNRev(L"HEAD");
     }
     if (!EndRev.IsValid())
     {
         ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
-    BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+    BOOL extBlame = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
     if (extBlame)
         m_bTextView = true;
 

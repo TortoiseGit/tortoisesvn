@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ BOOL CUnlockDlg::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     // initialize the svn status list control
-    m_unlockListCtrl.Init(0, _T("UnlockDlg"), SVNSLC_POPALL ^ SVNSLC_POPRESTORE);
+    m_unlockListCtrl.Init(0, L"UnlockDlg", SVNSLC_POPALL ^ SVNSLC_POPRESTORE);
     m_unlockListCtrl.SetIgnoreRemoveOnly(); // when ignoring, don't add the parent folder since we're in the unlock dialog
     m_unlockListCtrl.SetSelectButton(&m_SelectAll);
     m_unlockListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
@@ -79,7 +79,7 @@ BOOL CUnlockDlg::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("UnlockDlg"));
+    EnableSaveRestore(L"UnlockDlg");
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -246,7 +246,7 @@ LRESULT CUnlockDlg::OnFileDropped(WPARAM, LPARAM lParam)
 
     // Always start the timer, since the status of an existing item might have changed
     SetTimer(REFRESHTIMER, 200, NULL);
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Item %s dropped, timer started\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
 

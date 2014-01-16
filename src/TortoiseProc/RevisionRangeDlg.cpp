@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,8 +27,8 @@ IMPLEMENT_DYNAMIC(CRevisionRangeDlg, CStandAloneDialog)
 CRevisionRangeDlg::CRevisionRangeDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRevisionRangeDlg::IDD, pParent)
     , m_bAllowWCRevs(true)
-    , m_StartRev(_T("HEAD"))
-    , m_EndRev(_T("HEAD"))
+    , m_StartRev(L"HEAD")
+    , m_EndRev(L"HEAD")
 {
 }
 
@@ -76,7 +76,7 @@ BOOL CRevisionRangeDlg::OnInitDialog()
         else
         {
             CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_REV);
-            sRev.Format(_T("%ld"), (LONG)(m_StartRev));
+            sRev.Format(L"%ld", (LONG)(m_StartRev));
         }
         if (!sRev.IsEmpty())
             SetDlgItemText(IDC_REVNUM, sRev);
@@ -96,7 +96,7 @@ BOOL CRevisionRangeDlg::OnInitDialog()
         else
         {
             CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_REV2);
-            sRev.Format(_T("%ld"), (LONG)(m_EndRev));
+            sRev.Format(L"%ld", (LONG)(m_EndRev));
         }
         if (!sRev.IsEmpty())
             SetDlgItemText(IDC_REVNUM2, sRev);
@@ -119,8 +119,8 @@ void CRevisionRangeDlg::OnOK()
     m_StartRev = SVNRev(m_sStartRevision);
     if (GetCheckedRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE) == IDC_REVRANGE_HEAD)
     {
-        m_StartRev = SVNRev(_T("HEAD"));
-        m_sStartRevision = _T("HEAD");
+        m_StartRev = SVNRev(L"HEAD");
+        m_sStartRevision = L"HEAD";
     }
     if (GetCheckedRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE) == IDC_REVRANGE_DATE)
     {
@@ -129,7 +129,7 @@ void CRevisionRangeDlg::OnOK()
         try
         {
             CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
-            m_sStartRevision = time.FormatGmt(_T("{%Y-%m-%d}"));
+            m_sStartRevision = time.FormatGmt(L"{%Y-%m-%d}");
             m_StartRev = SVNRev(m_sStartRevision);
         }
         catch (CAtlException)
@@ -145,8 +145,8 @@ void CRevisionRangeDlg::OnOK()
     m_EndRev = SVNRev(m_sEndRevision);
     if (GetCheckedRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2) == IDC_REVRANGE_HEAD2)
     {
-        m_EndRev = SVNRev(_T("HEAD"));
-        m_sEndRevision = _T("HEAD");
+        m_EndRev = SVNRev(L"HEAD");
+        m_sEndRevision = L"HEAD";
     }
     if (GetCheckedRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2) == IDC_REVRANGE_DATE2)
     {
@@ -155,7 +155,7 @@ void CRevisionRangeDlg::OnOK()
         try
         {
             CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 23, 59, 59);
-            m_sEndRevision = time.FormatGmt(_T("{%Y-%m-%d}"));
+            m_sEndRevision = time.FormatGmt(L"{%Y-%m-%d}");
             m_EndRev = SVNRev(m_sEndRevision);
         }
         catch (CAtlException)

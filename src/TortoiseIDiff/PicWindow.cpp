@@ -39,7 +39,7 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
     wcx.cbWndExtra = 0;
     wcx.hInstance = hResource;
     wcx.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wcx.lpszClassName = _T("TortoiseIDiffPicWindow");
+    wcx.lpszClassName = L"TortoiseIDiffPicWindow";
     wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
     wcx.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
     wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
@@ -349,7 +349,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             // we only use the first file dropped (if multiple files are dropped)
             if (DragQueryFile(hDrop, 0, szFileName, _countof(szFileName)))
             {
-                SetPic(szFileName, _T(""), bMainPic);
+                SetPic(szFileName, L"", bMainPic);
                 FitImageInWindow();
                 InvalidateRect(*this, NULL, TRUE);
             }
@@ -464,7 +464,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                     LPTOOLTIPTEXT lpttt = (LPTOOLTIPTEXT) lParam;
                     lpttt->hinst = hResource;
                     TCHAR stringbuf[MAX_PATH] = {0};
-                    _stprintf_s(stringbuf, _T("%i%% alpha"), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
+                    _stprintf_s(stringbuf, L"%i%% alpha", (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
                     _tcscpy_s(lpttt->lpszText, 80, stringbuf);
                 }
                 else if (pNMHDR->idFrom == (UINT_PTR)hwndAlphaToggleBtn)
@@ -574,7 +574,7 @@ void CPicWindow::SetPic(tstring path, tstring title, bool bFirst)
 void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 {
     HFONT hFont = NULL;
-    hFont = CreateFont(-MulDiv(pSecondPic ? 8 : 10, GetDeviceCaps(hDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, _T("MS Shell Dlg"));
+    hFont = CreateFont(-MulDiv(pSecondPic ? 8 : 10, GetDeviceCaps(hDC, LOGPIXELSY), 72), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, L"MS Shell Dlg");
     HFONT hFontOld = (HFONT)SelectObject(hDC, (HGDIOBJ)hFont);
 
     RECT textrect;
@@ -1375,7 +1375,7 @@ bool CPicWindow::CreateButtons()
     InitCommonControlsEx(&icex);
 
     hwndLeftBtn = CreateWindowEx(0,
-                                _T("BUTTON"),
+                                L"BUTTON",
                                 (LPCTSTR)NULL,
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT,
                                 0, 0, 0, 0,
@@ -1388,7 +1388,7 @@ bool CPicWindow::CreateButtons()
     hLeft = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
     SendMessage(hwndLeftBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hLeft);
     hwndRightBtn = CreateWindowEx(0,
-                                _T("BUTTON"),
+                                L"BUTTON",
                                 (LPCTSTR)NULL,
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT,
                                 0, 0, 0, 0,
@@ -1401,7 +1401,7 @@ bool CPicWindow::CreateButtons()
     hRight = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
     SendMessage(hwndRightBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hRight);
     hwndPlayBtn = CreateWindowEx(0,
-                                _T("BUTTON"),
+                                L"BUTTON",
                                 (LPCTSTR)NULL,
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT,
                                 0, 0, 0, 0,
@@ -1415,7 +1415,7 @@ bool CPicWindow::CreateButtons()
     hStop = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_STOP), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
     SendMessage(hwndPlayBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hPlay);
     hwndAlphaToggleBtn = CreateWindowEx(0,
-                                _T("BUTTON"),
+                                L"BUTTON",
                                 (LPCTSTR)NULL,
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT | BS_NOTIFY | BS_PUSHLIKE,
                                 0, 0, 0, 0,
@@ -1443,7 +1443,7 @@ bool CPicWindow::CreateButtons()
     SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
     ResString sSelect(hResource, IDS_SELECT);
     hwndSelectBtn = CreateWindowEx(0,
-                                   _T("BUTTON"),
+                                   L"BUTTON",
                                    sSelect,
                                    WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
                                    0, 0, 0, 0,
@@ -1493,7 +1493,7 @@ void CPicWindow::CreateTrackbar(HWND hwndParent)
     HWND hwndTrack = CreateWindowEx(
         0,                                  // no extended styles
         TRACKBAR_CLASS,                     // class name
-        _T("Trackbar Control"),             // title (caption)
+        L"Trackbar Control",             // title (caption)
         WS_CHILD | WS_VISIBLE | TBS_VERT | TBS_TOOLTIPS | TBS_AUTOTICKS,                // style
         10, 10,                             // position
         200, 30,                            // size

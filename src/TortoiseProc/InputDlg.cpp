@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputDlg::IDD, pParent)
-    , m_sInputText(_T(""))
+    , m_sInputText(L"")
     , m_iCheck(0)
 {
 }
@@ -58,7 +58,7 @@ BOOL CInputDlg::OnInitDialog()
 
     m_cInput.Init();
 
-    m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+    m_cInput.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
 
     if (!m_sInputText.IsEmpty())
     {
@@ -90,7 +90,7 @@ BOOL CInputDlg::OnInitDialog()
     AddAnchor(IDC_CHECKBOX, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("InputDlg"));
+    EnableSaveRestore(L"InputDlg");
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_INPUTTEXT)->SetFocus();

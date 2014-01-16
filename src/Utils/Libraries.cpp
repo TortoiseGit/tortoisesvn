@@ -74,7 +74,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
             PathCanonicalize(buf, (LPCTSTR)appDir);
             appDir = buf;
         }
-        path.Format(_T("%s%s,-%d"), (LPCTSTR)appDir, _T("TortoiseProc.exe"), IDI_LIBRARY);
+        path.Format(L"%s%s,-%d", (LPCTSTR)appDir, L"TortoiseProc.exe", IDI_LIBRARY);
         pLibrary->SetIcon((LPCTSTR)path);
         pLibrary->Commit();
     }
@@ -133,7 +133,7 @@ HRESULT GetShellLibraryItem(LPWSTR pwszLibraryName, IShellItem2** ppShellItem)
     swprintf_s(wszRealLibraryName, L"%s%s", pwszLibraryName, L".library-ms");
 
     typedef HRESULT STDAPICALLTYPE SHCreateItemInKnownFolderFN(REFKNOWNFOLDERID kfid, DWORD dwKFFlags, __in_opt PCWSTR pszItem, REFIID riid, __deref_out void **ppv);
-    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(_T("shell32.dll"));
+    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
     if (hShell)
     {
         hr = SHCreateItemInKnownFolder(FOLDERID_UsersLibraries, KF_FLAG_DEFAULT_PATH | KF_FLAG_NO_ALIAS, wszRealLibraryName, IID_PPV_ARGS(ppShellItem));

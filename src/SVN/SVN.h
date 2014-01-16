@@ -174,7 +174,7 @@ public:
      * for deletion in the repository. After the next commit, the file/dir will be unversioned.
      * \return TRUE if successful
      */
-    bool Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal = true, const CString& message = _T(""), const RevPropHash& revProps = RevPropHash());
+    bool Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal = true, const CString& message = L"", const RevPropHash& revProps = RevPropHash());
     /**
      * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
      * was last updated with the repository.
@@ -321,7 +321,7 @@ public:
      * \return TRUE if successful
      */
     bool Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
-                const CString& message = _T(""), bool move_as_child = false,
+                const CString& message = L"", bool move_as_child = false,
                 bool make_parents = false, bool allow_mixed = false, bool metadata_only = false, const RevPropHash& revProps = RevPropHash());
     /**
      * If path is a URL, use the message to immediately
@@ -829,7 +829,7 @@ public:
      * \param fstype repository file system type. Default is fsfs.
      * \return TRUE if operation was successful
      */
-    static bool CreateRepository(const CTSVNPath& path, const CString& fstype = _T("fsfs"));
+    static bool CreateRepository(const CTSVNPath& path, const CString& fstype = L"fsfs");
 
     /**
      * Convert Windows Path to Local Repository URL
@@ -1038,6 +1038,6 @@ private:
     std::unique_ptr<LogCache::CLogCachePool> logCachePool;
 };
 
-static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));
+static UINT WM_SVNPROGRESS = RegisterWindowMessage(L"TORTOISESVN_SVNPROGRESS_MSG");
 
 void AprTimeToFileTime(LPFILETIME pft, apr_time_t t);

@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2012-2013 - TortoiseSVN
+// Copyright (C) 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,7 +44,7 @@ LRESULT CAboutDlg::DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
         {
             InitDialog(hwndDlg, IDI_TORTOISEIDIFF);
             // initialize the controls
-            m_link.ConvertStaticToHyperlink(hwndDlg, IDC_WEBLINK, _T("http://tortoisesvn.net"));
+            m_link.ConvertStaticToHyperlink(hwndDlg, IDC_WEBLINK, L"http://tortoisesvn.net");
             TCHAR verbuf[1024] = {0};
             TCHAR maskbuf[1024] = {0};
             if (!::LoadString (hResource, IDS_VERSION, maskbuf, _countof(maskbuf)))

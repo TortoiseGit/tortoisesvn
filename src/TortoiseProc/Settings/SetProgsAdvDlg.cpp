@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@ IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CResizableStandAloneDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSetProgsAdvDlg::IDD, pParent)
     , m_sType(type)
-    , m_regToolKey(_T("Software\\TortoiseSVN\\") + type + _T("Tools"))
+    , m_regToolKey(L"Software\\TortoiseSVN\\" + type + L"Tools")
     , m_ToolsValid(false)
 {
 }
@@ -47,7 +47,7 @@ void CSetProgsAdvDlg::LoadData()
             for (POSITION pos = values.GetHeadPosition(); pos != NULL; )
             {
                 CString ext = values.GetNext(pos);
-                m_Tools[ext] = CRegString(m_regToolKey.m_path + _T("\\") + ext);
+                m_Tools[ext] = CRegString(m_regToolKey.m_path + L"\\" + ext);
             }
         }
 
@@ -68,7 +68,7 @@ int CSetProgsAdvDlg::SaveData()
                 CString ext = values.GetNext(pos);
                 if (m_Tools.find(ext) == m_Tools.end())
                 {
-                    CRegString to_remove(m_regToolKey.m_path + _T("\\") + ext);
+                    CRegString to_remove(m_regToolKey.m_path + L"\\" + ext);
                     to_remove.removeValue();
                 }
             }
@@ -79,7 +79,7 @@ int CSetProgsAdvDlg::SaveData()
         {
             CString ext = it->first;
             CString new_value = it->second;
-            CRegString reg_value(m_regToolKey.m_path + _T("\\") + ext);
+            CRegString reg_value(m_regToolKey.m_path + L"\\" + ext);
             if (reg_value != new_value)
                 reg_value = new_value;
         }
@@ -158,7 +158,7 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
     }
     m_ToolListCtrl.SetRedraw(TRUE);
 
-    temp.LoadString(m_sType == _T("Diff") ? IDS_DLGTITLE_ADV_DIFF : IDS_DLGTITLE_ADV_MERGE);
+    temp.LoadString(m_sType == L"Diff" ? IDS_DLGTITLE_ADV_DIFF : IDS_DLGTITLE_ADV_MERGE);
     SetWindowText(temp);
 
     LoadData();
@@ -214,8 +214,8 @@ void CSetProgsAdvDlg::EnableBtns()
 void CSetProgsAdvDlg::OnBnClickedAddtool()
 {
     CToolAssocDlg dlg(m_sType, true);
-    dlg.m_sExtension = _T("");
-    dlg.m_sTool = _T("");
+    dlg.m_sExtension = L"";
+    dlg.m_sTool = L"";
     if (dlg.DoModal() == IDOK)
     {
         int index = AddExtension(dlg.m_sExtension, dlg.m_sTool);

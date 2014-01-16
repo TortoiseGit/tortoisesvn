@@ -27,19 +27,19 @@
 bool DiffCommand::Execute()
 {
     bool bRet = false;
-    CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
-    bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
-    bool bBlame = !!parser.HasKey(_T("blame"));
-    bool ignoreprops = !!parser.HasKey(_T("ignoreprops"));
+    CString path2 = CPathUtils::GetLongPathname(parser.GetVal(L"path2"));
+    bool bAlternativeTool = !!parser.HasKey(L"alternative");
+    bool bBlame = !!parser.HasKey(L"blame");
+    bool ignoreprops = !!parser.HasKey(L"ignoreprops");
     if (path2.IsEmpty())
     {
         SVNDiff diff(NULL, GetExplorerHWND());
         diff.SetAlternativeTool(bAlternativeTool);
-        diff.SetJumpLine(parser.GetLongVal(_T("line")));
-        if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
+        diff.SetJumpLine(parser.GetLongVal(L"line"));
+        if ( parser.HasKey(L"startrev") && parser.HasKey(L"endrev") )
         {
-            SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
-            SVNRev EndRevision = SVNRev(parser.GetLongVal(_T("endrev")));
+            SVNRev StartRevision = SVNRev(parser.GetLongVal(L"startrev"));
+            SVNRev EndRevision = SVNRev(parser.GetLongVal(L"endrev"));
             SVNRev pegRevision;
             if (parser.HasVal(L"pegrevision"))
                 pegRevision = SVNRev(parser.GetVal(L"pegrevision"));
@@ -85,6 +85,6 @@ bool DiffCommand::Execute()
     else
         bRet = CAppUtils::StartExtDiff(
             CTSVNPath(path2), cmdLinePath, CString(), CString(),
-            CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool), parser.GetLongVal(_T("line")), L"");
+            CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool), parser.GetLongVal(L"line"), L"");
     return bRet;
 }

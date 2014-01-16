@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,9 +28,9 @@ IMPLEMENT_DYNAMIC(CRegexFilterDlg, CDialogEx)
 
 CRegexFilterDlg::CRegexFilterDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CRegexFilterDlg::IDD, pParent)
-    , m_sName(_T(""))
-    , m_sRegex(_T(""))
-    , m_sReplace(_T(""))
+    , m_sName(L"")
+    , m_sRegex(L"")
+    , m_sReplace(L"")
 {
 }
 

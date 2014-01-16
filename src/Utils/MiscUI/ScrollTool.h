@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - TortoiseSVN
+// Copyright (C) 2003-2006, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@
  *    break;
  *   case SB_THUMBTRACK:
  *    m_ScrollTool.Init(&thumbpoint);
- *    m_ScrollTool.SetText(&thumbpoint, _T("Line: %*ld"), maxchars, nTrackPos);
+ *    m_ScrollTool.SetText(&thumbpoint, L"Line: %*ld", maxchars, nTrackPos);
  *    break;
  * }
  *

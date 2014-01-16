@@ -44,7 +44,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
     attribs.bInheritHandle = FALSE;
 
     ConvertToBackslash(internalpathbuf.get(), path, fullLen);
-    if (_tcsncmp(internalpathbuf.get(), _T("\\\\?\\"), 4) == 0)
+    if (_tcsncmp(internalpathbuf.get(), L"\\\\?\\", 4) == 0)
         pPath += 4;
     do
     {
@@ -581,15 +581,15 @@ CString CPathUtils::ParsePathInString(const CString& Str)
 {
     CString sToken;
     int curPos = 0;
-    sToken = Str.Tokenize(_T("'\t\r\n"), curPos);
+    sToken = Str.Tokenize(L"'\t\r\n", curPos);
     while (!sToken.IsEmpty())
     {
         if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
         {
-            sToken.Trim(_T("'\""));
+            sToken.Trim(L"'\"");
             return sToken;
         }
-        sToken = Str.Tokenize(_T("'\t\r\n"), curPos);
+        sToken = Str.Tokenize(L"'\t\r\n", curPos);
     }
     sToken.Empty();
     return sToken;
@@ -601,7 +601,7 @@ CString CPathUtils::GetAppDataDirectory()
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
         return CString();
 
-    _tcscat_s(path, _T("\\TortoiseSVN"));
+    _tcscat_s(path, L"\\TortoiseSVN");
     if (!PathIsDirectory(path))
         CreateDirectory(path, NULL);
 
@@ -680,12 +680,12 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
 
             // Check the current language
             VerQueryValue(  pBuffer,
-                _T("\\VarFileInfo\\Translation"),
+                L"\\VarFileInfo\\Translation",
                 &lpFixedPointer,
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-            strLangProductVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+            strLangProductVersion.Format(L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
             VerQueryValue(pBuffer,
@@ -706,19 +706,19 @@ CString CPathUtils::PathPatternEscape(const CString& path)
     CString result = path;
     // first remove already escaped patterns to avoid having those
     // escaped twice
-    result.Replace(_T("\\["), _T("["));
-    result.Replace(_T("\\]"), _T("]"));
+    result.Replace(L"\\[", L"[");
+    result.Replace(L"\\]", L"]");
     // now escape the patterns (again)
-    result.Replace(_T("["), _T("\\["));
-    result.Replace(_T("]"), _T("\\]"));
+    result.Replace(L"[", L"\\[");
+    result.Replace(L"]", L"\\]");
     return result;
 }
 
 CString CPathUtils::PathPatternUnEscape(const CString& path)
 {
     CString result = path;
-    result.Replace(_T("\\["), _T("["));
-    result.Replace(_T("\\]"), _T("]"));
+    result.Replace(L"\\[", L"[");
+    result.Replace(L"\\]", L"]");
     return result;
 }
 
@@ -726,7 +726,7 @@ CString CPathUtils::CombineUrls(CString first, CString second)
 {
     first.TrimRight('/');
     second.TrimLeft('/');
-    return first + _T("/") + second;
+    return first + L"/" + second;
 }
 
 #endif
@@ -761,13 +761,13 @@ private:
     }
     void UnescapeTest()
     {
-        CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest"));
+        CString test(L"file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest");
         CString test2 = CPathUtils::PathUnescape(test);
-        ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
+        ATLASSERT(test2.Compare(L"file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest") == 0);
         test2 = CPathUtils::PathUnescape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
-        ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
+        ATLASSERT(test2.Compare(L"file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest") == 0);
         test2 = CPathUtils::PathUnescape("http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk");
-        ATLASSERT(test2.Compare(_T("http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk")) == 0);
+        ATLASSERT(test2.Compare(L"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk") == 0);
         CStringA test3 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
         ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
         CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
@@ -775,21 +775,21 @@ private:
     }
     void ExtTest()
     {
-        CString test(_T("d:\\test\filename.ext"));
-        ATLASSERT(CPathUtils::GetFileExtFromPath(test).Compare(_T(".ext")) == 0);
-        test = _T("filename.ext");
-        ATLASSERT(CPathUtils::GetFileExtFromPath(test).Compare(_T(".ext")) == 0);
-        test = _T("d:\\test\filename");
+        CString test(L"d:\\test\filename.ext");
+        ATLASSERT(CPathUtils::GetFileExtFromPath(test).Compare(L".ext") == 0);
+        test = L"filename.ext";
+        ATLASSERT(CPathUtils::GetFileExtFromPath(test).Compare(L".ext") == 0);
+        test = L"d:\\test\filename";
         ATLASSERT(CPathUtils::GetFileExtFromPath(test).IsEmpty());
-        test = _T("filename");
+        test = L"filename";
         ATLASSERT(CPathUtils::GetFileExtFromPath(test).IsEmpty());
     }
     void ParseTests()
     {
-        CString test(_T("test 'd:\\testpath with spaces' test"));
-        ATLASSERT(CPathUtils::ParsePathInString(test).Compare(_T("d:\\testpath with spaces")) == 0);
-        test = _T("d:\\testpath with spaces");
-        ATLASSERT(CPathUtils::ParsePathInString(test).Compare(_T("d:\\testpath with spaces")) == 0);
+        CString test(L"test 'd:\\testpath with spaces' test");
+        ATLASSERT(CPathUtils::ParsePathInString(test).Compare(L"d:\\testpath with spaces") == 0);
+        test = L"d:\\testpath with spaces";
+        ATLASSERT(CPathUtils::ParsePathInString(test).Compare(L"d:\\testpath with spaces") == 0);
     }
 
 } CPathTests;

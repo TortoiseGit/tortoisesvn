@@ -326,6 +326,6 @@ bool CRemoteCacheLink::RunTsvnCacheProcess()
 
 CString CRemoteCacheLink::GetTsvnCachePath()
 {
-    CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
+    CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + L"TSVNCache.exe";
     return sCachePath;
 }

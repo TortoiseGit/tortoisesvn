@@ -23,7 +23,7 @@
 
 CIconMenu::CIconMenu(void) : CMenu()
 {
-    bShowIcons = !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowAppContextMenuIcons"), TRUE));
+    bShowIcons = !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\ShowAppContextMenuIcons", TRUE));
 }
 
 CIconMenu::~CIconMenu(void)

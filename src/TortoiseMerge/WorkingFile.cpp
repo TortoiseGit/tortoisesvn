@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2011-2013 - TortoiseSVN
+// Copyright (C) 2006-2007, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ void CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
 
 CString CWorkingFile::GetWindowName() const
 {
-    CString sErrMsg = _T("");
+    CString sErrMsg = L"";
     // TortoiseMerge allows non-existing files to be used in a merge
     // Inform the user (in a non-intrusive way) if a file is absent
     if (! this->Exists())
@@ -91,13 +91,13 @@ CString CWorkingFile::GetWindowName() const
     {
         // We don't have a proper name - use the filename part of the path
         // return the filename part of the path.
-        return CPathUtils::GetFileNameFromPath(m_sFilename) + _T(" ") + sErrMsg;
+        return CPathUtils::GetFileNameFromPath(m_sFilename) + L" " + sErrMsg;
     }
     else if (sErrMsg.IsEmpty())
     {
         return m_sDescriptiveName;
     }
-    return m_sDescriptiveName + _T(" ") + sErrMsg;
+    return m_sDescriptiveName + L" " + sErrMsg;
 }
 
 bool CWorkingFile::Exists() const

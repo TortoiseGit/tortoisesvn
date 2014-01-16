@@ -29,12 +29,12 @@ CRegBase::CRegBase()
 CRegBase::CRegBase (const CString& key, bool force, HKEY base, REGSAM sam)
     : CRegBaseCommon<CString> (key, force, base, sam)
 {
-    m_key.TrimLeft(_T("\\"));
+    m_key.TrimLeft(L"\\");
     int backslashpos = m_key.ReverseFind('\\');
     m_path = m_key.Left(backslashpos);
-    m_path.TrimRight(_T("\\"));
+    m_path.TrimRight(L"\\");
     m_key = m_key.Mid(backslashpos);
-    m_key.Trim(_T("\\"));
+    m_key.Trim(L"\\");
 }
 #endif
 
@@ -136,7 +136,7 @@ CRegistryKey::CRegistryKey(const CString& key, HKEY base, REGSAM sam)
     m_hKey = NULL;
     m_sam = sam;
     m_path = key;
-    m_path.TrimLeft(_T("\\"));
+    m_path.TrimLeft(L"\\");
 }
 
 CRegistryKey::~CRegistryKey()
@@ -148,7 +148,7 @@ CRegistryKey::~CRegistryKey()
 DWORD CRegistryKey::createKey()
 {
     DWORD disp;
-    DWORD rc = RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE|m_sam, NULL, &m_hKey, &disp);
+    DWORD rc = RegCreateKeyEx(m_base, m_path, 0, L"", REG_OPTION_NON_VOLATILE, KEY_WRITE|m_sam, NULL, &m_hKey, &disp);
     if (rc != ERROR_SUCCESS)
     {
         return rc;

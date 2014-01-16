@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,7 +71,7 @@ protected:
     {
         registryKey = value;
         if (registryKey.GetLastError() != ERROR_SUCCESS)
-            TSVNMessageBox(m_hWnd, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+            TSVNMessageBox(m_hWnd, registryKey.getErrorString(), L"TortoiseSVN", MB_ICONERROR);
     }
 
     /**

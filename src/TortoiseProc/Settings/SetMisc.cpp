@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,23 +34,23 @@ CSetMisc::CSetMisc()
     , m_bAutoSelect(TRUE)
     , m_bIncompleteReopen(FALSE)
 {
-    m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
+    m_regUnversionedRecurse = CRegDWORD(L"Software\\TortoiseSVN\\UnversionedRecurse", TRUE);
     m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
-    m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
+    m_regAutocompletion = CRegDWORD(L"Software\\TortoiseSVN\\Autocompletion", TRUE);
     m_bAutocompletion = (DWORD)m_regAutocompletion;
-    m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
+    m_regAutocompletionTimeout = CRegDWORD(L"Software\\TortoiseSVN\\AutocompleteParseTimeout", 5);
     m_dwAutocompletionTimeout = (DWORD)m_regAutocompletionTimeout;
-    m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE);
+    m_regSpell = CRegDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE);
     m_bSpell = (DWORD)m_regSpell;
-    m_regCheckRepo = CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
+    m_regCheckRepo = CRegDWORD(L"Software\\TortoiseSVN\\CheckRepo", FALSE);
     m_bCheckRepo = (DWORD)m_regCheckRepo;
-    m_regMaxHistory = CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25);
+    m_regMaxHistory = CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25);
     m_dwMaxHistory = (DWORD)m_regMaxHistory;
-    m_regShowLockDlg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE);
+    m_regShowLockDlg = CRegDWORD(L"Software\\TortoiseSVN\\ShowLockDlg", TRUE);
     m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
-    m_regAutoSelect = CRegDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE);
+    m_regAutoSelect = CRegDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE);
     m_bAutoSelect = (BOOL)(DWORD)m_regAutoSelect;
-    m_regIncompleteReopen = CRegDWORD(_T("Software\\TortoiseSVN\\IncompleteReopen"), TRUE);
+    m_regIncompleteReopen = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", TRUE);
     m_bIncompleteReopen = (BOOL)(DWORD)m_regIncompleteReopen;
 }
 

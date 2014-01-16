@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ bool CheckoutCommand::Execute()
     // specified in the settings dialog, and fall back to the current
     // working directory instead if no such path was specified.
     CTSVNPath checkoutDirectory;
-    CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
+    CRegString regDefCheckoutPath(L"Software\\TortoiseSVN\\DefaultCheckoutPath");
     if (cmdLinePath.IsEmpty())
     {
         if (CString(regDefCheckoutPath).IsEmpty())
@@ -58,7 +58,7 @@ bool CheckoutCommand::Execute()
     }
 
     CCheckoutDlg dlg;
-    dlg.m_URLs.LoadFromAsteriskSeparatedString (parser.GetVal(_T("url")));
+    dlg.m_URLs.LoadFromAsteriskSeparatedString (parser.GetVal(L"url"));
     if (dlg.m_URLs.GetCount()==0)
     {
         SVN svn;
@@ -72,10 +72,10 @@ bool CheckoutCommand::Execute()
             {
                 CString p = cmdLinePath.GetWinPathString();
                 p.TrimLeft('\\');
-                url = _T("file://")+p;
+                url = L"file://"+p;
             }
             else
-                url = _T("file:///")+cmdLinePath.GetWinPathString();
+                url = L"file:///"+cmdLinePath.GetWinPathString();
             url.Replace('\\', '/');
             dlg.m_URLs.AddPath(CTSVNPath(url));
             checkoutDirectory.AppendRawString(L"wc");
@@ -84,7 +84,7 @@ bool CheckoutCommand::Execute()
     dlg.m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
     // if there is no url specified on the command line, check if there's one
     // specified in the settings dialog to use as the default and use that
-    CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
+    CRegString regDefCheckoutUrl(L"Software\\TortoiseSVN\\DefaultCheckoutUrl");
     if (!CString(regDefCheckoutUrl).IsEmpty())
     {
         // if the URL specified is a child of the default URL, we also
@@ -103,7 +103,7 @@ bool CheckoutCommand::Execute()
             if (CTSVNPath::CheckChild(CTSVNPath(CString(regDefCheckoutPath)), CTSVNPath(dlg.m_strCheckoutDirectory)))
             {
                 dlg.m_strCheckoutDirectory = CString(regDefCheckoutPath) + clurl.GetWinPathString().Mid(defurl.GetWinPathString().GetLength());
-                dlg.m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
+                dlg.m_strCheckoutDirectory.Replace(L"\\\\", L"\\");
             }
         }
         if (dlg.m_URLs.GetCount() == 0)
@@ -113,7 +113,7 @@ bool CheckoutCommand::Execute()
     for (int i = 0; i < dlg.m_URLs.GetCount(); ++i)
     {
         CString pathString = dlg.m_URLs[i].GetWinPathString();
-        if (pathString.Left(5).Compare(_T("tsvn:"))==0)
+        if (pathString.Left(5).Compare(L"tsvn:")==0)
         {
             pathString = pathString.Mid(5);
             if (pathString.Find('?') >= 0)
@@ -125,9 +125,9 @@ bool CheckoutCommand::Execute()
 
         dlg.m_URLs[i].SetFromWin (pathString);
     }
-    if (parser.HasKey(_T("revision")))
+    if (parser.HasKey(L"revision"))
     {
-        SVNRev Rev = SVNRev(parser.GetVal(_T("revision")));
+        SVNRev Rev = SVNRev(parser.GetVal(L"revision"));
         dlg.Revision = Rev;
     }
     dlg.m_blockPathAdjustments = parser.HasKey(L"blockpathadjustments");

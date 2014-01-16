@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,9 +33,9 @@
 #pragma comment(lib, "shell32")
 
 #ifdef _WIN64
-#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
+#define TSVN_CACHE_WINDOW_NAME L"TSVNCacheWindow64"
 #else
-#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
+#define TSVN_CACHE_WINDOW_NAME L"TSVNCacheWindow"
 #endif
 
 
@@ -73,12 +73,12 @@ UINT __stdcall TerminateCache(MSIHANDLE /*hModule*/)
 
 UINT __stdcall OpenDonatePage(MSIHANDLE /*hModule*/)
 {
-    ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.net/donate.html"), NULL, NULL, SW_SHOW);
+    ShellExecute(NULL, L"open", L"http://tortoisesvn.net/donate.html", NULL, NULL, SW_SHOW);
     return ERROR_SUCCESS;
 }
 
 UINT __stdcall MsgBox(MSIHANDLE /*hModule*/)
 {
-    MessageBox(NULL, _T("CustomAction \"MsgBox\" running"), _T("Installer"), MB_ICONINFORMATION);
+    MessageBox(NULL, L"CustomAction \"MsgBox\" running", L"Installer", MB_ICONINFORMATION);
     return ERROR_SUCCESS;
 }

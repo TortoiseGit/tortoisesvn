@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -410,5 +410,5 @@ private:
     CString                 sForce;
 };
 
-static UINT WM_TASKBARBTNCREATED = RegisterWindowMessage(_T("TaskbarButtonCreated"));
-static UINT TORTOISESVN_CLOSEONEND_MSG = RegisterWindowMessage(_T("TORTOISESVN_CLOSEONEND_MSG"));
+static UINT WM_TASKBARBTNCREATED = RegisterWindowMessage(L"TaskbarButtonCreated");
+static UINT TORTOISESVN_CLOSEONEND_MSG = RegisterWindowMessage(L"TORTOISESVN_CLOSEONEND_MSG");

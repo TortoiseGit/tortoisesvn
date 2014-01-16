@@ -77,7 +77,7 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
                         szModule,
                         _countof(szModule) - 1);
 
-    _tcscat_s(szModule, _T(" /automation"));
+    _tcscat_s(szModule, L" /automation");
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
     CLSIDtochar(clsid, szCLSID, _countof(szCLSID)) ;
@@ -86,45 +86,45 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, _T("CLSID\\"));
+    _tcscpy_s(szKey, L"CLSID\\");
     _tcscat_s(szKey, szCLSID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
 
     // Add the server filename subkey under the CLSID key.
-    setKeyAndValue(szKey, _T("LocalServer32"), szModule) ;
+    setKeyAndValue(szKey, L"LocalServer32", szModule) ;
 
     // Add the ProgID subkey under the CLSID key.
-    setKeyAndValue(szKey, _T("ProgID"), szProgID) ;
+    setKeyAndValue(szKey, L"ProgID", szProgID) ;
 
     // Add the version-independent ProgID subkey under CLSID key.
-    setKeyAndValue(szKey, _T("VersionIndependentProgID"), szVerIndProgID) ;
+    setKeyAndValue(szKey, L"VersionIndependentProgID", szVerIndProgID) ;
 
     // Add the typelib
-    setKeyAndValue(szKey, _T("TypeLib"), szLIBID) ;
+    setKeyAndValue(szKey, L"TypeLib", szLIBID) ;
 
 
     // Add the version-independent ProgID subkey under HKEY_CLASSES_ROOT.
     setKeyAndValue(szVerIndProgID, NULL, szFriendlyName) ;
-    setKeyAndValue(szVerIndProgID, _T("CLSID"), szCLSID) ;
-    setKeyAndValue(szVerIndProgID, _T("CurVer"), szProgID) ;
+    setKeyAndValue(szVerIndProgID, L"CLSID", szCLSID) ;
+    setKeyAndValue(szVerIndProgID, L"CurVer", szProgID) ;
 
     // Add the versioned ProgID subkey under HKEY_CLASSES_ROOT.
     setKeyAndValue(szProgID, NULL, szFriendlyName) ;
-    setKeyAndValue(szProgID, _T("CLSID"), szCLSID) ;
+    setKeyAndValue(szProgID, L"CLSID", szCLSID) ;
 
     // add TypeLib keys
-    _tcscpy_s(szKey, _T("TypeLib\\")) ;
+    _tcscpy_s(szKey, L"TypeLib\\") ;
     _tcscat_s(szKey, szLIBID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, _T("\\1.0"));
+    _tcscat_s(szKey, L"\\1.0");
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
-    _tcscat_s(szKey, _T("\\0"));
+    _tcscat_s(szKey, L"\\0");
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, _T("\\win32"));
+    _tcscat_s(szKey, L"\\win32");
     setKeyAndValue(szKey, NULL, szModule) ;
 
 
@@ -154,7 +154,7 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, _T("Interface\\")) ;
+    _tcscpy_s(szKey, L"Interface\\") ;
     _tcscat_s(szKey, szIID) ;
 
     // Add the value to the registry.
@@ -162,21 +162,21 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 
     TCHAR szKey2[MAX_PATH] = { 0 };
     _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, _T("\\ProxyStubClsID"));
+    _tcscat_s(szKey2, L"\\ProxyStubClsID");
     // Add the server filename subkey under the IID key.
-    setKeyAndValue(szKey2, NULL, _T("{00020424-0000-0000-C000-000000000046}")); //IUnknown
+    setKeyAndValue(szKey2, NULL, L"{00020424-0000-0000-C000-000000000046}"); //IUnknown
 
     _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, _T("\\ProxyStubClsID32"));
+    _tcscat_s(szKey2, L"\\ProxyStubClsID32");
     // Add the server filename subkey under the IID key.
-    setKeyAndValue(szKey2, NULL, _T("{00020424-0000-0000-C000-000000000046}")); //IUnknown
+    setKeyAndValue(szKey2, NULL, L"{00020424-0000-0000-C000-000000000046}"); //IUnknown
 
     _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, _T("\\TypeLib"));
+    _tcscat_s(szKey2, L"\\TypeLib");
     // Add the server filename subkey under the CLSID key.
     setKeyAndValue(szKey2, NULL, szLIBID) ;
 
-    setValue(szKey2, _T("Version"), _T("1.0")) ;
+    setValue(szKey2, L"Version", L"1.0") ;
 }
 
 void UnregisterInterface(const IID &iid)
@@ -186,7 +186,7 @@ void UnregisterInterface(const IID &iid)
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, _T("Interface\\"));
+    _tcscpy_s(szKey, L"Interface\\");
     _tcscat_s(szKey, szIID) ;
 
     recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
@@ -206,7 +206,7 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, _T("CLSID\\"));
+    _tcscpy_s(szKey, L"CLSID\\");
     _tcscat_s(szKey, szCLSID) ;
 
     // Delete the CLSID Key - CLSID\{...}
@@ -227,7 +227,7 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
     CLSIDtochar(libid, szLIBID, _countof(szLIBID)) ;
 
-    _tcscpy_s(szKey, _T("TypeLib\\"));
+    _tcscpy_s(szKey, L"TypeLib\\");
     _tcscat_s(szKey, szLIBID) ;
 
     // Delete the TypeLib Key - LIBID\{...}
@@ -318,7 +318,7 @@ BOOL setKeyAndValue(const TCHAR* szKey,
     // Add subkey name to buffer.
     if (szSubkey != NULL)
     {
-        _tcscat_s(szKeyBuf, _T("\\"));
+        _tcscat_s(szKeyBuf, L"\\");
         _tcscat_s(szKeyBuf, szSubkey);
     }
 
@@ -412,7 +412,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
     if (FAILED(hr))
     {
         // typelib not in module, try <module>.tlb instead
-        lstrcpy(lpszExt, _T(".tlb"));
+        lstrcpy(lpszExt, L".tlb");
         lpszModule = T2OLE(szModule);
         hr = ::LoadTypeLib(lpszModule, ppTypeLib);
     }

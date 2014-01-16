@@ -40,17 +40,17 @@ extern CString g_sGroupingUUID;
 BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
 {
     CString viewer;
-    CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+    CRegString v = CRegString(L"Software\\TortoiseSVN\\DiffViewer");
     viewer = v;
-    if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
+    if (viewer.IsEmpty() || (viewer.Left(1).Compare(L"#")==0))
     {
         // use TortoiseUDiff
         viewer = CPathUtils::GetAppDirectory();
-        viewer += _T("TortoiseUDiff.exe");
+        viewer += L"TortoiseUDiff.exe";
         // enquote the path to TortoiseUDiff
-        viewer = _T("\"") + viewer + _T("\"");
+        viewer = L"\"" + viewer + L"\"";
         // add the params
-        viewer = viewer + _T(" /patchfile:%1 /title:\"%title\"");
+        viewer = viewer + L" /patchfile:%1 /title:\"%title\"";
         if (!g_sGroupingUUID.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
@@ -58,18 +58,18 @@ BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CSt
             viewer += L"\"";
         }
     }
-    if (viewer.Find(_T("%1"))>=0)
+    if (viewer.Find(L"%1")>=0)
     {
-        if (viewer.Find(_T("\"%1\"")) >= 0)
-            viewer.Replace(_T("%1"), patchfile);
+        if (viewer.Find(L"\"%1\"") >= 0)
+            viewer.Replace(L"%1", patchfile);
         else
-            viewer.Replace(_T("%1"), _T("\"") + patchfile + _T("\""));
+            viewer.Replace(L"%1", L"\"" + patchfile + L"\"");
     }
     else
-        viewer += _T(" \"") + patchfile + _T("\"");
-    if (viewer.Find(_T("%title")) >= 0)
+        viewer += L" \"" + patchfile + L"\"";
+    if (viewer.Find(L"%title") >= 0)
     {
-        viewer.Replace(_T("%title"), title);
+        viewer.Replace(L"%title", title);
     }
 
     if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
@@ -103,7 +103,7 @@ CString CCommonAppUtils::GetAppForFile
     // normalize file path
 
     CString fullFileName = ExpandEnvironmentStrings (fileName);
-    CString normalizedFileName = _T("\"") + fullFileName + _T("\"");
+    CString normalizedFileName = L"\"" + fullFileName + L"\"";
 
     // registry lookup
 
@@ -121,10 +121,10 @@ CString CCommonAppUtils::GetAppForFile
         std::unique_ptr<TCHAR[]> cmdbuf(new TCHAR[buflen + 1]);
         if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf.get(), &buflen)))
         {
-            documentClass = CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+            documentClass = CRegString (extensionToUse + L"\\", L"", FALSE, HKEY_CLASSES_ROOT);
 
-            CString key = documentClass + _T("\\Shell\\") + verb + _T("\\Command\\");
-            application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+            CString key = documentClass + L"\\Shell\\" + verb + L"\\Command\\";
+            application = CRegString (key, L"", FALSE, HKEY_CLASSES_ROOT);
         }
         else
         {
@@ -136,12 +136,12 @@ CString CCommonAppUtils::GetAppForFile
         if (application.IsEmpty())
         {
             buflen = 0;
-            AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
+            AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, L"open", NULL, &buflen);
             std::unique_ptr<TCHAR[]> cmdopenbuf (new TCHAR[buflen + 1]);
-            if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdopenbuf.get(), &buflen)))
+            if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, L"open", cmdopenbuf.get(), &buflen)))
             {
-                CString key = documentClass + _T("\\Shell\\Open\\Command\\");
-                application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+                CString key = documentClass + L"\\Shell\\Open\\Command\\";
+                application = CRegString (key, L"", FALSE, HKEY_CLASSES_ROOT);
             }
             else
             {
@@ -160,19 +160,19 @@ CString CCommonAppUtils::GetAppForFile
 
     if (applySecurityHeuristics)
     {
-        if (   (application.Find (_T("%2")) >= 0)
-            || (application.Find (_T("%*")) >= 0))
+        if (   (application.Find (L"%2") >= 0)
+            || (application.Find (L"%*") >= 0))
         {
             // consumes extra parameters
             // -> probably a script execution
             // -> retry with "open" verb or ask user
 
-            if (verb.CompareNoCase (_T("open")) == 0)
+            if (verb.CompareNoCase (L"open") == 0)
                 application.Empty();
             else
                 return GetAppForFile ( fileName
                                      , extension
-                                     , _T("open")
+                                     , L"open"
                                      , true);
         }
     }
@@ -184,23 +184,23 @@ CString CCommonAppUtils::GetAppForFile
 
     // resolve parameters
 
-    if (application.Find (_T("%1")) < 0)
-        application += _T(" %1");
+    if (application.Find (L"%1") < 0)
+        application += L" %1";
 
-    if (application.Find(_T("\"%1\"")) >= 0)
-        application.Replace(_T("\"%1\""), _T("%1"));
+    if (application.Find(L"\"%1\"") >= 0)
+        application.Replace(L"\"%1\"", L"%1");
 
-    application.Replace (_T("%1"), normalizedFileName);
+    application.Replace (L"%1", normalizedFileName);
 
     return application;
 }
 
 BOOL CCommonAppUtils::StartTextViewer(CString file)
 {
-    CString viewer = GetAppForFile (file, _T(".txt"), _T("open"), false);
+    CString viewer = GetAppForFile (file, L".txt", L"open", false);
     if (viewer.IsEmpty())
     {
-        viewer = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+        viewer = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
         viewer += file;
     }
     return LaunchApplication (viewer, IDS_ERR_TEXTVIEWSTART, false)
@@ -266,14 +266,14 @@ bool CCommonAppUtils::LaunchApplication
 
 bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
 {
-    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
+    CString pathToExecutable = CPathUtils::GetAppDirectory()+L"TortoiseProc.exe";
     CString sCmd;
-    sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCommandLine);
+    sCmd.Format(L"\"%s\" %s", (LPCTSTR)pathToExecutable, (LPCTSTR)sCommandLine);
     if (AfxGetMainWnd()->GetSafeHwnd() && (sCommandLine.Find(L"/hwnd:")<0))
     {
         CString sCmdLine;
         sCmdLine.Format(L"%s /hwnd:%p", (LPCTSTR)sCommandLine, (void*)AfxGetMainWnd()->GetSafeHwnd());
-        sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
+        sCmd.Format(L"\"%s\" %s", (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
     }
     if (!g_sGroupingUUID.IsEmpty())
     {
@@ -497,7 +497,7 @@ TCHAR CCommonAppUtils::FindAcceleratorKey(CWnd * pWnd, UINT id)
 CString CCommonAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url)
 {
     // is the URL a relative one?
-    if (url.Left(2).Compare(_T("^/")) == 0)
+    if (url.Left(2).Compare(L"^/") == 0)
     {
         // URL is relative to the repository root
         CString url1 = root + url.Mid(1);
@@ -512,7 +512,7 @@ CString CCommonAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, cons
         // URL is relative to the server's hostname
         CString sHost;
         // find the server's hostname
-        int schemepos = root.Find(_T("//"));
+        int schemepos = root.Find(L"//");
         if (schemepos >= 0)
         {
             sHost = root.Left(root.Find('/', schemepos+3));
@@ -726,7 +726,7 @@ void CCommonAppUtils::MarkWindowAsUnpinnable( HWND hWnd )
 {
     typedef HRESULT (WINAPI *SHGPSFW) (HWND hwnd,REFIID riid,void** ppv);
 
-    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(_T("Shell32.dll"));
+    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"Shell32.dll");
 
     if (!hShell.IsValid())
         return;

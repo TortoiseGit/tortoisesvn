@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007-2012 - TortoiseSVN
+// External Cache Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,13 +163,13 @@ bool CPathWatcher::AddPath(const CTSVNPath& path)
     }
     if (!newroot.IsEmpty())
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add path to watch %s\n"), newroot.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": add path to watch %s\n", newroot.GetWinPath());
         watchedPaths.AddPath(newroot);
         watchedPaths.RemoveChildren();
         m_hCompPort.CloseHandle();
         return true;
     }
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add path to watch %s\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": add path to watch %s\n", path.GetWinPath());
     watchedPaths.AddPath(path);
     m_hCompPort.CloseHandle();
     return true;
@@ -260,7 +260,7 @@ void CPathWatcher::WorkerThread()
                         break;
                     }
                     AutoLocker lock(m_critSec);
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": watching path %s\n", pDirInfo->m_DirName.GetWinPath());
                     watchInfoMap[pDirInfo->m_hDir] = pDirInfo.get();
                     pDirInfo.release();
                 }
@@ -295,7 +295,7 @@ void CPathWatcher::WorkerThread()
                         }
                         buf[min(bufferSize-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
                         pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": change notification: %s\n"), buf);
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": change notification: %s\n", buf);
                         {
                             AutoLocker lock(m_critSec);
                             if (m_changedPaths.GetCount() < MAX_CHANGED_PATHS)
@@ -361,7 +361,7 @@ CPathWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& Directo
     SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
     m_DirPath = m_DirName.GetWinPathString();
     if (m_DirPath.GetAt(m_DirPath.GetLength()-1) != '\\')
-        m_DirPath += _T("\\");
+        m_DirPath += L"\\";
 }
 
 CPathWatcher::CDirWatchInfo::~CDirWatchInfo()

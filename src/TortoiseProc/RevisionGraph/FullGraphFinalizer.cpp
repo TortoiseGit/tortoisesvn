@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,9 +39,9 @@ CFullGraphFinalizer::CFullGraphFinalizer
 {
     // initialize path classificator
 
-    CRegStdString trunkPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern"), _T("trunk"));
-    CRegStdString branchesPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\BranchPattern"), _T("branches"));
-    CRegStdString tagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+    CRegStdString trunkPattern (L"Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern", L"trunk");
+    CRegStdString branchesPattern (L"Software\\TortoiseSVN\\RevisionGraph\\BranchPattern", L"branches");
+    CRegStdString tagsPattern (L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
 
     const CPathDictionary& paths = history.GetCache()->GetLogInfo().GetPaths();
     pathClassification.reset

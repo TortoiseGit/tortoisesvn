@@ -29,7 +29,7 @@ IMPLEMENT_DYNAMIC(CRecycleBinDlg, CStandAloneDialog)
 CRecycleBinDlg::CRecycleBinDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRecycleBinDlg::IDD, pParent)
     , m_regDontDoAgain(L"Software\\TortoiseSVN\\RecycleBinSlowDontAskAgain")
-    , m_sLabel(_T(""))
+    , m_sLabel(L"")
     , m_bDontAskAgain(FALSE)
     , m_startTicks(0)
 {
@@ -104,7 +104,7 @@ void CRecycleBinDlg::OnBnClickedEmptybin()
 
 void CRecycleBinDlg::OnBnClickedDontusebin()
 {
-    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE);
+    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE);
     reg = FALSE;
     CStandAloneDialog::OnCancel();
 }

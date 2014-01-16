@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2009, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,9 +30,9 @@ IMPLEMENT_DYNAMIC(CAutoTextTestDlg, CDialog)
 
 CAutoTextTestDlg::CAutoTextTestDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CAutoTextTestDlg::IDD, pParent)
-    , m_sRegex(_T(""))
-    , m_sResult(_T(""))
-    , m_sTimingLabel(_T(""))
+    , m_sRegex(L"")
+    , m_sResult(L"")
+    , m_sTimingLabel(L"")
 {
 
 }
@@ -91,7 +91,7 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
                 {
                     if (match[i].second-match[i].first)
                     {
-                        ATLTRACE(_T("matched keyword : %s\n"), std::wstring(match[i]).c_str());
+                        ATLTRACE(L"matched keyword : %s\n", std::wstring(match[i]).c_str());
                         std::wstring result = std::wstring(match[i]);
                         if (!result.empty())
                         {
@@ -104,13 +104,13 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
             for (std::set<CString>::iterator it = autolist.begin(); it != autolist.end(); ++it)
             {
                 m_sResult += *it;
-                m_sResult += _T("\r\n");
+                m_sResult += L"\r\n";
             }
-            m_sTimingLabel.Format(_T("Parse time: %ld uSecs"), timer.GetMusecsTaken());
+            m_sTimingLabel.Format(L"Parse time: %ld uSecs", timer.GetMusecsTaken());
         }
         catch (std::exception)
         {
-            m_sResult = _T("Regex is invalid!");
+            m_sResult = L"Regex is invalid!";
         }
     }
     UpdateData(FALSE);

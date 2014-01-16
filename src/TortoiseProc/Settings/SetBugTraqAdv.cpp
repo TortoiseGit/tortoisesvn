@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2008-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -114,7 +114,7 @@ BOOL CSetBugTraqAdv::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("SetBugTraqAdvDlg"));
+    EnableSaveRestore(L"SetBugTraqAdvDlg");
     return TRUE;
 }
 
@@ -266,7 +266,7 @@ void CSetBugTraqAdv::OnBnClickedOptions()
             COMError ce(hr);
             CString sErr;
             sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
-            ::MessageBox(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
         }
     }
 }

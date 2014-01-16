@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2011-2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -270,7 +270,7 @@ void CHyperLink::SetDefaultCursor()
         GetWindowsDirectory(strWndDir.GetBuffer(MAX_PATH), MAX_PATH);   // Explorer can't handle paths longer than MAX_PATH.
         strWndDir.ReleaseBuffer();
 
-        strWndDir += _T("\\winhlp32.exe");
+        strWndDir += L"\\winhlp32.exe";
         // This retrieves cursor #106 from winhlp32.exe, which is a hand pointer
         CAutoLibrary hModule = LoadLibrary(strWndDir);
         if (hModule) {
@@ -283,6 +283,6 @@ void CHyperLink::SetDefaultCursor()
 
 HINSTANCE CHyperLink::GotoURL(LPCTSTR url)
 {
-    return ShellExecute(NULL, _T("open"), url, NULL,NULL, SW_SHOW);
+    return ShellExecute(NULL, L"open", url, NULL,NULL, SW_SHOW);
 }
 

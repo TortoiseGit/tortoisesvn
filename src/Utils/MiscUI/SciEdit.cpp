@@ -78,7 +78,7 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_separator(' ')
     , m_nAutoCompleteMinChars(3)
 {
-    m_hModule = ::LoadLibrary(_T("SciLexer.DLL"));
+    m_hModule = ::LoadLibrary(L"SciLexer.DLL");
 }
 
 CSciEdit::~CSciEdit(void)
@@ -125,14 +125,14 @@ void CSciEdit::Init(LONG lLanguage)
     }
     Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
     Call(SCI_SETWHITESPACECHARS, 0, (LPARAM)(LPCSTR)sWhiteSpace);
-    m_bDoStyle = ((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE;
-    m_nAutoCompleteMinChars= (int)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCompleteMinChars"), 3);
+    m_bDoStyle = ((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\StyleCommitMessages", TRUE))==TRUE;
+    m_nAutoCompleteMinChars= (int)(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\AutoCompleteMinChars", 3);
     // look for dictionary files and use them if found
     long langId = GetUserDefaultLCID();
 
     if (lLanguage >= 0)
     {
-        if ((lLanguage != 0)||(((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE))==FALSE))
+        if ((lLanguage != 0)||(((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE))==FALSE))
         {
             if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
             {
@@ -197,64 +197,64 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 
     GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf));
     sFile = buf;
-    sFile += _T("_");
+    sFile += L"_";
     GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf));
     sFile += buf;
     if (pChecker==NULL)
     {
-        if ((PathFileExists(sFolder + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolder + sFile + _T(".dic"))))
+        if ((PathFileExists(sFolder + sFile + L".aff")) &&
+            (PathFileExists(sFolder + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
+            pChecker = new Hunspell(CStringA(sFolder + sFile + L".aff"), CStringA(sFolder + sFile + L".dic"));
         }
-        else if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolder + _T("dic\\") + sFile + _T(".dic"))))
+        else if ((PathFileExists(sFolder + L"dic\\" + sFile + L".aff")) &&
+            (PathFileExists(sFolder + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
+            pChecker = new Hunspell(CStringA(sFolder + L"dic\\" + sFile + L".aff"), CStringA(sFolder + L"dic\\" + sFile + L".dic"));
         }
-        else if ((PathFileExists(sFolderUp + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolderUp + sFile + _T(".dic"))))
+        else if ((PathFileExists(sFolderUp + sFile + L".aff")) &&
+            (PathFileExists(sFolderUp + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
+            pChecker = new Hunspell(CStringA(sFolderUp + sFile + L".aff"), CStringA(sFolderUp + sFile + L".dic"));
         }
-        else if ((PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".dic"))))
+        else if ((PathFileExists(sFolderUp + L"dic\\" + sFile + L".aff")) &&
+            (PathFileExists(sFolderUp + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
+            pChecker = new Hunspell(CStringA(sFolderUp + L"dic\\" + sFile + L".aff"), CStringA(sFolderUp + L"dic\\" + sFile + L".dic"));
         }
-        else if ((PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".dic"))))
+        else if ((PathFileExists(sFolderUp + L"Languages\\" + sFile + L".aff")) &&
+            (PathFileExists(sFolderUp + L"Languages\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".dic")));
+            pChecker = new Hunspell(CStringA(sFolderUp + L"Languages\\" + sFile + L".aff"), CStringA(sFolderUp + L"Languages\\" + sFile + L".dic"));
         }
     }
 #if THESAURUS
     if (pThesaur==NULL)
     {
-        if ((PathFileExists(sFolder + _T("th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolder + _T("th_") + sFile + _T("_v2.dat"))))
+        if ((PathFileExists(sFolder + L"th_" + sFile + L"_v2.idx")) &&
+            (PathFileExists(sFolder + L"th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolder + sFile + _T("_v2.idx")), CStringA(sFolder + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolder + sFile + L"_v2.idx"), CStringA(sFolder + sFile + L"_v2.dat"));
         }
-        else if ((PathFileExists(sFolder + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolder + _T("dic\\th_") + sFile + _T("_v2.dat"))))
+        else if ((PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.idx")) &&
+            (PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T("_v2.idx")), CStringA(sFolder + _T("dic\\") + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolder + L"dic\\" + sFile + L"_v2.idx"), CStringA(sFolder + L"dic\\" + sFile + L"_v2.dat"));
         }
-        else if ((PathFileExists(sFolderUp + _T("th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolderUp + _T("th_") + sFile + _T("_v2.dat"))))
+        else if ((PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.idx")) &&
+            (PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + _T("th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("th_") + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolderUp + L"th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"th_" + sFile + L"_v2.dat"));
         }
-        else if ((PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.dat"))))
+        else if ((PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx")) &&
+            (PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat"));
         }
-        else if ((PathFileExists(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.dat"))))
+        else if ((PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx")) &&
+            (PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat"));
         }
     }
 #endif
@@ -699,10 +699,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 else
                 {
                     url = m_sUrl;
-                    url.Replace(_T("%BUGID%"), StringFromControl(textbuffer.get()));
+                    url.Replace(L"%BUGID%", StringFromControl(textbuffer.get()));
 
                     // is the URL a relative one?
-                    if (url.Left(2).Compare(_T("^/")) == 0)
+                    if (url.Left(2).Compare(L"^/") == 0)
                     {
                         // URL is relative to the repository root
                         CString url1 = m_sRepositoryRoot + url.Mid(1);
@@ -718,7 +718,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                         // URL is relative to the server's hostname
                         CString sHost;
                         // find the server's hostname
-                        int schemepos = m_sRepositoryRoot.Find(_T("//"));
+                        int schemepos = m_sRepositoryRoot.Find(L"//");
                         if (schemepos >= 0)
                         {
                             sHost = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemepos+3));
@@ -733,7 +733,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     }
                 }
                 if (!url.IsEmpty())
-                    ShellExecute(GetParent()->GetSafeHwnd(), _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
+                    ShellExecute(GetParent()->GetSafeHwnd(), L"open", url, NULL, NULL, SW_SHOWDEFAULT);
             }
             break;
         }
@@ -962,7 +962,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     sMenuItemText.LoadString(IDS_SPELLEDIT_THESAURUS);
                     popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, sMenuItemText);
 #else
-                    popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
+                    popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, L"Thesaurus");
 #endif
                     nThesaurs = nCustoms;
                 }
@@ -1244,7 +1244,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
                 LONG matchedpos = 0;
                 for (std::tr1::sregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                 {
-                    ATLTRACE(_T("matched id : %s\n"), std::string((*it2)[0]).c_str());
+                    ATLTRACE(L"matched id : %s\n", std::string((*it2)[0]).c_str());
 
                     // bold style up to the id match
                     ATLTRACE("position = %ld\n", it2->position(0));
@@ -1282,7 +1282,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
                 // group 2 as the bug ID
                 if (match.size() >= 2)
                 {
-                    ATLTRACE(_T("matched id : %s\n"), std::string(match[1]).c_str());
+                    ATLTRACE(L"matched id : %s\n", std::string(match[1]).c_str());
                     Call(SCI_SETSTYLING, match[1].first-s.begin()-pos, STYLE_ISSUEBOLD);
                     Call(SCI_SETSTYLING, std::string(match[1]).size(), STYLE_ISSUEBOLDITALIC);
                     pos = (LONG)(match[1].second-s.begin());

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,7 +83,7 @@ BOOL CInputLogDlg::OnInitDialog()
     else
         m_cInput.Init();
 
-    m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+    m_cInput.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
 
     if (m_pProjectProperties)
     {
@@ -143,7 +143,7 @@ BOOL CInputLogDlg::OnInitDialog()
                 hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
                 if (SUCCEEDED(hr))
                 {
-                    SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
+                    SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : temp);
                     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
                     bExtendUrlControl = false;
                 }
@@ -194,7 +194,7 @@ BOOL CInputLogDlg::OnInitDialog()
     AddAnchor(IDC_CHECKBOX, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("InputLogDlg"));
+    EnableSaveRestore(L"InputLogDlg");
     if (FindParentWindow(0))
         CenterWindow(CWnd::FromHandle(FindParentWindow(0)));
 
@@ -211,7 +211,7 @@ void CInputLogDlg::OnOK()
     {
         CString id;
         GetDlgItemText(IDC_BUGID, id);
-        id.Trim(_T("\n\r"));
+        id.Trim(L"\n\r");
         if (!m_bLock && !m_pProjectProperties->CheckBugID(id))
         {
             ShowEditBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, TTI_ERROR);
@@ -245,14 +245,14 @@ void CInputLogDlg::OnOK()
         sExistingBugID.Trim();
         if (!m_sBugID.IsEmpty() && m_sBugID.Compare(sExistingBugID))
         {
-            m_sBugID.Replace(_T(", "), _T(","));
-            m_sBugID.Replace(_T(" ,"), _T(","));
+            m_sBugID.Replace(L", ", L",");
+            m_sBugID.Replace(L" ,", L",");
             CString sBugID = m_pProjectProperties->sMessage;
-            sBugID.Replace(_T("%BUGID%"), m_sBugID);
+            sBugID.Replace(L"%BUGID%", m_sBugID);
             if (m_pProjectProperties->bAppend)
-                m_sLogMsg += _T("\n") + sBugID + _T("\n");
+                m_sLogMsg += L"\n" + sBugID + L"\n";
             else
-                m_sLogMsg = sBugID + _T("\n") + m_sLogMsg;
+                m_sLogMsg = sBugID + L"\n" + m_sLogMsg;
         }
         if (!m_bLock)
         {
@@ -284,7 +284,7 @@ void CInputLogDlg::OnOK()
                     }
                     else
                     {
-                        CString sError = temp == 0 ? _T("") : temp;
+                        CString sError = temp == 0 ? L"" : temp;
                         if (!sError.IsEmpty())
                         {
                             CAppUtils::ReportFailedHook(m_hWnd, sError);
@@ -297,10 +297,10 @@ void CInputLogDlg::OnOK()
     }
 
     CString reg;
-    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
 
     CRegHistory history;
-    history.Load(reg, _T("logmsgs"));
+    history.Load(reg, L"logmsgs");
     history.AddEntry(m_sLogMsg);
     history.Save();
 
@@ -449,9 +449,9 @@ void CInputLogDlg::UpdateOKButton()
 void CInputLogDlg::OnBnClickedHistory()
 {
     CString reg;
-    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
     CRegHistory history;
-    history.Load(reg, _T("logmsgs"));
+    history.Load(reg, L"logmsgs");
     CHistoryDlg HistoryDlg;
     HistoryDlg.SetHistory(history);
     if (HistoryDlg.DoModal()==IDOK)
@@ -474,6 +474,6 @@ void CInputLogDlg::OnComError( HRESULT hr )
     COMError ce(hr);
     CString sErr;
     sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-    ::MessageBox(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+    ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
 

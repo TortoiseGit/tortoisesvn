@@ -67,7 +67,7 @@ BOOL CEditPropTSVNLang::OnInitDialog()
 
     // fill the combo box with all available languages
     EnumSystemLocales(EnumLocalesProc, LCID_SUPPORTED);
-    int index = m_langCombo.AddString(_T("(none)"));
+    int index = m_langCombo.AddString(L"(none)");
     m_langCombo.SetItemData(index, 0);
 
     DWORD projLang = 0;
@@ -137,9 +137,9 @@ BOOL CEditPropTSVNLang::EnumLocalesProc(LPTSTR lpLocaleString)
     GetLocaleInfo(langID, LOCALE_SNATIVECTRYNAME, buf, _countof(buf));
     if (buf[0])
     {
-        sLang += _T(" (");
+        sLang += L" (";
         sLang += buf;
-        sLang += _T(")");
+        sLang += L")";
     }
 
     int index = m_langCombo.AddString(sLang);

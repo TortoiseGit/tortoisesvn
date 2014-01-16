@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ bool RenameCommand::Execute()
         sNewName = dlg.m_name;
     } while(PathIsRelative(sNewName) && !PathIsURL(sNewName) && (sNewName.IsEmpty() || (sNewName.Compare(filename)==0)));
 
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": rename file %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)sNewName);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": rename file %s to %s\n", (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)sNewName);
     CTSVNPath destinationPath(basePath);
     if (PathIsRelative(sNewName) && !PathIsURL(sNewName))
         destinationPath.AppendPathString(sNewName);
@@ -112,7 +112,7 @@ bool RenameCommand::Execute()
         else
             sNewMask.Empty();
 
-        if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
+        if (((!sFilemask.IsEmpty()) && (parser.HasKey(L"noquestion"))) ||
             (cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
         {
             if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
@@ -124,7 +124,7 @@ bool RenameCommand::Execute()
             // at once because those files belong together.
             // e.g. file.aspx, file.aspx.cs, file.aspx.resx
             CTSVNPathList renlist;
-            CSimpleFileFind filefind(cmdLinePath.GetDirectory().GetWinPathString(), sFilemask+_T(".*"));
+            CSimpleFileFind filefind(cmdLinePath.GetDirectory().GetWinPathString(), sFilemask+L".*");
             while (filefind.FindNextFileNoDots())
             {
                 if (!filefind.IsDirectory())
@@ -150,14 +150,14 @@ bool RenameCommand::Execute()
                 {
                     CString sFilename = renlist[i].GetFilename();
                     CString sNewFilename = sNewMask + sFilename.Mid(sFilemask.GetLength());
-                    sTemp.Format(_T("\n%s -> %s"), (LPCTSTR)sFilename, (LPCTSTR)sNewFilename);
+                    sTemp.Format(L"\n%s -> %s", (LPCTSTR)sFilename, (LPCTSTR)sNewFilename);
                     if (!renlist[i].IsEquivalentTo(cmdLinePath))
                         sRenList += sTemp;
-                    renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+_T("\\")+sNewFilename;
+                    renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+L"\\"+sNewFilename;
                 }
                 CString sRenameMultipleQuestion;
                 sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
-                UINT idret = ::MessageBox(GetExplorerHWND(), sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
+                UINT idret = ::MessageBox(GetExplorerHWND(), sRenameMultipleQuestion, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNOCANCEL);
                 if (idret == IDYES)
                 {
                     CProgressDlg progress;
@@ -232,7 +232,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
         }
         else
         {
-            idret = TSVNMessageBox(hWnd, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO);
+            idret = TSVNMessageBox(hWnd, sReplace, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO);
         }
 
         if (idret == IDYES)

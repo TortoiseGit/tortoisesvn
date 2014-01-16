@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_USERECYCLEBIN);
     m_aeroControls.SubclassOkCancel(this);
 
-    m_StatusList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS, _T("DeleteUnversionedDlg"), 0, true);
+    m_StatusList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS, L"DeleteUnversionedDlg", 0, true);
     m_StatusList.SetUnversionedRecurse(true);
     m_StatusList.PutUnversionedLast(false);
     m_StatusList.CheckChildrenWithParent(true);
@@ -85,7 +85,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(_T("DeleteUnversionedDlg"));
+    EnableSaveRestore(L"DeleteUnversionedDlg");
 
     // first start a thread to obtain the file list with the status without
     // blocking the dialog

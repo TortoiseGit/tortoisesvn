@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,8 +26,8 @@
 
 bool UpdateCommand::Execute()
 {
-    CRegDWORD updateExternals(_T("Software\\TortoiseSVN\\IncludeExternals"), true);
-    SVNRev rev = SVNRev(_T("HEAD"));
+    CRegDWORD updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
+    SVNRev rev = SVNRev(L"HEAD");
     int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
     svn_depth_t depth = svn_depth_unknown;
     DWORD exitcode = 0;
@@ -43,13 +43,13 @@ bool UpdateCommand::Execute()
         {
             CString temp;
             temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            ::MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
             return FALSE;
         }
     }
     std::map<CString,svn_depth_t> checkoutDepths;
     CSVNProgressDlg::Command cmd = CSVNProgressDlg::SVNProgress_Update;
-    if ((parser.HasKey(_T("rev")))&&(!parser.HasVal(_T("rev"))))
+    if ((parser.HasKey(L"rev"))&&(!parser.HasVal(L"rev")))
     {
         CUpdateDlg dlg;
         if (pathList.GetCount()>0)
@@ -78,17 +78,17 @@ bool UpdateCommand::Execute()
     }
     else
     {
-        if (parser.HasVal(_T("rev")))
-            rev = SVNRev(parser.GetVal(_T("rev")));
-        if (parser.HasKey(_T("nonrecursive")))
+        if (parser.HasVal(L"rev"))
+            rev = SVNRev(parser.GetVal(L"rev"));
+        if (parser.HasKey(L"nonrecursive"))
             depth = svn_depth_empty;
-        if (parser.HasKey(_T("ignoreexternals")))
+        if (parser.HasKey(L"ignoreexternals"))
             options |= ProgOptIgnoreExternals;
-        if (parser.HasKey(_T("updateexternals")))
+        if (parser.HasKey(L"updateexternals"))
             options &= ~ProgOptIgnoreExternals;
-        if (parser.HasKey(_T("stickydepth")))
+        if (parser.HasKey(L"stickydepth"))
             options |= ProgOptStickyDepth;
-        if (parser.HasKey(_T("skipprechecks")))
+        if (parser.HasKey(L"skipprechecks"))
             options |= ProgOptSkipPreChecks;
     }
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,11 +26,11 @@
 IMPLEMENT_DYNAMIC(CSettingsProgsMerge, ISettingsPropPage)
 CSettingsProgsMerge::CSettingsProgsMerge()
     : ISettingsPropPage(CSettingsProgsMerge::IDD)
-    , m_sMergePath(_T(""))
+    , m_sMergePath(L"")
     , m_iExtMerge(0)
-    , m_dlgAdvMerge(_T("Merge"))
+    , m_dlgAdvMerge(L"Merge")
 {
-    m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
+    m_regMergePath = CRegString(L"Software\\TortoiseSVN\\Merge");
 }
 
 CSettingsProgsMerge::~CSettingsProgsMerge()
@@ -85,8 +85,8 @@ BOOL CSettingsProgsMerge::PreTranslateMessage(MSG* pMsg)
 BOOL CSettingsProgsMerge::OnApply()
 {
     UpdateData();
-    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
-        m_sMergePath = _T("#") + m_sMergePath;
+    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != L"#")
+        m_sMergePath = L"#" + m_sMergePath;
 
     m_regMergePath = m_sMergePath;
 
@@ -137,8 +137,8 @@ void CSettingsProgsMerge::OnBnClickedExtmergeadvanced()
 void CSettingsProgsMerge::CheckProgComment()
 {
     UpdateData();
-    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
-        m_sMergePath = _T("#") + m_sMergePath;
+    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != L"#")
+        m_sMergePath = L"#" + m_sMergePath;
     else if (m_iExtMerge == 1)
         m_sMergePath.TrimLeft('#');
     UpdateData(FALSE);

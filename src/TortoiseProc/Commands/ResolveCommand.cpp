@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2013 - TortoiseSVN
+// Copyright (C) 2007-2010, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@ bool ResolveCommand::Execute()
     CResolveDlg dlg;
     dlg.m_pathList = pathList;
     INT_PTR ret = IDOK;
-    if (!parser.HasKey(_T("noquestion")))
+    if (!parser.HasKey(L"noquestion"))
         ret = dlg.DoModal();
     if (ret == IDOK)
     {
@@ -48,7 +48,7 @@ bool ResolveCommand::Execute()
 
                 if (resolveMsgWnd)
                 {
-                    static UINT WM_REVERTMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MSG"));
+                    static UINT WM_REVERTMSG = RegisterWindowMessage(L"TORTOISESVN_RESOLVEDONE_MSG");
                     ::PostMessage(resolveMsgWnd, WM_REVERTMSG, resolveMsgWParam, resolveMsgLParam);
                 }
 
@@ -60,7 +60,7 @@ bool ResolveCommand::Execute()
                 theApp.m_pMainWnd = &progDlg;
                 progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Resolve);
                 progDlg.SetAutoClose (parser);
-                progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
+                progDlg.SetOptions(parser.HasKey(L"skipcheck") ? ProgOptSkipConflictCheck : ProgOptNone);
                 progDlg.SetPathList(dlg.m_pathList);
                 progDlg.DoModal();
                 return !progDlg.DidErrorsOccur();

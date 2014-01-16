@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,7 +59,7 @@ CString UniqueFileName (const CString& fileName)
     int num = 0;
     CString result = base;
     while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
-        result.Format (_T("%s(%d)"), (LPCTSTR)result, ++num);
+        result.Format (L"%s(%d)", (LPCTSTR)result, ++num);
 
     return result.MakeLower();
 }
@@ -387,7 +387,7 @@ CRepositoryInfo::CData CRepositoryInfo::data;
 
 CString CRepositoryInfo::GetFileName() const
 {
-    return cacheFolder + _T("Repositories.dat");
+    return cacheFolder + L"Repositories.dat";
 }
 
 // used to sync access to the global "data"

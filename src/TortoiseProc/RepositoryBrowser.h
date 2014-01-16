@@ -364,5 +364,5 @@ private:
     CReaderWriterLock    m_guard;
 };
 
-static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
+static UINT WM_AFTERINIT = RegisterWindowMessage(L"TORTOISESVN_AFTERINIT_MSG");
 

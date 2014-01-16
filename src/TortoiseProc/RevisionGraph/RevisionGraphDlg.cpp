@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
     // restore option state
 
-    DWORD dwOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
+    DWORD dwOpts = CRegStdDWORD(L"Software\\TortoiseSVN\\RevisionGraphOptions", 0x1ff199);
     m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x407fbf);
 
     m_szTip[0]  = 0;
@@ -69,7 +69,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 {
     // save option state
 
-    CRegStdDWORD regOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
+    CRegStdDWORD regOpts = CRegStdDWORD(L"Software\\TortoiseSVN\\RevisionGraphOptions", 1);
     regOpts = m_Graph.m_state.GetOptions()->GetRegistryFlags();
 
     // GDI+ cleanup
@@ -182,14 +182,14 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 
     // fill the combo box
 
-    TCHAR* texts[] = { _T("5%")
-                     , _T("10%")
-                     , _T("20%")
-                     , _T("40%")
-                     , _T("50%")
-                     , _T("75%")
-                     , _T("100%")
-                     , _T("200%")
+    TCHAR* texts[] = { L"5%"
+                     , L"10%"
+                     , L"20%"
+                     , L"40%"
+                     , L"50%"
+                     , L"75%"
+                     , L"100%"
+                     , L"200%"
                      , NULL};
 
     COMBOBOXEXITEM cbei;
@@ -242,7 +242,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     CMenu * pMenu = GetMenu();
     if (pMenu)
     {
-        CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
+        CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\ShowRevGraphOverview", FALSE);
         m_Graph.SetShowOverview ((DWORD)reg != FALSE);
         pMenu->CheckMenuItem(ID_VIEW_SHOWOVERVIEW, MF_BYCOMMAND | (DWORD(reg) ? MF_CHECKED : 0));
         int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_SHOWOVERVIEW);
@@ -257,7 +257,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     m_Graph.UpdateWindow();
     DoZoom (DEFAULT_ZOOM);
 
-    EnableSaveRestore(_T("RevisionGraphDlg"));
+    EnableSaveRestore(L"RevisionGraphDlg");
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
@@ -292,7 +292,7 @@ bool CRevisionGraphDlg::UpdateData()
             {
                 TSVNMessageBox( m_hWnd
                               , m_Graph.m_state.GetLastErrorMessage()
-                              , _T("TortoiseSVN")
+                              , L"TortoiseSVN"
                               , MB_ICONERROR);
             }
         }
@@ -635,7 +635,7 @@ void CRevisionGraphDlg::OnFileSavegraphas()
             extension = tempfile.Mid(dotPos);
         if ((filterindex == 1)&&(extension.IsEmpty()))
         {
-            extension = _T(".wmf");
+            extension = L".wmf";
             tempfile += extension;
         }
         m_Graph.SaveGraphAs(tempfile);
@@ -687,7 +687,7 @@ void CRevisionGraphDlg::UpdateZoomBox()
     CString strItem;
     CComboBoxEx* pCBox = (CComboBoxEx*)m_ToolBar.GetDlgItem(ID_REVGRAPH_ZOOMCOMBO);
     pCBox->GetWindowText(strItem);
-    strText.Format(_T("%.0f%%"), (m_fZoomFactor*100.0));
+    strText.Format(L"%.0f%%", (m_fZoomFactor*100.0));
     if (strText.Compare(strItem) != 0)
         pCBox->SetWindowText(strText);
 }
@@ -773,11 +773,11 @@ void CRevisionGraphDlg::OnViewFilter()
         int index = 0;
         filterPaths.clear();
 
-        CString path = m_sFilter.Tokenize (_T("*"),  index);
+        CString path = m_sFilter.Tokenize (L"*",  index);
         while (!path.IsEmpty())
         {
             filterPaths.insert (CUnicodeUtils::StdGetUTF8 ((LPCTSTR)path));
-            path = m_sFilter.Tokenize (_T("*"),  index);
+            path = m_sFilter.Tokenize (L"*",  index);
         }
 
         // update menu & toolbar
@@ -823,7 +823,7 @@ void CRevisionGraphDlg::OnViewShowoverview()
         m_Graph.SetShowOverview (true);
     }
 
-    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
+    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\ShowRevGraphOverview", FALSE);
     reg = m_Graph.GetShowOverview();
     m_Graph.Invalidate(FALSE);
 }

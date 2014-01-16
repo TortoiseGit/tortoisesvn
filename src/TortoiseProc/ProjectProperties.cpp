@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 #include <regex>
 #include <Shlwapi.h>
 
-#define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)")
+#define LOG_REVISIONREGEX L"\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)"
 
 const CString sLOG_REVISIONREGEX = LOG_REVISIONREGEX;
 
@@ -96,8 +96,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             CString val;
             val = sPropVal;
-            val = val.Trim(_T(" \n\r\t"));
-            if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
+            val = val.Trim(L" \n\r\t");
+            if ((val.CompareNoCase(L"false")==0)||(val.CompareNoCase(L"no")==0))
                 bNumber = FALSE;
             else
                 bNumber = TRUE;
@@ -120,8 +120,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             CString val;
             val = sPropVal;
-            val = val.Trim(_T(" \n\r\t"));
-            if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
+            val = val.Trim(L" \n\r\t");
+            if ((val.CompareNoCase(L"true")==0)||(val.CompareNoCase(L"yes")==0))
                 bWarnIfNoIssue = TRUE;
             else
                 bWarnIfNoIssue = FALSE;
@@ -130,8 +130,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             CString val;
             val = sPropVal;
-            val = val.Trim(_T(" \n\r\t"));
-            if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
+            val = val.Trim(L" \n\r\t");
+            if ((val.CompareNoCase(L"true")==0)||(val.CompareNoCase(L"yes")==0))
                 bAppend = TRUE;
             else
                 bAppend = FALSE;
@@ -179,8 +179,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             CString val;
             val = sPropVal;
-            val = val.Trim(_T(" \n\r\t"));
-            if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
+            val = val.Trim(L" \n\r\t");
+            if ((val.CompareNoCase(L"false")==0)||(val.CompareNoCase(L"no")==0))
                 bFileListInEnglish = FALSE;
             else
                 bFileListInEnglish = TRUE;
@@ -238,7 +238,7 @@ bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname
         {
             s = propval;
             s.Remove(_T('\r'));
-            s.Replace(_T("\r\n"), _T("\n"));
+            s.Replace(L"\r\n", L"\n");
             m_bFound = true;
             return true;
         }
@@ -366,7 +366,7 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
                     ptrdiff_t matchpos = it->position(0);
                     for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                     {
-                        ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+                        ATLTRACE(L"matched id : %s\n", (*it2)[0].str().c_str());
                         ptrdiff_t matchposID = it2->position(0);
                         CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
                         result.push_back (range);
@@ -389,7 +389,7 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
                     // group 2 as the bug ID
                     if (match.size() >= 2)
                     {
-                        ATLTRACE(_T("matched id : %s\n"), std::wstring(match[1]).c_str());
+                        ATLTRACE(L"matched id : %s\n", std::wstring(match[1]).c_str());
                         CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
                         result.push_back (range);
                     }
@@ -451,7 +451,7 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
             offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
         else
             offset1 = sFirstPart.GetLength();
-        sBugIDPart.Trim(_T(","));
+        sBugIDPart.Trim(L",");
         while (sBugIDPart.Find(',')>=0)
         {
             offset2 = offset1 + sBugIDPart.Find(',');
@@ -508,7 +508,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
         for (std::set<CString, num_compare>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
         {
             sRet += *it;
-            sRet += _T(" ");
+            sRet += L" ";
         }
         sRet.Trim();
     }
@@ -529,7 +529,7 @@ CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
     if (!sMessage.IsEmpty() || !sCheckRe.IsEmpty())
     {
         ret = sUrl;
-        ret.Replace(_T("%BUGID%"), sBugID);
+        ret.Replace(L"%BUGID%", sBugID);
     }
     return ret;
 }
@@ -588,8 +588,8 @@ void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
             {
                 CString key = sLine.Left(equalpos);
                 CString value = sLine.Mid(equalpos);
-                key.Trim(_T(" ="));
-                value.Trim(_T(" ="));
+                key.Trim(L" =");
+                value.Trim(L" =");
                 svn_config_set(cfg, SVN_CONFIG_SECTION_AUTO_PROPS, (LPCSTR)CUnicodeUtils::GetUTF8(key), (LPCSTR)CUnicodeUtils::GetUTF8(value));
                 bEnableAutoProps = true;
             }
@@ -619,7 +619,7 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
     if (!bNumber)
         bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "false") && bRet;
     if (!sCheckRe.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)(sCheckRe + L"\n" + sBugIDRe))) && bRet;
     if (!sUrl.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_URL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sUrl)) && bRet;
     if (bWarnIfNoIssue)
@@ -706,7 +706,7 @@ CString ProjectProperties::GetLogSummary(const CString& sMessage)
                 // we define the first group as the summary text
                 if ((*it).size() >= 1)
                 {
-                    ATLTRACE(_T("matched summary : %s\n"), std::wstring(match[0]).c_str());
+                    ATLTRACE(L"matched summary : %s\n", std::wstring(match[0]).c_str());
                     sRet += (CString(std::wstring(match[1]).c_str()));
                 }
             }
@@ -739,7 +739,7 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
     if (!bFoundShort)
     {
         // Suppose the first empty line separates 'summary' from the rest of the message.
-        int found = sShortMessage.Find(_T("\n\n"));
+        int found = sShortMessage.Find(L"\n\n");
         // To avoid too short 'short' messages
         // (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
         // only use the empty newline as a separator if it comes after at least 15 chars.
@@ -748,7 +748,7 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
 
         // still too long? -> truncate after about 2 lines
         if (sShortMessage.GetLength() > MAX_SHORT_MESSAGE_LENGTH)
-            sShortMessage = sShortMessage.Left(MAX_SHORT_MESSAGE_LENGTH) + _T("...");
+            sShortMessage = sShortMessage.Left(MAX_SHORT_MESSAGE_LENGTH) + L"...";
     }
 
     sShortMessage.Replace('\n', ' ');
@@ -790,48 +790,48 @@ static class PropTest
 public:
     PropTest()
     {
-        CString msg = _T("this is a test logmessage: issue 222\nIssue #456, #678, 901  #456");
-        CString sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
-        CString sCheckRe = _T("[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+");
-        CString sBugIDRe = _T("(\\d+)");
+        CString msg = L"this is a test logmessage: issue 222\nIssue #456, #678, 901  #456";
+        CString sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        CString sCheckRe = L"[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+";
+        CString sBugIDRe = L"(\\d+)";
         ProjectProperties props;
-        props.sCheckRe = _T("PAF-[0-9]+");
-        props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
-        CString sRet = props.FindBugID(_T("This is a test for PAF-88"));
+        props.sCheckRe = L"PAF-[0-9]+";
+        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        CString sRet = props.FindBugID(L"This is a test for PAF-88");
         ATLASSERT(sRet.IsEmpty());
-        props.sCheckRe = _T("[Ii]ssue #?(\\d+)");
+        props.sCheckRe = L"[Ii]ssue #?(\\d+)";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(_T("Testing issue #99"));
+        sRet = props.FindBugID(L"Testing issue #99");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(_T("99"))==0);
-        props.sCheckRe = _T("[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+");
-        props.sBugIDRe = _T("(\\d+)");
-        props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        ATLASSERT(sRet.Compare(L"99")==0);
+        props.sCheckRe = L"[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+";
+        props.sBugIDRe = L"(\\d+)";
+        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(_T("This is a test for Issue #7463,#666"));
-        ATLASSERT(props.HasBugID(_T("This is a test for Issue #7463,#666")));
-        ATLASSERT(!props.HasBugID(_T("This is a test for Issue 7463,666")));
+        sRet = props.FindBugID(L"This is a test for Issue #7463,#666");
+        ATLASSERT(props.HasBugID(L"This is a test for Issue #7463,#666"));
+        ATLASSERT(!props.HasBugID(L"This is a test for Issue 7463,666"));
         sRet.Trim();
-        ATLASSERT(sRet.Compare(_T("666 7463"))==0);
-        sRet = props.FindBugID(_T("This is a test for Issue #850,#1234,#1345"));
+        ATLASSERT(sRet.Compare(L"666 7463")==0);
+        sRet = props.FindBugID(L"This is a test for Issue #850,#1234,#1345");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(_T("850 1234 1345"))==0);
-        props.sCheckRe = _T("^\\[(\\d+)\\].*");
-        props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        ATLASSERT(sRet.Compare(L"850 1234 1345")==0);
+        props.sCheckRe = L"^\\[(\\d+)\\].*";
+        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(_T("[000815] some stupid programming error fixed"));
+        sRet = props.FindBugID(L"[000815] some stupid programming error fixed");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(_T("000815"))==0);
-        props.sCheckRe = _T("\\[\\[(\\d+)\\]\\]\\]");
-        props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        ATLASSERT(sRet.Compare(L"000815")==0);
+        props.sCheckRe = L"\\[\\[(\\d+)\\]\\]\\]";
+        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(_T("test test [[000815]]] some stupid programming error fixed"));
+        sRet = props.FindBugID(L"test test [[000815]]] some stupid programming error fixed");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(_T("000815"))==0);
-        ATLASSERT(props.HasBugID(_T("test test [[000815]]] some stupid programming error fixed")));
-        ATLASSERT(!props.HasBugID(_T("test test [000815]] some stupid programming error fixed")));
-        props.sLogSummaryRe = _T("\\[SUMMARY\\]:(.*)");
-        ATLASSERT(props.GetLogSummary(_T("[SUMMARY]: this is my summary")).Compare(_T("this is my summary"))==0);
+        ATLASSERT(sRet.Compare(L"000815")==0);
+        ATLASSERT(props.HasBugID(L"test test [[000815]]] some stupid programming error fixed"));
+        ATLASSERT(!props.HasBugID(L"test test [000815]] some stupid programming error fixed"));
+        props.sLogSummaryRe = L"\\[SUMMARY\\]:(.*)";
+        ATLASSERT(props.GetLogSummary(L"[SUMMARY]: this is my summary").Compare(L"this is my summary")==0);
     }
 } PropTest;
 #endif
