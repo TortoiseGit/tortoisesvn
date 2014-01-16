@@ -521,16 +521,16 @@ void ShellCache::CPathFilter::AddEntry (const tstring& s, bool include)
 
     SEntry entry;
     entry.hasSubFolderEntries = false;
-    entry.recursive = lastChar != _T('?');
+    entry.recursive = lastChar != '?';
     entry.included = include ? svn_tristate_true : svn_tristate_false;
     entry.subPathIncluded = include == entry.recursive
                           ? svn_tristate_true
                           : svn_tristate_false;
 
     entry.path = s;
-    if ((lastChar == _T('?')) || (lastChar == _T('*')))
+    if ((lastChar == '?') || (lastChar == '*'))
         entry.path.erase (s.length()-1);
-    if (!entry.path.empty() && (*entry.path.rbegin() == _T('\\')))
+    if (!entry.path.empty() && (*entry.path.rbegin() == '\\'))
         entry.path.erase (entry.path.length()-1);
 
     data.push_back (entry);
@@ -539,12 +539,12 @@ void ShellCache::CPathFilter::AddEntry (const tstring& s, bool include)
 void ShellCache::CPathFilter::AddEntries (const tstring& s, bool include)
 {
     size_t pos = 0, pos_ant = 0;
-    pos = s.find(_T('\n'), pos_ant);
+    pos = s.find('\n', pos_ant);
     while (pos != tstring::npos)
     {
         AddEntry (s.substr(pos_ant, pos-pos_ant), include);
         pos_ant = pos+1;
-        pos = s.find(_T('\n'), pos_ant);
+        pos = s.find('\n', pos_ant);
     }
 
     if (!s.empty())
@@ -608,7 +608,7 @@ void ShellCache::CPathFilter::PostProcessData()
             size_t destSize = dest->path.size();
             dest->hasSubFolderEntries
                 =   (source->path.size() > destSize)
-                 && (source->path[destSize] == _T('\\'))
+                 && (source->path[destSize] == '\\')
                  && (_tcsnicmp ( source->path.substr (0, destSize).c_str()
                                , dest->path.c_str()
                                , destSize)

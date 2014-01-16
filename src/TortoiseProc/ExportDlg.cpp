@@ -440,7 +440,7 @@ void CExportDlg::OnCbnEditchangeUrlcombo()
     if ((m_sExportDirOrig.IsEmpty())||(m_blockPathAdjustments))
         return;
     CString name = CAppUtils::GetProjectNameFromURL(m_URL);
-    m_strExportDirectory = m_sExportDirOrig+_T('\\')+name;
+    m_strExportDirectory = m_sExportDirOrig+'\\'+name;
     m_strExportDirectory.Replace(L":\\\\", L":\\");
     UpdateData(FALSE);
 }

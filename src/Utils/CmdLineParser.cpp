@@ -75,7 +75,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
             m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
             break;
         }
-        else if (sVal[0] == _T(' ') || _tcslen(sVal) == 1 )
+        else if (sVal[0] == ' ' || _tcslen(sVal) == 1 )
         {
             // cmdline ends with /Key: or a key with no value
             tstring Key(sArg, (int)(sVal - sArg));
@@ -105,7 +105,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
             else
             {
                 sQuote = sVal;
-                sEndQuote = _tcschr(sQuote, _T(' '));
+                sEndQuote = _tcschr(sQuote, ' ');
             }
 
             if(sEndQuote == NULL)

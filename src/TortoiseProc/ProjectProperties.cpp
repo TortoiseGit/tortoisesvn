@@ -237,7 +237,7 @@ bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname
         if (s.IsEmpty())
         {
             s = propval;
-            s.Remove(_T('\r'));
+            s.Remove('\r');
             s.Replace(L"\r\n", L"\n");
             m_bFound = true;
             return true;
@@ -733,8 +733,8 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
         sShortMessage = message;
     }
     // Remove newlines and tabs 'cause those are not shown nicely in the list control
-    sShortMessage.Remove(_T('\r'));
-    sShortMessage.Replace(_T('\t'), _T(' '));
+    sShortMessage.Remove('\r');
+    sShortMessage.Replace('\t', ' ');
 
     if (!bFoundShort)
     {

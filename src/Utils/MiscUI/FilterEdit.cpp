@@ -414,9 +414,9 @@ LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
         // elimate control chars, especially newlines
 
         toInsert.Replace(L"\r\n", L" ");
-        toInsert.Replace(_T('\r'), _T(' '));
-        toInsert.Replace(_T('\n'), _T(' '));
-        toInsert.Replace(_T('\t'), _T(' '));
+        toInsert.Replace('\r', ' ');
+        toInsert.Replace('\n', ' ');
+        toInsert.Replace('\t', ' ');
 
         // get the current text
 

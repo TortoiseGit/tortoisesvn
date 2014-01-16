@@ -208,9 +208,9 @@ public:
    inline BOOL IsDots() const
    {
       return IsDirectory()
-          && m_FindFileData.cFileName[0] == _T('.')
+          && m_FindFileData.cFileName[0] == '.'
           && ( (m_FindFileData.cFileName[1] == 0)
-            || (m_FindFileData.cFileName[1] == _T('.')
+            || (m_FindFileData.cFileName[1] == '.'
              && m_FindFileData.cFileName[2] == 0) );
    }
 };

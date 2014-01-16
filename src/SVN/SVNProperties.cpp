@@ -363,7 +363,7 @@ void SVNProperties::PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool )
     if (m_path.IsUrl())
     {
         CString msg = message ? message : L"";
-        msg.Remove(_T('\r'));
+        msg.Remove('\r');
         log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
         baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
         baton->base_dir = "";

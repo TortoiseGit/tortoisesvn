@@ -1924,7 +1924,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         int nActualOffset = 0;
         while ((nActualOffset < m_nOffsetChar) && (*pszChars))
         {
-            if (*pszChars == _T('\t'))
+            if (*pszChars == '\t')
                 nActualOffset += (GetTabSize() - nActualOffset % GetTabSize());
             else
                 nActualOffset++;
@@ -1939,7 +1939,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         {
             switch (*pszChars)
             {
-            case _T('\t'):
+            case '\t':
                 {
                     // draw an arrow
                     CPen * oldPen = pDC->SelectObject(&pen);
@@ -1953,7 +1953,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                     pDC->SelectObject(oldPen);
                 }
                 break;
-            case _T(' '):
+            case ' ':
                 {
                     // draw a small dot
                     CPen * oldPen = pDC->SelectObject(&pen2);
@@ -1994,7 +1994,7 @@ void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CStri
     int nTabCount = 0;
     for (int i=0; i<nLength; i++)
     {
-        if (pszChars[i] == _T('\t'))
+        if (pszChars[i] == '\t')
             nTabCount ++;
     }
 
@@ -2004,12 +2004,12 @@ void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CStri
     {
         for (int i=0; i<nLength; i++)
         {
-            if (pszChars[i] == _T('\t'))
+            if (pszChars[i] == '\t')
             {
                 int nSpaces = nTabSize - (nActualOffset + nCurPos) % nTabSize;
                 while (nSpaces > 0)
                 {
-                    pszBuf[nCurPos ++] = _T(' ');
+                    pszBuf[nCurPos ++] = ' ';
                     nSpaces --;
                 }
             }
@@ -2044,7 +2044,7 @@ int CBaseView::CountExpandedChars(const CString &sLine, int nLength)
     int nActualOffset = 0;
     for (int i=0; i<nLength; i++)
     {
-        if (sLine[i] == _T('\t'))
+        if (sLine[i] == '\t')
             nActualOffset += (nTabSize - nActualOffset % nTabSize);
         else
             nActualOffset ++;
@@ -3529,7 +3529,7 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
     int nTabSize = GetTabSize();
     while (nOffset < nActualOffset && nIndex < nLength)
     {
-        if (Line.GetAt(nIndex) == _T('\t'))
+        if (Line.GetAt(nIndex) == '\t')
             nOffset += (nTabSize - nOffset % nTabSize);
         else
             ++nOffset;
@@ -3615,11 +3615,11 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             int indentChars = GetIndentCharsForLine(ptCaretViewPos.x, nViewLine);
             if (indentChars > 0)
             {
-                lineData.sLine.Insert(ptCaretViewPos.x, CString(_T(' '), indentChars));
+                lineData.sLine.Insert(ptCaretViewPos.x, CString(' ', indentChars));
                 charCount = indentChars;
             }
             else
-                lineData.sLine.Insert(ptCaretViewPos.x, _T('\t'));
+                lineData.sLine.Insert(ptCaretViewPos.x, '\t');
         }
         else
             lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
@@ -5903,7 +5903,7 @@ void CBaseView::AddIndentationForSelectedBlock()
         // add tab to line start (alternatively m_nTabSize spaces can be used)
         CString tabStr;
         int indentChars = GetIndentCharsForLine(0, nViewLine);
-        tabStr = indentChars > 0 ? CString(_T(' '), indentChars) : L"\t";
+        tabStr = indentChars > 0 ? CString(' ', indentChars) : L"\t";
         SetViewLine(nViewLine, tabStr + sLine);
         bModified = true;
     }

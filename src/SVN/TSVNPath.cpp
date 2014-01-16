@@ -1020,7 +1020,7 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
     // first entry is common root for itself
     // (add trailing '\\' to detect partial matches of the last path element)
 
-    CString root = m_paths[0].GetWinPathString() + _T('\\');
+    CString root = m_paths[0].GetWinPathString() + '\\';
     int rootLength = root.GetLength();
 
     // determine common path string prefix
@@ -1029,7 +1029,7 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
         ; it != m_paths.end()
         ; ++it)
     {
-        CString path = it->GetWinPathString() + _T('\\');
+        CString path = it->GetWinPathString() + '\\';
 
         int newLength = CStringUtils::GetMatchingLength (root, path);
         if (newLength != rootLength)
@@ -1042,7 +1042,7 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
     // remove the last (partial) path element
 
     if (rootLength > 0)
-        root.Delete (root.ReverseFind (_T('\\')), rootLength);
+        root.Delete (root.ReverseFind ('\\'), rootLength);
 
     // done
 

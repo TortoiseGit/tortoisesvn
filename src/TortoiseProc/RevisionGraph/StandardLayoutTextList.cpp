@@ -98,7 +98,7 @@ CStandardLayoutTextList::GetText (index_t index) const
                                    - nodeInfo.skipStartPathElements
                                    - nodeInfo.skipTailPathElements;
         text = CUnicodeUtils::StdGetUnicode (path[localindex]).c_str();
-        text.Insert (0, _T('/'));
+        text.Insert (0, '/');
 
         // add "...." pre- and post-fixes, if elements have been skipped
 
@@ -108,7 +108,7 @@ CStandardLayoutTextList::GetText (index_t index) const
         if (   (visibleElementCount == (size_t)textInfo.subPathIndex)
             && (nodeInfo.skipTailPathElements != 0))
         {
-            text.AppendChar (_T('/'));
+            text.AppendChar ('/');
             text.Append (CString ('.', nodeInfo.skipTailPathElements));
         }
     }

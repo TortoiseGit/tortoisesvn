@@ -1831,7 +1831,7 @@ void SVN::cancel()
 
 void * SVN::logMessage (CString message, char * baseDirectory)
 {
-    message.Remove(_T('\r'));
+    message.Remove('\r');
 
     log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (pool, sizeof (*baton));
     baton->message = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(message));

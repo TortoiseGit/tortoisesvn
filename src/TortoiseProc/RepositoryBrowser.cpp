@@ -481,7 +481,7 @@ void CRepositoryBrowser::InitRepo()
         CString revString = m_InitialUrl.Mid(questionMarkIndex+1);
         CString pegRevString = revString;
 
-        int ampPos = revString.Find(_T('&'));
+        int ampPos = revString.Find('&');
         if (ampPos >= 0)
         {
             revString = revString.Mid (ampPos+1);
@@ -1396,7 +1396,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
 
     // add parent sub-tree externals
 
-    CString relPath = pTreeItem->unescapedname + _T('/');
+    CString relPath = pTreeItem->unescapedname + '/';
     for ( node = m_RepoTree.GetParentItem (node)
         ; node && pTreeItem->error.IsEmpty()
         ; node = m_RepoTree.GetParentItem (node))
@@ -1413,7 +1413,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                                          , parentItem->repository
                                                          , relPath
                                                          , children);
-        relPath = parentItem->unescapedname + _T('/') + relPath;
+        relPath = parentItem->unescapedname + '/' + relPath;
     }
 
     // done

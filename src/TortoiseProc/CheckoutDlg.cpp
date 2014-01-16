@@ -103,7 +103,7 @@ void CCheckoutDlg::UpdateURLsFromCombo()
         if (   !name.IsEmpty()
             && CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
         {
-            m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+            m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+'\\'+name;
         }
     }
 

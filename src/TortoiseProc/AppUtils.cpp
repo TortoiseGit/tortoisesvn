@@ -629,7 +629,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
     pWnd->GetWindowText(sText);
     // the rich edit control doesn't count the CR char!
     // to be exact: CRLF is treated as one char.
-    sText.Remove(_T('\r'));
+    sText.Remove('\r');
 
     // style each line separately
     int offset = 0;
@@ -715,8 +715,8 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
     int i=start;
     int last = sText.GetLength()-1;
     bool bFoundMarker = false;
-    TCHAR c = i == 0 ? _T('\0') : sText[i-1];
-    TCHAR nextChar = i >= last ? _T('\0') : sText[i+1];
+    TCHAR c = i == 0 ? '\0' : sText[i-1];
+    TCHAR nextChar = i >= last ? '\0' : sText[i+1];
 
     // find a starting marker
     while (i < last)

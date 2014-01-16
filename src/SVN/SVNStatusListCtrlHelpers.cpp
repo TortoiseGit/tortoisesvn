@@ -860,7 +860,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetUserPropList() const
     CString result;
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
-        result += userProps[i].name + _T(' ');
+        result += userProps[i].name + ' ';
 
     return result;
 }
@@ -874,7 +874,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetShownUserProps() const
         size_t index = static_cast<size_t>(columns[i].index);
         if (columns[i].visible && (index >= SVNSLC_USERPROPCOLOFFSET))
             result += userProps[index - SVNSLC_USERPROPCOLOFFSET].name
-                    + _T(' ');
+                    + ' ';
     }
 
     return result;

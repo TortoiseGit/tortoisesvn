@@ -605,7 +605,7 @@ CString CPathUtils::GetAppDataDirectory()
     if (!PathIsDirectory(path))
         CreateDirectory(path, NULL);
 
-    return CString (path) + _T('\\');
+    return CString (path) + '\\';
 }
 
 CStringA CPathUtils::PathUnescape(const CStringA& path)

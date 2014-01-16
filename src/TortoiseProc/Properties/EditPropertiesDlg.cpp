@@ -311,7 +311,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
                 it->second.value = prop_value;
                 CString stemp = value.c_str();
                 stemp.Replace('\n', ' ');
-                stemp.Remove(_T('\r'));
+                stemp.Remove('\r');
                 it->second.value_without_newlines = tstring((LPCTSTR)stemp);
                 it->second.count = 1;
                 it->second.allthesamevalue = true;
@@ -342,7 +342,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
                 it->second.value = prop_value;
                 CString stemp = value.c_str();
                 stemp.Replace('\n', ' ');
-                stemp.Remove(_T('\r'));
+                stemp.Remove('\r');
                 it->second.value_without_newlines = tstring((LPCTSTR)stemp);
                 it->second.count = 1;
                 it->second.allthesamevalue = true;

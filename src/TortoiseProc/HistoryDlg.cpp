@@ -159,7 +159,7 @@ void CHistoryDlg::UpdateMessageList()
         }
         if (match)
         {
-            sEntry.Remove(_T('\r'));
+            sEntry.Remove('\r');
             sEntry.Replace('\n', ' ');
             int index = m_List.AddString(sEntry);
             m_List.SetItemData(index, i);

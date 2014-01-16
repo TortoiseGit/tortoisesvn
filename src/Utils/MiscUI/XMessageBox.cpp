@@ -627,7 +627,7 @@ int XMessageBox(HWND hwnd,
         (nStyle & MB_DONOTSHOWAGAIN))
     {
         // is module name supplied?
-        if (xmb.lpszModule && (xmb.lpszModule[0] != _T('\0')))
+        if (xmb.lpszModule && (xmb.lpszModule[0] != '\0'))
         {
             // caller specified Do No Ask style and a module name -
             // check if answer previously saved in registry or ini file
@@ -798,12 +798,12 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     // from resources
     m_lpszMessage = new TCHAR [MessageSize];
     if (m_lpszMessage)
-        m_lpszMessage[0] = _T('\0');
+        m_lpszMessage[0] = '\0';
     SecureZeroMemory(m_lpszMessage, MessageSize*sizeof(TCHAR));
 
     m_lpszCaption = new TCHAR [MessageSize];
     if (m_lpszCaption)
-        m_lpszCaption[0] = _T('\0');
+        m_lpszCaption[0] = '\0';
     SecureZeroMemory(m_lpszCaption, MessageSize*sizeof(TCHAR));
 
     ///////////////////////////////////////////////////////////////////////////
@@ -823,14 +823,14 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
                              LOWORD(lpszMessage),
                              m_lpszMessage,
                              MessageSize-1) == 0)
-                m_lpszMessage[0] = _T('\0');
+                m_lpszMessage[0] = '\0';
         }
         else
         {
             // looks like a string pointer
             _tcsncpy(m_lpszMessage, lpszMessage, MessageSize-1);
         }
-        m_lpszMessage[MessageSize-1] = _T('\0');
+        m_lpszMessage[MessageSize-1] = '\0';
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -844,14 +844,14 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
                              LOWORD(lpszCaption),
                              m_lpszCaption,
                              MessageSize-1) == 0)
-                m_lpszCaption[0] = _T('\0');
+                m_lpszCaption[0] = '\0';
         }
         else
         {
             // looks like a string pointer
             _tcsncpy(m_lpszCaption, lpszCaption, MessageSize-1);
         }
-        m_lpszCaption[MessageSize-1] = _T('\0');
+        m_lpszCaption[MessageSize-1] = '\0';
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -865,15 +865,15 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
                          pXMB->nIdCustomButtons,
                          m_szCustomButtons,
                          countof(m_szCustomButtons)-1) == 0)
-            m_szCustomButtons[0] = _T('\0');
+            m_szCustomButtons[0] = '\0';
     }
 
-    if ((m_szCustomButtons[0] == _T('\0')) && (pXMB->szCustomButtons[0] != _T('\0')))
+    if ((m_szCustomButtons[0] == '\0') && (pXMB->szCustomButtons[0] != '\0'))
     {
         // load from string
         _tcsncpy(m_szCustomButtons, pXMB->szCustomButtons, countof(m_szCustomButtons)-1);
     }
-    m_szCustomButtons[countof(m_szCustomButtons)-1] = _T('\0');
+    m_szCustomButtons[countof(m_szCustomButtons)-1] = '\0';
 
     ///////////////////////////////////////////////////////////////////////////
     // load report button caption from resource or string
@@ -886,14 +886,14 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
                          pXMB->nIdReportButtonCaption,
                          &m_szButtonText[eReport][0],
                          MaxButtonStringSize-1) == 0)
-            m_szButtonText[eReport][0] = _T('\0');
+            m_szButtonText[eReport][0] = '\0';
     }
 
-    if ((m_szButtonText[eReport][0] == _T('\0')) && (pXMB->szReportButtonCaption[0] != _T('\0')))
+    if ((m_szButtonText[eReport][0] == '\0') && (pXMB->szReportButtonCaption[0] != '\0'))
     {
         _tcsncpy(&m_szButtonText[eReport][0], pXMB->szReportButtonCaption, MaxButtonStringSize-1);
     }
-    m_szButtonText[eReport][MaxButtonStringSize-1] = _T('\0');
+    m_szButtonText[eReport][MaxButtonStringSize-1] = '\0';
 
     ///////////////////////////////////////////////////////////////////////////
     // load button captions
@@ -1047,7 +1047,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     {
         m_hIcon = ::LoadIcon(hInstanceIcon, MAKEINTRESOURCE(pXMB->nIdIcon));
     }
-    else if (pXMB->szIcon[0] != _T('\0'))
+    else if (pXMB->szIcon[0] != '\0')
     {
         m_hIcon = ::LoadIcon(hInstanceIcon, pXMB->szIcon);
     }
@@ -1113,7 +1113,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
     int nWidthCustomButtons = 0;        //+++1.7
     int nWidthStdButtons = 0;           //+++1.7
 
-    if (m_szCustomButtons[0] == _T('\0'))
+    if (m_szCustomButtons[0] == '\0')
     {
         // process standard buttons
 
@@ -1323,7 +1323,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         x = mbrect.right - nTotalButtonWidth - 2*SpacingSize;       //+++1.7
     }
 
-    if (m_szCustomButtons[0] == _T('\0'))
+    if (m_szCustomButtons[0] == '\0')
     {
         // no custom buttons
 
@@ -1571,7 +1571,7 @@ void CXDialogTemplate::LoadUserDefinedButtonStrings(
         _tcscpy(m_szButtonText[eNoToAll],        udcs.szNoToAll);
     if (udcs.szOK[0])
         _tcscpy(m_szButtonText[eOK],             udcs.szOK);
-    if (m_szButtonText[eReport][0] == _T('\0'))
+    if (m_szButtonText[eReport][0] == '\0')
         if (udcs.szReport[0])
             _tcscpy(m_szButtonText[eReport],     udcs.szReport);
     if (udcs.szRetry[0])
@@ -1600,14 +1600,14 @@ void CXDialogTemplate::LoadButtonStrings()
         if (index == eReport)
         {
             // Report button text may already be loaded
-            if (m_szButtonText[index][0] == _T('\0'))
+            if (m_szButtonText[index][0] == '\0')
                 _tcscpy(m_szButtonText[index], g_ButtonText[index].pszDefaultText);
         }
         else
         {
             _tcscpy(m_szButtonText[index], g_ButtonText[index].pszDefaultText);
         }
-        m_szButtonText[index][MaxButtonStringSize-1] = _T('\0');
+        m_szButtonText[index][MaxButtonStringSize-1] = '\0';
     }
 }
 
@@ -1625,7 +1625,7 @@ void CXDialogTemplate::LoadButtonStringsFromResources(HINSTANCE hInstance)
         if (index == eReport)
         {
             // Report button text may already be loaded
-            if (m_szButtonText[index][0] == _T('\0'))
+            if (m_szButtonText[index][0] == '\0')
                 rc = ::LoadString(hInstance, g_ButtonText[index].resId,
                         m_szButtonText[index], MaxButtonStringSize);
             else
@@ -1638,7 +1638,7 @@ void CXDialogTemplate::LoadButtonStringsFromResources(HINSTANCE hInstance)
         }
         if (rc == 0)
             _tcscpy(m_szButtonText[index], g_ButtonText[index].pszDefaultText);
-        m_szButtonText[index][MaxButtonStringSize-1] = _T('\0');
+        m_szButtonText[index][MaxButtonStringSize-1] = '\0';
     }
 }
 
@@ -1823,7 +1823,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                 HWND hwndDefButton = ::GetDlgItem(hwnd, Me->GetDefaultButtonId());
                 if (hwndDefButton && ::IsWindow(hwndDefButton))
                 {
-                    if (Me->m_szDefaultButton[0] != _T('\0'))
+                    if (Me->m_szDefaultButton[0] != '\0')
                     {
                         ::SetWindowText(hwndDefButton, Me->m_szDefaultButton);
                     }
@@ -1898,17 +1898,17 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                     // module name were specified
 
                     if (bFlag && Me->m_lpszModule &&
-                        (Me->m_lpszModule[0] != _T('\0')))
+                        (Me->m_lpszModule[0] != '\0'))
                     {
                         TCHAR szPathName[MAX_PATH*2];
 
                         // get full path to ini file
-                        szPathName[0] = _T('\0');
+                        szPathName[0] = '\0';
                         ::GetModuleFileName(NULL, szPathName, countof(szPathName)-1);
 
-                        TCHAR *cp = _tcsrchr(szPathName, _T('\\'));
+                        TCHAR *cp = _tcsrchr(szPathName, '\\');
                         if (cp != NULL)
-                            *(cp+1) = _T('\0');
+                            *(cp+1) = '\0';
                         _tcscat(szPathName, XMESSAGEBOX_INI_FILE);
 
                         // key is module name and line
@@ -1919,7 +1919,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                         encode(szKey);      // simple encoding to obscure module name
 
                         TCHAR szLine[100];
-                        szLine[0] = _T('\0');
+                        szLine[0] = '\0';
                         _tcscat(szKey, _itot(Me->m_nLine, szLine, 10));
 
                         TRACE(L"szKey=<%s>\n", szKey);
@@ -2000,7 +2000,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                 HWND hwndDefButton = ::GetDlgItem(hwnd, Me->GetDefaultButtonId());
                 if (hwndDefButton && ::IsWindow(hwndDefButton))
                 {
-                    if (Me->m_szDefaultButton[0] != _T('\0'))
+                    if (Me->m_szDefaultButton[0] != '\0')
                     {
                         ::SetWindowText(hwndDefButton, Me->m_szDefaultButton);
                     }
@@ -2032,7 +2032,7 @@ INT_PTR CALLBACK CXDialogTemplate::MsgBoxDlgProc(HWND hwnd,
                 if (hwndDefButton == NULL || !::IsWindow(hwndDefButton))
                     return FALSE;
 
-                if (Me->m_szDefaultButton[0] == _T('\0'))
+                if (Me->m_szDefaultButton[0] == '\0')
                 {
                     // first time - get text of default button
                     ::GetWindowText(hwndDefButton, Me->m_szDefaultButton,
@@ -2206,7 +2206,7 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
     // if the most significant bit is set, the key is down
     BOOL bCtrlIsDown =  GetAsyncKeyState(VK_CONTROL) < 0;
 
-    if (bCtrlIsDown && (ch == _T('C')))
+    if (bCtrlIsDown && (ch == 'C'))
     {
         rc = TRUE;
 
@@ -2245,7 +2245,7 @@ BOOL CXDialogTemplate::OnKeyDown(HWND hWnd, WPARAM wParam, LPARAM /*lParam*/)
                         TCHAR *cp = szButton;
                         while (*cp)
                         {
-                            if (*cp != _T('&'))
+                            if (*cp != '&')
                                 pszText[i++] = *cp;
                             cp++;
                         }
@@ -2310,7 +2310,7 @@ int CXDialogTemplate::Display()
 
     TCHAR szTitle[1024];
     _tcsncpy(szTitle, m_lpszCaption, countof(szTitle)-1);
-    szTitle[countof(szTitle)-1] = _T('\0');
+    szTitle[countof(szTitle)-1] = '\0';
     int nTitleLen = (int)_tcslen(szTitle);
 
     int i = 0;
@@ -2596,8 +2596,8 @@ void CXDialogItem::AddItem(CXDialogTemplate& dialog,
 
 static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
 {
-    _ASSERTE((lpszKey != NULL) && (lpszKey[0] != _T('\0')));
-    if (!lpszKey || lpszKey[0] == _T('\0'))
+    _ASSERTE((lpszKey != NULL) && (lpszKey[0] != '\0'));
+    if (!lpszKey || lpszKey[0] == '\0')
         return 0;
 
     TCHAR * szRegPath = L"Software\\";
@@ -2605,7 +2605,7 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
     TCHAR szKey[_MAX_PATH*2] = { 0 };
     _tcscpy(szKey, szRegPath);
 
-    if (lpszCompanyName && lpszCompanyName[0] != _T('\0'))
+    if (lpszCompanyName && lpszCompanyName[0] != '\0')
     {
         _tcscat(szKey, lpszCompanyName);
         _tcscat(szKey, L"\\");
@@ -2614,7 +2614,7 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
     TCHAR szPathName[_MAX_PATH*2] = { 0 };
     ::GetModuleFileName(NULL, szPathName, MAX_PATH*2-2);
 
-    TCHAR *cp = _tcsrchr(szPathName, _T('\\'));
+    TCHAR *cp = _tcsrchr(szPathName, '\\');
     if (cp == NULL)
         cp = szPathName;
     else
@@ -2658,8 +2658,8 @@ static DWORD ReadRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey)
 
 static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData)
 {
-    _ASSERTE((lpszKey != NULL) && (lpszKey[0] != _T('\0')));
-    if (!lpszKey || lpszKey[0] == _T('\0'))
+    _ASSERTE((lpszKey != NULL) && (lpszKey[0] != '\0'));
+    if (!lpszKey || lpszKey[0] == '\0')
         return;
 
     TCHAR * szRegPath = L"Software\\";
@@ -2667,7 +2667,7 @@ static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData
     TCHAR szKey[_MAX_PATH*2] = { 0 };
     _tcscpy(szKey, szRegPath);
 
-    if (lpszCompanyName && lpszCompanyName[0] != _T('\0'))
+    if (lpszCompanyName && lpszCompanyName[0] != '\0')
     {
         _tcscat(szKey, lpszCompanyName);
         _tcscat(szKey, L"\\");
@@ -2676,7 +2676,7 @@ static void WriteRegistry(LPCTSTR lpszCompanyName, LPCTSTR lpszKey, DWORD dwData
     TCHAR szPathName[_MAX_PATH*2] = { 0 };
     ::GetModuleFileName(NULL, szPathName, MAX_PATH*2-2);
 
-    TCHAR *cp = _tcsrchr(szPathName, _T('\\'));
+    TCHAR *cp = _tcsrchr(szPathName, '\\');
     if (cp == NULL)
         cp = szPathName;
     else
@@ -2758,7 +2758,7 @@ DWORD XMessageBoxGetCheckBox(LPCTSTR lpszCompanyName,
         encode(szKey);      // simple encoding to obscure module name
 
         TCHAR szLine[100];
-        szLine[0] = _T('\0');
+        szLine[0] = '\0';
         _tcscat(szKey, _itot(nLine, szLine, 10));
         TRACE(L"szKey=<%s>\n", szKey);
 
@@ -2772,17 +2772,17 @@ DWORD XMessageBoxGetCheckBox(LPCTSTR lpszCompanyName,
 
         // get full path to ini file
         TCHAR szPathName[MAX_PATH*2];
-        szPathName[0] = _T('\0');
+        szPathName[0] = '\0';
         ::GetModuleFileName(NULL, szPathName, countof(szPathName)-1);
 
-        TCHAR *cp = _tcsrchr(szPathName, _T('\\'));
+        TCHAR *cp = _tcsrchr(szPathName, '\\');
         if (cp != NULL)
-            *(cp+1) = _T('\0');
+            *(cp+1) = '\0';
         _tcscat(szPathName, XMESSAGEBOX_INI_FILE);
         TRACE(L"reading from ini file <%s>\n", szPathName);
 
         TCHAR szBuf[100];
-        szBuf[0] = _T('\0');
+        szBuf[0] = '\0';
 
         // data string is hex value of XMessageBox return code
         ::GetPrivateProfileString(L"DoNotAsk",   // section name

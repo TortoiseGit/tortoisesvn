@@ -214,12 +214,12 @@ BOOL CSetOverlayPage::OnApply()
 
     if (m_sExcludePaths.Compare(CString(m_regExcludePaths)))
         m_restart = Restart_Cache;
-    m_sExcludePaths.Remove(_T('\r'));
+    m_sExcludePaths.Remove('\r');
     if (m_sExcludePaths.Right(1).Compare(L"\n")!=0)
         m_sExcludePaths += L"\n";
     Store (m_sExcludePaths, m_regExcludePaths);
     m_sExcludePaths.Replace(L"\n", L"\r\n");
-    m_sIncludePaths.Remove(_T('\r'));
+    m_sIncludePaths.Remove('\r');
     if (m_sIncludePaths.Right(1).Compare(L"\n")!=0)
         m_sIncludePaths += L"\n";
     if (m_sIncludePaths.Compare(CString(m_regIncludePaths)))
