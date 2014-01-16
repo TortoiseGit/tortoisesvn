@@ -276,9 +276,9 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
         if (ret == 0)
             timebuf[0] = '\0';
         *buf = '\0';
-        _tcsncat_s(buf, buflen, timebuf, MAX_STRING_LENGTH-1);
-        _tcsncat_s(buf, buflen, L", ", MAX_STRING_LENGTH-1);
-        _tcsncat_s(buf, buflen, datebuf, MAX_STRING_LENGTH-1);
+        wcsncat_s(buf, buflen, timebuf, MAX_STRING_LENGTH-1);
+        wcsncat_s(buf, buflen, L", ", MAX_STRING_LENGTH-1);
+        wcsncat_s(buf, buflen, datebuf, MAX_STRING_LENGTH-1);
     }
 }
 
@@ -306,7 +306,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->revision != SVN_INVALID_REVNUM)
                 {
-                    _stprintf_s(buf, L"%d", svn.status->revision);
+                    swprintf_s(buf, L"%d", svn.status->revision);
                     SetDlgItemText(m_hwnd, IDC_REVISION, buf);
                 }
                 else
@@ -346,7 +346,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->changed_rev != SVN_INVALID_REVNUM)
                 {
-                    _stprintf_s(buf, L"%d", svn.status->changed_rev);
+                    swprintf_s(buf, L"%d", svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
                 }
                 else
@@ -435,8 +435,8 @@ void CSVNPropertyPage::InitWorkfileView()
             {
                 CPathUtils::Unescape((char*)svn.status->repos_relpath);
                 TCHAR tbuf[MAX_STRING_LENGTH] = { 0 };
-                _tcsncpy_s(tbuf, CUnicodeUtils::StdGetUnicode(svn.status->repos_relpath).c_str(), _countof(tbuf)-1);
-                TCHAR * ptr = _tcsrchr(tbuf, '/');
+                wcsncpy_s(tbuf, CUnicodeUtils::StdGetUnicode(svn.status->repos_relpath).c_str(), _countof(tbuf)-1);
+                TCHAR * ptr = wcsrchr(tbuf, '/');
                 if (ptr != 0)
                 {
                     *ptr = 0;

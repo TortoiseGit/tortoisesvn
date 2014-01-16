@@ -715,7 +715,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
 {
     for (int i = 0, count = widths.GetLength() / 8; i < count; ++i)
     {
-        long width = _tcstol (widths.Mid (i*8, 8), NULL, 16);
+        long width = wcstol (widths.Mid (i*8, 8), NULL, 16);
         if (i < SVNSLC_NUMCOLUMNS)
         {
             // a standard column
@@ -769,7 +769,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
     int limit = static_cast<int>(SVNSLC_USERPROPCOLOFFSET + userProps.size());
     for (int i = 0, count = widths.GetLength() / 2; i < count; ++i)
     {
-        int index = _tcstol (widths.Mid (i*2, 2), NULL, 16);
+        int index = wcstol (widths.Mid (i*2, 2), NULL, 16);
         if (   (index < SVNSLC_NUMCOLUMNS)
             || ((index >= SVNSLC_USERPROPCOLOFFSET) && (index < limit)))
         {
@@ -889,7 +889,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
     TCHAR buf[10] = { 0 };
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
-        _stprintf_s (buf, L"%08X", columns[i].width);
+        swprintf_s (buf, L"%08X", columns[i].width);
         result += buf;
     }
 
@@ -901,7 +901,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
     {
-        _stprintf_s (buf, L"%08X", userProps[i].width);
+        swprintf_s (buf, L"%08X", userProps[i].width);
         result += buf;
     }
 
@@ -917,7 +917,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
     {
         if (columnOrder[i] < SVNSLC_MAXCOLUMNCOUNT)
         {
-            _stprintf_s (buf, L"%02X", columnOrder[i]);
+            swprintf_s (buf, L"%02X", columnOrder[i]);
             result += buf;
         }
     }

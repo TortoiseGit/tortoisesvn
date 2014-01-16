@@ -677,13 +677,13 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
     {
         //menu entry for the top context menu, so append an "SVN " before
         //the menu text to indicate where the entry comes from
-        _tcscpy_s(menutextbuffer, L"SVN ");
+        wcscpy_s(menutextbuffer, L"SVN ");
         if (!g_ShellCache.HasShellMenuAccelerators())
         {
             // remove the accelerators
             tstring temp = stringtablebuffer;
             temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
-            _tcscpy_s(stringtablebuffer, temp.c_str());
+            wcscpy_s(stringtablebuffer, temp.c_str());
         }
     }
     if (com == ShellMenuDiffNow)
@@ -699,7 +699,7 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
         wcscat_s(menutextbuffer, (LPCWSTR)sMenu);
     }
     else
-        _tcscat_s(menutextbuffer, stringtablebuffer);
+        wcscat_s(menutextbuffer, stringtablebuffer);
 
     MENUITEMINFO menuiteminfo = {0};
     menuiteminfo.cbSize = sizeof(menuiteminfo);
@@ -768,7 +768,7 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
         {
             if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
             {
-                ::WriteFile (file, szFileName, (DWORD)(_tcslen(szFileName))*sizeof(TCHAR), &bytesWritten, 0);
+                ::WriteFile (file, szFileName, (DWORD)(wcslen(szFileName))*sizeof(TCHAR), &bytesWritten, 0);
                 ::WriteFile (file, L"\n", 2, &bytesWritten, 0);
             }
         }
@@ -979,13 +979,13 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
         // which we can't handle
         for (std::vector<tstring>::const_iterator it = files_.begin(); it != files_.end(); ++it)
         {
-            if (_tcsncmp(it->c_str(), L"::{", 3)==0)
+            if (wcsncmp(it->c_str(), L"::{", 3)==0)
                 return S_OK;
         }
     }
     else
     {
-        if (_tcsncmp(folder_.c_str(), L"::{", 3)==0)
+        if (wcsncmp(folder_.c_str(), L"::{", 3)==0)
             return S_OK;
     }
 
@@ -1127,7 +1127,7 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
         // remove the accelerators
         tstring temp = stringtablebuffer;
         temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
-        _tcscpy_s(stringtablebuffer, temp.c_str());
+        wcscpy_s(stringtablebuffer, temp.c_str());
     }
     MENUITEMINFO menuiteminfo;
     SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
@@ -1677,7 +1677,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
         {
             svnCmd += L" /hwnd:";
             TCHAR buf[30] = { 0 };
-            _stprintf_s(buf, L"%p", (void*)lpcmi->hwnd);
+            swprintf_s(buf, L"%p", (void*)lpcmi->hwnd);
             svnCmd += buf;
             if (!uuidSource.empty())
             {
@@ -1881,7 +1881,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2_Wrap(UINT uMsg, WPARAM wParam, LPARAM lPa
                 if (resource == NULL)
                     continue;
                 szItem = stringtablebuffer;
-                TCHAR * amp = _tcschr(szItem, '&');
+                TCHAR * amp = wcschr(szItem, '&');
                 if (amp == NULL)
                     continue;
                 amp++;
@@ -1964,9 +1964,9 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
                 space = lock ? 0 : 6;
                 if (lock)
                 {
-                    _tcscpy_s(textbuf, L"SVN ");
-                    _tcscat_s(textbuf, stringtablebuffer);
-                    _tcscpy_s(stringtablebuffer, textbuf);
+                    wcscpy_s(textbuf, L"SVN ");
+                    wcscat_s(textbuf, stringtablebuffer);
+                    wcscpy_s(stringtablebuffer, textbuf);
                 }
                 break;
             }
@@ -1982,9 +1982,9 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
             space = layout & menuItem.menuID ? 0 : 6;
             if (layout & (menuItem.menuID))
             {
-                _tcscpy_s(textbuf, L"SVN ");
-                _tcscat_s(textbuf, stringtablebuffer);
-                _tcscpy_s(stringtablebuffer, textbuf);
+                wcscpy_s(textbuf, L"SVN ");
+                wcscat_s(textbuf, stringtablebuffer);
+                wcscpy_s(stringtablebuffer, textbuf);
             }
             break;
         }
@@ -2011,7 +2011,7 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
         CoTaskMemFree(pidl);
         if (buf[0]==0)
             continue;
-        if (_tcscmp(buf, folder.c_str())==0)
+        if (wcscmp(buf, folder.c_str())==0)
             return true;
     }
     return false;
@@ -2033,10 +2033,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
     UINT icon = bShowIcons ? IDI_IGNORE : 0;
 
     std::vector<tstring>::iterator I = files_.begin();
-    if (_tcsrchr(I->c_str(), '\\'))
-        _tcscpy_s(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
+    if (wcsrchr(I->c_str(), '\\'))
+        wcscpy_s(ignorepath, wcsrchr(I->c_str(), '\\')+1);
     else
-        _tcscpy_s(ignorepath, I->c_str());
+        wcscpy_s(ignorepath, I->c_str());
     if ((itemStates & ITEMIS_IGNORED)&&((!ignoredprops.empty())||(!ignoredglobalprops.empty())))
     {
         // check if the item name is ignored or the mask
@@ -2045,7 +2045,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         {
             if ( (p==0 || ignoredprops[p-1]==TCHAR('\n')) )
             {
-                const size_t pathLength = _tcslen(ignorepath);
+                const size_t pathLength = wcslen(ignorepath);
                 if ( ((p + pathLength)==ignoredprops.length()) || (ignoredprops[p + pathLength]==TCHAR('\n')) || (ignoredprops[p + pathLength]==0) )
                 {
                     break;
@@ -2072,7 +2072,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         {
             if ( (p==0 || ignoredglobalprops[p-1]==TCHAR('\n')) )
             {
-                const size_t pathLength = _tcslen(ignorepath);
+                const size_t pathLength = wcslen(ignorepath);
                 if ( ((p + pathLength)==ignoredglobalprops.length()) || (ignoredglobalprops[p + pathLength]==TCHAR('\n')) || (ignoredglobalprops[p + pathLength]==0) )
                 {
                     break;
@@ -2093,13 +2093,13 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             myIDMap[idCmd - idCmdFirst] = ShellMenuUnIgnoreGlobal;
             myIDMap[idCmd++] = ShellMenuUnIgnoreGlobal;
         }
-        _tcscpy_s(maskbuf, L"*");
-        if (_tcsrchr(ignorepath, '.'))
+        wcscpy_s(maskbuf, L"*");
+        if (wcsrchr(ignorepath, '.'))
         {
-            _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+            wcscat_s(maskbuf, wcsrchr(ignorepath, '.'));
             p = ignoredprops.find(maskbuf);
             if ((p!=-1) &&
-                ((ignoredprops.compare(maskbuf)==0) || (ignoredprops.find('\n', p)==p+_tcslen(maskbuf)+1) || (ignoredprops.rfind('\n', p)==p-1)))
+                ((ignoredprops.compare(maskbuf)==0) || (ignoredprops.find('\n', p)==p+wcslen(maskbuf)+1) || (ignoredprops.rfind('\n', p)==p-1)))
             {
                 if (ignoresubmenu==NULL)
                     ignoresubmenu = CreateMenu();
@@ -2116,7 +2116,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             }
             p = ignoredglobalprops.find(maskbuf);
             if ((p!=-1) &&
-                ((ignoredglobalprops.compare(maskbuf)==0) || (ignoredglobalprops.find('\n', p)==p+_tcslen(maskbuf)+1) || (ignoredglobalprops.rfind('\n', p)==p-1)))
+                ((ignoredglobalprops.compare(maskbuf)==0) || (ignoredglobalprops.find('\n', p)==p+wcslen(maskbuf)+1) || (ignoredglobalprops.rfind('\n', p)==p-1)))
             {
                 if (ignoresubmenu==NULL)
                     ignoresubmenu = CreateMenu();
@@ -2147,10 +2147,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnore;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnore;
 
-                _tcscpy_s(maskbuf, L"*");
-                if (_tcsrchr(ignorepath, '.'))
+                wcscpy_s(maskbuf, L"*");
+                if (wcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    wcscat_s(maskbuf, wcsrchr(ignorepath, '.'));
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
                     tstring verb = L"tsvn_" + tstring(maskbuf);
                     myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2167,10 +2167,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreGlobal;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnoreGlobal;
 
-                _tcscpy_s(maskbuf, L"*");
-                if (_tcsrchr(ignorepath, '.'))
+                wcscpy_s(maskbuf, L"*");
+                if (wcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    wcscat_s(maskbuf, wcsrchr(ignorepath, '.'));
                     temp.Format(IDS_MENUIGNOREGLOBAL, maskbuf);
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
                     tstring verb = L"tsvn_" + tstring(temp);
@@ -2189,10 +2189,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnore;
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
-                _tcscpy_s(maskbuf, L"*");
-                if (_tcsrchr(ignorepath, '.'))
+                wcscpy_s(maskbuf, L"*");
+                if (wcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    wcscat_s(maskbuf, wcsrchr(ignorepath, '.'));
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
                     tstring verb = L"tsvn_" + tstring(maskbuf);
                     myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2209,10 +2209,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreGlobal;
                 myIDMap[idCmd++] = ShellMenuIgnoreGlobal;
 
-                _tcscpy_s(maskbuf, L"*");
-                if (_tcsrchr(ignorepath, '.'))
+                wcscpy_s(maskbuf, L"*");
+                if (wcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    wcscat_s(maskbuf, wcsrchr(ignorepath, '.'));
                     temp.Format(IDS_MENUIGNOREGLOBAL, maskbuf);
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
                     tstring verb = L"tsvn_" + tstring(temp);
@@ -2230,7 +2230,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             if (itemStates & ITEMIS_INSVN)
             {
                 MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLE);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = L"tsvn_" + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2241,7 +2241,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuDeleteIgnore;
 
                 MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2252,7 +2252,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitive;
 
                 MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 CString temp;
                 temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
@@ -2267,7 +2267,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             else
             {
                 MAKESTRING(IDS_MENUIGNOREMULTIPLE);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = L"tsvn_" + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2278,7 +2278,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
                 MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2289,7 +2289,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitive;
 
                 MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                swprintf_s(ignorepath, stringtablebuffer, files_.size());
                 CString temp;
                 temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
@@ -2326,7 +2326,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         else
             GetMenuTextFromResource(ShellMenuIgnoreSub);
         menuiteminfo.dwTypeData = stringtablebuffer;
-        menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
+        menuiteminfo.cch = (UINT)min(wcslen(menuiteminfo.dwTypeData), UINT_MAX);
 
         InsertMenuItem((topmenu & MENUIGNORE) ? hMenu : subMenu, (topmenu & MENUIGNORE) ? indexMenu++ : indexSubMenu++, TRUE, &menuiteminfo);
         if (itemStates & ITEMIS_IGNORED)

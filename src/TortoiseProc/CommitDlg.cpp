@@ -1613,13 +1613,13 @@ void CCommitDlg::VersionCheck()
         return;
     CRegString regVer(L"Software\\TortoiseSVN\\NewVersion");
     CString vertemp = regVer;
-    int major = _ttoi(vertemp);
+    int major = _wtoi(vertemp);
     vertemp = vertemp.Mid(vertemp.Find('.')+1);
-    int minor = _ttoi(vertemp);
+    int minor = _wtoi(vertemp);
     vertemp = vertemp.Mid(vertemp.Find('.')+1);
-    int micro = _ttoi(vertemp);
+    int micro = _wtoi(vertemp);
     vertemp = vertemp.Mid(vertemp.Find('.')+1);
-    int build = _ttoi(vertemp);
+    int build = _wtoi(vertemp);
     BOOL bNewer = FALSE;
     if (major > TSVN_VERMAJOR)
         bNewer = TRUE;

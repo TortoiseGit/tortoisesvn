@@ -510,7 +510,7 @@ void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
     CString path = m_path1.GetSVNPathString() + L"/" + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
     if (pGetInfoTip->cchTextMax > path.GetLength())
-            _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
+            wcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
 }
 
 void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)

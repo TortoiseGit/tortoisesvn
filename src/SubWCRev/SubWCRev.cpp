@@ -778,15 +778,15 @@ int _tmain(int argc, _TCHAR* argv[])
         const TCHAR * Params = argv[argc-1];
         if (Params[0] == '-')
         {
-            if (_tcschr(Params, 'q') != 0)
+            if (wcschr(Params, 'q') != 0)
                 bQuiet = TRUE;
-            if (_tcschr(Params, 'n') != 0)
+            if (wcschr(Params, 'n') != 0)
                 bErrOnMods = TRUE;
-            if (_tcschr(Params, 'N') != 0)
+            if (wcschr(Params, 'N') != 0)
                 bErrOnUnversioned = TRUE;
-            if (_tcschr(Params, 'm') != 0)
+            if (wcschr(Params, 'm') != 0)
                 bErrOnMixed = TRUE;
-            if (_tcschr(Params, 'd') != 0)
+            if (wcschr(Params, 'd') != 0)
             {
                 if ((dst != NULL) && PathFileExists(dst))
                 {
@@ -801,15 +801,15 @@ int _tmain(int argc, _TCHAR* argv[])
             // that tag will get the HEAD revision of the time you check out (or
             // do an update). The files alone however won't have their last-committed
             // revision changed at all.
-            if (_tcschr(Params, 'f') != 0)
+            if (wcschr(Params, 'f') != 0)
                 SubStat.bFolders = TRUE;
-            if (_tcschr(Params, 'e') != 0)
+            if (wcschr(Params, 'e') != 0)
                 SubStat.bExternals = TRUE;
-            if (_tcschr(Params, 'E') != 0)
+            if (wcschr(Params, 'E') != 0)
                 SubStat.bExternalsNoMixedRevision = TRUE;
-            if (_tcschr(Params, 'x') != 0)
+            if (wcschr(Params, 'x') != 0)
                 SubStat.bHexPlain = TRUE;
-            if (_tcschr(Params, 'X') != 0)
+            if (wcschr(Params, 'X') != 0)
                 SubStat.bHexX = TRUE;
         }
         else
@@ -898,7 +898,7 @@ int _tmain(int argc, _TCHAR* argv[])
     if (!PathFileExists(wc))
     {
         _tprintf(L"Directory or file '%s' does not exist\n", wc);
-        if (_tcschr(wc, '\"') != NULL) // dir contains a quotation mark
+        if (wcschr(wc, '\"') != NULL) // dir contains a quotation mark
         {
             _tprintf(L"The WorkingCopyPath contains a quotation mark.\n");
             _tprintf(L"this indicates a problem when calling SubWCRev from an interpreter which treats\n");

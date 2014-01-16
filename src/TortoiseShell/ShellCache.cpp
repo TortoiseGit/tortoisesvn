@@ -84,9 +84,9 @@ ShellCache::ShellCache()
     columnrevformat.lpDecimalSep = szDecSep;
     columnrevformat.lpThousandSep = szThousandsSep;
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SGROUPING, &szBuffer[0], _countof(szBuffer));
-    columnrevformat.Grouping = _ttoi(szBuffer);
+    columnrevformat.Grouping = _wtoi(szBuffer);
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], _countof(szBuffer));
-    columnrevformat.NegativeOrder = _ttoi(szBuffer);
+    columnrevformat.NegativeOrder = _wtoi(szBuffer);
     nocontextpaths = CRegStdString(L"Software\\TortoiseSVN\\NoContextPaths", L"");
     drivetypepathcache[0] = 0;
     m_critSec.Init();
@@ -313,10 +313,10 @@ BOOL ShellCache::IsContextPathAllowed(LPCTSTR path)
         if (I->size() && I->at(I->size()-1)=='*')
         {
             tstring str = I->substr(0, I->size()-1);
-            if (_tcsnicmp(str.c_str(), path, str.size())==0)
+            if (_wcsnicmp(str.c_str(), path, str.size())==0)
                 return FALSE;
         }
-        else if (_tcsicmp(I->c_str(), path)==0)
+        else if (_wcsicmp(I->c_str(), path)==0)
             return FALSE;
     }
     return TRUE;
@@ -343,7 +343,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
             {
                 drivetypeticker = GetTickCount64();
                 TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
-                _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
+                wcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": GetDriveType for %s, Drive %d\n", pathbuf, drivenumber);
@@ -355,21 +355,21 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
     else
     {
         TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
-        _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
+        wcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
         else
         {
             PathStripToRoot(pathbuf);
             PathAddBackslash(pathbuf);
-            if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)       // MAX_PATH ok.
+            if (wcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)       // MAX_PATH ok.
                 drivetype = drivetypecache[26];
             else
             {
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L"GetDriveType for %s\n", pathbuf);
                 drivetype = GetDriveType(pathbuf);
                 drivetypecache[26] = drivetype;
-                _tcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH);            // MAX_PATH ok.
+                wcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH);            // MAX_PATH ok.
             }
         }
     }
@@ -411,9 +411,9 @@ NUMBERFMT * ShellCache::GetNumberFmt()
         columnrevformat.lpDecimalSep = szDecSep;
         columnrevformat.lpThousandSep = szThousandsSep;
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SGROUPING, &szBuffer[0], _countof(szBuffer));
-        columnrevformat.Grouping = _ttoi(szBuffer);
+        columnrevformat.Grouping = _wtoi(szBuffer);
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], _countof(szBuffer));
-        columnrevformat.NegativeOrder = _ttoi(szBuffer);
+        columnrevformat.NegativeOrder = _wtoi(szBuffer);
     }
     return &columnrevformat;
 }
@@ -567,7 +567,7 @@ void ShellCache::CPathFilter::PostProcessData()
     TData::iterator dest = begin;
     for (TData::iterator source = begin; source != end; ++source)
     {
-        if (_tcsicmp (source->path.c_str(), dest->path.c_str()) == 0)
+        if (_wcsicmp (source->path.c_str(), dest->path.c_str()) == 0)
         {
             // multiple entries for the same path -> merge them
 
@@ -609,7 +609,7 @@ void ShellCache::CPathFilter::PostProcessData()
             dest->hasSubFolderEntries
                 =   (source->path.size() > destSize)
                  && (source->path[destSize] == '\\')
-                 && (_tcsnicmp ( source->path.substr (0, destSize).c_str()
+                 && (_wcsnicmp ( source->path.substr (0, destSize).c_str()
                                , dest->path.c_str()
                                , destSize)
                      == 0);
@@ -648,7 +648,7 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
     if (begin == end)
         return result;
 
-    size_t maxLength = _tcslen (path);
+    size_t maxLength = wcslen (path);
     if (maxLength == 0)
         return result;
 
@@ -657,7 +657,7 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
     size_t pos = 0;
     do
     {
-        LPCTSTR backslash = _tcschr (path + pos + 1, _T ('\\'));
+        LPCTSTR backslash = wcschr (path + pos + 1, _T ('\\'));
         pos = backslash == NULL ? maxLength : backslash - path;
 
         std::pair<LPCTSTR, size_t> toFind (path, pos);
@@ -668,7 +668,7 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
 
         if (   (iter != end)
             && (iter->path.length() == pos)
-            && (_tcsnicmp (iter->path.c_str(), path, pos) == 0))
+            && (_wcsnicmp (iter->path.c_str(), path, pos) == 0))
         {
             // exact match?
 

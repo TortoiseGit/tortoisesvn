@@ -1534,23 +1534,23 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 return sNested;
 
             SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
-            if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (+)");
-            if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (s)");
+            if ((entry->copied)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (+)");
+            if ((entry->switched)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (s)");
             if ((entry->status == entry->propstatus)&&
                 (entry->status != svn_wc_status_normal)&&
                 (entry->status != svn_wc_status_unversioned)&&
                 (entry->status != svn_wc_status_none)&&
                 (!SVNStatus::IsImportant(entry->textstatus)))
             {
-                _tcscat_s(buf, L" ");
-                _tcscat_s(buf, ponly);
+                wcscat_s(buf, L" ");
+                wcscat_s(buf, ponly);
             }
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
             {
-                _tcscat_s(buf, L", ");
-                _tcscat_s(buf, treeconflict);
+                wcscat_s(buf, L", ");
+                wcscat_s(buf, treeconflict);
             }
             return buf;
 
@@ -1564,18 +1564,18 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 return sNested;
 
             SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
-            if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (+)");
-            if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (s)");
+            if ((entry->copied)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (+)");
+            if ((entry->switched)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (s)");
             if ((entry->remotestatus == entry->remotepropstatus)&&
                 (entry->remotestatus != svn_wc_status_none)&&
                 (entry->remotestatus != svn_wc_status_normal)&&
                 (entry->remotestatus != svn_wc_status_unversioned)&&
                 (!SVNStatus::IsImportant(entry->remotetextstatus)))
             {
-                _tcscat_s(buf, L" ");
-                _tcscat_s(buf, ponly);
+                wcscat_s(buf, L" ");
+                wcscat_s(buf, ponly);
             }
             return buf;
 
@@ -1584,14 +1584,14 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 return sNested;
 
             SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
-            if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (+)");
-            if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (s)");
+            if ((entry->copied)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (+)");
+            if ((entry->switched)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (s)");
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
             {
-                _tcscat_s(buf, L", ");
-                _tcscat_s(buf, treeconflict);
+                wcscat_s(buf, L", ");
+                wcscat_s(buf, treeconflict);
             }
             return buf;
 
@@ -1600,10 +1600,10 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 return empty;
 
             SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
-            if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (+)");
-            if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, L" (s)");
+            if ((entry->copied)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (+)");
+            if ((entry->switched)&&(wcslen(buf)>1))
+                wcscat_s(buf, L" (s)");
             return buf;
 
         case 7: // SVNSLC_COLREMOTETEXT
@@ -2648,7 +2648,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
     filelist += L"|";
     int len = filelist.GetLength();
     std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
-    _tcscpy_s(buf.get(), len+2, filelist);
+    wcscpy_s(buf.get(), len+2, filelist);
     CStringUtils::PipesToNulls(buf.get(), len);
     SHFILEOPSTRUCT fileop;
     fileop.hwnd = this->m_hWnd;
@@ -4201,7 +4201,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
     {
         TCHAR groupname[1024] = { 0 };
-        _tcsncpy_s(groupname, name, _countof(groupname)-1);
+        wcsncpy_s(groupname, name, _countof(groupname)-1);
         m_changelists[name] = (int)DoInsertGroup(groupname, (int)m_changelists.size(), -1);
 
         PrepareGroups(true);
@@ -4599,9 +4599,9 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
         if (maxTextLength > pathString.GetLength())
         {
             if (entry->GetRelativeSVNPath(false).Compare(pathString)!= 0)
-                _tcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
+                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
             else if (GetStringWidth(pathString) > GetColumnWidth(itemIndex))
-                _tcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
+                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
         }
     }
 }
@@ -5585,12 +5585,12 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     if (bHasChangelistGroups)
     {
         CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-        _tcsncpy_s(groupname, (LPCTSTR)sUnassignedName, _countof(groupname)-1);
+        wcsncpy_s(groupname, (LPCTSTR)sUnassignedName, _countof(groupname)-1);
     }
     else
     {
         CString sNoExternalGroup(MAKEINTRESOURCE(IDS_STATUSLIST_NOEXTERNAL_GROUP));
-        _tcsncpy_s(groupname, (LPCTSTR)sNoExternalGroup, _countof(groupname)-1);
+        wcsncpy_s(groupname, (LPCTSTR)sNoExternalGroup, _countof(groupname)-1);
     }
     DoInsertGroup(groupname, groupindex++);
 
@@ -5601,7 +5601,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         {
             if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
             {
-                _tcsncpy_s(groupname, (LPCTSTR)it->first, _countof(groupname)-1);
+                wcsncpy_s(groupname, (LPCTSTR)it->first, _countof(groupname)-1);
                 it->second = (int)DoInsertGroup(groupname, groupindex++);
             }
             else
@@ -5612,9 +5612,9 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     {
         for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
         {
-            _tcsncpy_s(groupname, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), _countof(groupname)-1);
-            _tcsncat_s(groupname, L" ", _countof(groupname)-1);
-            _tcsncat_s(groupname, (LPCTSTR)it->GetFileOrDirectoryName(), _countof(groupname)-1);
+            wcsncpy_s(groupname, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), _countof(groupname)-1);
+            wcsncat_s(groupname, L" ", _countof(groupname)-1);
+            wcsncat_s(groupname, (LPCTSTR)it->GetFileOrDirectoryName(), _countof(groupname)-1);
             DoInsertGroup(groupname, groupindex++);
             m_bExternalsGroups = true;
         }
@@ -5626,7 +5626,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         std::map<CString,int>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
         if (it != m_changelists.end())
         {
-            _tcsncpy_s(groupname, _countof(groupname), SVNSLC_IGNORECHANGELIST, _countof(groupname)-1);
+            wcsncpy_s(groupname, _countof(groupname), SVNSLC_IGNORECHANGELIST, _countof(groupname)-1);
             it->second = (int)DoInsertGroup(groupname, groupindex);
         }
     }

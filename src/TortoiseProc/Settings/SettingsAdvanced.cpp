@@ -324,8 +324,8 @@ void CSettingsAdvanced::OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult)
     case SettingTypeBoolean:
         {
             if ( (pDispInfo->item.pszText[0] == 0) ||
-                 (_tcscmp(pDispInfo->item.pszText, L"true") == 0) ||
-                 (_tcscmp(pDispInfo->item.pszText, L"false") == 0) )
+                 (wcscmp(pDispInfo->item.pszText, L"true") == 0) ||
+                 (wcscmp(pDispInfo->item.pszText, L"false") == 0) )
             {
                 allowEdit = true;
             }

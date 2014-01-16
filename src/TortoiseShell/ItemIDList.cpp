@@ -121,7 +121,7 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
     ret = szDisplayName;
     CoTaskMemFree(szDisplayName);
     if ((resolveLibraries) &&
-        (_tcsncmp(ret.c_str(), L"::{", 3)==0))
+        (wcsncmp(ret.c_str(), L"::{", 3)==0))
     {
         CComPtr<IShellLibrary> plib;
         HRESULT hr = CoCreateInstance(CLSID_ShellLibrary,

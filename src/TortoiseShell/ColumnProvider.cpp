@@ -426,9 +426,9 @@ void CShellExt::SetExtraColumnStatus
         // since the short url is shown as an additional column where the
         // file/foldername is shown too, we strip that name from the url
         // to make the url even shorter.
-        TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
+        TCHAR * ptr = wcsrchr(urlComponents.lpszUrlPath, '/');
         if (ptr == NULL)
-            ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
+            ptr = wcsrchr(urlComponents.lpszUrlPath, '\\');
         if (ptr)
         {
             *ptr = '\0';
@@ -438,19 +438,19 @@ void CShellExt::SetExtraColumnStatus
             // Note: this will strip too much if such a folder is *below* the repository
             // root - but it's called 'short url' and we're free to shorten it the way we
             // like :)
-            ptr = _tcsstr(urlComponents.lpszUrlPath, L"/trunk");
+            ptr = wcsstr(urlComponents.lpszUrlPath, L"/trunk");
             if (ptr == NULL)
-                ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\trunk");
+                ptr = wcsstr(urlComponents.lpszUrlPath, L"\\trunk");
             if ((ptr == NULL)||((*(ptr+6) != 0)&&(*(ptr+6) != '/')&&(*(ptr+6) != '\\')))
             {
-                ptr = _tcsstr(urlComponents.lpszUrlPath, L"/branches");
+                ptr = wcsstr(urlComponents.lpszUrlPath, L"/branches");
                 if (ptr == NULL)
-                    ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\branches");
+                    ptr = wcsstr(urlComponents.lpszUrlPath, L"\\branches");
                 if ((ptr == NULL)||((*(ptr+9) != 0)&&(*(ptr+9) != '/')&&(*(ptr+9) != '\\')))
                 {
-                    ptr = _tcsstr(urlComponents.lpszUrlPath, L"/tags");
+                    ptr = wcsstr(urlComponents.lpszUrlPath, L"/tags");
                     if (ptr == NULL)
-                        ptr = _tcsstr(urlComponents.lpszUrlPath, L"\\tags");
+                        ptr = wcsstr(urlComponents.lpszUrlPath, L"\\tags");
                     if ((ptr)&&(*(ptr+5) != 0)&&(*(ptr+5) != '/')&&(*(ptr+5) != '\\'))
                         ptr = NULL;
                 }
@@ -473,7 +473,7 @@ void CShellExt::SetExtraColumnStatus
 
 void CShellExt::GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir)
 {
-    if (_tcscmp(path, extracolumnfilepath.c_str())==0)
+    if (wcscmp(path, extracolumnfilepath.c_str())==0)
         return;
 
     PreserveChdir preserveChdir;
@@ -505,7 +505,7 @@ void CShellExt::GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir)
 
 void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
 {
-    if (_tcscmp(path, maincolumnfilepath.c_str())==0)
+    if (wcscmp(path, maincolumnfilepath.c_str())==0)
         return;
 
     PreserveChdir preserveChdir;

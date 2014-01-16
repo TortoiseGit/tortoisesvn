@@ -453,7 +453,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR 
             buf = L"\0";
             break;
     }
-    _stprintf_s(string, buflen, L"%s", buf);
+    swprintf_s(string, buflen, L"%s", buf);
 }
 
 void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang)

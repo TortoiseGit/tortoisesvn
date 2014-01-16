@@ -128,13 +128,13 @@ UINT CCheckForUpdatesDlg::CheckThread()
             if (file.ReadString(ver))
             {
                 CString vertemp = ver;
-                int major = _ttoi(vertemp);
+                int major = _wtoi(vertemp);
                 vertemp = vertemp.Mid(vertemp.Find('.')+1);
-                int minor = _ttoi(vertemp);
+                int minor = _wtoi(vertemp);
                 vertemp = vertemp.Mid(vertemp.Find('.')+1);
-                int micro = _ttoi(vertemp);
+                int micro = _wtoi(vertemp);
                 vertemp = vertemp.Mid(vertemp.Find('.')+1);
-                int build = _ttoi(vertemp);
+                int build = _wtoi(vertemp);
                 BOOL bNewer = FALSE;
                 if (major > TSVN_VERMAJOR)
                     bNewer = TRUE;
@@ -145,14 +145,14 @@ UINT CCheckForUpdatesDlg::CheckThread()
                 else if ((build > TSVN_VERBUILD)&&(micro == TSVN_VERMICRO)&&(minor == TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
                     bNewer = TRUE;
 
-                if (_ttoi(ver)!=0)
+                if (_wtoi(ver)!=0)
                 {
                     temp.Format(IDS_CHECKNEWER_CURRENTVERSION, (LPCTSTR)ver);
                     SetDlgItemText(IDC_CURRENTVERSION, temp);
                     temp.Format(L"%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
                 }
 
-                if (_ttoi(ver)==0)
+                if (_wtoi(ver)==0)
                 {
                     temp.LoadString(IDS_CHECKNEWER_NETERROR);
                     SetDlgItemText(IDC_CHECKRESULT, temp);

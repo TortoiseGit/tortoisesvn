@@ -1044,7 +1044,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             else
             {
                 TCHAR strErr[4096] = {0};
-                _tcserror_s(strErr, 4096, err);
+                _wcserror_s(strErr, 4096, err);
                 ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
             }
         }
@@ -1097,7 +1097,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
     else
     {
         TCHAR strErr[4096] = {0};
-        _tcserror_s(strErr, 4096, err);
+        _wcserror_s(strErr, 4096, err);
         ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
     }
 }

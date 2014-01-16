@@ -88,19 +88,19 @@ bool RelocateCommand::Execute()
         bool bPossibleSwitch = true;
         if (components1.dwSchemeLength != components2.dwSchemeLength)
             bPossibleSwitch = false;
-        else if (_tcsncmp(components1.lpszScheme, components2.lpszScheme, components1.dwSchemeLength))
+        else if (wcsncmp(components1.lpszScheme, components2.lpszScheme, components1.dwSchemeLength))
             bPossibleSwitch = false;
         if (components1.dwHostNameLength != components2.dwHostNameLength)
             bPossibleSwitch = false;
-        else if (_tcsncmp(components1.lpszHostName, components2.lpszHostName, components1.dwHostNameLength))
+        else if (wcsncmp(components1.lpszHostName, components2.lpszHostName, components1.dwHostNameLength))
             bPossibleSwitch = false;
         if (components1.dwUserNameLength != components2.dwUserNameLength)
             bPossibleSwitch = false;
-        else if (_tcsncmp(components1.lpszUserName, components2.lpszUserName, components1.dwUserNameLength))
+        else if (wcsncmp(components1.lpszUserName, components2.lpszUserName, components1.dwUserNameLength))
             bPossibleSwitch = false;
         if (components1.dwPasswordLength != components2.dwPasswordLength)
             bPossibleSwitch = false;
-        else if (_tcsncmp(components1.lpszPassword, components2.lpszPassword, components1.dwPasswordLength))
+        else if (wcsncmp(components1.lpszPassword, components2.lpszPassword, components1.dwPasswordLength))
             bPossibleSwitch = false;
         if (components1.nPort != components2.nPort)
             bPossibleSwitch = false;

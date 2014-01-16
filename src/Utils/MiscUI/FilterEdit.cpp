@@ -134,9 +134,9 @@ BOOL CFilterEdit::SetCueBanner(LPCWSTR lpcwText)
 {
     if (lpcwText)
     {
-        size_t len = _tcslen(lpcwText);
+        size_t len = wcslen(lpcwText);
         m_pCueBanner.reset (new TCHAR[len+1]);
-        _tcscpy_s(m_pCueBanner.get(), len+1, lpcwText);
+        wcscpy_s(m_pCueBanner.get(), len+1, lpcwText);
         InvalidateRect(NULL, TRUE);
         return TRUE;
     }
@@ -387,7 +387,7 @@ void CFilterEdit::DrawDimText()
     dcDraw.SelectObject((*GetFont()));
     dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
     dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
-    dcDraw.DrawText(m_pCueBanner.get(), (int)_tcslen(m_pCueBanner.get()), &rRect, DT_CENTER | DT_VCENTER);
+    dcDraw.DrawText(m_pCueBanner.get(), (int)wcslen(m_pCueBanner.get()), &rRect, DT_CENTER | DT_VCENTER);
     dcDraw.RestoreDC(iState);
     return;
 }

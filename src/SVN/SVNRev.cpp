@@ -105,7 +105,7 @@ void SVNRev::Create(CString sRev)
         }
         if (bAllNumbers)
         {
-            LONG nRev = _ttol(sRev);
+            LONG nRev = _wtol(sRev);
             if (nRev >= 0)
             {
                 rev.kind = svn_opt_revision_number;
@@ -418,7 +418,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
     if (string.GetLength())
     {
         const TCHAR * str = (LPCTSTR)string;
-        const TCHAR * result = _tcspbrk((LPCTSTR)string, L",-");
+        const TCHAR * result = wcspbrk((LPCTSTR)string, L",-");
         SVNRev prevRev;
         while (result)
         {
@@ -449,7 +449,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
             }
             result++;
             str = result;
-            result = _tcspbrk(result, L",-");
+            result = wcspbrk(result, L",-");
         }
         SVNRev rev = SVNRev(CString(str));
         if (!rev.IsValid())
@@ -525,7 +525,7 @@ public:
         array.AddRevRange(SVNRev(26), SVNRev(30));
         array.AddRevision(SVNRev(4896), false);
         array.AddRevRange(SVNRev(4898), SVNRev(4900));
-        ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), L"1,3-5,7-9,20,25-30,4896,4898-4900")==0);
+        ATLASSERT(wcscmp((LPCTSTR)array.ToListString(), L"1,3-5,7-9,20,25-30,4896,4898-4900")==0);
         SVNRevRangeArray array2;
         array2.FromListString(array.ToListString());
         ATLASSERT(array2.GetCount()==7);
@@ -539,9 +539,9 @@ public:
         ATLASSERT(array.GetCount()==8);
         SVNRevRangeArray revarray;
         ATLASSERT(revarray.AddRevRange(25, 24)==1);
-        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), L"25-24")==0);
+        ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-24")==0);
         revarray.AdjustForMerge(true);
-        ATLASSERT(_tcscmp((LPCTSTR)revarray.ToListString(true), L"25-23")==0);
+        ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-23")==0);
     }
 } SVNRevListTests;
 #endif

@@ -158,7 +158,7 @@ STDMETHODIMP CShellExt::IsMemberOf_Wrap(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     const TCHAR* pPath = pwszPath;
     // the shell sometimes asks overlays for invalid paths, e.g. for network
     // printers (in that case the path is "0", at least for me here).
-    if (_tcslen(pPath)<2)
+    if (wcslen(pPath)<2)
         return S_FALSE;
 
     PreserveChdir preserveChdir;
@@ -171,7 +171,7 @@ STDMETHODIMP CShellExt::IsMemberOf_Wrap(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     // To make sure that cache expires, clear it as soon as one handler is used.
 
     AutoLocker lock(g_csGlobalCOMGuard);
-    if (_tcscmp(pPath, g_filepath.c_str())==0)
+    if (wcscmp(pPath, g_filepath.c_str())==0)
     {
         status = g_filestatus;
         readonlyoverlay = g_readonlyoverlay;

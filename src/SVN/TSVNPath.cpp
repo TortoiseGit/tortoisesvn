@@ -335,7 +335,7 @@ bool CTSVNPath::Delete(bool bTrash) const
         if ((bTrash)||(IsDirectory()))
         {
             std::unique_ptr<TCHAR[]> buf(new TCHAR[m_sBackslashPath.GetLength()+2]);
-            _tcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
+            wcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
             buf[m_sBackslashPath.GetLength()] = 0;
             buf[m_sBackslashPath.GetLength()+1] = 0;
             bRet = CTSVNPathList::DeleteViaShell(buf.get(), bTrash, NULL);

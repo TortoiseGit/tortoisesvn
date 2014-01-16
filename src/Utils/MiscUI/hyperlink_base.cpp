@@ -330,7 +330,7 @@ LRESULT CALLBACK CHyperLink::_HyperlinkProc(HWND hwnd, UINT message,
                         // Fall through
     case WM_LBUTTONUP:
         {
-            if (pHyperLink->m_strURL && _tcslen(pHyperLink->m_strURL))
+            if (pHyperLink->m_strURL && wcslen(pHyperLink->m_strURL))
             {
                 pHyperLink->Navigate();
                 InvalidateRect(hwnd, NULL, FALSE);

@@ -129,7 +129,7 @@ private:
 
             bool operator<(const SEntry& rhs) const
             {
-                int diff = _tcsicmp (path.c_str(), rhs.path.c_str());
+                int diff = _wcsicmp (path.c_str(), rhs.path.c_str());
                 return (diff < 0)
                     || ((diff == 0) && recursive && !rhs.recursive);
             }
@@ -259,12 +259,12 @@ inline bool operator<
     ( const ShellCache::CPathFilter::SEntry& lhs
     , const std::pair<LPCTSTR, size_t>& rhs)
 {
-    return _tcsnicmp (lhs.path.c_str(), rhs.first, rhs.second) < 0;
+    return _wcsnicmp (lhs.path.c_str(), rhs.first, rhs.second) < 0;
 }
 
 inline bool operator<
     ( const std::pair<LPCTSTR, size_t>& lhs
     , const ShellCache::CPathFilter::SEntry& rhs)
 {
-    return _tcsnicmp (lhs.first, rhs.path.c_str(), lhs.second) < 0;
+    return _wcsnicmp (lhs.first, rhs.path.c_str(), lhs.second) < 0;
 }

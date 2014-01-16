@@ -169,7 +169,7 @@ BOOL CTortoiseProcApp::InitInstance()
         }
     } while ((hInst == NULL) && (langId != 0));
     TCHAR buf[6] = { 0 };
-    _tcscpy_s(buf, L"en");
+    wcscpy_s(buf, L"en");
     langId = loc;
     CString sHelppath;
     sHelppath = this->m_pszHelpFilePath;
@@ -178,7 +178,7 @@ BOOL CTortoiseProcApp::InitInstance()
     // which means we have to change that default to our language specific help files
     sHelppath.Replace(L"tortoiseproc.chm", L"TortoiseSVN_en.chm");
     free((void*)m_pszHelpFilePath);
-    m_pszHelpFilePath=_tcsdup(sHelppath);
+    m_pszHelpFilePath=_wcsdup(sHelppath);
     sHelppath = CPathUtils::GetAppParentDirectory() + L"Languages\\TortoiseSVN_en.chm";
     do
     {
@@ -190,7 +190,7 @@ BOOL CTortoiseProcApp::InitInstance()
             if (PathFileExists(sHelppath))
             {
                 free((void*)m_pszHelpFilePath);
-                m_pszHelpFilePath=_tcsdup(sHelppath);
+                m_pszHelpFilePath=_wcsdup(sHelppath);
                 break;
             }
         }
@@ -203,7 +203,7 @@ BOOL CTortoiseProcApp::InitInstance()
             if (PathFileExists(sHelppath))
             {
                 free((void*)m_pszHelpFilePath);
-                m_pszHelpFilePath=_tcsdup(sHelppath);
+                m_pszHelpFilePath=_wcsdup(sHelppath);
                 break;
             }
         }
@@ -486,20 +486,20 @@ void CTortoiseProcApp::CheckUpgrade()
     int pos = sVersion.Find('.');
     if (pos > 0)
     {
-        lVersion = (_ttol(sVersion.Left(pos))<<24);
-        lVersion |= (_ttol(sVersion.Mid(pos+1))<<16);
+        lVersion = (_wtol(sVersion.Left(pos))<<24);
+        lVersion |= (_wtol(sVersion.Mid(pos+1))<<16);
         pos = sVersion.Find('.', pos+1);
-        lVersion |= (_ttol(sVersion.Mid(pos+1))<<8);
+        lVersion |= (_wtol(sVersion.Mid(pos+1))<<8);
     }
     else
     {
         pos = sVersion.Find(',');
         if (pos > 0)
         {
-            lVersion = (_ttol(sVersion.Left(pos))<<24);
-            lVersion |= (_ttol(sVersion.Mid(pos+1))<<16);
+            lVersion = (_wtol(sVersion.Left(pos))<<24);
+            lVersion |= (_wtol(sVersion.Mid(pos+1))<<16);
             pos = sVersion.Find(',', pos+1);
-            lVersion |= (_ttol(sVersion.Mid(pos+1))<<8);
+            lVersion |= (_wtol(sVersion.Mid(pos+1))<<8);
         }
     }
 

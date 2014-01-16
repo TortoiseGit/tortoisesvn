@@ -261,7 +261,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                     temp += L".url";
             }
             if (temp.GetLength() < MAX_PATH)
-                _tcscpy_s(files->fgd[index].cFileName, (LPCTSTR)temp);
+                wcscpy_s(files->fgd[index].cFileName, (LPCTSTR)temp);
             else
             {
                 files->cItems--;
@@ -378,7 +378,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         if (pmedium->hGlobal)
         {
             TCHAR* pMem = (TCHAR*)GlobalLock(pmedium->hGlobal);
-            _tcscpy_s(pMem, text.GetLength()+1, (LPCTSTR)text);
+            wcscpy_s(pMem, text.GetLength()+1, (LPCTSTR)text);
             GlobalUnlock(pmedium->hGlobal);
         }
         pmedium->pUnkForRelease = NULL;
@@ -410,7 +410,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         if (pmedium->hGlobal)
         {
             TCHAR* pMem = (TCHAR*)GlobalLock(pmedium->hGlobal);
-            _tcscpy_s(pMem, text.GetLength()+1, (LPCTSTR)text);
+            wcscpy_s(pMem, text.GetLength()+1, (LPCTSTR)text);
             GlobalUnlock(pmedium->hGlobal);
         }
         pmedium->pUnkForRelease = NULL;

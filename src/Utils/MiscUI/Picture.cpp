@@ -113,7 +113,7 @@ tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
     if (bAbbrev)
         StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
-        _stprintf_s(buf, L"%ld Bytes", m_nSize);
+        swprintf_s(buf, L"%ld Bytes", m_nSize);
 
     return tstring(buf);
 }
@@ -168,8 +168,8 @@ bool CPicture::Load(tstring sFilePathName)
         // the image format is "icon" or not, we also check the
         // file extension for ".ico".
         std::transform(sFilePathName.begin(), sFilePathName.end(), sFilePathName.begin(), ::tolower);
-        bIsIcon = (guid == ImageFormatIcon) || (_tcsstr(sFilePathName.c_str(), L".ico") != NULL);
-        bIsTiff = (guid == ImageFormatTIFF) || (_tcsstr(sFilePathName.c_str(), L".tiff") != NULL);
+        bIsIcon = (guid == ImageFormatIcon) || (wcsstr(sFilePathName.c_str(), L".ico") != NULL);
+        bIsTiff = (guid == ImageFormatTIFF) || (wcsstr(sFilePathName.c_str(), L".tiff") != NULL);
         m_Name = sFilePathName;
 
         if (bIsIcon)

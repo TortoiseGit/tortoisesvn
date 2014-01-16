@@ -257,19 +257,19 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                     break;
                 case 2: // peg
                     if ((ext.pegrevision.kind == svn_opt_revision_number) && (ext.pegrevision.value.number >= 0))
-                        _stprintf_s(m_columnbuf, L"%ld", ext.pegrevision.value.number);
+                        swprintf_s(m_columnbuf, L"%ld", ext.pegrevision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 3: // operative
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegrevision.value.number))
-                        _stprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
+                        swprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 4: // head revision
                     if (ext.headrev != SVN_INVALID_REVNUM)
-                        _stprintf_s(m_columnbuf, L"%ld", ext.headrev);
+                        swprintf_s(m_columnbuf, L"%ld", ext.headrev);
                     else
                         m_columnbuf[0] = 0;
                     break;

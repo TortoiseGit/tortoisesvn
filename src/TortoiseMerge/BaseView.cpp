@@ -447,7 +447,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
             m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
             ReleaseDC(pDC);
         }
-        _tcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New"), 32);
+        wcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New"), 32);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
@@ -1704,7 +1704,7 @@ void CBaseView::DrawTextLine(
         //int nViewLineLength = sViewLine.GetLength();
         const TCHAR * text = sViewLine;
         const TCHAR * findText = text;
-        while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
+        while ((findText = wcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
         {
             int nMarkStart = static_cast<int>(findText - text);
             int nMarkEnd = nMarkStart + nMarkLength;

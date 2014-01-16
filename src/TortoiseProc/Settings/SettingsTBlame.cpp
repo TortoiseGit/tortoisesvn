@@ -69,7 +69,7 @@ void CSettingsTBlame::DoDataExchange(CDataExchange* pDX)
     {
         CString t;
         m_cFontSizes.GetWindowText(t);
-        m_dwFontSize = _ttoi(t);
+        m_dwFontSize = _wtoi(t);
     }
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Text(pDX, IDC_TABSIZE, m_dwTabSize);

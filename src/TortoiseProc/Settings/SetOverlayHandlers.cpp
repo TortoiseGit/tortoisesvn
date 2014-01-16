@@ -143,11 +143,11 @@ int CSetOverlayHandlers::GetInstalledOverlays()
             rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
             if (rc == ERROR_SUCCESS)
             {
-                if (_tcsnicmp(&value[1], L"tortoise", 8) != 0)
+                if (_wcsnicmp(&value[1], L"tortoise", 8) != 0)
                 {
                     // check if there's a 'default' entry with a guid
-                    _tcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
-                    _tcscat_s(keystring, value);
+                    wcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
+                    wcscat_s(keystring, value);
                     DWORD dwType = 0;
                     DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer",
                     // but better be safe than sorry using _countof instead of sizeof

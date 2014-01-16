@@ -43,7 +43,7 @@ bool CRegHistory::AddEntry(LPCTSTR szText)
 
     for (size_t i=0; i<m_arEntries.size(); ++i)
     {
-        if (_tcscmp(szText, m_arEntries[i].c_str())==0)
+        if (wcscmp(szText, m_arEntries[i].c_str())==0)
         {
             m_arEntries.erase(m_arEntries.begin() + i);
             m_arEntries.insert(m_arEntries.begin(), szText);
@@ -75,7 +75,7 @@ size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
     {
         //keys are of form <lpszKeyPrefix><entrynumber>
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, L"%s\\%s%d", lpszSection, lpszKeyPrefix, n++);
+        swprintf_s(sKey, L"%s\\%s%d", lpszSection, lpszKeyPrefix, n++);
         sText = CRegStdString(sKey);
         if (!sText.empty())
         {
@@ -96,7 +96,7 @@ bool CRegHistory::Save() const
     for (int n = 0; n < (int)m_arEntries.size(); n++)
     {
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
+        swprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
         CRegStdString regkey = CRegStdString(sKey);
         regkey = m_arEntries[n];
     }
@@ -104,7 +104,7 @@ bool CRegHistory::Save() const
     for (int n = nMax; ; n++)
     {
         TCHAR sKey[4096] = {0};
-        _stprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
+        swprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
         CRegStdString regkey = CRegStdString(sKey);
         if (((tstring)regkey).empty())
             break;

@@ -77,7 +77,7 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
                         szModule,
                         _countof(szModule) - 1);
 
-    _tcscat_s(szModule, L" /automation");
+    wcscat_s(szModule, L" /automation");
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
     CLSIDtochar(clsid, szCLSID, _countof(szCLSID)) ;
@@ -86,8 +86,8 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, L"CLSID\\");
-    _tcscat_s(szKey, szCLSID) ;
+    wcscpy_s(szKey, L"CLSID\\");
+    wcscat_s(szKey, szCLSID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
@@ -115,16 +115,16 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
     setKeyAndValue(szProgID, L"CLSID", szCLSID) ;
 
     // add TypeLib keys
-    _tcscpy_s(szKey, L"TypeLib\\") ;
-    _tcscat_s(szKey, szLIBID) ;
+    wcscpy_s(szKey, L"TypeLib\\") ;
+    wcscat_s(szKey, szLIBID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, L"\\1.0");
+    wcscat_s(szKey, L"\\1.0");
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
-    _tcscat_s(szKey, L"\\0");
+    wcscat_s(szKey, L"\\0");
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, L"\\win32");
+    wcscat_s(szKey, L"\\win32");
     setKeyAndValue(szKey, NULL, szModule) ;
 
 
@@ -154,25 +154,25 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, L"Interface\\") ;
-    _tcscat_s(szKey, szIID) ;
+    wcscpy_s(szKey, L"Interface\\") ;
+    wcscat_s(szKey, szIID) ;
 
     // Add the value to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
 
     TCHAR szKey2[MAX_PATH] = { 0 };
-    _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, L"\\ProxyStubClsID");
+    wcscpy_s(szKey2, szKey);
+    wcscat_s(szKey2, L"\\ProxyStubClsID");
     // Add the server filename subkey under the IID key.
     setKeyAndValue(szKey2, NULL, L"{00020424-0000-0000-C000-000000000046}"); //IUnknown
 
-    _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, L"\\ProxyStubClsID32");
+    wcscpy_s(szKey2, szKey);
+    wcscat_s(szKey2, L"\\ProxyStubClsID32");
     // Add the server filename subkey under the IID key.
     setKeyAndValue(szKey2, NULL, L"{00020424-0000-0000-C000-000000000046}"); //IUnknown
 
-    _tcscpy_s(szKey2, szKey);
-    _tcscat_s(szKey2, L"\\TypeLib");
+    wcscpy_s(szKey2, szKey);
+    wcscat_s(szKey2, L"\\TypeLib");
     // Add the server filename subkey under the CLSID key.
     setKeyAndValue(szKey2, NULL, szLIBID) ;
 
@@ -186,8 +186,8 @@ void UnregisterInterface(const IID &iid)
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, L"Interface\\");
-    _tcscat_s(szKey, szIID) ;
+    wcscpy_s(szKey, L"Interface\\");
+    wcscat_s(szKey, szIID) ;
 
     recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
 }
@@ -206,8 +206,8 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, L"CLSID\\");
-    _tcscat_s(szKey, szCLSID) ;
+    wcscpy_s(szKey, L"CLSID\\");
+    wcscat_s(szKey, szCLSID) ;
 
     // Delete the CLSID Key - CLSID\{...}
     LONG lResult = recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
@@ -227,8 +227,8 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
     CLSIDtochar(libid, szLIBID, _countof(szLIBID)) ;
 
-    _tcscpy_s(szKey, L"TypeLib\\");
-    _tcscat_s(szKey, szLIBID) ;
+    wcscpy_s(szKey, L"TypeLib\\");
+    wcscat_s(szKey, szLIBID) ;
 
     // Delete the TypeLib Key - LIBID\{...}
     lResult = recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
@@ -254,7 +254,7 @@ void CLSIDtochar(const CLSID& clsid,
     StringFromCLSID(clsid, &wszCLSID) ;
 
     // Covert from wide characters to non-wide.
-    _tcscpy_s(szCLSID, length, wszCLSID) ;
+    wcscpy_s(szCLSID, length, wszCLSID) ;
 
     // Free memory.
     CoTaskMemFree(wszCLSID) ;
@@ -313,13 +313,13 @@ BOOL setKeyAndValue(const TCHAR* szKey,
     TCHAR szKeyBuf[1024] ;
 
     // Copy key name into buffer.
-    _tcscpy_s(szKeyBuf, szKey) ;
+    wcscpy_s(szKeyBuf, szKey) ;
 
     // Add subkey name to buffer.
     if (szSubkey != NULL)
     {
-        _tcscat_s(szKeyBuf, L"\\");
-        _tcscat_s(szKeyBuf, szSubkey);
+        wcscat_s(szKeyBuf, L"\\");
+        wcscat_s(szKeyBuf, szSubkey);
     }
 
     // Create and open key and subkey.
@@ -338,7 +338,7 @@ BOOL setKeyAndValue(const TCHAR* szKey,
     {
         RegSetValueEx(hKey, NULL, 0, REG_SZ,
                       (BYTE *)szValue,
-                      DWORD( (1 + _tcslen(szValue))*sizeof(TCHAR) )
+                      DWORD( (1 + wcslen(szValue))*sizeof(TCHAR) )
         ) ;
     }
 
@@ -369,7 +369,7 @@ BOOL setValue(const TCHAR* szKey,
     {
         RegSetValueEx(hKey, szEntry, 0, REG_SZ,
                       (BYTE *)szValue,
-                      DWORD( (1 + _tcslen(szValue))*sizeof(TCHAR) )
+                      DWORD( (1 + wcslen(szValue))*sizeof(TCHAR) )
         ) ;
     }
 

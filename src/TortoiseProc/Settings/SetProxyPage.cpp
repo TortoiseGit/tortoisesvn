@@ -96,11 +96,11 @@ BOOL CSetProxyPage::OnInitDialog()
 
     m_SSHClient = m_regSSHClient;
     m_serveraddress = m_regServeraddress;
-    m_serverport = _ttoi((LPCTSTR)(CString)m_regServerport);
+    m_serverport = _wtoi((LPCTSTR)(CString)m_regServerport);
     m_username = m_regUsername;
     m_password = m_regPassword;
     m_Exceptions = m_regExceptions;
-    m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout);
+    m_timeout = _wtoi((LPCTSTR)(CString)m_regTimeout);
 
     if (m_serveraddress.IsEmpty())
     {
@@ -123,7 +123,7 @@ BOOL CSetProxyPage::OnInitDialog()
     if (m_serveraddress.IsEmpty())
         m_serveraddress = m_regServeraddress_copy;
     if (m_serverport==0)
-        m_serverport = _ttoi((LPCTSTR)(CString)m_regServerport_copy);
+        m_serverport = _wtoi((LPCTSTR)(CString)m_regServerport_copy);
     if (m_username.IsEmpty())
         m_username = m_regUsername_copy;
     if (m_password.IsEmpty())
@@ -131,7 +131,7 @@ BOOL CSetProxyPage::OnInitDialog()
     if (m_Exceptions.IsEmpty())
         m_Exceptions = m_regExceptions_copy;
     if (m_timeout == 0)
-        m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout_copy);
+        m_timeout = _wtoi((LPCTSTR)(CString)m_regTimeout_copy);
 
     SHAutoComplete(::GetDlgItem(m_hWnd, IDC_SSHCLIENT), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 

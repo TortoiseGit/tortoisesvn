@@ -160,7 +160,7 @@ CString CBugTraqAssociations::LookupProviderName(const CLSID &provider_clsid)
     StringFromGUID2(provider_clsid, szClsid, _countof(szClsid));
 
     TCHAR szSubKey[MAX_PATH] = { 0 };
-    _stprintf_s(szSubKey, L"CLSID\\%ls", szClsid);
+    swprintf_s(szSubKey, L"CLSID\\%ls", szClsid);
 
     CString provider_name = CString(szClsid);
 
@@ -198,7 +198,7 @@ void CBugTraqAssociations::Save() const
     for (const_iterator it = begin(); it != end(); ++it)
     {
         TCHAR szSubKey[MAX_PATH] = { 0 };
-        _stprintf_s(szSubKey, L"%lu", dwIndex);
+        swprintf_s(szSubKey, L"%lu", dwIndex);
 
         HKEY hk2;
         if (RegCreateKeyEx(hk, szSubKey, 0, NULL, 0, KEY_WRITE, NULL, &hk2, NULL) == ERROR_SUCCESS)

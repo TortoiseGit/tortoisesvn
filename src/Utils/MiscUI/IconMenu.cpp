@@ -70,7 +70,7 @@ BOOL CIconMenu::SetMenuStyle(void)
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon /* = 0 */)
 {
     TCHAR menutextbuffer[255] = {0};
-    _tcscpy_s(menutextbuffer, lpszNewItem);
+    wcscpy_s(menutextbuffer, lpszNewItem);
 
     if ((uIcon == 0)||(!bShowIcons))
         return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);
@@ -101,7 +101,7 @@ BOOL CIconMenu::AppendMenuIcon( UINT_PTR nIDNewItem, UINT_PTR nNewItem, HICON hI
     temp.LoadString((UINT)nNewItem);
 
     TCHAR menutextbuffer[255] = {0};
-    _tcscpy_s(menutextbuffer, temp);
+    wcscpy_s(menutextbuffer, temp);
 
     if ((hIcon == 0)||(!bShowIcons))
         return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);

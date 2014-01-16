@@ -24,15 +24,15 @@
 
 void TortoiseBlame::SetupLexer(LPCTSTR filename)
 {
-    const TCHAR * lineptr = _tcsrchr(filename, '.');
+    const TCHAR * lineptr = wcsrchr(filename, '.');
 
     if (lineptr)
     {
         TCHAR line[20] = { 0 };
-        _tcscpy_s(line, lineptr+1);
-        _tcslwr_s(line);
-        if ((_tcscmp(line, L"py")==0)||
-            (_tcscmp(line, L"pyw")==0))
+        wcscpy_s(line, lineptr+1);
+        _wcslwr_s(line);
+        if ((wcscmp(line, L"py")==0)||
+            (wcscmp(line, L"pyw")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_PYTHON);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and assert break class continue def del elif \
@@ -53,16 +53,16 @@ not or pass print raise return try while yield");
             SetAStyle(SCE_P_COMMENTBLOCK, darkGreen);
             SetAStyle(SCE_P_STRINGEOL, red);
         }
-        if ((_tcscmp(line, L"c")==0)||
-            (_tcscmp(line, L"cc")==0)||
-            (_tcscmp(line, L"cpp")==0)||
-            (_tcscmp(line, L"cxx")==0)||
-            (_tcscmp(line, L"h")==0)||
-            (_tcscmp(line, L"hh")==0)||
-            (_tcscmp(line, L"hpp")==0)||
-            (_tcscmp(line, L"hxx")==0)||
-            (_tcscmp(line, L"dlg")==0)||
-            (_tcscmp(line, L"mak")==0))
+        if ((wcscmp(line, L"c")==0)||
+            (wcscmp(line, L"cc")==0)||
+            (wcscmp(line, L"cpp")==0)||
+            (wcscmp(line, L"cxx")==0)||
+            (wcscmp(line, L"h")==0)||
+            (wcscmp(line, L"hh")==0)||
+            (wcscmp(line, L"hpp")==0)||
+            (wcscmp(line, L"hxx")==0)||
+            (wcscmp(line, L"dlg")==0)||
+            (wcscmp(line, L"mak")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and and_eq asm auto bitand bitor bool break \
@@ -85,7 +85,7 @@ test throw todo typedef union until \
 var verbatim verbinclude version warning weakgroup $ @ \\ & < > # { }");
             SetupCppLexer();
         }
-        if (_tcscmp(line, L"cs")==0)
+        if (wcscmp(line, L"cs")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract as base bool break byte case catch char checked class \
@@ -98,8 +98,8 @@ string struct switch this throw true try typeof uint ulong \
 unchecked unsafe ushort using virtual void while");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, L"rc")==0)||
-            (_tcscmp(line, L"rc2")==0))
+        if ((wcscmp(line, L"rc")==0)||
+            (wcscmp(line, L"rc2")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON \
@@ -111,8 +111,8 @@ PUSHBUTTON RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3 \
 STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, L"idl")==0)||
-            (_tcscmp(line, L"odl")==0))
+        if ((wcscmp(line, L"idl")==0)||
+            (wcscmp(line, L"odl")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"aggregatable allocate appobject arrays async async_uuid \
@@ -149,7 +149,7 @@ uidefault union unique unsigned user_marshal usesgetlasterror uuid \
 v1_enum vararg version void wchar_t wire_marshal");
             SetupCppLexer();
         }
-        if (_tcscmp(line, L"java")==0)
+        if (wcscmp(line, L"java")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract assert boolean break byte case catch char class \
@@ -160,7 +160,7 @@ return short static super switch synchronized this throw throws \
 transient try var void volatile while");
             SetupCppLexer();
         }
-        if (_tcscmp(line, L"js")==0)
+        if (wcscmp(line, L"js")==0)
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"abstract boolean break byte case catch char class \
@@ -171,9 +171,9 @@ return short static super switch synchronized this throw throws \
 transient try typeof var void volatile while with");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, L"pas")==0)||
-            (_tcscmp(line, L"dpr")==0)||
-            (_tcscmp(line, L"pp")==0))
+        if ((wcscmp(line, L"pas")==0)||
+            (wcscmp(line, L"dpr")==0)||
+            (wcscmp(line, L"pp")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_PASCAL);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"and array as begin case class const constructor \
@@ -185,9 +185,9 @@ set shl shr then threadvar to try type unit \
 until uses var while with xor");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, L"as")==0)||
-            (_tcscmp(line, L"asc")==0)||
-            (_tcscmp(line, L"jsfl")==0))
+        if ((wcscmp(line, L"as")==0)||
+            (wcscmp(line, L"asc")==0)||
+            (wcscmp(line, L"jsfl")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_CPP);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"add and break case catch class continue default delete do \
@@ -210,22 +210,22 @@ scroll set setInterval setProperty startDrag stop stopAllSounds stopDrag substri
 targetPath tellTarget toggleHighQuality trace unescape unloadMovie unLoadMovieNum updateAfterEvent");
             SetupCppLexer();
         }
-        if ((_tcscmp(line, L"html")==0)||
-            (_tcscmp(line, L"htm")==0)||
-            (_tcscmp(line, L"shtml")==0)||
-            (_tcscmp(line, L"htt")==0)||
-            (_tcscmp(line, L"xml")==0)||
-            (_tcscmp(line, L"asp")==0)||
-            (_tcscmp(line, L"xsl")==0)||
-            (_tcscmp(line, L"php")==0)||
-            (_tcscmp(line, L"xhtml")==0)||
-            (_tcscmp(line, L"phtml")==0)||
-            (_tcscmp(line, L"cfm")==0)||
-            (_tcscmp(line, L"tpl")==0)||
-            (_tcscmp(line, L"dtd")==0)||
-            (_tcscmp(line, L"hta")==0)||
-            (_tcscmp(line, L"htd")==0)||
-            (_tcscmp(line, L"wxs")==0))
+        if ((wcscmp(line, L"html")==0)||
+            (wcscmp(line, L"htm")==0)||
+            (wcscmp(line, L"shtml")==0)||
+            (wcscmp(line, L"htt")==0)||
+            (wcscmp(line, L"xml")==0)||
+            (wcscmp(line, L"asp")==0)||
+            (wcscmp(line, L"xsl")==0)||
+            (wcscmp(line, L"php")==0)||
+            (wcscmp(line, L"xhtml")==0)||
+            (wcscmp(line, L"phtml")==0)||
+            (wcscmp(line, L"cfm")==0)||
+            (wcscmp(line, L"tpl")==0)||
+            (wcscmp(line, L"dtd")==0)||
+            (wcscmp(line, L"hta")==0)||
+            (wcscmp(line, L"htd")==0)||
+            (wcscmp(line, L"wxs")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_HTML);
             SendEditor(SCI_SETSTYLEBITS, 7);

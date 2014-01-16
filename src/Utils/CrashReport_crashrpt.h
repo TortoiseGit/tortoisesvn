@@ -190,7 +190,7 @@ public:
         info.pszAppName = appname;
         info.pszAppVersion = _T(STRPRODUCTVER);
         TCHAR subject[MAX_PATH] = {0};
-        _stprintf_s(subject, L"Crash report for %s, Version %d.%d.%d.%d", appname, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+        swprintf_s(subject, L"Crash report for %s, Version %d.%d.%d.%d", appname, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
         info.pszEmailSubject = subject;
         info.pszEmailTo = L"tortoisesvn@gmail.com";
         info.pszUrl = L"http://tortoisesvn.net/scripts/crashrpt.php";

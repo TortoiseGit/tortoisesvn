@@ -706,9 +706,9 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
 
 void CMainWindow::SetTitle(LPCTSTR title)
 {
-    size_t len = _tcslen(title);
+    size_t len = wcslen(title);
     std::unique_ptr<TCHAR[]> pBuf(new TCHAR[len+40]);
-    _stprintf_s(pBuf.get(), len+40, L"%s - TortoiseUDiff", title);
+    swprintf_s(pBuf.get(), len+40, L"%s - TortoiseUDiff", title);
     SetWindowTitle(std::wstring(pBuf.get()));
 }
 

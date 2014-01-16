@@ -80,25 +80,25 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
             int type = 0;
             for (std::vector<std::wstring>::iterator I = entry.begin(); I != entry.end(); ++I)
             {
-                if (_tcsncmp(I->c_str(), L"# ", 2)==0)
+                if (wcsncmp(I->c_str(), L"# ", 2)==0)
                 {
                     //user comment
                     resEntry.translatorcomments.push_back(I->c_str());
                     type = 0;
                 }
-                if (_tcsncmp(I->c_str(), L"#.", 2)==0)
+                if (wcsncmp(I->c_str(), L"#.", 2)==0)
                 {
                     //automatic comments
                     resEntry.automaticcomments.push_back(I->c_str());
                     type = 0;
                 }
-                if (_tcsncmp(I->c_str(), L"#,", 2)==0)
+                if (wcsncmp(I->c_str(), L"#,", 2)==0)
                 {
                     //flag
                     resEntry.flag = I->c_str();
                     type = 0;
                 }
-                if (_tcsncmp(I->c_str(), L"msgid", 5)==0)
+                if (wcsncmp(I->c_str(), L"msgid", 5)==0)
                 {
                     //message id
                     msgid = I->c_str();
@@ -110,7 +110,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                         nEntries++;
                     type = 1;
                 }
-                if (_tcsncmp(I->c_str(), L"msgstr", 6)==0)
+                if (wcsncmp(I->c_str(), L"msgstr", 6)==0)
                 {
                     //message string
                     resEntry.msgstr = I->c_str();
@@ -119,7 +119,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                         nTranslated++;
                     type = 2;
                 }
-                if (_tcsncmp(I->c_str(), L"\"", 1)==0)
+                if (wcsncmp(I->c_str(), L"\"", 1)==0)
                 {
                     if (type == 1)
                     {

@@ -247,8 +247,8 @@ int CShellExt::GetInstalledOverlays()
             if (rc == ERROR_SUCCESS)
             {
                 // check if there's a 'default' entry with a guid
-                _tcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
-                _tcscat_s(keystring, value);
+                wcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
+                wcscat_s(keystring, value);
                 DWORD dwType = 0;
                 DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer",
                                                 // but better be safe than sorry using _countof instead of sizeof
@@ -300,9 +300,9 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
             {
                 TCHAR comobj[MAX_PATH] = { 0 };
                 TCHAR modpath[MAX_PATH] = { 0 };
-                _tcscpy_s(comobj, L"CLSID\\");
-                _tcscat_s(comobj, value);
-                _tcscat_s(comobj, L"\\InprocServer32");
+                wcscpy_s(comobj, L"CLSID\\");
+                wcscat_s(comobj, value);
+                wcscat_s(comobj, L"\\InprocServer32");
                 if (SHRegGetPath(HKEY_CLASSES_ROOT, comobj, L"", modpath, 0) == ERROR_SUCCESS)
                 {
                     LoadRealLibrary(modpath, value, pwszIconFile, cchMax, pIndex, pdwFlags);

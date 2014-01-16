@@ -192,7 +192,7 @@ bool CShellUpdater::RebuildIcons()
         goto Cleanup;
 
     // Change registry value
-    dwRegValue = _ttoi(buf);
+    dwRegValue = _wtoi(buf);
     dwRegValueTemp = dwRegValue-1;
 
     dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, L"%lu", dwRegValueTemp) + sizeof(TCHAR);

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009, 2011 - TortoiseSVN
+// Copyright (C) 2006-2009, 2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -157,7 +157,7 @@ svn_error_t * SVNLineDiff::compare_token(void * baton, void * token1, void * tok
         LPCTSTR s2 = (LPCTSTR)token2;
         if (s1 && s2)
         {
-            *compare = _tcscmp(s1, s2);
+            *compare = wcscmp(s1, s2);
         }
     }
     else
@@ -217,8 +217,8 @@ bool SVNLineDiff::Diff(svn_diff_t **diff, LPCTSTR line1, apr_size_t len1, LPCTST
     m_bWordDiff = bWordDiff;
     m_line1 = line1;
     m_line2 = line2;
-    m_line1length = len1 ? len1 : _tcslen(m_line1);
-    m_line2length = len2 ? len2 : _tcslen(m_line2);
+    m_line1length = len1 ? len1 : wcslen(m_line1);
+    m_line2length = len2 ? len2 : wcslen(m_line2);
 
     m_line1pos = 0;
     m_line2pos = 0;

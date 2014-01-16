@@ -52,26 +52,26 @@ int _tmain(int argc, _TCHAR* argv[])
 
     for (std::vector<tstring>::iterator I = switches.begin(); I != switches.end(); ++I)
     {
-        if (_tcscmp(I->c_str(), L"?")==0)
+        if (wcscmp(I->c_str(), L"?")==0)
             bShowHelp = true;
-        if (_tcscmp(I->c_str(), L"help")==0)
+        if (wcscmp(I->c_str(), L"help")==0)
             bShowHelp = true;
-        if (_tcscmp(I->c_str(), L"quiet")==0)
+        if (wcscmp(I->c_str(), L"quiet")==0)
             bQuiet = true;
-        if (_tcscmp(I->c_str(), L"noupdate")==0)
+        if (wcscmp(I->c_str(), L"noupdate")==0)
             bNoUpdate = true;
-        if (_tcscmp(I->c_str(), L"rtl")==0)
+        if (wcscmp(I->c_str(), L"rtl")==0)
             bRTL = true;
-        if (_tcscmp(I->c_str(), L"useheaderfile")==0)
+        if (wcscmp(I->c_str(), L"useheaderfile")==0)
             bUseHeader = true;
-        if (_tcscmp(I->c_str(), L"adjusteols")==0)
+        if (wcscmp(I->c_str(), L"adjusteols")==0)
             bAdjustEOLs = true;
     }
     std::vector<tstring>::iterator arg = arguments.begin();
 
     if (arg != arguments.end())
     {
-        if (_tcscmp(arg->c_str(), L"extract")==0)
+        if (wcscmp(arg->c_str(), L"extract")==0)
         {
             tstring sPoFile;
             tstring sHeaderFile;
@@ -93,7 +93,7 @@ int _tmain(int argc, _TCHAR* argv[])
                 return -1;
             bShowHelp = false;
         }
-        else if (_tcscmp(arg->c_str(), L"apply")==0)
+        else if (wcscmp(arg->c_str(), L"apply")==0)
         {
             tstring sSrcDllFile;
             tstring sDstDllFile;
@@ -118,7 +118,7 @@ int _tmain(int argc, _TCHAR* argv[])
             ++arg;
             if (arg != arguments.end())
             {
-                wLang = (WORD)_ttoi(arg->c_str());
+                wLang = (WORD)_wtoi(arg->c_str());
             }
             CResModule module;
             module.SetQuiet(bQuiet);

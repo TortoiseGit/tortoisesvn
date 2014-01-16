@@ -101,8 +101,8 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
 tstring Tokenize(const _TCHAR* str, const _TCHAR* delim, tstring::size_type& iStart)
 {
     const _TCHAR* pstr = str + iStart;
-    const _TCHAR* r = _tcsstr(pstr, delim);
-    tstring::size_type dlen = _tcslen(delim);
+    const _TCHAR* r = wcsstr(pstr, delim);
+    tstring::size_type dlen = wcslen(delim);
 
     while( r )
     {
@@ -112,12 +112,12 @@ tstring Tokenize(const _TCHAR* str, const _TCHAR* delim, tstring::size_type& iSt
             return tstring(pstr, tstring::size_type(r - pstr));
         }
         pstr = r + dlen;
-        r = _tcsstr(pstr, delim);
+        r = wcsstr(pstr, delim);
     }
 
-    if( _tcslen(pstr) > 0)
+    if( wcslen(pstr) > 0)
     {
-        iStart = tstring::size_type(_tcslen(str));
+        iStart = tstring::size_type(wcslen(str));
         return tstring(pstr);
     }
     return tstring();
@@ -153,7 +153,7 @@ bool IsTaggedVersion(const char * url)
             if (!temp2.length())
                 break;
 
-            if (_tcswildcmp(temp.c_str(), temp2.c_str()))
+            if (_wcswildcmp(temp.c_str(), temp2.c_str()))
             {
                 isTag = true;
                 break;

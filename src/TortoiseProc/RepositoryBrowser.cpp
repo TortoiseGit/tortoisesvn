@@ -2297,7 +2297,7 @@ void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
         m_lister.RefreshSubTree (revision, dir);
 
         // Memory will be allocated by malloc() - call free() once the message has been handled
-        const TCHAR* lParam = _tcsdup((LPCTSTR)dir);
+        const TCHAR* lParam = _wcsdup((LPCTSTR)dir);
         PostMessage(WM_REFRESHURL, 0, reinterpret_cast<LPARAM>(lParam));
     }
 }
@@ -4345,7 +4345,7 @@ bool CRepositoryBrowser::StringToWidthArray(const CString& WidthString, int Widt
         }
         else
         {
-            WidthArray[i] = _tcstol(hex, &endchar, 16);
+            WidthArray[i] = wcstol(hex, &endchar, 16);
         }
     }
     return true;
@@ -4357,7 +4357,7 @@ CString CRepositoryBrowser::WidthArrayToString(int WidthArray[])
     TCHAR buf[10] = { 0 };
     for (int i=0; i<7; ++i)
     {
-        _stprintf_s(buf, L"%08X", WidthArray[i]);
+        swprintf_s(buf, L"%08X", WidthArray[i]);
         sResult += buf;
     }
     return sResult;

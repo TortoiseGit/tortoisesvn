@@ -1616,7 +1616,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(date_native, time_temp, true);
     }
     else
-        _tcscat_s(date_native, L"(no date)");
+        wcscat_s(date_native, L"(no date)");
 
     prop = svn_prop_get_value(merged_rev_props, SVN_PROP_REVISION_DATE);
     if (prop)
@@ -1631,7 +1631,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(merged_date_native, time_temp, true);
     }
     else
-        _tcscat_s(merged_date_native, L"(no date)");
+        wcscat_s(merged_date_native, L"(no date)");
 
 
     if (!svn->BlameCallback((LONG)line_no, !!local_change, revision, author_native, date_native, merged_revision, merged_author_native, merged_date_native, merged_path_native, line_native, log_msg, merged_log_msg))
@@ -2443,7 +2443,7 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t date_svn, bool force_short_
 {
     if (date_svn == 0)
     {
-        _tcscpy_s(date_native, SVN_DATE_BUFFER, L"(no date)");
+        wcscpy_s(date_native, SVN_DATE_BUFFER, L"(no date)");
         return;
     }
 
@@ -2519,14 +2519,14 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
         GetDateFormat(locale, flags, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
         GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
-        _tcsncat_s(result, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-        _tcsncat_s(result, SVN_DATE_BUFFER, L" ", SVN_DATE_BUFFER);
-        _tcsncat_s(result, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+        wcsncat_s(result, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+        wcsncat_s(result, SVN_DATE_BUFFER, L" ", SVN_DATE_BUFFER);
+        wcsncat_s(result, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
     }
 
     // copy formatted string to result
 
-    _tcsncpy_s (date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER);
+    wcsncpy_s (date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER);
 }
 
 CString SVN::formatDate(apr_time_t date_svn)
@@ -2551,7 +2551,7 @@ CString SVN::formatDate(apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(datebuf, L"(no date)");
+        wcscpy_s(datebuf, L"(no date)");
     }
 
     return datebuf;
@@ -2583,7 +2583,7 @@ CString SVN::formatTime (apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(timebuf, L"(no time)");
+        wcscpy_s(timebuf, L"(no time)");
     }
 
     return timebuf;

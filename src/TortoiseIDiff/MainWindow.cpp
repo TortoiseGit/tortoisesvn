@@ -392,7 +392,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 mii.dwTypeData = stringbuf;
                 mii.cch = _countof(stringbuf);
                 GetMenuItemInfo(GetMenu(*this), (UINT)lpttt->hdr.idFrom, FALSE, &mii);
-                _tcscpy_s(lpttt->lpszText, 80, stringbuf);
+                wcscpy_s(lpttt->lpszText, 80, stringbuf);
             }
         }
         break;

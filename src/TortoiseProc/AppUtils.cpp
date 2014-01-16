@@ -583,7 +583,7 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
     logFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
     logFont.lfQuality        = DRAFT_QUALITY;
     logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
-    _tcscpy_s(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"));
+    wcscpy_s(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"));
     VERIFY(fontToCreate.CreateFontIndirect(&logFont));
 }
 
@@ -1012,7 +1012,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
     {
         sCmd += L" /hwnd:";
         TCHAR buf[30] = { 0 };
-        _stprintf_s(buf, L"%p", (void*)hWnd);
+        swprintf_s(buf, L"%p", (void*)hWnd);
         sCmd += buf;
     }
 
@@ -1056,7 +1056,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
     {
         sCmd += L" /hwnd:";
         TCHAR buf[30] = { 0 };
-        _stprintf_s(buf, L"%p", (void*)hWnd);
+        swprintf_s(buf, L"%p", (void*)hWnd);
         sCmd += buf;
     }
 

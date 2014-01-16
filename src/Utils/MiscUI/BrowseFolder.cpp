@@ -57,7 +57,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, size_t pathl
     if (szDefaultPath)
         sDefault = szDefaultPath;
     CBrowseFolder::retVal ret = Show(parent, temp, sDefault);
-    _tcscpy_s(path, pathlen, temp);
+    wcscpy_s(path, pathlen, temp);
     return ret;
 }
 CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CString& sDefaultPath /* = CString() */)
@@ -100,7 +100,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         // Set a title
         if (SUCCEEDED(hr))
         {
-            TCHAR * nl = _tcschr(m_title, '\n');
+            TCHAR * nl = wcschr(m_title, '\n');
             if (nl)
                 *nl = 0;
             pfd->SetTitle(m_title);
@@ -205,7 +205,7 @@ void CBrowseFolder::SetInfo(LPCTSTR title)
     ASSERT(title);
 
     if (title)
-        _tcscpy_s(m_title, title);
+        wcscpy_s(m_title, title);
 }
 
 void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
@@ -213,7 +213,7 @@ void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
     ASSERT(checktext);
 
     if (checktext)
-        _tcscpy_s(m_CheckText, checktext);
+        wcscpy_s(m_CheckText, checktext);
 }
 
 void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
@@ -221,7 +221,7 @@ void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
     ASSERT(checktext);
 
     if (checktext)
-        _tcscpy_s(m_CheckText2, checktext);
+        wcscpy_s(m_CheckText2, checktext);
 }
 
 void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)

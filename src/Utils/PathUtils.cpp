@@ -31,7 +31,7 @@ static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
-    const size_t len = _tcslen(path);
+    const size_t len = wcslen(path);
     const size_t fullLen = len+10;
     std::unique_ptr<TCHAR[]> buf(new TCHAR[fullLen]);
     std::unique_ptr<TCHAR[]> internalpathbuf(new TCHAR[fullLen]);
@@ -44,19 +44,19 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
     attribs.bInheritHandle = FALSE;
 
     ConvertToBackslash(internalpathbuf.get(), path, fullLen);
-    if (_tcsncmp(internalpathbuf.get(), L"\\\\?\\", 4) == 0)
+    if (wcsncmp(internalpathbuf.get(), L"\\\\?\\", 4) == 0)
         pPath += 4;
     do
     {
         SecureZeroMemory(buf.get(), fullLen*sizeof(TCHAR));
-        TCHAR * slashpos = _tcschr(pPath, '\\');
+        TCHAR * slashpos = wcschr(pPath, '\\');
         if (slashpos)
-            _tcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), slashpos - internalpathbuf.get());
+            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), slashpos - internalpathbuf.get());
         else
-            _tcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen);
+            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen);
         CreateDirectory(buf.get(), &attribs);
-        pPath = _tcschr(pPath, '\\');
-    } while ((pPath++)&&(_tcschr(pPath, '\\')));
+        pPath = wcschr(pPath, '\\');
+    } while ((pPath++)&&(wcschr(pPath, '\\')));
 
     const BOOL bRet = CreateDirectory(internalpathbuf.get(), &attribs);
     return bRet;
@@ -229,7 +229,7 @@ static const char uri_char_validity[256] = {
 
 void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 {
-    _tcscpy_s(dest, len, src);
+    wcscpy_s(dest, len, src);
     TCHAR * p = dest;
     for (; *p != '\0'; ++p)
         if (*p == '/')
@@ -601,7 +601,7 @@ CString CPathUtils::GetAppDataDirectory()
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
         return CString();
 
-    _tcscat_s(path, L"\\TortoiseSVN");
+    wcscat_s(path, L"\\TortoiseSVN");
     if (!PathIsDirectory(path))
         CreateDirectory(path, NULL);
 

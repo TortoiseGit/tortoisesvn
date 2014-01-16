@@ -129,7 +129,7 @@ void CEditPropTSVNLang::OnOK()
 
 BOOL CEditPropTSVNLang::EnumLocalesProc(LPTSTR lpLocaleString)
 {
-    DWORD langID = _tcstol(lpLocaleString, NULL, 16);
+    DWORD langID = wcstol(lpLocaleString, NULL, 16);
 
     TCHAR buf[MAX_PATH] = {0};
     GetLocaleInfo(langID, LOCALE_SNATIVELANGNAME, buf, _countof(buf));

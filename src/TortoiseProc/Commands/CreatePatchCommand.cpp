@@ -244,7 +244,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     // This is horrible and I should be ashamed of myself, but basically, the
     // the file-open dialog writes ".TSVNPatchToClipboard" to its file field if the user clicks
     // the "Save To Clipboard" button.
-    bool bToClipboard = _tcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+    bool bToClipboard = wcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);

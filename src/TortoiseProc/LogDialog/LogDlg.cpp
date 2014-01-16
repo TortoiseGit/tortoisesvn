@@ -2899,7 +2899,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                     std::wstring matchedRevString = (*it2)[0];
                     if (url.Compare(matchedRevString.c_str()) == 0)
                     {
-                        svn_revnum_t rev = _ttol(matchedRevString.c_str());
+                        svn_revnum_t rev = _wtol(matchedRevString.c_str());
                         CTraceToOutputDebugString::Instance()(__FUNCTION__ ": found revision %ld\n", rev);
                         // do we already show this revision? If yes, just select that
                         // revision and 'scroll' to it
@@ -3915,9 +3915,9 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         case 0: //revision
             if (pLogEntry)
             {
-                _stprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", pLogEntry->GetRevision());
+                swprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", pLogEntry->GetRevision());
                 // to make the child entries indented, add spaces
-                size_t len = _tcslen(pItem->pszText);
+                size_t len = wcslen(pItem->pszText);
                 TCHAR * pBuf = pItem->pszText + len;
                 DWORD nSpaces = m_logEntries.GetMaxDepth() - pLogEntry->GetDepth();
                 while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
@@ -4054,7 +4054,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
             if (revision == 0)
                 lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
             else
-                _stprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", revision);
+                swprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", revision);
             break;
         }
     }
@@ -6163,7 +6163,7 @@ void CLogDlg::DetectVisualStudioRunningThread()
     {
         while (Process32Next(snapshot, &entry))
         {
-            if (!_tcsicmp(entry.szExeFile, L"devenv.exe"))
+            if (!_wcsicmp(entry.szExeFile, L"devenv.exe"))
             {
                 if (RunningInSameUserContextWithSameProcessIntegrity(entry.th32ProcessID))
                      m_bVisualStudioRunningAtStart = true;

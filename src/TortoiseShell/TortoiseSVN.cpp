@@ -67,11 +67,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
         DWORD pathLength = GetModuleFileName(NULL, buf, MAX_PATH);
         if(pathLength >= 14)
         {
-            if ((_tcsicmp(&buf[pathLength-14], L"\\ShellTest.exe")) == 0)
+            if ((_wcsicmp(&buf[pathLength-14], L"\\ShellTest.exe")) == 0)
             {
                 bInShellTest = true;
             }
-            if ((_tcsicmp(&buf[pathLength-13], L"\\verclsid.exe")) == 0)
+            if ((_wcsicmp(&buf[pathLength-13], L"\\verclsid.exe")) == 0)
             {
                 bInShellTest = true;
             }

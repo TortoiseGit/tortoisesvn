@@ -145,7 +145,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             val = sPropVal;
             if (!val.IsEmpty())
             {
-                nLogWidthMarker = _ttoi(val);
+                nLogWidthMarker = _wtoi(val);
             }
         }
         CheckStringProp(sLogTemplate, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATE);
@@ -163,7 +163,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             val = sPropVal;
             if (!val.IsEmpty())
             {
-                nMinLogSize = _ttoi(val);
+                nMinLogSize = _wtoi(val);
             }
         }
         if (sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0)
@@ -172,7 +172,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             val = sPropVal;
             if (!val.IsEmpty())
             {
-                nMinLockMsgSize = _ttoi(val);
+                nMinLockMsgSize = _wtoi(val);
             }
         }
         if (sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG)==0)
@@ -192,7 +192,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             if (!val.IsEmpty())
             {
                 LPTSTR strEnd;
-                lProjectLanguage = _tcstol(val, &strEnd, 0);
+                lProjectLanguage = wcstol(val, &strEnd, 0);
             }
         }
         CheckStringProp(sFPPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);

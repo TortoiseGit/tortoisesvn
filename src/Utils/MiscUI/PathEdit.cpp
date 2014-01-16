@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,8 +74,8 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
     case WM_GETTEXT:
         {
             // return the real text
-            _tcsncpy_s((TCHAR*)lParam, wParam, (LPCTSTR)m_sRealText, _TRUNCATE);
-            return _tcslen((TCHAR*)lParam);
+            wcsncpy_s((TCHAR*)lParam, wParam, (LPCTSTR)m_sRealText, _TRUNCATE);
+            return wcslen((TCHAR*)lParam);
         }
         break;
     case WM_GETTEXTLENGTH:

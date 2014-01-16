@@ -464,12 +464,12 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                     LPTOOLTIPTEXT lpttt = (LPTOOLTIPTEXT) lParam;
                     lpttt->hinst = hResource;
                     TCHAR stringbuf[MAX_PATH] = {0};
-                    _stprintf_s(stringbuf, L"%i%% alpha", (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
-                    _tcscpy_s(lpttt->lpszText, 80, stringbuf);
+                    swprintf_s(stringbuf, L"%i%% alpha", (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
+                    wcscpy_s(lpttt->lpszText, 80, stringbuf);
                 }
                 else if (pNMHDR->idFrom == (UINT_PTR)hwndAlphaToggleBtn)
                 {
-                    _stprintf_s(m_wszTip, (TCHAR const *)ResString(hResource, IDS_ALPHABUTTONTT), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
+                    swprintf_s(m_wszTip, (TCHAR const *)ResString(hResource, IDS_ALPHABUTTONTT), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
                     if (pNMHDR->code == TTN_NEEDTEXTW)
                     {
                         NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
@@ -608,9 +608,9 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
     {
         TCHAR buf[MAX_PATH] = { 0 };
         if (nFrames > 1)
-            _stprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
+            swprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
         else
-            _stprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
+            swprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
         imgnumstring = buf;
     }
 
@@ -1345,7 +1345,7 @@ void CPicWindow::Paint(HWND hwnd)
             HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
             HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
 
-            if (GetTextExtentPoint32(memDC, str, (int)_tcslen(str), &stringsize))
+            if (GetTextExtentPoint32(memDC, str, (int)wcslen(str), &stringsize))
             {
                 int nStringLength = stringsize.cx;
 
@@ -1355,7 +1355,7 @@ void CPicWindow::Paint(HWND hwnd)
                     ETO_CLIPPED,
                     &rect,
                     str,
-                    (UINT)_tcslen(str),
+                    (UINT)wcslen(str),
                     NULL);
             }
             SelectObject(memDC, (HGDIOBJ)hFontOld);
@@ -1524,7 +1524,7 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
     // translation might then need two again.
     if (pSecondPic && pTheOtherPic)
     {
-        _stprintf_s(buf, size,
+        swprintf_s(buf, size,
             (TCHAR const *)ResString(hResource, bTooltip ? IDS_DUALIMAGEINFOTT : IDS_DUALIMAGEINFO),
             picture.GetFileSizeAsText().c_str(), picture.GetFileSizeAsText(false).c_str(),
             picture.m_Width, picture.m_Height,
@@ -1539,7 +1539,7 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
     }
     else
     {
-        _stprintf_s(buf, size,
+        swprintf_s(buf, size,
             (TCHAR const *)ResString(hResource, bTooltip ? IDS_IMAGEINFOTT : IDS_IMAGEINFO),
             picture.GetFileSizeAsText().c_str(), picture.GetFileSizeAsText(false).c_str(),
             picture.m_Width, picture.m_Height,

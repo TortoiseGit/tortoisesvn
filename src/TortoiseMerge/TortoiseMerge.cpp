@@ -129,14 +129,14 @@ BOOL CTortoiseMergeApp::InitInstance()
         }
     } while ((hInst == NULL) && (langId != 0));
     TCHAR buf[6] = { 0 };
-    _tcscpy_s(buf, L"en");
+    wcscpy_s(buf, L"en");
     langId = loc;
     CString sHelppath;
     sHelppath = this->m_pszHelpFilePath;
     sHelppath = sHelppath.MakeLower();
     sHelppath.Replace(L".chm", L"_en.chm");
     free((void*)m_pszHelpFilePath);
-    m_pszHelpFilePath=_tcsdup(sHelppath);
+    m_pszHelpFilePath=_wcsdup(sHelppath);
     sHelppath = CPathUtils::GetAppParentDirectory() + L"Languages\\TortoiseMerge_en.chm";
     do
     {
@@ -147,7 +147,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         if (PathFileExists(sHelppath))
         {
             free((void*)m_pszHelpFilePath);
-            m_pszHelpFilePath=_tcsdup(sHelppath);
+            m_pszHelpFilePath=_wcsdup(sHelppath);
             break;
         }
         sHelppath.Replace(sLang, L"_en");
@@ -158,7 +158,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         if (PathFileExists(sHelppath))
         {
             free((void*)m_pszHelpFilePath);
-            m_pszHelpFilePath=_tcsdup(sHelppath);
+            m_pszHelpFilePath=_wcsdup(sHelppath);
             break;
         }
         sHelppath.Replace(sLang, L"_en");

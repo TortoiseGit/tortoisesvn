@@ -637,7 +637,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
         {
             TCHAR * pBuf = new TCHAR[MAX_STRING_LENGTH];
             SecureZeroMemory(pBuf, MAX_STRING_LENGTH * sizeof(TCHAR));
-            _tcscpy(pBuf, str);
+            wcscpy(pBuf, str);
             CUtils::StringExtend(pBuf);
 
             std::wstring wstr = std::wstring(pBuf);
@@ -655,7 +655,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
         {
             TCHAR * pBuf = new TCHAR[MAX_STRING_LENGTH];
             SecureZeroMemory(pBuf, MAX_STRING_LENGTH * sizeof(TCHAR));
-            _tcscpy(pBuf, str);
+            wcscpy(pBuf, str);
             CUtils::StringExtend(pBuf);
 
             std::wstring wstr = std::wstring(pBuf);
@@ -663,7 +663,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
             entry.resourceIDs.insert(id);
 
             TCHAR szTempBuf[1024] = { 0 };
-            _stprintf(szTempBuf, L"#: MenuEntry; ID:%u", id);
+            swprintf(szTempBuf, L"#: MenuEntry; ID:%u", id);
             MENUENTRY menu_entry;
             menu_entry.wID = id;
             menu_entry.reference = szTempBuf;
@@ -778,7 +778,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
                 menuId = (WORD)-1;
             TCHAR * pBuf = new TCHAR[MAX_STRING_LENGTH];
             SecureZeroMemory(pBuf, MAX_STRING_LENGTH * sizeof(TCHAR));
-            _tcscpy(pBuf, str);
+            wcscpy(pBuf, str);
             CUtils::StringExtend(pBuf);
 
             std::wstring wstr = std::wstring(pBuf);
@@ -788,7 +788,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
 
             entry.resourceIDs.insert(menuId);
             TCHAR szTempBuf[1024] = { 0 };
-            _stprintf(szTempBuf, L"#: MenuExPopupEntry; ID:%lu", menuId);
+            swprintf(szTempBuf, L"#: MenuExPopupEntry; ID:%lu", menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
             menu_entry.reference = szTempBuf;
@@ -803,7 +803,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
         {
             TCHAR * pBuf = new TCHAR[MAX_STRING_LENGTH];
             SecureZeroMemory(pBuf, MAX_STRING_LENGTH * sizeof(TCHAR));
-            _tcscpy(pBuf, str);
+            wcscpy(pBuf, str);
             CUtils::StringExtend(pBuf);
 
             std::wstring wstr = std::wstring(pBuf);
@@ -811,7 +811,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
             entry.resourceIDs.insert(menuId);
 
             TCHAR szTempBuf[1024] = { 0 };
-            _stprintf(szTempBuf, L"#: MenuExEntry; ID:%lu", menuId);
+            swprintf(szTempBuf, L"#: MenuExEntry; ID:%lu", menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
             menu_entry.reference = szTempBuf;
@@ -969,7 +969,7 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         // Since "filter" and "find" are most likely translated to words starting
         // with different letters, we need to have a separate accelerator entry
         // for each of those
-        _stprintf(pBuf.get(), L"ID:%u:", wID);
+        swprintf(pBuf.get(), L"ID:%u:", wID);
 
         // EXACTLY 5 characters long "ACS+X"
         // V = Virtual key (or blank if not used)
@@ -979,26 +979,26 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         // X = upper case character
         // e.g. "V CS+Q" == Ctrl + Shift + 'Q'
         if ((fFlags & FVIRTKEY) == FVIRTKEY)        // 0x01
-            _tcscat(pBuf.get(), L"V");
+            wcscat(pBuf.get(), L"V");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((fFlags & FALT) == FALT)                // 0x10
-            _tcscat(pBuf.get(), L"A");
+            wcscat(pBuf.get(), L"A");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((fFlags & FCONTROL) == FCONTROL)        // 0x08
-            _tcscat(pBuf.get(), L"C");
+            wcscat(pBuf.get(), L"C");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((fFlags & FSHIFT) == FSHIFT)            // 0x04
-            _tcscat(pBuf.get(), L"S");
+            wcscat(pBuf.get(), L"S");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
-        _stprintf(pBuf2.get(), L"%s+%c", pBuf.get(), wAnsi);
+        swprintf(pBuf2.get(), L"%s+%c", pBuf.get(), wAnsi);
 
         std::wstring wstr = std::wstring(pBuf2.get());
         RESOURCEENTRY AKey_entry = m_StringEntries[wstr];
@@ -1011,7 +1011,7 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         {
             wmenu = pME_iter->second.msgstr;
         }
-        _stprintf(szTempBuf, L"#. Accelerator Entry for Menu ID:%u; '%s'", wID, wmenu.c_str());
+        swprintf(szTempBuf, L"#. Accelerator Entry for Menu ID:%u; '%s'", wID, wmenu.c_str());
         AKey_entry.automaticcomments.push_back(std::wstring(szTempBuf));
 
         m_StringEntries[wstr] = AKey_entry;
@@ -1069,30 +1069,30 @@ BOOL CResModule::ReplaceAccelerator(LPCTSTR lpszType, WORD wLanguage)
         SecureZeroMemory(pBuf.get(), 1024 * sizeof(WCHAR));
         SecureZeroMemory(pBuf2.get(), 1024 * sizeof(WCHAR));
 
-        _stprintf(pBuf.get(), L"ID:%d:", lpaccelNew[i].cmd);
+        swprintf(pBuf.get(), L"ID:%d:", lpaccelNew[i].cmd);
 
         // get original key combination
         if ((lpaccelNew[i].fVirt & FVIRTKEY) == FVIRTKEY)       // 0x01
-            _tcscat(pBuf.get(), L"V");
+            wcscat(pBuf.get(), L"V");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((lpaccelNew[i].fVirt & FALT) == FALT)               // 0x10
-            _tcscat(pBuf.get(), L"A");
+            wcscat(pBuf.get(), L"A");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((lpaccelNew[i].fVirt & FCONTROL) == FCONTROL)       // 0x08
-            _tcscat(pBuf.get(), L"C");
+            wcscat(pBuf.get(), L"C");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
         if ((lpaccelNew[i].fVirt & FSHIFT) == FSHIFT)           // 0x04
-            _tcscat(pBuf.get(), L"S");
+            wcscat(pBuf.get(), L"S");
         else
-            _tcscat(pBuf.get(), L" ");
+            wcscat(pBuf.get(), L" ");
 
-        _stprintf(pBuf2.get(), L"%s+%c", pBuf.get(), lpaccelNew[i].key);
+        swprintf(pBuf2.get(), L"%s+%c", pBuf.get(), lpaccelNew[i].key);
 
         // Is it there?
         std::map<std::wstring, RESOURCEENTRY>::iterator pAK_iter = m_StringEntries.find(pBuf2.get());
@@ -1202,7 +1202,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
     {
         TCHAR * pBuf = new TCHAR[MAX_STRING_LENGTH];
         SecureZeroMemory(pBuf, MAX_STRING_LENGTH * sizeof(TCHAR));
-        _tcscpy(pBuf, dlg.caption);
+        wcscpy(pBuf, dlg.caption);
         CUtils::StringExtend(pBuf);
 
         std::wstring wstr = std::wstring(pBuf);
@@ -1222,9 +1222,9 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
         lpDlgItem = GetControlInfo((WORD *) lpDlgItem, &dlgItem, dlg.dialogEx, &bCode);
 
         if (bCode == FALSE)
-            _tcsncpy(szTitle, dlgItem.windowName, _countof(szTitle) - 1);
+            wcsncpy(szTitle, dlgItem.windowName, _countof(szTitle) - 1);
 
-        if (_tcslen(szTitle) > 0)
+        if (wcslen(szTitle) > 0)
         {
             CUtils::StringExtend(szTitle);
 

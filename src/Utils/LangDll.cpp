@@ -37,22 +37,22 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
 {
     TCHAR langpath[MAX_PATH] = { 0 };
     TCHAR sVer[MAX_PATH] = { 0 };
-    _tcscpy_s(sVer, _T(STRPRODUCTVER));
+    wcscpy_s(sVer, _T(STRPRODUCTVER));
     GetModuleFileName(NULL, langpath, _countof(langpath));
-    TCHAR * pSlash = _tcsrchr(langpath, '\\');
+    TCHAR * pSlash = wcsrchr(langpath, '\\');
     if (pSlash)
     {
         *pSlash = 0;
-        pSlash = _tcsrchr(langpath, '\\');
+        pSlash = wcsrchr(langpath, '\\');
         if (pSlash)
         {
             *pSlash = 0;
-            _tcscat_s(langpath, L"\\Languages\\");
+            wcscat_s(langpath, L"\\Languages\\");
             assert(m_hInstance == NULL);
             do
             {
                 TCHAR langdllpath[MAX_PATH] = { 0 };
-                _stprintf_s(langdllpath, L"%s%s%lu.dll", langpath, appname, langID);
+                swprintf_s(langdllpath, L"%s%s%lu.dll", langpath, appname, langID);
 
                 m_hInstance = LoadLibrary(langdllpath);
 
@@ -123,7 +123,7 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-            _stprintf_s(strLangProductVersion,
+            swprintf_s(strLangProductVersion,
                         L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                         lpTransArray[0].wLanguageID,
                         lpTransArray[0].wCharacterSet);
@@ -133,7 +133,7 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
                 (LPVOID *)&lpVersion,
                 &nInfoSize);
             if (lpVersion && nInfoSize)
-                bReturn = (_tcscmp(sVer, (LPCTSTR)lpVersion)==0);
+                bReturn = (wcscmp(sVer, (LPCTSTR)lpVersion)==0);
             free(pBuffer);
         }
     }

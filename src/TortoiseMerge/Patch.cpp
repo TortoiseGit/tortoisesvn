@@ -313,27 +313,27 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                 chunk = new Chunk();
                 CString sRemove = sLine.Left(sLine.Find(' '));
                 CString sAdd = sLine.Mid(sLine.Find(' '));
-                chunk->lRemoveStart = (-_ttol(sRemove));
+                chunk->lRemoveStart = (-_wtol(sRemove));
                 if (sRemove.Find(',')>=0)
                 {
                     sRemove = sRemove.Mid(sRemove.Find(',')+1);
-                    chunk->lRemoveLength = _ttol(sRemove);
+                    chunk->lRemoveLength = _wtol(sRemove);
                 }
                 else
                 {
                     chunk->lRemoveStart = 0;
-                    chunk->lRemoveLength = (-_ttol(sRemove));
+                    chunk->lRemoveLength = (-_wtol(sRemove));
                 }
-                chunk->lAddStart = _ttol(sAdd);
+                chunk->lAddStart = _wtol(sAdd);
                 if (sAdd.Find(',')>=0)
                 {
                     sAdd = sAdd.Mid(sAdd.Find(',')+1);
-                    chunk->lAddLength = _ttol(sAdd);
+                    chunk->lAddLength = _wtol(sAdd);
                 }
                 else
                 {
                     chunk->lAddStart = 1;
-                    chunk->lAddLength = _ttol(sAdd);
+                    chunk->lAddLength = _wtol(sAdd);
                 }
                 state++;
             }

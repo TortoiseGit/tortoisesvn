@@ -67,17 +67,17 @@ bool AeroControlBase::SubclassControl(HWND hControl)
     TCHAR szWndClassName[MAX_PATH] = { 0 };
     if (GetClassName(hControl, szWndClassName, _countof(szWndClassName)))
     {
-        if (!_tcscmp(szWndClassName, L"Static"))
+        if (!wcscmp(szWndClassName, L"Static"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Static, (DWORD_PTR)this);
             subclassedControls[hControl] = Static;
         }
-        if (!_tcscmp(szWndClassName, L"Button"))
+        if (!wcscmp(szWndClassName, L"Button"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Button, (DWORD_PTR)this);
             subclassedControls[hControl] = Button;
         }
-        if(!_tcscmp(szWndClassName, L"msctls_progress32"))
+        if(!wcscmp(szWndClassName, L"msctls_progress32"))
         {
             bRet = !!SetWindowSubclass(hControl, SubclassProc, Progressbar, (DWORD_PTR)this);
             subclassedControls[hControl] = Progressbar;

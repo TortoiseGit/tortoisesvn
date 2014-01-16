@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ PreserveChdir::~PreserveChdir()
         // same size, must check contents
         std::unique_ptr<TCHAR[]> currentDirectory(new TCHAR[len]);
         if(GetCurrentDirectory(len, currentDirectory.get()) != 0)
-            if(_tcscmp(currentDirectory.get(), originalCurrentDirectory.get()) == 0)
+            if(wcscmp(currentDirectory.get(), originalCurrentDirectory.get()) == 0)
                 return; // no change required, reset of no use as dtor is called exactly once
     }
 

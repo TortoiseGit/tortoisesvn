@@ -118,7 +118,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     TCHAR pathbuf[MAX_PATH] = {0};
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
     {
-        _tcscat_s(pathbuf, L"\\Subversion\\auth\\");
+        wcscat_s(pathbuf, L"\\Subversion\\auth\\");
         CString sSimple = CString(pathbuf) + L"svn.simple";
         CString sSSL = CString(pathbuf) + L"svn.ssl.server";
         CString sUsername = CString(pathbuf) + L"svn.username";
@@ -268,8 +268,8 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
     TCHAR pathbuf[MAX_PATH] = {0};
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
     {
-        _tcscat_s(pathbuf, L"\\Subversion\\auth");
-        pathbuf[_tcslen(pathbuf)+1] = 0;
+        wcscat_s(pathbuf, L"\\Subversion\\auth");
+        pathbuf[wcslen(pathbuf)+1] = 0;
         DeleteViaShell(pathbuf, IDS_SETTINGS_DELFILE);
     }
     SHDeleteKey(HKEY_CURRENT_USER, L"Software\\TortoiseSVN\\CAPIAuthz");
@@ -283,8 +283,8 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 {
     CString path = CPathUtils::GetAppDataDirectory()+L"logcache";
     TCHAR pathbuf[MAX_PATH] = {0};
-    _tcscpy_s(pathbuf, (LPCTSTR)path);
-    pathbuf[_tcslen(pathbuf)+1] = 0;
+    wcscpy_s(pathbuf, (LPCTSTR)path);
+    pathbuf[wcslen(pathbuf)+1] = 0;
 
     DeleteViaShell(pathbuf, IDS_SETTINGS_DELCACHE);
 

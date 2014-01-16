@@ -249,7 +249,7 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD Reason, LPVOID Reserved)
         {
             bInShellTest = TRUE;
         }
-        if ((_tcsicmp(&buf[pathLength-13], L"\\verclsid.exe")) == 0)
+        if ((_wcsicmp(&buf[pathLength-13], L"\\verclsid.exe")) == 0)
         {
             bInShellTest = TRUE;
         }

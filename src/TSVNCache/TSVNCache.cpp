@@ -248,7 +248,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 SystemTray.hWnd   = hTrayWnd;
                 SystemTray.uID    = TRAY_ID;
                 SystemTray.uFlags = NIF_TIP;
-                _tcscpy_s(SystemTray.szTip, sInfoTip);
+                wcscpy_s(SystemTray.szTip, sInfoTip);
                 Shell_NotifyIcon(NIM_MODIFY, &SystemTray);
             }
             break;
@@ -284,15 +284,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             int line = 0;
             SIZE fontsize = {0};
             AutoLocker print(critSec);
-            GetTextExtentPoint32( hdc, szCurrentCrawledPath[0], (int)_tcslen(szCurrentCrawledPath[0]), &fontsize );
+            GetTextExtentPoint32( hdc, szCurrentCrawledPath[0], (int)wcslen(szCurrentCrawledPath[0]), &fontsize );
             for (int i=nCurrentCrawledpathIndex; i<MAX_CRAWLEDPATHS; ++i)
             {
-                TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+                TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)wcslen(szCurrentCrawledPath[i]));
                 ++line;
             }
             for (int i=0; i<nCurrentCrawledpathIndex; ++i)
             {
-                TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+                TextOut(hdc, 0, line*fontsize.cy, szCurrentCrawledPath[i], (int)wcslen(szCurrentCrawledPath[i]));
                 ++line;
             }
 
@@ -624,7 +624,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         for (size_t i = MAX_PATH+1; (i > 0) && (request.path[i-1] != 0); --i)
             request.path[i-1] = 0;
 
-        size_t pathLength = _tcslen (request.path);
+        size_t pathLength = wcslen (request.path);
         SecureZeroMemory ( request.path + pathLength
                          , sizeof (request.path) - pathLength * sizeof (TCHAR));
 
@@ -698,7 +698,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
         for (size_t i = MAX_PATH+1; (i > 0) && (command.path[i-1] != 0); --i)
             command.path[i-1] = 0;
 
-        size_t pathLength = _tcslen (command.path);
+        size_t pathLength = wcslen (command.path);
         SecureZeroMemory ( command.path + pathLength
                          , sizeof (command.path) - pathLength * sizeof (TCHAR));
 

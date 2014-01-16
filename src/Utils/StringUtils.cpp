@@ -176,7 +176,7 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
             WCHAR* pchData = (WCHAR*)GlobalLock(hClipboardData);
             if (pchData)
             {
-                _tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
+                wcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
                 GlobalUnlock(hClipboardData);
                 if (SetClipboardData(CF_UNICODETEXT, hClipboardData))
                 {

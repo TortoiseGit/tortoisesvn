@@ -41,7 +41,7 @@ bool DelUnversionedCommand::Execute()
         filelist += L"|";
         int len = filelist.GetLength();
         std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
-        _tcscpy_s(buf.get(), len+2, filelist);
+        wcscpy_s(buf.get(), len+2, filelist);
         CStringUtils::PipesToNulls(buf.get(), len);
         SHFILEOPSTRUCT fileop;
         fileop.hwnd = GetExplorerHWND();

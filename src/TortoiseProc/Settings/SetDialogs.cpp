@@ -69,7 +69,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
     {
         CString t;
         m_cFontSizes.GetWindowText(t);
-        m_dwFontSize = _ttoi(t);
+        m_dwFontSize = _wtoi(t);
     }
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
@@ -207,7 +207,7 @@ BOOL CSetDialogs::OnApply()
     Store (m_bShortDateFormat, m_regShortDateFormat);
     Store (m_bUseSystemLocaleForDates, m_regUseSystemLocaleForDates);
 
-    long val = _ttol(m_sDefaultLogs);
+    long val = _wtol(m_sDefaultLogs);
     Store (val > 0 ? val : 100, m_regDefaultLogs);
 
     Store (m_sFontName, m_regFontName);

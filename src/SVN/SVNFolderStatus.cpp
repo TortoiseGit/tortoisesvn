@@ -284,7 +284,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
         // path too before giving up.
         // This is especially true when right-clicking directly on a SUBST'ed
         // drive to get the context menu
-        if (_tcslen(filepath.GetWinPath())==3)
+        if (wcslen(filepath.GetWinPath())==3)
         {
             if ((iter = m_cache.find((LPCTSTR)filepath.GetWinPathString().Left(2))) != m_cache.end())
             {
