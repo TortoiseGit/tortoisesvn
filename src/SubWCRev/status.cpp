@@ -153,7 +153,7 @@ bool IsTaggedVersion(const char * url)
             if (!temp2.length())
                 break;
 
-            if (_wcswildcmp(temp.c_str(), temp2.c_str()))
+            if (wcswildcmp(temp.c_str(), temp2.c_str()))
             {
                 isTag = true;
                 break;
