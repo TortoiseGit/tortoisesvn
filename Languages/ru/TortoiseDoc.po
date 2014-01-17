@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-05 17:00+0000\n"
+"PO-Revision-Date: 2014-01-16 15:51+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -13389,6 +13389,11 @@ msgid "The window title for the base file"
 msgstr "Заголовок окна для базового файла"
 
 #. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr "Заголовок окна базового файла без кавычек"
+
+#. (para)
 msgid "Your own file, with your changes"
 msgstr "Ваш собственный файл, с вашими изменениями"
 
@@ -13398,24 +13403,57 @@ msgid "The window title for your file"
 msgstr "Заголовок окна для вашего файла"
 
 #. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr "Заголовок окна вашего файла без кавычек"
+
+#. (para)
 msgid "The URL of the original file, if available"
 msgstr "Адрес URL исходного файла, если доступен"
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
+msgstr "URL исходного файла без кавычек, если доступен"
 
 #. (para)
 msgid "The URL of the second file, if available"
 msgstr "Адрес URL второго файла, если доступен"
 
 #. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr "URL второго файла без кавычек, если доступен"
+
+#. (para)
 msgid "The revision of the original file, if available"
 msgstr "Ревизия исходного файла, если доступна"
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
+msgstr "Ревизия исходного файла без кавычек, если доступен"
 
 #. (para)
 msgid "The revision of the second file, if available"
 msgstr "Ревизия второго файла, если доступна"
 
 #. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr "Ревизия второго файла без кавычек, если доступен"
+
+#. (para)
 msgid "The peg revision, if available"
 msgstr "Опорная (peg) ревизия, если доступна"
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr "Опорная (peg) ревизия без кавычек, если доступна"
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr "Имя конфликтующего файла"
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
+msgstr "Имя конфликтующего файла без кавычек"
 
 #. (para)
 msgid ""
@@ -13524,12 +13562,30 @@ msgid "The window title for the file in the repository"
 msgstr "заголовок окна для файла из хранилища"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr "Заголовок окна файла в хранилище без кавычек"
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "конфликтующий файл, результат операции слияния"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "заголовок окна для объединённого файла"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr "Заголовок окна слитого файла без кавычек"
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Имя файла. Пустая строка, если сравниваются два различных файла вместо двух состояний одного и того же файла."
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr "Имя файла без кавычек"
 
 #. (para)
 msgid ""

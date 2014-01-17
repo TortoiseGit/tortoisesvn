@@ -14,7 +14,7 @@
 # brunzefb <brunzefb@yahoo.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
 # peu <peu@rekoba.de>, 2012-2013
 # peu <peu@rekoba.de>, 2012
@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-28 13:56+0000\n"
+"PO-Revision-Date: 2014-01-16 09:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -13389,7 +13389,12 @@ msgstr "Die Originaldatei ohne Ihre Änderungen"
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr "Der Fenstertitel für die Originaldatei"
+msgstr "Der Fenstertitel für die Originaldatei in Anführungszeichen"
+
+#. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr "Der Fenstertitel für die Originaldatei ohne Anführungszeichen"
 
 #. (para)
 msgid "Your own file, with your changes"
@@ -13398,27 +13403,60 @@ msgstr "Die Datei mit Ihren eigenen Änderungen"
 #. (para)
 #. (para)
 msgid "The window title for your file"
-msgstr "Der Fenstertitel für Ihre Datei"
+msgstr "Der Fenstertitel für Ihre Datei in Anführungszeichen"
+
+#. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr "Den Fenstertitel für Ihre Datei ohne Anführungszeichen"
 
 #. (para)
 msgid "The URL of the original file, if available"
-msgstr "Die URL der ursprünglichen Datei, falls vorhanden"
+msgstr "Die URL der ursprünglichen Datei, falls vorhanden, in Anführungszeichen"
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
+msgstr "Die URL der ursprünglichen Datei, falls vorhanden, ohne Anführungszeichen"
 
 #. (para)
 msgid "The URL of the second file, if available"
-msgstr "Die URL der zweiten Datei, falls vorhanden"
+msgstr "Die URL der zweiten Datei, falls vorhanden, in Anführungszeichen"
+
+#. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr "Die URL der zweiten Datei, falls vorhanden, ohne Anführungszeichen"
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr "Die Revision der ursprünglichen Datei, falls vorhanden"
+msgstr "Die Revision der ursprünglichen Datei, falls vorhanden, in Anführungszeichen"
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
+msgstr "Die Revision der ursprünglichen Datei, falls vorhanden, ohne Anführungszeichen"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr "Die Revision der zweiten Datei, falls vorhanden"
+msgstr "Die Revision der zweiten Datei, falls vorhanden, in Anführungszeichen"
+
+#. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr "Die Revision der zweiten Datei, falls vorhanden, ohne Anführungszeichen"
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr "Die fixe Revision, falls verfügbar"
+msgstr "Die fixe Revision, falls verfügbar, in Anführungszeichen"
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr "Die fixe Revision, falls verfügbar, ohne Anführungszeichen"
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr "Der Name der Konfliktdatei in Anführungszeichen"
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
+msgstr "Der Name der Konflikdatei ohne Anführungszeichen"
 
 #. (para)
 msgid ""
@@ -13527,12 +13565,30 @@ msgid "The window title for the file in the repository"
 msgstr "Der Fenstertitel für die Datei im Projektarchiv"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr "Der Fenstertitel für die Datei im Projektarchiv ohne Anführungszeichen"
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "Der Fenstertitel für die Ergebnisdatei"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr "Der Fenstertitel für die zusammengeführte Datei ohne Anführungszeichen"
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Der Name der Datei. Dies ist eine leere Zeichenfolge, wenn zwei verschiedene Dateien, anstelle von zwei Zuständen der selben Datei verglichen werden."
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr "Der Name der Datei, ohne Anführungszeichen"
 
 #. (para)
 msgid ""

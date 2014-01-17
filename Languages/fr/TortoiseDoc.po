@@ -19,13 +19,13 @@
 # gobes <gobes2@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Stéphane Aulery <lkppo@free.fr>, 2012
+# Stéphane Aulery, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-28 13:56+0000\n"
+"PO-Revision-Date: 2014-01-16 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -13391,6 +13391,11 @@ msgid "The window title for the base file"
 msgstr "Le titre de la fenêtre pour le fichier de base"
 
 #. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "Your own file, with your changes"
 msgstr "Votre propre fichier, avec vos changements"
 
@@ -13400,24 +13405,57 @@ msgid "The window title for your file"
 msgstr "Le titre de la fenêtre pour votre fichier"
 
 #. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The URL of the original file, if available"
 msgstr "L'URL du fichier original, si disponible"
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
+msgstr ""
 
 #. (para)
 msgid "The URL of the second file, if available"
 msgstr "L'URL du second fichier, si disponible"
 
 #. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The revision of the original file, if available"
 msgstr "La révision du fichier original, si disponible"
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
+msgstr ""
 
 #. (para)
 msgid "The revision of the second file, if available"
 msgstr "La révision du second fichier, si disponible"
 
 #. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The peg revision, if available"
 msgstr "La révision peg, si disponible"
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13526,12 +13564,30 @@ msgid "The window title for the file in the repository"
 msgstr "Le titre de la fenêtre pour le fichier dans le dépôt"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr ""
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "le fichier en conflit, le résultat de l'opération de fusion"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "Le titre de la fenêtre pour le fichier fusionné"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr ""
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr ""
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr ""
 
 #. (para)
 msgid ""

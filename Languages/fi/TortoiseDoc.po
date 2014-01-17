@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-28 13:56+0000\n"
+"PO-Revision-Date: 2014-01-16 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -13383,6 +13383,11 @@ msgid "The window title for the base file"
 msgstr "Kantatiedoston ikkunaotsikko"
 
 #. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "Your own file, with your changes"
 msgstr "Sinun tiedostosi, jossa ovat omat muutoksesi"
 
@@ -13392,24 +13397,57 @@ msgid "The window title for your file"
 msgstr "Sinun tiedostosi ikkunaotsikko"
 
 #. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The URL of the original file, if available"
 msgstr "Tiedoston paikannin, mikäli saatavilla"
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
+msgstr ""
 
 #. (para)
 msgid "The URL of the second file, if available"
 msgstr "Toisen tiedoston paikannin, mikäli saatavilla"
 
 #. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The revision of the original file, if available"
 msgstr "Alkuperäisen tiedoston versio mikäli saatavilla"
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
+msgstr ""
 
 #. (para)
 msgid "The revision of the second file, if available"
 msgstr "Toisen tiedoston versio, mikäli saatavilla"
 
 #. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The peg revision, if available"
 msgstr "Ankkuriversio, mikäli saatavilla"
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13518,12 +13556,30 @@ msgid "The window title for the file in the repository"
 msgstr "Arkistossa olevan tiedoston ikkunaotsikko"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr ""
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "Ristiriitainen tiedosto, yhdistämisen tulos"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "Yhdistetyn tiedoston ikkunaotsikko"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr ""
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr ""
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr ""
 
 #. (para)
 msgid ""

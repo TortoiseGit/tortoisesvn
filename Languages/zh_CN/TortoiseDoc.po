@@ -31,8 +31,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-01 15:30+0000\n"
-"Last-Translator: Gones <liejie050911@163.com>\n"
+"PO-Revision-Date: 2014-01-16 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13397,6 +13397,11 @@ msgid "The window title for the base file"
 msgstr "原始文件的窗口标题"
 
 #. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "Your own file, with your changes"
 msgstr "你更改过的新文件"
 
@@ -13406,7 +13411,16 @@ msgid "The window title for your file"
 msgstr "你新文件的窗口标题"
 
 #. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The URL of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
 msgstr ""
 
 #. (para)
@@ -13414,7 +13428,15 @@ msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
 msgstr ""
 
 #. (para)
@@ -13422,7 +13444,23 @@ msgid "The revision of the second file, if available"
 msgstr ""
 
 #. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr ""
+
+#. (para)
 msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr ""
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
 msgstr ""
 
 #. (para)
@@ -13532,12 +13570,30 @@ msgid "The window title for the file in the repository"
 msgstr "档案库中文件的窗口标题"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr ""
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "发生冲突的文件，同时将被合并后的文件替换"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "合并文件的窗口标题"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr ""
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr ""
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr ""
 
 #. (para)
 msgid ""

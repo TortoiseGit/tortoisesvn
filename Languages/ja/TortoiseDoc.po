@@ -13,14 +13,14 @@
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2013
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2014
 # Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-12-28 13:53+0000\n"
+"PO-Revision-Date: 2014-01-16 09:50+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -13386,6 +13386,11 @@ msgid "The window title for the base file"
 msgstr "変更前ファイルのウィンドウタイトル"
 
 #. (para)
+#. (para)
+msgid "The window title for the base file, without quotes"
+msgstr "引用符なしの変更前ファイルのウィンドウタイトル"
+
+#. (para)
 msgid "Your own file, with your changes"
 msgstr "変更後のファイル"
 
@@ -13395,24 +13400,57 @@ msgid "The window title for your file"
 msgstr "変更後ファイルのウィンドウタイトル"
 
 #. (para)
+#. (para)
+msgid "The window title for your file, without quotes"
+msgstr "引用符なしの変更後ファイルのウィンドウタイトル"
+
+#. (para)
 msgid "The URL of the original file, if available"
 msgstr "元ファイルのURL（もしあれば）"
+
+#. (para)
+msgid "The URL of the original file, if available, without quotes"
+msgstr "引用符なしの元ファイルのURL（もしあれば）"
 
 #. (para)
 msgid "The URL of the second file, if available"
 msgstr "2番目のファイルのURL（もしあれば）"
 
 #. (para)
+msgid "The URL of the second file, if available, without quotes"
+msgstr "引用符なしの第2ファイルのURL（もしあれば）"
+
+#. (para)
 msgid "The revision of the original file, if available"
 msgstr "元ファイルのリビジョン（もしあれば）"
+
+#. (para)
+msgid "The revision of the original file, if available, without quotes"
+msgstr "引用符なしの元ファイルのリビジョン（もしあれば）"
 
 #. (para)
 msgid "The revision of the second file, if available"
 msgstr "2番目のファイルのリビジョン（もしあれば）"
 
 #. (para)
+msgid "The revision of the second file, if available, without quotes"
+msgstr "引用符なしの第2ファイルのリビジョン（もしあれば）"
+
+#. (para)
 msgid "The peg revision, if available"
 msgstr "ペグリビジョン（もしあれば）"
+
+#. (para)
+msgid "The peg revision, if available, without quotes"
+msgstr "引用符なしのペグリビジョン（もしあれば）"
+
+#. (para)
+msgid "The name of the conflicted file"
+msgstr "競合ファイルの名前"
+
+#. (para)
+msgid "The name of the conflicted file, without quotes"
+msgstr "引用符なしの競合ファイルの名前"
 
 #. (para)
 msgid ""
@@ -13521,12 +13559,30 @@ msgid "The window title for the file in the repository"
 msgstr "リポジトリにあるファイルのウィンドウタイトル"
 
 #. (para)
+msgid "The window title for the file in the repository, without quotes"
+msgstr "引用符なしのリポジトリにあるファイルのウィンドウタイトル"
+
+#. (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "マージ操作をした結果の競合ファイル"
 
 #. (para)
 msgid "The window title for the merged file"
 msgstr "マージしたファイルのウィンドウタイトル"
+
+#. (para)
+msgid "The window title for the merged file, without quotes"
+msgstr "引用符なしのマージしたファイルのウィンドウタイトル"
+
+#. (para)
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "ファイルの名前です。もし同じファイルの2つの状態を比較するのではなく、2つの異なるファイルを比較する場合は、この文字列は空欄になります。"
+
+#. (para)
+msgid "The name of the file, without quotes"
+msgstr "引用符なしのファイルの名前です。"
 
 #. (para)
 msgid ""
