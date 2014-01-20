@@ -27,17 +27,17 @@ goto ende
     rem with newer ones from trunk!
     rem If we used branch first, we'd get only missing translations from trunk.
     msgcat --use-first %TRUNK%\%1 %1 -o temp.po 2>nul
-    msgmerge temp.po %2 -o %1 2>nul
+    msgmerge temp.po %2 2>nul| msgattrib --no-obsolete -o %1 2>nul 
     dos2unix %1 2>nul
     rem Count the changes. If there's only one changed line, it's the "PO-Revision-Date" line
     rem which means that there is no real change at all.
     rem In this case revert the file.
     for /F %%I in ('svn diff "%1" ^| find /c "@@"') do set chg=%%I
     if %chg% EQU 1 (
-    rem "svn revert" fails for paths which contain an "@" sign, like sr@latin.
-    rem So we just append an "@" to the end of the path, because svn only 
-    rem cares about the last "@".
-    svn revert "%1@"
+        rem "svn revert" fails for paths which contain an "@" sign, like sr@latin.
+        rem So we just append an "@" to the end of the path, because svn only 
+        rem cares about the last "@".
+        svn revert "%1@"
     )
     exit /b
 
