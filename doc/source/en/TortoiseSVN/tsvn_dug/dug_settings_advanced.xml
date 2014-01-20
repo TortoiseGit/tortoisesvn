@@ -373,6 +373,32 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">LogMultiRevFormat</term>
+            <listitem>
+                <para>
+                    A format string for the log messages when multiple revisions
+                    are selected in the log dialog.
+                </para>
+                <para>
+                    You can use the following placeholders in your format string:
+                    <variablelist>
+                        <varlistentry>
+                            <term condition="pot">%1!ld!</term>
+                            <listitem>
+                                gets replaced with the revision number text
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term condition="pot">%2!s!</term>
+                            <listitem>
+                                gets replaced with the short log message of the revision
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">LogStatusCheck</term>
             <listitem>
                 <para>
