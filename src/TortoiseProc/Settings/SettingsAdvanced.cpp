@@ -117,6 +117,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = false;
 
+    settings[i].sName   = L"LogMultiRevFormat";
+    settings[i].type    = CSettingsAdvanced::SettingTypeString;
+    settings[i++].def.s = L"r%1!ld!\n%2!s!\n---------------------\n";
+
     settings[i].sName   = L"LogStatusCheck";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
@@ -173,7 +177,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 37 so far...
+    // 38 so far...
     ASSERT(i < _countof(settings));
 }
 
