@@ -188,6 +188,21 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
     m_bFilterCaseSensitively =
         !!CRegDWORD(L"Software\\TortoiseSVN\\FilterCaseSensitively", FALSE);
+    m_sMultiLogFormat = CRegString(L"Software\\TortoiseSVN\\LogMultiRevFormat", L"r%1!ld!\n%2!s!\n---------------------\n");
+    m_sMultiLogFormat.Replace(L"\\r", L"\r");
+    m_sMultiLogFormat.Replace(L"\\n", L"\n");
+    // just in case the user sets an impossible/illegal format string: try to use that format
+    // string and handle possible exceptions. In case of an exception, fall back to the default.
+    try
+    {
+        CString sRevMsg;
+        sRevMsg.FormatMessage(m_sMultiLogFormat, 0, L"test");
+    }
+    catch (...)
+    {
+        // fall back to the default
+        m_sMultiLogFormat = L"r%1!ld!\n%2!s!\n---------------------\n";
+    }
 }
 
 CLogDlg::~CLogDlg()
@@ -4290,8 +4305,9 @@ CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CStr
             if (pLogEntry)
             {
                 CString sRevMsg;
-                sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(),
-                    (LPCWSTR)pLogEntry->GetShortMessageUTF16());
+                sRevMsg.FormatMessage(m_sMultiLogFormat, //L"r%1!ld!\n%2!s!\n---------------------\n",
+                                      pLogEntry->GetRevision(),
+                                      (LPCWSTR)pLogEntry->GetShortMessageUTF16());
                 sMessageSketch +=  sRevMsg;
                 const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
                 for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)

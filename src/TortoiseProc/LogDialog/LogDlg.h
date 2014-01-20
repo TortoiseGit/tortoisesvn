@@ -404,6 +404,7 @@ private:
     CString             m_sLogInfo;
     std::set<svn_revnum_t> m_mergedRevs;
     SVNRev              m_copyfromrev;
+    CString             m_sMultiLogFormat;
 
     CToolTips           m_tooltips;
 
