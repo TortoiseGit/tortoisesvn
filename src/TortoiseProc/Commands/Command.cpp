@@ -37,6 +37,7 @@
 #include "DropCopyAddCommand.h"
 #include "DropCopyCommand.h"
 #include "DropExportCommand.h"
+#include "DropExternalCommand.h"
 #include "DropMoveCommand.h"
 #include "DropVendorCommand.h"
 #include "EditFileCommand.h"
@@ -92,6 +93,7 @@ typedef enum
     cmdDropCopy,
     cmdDropCopyAdd,
     cmdDropExport,
+    cmdDropExternals,
     cmdDropMove,
     cmdDropVendor,
     cmdEditFile,
@@ -152,6 +154,7 @@ static const struct CommandInfo
     {   cmdDropCopy,        L"dropcopy"          },
     {   cmdDropCopyAdd,     L"dropcopyadd"       },
     {   cmdDropExport,      L"dropexport"        },
+    {   cmdDropExternals,   L"dropexternals"     },
     {   cmdDropMove,        L"dropmove"          },
     {   cmdDropVendor,      L"dropvendor"        },
     {   cmdEditFile,        L"editfile"          },
@@ -212,119 +215,121 @@ Command * CommandServer::GetCommand(const CString& sCmd)
 
     switch (command)
     {
-    case cmdAbout:
-        return new AboutCommand;
-    case cmdAdd:
-        return new AddCommand;
-    case cmdAutoTextTest:
-        return new AutoTextTestCommand;
-    case cmdBlame:
-        return new BlameCommand;
-    case cmdCat:
-        return new CatCommand;
-    case cmdCheckout:
-        return new CheckoutCommand;
-    case cmdCleanup:
-        return new CleanupCommand;
-    case cmdCommit:
-        return new CommitCommand;
-    case cmdConflictEditor:
-        return new ConflictEditorCommand;
-    case cmdCopy:
-        return new CopyCommand;
-    case cmdCrash:
-        return new CrashCommand;
-    case cmdCreatePatch:
-        return new CreatePatchCommand;
-    case cmdDelUnversioned:
-        return new DelUnversionedCommand;
-    case cmdDiff:
-        return new DiffCommand;
-    case cmdDropCopy:
-        return new DropCopyCommand;
-    case cmdDropCopyAdd:
-        return new DropCopyAddCommand;
-    case cmdDropExport:
-        return new DropExportCommand;
-    case cmdDropMove:
-        return new DropMoveCommand;
-    case cmdDropVendor:
-        return new DropVendorCommand;
-    case cmdEditFile:
-        return new EditFileCommand;
-    case cmdExport:
-        return new ExportCommand;
-    case cmdHelp:
-        return new HelpCommand;
-    case cmdIgnore:
-        return new IgnoreCommand;
-    case cmdImport:
-        return new ImportCommand;
-    case cmdLock:
-        return new LockCommand;
-    case cmdLog:
-        return new LogCommand;
-    case cmdMerge:
-        return new MergeCommand;
-    case cmdMergeAll:
-        return new MergeAllCommand;
-    case cmdPasteCopy:
-        return new PasteCopyCommand;
-    case cmdPasteMove:
-        return new PasteMoveCommand;
-    case cmdPrevDiff:
-        return new PrevDiffCommand;
-    case cmdProperties:
-        return new PropertiesCommand;
-    case cmdRTFM:
-        return new RTFMCommand;
-    case cmdRebuildIconCache:
-        return new RebuildIconCacheCommand;
-    case cmdRelocate:
-        return new RelocateCommand;
-    case cmdRemove:
-        return new RemoveCommand;
-    case cmdRename:
-        return new RenameCommand;
-    case cmdRepoBrowser:
-        return new RepositoryBrowserCommand;
-    case cmdRepoCreate:
-        return new CreateRepositoryCommand;
-    case cmdRepoStatus:
-        return new RepoStatusCommand;
-    case cmdResolve:
-        return new ResolveCommand;
-    case cmdRevert:
-        return new RevertCommand;
-    case cmdRevisionGraph:
-        return new RevisionGraphCommand;
-    case cmdSettings:
-        return new SettingsCommand;
-    case cmdShowCompare:
-        return new ShowCompareCommand;
-    case cmdSwitch:
-        return new SwitchCommand;
-    case cmdUnIgnore:
-        return new UnIgnoreCommand;
-    case cmdUnlock:
-        return new UnLockCommand;
-    case cmdUpdate:
-        return new UpdateCommand;
-    case cmdUpdateCheck:
-        return new UpdateCheckCommand;
-    case cmdUrlDiff:
-        return new UrlDiffCommand;
-    case cmdWcUpgrade:
-        return new WcUpgradeCommand;
+        case cmdAbout:
+            return new AboutCommand;
+        case cmdAdd:
+            return new AddCommand;
+        case cmdAutoTextTest:
+            return new AutoTextTestCommand;
+        case cmdBlame:
+            return new BlameCommand;
+        case cmdCat:
+            return new CatCommand;
+        case cmdCheckout:
+            return new CheckoutCommand;
+        case cmdCleanup:
+            return new CleanupCommand;
+        case cmdCommit:
+            return new CommitCommand;
+        case cmdConflictEditor:
+            return new ConflictEditorCommand;
+        case cmdCopy:
+            return new CopyCommand;
+        case cmdCrash:
+            return new CrashCommand;
+        case cmdCreatePatch:
+            return new CreatePatchCommand;
+        case cmdDelUnversioned:
+            return new DelUnversionedCommand;
+        case cmdDiff:
+            return new DiffCommand;
+        case cmdDropCopy:
+            return new DropCopyCommand;
+        case cmdDropCopyAdd:
+            return new DropCopyAddCommand;
+        case cmdDropExport:
+            return new DropExportCommand;
+        case cmdDropExternals:
+            return new DropExternalCommand;
+        case cmdDropMove:
+            return new DropMoveCommand;
+        case cmdDropVendor:
+            return new DropVendorCommand;
+        case cmdEditFile:
+            return new EditFileCommand;
+        case cmdExport:
+            return new ExportCommand;
+        case cmdHelp:
+            return new HelpCommand;
+        case cmdIgnore:
+            return new IgnoreCommand;
+        case cmdImport:
+            return new ImportCommand;
+        case cmdLock:
+            return new LockCommand;
+        case cmdLog:
+            return new LogCommand;
+        case cmdMerge:
+            return new MergeCommand;
+        case cmdMergeAll:
+            return new MergeAllCommand;
+        case cmdPasteCopy:
+            return new PasteCopyCommand;
+        case cmdPasteMove:
+            return new PasteMoveCommand;
+        case cmdPrevDiff:
+            return new PrevDiffCommand;
+        case cmdProperties:
+            return new PropertiesCommand;
+        case cmdRTFM:
+            return new RTFMCommand;
+        case cmdRebuildIconCache:
+            return new RebuildIconCacheCommand;
+        case cmdRelocate:
+            return new RelocateCommand;
+        case cmdRemove:
+            return new RemoveCommand;
+        case cmdRename:
+            return new RenameCommand;
+        case cmdRepoBrowser:
+            return new RepositoryBrowserCommand;
+        case cmdRepoCreate:
+            return new CreateRepositoryCommand;
+        case cmdRepoStatus:
+            return new RepoStatusCommand;
+        case cmdResolve:
+            return new ResolveCommand;
+        case cmdRevert:
+            return new RevertCommand;
+        case cmdRevisionGraph:
+            return new RevisionGraphCommand;
+        case cmdSettings:
+            return new SettingsCommand;
+        case cmdShowCompare:
+            return new ShowCompareCommand;
+        case cmdSwitch:
+            return new SwitchCommand;
+        case cmdUnIgnore:
+            return new UnIgnoreCommand;
+        case cmdUnlock:
+            return new UnLockCommand;
+        case cmdUpdate:
+            return new UpdateCommand;
+        case cmdUpdateCheck:
+            return new UpdateCheckCommand;
+        case cmdUrlDiff:
+            return new UrlDiffCommand;
+        case cmdWcUpgrade:
+            return new WcUpgradeCommand;
 
-    default:
-        return new AboutCommand;
+        default:
+            return new AboutCommand;
     }
 }
 
 bool Command::CheckPaths()
 {
-    if ((pathList.GetCount()==0)&&(cmdLinePath.IsEmpty()))
+    if ((pathList.GetCount() == 0) && (cmdLinePath.IsEmpty()))
     {
         TSVNMessageBox(GetExplorerHWND(), IDS_ERR_PATHPARAMMISSING, IDS_APPNAME, MB_ICONERROR);
         return false;

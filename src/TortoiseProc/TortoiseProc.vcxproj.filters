@@ -1073,6 +1073,9 @@
     <ClCompile Include="CodeCollaboratorSettingsDlg.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\DropExternalCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2046,6 +2049,9 @@
     </ClInclude>
     <ClInclude Include="CodeCollaboratorSettingsDlg.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DropExternalCommand.h">
+      <Filter>Commands\Drop</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

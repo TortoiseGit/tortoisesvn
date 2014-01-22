@@ -254,6 +254,7 @@
     <ClCompile Include="Commands\DropCopyAddCommand.cpp" />
     <ClCompile Include="Commands\DropCopyCommand.cpp" />
     <ClCompile Include="Commands\DropExportCommand.cpp" />
+    <ClCompile Include="Commands\DropExternalCommand.cpp" />
     <ClCompile Include="Commands\DropMoveCommand.cpp" />
     <ClCompile Include="Commands\DropVendorCommand.cpp" />
     <ClCompile Include="Commands\EditFileCommand.cpp" />
@@ -576,6 +577,7 @@
     <ClInclude Include="Commands\DropCopyAddCommand.h" />
     <ClInclude Include="Commands\DropCopyCommand.h" />
     <ClInclude Include="Commands\DropExportCommand.h" />
+    <ClInclude Include="Commands\DropExternalCommand.h" />
     <ClInclude Include="Commands\DropMoveCommand.h" />
     <ClInclude Include="Commands\DropVendorCommand.h" />
     <ClInclude Include="Commands\EditFileCommand.h" />
