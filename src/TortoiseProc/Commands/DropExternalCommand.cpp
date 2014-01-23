@@ -21,6 +21,7 @@
 #include "SVN.h"
 #include "SVNProperties.h"
 #include "SVNStatus.h"
+#include "SVNProgressDlg.h"
 
 bool DropExternalCommand::Execute()
 {
@@ -58,14 +59,18 @@ bool DropExternalCommand::Execute()
     if (sTargetRepoRootUrl.IsEmpty())
     {
         // failed to get the status and/or the repo root url
-        // TODO: show error dialog
+        CString messageString;
+        messageString.Format(IDS_ERR_NOURLOFFILE, droptsvnpath.GetWinPath());
+        ::MessageBox(GetExplorerHWND(), messageString, L"TortoiseSVN", MB_ICONERROR);
     }
     SVN svn;
     for (auto i = 0; i < pathList.GetCount(); ++i)
     {
         CTSVNPath destPath = droptsvnpath;
         destPath.AppendPathString(pathList[i].GetFileOrDirectoryName());
-        if (CopyFile(pathList[i].GetWinPath(), destPath.GetWinPath(), TRUE))
+        bool bExists = !!PathFileExists(destPath.GetWinPath());
+        if (!bExists &&
+            (PathIsDirectory(pathList[i].GetWinPath()) || CopyFile(pathList[i].GetWinPath(), destPath.GetWinPath(), TRUE)))
         {
             SVNStatus sourceStatus;
             sourceStatus.GetStatus(pathList[i]);
@@ -91,23 +96,67 @@ bool DropExternalCommand::Execute()
             // the file already exists, there can't be an external with the
             // same name.
 
-            // TODO: show error dialog
+            CString messageString;
+            messageString.Format(IDS_DROPEXT_FILEEXISTS, (LPCWSTR)pathList[i].GetFileOrDirectoryName());
+            ::MessageBox(GetExplorerHWND(), messageString, L"TortoiseSVN", MB_ICONERROR);
             bSuccess = false;
         }
     }
     if (bSuccess)
     {
         bSuccess = !!props.Add(SVN_PROP_EXTERNALS, sExternalsValue, true);
-    }
+        if (bSuccess)
+        {
+            CString sInfo;
+            sInfo.Format(IDS_DROPEXT_UPDATE_TASK1, (LPCTSTR)droptsvnpath.GetFileOrDirectoryName());
+            CTaskDialog taskdlg(sInfo,
+                                CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            bool doUpdate = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+            if (doUpdate)
+            {
+                DWORD exitcode = 0;
+                CString error;
+                ProjectProperties props;
+                props.ReadPropsPathList(pathList);
+                CHooks::Instance().SetProjectProperties(droptsvnpath, props);
+                if (CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitcode, error))
+                {
+                    if (exitcode)
+                    {
+                        CString temp;
+                        temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
+                        ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
+                        return FALSE;
+                    }
+                }
 
-    if (!bSuccess)
-    {
-        // adding the svn:externals property failed, remove all the copied files
-
-        props.ShowErrorDialog(GetExplorerHWND());
+                CSVNProgressDlg progDlg;
+                theApp.m_pMainWnd = &progDlg;
+                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+                progDlg.SetAutoClose(parser);
+                progDlg.SetOptions(ProgOptSkipPreChecks);
+                progDlg.SetPathList(CTSVNPathList(droptsvnpath));
+                progDlg.SetRevision(SVNRev(L"HEAD"));
+                progDlg.SetProjectProperties(props);
+                progDlg.SetDepth(svn_depth_unknown);
+                progDlg.DoModal();
+                return !progDlg.DidErrorsOccur();
+            }
+        }
+        else
+        {
+            // adding the svn:externals property failed, remove all the copied files
+            props.ShowErrorDialog(GetExplorerHWND());
+        }
     }
-    // TODO: show a dialog asking whether to update the target
-    // folder so that the externals get properly added
 
     return bSuccess != false;
 }
