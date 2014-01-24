@@ -251,4 +251,24 @@
             <literal>svn:externals</literal> property must be modified instead.
         </para>
     </sect2>
+    <sect2 id="tsvn-dug-externals-drop">
+        <title>Creating externals via drag and drop</title>
+        <para>
+            If you already have a working copy of the files or folders you want
+            to include as externals in another working copy, you can simply add
+            those via drag and drop from the windows explorer.
+        </para>
+        <para>
+            Simply <action>right drag</action> the file or folder from one
+            working copy to where you want those to be included as externals.
+            A context menu appears when you release the mouse button:
+            <menuchoice>
+                <guimenuitem>SVN Add as externals here</guimenuitem>
+            </menuchoice>
+            if you click on that context menu entry, the <literal>svn:externals</literal>
+            property is automatically added. All you have to do after that
+            is commit the property changes and update to get those externals
+            properly included in your working copy.
+        </para>
+    </sect2>
 </sect1>
