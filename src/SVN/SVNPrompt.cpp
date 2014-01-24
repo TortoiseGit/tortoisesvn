@@ -54,7 +54,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
     svn_auth_provider_object_t *provider;
 
     /* The whole list of registered providers */
-    apr_array_header_t *providers = apr_array_make (pool, 13, sizeof (svn_auth_provider_object_t *));
+    apr_array_header_t *providers = apr_array_make (pool, 14, sizeof (svn_auth_provider_object_t *));
 
     if (ctx->config != nullptr)
     {
@@ -75,11 +75,15 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
     svn_auth_get_username_provider (&provider, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
-    /* The server-cert, client-cert, and client-cert-password providers. */
-    svn_auth_get_platform_specific_provider (&provider, "windows", "ssl_server_trust", pool);
+    // The server-cert, client-cert, and client-cert-password providers.
+    svn_auth_get_platform_specific_provider(&provider, "windows", "ssl_server_trust", pool);
     if (provider)
         APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
-    svn_auth_get_ssl_server_trust_file_provider (&provider, pool);
+    // The windows ssl authority certificate CRYPTOAPI provider.
+    svn_auth_get_platform_specific_provider(&provider, "windows", "ssl_server_authority", pool);
+    if (provider)
+        APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
+    svn_auth_get_ssl_server_trust_file_provider(&provider, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
     svn_auth_get_ssl_client_cert_file_provider (&provider, pool);
     APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
