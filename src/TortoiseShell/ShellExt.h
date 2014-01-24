@@ -124,6 +124,7 @@ protected:
         ShellMenuDropExport,
         ShellMenuDropExportExtended,
         ShellMenuDropExportChanged,
+        ShellMenuDropExternals,
         ShellMenuDropVendor,
         ShellMenuLog,
         ShellMenuConflictEditor,

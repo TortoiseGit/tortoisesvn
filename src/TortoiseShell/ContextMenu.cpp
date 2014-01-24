@@ -888,6 +888,11 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if ((itemStatesFolder & ITEMIS_FOLDERINSVN)&&(((~itemStates) & ITEMIS_INSVN)||!bSourceAndTargetFromSameRepository))
         InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPVENDORMENU, 0, idCmdFirst, ShellMenuDropVendor, L"tsvn_dropvendor");
 
+    // SVN Add as external here
+    // available if source is versioned, target is versioned
+    if ((itemStatesFolder & ITEMIS_FOLDERINSVN) && (itemStates & ITEMIS_INSVN))
+        InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXTERNAL, 0, idCmdFirst, ShellMenuDropExternals, L"tsvn_dropexternal");
+
     // apply patch
     // available if source is a patchfile
     if (itemStates & ITEMIS_PATCHFILE)
@@ -1495,6 +1500,9 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
         case ShellMenuDropExportChanged:
             AddPathFileDropCommand(svnCmd, L"dropexport");
             svnCmd += L" /extended:localchanges";
+            break;
+        case ShellMenuDropExternals:
+            AddPathFileDropCommand(svnCmd, L"dropexternals");
             break;
         case ShellMenuDropVendor:
             AddPathFileDropCommand(svnCmd, L"dropvendor");

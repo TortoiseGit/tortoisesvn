@@ -187,6 +187,7 @@
 #define IDS_MENUDESCDIFFNOW             276
 #define IDS_MENUUNIDIFF                 277
 #define IDS_MENUUNIDESCDIFF             278
+#define IDS_DROPEXTERNAL                279
 #define IDS_SVN_DEPTH_INFINITE          300
 #define IDS_SVN_DEPTH_IMMEDIATE         301
 #define IDS_SVN_DEPTH_FILES             302
