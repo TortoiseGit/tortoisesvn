@@ -2484,6 +2484,10 @@ msgstr ""
 msgid "Cancel\nYou have to add the folder manually."
 msgstr ""
 
+#. Resource IDs: (291)
+msgid "Cancel\nYou have to run an update yourself to get the externals"
+msgstr ""
+
 #. Resource IDs: (100)
 msgid "Cancel\nkeep the current format."
 msgstr ""
@@ -3843,6 +3847,11 @@ msgstr ""
 #. Resource IDs: (120)
 #, c-format
 msgid "Do you want to revert all changes in\n%s\nwhich were made in this revision?"
+msgstr ""
+
+#. Resource IDs: (291)
+#, c-format
+msgid "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7806,6 +7815,10 @@ msgstr ""
 msgid "SVN &Vendorbranch here"
 msgstr ""
 
+#. Resource IDs: (18)
+msgid "SVN Add as &external here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr ""
@@ -8983,6 +8996,11 @@ msgstr ""
 msgid "The file is too large to open."
 msgstr ""
 
+#. Resource IDs: (291)
+#, c-format
+msgid "The file or directory \"%s\" already exists at the drop location! You have to remove it first before you can add an external there with the same name."
+msgstr ""
+
 #. Resource IDs: (80)
 #, c-format
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
@@ -9805,12 +9823,20 @@ msgstr ""
 msgid "Update WC to revision"
 msgstr ""
 
+#. Resource IDs: (291)
+msgid "Update externals"
+msgstr ""
+
 #. Resource IDs: (93)
 msgid "Update\nUpdate the file and try locking again."
 msgstr ""
 
 #. Resource IDs: (90)
 msgid "Update\nUpdate the working copy and reopen the commit dialog to try again."
+msgstr ""
+
+#. Resource IDs: (291)
+msgid "Update\nUpdate to the HEAD revision"
 msgstr ""
 
 #. Resource IDs: (74)
