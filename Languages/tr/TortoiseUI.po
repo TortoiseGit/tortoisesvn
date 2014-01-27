@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-08 08:28+0000\n"
+"PO-Revision-Date: 2014-01-27 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -2668,6 +2668,12 @@ msgid ""
 "You have to add the folder manually."
 msgstr "İptal Et\nKlasörü manel olarak eklemelisiniz."
 
+#. Resource IDs: (291)
+msgid ""
+"Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -4147,6 +4153,12 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr "Bu revizyonda yapılmış %s değişikliklerinin tümünü geri almak istiyor musunuz?"
+
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -8530,6 +8542,10 @@ msgstr "SSH"
 msgid "SVN &Vendorbranch here"
 msgstr ""
 
+#. Resource IDs: (18)
+msgid "SVN Add as &external here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Yaratıcısı"
@@ -9874,6 +9890,13 @@ msgstr "Dosya çok büyük"
 msgid "The file is too large to open."
 msgstr "Dosya açmak için çok büyük."
 
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"The file or directory \"%s\" already exists at the drop location! You have "
+"to remove it first before you can add an external there with the same name."
+msgstr ""
+
 #. Resource IDs: (80)
 #, c-format
 msgid ""
@@ -10889,6 +10912,10 @@ msgstr "Derinlik Güncelleme"
 msgid "Update WC to revision"
 msgstr "Çalışan Kopyayı revizyona göre güncelle"
 
+#. Resource IDs: (291)
+msgid "Update externals"
+msgstr ""
+
 #. Resource IDs: (93)
 msgid ""
 "Update\n"
@@ -10900,6 +10927,12 @@ msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr "İptal Et\nÇalışan kopyayı güncelleme."
+
+#. Resource IDs: (291)
+msgid ""
+"Update\n"
+"Update to the HEAD revision"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

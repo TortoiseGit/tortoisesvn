@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-08 08:28+0000\n"
+"PO-Revision-Date: 2014-01-27 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -2669,6 +2669,12 @@ msgid ""
 "You have to add the folder manually."
 msgstr "취소\n수동으로 폴더를 추가해야만 합니다."
 
+#. Resource IDs: (291)
+msgid ""
+"Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -4148,6 +4154,12 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr "이 리비전에서 만들어진\n%s\n에 대한 모든 변경사항을 되돌리시겠습니까?"
+
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -8531,6 +8543,10 @@ msgstr "SSH"
 msgid "SVN &Vendorbranch here"
 msgstr "SVN 여기에 브랜치를 업데이트(&V)"
 
+#. Resource IDs: (18)
+msgid "SVN Add as &external here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "작성자"
@@ -9875,6 +9891,13 @@ msgstr "너무 커서 열 수가 없습니다."
 msgid "The file is too large to open."
 msgstr "너무 커서 열수가 없습니다."
 
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"The file or directory \"%s\" already exists at the drop location! You have "
+"to remove it first before you can add an external there with the same name."
+msgstr ""
+
 #. Resource IDs: (80)
 #, c-format
 msgid ""
@@ -10890,6 +10913,10 @@ msgstr "업데이트 깊이"
 msgid "Update WC to revision"
 msgstr "작업사본을 리비전으로 업데이트"
 
+#. Resource IDs: (291)
+msgid "Update externals"
+msgstr ""
+
 #. Resource IDs: (93)
 msgid ""
 "Update\n"
@@ -10901,6 +10928,12 @@ msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr "업데이트\n작업 사본을 업데이트하고 다시 커밋 대화상자를 엽니다."
+
+#. Resource IDs: (291)
+msgid ""
+"Update\n"
+"Update to the HEAD revision"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

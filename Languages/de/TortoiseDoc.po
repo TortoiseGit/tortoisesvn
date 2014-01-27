@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-16 09:20+0000\n"
+"PO-Revision-Date: 2014-01-27 10:15+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -8823,6 +8823,28 @@ msgid ""
 msgstr "Eine externe Datei verhält sich in den meisten Fällen wie jede andere versionierte Datei, sie kann aber nicht mit den normalen Befehlen gelöscht oder verschoben werden. Stattdessen muss die <literal>svn:externals</literal> Eigenschaft verändert werden."
 
 #. (title)
+msgid "Creating externals via drag and drop"
+msgstr "Externals per Ziehen und Ablegen erstellen"
+
+#. (para)
+msgid ""
+"If you already have a working copy of the files or folders you want to "
+"include as externals in another working copy, you can simply add those via "
+"drag and drop from the windows explorer."
+msgstr "Wenn Sie bereits eine Arbeitskopie mit den Dateien oder Ordnern, die Sie als Externals in eine andere Arbeitskopie einbinden wollen, haben, können Sie diese einfach per Ziehen und Ablegen im Windows Explorer hinzufügen."
+
+#. (para)
+msgid ""
+"Simply <action>right drag</action> the file or folder from one working copy "
+"to where you want those to be included as externals. A context menu appears "
+"when you release the mouse button: <menuchoice><guimenuitem>SVN Add as "
+"externals here</guimenuitem></menuchoice> if you click on that context menu "
+"entry, the <literal>svn:externals</literal> property is automatically added."
+" All you have to do after that is commit the property changes and update to "
+"get those externals properly included in your working copy."
+msgstr "Ziehen Sie einfach mit der <action>rechten Maustaste</action> das Objekt von der einen Arbeitskopie an den Ort, an dem es als External eingebunden werden soll. Ein Kontextmenü erscheint, aus dem Sie die Funktion<menuchoice><guimenuitem>SVN Als External hier hinzufügen</guimenuitem></menuchoice> wählen. Dadurch wird die <literal>svn:externals</literal> Eigenschaft automatisch gesetzt. Alles, was Sie danach tun müssen, ist die geänderte Eigenschaft zu übertragen und Ihre Arbeitskopie zu aktualisieren."
+
+#. (title)
 msgid "Branching / Tagging"
 msgstr "Verzweigen / Markieren"
 
@@ -14711,6 +14733,26 @@ msgid ""
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
 msgstr "Wenn diese Option auf <literal>True</literal> gesetzt wird, versucht TortoiseSVN die Revision zu finden, in welcher der Zweig angelegt wurde und alle Revisionen davor zu verbergen. Da dies eine Weile in Anspruch nehmen kann, ist die Option standardmäßig abgeschaltet. Außerdem funktioniert sie nicht bei jedem SVN Server (z.B. Google Code Hosting, siehe <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>Issue #5471</citetitle></ulink>)."
+
+#. (para)
+msgid ""
+"A format string for the log messages when multiple revisions are selected in"
+" the log dialog."
+msgstr "Eine Formatvorlage für die Logmeldungen, wenn mehrere Revisionen im Log-Dialog markiert sind."
+
+#. (listitem)
+msgid "gets replaced with the revision number text"
+msgstr "wird durch die Revisionsnummer ersetzt."
+
+#. (listitem)
+msgid "gets replaced with the short log message of the revision"
+msgstr "wird durch die kurze Logmeldung der Revision ersetzt."
+
+#. (para)
+msgid ""
+"You can use the following placeholders in your format string: "
+"<placeholder-1/>"
+msgstr "Sie können die folgenden Platzhalter in Ihrem Text verwenden <placeholder-1/>"
 
 #. (para)
 msgid ""

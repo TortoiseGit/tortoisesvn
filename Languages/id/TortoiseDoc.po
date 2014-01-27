@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-16 08:20+0000\n"
+"PO-Revision-Date: 2014-01-27 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -8816,6 +8816,28 @@ msgid ""
 msgstr ""
 
 #. (title)
+msgid "Creating externals via drag and drop"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you already have a working copy of the files or folders you want to "
+"include as externals in another working copy, you can simply add those via "
+"drag and drop from the windows explorer."
+msgstr ""
+
+#. (para)
+msgid ""
+"Simply <action>right drag</action> the file or folder from one working copy "
+"to where you want those to be included as externals. A context menu appears "
+"when you release the mouse button: <menuchoice><guimenuitem>SVN Add as "
+"externals here</guimenuitem></menuchoice> if you click on that context menu "
+"entry, the <literal>svn:externals</literal> property is automatically added."
+" All you have to do after that is commit the property changes and update to "
+"get those externals properly included in your working copy."
+msgstr ""
+
+#. (title)
 msgid "Branching / Tagging"
 msgstr "Pencabangan / Pembuatan Tag"
 
@@ -14703,6 +14725,26 @@ msgid ""
 "SVN servers (e.g., Google Code Hosting, see <ulink "
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"A format string for the log messages when multiple revisions are selected in"
+" the log dialog."
+msgstr ""
+
+#. (listitem)
+msgid "gets replaced with the revision number text"
+msgstr ""
+
+#. (listitem)
+msgid "gets replaced with the short log message of the revision"
+msgstr ""
+
+#. (para)
+msgid ""
+"You can use the following placeholders in your format string: "
+"<placeholder-1/>"
 msgstr ""
 
 #. (para)

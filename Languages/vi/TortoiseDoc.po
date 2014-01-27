@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-16 08:20+0000\n"
+"PO-Revision-Date: 2014-01-27 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -8813,6 +8813,28 @@ msgid ""
 msgstr "Một tập tin bên ngoài cư xử giống như bất kỳ tập tin được phiên bản khác trong nhiều khía cạnh, nhưng chúng không thể được di chuyển hoặc xóa bằng cách sử dụng các lệnh bình thường, thay vào đó thuộc tính <literal> svn:externals </literal> phải được sửa đổi."
 
 #. (title)
+msgid "Creating externals via drag and drop"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you already have a working copy of the files or folders you want to "
+"include as externals in another working copy, you can simply add those via "
+"drag and drop from the windows explorer."
+msgstr ""
+
+#. (para)
+msgid ""
+"Simply <action>right drag</action> the file or folder from one working copy "
+"to where you want those to be included as externals. A context menu appears "
+"when you release the mouse button: <menuchoice><guimenuitem>SVN Add as "
+"externals here</guimenuitem></menuchoice> if you click on that context menu "
+"entry, the <literal>svn:externals</literal> property is automatically added."
+" All you have to do after that is commit the property changes and update to "
+"get those externals properly included in your working copy."
+msgstr ""
+
+#. (title)
 msgid "Branching / Tagging"
 msgstr "Phn Nhánh / Tạo Thẻ"
 
@@ -14701,6 +14723,26 @@ msgid ""
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
 msgstr "Nếu tùy chọn này được thiết lập thành <literal> true </literal> thì TortoiseSVN sẽ cố gắng để tìm những sửa đổi nơi chi nhánh đã được tạo ra và ẩn tất cả các bản nằm ngoài bản sửa đổi đó. Bởi vì  điều này có thể mất nhiều thời gian, tùy chọn này bị vô hiệu hóa theo mặc định. Ngoài ra tùy chọn này không làm việc với một số máy chủ SVN (ví dụ, Google Code Hosting, xem <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle> vấn đề #5471 </citetitle></ulink>)."
+
+#. (para)
+msgid ""
+"A format string for the log messages when multiple revisions are selected in"
+" the log dialog."
+msgstr ""
+
+#. (listitem)
+msgid "gets replaced with the revision number text"
+msgstr ""
+
+#. (listitem)
+msgid "gets replaced with the short log message of the revision"
+msgstr ""
+
+#. (para)
+msgid ""
+"You can use the following placeholders in your format string: "
+"<placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""

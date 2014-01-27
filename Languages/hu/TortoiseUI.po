@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-08 08:28+0000\n"
+"PO-Revision-Date: 2014-01-27 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/tortoisesvn/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -2663,6 +2663,12 @@ msgid ""
 "You have to add the folder manually."
 msgstr ""
 
+#. Resource IDs: (291)
+msgid ""
+"Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -4141,6 +4147,12 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%s\n"
 "which were made in this revision?"
+msgstr ""
+
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8525,6 +8537,10 @@ msgstr "SSH"
 msgid "SVN &Vendorbranch here"
 msgstr ""
 
+#. Resource IDs: (18)
+msgid "SVN Add as &external here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Fejlesztő"
@@ -9869,6 +9885,13 @@ msgstr "A fájl túl nagy"
 msgid "The file is too large to open."
 msgstr "A fájl túl nagy a megnyitáshoz."
 
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"The file or directory \"%s\" already exists at the drop location! You have "
+"to remove it first before you can add an external there with the same name."
+msgstr ""
+
 #. Resource IDs: (80)
 #, c-format
 msgid ""
@@ -10884,6 +10907,10 @@ msgstr "Frissítés mélysége"
 msgid "Update WC to revision"
 msgstr "Munkapéldány frissítése adott verzióra"
 
+#. Resource IDs: (291)
+msgid "Update externals"
+msgstr ""
+
 #. Resource IDs: (93)
 msgid ""
 "Update\n"
@@ -10894,6 +10921,12 @@ msgstr ""
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
+msgstr ""
+
+#. Resource IDs: (291)
+msgid ""
+"Update\n"
+"Update to the HEAD revision"
 msgstr ""
 
 #. Resource IDs: (74)

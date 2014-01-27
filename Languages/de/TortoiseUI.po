@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-09 09:20+0000\n"
+"PO-Revision-Date: 2014-01-27 10:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2673,6 +2673,12 @@ msgid ""
 "You have to add the folder manually."
 msgstr "Abbrechen\nSie müssen den Ordner selbst hinzufügen."
 
+#. Resource IDs: (291)
+msgid ""
+"Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr "Abbrechen\nSie müssen selber aktualisieren, um die Externals zu erhalten"
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -4152,6 +4158,12 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr "Wollen Sie alle Änderungen in\n%s\nrückgängig machen, die in dieser Revision vorgenommen wurden?"
+
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
+msgstr "Möchten Sie den Ordner \"%s\" aktualisieren, um die svn:externals zu holen?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -8535,6 +8547,10 @@ msgstr "SSH"
 msgid "SVN &Vendorbranch here"
 msgstr "SVN &Herstellerzweig hier"
 
+#. Resource IDs: (18)
+msgid "SVN Add as &external here"
+msgstr "SVN Als &External hier hinzufügen"
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
@@ -9879,6 +9895,13 @@ msgstr "Die Datei ist zu groß"
 msgid "The file is too large to open."
 msgstr "Die Datei ist zu groß, um sie zu öffnen."
 
+#. Resource IDs: (291)
+#, c-format
+msgid ""
+"The file or directory \"%s\" already exists at the drop location! You have "
+"to remove it first before you can add an external there with the same name."
+msgstr "Das Objekt \"%s\" existiert bereits am Ablageort! Sie müssen es löschen, bevor Sie dort ein External mit dem gleichen Namen hinzufügen."
+
 #. Resource IDs: (80)
 #, c-format
 msgid ""
@@ -10894,6 +10917,10 @@ msgstr "Aktualisierungstiefe"
 msgid "Update WC to revision"
 msgstr "Aktualisiere Arbeitskopie zu Revision"
 
+#. Resource IDs: (291)
+msgid "Update externals"
+msgstr "Externals aktualisieren"
+
 #. Resource IDs: (93)
 msgid ""
 "Update\n"
@@ -10905,6 +10932,12 @@ msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr "Aktualisieren\nDie Arbeitskopie aktualisieren und den Übertragen-Dialog erneut öffnen."
+
+#. Resource IDs: (291)
+msgid ""
+"Update\n"
+"Update to the HEAD revision"
+msgstr "Aktualisieren\nAktualisiere zur HEAD Revision"
 
 #. Resource IDs: (74)
 msgid "Updated"
