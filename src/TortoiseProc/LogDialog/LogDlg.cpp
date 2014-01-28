@@ -6361,7 +6361,6 @@ PTOKEN_USER CLogDlg::GetUserTokenFromProcessId(DWORD pid)
 {
     CAutoGeneralHandle hProcess = OpenProcess(MAXIMUM_ALLOWED, FALSE, pid);
     CAutoGeneralHandle hToken;
-    int lastError = 0;
 
     // yuck!
     if (OpenProcessToken(hProcess, TOKEN_QUERY, hToken.GetPointer()))
@@ -6379,7 +6378,6 @@ PTOKEN_USER CLogDlg::GetUserTokenFromProcessId(DWORD pid)
                     {
                         return pUserToken;
                     }
-                    lastError = GetLastError();
                     LocalFree(pUserToken);
                     return NULL; // no token info
                 }
