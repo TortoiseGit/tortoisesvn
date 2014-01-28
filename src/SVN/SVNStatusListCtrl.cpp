@@ -2027,10 +2027,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
             {
                 ++m_nBlockItemChangeHandler;
                 POSITION pos = GetFirstSelectedItemPosition();
-                int index;
                 while (pos)
                 {
-                    index = GetNextSelectedItem(pos);
+                    int index = GetNextSelectedItem(pos);
                     if (index != pNMLV->iItem)
                         CheckEntry(index, nListItems);
                 }
@@ -2046,10 +2045,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
             {
                 ++m_nBlockItemChangeHandler;
                 POSITION pos = GetFirstSelectedItemPosition();
-                int index;
                 while (pos)
                 {
-                    index = GetNextSelectedItem(pos);
+                    int index = GetNextSelectedItem(pos);
                     if (index != pNMLV->iItem)
                         UncheckEntry(index, nListItems);
                 }
@@ -3927,12 +3925,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         // The add went ok, but we now need to run through the selected items again
                         // and update their status
                         POSITION pos = GetFirstSelectedItemPosition();
-                        int index;
                         int nListItems = GetItemCount();
                         CAutoWriteLock locker(m_guard);
                         while (pos)
                         {
-                            index = GetNextSelectedItem(pos);
+                            int index = GetNextSelectedItem(pos);
                             FileEntry * e = GetListEntry(index);
                             e->textstatus = svn_wc_status_normal;
                             e->propstatus = svn_wc_status_none;
@@ -4915,10 +4912,9 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bo
     pathList.Clear();
 
     POSITION pos = GetFirstSelectedItemPosition();
-    int index;
     while (pos)
     {
-        index = GetNextSelectedItem(pos);
+        int index = GetNextSelectedItem(pos);
         FileEntry * entry = GetListEntry(index);
         if ((bNoIgnored)&&(entry->status == svn_wc_status_ignored))
             continue;
@@ -5509,10 +5505,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols, int cmd)
     CAutoReadLock locker(m_guard);
 
     POSITION pos = GetFirstSelectedItemPosition();
-    int index;
     while (pos)
     {
-        index = GetNextSelectedItem(pos);
+        int index = GetNextSelectedItem(pos);
         // we selected only cols we want, so not other then select test needed
         for (int column = 0; column < count; ++column)
         {
@@ -5552,10 +5547,9 @@ size_t CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
     CAutoReadLock locker(m_guard);
     std::set<CString> changelists;
     POSITION pos = GetFirstSelectedItemPosition();
-    int index;
     while (pos)
     {
-        index = GetNextSelectedItem(pos);
+        int index = GetNextSelectedItem(pos);
         FileEntry * entry = GetListEntry(index);
         if (!entry->changelist.IsEmpty())
             changelists.insert(entry->changelist);
@@ -6137,11 +6131,10 @@ void CSVNStatusListCtrl::OnRemoveFromCS(const CTSVNPath& filepath)
         // and update their changelist
         CAutoWriteLock locker(m_guard);
         POSITION pos = GetFirstSelectedItemPosition();
-        int index;
         std::vector<int> entriesToRemove;
         while (pos)
         {
-            index = GetNextSelectedItem(pos);
+            int index = GetNextSelectedItem(pos);
             FileEntry * e = GetListEntry(index);
             if (e == 0)
                 continue;
@@ -6204,10 +6197,9 @@ void CSVNStatusListCtrl::OnContextMenuListDefault(FileEntry * entry, int command
                 // The changelists were moved, but we now need to run through the selected items again
                 // and update their changelist
                 POSITION pos = GetFirstSelectedItemPosition();
-                int index;
                 while (pos)
                 {
-                    index = GetNextSelectedItem(pos);
+                    int index = GetNextSelectedItem(pos);
                     FileEntry * e = GetListEntry(index);
                     e->changelist = sChangelist;
                     if (e->IsFolder())
