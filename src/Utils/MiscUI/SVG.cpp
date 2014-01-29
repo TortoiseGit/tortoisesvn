@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -154,7 +154,7 @@ font-style:%s;\
 font-weight:%s;\
 stroke:none;\
 text-anchor: middle;\
-fill:#%06lx;\">%s</text>",
+fill:#%06lx;\"><![CDATA[%s]]></text>",
         x, y, font, fontsize, italic ? "italic" : "none", bold ? "bold" : "none", GetColor(color), text);
 
     objects.push_back(sObj);
