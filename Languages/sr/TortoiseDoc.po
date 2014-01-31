@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-01-27 21:50+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8818,14 +8818,14 @@ msgstr "Фајл екстернал постаје баш као било кој
 
 #. (title)
 msgid "Creating externals via drag and drop"
-msgstr ""
+msgstr "Креирање екстернала са вуци и пусти"
 
 #. (para)
 msgid ""
 "If you already have a working copy of the files or folders you want to "
 "include as externals in another working copy, you can simply add those via "
 "drag and drop from the windows explorer."
-msgstr ""
+msgstr "Ако већ имате радну копију фајлова или фолдера које желите да укључите као екстернале у другој радној копији можете једноставно да их додате преко вуци и пусти у виндоус претраживачу. "
 
 #. (para)
 msgid ""
@@ -8836,7 +8836,7 @@ msgid ""
 "entry, the <literal>svn:externals</literal> property is automatically added."
 " All you have to do after that is commit the property changes and update to "
 "get those externals properly included in your working copy."
-msgstr ""
+msgstr "Једноставно <action>десно вуци</action> фајла или фолдера из једне радне копије тамо где ви то желите да буде укључена као екстернал. Контекст мени се појављује када отпустите дугме миша: <menuchoice><guimenuitem>СВН додај као екстернал овде </guimenuitem></menuchoice> ако кликнете на улаз контекст менија особина <literal>свн:екстернали</literal> се аутоматски додаје. Све што треба да урадите је да урежете измене особине да би сте добили да су ови екстернали одговарајуће укључени у радну копију."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -14732,21 +14732,21 @@ msgstr "Ако је ова опција подешена на <literal>исти�
 msgid ""
 "A format string for the log messages when multiple revisions are selected in"
 " the log dialog."
-msgstr ""
+msgstr "Формат стринг за поруке дневника када су вишеструке ревизије изабране у дневнику дијалога."
 
 #. (listitem)
 msgid "gets replaced with the revision number text"
-msgstr ""
+msgstr "добијен изменом са текстом ревизионог броја"
 
 #. (listitem)
 msgid "gets replaced with the short log message of the revision"
-msgstr ""
+msgstr "добијен изменом кратком поруком дневника ревизије"
 
 #. (para)
 msgid ""
 "You can use the following placeholders in your format string: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Можете користити следеће замене у формат стрингу: <placeholder-1/>"
 
 #. (para)
 msgid ""

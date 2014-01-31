@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-01-30 23:53+0000\n"
+"Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -781,7 +781,7 @@ msgstr "&Ajusta imatges a la finestra"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
-msgstr "&Discs fixes"
+msgstr "&Unitats fixes"
 
 #. Resource IDs: (1065)
 msgid "&Floating"
@@ -1104,7 +1104,7 @@ msgstr "&Altres"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
-msgstr "&Sobreposar imatges"
+msgstr "Imatges de &superposició"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1694,7 +1694,7 @@ msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
-msgstr "Una llista de camins per la qual no es mostra el menú.\nAfegint un caracter '*' al final del camí, tots els fitxers i subdirectoris dins d'aquest són també exclosos.\nUna llista buida permetrà sobreposicions en tots els camins."
+msgstr "Una llista de camins per la qual no es mostra el menú de context.\nAfegint un caracter '*' al final del camí, tots els fitxers i subdirectoris dins d'aquest camí també són exclosos.\nUna llista buida permetrà el menú de context en tots els camins."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2427,7 +2427,7 @@ msgstr "C&ontrau subarbres"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
-msgstr "C&omandes:"
+msgstr "O&rdres:"
 
 #. Resource IDs: (102)
 msgid "C&ompare URLs (content only)"
@@ -2670,7 +2670,7 @@ msgstr "Cancel·lar\nHas d'afegir la carpeta manualment."
 msgid ""
 "Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "Cancel·la\nHas d'executar una actualització pel teu compte per obtenir els externs"
 
 #. Resource IDs: (100)
 msgid ""
@@ -3275,11 +3275,11 @@ msgstr "Configura el programa utilitzat per comparar diferents revisions de prop
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Configureu el programa utilitzat per resoldre fitxers en conflicte."
+msgstr "Configura el programa utilitzat per resoldre fitxers en conflicte."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Configureu el  programa visualitzador per fitxers diff de GNU (fitxers patch)."
+msgstr "Configura el  programa visualitzador per fitxers diff de GNU (fitxers patch)."
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
@@ -4156,7 +4156,7 @@ msgstr "Vols revertir tots els canvis a\n%s\nque s'han fet en aquesta revisió?"
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Vols actualitzar la carpeta \"%s\" per recollir els svn:externals aplicats?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -5560,7 +5560,7 @@ msgstr "Si una component (part entre dos '/') d'un camí qualsevol coincideix am
 msgid ""
 "If activated, prevents the overlays and the context menu from showing in "
 "'save as...' or 'open' dialogs"
-msgstr "Si s'activa, no es mostren sobreposicions ni menús als diàlegs   'anomena i desa...' o 'obre' "
+msgstr "Si s'activa, no es mostren superposicions ni menús als diàlegs   'anomena i desa...' o 'obre' "
 
 #. Resource IDs: (198)
 msgid ""
@@ -5596,7 +5596,7 @@ msgstr "Si està habilitat, es connecta amb el repositori quan s'inicia el diàl
 msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
-msgstr "Si s'habilita, les carpetes de la còpia de treball que no mostren\nsobreposicions segueixen mostrant la sobreposició pel estat 'normal'"
+msgstr "Si s'habilita, les carpetes de la còpia de treball que no mostren\nsuperposicions segueixen mostrant la superposició per l'estat 'normal'"
 
 #. Resource IDs: (195)
 msgid ""
@@ -5614,7 +5614,7 @@ msgstr "Si està seleccionat,els fitxers a dins de carpetes sense versionar es p
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
-msgstr "Si està seleccionat, els fitxers sense versionar marcaran l'estat del directori pare com a modificat\r\nPer exemple, se'ls hi sobreposarà la icona de modificació."
+msgstr "Si està seleccionat, els fitxers sense versionar marcaran l'estat del directori pare com a modificat\no sigui, se'ls hi superposa la icona de modificació."
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6876,7 +6876,7 @@ msgstr "No hi ha camí ni fitxer de camí especificats a la línia d'ordres!"
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
 "overlay"
-msgstr "No hi ha cache d'estat. Només les carpetes versionades se sobreposen, els fitxers no se sobreposen"
+msgstr "No hi ha cache d'estat. Només les carpetes versionades es superposen, els fitxers no es superposen"
 
 #. Resource IDs: (84)
 #, c-format
@@ -7220,7 +7220,7 @@ msgstr "Sortida.prn"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
-msgstr "Sobreposicions"
+msgstr "Superposicions"
 
 #. Resource IDs: (95)
 msgid ""
@@ -8542,7 +8542,7 @@ msgstr "Branca del &venedor SVN aquí"
 
 #. Resource IDs: (18)
 msgid "SVN Add as &external here"
-msgstr ""
+msgstr "Afegir SVN com a &extern aquí"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -8878,7 +8878,7 @@ msgstr "Selecciona carpeta on executar l'script"
 
 #. Resource IDs: (119)
 msgid "Select folder to save the selected files to"
-msgstr "Selecciona carpeta a ondeser els fitxers seleccionats"
+msgstr "Selecciona carpeta on desar els fitxers seleccionats"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
@@ -8957,7 +8957,7 @@ msgstr "Selecciona quin fitxer vols anomenar i desar\nNota: Hi ha conflicte sens
 
 #. Resource IDs: (65535)
 msgid "Selected node"
-msgstr "Nde Seleccionat"
+msgstr "Node seleccionat"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -8981,7 +8981,7 @@ msgstr "Estableix una revisió explícita per aquests externs:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "Canvia les dates dels fitxers a \"&temps darera entrega\""
+msgstr "Canvia les dates dels fitxers a \"&temps darrera entrega\""
 
 #. Resource IDs: (127)
 #, c-format
@@ -9085,7 +9085,7 @@ msgstr "Mostra &log..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
-msgstr "Mostra &sobreposicions i menú només a l'explorador"
+msgstr "Mostra &superposicions i menú de context només a l'explorador"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
@@ -9561,11 +9561,11 @@ msgstr "Caché d'Estat"
 #. Resource IDs: (196)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Caché d'Estat es guarda al procés extern, pot mostrar sobreposició recursivament"
+msgstr "Caché d'estat desada en un procés extern, pot mostrar superposició recursivament"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Caché d'Estat només per a una carpeta, sense sobreposicions recursives"
+msgstr "Caché d'estat només per a una carpeta, sense superposicions recursives"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -9893,7 +9893,7 @@ msgstr "El fitxer és massa gran per obrir-lo."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "El fitxer o directori \"%s\" ja existeix a la ubicació destí! Abans de poder afegir un extern amb el mateix nom, has d'eliminar-lo prèviament d'aquesta ubicació destí."
 
 #. Resource IDs: (80)
 #, c-format
@@ -10563,7 +10563,7 @@ msgid ""
 "/overlay\t\tto enable overlay mode\n"
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
-msgstr "TortoiseIDiff: el visualitzador de diferències gràfic per a TortoiseSVN\n\nEls paràmetres disponibles a la línia d'ordres són:\n/left:\"camí a la imatge esquerra\"\n/lefttitle:\"títol per la imatge de l'esquerra\"\n/right:\"camí a la imatge de la dreta\"\n/righttitle:\"títol per mostrar a la imatge de la dreta\"\n/overlay\t\tper habilitar mode sobreposició\n/fit\t\tper encaixar els tamanys de les imatges\n/showinfo\t\tper mostrar les caselles d'informació de la imatge"
+msgstr "TortoiseIDiff: el visualitzador de diferències gràfic per a TortoiseSVN\n\nEls paràmetres disponibles a la línia d'ordres són:\n/left:\"camí a la imatge esquerra\"\n/lefttitle:\"títol per la imatge de l'esquerra\"\n/right:\"camí a la imatge de la dreta\"\n/righttitle:\"títol per mostrar a la imatge de la dreta\"\n/overlay\t\tper habilitar mode superposició\n/fit\t\tper encaixar els tamanys de les imatges\n/showinfo\t\tper mostrar les caselles d'informació de la imatge"
 
 #. Resource IDs: (7, 80, 130, 3585)
 msgid "TortoiseMerge"
@@ -10912,7 +10912,7 @@ msgstr "Actualitza Còpia de Treball a la revisió"
 
 #. Resource IDs: (291)
 msgid "Update externals"
-msgstr ""
+msgstr "Actualitza externs"
 
 #. Resource IDs: (93)
 msgid ""
@@ -10930,7 +10930,7 @@ msgstr "Actualitzar\nActualitza la còpia de treball i reobre el diàleg d'entre
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Actualitzar\nActualitza a la revisió HEAD"
 
 #. Resource IDs: (74)
 msgid "Updated"
