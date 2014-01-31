@@ -183,6 +183,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_tFrom(0)
     , m_tTo(0)
     , m_bVisualStudioRunningAtStart(false)
+    , m_bEnsureSelection(false)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -325,6 +326,8 @@ void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
     delete m_pStoreSelection;
     m_pStoreSelection = NULL;
     m_pStoreSelection = new CStoreSelection(this, revArray);
+    m_bEnsureSelection = true;
+    m_endrev = revArray.GetLowestRevision();
 }
 
 void CLogDlg::SubclassControls()
@@ -1550,6 +1553,16 @@ void CLogDlg::LogThread()
     std::unique_ptr<const CCacheLogQuery> cachedData;
     if (succeeded)
     {
+        if (m_bEnsureSelection)
+        {
+            // ensure that the end revision is fetched, so adjust the limit
+            if (m_limit && m_startrev.IsNumber() && (svn_revnum_t(m_startrev) > 0))
+            {
+                m_limit = max(m_limit, svn_revnum_t(m_startrev) - svn_revnum_t(m_endrev));
+                m_endrev = 0;
+            }
+            m_bEnsureSelection = false;
+        }
         cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit,
                                         !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
         if ((cachedData.get() == NULL)&&(!m_path.IsUrl()))
@@ -6013,6 +6026,8 @@ void CLogDlg::AutoRestoreSelection()
 
         FillLogMessageCtrl();
         UpdateLogInfoLabel();
+        if (m_bSelect)
+            EnableOKButton();
     }
 }
 
