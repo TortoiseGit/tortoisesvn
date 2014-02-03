@@ -234,6 +234,9 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
         svn_client_status_t * s = status.GetFirstFileStatus(paths[i], retPath, false, svn_depth_infinity, true, !includeExts);
         if (s == NULL)
         {
+            if ((pathList.GetCount() > 1) && !SVNHelper::IsVersioned(paths[i], false))
+                continue;   // ignore failures for unversioned paths
+
             CString sErr = paths[i].GetWinPathString() + L"\n" + status.GetLastErrorMessage();
             return sErr;
         }
@@ -298,6 +301,8 @@ bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, in
         CBlockCacheForPath cacheBlock (pathList[i].GetWinPath());
         if (!svn.CleanUp(pathList[i]))
         {
+            if ((pathList.GetCount() > 1) && !SVNHelper::IsVersioned(pathList[i], false))
+                continue;   // ignore failures for unversioned paths
             strFailedString = pathList[i].GetWinPathString();
             strFailedString += L"\n" + svn.GetLastErrorMessage();
             bCleanupFailed = true;
