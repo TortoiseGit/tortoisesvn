@@ -284,6 +284,7 @@ private:
     CString         GetSelectedURL() const;
     CString         GetWCURL() const;
     void            DoShowLog();
+    void            DoCheckout();
     void            DoCheckForModification();
     void            DoMergeTo();
     void            DoUpdate();

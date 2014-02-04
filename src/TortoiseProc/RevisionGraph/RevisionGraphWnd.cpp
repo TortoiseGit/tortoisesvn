@@ -58,6 +58,7 @@ enum RevisionGraphContextMenuCommands
     ID_SHOWLOG = 1,
     ID_CFM = 2,
     ID_BROWSEREPO,
+    ID_CHECKOUT,
     ID_COMPAREREVS = 0x100,
     ID_COMPAREHEADS,
     ID_UNIDIFFREVS,
@@ -1023,21 +1024,27 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
         if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
             AppendMenu (popup, IDS_LOG_BROWSEREPO, ID_BROWSEREPO);
         if (PathIsDirectory(m_sPath))
-            if (m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_CFM, ID_CFM);
+        {
+            if (m_SelectedEntry1->GetClassification().Is(CNodeClassification::IS_MODIFIED_WC))
+                AppendMenu(popup, IDS_REVGRAPH_POPUP_CFM, ID_CFM);
             else
-                AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
+                AppendMenu(popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
+            if (!m_SelectedEntry1->GetClassification().Is(CNodeClassification::IS_DELETED))
+                AppendMenu(popup, IDS_MENUCHECKOUT, ID_CHECKOUT);
+        }
 
         if (!CTSVNPath (m_sPath).IsUrl())
+        {
             if (GetWCURL() == GetSelectedURL())
             {
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
+                AppendMenu(popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
             }
             else
             {
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
+                AppendMenu(popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
+                AppendMenu(popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
             }
+        }
         AppendMenu(popup, IDS_REPOBROWSE_URLTOCLIPBOARD, ID_COPYURL);
     }
 
@@ -1162,6 +1169,18 @@ void CRevisionGraphWnd::DoShowLog()
         sCmd += m_sPath;
         sCmd += L"\"";
     }
+
+    CAppUtils::RunTortoiseProc(sCmd);
+}
+
+void CRevisionGraphWnd::DoCheckout()
+{
+    CString URL = GetSelectedURL();
+
+    CString sCmd;
+    sCmd.Format(L"/command:checkout /url:\"%s\" /revision:%ld",
+                (LPCTSTR)URL,
+                m_SelectedEntry1->GetRevision());
 
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -1325,6 +1344,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         break;
     case ID_SHOWLOG:
         DoShowLog();
+        break;
+    case ID_CHECKOUT:
+        DoCheckout();
         break;
     case ID_CFM:
         DoCheckForModification();
