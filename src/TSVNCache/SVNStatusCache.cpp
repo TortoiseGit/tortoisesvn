@@ -396,6 +396,7 @@ void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
 
 void CSVNStatusCache::ClearCache()
 {
+    CAutoWriteLock writeLock(m_guard);
     for (CCachedDirectory::CachedDirMap::iterator I = m_directoryCache.begin(); I != m_directoryCache.end(); ++I)
     {
         delete I->second;
@@ -408,6 +409,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
     if (cdir == NULL)
         return false;
+    CAutoWriteLock writeLock(m_guard);
     if (!cdir->m_childDirectories.empty())
     {
         auto it = cdir->m_childDirectories.begin();
@@ -493,8 +495,8 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
         if (itMap!=m_directoryCache.end())
         {
             delete itMap->second;
-            itMap->second = NULL;
             m_directoryCache.erase(itMap);
+            itMap->second = NULL;
         }
         // We don't know anything about this directory yet - lets add it to our cache
         // but only if it exists!
