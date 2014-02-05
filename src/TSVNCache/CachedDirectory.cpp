@@ -569,7 +569,13 @@ CCachedDirectory::SvnUpdateMembersStatus()
         case SVN_ERR_WC_NOT_WORKING_COPY:
             {
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-                CSVNStatusCache::Instance().BlockPath(m_directoryPath, true);
+                // note the error SVN_ERR_WC_NOT_WORKING_COPY is returned not just
+                // if the path is not a working copy but also in case the node type (file/folder)
+                // could not be determined. And that can happen if the node is locked due
+                // to another process having it open (virus scanners are among the nasty
+                // processes that do that very often and at the most inconvenient times).
+                // So we must not block that path for too long.
+                CSVNStatusCache::Instance().BlockPath(m_directoryPath, true, 20);
             }
             break;
         case SVN_ERR_WC_PATH_NOT_FOUND:
