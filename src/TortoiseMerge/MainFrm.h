@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2013 - TortoiseSVN
+// Copyright (C) 2006-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -243,7 +243,6 @@ protected:
     bool            m_bLineDiff;
     bool            m_bLocatorBar;
     bool            m_bUseRibbons;
-    bool            m_bUseTaskDialog;
 
     CMFCRibbonBar               m_wndRibbonBar;
     CMFCRibbonApplicationButton m_MainButton;

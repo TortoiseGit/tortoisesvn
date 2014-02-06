@@ -92,30 +92,23 @@ bool DropMoveCommand::Execute()
                     // target file already exists. Ask user if he wants to replace the file
                     CString sReplace;
                     sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
-                    if (CTaskDialog::IsSupported())
-                    {
-                        CTaskDialog taskdlg(sReplace,
-                                            CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
-                                            L"TortoiseSVN",
-                                            0,
-                                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
-                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
-                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
-                        taskdlg.SetVerificationCheckbox(false);
-                        taskdlg.SetDefaultCommandControl(2);
-                        taskdlg.SetMainIcon(TD_WARNING_ICON);
-                        INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
-                        if (ret == 1) // replace
-                            msgRet = taskdlg.GetVerificationCheckboxState() ? IDYES : IDYESTOALL;
-                        else
-                            msgRet = taskdlg.GetVerificationCheckboxState() ? IDNO : IDNOTOALL;
-                    }
+                    CTaskDialog taskdlg(sReplace,
+                                        CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
+                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
+                    taskdlg.SetVerificationCheckbox(false);
+                    taskdlg.SetDefaultCommandControl(2);
+                    taskdlg.SetMainIcon(TD_WARNING_ICON);
+                    INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
+                    if (ret == 1) // replace
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYES : IDYESTOALL;
                     else
-                    {
-                        msgRet = TSVNMessageBox(GetExplorerHWND(), sReplace, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO|MB_YESTOALL|MB_NOTOALL);
-                    }
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNO : IDNOTOALL;
                 }
 
                 if ((msgRet == IDYES) || (msgRet == IDYESTOALL))

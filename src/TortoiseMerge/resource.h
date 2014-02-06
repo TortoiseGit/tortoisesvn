@@ -186,7 +186,6 @@
 #define IDS_ERR_TEXTVIEWSTART           1326
 #define IDS_GOTOLINE                    1400
 #define IDS_GOTO_OUTOFRANGE             1401
-#define IDC_USETASKDIALOG               1500
 #define IDC_COUNT                       1501
 #define IDS_FIND_COUNT                  1502
 #define IDC_FINDSTATUS                  1503

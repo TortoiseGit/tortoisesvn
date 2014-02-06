@@ -1202,31 +1202,20 @@ void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
 
 bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
 {
-    if (CTaskDialog::IsSupported())
-    {
-        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK1)),
-                            CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(1);
-        CString details;
-        details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
-        taskdlg.SetExpansionArea(details);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        return (taskdlg.DoModal(hParent) == 1);
-    }
-
-    CString question;
-    question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, error);
-    const UINT result = TSVNMessageBox(hParent, question, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
-                                       MB_DEFBUTTON1|MB_ICONQUESTION,
-                                       CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)),
-                                       CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
-    return result == IDCUSTOM1;
+    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK1)),
+                        CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
+    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
+    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskdlg.SetDefaultCommandControl(1);
+    CString details;
+    details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
+    taskdlg.SetExpansionArea(details);
+    taskdlg.SetMainIcon(TD_WARNING_ICON);
+    return (taskdlg.DoModal(hParent) == 1);
 }
 
 void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
@@ -1236,18 +1225,13 @@ void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
     std::wstring replacement = L"<A HREF=\"$1\">$1</A>";
     std::wstring str2 = std::regex_replace(str, rx, replacement);
 
-    if (CTaskDialog::IsSupported())
-    {
-        CTaskDialog taskdlg(str2.c_str(),
-            CString(MAKEINTRESOURCE(IDS_COMMITDLG_CHECKCOMMIT_TASK1)),
-            L"TortoiseSVN",
-            0,
-            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.SetCommonButtons(TDCBF_OK_BUTTON);
-        taskdlg.SetMainIcon(TD_ERROR_ICON);
-        taskdlg.DoModal(hWnd);
-    }
-    else
-        ::MessageBox(hWnd, sError, L"TortoiseSVN", MB_ICONERROR);
+    CTaskDialog taskdlg(str2.c_str(),
+                        CString(MAKEINTRESOURCE(IDS_COMMITDLG_CHECKCOMMIT_TASK1)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.SetCommonButtons(TDCBF_OK_BUTTON);
+    taskdlg.SetMainIcon(TD_ERROR_ICON);
+    taskdlg.DoModal(hWnd);
 }
 

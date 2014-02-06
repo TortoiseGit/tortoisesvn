@@ -2778,30 +2778,22 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     CString commitUrl;
     if (IsCommittingToTag(commitUrl))
     {
-        if (CTaskDialog::IsSupported())
-        {
-            CString sTask1;
-            WCHAR outUrl[MAX_PATH] = {0};
-            PathCompactPathEx(outUrl, commitUrl.GetBufferSetLength(MAX_PATH), 50, 0);
-            sTask1.Format(IDS_PROGRS_COMMITT_TRUNK_TASK1, outUrl);
-            CTaskDialog taskdlg(sTask1,
-                                CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (taskdlg.DoModal(m_hWnd) != 1)
-                return false;
-        }
-        else
-        {
-            if (TSVNMessageBox(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
-                return false;
-        }
+        CString sTask1;
+        WCHAR outUrl[MAX_PATH] = { 0 };
+        PathCompactPathEx(outUrl, commitUrl.GetBufferSetLength(MAX_PATH), 50, 0);
+        sTask1.Format(IDS_PROGRS_COMMITT_TRUNK_TASK1, outUrl);
+        CTaskDialog taskdlg(sTask1,
+                            CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        if (taskdlg.DoModal(m_hWnd) != 1)
+            return false;
     }
     DWORD exitcode = 0;
     CString error;
@@ -2910,37 +2902,26 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                 {
                     // now ask the user whether to tag the external to the new HEAD revision after this commit
                     bool bTag = false;
-                    if (CTaskDialog::IsSupported())
-                    {
-                        // tagging external
-                        // You've committed changes to external item that is tagged to a specific revision.
-                        // Do you want to change the tagged revision now to the just committed revision?
-                        //
-                        // Change the tagged revision
-                        //  The svn:external property of the parent folder is changed accordingly
-                        // Cancel
-                        //  The tagged revision of the external is left as is
-                        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1)),
-                            CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)));
-                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)));
-                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                        taskdlg.SetDefaultCommandControl(2);
-                        taskdlg.SetMainIcon(TD_INFORMATION_ICON);
-                        if (taskdlg.DoModal(GetExplorerHWND()) == 1)
-                            bTag = true;
-                    }
-                    else
-                    {
-                        CString sWarning, sWarningTitle, sHelpPath;
-                        sWarning.LoadString(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2);
-                        sWarningTitle.LoadString(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1);
-                        if (TSVNMessageBox((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2)==IDYES)
-                            bTag = true;
-                    }
+                    // tagging external
+                    // You've committed changes to external item that is tagged to a specific revision.
+                    // Do you want to change the tagged revision now to the just committed revision?
+                    //
+                    // Change the tagged revision
+                    //  The svn:external property of the parent folder is changed accordingly
+                    // Cancel
+                    //  The tagged revision of the external is left as is
+                    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1)),
+                                        CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2)),
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)));
+                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                    taskdlg.SetDefaultCommandControl(2);
+                    taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+                    if (taskdlg.DoModal(GetExplorerHWND()) == 1)
+                        bTag = true;
                     if (bTag)
                     {
                         exts.TagExternals(false);
@@ -3151,25 +3132,17 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         // the lock failed, because the file was outdated.
         // ask the user whether to update the file and try again
-        bool bDoIt = false;
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED)),
-                                CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            bDoIt = (taskdlg.DoModal(m_hWnd) == 1);
-        }
-        else
-        {
-            bDoIt = (TSVNMessageBox(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES);
-        }
+        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED)),
+                            CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        bool bDoIt = (taskdlg.DoModal(m_hWnd) == 1);
 
         if (bDoIt)
         {
@@ -3539,24 +3512,17 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
     UINT showRet = IDYES;   // default to yes
     if (bMarkers)
     {
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS)),
-                                CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK3)));
-            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(IDNO);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            showRet = (UINT)taskdlg.DoModal(m_hWnd);
-        }
-        else
-        {
-            showRet = TSVNMessageBox(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
-        }
+        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS)),
+                            CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK3)));
+        taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(IDNO);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        showRet = (UINT)taskdlg.DoModal(m_hWnd);
     }
     if (showRet == IDYES)
     {
@@ -4083,28 +4049,20 @@ void CSVNProgressDlg::MergeAfterCommit()
         {
             if (bmodified)
             {
-                if (CTaskDialog::IsSupported())
-                {
-                    CString sTask1;
-                    sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
-                    CTaskDialog taskdlg(sTask1,
-                                        CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
-                                        L"TortoiseSVN",
-                                        0,
-                                        TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
-                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetDefaultCommandControl(2);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    if (taskdlg.DoModal(m_hWnd) != 1)
-                        return;
-                }
-                else
-                {
-                    if (TSVNMessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
-                        return;
-                }
+                CString sTask1;
+                sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
+                CTaskDialog taskdlg(sTask1,
+                                    CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskdlg.SetDefaultCommandControl(2);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                if (taskdlg.DoModal(m_hWnd) != 1)
+                    return;
             }
         }
         CSVNProgressDlg dlg(this);

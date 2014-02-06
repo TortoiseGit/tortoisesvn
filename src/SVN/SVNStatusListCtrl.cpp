@@ -2520,40 +2520,22 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
         if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
             (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
         {
-            bool bForce = false;
-            if (CTaskDialog::IsSupported())
-            {
-                CString msg;
-                if (itemsToRemove.GetCount() == 1)
-                    msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
-                else
-                    msg.Format(IDS_PROC_REMOVEFORCE_TASK1_1, (LPCTSTR)svn.GetLastErrorMessage(), itemsToRemove.GetCount());
-                CTaskDialog taskdlg(msg,
-                                    CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
-                                    L"TortoiseSVN",
-                                    0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
-                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(2);
-                taskdlg.SetMainIcon(TD_ERROR_ICON);
-                bForce = (taskdlg.DoModal(m_hWnd) == 1);
-            }
+            CString msg;
+            if (itemsToRemove.GetCount() == 1)
+                msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
             else
-            {
-                CString msg;
-                msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
-                if ((itemsToRemove.GetCount() == 1) && (itemsToRemove[0].IsDirectory()))
-                {
-                    msg.Format(IDS_PROC_REMOVEFORCEFOLDER, (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
-                }
-                else
-                {
-                    msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
-                }
-                bForce = (TSVNMessageBox(m_hWnd, msg, L"TortoiseSVN", MB_YESNO|MB_ICONQUESTION) == IDYES);
-            }
+                msg.Format(IDS_PROC_REMOVEFORCE_TASK1_1, (LPCTSTR)svn.GetLastErrorMessage(), itemsToRemove.GetCount());
+            CTaskDialog taskdlg(msg,
+                                CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_ERROR_ICON);
+            bool bForce = (taskdlg.DoModal(m_hWnd) == 1);
 
             if (bForce)
             {
@@ -2775,31 +2757,22 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     bool bDoRevert = true;
     if (bConfirm)
     {
-        if (CTaskDialog::IsSupported())
-        {
-            CString sInfo;
-            if (targetList.GetCount() == 1)
-                sInfo.Format(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
-            else
-                sInfo.Format(IDS_PROC_WARNREVERT, targetList.GetCount());
-            CTaskDialog taskdlg(sInfo,
-                                CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            bDoRevert = (taskdlg.DoModal(m_hWnd) == 1);
-        }
+        CString sInfo;
+        if (targetList.GetCount() == 1)
+            sInfo.Format(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
         else
-        {
-            CString str;
-            str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
-            bDoRevert = (::MessageBox(this->m_hWnd, str, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION)==IDYES);
-        }
+            sInfo.Format(IDS_PROC_WARNREVERT, targetList.GetCount());
+        CTaskDialog taskdlg(sInfo,
+                            CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        bDoRevert = (taskdlg.DoModal(m_hWnd) == 1);
     }
 
     if (!bDoRevert)
@@ -5859,33 +5832,25 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path, bool bRecursive)
 
 void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
 {
-    bool doResolve = false;
-    if (CTaskDialog::IsSupported())
-    {
-        CTSVNPathList selectedList;
-        FillListOfSelectedItemPaths(selectedList);
+    CTSVNPathList selectedList;
+    FillListOfSelectedItemPaths(selectedList);
 
-        CString sInfo;
-        if (selectedList.GetCount() == 1)
-            sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
-        else
-            sInfo.LoadString(IDS_PROC_RESOLVE);
-        CTaskDialog taskdlg(sInfo,
-                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        doResolve = (taskdlg.DoModal(m_hWnd) == 1);
-    }
+    CString sInfo;
+    if (selectedList.GetCount() == 1)
+        sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
     else
-    {
-        doResolve = (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES);
-    }
+        sInfo.LoadString(IDS_PROC_RESOLVE);
+    CTaskDialog taskdlg(sInfo,
+                        CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
+    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
+    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskdlg.SetDefaultCommandControl(2);
+    taskdlg.SetMainIcon(TD_WARNING_ICON);
+    bool doResolve = (taskdlg.DoModal(m_hWnd) == 1);
 
     if (doResolve)
     {
@@ -6299,27 +6264,19 @@ bool CSVNStatusListCtrl::CheckMultipleDiffs()
     UINT selCount = GetSelectedCount();
     if (selCount > max(3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 10)))
     {
-        bool doIt = false;
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(message,
-                                CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
-        }
-        else
-        {
-            doIt = (::MessageBox(GetSafeHwnd(), message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
-        }
+        CTaskDialog taskdlg(message,
+                            CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        bool doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
         return doIt;
     }
     return true;

@@ -376,27 +376,19 @@ void CCheckoutDlg::OnOK()
 
             if (!PathIsDirectoryEmpty (targetPath.GetWinPath()))
             {
-                bool doIt = false;
                 CString message;
                 message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)), targetPath.GetWinPath());
-                if (CTaskDialog::IsSupported())
-                {
-                    CTaskDialog taskdlg(message,
-                                        CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)),
-                                        L"TortoiseSVN",
-                                        0,
-                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
-                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetDefaultCommandControl(2);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
-                }
-                else
-                {
-                    doIt = (::MessageBox(this->m_hWnd, message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
-                }
+                CTaskDialog taskdlg(message,
+                                    CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)),
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskdlg.SetDefaultCommandControl(2);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
 
                 if (!doIt)
                 {
@@ -419,8 +411,20 @@ void CCheckoutDlg::OnOK()
         if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
         {
             CString message;
-            message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strCheckoutDirectory);
-            if (::MessageBox(this->m_hWnd, message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) != IDYES)
+            message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)), (LPCWSTR)m_strCheckoutDirectory);
+            CTaskDialog taskdlg(message,
+                                CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+
+            if (!doIt)
             {
                 m_bAutoCreateTargetName = bAutoCreateTargetName;
                 m_bBlockMessages = false;

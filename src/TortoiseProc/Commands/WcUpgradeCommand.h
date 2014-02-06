@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,26 +35,19 @@ public:
     virtual bool            Execute() override
     {
         bool bUpgrade = false;
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK1)),
-                                CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK5)));
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (taskdlg.DoModal(GetExplorerHWND()) == 1)
-                bUpgrade = true;
-        }
-        else
-        {
-            bUpgrade = (TSVNMessageBox(GetExplorerHWND(), IDS_PROC_UPGRADECONFIRMATION, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO) == IDYES);
-        }
+        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK1)),
+                            CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK5)));
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        if (taskdlg.DoModal(GetExplorerHWND()) == 1)
+            bUpgrade = true;
         if (bUpgrade)
         {
             CString tmp;

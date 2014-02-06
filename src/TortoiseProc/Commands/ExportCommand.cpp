@@ -104,26 +104,17 @@ bool ExportCommand::Execute()
                 // remove all svn admin dirs, effectively unversion the 'exported' folder.
                 CString msg;
                 msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
-                bool bUnversion = false;
-                if (CTaskDialog::IsSupported())
-                {
-                    CTaskDialog taskdlg(msg,
-                                        CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)),
-                                        L"TortoiseSVN",
-                                        0,
-                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
-                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetDefaultCommandControl(1);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    bUnversion = (taskdlg.DoModal(GetExplorerHWND()) == 1);
-                }
-                else
-                {
-                    bUnversion = (MessageBox(GetExplorerHWND(), msg, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO) == IDYES);
-                }
-
+                CTaskDialog taskdlg(msg,
+                                    CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)),
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskdlg.SetDefaultCommandControl(1);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                bool bUnversion = (taskdlg.DoModal(GetExplorerHWND()) == 1);
                 if (bUnversion)
                 {
                     CProgressDlg progress;

@@ -185,25 +185,17 @@ void CSettingsLogCaches::OnBnClickedDelete()
     int nSelCount = m_cRepositoryList.GetSelectedCount();
     CString sQuestion;
     sQuestion.Format(IDS_SETTINGS_CACHEDELETEQUESTION, nSelCount);
-    bool bDelete = false;
-    if (CTaskDialog::IsSupported())
-    {
-        CTaskDialog taskdlg(sQuestion,
-                            CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bDelete = (taskdlg.DoModal(m_hWnd)==1);
-    }
-    else
-    {
-        bDelete = (TSVNMessageBox(m_hWnd, sQuestion, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
-    }
+    CTaskDialog taskdlg(sQuestion,
+                        CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)));
+    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
+    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskdlg.SetDefaultCommandControl(2);
+    taskdlg.SetMainIcon(TD_WARNING_ICON);
+    bool bDelete = (taskdlg.DoModal(m_hWnd) == 1);
 
     if (bDelete)
     {

@@ -835,29 +835,20 @@ bool CHooks::ApproveHook( HWND hWnd, hookiterator it )
     sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, it->second.commandline);
     bool bApproved = false;
     bool bDoNotAskAgain = false;
-    if (CTaskDialog::IsSupported())
-    {
-        CTaskDialog taskdlg(sQuestion,
-                            CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK2)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK5)));
-        taskdlg.SetVerificationCheckbox(false);
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bApproved = taskdlg.DoModal(hWnd) == 1;
-        bDoNotAskAgain = !!taskdlg.GetVerificationCheckboxState();
-    }
-    else
-    {
-        UINT ret = TSVNMessageBox(hWnd, sQuestion, CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_YESNO|MB_ICONWARNING|MB_DONOTASKAGAIN);
-        bApproved = (ret & 0xFFFF) == IDYES;
-        bDoNotAskAgain = (ret & MB_DONOTASKAGAIN)!=0;
-    }
+    CTaskDialog taskdlg(sQuestion,
+                        CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK2)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK3)));
+    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK4)));
+    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK5)));
+    taskdlg.SetVerificationCheckbox(false);
+    taskdlg.SetDefaultCommandControl(2);
+    taskdlg.SetMainIcon(TD_WARNING_ICON);
+    bApproved = taskdlg.DoModal(hWnd) == 1;
+    bDoNotAskAgain = !!taskdlg.GetVerificationCheckboxState();
 
     if (bDoNotAskAgain)
     {

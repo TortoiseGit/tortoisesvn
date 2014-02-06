@@ -268,28 +268,16 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
     {
         if (may_save)
         {
-            UINT ret = 0;
-            if (CTaskDialog::IsSupported())
-            {
-                CTaskDialog taskdlg(msg,
-                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
-                                    L"TortoiseSVN",
-                                    0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTALWAYS_TASK)));
-                taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                ret = (UINT)taskdlg.DoModal(svn->m_hParentWnd);
-            }
-            else
-            {
-                CString sAcceptAlways, sAcceptTemp, sReject;
-                sAcceptAlways.LoadString(IDS_SSL_ACCEPTALWAYS);
-                sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
-                sReject.LoadString(IDS_SSL_REJECT);
-                ret = TSVNMessageBox(svn->m_hParentWnd, msg, L"TortoiseSVN", MB_DEFBUTTON3|MB_ICONQUESTION, sAcceptAlways, sAcceptTemp, sReject);
-            }
+            CTaskDialog taskdlg(msg,
+                                CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTALWAYS_TASK)));
+            taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            UINT ret = (UINT)taskdlg.DoModal(svn->m_hParentWnd);
             if (ret == IDCUSTOM1)
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
@@ -305,25 +293,17 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
         }
         else
         {
-            bool bAccept = false;
-            if (CTaskDialog::IsSupported())
-            {
-                CTaskDialog taskdlg(msg,
-                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
-                                    L"TortoiseSVN",
-                                    0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
-                taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_SSL_REJECT_TASK)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(IDCUSTOM3);
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                bAccept = (taskdlg.DoModal(svn->m_hParentWnd) == IDCUSTOM2);
-            }
-            else
-            {
-                bAccept = (TSVNMessageBox(svn->m_hParentWnd, msg, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION)==IDYES);
-            }
+            CTaskDialog taskdlg(msg,
+                                CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
+            taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_SSL_REJECT_TASK)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(IDCUSTOM3);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            bool bAccept = (taskdlg.DoModal(svn->m_hParentWnd) == IDCUSTOM2);
             if (bAccept)
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));

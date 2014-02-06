@@ -212,28 +212,21 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
         CString sReplace;
         sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
 
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(sReplace,
-                                CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
-                                L"TortoiseSVN",
-                                0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            INT_PTR ret = taskdlg.DoModal(hWnd);
-            if (ret == 1) // replace
-                idret = IDYES;
-            else
-                idret = IDNO;
-        }
+        CTaskDialog taskdlg(sReplace,
+                            CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        INT_PTR ret = taskdlg.DoModal(hWnd);
+        if (ret == 1) // replace
+            idret = IDYES;
         else
-        {
-            idret = TSVNMessageBox(hWnd, sReplace, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNO);
-        }
+            idret = IDNO;
 
         if (idret == IDYES)
         {

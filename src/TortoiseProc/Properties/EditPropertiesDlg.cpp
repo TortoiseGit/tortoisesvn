@@ -899,33 +899,23 @@ void CEditPropertiesDlg::RemoveProps()
             CString sQuestion;
             sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sUName.c_str());
 
-            if (CTaskDialog::IsSupported())
+            CTaskDialog taskdlg(sQuestion,
+                                CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
+            taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(IDCUSTOM1);
+            if ((m_pathlist.GetCount() > 1) || (selCount > 1))
+                taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
+            if ((m_pathlist.GetCount() > 1) || (selCount > 1))
             {
-                CTaskDialog taskdlg(sQuestion,
-                                    CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)),
-                                    L"TortoiseSVN",
-                                    0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
-                taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(IDCUSTOM1);
-                if ((m_pathlist.GetCount() > 1) || (selCount > 1))
-                    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
-                if ((m_pathlist.GetCount() > 1) || (selCount > 1))
-                {
-                    if (taskdlg.GetVerificationCheckboxState())
-                        defaultRet = ret;
-                }
-            }
-            else
-            {
-                CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
-                CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
-                CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
-                ret = TSVNMessageBox(m_hWnd, sQuestion, L"TortoiseSVN", MB_DEFBUTTON1|MB_ICONQUESTION, sRecursive, sNotRecursive, sCancel);
+                if (taskdlg.GetVerificationCheckboxState())
+                    defaultRet = ret;
             }
         }
         else if (ret == 0)

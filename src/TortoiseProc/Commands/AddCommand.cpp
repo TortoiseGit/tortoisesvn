@@ -57,30 +57,18 @@ bool AddCommand::Execute()
                                 UINT ret = 0;
                                 CString sMessage;
                                 sMessage.FormatMessage(IDS_WARN_ADDCASERENAMED, (LPCTSTR)pathList[i].GetFileOrDirectoryName(), (LPCTSTR)retPath.GetFileOrDirectoryName());
-                                if (CTaskDialog::IsSupported())
-                                {
-                                    CTaskDialog taskdlg(sMessage,
-                                                        CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK2)),
-                                                        L"TortoiseSVN",
-                                                        0,
-                                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                                    taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK3)));
-                                    taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK4)));
-                                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                                    taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
-                                    taskdlg.SetDefaultCommandControl(IDCUSTOM1);
-                                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                                    ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
-                                }
-                                else
-                                {
-                                    CString sTitle(MAKEINTRESOURCE(IDS_WARN_WARNING));
-                                    CString sFixRenaming(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_RENAME));
-                                    CString sAddAnyway(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_ADD));
-                                    CString sCancel(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL));
-
-                                    ret = TSVNMessageBox(GetExplorerHWND(), sMessage, sTitle, MB_ICONWARNING, sFixRenaming, sAddAnyway, sCancel);
-                                }
+                                CTaskDialog taskdlg(sMessage,
+                                                    CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK2)),
+                                                    L"TortoiseSVN",
+                                                    0,
+                                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                                taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK3)));
+                                taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK4)));
+                                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                                taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
+                                taskdlg.SetDefaultCommandControl(IDCUSTOM1);
+                                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                                ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
 
                                 if (ret == IDCUSTOM1)
                                 {

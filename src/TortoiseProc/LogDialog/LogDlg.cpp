@@ -5250,30 +5250,21 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
         {
             if (bmodified)
             {
-                if (CTaskDialog::IsSupported())
-                {
-                    CString sTask1;
-                    sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
-                    CTaskDialog taskdlg(sTask1,
-                        CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
-                        L"TortoiseSVN",
-                        0,
-                        TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|
-                        TDF_POSITION_RELATIVE_TO_WINDOW);
-                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
-                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetDefaultCommandControl(2);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    if (taskdlg.DoModal(m_hWnd) != 1)
-                        return;
-                }
-                else
-                {
-                    if (TSVNMessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK,
-                        IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
-                        return;
-                }
+                CString sTask1;
+                sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
+                CTaskDialog taskdlg(sTask1,
+                                    CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
+                                    TDF_POSITION_RELATIVE_TO_WINDOW);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskdlg.SetDefaultCommandControl(2);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                if (taskdlg.DoModal(m_hWnd) != 1)
+                    return;
             }
         }
         CSVNProgressDlg dlg;
@@ -6153,31 +6144,23 @@ void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
 bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
 {
     CString msg;
-    if (CTaskDialog::IsSupported())
-    {
-        if (bToRev)
-            msg.Format(IDS_LOG_REVERT_CONFIRM_TASK6, (LPCTSTR)path);
-        else
-            msg.Format(IDS_LOG_REVERT_CONFIRM_TASK1, (LPCTSTR)path);
-        CTaskDialog taskdlg(msg,
-                            CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)),
-                            L"TortoiseSVN",
-                            0,
-                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|
-                            TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_INFORMATION_ICON);
-        return (taskdlg.DoModal(m_hWnd) == 1);
-    }
     if (bToRev)
-        msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPath());
+        msg.Format(IDS_LOG_REVERT_CONFIRM_TASK6, (LPCTSTR)path);
     else
-        msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
-    return (::MessageBox(this->m_hWnd, msg, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
+        msg.Format(IDS_LOG_REVERT_CONFIRM_TASK1, (LPCTSTR)path);
+    CTaskDialog taskdlg(msg,
+                        CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)),
+                        L"TortoiseSVN",
+                        0,
+                        TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
+                        TDF_POSITION_RELATIVE_TO_WINDOW);
+    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
+    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
+    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
+    taskdlg.SetDefaultCommandControl(2);
+    taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+    return (taskdlg.DoModal(m_hWnd) == 1);
 }
 
 // this to be called on a thread so we don't delay the startup of the dialog
@@ -6692,27 +6675,19 @@ bool CLogDlg::CheckMultipleDiffs( UINT selCount )
 {
     if (selCount > max(3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 15)))
     {
-        bool doIt = false;
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);
-        if (CTaskDialog::IsSupported())
-        {
-            CTaskDialog taskdlg(message,
-                CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
-                L"TortoiseSVN",
-                0,
-                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            doIt = (taskdlg.DoModal(m_hWnd) == 1);
-        }
-        else
-        {
-            doIt = (::MessageBox(m_hWnd, message, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) == IDYES);
-        }
+        CTaskDialog taskdlg(message,
+                            CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        bool doIt = (taskdlg.DoModal(m_hWnd) == 1);
         return doIt;
     }
     return true;
