@@ -57,10 +57,6 @@ SVNDataObject::~SVNDataObject()
 // IUnknown
 //////////////////////////////////////////////////////////////////////////
 
-#ifndef __IDataObjectAsyncCapability_FWD_DEFINED__
-#define IID_IDataObjectAsyncCapability IID_IAsyncOperation
-#endif
-
 STDMETHODIMP SVNDataObject::QueryInterface(REFIID riid, void** ppvObject)
 {
     if(ppvObject == 0)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
-// helper:
-// declares and defines stuff which is not available in the Vista SDK or
-// which isn't available in the Win7 SDK but not unless NTDDI_VERSION is
-// set to NTDDI_WIN7
 #pragma once
 
 void    EnsureSVNLibrary(bool bCreate = true);
