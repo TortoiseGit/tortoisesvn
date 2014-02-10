@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -348,13 +348,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nChcete napriek tomu odstrániť?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -376,15 +369,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nZložka %s\nobsahuje neverzované a/alebo upravené súbor(y). Chcete ju napriek tomu odstrániť?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nAktualizovať pracovnú kópiu a potom skúsiť znova?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1753,14 +1737,6 @@ msgstr "O TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "O TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Akceptuj teraz"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Akceptuj stále"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1843,10 +1819,6 @@ msgstr "Pridať objekt\nToto povedie k problémom pod Windows"
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Automaticky pridať nové súbory do SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Napriek tomu objekt pridať"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2235,10 +2207,6 @@ msgstr "Automaticky skryť"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Automaticky skryť všetko"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Automaticky premenovať"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3163,14 +3131,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Odovzdanie neverziovaného adresára nepridá všetky jeho detské objekty!\nMôžete chcieť pridať tieto adresáre rekurzívne použitím položky \"Pridať...\" z kontextového menu."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Odovzdanie neverziovaného adresára nepridá jeho podobjekty!\nMôžete požadovať rekurzívne pridanie adresára použitím 'Pridať...' z kontextovej ponuky objektu.\n\nSte si istý, že chcete pokračovať v odovzdávaní?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Odovzdávanie do značky"
@@ -4064,22 +4024,6 @@ msgstr "Vykonať so všetkými neverziovanými/zmenenými objektami "
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Chcete naozaj odstrániť túto lištu '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Chcete naozaj vrátiť všetky zmeny v\n%s\na ísť späť na túto revíziu? Tieto zmeny budú vrátené reverzným zlučovaním revízií do vašej pracovnej kópie."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Chcete naozaj vrátiť všetky zmeny v \n%s\nktoré boli v tejto revízií vykonané? Tieto zmeny budú vrátené reverzným zlučovaním revízie do vašej pracovnej kópie."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4977,10 +4921,6 @@ msgstr "Zväčšiť obrá&zok na šírku okna"
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Zväčšiť na šírku"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Opraviť veľkosť písma objektu a nepridať ho"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5937,22 +5877,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Vyzerá že sa pokúšate Premiestniť vašu pracovnú kópiu na iné miesto v tem istom úložisku.\nZ: %1!s!\nDo: %2!s!\n\nZlé použitie príkazu Premiestniť poškodí vašu pracovnú kópiu."
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Vyzerá že sa pokúšate Premiestniť vašu pracovnú kópiu na iné miesto v tom istom úložisku\n\nZ: %1!s!\nDo: %2!s!\n\nPremiestnenie je potrebné len ak sa zmenila cesta k úložisku.\nZmena cesty vramci úložiska sa vykonáva pomocou príkazu Prepnúť.\n\nZlé použitie príkazu Premiestniť poškodí vašu pracovnú kópiu!\nAk si nie ste istý čo robiť prosím pozrite si našu dokumentáciu o tomto príkaze.\nChcete naozaj premiestniť?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6921,10 +6845,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Nedostatok pamäte!\nPokúste sa zmenšiť graf revízií\nzbalením uzlov alebo zmenšením lupy."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Nerekurzívne"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Nie je pod správou revízií"
@@ -6959,12 +6879,6 @@ msgstr "Na odovzdanie nie je nič vybrané!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Poznámka"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr "Upozornenie: ak vynovíte vašu pracovnú kópiu na vyššiu verziu, nebudete môcť k nej pristupovať s klientmi SVN pred verziou 1.8!\nNaozaj chcete vykonať vynovanie tejto pracovnej kópie?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7082,14 +6996,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Jedna z ciest, ktorú sa pokúšate presunúť vyzerá špeciálna\n('branches', 'tags' alebo 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Jedna z ciest, ktorú sa chystáte presunúť vyzerá byť špeciálna cesta\n(jedna z 'branches', 'tags', alebo 'trunk').\n\nSte si istý, že chcete presunúť vybrané cesty?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7226,10 +7132,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Prepíše nastavenie vlastnosti svn:eol-style.\nSúbory, ktoré nemajú túto vlastnosť nastavenú, nie sú dotknuté."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Prepísať"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7832,10 +7734,6 @@ msgstr "Nástroj obdĺžnik\nObdĺžnik"
 msgid "Recurse into unversioned folders"
 msgstr "Vnoriť sa do neverziovaných adresárov"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Rekurzívne"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Rukurzivná operácia"
@@ -7921,10 +7819,6 @@ msgstr "Filter regulárnych výrazov:\r\n.   : akýkoľvek znak\r\nc+  : znak ra
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Reintegračne zlúčiť %1!s! do %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Odmietnuť"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7966,10 +7860,6 @@ msgstr "Znova načíta otvorené súbory a vráti všetky zmeny.\nNačítať zno
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Premiestniť"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Upozornenie premiestnenia"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9910,13 +9800,6 @@ msgid ""
 "is not a valid text file!"
 msgstr "Súbor\n%s\nnie je platný textový súbor!"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Adresár %s\nneverziované a/alebo zmenené súbory. Chcete ho napriek tomu odstrániť?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10224,12 +10107,6 @@ msgstr "Cieľová pracovná kópia \"%s\" obsahuje miestne zmeny. Je odporúčan
 msgid "The target working copy has local modifications!"
 msgstr "Cieľová pracovná kópia obsahuje miestne zmeny!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Cieľová pracovná kópia ma miestne zmeny!\nChcete napriek tomu zlučovať?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10343,15 +10220,6 @@ msgid ""
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
 msgstr "Toto odovzdanie je nerekurzívne a obsahuje presunuté/premenované/skopírované adresáre vybrané k odovzdaniu.\nTakéto presunutia/premenovania/kopírovania sú v úložisku vždy vykonané ako rekurzívne.\n\nChcete napriek tomu odovzdať."
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Toto odovzdanie nie je rekurzívne a obsahuje presunuté/premenované/kopírované adresáre k odovzdaniu. Takéto premenovanie/presunutie je vždy v úložisku urobené rekurzívne.\n\nChcete napriek tomu odovzdať?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11025,10 +10893,6 @@ msgstr "Použit Aero dialógy"
 msgid "Use Ribbons"
 msgstr "Použiť lištu"
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Použiť URL adresu &pracovnej kópie ako predvolenú pre \"Z:\" URL"
@@ -11440,15 +11304,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Na pridanie do úložiska si pustili viac súborov, či adresárov.\nToto nie je možne vykonať v jednom kroku, takže TortoiseSVN pridá každý súbor a adresár samostne vytvoriac revíziu pre každý pridaný objekt."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Pustili (dropped) ste viac súborov, alebo adresárov.\nNie to však možné urobiť v jednom kroku. Takže TortoiseSVN pridá každý\nsúbor/adresár samostatne vytvoriac novú revíziu pre každý pridaný objekt.\n\nEšte stále to chcete?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11466,12 +11321,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Najprv musíte aktualizovať pracovnú kópiu."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Nezadali ste prípadové číslo!\nChcete vykonať odovzdanie bez čísla prípadu?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11531,14 +11380,6 @@ msgstr "Inštalovaná verzia:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Vaša verzia: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Vaša pracovná kópia vyzerá byť na ceste značky!\nNajprv by ste mali prepnúť na vetvu, alebo kmeň pred odovzdaním.\n\nChcete napriek tomu odovzdať?"
 
 #. Resource IDs: (276)
 #, c-format

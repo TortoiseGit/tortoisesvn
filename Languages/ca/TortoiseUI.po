@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-04 09:12+0000\n"
-"Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -349,13 +349,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nVoleu eliminar-lo de totes maneres?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -377,15 +370,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nLa carpeta %s\nconté fitxer(s) sense versionar i/o fitxer(s) modificat(s). Vols suprimir-la de totes maneres?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nActualitzo ara la còpia de treball\ni després ho torno a provar?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1754,14 +1738,6 @@ msgstr "Quant a TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Quant a TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Accepta un sol cop"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Accepta permanentment"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1844,10 +1820,6 @@ msgstr "Afegir element\nAixò provocarà problemes a Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Afegeix nous fitxers automàticament a l'SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Afegeix l'element de totes maneres"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2236,10 +2208,6 @@ msgstr "Auto Amaga"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Auto Amaga Tot"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Canvia Nom Automàticament"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3164,14 +3132,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Entregar una carpeta sense versionar no afegeix recursivament els seus elements fills!\nPodeu afegir aquestes carpetes recursivament utilitzant l'ordre 'Afegeix...' del menú contextual."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Entregar una carpeta sense versionar no afegeix recursivament el seu contingut!\nPodeu afegir aquestes carpetes recursivament utilitzant l'ordre 'Afegeix...' del menú.\n\nEsteu segur de voler continuar amb l'entrega?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Entregant a una etiqueta"
@@ -4065,22 +4025,6 @@ msgstr "Fes això per tots els elements sense versionar o modificats"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Realment voleu esborrar la barra d'eines '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Segur que voleu revertir tots els canvis a \n%s\ni tornar enrera cap a aquesta revisió? Aquests canvis es revertiran amb 'reverse-merging' les revisions a la vostra còpia de treball."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Segur que vols revertir tots els canvis a\n%s\nque han sigut fets a aquesta revisió? Aquests canvis es revertiran amb  'reverse-merging' a la revisió dins de la teva còpia de treball."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4978,10 +4922,6 @@ msgstr "Ajusta &amplades d'imatge"
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Ajusta l'amplada"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Arregla majúsc/minúsc de l'element i no l'afegeixis"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5938,22 +5878,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Sembla que intentes traslladar la teva còpia de treball a un camí diferent dins del mateix repositori.\nDe: %1!s!\nA: %2!s!\n\nUn ús incorrecte del trasllat malmetrà la teva còpia de treball!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Sembla que intentes traslladar la teva còpia de treball a un camí diferent dins del mateix repositori.\n\nDe: %1!s!\nA: %2!s!\n\nUn trasllat només cal si ha canviat el camí al repositori.\nCanviar a un camí diferent dins del repositori es fa amb una operació de canvi.\n\nUn ús incorrecte del trasllat malmetrà la teva còpia de treball!\nSi no estàs segur del que vols fer, si us plau consulta els nostres documents referents al trasllat.\nRealment vols fer el trasllat?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6922,10 +6846,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "No hi haprou memòria!\nReduiu el tamany del gràfic de revisió \ncontraient els nodes o bé reduïnt el factor de zoom."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "No recursiu"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "No està sota control de versions"
@@ -6960,12 +6880,6 @@ msgstr "No hi ha res seleccionat per entregar!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Nota"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr "Nota: si actualitzes la teva còpia de treball, no podràs accedir aquesta còpia de treball actualitzada amb clients pre 1.8 SVN mai més!\nVols realment actualitzar aquesta còpia de treball?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7083,14 +6997,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Un dels camins que vols moure sembla un camí especial\n(un de 'branques', 'etiquetes' o 'tronc')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Un dels camins que vols moure sembla un camí especial\n(un de 'branques', 'etiquetes' o 'tronc').\n\nEstàs segur que vols moure els camins seleccionats?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7227,10 +7133,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Canvia la propietat svn:eol-style.\nEls fitxers que no tinguin aquesta propietat no queden afectats."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Sobreescriure"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7833,10 +7735,6 @@ msgstr "Eian de Rectangle\nRectangle"
 msgid "Recurse into unversioned folders"
 msgstr "Recursivitat a carpetes no versionades"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Recursiu"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Operació recursiva"
@@ -7922,10 +7820,6 @@ msgstr "Filtre d'expressions corrents:\n. : qualsevol caracter\nc+   : cerca con
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Fusiona reintegrant %1!s! a %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Rebutja"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7967,10 +7861,6 @@ msgstr "Recarrega els fitxers oberts i reverteix tots els canvis.\nRecarrega"
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Torna a situar"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Alerta de Torna a Situar "
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9911,13 +9801,6 @@ msgid ""
 "is not a valid text file!"
 msgstr "El fitxer\n%s\nno és un fitxer de text vàlid!"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "La carpeta %s\nconté fitxer(s) sense versionar i/o fitxer(s) modificat(s). Voleu eliminar-la de totes maneres?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10225,12 +10108,6 @@ msgstr "La còpia de treball destí '%s' té modificacions locals. Es recomana e
 msgid "The target working copy has local modifications!"
 msgstr "La còpia de treball destí té modificacions locals!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "La còpia de treball destí té modificacions locals.\nVols fusionar de totes maneres?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10344,15 +10221,6 @@ msgid ""
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
 msgstr "Aquesta entrega és no recursiva, i hi ha carpetes mogudes, canviades de nom o copiades, seleccionades per entregar. Aquestes accions sempre es fan recursivament en el repositori. Vols fer l'entrega de totes maneres?"
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Aquesta entrega és no recursiva, i hi ha carpetes mogudes, canviades de nom o copiades,\nseleccionades per entregar. Aquestes accions\nsempre es fan recursivament en el repositori.\n\nVols fer l'entrega de totes maneres?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11026,10 +10894,6 @@ msgstr "Utilitza diàlegs Aero"
 msgid "Use Ribbons"
 msgstr "Utilitza Cintes"
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr "Utilitza Diàleg de Tasca"
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Utilitza la URL de la &Còpia de Treball com la URL \"De:\" per defecte "
@@ -11441,15 +11305,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Has deixat anar més d'un fitxer o carpeta per afegir al repositori.\nNo és possible fer-ho en un sol pas. TortoiseSVN afegirà cada fitxer/carpeta\nindividualment, creant una nova revisió per cada element afegit."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Heu deixat anar més d'un fitxer o carpeta per afegir al repositori.\nNo és possible fer-ho en un sol pas. TortoiseSVN afegirà cada fitxer/carpeta\nindividualment, creant una nova revisió per cada element afegit.\nEncara voleu fer això?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11467,12 +11322,6 @@ msgstr "Has seleccionat %d elements per mostrar-ne la diferència.\nPer cadascun
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Primer heu d'actualitzar la còpia de treball."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "No has introduït un número d'emissió!\nEstàs segur que vols fer una entrega sense número d'emissió?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11532,14 +11381,6 @@ msgstr "La versió és:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "La teva versió és: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "La còpia de treball sembla que es troba a un camí d'etiquetes!\nS'ha de canviar a una branca o al tronc principal abans de fer una entrega.\n\nVoleu entregar de totes maneres?"
 
 #. Resource IDs: (276)
 #, c-format

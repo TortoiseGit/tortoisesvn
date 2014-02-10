@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -351,13 +351,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nYine de kaldırmak istediginizden emin misiniz?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -379,15 +372,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\n%s klasörü versiyonlanmamış ve/veya değiştirilmiş dosya(lar) içeriyor. Yine de kaldırmak istiyor musunuz?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nŞimdi çalışan kopyayı güncelleyip\nsonra tekrar deneyeyim mi?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1756,14 +1740,6 @@ msgstr "TortoiseMerge Hakkında"
 msgid "About TortoiseSVN"
 msgstr "TortoiseSVN Hakkında"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Bir kere kabul et"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Herzaman  kabul et"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1846,10 +1822,6 @@ msgstr "Öğe ekle\nBu işlem Windows'ta sorunlara yol açacak."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Yeni dosyaları SVNe otomatik olarak ekle"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Yine de ekle"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2238,10 +2210,6 @@ msgstr "Otomatik Gizle"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Hepsini Otomatik Gizle"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Otomatik Tekrar Adlandır"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3166,14 +3134,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Versiyonlanmamış bir klasörü teslim etmek alt öğeleri özyineli olarak eklemez!\nBu klasörleri sağ-tık menüsündeki 'Add...' seçeneği ile özyineli olarak eklemeyi isteyebilirsiniz."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Versiyonlanmamış bir klasörün teslim edilmesi otomatik olarak alt kalemleri eklemeyecektir!\nBu klasörleri 'Ekle...' içerik menü seçeneğini kullanarak özyineli olarak eklemeyi isteyebilirsiniz.\n\nTeslim etme işlemine devam etmek istediğinizden emin misiniz?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Bir etikete teslim ediliyor"
@@ -4067,22 +4027,6 @@ msgstr "Bunu tüm versiyonlanmamış/değiştirilmemiş öğeler için yap"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "'%s' araç çubuğunu gerçekten silmek istiyor musunuz?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "%s 'deki bütün değişiklikleri geri alıp bu revizyona\ndönmek istediğinizden emin misiniz? Bu değişiklikler revizyonların ters-birleştirilmesi ile çalışan kopyanıza yeniden döndürülecek."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Bu revizyonda yapılan tüm değişiklileri %s 'dekilerine\ngeri almak istediğinizden emin misiniz?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4980,10 +4924,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Eni sığdır"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Durumu sabitle ve ekleme."
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5940,22 +5880,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Çalişan kopyanızı aynı depo içerisinde başka bir dizine taşımaya çalışıyorsunuz.\n\nBuradan:%1!s!\nBuraya: %2!s!\n\nBaşka bir dizine taşımanın yanlış kullanımı çalışan kopyanızı tahrip eder!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Çalışan kopyanızı aynı depo içerisinde başka bir dizine taşımaya çalışıyorsunuz.\n\nBuradan:%1!s!\nBuraya: %2!s!\n\nBaşka bir dizine taşıma sadece deponun dizini değiştiğinde gereklidir.\nDepo içerisinde başka bir dizine değiştirmek değiştir/geç işlemi ile yapılır.\n\nBaşka bir dizine taşımanın yanlış kullanımı çalışan kopyanızı tahrip eder!\nNe yapmanız gerektiğinden emin değilseniz lütfen taşıma hakkındaki belgelerimize başvurun.\nTaşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6924,10 +6848,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Yetersiz bellek!\nRevizyon düğümleri kapatarak veya yakınlaştırma etmenini azaltarak\ngrafiğinin boyutunu küçültmeyi deneyin."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Özyinesiz"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Versiyon kontrolü altında değil"
@@ -6962,12 +6882,6 @@ msgstr "Teslim edilecek öğe seçilmedi!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Duyuru"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7085,14 +6999,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Taşımayı denediğiniz dizin yollarından biri özel bir yol olarak görünüyor.\n('branches', 'tags' veya 'trunk' isimlerinden biri)."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Taşımaya çalıştığınız dizinlerden biri özel dizin gibi görünüyor.\n('branches', 'tags' ya da 'trunk' 'lardan biri).\n\nSeçili dizinleri taşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7229,10 +7135,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "svn:eol-style özellik ayarını geçersiz kıl.\nBu özelliğin kullanılmadığı dosyalar etkilenmez."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Üstüne yaz"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7835,10 +7737,6 @@ msgstr "Dikdörtgen Aracı\nDikdörtgen"
 msgid "Recurse into unversioned folders"
 msgstr "Versiyonlanmamış klasörlere özyinele"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Özyineli"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Özyineli işlem"
@@ -7924,10 +7822,6 @@ msgstr "Normal ifade süzgeci:\r\n.   : herhangi bir karakter\r\nc+   : c karakt
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "%1!s! öğesini %2!s! hedefine yeniden entegre et ve birleştir"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Reddet"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7969,10 +7863,6 @@ msgstr "Açık olan dosyaları tekrar yükler ve yapılan tüm değişikleri ger
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Taşı"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Taşıma Uyarısı"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9913,13 +9803,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "%s klasörü \nversiyonlanmamış ve/veya değiştirilmiş dosya(lar) içermekte. Yine de silmek istiyor musunuz?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10227,12 +10110,6 @@ msgstr "Hedef çalışan kopya \"%s\" yerel değişikliklere sahip. Yeni değiş
 msgid "The target working copy has local modifications!"
 msgstr "Hedef çalışan kopya yerel değişiklikler içeriyor!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Hedef çalışan kopya yerel değişiklikler içeriyor.\nYine de birleştirmek istiyor musunuz?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10345,15 +10222,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11028,10 +10896,6 @@ msgstr "Aero diyaloglarını kullan"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "&Çalışan kopya dosyasından gelen URL'yi \"From:\" URL'si olarak kullan"
@@ -11443,15 +11307,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Depoya eklemek üzere birden fazla dosya veya klasör bıraktınız.\nBunu bir adımda yapmak mümkün değildir, bu yüzden TortoiseSVN her dosya/klasörü tek tek ekleyecek, her biri için yeni bir revizyon oluşturacak."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Depoya eklenmek üzere birden fazla dosya yada klasör eklediniz.\nBunu tek bir adımda yapmak mümkün değildir,TortoiseSVN her dosya/klasör\niçin yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek kopyalayacaktır.\n\nBu işlemi halen yapmak istiyor musunuz?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11469,12 +11324,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "İlk olarak çalışan kopyanızı güncellemelisiniz."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Sorun numarası eklemediniz!\nSorun numarası olmadan teslim etmek istediğinizden emin misiniz?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11534,14 +11383,6 @@ msgstr "Versiyonunuz:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Versiyonunuz: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Çalışan kopyanız bir etiket dizinindeymiş gibi gözükmekte!\nTeslim etmeden önce ya ana hatta yada bir dala geçmeniz gerekmekte.\n\nYine de dosyanızı teslim etmek istiyor musunuz?"
 
 #. Resource IDs: (276)
 #, c-format

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -347,13 +347,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nVil du fjerne alligevel?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -375,15 +368,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nFolderen %s\nindeholder uversionerede og/eller modificerede fil(er). Vil du fjerne den alligevel?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nSkal jeg opdaterer arbejdskopien nu\nog forsøge igen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1752,14 +1736,6 @@ msgstr "Om TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Om TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Accepter én gang"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Accepter for bestandig"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1842,10 +1818,6 @@ msgstr "Tilføj element\nDette vil give problemer på Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Tilføje nye filer automatisk til SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Tilføj elementet alligevel"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2234,10 +2206,6 @@ msgstr "Skjul automatisk"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Skjul automatisk alle"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Auto-omdøb"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3162,14 +3130,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Begå en versionsspecifik mappe vil ikke rekursivt tilføje sit barn punkter! Du vil måske tilføje disse mapper rekursivt ved at bruge 'Tilføj ...' kontekst menupunkt."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Arkivering af en ikke-versioneret mappe vil ikke automatisk tilføje dens undermapper.\nDu kan tilføje disse mapper rekursivt ved at vælge \"Tilføj...\" i kontekstmenuen.\n\nEr du sikker på at fortsætte arkiveringen?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Check ind til mærke"
@@ -4063,22 +4023,6 @@ msgstr "Gør dette for alle uversionerede/ændrede elementer"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Er du sikker på at du vil slette værktøjslinjen '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nog gå tilbage til denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4976,10 +4920,6 @@ msgstr "Tilpas billed-&bredde"
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Tilpas bredde"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Korriger store/små bogstaver på element og tilføj det ikke"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5936,22 +5876,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Det ser ud til at du forsøger at flytte din arbejdskopi til en anden sti inden i det samme versionsarkiv.\nFra: %1!s!\nTil: %2!s!\n\nEn forkert anvendelse af flytning vil ødelægge din arbejdskopi!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Det ser ud til at du forsøger at relokere din arbejdskopi til en anden sti indenfor det samme versionsarkiv.\n\nFra:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\nTil:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n\nEn relokering er kun nødvendig hvis stien til versionsarkivet har ændret sig.\nFor at skifte til en anden sti indenfor et versionsarkiv skal man bruge en 'switch' operation.\n\nEn forkert anvendelse af relokering vil ødelægge din arbejdskopi!\nHvis du ikke er sikker på hvad du gør, bør du læse dokumentationen omkring relokering.\nEr du helt sikker på at du ønsker at relokere?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6920,10 +6844,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Ikke nok hukommelse!\nPrøv at reducere størrelsen af revisions-grafen ved enten\nat kollapse træ-noder eller mindske zoom-faktoren."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Ikke-rekursivt"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Ikke under versionskontrol"
@@ -6958,12 +6878,6 @@ msgstr "Ingenting er valgt for arkivering!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Bemærk"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr "Bemærk: Hvis du opgraderer din arbejdskopi, vil du ikke længere kunne få adgang til den opgraderede arbejdskopi med pre-1.8 SVN klienter! \nØnsker du at fortsætte med at opgradere denne arbejdskopi?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7081,14 +6995,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "En af de stier du forsøger at flytte ser ud til at være en speciel sti\n(en af 'branches', 'tags' eller 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "En af stierne du prøver at flytte er tilsyneladende en speciel sti\n(enten 'branches', 'tags' eller 'trunk').\n\nEr du sikker på at du vil flytte de markerede stier?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7225,10 +7131,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Overskriv egenskaben svn:eol-style.\nFiler, som ikke har denne egenskab, bliver ikke påvirkede."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Overskriv"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7831,10 +7733,6 @@ msgstr "Rektangelværktøj\nRektangel"
 msgid "Recurse into unversioned folders"
 msgstr "Søg i ikke-versionerede mapper"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Rekursivt"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Rekursiv operation"
@@ -7920,10 +7818,6 @@ msgstr "Filter for regulære udtryk:\r\n.   : vilkårligt tegn\r\nc+   : match t
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Genintegrer fletning %1!s! ind i %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Afvis"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7965,10 +7859,6 @@ msgstr "Genindlæser åbne filer og tilbagefører alle ændringer.\nGenindlæs"
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Omlæg"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Advarsel ved omlægning"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9909,13 +9799,6 @@ msgid ""
 "is not a valid text file!"
 msgstr "Filen\n%s\ner ikke en valid tekst fil!"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Mappen %s\nindeholder ikke-versionerede og/eller ændrede fil(er). Vil du fjerne den alligevel?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10223,12 +10106,6 @@ msgstr "Destinations-arbejdskopien '%s' har lokale ændringer. Det anbefales at 
 msgid "The target working copy has local modifications!"
 msgstr "Destinations-arbejdskopien har lokale ændringer!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Destinations-arbejdskopien har lokale ændringer.\nØnsker du at flette alligevel?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10342,15 +10219,6 @@ msgid ""
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
 msgstr "Denne arkivering er ikke rekursiv og nogle af de valgte foldere er blevet flyttet, omdøbt eller kopieret. Sådanne ændringer vil altid blive udført rekursivt i arkivet. Ønsker du at arkivere alligevel?"
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Denne arkivering er ikke rekursiv og nogle af de valgte foldere er blevet flyttet, omdøbt eller kopieret. Sådanne ændringer vil altid blive udført rekursivt i arkivet.\n\nØnsker du at arkivere alligevel?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11024,10 +10892,6 @@ msgstr "Brug Aero dialoger"
 msgid "Use Ribbons"
 msgstr "Brug Bånd"
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr "Brug Opgave Dialog"
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Benyt URL for &arbejdskopi som standard \"Fra:\"-URL"
@@ -11439,15 +11303,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Du afstod fra at tilføje mere end en fil eller folder til versionsarkivet.\nDet er ikke muligt at gøre dette på en gang, så TortoiseSVN vil tilføje hver fil/folder\nindividually, creating a new revision for every added item."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Du har trukket mere end én fil eller mappe, som skal tilføjes versionsarkivet.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil tilføje hver fil/mappe\nfor sig selv og dermed lave en ny revision for hvert tilføjet emne.\n\nVil du stadig fortsætte?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11465,12 +11320,6 @@ msgstr "Du har valgt at vise forskelle for %d elementer.\nDer vil blive startet 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Du skal først opdatere din arbejdskopi."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Du har ikke indtastet et sagsnummer!\nEr du sikker på at du vil arkivere uden et sagsnummer?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11530,14 +11379,6 @@ msgstr "Din version er:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Din version er: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Din arbejdskopi ser ud til at befinde sig på stien til et mærke!\nDu bør først skifte til en gren eller hovedstammen før du arkiverer.\n\nVil du arkivere alligevel?"
 
 #. Resource IDs: (276)
 #, c-format

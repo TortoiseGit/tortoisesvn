@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -356,13 +356,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nAnda tetap ingin menghapusnya?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -384,15 +377,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nFolder %s\nberisi berkas tidak berversi dan/atau berkas termodifikasi. Apakah Anda tetap ingin menghapusnya?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nApakah saya harus update working copy sekarang\nkemuudian mencobanya lagi?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1761,14 +1745,6 @@ msgstr "Tentang TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Tentang TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Terima sekali"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Terima selamanya"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1851,10 +1827,6 @@ msgstr "Tambah item\nHal ini bisa menyebabkan masalah pada Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Menambahkan berkas baru secara otomatis ke SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Tambahkan begitu saja"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2243,10 +2215,6 @@ msgstr "Sembunyi Otomatis"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Sembunyikan Otomatis Semua"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Ganti nama otomatis"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3171,14 +3139,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Mengkomit folder tak berversi tidak akan menambahkan item-item anaknya secara rekursif!\nAnda mungkin ingin untuk menambahkan folder ini secara rekursif dengan menggunakan menu konteks 'Tambah...' pada item menu."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Mengkomit folder tak berversi tidak akan menambahkan item-item anaknya secara rekursif!\nAnda mungkin ingin untuk menambahkan folder ini secara rekursif dengan menggunakan menu konteks 'Tambah...'.\n\nApakah Anda yakin untuk meneruskan komit?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Commit pada tag"
@@ -4072,22 +4032,6 @@ msgstr "Lakukan hal yang sama pada semua item-item non-versi/dimodifikasi"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Anda benar-benar ingin menghapus bilah alat '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Apakah Anda benar-benar ingin membalik semua perubahan dalam \n%s\ndan kembali ke revisi ini? Perubahan-perubahan ini akan dibalik dengan menggabungkan-mundur revisi-revisi tersebut ke salinan bekerja Anda."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Anda benar-benar ingin membalik semua perubahan ke\n%s\nyang dibuat dalam revisi ini? Perubahan-perubahan ini akan dibalik dengan menggabungkan-mundur revisi-revisi tersebut ke salinan bekerja Anda."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4985,10 +4929,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Pas lebar"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Perbaiki kapitalisasi item dan jangan menambahkannya"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5945,22 +5885,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Sepertinya anda mencoba untuk merelokasi working copy anda pada path yang berbeda didalam repository yang sama.\nDari: %1!s!\nKe: %2!s!\n\nKesalahan penggunaan relokasi bisa merusak working copy anda!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6929,10 +6853,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Memori tidak cukup!\nSilakan coba kurangi ukuran grafik revisi dengan\nmenutup node atau mengurangi faktor pembesaran."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Tidak rekursif"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Tidak dalam kendali versi"
@@ -6967,12 +6887,6 @@ msgstr "Tidak ada yang dipilih untuk commit!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Pemberitahuan"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7090,14 +7004,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Satu atau lebih path yang anda coba untuk dipindahkan muncul menjadi path yang spesial\n(satu dari 'branches', 'tags', atau 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Salah satu path yang sedang Anda coba pindahkan adalah path khusus\n(salah satu dari 'branches', 'tags', atau 'trunk').\n\nApakah Anda yakin ingin memindahkan path terpilih tersebut?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7234,10 +7140,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Timpa seting properti svn:eol-style.\nBerkas-berkas yang properti ininya tidak diatur tidak terpengaruh."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Timpa"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7840,10 +7742,6 @@ msgstr "Alat persegi\nPersegi"
 msgid "Recurse into unversioned folders"
 msgstr "Rekursif ke dalam folder tidak berversi"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Rekursif"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Tindakan menyeluruh"
@@ -7929,10 +7827,6 @@ msgstr "Saringan ekspresi regular:\r\n.   : karakter apa saja\r\nc+   : pencocok
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Integrasi ulang merge/gabungan %1!s! ke %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Tolak"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7974,10 +7868,6 @@ msgstr "Mengambil kembali berkas yang dibuka dan membalik semua perubahan.\nAmbi
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Relokasi"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Peringatan Relokasi"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9918,13 +9808,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Folder %s\nberisi berkas tidak berversi dan/atau diubah. Anda ingin tetap menghapusnya?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10232,12 +10115,6 @@ msgstr "Salinan kerja '%s' yang dituju mempunyai modifikasi pada lokal. Lebih di
 msgid "The target working copy has local modifications!"
 msgstr "Salinan pekerjaan sudah modifikasi lokal!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Salinan pekerjaan sudah modifikasi lokal.\nApakah Anda masih ingin menggabungkan?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10350,15 +10227,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11033,10 +10901,6 @@ msgstr "Menggunakan dialog Aero"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Gunakan URL &WC sebagai standar URL \"Dari:\""
@@ -11448,15 +11312,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Anda meletakkan lebih dari satu berkas atau folder untuk ditampbahkan pada repositori.\nHal ini tidak mungkin dilakukan dalam sekali waktu, jadi TortoiseSVN akan menambahkan tiap-tiap berkas/folder\nsecara satu per satu, membuat revisi baru pada tiap-tiap item yang ditambahkan."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Anda menjatuhkan lebih dari satu berkas atau folder untuk ditambahkan ke repositori.\nTidak mungkin untuk melakukan itu dalam satu langkah, maka TortoiseSVN akan menambahkan setiap berkas/folder\nsecara individual, membuat revisi baru untuk setiap item yang ditambahkan.\n\nAnda masih ingin melakukan ini?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11474,12 +11329,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Anda harus memutakhirkan copy pekerjaan anda lebih dulu."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Anda tidak memasukan angka terbitan!\nAnda yakin ingin mengkomit tanpa nomor terbitan?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11539,14 +11388,6 @@ msgstr "Versi anda:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Versi anda: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Salinan pekerjaan anda nampaknya ada pada path tag!\nPertama anda harus menukar cabang atau batang utama sebelum mengkomit.\n\nAnda tetap ingin mengkomit?"
 
 #. Resource IDs: (276)
 #, c-format

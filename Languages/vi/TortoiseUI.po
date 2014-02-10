@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -347,13 +347,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nBạn vẫn muốn lấy nó ra?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -375,15 +368,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nThư mục %s\nchứa các tập tin chưa phiên bản và/hoặc được sửa đổi. Bạn có muốn loại bỏ nó không?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nTôi có nên cập nhật bản làm việc bây giờ\nvà thử lại?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1752,14 +1736,6 @@ msgstr "Về TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Về TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Chấp nhận một lần"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Chấp nhận lâu dài"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1842,10 +1818,6 @@ msgstr "Thêm món\nViệc này sẽ dẫn tới trục trặc trên Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Tự động thêm tập tin mới vào SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Vẫn thêm vào món đó"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2234,10 +2206,6 @@ msgstr "Tự động ẩn"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Tự động ẩn tất cả"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Tự động đổi tên"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3162,14 +3130,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Cam kết một thư mục không phiên bản sẽ không thêm các món con của nó theo cách đệ quy!\nBạn có lẽ muốn thêm các thư mục này theo cách đệ quy bằng cách dùng lựa chọn 'Thêm...' trong thưc đơn ngữ cảnh."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Cam kết một thư mục chưa được tạo phiên bản sẽ không thêm các món con của nó một cách đệ quy!\nBạn có lẽ muốn thêm những thư mục này một cách đệ quy bằng cách dùng lựa chon 'Thêm...' trong thực đơn ngữ cảnh.\n\nBạn có chắc bạn muốn tiếp tục việc cam kết?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Đang cam kết vào một thẻ"
@@ -4063,22 +4023,6 @@ msgstr "Làm việc này với tất cả các món không được phiên bản
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Bạn có thật sự muốn xoá thanh công cụ '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Bạn có muốn bỏ những thay đổi trong\n%s\nvà quay lại bản chỉnh sửa này? Những thay đổi này sẽ bị làm lại bởi hợp nhất ngược bản chỉnh sửa vào bản đang làm."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Bạn có muốn bỏ những thay đổi trong\n%s\nđã được làm trong phiên bản này? Những thay đổi này sẽ bị làm lại bởi hợp nhất ngược bản chỉnh sửa vào bản đang làm."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4976,10 +4920,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Làm cho vừa chiều rộng"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Sửa chữ hoa của các món và không thêm nó vào"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5936,22 +5876,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "cCó vẻ như bạn đang cố tái định vị bản làm việc của bạn sang một đường dẫn khác trong cùng một kho chứa.\nTừ: %1!s!\nsang: %2!s!\n\nViệc dùng sai chức năng tái định vị có thể làm hỏng bản làm việc của bản!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Có vẻ như bạn đang cố tái định vị bản làm việc của bạn sang một đường dẫn khác bên trong cùng một kho chứa.\n\nTừ:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\nĐến:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n\nTái định vị chỉ cần thiết nếu đường dẫn tới kho chứa thay đổi.\nĐổi sang một đường dẫn khác trong một kho chứa được thực hiện bởi một tác vụ chuyển..\n\nViệc dùng không đúng chức năng tái định vị sẽ làm hỏng bản làm việc của bạn!\nNếu bạn không chắc phải làm gì, xin tham khảo tài liệu của chúng tôi về phần tái định vị.\nBạn có thật sự muốn tái định vị không?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6920,10 +6844,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Không đủ bộ nhớ!\nThử giảm kích thước của biểu đồ chỉnh sửa bằng cách hoặc là\nthu gọn các nút hay giảm yếu tố phóng."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Không đệ quy"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Không được kiểm soát không phiên bản"
@@ -6958,12 +6878,6 @@ msgstr "Không có gì được lựa chọn cho cam kết!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Chú ý"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7081,14 +6995,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Một trong các đường dẫn bạn đang thử di chuyển có vẻ là một đường dẫn đặc biệt\n(một trong các 'nhánh', 'thẻ' hoặc 'thân')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Một trong những đường dẫn bạn đang cố di chuyển có vẻ như là một đường dẫn đặc biệt\n(một trong 'branches', 'tags' or 'trunk').\n\nBạn có chắc bạn muốn di chuyển các đường dẫn được chọn?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7225,10 +7131,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Ghi đè thiết lập thuộc tính svn:eol-style\nCác tập tin không có thuộc tính này bật thì không bị ảnh hưởng"
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Ghi đè"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7831,10 +7733,6 @@ msgstr "Công cụ hình chữ nhật\nHình chữ nhật"
 msgid "Recurse into unversioned folders"
 msgstr "Đệ quy vào các thư mục không được đánh phiên bản"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Đệ quy"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Tác vụ đệ quy"
@@ -7920,10 +7818,6 @@ msgstr "Lọc biểu thức thông thường:\n.   : bất kỳ ký tự nào\nc
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Tái tích hợp hợp nhất %1!s! vào %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Bác bỏ"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7965,10 +7859,6 @@ msgstr "Tải lại các tập tin được mở và quay lui tất cả thay đ
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Tái định vị"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Tái định vị cảnh báo"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9909,13 +9799,6 @@ msgid ""
 "is not a valid text file!"
 msgstr "Tập tin\n%s\nkhông phải là một tập tin văn bản hợp lệ!"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Thư mục %s\nchứa các tập tin không đánh văn bản và/hay được sửa đổi. Bạn có muốn loại bỏ nó không?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10223,12 +10106,6 @@ msgstr "Bản làm việc đích '%s' có các sửa đổi địa phương. T�
 msgid "The target working copy has local modifications!"
 msgstr "Bản làm việc đích có sửa đổi địa phương!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Bản làm việc đích có sửa đổi địa phương.\nBạn có muốn hợp nhất không?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10342,15 +10219,6 @@ msgid ""
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
 msgstr "Việc cam kết này không đệ quy, và có các thư mục được di chuyển/đổi tên/sao chép được chọn cho việc cam kết. Những việc di chuyển/đổi tên như vậy luôn được thực hiện một cách đệ quy trong kho. Bạn vẫn muốn cam kết?"
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Việc cam kết này không đệ quy, và có các thư mục được di chuyển/đổi tên/sao chép được chọn cho việc cam kết. Những việc di chuyển/đổi tên\nnhư vậy luôn được thực hiện một cách đệ quy trong kho.\n\nBạn vẫn muốn cam kết?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11024,10 +10892,6 @@ msgstr "Dùng hộp thoại kiểu Aero"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Dùng URL và &WC như là mặc định cho URL \"Từ:\""
@@ -11439,15 +11303,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Bạn bỏ nhiều hơn một tập tin hay thư mục để thêm vào kho chứa.\nKhông thể làm nó trong một bước, vì vậy TortoiseSVN sẽ thêm từng tập tin/thư mục\nmột cách riêng lẻ, tạo ra một bản chỉnh sửa mới cho mỗi món được thêm."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Bạn bỏ nhiều hơn một tập tin hay thư mục thêm vào kho chứa.\nKhông thể làm vậy trong một bước, vì vậy TortoiseSVN sẽ thêm từng tập tin/thư mục\nmột cách đơn lẻ, tạo một phiên bản mới cho mỗi món được thêm vào.\n\nBạn vẫn muốn làm việc này chứ?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11465,12 +11320,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Bạn phải cập nhật bản làm việc của bạn trước."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Bạn chưa nhập vào một con số cho vấn đề!\nBạn có chắc bạn muốn cam kết mà không có số vấn đề?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11530,14 +11379,6 @@ msgstr "Phiên bản của bạn là:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Phiên bản của bạn là: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Bản làm việc của bạn xuất hiện trên đường dẫn thẻ!\nBạn nên trước chuyển sang một nhánh hay thân trước khi cam kết.\n\nBạn có muốn cam kết không?"
 
 #. Resource IDs: (276)
 #, c-format

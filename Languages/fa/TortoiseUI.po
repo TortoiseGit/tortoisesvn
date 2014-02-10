@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -350,13 +350,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nآیا شما می‌خواهید آن را به هر طریقی حذف نمایید؟"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -378,15 +371,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nپوشه %s\nحاوی فایل(های) فاقد نسخه و یا تغییر یافته هستند. آیا از حذف آن اطمینان دارید؟"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nآیا نسخه کاری بروز شود و \nسپس سعی گردد؟"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1755,14 +1739,6 @@ msgstr "دربارهٔ TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "دربارهٔ - TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "یک مرتبه بپذیر"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "همیشه بپذیر"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1845,10 +1821,6 @@ msgstr "اضافه کردن قلم\nروی سیستم عامل ویندوز دچ
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "اضافه کردن فایلهای جدید بطور خودکار به SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Add the item anyway"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2237,10 +2209,6 @@ msgstr "پنهان‌سازی خودکار"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "پنهان‌سازی خودکار همه"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "تغییر نام خودکار"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3165,14 +3133,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "اعمال پوشه فاقد نسخه اقلام را به صورت بازگشتی اضافه نخواهد کرد!\nشما می توانید این پوشه ها را با منوی زمینه 'اضافه...' بصورت بازگشتی اضافه نمایید."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "اعمال پوشه فاقد-نسخه اقلام داخل آنرا بطور تودرتو اضافه نخواهد کرد!\nممکن است مایل باشید این پوشه ها را بطور تودرتو با استفاده از دستور 'Add...' موجود در منو اضافه کنید.\n\nآیا از ادامه عملیات اعمال اطمینان دارید؟"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "اعمال یک تگ"
@@ -4066,22 +4026,6 @@ msgstr "برای همه اقلام فاقد نسخه ها/تغییر یافته 
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "آیا نوار ابزار '%s' حذف شود?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "آیا مایلید تمامی تغییرات در\n%s\nاز بین رفته و به این اصلاحیه تغییر پیدا کنند؟ این تغییرات با استفاده از ادغام معکوس اصلاحیه ها به نسخه کاری بازگشت خواهند شد."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "آیا مایلید تمامی تغییرات در\n%s\n که در این اصلاحیه انجام شده اند، برگشت  داده شوند؟ این تغییرات با استفاده از ادغام معکوس اصلاحیه ها به نسخه کاری بازگشت خواهند شد."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4979,10 +4923,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "جایگیری در عرض"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Fix case of item and do not add it"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5939,22 +5879,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "به نظر میرسد شما در حال جابجایی نسخه کاری خود به مسیر دیگری در مخزن هستید.\nاز: %1!s!\nبه: %2!s!\n\nاستفاده ناصحیح از جابجابب نسخه کاری شما را تخریب خواهد کرد!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "It seems you are trying to relocate your working copy to a different path inside the same repository.\n\nFrom:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\nTo:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n\nA relocate is only needed if the path to a repository has changed.\nChanging to a different path inside a repository is done by a switch operation.\n\nImproper use of relocate will corrupt your working copy!\nIf you are not sure what to do, please refer to our docs on relocate.\nDo you really want to relocate?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6923,10 +6847,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "حافظه کافی وجود ندارد!\nسعی کنید اندازه گراف اصلاحیه ها را از طریق\nبستن گره ها یا کاهش ضریب بزرگنمائی کاهش دهید."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "غیر بازگشتی"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "تحت کنترل نسخه نمی باشد"
@@ -6961,12 +6881,6 @@ msgstr "چیزی برای اعمال انتخاب نشده است!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "اعلامیه"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7084,14 +6998,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "یکی از مسیرهایی که می خواهید انتقال دهید به نظر روی مسیر خاصی قرار دارند\n(یکی از 'branches', 'tags' یا 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "یکی از مسیرهاوی که میخواهید جابجا کنید ظاهرا یا مسیر ویژه است\n(یک 'شاخه'، 'تگ' یا 'شاخه اصلی').\n\nآیا از جابجائی مسیر مورد نظر مطمئن هستید؟"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7228,10 +7134,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "لغو تنظیمات خاصیت svn:eol-style.\nفایلهایی که این خاصیت بر روی آنها اعمال نشده باشد تحت تاثیر قرار نخواهند گرفت."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "رونویسی"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7834,10 +7736,6 @@ msgstr "ابزار مستطیل\nمستطیل"
 msgid "Recurse into unversioned folders"
 msgstr "پیمایش پوشه های بدون نسخه بصورت بازگشتی"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "بازگشتی"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "عملیات برگشتی"
@@ -7923,10 +7821,6 @@ msgstr "Regular expressions filter:\r\n.   : any character\r\nc+   : match chara
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Reintegrate merge %1!s! into %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "رد کردن"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7968,10 +7862,6 @@ msgstr "بارگذاری مجدد فایلهای باز شده و برگشت ه�
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "تغییر مکان"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "هشدار جابجائی"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9912,13 +9802,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "پوشه %s\nحاوی فایلهای تغییریافته و/یا فاقد-نسخه است. آیا میخواهید در عین حال آنرا حذف کنید؟"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10226,12 +10109,6 @@ msgstr "نسخه کاری مقصد '%s' دارای تغییرات محلی می�
 msgid "The target working copy has local modifications!"
 msgstr "نسخه کاری مقصد دارای تغییرات محلی میباشد!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "نسخه کاری مقصد دارای تغییرات محلی میباشد!\nآیا مایلید ادغام انجام شود؟"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10344,15 +10221,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11027,10 +10895,6 @@ msgstr "استفاده از پنجره های Aero"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "استفاده از آدرس &ن.ک بعنوان آدرس \"از:\" پیش فرض"
@@ -11442,15 +11306,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "شما بیش از یک فایل یا پوشه را برای اضافه کردن به مخزن منتقل کردید.\nانجام این کار در یک قدم ممکن نیست، در نتیجه ما هر فایل/پوشه را\nطی یک اصلاحیه مجزا اضافه خواهد کرد و برای هر قلم یک اصلاحیه ایجاد خواهد شد.\n\nآیا از انجام این کار اطمینان دارید؟"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11468,12 +11323,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "ابتدا نسخه کاری خود را بروزرسانی کنید."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "شماره درخواست وارد نشده است!\nآیا از اعمال بدون وارد کردن شماره درخواست اطمینان دارید؟"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11533,14 +11382,6 @@ msgstr "نگارش شما:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "نگارش شما: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "ظاهرا مسیر نسخه کار شما یک تگ است!\nبرای اعمال تغییرات به یک انشعاب یا ریشه اصلی تغییر مسیر دهید.\n\nآیا مایلید در هر صورت اعمال انجام شود؟"
 
 #. Resource IDs: (276)
 #, c-format

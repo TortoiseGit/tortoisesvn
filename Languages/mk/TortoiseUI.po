@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -346,13 +346,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nДали сепак сакате да го отстраните ?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -373,15 +366,6 @@ msgid ""
 "%s\n"
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
 msgstr ""
 
 #. Resource IDs: (69)
@@ -1751,14 +1735,6 @@ msgstr "За TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "За TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Прифати еднаш"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Прифати засекогаш"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1841,10 +1817,6 @@ msgstr ""
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Додади нови датотеки автоматски во SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Додади секако"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2233,10 +2205,6 @@ msgstr "Автоматски сокриј"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Автоматски сокриј се"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Автоматска промена на имињата"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3161,14 +3129,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Извршувањето на неверзиониран директориум нема да ги додаде\nрекурзивно и децата. Можете да ги додадете овие директориуми\nсо користење на 'Додади...' од контекстното мени\n\nДали сте сигурни дека сакате да продолжите со складирањето?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr ""
@@ -4062,22 +4022,6 @@ msgstr ""
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Дали навистина сакате да го избришете алатникот '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Дали навистина сакате да ги повратите сите измени на\n%s\nи да се вратите на оваа ревизија? Овие измени ќе бидат повратенисо обратно спојување на ревизиите во вашата работна копија."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Дали навистина сакате да ги повратите сите измени на\n%s\nкои се направени во оваа ревизија? Овие измени ќе бидат повратени со обратно спојување на ревизијата во вашата работна копија."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4975,10 +4919,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Собери по широчина"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Реши го случајот и не го додавај"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5934,22 +5874,6 @@ msgid ""
 "To: %2!s!\n"
 "\n"
 "Improper use of relocate will corrupt your working copy!"
-msgstr ""
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -6919,10 +6843,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Нема доволно меморија!\nОбидете се со намалување на големината на графикот на ревизии\nНо собирање на јазлите или намалување на зумот."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Не рекурзивно"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr ""
@@ -6957,12 +6877,6 @@ msgstr ""
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Забелешка"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7080,14 +6994,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Една од патеките која се обидувате да ја преместите е специјална\n(една од 'гранки', 'тагови' или 'стебло').\n\nДа ли сте сигурни дека сакате да ја поместите?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7224,10 +7130,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Преспој го svn:eol-style својството.\nДатотеки кои го немаат ова својство нема да се погодени."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Презапиши"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7830,10 +7732,6 @@ msgstr "Rectangle Tool\nRectangle"
 msgid "Recurse into unversioned folders"
 msgstr "Навлези и во неверзионираните директориуми"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Рекурзивно"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr ""
@@ -7919,10 +7817,6 @@ msgstr "Филтер за изразите:\r\n. : било кој каракт�
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr ""
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Одбиј"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7964,10 +7858,6 @@ msgstr "Вчитај повторно отворените датотеки и �
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Премести"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Известување за преместување"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9908,13 +9798,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Директориумот %s\nсодржи неверзионирани и/или модифицирани датотеки. Дали сакате да го отстраните?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10222,12 +10105,6 @@ msgstr ""
 msgid "The target working copy has local modifications!"
 msgstr ""
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr ""
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10340,15 +10217,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11023,10 +10891,6 @@ msgstr ""
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Користи URL на &РК како основен \"Од:\" URL"
@@ -11438,15 +11302,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr ""
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Испуштивте повеќе од една датотека за додавање во складиштето.\nНе е возможно да се направи тоа во еден чекор, TortoiseSVN ќе ја додаде секоја датотека\nпосебно, креирајќи нова ревизија за секој додаден член.\n\nДали сакате да го направите ова?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11464,12 +11319,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Мора да ја освежите работната копија првин."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Не е внесен број на проблемот!\nДали сакате да складирате без број на проблемот?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11529,14 +11378,6 @@ msgstr "Вашата верзија е:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Вашата верзија е: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Вашата работна копија е на означена патека!\nПрвин би требало да се префрлите на гранка или главно стебло пред да складирате.\n\nДали сакате да складирате?"
 
 #. Resource IDs: (276)
 #, c-format

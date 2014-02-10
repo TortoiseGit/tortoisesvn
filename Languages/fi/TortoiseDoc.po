@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2013
+# Kari Granö <kari.grano@gmail.com>, 2011-2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-02-09 23:20+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -820,7 +820,7 @@ msgid ""
 "TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
 "commands that are not in the submenu have <literal>SVN</literal> prepended: "
 "<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Oletusarvoisesti työkopion hakukomento ei sijaitse TortoiseSVN-alivalikossa vaan Resurssienhallinnan päävalikossa. TortoiseSVN-komennot, jotka eivät sijaitse alivalikossa, sisältävät <literal>SVN</literal> -etuliitteen:  <menuchoice><guimenuitem>SVN Hae työkopio...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -6287,7 +6287,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff "
 "later</guimenuitem></menuchoice> again, but hold down the "
 "<keycap>Ctrl</keycap>-modifier while clicking on it."
-msgstr ""
+msgstr "Jos verrattavat tiedostot eivät ole samassa kansiossa, käytä komentoa  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vertaa myöhemmin</guimenuitem></menuchoice> merkitäksesi ensimmäisen vertailtavan tiedoston. Siirry sen jälkeen toisen tiedoston luo ja käytä komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vertaa tiedostoon \"polku/merkittyyn/tiedostoon\"</guimenuitem></menuchoice>. Poistaaksesi merkityn tiedoston anna komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vertaa myöhemmin</guimenuitem></menuchoice> pitämällä samalla näppäin <keycap>Ctrl</keycap> painettuna."
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
@@ -8815,14 +8815,14 @@ msgstr "Ulkoinen tiedosto käyttäytyy useimmiten normaalin versioidun tiedoston
 
 #. (title)
 msgid "Creating externals via drag and drop"
-msgstr ""
+msgstr "Ulkoisten viittausten luonti raahaamalla ja pudottamalla"
 
 #. (para)
 msgid ""
 "If you already have a working copy of the files or folders you want to "
 "include as externals in another working copy, you can simply add those via "
 "drag and drop from the windows explorer."
-msgstr ""
+msgstr "Jos sinulla on jo työkopio tiedostoista tai kansioista, jotka haluat lisätä toiseen työkopioon ulkoisena viitteenä, voit yksinkertaisesti raahata ne kohdetyökopioon Resurssienhallinnan avulla."
 
 #. (para)
 msgid ""
@@ -8833,7 +8833,7 @@ msgid ""
 "entry, the <literal>svn:externals</literal> property is automatically added."
 " All you have to do after that is commit the property changes and update to "
 "get those externals properly included in your working copy."
-msgstr ""
+msgstr "<action>Oikea-raahaa</action> tiedosto tai kansio työkopiosta siihen työkopioon, johon haluat lisätä sen ulkoisena viitteenä. Vapauttaessasi hiiren näppäimen esiin aukeaa kontekstivalikko <menuchoice><guimenuitem>SVN Lisää ulkoinen viite tähän</guimenuitem></menuchoice>. Jos valitset komennon, tarvittava <literal>svn:externals</literal> -ominaisuus lisätään automaattisesti. Tämän jälkeen riittää toimittaa ominaisuusmuutokset arkistoon ja päivittää työkopio."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -13407,7 +13407,7 @@ msgstr "Kantatiedoston ikkunaotsikko"
 #. (para)
 #. (para)
 msgid "The window title for the base file, without quotes"
-msgstr ""
+msgstr "Kantatiedoston ikkunaotsikko ilman lainausmerkkejä"
 
 #. (para)
 msgid "Your own file, with your changes"
@@ -13421,7 +13421,7 @@ msgstr "Sinun tiedostosi ikkunaotsikko"
 #. (para)
 #. (para)
 msgid "The window title for your file, without quotes"
-msgstr ""
+msgstr "Sinun tiedostosi ikkunaotsikko ilman lainausmerkkejä"
 
 #. (para)
 msgid "The URL of the original file, if available"
@@ -13429,7 +13429,7 @@ msgstr "Tiedoston paikannin, mikäli saatavilla"
 
 #. (para)
 msgid "The URL of the original file, if available, without quotes"
-msgstr ""
+msgstr "Tiedoston paikannin, mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
 msgid "The URL of the second file, if available"
@@ -13437,7 +13437,7 @@ msgstr "Toisen tiedoston paikannin, mikäli saatavilla"
 
 #. (para)
 msgid "The URL of the second file, if available, without quotes"
-msgstr ""
+msgstr "Toisen tiedoston paikannin, mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
 msgid "The revision of the original file, if available"
@@ -13445,7 +13445,7 @@ msgstr "Alkuperäisen tiedoston versio mikäli saatavilla"
 
 #. (para)
 msgid "The revision of the original file, if available, without quotes"
-msgstr ""
+msgstr "Alkuperäisen tiedoston versio mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
 msgid "The revision of the second file, if available"
@@ -13453,7 +13453,7 @@ msgstr "Toisen tiedoston versio, mikäli saatavilla"
 
 #. (para)
 msgid "The revision of the second file, if available, without quotes"
-msgstr ""
+msgstr "Toisen tiedoston versio, mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
 msgid "The peg revision, if available"
@@ -13461,15 +13461,15 @@ msgstr "Ankkuriversio, mikäli saatavilla"
 
 #. (para)
 msgid "The peg revision, if available, without quotes"
-msgstr ""
+msgstr "Ankkuriversio, mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
 msgid "The name of the conflicted file"
-msgstr ""
+msgstr "RIstiriidassa olevan tiedoston nimi"
 
 #. (para)
 msgid "The name of the conflicted file, without quotes"
-msgstr ""
+msgstr "Ristiriidassa olevan tiedoston nimi, ilman lainausmerkkejä"
 
 #. (para)
 msgid ""
@@ -13579,7 +13579,7 @@ msgstr "Arkistossa olevan tiedoston ikkunaotsikko"
 
 #. (para)
 msgid "The window title for the file in the repository, without quotes"
-msgstr ""
+msgstr "Arkistossa olevan tiedoston ikkunaotsikko, ilman lainausmerkkejä"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
@@ -13591,17 +13591,17 @@ msgstr "Yhdistetyn tiedoston ikkunaotsikko"
 
 #. (para)
 msgid "The window title for the merged file, without quotes"
-msgstr ""
+msgstr "Yhdistetyn tiedoston ikkunaotsikko, ilman lainausmerkkejä"
 
 #. (para)
 msgid ""
 "The name of the file. This is an empty string if two different files are "
 "diffed instead of two states of the same file."
-msgstr ""
+msgstr "Tiedoston nimi. Korvautuu tyhjällä merkkijonolla, mikäli verrataan kahta eri tiedostoa, eikä samaa tiedostoa kahdessa eri tilassa."
 
 #. (para)
 msgid "The name of the file, without quotes"
-msgstr ""
+msgstr "TIedoston nimi, ilman lainausmerkkejä"
 
 #. (para)
 msgid ""
@@ -14729,21 +14729,21 @@ msgstr "Mikäli tämä valinta on asetettu arvoon <literal>true</literal>, Torto
 msgid ""
 "A format string for the log messages when multiple revisions are selected in"
 " the log dialog."
-msgstr ""
+msgstr "Muotoilumerkkijono lokiviesteille, kun loki-ikkunassa on valittuna useita versioita."
 
 #. (listitem)
 msgid "gets replaced with the revision number text"
-msgstr ""
+msgstr "korvautuu versionumerotekstillä"
 
 #. (listitem)
 msgid "gets replaced with the short log message of the revision"
-msgstr ""
+msgstr "korvautuu version lyhyellä lokiviestillä"
 
 #. (para)
 msgid ""
 "You can use the following placeholders in your format string: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Voit käyttää seuraavia muuttujia muotoilumerkkijonossasi:  <placeholder-1/>"
 
 #. (para)
 msgid ""

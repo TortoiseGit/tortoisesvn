@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Belarusian (Tarask) (http://www.transifex.com/projects/p/tortoisesvn/language/be@tarask/)\n"
 "MIME-Version: 1.0\n"
@@ -348,13 +348,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nЖадаеце выдаліць усё адно?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -375,15 +368,6 @@ msgid ""
 "%s\n"
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
 msgstr ""
 
 #. Resource IDs: (69)
@@ -1753,14 +1737,6 @@ msgstr "Пра TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Пра TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr ""
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr ""
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1842,10 +1818,6 @@ msgstr ""
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
-msgstr ""
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
 msgstr ""
 
 #. Resource IDs: (613)
@@ -2234,10 +2206,6 @@ msgstr ""
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
 msgstr ""
 
 #. Resource IDs: (221)
@@ -3163,14 +3131,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr ""
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr ""
@@ -4063,22 +4023,6 @@ msgstr ""
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr ""
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr ""
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 
 #. Resource IDs: (92)
@@ -4976,10 +4920,6 @@ msgstr ""
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr ""
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
 msgstr ""
 
 #. Resource IDs: (281)
@@ -5936,22 +5876,6 @@ msgid ""
 "To: %2!s!\n"
 "\n"
 "Improper use of relocate will corrupt your working copy!"
-msgstr ""
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -6921,10 +6845,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr ""
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr ""
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr ""
@@ -6958,12 +6878,6 @@ msgstr ""
 
 #. Resource IDs: (88)
 msgid "Notice"
-msgstr ""
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
 msgstr ""
 
 #. Resource IDs: (247)
@@ -7081,14 +6995,6 @@ msgstr ""
 msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
-msgstr ""
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
 msgstr ""
 
 #. Resource IDs: (3887)
@@ -7225,10 +7131,6 @@ msgstr ""
 msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
-msgstr ""
-
-#. Resource IDs: (99)
-msgid "Overwrite"
 msgstr ""
 
 #. Resource IDs: (91)
@@ -7832,10 +7734,6 @@ msgstr ""
 msgid "Recurse into unversioned folders"
 msgstr ""
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr ""
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr ""
@@ -7921,10 +7819,6 @@ msgstr ""
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr ""
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr ""
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7965,10 +7859,6 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr ""
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
 msgstr ""
 
 #. Resource IDs: (89)
@@ -9910,13 +9800,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10224,12 +10107,6 @@ msgstr ""
 msgid "The target working copy has local modifications!"
 msgstr ""
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr ""
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10342,15 +10219,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11025,10 +10893,6 @@ msgstr ""
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr ""
@@ -11440,15 +11304,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr ""
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr ""
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11465,12 +11320,6 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
-msgstr ""
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -11530,14 +11379,6 @@ msgstr ""
 #. Resource IDs: (201)
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
-msgstr ""
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (276)

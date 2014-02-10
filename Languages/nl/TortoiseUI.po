@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -353,13 +353,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nWilt u het toch verwijderen?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -381,15 +374,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nDe map %s\nbevat gewijzigde en/of bestanden zonder versiebeheer. Wilt u hem toch verwijderen?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nMoet de werkkopie worden bijgewerkt\nen dan opnieuw proberen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1758,14 +1742,6 @@ msgstr "Over TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "Over TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Accepteer eenmalig"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Accepteer voor altijd"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1848,10 +1824,6 @@ msgstr "Object toevoegen\nDit zal problemen onder Windows geven."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Voeg nieuwe bestanden automatisch toe in SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Voeg onderdeel toch toe"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2240,10 +2212,6 @@ msgstr "Automatisch verbergen"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Alles automatisch verbergen"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Automatisch hernoemen"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3168,14 +3136,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Vastleggen van een map zonder versiebeheer zal de objecten in de map niet toevoegen!\nWellicht wilt u deze zaken recursief toevoegen door het 'Toevoegen...' keuzemenu te selecteren."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Vastleggen van een map zonder versiebeheer voegt de bestanden in de map niet toe!\nWellicht wilt u eerst deze map(pen) recusief toevoegen via het 'Toevoegen...' menu.\n\nWeet u zeker dat u wilt doorgaan met vastleggen?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Vastleggen naar een label"
@@ -4069,22 +4029,6 @@ msgstr "Doe dit voor alle onderdelen zonder versiebeheer of met wijzigingen"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Wilt u de werkbalk '%s' echt verwijderen?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Wilt u echt alle wijzigingen in\n%s\nongedaan maken en teruggaan naar deze revisie? Deze wijzigingen zullen via omgekeerd-samenvoegen in uw werkkopie worden aangebracht."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Wilt u echt alle wijzigingen in\n%s\nuit deze revisie ongedaan maken? Deze wijzigingen zullen via omgekeerd-samenvoegen worden aangebracht in uw werkkopie."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4982,10 +4926,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Breedte passend"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Pas hoofd-/kleine letters aan en voeg het niet toe"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5942,22 +5882,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Het lijkt er op dat de werkkopie verhuisd wordt naar een ander pad in hetzelfde archief.\nVan: %1!s!\nNaar: %2!s!\n\nOnjuist gebruik van 'verhuizen' zal de werkkopie beschadigen!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Het lijkt er op dat u de werkkopie probeert te verhuizen naar een ander pad binnen hetzelfde archief.\n\nVan:\t\t%1!s!\nNaar:\t%2!s!\n\nVerhuizen is alleen nodig als het pad naar een archief is gewijzigd.\nWisselen naar een ander pad binnen een archief wordt gedaan met een wissel actie.\n\nOnjuist gebruik van verhuizen zal de werkkopie beschadigen!\nAls u niet zeker weet wat u moet doen, raadpleeg dan de documentatie over verhuizen.\nWilt u echt verhuizen?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6926,10 +6850,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Onvoldoende geheugen!\nProbeer de grootte van het revisie-schema te beperken door\nknopen in te klappen of de zoom-factor te verlagen."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Niet recursief"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Niet onder versiebeheer"
@@ -6964,12 +6884,6 @@ msgstr "Er is niets geselecteerd om vast te leggen"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Opmerking"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7087,14 +7001,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Een van de paden die u wil verplaatsen lijkt een speciaal pad te zijn\n(een van 'branches', 'tags' of 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Een van de paden die u probeert te verplaatsen lijkt een speciaal pad te zijn\n(een van 'branches', 'tags' of 'trunk').\n\nWeet u zeker dat u de geselecteerde paden wilt verplaatsen?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7231,10 +7137,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Overrule de svn:eol-style eigenschap.\nBestanden zonder deze eigenschap worden niet geraakt."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Overschrijven"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7837,10 +7739,6 @@ msgstr "Rechthoekgereedschap\nRechthoek"
 msgid "Recurse into unversioned folders"
 msgstr "Mappen zonder versiebeheer doorlopen"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Recursief"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Recursieve operatie"
@@ -7926,10 +7824,6 @@ msgstr "Filter voor reguliere expressies:\r\n.   : willekeurig teken\r\nc+   : �
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Herintegratie-samenvoegen van %1!s! in %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Verwerpen"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7971,10 +7865,6 @@ msgstr "Geopende bestanden opnieuw laden en alle wijzigingen ongedaan maken.\nHe
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Verhuizen"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Waarschuwing Verhuizen"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9915,13 +9805,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "De map %s\nbevat gewijzigde bestanden en/of bestanden die niet onder versiebeheer vallen.\nWilt u de map toch verwijderen?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10229,12 +10112,6 @@ msgstr "De doel-werkkopie '%s' heeft lokale wijzigingen. U wordt geadviseerd dez
 msgid "The target working copy has local modifications!"
 msgstr "De doel werkkopie heeft lokale wijzigingen!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "De doel werkkopie heeft lokale wijzigingen.\nWil u de wijzigingen toch samenvoegen?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10347,15 +10224,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11030,10 +10898,6 @@ msgstr "Gebruik Aero vensters"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Gebruik URL van &werkkopie als standaard \"Van:\" URL"
@@ -11445,15 +11309,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "U heeft meerdere bestanden of mappen gesleept om toe te voegen in het archief. Dat kan niet in één operatie, dus TortoiseSVN zal elk bestand/map apart toevoegen,\nwaarbij een revisie voor elk bestand/map ontstaat."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "U heeft meer dan één bestand of map geplaatst om toe te voegen.\nDat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\nlos toevoegen, waarbij telkens een nieuwe revisie ontstaat.\n\nWilt u hiermee doorgaan?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11471,12 +11326,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "U dient uw werkkopie eerst te verversen."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "U heeft geen issue nummer ingevuld.\nWeet u zeker dat u wilt vastleggen zonder een issue number?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11536,14 +11385,6 @@ msgstr "Uw versie is:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Uw versie is: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Uw werkkopie lijkt op een label gericht te zijn!\nU hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen.\n\nWilt u toch vastleggen?"
 
 #. Resource IDs: (276)
 #, c-format

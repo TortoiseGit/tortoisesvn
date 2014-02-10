@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -346,13 +346,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nმაინც გსურთ მისი ამოშლა?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -374,15 +367,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nდასტა %s\nშეიცავს არავერსიულ ან/და შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nგანვაახლო სამუშაო ვერსია ახლა\nდა შემდეგ ვცადო ხელახლა?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1751,14 +1735,6 @@ msgstr "TortoiseMerge შესახებ"
 msgid "About TortoiseSVN"
 msgstr "TortoiseSVN შესახებ"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "მიღება ამ ჯერზე"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "მიღება ყოველთვის"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1841,10 +1817,6 @@ msgstr "ელემენტის დამატება\nეს პრო�
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "ახალი ფაილების თვითდამატება"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "ელემენტის მაინც დამატება"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2233,10 +2205,6 @@ msgstr "თვით დამალვა"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "ყველას თვითდამალვა"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "თვითგადარქმევა"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3161,14 +3129,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "არავერსიული დასტის ფიქსაციისას მის ქვეელემენტები რეკურსიულად არ ემატება!\nქვეელემენტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუდან 'დამატება...'."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "არავერსიული დასტის ფიქსაცია მის ქვეელემენტებს რეკურსიულად არ ამატებს!\nამ დასტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუს ელემენტით\n'დამატება...'.\n\nნამდვილად გნებავთ ფიქსაციის გაგრძელება?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "ჭდის ფიქსაცია"
@@ -4062,22 +4022,6 @@ msgstr "ამის გაკეთება ყველა არავერ
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "ნამდვილად გსურთ '%s' პულტის წაშლა?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n%s\nდა ის ამ ვერსიაზე დაბრუნება? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n%s\nრომლებიც ამ ვერსიაშია შეტანილი? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4975,10 +4919,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "შევსება სიგანეზე"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "ელემენტის რეგისტრის შეცვლა დამატების გარეშე"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5935,22 +5875,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "როგორც ჩანს, თქვენი სამუშაო ასლის სხვა გეზზე გადაადგილებას აპირებთ იგივე საცავში.\nაქედან: %1!s!\nაქ: %2!s!\n\nImproper use of relocate will corrupt your working copy!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "როგორც ჩანს, სამუშაო ასლის იგივე საცავის განსხვავებულ გეზზე გადაადგილებას ცდილობთ.\n\nაქედან:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\nაქ:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n\nგადაადგილება საჭიროა მხოლოდ საცავის გეზის ცვლილებისას.\nგეზის შეცვლა საცავის შიგნით გადართვის ოპერაციით ხორციელდება.\n\nუმართებლო გადაადგილებამ შესაძლო თქვენი სამუშაო ასლი დააზიანოს!\nთუ არ ხართ დარწმუნებული, გთხოვთ გაეცნოთ დოკუმენტაციას გადაადგილების შესახებ.\nნამდვილად გსურთ გადაადგილება?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6919,10 +6843,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "მეხსიერების უკმარისობა!\nსცადეთ ვერსიის დიაგრამის ზომის შემცირება\nკვანძების შეკუმშვით ან მასშტაბის შემცირებით."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "არა რეკურსიული"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "ვერსიის მართვის გარეშე"
@@ -6957,12 +6877,6 @@ msgstr "არაფერი შერჩეულა ფიქსაციი�
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "შენიშვნა"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7080,14 +6994,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "როგორც ჩანს, ერთერთი გეზი, რომლის გადატანაც გსურთ, სპეციფიკურია\n('branches', 'tags' ან 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "ერთერთი გეზი, რომლის გადატანაც გსურთ, როგორც ჩანს სპეციალურია\n(ერთერთი 'branches', 'tags' ან 'trunk').\n\nნამდვილად გნებავთ მონიშნული გეზ(ებ)ის გადატანა?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7224,10 +7130,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "ჩაანაცვლებს svn:eol-style პარამეტრის მნიშვნელობას.\nფაილები ამ პარამეტრის გარეშე არ გათვალისწინდება."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "ჩანაცვლება"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7830,10 +7732,6 @@ msgstr "მართკუთხედის სამარჯვი\nმარ
 msgid "Recurse into unversioned folders"
 msgstr "არავერსიული დასტების ფაილთა ჩვენება"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "რეკურსიული"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "რეკურსიული ოპერაცია"
@@ -7919,10 +7817,6 @@ msgstr "მარტივი გამოსახულების ფილ�
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "შერწყმის გაერთიანება %1!s! - %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "უარყოფა"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7964,10 +7858,6 @@ msgstr "გახსნილი ფაილების ხელახლა 
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "გადაადგილება..."
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "გართხილების გადანაცვლება..."
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9908,13 +9798,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "დასტა %s\nშეიცავს არავერსიულ ანდა შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10222,12 +10105,6 @@ msgstr "სამიზნე სამუშაო ასლში '%s' ლო�
 msgid "The target working copy has local modifications!"
 msgstr "სამიზნე სამუშაო ასლში ლოკალური ცვლილებებია!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "სამიზნე სამუშაო ასლში ლოკალური ცვლილებებია.\nმაინც გსურთ შერწყმა?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10340,15 +10217,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11023,10 +10891,6 @@ msgstr "სარგებლობა Aero დიალოგებით"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "სამუშაო &ასლის საწყისი URL-ს მითითება ველში «აქედან:»"
@@ -11438,15 +11302,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "თქვენ საცავში ერთზე მეტი ფაილის ან დასტის დამატებას აპირებთ.\nეს ერთ ჯერზე შეუძლებელია, ამიტომ TortoiseSVN თითოეულ ფაილს/დასტას\nცალკე დაამატებს და მათ ახალ ვერსიას შექმნის."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "თქვენ გადმოგაქვთ ერთზე მეტი ფაილი ან დასტა საცავში დასამატებლად.\nერთ ჯერზე ეს შეუძლებელია, ამიტომ TortoiseSVN ინდივიდუალურად დაამატებს\nთითოეულ ფაილს/დასტას და თითოეული დამატებული ელემენტისთვის ახალ ვერსიას შექმნის.\n\nკვლავაც გსურთ ამის გაკეთება?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11464,12 +11319,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "ჯერ თქვენი სამუშაო ასლი უნდა განაახლოთ."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "პრობლემის ნომერი არ მიგითითებიათ!\nნამდვილად გსურთ ფაილ(ებ)ის ფიქსაცია პრობლემის ნომრის გარეშე?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11529,14 +11378,6 @@ msgstr "თქვენი ვერსიაა:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "თქვენი ვერსიაა: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "ჩანს თქვენი სამიშაო ასლი იმყოფება ჭდის გეზზე!\nფიქსაციამდე უნდა გადაერთოთ მთავარი მაგისტრალის განშტოებაზე.\n\nმაინც გსურთ ფიქსაცია?"
 
 #. Resource IDs: (276)
 #, c-format

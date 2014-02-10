@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
+"PO-Revision-Date: 2014-02-08 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -348,13 +348,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nAli ga želite kljub temu odstraniti?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -376,15 +369,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nMapa %s\nvsebuje datoteko/e brez različic ali s spremembami. Ali jo/jih želite kljub temu odstraniti?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nNaj delovno inačico zdaj posodobim \nin poizkusim znova?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1753,14 +1737,6 @@ msgstr "O TortoiseMerge"
 msgid "About TortoiseSVN"
 msgstr "O TortoiseSVN"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Sprejmi enkrat"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Sprejmi trajno"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1843,10 +1819,6 @@ msgstr "Dodaj element \nTo bo delalo probleme na Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Nove datoteke samodejno vključi v SVN"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Vseeno dodaj element"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2235,10 +2207,6 @@ msgstr "Samodejno skrij"
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
 msgstr "Samodejno skrij vse"
-
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Samodejno preimenuj"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
@@ -3163,14 +3131,6 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Če objavite mapo brez različic, se njenih potomcev ne bo rekurzivno dodajalo! \nMorda boste raje dodali to mapo rekurzivno z \"Dodaj ...\" v kontekstnem meniju."
 
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Objava mape, ki ni pod nadzorom, ne doda rekurzivno tudi podrejenih elementov mape!\nTe mape lahko rekurzivno dodate  z uporabo ukaza 'Dodaj' v kontekstnem meniju.\n\nSte prepričani, da želite nadaljevati z objavo?"
-
 #. Resource IDs: (221)
 msgid "Committing to a tag"
 msgstr "Objavljanje na zaznamek"
@@ -4064,22 +4024,6 @@ msgstr "Naredi za vse postavke brez inačic/sprememb"
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Ali zares želite izbrisati orodno vrstico '%s'?"
-
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Ali zares želite povrniti vse spremembe v\n%s\nin se vrniti na to revizijo?  Spremembe bodo povrnjene z obrnjenim spajanjem v delovno kopijo."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Ali zares želite povrniti vse spremembe v\n%s\nin se vrniti na to revizijo?  Spremembe bodo povrnjene z obrnjenim spajanjem revizije v vašo delovno kopijo."
 
 #. Resource IDs: (92)
 #, c-format
@@ -4977,10 +4921,6 @@ msgstr ""
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Prilagodi širino"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Zapri primer brez dodajanja"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5937,22 +5877,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Zdi se, da poskušate premestiti svojo delovno kopijo na drugo pot znotraj istega skladišča. \nOd: %1!s!\nV: %2!s!\n\nNepravilna uporabljena selitev bo pokvarila vašo delovno kopijo!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Zdi se, da poskušate premestiti svojo delovno kopijo na drugo pot znotraj istega skladišča. \n\nOd: %1!s!\nV: %2!s!\n\nPreseliti je treba le, če se je pot do odlagališča spremenila. Zamenjavo na drugo pot znotraj skladišča se opravi s preklopom.  \n\nNepravilna uporabljena selitev bo pokvarila vašo delovno kopijo!\nČe niste prepričani, kaj storiti, si oglejte našo dokumentacijo o tem, kako premeščati  Ali res želite premestiti?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6921,10 +6845,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Ni dovolj spomina!\nPoizkusite zmanjšati velikost grafa revizij \nz zapiranjem vozlišč ali zmanjšanjem faktorja povečave."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Nerekurzivno"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Ni pod kontrolo verzij"
@@ -6959,12 +6879,6 @@ msgstr "Za objavo ni nič izbranega!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Obvestilo"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7082,14 +6996,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Ena od poti, ki jo želite premakniti, je zgleda posebna pot\n(ena od  'vej', 'oznake' ali 'deblo')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Res želite premakniti izbrane poti?\n\nAli ste prepričani, da želite premakniti izbrane poti?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7226,10 +7132,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Prepiši nastavitev lastnosti svn:eol-lien.\nNe vpliva na datoteke, ki te lastnosti nimajo nastavljene."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Prepiši"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7832,10 +7734,6 @@ msgstr "Orodje za pravokotnike\nPravokotnik"
 msgid "Recurse into unversioned folders"
 msgstr "Vstopi rekurzivno v mape brez različic."
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Rekurzivno"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Rekurziven postopek"
@@ -7921,10 +7819,6 @@ msgstr "Filter regularnih izrazov:\r\n.   : katerikoli znak\r\nc+   : znak c naj
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Ponovno vključi spoj %1!s! v %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Zavrni"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7966,10 +7860,6 @@ msgstr "Ponovno naloži odprte datoteke in povrne vse spremembe.\nPonovno nalož
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Premakni"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Opozorilo premeščanja"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -9910,13 +9800,6 @@ msgid ""
 "is not a valid text file!"
 msgstr ""
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Mapa %s\nvsebuje datoteke brez različic ali spremenjene datoteke. Ali jo želite kljub temu odstraniti?"
-
 #. Resource IDs: (99)
 #, c-format
 msgid ""
@@ -10224,12 +10107,6 @@ msgstr "Ciljna delovna kopija  '%s' ima lokalne spremembe. Priporočljivo je, da
 msgid "The target working copy has local modifications!"
 msgstr "Ciljna delovna kopija vsebuje lokalne spremembe!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Ciljna delovna kopija vsebuje lokalne spremembe!\nAli jih vseeno želite združiti?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10342,15 +10219,6 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -11025,10 +10893,6 @@ msgstr "Prikaz Aero dialogov"
 msgid "Use Ribbons"
 msgstr ""
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr ""
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Uporabi URL &delovne kopije kot privzeti URL za polje \"Od:\"\""
@@ -11440,15 +11304,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Za dodajanje v skladišče ste namenili več kot eno datoteko ali mapo.\nTega ni mogoče storiti v enem koraku, zato TortoiseSVN doda vsako datoteko/mapo\nposamično in za vsako ustvari novo revizijo-"
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Odstranili ste veö kot eno datoteko ali mapo za dodatek v skladišče.\nTo ni  mogoče storiti v enem koraku, tako da bo TortoiseSVN dodal vsako datoteko(mapo\nposebej, in za vsako dodano postavko ustvaril novo revizijo.\n\nAli še vedno želite to storiti?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11466,12 +11321,6 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Najprej morate posodobiti svojo delovno kopijo."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Niste vnesli številke zadeve!\nAli ste prepričani, da želite objaviti brez številke zadeve?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11531,14 +11380,6 @@ msgstr "Vaša različica:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Vaša različica: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Vaša delovna kopija je zgleda na poti za zaznamke!\nPred objavo morate delovno kopijo preklopiti na vejo ali na glavno deblo.\n\nŽelite vseeno objaviti?"
 
 #. Resource IDs: (276)
 #, c-format

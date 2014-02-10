@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2013
+# Kari Granö <kari.grano@gmail.com>, 2011-2014
 # Kari Granö <kari.grano@gmail.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-01-27 08:28+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-02-09 22:56+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -349,13 +349,6 @@ msgid ""
 "%s"
 msgstr "%s\n%s"
 
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"%s\n"
-"Do you want to remove it anyway?"
-msgstr "%s\nHaluatko silti poistaa sen?"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -377,15 +370,6 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr "%s\nKansio %s\nsisältää versioimattomia ja/tai muuttuneita tiedostoja.  Haluatko silti poistaa sen?"
-
-#. Resource IDs: (616)
-#, c-format
-msgid ""
-"%s\n"
-"\n"
-"Shall I update the working copy now\n"
-"and then retry?"
-msgstr "%s\n\nPäivitetäänkö työkopio ja\nyritetään heti uudelleen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1754,14 +1738,6 @@ msgstr "Tietoa TortoiseMerge-ohjelmasta"
 msgid "About TortoiseSVN"
 msgstr "Tietoa TortoiseSVN-ohjelmasta"
 
-#. Resource IDs: (82)
-msgid "Accept once"
-msgstr "Hyväksy kerran"
-
-#. Resource IDs: (82)
-msgid "Accept permanently"
-msgstr "Hyväksy pysyvästi"
-
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
@@ -1844,10 +1820,6 @@ msgstr "Lisää tiedosto\nTästä seuraa ongelmia Windows-ympäristössä."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Lisää uudet tiedostot automaattisesti versionhallintaan"
-
-#. Resource IDs: (89)
-msgid "Add the item anyway"
-msgstr "Lisää kohde joka tapauksessa"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2237,10 +2209,6 @@ msgstr "Piilota automaattisesti"
 msgid "Auto Hide All"
 msgstr "Piilota kaikki automaattisesti"
 
-#. Resource IDs: (99)
-msgid "Auto Rename"
-msgstr "Nimeä uudestaan automaattisesti"
-
 #. Resource IDs: (221)
 msgid "Auto-Merge"
 msgstr "Automaattinen yhdistäminen"
@@ -2336,7 +2304,7 @@ msgstr "Läpinäkyvyystila"
 
 #. Resource IDs: (156)
 msgid "Blocks"
-msgstr ""
+msgstr "Lohkot"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2652,7 +2620,7 @@ msgstr "Peruuta\nTiedostoja ei siirretä."
 msgid ""
 "Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "Peru\nUlkoisen viitteen merkitty versio jätetään ennalleen."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2670,7 +2638,7 @@ msgstr "Peruuta\nSinun on lisättävä kansio käsin."
 msgid ""
 "Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "Peru\nSinun on päivitettävä työkopio käsin saadaksesi ulkoiset viitteet"
 
 #. Resource IDs: (100)
 msgid ""
@@ -2734,7 +2702,7 @@ msgstr "Vaihda sovelluksen ulkonäköä\nVaihda ulkonäköä"
 msgid ""
 "Change the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "Muuta merkittyä versiota\nYläkansion svn:external -ominaisuutta muutetaan tarpeen mukaan."
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3163,14 +3131,6 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr "Versioimattoman kansion toimittaminen arkistoon ei lisää sen sisältöä palautuvasti!\nHarkitse tällaisten kansioiden lisäämistä palautuvasti 'Lisää...' -komennolla."
-
-#. Resource IDs: (170)
-msgid ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
-"\n"
-"Are you sure that you want to continue the commit?"
-msgstr "Versioimattoman kansion lisäys arkistoon ei lisää sen sisältämiä kohteita!\nHaluat ehkä mieluummin lisätä nämä kansiot palautuvasti kontekstivalikon komennolla 'Lisää...'.\n\nOletko varma että haluat jatkaa toimitusta?"
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
@@ -3940,7 +3900,7 @@ msgstr "Vertailutiedosto:"
 
 #. Resource IDs: (17)
 msgid "Diff later"
-msgstr ""
+msgstr "Vertaa myöhemmin"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3953,7 +3913,7 @@ msgstr "Vertaa paikantimen kanssa"
 #. Resource IDs: (18)
 #, c-format
 msgid "Diff with \"%s\""
-msgstr ""
+msgstr "Vertaa \"%s\" kanssa"
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4066,22 +4026,6 @@ msgstr "Tee tämä kaikille versioimattomille/muutetuille tiedostoille"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Haluatko todella poistaa valintapalkin '%s'?"
 
-#. Resource IDs: (119)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Haluatko todella perua kaikki muutokset tiedostoon\n%s\nja palata tähän versioon?  Nämä muutokset perutaan yhdistämällä versioita käänteisesti työkopioosi."
-
-#. Resource IDs: (76)
-#, c-format
-msgid ""
-"Do you really want to revert all changes in\n"
-"%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Haluatko todella perua kaikki tiedostoon\n%s\ntässä versiossa tehdyt muutokset?  Nämä muutokset perutaan yhdistämällä versio käänteisesti työkopioosi."
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4156,7 +4100,7 @@ msgstr "Haluatko palauttaa kaikki muutokset tiedostoon\n%s\njotka tehtiin täss�
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Haluatko päivittää kansion \"%s\" noutamaan käytetyt svn:externals -viitteet?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4921,7 +4865,7 @@ msgstr "Suodata polut"
 
 #. Resource IDs: (1644)
 msgid "Filter:"
-msgstr ""
+msgstr "Suodatin:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -4978,10 +4922,6 @@ msgstr "Sovita kuvien &leveydet"
 #. Resource IDs: (32803)
 msgid "Fit width"
 msgstr "Sovita leveys"
-
-#. Resource IDs: (89)
-msgid "Fix case of item and do not add it"
-msgstr "Korjaa kohteen merkkitaso äläkä lisää sitä"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5938,22 +5878,6 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr "Näyttää siltä, että koetat sijoittaa uudelleen työkopiosi uuteen paikkaan saman arkiston sisällä.\nMistä: %1!s!\nMihin: %2!s!\n\nUudelleensijoittamisen väärä käyttö rikkoo työkopiosi!"
-
-#. Resource IDs: (88)
-#, c-format
-msgid ""
-"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
-"\n"
-"From:\t%1!s!\n"
-"To:\t%2!s!\n"
-"\n"
-"A relocate is only needed if the path to a repository has changed.\n"
-"Changing to a different path inside a repository is done by a switch operation.\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!\n"
-"If you are not sure what to do, please refer to our docs on relocate.\n"
-"Do you really want to relocate?"
-msgstr "Olet sijoittamassa uudelleen työkopiotasi eri polulle samassa arkistossa.\n\nMistä:»%1!s!⏎\nMihin:»%2!s!⏎\n\nUudelleen sijoitus tarvitaan vain, jos arkistopolku muuttuu. Vaihto eri polulle samassa arkistossa tehdään SVN Vaihda-toiminnolla.\n\nUudelleen sijoituksen väärä käyttö sotkee työkopiosi!\nJos olet epävarma, luo lisää käyttöohjeesta.\nHaluatko todella sijoittaa työkopion uudelleen?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6922,10 +6846,6 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr "Muisti ei riitä!\nKoeta pienentää versiograafin kokoa sulkemalla\nsolmuja tai pienentämällä zoom-kerrointa."
 
-#. Resource IDs: (588)
-msgid "Not recursive"
-msgstr "Ei palautuva"
-
 #. Resource IDs: (265)
 msgid "Not under version control"
 msgstr "Ei versioitu"
@@ -6960,12 +6880,6 @@ msgstr "Yhtään tiedostoa ei ole valittu toimitettavaksi!"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Ilmoitus"
-
-#. Resource IDs: (99)
-msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
-"Do you really want to upgrade this working copy?"
-msgstr "Huomaa: Jos muunnat työkopiosi, et voi enää käyttää sitä versiota 1.8 vanhemmilla SVN-ohjelmilla!\nHaluatko todella muuntaa  tämän työkopion?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7083,14 +6997,6 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr "Yksi siirrettävistä poluista on erikoinen\n('branches', 'tags' tai 'trunk')."
-
-#. Resource IDs: (63)
-msgid ""
-"One of the paths you are attempting to move appears to be a special path\n"
-"(one of 'branches', 'tags' or 'trunk').\n"
-"\n"
-"Are you sure you want to move the selected paths?"
-msgstr "Yhdellä poluista, joita olet siirtämässä, on erityismerkitys\n(se on nimeltään 'branches', 'tags' tai 'trunk').\n\nOletko varma, että haluat siirtää valitut polut?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7227,10 +7133,6 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr "Ohita svn:eol-style -asetus.\nTiedostot, joilla ei ole tätä ominaisuutta, eivät muutu."
-
-#. Resource IDs: (99)
-msgid "Overwrite"
-msgstr "Korvaa"
 
 #. Resource IDs: (91)
 msgid ""
@@ -7833,10 +7735,6 @@ msgstr "Suorakaidetyökalu\nSuorakaide"
 msgid "Recurse into unversioned folders"
 msgstr "Siirry myös versioimattomiin kansioihin"
 
-#. Resource IDs: (588)
-msgid "Recursive"
-msgstr "Palautuva"
-
 #. Resource IDs: (589)
 msgid "Recursive operation"
 msgstr "Palautuva toiminto"
@@ -7922,10 +7820,6 @@ msgstr "Suodatin säännöllisille lausekkeille:\r\n.   : mikä tahansa merkki\r
 msgid "Reintegrate merge %1!s! into %2!s!"
 msgstr "Yhdistetään haara %1!s! takaisin työkopioon %2!s!"
 
-#. Resource IDs: (82)
-msgid "Reject"
-msgstr "Hylkää"
-
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
@@ -7967,10 +7861,6 @@ msgstr "Lukee uudestaan avatut tiedostot ja peruu kaikki muutokset.\nLue uudesta
 #. Resource IDs: (157)
 msgid "Relocate"
 msgstr "Siirrä"
-
-#. Resource IDs: (89)
-msgid "Relocate Warning"
-msgstr "Siirtovaroitus"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -8542,7 +8432,7 @@ msgstr "SVN: &Päivitä kirjastohaara tänne"
 
 #. Resource IDs: (18)
 msgid "SVN Add as &external here"
-msgstr ""
+msgstr "SVN Lisää &ulkoisena viitteenä tähän"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -9298,7 +9188,7 @@ msgstr "Näyttää graafisen esityksen kopioista / merkityistä versioista / haa
 msgid ""
 "Shows a unified diff of all changes of the path and those below, including "
 "property changes."
-msgstr ""
+msgstr "Näyttää unified diff -esityksen kaikista muutoksista polkuun, mukaan lukien ominaisuusmuutokset."
 
 #. Resource IDs: (13)
 msgid ""
@@ -9398,7 +9288,7 @@ msgstr "Liu’utus"
 
 #. Resource IDs: (156)
 msgid "Smart tab char"
-msgstr ""
+msgstr "Älykäs tabulointimerkki"
 
 #. Resource IDs: (314)
 msgid ""
@@ -9532,7 +9422,7 @@ msgstr "Käynnistetään ulkoiset..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Käynnistää vertailuohjelman valitulle sekä aiemmin merkitylle tiedostolle myöhempää vertailua varten."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9587,7 +9477,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Tallettaa tiedostopolun käytettäväksi myöhempää vertailua varten. Pidä Ctrl-näppäin pohjassa poistaaksesi viimeisimmän talletetun polun."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9893,7 +9783,7 @@ msgstr "Tiedosto on liian suuri avattavaksi."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "Tiedosto tai kansio \"%s\" on jo olemassa kohteessa! Sinun on poistettava se ennen kuin voit lisätä sinne ulkoisen viitteen, jolla on sama nimi."
 
 #. Resource IDs: (80)
 #, c-format
@@ -9910,13 +9800,6 @@ msgid ""
 "%s\n"
 "is not a valid text file!"
 msgstr "Tiedosto\n%s\nei ole tekstitiedosto!"
-
-#. Resource IDs: (145)
-#, c-format
-msgid ""
-"The folder %s\n"
-"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "Kansio %s\nsisältää versioimattomia ja/tai muuttuneita tiedostoja.  Haluatko poistaa sen silti?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -10225,12 +10108,6 @@ msgstr "Kohdetyökopiossa '%s' on paikallisia muutoksia. On suositeltavaa toimit
 msgid "The target working copy has local modifications!"
 msgstr "Kohdetyökopiossa on paikallisia muutoksia!"
 
-#. Resource IDs: (279)
-msgid ""
-"The target working copy has local modifications.\n"
-"Do you want to merge anyway?"
-msgstr "Kohdetyökopiossa on paikallisia muutoksia.\nHaluatko jatkaa yhdistämistä?"
-
 #. Resource IDs: (101)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
@@ -10344,15 +10221,6 @@ msgid ""
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
 msgstr "Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu siirrettyjä/uudelleen nimettyjä/kopioituja kansioita. Tällaiset operaatiot suoritetaan aina palautuvasti arkistossa. Haluatko jatkaa toimitusta?"
-
-#. Resource IDs: (170)
-msgid ""
-"This commit is not recursive, and there are moved/renamed/copied\n"
-"folders selected for commit. Such moves/renames\n"
-"are always performed recursively in the repository.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu siirrettyjä/uudelleen nimettyjä/kopioituja kansioita. Tällaiset siirrot/uudelleen nimennät suoritetaan aina palautuvasti arkistossa.\n\nHaluatko jatkaa toimitusta?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10821,7 +10689,7 @@ msgstr "Unified &diff uusimmista (HEAD) versioista"
 
 #. Resource IDs: (18)
 msgid "Unified Diff"
-msgstr ""
+msgstr "Unified Diff"
 
 #. Resource IDs: (81)
 #, c-format
@@ -10912,7 +10780,7 @@ msgstr "Päivitä työkopio versioon"
 
 #. Resource IDs: (291)
 msgid "Update externals"
-msgstr ""
+msgstr "Päivitä ulkoiset viitteet"
 
 #. Resource IDs: (93)
 msgid ""
@@ -10930,7 +10798,7 @@ msgstr "Päivitä\nPäivitä työkopio ja avaa toimitusikkuna uudelleen yrityst�
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Päivitä\nPäivitä HEAD-versioon"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11026,10 +10894,6 @@ msgstr "Käytä Aero-ikkunoita"
 msgid "Use Ribbons"
 msgstr "Käytä valintanauhaa"
 
-#. Resource IDs: (1500)
-msgid "Use Task Dialog"
-msgstr "Käytä Task-ikkunoita"
-
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Käytä &työkopiota oletusarvoisena \"Mistä:\" -paikantimena"
@@ -11094,7 +10958,7 @@ msgstr "Käytä oikeaa lohkoa"
 
 #. Resource IDs: (156)
 msgid "Use spaces"
-msgstr ""
+msgstr "Käytä välilyöntejä"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11337,13 +11201,13 @@ msgstr "Lukittaessa yhtä tai useampaa tiedostoa, näyttää ikkunan, jossa pyyd
 msgid ""
 "When selected, Spaces will be used instead of tab\n"
 "Use spaces"
-msgstr ""
+msgstr "Käytä välilyöntejä tabulointimerkkien sijaan\nKäytä välilyöntejä"
 
 #. Resource IDs: (2062)
 msgid ""
 "When selected, it tries to infer tab / spaces to use\n"
 "Smart tab char"
-msgstr ""
+msgstr "Selvitä, käytetäänkö tabulointimerkkejä vai välilyöntejä\nÄlykäs tabulointimerkki"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
@@ -11441,15 +11305,6 @@ msgid ""
 "individually, creating a new revision for every added item."
 msgstr "Pudotit useamman kuin yhden tiedoston tai kansion lisättäväksi arkistoon.\nTätä ei voi tehdä yhdellä kertaa, joten TortoiseSVN lisää kunkin tiedoston/kansion erillisenä versiona."
 
-#. Resource IDs: (105)
-msgid ""
-"You dropped more than one file or folder to add to the repository.\n"
-"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
-"individually, creating a new revision for every added item.\n"
-"\n"
-"Do you still want to do this?"
-msgstr "Pudotit yhden tai useamman tiedoston tai kansion lisättäväksi arkistoon.\nTätä ei voi tehdä yhdellä kertaa, joten TortoiseSVN lisää kunkin tiedoston/kansion erikseen, luoden uuden version jokaiselle lisätylle kohteelle.\n\nHaluatko yhä tehdä tämän?"
-
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
@@ -11467,12 +11322,6 @@ msgstr "Olet valinnut %d tiedostoa vertailtavaksi.\nVertailuohjelma käynnistet�
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Sinun täytyy päivittää työkopiosi ensin."
-
-#. Resource IDs: (169)
-msgid ""
-"You haven't entered an issue number!\n"
-"Are you sure you want to commit without an issue number?"
-msgstr "Et ole syöttänyt vikatunnusta!\nOletko varma, että haluat toimittaa muutokset ilman vikatunnusta?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11516,7 +11365,7 @@ msgstr "Yrität lisätä kohdetta\n'%1!s!',\nmutta kohde\n'%2!s!'\non jo olemass
 msgid ""
 "You've committed changes to external item that is tagged to a specific revision.\n"
 "Do you want to change the tagged revision now to the just committed revision?"
-msgstr ""
+msgstr "Olet tehnyt muutoksia ulkoiseen viitteeseen, joka on kytketty kiinteään versionumeroon.\nHaluatko muuttaa merkityn version viittaamaan juuri tehtyihin muutoksiin?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -11532,14 +11381,6 @@ msgstr "Sinun versiosi:"
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
 msgstr "Sinun versiosi: %d.%d.%d.%d"
-
-#. Resource IDs: (78)
-msgid ""
-"Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing.\n"
-"\n"
-"Do you want to commit anyway?"
-msgstr "Työkopiosi näyttää osoittavan arkiston polulle, johon yleensä talletetaan merkityt versiot (engl. tag)!\nSinun tulisi vaihtaa työkopio osoittamaan kehityshaaraan tai päähaaraan ennen arkistoon toimittamista.\n\nHaluatko yhä jatkaa arkistotoimitusta?"
 
 #. Resource IDs: (276)
 #, c-format
@@ -12232,7 +12073,7 @@ msgstr "vaihdettu:"
 
 #. Resource IDs: (288)
 msgid "tagging externals"
-msgstr ""
+msgstr "ulkoisten viitteiden merkitseminen"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
