@@ -1930,7 +1930,13 @@ BOOL CResModule::ReplaceRibbon(LPCTSTR lpszType, WORD wLanguage)
 
         if (entry.msgstr.size())
         {
-            CUtils::SearchReplace(ssw, ret, L"<TEXT>" + entry.msgstr + L"</TEXT>");
+            std::unique_ptr<wchar_t[]> sbuf(new wchar_t[entry.msgstr.size() + 10]);
+            wcscpy(sbuf.get(), entry.msgstr.c_str());
+            CUtils::StringCollapse(sbuf.get());
+            std::wstring sreplace = L"<TEXT>";
+            sreplace += sbuf.get();
+            sreplace += L"</TEXT>";
+            CUtils::SearchReplace(ssw, ret, sreplace);
             m_bTranslatedRibbonTexts++;
         }
         else
@@ -1952,7 +1958,13 @@ BOOL CResModule::ReplaceRibbon(LPCTSTR lpszType, WORD wLanguage)
 
         if (entry.msgstr.size())
         {
-            CUtils::SearchReplace(ssw, ret, L"</ELEMENT_NAME><NAME>" + entry.msgstr + L"</NAME>");
+            std::unique_ptr<wchar_t[]> sbuf(new wchar_t[entry.msgstr.size() + 10]);
+            wcscpy(sbuf.get(), entry.msgstr.c_str());
+            CUtils::StringCollapse(sbuf.get());
+            std::wstring sreplace = L"</ELEMENT_NAME><NAME>";
+            sreplace += sbuf.get();
+            sreplace += L"</NAME>";
+            CUtils::SearchReplace(ssw, ret, sreplace);
             m_bTranslatedRibbonTexts++;
         }
         else
