@@ -23,6 +23,7 @@
 #include "svn_version.h"
 #include "../version.h"
 #include "../../ext/serf/serf.h"
+#include "../../ext/sqlite/sqlite3.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CAboutDlg, CStandAloneDialog)
@@ -76,7 +77,8 @@ BOOL CAboutDlg::OnInitDialog()
         APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
         SERF_MAJOR_VERSION, SERF_MINOR_VERSION, SERF_PATCH_VERSION,
         _T(OPENSSL_VERSION_TEXT),
-        _T(ZLIB_VERSION));
+        _T(ZLIB_VERSION),
+        _T(SQLITE_VERSION));
     SetDlgItemText(IDC_VERSIONABOUT, temp);
     this->SetWindowText(L"TortoiseSVN");
 
