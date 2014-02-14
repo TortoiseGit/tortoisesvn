@@ -177,6 +177,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_hDeletedIcon(NULL)
     , m_hMergedIcon(NULL)
     , m_hReverseMergedIcon(NULL)
+    , m_hMovedIcon(NULL)
+    , m_hMoveReplacedIcon(NULL)
     , m_nIconFolder(0)
     , m_prevLogEntriesSize(0)
     , m_temprev(0)
@@ -218,6 +220,8 @@ CLogDlg::~CLogDlg()
     DestroyIcon(m_hDeletedIcon);
     DestroyIcon(m_hMergedIcon);
     DestroyIcon(m_hReverseMergedIcon);
+    DestroyIcon(m_hMovedIcon);
+    DestroyIcon(m_hMoveReplacedIcon);
     if ( m_pStoreSelection )
     {
         m_pStoreSelection->ClearSelection();
@@ -428,6 +432,10 @@ void CLogDlg::LoadIconsForActionColumns()
                                                                         IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hReverseMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(),
                                 MAKEINTRESOURCE(IDI_ACTIONREVERSEMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+    m_hMovedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREPLACED),
+                                       IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+    m_hMoveReplacedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREPLACED),
+                                       IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 }
 
 void CLogDlg::ConfigureColumnsForLogListControl()
@@ -3206,7 +3214,17 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                                     rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
-                    if ((pLogEntry->GetDepth())||
+                    if (actions & LOGACTIONS_MOVED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        rect.top, m_hMovedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
+
+                    if (actions & LOGACTIONS_MOVEREPLACED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        rect.top, m_hMoveReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
+
+                    if ((pLogEntry->GetDepth()) ||
                         (m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
                     {
                         if (pLogEntry->IsSubtractiveMerge())
@@ -3323,6 +3341,10 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
             if (action == LOGACTIONS_ADDED)
                 crText = m_Colors.GetColor(CColors::Added);
             if (action == LOGACTIONS_DELETED)
+                crText = m_Colors.GetColor(CColors::Deleted);
+            if (action == LOGACTIONS_MOVED)
+                crText = m_Colors.GetColor(CColors::Added);
+            if (action == LOGACTIONS_MOVEREPLACED)
                 crText = m_Colors.GetColor(CColors::Deleted);
         }
         if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
@@ -3960,7 +3982,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         case 1: //action -- dummy text, not drawn. Used to trick the auto-column resizing to not
             // go below the icons
             if (pLogEntry)
-                lstrcpyn(pItem->pszText, L"XXXXXXXXXX", pItem->cchTextMax);
+                lstrcpyn(pItem->pszText, L"XXXXXXXXXXXXXXXX", pItem->cchTextMax);
             break;
         case 2: //author
             if (pLogEntry)
@@ -4553,7 +4575,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         // Adjust columns "Actions" containing icons
         if (col == 1)
         {
-            const int nMinimumWidth = ICONITEMBORDER+16*5;
+            const int nMinimumWidth = ICONITEMBORDER+16*7;
             if (cx < nMinimumWidth)
             {
                 cx = nMinimumWidth;
@@ -5979,7 +6001,21 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
             actionText += CLogChangedPath::GetActionString (LOGACTIONS_REPLACED);
         }
 
-        sToolTipText = CUnicodeUtils::GetUnicode (actionText.c_str());
+        if (actions & LOGACTIONS_MOVED)
+        {
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString(LOGACTIONS_MOVED);
+        }
+
+        if (actions & LOGACTIONS_MOVEREPLACED)
+        {
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString(LOGACTIONS_MOVEREPLACED);
+        }
+
+        sToolTipText = CUnicodeUtils::GetUnicode(actionText.c_str());
         if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
         {
             if (!sToolTipText.IsEmpty())

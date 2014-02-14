@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011-2013 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -178,6 +178,8 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 
             case CRevisionInfoContainer::ACTION_ADDED:
             case CRevisionInfoContainer::ACTION_REPLACED:
+            case CRevisionInfoContainer::ACTION_MOVED:
+            case CRevisionInfoContainer::ACTION_MOVEREPLACED:
             {
                 if (iter.HasFromPath())
                 {

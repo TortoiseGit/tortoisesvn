@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -268,17 +268,21 @@ public:
 
     enum TChangeAction
     {
-        HAS_COPY_FROM   = 0x01,
-
-        ACTION_ADDED    = 0x04,
-        ACTION_CHANGED  = 0x08,
-        ACTION_REPLACED = 0x10,
-        ACTION_DELETED  = 0x20,
+        HAS_COPY_FROM       = 0x01,
+                            
+        ACTION_ADDED        = 0x04,
+        ACTION_CHANGED      = 0x08,
+        ACTION_REPLACED     = 0x10,
+        ACTION_DELETED      = 0x20,
+        ACTION_MOVED        = 0x40,
+        ACTION_MOVEREPLACED = 0x80,
 
         ANY_ACTION      = ACTION_ADDED
                         | ACTION_CHANGED
                         | ACTION_REPLACED
                         | ACTION_DELETED
+                        | ACTION_MOVED
+                        | ACTION_MOVEREPLACED
     };
 
     /**

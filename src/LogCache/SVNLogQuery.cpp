@@ -181,7 +181,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                     = (svn_log_changed_path2_t *) apr_hash_get ( log_entry->changed_paths2
                     , item->key
                     , item->klen);
-                static const char actionKeys[5] = "AMRD";
+                static const char actionKeys[7] = "AMRDVE";
                 const char* actionKey = strchr (actionKeys, log_item->action);
 
                 entry.action = actionKey == NULL
@@ -235,7 +235,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                     = (svn_log_changed_path_t *) apr_hash_get ( log_entry->changed_paths
                                                               , item->key
                                                               , item->klen);
-                static const char actionKeys[5] = "AMRD";
+                static const char actionKeys[7] = "AMRDVE";
                 const char* actionKey = strchr (actionKeys, log_item->action);
 
                 entry.action = actionKey == NULL
@@ -410,7 +410,7 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
                                               , includeChanges
                                               , strictNodeHistory
                                               , includeMerges
-                                              , svn_move_behavior_no_moves
+                                              , svn_move_behavior_auto_moves
                                               , revprops
                                               , LogReceiver
                                               , (void *)&baton

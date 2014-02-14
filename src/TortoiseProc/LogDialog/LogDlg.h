@@ -418,6 +418,8 @@ private:
     HICON               m_hDeletedIcon;
     HICON               m_hMergedIcon;
     HICON               m_hReverseMergedIcon;
+    HICON               m_hMovedIcon;
+    HICON               m_hMoveReplacedIcon;
     int                 m_nIconFolder;
 
     HACCEL              m_hAccel;

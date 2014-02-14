@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2009-2011 - TortoiseSVN
+// Copyright (C) 2007-2007, 2009-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,10 +49,12 @@ struct SChangedPath
 
 enum
 {
-    LOGACTIONS_ADDED    = 0x00000001,
-    LOGACTIONS_MODIFIED = 0x00000002,
-    LOGACTIONS_REPLACED = 0x00000004,
-    LOGACTIONS_DELETED  = 0x00000008
+    LOGACTIONS_ADDED        = 0x00000001,
+    LOGACTIONS_MODIFIED     = 0x00000002,
+    LOGACTIONS_REPLACED     = 0x00000004,
+    LOGACTIONS_DELETED      = 0x00000008,
+    LOGACTIONS_MOVED        = 0x00000010,
+    LOGACTIONS_MOVEREPLACED = 0x00000020
 };
 
 /**

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ void CFullGraphBuilder::Run()
             // again in the same revision
 
             if ((   revisionInfo.GetSumChanges (index)
-                  & CRevisionInfoContainer::ACTION_REPLACED) != 0)
+                  & (CRevisionInfoContainer::ACTION_REPLACED | CRevisionInfoContainer::ACTION_MOVEREPLACED)) != 0)
             {
                 CSearchPathTree* startNode
                     = searchTree->FindCommonParent (basePath.GetIndex());
@@ -220,7 +220,7 @@ void CFullGraphBuilder::AnalyzeReplacements ( revision_t revision
             {
                 index_t changePathID = iter->GetPathID();
 
-                if (   (iter->GetAction() == CRevisionInfoContainer::ACTION_REPLACED)
+                if (((iter->GetAction() == CRevisionInfoContainer::ACTION_REPLACED) || (iter->GetAction() == CRevisionInfoContainer::ACTION_MOVEREPLACED))
                     && (path.GetBasePath().IsSameOrChildOf (changePathID)))
                 {
                     skipSubTree = false;
@@ -325,16 +325,22 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
                             classification = CNodeClassification::IS_DELETED;
                             break;
 
-                        case  CRevisionInfoContainer::ACTION_ADDED
-                            + CRevisionInfoContainer::HAS_COPY_FROM:
-                        case  CRevisionInfoContainer::ACTION_REPLACED
-                            + CRevisionInfoContainer::HAS_COPY_FROM:
-                            classification = CNodeClassification::IS_ADDED
+                            case  CRevisionInfoContainer::ACTION_ADDED
+                                + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case  CRevisionInfoContainer::ACTION_REPLACED
+                                + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case  CRevisionInfoContainer::ACTION_MOVED
+                                + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case  CRevisionInfoContainer::ACTION_MOVEREPLACED
+                                + CRevisionInfoContainer::HAS_COPY_FROM:
+                                                            classification = CNodeClassification::IS_ADDED
                                            + CNodeClassification::IS_COPY_TARGET;
                             break;
 
                         case CRevisionInfoContainer::ACTION_ADDED:
                         case CRevisionInfoContainer::ACTION_REPLACED:
+                        case CRevisionInfoContainer::ACTION_MOVED:
+                        case CRevisionInfoContainer::ACTION_MOVEREPLACED:
                             classification = CNodeClassification::IS_ADDED;
                             break;
                         }
@@ -623,7 +629,11 @@ bool CFullGraphBuilder::TargetPathExists ( revision_t revision
                + CRevisionInfoContainer::HAS_COPY_FROM:
             case CRevisionInfoContainer::ACTION_REPLACED
                + CRevisionInfoContainer::HAS_COPY_FROM:
-                // copy? -> does exist
+            case CRevisionInfoContainer::ACTION_MOVED
+               + CRevisionInfoContainer::HAS_COPY_FROM:
+            case CRevisionInfoContainer::ACTION_MOVEREPLACED
+               + CRevisionInfoContainer::HAS_COPY_FROM:
+                           // copy? -> does exist
 
                 // We can safely assume here, that the source tree
                 // contains the path in question as this is why we
@@ -634,6 +644,8 @@ bool CFullGraphBuilder::TargetPathExists ( revision_t revision
 
             case CRevisionInfoContainer::ACTION_ADDED:
             case CRevisionInfoContainer::ACTION_REPLACED:
+            case CRevisionInfoContainer::ACTION_MOVED:
+            case CRevisionInfoContainer::ACTION_MOVEREPLACED:
                 // exact addition? -> does exist
 
                 if (iter->GetPathID() == path.GetIndex())

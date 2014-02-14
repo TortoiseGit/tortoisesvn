@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -422,7 +422,9 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         if (    (  (cache->GetLogInfo().GetSumChanges (index)
                  & (  CRevisionInfoContainer::ACTION_ADDED
-                    | CRevisionInfoContainer::ACTION_REPLACED)) != 0)
+                    | CRevisionInfoContainer::ACTION_REPLACED
+                    | CRevisionInfoContainer::ACTION_MOVED
+                    | CRevisionInfoContainer::ACTION_MOVEREPLACED)) != 0)
              && (currentPath.get() != NULL))
         {
             // create the appropriate iterator to follow the potential path change

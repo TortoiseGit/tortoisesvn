@@ -69,6 +69,8 @@ void CXMLLogWriter::WriteChanges ( CBufferedOutFile& file
     static const std::string modifiedActionText = "\n   action=\"M\"";
     static const std::string replacedActionText = "\n   action=\"R\"";
     static const std::string deletedActionText = "\n   action=\"D\"";
+    static const std::string movedActionText = "\n   action=\"V\"";
+    static const std::string movereplacedActionText = "\n   action=\"E\"";
 
     static const std::string pathText = ">";
     static const std::string pathEndText = "</path>\n";
@@ -111,6 +113,12 @@ void CXMLLogWriter::WriteChanges ( CBufferedOutFile& file
                 break;
             case CRevisionInfoContainer::ACTION_REPLACED:
                 file << replacedActionText;
+                break;
+            case CRevisionInfoContainer::ACTION_MOVED:
+                file << movedActionText;
+                break;
+            case CRevisionInfoContainer::ACTION_MOVEREPLACED:
+                file << movereplacedActionText;
                 break;
             default:
                 break;
