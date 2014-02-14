@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 
 #pragma warning(push)
 #include "svn_time.h"
-#include "svn_sorts.h"
+#include "private/svn_sorts_private.h"
 #include "svn_compat.h"
 #include "svn_props.h"
 #pragma warning(pop)
@@ -403,13 +403,14 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
 
     CHooks::Instance().PreConnect(targets);
     SVNTRACE (
-        svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
+        svn_error_t *result = svn_client_log6 ( targets.MakePathArray (localpool)
                                               , peg_revision
                                               , revision_ranges
                                               , limit
                                               , includeChanges
                                               , strictNodeHistory
                                               , includeMerges
+                                              , svn_move_behavior_no_moves
                                               , revprops
                                               , LogReceiver
                                               , (void *)&baton

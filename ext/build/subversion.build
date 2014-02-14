@@ -49,6 +49,9 @@
       <arg value="subversion\libsvn_subr\internal_statements.h" />
     </exec>
 
+    <if test="${configuration == 'debug'}">
+      <copy file="..\build\errorcode.inc" tofile="subversion\libsvn_subr\errorcode.inc" overwrite="true" />
+    </if>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <copy file="subversion\svn_private_config.hw" tofile="subversion\svn_private_config.h" overwrite="true" />
@@ -84,11 +87,13 @@
           <sources>
             <include name="subversion\${fname}\**.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
+            <exclude name="subversion\libsvn_subr\utf8proc\utf8proc_data.c" />
           </sources>
           <includedirs>
             <include name="subversion" />
             <include name="subversion\include" />
             <include name="subversion\${fname}" />
+            <include name="subversion\libsvn_fs_fs" if="${fname == 'libsvn_fs_x'}" />
             <include name="..\apr\include" />
             <include name="..\apr-util\include" />
             <include name="..\apr-util\xml\expat\lib" />
@@ -158,10 +163,27 @@
             <!-- we need the exports from the fs_fs.h file, but this function doesn't have
                  and implementation and would lead to an LNK2019 error -->
             <replacestring from="svn_fs_fs__move_into_place" to="" />
-            <!-- svn_hash__clear is only needed for apr < 1.3.0 - we use a hither
+            <!-- svn_hash__clear is only needed for apr < 1.3.0 - we use a higher
                  version so we don't have that function and therefore don't want
                  it exported -->
             <replacestring from="svn_hash__clear" to="" />
+            <!-- functions not available on Windows -->
+            <replacestring from="svn_auth_get_keychain_simple_provider" to="" />
+            <replacestring from="svn_auth_get_keychain_ssl_client_cert_pw_provider" to="" />
+            <replacestring from="svn_auth_get_gnome_keyring_simple_provider" to="" />
+            <replacestring from="svn_auth_get_gnome_keyring_ssl_client_cert_pw_provider" to="" />
+            <replacestring from="svn_auth_get_kwallet_simple_provider" to="" />
+            <replacestring from="svn_auth_get_kwallet_ssl_client_cert_pw_provider" to="" />
+            <replacestring from="svn_auth_gnome_keyring_version" to="" />
+            <replacestring from="svn_auth_kwallet_version" to="" />
+            <replacestring from="svn_auth_get_gpg_agent_simple_provider" to="" />
+            <replacestring from="svn_auth_gpg_agent_version" to="" />
+
+            <replacestring from="svn_auth__get_gpg_agent_simple_provider" to="" />
+            <replacestring from="svn_auth__get_keychain_simple_provider" to="" />
+            <replacestring from="svn_auth__get_keychain_ssl_client_cert_pw_provider" to="" />
+            <!-- empty function? -->
+            <replacestring from="svn_fs_x__revision_exists" to="" />
           </filterchain>
         </loadfile>
         <property name="deffilecontent" value ='${deffilecontent} ${deffile}' />

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,8 +115,8 @@ svn_error_t* SVNInfo::cancel(void *baton)
 }
 
 const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision,
-                                              svn_depth_t depth /* = svn_depth_empty*/,
-                                              bool fetchExcluded /* = true */, bool fetchActualOnly /* = true */)
+                                              svn_depth_t depth /*= svn_depth_empty*/,
+                                              bool fetchExcluded /*= true */, bool fetchActualOnly /*= true*/, bool includeExternals /*= false */)
 {
     svn_error_clear(Err);
     Err = NULL;
@@ -131,7 +131,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_info3(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, NULL, infoReceiver, this, m_pctx, m_pool),
+        Err = svn_client_info4(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, includeExternals, NULL, infoReceiver, this, m_pctx, m_pool),
         svnPath
     )
     ClearCAPIAuthCacheOnError();

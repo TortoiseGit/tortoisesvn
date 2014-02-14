@@ -1447,7 +1447,7 @@ bool SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& rev
     if (url.IsUrl() || (!pegrevision.IsWorking() && !pegrevision.IsValid()) || (!revision.IsWorking() && !revision.IsValid()))
         CHooks::Instance().PreConnect(CTSVNPathList(url));
     SVNTRACE (
-        Err = svn_client_cat2(stream, svnPath, pegrevision, revision, m_pctx, localpool),
+        Err = svn_client_cat3(NULL, stream, svnPath, pegrevision, revision, true, m_pctx, localpool, localpool),
         svnPath
     );
 
