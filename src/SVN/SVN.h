@@ -343,7 +343,17 @@ public:
      * \param path the file/directory to clean up
      * \return TRUE if successful
      */
-    bool CleanUp(const CTSVNPath& path);
+    bool CleanUp(const CTSVNPath& path, bool breaklocks, bool fixtimestamps, bool cleardavcache, bool vacuumpristines, bool includeexternals);
+    /**
+     * Recursively vacuum a working copy directory dir, removing unnecessary data.
+     * \param path the path to the working copy
+     * \param unversioned if true, remove all unversioned items
+     * \param ignored if true, remove all ignored items
+     * \param fixtimestamps if true, fix all timestamps on files
+     * \param pristines if true, remove unnecessary pristine copies
+     * \param includeexternals if true, recurse into externals as well
+     */
+    bool Vacuum(const CTSVNPath& path, bool unversioned, bool ignored, bool fixtimestamps, bool pristines, bool includeExternals);
     /**
      * Remove the 'conflicted' state on a working copy PATH.  This will
      * not semantically resolve conflicts;  it just allows path to be

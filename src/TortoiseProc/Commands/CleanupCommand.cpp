@@ -39,6 +39,9 @@ bool CleanupCommand::Execute()
     bool bDelIgnored        = !!parser.HasKey(L"delignored");
     bool bRefreshShell      = !!parser.HasKey(L"refreshshell");
     bool bIncludeExternals  = !!parser.HasKey(L"externals");
+    bool bBreakLocks        = !!parser.HasKey(L"breaklocks");
+    bool bFixTimestamps     = !!parser.HasKey(L"fixtimestamps");
+    bool bVacuum            = !!parser.HasKey(L"vacuum");
 
     if (!parser.HasKey(L"noui") && !parser.HasKey(L"nodlg"))
     {
@@ -51,6 +54,9 @@ bool CleanupCommand::Execute()
         bDelIgnored         = !!dlg.m_bDelIgnored;
         bRefreshShell       = !!dlg.m_bRefreshShell;
         bIncludeExternals   = !!dlg.m_bExternals;
+        bBreakLocks         = !!dlg.m_bBreakLocks;
+        bFixTimestamps      = !!dlg.m_bFixTimestamps;
+        bVacuum             = !!dlg.m_bVacuum;
     }
 
     if (!bCleanup && !bRevert && !bDelUnversioned && !bDelIgnored && !bRefreshShell)
@@ -85,7 +91,7 @@ bool CleanupCommand::Execute()
     bool bCleanupFailed = false;
     if (bCleanup)
     {
-        bCleanupFailed = CleanupPaths(progress, actionCounter, actionTotal, strFailedString);
+        bCleanupFailed = CleanupPaths(progress, actionCounter, actionTotal, bBreakLocks, bFixTimestamps, bVacuum, strFailedString);
     }
     CTSVNPathList itemsToRevert, unversionedItems, ignoredItems, externals;
     if (bRevert || bDelUnversioned || bDelIgnored || bIncludeExternals)
@@ -106,7 +112,7 @@ bool CleanupCommand::Execute()
                 progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFO1, (LPCTSTR)externals[i].GetFileOrDirectoryName());
                 progress.SetProgress(actionCounter++, actionTotal);
                 CBlockCacheForPath cacheBlock (externals[i].GetWinPath());
-                if (!svn.CleanUp(externals[i]))
+                if (!svn.CleanUp(externals[i], bBreakLocks, bFixTimestamps, true, bVacuum, false))
                 {
                     strFailedString = externals[i].GetWinPathString();
                     strFailedString += L"\n" + svn.GetLastErrorMessage();
@@ -118,7 +124,7 @@ bool CleanupCommand::Execute()
     }
     if (bCleanupFailed && bCleanup && bIncludeExternals && !bFailed)
     {
-        bFailed = CleanupPaths(progress, actionCounter, actionTotal, strFailedString);
+        bFailed = CleanupPaths(progress, actionCounter, actionTotal, bBreakLocks, bFixTimestamps, bVacuum, strFailedString);
     }
     if (!bFailed && bRevert)
     {
@@ -290,7 +296,7 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
     return L"";
 }
 
-bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, int actionTotal, CString &strFailedString)
+bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, int actionTotal, bool bBreakLocks, bool bFixTimestamps, bool bVacuum, CString &strFailedString)
 {
     bool bCleanupFailed = false;
     SVN svn;
@@ -299,7 +305,7 @@ bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, in
         progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFO1, (LPCTSTR)pathList[i].GetFileOrDirectoryName());
         progress.SetProgress(actionCounter++, actionTotal);
         CBlockCacheForPath cacheBlock (pathList[i].GetWinPath());
-        if (!svn.CleanUp(pathList[i]))
+        if (!svn.CleanUp(pathList[i], bBreakLocks, bFixTimestamps, true, bVacuum, false))
         {
             if ((pathList.GetCount() > 1) && !SVNHelper::IsVersioned(pathList[i], false))
                 continue;   // ignore failures for unversioned paths
@@ -317,7 +323,7 @@ bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, in
         {
             bCleanupFailed = false;
             CBlockCacheForPath cacheBlock (wcroot.GetWinPath());
-            if (!svn.CleanUp(wcroot))
+            if (!svn.CleanUp(wcroot, bBreakLocks, bFixTimestamps, true, bVacuum, false))
             {
                 strFailedString = wcroot.GetWinPathString();
                 strFailedString += L"\n" + svn.GetLastErrorMessage();

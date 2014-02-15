@@ -553,17 +553,30 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
     return true;
 }
 
-bool SVN::CleanUp(const CTSVNPath& path)
+bool SVN::CleanUp(const CTSVNPath& path, bool breaklocks, bool fixtimestamps, bool cleardavcache, bool vacuumpristines, bool includeexternals)
 {
     Prepare();
     SVNPool subpool(pool);
     const char* svnPath = path.GetSVNApiPath(subpool);
     SVNTRACE (
-        Err = svn_client_cleanup (svnPath, m_pctx, subpool),
+        Err = svn_client_cleanup2 (svnPath, breaklocks, fixtimestamps, cleardavcache, vacuumpristines, includeexternals, m_pctx, subpool),
         svnPath
     )
 
     return (Err == NULL);
+}
+
+bool SVN::Vacuum(const CTSVNPath& path, bool unversioned, bool ignored, bool fixtimestamps, bool pristines, bool includeExternals)
+{
+    Prepare();
+    SVNPool subpool(pool);
+    const char* svnPath = path.GetSVNApiPath(subpool);
+    SVNTRACE(
+        Err = svn_client_vacuum(svnPath, unversioned, ignored, fixtimestamps, pristines, includeExternals, m_pctx, subpool),
+        svnPath
+        )
+
+        return (Err == NULL);
 }
 
 bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse, bool typeonly, svn_wc_conflict_kind_t kind)

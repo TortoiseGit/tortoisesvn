@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2011-2012 - TortoiseSVN
+// Copyright (C) 2007, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@ public:
     virtual bool            Execute() override;
 
 private:
-    bool                    CleanupPaths(CProgressDlg &progress, int &actionCounter, int actionTotal, CString &strFailedString);
+    bool CleanupPaths(CProgressDlg &progress, int &actionCounter, int actionTotal, bool bBreakLocks, bool bFixTimestamps, bool bVacuum, CString &strFailedString);
     CString                 GetCleanupPaths(const CTSVNPathList& paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals);
 };
 

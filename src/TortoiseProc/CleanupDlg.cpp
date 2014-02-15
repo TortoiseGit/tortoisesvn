@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013 - TortoiseSVN
+// Copyright (C) 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,6 +35,9 @@ CCleanupDlg::CCleanupDlg(CWnd* pParent /*=NULL*/)
     , m_bDelIgnored(FALSE)
     , m_bRefreshShell(FALSE)
     , m_bExternals(FALSE)
+    , m_bBreakLocks(FALSE)
+    , m_bFixTimestamps(FALSE)
+    , m_bVacuum(FALSE)
 {
 
 }
@@ -52,6 +55,9 @@ void CCleanupDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_DELETEIGNORED, m_bDelIgnored);
     DDX_Check(pDX, IDC_REFRESHSHELL, m_bRefreshShell);
     DDX_Check(pDX, IDC_EXTERNALS, m_bExternals);
+    DDX_Check(pDX, IDC_BREAKLOCKS, m_bBreakLocks);
+    DDX_Check(pDX, IDC_FIXTIMESTAMPS, m_bFixTimestamps);
+    DDX_Check(pDX, IDC_VACUUM, m_bVacuum);
 }
 
 
@@ -63,6 +69,9 @@ BEGIN_MESSAGE_MAP(CCleanupDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_DELETEIGNORED, &CCleanupDlg::OnBnClicked)
     ON_BN_CLICKED(IDC_REFRESHSHELL, &CCleanupDlg::OnBnClicked)
     ON_BN_CLICKED(IDC_EXTERNALS, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_BREAKLOCKS, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_FIXTIMESTAMPS, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_VACUUM, &CCleanupDlg::OnBnClicked)
 END_MESSAGE_MAP()
 
 
@@ -81,6 +90,9 @@ BOOL CCleanupDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_DELETEIGNORED);
     m_aeroControls.SubclassControl(this, IDC_REFRESHSHELL);
     m_aeroControls.SubclassControl(this, IDC_EXTERNALS);
+    m_aeroControls.SubclassControl(this, IDC_BREAKLOCKS);
+    m_aeroControls.SubclassControl(this, IDC_FIXTIMESTAMPS);
+    m_aeroControls.SubclassControl(this, IDC_VACUUM);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_CLEANUP);
@@ -89,6 +101,9 @@ BOOL CCleanupDlg::OnInitDialog()
     AdjustControlSize(IDC_DELETEIGNORED);
     AdjustControlSize(IDC_REFRESHSHELL);
     AdjustControlSize(IDC_EXTERNALS);
+    AdjustControlSize(IDC_BREAKLOCKS);
+    AdjustControlSize(IDC_FIXTIMESTAMPS);
+    AdjustControlSize(IDC_VACUUM);
 
     m_bCleanup = true;
     m_bExternals = true;
@@ -120,5 +135,8 @@ void CCleanupDlg::OnBnClickedHelp()
 void CCleanupDlg::OnBnClicked()
 {
     EnableOKButton();
+    DialogEnableWindow(IDC_BREAKLOCKS, m_bCleanup);
+    DialogEnableWindow(IDC_FIXTIMESTAMPS, m_bCleanup);
+    DialogEnableWindow(IDC_VACUUM, m_bCleanup);
 }
 
