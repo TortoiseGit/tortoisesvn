@@ -46,6 +46,9 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
     m_regNoContextPaths = CRegString(L"Software\\TortoiseSVN\\NoContextPaths", L"");
     m_sNoContextPaths = m_regNoContextPaths;
     m_sNoContextPaths.Replace(L"\n", L"\r\n");
+
+    m_regEnableDragContextMenu = CRegDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE);
+    m_bEnableDragContextMenu = m_regEnableDragContextMenu;
 }
 
 CSetLookAndFeelPage::~CSetLookAndFeelPage()
@@ -59,6 +62,7 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_GETLOCKTOP, m_bGetLockTop);
     DDX_Check(pDX, IDC_HIDEMENUS, m_bHideMenus);
     DDX_Text(pDX, IDC_NOCONTEXTPATHS, m_sNoContextPaths);
+    DDX_Check(pDX, IDC_ENABLEDRAGCONTEXTMENU, m_bEnableDragContextMenu);
 }
 
 
@@ -67,6 +71,7 @@ BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, ISettingsPropPage)
     ON_BN_CLICKED(IDC_GETLOCKTOP, OnChange)
     ON_BN_CLICKED(IDC_HIDEMENUS, OnChange)
     ON_EN_CHANGE(IDC_NOCONTEXTPATHS, &CSetLookAndFeelPage::OnEnChangeNocontextpaths)
+    ON_BN_CLICKED(IDC_ENABLEDRAGCONTEXTMENU, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -79,6 +84,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
     m_tooltips.AddTool(IDC_HIDEMENUS, IDS_SETTINGS_HIDEMENUS_TT);
     m_tooltips.AddTool(IDC_NOCONTEXTPATHS, IDS_SETTINGS_EXCLUDECONTEXTLIST_TT);
+    m_tooltips.AddTool(IDC_ENABLEDRAGCONTEXTMENU, IDS_SETTINGS_ENABLEDRAGCONTEXTMENU_TT);
 
     m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -163,6 +169,7 @@ BOOL CSetLookAndFeelPage::OnApply()
     Store ((DWORD)(m_topmenu >> 32), m_regTopmenuhigh);
     Store (m_bGetLockTop, m_regGetLockTop);
     Store (m_bHideMenus, m_regHideMenus);
+    Store (m_bEnableDragContextMenu, m_regEnableDragContextMenu);
 
     m_sNoContextPaths.Remove('\r');
     if (m_sNoContextPaths.Right(1).Compare(L"\n")!=0)
