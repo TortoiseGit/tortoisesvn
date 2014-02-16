@@ -3184,8 +3184,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
             }
             if ((wcStatus != svn_wc_status_ignored) &&
-                (wcStatus != svn_wc_status_none) &&
-                (wcStatus != svn_wc_status_unversioned) &&
+                ((wcStatus != svn_wc_status_none) || (entry->remotestatus != svn_wc_status_none)) &&
+                ((wcStatus != svn_wc_status_unversioned) || (entry->remotestatus != svn_wc_status_none)) &&
                 (wcStatus != svn_wc_status_added))
             {
                 if (m_dwContextMenus & SVNSLC_POPUPDATE)
