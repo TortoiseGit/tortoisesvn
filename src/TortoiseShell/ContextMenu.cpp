@@ -820,7 +820,7 @@ tstring CShellExt::WriteFileListToTempFile()
 
 STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu)
 {
-    if (!CRegStdDWORD(L"Software\\TortoiseGit\\EnableDragContextMenu", TRUE))
+    if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE))
         return S_OK;
 
     PreserveChdir preserveChdir;
