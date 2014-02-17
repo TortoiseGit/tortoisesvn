@@ -25,12 +25,14 @@ You need to perform most steps only once.
    Applications" are installed.
 
 \subsection Requirements2 Next you need to install some utilities/programs.
-- Java runtime                     http://www.java.com
-- Python 2.6(\b 1 \b 3)            http://www.python.org/windows/
-- libxml2 python bindings (\b 2)   http://users.skynet.be/sbi/libxml-python/
-- Perl                             http://www.activestate.com/Products/ActivePerl/
-- WiX 3.8(\b 1)                    http://wix.codeplex.com/
-- NAnt 0.92 (\b 1)                 http://nant.sourceforge.net
+- Java runtime                      http://www.java.com
+- Python 2.6(\b 1 \b 3)             http://www.python.org/windows/
+- libxml2 python bindings(\b 2)     http://users.skynet.be/sbi/libxml-python/
+- Perl                              http://strawberryperl.com/releases.html
+                                    or
+                                    http://www.activestate.com/Products/ActivePerl/
+- WiX 3.8(\b 1)                     http://wixtoolset.org/
+- NAnt 0.92(\b 1)                   http://nant.sourceforge.net
 
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
