@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-08 08:28+0000\n"
+"PO-Revision-Date: 2014-02-17 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -4304,6 +4304,10 @@ msgstr "자동-속성들 활성화"
 #. Resource IDs: (156)
 msgid "Enable Edit"
 msgstr "편집 활성화"
+
+#. Resource IDs: (1648)
+msgid "Enable drag context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -10467,8 +10471,9 @@ msgid ""
 "apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
-"zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+"zlib %s\r\n"
+"SQLite %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11187,6 +11192,12 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr "저장소 서버에 접속하는 것이 불가능할 때,\nTSVN은 단지 캐시된 데이타만 사용하는 것으로 전환할 수 있습니다.\n기본 동작을 여기에서 선택하십시오."
+
+#. Resource IDs: (64)
+msgid ""
+"When enabled, TortoiseSVN move/copy context menu items will be available "
+"when dragging folders / files"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid ""

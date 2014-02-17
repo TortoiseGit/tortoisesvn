@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-08 08:28+0000\n"
+"PO-Revision-Date: 2014-02-17 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -426,7 +426,7 @@ msgstr "進階設定(&A)..."
 
 #. Resource IDs: (1505)
 msgid "&All"
-msgstr "選擇全部(&A)"
+msgstr "全選(&A)"
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
@@ -1053,7 +1053,7 @@ msgstr "不需要鎖定(&N)"
 
 #. Resource IDs: (1506)
 msgid "&None"
-msgstr "無(&N)"
+msgstr "全不選(&N)"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -4307,6 +4307,10 @@ msgstr "啟用自動屬性設定"
 msgid "Enable Edit"
 msgstr "啟用編輯"
 
+#. Resource IDs: (1648)
+msgid "Enable drag context menu"
+msgstr ""
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "啟用記錄訊息快取以加速顯示記錄和版本圖"
@@ -4842,7 +4846,7 @@ msgstr "檔案名稱"
 
 #. Resource IDs: (1512)
 msgid "Files"
-msgstr "Files"
+msgstr "檔案"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -10469,8 +10473,9 @@ msgid ""
 "apr-util %d.%d.%d\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
-"zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
+"zlib %s\r\n"
+"SQLite %s"
+msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11189,6 +11194,12 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr "在無法正常連線到檔案庫伺服器時,\nTSVN 可以僅靠快取的資料工作.\n請選擇預設的行為."
+
+#. Resource IDs: (64)
+msgid ""
+"When enabled, TortoiseSVN move/copy context menu items will be available "
+"when dragging folders / files"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid ""
