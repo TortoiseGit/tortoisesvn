@@ -2836,7 +2836,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         rec.EndTime(count);
     }
 
-    if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive))
+    if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive, false))
     {
         svn.ShowErrorDialog(m_hWnd, targetList[0]);
         return;
@@ -5961,8 +5961,8 @@ void CSVNStatusListCtrl::OnRepairMove()
     if (entry2->status == svn_wc_status_added)
     {
         // the target file was already added: revert it first
-        svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false);
-        svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false);
+        svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false, true);
+        svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false, true);
     }
 
 

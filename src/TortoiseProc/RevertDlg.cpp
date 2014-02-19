@@ -31,6 +31,7 @@ IMPLEMENT_DYNAMIC(CRevertDlg, CResizableStandAloneDialog)
 CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRevertDlg::IDD, pParent)
     , m_bSelectAll(TRUE)
+    , m_bClearChangeLists(TRUE)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
     , m_bRecursive(false)
@@ -46,6 +47,7 @@ void CRevertDlg::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_REVERTLIST, m_RevertList);
     DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
+    DDX_Check(pDX, IDC_CLEARCHANGELISTS, m_bClearChangeLists);
     DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
@@ -69,6 +71,7 @@ BOOL CRevertDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+    m_aeroControls.SubclassControl(this, IDC_CLEARCHANGELISTS);
     m_aeroControls.SubclassControl(this, IDC_UNVERSIONEDITEMS);
     m_aeroControls.SubclassControl(this, IDC_DELUNVERSIONED);
     m_aeroControls.SubclassControl(this, ID_OK);
@@ -88,6 +91,7 @@ BOOL CRevertDlg::OnInitDialog()
 
     AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+    AddAnchor(IDC_CLEARCHANGELISTS, BOTTOM_LEFT);
     AddAnchor(IDC_UNVERSIONEDITEMS, BOTTOM_RIGHT);
     AddAnchor(IDC_DELUNVERSIONED, BOTTOM_LEFT);
     AddAnchor(ID_OK, BOTTOM_RIGHT);

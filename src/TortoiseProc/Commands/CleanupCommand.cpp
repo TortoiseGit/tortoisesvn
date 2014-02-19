@@ -142,7 +142,7 @@ bool CleanupCommand::Execute()
                 rec.EndTime(count);
             }
             SVN svn;
-            if (!svn.Revert(revertItems, CStringArray(), false))
+            if (!svn.Revert(revertItems, CStringArray(), false, false))
             {
                 // just assume the first path failed...
                 strFailedString = pathList[0].GetWinPathString();

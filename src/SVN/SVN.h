@@ -183,7 +183,7 @@ public:
      * \param recurse
      * \return TRUE if successful
      */
-    bool Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, bool recurse);
+    bool Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, bool recurse, bool clearchangelists);
     /**
      * Schedule a working copy path for addition to the repository.
      * path's parent must be under revision control already, but path is

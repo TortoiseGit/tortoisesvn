@@ -62,6 +62,7 @@ typedef enum
     ProgOptMakeParents              = 0x40000,
     ProgOptAllowMixedRev            = 0x80000,
     ProgOptSkipPreChecks            = 0x100000,
+    ProgOptClearChangeLists         = 0x200000,
 } ProgressOptions;
 
 typedef enum
