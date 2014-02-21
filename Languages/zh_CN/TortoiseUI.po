@@ -34,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-17 08:29+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-02-19 21:16+0000\n"
+"Last-Translator: Y.F Yang <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -514,6 +514,10 @@ msgstr "底部(&B)"
 msgid "&Branches"
 msgstr "分支(&B)"
 
+#. Resource IDs: (1645)
+msgid "&Break locks"
+msgstr ""
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr "浏览版本库(&B)"
@@ -777,6 +781,10 @@ msgstr "查找(&F)..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "缩放图像以适应窗口(&F)"
+
+#. Resource IDs: (1646)
+msgid "&Fix time stamps"
+msgstr "修复时间戳(&F)"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1460,6 +1468,10 @@ msgstr "使用回收站(&U)"
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "用户名(&U): "
+
+#. Resource IDs: (1647)
+msgid "&Vacuum pristine copies"
+msgstr "打扫原始副本(&V)"
 
 #. Resource IDs: (65535)
 msgid "&View"
@@ -4319,7 +4331,7 @@ msgstr "启用编辑"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr ""
+msgstr "启用拖放菜单"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -6615,6 +6627,10 @@ msgstr "移动到 %1"
 msgid "Move to changelist"
 msgstr "移动到修改列表"
 
+#. Resource IDs: (266)
+msgid "Move-Replaced"
+msgstr ""
+
 #. Resource IDs: (229)
 msgid "Move/Rename"
 msgstr "移动/改名"
@@ -6629,6 +6645,10 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr "移动\n这些项已被移动到目标路径。"
+
+#. Resource IDs: (266)
+msgid "Moved"
+msgstr "已移动"
 
 #. Resource IDs: (210)
 #, c-format
@@ -9802,7 +9822,7 @@ msgstr "文件过大，无法打开。"
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "文件或目录 \"%s\" 在放置位置已存在！您在添加同名的外部引用前必须先移除它。"
 
 #. Resource IDs: (80)
 #, c-format
@@ -11209,7 +11229,7 @@ msgstr "当不能连接到版本库服务器时，TSVN 可以只使用缓存。\
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "启用状态下，拖放文件或文件夹时可使用 TortoiseSVN 移动/复制菜单。"
 
 #. Resource IDs: (197)
 msgid ""

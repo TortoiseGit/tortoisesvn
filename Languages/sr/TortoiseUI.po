@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-17 08:29+0000\n"
+"PO-Revision-Date: 2014-02-18 08:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -499,6 +499,10 @@ msgstr "&Дно"
 msgid "&Branches"
 msgstr "&Гране"
 
+#. Resource IDs: (1645)
+msgid "&Break locks"
+msgstr ""
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr "&Претражи спремиште"
@@ -762,6 +766,10 @@ msgstr "&Нађи..."
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
 msgstr "&Убаците слику у прозор"
+
+#. Resource IDs: (1646)
+msgid "&Fix time stamps"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1445,6 +1453,10 @@ msgstr "Користи корп&у за отпатке"
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Име корисника:"
+
+#. Resource IDs: (1647)
+msgid "&Vacuum pristine copies"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&View"
@@ -4304,7 +4316,7 @@ msgstr "Омогући уређење"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr ""
+msgstr "Омогући вучење контекст менија"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -6600,6 +6612,10 @@ msgstr "Премести у %1"
 msgid "Move to changelist"
 msgstr "Премести на скуп измена"
 
+#. Resource IDs: (266)
+msgid "Move-Replaced"
+msgstr ""
+
 #. Resource IDs: (229)
 msgid "Move/Rename"
 msgstr "Премести/Преименуј"
@@ -6614,6 +6630,10 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr "Померање\nСтавке се померају ка циљној путањи."
+
+#. Resource IDs: (266)
+msgid "Moved"
+msgstr ""
 
 #. Resource IDs: (210)
 #, c-format
@@ -10470,7 +10490,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
+msgstr "ТортоисеСВН %d.%d.%d, Изгради %d - %s, %s\r\nСубверсион %d.%d.%d, %s\r\nапр %d.%d.%d\r\nапр-утлl %d.%d.%d\r\nсерф %d.%d.%d\r\n%s\r\nзлиб %s\r\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11194,7 +11214,7 @@ msgstr "Када спајање са сервером није могуће, \n�
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Када је омогућен, ТортоисеСВН помери/копирај контекст мени ставка биће доступна када се вуку фолдери / фајлови"
 
 #. Resource IDs: (197)
 msgid ""
