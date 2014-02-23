@@ -496,7 +496,6 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
         {
             delete itMap->second;
             m_directoryCache.erase(itMap);
-            itMap->second = NULL;
         }
         // We don't know anything about this directory yet - lets add it to our cache
         // but only if it exists!
