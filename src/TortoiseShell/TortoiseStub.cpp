@@ -87,7 +87,6 @@ static BOOL WantRealVersion(void)
 
     DWORD bExplorerOnly = 0;
     WCHAR ModuleName[MAX_PATH] = {0};
-    WCHAR ExplorerPath[MAX_PATH] = {0};
 
     HKEY hKey = HKEY_CURRENT_USER;
     DWORD Type = REG_DWORD;
@@ -112,6 +111,7 @@ static BOOL WantRealVersion(void)
             {
                 TRACE(L"Process is %s\n", ModuleName);
 
+                WCHAR ExplorerPath[MAX_PATH] = {0};
                 Len = ExpandEnvironmentStrings(ExplorerEnvPath, ExplorerPath, _countof(ExplorerPath));
                 if (Len && (Len <= _countof(ExplorerPath)))
                 {

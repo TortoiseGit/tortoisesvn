@@ -3108,12 +3108,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         FileEntry * entry2 = GetListEntry(index);
                         svn_wc_status_kind status1 = svn_wc_status_none;
-                        svn_wc_status_kind status2 = svn_wc_status_none;
                         if (entry2)
                             status1 = entry2->status;
                         index = GetNextSelectedItem(pos);
                         if (index >= 0)
                         {
+                            svn_wc_status_kind status2 = svn_wc_status_none;
                             entry2 = GetListEntry(index);
                             if (entry2)
                                 status2 = entry2->status;
@@ -4116,8 +4116,7 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 
         popup.AppendMenu(MF_SEPARATOR);
 
-        typedef std::map<CString, int>::const_iterator CIT;
-        for ( CIT iter = sortedProps.begin(), end = sortedProps.end()
+        for ( auto iter = sortedProps.begin(), end = sortedProps.end()
             ; iter != end
             ; ++iter)
         {

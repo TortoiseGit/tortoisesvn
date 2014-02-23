@@ -301,12 +301,12 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
                 ext.targetDir = CUnicodeUtils::GetUnicode(e->target_dir);
                 if (fetchrev)
                 {
-                    svn_revnum_t maxrev, minrev;
                     CTSVNPath p = path;
                     p.AppendPathString(ext.targetDir);
                     if (p.IsDirectory())
                     {
                         bool bswitched, bmodified, bsparse;
+                        svn_revnum_t maxrev, minrev;
                         if (svn.GetWCRevisionStatus(p, false, minrev, maxrev, bswitched, bmodified, bsparse))
                         {
                             ext.revision.kind = svn_opt_revision_number;

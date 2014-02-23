@@ -329,11 +329,11 @@ void CBaseView::UpdateStatusBar()
     }
     if (m_pwndStatusBar || m_pwndRibbonStatusBar)
     {
-        UINT nID;
-        UINT nStyle;
-        int cxWidth;
         if (m_pwndStatusBar)
         {
+            UINT nID;
+            UINT nStyle;
+            int cxWidth;
             if (m_nStatusBarID == ID_INDICATOR_BOTTOMVIEW)
             {
                 sBarText.Format(IDS_STATUSBAR_CONFLICTS, nConflictedLines);
