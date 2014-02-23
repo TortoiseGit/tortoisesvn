@@ -33,6 +33,7 @@ CStatusCacheEntry::CStatusCacheEntry()
     , m_kind(svn_node_unknown)
     , m_highestPriorityLocalStatus(svn_wc_status_none)
     , m_commitRevision(0)
+    , m_bHasOwner(false)
 {
     SetAsUnversioned();
 }
