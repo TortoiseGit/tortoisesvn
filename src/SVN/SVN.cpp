@@ -2402,7 +2402,7 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SV
         return L"";
     if (propval==NULL)
         return L"";
-    if (propval->len <= 0)
+    if (propval->len == 0)
         return L"";
     return CUnicodeUtils::GetUnicode(propval->data);
 }
