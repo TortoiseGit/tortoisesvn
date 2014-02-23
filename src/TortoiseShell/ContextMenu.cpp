@@ -2079,6 +2079,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         }
 
         p = 0;
+        // cppcheck-suppress uselessCallsCompare
         while ( (p=ignoredglobalprops.find(ignoredglobalprops, p)) != -1 )
         {
             if ( (p==0 || ignoredglobalprops[p-1]==TCHAR('\n')) )

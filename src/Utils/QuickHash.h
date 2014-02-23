@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012, 2013 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -419,7 +419,7 @@ public:
     }
 
     /// assignment
-
+    // cppcheck-suppress operatorEqVarError
     quick_hash& operator=(const quick_hash& rhs)
     {
         if (this != &rhs)

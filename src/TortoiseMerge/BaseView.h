@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -132,6 +132,7 @@ public: // methods
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
     inline bool     IsModified() const  {return m_bModified;}
+    // cppcheck-suppress bitwiseOnBoolean
     void            SetModified(bool bModified = true) { m_bModified = bModified; m_pState->modifies |= bModified; Invalidate(); }
     void            ClearStepModifiedMark() { m_pState->modifies = false; }
     void            SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}

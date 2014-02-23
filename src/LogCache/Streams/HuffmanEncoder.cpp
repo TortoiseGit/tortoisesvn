@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,6 +312,7 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 
     // main loop (9.5 clock ticks per 2 chars on Core2)
 
+    // cppcheck-suppress multiplySizeof
     const BYTE* blockEnd = source + (end - source) / sizeof (encode_block_type) * sizeof (encode_block_type);
     for ( ; source != blockEnd; source += sizeof (encode_block_type))
     {
