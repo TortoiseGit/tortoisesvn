@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@
 #include "StandardLayout.h"
 
 std::pair<int, int> CUpsideDownLayout::GetMinMaxY
-    (IStandardLayoutNodeAccess* nodeAccess)
+    (IStandardLayoutNodeAccess* nodeAccess) const
 {
     int minY = INT_MAX;
     int maxY = INT_MIN;
@@ -38,7 +38,7 @@ std::pair<int, int> CUpsideDownLayout::GetMinMaxY
 
 void CUpsideDownLayout::MirrorY
     ( IStandardLayoutNodeAccess* nodeAccess
-    , std::pair<int, int> minMaxY)
+    , std::pair<int, int> minMaxY) const
 {
     for (size_t i = 0, count = nodeAccess->GetNodeCount(); i < count; ++i)
     {

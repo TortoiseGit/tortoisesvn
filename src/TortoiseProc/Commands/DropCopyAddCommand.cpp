@@ -126,7 +126,7 @@ bool DropCopyAddCommand::Execute()
     return bRet;
 }
 
-void DropCopyAddCommand::ShowErrorMessage()
+void DropCopyAddCommand::ShowErrorMessage() const
 {
     CFormatMessageWrapper errorDetails;
     CString strMessage;

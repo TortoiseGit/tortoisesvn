@@ -37,7 +37,7 @@ public:
     bool ReleaseLockForPath(const CTSVNPath& path);
 
 private:
-    bool InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName);
+    bool InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName) const;
 
     bool EnsurePipeOpen();
     void ClosePipe();
@@ -45,9 +45,9 @@ private:
     bool EnsureCommandPipeOpen();
     void CloseCommandPipe();
 
-    DWORD GetProcessIntegrityLevel();
+    DWORD GetProcessIntegrityLevel() const;
     bool RunTsvnCacheProcess();
-    CString GetTsvnCachePath();
+    CString GetTsvnCachePath() const;
 
 private:
     CAutoFile m_hPipe;

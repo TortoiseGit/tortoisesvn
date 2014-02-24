@@ -526,7 +526,7 @@ public:
         /// map internal column order onto visible column order
         /// (all invisibles in front)
 
-        std::vector<int> GetGridColumnOrder();
+        std::vector<int> GetGridColumnOrder() const;
         void ApplyColumnOrder();
 
         /// utilities used when writing data to the registry

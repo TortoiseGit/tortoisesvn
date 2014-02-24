@@ -54,15 +54,15 @@ public:
     BOOL        StripPrefixes(const CString& path);
 protected:
     void        FreeMemory();
-    BOOL        HasExpandedKeyWords(const CString& line);
+    BOOL        HasExpandedKeyWords(const CString& line) const;
     int         CountMatches(const CString& path);
     int         CountDirMatches(const CString& path);
-    CString     RemoveUnicodeBOM(const CString& str);
+    CString     RemoveUnicodeBOM(const CString& str) const;
 
     /**
      * Strips the filename by removing m_nStrip prefixes.
      */
-    CString     Strip(const CString& filename);
+    CString     Strip(const CString& filename) const;
     struct Chunk
     {
         LONG                    lRemoveStart;

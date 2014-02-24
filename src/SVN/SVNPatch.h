@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,7 +44,7 @@ public:
      * Sets the target path. Use this after getting a new path from CheckPatchPath()
      */
     void                    SetTargetPath(const CString& targetpath) { m_targetpath = targetpath; m_targetpath.Replace('\\', '/'); }
-    CString                 GetTargetPath() { return m_targetpath; }
+    CString                 GetTargetPath() const { return m_targetpath; }
 
     /**
      * Finds the best path to apply the patch file. Starting from the targetpath

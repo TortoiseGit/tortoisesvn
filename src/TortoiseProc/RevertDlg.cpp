@@ -88,6 +88,7 @@ BOOL CRevertDlg::OnInitDialog()
     GetWindowText(m_sWindowTitle);
 
     AdjustControlSize(IDC_SELECTALL);
+    AdjustControlSize(IDC_CLEARCHANGELISTS);
 
     AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,10 +93,10 @@ private:
     BOOL AdjustIconImagePointers(LPICONIMAGE lpImage);
 
     LPSTR FindDIBBits(LPSTR lpbi);
-    WORD DIBNumColors(LPSTR lpbi);
+    WORD DIBNumColors(LPSTR lpbi) const;
     WORD PaletteSize(LPSTR lpbi);
-    DWORD BytesPerLine(LPBITMAPINFOHEADER lpBMIH);
-    DWORD WriteICOHeader(HANDLE hFile, UINT nNumEntries);
-    DWORD CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex);
+    DWORD BytesPerLine(LPBITMAPINFOHEADER lpBMIH) const;
+    DWORD WriteICOHeader(HANDLE hFile, UINT nNumEntries) const;
+    DWORD CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex) const;
 };
 

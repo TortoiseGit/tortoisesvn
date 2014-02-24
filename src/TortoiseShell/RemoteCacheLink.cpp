@@ -46,7 +46,7 @@ CRemoteCacheLink::~CRemoteCacheLink(void)
 }
 
 bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
-                                              , const CString& pipeName)
+                                              , const CString& pipeName) const
 {
     if (hPipe)
         return true;
@@ -276,7 +276,7 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
     return false;
 }
 
-DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
+DWORD CRemoteCacheLink::GetProcessIntegrityLevel() const
 {
     DWORD dwIntegrityLevel = SECURITY_MANDATORY_MEDIUM_RID;
 
@@ -324,7 +324,7 @@ bool CRemoteCacheLink::RunTsvnCacheProcess()
     return true;
 }
 
-CString CRemoteCacheLink::GetTsvnCachePath()
+CString CRemoteCacheLink::GetTsvnCachePath() const
 {
     CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + L"TSVNCache.exe";
     return sCachePath;

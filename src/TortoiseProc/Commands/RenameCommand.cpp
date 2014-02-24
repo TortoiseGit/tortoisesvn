@@ -202,7 +202,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
                                       const CTSVNPath &destPath,
                                       const CString &message /* = L"" */,
                                       bool move_as_child /* = false */,
-                                      bool make_parents /* = false */)
+                                      bool make_parents /* = false */) const
 {
     SVN svn;
     UINT idret = IDYES;

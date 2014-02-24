@@ -426,7 +426,7 @@ void CFullGraphBuilder::AnalyzeAsChanges ( revision_t revision
 
 void CFullGraphBuilder::AddCopiedPaths ( revision_t revision
                                          , CSearchPathTree* rootNode
-                                         , SCopyInfo**& lastToCopy)
+                                         , SCopyInfo**& lastToCopy) const
 {
     // find range of copies that point to this revision
 
@@ -542,7 +542,7 @@ void CFullGraphBuilder::FillCopyTargets ( revision_t revision
 bool CFullGraphBuilder::IsLatestCopySource ( revision_t fromRevision
                                              , revision_t toRevision
                                              , const CDictionaryBasedPath& fromPath
-                                             , const CDictionaryBasedTempPath& currentPath)
+                                             , const CDictionaryBasedTempPath& currentPath) const
 {
     // try to find a "later" / "closer" copy source
 
@@ -586,7 +586,7 @@ bool CFullGraphBuilder::IsLatestCopySource ( revision_t fromRevision
 }
 
 bool CFullGraphBuilder::TargetPathExists ( revision_t revision
-                                         , const CDictionaryBasedPath& path)
+                                         , const CDictionaryBasedPath& path) const
 {
     // follow additions and deletions to determine whether the path exists
     // after the given revision

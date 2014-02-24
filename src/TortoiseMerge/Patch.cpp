@@ -632,7 +632,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
     return TRUE;
 }
 
-BOOL CPatch::HasExpandedKeyWords(const CString& line)
+BOOL CPatch::HasExpandedKeyWords(const CString& line) const
 {
     if (line.Find(L"$LastChangedDate")>=0)
         return TRUE;
@@ -775,7 +775,7 @@ BOOL CPatch::StripPrefixes(const CString& path)
     return FALSE;
 }
 
-CString CPatch::Strip(const CString& filename)
+CString CPatch::Strip(const CString& filename) const
 {
     CString s = filename;
     if ( m_nStrip>0 )
@@ -799,7 +799,7 @@ CString CPatch::Strip(const CString& filename)
     return s;
 }
 
-CString CPatch::RemoveUnicodeBOM(const CString& str)
+CString CPatch::RemoveUnicodeBOM(const CString& str) const
 {
     if (str.IsEmpty())
         return str;

@@ -109,7 +109,7 @@ public:
     std::deque<SVNConflictData> conflicts;
     // convenience methods:
 
-    bool IsValid() {return rev.IsValid() != FALSE;}
+    bool IsValid() const {return rev.IsValid() != FALSE;}
 
 };
 

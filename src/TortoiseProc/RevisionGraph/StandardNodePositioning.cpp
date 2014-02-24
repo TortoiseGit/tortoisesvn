@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ void CStandardNodePositioning::StackSubTree
     , std::vector<long>& branchColumnStarts
     , std::vector<long>& branchColumnEnds
     , std::vector<long>& localColumnStarts
-    , std::vector<long>& localColumnEnds)
+    , std::vector<long>& localColumnEnds) const
 {
     // the highest position allowed for any branch
     // (if actually reached, node must be at 0,0)
@@ -98,7 +98,7 @@ void CStandardNodePositioning::AppendBranch
     , std::vector<long>& columnStarts
     , std::vector<long>& columnEnds
     , std::vector<long>& localColumnStarts
-    , std::vector<long>& localColumnEnds)
+    , std::vector<long>& localColumnEnds) const
 {
     // push the new branch as far to the left as possible
 

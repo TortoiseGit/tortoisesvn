@@ -5109,7 +5109,7 @@ bool CBaseView::Screen2View::FixScreenedCacheSize(CBaseView* pwndView)
     return true;
 }
 
-bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
+bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView) const
 {
     if (!IsViewGood(pwndView))
     {
@@ -5120,7 +5120,7 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
     return true;
 }
 
-bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, const TRebuildRange& Range)
+bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, const TRebuildRange& Range) const
 {
     if (!IsViewGood(pwndView))
     {

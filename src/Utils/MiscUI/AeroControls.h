@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,15 +42,15 @@ private:
     LRESULT ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
     void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
-    void DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width);
-    void FillRect(LPRECT prc, HDC hdcPaint, Color clr);
-    int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
+    void DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width) const;
+    void FillRect(LPRECT prc, HDC hdcPaint, Color clr) const;
+    int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture) const;
     void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
     void ScreenToClient(HWND hWnd, LPRECT lprc);
     void DrawSolidWndRectOnParent(HWND hWnd, Color clr);
     void DrawEditBorder(HWND hWnd);
     BOOL GetEditBorderColor(HWND hWnd, COLORREF *pClr);
-    void GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia);
+    void GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia) const;
 
     CDwmApiImpl                 m_dwm;
     CUxThemeAeroImpl            m_theme;

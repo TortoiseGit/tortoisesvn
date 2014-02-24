@@ -128,7 +128,7 @@ public:
 
 private:
     const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
-    ULONGLONG           GetTimeoutValue();
+    ULONGLONG           GetTimeoutValue() const;
     static svn_error_t* fillstatusmap (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
     static svn_error_t* findfolderstatus (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
     static CTSVNPath    folderpath;

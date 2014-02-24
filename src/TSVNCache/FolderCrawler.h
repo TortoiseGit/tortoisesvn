@@ -46,7 +46,7 @@ public:
     void AddPathForUpdate(const CTSVNPath& path);
     void Stop();
     bool SetHoldoff(DWORD milliseconds = 500);
-    bool IsHoldOff();
+    bool IsHoldOff() const;
     void BlockPath(const CTSVNPath& path, DWORD ticks = 0);
 private:
     static unsigned int __stdcall ThreadEntry(void* pContext);

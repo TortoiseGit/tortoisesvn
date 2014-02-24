@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012-2013 - TortoiseSVN
+// Copyright (C) 2009, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ BOOL CDwmApiImpl::Initialize(void)
     return IsInitialized();
 }
 
-BOOL CDwmApiImpl::IsInitialized(void)
+BOOL CDwmApiImpl::IsInitialized(void) const
 {
     return (NULL!=m_hDwmApiLib);
 }
@@ -121,7 +121,7 @@ typedef HRESULT (__stdcall *GET_THEME_MARGINS)(HTHEME hTheme, HDC hdc, int iPart
 typedef HRESULT (__stdcall *GET_THEME_METRIC)(HTHEME hTheme, HDC hdc, int iPartId, int iStateId, int iPropId, int *piVal);
 typedef HRESULT (__stdcall *GET_THEME_RECT)(HTHEME hTheme, int iPartId, int iStateId, int iPropId, LPRECT pRect);
 
-BOOL CUxThemeAeroImpl::IsInitialized(void)
+BOOL CUxThemeAeroImpl::IsInitialized(void) const
 {
     return (NULL!=m_hUxThemeLib);
 }

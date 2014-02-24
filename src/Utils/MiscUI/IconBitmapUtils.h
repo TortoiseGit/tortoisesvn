@@ -38,10 +38,10 @@ public:
     HBITMAP IconToBitmap(HINSTANCE hInst, UINT uIcon);
     HBITMAP IconToBitmapPARGB32(HICON hIcon);
     HBITMAP IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon);
-    HRESULT Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp);
+    HRESULT Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp) const;
     HRESULT ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);
-    bool HasAlpha(__in Gdiplus::ARGB *pargb, SIZE& sizImage, int cxRow);
-    HRESULT ConvertToPARGB32(HDC hdc, __inout Gdiplus::ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow);
+    bool HasAlpha(__in Gdiplus::ARGB *pargb, SIZE& sizImage, int cxRow) const;
+    HRESULT ConvertToPARGB32(HDC hdc, __inout Gdiplus::ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow) const;
 
 
 private:

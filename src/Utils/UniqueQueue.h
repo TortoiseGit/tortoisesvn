@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ public:
     size_t          Push(T value);
     T               Pop();
     size_t          erase(T value);
-    size_t          size() { return m_Queue.size(); }
+    size_t          size() const { return m_Queue.size(); }
 private:
     typedef struct UniqueQueueStruct
     {

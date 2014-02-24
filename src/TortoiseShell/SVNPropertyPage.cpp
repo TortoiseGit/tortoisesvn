@@ -241,7 +241,7 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
     }
 }
 
-void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen)
+void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen) const
 {
     struct tm newtime;
     SYSTEMTIME systime;

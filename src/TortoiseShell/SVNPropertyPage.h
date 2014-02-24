@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ protected:
      * Initializes the property page.
      */
     virtual void InitWorkfileView();
-    void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen);
+    void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen) const;
     static void RunCommand(const tstring& command);
     void PageProcOnCommand(WPARAM wParam);
 

@@ -158,7 +158,7 @@ std::wstring TortoiseBlame::GetAppDirectory()
 // Slider = 0   represents pure c1
 // Slider = 50  represents equal mixture
 // Slider = 100 represents pure c2
-COLORREF TortoiseBlame::InterColor(COLORREF c1, COLORREF c2, int Slider)
+COLORREF TortoiseBlame::InterColor(COLORREF c1, COLORREF c2, int Slider) const
 {
     int r, g, b;
 
@@ -612,7 +612,7 @@ void TortoiseBlame::InitialiseEditor()
     m_regLocatorNewLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameLocatorNewColor", BLAMENEWCOLORBAR);
 }
 
-void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
+void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect) const
 {
     LONG line = (LONG)app.SendEditor(SCI_GETFIRSTVISIBLELINE);
     LONG height = (LONG)app.SendEditor(SCI_TEXTHEIGHT);
@@ -930,7 +930,7 @@ void TortoiseBlame::BlamePreviousRevision()
     RunCommand(svnCmd);
 }
 
-void TortoiseBlame::DiffPreviousRevision()
+void TortoiseBlame::DiffPreviousRevision() const
 {
     LONG nRevisionTo = m_selectedOrigRev;
     if ( nRevisionTo<1 )
@@ -1475,7 +1475,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
     }
 }
 
-void TortoiseBlame::StringExpand(LPSTR str)
+void TortoiseBlame::StringExpand(LPSTR str) const
 {
     char * cPos = str;
     do
@@ -1490,7 +1490,7 @@ void TortoiseBlame::StringExpand(LPSTR str)
         }
     } while (cPos != NULL);
 }
-void TortoiseBlame::StringExpand(LPWSTR str)
+void TortoiseBlame::StringExpand(LPWSTR str) const
 {
     wchar_t * cPos = str;
     do

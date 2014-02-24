@@ -792,7 +792,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
 // map internal column order onto visible column order
 // (all invisibles in front)
 
-std::vector<int> CSVNStatusListCtrl::ColumnManager::GetGridColumnOrder()
+std::vector<int> CSVNStatusListCtrl::ColumnManager::GetGridColumnOrder() const
 {
     // extract order of used columns from order of all columns
 

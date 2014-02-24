@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ public:
     ~CStringBuffer();
 
     /// data access
-    operator char*();
+    operator char*() const;
     size_t GetSize() const;
 
     /// Get the first unused element in the buffer.
@@ -86,7 +86,7 @@ public:
     void Append (const char* s);
 };
 
-inline CStringBuffer::operator char*()
+inline CStringBuffer::operator char*() const
 {
     return buffer;
 }

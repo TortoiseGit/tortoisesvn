@@ -34,7 +34,7 @@ private:
     bool                    RenameWithReplace(HWND hWnd, const CTSVNPathList& srcPathList,
                                             const CTSVNPath& destPath,
                                             const CString& message = L"",
-                                            bool move_as_child = false, bool make_parents = false);
+                                            bool move_as_child = false, bool make_parents = false) const;
 };
 
 

@@ -28,7 +28,7 @@ public:
 
     operator const TCHAR*() { return buffer.get(); }
     void Load(UINT stringId);
-    UINT GetCount() { return (UINT)filternames.size(); }
+    UINT GetCount() const { return (UINT)filternames.size(); }
     operator const COMDLG_FILTERSPEC*() { return filterspec.get(); }
 
 private:

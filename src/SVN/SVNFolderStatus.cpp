@@ -299,7 +299,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     return &invalidstatus;
 }
 
-ULONGLONG SVNFolderStatus::GetTimeoutValue()
+ULONGLONG SVNFolderStatus::GetTimeoutValue() const
 {
     ULONGLONG timeout = SVNFOLDERSTATUS_CACHETIMEOUT;
     ULONGLONG factor = (ULONGLONG)m_cache.size() / 200UL;

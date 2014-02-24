@@ -228,7 +228,7 @@ void CFullGraphFinalizer::MarkRoot (CFullGraphNode* node)
         node->AddClassification (CNodeClassification::IS_FIRST);
 }
 
-void CFullGraphFinalizer::MarkCopySource (CFullGraphNode* node)
+void CFullGraphFinalizer::MarkCopySource (CFullGraphNode* node) const
 {
     if (node->GetFirstCopyTarget() != NULL)
         node->AddClassification (CNodeClassification::IS_COPY_SOURCE);
@@ -284,7 +284,7 @@ void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
     }
 }
 
-void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
+void CFullGraphFinalizer::MarkHead (CFullGraphNode* node) const
 {
     // scan all "latest" nodes
     // (they must be either HEADs or special nodes)

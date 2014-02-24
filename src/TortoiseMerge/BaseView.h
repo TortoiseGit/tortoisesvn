@@ -642,8 +642,8 @@ protected:  // variables
 
         bool            FixScreenedCacheSize(CBaseView* View);
         void            RebuildIfNecessary();
-        bool            ResetScreenedViewLineCache(CBaseView* View);
-        bool            ResetScreenedViewLineCache(CBaseView* View, const TRebuildRange& Range);
+        bool            ResetScreenedViewLineCache(CBaseView* View) const;
+        bool            ResetScreenedViewLineCache(CBaseView* View, const TRebuildRange& Range) const;
 
         CViewData *                     m_pViewData;
         bool                            m_bFull;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,9 @@
  */
 class SVNDiff
 {
+private:
+    // private copy constructor to prevent accidental copies
+    SVNDiff(const SVNDiff& /*d*/) {}
 public:
     SVNDiff(SVN * pSVN = NULL, HWND hWnd = NULL, bool bRemoveTempFiles = false);
     ~SVNDiff(void);
@@ -92,7 +95,7 @@ public:
      */
     bool ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreprops, const CString& options, bool ignoreancestry = false, bool blame = false, svn_node_kind_t nodekind = svn_node_unknown);
 
-    bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t &baseRev);
+    bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t &baseRev) const;
 
     /**
      * Sets the Peg revision to use instead of HEAD.

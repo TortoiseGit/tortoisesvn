@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,16 +61,16 @@ private:
                           , CSearchPathTree* searchNode);
     void AddCopiedPaths ( revision_t revision
                         , CSearchPathTree* rootNode
-                        , SCopyInfo**& lastToCopy);
+                        , SCopyInfo**& lastToCopy) const;
     void FillCopyTargets ( revision_t revision
                          , CSearchPathTree* rootNode
                          , SCopyInfo**& lastFromCopy);
     bool IsLatestCopySource ( revision_t fromRevision
                             , revision_t toRevision
                             , const CDictionaryBasedPath& fromPath
-                            , const CDictionaryBasedTempPath& currentPath);
+                            , const CDictionaryBasedTempPath& currentPath) const;
     bool TargetPathExists ( revision_t revision
-                          , const CDictionaryBasedPath& path);
+                          , const CDictionaryBasedPath& path) const;
 
     /// data members
 

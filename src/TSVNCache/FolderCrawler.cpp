@@ -401,7 +401,7 @@ bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
     return ret;
 }
 
-bool CFolderCrawler::IsHoldOff()
+bool CFolderCrawler::IsHoldOff() const
 {
     return (((LONGLONG)GetTickCount64() - m_crawlHoldoffReleasesAt) < 0);
 }

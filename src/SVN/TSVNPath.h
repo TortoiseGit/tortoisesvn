@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -210,7 +210,7 @@ public:
     bool IsAdminDir() const;
 
     void SetCustomData(LPARAM lp) {m_customData = lp;}
-    LPARAM GetCustomData() {return m_customData;}
+    LPARAM GetCustomData() const {return m_customData;}
 
     /**
      * Checks if the path or URL is valid on Windows.

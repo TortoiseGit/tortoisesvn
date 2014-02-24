@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,13 +41,13 @@ private:
         , std::vector<long>& branchColumnStarts
         , std::vector<long>& branchColumnEnds
         , std::vector<long>& localColumnStarts
-        , std::vector<long>& localColumnEnds);
+        , std::vector<long>& localColumnEnds) const;
     void AppendBranch
         ( CStandardLayoutNodeInfo* start
         , std::vector<long>& columnStarts
         , std::vector<long>& columnEnds
         , std::vector<long>& localColumnStarts
-        , std::vector<long>& localColumnEnds);
+        , std::vector<long>& localColumnEnds) const;
     void PlaceBranch
         ( CStandardLayoutNodeInfo* start
         , std::vector<long>& columnStarts

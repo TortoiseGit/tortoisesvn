@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,10 +35,10 @@ private:
 
     void GetMinMaxY
         ( IStandardLayoutNodeAccess* nodeAccess
-        , std::vector<int>& minY);
+        , std::vector<int>& minY) const;
     void MirrorY
         ( IStandardLayoutNodeAccess* nodeAccess
-        , const std::vector<int>& minY);
+        , const std::vector<int>& minY) const;
 
 public:
 

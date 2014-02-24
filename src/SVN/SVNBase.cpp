@@ -263,7 +263,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
     return ret;
 }
 
-void SVNBase::ClearCAPIAuthCacheOnError()
+void SVNBase::ClearCAPIAuthCacheOnError() const
 {
     if (Err != NULL)
     {

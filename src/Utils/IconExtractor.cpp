@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,7 +158,7 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
     return NO_ERROR;
 }
 
-DWORD CIconExtractor::CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex)
+DWORD CIconExtractor::CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex) const
 {
     DWORD   dwSize;
 
@@ -173,7 +173,7 @@ DWORD CIconExtractor::CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex)
     return dwSize;
 }
 
-DWORD CIconExtractor::WriteICOHeader(HANDLE hFile, UINT nNumEntries)
+DWORD CIconExtractor::WriteICOHeader(HANDLE hFile, UINT nNumEntries) const
 {
     WORD    Output          = 0;
     DWORD   dwBytesWritten  = 0;
@@ -233,12 +233,12 @@ WORD CIconExtractor::PaletteSize(LPSTR lpbi)
     return (DIBNumColors(lpbi) * sizeof(RGBQUAD));
 }
 
-DWORD CIconExtractor::BytesPerLine(LPBITMAPINFOHEADER lpBMIH)
+DWORD CIconExtractor::BytesPerLine(LPBITMAPINFOHEADER lpBMIH) const
 {
     return WIDTHBYTES(lpBMIH->biWidth * lpBMIH->biPlanes * lpBMIH->biBitCount);
 }
 
-WORD CIconExtractor::DIBNumColors(LPSTR lpbi)
+WORD CIconExtractor::DIBNumColors(LPSTR lpbi) const
 {
     WORD wBitCount;
     DWORD dwClrUsed;

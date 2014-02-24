@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2013 - TortoiseSVN
+// Copyright (C) 2009, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ class CDwmApiImpl
 {
 private:
     HINSTANCE m_hDwmApiLib;
-    BOOL IsInitialized(void);
+    BOOL IsInitialized(void) const;
 
 public:
     CDwmApiImpl(void);
@@ -55,7 +55,7 @@ class CUxThemeAeroImpl
 {
 private:
     HINSTANCE m_hUxThemeLib;
-    BOOL IsInitialized(void);
+    BOOL IsInitialized(void) const;
 
 public:
     CUxThemeAeroImpl(void);

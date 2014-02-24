@@ -87,7 +87,7 @@ void CLangDll::Close()
     }
 }
 
-bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
+bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const
 {
     struct TRANSARRAY
     {

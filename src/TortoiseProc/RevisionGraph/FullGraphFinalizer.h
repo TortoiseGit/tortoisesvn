@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,9 +56,9 @@ private:
     /// mark nodes according to local properties
 
     void MarkRoot (CFullGraphNode* node);
-    void MarkCopySource (CFullGraphNode* node);
+    void MarkCopySource (CFullGraphNode* node) const;
     void MarkWCRevisions (CFullGraphNode* node);
-    void MarkHead (CFullGraphNode* node);
+    void MarkHead (CFullGraphNode* node) const;
     void AddWCModification (CFullGraphNode* node);
     void ForwardClassification (CFullGraphNode* node);
 

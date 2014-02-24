@@ -79,7 +79,7 @@ public:
     /// in the list of handled shell requests to avoid deadlocks.
     void UpdateShell(const CTSVNPath& path);
 
-    size_t GetCacheSize() {return m_directoryCache.size();}
+    size_t GetCacheSize() const {return m_directoryCache.size();}
     int GetNumberOfWatchedPaths() {return watcher.GetNumberOfWatchedPaths();}
 
     void Init();

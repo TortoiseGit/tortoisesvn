@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -200,7 +200,7 @@ private:
 
     /// does the user want to be this repository off-line?
 
-    bool IsOffline (SPerRepositoryInfo* info);
+    bool IsOffline (SPerRepositoryInfo* info) const;
 
     /// try to get the HEAD revision from the log cache
 

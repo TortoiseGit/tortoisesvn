@@ -849,7 +849,7 @@ LRESULT AeroControlBase::ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wPar
     return DefSubclassProc(hWnd, uMsg, wParam, lParam);
 }
 
-void AeroControlBase::FillRect(LPRECT prc, HDC hdcPaint, Color clr)
+void AeroControlBase::FillRect(LPRECT prc, HDC hdcPaint, Color clr) const
 {
     std::unique_ptr<SolidBrush> pBrush(new SolidBrush(clr));
     std::unique_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
@@ -858,7 +858,7 @@ void AeroControlBase::FillRect(LPRECT prc, HDC hdcPaint, Color clr)
         prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);
 }
 
-int AeroControlBase::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture)
+int AeroControlBase::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture) const
 {
     int iState = 0;
     switch (iPartId)
@@ -953,7 +953,7 @@ int AeroControlBase::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFoc
     return iState;
 }
 
-void AeroControlBase::DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width)
+void AeroControlBase::DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width) const
 {
     std::unique_ptr<Pen> myPen(new Pen(clr, width));
     myPen->SetDashStyle(dashStyle);
@@ -1070,7 +1070,7 @@ void AeroControlBase::ScreenToClient(HWND hWnd, LPRECT lprc)
     lprc->bottom = pt.y;
 }
 
-void AeroControlBase::GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia)
+void AeroControlBase::GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia) const
 {
     // diameter can't exceed width or height
     if(dia > r.Width)   dia = r.Width;

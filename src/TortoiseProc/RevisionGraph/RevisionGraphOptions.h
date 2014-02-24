@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -150,7 +150,7 @@ public:
     bool IsAvailable (UINT id) const;
     bool IsSelected (UINT id) const;
 
-    void ToggleSelection (UINT id);
+    void ToggleSelection (UINT id) const;
 
     /// registry encoding
 

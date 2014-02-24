@@ -414,7 +414,7 @@ void CRepositoryInfo::Load()
 
 // does the user want to be this repository off-line?
 
-bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info)
+bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info) const
 {
     // is this repository already off-line?
 

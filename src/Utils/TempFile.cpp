@@ -37,7 +37,7 @@ CTempFiles& CTempFiles::Instance()
     return instance;
 }
 
-CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision)
+CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision) const
 {
     DWORD len = ::GetTempPath(0, NULL);
     std::unique_ptr<TCHAR[]> temppath (new TCHAR[len+1]);

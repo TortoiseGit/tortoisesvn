@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2009, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 
 void CTopAlignTrees::GetMinMaxY
     ( IStandardLayoutNodeAccess* nodeAccess
-    , std::vector<int>& minY)
+    , std::vector<int>& minY) const
 {
     for (size_t i = 0, count = nodeAccess->GetNodeCount(); i < count; ++i)
     {
@@ -39,7 +39,7 @@ void CTopAlignTrees::GetMinMaxY
 
 void CTopAlignTrees::MirrorY
     ( IStandardLayoutNodeAccess* nodeAccess
-    , const std::vector<int>& minY)
+    , const std::vector<int>& minY) const
 {
     for (size_t i = 0, count = nodeAccess->GetNodeCount(); i < count; ++i)
     {
