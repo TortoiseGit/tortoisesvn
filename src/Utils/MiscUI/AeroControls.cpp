@@ -514,17 +514,9 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 
                             int iState = GetStateFromBtnState(dwStyle, bHot, bFocus, dwCheckState, iPartId, FALSE);
 
+                            int bmWidth = int(ceil(13.0 * GetDeviceCaps(hdcPaint, LOGPIXELSX) / 96.0));
 
-                            HBITMAP hbmp = NULL;
-                            VERIFY(S_OK==m_theme.GetThemeBitmap(hTheme, iPartId, iState, 0,
-                                GBF_DIRECT, &hbmp));
-                            SIZE st;
-                            VERIFY(GetBitmapDimensionEx(hbmp, &st));
-                            BITMAP bm;
-                            GetObject(hbmp, sizeof(BITMAP), &bm);
-
-
-                            UINT uiHalfWidth = (RECTWIDTH(rcClient) - bm.bmWidth)/2;
+                            UINT uiHalfWidth = (RECTWIDTH(rcClient) - bmWidth)/2;
 
                             ///
                             /// we have to use the whole client area, otherwise we get only partially
@@ -545,22 +537,30 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 
 
                             ///
-                            /// we assume that bm.bmWidth is both the horizontal and the vertical
+                            /// we assume that bmWidth is both the horizontal and the vertical
                             /// dimension of the control bitmap and that it is square. bm.bmHeight
                             /// seems to be the height of a striped bitmap because it is an absurdly
                             /// high dimension value
                             ///
                             if((dwButtonStyle&BS_VCENTER)==BS_VCENTER) /// BS_VCENTER is BS_TOP|BS_BOTTOM
                             {
-                                /// nothing to do, verticallly centered
+                                int h = RECTHEIGHT(rcPaint);
+                                rcPaint.top = (h - bmWidth) / 2;
+                                rcPaint.bottom = rcPaint.top + bmWidth;
                             }
                             else if(dwButtonStyle&BS_TOP)
                             {
-                                rcPaint.bottom = rcPaint.top + bm.bmWidth;
+                                rcPaint.bottom = rcPaint.top + bmWidth;
                             }
                             else if(dwButtonStyle&BS_BOTTOM)
                             {
-                                rcPaint.top =  rcPaint.bottom - bm.bmWidth;
+                                rcPaint.top =  rcPaint.bottom - bmWidth;
+                            }
+                            else // default: center the checkbox/radiobutton vertically
+                            {
+                                int h = RECTHEIGHT(rcPaint);
+                                rcPaint.top = (h - bmWidth) / 2;
+                                rcPaint.bottom = rcPaint.top + bmWidth;
                             }
 
 
@@ -571,9 +571,9 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             VERIFY(S_OK==m_theme.GetThemeBackgroundContentRect(hTheme, hdcPaint, iPartId, iState, &rcPaint, &rc));
 
                             if(dwButtonStyle & BS_LEFTTEXT)
-                                rc.right -= bm.bmWidth+(bm.bmWidth>>1);
+                                rc.right -= bmWidth + 2 * GetSystemMetrics(SM_CXEDGE);
                             else
-                                rc.left += bm.bmWidth+(bm.bmWidth>>1);
+                                rc.left += bmWidth + 2 * GetSystemMetrics(SM_CXEDGE);
 
                             DTTOPTS DttOpts = {sizeof(DTTOPTS)};
                             DttOpts.dwFlags = DTT_COMPOSITED | DTT_GLOWSIZE;
