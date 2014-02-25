@@ -79,7 +79,7 @@ void CShellUpdater::Flush()
 void CShellUpdater::UpdateShell()
 {
     // Tell the shell extension to purge its cache
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Setting cache invalidation event %U64u\n", GetTickCount64());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Setting cache invalidation event %I64u\n", GetTickCount64());
     SetEvent(m_hInvalidationEvent);
 
     // We use the SVN 'notify' call-back to add items to the list
