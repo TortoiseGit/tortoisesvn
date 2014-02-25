@@ -973,14 +973,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
 
 static void BuildInfoSubstring(CString &str, UINT nID, int count)
 {
-    if (!count)
-        return;
+	if (!count)
+		return;
 
-    CString temp;
-    temp.LoadString(nID);
-    str += temp;
-    str.AppendFormat(L":%d ", count);
-    str += temp;
+	CString temp;
+	temp.LoadString(nID);
+	str += temp;
+	str.AppendFormat(L":%d ", count);
 }
 
 CString CSVNProgressDlg::BuildInfoString()
@@ -1062,18 +1061,18 @@ CString CSVNProgressDlg::BuildInfoString()
             break;
         }
     }
-    BuildInfoSubstring(infotext, IDS_SVNACTION_CONFLICTED, conflicted);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_SKIP, skipped);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_MERGED, merged);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_ADD, added);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_DELETE, deleted);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_MODIFIED, modified);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_COPY, copied);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_REPLACED, replaced);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_UPDATE, updated);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_RESTORE, restored);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_REVERT, reverted);
-    BuildInfoSubstring(infotext, IDS_SVNACTION_RESOLVE, resolved);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_CONFLICTED, conflicted);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_SKIP, skipped);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_MERGED, merged);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_ADD, added);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_DELETE, deleted);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_MODIFIED, modified);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_COPY, copied);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_REPLACED, replaced);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_UPDATE, updated);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_RESTORE, restored);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_REVERT, reverted);
+	BuildInfoSubstring(infotext, IDS_SVNACTION_RESOLVE, resolved);
     return infotext;
 }
 
