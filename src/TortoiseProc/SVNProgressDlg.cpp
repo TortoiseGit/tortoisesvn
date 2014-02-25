@@ -971,6 +971,18 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     return TRUE;
 }
 
+static void BuildInfoSubstring(CString &str, UINT nID, int count)
+{
+    if (!count)
+        return;
+
+    CString temp;
+    temp.LoadString(nID);
+    str += temp;
+    str.AppendFormat(L":%d ", count);
+    str += temp;
+}
+
 CString CSVNProgressDlg::BuildInfoString()
 {
     CString infotext;
@@ -1050,79 +1062,18 @@ CString CSVNProgressDlg::BuildInfoString()
             break;
         }
     }
-    if (conflicted)
-    {
-        temp.LoadString(IDS_SVNACTION_CONFLICTED);
-        infotext += temp;
-        temp.Format(L":%d ", conflicted);
-        infotext += temp;
-    }
-    if (skipped)
-    {
-        temp.LoadString(IDS_SVNACTION_SKIP);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", skipped);
-    }
-    if (merged)
-    {
-        temp.LoadString(IDS_SVNACTION_MERGED);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", merged);
-    }
-    if (added)
-    {
-        temp.LoadString(IDS_SVNACTION_ADD);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", added);
-    }
-    if (deleted)
-    {
-        temp.LoadString(IDS_SVNACTION_DELETE);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", deleted);
-    }
-    if (modified)
-    {
-        temp.LoadString(IDS_SVNACTION_MODIFIED);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", modified);
-    }
-    if (copied)
-    {
-        temp.LoadString(IDS_SVNACTION_COPY);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", copied);
-    }
-    if (replaced)
-    {
-        temp.LoadString(IDS_SVNACTION_REPLACED);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", replaced);
-    }
-    if (updated)
-    {
-        temp.LoadString(IDS_SVNACTION_UPDATE);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", updated);
-    }
-    if (restored)
-    {
-        temp.LoadString(IDS_SVNACTION_RESTORE);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", restored);
-    }
-    if (reverted)
-    {
-        temp.LoadString(IDS_SVNACTION_REVERT);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", reverted);
-    }
-    if (resolved)
-    {
-        temp.LoadString(IDS_SVNACTION_RESOLVE);
-        infotext += temp;
-        infotext.AppendFormat(L":%d ", resolved);
-    }
+    BuildInfoSubstring(infotext, IDS_SVNACTION_CONFLICTED, conflicted);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_SKIP, skipped);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_MERGED, merged);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_ADD, added);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_DELETE, deleted);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_MODIFIED, modified);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_COPY, copied);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_REPLACED, replaced);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_UPDATE, updated);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_RESTORE, restored);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_REVERT, reverted);
+    BuildInfoSubstring(infotext, IDS_SVNACTION_RESOLVE, resolved);
     return infotext;
 }
 
