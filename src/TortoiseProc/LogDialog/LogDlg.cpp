@@ -330,8 +330,11 @@ void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
     delete m_pStoreSelection;
     m_pStoreSelection = NULL;
     m_pStoreSelection = new CStoreSelection(this, revArray);
-    m_bEnsureSelection = true;
-    m_endrev = revArray.GetLowestRevision();
+    if (revArray.GetCount() && revArray.GetLowestRevision().IsNumber() && svn_revnum_t(revArray.GetLowestRevision()))
+    {
+        m_bEnsureSelection = true;
+        m_endrev = revArray.GetLowestRevision();
+    }
 }
 
 void CLogDlg::SubclassControls()
