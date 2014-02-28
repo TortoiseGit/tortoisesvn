@@ -129,14 +129,14 @@ void COpenDlg::OnBnClickedHelp()
 void COpenDlg::OnBrowseForFile(CString& filepath, UINT nFileFilter)
 {
     UpdateData();
-    CCommonAppUtils::FileOpenSave(filepath, NULL, IDS_SELECTFILE, nFileFilter, true, m_hWnd);
+    CCommonAppUtils::FileOpenSave(filepath, NULL, IDS_SELECTFILE, nFileFilter, true, CString(), m_hWnd);
     UpdateData(FALSE);
 }
 
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
     UpdateData();
-    CCommonAppUtils::FileOpenSave(m_sUnifiedDiffFile, NULL, IDS_SELECTDIFFFILE, IDS_PATCHFILEFILTER, true, m_hWnd);
+    CCommonAppUtils::FileOpenSave(m_sUnifiedDiffFile, NULL, IDS_SELECTDIFFFILE, IDS_PATCHFILEFILTER, true, CString(), m_hWnd);
     UpdateData(FALSE);
 }
 

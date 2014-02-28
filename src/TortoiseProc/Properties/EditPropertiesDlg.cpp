@@ -1021,7 +1021,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
         if (prop.allthesamevalue)
         {
             CString savePath;
-            if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, 0, false, m_hWnd))
+            if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, 0, false, CString(), m_hWnd))
                 return;
 
             FILE * stream;
@@ -1048,7 +1048,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
         return;
 
     CString savePath;
-    if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, IDS_PROPSFILEFILTER, false, m_hWnd))
+    if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, IDS_PROPSFILEFILTER, false, CString(), m_hWnd))
         return;
 
     if (CPathUtils::GetFileExtFromPath(savePath).Compare(L".svnprops"))
@@ -1096,7 +1096,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 {
     m_tooltips.Pop();   // hide the tooltips
     CString openPath;
-    if (!CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_OPEN, IDS_PROPSFILEFILTER, true, m_hWnd))
+    if (!CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_OPEN, IDS_PROPSFILEFILTER, true, CString(), m_hWnd))
     {
         return;
     }

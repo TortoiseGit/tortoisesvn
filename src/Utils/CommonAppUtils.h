@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,7 +116,7 @@ public:
 
     static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
-    static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
+    static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = NULL);
 
     static bool AddClipboardUrlToWindow(HWND hWnd);
 

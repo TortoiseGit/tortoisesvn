@@ -830,7 +830,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         {
             CTSVNPath savePath;
             CString pathSave;
-            if (!CAppUtils::FileOpenSave(pathSave, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd))
+            if (!CAppUtils::FileOpenSave(pathSave, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_path1.IsUrl() ? CString() : m_path1.GetDirectory().GetWinPathString(), m_hWnd))
             {
                 break;
             }

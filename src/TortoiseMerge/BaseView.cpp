@@ -5616,7 +5616,7 @@ int CBaseView::SaveFile(int nFlags)
         }
         CString filename = m_pWorkingFile->GetFilename();
         if (m_pWorkingFile->IsReadonly())
-            if (!CCommonAppUtils::FileOpenSave(filename, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, m_hWnd))
+            if (!CCommonAppUtils::FileOpenSave(filename, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, CString(), m_hWnd))
                 return -1;
         if (!file.Save(filename))
         {

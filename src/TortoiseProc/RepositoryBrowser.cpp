@@ -3873,7 +3873,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 // Display the Open dialog box.
                 CString openPath;
-                if (CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_IMPORT, IDS_COMMONFILEFILTER, true, m_hWnd))
+                if (CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_IMPORT, IDS_COMMONFILEFILTER, true, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd))
                 {
                     CTSVNPath path(openPath);
                     CWaitCursorEx wait_cursor;
@@ -4292,7 +4292,7 @@ bool CRepositoryBrowser::AskForSavePath
     if ((!bFolder)&&(selection.GetPathCount(0) == 1))
     {
         CString savePath = selection.GetURL (0, 0).GetFilename();
-        bSavePathOK = CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd);
+        bSavePathOK = CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd);
         if (bSavePathOK)
             tempfile.SetFromWin(savePath);
     }

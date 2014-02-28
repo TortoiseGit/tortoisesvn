@@ -3979,7 +3979,7 @@ void CSVNProgressDlg::MergeAfterCommit()
     bool bGotSavePath = false;
     if (!m_origPathList[0].IsDirectory())
     {
-        bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
+        bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, CString(), GetSafeHwnd());
     }
     else
     {

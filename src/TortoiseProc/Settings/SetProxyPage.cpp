@@ -230,7 +230,7 @@ BOOL CSetProxyPage::OnApply()
 void CSetProxyPage::OnBnClickedSshbrowse()
 {
     CString openPath;
-    if (CAppUtils::FileOpenSave(openPath, NULL, IDS_SETTINGS_SELECTSSH, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    if (CAppUtils::FileOpenSave(openPath, NULL, IDS_SETTINGS_SELECTSSH, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData();
         PathQuoteSpaces(openPath.GetBuffer(MAX_PATH));

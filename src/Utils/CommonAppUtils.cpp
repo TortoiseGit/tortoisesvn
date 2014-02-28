@@ -541,7 +541,7 @@ void CCommonAppUtils::ExtendControlOverHiddenControl(CWnd* parent, UINT controlT
     parent->GetDlgItem(controlToExtend)->MoveWindow(controlToExtendRect);
 }
 
-bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filterId, bool bOpen, HWND hwndOwner)
+bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filterId, bool bOpen, const CString& initialDir, HWND hwndOwner)
 {
     HRESULT hr;
     // Create a new common save file dialog
@@ -576,6 +576,16 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
             CSelectFileFilter fileFilter(filterId);
 
             hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+        }
+
+        // set the default folder
+        CComPtr<IShellItem> psiFolder;
+        if (!initialDir.IsEmpty())
+        {
+            hr = SHCreateItemFromParsingName(initialDir, NULL, IID_PPV_ARGS(&psiFolder));
+            if (SUCCEEDED(hr))
+                pfd->SetFolder(psiFolder);
+            hr = S_OK;
         }
 
         // Show the save/open file dialog
@@ -621,6 +631,8 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
         ofn.lpstrFileTitle = NULL;
         ofn.nMaxFileTitle = 0;
         ofn.lpstrInitialDir = NULL;
+        if (!initialDir.IsEmpty())
+            ofn.lpstrInitialDir = initialDir;
         CString temp;
         if (title)
         {

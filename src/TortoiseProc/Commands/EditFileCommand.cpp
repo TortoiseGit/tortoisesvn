@@ -134,7 +134,7 @@ bool EditFileCommand::Edit()
                                    , true );
     if (cmdLine.IsEmpty())
     {
-        if (CAppUtils::FileOpenSave(cmdLine, NULL, IDS_REPOBROWSE_OPEN, IDS_PROGRAMSFILEFILTER, true, FindParentWindow(NULL)))
+        if (CAppUtils::FileOpenSave(cmdLine, NULL, IDS_REPOBROWSE_OPEN, IDS_PROGRAMSFILEFILTER, true, CString(), FindParentWindow(NULL)))
         {
             cmdLine = cmdLine + L" \"" + path.GetWinPathString() + L"\"";
         }

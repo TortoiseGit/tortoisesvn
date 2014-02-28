@@ -190,7 +190,7 @@ void CSettingsProgsDiff::OnBnClickedExtdiffpropsOn()
 
 void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();
@@ -199,7 +199,7 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 
 void CSettingsProgsDiff::OnBnClickedExtdiffpropsbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffPropsPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffPropsPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();
@@ -278,7 +278,7 @@ void CSettingsProgsDiff::OnEnChangeDiffviewer()
 
 void CSettingsProgsDiff::OnBnClickedDiffviewerbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();
