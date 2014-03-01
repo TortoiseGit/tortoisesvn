@@ -29,6 +29,7 @@
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
 #include "Access/CSVWriter.h"
+#include "AppUtils.h"
 
 using namespace LogCache;
 
@@ -168,14 +169,14 @@ void CSettingsLogCaches::OnBnClickedExport()
     TRepo repo = GetSelectedRepo();
     if (!repo.first.IsEmpty())
     {
-        CFileDialog dialog (FALSE);
-        if (dialog.DoModal() == IDOK)
+        CString path;
+        if (CAppUtils::FileOpenSave(path, NULL, IDS_SETTINGS_LOGCACHE_EXPORT, IDS_LOGCACHE_EXPORTFILTER, false, CString(), GetSafeHwnd()))
         {
             SVN svn;
             CCachedLogInfo* cache
                 = svn.GetLogCachePool()->GetCache (repo.second, repo.first);
             CCSVWriter writer;
-            writer.Write (*cache, (LPCTSTR)dialog.GetFileName());
+            writer.Write(*cache, (LPCTSTR)path);
         }
     }
 }
