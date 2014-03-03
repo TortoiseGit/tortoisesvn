@@ -912,6 +912,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_move_broken:
         data->sActionColumnText.LoadString(IDS_SVNACTION_MOVEBROKEN);
         break;
+    case svn_wc_notify_failed_requires_target:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDREQUIRESTARGET);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        break;
+    case svn_wc_notify_info_external:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_INFOEXTERNAL);
+        break;
     case svn_wc_notify_conflict_resolver_starting:
         bInInteractiveResolving = true;
         bNoNotify = true;
@@ -928,6 +935,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_failed_locked:
     case svn_wc_notify_failed_forbidden_by_server:
     case svn_wc_notify_failed_obstruction:
+    case svn_wc_notify_cleanup_external:
         bNoNotify = true;
     default:
         break;
