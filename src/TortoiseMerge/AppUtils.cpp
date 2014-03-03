@@ -103,9 +103,9 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
                 svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);
             if (err == NULL)
             {
-                err = svn_diff_file_output_unified3(stream, diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
+                err = svn_diff_file_output_unified4(stream, diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                     svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool),
-                    NULL, NULL, SVN_APR_LOCALE_CHARSET, NULL, true, pool);
+                    NULL, NULL, SVN_APR_LOCALE_CHARSET, NULL, true, NULL, NULL, pool);
                 svn_stream_close(stream);
             }
         }
