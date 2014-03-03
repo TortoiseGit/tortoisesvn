@@ -16,15 +16,15 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Marcelo Boeira <marceloboeira@live.com>, 2013
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
-# Rafael Heise <rmheise@gmail.com>, 2011, 2012
+# Rafael Heise <rmheise@gmail.com>, 2011-2012,2014
 # Ricardo RCDMK Souza <srrcdmk@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-22 08:21+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-03-02 17:20+0000\n"
+"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6047,7 +6047,7 @@ msgid ""
 "the line underneath. The latter option avoids the lines crossing over, which"
 " can make the graph easier to read, but less easy to see one author's "
 "output."
-msgstr ""
+msgstr "Quando existem vários autores, você verá muitas linhas no gráfico. Existem duas visões disponíveis aqui: <emphasis>normal</emphasis>, onde a atividade de cada autor é relativa à linha de base, e <emphasis>compactado</emphasis>, onde a atividade de cada autor é relativa à linha de baixo. A última opção evita linhas cruzadas, a qual permite uma gráfico mais fácil de ser lido, porém mais difícil de visualizar as informações de um único autor."
 
 #. (para)
 msgid ""
@@ -6189,7 +6189,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Diferença para outro ramo/destino"
 
 #. (para)
 msgid ""
@@ -6252,7 +6252,7 @@ msgid ""
 "If you did this from the revision log for a folder, a Compare Revisions "
 "dialog appears, showing a list of changed files in that folder. Read more in"
 " <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Se você fez isso da auditoria de revisão para um diretório, uma janela de Comparação de Revisões aparecerá, mostrando a lista de arquivos alterados no diretório. Leia mais em <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
@@ -6297,7 +6297,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
-msgstr ""
+msgstr "Diferença entre o arquivo/diretório CT e uma URL"
 
 #. (para)
 msgid ""
@@ -6313,7 +6313,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference with blame information"
-msgstr ""
+msgstr "Diferença com a informação de autoria"
 
 #. (para)
 msgid ""
@@ -6363,13 +6363,13 @@ msgstr ""
 msgid ""
 "<guilabel>Ignore line endings</guilabel> excludes changes which are due "
 "solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignorar fim de linha</guilabel> exclui alterações que são exclusivamente ara diferenciar o identificador de fim de linha."
 
 #. (para)
 msgid ""
 "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation"
 " and inline whitespace as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Comparar espaços em branco</guilabel> inlcui todas as alterações de indentação e espaços em branco como linhas adicionadas/removidas."
 
 #. (para)
 msgid ""
@@ -6384,12 +6384,12 @@ msgstr ""
 msgid ""
 "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only "
 "changes."
-msgstr ""
+msgstr "<guilabel>Ignorar todos os espaços em branco</guilabel> exclui todas as mudanças que são apenas espaços em branco."
 
 #. (para)
 msgid ""
 "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Naturalmente, qualquer linha com conteúdo alterado é sempre incluída na diferenciação."
 
 #. (title)
 msgid "Comparing Folders"
@@ -6419,7 +6419,7 @@ msgstr ""
 msgid ""
 "This dialog shows a list of all files which have changed and allows you to "
 "compare or blame them individually using context menu."
-msgstr ""
+msgstr "Esta janela mostra a lista de todos os arquivos que sofreram alteração e permite a você comparar ou identificar seu autor individualmente usando o menu de contexto."
 
 #. (para)
 msgid ""
@@ -6438,7 +6438,7 @@ msgid ""
 "You can also export the <emphasis>list</emphasis> of changed files to a text"
 " file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save "
 "list of selected files to...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Você pode também exportar a <emphasis>lista</emphasis> de arquivos alterados para um arquivo texto usando <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Salvar lista de arquivos selecionados para...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6446,20 +6446,20 @@ msgid ""
 " (modified, added, deleted) as well, you can do that using "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to "
 "clipboard</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se você quer exportar a lista de arquivos <emphasis>e</emphasis> também as ações (modificado, adicionado, apagado), você pode fazê-lo usando <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Copiar seleção para área de transferência</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "The button at the top allows you to change the direction of comparison. You "
 "can show the changes need to get from A to B, or if you prefer, from B to A."
-msgstr ""
+msgstr "O botão no topo permite a você mudar a direção da comparação. Você pode mostrar as alterações realizadas de A para B, ou se você preferir, de B para A."
 
 #. (para)
 msgid ""
 "The buttons with the revision numbers on can be used to change to a "
 "different revision range. When you change the range, the list of items which"
 " differ between the two revisions will be updated automatically."
-msgstr ""
+msgstr "Os botões contendo os números de revisão podem ser usados para mudar para uma faixa de revisão diferente. Quando você mudar a faixa, a lista de itens os quais diferem em duas revisões serão automaticamente atualizados."
 
 #. (para)
 msgid ""
@@ -6467,7 +6467,7 @@ msgid ""
 "the list to filenames containing specific text. Note that a simple text "
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "Se a lista de arquivos é muito extensa, você pode usar a caixa de busca para reduzir a lista de nomes de arquivos para apenas os que contém o texto específico. Note que uma busca por texto simples é usada, então se você quer restringir a lista de arquivos para código em C você deve digitar <filename>.c</filename> ao invés de <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -6486,11 +6486,11 @@ msgid ""
 "There are many tools available for diffing text files, including our own "
 "TortoiseMerge, but we often find ourselves wanting to see how an image file "
 "has changed too. That's why we created TortoiseIDiff."
-msgstr ""
+msgstr "Existem muitas ferramentas disponíveis para comparar arquivos texto, incluindo nosso próprio TortoiseMerge, porém nós frequentemente nos pegamos querendo ver as modificações em uma imagem além de somente textos. Por isso nós criamos o TortoiseIDiff."
 
 #. (title)
 msgid "The image difference viewer"
-msgstr ""
+msgstr "O visualizar de diferenças de imagem"
 
 #. (para)
 msgid ""
@@ -6582,7 +6582,7 @@ msgstr ""
 
 #. (title)
 msgid "External Diff/Merge Tools"
-msgstr ""
+msgstr "Ferramentas de Diferenciação/Combinação Externas"
 
 #. (primary)
 msgid "diff tools"
@@ -6598,7 +6598,7 @@ msgid ""
 "source or commercial programs available. Everyone has their own favourites, "
 "and this list is by no means complete, but here are a few that you might "
 "consider:"
-msgstr ""
+msgstr "Se as ferramentas providas por nós não faz o que você precisa, tente uma das muitas disponíveis de código aberto ou comerciais. Todo mundo tem suas favoritas, e esta lista não tem o propósito de estar completa, mas aqui estão algumas que nós devemos consideramos:"
 
 #. (term)
 msgid "WinMerge"
@@ -6609,7 +6609,7 @@ msgid ""
 "<ulink "
 "url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> é uma grande ferramenta de diferenciação de código aberto e que também suporta diretórios."
 
 #. (term)
 msgid "Perforce Merge"
@@ -6620,7 +6620,7 @@ msgid ""
 "Perforce is a commercial RCS, but you can download the diff/merge tool for "
 "free. Get more information from <ulink "
 "url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr "Perforce é uma ferramenta SCR comercial, mas que você pode baixar a ferramenta de diferenciação/combinação de graça. Obtenha mais informações em <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #. (term)
 msgid "KDiff3"
@@ -6631,7 +6631,7 @@ msgid ""
 "KDiff3 is a free diff tool which can also handle directories. You can "
 "download it from <ulink "
 "url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr "KDiff3 é uma ferramenta livre que também suporta diretórios. Você pode baixá-la <ulink url=\"http://kdiff3.sf.net/\"><citetitle>aqui</citetitle></ulink>."
 
 #. (term)
 msgid "SourceGear DiffMerge"
@@ -6659,7 +6659,7 @@ msgstr ""
 
 #. (term)
 msgid "Beyond Compare"
-msgstr ""
+msgstr "Beyond Compare"
 
 #. (para)
 msgid ""
@@ -6667,11 +6667,11 @@ msgid ""
 "handle directory diffs and unicode. Download it from <ulink "
 "url=\"http://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink>."
-msgstr ""
+msgstr "Semelhante ao ExamDiff Pro, esta é uma excelente ferramenta de diferenciação para experimentação a qual pode suportar diferenciação em diretórios e unicode. Baixe-a em <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
 
 #. (term)
 msgid "Araxis Merge"
-msgstr ""
+msgstr "Araxis Merge"
 
 #. (para)
 msgid ""
@@ -6680,17 +6680,17 @@ msgid ""
 "links to use if you've changed the order of functions. Download it from "
 "<ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr ""
+msgstr "Araxis Merge é uma ferramenta comercial muito prática para diferenciação e combinação tanto para arquivos como para diretórios. Ela faz a comparação de três vias em combinações e tem atalhos de sincronização para usar se você mudar a ordem das funções. Baixe a ferramenta em <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-progs\"/> for information on how to "
 "set up TortoiseSVN to use these tools."
-msgstr ""
+msgstr "Leia <xref linkend=\"tsvn-dug-settings-progs\"/> para mais informações sobre como configurar o TortoiseSVN para usar essas ferramentas."
 
 #. (title)
 msgid "Adding New Files And Directories"
-msgstr ""
+msgstr "Adicionando Novos Arquivos e Diretórios"
 
 #. (primary)
 msgid "add"
@@ -6703,7 +6703,7 @@ msgstr "versionar novos arquivos"
 #. (title)
 #. (title)
 msgid "Explorer context menu for unversioned files"
-msgstr ""
+msgstr "Explorar o menu de contexto para arquivos não versionados"
 
 #. (para)
 msgid ""
@@ -6732,17 +6732,17 @@ msgid ""
 " the add dialog will show you all unversioned files inside that versioned "
 "folder. This helps if you have many new files and need to add them all at "
 "once."
-msgstr ""
+msgstr "Você pode usar também o comando Adicionar em diretório já versionados. Neste caso a janela de adição mostrar a você todos os arquivos não versionados contido no diretório já controlado. Esta função ajuda se você tem muitos novos arquivos e precisa adicioná-los todos de uma vez."
 
 #. (para)
 msgid "select the files you want to add"
-msgstr ""
+msgstr "selecione os arquivos que você quer adicionar"
 
 #. (para)
 #. (para)
 msgid ""
 "<action>right drag</action> them to the new location inside the working copy"
-msgstr ""
+msgstr "<action>arrasto direito</action> neles para a nova localização dentro da cópia de trabalho"
 
 #. (para)
 #. (para)
@@ -6754,30 +6754,30 @@ msgid ""
 "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Add files"
 " to this WC</guimenuitem></menuchoice>. The files will then be copied to the"
 " working copy and added to version control."
-msgstr ""
+msgstr "selecione <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Adicionar arquivos para está CT</guimenuitem></menuchoice>. Os arquivos serão então copiados para a cópia de trabalho e adicionados ao controle de versão."
 
 #. (para)
 msgid ""
 "To add files from outside your working copy you can use the drag-and-drop "
 "handler: <placeholder-1/>"
-msgstr ""
+msgstr "Para adicionar arquivos de fora da sua cópia de trabalho você pode usar o controle de arrastar-e-soltar: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can also add files within a working copy simply by left-dragging and "
 "dropping them onto the commit dialog."
-msgstr ""
+msgstr "Você pode também adicionar arquivos dentro da sua cópia de trabalho apenas arrastando com o botão esquerdo e soltando eles na janela de submissão."
 
 #. (para)
 msgid ""
 "If you add a file or folder by mistake, you can undo the addition before you"
 " commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo "
 "add...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se você adicionar um arquivo ou diretório por engano, você pode desfazer a adição antes de submeter usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desfazer Adição...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr ""
+msgstr "Copiando/Movendo/Renomeando Arquivos e Diretórios"
 
 #. (primary)
 msgid "copy files"
@@ -6860,7 +6860,7 @@ msgstr ""
 
 #. (title)
 msgid "Cannot copy between repositories"
-msgstr ""
+msgstr "Não pode copiar entre repositórios"
 
 #. (para)
 msgid ""
@@ -10350,7 +10350,7 @@ msgstr ""
 
 #. (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Quem Mudou Qual Linha?"
 
 #. (primary)
 msgid "blame"
@@ -10362,7 +10362,7 @@ msgstr "anotação"
 
 #. (primary)
 msgid "praise"
-msgstr ""
+msgstr "louvor"
 
 #. (para)
 msgid ""
@@ -10381,11 +10381,11 @@ msgstr ""
 
 #. (title)
 msgid "Blame for Files"
-msgstr ""
+msgstr "Autoria por Arquivos"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr ""
+msgstr "A Janela de Anotação / Autoria "
 
 #. (para)
 msgid ""
@@ -10683,7 +10683,7 @@ msgstr ""
 
 #. (para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "Apagar ou renomear o arquivo."
 
 #. (para)
 msgid "Save an unversioned copy of the file to your hard drive."
@@ -10697,11 +10697,11 @@ msgstr ""
 msgid ""
 "Make a copy of the file, either to a different part of the repository, or to"
 " a working copy rooted in the same repository."
-msgstr ""
+msgstr "Fazer uma cópia do arquivo, tanto para uma parte diferente do repositório quanto para uma cópia de trabalho roteado no mesmo repositório."
 
 #. (para)
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "Visualizar/Editar as propriedades do arquivo."
 
 #. (para)
 msgid ""
@@ -10711,26 +10711,26 @@ msgstr ""
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "O menu de contexto para um arquivo lhe permite: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "Show the revision log for that folder, or show a graph of all revisions so "
 "you can see where the folder came from."
-msgstr ""
+msgstr "Mostrar a auditoria de revisão para o diretório, ou mostrar o gráfico de todas as revisões para que você possa ver a origem do diretório."
 
 #. (para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "Exportar o diretório para uma cópia local não versionada em seu disco."
 
 #. (para)
 msgid ""
 "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "Obter o diretório para produzir uma cópia de trabalho local em seu disco."
 
 #. (para)
 msgid "Create a new folder in the repository."
-msgstr ""
+msgstr "Criar um novo diretório no repositório."
 
 #. (para)
 msgid ""
@@ -10740,22 +10740,22 @@ msgstr ""
 
 #. (para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Apagar ou renomear o diretório."
 
 #. (para)
 msgid ""
 "Make a copy of the folder, either to a different part of the repository, or "
 "to a working copy rooted in the same repository. This can also be used to "
 "create a branch/tag without the need to have a working copy checked out."
-msgstr ""
+msgstr "Fazer uma cópia do diretório, tanto para uma parte diferente do repositório, ou para uma cópia de trabalho roteada no mesmo diretório. Isto pode também ser usado para criar um ramo/versão sem que seja necessário obter uma cópia de trabalho."
 
 #. (para)
 msgid "View/Edit the folder's properties."
-msgstr ""
+msgstr "Visualizar/Editar as propriedades do diretório."
 
 #. (para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Marcar o diretório para comparação. O diretório marcado é mostrado em negrito."
 
 #. (para)
 msgid ""
@@ -10767,20 +10767,20 @@ msgstr ""
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "O menu de contexto lhe permite: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "If you select two folders in the right pane, you can view the differences "
 "either as a unified-diff, or as a list of files which can be visually diffed"
 " using the default diff tool."
-msgstr ""
+msgstr "Se você selecionar dois diretório no painel direito, você poderá ver as diferenças tanto como um arquivo unificado de diferenças, ou também como uma lista de arquivos a qual pode ser visualmente comparados usando a ferramenta padrão de diferenciação."
 
 #. (para)
 msgid ""
 "If you select multiple folders in the right pane, you can checkout all of "
 "them at once into a common parent folder."
-msgstr ""
+msgstr "Se você selecionar vários diretórios no painel direito, você poderá obter todos eles de uma vez em um diretório acima em comum."
 
 #. (para)
 msgid ""
@@ -10812,7 +10812,7 @@ msgid ""
 " drag a folder from explorer into the repo-browser, it will be imported into"
 " the repository. Note that if you drag multiple items, they will be imported"
 " in separate commits."
-msgstr ""
+msgstr "Você também pode usar o navegador de repositório para operações de arrastar-e-soltar. Se você arrastar um diretório do Windows Explorer para dentro do navegador de repositório, ele será importado para o repositório. Note que se você arrastar múltiplos itens, eles serão importados em submissões individuais."
 
 #. (para)
 msgid ""
@@ -12642,7 +12642,7 @@ msgstr ""
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Abrir novamente a janela depois de submeter se houver itens não submetidos"
 
 #. (para)
 msgid ""
