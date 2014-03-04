@@ -2704,6 +2704,7 @@ void CMainFrame::OnEditCreateunifieddifffile()
         return;
 
     CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
+    CAppUtils::StartUnifiedDiffViewer(outputFile, CPathUtils::GetFileNameFromPath(outputFile));
 }
 
 void CMainFrame::OnUpdateEditTabspace(CCmdUI *pCmdUI)
