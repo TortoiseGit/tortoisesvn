@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-02 16:38+0000\n"
+"PO-Revision-Date: 2014-03-05 19:27+0000\n"
 "Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -1549,7 +1549,7 @@ msgstr "(modificat, revisió HEAD)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
-msgstr "(vàries destinacions seleccionades)"
+msgstr "(diverses destinacions seleccionades)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
@@ -4703,6 +4703,10 @@ msgstr "Ha fallat l'inici del seguidor d'incidències COM proveïdor '%1!s!'.\n%
 msgid "Failed!"
 msgstr "ha fallat!"
 
+#. Resource IDs: (266)
+msgid "Failed: target required"
+msgstr "Ha fallat: cal una destinació"
+
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
 msgstr "Busca la revisió HEAD i ajusta't-hi"
@@ -5584,7 +5588,7 @@ msgstr "Si està seleccionat, els fitxers sense versionar marcaran l'estat del d
 msgid ""
 "If the graph contains multiple trees, separate them by slight variations in "
 "background color."
-msgstr "Si el gràfic conté varis arbres, separeu-los amb petites variacions en el color de fons"
+msgstr "Si el gràfic conté uns quants arbres, separeu-los amb petites variacions en el color de fons"
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5800,6 +5804,10 @@ msgstr "Nom de fitxer incorrecte."
 #. Resource IDs: (65535)
 msgid "Index colors:"
 msgstr "Colors de l'índex:"
+
+#. Resource IDs: (266)
+msgid "Info on external"
+msgstr "Informació sobre l'extern"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
@@ -9296,7 +9304,7 @@ msgstr "Ignorat"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
-msgstr "Objectiu no trobat ignorat"
+msgstr "Ignorada la destinació no trobada"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
@@ -10338,7 +10346,7 @@ msgstr "Aquesta propietat només s'accepta en carpetes, no en fitxers."
 
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
-msgstr "Aquesta propietat no pot tenir vàries línies. Només s'accepta una sola línia."
+msgstr "Aquesta propietat no ha de tenir unes quantes línies. Només s'accepta una sola línia."
 
 #. Resource IDs: (1016)
 msgid ""
@@ -10901,7 +10909,7 @@ msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
-msgstr "Utilitza '*' com a caracter jòquer per especificar una excepció.\r\nPer separar vàries excepcions, utilitza comes (',').\r\nPer example: *.mylan.com, *.company.com"
+msgstr "Utilitza '*' com a caracter jòquer per especificar una excepció.\nPer separar unes quantes excepcions, utilitza comes (',').\nPer example: *.mylan.com, *.company.com"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
@@ -11091,6 +11099,10 @@ msgstr "Utilitza l'altre &fitxer sencer"
 #. Resource IDs: (74)
 msgid "User cancelled"
 msgstr "Cancel·lat pel usuari"
+
+#. Resource IDs: (349)
+msgid "Username"
+msgstr "Nom d'usuari"
 
 #. Resource IDs: (69)
 msgid "Username:"

@@ -12,7 +12,7 @@
 # Translators:
 # Alexandre Paradis <paradial@hotmail.com>, 2011
 # Walach <basleynicolas@hotmail.com>, 2013
-# Christophe SAUVEUR <christophe@xhaleera.com>, 2011-2013
+# Christophe SAUVEUR <christophe@xhaleera.com>, 2011-2014
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011, 2012
 # Kegnarok <kegnarok.rm@laposte.net>, 2013
 # gobes <gobes2@gmail.com>, 2011
@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-02 08:26+0000\n"
+"PO-Revision-Date: 2014-03-05 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -519,7 +519,7 @@ msgstr "&Branches"
 
 #. Resource IDs: (1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "&Briser les verrous"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -791,7 +791,7 @@ msgstr "&Adapter les images à la fenêtre"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "&Corriger les marqueurs temporels"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -2654,7 +2654,7 @@ msgstr "D'annuler\nLes éléments ne sont pas déplacés."
 msgid ""
 "Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "Annuler\nLa révision marquée de la référence externe est laissée telle quelle."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2672,7 +2672,7 @@ msgstr "Annuler\nVous devez ajouter manuellement le dossier."
 msgid ""
 "Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "Annuler\nVous devez lancer une mise à jour vous-même pour obtenir les références externes"
 
 #. Resource IDs: (100)
 msgid ""
@@ -3589,12 +3589,12 @@ msgstr "Ne peut pas démarrer l'unité d'exécution(thread) !"
 
 #. Resource IDs: (1501)
 msgid "Coun&t"
-msgstr ""
+msgstr "Comp&ter"
 
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Décompte : %u correspondances."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -4134,7 +4134,7 @@ msgstr "Voulez-vous annuler tous les changements dans\n%s\nqui ont été faits d
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Voulez-vous mettre à jour le dossier \"%s\" pour récupérer les références externes appliquées ?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4480,7 +4480,7 @@ msgstr "N'entrez pas plus de %1 caractères."
 
 #. Resource IDs: (64)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "Entrer le préfixe|*"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
@@ -4720,6 +4720,10 @@ msgstr "Échec au démarrage du fournisseur COM du système de suivi des problè
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Échoué !"
+
+#. Resource IDs: (266)
+msgid "Failed: target required"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
@@ -5818,6 +5822,10 @@ msgstr "Nom de fichier incorrect."
 #. Resource IDs: (65535)
 msgid "Index colors:"
 msgstr "Index des couleurs :"
+
+#. Resource IDs: (266)
+msgid "Info on external"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Inline diff"
@@ -8436,7 +8444,7 @@ msgstr "Exécuter le &nettoyage maintenant"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "Exécuter l'a&ppel de script"
 
 #. Resource IDs: (363)
 msgid ""
@@ -9833,7 +9841,7 @@ msgstr "Le fichier est trop volumineux pour être ouvert."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "Le fichier ou le répertoire \"%s\" existe déjà à l'emplacement de destination ! Vous devez le supprimer au préalable avant de pouvoir ajouter une référence externe avec le même nom à cet emplacement."
 
 #. Resource IDs: (80)
 #, c-format
@@ -9861,7 +9869,7 @@ msgstr "Le dossier\n%s\nexiste déjà !"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "L'appel de script a exécuté correctement."
 
 #. Resource IDs: (83)
 #, c-format
@@ -10516,7 +10524,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10831,7 +10839,7 @@ msgstr "Mettre à jour la CdT à la révision"
 
 #. Resource IDs: (291)
 msgid "Update externals"
-msgstr ""
+msgstr "Mettre à jour les références externes"
 
 #. Resource IDs: (93)
 msgid ""
@@ -10849,7 +10857,7 @@ msgstr "Mettre à jour\nMettre à jour la copie de travail et réouvrir la boît
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Mettre à jour\nMettre à jour vers la révision HEAD"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11109,6 +11117,10 @@ msgstr "Utiliser l'autre &fichier entier"
 #. Resource IDs: (74)
 msgid "User cancelled"
 msgstr "Annulé par l'utilisateur"
+
+#. Resource IDs: (349)
+msgid "Username"
+msgstr ""
 
 #. Resource IDs: (69)
 msgid "Username:"
