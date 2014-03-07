@@ -849,22 +849,26 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         else if ((data->merge_range.start == data->merge_range.end) || (data->merge_range.start == data->merge_range.end - 1))
         {
             data->sActionColumnText.Format(IDS_SVNACTION_MERGERECORDBEGINSINGLE, data->merge_range.end);
-            m_mergedRevisions.AddRevision(data->merge_range.end, false);
+            if (m_options & ProgOptRecordOnly)
+                m_mergedRevisions.AddRevision(data->merge_range.end, false);
         }
         else if (data->merge_range.start - 1 == data->merge_range.end)
         {
             data->sActionColumnText.Format(IDS_SVNACTION_MERGERECORDBEGINSINGLEREVERSE, data->merge_range.start);
-            m_mergedRevisions.AddRevision(data->merge_range.start, false); // we want the revisions in ascending order for the generated log message
+            if (m_options & ProgOptRecordOnly)
+                m_mergedRevisions.AddRevision(data->merge_range.start, false); // we want the revisions in ascending order for the generated log message
         }
         else if (data->merge_range.start < data->merge_range.end)
         {
             data->sActionColumnText.FormatMessage(IDS_SVNACTION_MERGERECORDBEGINMULTIPLE, data->merge_range.start + 1, data->merge_range.end);
-            m_mergedRevisions.AddRevRange(data->merge_range.start + 1, data->merge_range.end);
+            if (m_options & ProgOptRecordOnly)
+                m_mergedRevisions.AddRevRange(data->merge_range.start + 1, data->merge_range.end);
         }
         else
         {
             data->sActionColumnText.FormatMessage(IDS_SVNACTION_MERGERECORDBEGINMULTIPLEREVERSE, data->merge_range.start, data->merge_range.end + 1);
-            m_mergedRevisions.AddRevRange(data->merge_range.start, data->merge_range.end + 1);
+            if (m_options & ProgOptRecordOnly)
+                m_mergedRevisions.AddRevRange(data->merge_range.start, data->merge_range.end + 1);
         }
         data->bAuxItem = true;
         break;
