@@ -56,6 +56,7 @@
       <arg value="/MP" />
       <arg value="/GL" if="${configuration == 'release'}" />
       <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
+      <arg value="/d2Zi+" if="${configuration == 'release'}" />
       <sources>
         <include name="network_io\win32\*.c" />
         <include name="network_io\unix\inet_ntop.c" />
