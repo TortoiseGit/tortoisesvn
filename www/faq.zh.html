@@ -52,7 +52,6 @@
                         <li><a href="#hundredcpu">鼠标右键点击文件时 CPU 占用 100%</a></li>
                         <li><a href="#repoonshare">我是否可以创建一个本地的版本库到网络文件夹？</a></li>
                         <li><a href="#reponoserver">我是否可以将版本库保存在网络共享驱动器来代替创建服务器？</a></li>
-                        <li><a href="#listparentpath">我是否可以从版本库服务器上得到所有的文件列表？</a></li>
                         <li><a href="#multiclients">是否可以使用不同的Subversion客户端来操作同一个工作拷贝？</a></li>
                         <li><a href="#eol">TortoiseSVN 能实时自动转换文本文件中的换行符吗？</a></li>
                         <li><a href="#propconflict">如果冲突是在一个文件夹的属性里，怎样找到它呢？</a></li>
@@ -295,15 +294,6 @@
                         </ol>
                         <p>更好的办法是创建一个真正的服务器进程（像Apache，svnserve），存储版本库到当地的文件系统上，使版本库服务器可以在网络上有效，可以被访问。这也许会比你想的要简单。Subversion书中
                         <a title="第6章 服务器配置" href="http://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html">第6章 服务器配置</a> 有详细的方法说明。</p>
-                        </div>
-
-                        <div class="h3" id="listparentpath">
-                        <h3>我是否可以从版本库服务器上得到所有的文件列表？</h3>
-                        <p>通过TortoiseSVN和命令行客户端：不行。</p>
-                        <p>通过网页浏览器：可以。</p>
-                        <p>许多人总是认为TSVN版本库浏览器是一个非常有用的工具，如果你仅仅是指定你的版本服务器，它将为你显示它所包含的所有版本库，而不管版本库是否可用。同样的，svn命令行客户端尽管处于次要地位。做一个‘svn ls’或者同样的操作，便可以看到具体版本系统的版本库和项目被访问，那是非常有用的。</p>
-                        <p>不幸的是，命令行和TortoiseSVN的使用在Subversion库中是非常局限的。他们没有足够的能力任意的列举出一个服务器上的版本库。</p>
-                        <p>一些人甚至认为，这个特性的缺失刺激了一些最终客户将所有混杂的东西加到一个大的版本库中，即使这时更好的办法是将他们分开。</p>
                         </div>
 
                         <div class="h3" id="multiclients">

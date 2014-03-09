@@ -53,7 +53,6 @@
                         <li><a href="#hundredcpu">100% CPU, when I right-click on a file.</a></li>
                         <li><a href="#repoonshare">Can I create a local repository on a network directory?</a></li>
                         <li><a href="#reponoserver">Can I keep my repository on a network share instead of setting up a server?</a></li>
-                        <li><a href="#listparentpath">Can I get a list of all the repositories on my Server?</a></li>
                         <li><a href="#multiclients">Can I use different Subversion clients with the same working copy?</a></li>
                         <li><a href="#eol">Can TortoiseSVN convert line breaks in text files on the fly?</a></li>
                         <li><a href="#propconflict">How do I find out what the conflict is when it is in a directory's property list?</a></li>
@@ -430,24 +429,6 @@
                         store the repository on a local filesystem which the server can access, and make the
                         repository server available over a network. It is easier than you might think.
                         <a title="Chapter 6. Server Configuration" href="http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html">Chapter 6, Server Configuration</a> in the Subversion Book covers this process in detail.</p>
-                        </div>
-
-                        <div class="h3" id="listparentpath">
-                        <h3>Can I get a list of all the repositories on my Server?</h3>
-                        <p>With TortoiseSVN and the command line Client: No.</p>
-                        <p>With a web browser: Yes</p>
-                        <p>A lot of people would agree that the TSVN repository browser would be a much
-                        more useful tool if you could just point it at your versioning server and it
-                        would show you whatever available repositories it had. Same story, albeit to a
-                        lesser degree, with the command-line 'svn' client. Doing a 'svn ls' or
-                        equivalent and being able to see what repositories and projects are hosted on a
-                        specific versioning system would be very useful.</p>
-                        <p>Unfortunately, this is a limitation in the Subversion libraries that both the
-                        command-line client and TortoiseSVN use. It does not have the capability to
-                        arbitrarily enumerate repositories on a server.</p>
-                        <p>Some might even argue that the lack of this feature is incitement for end
-                        users to just jumble everything into one big repository, when it would be more
-                        appropriate to split things up.</p>
                         </div>
 
                         <div class="h3" id="multiclients">
