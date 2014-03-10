@@ -36,6 +36,7 @@ public:
     void    UseLeftBlock(); ///< Use Block from Left
     void    UseLeftFile(); ///< Use File from Left
     void    MarkBlock(bool marked);
+    void    UseViewFileExceptMarked();
 
 protected:
     void    AddContextItems(CIconMenu& popup, DiffStates state);

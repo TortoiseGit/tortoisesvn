@@ -2376,6 +2376,9 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     case POPUPCOMMAND_UNMARKBLOCK:
         m_pwndRight->MarkBlock(false);
         break;
+    case POPUPCOMMAND_USELEFTFILEEXCEPTMARKED:
+        m_pwndRight->UseLeftFileExceptMarked();
+        break;
     // 2-pane view multiedit commands; target is left view
     case POPUPCOMMAND_PREPENDFROMRIGHT:
         if (!m_pwndLeft->IsReadonly())
@@ -5749,7 +5752,7 @@ void CBaseView::AskUserForNewLineEndingsAndTextType(int nTextId)
 /**
     Replaces lines from source view to this
 */
-void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine)
+void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine, bool skipMarked)
 {
     if (!IsViewGood(pwndView))
         return;
@@ -5759,6 +5762,8 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
+        if (skipMarked && GetViewMarked(viewLine))
+            continue;
         viewdata line = pwndView->GetViewData(viewLine);
         if (line.ending != EOL_NOENDING)
             line.ending = m_lineendings;
@@ -5865,6 +5870,11 @@ void CBaseView::MarkBlock(bool marked, int nFirstViewLine, int nLastViewLine)
     BuildAllScreen2ViewVector();
     Invalidate();
     RefreshViews();
+}
+
+void CBaseView::UseViewFileExceptMarked(CBaseView *pwndView)
+{
+    UseViewBlock(pwndView, 0, GetViewCount() - 1, true);
 }
 
 int CBaseView::GetIndentCharsForLine(int x, int y)
