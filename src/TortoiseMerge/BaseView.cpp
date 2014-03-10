@@ -4915,6 +4915,11 @@ void CBaseView::SetViewLineEnding( int index, EOL ending )
     m_pViewData->SetLineEnding(index, ending);
 }
 
+void CBaseView::SetViewMarked(int index, bool marked)
+{
+    m_pViewData->SetMarked(index, marked);
+}
+
 
 BOOL CBaseView::GetViewSelection( int& start, int& end ) const
 {

@@ -202,6 +202,7 @@ public: // methods
     int             GetViewMovedIndex(int index) {return m_pViewData->GetMovedIndex(index); }
     int             FindViewLineNumber(int number) {return m_pViewData->FindLineNumber(number); }
     EOL             GetViewLineEnding(int index) const {return m_pViewData->GetLineEnding(index); }
+    bool            GetViewMarked(int index) const {return m_pViewData->GetMarked(index); }
 
     int             GetViewCount() const {return m_pViewData ? m_pViewData->GetCount() : -1; }
 
@@ -210,6 +211,7 @@ public: // methods
     void            SetViewLine(int index, const CString& sLine);
     void            SetViewLineNumber(int index, int linenumber);
     void            SetViewLineEnding(int index, EOL ending);
+    void            SetViewMarked(int index, bool marked);
 
     static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
     static CBaseView * GetFirstGoodView();
