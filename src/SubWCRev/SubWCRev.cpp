@@ -171,31 +171,31 @@ $WCISLOCKED$    True if the item is locked\n"
 
 
 
-int FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
+bool FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
 {
     size_t deflen = strlen(def);
     while (index + deflen <= filelength)
     {
         if (memcmp(pBuf + index, def, deflen) == 0)
-            return TRUE;
+            return true;
         index++;
     }
-    return FALSE;
+    return false;
 }
-int FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t & index, size_t filelength)
+bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t & index, size_t filelength)
 {
     size_t deflen = wcslen(def);
     while ((index + deflen)*sizeof(wchar_t) <= filelength)
     {
         if (memcmp(pBuf + index, def, deflen*sizeof(wchar_t)) == 0)
-            return TRUE;
+            return true;
         index++;
     }
 
-    return FALSE;
+    return false;
 }
 
-int InsertRevision(char * def, char * pBuf, size_t & index,
+bool InsertRevision(char * def, char * pBuf, size_t & index,
                     size_t & filelength, size_t maxlength,
                     long MinRev, long MaxRev, SubWCRev_t * SubStat)
 {
@@ -203,7 +203,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     if (!FindPlaceholder(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     ptrdiff_t exp = 0;
     if ((strcmp(def,VERDEFAND) == 0) || (strcmp(def,VERDEFOFFSET1) == 0) || (strcmp(def,VERDEFOFFSET2) == 0))
@@ -216,11 +216,11 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
         {
             pEnd++;
             if (pEnd - pBuf >= (__int64)filelength)
-                return FALSE;   // No terminator - malformed so give up.
+                return false;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
-            return FALSE; // value specifier too big
+            return false; // value specifier too big
         }
         exp = pEnd - pStart + 1;
         SecureZeroMemory(format, sizeof(format));
@@ -275,14 +275,14 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
     }
     memmove(pBuild, destbuf, strlen(destbuf));
     filelength += Expansion;
-    return TRUE;
+    return true;
 }
-int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
+bool InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     size_t & filelength, size_t maxlength,
     long MinRev, long MaxRev, SubWCRev_t * SubStat)
 {
@@ -290,7 +290,7 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     if (!FindPlaceholderW(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
 
     ptrdiff_t exp = 0;
@@ -304,11 +304,11 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
         {
             pEnd++;
             if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
-                return FALSE;   // No terminator - malformed so give up.
+                return false;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
-            return FALSE; // Format specifier too big
+            return false; // Format specifier too big
         }
         exp = pEnd - pStart + 1;
         SecureZeroMemory(format, sizeof(format));
@@ -364,12 +364,12 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += (Expansion*sizeof(wchar_t));
-    return TRUE;
+    return true;
 }
 
 void _invalid_parameter_donothing(
@@ -383,7 +383,7 @@ void _invalid_parameter_donothing(
     // do nothing
 }
 
-int InsertDate(char * def, char * pBuf, size_t & index,
+bool InsertDate(char * def, char * pBuf, size_t & index,
                 size_t & filelength, size_t maxlength,
                 apr_time_t date_svn)
 {
@@ -391,7 +391,7 @@ int InsertDate(char * def, char * pBuf, size_t & index,
     if (!FindPlaceholder(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Format the text to insert at the placeholder
     __time64_t ttime;
@@ -404,12 +404,12 @@ int InsertDate(char * def, char * pBuf, size_t & index,
     if (strstr(def, "UTC"))
     {
         if (_gmtime64_s(&newtime, &ttime))
-            return FALSE;
+            return false;
     }
     else
     {
         if (_localtime64_s(&newtime, &ttime))
-            return FALSE;
+            return false;
     }
     char destbuf[1024] = { 0 };
     char * pBuild = pBuf + index;
@@ -426,11 +426,11 @@ int InsertDate(char * def, char * pBuf, size_t & index,
         {
             pEnd++;
             if (pEnd - pBuf >= (__int64)filelength)
-                return FALSE;   // No terminator - malformed so give up.
+                return false;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
-            return FALSE; // Format specifier too big
+            return false; // Format specifier too big
         }
         SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,pEnd - pStart);
@@ -470,14 +470,14 @@ int InsertDate(char * def, char * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
     }
     memmove(pBuild, destbuf, strlen(destbuf));
     filelength += Expansion;
-    return TRUE;
+    return true;
 }
-int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
+bool InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     size_t & filelength, size_t maxlength,
     apr_time_t date_svn)
 {
@@ -485,7 +485,7 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     if (!FindPlaceholderW(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Format the text to insert at the placeholder
     __time64_t ttime;
@@ -498,12 +498,12 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     if (wcsstr(def, L"UTC"))
     {
         if (_gmtime64_s(&newtime, &ttime))
-            return FALSE;
+            return false;
     }
     else
     {
         if (_localtime64_s(&newtime, &ttime))
-            return FALSE;
+            return false;
     }
     wchar_t destbuf[1024];
     wchar_t * pBuild = pBuf + index;
@@ -520,11 +520,11 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         {
             pEnd++;
             if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
-                return FALSE;   // No terminator - malformed so give up.
+                return false;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
-            return FALSE; // Format specifier too big
+            return false; // Format specifier too big
         }
         SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
@@ -565,15 +565,15 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
-    return TRUE;
+    return true;
 }
 
-int InsertUrl(char * def, char * pBuf, size_t & index,
+bool InsertUrl(char * def, char * pBuf, size_t & index,
                     size_t & filelength, size_t maxlength,
                     char * pUrl)
 {
@@ -581,7 +581,7 @@ int InsertUrl(char * def, char * pBuf, size_t & index,
     if (!FindPlaceholder(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Replace the $WCURL$ string with the actual URL
     char * pBuild = pBuf + index;
@@ -593,14 +593,14 @@ int InsertUrl(char * def, char * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
     }
     memmove(pBuild, pUrl, strlen(pUrl));
     filelength += Expansion;
-    return TRUE;
+    return true;
 }
-int InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
+bool InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
     size_t & filelength, size_t maxlength,
     const wchar_t * pUrl)
 {
@@ -608,7 +608,7 @@ int InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
     if (!FindPlaceholderW(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Replace the $WCURL$ string with the actual URL
     wchar_t * pBuild = pBuf + index;
@@ -620,12 +620,12 @@ int InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return FALSE;
+        if (maxlength < Expansion + filelength) return false;
         memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
     }
     memmove(pBuild, pUrl, wcslen(pUrl)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
-    return TRUE;
+    return true;
 }
 
 int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
@@ -634,7 +634,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
     if (!FindPlaceholder(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Look for the terminating '$' character
     char * pBuild = pBuf + index;
@@ -643,7 +643,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
     {
         pEnd++;
         if (pEnd - pBuf >= (__int64)filelength)
-            return FALSE;   // No terminator - malformed so give up.
+            return false;   // No terminator - malformed so give up.
     }
 
     // Look for the ':' dividing TrueText from FalseText
@@ -653,7 +653,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
         pSplit++;
 
     if (*pSplit == '$')
-        return FALSE;       // No split - malformed so give up.
+        return false;       // No split - malformed so give up.
 
     if (isTrue)
     {
@@ -676,15 +676,15 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
         memmove(pBuild, pSplit + 1, filelength - (pSplit + 1 - pBuf));
         filelength -= (pSplit + 1 - pBuild);
     }
-    return TRUE;
+    return true;
 }
-int InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
+bool InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
 {
     // Search for first occurrence of def in the buffer, starting at index.
     if (!FindPlaceholderW(def, pBuf, index, filelength))
     {
         // No more matches found.
-        return FALSE;
+        return false;
     }
     // Look for the terminating '$' character
     wchar_t * pBuild = pBuf + index;
@@ -693,7 +693,7 @@ int InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filel
     {
         pEnd++;
         if (pEnd - pBuf >= (__int64)filelength)
-            return FALSE;   // No terminator - malformed so give up.
+            return false;   // No terminator - malformed so give up.
     }
 
     // Look for the ':' dividing TrueText from FalseText
@@ -703,7 +703,7 @@ int InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filel
         pSplit++;
 
     if (*pSplit == '$')
-        return FALSE;       // No split - malformed so give up.
+        return false;       // No split - malformed so give up.
 
     if (isTrue)
     {
@@ -726,7 +726,7 @@ int InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filel
         memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf)));
         filelength -= ((pSplit + 1 - pBuild)*sizeof(wchar_t));
     }
-    return TRUE;
+    return true;
 }
 
 #pragma warning(push)
