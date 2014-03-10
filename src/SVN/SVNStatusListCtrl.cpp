@@ -3722,32 +3722,35 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList targetList;
                     FillListOfSelectedItemPaths(targetList);
-                    bool bAllExist = true;
-                    for (int i=0; i<targetList.GetCount(); ++i)
+                    if (targetList.GetCount() > 0)
                     {
-                        if (!targetList[i].Exists())
+                        bool bAllExist = true;
+                        for (int i = 0; i < targetList.GetCount(); ++i)
                         {
-                            bAllExist = false;
-                            break;
+                            if (!targetList[i].Exists())
+                            {
+                                bAllExist = false;
+                                break;
+                            }
                         }
-                    }
-                    if (bAllExist && (cmd == IDSVNLC_UPDATE))
-                    {
-                        CSVNProgressDlg dlg;
-                        dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
-                        dlg.SetPathList(targetList);
-                        dlg.SetRevision(SVNRev::REV_HEAD);
-                        dlg.DoModal();
-                    }
-                    else
-                    {
-                        CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
-                        targetList.WriteToFile(sTempFile, false);
-                        CString sCmd;
-                        sCmd.Format(L"/command:update /rev /pathfile:\"%s\" /deletepathfile",
-                            (LPCTSTR)sTempFile);
+                        if (bAllExist && (cmd == IDSVNLC_UPDATE))
+                        {
+                            CSVNProgressDlg dlg;
+                            dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+                            dlg.SetPathList(targetList);
+                            dlg.SetRevision(SVNRev::REV_HEAD);
+                            dlg.DoModal();
+                        }
+                        else
+                        {
+                            CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+                            targetList.WriteToFile(sTempFile, false);
+                            CString sCmd;
+                            sCmd.Format(L"/command:update /rev /pathfile:\"%s\" /deletepathfile",
+                                        (LPCTSTR)sTempFile);
 
-                        CAppUtils::RunTortoiseProc(sCmd);
+                            CAppUtils::RunTortoiseProc(sCmd);
+                        }
                     }
                 }
                 break;
@@ -3755,12 +3758,15 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList targetList;
                     FillListOfSelectedItemPaths(targetList);
-                    CSVNProgressDlg dlg;
-                    dlg.SetCommand(CSVNProgressDlg::SVNProgress_SwitchBackToParent);
-                    dlg.SetPathList(targetList);
-                    dlg.DoModal();
-                    // refresh!
-                    SendNeedsRefresh();
+                    if (targetList.GetCount() > 0)
+                    {
+                        CSVNProgressDlg dlg;
+                        dlg.SetCommand(CSVNProgressDlg::SVNProgress_SwitchBackToParent);
+                        dlg.SetPathList(targetList);
+                        dlg.DoModal();
+                        // refresh!
+                        SendNeedsRefresh();
+                    }
                 }
                 break;
             case IDSVNLC_LOG:
