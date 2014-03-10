@@ -226,9 +226,34 @@
                 <guimenuitem>Restore after commit</guimenuitem>
             </menuchoice>.
             This will create a copy of the file as it is. Then you
-            can edit the file, e.g. in TortoiseMerge and undo all
+            can edit the file, e.g. in a text editor and undo all
             the changes you don't want to commit. After saving those
             changes you can commit the file.
+            <tip>
+                <title>Using TortoiseMerge</title>
+                <para>
+                    If you use TortoiseMerge to edit the file, you can either edit
+                    the changes as you're used to, or mark
+                    all the changes that you want to include. <action>right click</action>
+                    on a modified block and use
+                    <menuchoice>
+                        <guimenu>Context Menu</guimenu>
+                        <guimenuitem>Mark this block</guimenuitem>
+                    </menuchoice>
+                    to include that change.
+                </para>
+                <para>
+                    However if you want to include more changes than you want
+                    to exclude, you can first mark all the blocks you want
+                    to exclude from the commit, and then <action>right click</action>
+                    and use
+                    <menuchoice>
+                        <guimenu>Context Menu</guimenu>
+                        <guimenuitem>Use left file except marked blocks</guimenuitem>
+                    </menuchoice>
+                    which will invert your changes.
+                </para>
+            </tip>
         </para>
         <para>
             After the commit is done, the copy of the file is restored
