@@ -104,7 +104,6 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\Utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/d2Zi+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -117,7 +116,6 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\Utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/d2Zi+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
