@@ -434,6 +434,8 @@ protected:  // methods
     virtual void    UseViewBlock(CBaseView * /*pwndView*/) {}
     void            UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine);
     virtual void    UseViewFile(CBaseView * /*pwndView*/) {}
+    virtual void    MarkBlock(bool /*marked*/) {}
+    void            MarkBlock(bool marked, int nFirstViewLine, int nLastViewLine);
 
     virtual void    AddContextItems(CIconMenu& popup, DiffStates state);
     void            AddCutCopyAndPaste(CIconMenu& popup);
@@ -602,6 +604,8 @@ protected:  // variables
         POPUPCOMMAND_USELEFTFILE,
         POPUPCOMMAND_USEBOTHLEFTFIRST,
         POPUPCOMMAND_USEBOTHRIGHTFIRST,
+        POPUPCOMMAND_MARKBLOCK,
+        POPUPCOMMAND_UNMARKBLOCK,
         // multiple writable views
         POPUPCOMMAND_PREPENDFROMRIGHT,
         POPUPCOMMAND_REPLACEBYRIGHT,

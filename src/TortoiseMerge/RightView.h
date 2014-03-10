@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2006-2008, 2011, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,6 +35,7 @@ public:
     void    UseBothRightFirst();
     void    UseLeftBlock(); ///< Use Block from Left
     void    UseLeftFile(); ///< Use File from Left
+    void    MarkBlock(bool marked);
 
 protected:
     void    AddContextItems(CIconMenu& popup, DiffStates state);

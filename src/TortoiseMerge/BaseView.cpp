@@ -2370,6 +2370,12 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     case POPUPCOMMAND_USEBOTHRIGHTFIRST:
         m_pwndRight->UseBothRightFirst();
         break;
+    case POPUPCOMMAND_MARKBLOCK:
+        m_pwndRight->MarkBlock(true);
+        break;
+    case POPUPCOMMAND_UNMARKBLOCK:
+        m_pwndRight->MarkBlock(false);
+        break;
     // 2-pane view multiedit commands; target is left view
     case POPUPCOMMAND_PREPENDFROMRIGHT:
         if (!m_pwndLeft->IsReadonly())
@@ -5849,6 +5855,15 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
     }
     BuildAllScreen2ViewVector();
     pwndView->Invalidate();
+    RefreshViews();
+}
+
+void CBaseView::MarkBlock(bool marked, int nFirstViewLine, int nLastViewLine)
+{
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
+        SetViewMarked(viewLine, marked);
+    BuildAllScreen2ViewVector();
+    Invalidate();
     RefreshViews();
 }
 
