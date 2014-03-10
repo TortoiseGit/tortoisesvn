@@ -514,6 +514,7 @@ protected:  // variables
     HICON           m_hLineEndingLF;
 
     HICON           m_hMovedIcon;
+    HICON           m_hMarkedIcon;
 
     LOGFONT         m_lfBaseFont;
     static const int fontsCount = 4;
@@ -578,6 +579,7 @@ protected:  // variables
             ICN_ADD,
             ICN_REMOVED,
             ICN_MOVED,
+            ICN_MARKED,
             ICN_CONFLICT,
             ICN_CONFLICTIGNORED,
         } eIcon;

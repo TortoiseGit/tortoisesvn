@@ -133,6 +133,7 @@ CBaseView::CBaseView()
     m_hLineEndingLF = LoadIcon(IDI_LINEENDINGLF);
     m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
     m_hMovedIcon = LoadIcon(IDI_MOVEDLINE);
+    m_hMarkedIcon = LoadIcon(IDI_LINEMARKED);
     m_margincursor = (HCURSOR)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_MARGINCURSOR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
     for (int i=0; i<1024; ++i)
@@ -175,6 +176,7 @@ CBaseView::~CBaseView()
     DestroyIcon(m_hLineEndingLF);
     DestroyIcon(m_hEditedIcon);
     DestroyIcon(m_hMovedIcon);
+    DestroyIcon(m_hMarkedIcon);
     DestroyCursor(m_margincursor);
 }
 
@@ -1202,6 +1204,8 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
             }
             if (m_pViewData->GetMovedIndex(nViewLine) >= 0)
                 eIcon = TScreenedViewLine::ICN_MOVED;
+            if (m_pViewData->GetMarked(nViewLine))
+                eIcon = TScreenedViewLine::ICN_MARKED;
             m_ScreenedViewLine[nViewLine].eIcon = eIcon;
         }
         switch (eIcon)
@@ -1232,6 +1236,9 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
             break;
         case TScreenedViewLine::ICN_MOVED:
             icon = m_hMovedIcon;
+            break;
+        case TScreenedViewLine::ICN_MARKED:
+            icon = m_hMarkedIcon;
             break;
         }
 
