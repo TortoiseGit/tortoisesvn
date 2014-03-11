@@ -241,17 +241,14 @@
                         <guimenuitem>Mark this block</guimenuitem>
                     </menuchoice>
                     to include that change.
-                </para>
-                <para>
-                    However if you want to include more changes than you want
-                    to exclude, you can first mark all the blocks you want
-                    to exclude from the commit, and then <action>right click</action>
+                    Finally <action>right click</action>
                     and use
                     <menuchoice>
                         <guimenu>Context Menu</guimenu>
                         <guimenuitem>Use left file except marked blocks</guimenuitem>
                     </menuchoice>
-                    which will invert your changes.
+                    which will invert your changes (unmarked blocks) that you
+                    don't want to them to appear in current commit.
                 </para>
             </tip>
         </para>
