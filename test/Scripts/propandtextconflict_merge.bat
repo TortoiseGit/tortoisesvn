@@ -41,7 +41,8 @@ echo file3 > "%WC%2"\File1.txt
 "%SVN%" propset s:name val4 "%WC%2/File1.txt"
 echo file4 > "%WC%2"\File1.txt
 
-
-::"%SVN%" up "%WC%2"
+"%SVN%" up "%WC%2"
 
 pause
+
+"%SVN%" merge "%REPOS_PATH%/trunk"  "%WC%2"
