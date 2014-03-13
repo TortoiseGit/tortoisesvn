@@ -597,15 +597,34 @@ CString CPathUtils::ParsePathInString(const CString& Str)
 
 CString CPathUtils::GetAppDataDirectory()
 {
-    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
-    if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
+    PWSTR pszPath = NULL;
+    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) != S_OK)
         return CString();
 
-    wcscat_s(path, L"\\TortoiseSVN");
+    CString path = pszPath;
+    CoTaskMemFree(pszPath);
+
+    path += L"\\TortoiseSVN";
     if (!PathIsDirectory(path))
         CreateDirectory(path, NULL);
 
     return CString (path) + '\\';
+}
+
+CString CPathUtils::GetLocalAppDataDirectory()
+{
+    PWSTR pszPath = NULL;
+    if (SHGetKnownFolderPath(FOLDERID_LocalAppData, KF_FLAG_CREATE, NULL, &pszPath) != S_OK)
+        return CString();
+
+    CString path = pszPath;
+    CoTaskMemFree(pszPath);
+
+    path += L"\\TortoiseSVN";
+    if (!PathIsDirectory(path))
+        CreateDirectory(path, NULL);
+
+    return CString(path) + '\\';
 }
 
 CStringA CPathUtils::PathUnescape(const CStringA& path)
