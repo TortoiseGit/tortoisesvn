@@ -144,7 +144,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     // the "Repositories.dat" is not a cache file
     nLogHistRepo--;
 
-    BOOL bActionLog = PathFileExists(CPathUtils::GetAppDataDirectory() + L"logfile.txt");
+    BOOL bActionLog = PathFileExists(CPathUtils::GetLocalAppDataDirectory() + L"logfile.txt");
 
     INT_PTR nHooks = 0;
     CRegistryKey regHooks(L"Software\\TortoiseSVN\\approvedhooks");
@@ -295,13 +295,13 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 
 void CSetSavedDataPage::OnBnClickedActionlogshow()
 {
-    CString logfile = CPathUtils::GetAppDataDirectory() + L"logfile.txt";
+    CString logfile = CPathUtils::GetLocalAppDataDirectory() + L"logfile.txt";
     CAppUtils::StartTextViewer(logfile);
 }
 
 void CSetSavedDataPage::OnBnClickedActionlogclear()
 {
-    CString logfile = CPathUtils::GetAppDataDirectory() + L"logfile.txt";
+    CString logfile = CPathUtils::GetLocalAppDataDirectory() + L"logfile.txt";
     DeleteFile(logfile);
     DialogEnableWindow(&m_btnActionLogClear, false);
     DialogEnableWindow(&m_btnActionLogShow, false);

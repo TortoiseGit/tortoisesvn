@@ -34,7 +34,7 @@ CLogFile::~CLogFile(void)
 
 bool CLogFile::Open()
 {
-    CTSVNPath logfile = CTSVNPath(CPathUtils::GetAppDataDirectory() + L"\\logfile.txt");
+    CTSVNPath logfile = CTSVNPath(CPathUtils::GetLocalAppDataDirectory() + L"\\logfile.txt");
     return Open(logfile);
 }
 
