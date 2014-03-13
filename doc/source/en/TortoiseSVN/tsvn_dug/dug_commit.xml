@@ -238,16 +238,16 @@
                     on a modified block and use
                     <menuchoice>
                         <guimenu>Context Menu</guimenu>
-                        <guimenuitem>Mark this block</guimenuitem>
+                        <guimenuitem>Mark this change</guimenuitem>
                     </menuchoice>
                     to include that change.
                     Finally <action>right click</action>
                     and use
                     <menuchoice>
                         <guimenu>Context Menu</guimenu>
-                        <guimenuitem>Leave only marked blocks</guimenuitem>
+                        <guimenuitem>Leave only marked changes</guimenuitem>
                     </menuchoice>
-                    which will invert your changes (unmarked blocks) that you
+                    which will invert your changes (unmarked changes) that you
                     don't want to appear in the current commit.
                 </para>
             </tip>
