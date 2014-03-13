@@ -2176,8 +2176,16 @@ msgstr ""
 msgid "Sometimes you want to only commit parts of the changes you made to a file. Such a situation usually happens when you're working on something but then an urgent fix needs to be committed, and that fix happens to be in the same file you're working on."
 msgstr ""
 
+#. (title)
+msgid "Using TortoiseMerge"
+msgstr ""
+
 #. (para)
-msgid "<action>right click</action> on the file and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after commit</guimenuitem></menuchoice>. This will create a copy of the file as it is. Then you can edit the file, e.g. in TortoiseMerge and undo all the changes you don't want to commit. After saving those changes you can commit the file."
+msgid "If you use TortoiseMerge to edit the file, you can either edit the changes as you're used to, or mark all the changes that you want to include. <action>right click</action> on a modified block and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Mark this change</guimenuitem></menuchoice> to include that change. Finally <action>right click</action> and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Leave only marked changes</guimenuitem></menuchoice> which will invert your changes (unmarked changes) that you don't want to appear in the current commit."
+msgstr ""
+
+#. (para)
+msgid "<action>right click</action> on the file and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after commit</guimenuitem></menuchoice>. This will create a copy of the file as it is. Then you can edit the file, e.g. in a text editor and undo all the changes you don't want to commit. After saving those changes you can commit the file. <tip><placeholder-1/><placeholder-2/></tip>"
 msgstr ""
 
 #. (para)
@@ -12837,10 +12845,6 @@ msgstr ""
 
 #. (para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
-msgstr ""
-
-#. (title)
-msgid "Using TortoiseMerge"
 msgstr ""
 
 #. (title)
