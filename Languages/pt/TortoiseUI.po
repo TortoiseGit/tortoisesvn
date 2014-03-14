@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# alfalb_mansil <manuela.silva@sky.com>, 2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-05 08:26+0000\n"
+"PO-Revision-Date: 2014-03-14 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +408,7 @@ msgstr "&Adicionar >>"
 
 #. Resource IDs: (1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "&Adicionar Filtro"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -655,7 +656,7 @@ msgstr "&Remover (manter local)"
 
 #. Resource IDs: (1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "&Apagar Filtro"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -699,7 +700,7 @@ msgstr "&Editar"
 
 #. Resource IDs: (1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Editar Filtro"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1430,7 +1431,7 @@ msgstr "Dispositivos &desconhecidos"
 
 #. Resource IDs: (1074)
 msgid "&Up"
-msgstr ""
+msgstr "Para &Cima"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1850,7 +1851,7 @@ msgstr "Adicionar à lista de &ignorados"
 
 #. Resource IDs: (102)
 msgid "Add to Bookmarks"
-msgstr ""
+msgstr "Adicionar aos Marcadores"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
@@ -2330,7 +2331,7 @@ msgstr "Estilo Blue"
 
 #. Resource IDs: (616)
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #. Resource IDs: (83)
 msgid ""
@@ -4464,7 +4465,7 @@ msgstr "Não insira mais do que %1 caracteres."
 
 #. Resource IDs: (64)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "Inserir o prefixo|*"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
@@ -4863,7 +4864,7 @@ msgstr "Nome de ficheiro/Extensão"
 
 #. Resource IDs: (116)
 msgid "Filenames"
-msgstr ""
+msgstr "Nome de ficheiro"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -4895,7 +4896,7 @@ msgstr "Filtro de caminhos"
 
 #. Resource IDs: (1644)
 msgid "Filter:"
-msgstr ""
+msgstr "Filtrar:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -5628,7 +5629,7 @@ msgstr "Ignorar &ascendência"
 
 #. Resource IDs: (156)
 msgid "Ignore Comments"
-msgstr ""
+msgstr "Ignorar Comentários"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -6025,6 +6026,10 @@ msgstr "Deixar em conflito⏎ É mantido o estado de conflito do ficheiro"
 msgid "Leave conflicted:"
 msgstr "Deixar com conflito:"
 
+#. Resource IDs: (252)
+msgid "Leave only marked changes"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Vista Esquerda:"
@@ -6305,6 +6310,10 @@ msgstr "Marcar para comparação"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "Marcar ficheiros desaparecidos como removidos"
+
+#. Resource IDs: (252)
+msgid "Mark this change"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6698,7 +6707,7 @@ msgstr "Nome"
 
 #. Resource IDs: (65535)
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -7500,7 +7509,7 @@ msgstr "Imprimindo"
 
 #. Resource IDs: (364)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Mesmo assim, prosseguir"
 
 #. Resource IDs: (170)
 msgid ""
@@ -7954,7 +7963,7 @@ msgstr "Remover %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
-msgstr ""
+msgstr "Remover Marcador"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -8128,7 +8137,7 @@ msgstr "Substitui determinado texto por um texto diferente\nSubstituir"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
-msgstr ""
+msgstr "Substituir:"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -10762,6 +10771,10 @@ msgstr "Desbloqueio falhou"
 msgid "Unlocked"
 msgstr "Desbloqueado"
 
+#. Resource IDs: (252)
+msgid "Unmark this change"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
 msgstr "Formato de arquivo de propriedades inválido ou não reconhecido!"
@@ -10823,7 +10836,7 @@ msgstr "Actualizar WC para revisão"
 
 #. Resource IDs: (291)
 msgid "Update externals"
-msgstr ""
+msgstr "Atualizar externos"
 
 #. Resource IDs: (93)
 msgid ""
@@ -10888,7 +10901,7 @@ msgstr "A efectuar actualização '%1!s!'"
 
 #. Resource IDs: (116)
 msgid "Urls"
-msgstr ""
+msgstr "Ulrs"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11001,7 +11014,7 @@ msgstr "Usar bloco direito"
 
 #. Resource IDs: (156)
 msgid "Use spaces"
-msgstr ""
+msgstr "Usar espaços"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11104,7 +11117,7 @@ msgstr "Cancelado pelo utilizador"
 
 #. Resource IDs: (349)
 msgid "Username"
-msgstr ""
+msgstr "Nome de Utilizador"
 
 #. Resource IDs: (69)
 msgid "Username:"
@@ -11576,7 +11589,7 @@ msgstr "todas &revisões"
 
 #. Resource IDs: (209)
 msgid "all information"
-msgstr ""
+msgstr "toda a informação"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -11675,7 +11688,7 @@ msgstr "total de mudanças:"
 #. Resource IDs: (209)
 #, c-format
 msgid "column '%s'"
-msgstr ""
+msgstr "coluna '%s'"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -11746,11 +11759,11 @@ msgstr "externo de ficheiro:"
 
 #. Resource IDs: (210)
 msgid "file/foldernames"
-msgstr ""
+msgstr "nomes de ficheiro/pasta"
 
 #. Resource IDs: (210)
 msgid "full paths"
-msgstr ""
+msgstr "caminhos completos"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
@@ -11955,7 +11968,7 @@ msgstr "só para leitura"
 
 #. Resource IDs: (209)
 msgid "relative paths"
-msgstr ""
+msgstr "caminhos relativos"
 
 #. Resource IDs: (10)
 msgid "replaced"

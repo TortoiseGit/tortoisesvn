@@ -11,6 +11,7 @@
 # Authors:
 # Translators:
 # Alessandro Menti <alessandro.menti@hotmail.it>, 2012
+# Vizjerey <alessio@alessiodamato.com>, 2014
 # Cecilia Saltori <csaltori@gmail.com>, 2011
 # maxTransBrod <egianturco@gmail.com>, 2012
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
@@ -24,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-22 08:20+0000\n"
+"PO-Revision-Date: 2014-03-14 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3456,14 +3457,31 @@ msgid ""
 "file you're working on."
 msgstr ""
 
+#. (title)
+msgid "Using TortoiseMerge"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you use TortoiseMerge to edit the file, you can either edit the changes "
+"as you're used to, or mark all the changes that you want to include. "
+"<action>right click</action> on a modified block and use "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Mark this "
+"change</guimenuitem></menuchoice> to include that change. Finally "
+"<action>right click</action> and use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Leave only marked "
+"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
+"changes) that you don't want to appear in the current commit."
+msgstr ""
+
 #. (para)
 msgid ""
 "<action>right click</action> on the file and use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after "
 "commit</guimenuitem></menuchoice>. This will create a copy of the file as it"
-" is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
+" is. Then you can edit the file, e.g. in a text editor and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
-"the file."
+"the file. <tip><placeholder-1/><placeholder-2/></tip>"
 msgstr ""
 
 #. (para)
@@ -4803,11 +4821,11 @@ msgstr ""
 
 #. (title)
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Visualizza Differenze"
 
 #. (primary)
 msgid "diffing"
-msgstr ""
+msgstr "Confronta"
 
 #. (para)
 msgid ""
@@ -4836,7 +4854,7 @@ msgstr ""
 
 #. (primary)
 msgid "changelist"
-msgstr ""
+msgstr "elenco modifiche"
 
 #. (para)
 msgid ""
@@ -4925,7 +4943,7 @@ msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "Finestra di Revisione dei Log"
 
 #. (primary)
 msgid "log"
@@ -4933,15 +4951,15 @@ msgstr "Log"
 
 #. (primary)
 msgid "history"
-msgstr ""
+msgstr "Cronologia"
 
 #. (primary)
 msgid "commit messages"
-msgstr ""
+msgstr "Invia commenti"
 
 #. (primary)
 msgid "log messages"
-msgstr ""
+msgstr "Commenti"
 
 #. (para)
 msgid ""
@@ -4995,7 +5013,7 @@ msgstr ""
 
 #. (para)
 msgid "From the property page"
-msgstr ""
+msgstr "Dalle proprietà della pagina"
 
 #. (para)
 msgid ""
@@ -5057,7 +5075,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Ricezione di maggiori informazioni"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
@@ -5065,7 +5083,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare with working copy"
-msgstr ""
+msgstr "Confronta con la copia di lavoro"
 
 #. (para)
 msgid ""
@@ -5088,7 +5106,7 @@ msgstr ""
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr ""
+msgstr "Visualizza differenze con confronto unificato"
 
 #. (para)
 msgid ""
@@ -5133,7 +5151,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Save revision to..."
-msgstr ""
+msgstr "Salva la revisione come..."
 
 #. (para)
 msgid ""
@@ -5144,7 +5162,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "Apri / Apri con..."
 
 #. (para)
 msgid ""
@@ -5163,7 +5181,7 @@ msgstr ""
 
 #. (term)
 msgid "Browse repository"
-msgstr ""
+msgstr "Esplora repository"
 
 #. (para)
 msgid ""
@@ -5173,7 +5191,7 @@ msgstr ""
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr ""
+msgstr "Crea branch/tag dalla revisione"
 
 #. (para)
 msgid ""
@@ -5184,7 +5202,7 @@ msgstr ""
 
 #. (term)
 msgid "Update item to revision"
-msgstr ""
+msgstr "Aggiorna l'elemento alla revisione"
 
 #. (para)
 msgid ""
@@ -5203,7 +5221,7 @@ msgstr ""
 
 #. (term)
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Ripristina a questa revisione"
 
 #. (para)
 msgid ""
@@ -5252,7 +5270,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Revert changes from this revision"
-msgstr ""
+msgstr "Ripristina modifiche da questa revisione"
 
 #. (para)
 msgid ""
@@ -5292,7 +5310,7 @@ msgstr ""
 
 #. (term)
 msgid "Checkout..."
-msgstr ""
+msgstr "Checkout..."
 
 #. (para)
 msgid ""
@@ -5305,7 +5323,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Export..."
-msgstr ""
+msgstr "Esporta..."
 
 #. (para)
 msgid ""
@@ -5316,7 +5334,7 @@ msgstr ""
 
 #. (term)
 msgid "Edit author / log message"
-msgstr ""
+msgstr "Modifica autore / commento"
 
 #. (para)
 msgid ""
@@ -5349,7 +5367,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Search log messages..."
-msgstr ""
+msgstr "Cerca commenti..."
 
 #. (para)
 msgid ""
@@ -5392,7 +5410,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare revisions"
-msgstr ""
+msgstr "Confronta revisioni"
 
 #. (para)
 msgid ""
@@ -5420,7 +5438,7 @@ msgstr ""
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Visualizza differenze con confronto unificato"
 
 #. (para)
 msgid ""
@@ -5469,7 +5487,7 @@ msgstr ""
 
 #. (term)
 msgid "Show changes"
-msgstr ""
+msgstr "Visualizza modifiche"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file."
@@ -5488,7 +5506,7 @@ msgstr ""
 
 #. (term)
 msgid "Show as unified diff"
-msgstr ""
+msgstr "Visualizza co confronto unificato"
 
 #. (para)
 msgid ""
@@ -5514,16 +5532,16 @@ msgstr ""
 
 #. (term)
 msgid "Show properties"
-msgstr ""
+msgstr "Visualizza proprietà"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Visualizza le proprietà di Subversion per l'elemento selezionato"
 
 #. (term)
 #. (guilabel)
 msgid "Show log"
-msgstr ""
+msgstr "Visualizza log"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
@@ -5743,7 +5761,7 @@ msgstr ""
 
 #. (title)
 msgid "Current Working Copy Revision"
-msgstr ""
+msgstr "Revisione della copia di lavoro corrente"
 
 #. (para)
 msgid ""
@@ -5813,11 +5831,11 @@ msgstr ""
 
 #. (primary)
 msgid "revision properties"
-msgstr ""
+msgstr "Proprietà della revisione"
 
 #. (primary)
 msgid "revprops"
-msgstr ""
+msgstr "revprops"
 
 #. (para)
 msgid ""
@@ -5873,11 +5891,11 @@ msgstr ""
 
 #. (title)
 msgid "Filtering Log Messages"
-msgstr ""
+msgstr "Filtra commenti"
 
 #. (primary)
 msgid "filter"
-msgstr ""
+msgstr "filtra"
 
 #. (para)
 msgid ""
@@ -5970,11 +5988,11 @@ msgstr ""
 
 #. (title)
 msgid "Statistical Information"
-msgstr ""
+msgstr "Informazioni statistiche"
 
 #. (primary)
 msgid "statistics"
-msgstr ""
+msgstr "statistiche"
 
 #. (para)
 msgid ""
@@ -5987,7 +6005,7 @@ msgstr ""
 
 #. (title)
 msgid "Statistics Page"
-msgstr ""
+msgstr "Pagine statistiche"
 
 #. (para)
 msgid ""
@@ -6070,7 +6088,7 @@ msgstr ""
 
 #. (title)
 msgid "Offline Mode"
-msgstr ""
+msgstr "Modalità offline"
 
 #. (title)
 msgid "Go Offline Dialog"
@@ -6086,7 +6104,7 @@ msgstr ""
 
 #. (term)
 msgid "Offline for now"
-msgstr ""
+msgstr "Offline per adesso"
 
 #. (para)
 msgid ""
@@ -6096,7 +6114,7 @@ msgstr ""
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Permanentemente offline"
 
 #. (para)
 msgid ""
@@ -6129,7 +6147,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Refreshing the View"
-msgstr ""
+msgstr "Ricarica la visualizzazione"
 
 #. (para)
 msgid ""
@@ -6160,7 +6178,7 @@ msgstr ""
 
 #. (primary)
 msgid "compare"
-msgstr ""
+msgstr "confronta"
 
 #. (para)
 msgid ""
@@ -6175,11 +6193,11 @@ msgstr ""
 
 #. (title)
 msgid "File Differences"
-msgstr ""
+msgstr "Differenze del file"
 
 #. (term)
 msgid "Local changes"
-msgstr ""
+msgstr "Modifiche locali"
 
 #. (para)
 msgid ""
@@ -6213,7 +6231,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Differenze da una revisione precedente"
 
 #. (para)
 msgid ""
@@ -6272,7 +6290,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference between files"
-msgstr ""
+msgstr "Differenze tra i file"
 
 #. (para)
 msgid ""
@@ -6326,7 +6344,7 @@ msgstr ""
 
 #. (term)
 msgid "Difference between folders"
-msgstr ""
+msgstr "Differenze tra le cartelle"
 
 #. (para)
 msgid ""
@@ -6394,15 +6412,15 @@ msgstr ""
 
 #. (title)
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Confronta cartelle"
 
 #. (primary)
 msgid "compare revisions"
-msgstr ""
+msgstr "confronta revisioni"
 
 #. (primary)
 msgid "export changes"
-msgstr ""
+msgstr "esporta modifiche"
 
 #. (title)
 msgid "The Compare Revisions Dialog"
@@ -6603,7 +6621,7 @@ msgstr ""
 
 #. (term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #. (para)
 msgid ""
@@ -6625,7 +6643,7 @@ msgstr ""
 
 #. (term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #. (para)
 msgid ""
@@ -6695,11 +6713,11 @@ msgstr ""
 
 #. (primary)
 msgid "add"
-msgstr ""
+msgstr "aggiungi"
 
 #. (primary)
 msgid "version new files"
-msgstr ""
+msgstr "versiona nuovi file"
 
 #. (title)
 #. (title)
@@ -6737,7 +6755,7 @@ msgstr ""
 
 #. (para)
 msgid "select the files you want to add"
-msgstr ""
+msgstr "seleziona i file che vuoi aggiungere"
 
 #. (para)
 #. (para)
@@ -6748,7 +6766,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "release the right mouse button"
-msgstr ""
+msgstr "rilascia il pulsante destro del mouse"
 
 #. (para)
 msgid ""
@@ -6782,25 +6800,25 @@ msgstr ""
 
 #. (primary)
 msgid "copy files"
-msgstr ""
+msgstr "copia file"
 
 #. (primary)
 msgid "rename files"
-msgstr ""
+msgstr "rinomina file"
 
 #. (primary)
 msgid "move files"
-msgstr ""
+msgstr "muovi file"
 
 #. (primary)
 #. (primary)
 msgid "branch"
-msgstr ""
+msgstr "branch"
 
 #. (primary)
 #. (primary)
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 #. (para)
 msgid ""
@@ -6861,7 +6879,7 @@ msgstr ""
 
 #. (title)
 msgid "Cannot copy between repositories"
-msgstr ""
+msgstr "Non è possibile copiare tra repository diverse"
 
 #. (para)
 msgid ""
@@ -6882,15 +6900,15 @@ msgstr ""
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "ignora file e directory"
 
 #. (primary)
 msgid "ignore"
-msgstr ""
+msgstr "ignora"
 
 #. (primary)
 msgid "unversioned files/folders"
-msgstr ""
+msgstr "file/cartelle non versionate"
 
 #. (para)
 msgid ""
@@ -6960,7 +6978,7 @@ msgstr ""
 
 #. (title)
 msgid "Ignoring Versioned Items"
-msgstr ""
+msgstr "ignora elementi versionati"
 
 #. (para)
 msgid ""
@@ -6983,7 +7001,7 @@ msgstr ""
 
 #. (term)
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. (para)
 msgid ""
@@ -7001,7 +7019,7 @@ msgstr ""
 
 #. (term)
 msgid "[...]"
-msgstr ""
+msgstr "[...]"
 
 #. (para)
 msgid ""
@@ -7070,15 +7088,15 @@ msgstr ""
 
 #. (title)
 msgid "Deleting files and folders"
-msgstr ""
+msgstr "Elimina file e cartelle"
 
 #. (primary)
 msgid "delete"
-msgstr ""
+msgstr "elimina"
 
 #. (primary)
 msgid "remove"
-msgstr ""
+msgstr "rimuovere"
 
 #. (para)
 msgid ""
@@ -7141,17 +7159,17 @@ msgstr ""
 
 #. (title)
 msgid "Moving files and folders"
-msgstr ""
+msgstr "Sposta file e cartelle"
 
 #. (primary)
 #. (primary)
 #. (primary)
 msgid "rename"
-msgstr ""
+msgstr "rinomina"
 
 #. (primary)
 msgid "move"
-msgstr ""
+msgstr "sposta"
 
 #. (para)
 msgid ""
@@ -7181,7 +7199,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit the parent folder"
-msgstr ""
+msgstr "invia la cartella madre"
 
 #. (para)
 msgid ""
@@ -7333,20 +7351,20 @@ msgstr ""
 
 #. (title)
 msgid "Undo Changes"
-msgstr ""
+msgstr "Annulla Modifiche"
 
 #. (primary)
 #. (primary)
 msgid "revert"
-msgstr ""
+msgstr "ripristina"
 
 #. (primary)
 msgid "undo"
-msgstr ""
+msgstr "annulla"
 
 #. (primary)
 msgid "clean"
-msgstr ""
+msgstr "pulisci"
 
 #. (title)
 msgid "Revert dialog"
@@ -7528,19 +7546,19 @@ msgstr ""
 
 #. (title)
 msgid "Project Settings"
-msgstr ""
+msgstr "Impostazioni del Progetto"
 
 #. (title)
 msgid "Subversion Properties"
-msgstr ""
+msgstr "Proprietà di Subversion"
 
 #. (primary)
 msgid "Subversion properties"
-msgstr ""
+msgstr "proprietà di Subversion"
 
 #. (title)
 msgid "Subversion property page"
-msgstr ""
+msgstr "Pagina delle proprietà di Subversion"
 
 #. (para)
 msgid ""
@@ -7565,11 +7583,11 @@ msgstr "svn:parole chiave"
 
 #. (primary)
 msgid "keywords"
-msgstr ""
+msgstr "keywords"
 
 #. (primary)
 msgid "expand keywords"
-msgstr ""
+msgstr "espandi keywords"
 
 #. (para)
 msgid ""
@@ -7624,7 +7642,7 @@ msgstr ""
 
 #. (title)
 msgid "Adding properties"
-msgstr ""
+msgstr "Aggiungi proprietà"
 
 #. (para)
 msgid ""
@@ -7818,7 +7836,7 @@ msgstr ""
 
 #. (title)
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "Conflitti sulle proprietà"
 
 #. (para)
 msgid ""
@@ -7829,15 +7847,15 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
-msgstr ""
+msgstr "Proprietà del Progetto TortoiseSVN"
 
 #. (primary)
 msgid "project properties"
-msgstr ""
+msgstr "proprietà del progetto"
 
 #. (primary)
 msgid "TortoiseSVN properties"
-msgstr ""
+msgstr "proprietà di TortoiseSVN"
 
 #. (para)
 msgid ""
@@ -8385,7 +8403,7 @@ msgstr ""
 
 #. (title)
 msgid "SVN Keywords"
-msgstr ""
+msgstr "SVN keywords"
 
 #. (title)
 msgid "svn:keywords property page"
@@ -8440,7 +8458,7 @@ msgstr ""
 
 #. (title)
 msgid "Project Language"
-msgstr ""
+msgstr "Lingua del Progetto"
 
 #. (title)
 msgid "Language property page"
@@ -8458,7 +8476,7 @@ msgstr ""
 
 #. (title)
 msgid "MIME-type"
-msgstr ""
+msgstr "MIME-type"
 
 #. (title)
 msgid "svn:mime-type property page"
@@ -17099,7 +17117,7 @@ msgstr ""
 #. (title)
 #. (glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "Differenze"
 
 #. (entry)
 #. (title)
@@ -19733,10 +19751,6 @@ msgstr ""
 msgid ""
 "You can edit the file in the right pane exactly as you would in compare/edit"
 " mode."
-msgstr ""
-
-#. (title)
-msgid "Using TortoiseMerge"
 msgstr ""
 
 #. (title)

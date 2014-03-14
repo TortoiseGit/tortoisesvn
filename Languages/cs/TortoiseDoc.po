@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-22 19:40+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2014-03-14 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3449,15 +3449,32 @@ msgid ""
 "file you're working on."
 msgstr "Někdy chcete odevzdat pouze části změn, které jste v souboru provedli. Takové situace většinou nastanou, když na něčem pracujete, ale pak je třeba odevzdat důležitou opravu a tato oprava se nachází ve stejném souboru, na kterém pracujete."
 
+#. (title)
+msgid "Using TortoiseMerge"
+msgstr "Použití TortoiseMerge"
+
+#. (para)
+msgid ""
+"If you use TortoiseMerge to edit the file, you can either edit the changes "
+"as you're used to, or mark all the changes that you want to include. "
+"<action>right click</action> on a modified block and use "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Mark this "
+"change</guimenuitem></menuchoice> to include that change. Finally "
+"<action>right click</action> and use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Leave only marked "
+"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
+"changes) that you don't want to appear in the current commit."
+msgstr ""
+
 #. (para)
 msgid ""
 "<action>right click</action> on the file and use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after "
 "commit</guimenuitem></menuchoice>. This will create a copy of the file as it"
-" is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
+" is. Then you can edit the file, e.g. in a text editor and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
-"the file."
-msgstr "<action>Klikněte pravým tlačítkem</action> na soubor a použijte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Obnovit po odevzdání</guimenuitem></menuchoice>. Toto vytvoří kopii souboru tak jak je. Pak můžete soubor upravit, např. v TortoiseMerge a vrátit všechny změny, které nechcete odevzdat. Po uložení těchto změn můžete soubor odevzdat."
+"the file. <tip><placeholder-1/><placeholder-2/></tip>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19727,10 +19744,6 @@ msgid ""
 "You can edit the file in the right pane exactly as you would in compare/edit"
 " mode."
 msgstr "Můžete upravit soubor v pravém panelu přesně tak, jak byste dělali v režimu porovnání/úprav."
-
-#. (title)
-msgid "Using TortoiseMerge"
-msgstr "Použití TortoiseMerge"
 
 #. (title)
 msgid "Viewing Modes"

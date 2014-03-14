@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-05 08:26+0000\n"
+"PO-Revision-Date: 2014-03-14 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -509,7 +509,7 @@ msgstr "&Ответвления"
 
 #. Resource IDs: (1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "&Снять блокировки"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -565,7 +565,7 @@ msgstr "&Очистить..."
 
 #. Resource IDs: (1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "&Очистить списки изменений"
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -781,7 +781,7 @@ msgstr "Вписать изображения в &окно"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "&Исправить отметки времени"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1468,7 +1468,7 @@ msgstr "&Имя:"
 
 #. Resource IDs: (1647)
 msgid "&Vacuum pristine copies"
-msgstr ""
+msgstr "&Почистить исходные копии"
 
 #. Resource IDs: (65535)
 msgid "&View"
@@ -4124,7 +4124,7 @@ msgstr "Вы хотите убрать все изменения в\n%s,\nсде
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Хотите обновить папку \"%s\" чтобы получить svn:externals?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4470,7 +4470,7 @@ msgstr "Введите не более %1 символов."
 
 #. Resource IDs: (64)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "Введите префикс|*"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
@@ -4713,7 +4713,7 @@ msgstr "Не удалось!"
 
 #. Resource IDs: (266)
 msgid "Failed: target required"
-msgstr ""
+msgstr "Не успешно: требуется назначение"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
@@ -5815,7 +5815,7 @@ msgstr "Цвета индекса:"
 
 #. Resource IDs: (266)
 msgid "Info on external"
-msgstr ""
+msgstr "Информация о внешнем"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
@@ -6030,6 +6030,10 @@ msgstr "Оставить конфликтующим\nФайл сохраняет
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Оставить конфликт:"
+
+#. Resource IDs: (252)
+msgid "Leave only marked changes"
+msgstr ""
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6311,6 +6315,10 @@ msgstr "Пометить для сравнения"
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
 msgstr "Отметить отсутствующие файлы как удалённые"
+
+#. Resource IDs: (252)
+msgid "Mark this change"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6638,7 +6646,7 @@ msgstr "Переместить в группу изменений"
 
 #. Resource IDs: (266)
 msgid "Move-Replaced"
-msgstr ""
+msgstr "Перемещено и заменено"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
@@ -9831,7 +9839,7 @@ msgstr "Файл слишком большой для открытия."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "Файл или директория \"%s\" уже существует в указанном местоположении! Вы должны удалить его, прежде чем сможете добавить внешнее включение с тем же именем."
 
 #. Resource IDs: (80)
 #, c-format
@@ -10514,7 +10522,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10767,6 +10775,10 @@ msgstr "Разблокировка не удалась"
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "Разблокирован"
+
+#. Resource IDs: (252)
+msgid "Unmark this change"
+msgstr ""
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -11110,7 +11122,7 @@ msgstr "Отменено пользователем"
 
 #. Resource IDs: (349)
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #. Resource IDs: (69)
 msgid "Username:"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-02-22 08:21+0000\n"
+"PO-Revision-Date: 2014-03-14 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -3448,15 +3448,32 @@ msgid ""
 "file you're working on."
 msgstr "Thỉnh thoảng bạn chỉ muốn cam kết vài phần của các thay đổi bạn thực hiện tới một tập tin. Tình huống như vậy thường xảy ra khi bạn làm việc trên vài thứ nhưng rồi một việc sửa chửa khẩn cấp cần được cam kết, và việc sửa chửa đó tình cờ xảy ra trong cùng tập tin bạn đang làm việc."
 
+#. (title)
+msgid "Using TortoiseMerge"
+msgstr "Sử dụng TortoiseMerge"
+
+#. (para)
+msgid ""
+"If you use TortoiseMerge to edit the file, you can either edit the changes "
+"as you're used to, or mark all the changes that you want to include. "
+"<action>right click</action> on a modified block and use "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Mark this "
+"change</guimenuitem></menuchoice> to include that change. Finally "
+"<action>right click</action> and use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Leave only marked "
+"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
+"changes) that you don't want to appear in the current commit."
+msgstr ""
+
 #. (para)
 msgid ""
 "<action>right click</action> on the file and use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after "
 "commit</guimenuitem></menuchoice>. This will create a copy of the file as it"
-" is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
+" is. Then you can edit the file, e.g. in a text editor and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
-"the file."
-msgstr "<action>nhấn chuột phải</action> trên tập tin và dùng <menuchoice><guimenu>Trình Đơn Ngữ Cảnh</guimenu><guimenuitem>Khôi phục sau khi cam kết</guimenuitem></menuchoice>. Việc này sẽ tạo ra một bản sao của tập tin. Rồi thì bạn có thể biên tập tập tin, ví dụ như với TortoiseMerge và hoàn tác các thay đổi bạn không muốn cam kết. Sau khi lưu các thay đổi đó bạn có thể cam kết tập tin."
+"the file. <tip><placeholder-1/><placeholder-2/></tip>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19726,10 +19743,6 @@ msgid ""
 "You can edit the file in the right pane exactly as you would in compare/edit"
 " mode."
 msgstr "Bạn có thể chỉnh sửa các tập tin trong khung bên phải chính xác như bạn sẽ làm trong chế độ so sánh / chỉnh sửa."
-
-#. (title)
-msgid "Using TortoiseMerge"
-msgstr "Sử dụng TortoiseMerge"
 
 #. (title)
 msgid "Viewing Modes"
