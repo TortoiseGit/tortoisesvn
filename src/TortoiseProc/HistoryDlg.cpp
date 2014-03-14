@@ -103,11 +103,18 @@ BOOL CHistoryDlg::PreTranslateMessage(MSG* pMsg)
         int pos = m_List.GetCurSel();
         if (pos != LB_ERR)
         {
+            int index = (int)m_List.GetItemData(pos);
             m_List.DeleteString(pos);
             m_List.SetCurSel(min(pos, m_List.GetCount() - 1));
-            int index = (int)m_List.GetItemData(pos);
             m_history->RemoveEntry(index);
             m_history->Save();
+            // adjust the indexes
+            for (int i = 0; i < m_List.GetCount(); ++i)
+            {
+                int ni = (int)m_List.GetItemData(i);
+                if (ni > index)
+                    m_List.SetItemData(i, ni - 1);
+            }
             return TRUE;
         }
     }
