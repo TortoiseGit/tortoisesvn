@@ -104,6 +104,7 @@ public:
     bool m_bClearMemory;
 private:
     bool RemoveCacheForDirectory(CCachedDirectory * cdir);
+    static CString GetSpecialFolder(REFKNOWNFOLDERID rfid);
     CReaderWriterLock   m_guard;
     CAtlList<CString> m_askedList;
     CCachedDirectory::CachedDirMap m_directoryCache;

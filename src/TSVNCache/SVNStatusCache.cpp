@@ -59,26 +59,26 @@ void CSVNStatusCache::Create()
     unsigned int value = (unsigned int)-1;
     FILE * pFile = NULL;
     // find the location of the cache
-    TCHAR path[MAX_PATH] = {0};       //MAX_PATH ok here.
-    TCHAR path2[MAX_PATH] = {0};
-    if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
+    CString path = GetSpecialFolder(FOLDERID_LocalAppData);
+    CString path2;
+    if (!path.IsEmpty())
     {
-        wcscat_s(path, L"\\TSVNCache");
+        path += L"\\TSVNCache";
         if (!PathIsDirectory(path))
         {
             DeleteFile(path);
             if (CreateDirectory(path, NULL)==0)
                 goto error;
         }
-        wcscat_s(path, STATUSCACHEFILENAME);
+        path += STATUSCACHEFILENAME;
         // in case the cache file is corrupt, we could crash while
         // reading it! To prevent crashing every time once that happens,
         // we make a copy of the cache file and use that copy to read from.
         // if that copy is corrupt, the original file won't exist anymore
         // and the second time we start up and try to read the file,
         // it's not there anymore and we start from scratch without a crash.
-        wcscpy_s(path2, path);
-        wcscat_s(path2, L"2");
+        path2 = path;
+        path2 += L"2";
         DeleteFile(path2);
         CopyFile(path, path2, FALSE);
         DeleteFile(path);
@@ -141,14 +141,16 @@ void CSVNStatusCache::Create()
 exit:
     if (pFile)
         fclose(pFile);
-    DeleteFile(path2);
+    if (!path2.IsEmpty())
+        DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": cache loaded from disk successfully!\n");
     return;
 error:
     if (pFile)
         fclose(pFile);
-    DeleteFile(path2);
+    if (!path2.IsEmpty())
+        DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
     Destroy();
     m_pInstance = new CSVNStatusCache;
@@ -162,13 +164,13 @@ bool CSVNStatusCache::SaveCache()
     // save the cache to disk
     FILE * pFile = NULL;
     // find a location to write the cache to
-    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
-    if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
+    CString path = GetSpecialFolder(FOLDERID_LocalAppData);
+    if (!path.IsEmpty())
     {
-        wcscat_s(path, L"\\TSVNCache");
+        path += L"\\TSVNCache";
         if (!PathIsDirectory(path))
             CreateDirectory(path, NULL);
-        wcscat_s(path, STATUSCACHEFILENAME);
+        path += STATUSCACHEFILENAME;
         _tfopen_s(&pFile, path, L"wb");
         if (pFile)
         {
@@ -236,17 +238,14 @@ CSVNStatusCache::CSVNStatusCache(void)
 {
 #define forever DWORD(-1)
     AutoLocker lock(m_NoWatchPathCritSec);
-    TCHAR path[MAX_PATH] = { 0 };
-    SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
-    m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
-    SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);
-    m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
-    SHGetFolderPath(NULL, CSIDL_INTERNET_CACHE, NULL, 0, path);
-    m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
-    SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
-    m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
-    SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
-    m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_Cookies))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_History))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_InternetCache))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_Windows))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_CDBurning))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_Fonts))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_RecycleBinFolder))] = forever;
+    m_NoWatchPaths[CTSVNPath(GetSpecialFolder(FOLDERID_SearchHistory))] = forever;
     m_bClearMemory = false;
     m_mostRecentExpiresAt = 0;
 }
@@ -642,4 +641,15 @@ void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path)
 {
     watcher.CloseHandlesForPath(path);
     m_folderCrawler.BlockPath(path);
+}
+
+CString CSVNStatusCache::GetSpecialFolder(REFKNOWNFOLDERID rfid)
+{
+    PWSTR pszPath = NULL;
+    if (SHGetKnownFolderPath(rfid, KF_FLAG_CREATE, NULL, &pszPath) != S_OK)
+        return CString();
+
+    CString path = pszPath;
+    CoTaskMemFree(pszPath);
+    return path;
 }

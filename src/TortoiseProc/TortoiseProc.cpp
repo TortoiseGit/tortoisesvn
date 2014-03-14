@@ -310,11 +310,15 @@ BOOL CTortoiseProcApp::InitInstance()
             if (CString(parser.GetVal(L"command")).Compare(L"settings")==0)
             {
                 // just open the config file
-                TCHAR buf2[MAX_PATH] = { 0 };
-                SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf2);
-                CString path = buf2;
-                path += L"\\Subversion\\config";
-                CAppUtils::StartTextViewer(path);
+                PWSTR pszPath = NULL;
+                if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+                {
+                    CString path = pszPath;
+                    CoTaskMemFree(pszPath);
+
+                    path += L"\\Subversion\\config";
+                    CAppUtils::StartTextViewer(path);
+                }
                 return FALSE;
             }
         }

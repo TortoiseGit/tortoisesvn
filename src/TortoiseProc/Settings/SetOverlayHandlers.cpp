@@ -206,13 +206,18 @@ void CSetOverlayHandlers::UpdateInfoLabel()
 
 void CSetOverlayHandlers::OnBnClickedRegedt()
 {
-    wchar_t path[MAX_PATH] = {0};
-    SHGetFolderPath(GetSafeHwnd(), CSIDL_WINDOWS, NULL, SHGFP_TYPE_CURRENT, path);
-    PathAppend(path, L"regedit.exe");
-    SHELLEXECUTEINFO si = {sizeof(SHELLEXECUTEINFO)};
-    si.hwnd = GetSafeHwnd();
-    si.lpVerb = L"open";
-    si.lpFile = path;
-    si.nShow = SW_SHOW;
-    ShellExecuteEx(&si);
+    PWSTR pszPath = NULL;
+    if (SHGetKnownFolderPath(FOLDERID_Windows, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    {
+        CString path = pszPath;
+        CoTaskMemFree(pszPath);
+        path += L"\\regedit.exe";
+
+        SHELLEXECUTEINFO si = { sizeof(SHELLEXECUTEINFO) };
+        si.hwnd = GetSafeHwnd();
+        si.lpVerb = L"open";
+        si.lpFile = path;
+        si.nShow = SW_SHOW;
+        ShellExecuteEx(&si);
+    }
 }

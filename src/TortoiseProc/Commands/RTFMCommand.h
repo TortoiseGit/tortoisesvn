@@ -37,9 +37,16 @@ public:
         // If the user tries to start TortoiseProc from the link in the programs start menu
         // show an explanation about what TSVN is (shell extension) and open up an explorer window
         TSVNMessageBox(GetExplorerHWND(), IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
-        TCHAR path[MAX_PATH] = { 0 };
-        SHGetFolderPath(GetExplorerHWND(), CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
-        ShellExecute(0, L"explore", path, NULL, NULL, SW_SHOWNORMAL);
+
+        PWSTR pszPath = NULL;
+        if (SHGetKnownFolderPath(FOLDERID_Documents, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+        {
+            CString path = pszPath;
+            CoTaskMemFree(pszPath);
+            ShellExecute(0, L"explore", path, NULL, NULL, SW_SHOWNORMAL);
+        }
+        ShellExecute(0, L"explore", L"", NULL, NULL, SW_SHOWNORMAL);
+
         return true;
     }
     virtual bool            CheckPaths() override {return true;}

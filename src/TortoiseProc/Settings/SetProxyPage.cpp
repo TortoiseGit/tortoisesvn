@@ -243,10 +243,14 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 
 void CSetProxyPage::OnBnClickedEditservers()
 {
-    TCHAR buf[MAX_PATH] = { 0 };
     SVN::EnsureConfigFile();
-    SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
-    CString path = buf;
-    path += L"\\Subversion\\servers";
-    CAppUtils::StartTextViewer(path);
+    PWSTR pszPath = NULL;
+    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    {
+        CString path = pszPath;
+        CoTaskMemFree(pszPath);
+
+        path += L"\\Subversion\\servers";
+        CAppUtils::StartTextViewer(path);
+    }
 }

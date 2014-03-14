@@ -1022,10 +1022,8 @@ void CCommitDlg::GetAutocompletionList()
         return;
     if (PathFileExists(sRegexFile))
         ParseRegexFile(sRegexFile, mapRegex);
-
-    SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, sRegexFile.GetBuffer(MAX_PATH+1));
-    sRegexFile.ReleaseBuffer();
-    sRegexFile += L"\\TortoiseSVN\\autolist.txt";
+    sRegexFile = CPathUtils::GetAppDataDirectory();
+    sRegexFile += L"\\autolist.txt";
     if (PathFileExists(sRegexFile))
         ParseRegexFile(sRegexFile, mapRegex);
 
