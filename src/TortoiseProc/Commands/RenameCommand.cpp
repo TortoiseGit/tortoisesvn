@@ -236,7 +236,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
             }
         }
     }
-    if ((idret != IDCANCEL)&&(!svn.Move(srcPathList, destPath, message, move_as_child, make_parents)))
+    if ((idret != IDNO)&&(!svn.Move(srcPathList, destPath, message, move_as_child, make_parents)))
     {
         if (svn.GetSVNError()->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
         {
@@ -248,7 +248,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
             bRet = false;
         }
     }
-    if (idret == IDCANCEL)
+    if (idret == IDNO)
         bRet = false;
     return bRet;
 }
