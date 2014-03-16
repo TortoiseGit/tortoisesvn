@@ -1014,7 +1014,7 @@ void CCommitDlg::GetAutocompletionList()
     std::map<CString, CString> mapRegex;
     CString sRegexFile = CPathUtils::GetAppDirectory();
     CRegDWORD regtimeout = CRegDWORD(L"Software\\TortoiseSVN\\AutocompleteParseTimeout", 5);
-    ULONGLONG timeoutvalue = regtimeout * 1000;
+    ULONGLONG timeoutvalue = ULONGLONG(DWORD(regtimeout)) * 1000UL;
     if (timeoutvalue == 0)
         return;
     sRegexFile += L"autolist.txt";
