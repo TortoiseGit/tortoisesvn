@@ -221,25 +221,29 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     if ((m_nRejected > ((int)m_filePaths.size() / 3)) && !m_testPath.IsEmpty())
     {
         m_nStrip++;
-        bool found = false;
         for (m_nStrip = 0; m_nStrip < STRIP_LIMIT; ++m_nStrip)
         {
+            int nExisting = 0;
             for (std::vector<PathRejects>::iterator it = m_filePaths.begin(); it != m_filePaths.end(); ++it)
             {
-                if (Strip(it->path).IsEmpty())
+                CString p = Strip(it->path);
+                if (p.IsEmpty())
                 {
-                    found = true;
-                    m_nStrip--;
+                    m_nStrip = STRIP_LIMIT;
                     break;
                 }
+                else if (PathFileExists(p))
+                    ++nExisting;
             }
-            if (found)
+            if (nExisting > int(m_filePaths.size()-m_nRejected))
                 break;
         }
     }
 
-    if (m_nStrip == STRIP_LIMIT)
-        m_filePaths.clear();
+    if (m_nStrip >= STRIP_LIMIT)
+    {
+        m_nStrip = 0;
+    }
     else if (m_nStrip > 0)
     {
         apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
@@ -337,7 +341,8 @@ int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& 
 CString SVNPatch::CheckPatchPath( const CString& path )
 {
     // first check if the path already matches
-    if (CountMatches(path) > (GetNumberOfFiles()/3))
+    int origMatches = CountMatches(path);
+    if (origMatches > (GetNumberOfFiles() / 3))
         return path;
 
     CProgressDlg progress;
@@ -356,7 +361,7 @@ CString SVNPatch::CheckPatchPath( const CString& path )
         progress.SetLine(2, upperpath, true);
         if (progress.HasUserCancelled())
             return path;
-        if (CountMatches(upperpath) > (GetNumberOfFiles()/3))
+        if (CountMatches(upperpath) > origMatches)
             return upperpath;
     }
     // still no match found. So try sub folders
@@ -372,7 +377,7 @@ CString SVNPatch::CheckPatchPath( const CString& path )
         if (g_SVNAdminDir.IsAdminDirPath(subpath))
             continue;
         progress.SetLine(2, subpath, true);
-        if (CountMatches(subpath) > (GetNumberOfFiles()/3))
+        if (CountMatches(subpath) > origMatches)
             return subpath;
     }
 
@@ -387,7 +392,7 @@ CString SVNPatch::CheckPatchPath( const CString& path )
         progress.SetLine(2, upperpath, true);
         if (progress.HasUserCancelled())
             return path;
-        if (CountDirMatches(upperpath) > (GetNumberOfFiles()/3))
+        if (CountDirMatches(upperpath) > origMatches)
             return upperpath;
     }
 
