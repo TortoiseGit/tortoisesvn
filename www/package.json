@@ -1,48 +1,38 @@
 {
   "name": "TortoiseSVN-web",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "XhmikosR (https://github.com/XhmikosR)",
   "description": "The dependencies to build TortoiseSVN's website",
   "homepage": "http://tortoisesvn.net/",
   "repository": {
     "type": "svn",
-    "url": "http://tortoisesvn.googlecode.com/svn/trunk/"
+    "url": "https://tortoisesvn.googlecode.com/svn/trunk/"
   },
   "bugs": {
     "url": "http://tortoisesvn.net/reportbug.html"
   },
   "license": "GPLv2",
   "scripts": {
-    "lint": "node run-tests"
+    "test": "grunt test"
   },
-  "dependencies": {
-    "clean-css": "~2.1.0",
-    "csslint": "~0.10.0",
-    "jshint": "~2.4.3",
-    "shelljs": "~0.2.6",
-    "uglify-js": "~2.4.12"
-  },
-  "jshintConfig": {
-    "bitwise": true,
-    "boss": true,
-    "browser" : false,
-    "camelcase": true,
-    "curly": true,
-    "eqeqeq": true,
-    "indent": 4,
-    "latedef": true,
-    "multistr": true,
-    "noarg": true,
-    "node" : true,
-    "noempty": true,
-    "plusplus": false,
-    "quotmark": "double",
-    "shelljs": true,
-    "strict": false,
-    "trailing": true,
-    "unused": true
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-htmlmin": "~0.2.0",
+    "grunt-contrib-jshint": "~0.9.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.0",
+    "grunt-html-validation": "~0.1.13",
+    "grunt-include-replace": "~1.2.0",
+    "load-grunt-tasks": "~0.4.0",
+    "time-grunt": "~0.2.10"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   }
 }

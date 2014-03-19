@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - Extended context menu</title>
+<meta name="description" content="the extended context menu in explorer"/>
+<meta name="keywords" content="context menu, extended"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="langselection">
+    <a href="extendedcontextmenu.html">EN</a>&nbsp;<a href="extendedcontextmenu.de.html">DE</a>
+</div>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Extended context menu</a></h1>
+                <div class="entry">
+                    <p>Many people don't know that the Windows shell provides an
+                    extended context menu if the <em>shift key</em> is pressed
+                    when the menu is shown. <br/>For example, on Vista the
+                    extended menu has a few additional entries. The screenshots
+                    below show this: the left menu is the normal, plain menu
+                    and the right menu is the extended menu which you get if
+                    you hold down the shift key while right clicking:</p>
+
+                    <div class="centered">
+                        <img src="img/VistaPlainMenu.png" alt="VistaPlainMenu" width="269" height="335"/>
+                        <img src="img/VistaExtendedMenu.png" alt="VistaExtendedMenu" width="270" height="379"/>
+                    </div>
+
+                    <p>As you can see, the extended menu has the additional
+                    entry "<em>Open Command Window Here</em>" which opens a
+                    console window with the current path set to that folder,
+                    and the entry "<em>Copy as Path</em>" which copies the
+                    path of the file/folder to the clipboard.</p>
+                    <p>However if you try this on the explorer tree view on the
+                    left, it won't work. The extended menu is only available
+                    on the right file/folder view.</p>
+                    <p>TortoiseSVN uses the extended menu too. Some commands
+                    are only available in the context menu if you hold down
+                    the <em>shift key</em> while right clicking. These are
+                    commands which we think are not used a lot (but of course
+                    are still useful), or commands that require the user to
+                    fully <strong>understand the consequences</strong> of using
+                    that command (which requires the user to read the
+                    <a href="support.html">docs</a>!).</p>
+
+                    <p>The screenshot on the left is the normal context menu,
+                    and the menu on the right is the extended context menu.</p>
+                    <div class="centered">
+                        <img src="img/TSVNNormalMenu.png" alt="TSVNNormalMenu" width="186" height="565"/>
+                        <img src="img/TSVNExtendedMenu.png" alt="TSVNExtendedMenu" width="220" height="673"/>
+                    </div>
+                    <p>
+                    Note: On XP, the extended context menu only works on the
+                    list view, not on the tree view!<br/>
+                    The commands only available from the extended menu are
+                    "<a href="docs/release/TortoiseSVN_en/tsvn-dug-diff.html#tsvn-dug-diff-file"><em>Diff with URL</em></a>",
+                    "<a href="docs/release/TortoiseSVN_en/tsvn-dug-rename.html#tsvn-dug-rename-delete"><em>Delete (keep local)</em></a>",
+                    "<a href="docs/release/TortoiseSVN_en/tsvn-dug-rename.html#tsvn-dug-rename-del-unversioned"><em>Delete unversioned items...</em></a>",
+                    "<a href="docs/release/TortoiseSVN_en/tsvn-dug-locking.html#tsvn-dug-locking-unlock"><em>Break lock</em></a>"
+                    and
+                    "<a href="docs/release/TortoiseSVN_en/tsvn-dug-merge.html#tsvn-dug-merge-all"><em>Merge reintegrate...</em></a>".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - FAQ</title>
+<meta name="description" content="TortoiseSVN FAQ"/>
+<meta name="keywords" content="faq"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="langselection">
+    <a href="faq.html">EN</a>&nbsp;<a href="faq.de.html">DE</a>&nbsp;<a href="faq.zh.html">&#31616;&#20307;&#20013;&#25991;</a>
+</div>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Frequently asked questions</a></h1>
+                <div class="entry">
+                    <h2>Table of Contents</h2>
+
+                    <h3>Installation &amp; Upgrade:</h3>
+                    <ul>
+                        <li><a href="#ovllostonupgrade">After upgrading TortoiseSVN, all my icon overlays have disappeared</a></li>
+                        <li><a href="#uninstallfirst">When upgrading TortoiseSVN, do I have to uninstall the existing version first?</a></li>
+                        <li><a href="#adminpriv">Do I need Admin privileges to install TortoiseSVN?</a></li>
+                        <li><a href="#installsubversion">Do I need to install Subversion before I can use TortoiseSVN?</a></li>
+                        <li><a href="#uninstall">How do I uninstall TortoiseSVN?</a></li>
+                        <li><a href="#msidisabled">MSI installation is disabled on my machine. Is there a .exe installer?</a></li>
+                        <li><a href="#whymsi">Why are you using MSI instead of an exe or no installer at all?</a></li>
+                        <li><a href="#installerror">The installer aborts with an error message</a></li>
+                        <li><a href="#nomenus">After installing, TortoiseSVN does not show up, no context menus are available</a></li>
+                        <li><a href="#nofilemenus">After installing, there is no TortoiseSVN context menu for files</a></li>
+                    </ul>
+
+                    <h3>Overlay icons:</h3>
+                    <ul>
+                        <li><a href="#ovlnotshowing">Why don't the icon overlays appear?</a></li>
+                        <li><a href="#ovlnotall">The overlay icons appear, but not all of them!</a></li>
+                        <li><a href="#ovlonlylocal">Why are the icons only visible on local and not on network drives?</a></li>
+                        <li><a href="#ovlsubst">Why are the overlay icons on SUBSTed drives messed up?</a></li>
+                        <li><a href="#ovlwrong">Why are the overlays showing the wrong status?</a></li>
+                        <li><a href="#ovlmessed">Why do the overlay icons sometimes change to random graphics?</a></li>
+                        <li><a href="#ovlremote">Why is there no overlay for 'update available' or 'locked by others'?</a></li>
+                    </ul>
+
+                    <h3>General questions:</h3>
+                    <ul>
+                        <li><a href="#hundredcpu">100% CPU, when I right-click on a file.</a></li>
+                        <li><a href="#repoonshare">Can I create a local repository on a network directory?</a></li>
+                        <li><a href="#reponoserver">Can I keep my repository on a network share instead of setting up a server?</a></li>
+                        <li><a href="#multiclients">Can I use different Subversion clients with the same working copy?</a></li>
+                        <li><a href="#eol">Can TortoiseSVN convert line breaks in text files on the fly?</a></li>
+                        <li><a href="#propconflict">How do I find out what the conflict is when it is in a directory's property list?</a></li>
+                        <li><a href="#getremovedfileback">I accidentally removed a file. How do I get it back?</a></li>
+                        <li><a href="#multiplemenus">I get multiple TortoiseSVN context menu entries when I right click on a link!</a></li>
+                        <li><a href="#sharedfiles">Is it possible to use 'Shared Files' like in Visual Source Safe?</a></li>
+                        <li><a href="#noserver">Is it possible to use TortoiseSVN without a server?</a></li>
+                        <li><a href="#username">Is there a way to send username &amp; password when using TortoiseProc?</a></li>
+                        <li><a href="#revisiongraph">How does the revision graph work?</a></li>
+                        <li><a href="#noauthor">Why is there no 'author' shown in the logs when I commit changes via svn+ssh?</a></li>
+                        <li><a href="#detectmodification">Why does TortoiseSVN not recognize that a file has been modified?</a></li>
+                        <li><a href="#commitremoved">When I remove a file it vanishes, how do I commit it?</a></li>
+                        <li><a href="#garbleddate">I get garbage text shown instead of dates, or a checkout/update even crashes!</a></li>
+                        <li><a href="#powerdesk">The explorer crashes on every right-click on a folder with PowerDesk installed.</a></li>
+                        <li><a href="#samba">Permission problems with working copies on a SAMBA share.</a></li>
+                        <li><a href="#slowbrowse">Browsing very slow in explorer and file/open dialog.</a></li>
+                        <li><a href="#bugtraq">The bugtraq: properties don't work for dialogs started from the repository browser.</a></li>
+                        <li><a href="#logcrash">Showing the log often crashes.</a></li>
+                        <li><a href="#incompleteupdate">When I update a working copy, new files are not added!</a></li>
+                        <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
+                        <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
+                        <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
+                        <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
+                        <li><a href="#useserf">How do I make GSSAPI authentication work?</a></li>
+                    </ul>
+
+                    <h3>How can I...</h3>
+                    <ul>
+                        <li><a href="#keywords">... add keyword information like author, revision, date and commit-time to my files?</a></li>
+                        <li><a href="#casechange">... change the case of a filename?</a></li>
+                        <li><a href="#editlog">... change the log message or author after committing?</a></li>
+                        <li><a href="#clearhistory">... clear the drop-down lists in TortoiseSVN?</a></li>
+                        <li><a href="#removerepo">... completely remove a repository from my computer?</a></li>
+                        <li><a href="#exportlog">... export the log out to a text file?</a></li>
+                        <li><a href="#subwcrev">... get the project revision number into my project?</a></li>
+                        <li><a href="#noautomerge">... prevent Subversion from doing automatic merges?</a></li>
+                        <li><a href="#currentrepo">... see what my current sandbox/repository is?</a></li>
+                        <li><a href="#silentinstall">... install TortoiseSVN silently/automatically?</a></li>
+                    </ul>
+
+                    <h3>Error messages</h3>
+                    <ul>
+                        <li><a href="#cantmove">Can't copy / move 'XXX.svn-base' to 'XXX.tmp': The system cannot find the file specified.</a></li>
+                        <li><a href="#cantmove">Can't open file 'XXX.svn-base': The system cannot find the file specified.</a></li>
+                        <li><a href="#cantmove2">Can't move '.svn/tmp/entries' to '.svn/entries': The file or directory is corrupted and unreadable.</a></li>
+                        <li><a href="#inuse">Can't open file 'XXX\nnn-n.txn\changes': The process cannot access the file because it is being used by another process</a></li>
+                        <li><a href="#alreadyexists">Failed to add 'XXX': object of the same name already exists</a></li>
+                        <li><a href="#four01">OPTIONS of '&lt;path&gt;': 401 Authorization Required &lt;url&gt;</a></li>
+                        <li><a href="#clientold">This client is too old to work with working copy 'XXX'</a></li>
+                        <li><a href="#wcoutofdate">Working copy is out-of-date</a></li>
+                        <li><a href="#standardout">Unable to write to Standard output</a></li>
+                        <li><a href="#four00">400 Bad Request</a></li>
+                        <li><a href="#four03">403 Forbidden</a></li>
+                        <li><a href="#four05">405 HTTP Method Not Allowed</a></li>
+                        <li><a href="#sshclosed">SSH connection closed unexpectedly.</a></li>
+                    </ul>
+                    <hr/>
+
+                    <div class="h2" id="installation-and-upgrade">
+                        <h2>Installation &amp; Upgrade:</h2>
+
+                        <div class="h3" id="uninstallfirst">
+                        <h3>When upgrading TortoiseSVN, do I have to uninstall the existing version first?</h3>
+                        <p>No. You can just install the new version over the old one. The installer will take
+                        care of uninstalling the old version first automatically. But you must reboot your
+                        computer after the installer finishes! Or at least you have to log off and log on again.</p>
+                        </div>
+
+                        <div class="h3" id="adminpriv">
+                        <h3>Do I need Admin privileges to install TortoiseSVN?</h3>
+                        <p>Yes, you need to have Admin privileges to install TortoiseSVN, or at least
+                        have the rights to install <em>with</em> Admin privileges.</p>
+                        <p>But after TortoiseSVN has been installed, you can use it without having
+                        Admin privileges.</p>
+                        </div>
+
+                        <div class="h3" id="installsubversion">
+                        <h3>Do I need to install Subversion before I can use TortoiseSVN?</h3>
+                        <p>No. TortoiseSVN comes with everything you need to access a repository.
+                        Only if you want to set up a server then you will need the Subversion package.</p>
+                        </div>
+
+                        <div class="h3" id="uninstall">
+                        <h3>How do I uninstall TortoiseSVN?</h3>
+                        <p>Simply uninstall from Add/Remove Programs in the Windows control panel.
+                        This does not affect your repositories or working copies at all.</p>
+                        </div>
+
+                        <div class="h3" id="msidisabled">
+                        <h3>MSI installation is disabled on my machine. Is there a .exe installer?</h3>
+                        <p>An exe installation file wouldn't help. If msi installation is really disabled
+                        on your machine, then you don't have ADMIN privileges either. And you would need
+                        those to install TortoiseSVN (shell extensions require ADMIN rights to install).
+                        But first make sure that msi installation is really disabled - that can only be
+                        if your domain administrator disabled it.</p>
+                        </div>
+
+                        <div class="h3" id="whymsi">
+                        <h3>Why are you using MSI instead of an exe or no installer at all?</h3>
+                        <p>There are several reasons why we use MSI as our installer instead of something else:</p>
+                        <ul>
+                            <li>It's open. Everybody can see what we're doing by using msi tools like Orca.</li>
+                            <li>It's easy to adjust an existing msi for your special needs if you like. There are tools with which you can edit an msi manually. You can't do that with an exe installer.</li>
+                            <li>It runs with SYSTEM privileges, not just as e.g. Administrator. That's important because TortoiseSVN is a shell extension which requires us to create and modify registry keys which aren't accessible to user accounts (this is especially important on Vista with UAC enabled).</li>
+                            <li>It's easy to distribute an msi to multiple computers/users in a domain via GPO's. All other installers would require a domain admin to first 'wrap' that installer inside an msi to do that.</li>
+                            <li>msi is the standard and recommended way of installing windows applications. It's even <strong>required</strong> now to get the "Certified for Vista" logo from Microsoft.</li>
+                            <li>There's a great open source tool for creating msi files: <a href="http://wix.sourceforge.net">WiX</a> which we use.</li>
+                            <li>msi takes care of reference counting of installed modules which prevents the so called <a href="http://en.wikipedia.org/wiki/DLL_hell">dll hell</a>.</li>
+                            <li>an installer is required since we have to <strong>register</strong> TortoiseSVN with the shell. A simple exe for you to run wouldn't work.</li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="installerror">
+                        <h3>The installer aborts with an error message</h3>
+                        <p>There are several reasons why the installation cannot succeed:</p>
+                        <ul>
+                            <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> This means you are trying to install the 64-bit version of TortoiseSVN on a normal 32-bit operating system. You need to download and use the correct msi file for your OS. For normal 32-bit OS, make sure the msi file does not have an <em>x64</em> in it.</li>
+                            <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em>Then the user SYSTEM doesn't have read/execution rights in the folder where the installer msi is located. Either move the msi file to another location or give the user SYSTEM read and execution rights.</li>
+                            <li><em>&quot;The windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
+                            <li><em>&quot;The system can not open the device of file specified&quot;</em>, followed usually by <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. This can happen if:
+                            <ul>
+                                <li>The installation does not have access to the Temp directory or if the default Temp directory of the machine is not clean or does not have enough space to run the setup.</li>
+                                <li>The installation is being run over a terminal Server via a mapped network drive.</li>
+                                <li>The installation is unable to create or write to the Installer directory in a Windows NT system environment.</li>
+                                <li>The temp folder and/or the msi file is encrypted/compressed</li>
+                            </ul>
+                                To solve this problem, clear the temp folder, move the installer msi file to your local harddrive where the user SYSTEM has full access rights. The following knowledge base articles may help:
+                            <ul>
+                                <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;220780">220780</a> OFF2000: Setup Error 2755 with Earlier Office Version Installed</li>
+                                <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;217714">217714</a> OFF2000: Setup Appears to Stop Responding, Followed by Internal Error 2336 or 2755</li>
+                                <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;254841">254841</a> OFF2000: Internal Error 2755, When You Try to Install from a Remote Windows Terminal Server Client</li>
+                                <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;305640">305640</a> PRJ2000: Internal Error 2381 or Internal Error 2755 When You Install Microsoft Project</li>
+                                <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;318080">318080</a> "The system cannot open the device or file specified" error message occurs when you try to install the .NET Framework</li>
+                            </ul>
+                            </li>
+                            <li><em>&quot;This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.</em> You need at least <a href="http://support.microsoft.com/kb/893803/">version 3 of the msi installer</a>.</li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="nomenus">
+                        <h3>After installing, TortoiseSVN does not show up, no context menus are available</h3>
+                        <p>Make sure you have installed the x64 version of TortoiseSVN if you're using XP or Vista 64-bit. Since the explorer on those OS versions is a 64-bit application, it can not load the 32-bit version of TortoiseSVN.</p>
+                        <p>You can still keep the 32-bit version of TortoiseSVN installed on those OS versions though: it will show up in the 32-bit applications file-open/save dialogs of those applications.</p>
+                        </div>
+
+                        <div class="h3" id="nofilemenus">
+                        <h3>After installing, there is no TortoiseSVN context menu for files</h3>
+                        <p>This problem may be caused by permission settings in registry. Try the following:</p>
+                        <ol>
+                            <li>Go to registry editor using regedit.</li>
+                            <li>Click on HKEY_CLASSES_ROOT/*/​shellex/ContextMenuH​andlers/TortoiseSVN</li>
+                            <li>Observe error message box saying access is denied.</li>
+                            <li>Right click on the key mentioned above, go to "Permissions"...</li>
+                            <li>In the permission dialog, click on "Advanced"</li>
+                            <li>Click on "Owner" tab, click on your account and click "Apply"</li>
+                            <li>OK the dialog, click on "Add..."</li>
+                            <li>Enter your account name in the text area and click "OK"</li>
+                            <li>OK the permission dialog.</li>
+                            <li>Click on HKEY_CLASSES_ROOT/*/​shellex/ContextMenuH​andlers/TortoiseSVN</li>
+                            <li>Check there is NO error message box.</li>
+                        </ol>
+                        <p>If you have problems with insufficient permissions to edit the registry you can work around it by downloading
+                        <a href="http://technet.microsoft.com/en-us/sysinternals/bb896649">SysInternals PsTools Suite</a> and launching regedit
+                        with the following command:</p>
+                        <code>PsExec.exe -i -d -s c:\windows\regedit.exe</code>
+                        </div>
+
+                    </div>
+
+                    <div class="h2" id="overlay-icons">
+                        <h2>Overlay icons</h2>
+
+                        <div class="h3" id="ovllostonupgrade">
+                        <h3>After upgrading TortoiseSVN, all my icon overlays have disappeared</h3>
+                        <p>This is a known issue with some upgrades, and in particular it has been reported for 1.6.8. If this happens to you, try doing a repair install (and reboot of course).</p>
+                        If that doesn't work try these other FAQ entries
+                        <ul>
+                            <li><a href="#ovlnotshowing">Why don't the icon overlays appear?</a></li>
+                            <li><a href="#ovlnotall">The overlay icons appear, but not all of them!</a></li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="ovlnotshowing">
+                        <h3>Why don't the icon overlays appear?</h3>
+                        <ul>
+                            <li>You rebooted your PC of course after the installation? If you haven't please do so now. TortoiseSVN is a windows Explorer Shell extension and will be loaded together with Explorer.</li>
+                            <li>Go to the settings of TSVN and activate the icon overlays for at least the fixed drives. The installer does this automatically for the <em>current</em> user (can't do it for other users...) but since you are using TSVN as a different user than you installed it you need to set this manually.</li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="ovlnotall">
+                        <h3>The overlay icons appear, but not all of them!</h3>
+                        <p>
+                        You may find that not all of these icons are used on your system. This is because
+                        the number of overlays allowed by Windows is limited to 15. Windows uses 4 of
+                        those, and the remaining 11 can be used by other applications. If you are also
+                        using TortoiseCVS, then there are not enough overlay slots available, so
+                        TortoiseSVN tries to be a "Good Citizen (TM)"? and limits its use of overlays
+                        to give other apps a chance.</p>
+                        <ul>
+                            <li>Normal, Modified and Conflicted are always loaded and visible.</li>
+                            <li>Deleted is loaded if possible, but falls back to Modified if there are not enough slots.</li>
+                            <li>ReadOnly is loaded if possible, but falls back to Normal if there are not enough slots.</li>
+                            <li>Locked is only loaded if there are less than 13 overlays already loaded. It falls back to Normal if there are not enough slots.</li>
+                            <li>Added is only loaded if there are less than 14 overlays already loaded. It falls back to Modified if there are not enough slots.</li>
+                        </ul>
+                        <p>You can check which other apps are using overlays by using regedit to look at
+                        <code>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</code>
+                        </p>
+                        Other apps which are known to use overlays:
+                        <ul>
+                            <li>Windows itself. Vista and Win7 use more than XP.</li>
+                            <li>Other Tortoise clients like TCVS. Newer versions of these used a shared icon set, TortoiseOverlays.dll, but you should check what your version uses.</li>
+                            <li>Dropbox</li>
+                            <li>Microsoft Groove (part of Office 2007/2010)</li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="ovlonlylocal">
+                        <h3>Why are the icons only visible on local and not on network drives?</h3>
+                        <p>Go to the Settings -> Look and Feel -> Icon Overlays and check the drive
+                        types for which you want to see overlay icons. Be aware that enabling overlays
+                        for network drives will <strong>slow down</strong> not only TortoiseSVN but the whole system.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="ovlsubst">
+                        <h3>Why are the overlay icons on SUBSTed drives messed up?</h3>
+                        <p>If your working copy is on a SUBST drive the icons might be mixed up.</p>
+                        <p>The problem arises because the cache tries to fetch the status for two "different"
+                        locations at the same time, but those locations are actually the same so there
+                        are two status fetchings for the same working copy at the same time.</p>
+                        <p>There is an easy way to solve this: just exclude the original path from
+                        showing overlays (settings->icon overlays->exclude paths).</p>
+                        <p>For example, if you have mapped \\station\folder\wc to g: then put "\\station\folder\wc*" as the exclude pattern.</p>
+                        <p>Another way to make the overlays work is to set the "Status cache" setting from "Default" to "Shell".</p>
+                        </div>
+
+                        <div class="h3" id="ovlwrong">
+                        <h3>Why are the overlays showing the wrong status?</h3>
+                        <p>Sometimes you find that the overlays don't reflect the real status of files
+                        and/or folders. Usually, hitting the F5 key is enough to make the overlays appear
+                        correctly (you might have to wait a few seconds until the cache has fetched the
+                        status again).</p>
+                        <p>The treeview on the left side of the explorer is a whole other story. It won't
+                        update the overlays, no matter how many times you hit the F5 key. That's a problem
+                        with the explorer and outside of TortoiseSVN's reach.</p>
+                        <p>A short explanation: The treeview always shows the whole explorer tree,
+                        including network drives and other namespace extensions. Since these can be very
+                        slow (e.g. slow network drives), the explorer tree doesn't ask the overlay
+                        extensions for updated overlays all the time. Even if you tell the explorer
+                        that a folder has changed and it should update the overlays accordingly, it
+                        doesn't do so. It first checks itself if the folder really has changed and only
+                        updates the overlays if it thinks the folder really has changed.</p>
+                        <p>Now, since the Subversion status of a folder has nothing to do with the folder
+                        itself, the folder itself never really changes (only some file inside the .svn folder,
+                        but not the folder itself), explorer therefore doesn't update the overlays.</p>
+                        <p>There are some tricks and workarounds to make the explorer refresh the overlays
+                        even on the left treeview, but those are tricks and workarounds, which
+                        obviously don't work all the time.</p>
+                        <p>There's one trick that usually works, but it is slow and TortoiseSVN can't
+                        use that trick on-the-fly - it just would slow down the system too much. But you
+                        can trigger that trick manually by executing the 'cleanup' command on the root of
+                        your working copy. After the cleanup command has finished, you have to wait a
+                        few seconds for the treeview to update the overlay icons.</p>
+                        </div>
+
+                        <div class="h3" id="ovlmessed">
+                        <h3>Why do the overlay icons sometimes change to random graphics?</h3>
+                        <p>
+                        The Windows icon cache is a fairly buggy creature. You can solve this in one of the following ways:</p>
+                        <ul>
+                            <li>Install Microsoft's <a href="http://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> and run the option to rebuild icons.</li>
+                            <li>Or increase the icon cache size. Go to <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> and add a new String Value called <code>Max Cached Icons</code>. The default value is 500 - try increasing it to 2048 (see <a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a> in the Microsoft knowledge base for more details). </li>
+                            <li>Or delete the file called ShellIconCache in your Windows directory. And reboot.</li>
+                            <li>With TortoiseSVN 1.3.0 and later, you can also rebuild the icon cache by calling TortoiseProc from the command line like this <code>TortoiseProc.exe /command:rebuildiconcache</code></li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="ovlremote">
+                        <h3>Why is there no overlay for 'update available' or 'locked by others'?</h3>
+                        <p>
+                        To show such an overlay, TortoiseSVN would have to contact the repository every time the overlay is shown.
+                        That would make explorer impossibly slow. Servers often take several seconds to respond,
+                        sometimes minutes - do you really want explorer to hang while that takes place,
+                        every time you open a versioned folder?</p>
+                        <p>A fundamental design feature of TortoiseSVN is that the repository is never
+                        contacted except when explicitly requested by one of the context menu items.
+                        Even with that restriction, it is still hard work maintaining a fast response.</p>
+                        <p>If you want to see which users have files locked in their working copies or which files need updating,
+                        use the Check for Modifications dialog and click on the Check repository button.</p>
+                        </div>
+                    </div>
+
+                    <div class="h2" id="general-questions">
+                        <h2>Overlay icons</h2>
+                        <p/>
+
+                        <div class="h3" id="hundredcpu">
+                        <h3>100% CPU, when I right-click on a file.</h3>
+                        <p>Every time I right click on a file, the CPU goes to 100% (whilst the right click
+                        menu is displayed.) If I select something from the menu, CPU goes back to normal.
+                        If I right click on 'nothing' then the CPU is OK. What is happening?</p>
+                        <p>XP contains a known bug that causes the CPU usage to spike to 100 percent when
+                        you access the context menu under certain configurations. This bug causes
+                        file-copy operations to halt, network connections to slow, and streaming media
+                        (e.g., audio, video) to become distorted. To work around this bug, you need to
+                        disable the GUI's transition effects by performing the following steps:</p>
+                        <ol>
+                            <li>Start the Control Panel Display applet.</li>
+                            <li>Select the Appearance tab.</li>
+                            <li>Click Effects, then clear the "Use the following transition effect for menus and tooltips" check box.</li>
+                            <li>Click OK to close all dialog boxes.</li>
+                        </ol>
+                        <p>
+                        Another solution that often works is to left-click the file or folder before right-clicking to display the context menu.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="repoonshare">
+                        <h3>Can I create a local repository on a network directory?</h3>
+                        <p><strong>Do not create a Berkeley DB repository on a network share!</strong></p>
+                        <p>A BDB repository <em>cannot</em> exist on a remote filesystem such as NFS, AFS, or Windows SMB.
+                        Berkeley DB requires that the underlying filesystem implement strict POSIX locking
+                        semantics, and more importantly, the ability to map files directly into process
+                        memory. Almost no network filesystems provide these features. If you attempt to
+                        use Berkeley DB on a network share, the results are unpredictable. You may see
+                        mysterious errors right away, or it may be months before you discover that your
+                        repository database is subtly corrupted.</p>
+                        <p>You can use an FSFS repository on a network share, but only as a single user
+                        as you would use a local hard drive. The next FAQ item explains why sharing a repository
+                        in this way is a Bad Idea (TM). Unless you have really pressing reasons to keep your
+                        repository on a network share it is generally best to avoid doing so.</p>
+                        <p>If you <em>really</em> need to access an FSFS repository on a network share you
+                        should do one of the following:</p>
+                        <ol>
+                            <li>Use drive mapping using the syntax below:
+                                <dl>
+                                <dt>Map //server/shared to S:</dt>
+                                <dd><strong>file:///S:/repos</strong> (3 leading slashes before drive letter)</dd>
+                                </dl>
+                            </li>
+                            <li>Specify a UNC path directly using the syntax below:
+                                <dl>
+                                <dt>Subversion &gt;= 1.2</dt>
+                                <dd><strong>file://server/shared/repos</strong> (2 leading slashes)</dd>
+                                <dt>Subversion &lt; 1.2 (strange syntax, we know)</dt>
+                                <dd><strong>file://///server/shared/repos</strong> (5 leading slashes)</dd>
+                                <dd><strong>file:///\server/shared/repos</strong> (3 slashes + backslash)</dd>
+                                </dl>
+                            </li>
+                        </ol>
+                        <p>But don't say we didn't warn you...</p>
+                        </div>
+
+                        <div class="h3" id="reponoserver">
+                        <h3>Can I keep my repository on a network share instead of setting up a server?</h3>
+                        <p>If you need multiple computers to access the repository, you can in theory create
+                        an FSFS repository (<strong>but not a BDB repository</strong>) on a network share
+                        and access it using file:// protocol.
+                        In practice this is <strong>not</strong> recommended for four very good reasons:</p>
+                        <ol>
+                            <li>You are giving direct write access to all users, so they could accidentally
+                            delete or corrupt the repository file system.</li>
+                            <li>Not all network file sharing protocols support the locking that Subversion requires.
+                            One day you will find your repository has been subtly corrupted.</li>
+                            <li>You have to set the access permissions in just the right way.
+                            SAMBA is particularly difficult in this respect.</li>
+                            <li>If one person installs a newer version of the client which upgrades the repository
+                            format, then everyone else will be unable to access the repository until they also
+                            upgrade to the new client version.</li>
+                        </ol>
+                        <p>By far the best way is to set up a real server process (such as Apache or svnserve),
+                        store the repository on a local filesystem which the server can access, and make the
+                        repository server available over a network. It is easier than you might think.
+                        <a title="Chapter 6. Server Configuration" href="http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html">Chapter 6, Server Configuration</a> in the Subversion Book covers this process in detail.</p>
+                        </div>
+
+                        <div class="h3" id="multiclients">
+                        <h3>Can I use different Subversion clients with the same working copy?</h3>
+                        <p>Yes, you can change from one client to another whenever you want. The clients
+                        just control your working copy and the interaction between your working copy and
+                        the repository. The metadata inside the working copies used by the different
+                        clients is identical.</p>
+                        <p>But you can only use different clients if they all use the same version of
+                        the Subversion library. The version of the Subversion library that TortoiseSVN uses
+                        is indicated in the filename of the installer, other clients have similar indications.
+                        You have to make sure that those versions match each other in the first two digits.
+                        For example, all clients using Subversion 1.6.x can be used together (the 'x' indicates
+                        that this number is not relevant for compatibility).</p>
+                        <p>You must also be sure that all the clients are built for the same OS.
+                        Client compatibility is only guaranteed for a particular OS type and metadata
+                        representations may differ. You must <em>not</em> use a native Windows client and
+                        the Cygwin client on the same working copy. And if you share a working copy over a
+                        network you must <em>not</em> use a Linux and a Windows client on the same working
+                        copy.</p>
+                        </div>
+
+                        <div class="h3" id="eol">
+                        <h3>Can TortoiseSVN convert line breaks in text files on the fly?</h3>
+                        <p>
+                        Check the subversion book about the svn:eol-style property <a title="svn:eol-style" href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">here</a>.
+                        If you set that property to e.g. 'native', then the file will have LF line-endings on Linux, but CRLF line-endings on Windows.
+                        To see how you can set those properties with TortoiseSVN, read our docs <a title="setting properties" href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="propconflict">
+                        <h3>How do I find out what the conflict is when it is in a directory's property list?</h3>
+                        <p>
+                        Inside the folder with the conflicting properties, you'll find a file called
+                        <code>dir_conflicts.prej</code>. Open that file in a text editor and you will
+                        see the conflicting properties. Choose the one you want to keep and overwrite
+                        the conflicting property with that one.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="getremovedfileback">
+                        <h3>I accidentally removed a file. How do I get it back?</h3>
+                        <p>If you haven't committed your changes yet, you can do a <cite>revert</cite>
+                        on the parent folder where you deleted the file or directory.</p>
+                        <p>If you have already committed the deleted file, then you can use the repository
+                        browser, change to the revision where the file still existed and then use the
+                        command <cite>Copy to...</cite> from the context menu. Enter the path to your
+                        working copy as the target and the deleted file will be copied from the
+                        repository to your working copy.</p>
+                        <p>You can also restore a deleted directory using this technique.</p>
+                        <p>If, after the file / folder has been restored using this trick, the log
+                        dialog doesn't show you the history of that file, don't worry. The history is
+                        still there. If you copy a file in SVN you copy its history too. But the default
+                        setting in TSVN's ShowLog is to 'Stop on copy', which means that when you look
+                        at the history, it only goes back to the branch point. The reason for this is
+                        that when you are looking at a real branch of a project, mostly you only want to
+                        see the history of that branch. To see the whole history in ShowLog you need to
+                        unselect the 'Stop on copy' checkbox and click on 'Get All'.</p>
+                        </div>
+
+                        <div class="h3" id="multiplemenus">
+                        <h3>I get multiple TortoiseSVN context menu entries when I right click on a link!</h3>
+                        <p>
+                        This is by design. One entry is for the link itself (the .lnk-file), the other
+                        for the target the link points to. This way a link can both be versioned and in
+                        the same time work as a link should by allowing operations on its target.
+                        In fact, you can have up to three entries in the file menu (the context menu
+                        will show only two).</p>
+                        </div>
+
+                        <div class="h3" id="sharedfiles">
+                        <h3>Is it possible to use 'Shared Files' like in Visual Source Safe?</h3>
+                        <p>
+                        Yes, but with some limitations. You can use "File Externals" to pull in single files from a different
+                        part of the same repository as your working copy, but not from a foreign repository.
+                        You can also share folders, and these can be from any repository. Please
+                        look at the chapter <a href="http://svnbook.red-bean.com/en/1.7/svn.advanced.externals.html">External Definitions</a>
+                        in the <a href="http://svnbook.red-bean.com/">Subversion Book</a>.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="noserver">
+                        <h3>Is it possible to use TortoiseSVN without a server?</h3>
+                        <p>Yes, it is. You can use the file:// protocol to access your repository locally.
+                        However we strongly recommend that you do this only for testing. For a more
+                        detailed explanation please refer to <a href="#reponoserver">this FAQ entry</a>.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="username">
+                        <h3>Is there a way to send username &amp; password when using TortoiseProc?</h3>
+                        <p>TortoiseSVN is a GUI client, therefore it will ask you for username and
+                        password in case it's needed. If you want to automate access to your repository
+                        without user interaction (i.e. without having to enter username and password
+                        if needed), use the command line client.</p>
+                        </div>
+
+                        <div class="h3" id="revisiongraph">
+                        <h3>How does the revision graph work?</h3>
+                        <p>The revision graph is a little bit special, it's not like the other features
+                        found in TortoiseSVN. It shows a graph of a file or folder through the history
+                        with all the revision where the file or folder was copied, moved, branched or
+                        tagged.</p>
+                        <p>We often get people asking questions why it needs to get the log for the
+                        repository root, or why it needs to get the full log from the HEAD revision
+                        back down to the first revision.</p>
+                        <p>Just to make this clear: this is not because we're lazy programmers, it really is necessary.</p>
+                        <p>The revision graph shows the history of a selected file or folder by finding
+                        all revisions where the selected item was copied. And the graph has to do that
+                        by using the information that is available.</p>
+                        <p>If you look at the log messages for your selected file or folder, you can see
+                        in the lower pane of the log dialog all affected paths of the selected revision.
+                        That information is what we use for the revision graph. You will also notice that
+                        if you just show the log for e.g. /trunk, you won't see any entries in the log
+                        dialog for revisions which happened in a tag or branch. You won't even see an
+                        entry where you tagged or branched /trunk itself in that log.
+                        --> that's why we must fetch the log for the repository root: only the log of
+                        the repository root will give us all the information we need, including when
+                        and where a path has been copied/branched/tagged/moved to.</p>
+                        <p>If we would only fetch the log for a specific range and not all revisions,
+                        we could miss the revision where (still using the example above with /trunk)
+                        the trunk was branched or tagged. And even though there are changes to those
+                        branches and tags or they still exist in the revision range, the graph could
+                        not know that those branches/tags were made from /trunk and not from some other
+                        path. That means, the graph would not just be incomplete, it would be wrong.</p>
+                        <p>And no: we will never change that. Because there's nothing worse than a
+                        graph that's only sometimes correct - you would never know when and if it is
+                        correct, which means it would be worse than useless.</p>
+                        </div>
+
+                        <div class="h3" id="noauthor">
+                        <h3>Why is there no 'author' shown in the logs when I commit changes via svn+ssh?</h3>
+                        <p>Since SSH completely takes care of the authentication process, Subversion
+                        won't even see the author who does the commit. So to tell Subversion an author
+                        you have to specify the author in the URL itself. E.g.
+                        svn+ssh://username@server.com. You should do that when you check out your working copy.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="detectmodification">
+                        <h3>Why does TortoiseSVN not recognize that a file has been modified?</h3>
+                        <p>If you have modified a file, but TortoiseSVN does not recognize that the
+                        file has been modified, please first check whether the file really differs from
+                        what you have in your working copy.</p>
+                        <p>If you know for sure that the file has modifications and it still does not
+                        show up as modified in the commit dialog, make sure that</p>
+                        <ul>
+                            <li>the file 'last modification' date has changed (some tools like hex editors like to reset that time)</li>
+                            <li>if the svn:eol-style property is set and the changes are only to newlines, the file won't show up as modified because for Subversion it hasn't changed</li>
+                        </ul>
+                        <p>Subversion determines whether a file has changed with the following approach:</p>
+                        <ol>
+                            <li>has the 'last modification' date  and/or the file size changed?</li>
+                            <li>if not: file is not modified</li>
+                            <li>if yes: compare file content with the BASE file</li>
+                            <li>stop at the first byte that differs, mark the file as modified</li>
+                            <li>if no byte differs regarding to BASE, mark the file as not-modified</li>
+                        </ol>
+                        </div>
+
+                        <div class="h3" id="commitremoved">
+                        <h3>When I remove a file it vanishes, how do I commit it?</h3>
+                        <p>Easy, you commit the whole directory! <cite>Right-click</cite> in the Explorer
+                        window next to the file, and choose <cite>commit</cite>. The commit dialog will
+                        show you every modification as well as added or deleted files.</p>
+                        </div>
+
+                        <div class="h3" id="garbleddate">
+                        <h3>I get garbage text shown instead of dates, or a checkout/update even crashes!</h3>
+                        <p>This usually happens after installing XP SP3. To fix this problem, do the following:</p>
+                        <ol>
+                            <li>Download tzedit.exe from <a href="http://support.microsoft.com/kb/914387">http://support.microsoft.com/kb/914387</a></li>
+                            <li>Start tzedit.exe</li>
+                            <li>Select your time zone from the list (Since all crash reports I got indicated they were from the "Jerusalem" time zone, I assume you'd have to select that)</li>
+                            <li>click "Edit"</li>
+                            <li>click "Ok"</li>
+                        </ol>
+                        </div>
+
+                        <div class="h3" id="powerdesk">
+                        <h3>The explorer crashes on every right-click on a folder with PowerDesk installed.</h3>
+                        <p>This is a bug in PowerDesk. You have to install a patch from their website to fix
+                        this issue. Go to
+                        <a href="http://kb.avanquestusa.com/">http://kb.avanquestusa.com</a> and then search for
+                        the article named "PowerDesk crashes when right-clicking on some files and folders".
+                        </p>
+                        </div>
+
+                        <div class="h3" id="samba">
+                        <h3>Permission problems with working copies on a SAMBA share.</h3>
+                        <p>After upgrading to TortoiseSVN 1.5.x or later, you get a lot of "Access denied" errors for most
+                        of the Subversion commands if your working copy is stored on a SAMBA share.</p>
+                        <p>Some users reported that the problem went away after they upgraded SAMBA to the latest version.
+                        If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:</p>
+                        <pre>
+[global]
+<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DELETEREADONLY">delete readonly</a> = yes</pre>
+                        For older versions, try:
+                        <pre>
+[global]
+create mask = 0644
+<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#FORCECREATEMODE">force create mode</a> = 0600
+security mask = 0555
+force security mode = 0600</pre>
+
+                        <p>The information we have received suggests that the main problem is fixed in SAMBA 3.2.3.
+                        There is a supplementary problem with making files with the svn:needs-lock property read-only.
+                        This is reported to be fixed in SAMBA 3.2.6 or 3.3.0.</p>
+                        </div>
+
+                        <div class="h3" id="slowbrowse">
+                        <h3>Browsing very slow in explorer and file/open dialog.</h3>
+                        <p>If you have mapped network drives which are not resolved, either because the drive
+                        is inaccessible, or you have not logged in, file browsing may become unresponsive
+                        while Windows tries unsuccessfully to access the drive. Either unmap the drive or
+                        ensure that it can be accessed.</p>
+                        </div>
+
+                        <div class="h3" id="bugtraq">
+                        <h3>The bugtraq: properties don't work for dialogs started from the repository browser.</h3>
+                        <p>This is by design. The repository browser does not read the properties, because that is a
+                        very slow operation if done remotely. It's only fast enough when read from a local working copy.</p>
+                        <p>If TortoiseSVN would read those properties directly from the repository, it could take several seconds
+                        (even minutes!) to fetch them.</p>
+                        </div>
+
+                        <div class="h3" id="logcrash">
+                        <h3>Showing the log often crashes.</h3>
+                        <p>The log cache relies on all repositories having different uuids. A detailed
+                        explanation about why and what you can do about this is here:
+                        <a href="logcacheuuids.html">http://tortoisesvn.net/logcacheuuids.html</a>.</p>
+                        <p>We're aware that many Subversion hosting companies made the mistake of not
+                        creating new repositories for customers but simply copied a template repository.
+                        If you're using such a hoster, please tell <strong>them</strong> to fix this problem.</p>
+                        </div>
+
+                        <div class="h3" id="incompleteupdate">
+                        <h3>When I update a working copy, new files are not added!</h3>
+                        <p>Between TortoiseSVN 1.6.0 and 1.6.1, added folders were added with a depth
+                        of "Only this item". This lead to a so called "sparse checkout" of that part
+                        of your working copy.</p>
+                        <p>Please update to the latest version of TortoiseSVN to avoid such problems
+                        in the future.</p>
+                        <p>To fix your sparse working copy, instead of "Update", use the
+                        "Update to revision..." command from the TortoiseSVN submenu (right-click in
+                        explorer), change the "Update depth" combobox to "Fully recursive".</p>
+                        </div>
+
+                        <div class="h3" id="releases">
+                        <h3>I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't have this implemented/fixed?</h3>
+                        <p>Our release policy is to never introduce new features or resource changes on the stable branch. We work on the trunk,
+                        where we fix bugs, introduce new features or change the behavior of features. Only important bugfixes are merged back
+                        to the stable branch, and the stable branch is where we create our releases from.</p>
+                        <p>We have this policy to prevent getting new bugs into the stable branch. After all, it's called the <em>stable</em> branch.</p>
+                        <p>Your requested feature/reported bug, even though it is fixed/implemented on trunk was not merged back to
+                        the stable branch due to this policy. That's why you don't see the change in the latest release.</p>
+                        </div>
+
+                        <div class="h3" id="eclipse">
+                        <h3>TortoiseSVN does not work well with Eclipse</h3>
+                        <p>Eclipse copies directories as part of its normal operation, and in a subversion working copy it will copy the .svn directory as well. This causes TortoiseSVN to think that there are versioned files in the bin directory.</p>
+                        <p>If you want to keep using TortoiseSVN and just prevent this from happening, you need to add '**/.svn/' to Eclipse's source exclude list.</p>
+                        <p>But Eclipse has its very own subversion plugin called Subclipse, which makes Eclipse SVN-aware and fixes the problem at source. You can find it at
+                        <a href="http://subclipse.tigris.org/">http://subclipse.tigris.org/</a>.
+                        After you install Subclipse you need to make a fresh checkout. It will not fix checkouts that were made before it was installed.</p>
+                        </div>
+
+                        <div class="h3" id="iesecurity">
+                        <h3>Security warnings when uploading files in IE</h3>
+                        <p>When you select files to upload using a web form in Internet Explorer,
+                        you may get security warnings saying that a program is trying to open web content,
+                        identifying TortoiseSVN as the culprit.</p>
+                        <p>Don't panic! This is a (mis) feature of the IE security model. Since
+                        TortoiseSVN is a shell extension it loads automatically whenever a file-open
+                        dialog is created, in order to provide the icon overlays and context menus.</p>
+                        There are two ways to stop the warnings:
+                        <ol>
+                        <li>In TortoiseSVN's settings go to the Icon Overlay section and check the box
+                        <em>Show overlays and context menu only in Explorer</em>.</li>
+                        <li>When the warning appears, check the box marked
+                        <em>never show for this application again</em>.</li>
+                        </ol>
+                        </div>
+
+                        <div class="h3" id="smartcard">
+                        <h3>Repeated dialogs to insert smart card</h3>
+                        <p>If you're using a smart card software, you might get a dialog
+                        asking you to insert your smart card every time TortoiseSVN
+                        tries to connect to a repository.</p>
+                        <p>Unfortunately some smart card vendors consider this not a bug
+                        but a feature, even though it doesn't server any purpose other than
+                        annoying users.</p>
+                        <p>To prevent TortoiseSVN from trying to access the Windows cert store
+                        in case a certificate is requested by the repository, create the
+                        registry key <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em> as a DWORD
+                        and set its value to <em>0</em>.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="useserf">
+                        <h3>How do I make GSSAPI authentication work?</h3>
+                        <p>The 'neon' http library, which is the default for a TortoiseSVN installation,
+                        has problems with GSSAPI, but the 'serf' library should work. TSVN is linked with
+                        both of those DAV libraries, you can configure which one to use in the subversion
+                        server file. Go to TSVN->Settings->Network->Subversion server file->Edit.</p>
+                        <ol>
+                            <li>In TortoiseSVN->Settings->Network->Subversion server file, click on the edit button.</li>
+                            <li>At the bottom of the file change the [global] section by editing the http-library
+                            entry (or adding it if it is missing)
+                            <pre>
+[global]
+http-library = serf</pre>
+                            </li>
+                        </ol>
+                        Note that this change will affect all Subversion clients on your PC.
+                        </div>
+
+                    </div>
+
+                    <div class="h2" id="how-can-i">
+                        <h2>How can I...</h2>
+                        <p/>
+
+                        <div class="h3" id="keywords">
+                        <h3>... add keyword information like author, revision, date and commit-time to my files?</h3>
+                        <p>Read about the Subversion property
+                        <a href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html">svn:keywords</a>
+                        in the Subversion book.</p>
+                        <p>With TortoiseSVN, set the properties as described
+                        <a href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.</p>
+                        </div>
+
+                        <div class="h3" id="casechange">
+                        <h3>... change the case of a filename?</h3>
+                        <p>Subversion is designed to work with case-sensitive file systems such as are
+                        used on Linux. When it comes to the Windows case-insensitive file system, things
+                        do not always run as you might expect. A case in point is renaming a file where
+                        only the case changes, e.g. renaming Makefile to MAKEFILE. Prior to Subversion 1.7 you could not do this
+                        easily within your working copy as Subversion required both names to exist
+                        simultaneously for a short time, and Windows cannot support this.</p>
+                        <p>By far the easiest way is to rename directly using the repository browser:</p>
+                        <ol>
+                            <li>Commit the changes in your working copy.</li>
+                            <li>Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser.</li>
+                            <li>Update your working copy.</li>
+                        </ol>
+                        <p>As of Subversion 1.7 this is no longer a problem as the whole working copy structure was changed,
+                        so files can simply be renamed using the normal TSVN->Rename command.</p>
+                        </div>
+
+                        <div class="h3" id="editlog">
+                        <h3>... change the log message or author after committing?</h3>
+                        <p>Call up the log dialog and do a <cite>Right-Click</cite> on the revision
+                        you want to edit. Then select "change author" or "change log message" from
+                        the context menu. To make the server accept these changes, a
+                        <cite>pre-revprop-change</cite> hook, that allows to change author or
+                        message, has to be installed for the repository. The default installation
+                        rejects changes to author and log message.</p>
+                        </div>
+
+                        <div class="h3" id="clearhistory">
+                        <h3>... clear the drop-down lists in TortoiseSVN?</h3>
+                        <p>You can clear all the stored data from the settings dialog of TortoiseSVN.
+                        Just click on the corresponding button.</p>
+                        <p>Single items can be permanently removed from drop-down lists by pressing Shift-Delete.</p>
+                        </div>
+
+                        <div class="h3" id="removerepo">
+                        <h3>... completely remove a repository from my computer?</h3>
+                        <p>Aehemm: select the folder and hit 'delete' (the key on your keyboard may be labelled only 'del').</p>
+                        <p>Seriously, there are no hidden files or settings. The repository is completely
+                        contained in one folder tree.</p>
+                        <p>The same applies to working copies. If you send a working copy to the recycle
+                        bin it can seriously slow down future deletes because of the large number of
+                        small files. You may want to empty the recycle bin soon after.</p>
+                        </div>
+
+                        <div class="h3" id="exportlog">
+                        <h3>... export the log out to a text file?</h3>
+                        <p>Use the log dialog. Select all the entries you want and press Ctrl-C. Then
+                        use Ctrl-V (or paste) in your favourite text editor.</p>
+                        <p>If you want to process the log messages automatically or you need them in
+                        xml format, you can use the command line client for that.</p>
+                        </div>
+
+                        <div class="h3" id="subwcrev">
+                        <h3>... get the project revision number into my project?</h3>
+                        <p>If you want the revision number in your program version number,  you need an
+                        additional tool to do that. You can find the tool <cite>SubWCRev.exe</cite> on
+                        the download page on our website or in your TortoiseSVN Folder under <cite>bin</cite>.</p>
+                        <p>This tool traverses your whole working copy for the most recent revision.
+                        Once that revision is found, it replaces all occurrences of the following strings:</p>
+                        <dl>
+                            <dt>$WCREV$</dt>
+                            <dd>This string will be replaced by the revision number of your working copy.</dd>
+                            <dt>WCMODS?Modified:Not modified$</dt>
+                            <dd>If you have local modifications, the string between question mark and colon will be inserted. If you have no local modifications, the string between colon and dollar sign will be inserted. In our example above <cite>Modified</cite> or <cite>Not modified</cite>.
+                            </dd>
+                            <dt>$WCDATE$</dt>
+                            <dd>Will be replaced by the date of the highest revision in your working copy.</dd>
+                        </dl>
+                        <p>As an example, have a look at the file <cite>version.in</cite> in the
+                        <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/version.in">TortoiseSVN source tree</a>.
+                        This file is used in TortoiseSVN and its resource files. The SubWCRev.exe tool
+                        is called from the build script like this:
+                        <code>SubWCRev.exe path\\to\\working\\copy version.in version.h</code>
+                        This creates a new file <cite>version.h</cite> with all the strings above
+                        replaced with the values of the working copy. The <cite>version.h</cite> file
+                        is then used in the project itself and included in the resource files for the
+                        version information.</p>
+                        </div>
+
+                        <div class="h3" id="noautomerge">
+                        <h3>... prevent Subversion from doing automatic merges?</h3>
+                        <p>Some people don't like the fact that Subversion merges changes from others
+                        with their own local working copy changes automatically on update. Here's how to
+                        force those files into a conflicted state so you can merge manually at your
+                        convenience.</p>
+                        <ol>
+                            <li>In TortoiseSVN->Settings->Subversion configuration file, click on the edit button.</li>
+                            <li>Change the [helpers] section by adding
+                            diff-cmd = "C:\\false.bat"
+                            diff3-cmd = "C:\\false.bat"
+                            (note the double backslash)</li>
+                            <li>Create the file C:\false.bat which contains two lines
+                            <pre>
+@type %9
+@exit 1</pre>
+                            </li>
+                        </ol>
+                        <p>This effectively makes auto-merge fail every time, forcing the file into conflict.</p>
+                        <p>The reason for the curious 'type %9' line is that the diff3-cmd sends the
+                        merged output to stdout. Subversion then takes this and overwrites your local
+                        file with the merge results. Adding this line avoids getting an empty local file.</p>
+                        </div>
+
+                        <div class="h3" id="currentrepo">
+                        <h3>... see what my current sandbox/repository is?</h3>
+                        <p>Right-click on the folder in your working copy, choose "Properties" from the
+                        explorer context menu. Then, in the properties dialog, switch to the "Subversion"
+                        tab. There you can see all sorts of information about the selected folder,
+                        including to what URL it points to.</p>
+                        <p>Another quick way of seeing this information is to select "Relocate" from the
+                        context menu and look at the first URL. Since you don't want to relocate your WC,
+                        just abort this dialog.</p>
+                        </div>
+
+                        <div class="h3" id="silentinstall">
+                        <h3>... install TortoiseSVN silently/automatically?</h3>
+                        <p>Just start the msi installer like this:</p>
+                        <code>msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"</code>
+                        </div>
+                    </div>
+
+                    <div class="h2" id="error-messages">
+                        <h2>Error messages</h2>
+                        <p/>
+
+                        <div class="h3" id="cantmove">
+                        <h3>Can't copy / move 'XXX.svn-base' to 'XXX.tmp': The system cannot find the file specified.</h3>
+                        <p>This error message typically occurs when you try to update your working copy. The reason for this error is either:</p>
+                        <ul>
+                            <li>There are actually 2 different files in the repository whose names differ
+                            only in case. This <em>cannot</em> work on a Windows checkout,
+                            because the Windows file system is not case-sensitive. It is likely that one of
+                            the files got added by mistake, so you need to find out which one, make sure
+                            there are no changes committed to the wrong file, then delete it.</li>
+                            <li>There is a file with an illegal (illegal on Windows) filename. For example
+                            names like "con", "lpr", "com", etc. are illegal on Windows because those are
+                            device names. And of course names with "/\*?:|" and some other special chars
+                            in them are also not possible on Windows (NTFS and FAT).</li>
+                        </ul>
+                        <p>And yes, we know the error message isn't really helpful in this case. But the
+                        error message comes from the Subversion library, which we can't change on our own.</p>
+                        <p>There are several ways to solve the problem and to prevent it from happening
+                        again. Take a look at these <a href="#casechange">instructions</a>.</p>
+                        </div>
+
+                        <div class="h3" id="cantmove2">
+                        <h3>Can't move '.svn/tmp/entries' to '.svn/entries': The file or directory is corrupted and unreadable.</h3>
+                        <p>This error message typically occurs when you try to update or commit your working copy,
+                        and seems to be common on Windows 7 systems.
+                        It is due to another process holding a handle on a file that Subversion needs
+                        to move or modify. This might be a virus scanner. Configure the virus scanner
+                        so that your working copies and repositories are excluded from being scanned.</p>
+                        <p>
+                        Note: there's a bug in Win7 which causes this error message to appear a lot more
+                        than necessary. The bug is fixed with service pack 1.
+                        See <a href="http://social.technet.microsoft.com/Forums/en/w7itprogeneral/thread/df935a52-a0a9-4f67-ac82-bc39e0585148">this post</a> for details.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="inuse">
+                        <h3>Can't open file 'XXX\nnn-n.txn\changes': The process cannot access the file because it is being used by another process</h3>
+                        <p>People who report this error often state that it happens randomly, and often
+                        part way through a large commit. Retrying the commit may succeed or it may
+                        fail at a different point.</p>
+                        <p>The most likely cause is a virus scanner holding a file handle open when
+                        it shouldn't. Try disabling the scanner, or get it to ignore your repository.</p>
+                        <p>Similar errors can occur in your working copy. Try ignoring the .svn folder there.</p>
+                        </div>
+
+                        <div class="h3" id="alreadyexists">
+                        <h3>Failed to add 'XXX': object of the same name already exists</h3>
+                        <p>This error message typically occurs when you try to update your working copy.
+                        It is thrown because Subversion never deletes or overwrites existing local data.
+                        There may be three reasons why you get this error:</p>
+                        <ol>
+                        <li>You have a local unversioned file with the same name as a file which has
+                        been added by somebody else recently. In this case the solution is to move your
+                        local file somewhere else (or rename it), then update. Afterwards you can decide
+                        whether the two files need to be combined in some way, or if the choice of name
+                        is purely coincidental you can give your file a different name.</li>
+                        <li>A file has been renamed in the repository, but it differs only in case,
+                        like <cite>Install.txt</cite> to <cite>install.txt</cite>, and you have local
+                        changes. When you update, you end up in a situation (1), where the modified
+                        local file appears as unversioned. Move it somewhere else, update, then sort
+                        out the mess.</li>
+                        <li>There are actually 2 different files in the repository whose names differ
+                        only in case. This <em>cannot</em> work on a Windows checkout,
+                        because the Windows file system is not case-sensitive. It is likely that one of
+                        the files got added by mistake, so you need to find out which one, make sure
+                        there are no changes committed to the wrong file, then delete it.</li>
+                        </ol>
+                        </div>
+
+                        <div class="h3" id="four01">
+                        <h3>OPTIONS of '&lt;path&gt;': 401 Authorization Required &lt;url&gt;</h3>
+                        <p>When upgrading to version 1.4.x, you suddenly can't access your repository
+                        anymore. Every try is rejected with the error message: <em>OPTIONS of 'path': 401 Authorization Required 'url'</em></p>
+                        <p>The reason for this is the automatic authentication with SSPI which is
+                        activated in version 1.4.x. That means TortoiseSVN now tries to authenticate
+                        automatically with the credentials of the user logged on to the Windows domain
+                        controller.</p>
+                        <p>If you have set up your server to authenticate with SSPI against a domain
+                        controller, and the domain controller does not have the user account GUEST
+                        enabled, you should be fine. But if the user account GUEST is active, then all
+                        authentication succeeds with that user - and you usually won't give the user
+                        GUEST access to your repository. That's why the <em>authentication</em> succeeds,
+                        but the <em>authorization</em> fails.</p>
+                        <p>Another reason why it can fail is if you have set up different accounts
+                        for the repository access than you use for logging in to your workstations
+                        (although then I wonder why you are using SSPI authentication in the first place).</p>
+                        <p>To solve this issue you have the following options:</p>
+                        <ul>
+                            <li>disable the GUEST account on the domain controller</li>
+                            <li>use the same accounts for your workstations and access to the repository</li>
+                            <li>disable SSPI authentication for the repository</li>
+                            <li>Check the case of the usernames. Changing the usernames in the access files to lowercase also might solve this problem</li>
+                        </ul>
+                        </div>
+
+                        <div class="h3" id="clientold">
+                        <h3>This client is too old to work with working copy 'XXX'</h3>
+                        <p>The full error message is: This client is too old to work with working copy
+                        '.'; please get a newer Subversion client.</p>
+                        <p>You will get this error message once you have used a Subversion client linked
+                        with a higher Subversion version, and then try to execute a command with a
+                        Subversion client linked with an older version, e.g., you used an 1.4.x client
+                        on your working copy, and now you try an svn 1.3.x client on the same working copy.</p>
+                        <p>The reason for this is that Subversion 1.4 and later upgrade the working copies
+                        transparently on every command. But once the working copy format is upgraded,
+                        older clients can't access the working copy anymore because they don't know the new format.</p>
+                        <p>The only solution to 'fix' this is to upgrade whatever client you use and
+                        that gave you this error message. Or do a fresh checkout with the older client.</p>
+                        </div>
+
+                        <div class="h3" id="wcoutofdate">
+                        <h3>Working copy is out-of-date</h3>
+                        <p>You will get this error message when you are trying to commit changes you
+                        made to your working copy. Normally this happens, because somebody else has
+                        changed the same file(s) in the repository as you have.</p>
+                        <p>That means you need to use the <cite>Update</cite> command to update your
+                        working copy to the same level as the repository.</p>
+                        <p>It may not be obvious why you need to do this, especially if you <em>know</em>
+                        the repository has not changed. The answer is simply that your working copy is
+                        not completely updated by a commit. Only changed files and folders get updated
+                        automatically. Consider this example on a newly created repository:</p>
+                        <pre>
+Add Folder in revision 1
+Add File1 and File2 in revision 2
+Modify File1 and commit in revision 3</pre>
+                        <p>Now the repository is at revision 3, but in your working copy the revisions look like this:</p>
+                        <pre>
+Folder     : revision 1
+Folder/File1 : revision 3
+Folder/File2 : revision 2</pre>
+                        <p>Now if you modify File2 and try to commit, it fails. The client tells the
+                        repository that File2 is at revision 2 with local modifications, but the repository
+                        is already at revision 3. If you then do an update, File2 will be at revision 3
+                        as well (and of course your local changes will still be there).</p>
+                        <p>The same thing may happen if you try to create a branch or tag. The answer
+                        is always the same: If your working copy is out-of-date, update it!</p>
+                        </div>
+
+                        <div class="h3" id="standardout">
+                        <h3>Unable to write to Standard output</h3>
+                        <p>TortoisePlink uses the standard plink code, but is compiled as a Windowless
+                        app, so there's nowhere to send the error messages to. In TSVN settings->network,
+                        set the SSH client box to use standard plink, where the error messages are
+                        displayed in a command box. Once that is working, use TortoisePlink with the
+                        same parameters.</p>
+                        <p>"could not write to standard output" means that Plink wanted to throw an error,
+                        but since TortoisePlink doesn't provide a DOS-box there's no standard output to
+                        write the error message to.</p>
+                        <p>So something with the setup is wrong. Try with the normal plink program and
+                        see there what error message really is thrown and then fix the setup.</p>
+                        <p>If normal plink just hangs, then the wrong params are passed to it
+                        (settings dialog, network tab).</p>
+                        <p>Another possibility is that the SSH daemon is most likely not able to find the
+                        svnserve binary. Login with your target user (here myuser) into the server and
+                        type &quot;which svnserve&quot;. If you don't see the path to the binary, make
+                        this file (and most likely the other subversion binaries) globally accessible
+                        to this user.</p>
+                        </div>
+
+                        <div class="h3" id="four00">
+                        <h3>400 Bad Request</h3>
+                        <p>REPORT request failed on '...' REPORT of '...': 400 Bad Request (http://...)</p>
+                        <p>You're behind a firewall which blocks DAV requests. Most firewalls do that.
+                        Either ask your Administrator to change the firewall, or access the repository
+                        with <strong>https://</strong> instead of <strong>http://</strong>.
+                        That way you connect to the repository with SSL encryption, which firewalls
+                        can't interfere with (if they don't block the SSL port completely).
+                        </p>
+                        <p>Also some virus scanners (i.e. Kaspersky) are known to interfere and cause
+                        this error.</p>
+                        </div>
+
+                        <div class="h3" id="four03">
+                        <h3>403 Forbidden</h3>
+                        <p>PROPFIND request failed: 403 Forbidden</p>
+                        <p>It's probably because you've entered the parent path of your repository
+                        instead of the actual repository path.  Try appending the name of the repository
+                        you wish to access to the URL.  You also need to append the URL with a
+                        trailing '/' slash, after the repository name.</p>
+                        <p>For more information about the actual error, seek out the Apache error log.</p>
+                        </div>
+
+                        <div class="h3" id="four05">
+                        <h3>405 HTTP Method Not Allowed</h3>
+                        <p>PROPFIND Request Failed - Error 405 HTTP Method Not Allowed</p>
+                        <p>This message comes in different flavours. You might be seeing this error when:</p>
+                        <ul>
+                            <li><strong>PROPFIND Request Failed</strong>
+                            You tried to browse the parent path of a repository instead of the repository itself using an older version of TortoiseSVN.  Try appending the name of the repository you wish to access, or upgrade TortoiseSVN to 1.2.3 or newer.</li>
+                            <li><strong>PROPFIND Request Failed</strong>
+                            You forgot to append a '/' slash to the end of the URL you entered.  Older versions of TSVN require that there be a '/' after the repository name.  If you forget this, TSVN will strip the repository name from the URL and therefore try to access the parent directory.</li>
+                            <li><strong>PROPFIND Request Failed</strong>
+                            You try to access the repository through a proxy which does not allow DAV requests. Usually you can browse your repository with your webbrowser just fine, only if you use a svn client you get this error. You have to configure your proxy/firewall server to let DAV requests through. Or try using https instead of http: most proxies can't analyze encrypted network packets and therefore can't block DAV requests anymore.
+                            <br/>
+                            Another possibility for this error is a virus scanner/firewall you have running on your machine. A lot of those filter out DAV requests without you even noticing it. Try disabling the scanner/firewalll.</li>
+                            <li><strong>Lock Request Failed</strong>
+                            You tried to lock a file in your working copy which no longer exists in the repository. Update your working copy before trying to lock files.</li>
+                        </ul>
+                        <p>For more information about what actually caused the error, seek out the Apache error log.</p>
+                        </div>
+
+                        <div class="h3" id="sshclosed">
+                        <h3>SVN+SSH: Connection closed unexpectedly</h3>
+                        <p>It has been reported that svn+ssh connections of the form svn+ssh://username@server.com
+                        which were previously working, stop working with TortoiseSVN 1.5. This seems to be related
+                        to plink, and occurs if you have a default hostname set in PuTTY.</p>
+                        <p>If this is the case you can fix it by using regedit or regedt32 to clear
+                        HKEY_CURRENT_USER/Software/SimonTatham/Putty/Sessions/Default%20Settings/HostName.</p>
+                        Another user has reported the following server-side fix:
+                        <ul>
+                            <li>ssh into your account</li>
+                            <li>cd ~</li>
+                            <li>cp /etc/bashrc .bashrc</li>
+                            <li>nano .bashrc</li>
+                            <li>put a # before the line "mesg y" (which comments it out)</li>
+                            <li>Ctrl+X to exit, press Y when prompted to save.</li>
+                        </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

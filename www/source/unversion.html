@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - Unversion a working copy</title>
+<meta name="description" content="how to get rid of the hidden .svn folders the easy and fast way"/>
+<meta name="keywords" content="unversion, working copy"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Unversion a working copy</a></h1>
+                <div class="entry">
+                    <p>A lot of people asked on our mailing lists how they can
+                    "unversion a working copy", "detach/unlink a working copy
+                    from the repository", "remove files from version control"
+                    or something like that. All those questions lead to the
+                    users wanting to remove the hidden .svn folders inside
+                    every Subversion working copy.</p>
+
+                    <p>Usually, you want a "clean copy" of your versioned files
+                    for zipping, archiving, ...<br/>The command in Subversion
+                    to do that is "Export". Exporting a working copy or a
+                    repository url will create a copy of all your files, but
+                    without those .svn folders. But the export command creates
+                    a copy, it does not remove the .svn folders from an existing
+                    working copy. Which is what most users want.</p>
+
+                    <p>But some users really want to just make a working copy
+                    unversioned. Searching the web you can find a lot of users
+                    posting scripts which scan a path recursively and delete
+                    all those .svn folders. But if you have TortoiseSVN
+                    installed, that isn't needed:</p>
+
+                    <p>TortoiseSVN has a little known feature built in which
+                    can do exactly that: it removes all .svn folders
+                    automatically. So where can you find that feature?<br/>
+                    Use the "Export" command! But hey, didn't I just tell you
+                    that the export command creates a copy of the files in your
+                    working copy and doesn't change your original working copy?
+                    So how can the export command remove the .svn folders from
+                    an existing working copy?<br/>Simple: when you right-click
+                    on a working copy and choose "Export..." from the context
+                    menu, a folder browse dialog is shown where you can choose
+                    the folder where you want the working copy exported to. If
+                    you now select the very same path that your working copy is
+                    on as the target (i.e., you're exporting the working copy
+                    onto itself), TortoiseSVN will remove all .svn folders of
+                    that working copy.</p>
+
+                    <p>Another way to do this is by right-dragging the working
+                    copy onto itself. The Explorer doesn't allow dragging items
+                    onto themselves in the same window though, so you must
+                    either use a second Explorer window or drag onto the tree
+                    view as shown in the animation below:<br/>
+                    <img src="img/unversion.gif" alt="Unversion" width="615" height="233"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

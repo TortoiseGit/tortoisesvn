@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - Verify the msi signature</title>
+<meta name="description" content="how to verify the signatures"/>
+<meta name="keywords" content="verify, signature"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="langselection">
+    <a href="msiverify.html">EN</a>&nbsp;<a href="msiverify.de.html">DE</a>
+</div>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Verify the msi signature</a></h1>
+                <div class="entry">
+                    <p>Since the TortoiseSVN msi installer files are hosted on
+                    many <a href="http://sourceforge.net">SourceForge</a>
+                    mirrors, we can't guarantee that they are not modified or
+                    corrupted when you download them.</p>
+                    <p>To verify that the files have not been tempered with,
+                    you can verify the signature of the files yourself. All
+                    files of TortoiseSVN are digitally signed
+                    (since version 1.6.3).</p>
+                    <p>After downloading the files, right-click on the files
+                    and choose "Properties" from the explorer context menu.
+                    In the properties dialog, go to the "signatures" tab and
+                    verify that the file is signed by "Stefan Küng" and that
+                    the signature is valid. If you don't see the "signatures"
+                    tab, you don't have a good file!</p>
+                    <a href="img/propertiessignature.png" class="fancybox" rel="signature" title="propertiessignature">
+                        <img src="img/propertiessignature-small.png" alt="propertiessignature" width="289" height="287"/>
+                    </a>
+
+                    <p>Windows also verifies the signature during installation.
+                    If the prompt dialog does not say that the signature is
+                    valid, cancel the installation and download the file
+                    again!</p>
+                    <a href="img/InstallUAC.png" class="fancybox" rel="signature" title="InstallUAC">
+                        <img src="img/InstallUAC-small.png" alt="InstallUAC" width="254" height="198"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer-js.html")
+</div>
+</body>
+</html>

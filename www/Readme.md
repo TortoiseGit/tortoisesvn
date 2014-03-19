@@ -2,8 +2,7 @@ Getting started
 ---------------
 
 * Install [node.js](http://nodejs.org/download/)
-* Install the node.js dependencies: `npm install`
-* Run `node make` or `node make minify`
-
-You can run `npm run lint` to run [JSHint](https://github.com/jshint/jshint)
-and [csslint](https://github.com/stubbornella/csslint) for our files.
+* Install grunt: `npm install -g grunt-cli`
+* Install the node.js dependencies: `cd www && npm install`
+* Run `grunt build` to build the static site, `grunt` to build and watch for changes (http://localhost:8001/)
+* For the rest of the Grunt tasks, check out Gruntfile.js targets or do `grunt --help`

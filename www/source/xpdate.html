@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - XP SP3 and date functions</title>
+<meta name="description" content="problems with XP SP3, date functions and daylight saving time"/>
+<meta name="keywords" content="windows, xp, sp3, date, dst"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">XP SP3 and date functions</a></h1>
+                <p class="meta">Posted on July 20, 2008</p>
+                <div class="entry">
+                    <p>During the last few weeks, I got a lot of crash reports
+                    for TortoiseSVN which indicated that a certain date API
+                    returned bogus data, which either lead to a crash (hence
+                    the crash reports) or garbled date strings in various
+                    TortoiseSVN dialogs (these were reported on our mailing
+                    lists).</p>
+
+                    <p>From the crash dump files, I could see where the crash
+                    happened, why the crash happened there. But what remained
+                    unclear was why the date API returned illegal data.</p>
+
+                    <p>I've tried to reproduce the problem with a small test
+                    application that feed random dates to that API, even
+                    illegal dates (e.g., Feb, 30). But the API always returned
+                    valid data or returned with an error code and left the
+                    output data intact. So there had to be some other reasons
+                    for this issue.</p>
+
+                    <p>So I tried contacting those who sent me those crash
+                    reports with the dump files. The first few either didn't
+                    respond or the reply address was not valid. Then finally
+                    a few days ago Asaf Salhov answered my questions and we
+                    could figure out the reason behind those problems:</p>
+
+                    <p>Due to changes in the daylight saving times in Israel,
+                    many IT departments tweaked a registry key to make Windows
+                    deal with those changes. This worked ok for a long time.<br/>
+                    But when Microsoft released service pack 3 for Windows XP,
+                    those registry tweaks caused the problem. I still don't
+                    know why exactly the installation of the SP3 will cause
+                    these problems, but at least we found a solution to fix it:</p>
+
+                    <p>Either uncheck the "Automatically set Daylight Savings
+                    Time" option in your date settings, or try this update from
+                    Microsoft: <a href="http://support.microsoft.com/kb/953917">http://support.microsoft.com/kb/953917"</a></p>
+
+                    <p>That's all you have to do to fix this problem.</p>
+
+                    <p>Note: Since I've searched the web for solutions to this
+                    problem, I found a lot of other reports for other
+                    applications which suffer from the very same problem.
+                    That means this is not really an issue with TortoiseSVN or
+                    Subversion. So even if you don't use TortoiseSVN but you
+                    know (or suspect) that your computer has the above
+                    mentioned registry tweak done, you should use tzedit.exe to
+                    fix this.</p>
+
+                    <p>I've written a small tool which should be able to test
+                    for this problem. You can download the tool from
+                    <a href="files/DateTest.exe">http://tortoisesvn.net/files/DateTest.exe</a>.<br/>
+
+                    Run the tool in a command line window. The tool tries to
+                    convert a fixed system time to a local time (using the
+                    <code>SystemTimeToTzSpecificLocalTime</code> API).
+                    The tool will show you either an error if the function fails,
+                    or the converted date.</p>
+
+                    <p>If the function call fails, you will see the following
+                    output:</p>
+<pre>SystemTimeToTzSpecificLocalTime failed! GetLastError() returned: 87
+The parameter is incorrect.</pre>
+
+                    <p>if the function suceeds, the output is:</p>
+<pre>SystemTimeToTzSpecificLocalTime succeeded
+the resulting SYSTEMTIME is:
+Year = 2008
+Month = 5
+
+Day of week = 3
+Day = 7
+Hour = 6
+Minute = 7
+Second = 59
+Milliseconds = 190</pre>
+
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

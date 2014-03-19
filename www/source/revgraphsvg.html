@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - save the revision graph as an svg file</title>
+<meta name="description" content="Save the revision graph as an svg file"/>
+<meta name="keywords" content="revision graph, svg"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+            <div class="post">
+                <h1 class="title"><a href="#">Save the revision graph as an svg file</a></h1>
+                <div class="entry">
+                    <p>The revision graph is a nice way to get a quick
+                    overview of your project. However you can not share
+                    the graph with other people unless you save it as
+                    an image and pass the image on.</p>
+                    <p>If the revision graph is small, then saving the
+                    graph as a png image will do just fine. But as with
+                    all images, a png does not scale very well. And if the
+                    revision graph is already big the resulting image file
+                    can get quite big as well. It can even get too big
+                    to show.</p>
+                    <p>While you can save the graph as a <a href="http://en.wikipedia.org/wiki/Windows_Metafile">wmf</a>
+                    file which is much smaller and can scale perfectly, the wmf format
+                    is Windows only and won't show in e.g. a browser.</p>
+                    <p>Since TortoiseSVN 1.7 the revision graph can also
+                    be saved as an <a href="http://en.wikipedia.org/wiki/Svg">svg</a>
+                    file. An svg file is a vectored format
+                    which scales perfectly, is relatively small and can
+                    be shown in all modern browsers.</p>
+                    <p>To illustrate the problem with big graphs, I saved
+                    the revision graph of the TortoiseSVN project as a png
+                    file and also as an svg file.</p>
+                    <p>The png file is 950x8116 pixels and 250kBytes
+                    in size. While the size on disk is not too big, the 8116
+                    pixels in height are quite big.</p>
+                    <p>The svg file however only requires 161kBytes on disk
+                    and can be resized without getting pixelized.</p>
+                    <p>You can compare the two different formats right
+                    here in your browser:</p>
+
+                    <div class="centered">
+                        <a href="img/Tortoise-1.7-trunkgraph-full.png">revision graph in png format</a>
+                    </div>
+                    <div class="centered">
+                        <a href="img/Tortoise-1.7-trunkgraph-full.svg">revision graph in svg format</a>
+                    </div>
+                    <br/>
+                    Try resizing the images in your browser (usually using Ctrl-mousewheel or
+                    with Ctrl-+). The png image gets pixellated real fast, while
+                    the svg file scales fine.
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

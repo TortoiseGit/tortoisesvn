@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - Most forgotten feature</title>
+<meta name="description" content="right-drag in explorer"/>
+<meta name="keywords" content="right-drag"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="langselection">
+    <a href="mostforgottenfeature.html">EN</a>&nbsp;<a href="mostforgottenfeature.de.html">DE</a>
+</div>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Most forgotten feature</a></h1>
+                <div class="entry">
+                    <p>TortoiseSVN has many features. Most of the time, you
+                    won't need all the features it has but only a few,
+                    depending on the projects you work on. But there are some
+                    features which you would use if you only knew they were
+                    there.</p>
+
+                    <p>Now you might say that if a feature is not obvious right
+                    away, and so hidden so that you don't even know it is there,
+                    then the UI should be improved to make that feature more
+                    obvious. And you are right.</p>
+
+                    <p>But sometimes it is not possible to do that, or we simply
+                    don't know how.</p>
+
+                    <p>This is one of those situations:</p>
+
+                    <h3>Right drag</h3>
+                    <p>In the Windows explorer, it is possible to move/copy
+                    files not only by dragging them with the left mouse button,
+                    but also with the right mouse button. The difference is
+                    that the left-drag executes the operation immediately, and
+                    the right-drag will first show you a context menu where
+                    you can choose the operation.</p>
+
+                    <p>TortoiseSVN adds some of its commands to that right-drag
+                    context menu. The screenshot below shows the menu when you
+                    drag unversioned files/folders on to a versioned folder:</p>
+
+                    <img class="centered" src="img/rightdrag-u2v.png" alt="The right-drag context menu when dragging unversioned items onto a versioned folder"/>
+
+                    <p>As you can see in the screenshot, TortoiseSVN allows
+                    you to add the files/folders to the working copy. This
+                    first moves or copies the files to the working copy, then
+                    does an "SVN Add".</p>
+                    <p>The entry "Apply patch" only shows up if you drag a
+                    <em>*.patch</em> or <em>*.diff</em> file onto a working copy.
+                    That command will open up TortoiseMerge, allowing you to
+                    apply the patchfile to that working copy location.</p>
+
+                    <p>Next is the context menu you will see if you right-drag
+                    versioned files/folders <strong>from</strong> your working copy to an
+                    unversioned folder:</p>
+
+                    <img class="centered" src="img/rightdrag-v2u.png" alt="The right-drag context menu when dragging versioned items onto an unversioned folder"/>
+
+                    <p>These commands let you export your items:</p>
+                    <ul>
+                        <li>SVN Export to here: exports the dragged files/folders
+                        to the target location, i.e. creates a copy without
+                        the .svn folders</li>
+                        <li>SVN Export all to here: exports the dragged
+                        files/folders to the target location, including
+                        unversioned files.</li>
+                    </ul>
+
+                    <p>And last but not least, the commands you get when you
+                    right-drag files/folders inside your working copy:</p>
+                    <img class="centered" src="img/rightdrag-v2v.png" alt="The right-drag context menu when dragging versioned items inside a working copy"/>
+
+                    <p>These commands help you move and copy your files and
+                    folders around in your working copy:</p>
+                    <ul>
+                        <li>SVN Move versioned files here: moves the files to
+                        the drop location. If a file already exists, it will
+                        ask you what to do (rename the file, overwrite it or
+                        cancel).</li>
+                        <li>SVN Move and rename versioned files here: the same
+                        as 'SVN Move versioned files here', except that it will
+                        ask for a new name for every dropped file.</li>
+                        <li>SVN Copy versioned files here: the same as 'SVN Move
+                        versioned files here' but it leaves the original file,
+                        i.e. the file is copied not moved</li>
+                        <li>SVN Copy and rename versioned files here: the same
+                        as 'SVN Move and rename versioned files here' but it
+                        leaves the original file, i.e. the files are copied
+                        not moved</li>
+                    </ul>
+
+                    <p>Now what are these features really good for? Well, you
+                    will know as soon as you start using them :)<br/>
+                    Seriously: these commands are really useful if you want to
+                    reorganize your working copy, move and copy files around
+                    or if you simply want to export your working copy to
+                    another folder.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer.html")
+</div>
+</body>
+</html>

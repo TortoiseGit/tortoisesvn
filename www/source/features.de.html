@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<title>TortoiseSVN - Features</title>
+<meta name="description" content="Features von TortoiseSVN"/>
+<meta name="keywords" content="features, TortoiseSVN"/>
+<meta http-equiv="content-language" content="de"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="langselection">
+    <a href="features.html">EN</a>&nbsp;<a href="features.de.html">DE</a>
+</div>
+<div id="wrapper">
+    @@include("_includes/menu.de.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">Features</a></h1>
+                <div class="entry">
+                    <p>TortoiseSVN ist eine sehr einfach zu bedienende
+                    <a href="http://de.wikipedia.org/wiki/Versionsverwaltung">Versionsverwaltungs-Software</a>
+                    für Windows, basierend auf <a href="http://subversion.tigris.org">Subversion</a>.
+                    TortoiseSVN bietet ein schönes und einfaches Benutzerinterface
+                    für Subversion.</p>
+                    <p>TortoiseSVN wird unter der <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL Lizenz</a>
+                    entwickelt. Dies bedeutet dass nicht nur TortoiseSVN selbst
+                    sondern auch der Sourcecode frei erhältlich ist.
+                    Für den Fall, dass Sie sich mit der GPL nicht so genau
+                    auskennen: Sie können TortoiseSVN selbstverständlich auch
+                    kommerziell benutzen ohne Einschränkungen. Das einzige was
+                    Sie nicht dürfen ist TortoiseSVN selbst irgendwie kommerziell
+                    vermarkten.</p>
+                    <p>Da sich TortoiseSVN in den Windows Explorer integriert
+                    kann es mit allen Entwicklungstools verwendet werden.</p>
+                    <p>
+                    Als Subversion Client, TortoiseSVN hat alle Features von
+                    Subversion selbst, einschliesslich:
+                    <ul>
+                        <li>neueste CVS Features</li>
+                        <li>Ordner, Umbenennungen und Datei-Metadaten sind versioniert.</li>
+                        <li>Commits sind atomar.</li>
+                        <li>Branching und Tagging sind kurze Operationen (in konstanter Zeit).</li>
+                        <li>Effizientes Handling von Binärdateien.</li>
+                    </ul>
+                    </p>
+                    <script src="http://www.ohloh.net/projects/3180/widgets/project_cocomo" type="text/javascript"></script>
+                    <p>Da TortoiseSVN eine Shell-Erweiterung ist, integriert es
+                    sich nahtlos in den Windows Explorer. Das bedeutet es ist
+                    kann dort verwendet werden wo auch Ihre Daten sind. Und
+                    Sie können es mit den Entwicklungstools verwenden mit
+                    welchen Sie sich am wohlsten fühlen.
+                    <ul>
+                        <li>Alle Befehle sind direkt zugänglich
+                        vom Windows Explorer. Sie können wählen, welche Befehle
+                        im Hauptmenu angezeigt werden und welche im Untermenu
+                        angezeigt werden sollen.
+                        <br/>
+                        <a href="img/ContextMenuDirControl.png" class="fancybox" rel="features" title="ContextMenuDirControl">
+                            <img src="img/ContextMenuDirControl-small.png" alt="ContextMenuDirControl" width="184" height="275"/>
+                        </a>
+                        </li>
+                        <li>Nur diejenigen Befehle welche auch Sinn machen
+                        für die ausgewählte Datei oder Ordner werden auch
+                        angezeigt. Befehle welche nicht verwendet werden
+                        können werden gar nicht erst angezeigt.</li>
+                        <li>Der Status aller Dateien wird direkt im Explorer
+                        angezeigt mit überlagerten Icons. Der folgende Screenshot
+                        zeigt alle möglichen Icons. Normalerweise werden Sie jedoch
+                        nur einige wenige gleichzeitig sehen.
+                        <br/>
+                        <a href="img/Overlays.png" class="fancybox" rel="features" title="Overlays">
+                            <img src="img/Overlays-small.png" alt="Overlays" width="213" height="106"/>
+                        </a>
+                        <br/>
+                        Wenn Sie im Explorer die Detail-Anzeige ausgewählt haben
+                        kann TortoiseSVN unter Windows XP (leider nicht unter Vista/Windows7)
+                        zusätzliche Spalten anzeigen welche Subversion-Infos
+                        enthalten:
+                        <br/>
+                        <a href="img/ExplorerDetailView.png" class="fancybox" rel="features" title="ExplorerDetailView">
+                            <img src="img/ExplorerDetailView-small.png" alt="ExplorerDetailView" width="286" height="191"/>
+                        </a>
+                        <li>Aussagekräftige und Benutzerfreundliche Dialoge, welche
+                        dauernd durch Benutzerfeedback verbessert werden.
+                        </li>
+                        <li>Erlaubt das Verschieben und Kopieren von Dateien/Ordnern
+                        durch Rechts-Ziehen im Explorer.
+                        <br/>
+                        <img src="img/RightDragMenu.png" alt="RightDragMenu" width="249" height="193"/></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="post">
+                <h1 class="title"><a href="#">Commit Dialog</a></h1>
+                <div class="entry">
+                    </p>Der wohl am häufigsten benutzte Dialog ist der Commit-Dialog.
+                    Wann immer Sie Änderungen zum Repository übertragen
+                    werden Sie diesen Dialog benutzen. Deshalb haben wir
+                    diesen Dialog mit sehr vielen Funktionen ausgestattet welche
+                    die Arbeit sehr erleichtern.
+                    <h3>Mächtiger Commit-Dialog</h3>
+                    <ul>
+                        <li>Integrierte Rechtschreibprüfung für Log-Meldungen.
+                        Sie können die Rechtschreib-Module separat downloaden
+                        oder einfach das deutsche Sprachpacket installieren.
+                        Und mit dem <em>tsvn:projectlanguage</em> Property können
+                        Sie sogar für jedes Projekt eine andere Sprache festlegen,
+                        welche für die Rechtschreibprüfung verwendet wird.
+                        <br/>
+                        <a href="img/CommitDlgSpellCheck.png" class="fancybox" rel="commitdlg" title="Spell checker">
+                            <img src="img/CommitDlgSpellCheck-small.png" alt="Spell checker" width="229" height="245"/>
+                        </a>
+                        </li>
+                        <li>Auto-Vervollständigung von Dateipfaden und
+                        Schlüsselwörtern aus den aufgelisteten Dateien.
+                        <br/>
+                        <a href="img/CommitDlgAutoCompletion.png" class="fancybox" rel="commitdlg" title="Auto completion">
+                            <img src="img/CommitDlgAutoCompletion-small.png" alt="Auto completion" width="229" height="245"/>
+                        </a>
+                        </li>
+                        <li>Textformattierung mit speziellen Zeichen. Zum Beispiel
+                        wird Text zwichen '*' Zeichen als <strong>fett</strong>, Text
+                        zwischen '^' Zeichen als <em>kursiv</em> und Text zwischen
+                        '_' Zeichen als <u>unterstrichen</u> dargestellt.
+                        <br/>
+                        <a href="img/CommitDlgTextFormatting.png" class="fancybox" rel="commitdlg" title="Message formatting">
+                            <img src="img/CommitDlgTextFormatting-small.png" alt="Message formatting" width="229" height="245"/>
+                        </a>
+                        </li>
+                        <li>Ein Rechts-Klick auf einen beliebigen Eintrag
+                        in der Datei/Ordnerliste zeigt ein Menu mit mehreren
+                        Befehlen welche direkt im Commit-Dialog ausgeführt
+                        werden könnnen, zum Beispiel <em>Rückgängig</em>. Sie
+                        können auch hier noch Properties setzen und löschen
+                        falls Sie dies vorher vergessen haben.</li>
+                        <li>Ein einfacher Doppelklick auf eine veränderte
+                        Datei öffnet das Diff-Program so dass Sie alle Änderungen
+                        nochmals überprüfen können bevor Sie die Änderungen
+                        übertragen.</em>
+                    </ul>
+
+                    <h3>Alle Subversion-Protokolle werden unterstützt</h3>
+                    <ul>
+                        <li>http://</li>
+                        <li>https://</li>
+                        <li>svn://</li>
+                        <li>svn+ssh://</li>
+                        <li>file:///</li>
+                        <li>svn+XXX://</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="post">
+                <h1 class="title"><a href="#">Überblick</a></h1>
+                <div class="entry">
+                    <p>
+                    <ul>
+                        <li>TortoiseSVN kann eine Grafik erstellen mit allen
+                        Revisionen/Commits. Dies erlaubt einen einfachen
+                        Überblick über den Projektverlauf, wann genau
+                        ein Branch oder ein Tag erstellt wurde.
+                        <br/>
+                        <a href="img/RevisionGraph.png" class="fancybox" rel="bigpicture" title="Revision Graph">
+                            <img src="img/RevisionGraph-small.png" alt="Revision Graph" width="384" height="280"/>
+                        </a>
+                        </li>
+                        <li>Statistik-Diagramme
+                        <br/>
+                        <a href="img/StatsByAuthor.png" class="fancybox" rel="bigpicture" title="Stats By Author">
+                            <img src="img/StatsByAuthor-small.png" alt="Stats By Author" width="276" height="199"/>
+                        </a>
+                        <a href="img/StatsByAuthPie.png" class="fancybox" rel="bigpicture" title="Stats By Auth Pie">
+                            <img src="img/StatsByAuthPie-small.png" alt="Stats By Auth Pie" width="276" height="199"/>
+                        </a>
+                        <a href="img/StatsByWeek.png" class="fancybox" rel="bigpicture" title="Stats By Week">
+                            <img src="img/StatsByWeek-small.png" alt="Stats By Week" width="276" height="199"/>
+                        </a>
+                        </li>
+                        <li>Einfaches Vergleichen von zwei Branches oder Tags.
+                        <br/>
+                        <a href="img/DirectoryDiff.png" class="fancybox" rel="bigpicture" title="DirectoryDiff">
+                            <img src="img/DirectoryDiff-small.png" alt="DirectoryDiff" width="221" height="193"/>
+                        </a>
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="post">
+                <h1 class="title"><a href="#">Hilfreiche Tools</a></h1>
+                <div class="entry">
+                    <p>
+                        <h3>TortoiseMerge</h3>
+                        <ul>
+                            <li>Zeigt Änderungen welche an Dateien gemacht wurden.</li>
+                            <li>Hilft beim Auflösen von Konflikten.</li>
+                            <li>Kann Patch-Dateien einfügen welche von Leuten
+                            ohne Commit-Zugang zum Repository eingebracht werden.
+                            <br/>
+                            <a href="img/ApplyPatchMenu.png" class="fancybox" rel="bigpicture" title="ApplyPatchMenu">
+                                <img src="img/ApplyPatchMenu-small.png" alt="ApplyPatchMenu" width="164" height="84"/>
+                            </a>
+                            <a href="img/ApplyPatch.png" class="fancybox" rel="bigpicture" title="ApplyPatch">
+                                <img src="img/ApplyPatch-small.png" alt="ApplyPatch" width="474" height="237"/>
+                            </a>
+                            </li>
+                        </ul>
+                        <h3>TortoiseBlame</h3>
+                        <p>Zeigt die Annotierung von Dateien, einschliesslich
+                        die entsprechenden Log-Meldungen für jede Zeile der
+                        Datei.
+                        <br/>
+                        <a href="img/Blame.png" class="fancybox" rel="bigpicture" title="Blame">
+                            <img src="img/Blame-small.png" alt="Blame" width="365" height="235"/>
+                        </a>
+                        <h3>TortoiseIDiff</h3>
+                        <p>Zeigt Veränderungen an Bild-Dateien.
+                        <br/>
+                        <a href="img/TortoiseIDiffTwo.png" class="fancybox" rel="bigpicture" title="TortoiseIDiffTwo">
+                            <img src="img/TortoiseIDiffTwo-small.png" alt="TortoiseIDiffTwo" width="381" height="221"/>
+                        </a>
+                        <a href="img/TortoiseIDiffOne.png" class="fancybox" rel="bigpicture" title="TortoiseIDiffOne">
+                            <img src="img/TortoiseIDiffOne-small.png" alt="TortoiseIDiffOne" width="324" height="309"/>
+                        </a>
+                        <h3>SubWCRev</h3>
+                        <p>Hilft beim Einbinden von Revisionsnummern/Datum/...
+                        in Sourcecode-Dateien.</p>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.de.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer-js.html")
+</div>
+</body>
+</html>

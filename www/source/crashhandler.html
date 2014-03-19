@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Crash handler</title>
+<meta name="keywords" content="crash handler, crash reporting"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post">
+                <h2 class="title"><a href="#">Crash Handler</a></h2>
+                <div class="entry">
+                    <h2>A little bit of history</h2>
+                    <p>
+                    TortoiseSVN has used its own crash handler since the very first release.
+                    If TortoiseSVN crashed for any reason, a dialog is shown which
+                    allowed you to send the crash dump to us. We then analyze
+                    those crashes and fix whatever caused them. This helped us
+                    to make TortoiseSVN much more stable (stop laughing, it could be worse!).
+                    </p>
+                    <p>
+                    For a long time, sending the crash dumps to us only worked
+                    via email. With Version 1.7.6 that changed: we started
+                    using <a href="http://code.google.com/p/crashrpt/">crashrpt</a> which allows to send
+                    the reports via http.
+                    </p>
+                    <p>
+                    While before 1.7.6 we got maybe 4-8 reports a day, now
+                    that changed to +100 reports per day! I guess that
+                    most of you either only used web mail or didn't wanted
+                    to send the reports from your email account. With the
+                    http send, this isn't an issue anymore and that's why
+                    we now get so many reports.
+                    </p>
+                    <p>
+                    As you can imagine, it's simply not possible to analyze
+                    that many reports manually anymore. So as of version 1.7.7
+                    we're switching our crash reporter once again. But
+                    not back to an email-sending one, but one that offers
+                    a lot more features: <a href="http://www.crash-server.com">crash-server.com</a>.
+                    </p>
+                    <h2>crash-server.com</h2>
+                    <p>
+                    The crash handler from <a href="http://www.crash-server.com">crash-server.com</a> is
+                    not just a client side handler, but offers automatic
+                    analysis on the server side as well.
+                    All reports that are caused by the same crash are
+                    automatically grouped together, so we only have
+                    to analyze the best dump file of a crash instead of
+                    every single one. Without this, there's no way we
+                    could handle all the reports we now get!
+                    </p>
+                    <img src="img/crashreporter1.png" alt="crashreporter1" width="364" height="219"/>
+                    <p>
+                    Also instead of only sending a
+                    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms680369.aspx">minidump</a>,
+                    it can send us a full dump if the crash hasn't been
+                    previously reported. We also can ask for a full dump
+                    in case the minidump we have does not provide enough
+                    information to fix the problem.
+                    </p>
+                    <p>
+                    Another nice feature is that after you've sent
+                    the crash report and the problem you're experiencing
+                    has already been fixed, you're automatically forwarded
+                    to the corresponding page in our issue tracker.
+                    There you can find out more about your problem and
+                    decide for yourself if you want to download a
+                    <a href="http://nightlybuilds.tortoisesvn.net/">nightly build</a> or not.
+                    </p>
+                    <p>
+                    <a href="http://www.crash-server.com">crash-server.com</a> is available for
+                    free for open source projects. Pricing for commercial
+                    projects is shown <a href="http://www.crash-server.com/Pricing.aspx">here</a>. If you want
+                    to find out more about how this works, there is a
+                    nice <a href="https://www.crash-server.com/Demo/Demo.aspx">video</a> available that explains
+                    the basics, a <a href="http://www.crash-server.com/Demo/MiniDumpWriteDump.aspx">more detailed
+                    description</a> and a tutorial on how to <a href="http://www.crash-server.com/Integration.aspx">integrate</a> it
+                    into your own application.
+                    </p>
+
+                    <h2>Always send the reports</h2>
+                    <p>
+                    With so many crash reports we get, we simply don't
+                    have the time to analyze every single one of them and
+                    that's why we rely on the grouping of the reports
+                    on <a href="http://www.crash-server.com">crash-server.com</a>. Every sent
+                    report is first automatically analyzed and if the
+                    same crash was already reported before moved to
+                    the corresponding problem. That problem then has
+                    its crash count increased.
+                    </p>
+                    <p>
+                    As you can imagine, we try to fix the problems with
+                    the highest crash count first. If you encounter a
+                    crash, then please send the report. It will increase
+                    the crash count of the problem and therefore also
+                    increase the priority for us to fix it.
+                    </p>
+                    <a href="img/crashreporter2.png" class="fancybox" rel="gallery" title="crashreporter">
+                        <img src="img/crashreporter2-small.png" alt="crashreporter" width="297" height="188"/>
+                    </a>
+                    <p>
+                    Even if you've sent the report before, please send
+                    it again if the crash happens again. Because it might
+                    not be the same problem even if it appears to be.
+                    And if it is, then it will increase the priority of the problem.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer-js.html")
+</div>
+</body>
+</html>

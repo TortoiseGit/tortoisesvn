@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN - Release notes for 1.8</title>
+<meta name="description" content="TortoiseSVN release notes, version 1.8"/>
+<meta name="keywords" content="release notes"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    @@include("_includes/menu.html")
+    <div id="page">
+        <div id="content">
+
+            <div class="post" id="news">
+                <h2>What's New in TortoiseSVN 1.8</h2>
+
+                <ul>
+                  <li><a href="#blamecolors"
+                      >Coloring for TortoiseBlame</a></li>
+                  <li><a href="#commitparts"
+                      >Commit only parts of a file</a></li>
+                  <li><a href="#tmerge"
+                      >TortoiseMerge</a></li>
+                  <li><a href="#repobrowser"
+                      >Repository Browser</a></li>
+                  <li><a href="#extlibs"
+                      >Third party libraries</a></li>
+                  <li><a href="#progdlg"
+                      >Progress dialog</a></li>
+                  <li><a href="#subwcrev"
+                      >SubWCRev</a></li>
+                  <li><a href="#customprops"
+                      >Custom properies</a></li>
+                  <li><a href="#clienthook"
+                      >Client hook scripts configurable via properties</a></li>
+                  <li><a href="#compatibility"
+                      >Compatibility concerns</a></li>
+                  <li><a href="#logdialog"
+                      >Enhancements to facilitate easier code reviews in Log Dialog</a></li>
+                </ul>
+
+                <p>TortoiseSVN 1.8 is a superset of all previous TortoiseSVN releases,
+                and is considered the current stable and "best" release. Anything in
+                earlier versions is also in 1.8, but 1.8 contains features and
+                bugfixes not present in any earlier release.</p>
+
+                <p>This page describes only major changes. For a complete list
+                of changes, you can check our
+                <a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>
+                and the <a href="http://code.google.com/p/tortoisesvn/issues/list?can=1&amp;q=label%3AMilestone-1.8.0">list of issues</a> for 1.8</p>
+
+                <p>Don't forget to check out all the changes in the Subversion
+                library that also is now at version 1.8: all those changes
+                are of course in TortoiseSVN as well. See the full list
+                of changes in the <a href="http://subversion.apache.org/docs/release-notes/1.8.html">Subversion 1.8 release notes</a>.</p>
+            </div>  <!-- news -->
+
+            <div class="post" id="blamecolors">
+                <h2>Coloring for TortoiseBlame</h2>
+
+                <p>Instead of just coloring the changes by age/revision,
+                TortoiseBlame can now color the lines by author so it's easier
+                to spot who changed which lines.</p>
+                <a href="img/blamecolors.png" class="fancybox" rel="gallery" title="coloring in TortoiseBlame">
+                    <img src="img/blamecolors-small.png" alt="coloring in TortoiseBlame" width="240" height="180"/>
+                </a>
+
+            </div>  <!-- blamecolors -->
+
+            <div class="post" id="commitparts">
+                <h2>Commit only parts of a file</h2>
+                <p>When working on a task, it often happens that you find
+                an issue with the surrounding code. Fixing that issue
+                leads then to multiple tasks done in the same file,
+                and therefore also to have multiple fixes/tasks done
+                in one single commit.</p>
+                <p>To commit only the parts of the file that relate
+                to one specific issue:</p>
+                <ol>
+                    <li>in the commit dialog, right-click on file, choose "restore after commit"</li>
+                    <li>edit the file in e.g. TortoiseMerge: undo the changes that you don't want to commit yet</li>
+                    <li>save the file</li>
+                    <li>commit the file</li>
+                </ol>
+                <p>After the commit is done, the original file is restored, containing
+                all the changes you didn't commit yet.
+                </p>
+            </div>  <!-- commitparts -->
+
+            <div class="post" id="tmerge">
+                <h2>TortoiseMerge</h2>
+                <p>TortoiseMerge, the visual diff/merge tool that comes
+                with TortoiseSVN has also a lot of improvements.</p>
+                <a href="img/TMerge_TwoPaneRibbon.png" class="fancybox" rel="gallery" title="TortoiseMerge Ribbon">
+                    <img src="img/TMerge_TwoPaneRibbon-small.png" alt="TortoiseMerge Ribbon" width="364" height="187"/>
+                </a>
+                <dl>
+                    <dt>Ribbon UI</dt>
+                    <dd>TortoiseMerge uses now a Ribbon instead of a plain
+                    toolbar for its commands.</dd>
+                    <dt>Searching</dt>
+                    <dd>new shortcuts to search (Ctrl+F3), better indication of search matches, only search the active view.</dd>
+                    <dt>go to line</dt>
+                    <dd>a new command to go to a specific line number.</dd>
+                    <dt>inline diffs</dt>
+                    <dd>inline diffs can be toggled on/off with a single button instead of going through the settings dialog</dd>
+                    <dt>handling of UTF-32 files</dt>
+                    <dd>TortoiseMerge can now handle files in UTF-32 encoding as well, and recognizes more EOL formats.</dd>
+                </dl>
+            </div>  <!-- tmerge -->
+
+            <div class="post" id="repobrowser">
+                <h2>Repository Browser</h2>
+                <p>An often requested feature for the Repository Browser
+                was to list all the repositories that are offered via the
+                <a href="http://svnbook.red-bean.com/en/1.7/svn.serverconfig.httpd.html#svn.serverconfig.httpd.extra">SVNListParentPath</a>
+                directive. This is now possible: point the repository browser
+                to the root url and it lists all the repositories.
+                </p>
+                <a href="img/svnparentpath.png" class="fancybox" rel="gallery" title="SVNListParentPath">
+                    <img src="img/svnparentpath-small.png" alt="SVNListParentPath" width="238" height="147"/>
+                </a>
+                <p>At the bottom of the Repository Browser dialog a summary
+                is shown, indicating the number of files and folders and the
+                currently shown folder.</p>
+                <p>There are also two new buttons to go back and forward,
+                like in web browsers.</p>
+            </div>  <!-- repobrowser -->
+
+            <div class="post" id="extlibs">
+                <h2>Third party libraries</h2>
+                <p>When there are third party libraries stored in the
+                working copy directly, i.e., not via the <em>svn:externals</em>
+                property, then updating those is not quite easy.</p>
+                <p>Just copying over the new version will work of course, but
+                if the new version has files removed, those files will still
+                be in your working copy.</p>
+                <p>In version 1.8 TortoiseSVN offers an easier way to do this:
+                just right-drag the folder with the new version of the library
+                to the version stored in your working copy, then select
+                <em>SVN vendor branch here</em> from the context menu.</p>
+                <p>TortoiseSVN then scans both directories, copies all
+                new files, removes files that are not present anymore in the new
+                version.</p>
+                <p>After TortoiseSVN updated the folder, all you have to
+                do is commit the new version.</p>
+            </div>  <!-- extlibs -->
+
+            <div class="post" id="progdlg">
+                <h2>Progress dialog</h2>
+                <p>The dialog that shows the progress of various operations
+                now has a better indication of sections/grouping, for example
+                when updating a working copy that has multiple externals set.</p>
+                <p>Each section/group is indicated by the first line shown in bold.</p>
+                <p>And as for updating externals: only those externals that pull
+                down modifications are shown in the dialog. If an external hasn't
+                changed then the dialog does not show any information for it.
+                This reduces the no-information lines a lot, especially if you
+                have a lot of externals set.</p>
+            </div>  <!-- progdlg -->
+
+            <div class="post" id="subwcrev">
+                <h2>SubWCRev</h2>
+                <p>SubWCRev also got a lot of improvements, the major ones are:</p>
+                <ul>
+                    <li>Files in UTF-16 encoding can be used as well, either as
+                    sources/templates or as target files as well.</li>
+                    <li>A new option to specify an offset for the working copy revision.
+                    This is required in case your repository is at revisions > 65535 and
+                    you want to use the revision for the version resource: the Windows
+                    version resource numbers are only 16-bit, and in this situation
+                    you can specify a negative offset so the version resource number
+                    is below that 16-bit limit.</li>
+                    <li>SubWCRev can detect unversioned files and/or folders. This
+                    is useful in case you want an error returned in your build in case
+                    you have such unversioned items in your working copy, indicating that you
+                    may have missed to add and commit those items.</li>
+                </ul>
+            </div>  <!-- subwcrev -->
+
+            <div class="post" id="customprops">
+                <h2>Custom properties</h2>
+                <p>If you're using custom properties, you can now configure TortoiseSVN
+                to provide better dialogs to edit and modify them.</p>
+                <p>The properties <em>tsvn:userfileproperties</em> and <em> tsvn:userdirproperties</em>
+                got extended so you can specify what kind of property you have.</p>
+                <p>Have a look at our
+                <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-tsvn-props">docs</a>
+                on how this works.</p>
+            </div>  <!-- customprops -->
+
+            <div class="post" id="clienthook">
+                <h2>Client hook scripts configurable via properties</h2>
+                <p>In earlier versions you could only configure client-side
+                hook scripts via the settings dialog. This worked ok if you
+                only had a few workstations/users to configure. But if you
+                wanted a big team of committers to all run the hook scripts
+                you needed, this required a lot of work to set up.</p>
+                <p>In TortoiseSVN 1.8 you can now configure the hook scripts
+                to run via project properties.</p>
+                <p>To avoid running potentially insecure scripts without the user
+                knowing it, TortoiseSVN will ask to run those scripts first.</p>
+                <p>Have a look at our
+                <a href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-tsvn-props">docs</a>
+                on how this works.</p>
+            </div>  <!-- clienthook -->
+
+            <!--
+            * Option to export only modified files (right-drag, selection in commit dialog)
+            * Clear auth data individually
+            * Branch/Tag with --make-parents (issue 405)
+            * utf-32 files in TMerge
+            -->
+            <div class="post" id="compatibility">
+                <h2>Compatibility concerns</h2>
+
+                <h3>Local Client Compatibility</h3>
+                <p>Subversion working copies are sometimes accessed using
+                several different clients, e.g. TortoiseSVN, AnkhSVN,
+                and the svn command line client. Because the working copy format
+                has changed with this release, 1.8 clients cannot access an earlier
+                working copy without first upgrading it. Pre-1.8 clients cannot access
+                1.8 working copies at all and there is no downgrade option.
+                </p>
+                <p>Migrating to 1.8 working copies must be considered a one-way
+                operation. If you need to use multiple clients on the same working
+                copy then be sure that you can update all the clients before upgrading
+                the working copy.
+                </p>
+
+                <h3>Client Server Compatibility</h3>
+                <p>Older clients and servers interoperate transparently with 1.8
+                servers and clients.  That is to say, you can use a 1.8 client with
+                an older server, and you can use a 1.8 server with older clients.
+                However, some of the new 1.8 features may
+                not be available unless both client and server are the latest
+                version.  There are also cases where a new feature will work
+                but will run less efficiently if the client is new and the
+                server old.</p>
+
+                <div class="h4" id="new-feature-compatibility-table">
+                <h4>New Feature Compatibility Table</h4>
+                <table border="1">
+                  <tr>
+                    <th>New Feature</th>
+                    <th>Minimum Client<sup>1</sup></th>
+                    <th>Minimum Server</th>
+                    <th>Minimum Repository</th>
+                    <th>Notes</th>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#moves">working copy records moves</a></td>
+                    <td>1.8</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#auto-merge">automatic merging</a></td>
+                    <td>1.8</td>
+                    <td>1.5</td>
+                    <td>1.5</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#neon-deleted">neon support removed</a></td>
+                    <td>1.8</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#neon-deleted">Server-side configuration changes</a>
+                      might be required for optimal performance with 1.8 clients which
+                      access the repository via HTTP.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#iprops">Inheritable properties</a></td>
+                    <td>1.8</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td>A 1.8 server isn't required but will deliver superior performance
+                      when asked for inherited properties.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#repos-dictated-config">Repos dictated config props</a></td>
+                    <td>1.8</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.8.html#in-repo-authz">Authz file in repository</a></td>
+                    <td>any</td>
+                    <td>1.8</td>
+                    <td>any</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5"><sup>1</sup>Reminder: when using the <code>file://</code>
+                      repository access method, the Subversion program is both the client
+                      <em>and</em> the server.</td>
+                  </tr>
+                </table>
+                </div>  <!-- new-feature-compatibility-table -->
+
+            </div>  <!-- compatibility -->
+            <div class="post" id="logdialog">
+                <h2>Log Dialog</h2>
+
+                <h3>Log Dialog enhancements to help with code reviews</h3>
+                <p>
+                    A new context menu &#39;Create code collaborator review&#39; has been added to
+                    provide interoperability with the SmartBear Code Collaborator review tool.
+                </p>
+                <p>
+                    Two new context menus and commands have been added to the log dialog when
+                    multiple files are selected in the bottom 'files changed' listbox.
+                </p>
+                <ol>
+                    <li>Show multiple changes...</li>
+                    <li>Open multiple local...</li>
+                </ol>
+                <p>
+                    The details of how these commands work, which include special support for
+                    loading working copy files into Visual Studio can be found in the subversion
+                    help file under the topic 'Invoking the Revision Log Dialog'.
+                </p>
+
+            </div>  <!-- logdialog -->
+        </div>
+        <!-- end #content -->
+
+        @@include("_includes/sidebar.html")
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    @@include("_includes/footer-js.html")
+</div>
+</body>
+</html>
