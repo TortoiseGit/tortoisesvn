@@ -22,18 +22,14 @@
 #include "XMessageBox.h"
 
 
-UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType, LPCTSTR sHelpPath /*= NULL*/ )
+UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType)
 {
-    XMSGBOXPARAMS xmsg;
-    if (sHelpPath)
-        wcscpy_s(xmsg.szHelpPath, sHelpPath);
-
-    return XMessageBox(hWnd, lpMessage, lpCaption, uType, &xmsg);
+    return XMessageBox(hWnd, lpMessage, lpCaption, uType);
 }
 
-UINT TSVNMessageBox( HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR sHelpPath /*= NULL*/ )
+UINT TSVNMessageBox( HWND hWnd, UINT nMessage, UINT nCaption, UINT uType)
 {
-    return TSVNMessageBox(hWnd, (LPCTSTR)CString(MAKEINTRESOURCE(nMessage)), (LPCTSTR)CString(MAKEINTRESOURCE(nCaption)), uType, sHelpPath);
+    return TSVNMessageBox(hWnd, (LPCTSTR)CString(MAKEINTRESOURCE(nMessage)), (LPCTSTR)CString(MAKEINTRESOURCE(nCaption)), uType);
 }
 
 UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR lpButton1, LPCTSTR lpButton2, LPCTSTR lpButton3 /*= NULL*/ )

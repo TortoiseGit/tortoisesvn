@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,8 +60,8 @@
 #define IDCUSTOM4           26
 
 
-UINT TSVNMessageBox(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType, LPCTSTR sHelpPath = NULL);
-UINT TSVNMessageBox(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR sHelpPath = NULL);
+UINT TSVNMessageBox(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType);
+UINT TSVNMessageBox(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType);
 
 UINT TSVNMessageBox(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR lpButton1, LPCTSTR lpButton2, LPCTSTR lpButton3 = NULL);
 //UINT TSVNMessageBox(HWND hWnd, UINT nMessage, UINT nCaption, int nDef, LPCTSTR icon, UINT nButton1, UINT nButton2 = NULL, UINT nButton3 = NULL);
