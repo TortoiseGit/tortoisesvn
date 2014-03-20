@@ -386,7 +386,7 @@ a.fancybox,
 }
 
 
-a[rel ~="en"] {
+a[hreflang ~="en"] {
     background: transparent url("../img/icon_english.png") no-repeat center right;
     padding-right: 18px !important;
 }
