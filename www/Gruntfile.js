@@ -137,14 +137,11 @@ module.exports = function(grunt) {
         validation: {
             options: {
                 charset: 'utf-8',
-                doctype: 'XHTML 1.1',
+                doctype: 'HTML5',
                 failHard: true,
                 reset: true,
                 relaxerror: [
-                    'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-                    'required attribute "alt" not specified',   // fix these later
-                    'there is no attribute "target"',           // remove this when we switch to HTML5
-                    'there is no attribute "data-label"'        // remove this when we switch to HTML5
+                    'An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.'    // fix these later
                 ]
             },
             files: {
@@ -155,7 +152,7 @@ module.exports = function(grunt) {
     });
 
     // Load any grunt plugins found in package.json.
-    require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
+    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
     require('time-grunt')(grunt);
 
     grunt.registerTask('build', [
@@ -163,7 +160,7 @@ module.exports = function(grunt) {
         'copy',
         'includereplace',
         'concat',
-        //'htmlmin',
+        'htmlmin',
         'cssmin',
         'uglify'
     ]);
