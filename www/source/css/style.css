@@ -155,6 +155,12 @@ img.centered {
     margin-right: auto;
 }
 
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 /* Header */
 #header {
     margin: 0 auto;

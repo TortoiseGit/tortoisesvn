@@ -147,7 +147,9 @@
                 <p>The revision graph has changed dramatically and has been rewritten almost
                 completely.</p>
 
-                <a href="img/Tortoise-1.6-trunkgraph-full.png"><img src="img/Tortoise-1.6-revisiongraph.png" alt="revision graph"/></a>
+                <a href="img/Tortoise-1.6-trunkgraph-full.png" title="Revision Graph">
+                    <img src="img/Tortoise-1.6-revisiongraph.png" class="img-responsive" alt="Revision Graph"/>
+                </a>
 
                 <p>The new revision graph has many more options to tweak the output. For example,
                 it is now possible to hide/show individual subtrees.
@@ -184,7 +186,7 @@
                 Of course, those are not all the enhancements/changes that were done for this 1.6
                 release. You can get a more detailed list of changes from the
                 <a href="http://code.google.com/p/tortoisesvn/source/browse/tags/version_1.6.0/src/Changelog.txt">changelog</a>
-                or by showing the svn log on our repository.</p>
+                or by showing the svn log on our repository.
                 </p>
                 </div>  <!-- misc -->
             </div>  <!-- new features -->
@@ -193,16 +195,16 @@
                 <h2>Known issues in 1.6</h2>
 
                 <div class="h3" id="file-ext">
-                <h3>File externals</h3>
-                <p>Subversion 1.6 now supports single file externals as well as folder externals.
-                However, there are some significant issues you should be aware of before using them.</p>
-                <p>A file external is created by adding a value to the svn:externals property of
-                a folder. However, once such a file external has been added it cannot be removed
-                from the working copy, even if you delete the svn:externals property. The only
-                way to remove the file from your working copy is to make a fresh checkout.
-                See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3351">Subversion issue #3351</a></p>
-                <p>It is currently not possible to add a binary file as an external.
-                See See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3368">Subversion issue #3368</a></p>
+                    <h3>File externals</h3>
+                    <p>Subversion 1.6 now supports single file externals as well as folder externals.
+                    However, there are some significant issues you should be aware of before using them.</p>
+                    <p>A file external is created by adding a value to the svn:externals property of
+                    a folder. However, once such a file external has been added it cannot be removed
+                    from the working copy, even if you delete the svn:externals property. The only
+                    way to remove the file from your working copy is to make a fresh checkout.
+                    See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3351">Subversion issue #3351</a></p>
+                    <p>It is currently not possible to add a binary file as an external.
+                    See See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3368">Subversion issue #3368</a></p>
                 </div> <!-- file-ext -->
             </div>  <!-- known issues -->
         </div>

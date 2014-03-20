@@ -50,7 +50,7 @@
                 <p>Older clients and servers interoperate transparently with 1.5
                 servers and clients. Of course, some of the new 1.5 features may not
                 be available unless both client and server are the latest version.
-                See the table below about which features require which versions:
+                See the table below about which features require which versions:</p>
 
                 <table border="1">
                   <tr>
@@ -58,29 +58,31 @@
                     <th>Minimum Client</th>
                     <th>Minimum Server</th>
                     <th>Minimum Repository</th>
-                    <th>Notes</th></tr>
+                    <th>Notes</th>
+                  </tr>
                   <tr>
                     <td><a href="#merge-tracking">Merge tracking</a></td>
                     <td>1.5</td>
                     <td>1.5</td>
                     <td>1.5</td>
-                    <td></td></tr>
+                    <td></td>
+                  </tr>
                   <tr>
-                    <td><a href="#cyrus-sasl"> Cyrus SASL support for <code>svn://</code> repository access</td>
+                    <td><a href="#cyrus-sasl">Cyrus SASL support for <code>svn://</code> repository access</a></td>
                     <td>any<sup>*</sup>, 1.5</td>
                     <td>any<sup>*</sup>, 1.5</td>
                     <td>any</td>
-                    <td><sup>*</sup>Limited, only ANONYMOUS and CRAM-MD5 are supported</td></tr>
+                    <td><sup>*</sup>Limited, only ANONYMOUS and CRAM-MD5 are supported</td>
+                  </tr>
                 </table>
 
-                All other features are independent of the server version and can be used without any
-                restrictions.
+                <p>All other features are independent of the server version and can be used without any
+                restrictions.</p>
                 <p>
                 For a more detailed compatibility table, see the
                 <a href="http://subversion.apache.org/svn_1.5_releasenotes.html#new-feature-compatibility-table">Subversion release notes</a>.
                 </p>
 
-                </p>
 
                 <p>Due to certain improvements made to the working copy
                 library, the version number of the working copy format has been
@@ -135,7 +137,7 @@
                 the risk of merging the same revision twice. Subversion will automatically
                 omit the already merged revisions when doing the merge.</p>
 
-                <img src="img/LogWithGrayedMerge.png" alt="Log dialog showing already
+                <img src="img/LogWithGrayedMerge.png" class="img-responsive" alt="Log dialog showing already
                 merged entries grayed out"/>
 
                 <p>When showing the log from the merge dialog to find the revisions to
@@ -164,7 +166,7 @@
                 log of a folder/file would be the log messages of all the revisions
                 that got merged.</p>
 
-                <img src="img/LogWithoutMerge.png" alt="Log dialog showing entries
+                <img src="img/LogWithoutMerge.png" class="img-responsive" alt="Log dialog showing entries
                 without merge history"/>
 
                 <p>TortoiseSVN can show you those log messages if you want. The log dialog
@@ -172,7 +174,7 @@
                 merged revisions. The log entries of merged revisions are shown a little
                 indented.</p>
 
-                <img src="img/LogWithMerge.png" alt="Log dialog showing entries
+                <img src="img/LogWithMerge.png" class="img-responsive" alt="Log dialog showing entries
                 with merge history"/>
                 </div>  <!-- merge-info -->
             </div> <!-- merge-tracking -->
@@ -185,14 +187,14 @@
                 certain parts. In case of folders with many subfolders, some of the
                 subfolders might not be needed.</p>
                 <p>TortoiseSVN provides the user with a combo box to choose the depth
-                of a checkout:
+                of a checkout:</p>
                 <ul>
                 <li>Fully recursive</li>
                 <li>Immediate children, including folders</li>
                 <li>Only file children</li>
                 <li>Only this item</li>
                 </ul>
-                The depth of the checkout is remembered, so that a later <em>update</em>
+                <p>The depth of the checkout is remembered, so that a later <em>update</em>
                 will respect that depth and not fetch everything again.</p>
 
             </div> <!-- sparse-checkouts -->
@@ -204,7 +206,7 @@
                 <p>In Subversion 1.5, svnserve can use SASL (Simple Authentication and Security Layer)
                 for authentication and data encryption.
                 TortoiseSVN has SASL implemented too. The following SASL authentication
-                methods are available with TortoiseSVN 1.5:
+                methods are available with TortoiseSVN 1.5:</p>
                 <ul>
                 <li>ANONYMOUS</li>
                 <li>CRAM-MD5</li>
@@ -213,7 +215,6 @@
                 <li>LOGIN</li>
                 <li>NTLM</li>
                 </ul>
-                </p>
                 <p>SASL also provides data encryption in some of these methods, so you can secure
                 your data while it is being transmitted over the internet. Securing your connection
                 using SASL should be easier than setting up an SSH infrastructure.</p>
@@ -267,7 +268,7 @@
                 resembles the Windows explorer. It has two panes, with a tree
                 view on the left and the file/folder list on the right.</p>
 
-                <img src="img/RepositoryBrowser.png" alt="Repository Browser"/>
+                <img src="img/RepositoryBrowser.png" class="img-responsive" alt="Repository Browser"/>
 
                 <p>Part of the rewrite also includes a performance improvement when
                 showing very big directories.</p>
@@ -300,7 +301,7 @@
 
                 <p>
                 TortoiseSVN allows the execution of client side scripts before and after
-                certain operations. The available hooks are:
+                certain operations. The available hooks are:</p>
 
                 <dl>
                     <dt>Start Commit Hook</dt>
@@ -317,12 +318,10 @@
                         <dd>Called after the update has finished</dd>
                 </dl>
 
-                </p>
             </div>  <!-- client-side-hooks -->
 
             <div class="post" id="TortoiseMerge">
                 <h2>TortoiseMerge</h2>
-                <p>
                 <dl>
                     <dt>Line endings</dt>
                         <dd>inconsistent line endings are handled properly, including MAC line endings</dd>
@@ -331,7 +330,6 @@
                     <dt>Editing</dt>
                         <dd>The target file can be edited directly in TortoiseMerge without the need to use a text editor</dd>
                 </dl>
-                </p>
             </div>  <!-- TortoiseMerge -->
 
             <div class="post" id="SubWCRev">
