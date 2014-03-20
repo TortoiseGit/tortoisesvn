@@ -3074,8 +3074,15 @@ void CMainFrame::OnRegexfilter(UINT cmd)
                 {
                     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
                         break;
-                    std::wregex rx(m_regexIni.GetValue(section, L"regex", L""));
-                    m_Data.SetRegexTokens(rx, m_regexIni.GetValue(section, L"replace", L""));
+                    try
+                    {
+                        std::wregex rx(m_regexIni.GetValue(section, L"regex", L""));
+                        m_Data.SetRegexTokens(rx, m_regexIni.GetValue(section, L"replace", L""));
+                    }
+                    catch (std::exception &ex)
+                    {
+                        MessageBox(_T("Regex is invalid!\r\n") + CString(ex.what()));
+                    }
                     m_regexIndex = index;
                     LoadViews(-1);
                     break;
