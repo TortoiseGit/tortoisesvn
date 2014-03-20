@@ -11,29 +11,24 @@
 # Authors:
 # Translators:
 # brunzefb <brunzefb@yahoo.com>, 2013
-# brunzefb <brunzefb@yahoo.com>, 2013
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
+# Lübbe Onken <l.onken@rac.de>, 2013-2014
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2003-2014
 # peu <peu@rekoba.de>, 2012-2013
-# peu <peu@rekoba.de>, 2012
-# peu <peu@rekoba.de>, 2013
-# peu <peu@rekoba.de>, 2012
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-17 07:41+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2014-03-19 12:54+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #. (title)
 #. (secondary)
@@ -3471,9 +3466,20 @@ msgid ""
 "change</guimenuitem></menuchoice> to include that change. Finally "
 "<action>right click</action> and use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Leave only marked "
-"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
-"changes) that you don't want to appear in the current commit."
+"changes</guimenuitem></menuchoice> which will change the right view to only "
+"include the changes you've marked before and undo the changes you have not "
+"marked."
 msgstr ""
+"Wenn Sie die Datei mit TortoiseMerge bearbeiten, können Sie diese wie "
+"gewohnt tun. Außerdem haben Sie die Möglichkeit, alle Änderungen, die Sie "
+"übernehmen wollen, per <action>Rechtsklick</action> und "
+"<menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Diese Änderung "
+"markieren</guimenuitem></menuchoice>, einzuschließen. Schließlich können Sie "
+"per<action>Rechtsklick</action> und "
+"<menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Die markierten "
+"Änderungen beibehalten</guimenuitem></menuchoice>. Dadurch behält die rechte "
+"Ansicht nur die markierten Änderungen und die nicht markieren Änderungen "
+"werden zurückgenommen."
 
 #. (para)
 msgid ""
