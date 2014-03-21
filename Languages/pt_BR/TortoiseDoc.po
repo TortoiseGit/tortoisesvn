@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-03-20 00:20+0000\n"
+"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3468,8 +3468,9 @@ msgid ""
 "change</guimenuitem></menuchoice> to include that change. Finally "
 "<action>right click</action> and use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Leave only marked "
-"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
-"changes) that you don't want to appear in the current commit."
+"changes</guimenuitem></menuchoice> which will change the right view to only "
+"include the changes you've marked before and undo the changes you have not "
+"marked."
 msgstr ""
 
 #. (para)
@@ -7694,7 +7695,7 @@ msgstr ""
 
 #. (title)
 msgid "Edit properties at HEAD revision"
-msgstr ""
+msgstr "Editar propriedades na revisão atual"
 
 #. (para)
 msgid ""
@@ -7706,7 +7707,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting and Importing Properties"
-msgstr ""
+msgstr "Exportando e Importando Propriedades"
 
 #. (para)
 msgid ""
@@ -7830,7 +7831,7 @@ msgstr "Submeter propriedades"
 msgid ""
 "Subversion properties are versioned. After you change or add a property you "
 "have to commit your changes."
-msgstr ""
+msgstr "Propriedades do Subversion são versionadas. Depois que você mudar ou adicionar uma propriedade você precisa submeter suas alterações."
 
 #. (title)
 msgid "Conflicts on properties"
@@ -7841,7 +7842,7 @@ msgid ""
 "If there's a conflict on committing the changes, because another user has "
 "changed the same property, Subversion generates a <filename>.prej</filename>"
 " file. Delete this file after you have resolved the conflict."
-msgstr ""
+msgstr "Se existe um conflito ao submeter as alterações, porque outro usuário alterou a mesma propriedade, o Subversion gerará um arquivo <filename>.prej</filename>. Apague este arquivo depois que você resolver o conflito."
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
@@ -7906,46 +7907,46 @@ msgstr ""
 msgid ""
 "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a "
 "working copy."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatecommit</literal> é usado para para todas as submissões da cópia de trabalho."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatebranch</literal> is used when you create a "
 "branch/tag, or when you copy files or folders directly in the repository "
 "browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatebranch</literal> é usado quando você cria um ramo/marca, ou quando você copia arquivos ou diretórios dentro do navegador de repositório."
 
 #. (para)
 msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
-msgstr ""
+msgstr "<literal>tsvn:logtemplateimport</literal> é usado para importação."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatedelete</literal> is used when deleting items "
 "directly in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatedelete</literal> é usado quando itens são apagados dentro do navegador de repositório."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving "
 "items in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatemove</literal> é usado quando arquivos são renomeados ou movidos dentro do navegador de repositório."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories "
 "in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatemkdir</literal> é usado quando diretórios são criados dentro do navegador de repositório."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties"
 " in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatepropset</literal> é usado quando propriedades são modificadas dentro do navegador de repositório."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatelock</literal> é usado quando é obtido um bloqueio."
 
 #. (para)
 msgid "The action specific templates are: <placeholder-1/>"
@@ -7968,7 +7969,7 @@ msgid ""
 "If there is a conflict between the local autoprops and "
 "<literal>tsvn:autoprops</literal>, the project settings take precedence "
 "because they are specific to that project."
-msgstr ""
+msgstr "Se existe um conflito para a propriedade <literal>tsvn:autoprops</literal> entre a versão remota e local, as configurações do projeto são precedentes porque elas são específicas do projeto."
 
 #. (para)
 msgid ""
@@ -7977,7 +7978,7 @@ msgid ""
 "<literal>tsvn:logfilelistenglish</literal> defines whether the file status "
 "is inserted in English or in the localized language. If the property is not "
 "set, the default is <literal>true</literal>."
-msgstr ""
+msgstr "Na janela de Submissão você tem a opção de colar a lista de arquivos modificados, incluindo a situação de cada arquivo (adicionado, modificado, etc). <literal>tsvn:logfilelistenglish</literal> define se a situação do arquivo é inserida em Inglês ou no idioma configurado. Se a propriedade não está configurada, o padrão é <literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -7997,14 +7998,14 @@ msgid ""
 "You can enter this value in decimal, or in hexadecimal if prefixed with "
 "<literal>0x</literal>. For example English (US) can be entered as "
 "<literal>0x0409</literal> or <literal>1033</literal>."
-msgstr ""
+msgstr "Você pode tanto digitar o valor em decimal, ou em hexadecimal se iniciado com <literal>0x</literal>. Por exemplo Inglês (US) pode ser informado como <literal>0x0409</literal> ou <literal>1033</literal>."
 
 #. (para)
 msgid ""
 "The property <literal>tsvn:logsummary</literal> is used to extract a portion"
 " of the log message which is then shown in the log dialog as the log message"
 " summary."
-msgstr ""
+msgstr "A propriedade <literal>tsvn:logsummary</literal> é usada para extrair uma porção da mensagem de auditoria que é mostrada na janela de auditoria como o resumo da mensagem."
 
 #. (para)
 msgid ""
@@ -8018,7 +8019,7 @@ msgid ""
 "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything "
 "after <quote>[SUMMARY]</quote> in the log message and use that as the "
 "summary."
-msgstr ""
+msgstr "Por exemplo: <literal>\\[RESUMO\\]:\\s+(.*)</literal> Vai pegar tudo depois de <quote>[RESUMO]</quote> na mensagem de auditoria e usar como resumo."
 
 #. (para)
 msgid ""
@@ -8035,7 +8036,7 @@ msgid ""
 "The regular expression must match the whole reference, not just the revision"
 " number. The revision number is extracted from the matched reference string "
 "automatically."
-msgstr ""
+msgstr "A expressão regular deve ser bater com a referência completa, não apenas com o número da revisão. O número da revisão é extraído do texto de referência compatível automaticamente."
 
 #. (para)
 msgid ""
@@ -8244,7 +8245,7 @@ msgstr ""
 msgid ""
 "TortoiseSVN has a few special properties of its own, and these begin with "
 "<literal>tsvn:</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN tem algumas propriedades especiais próprias, que começam com <literal>tsvn:</literal>. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -9604,7 +9605,7 @@ msgstr ""
 
 #. (title)
 msgid "Reviewing the Merge Results"
-msgstr ""
+msgstr "Revisando os Resultados da Combinação"
 
 #. (para)
 msgid ""
@@ -9693,20 +9694,20 @@ msgstr ""
 msgid ""
 "When you show the log dialog from within the merge dialog, revisions already"
 " merged are shown in grey."
-msgstr ""
+msgstr "Quando você mostra a janela de auditoria a partir de uma janela de combinação, revisões já combinadas são apresentadas em cinza."
 
 #. (para)
 msgid ""
 "When showing blame information for a file, you can choose to show the "
 "original author of merged revisions, rather than the person who did the "
 "merge."
-msgstr ""
+msgstr "Quando você está mostrando a informação de autoria para um arquivo você pode escolher mostrar o autor original das revisões combinadas, ao invés da pessoa que fez a combinação."
 
 #. (para)
 msgid ""
 "You can mark revisions as <emphasis>do not merge</emphasis> by including "
 "them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "Você pode marcar revisões como <emphasis>não combinadas</emphasis> incluindo as revisões na lista de revisões combinadas sem realmente fazer a combinação."
 
 #. (para)
 msgid ""
@@ -9738,7 +9739,7 @@ msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Lidando com Conflitos durante a Combinação"
 
 #. (primary)
 msgid "merge conflicts"
@@ -9746,7 +9747,7 @@ msgstr "combinar conflitos"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
-msgstr ""
+msgstr "A Janela de Retorno do Conflito da Combinação"
 
 #. (para)
 msgid ""
@@ -10124,7 +10125,7 @@ msgstr ""
 msgid ""
 "From the context menu here, you can also get and release locks, as well as "
 "breaking and stealing locks held by others."
-msgstr ""
+msgstr "A partir deste menu de contexto você pode também obter ou liberar bloqueios, assim como quebrar e roubar os bloqueios mantidos por outros."
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
@@ -10394,7 +10395,7 @@ msgstr ""
 msgid ""
 "This command lists, for every line in a file, the author and the revision "
 "the line was changed."
-msgstr ""
+msgstr "Estas listas de comandos, para cada linha no arquivo, o autor e a revisão da alteração da linha."
 
 #. (title)
 msgid "Blame for Files"
@@ -10704,7 +10705,7 @@ msgstr "Apagar ou renomear o arquivo."
 
 #. (para)
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr ""
+msgstr "Salvar uma cópia não versionada do arquivo para o seu disco."
 
 #. (para)
 msgid "Copy the URL shown in the address bar to the clipboard."

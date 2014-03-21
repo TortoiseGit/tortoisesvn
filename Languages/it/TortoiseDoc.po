@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-03-19 17:11+0000\n"
+"Last-Translator: Vizjerey <alessio@alessiodamato.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2981,7 +2981,7 @@ msgstr ""
 
 #. (title)
 msgid "Checkout Depth"
-msgstr ""
+msgstr "Checkout Completo"
 
 #. (term)
 msgid "Fully recursive"
@@ -2989,7 +2989,7 @@ msgstr "Completamente ricorsiva"
 
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
-msgstr ""
+msgstr "Fai il checkout dell'intera struttura, incluse tutte le sottocartelle"
 
 #. (term)
 msgid "Immediate children, including folders"
@@ -3148,7 +3148,7 @@ msgstr ""
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
-msgstr ""
+msgstr "Ripeti lo stesso processo per <literal>Project25</literal>"
 
 #. (para)
 msgid ""
@@ -3228,11 +3228,11 @@ msgstr ""
 
 #. (primary)
 msgid "commit"
-msgstr ""
+msgstr "invia"
 
 #. (primary)
 msgid "send changes"
-msgstr ""
+msgstr "invia modifiche"
 
 #. (primary)
 msgid "check in"
@@ -3470,8 +3470,9 @@ msgid ""
 "change</guimenuitem></menuchoice> to include that change. Finally "
 "<action>right click</action> and use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Leave only marked "
-"changes</guimenuitem></menuchoice> which will invert your changes (unmarked "
-"changes) that you don't want to appear in the current commit."
+"changes</guimenuitem></menuchoice> which will change the right view to only "
+"include the changes you've marked before and undo the changes you have not "
+"marked."
 msgstr ""
 
 #. (para)
@@ -3651,7 +3652,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Blue"
-msgstr ""
+msgstr "Blu"
 
 #. (para)
 msgid "Committing a modification."
@@ -3661,7 +3662,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Purple"
-msgstr ""
+msgstr "Viola"
 
 #. (para)
 msgid "Committing a new addition."
@@ -3671,7 +3672,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Dark red"
-msgstr ""
+msgstr "Rosso scuro"
 
 #. (para)
 msgid "Committing a deletion or a replacement."
@@ -3681,11 +3682,11 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Black"
-msgstr ""
+msgstr "Nero"
 
 #. (para)
 msgid "All other items."
-msgstr ""
+msgstr "Tutti gli altri elementi."
 
 #. (para)
 msgid ""
@@ -3709,7 +3710,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "update"
-msgstr ""
+msgstr "aggiorna"
 
 #. (primary)
 msgid "fetch changes"
@@ -3747,7 +3748,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Green"
-msgstr ""
+msgstr "Viola"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
@@ -3756,7 +3757,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Bright red"
-msgstr ""
+msgstr "Rosso chiaro"
 
 #. (para)
 msgid ""
@@ -3875,7 +3876,7 @@ msgstr ""
 
 #. (title)
 msgid "Resolving Conflicts"
-msgstr ""
+msgstr "Risolvi Conflitti"
 
 #. (primary)
 msgid "tree conflict"
@@ -3883,11 +3884,11 @@ msgstr "Ramo in conflitto"
 
 #. (primary)
 msgid "resolve"
-msgstr ""
+msgstr "risolvi"
 
 #. (term)
 msgid "file conflicts"
-msgstr ""
+msgstr "conflitti nei file"
 
 #. (para)
 msgid ""
@@ -3897,7 +3898,7 @@ msgstr ""
 
 #. (term)
 msgid "tree conflicts"
-msgstr ""
+msgstr "Conflitti nel ramo"
 
 #. (para)
 msgid ""
@@ -3915,7 +3916,7 @@ msgstr ""
 
 #. (title)
 msgid "File Conflicts"
-msgstr ""
+msgstr "Conflitti nel file"
 
 #. (term)
 msgid "filename.ext.mine"
@@ -4168,7 +4169,7 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è stato contrassegnato come modificato."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
@@ -4209,7 +4210,7 @@ msgstr ""
 #. (para)
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
-msgstr ""
+msgstr "Lo sviluppatore B ha mosso <filename>Foo.c</filename> in <filename>Bix.c</filename>."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -4268,7 +4269,7 @@ msgstr ""
 msgid ""
 "<filename>Bar.c</filename> is already in the working copy with status "
 "'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> è già presente nella copia lavoro con status 'normale'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
@@ -4423,15 +4424,15 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "status"
-msgstr ""
+msgstr "stato"
 
 #. (primary)
 msgid "view changes"
-msgstr ""
+msgstr "vedi modifiche"
 
 #. (primary)
 msgid "working copy status"
-msgstr ""
+msgstr "stato della copia di lavoro"
 
 #. (para)
 msgid ""
@@ -4443,7 +4444,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "overlays"
-msgstr ""
+msgstr "Overlay"
 
 #. (primary)
 msgid "icons"
@@ -4556,11 +4557,11 @@ msgstr ""
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "Stato dettagliato"
 
 #. (primary)
 msgid "windows properties"
-msgstr ""
+msgstr "proprietà della finestra"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
@@ -4586,7 +4587,7 @@ msgstr ""
 
 #. (primary)
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Esplora colonne"
 
 #. (para)
 msgid ""
@@ -4626,12 +4627,12 @@ msgstr ""
 
 #. (primary)
 msgid "modifications"
-msgstr ""
+msgstr "modifiche"
 
 #. (title)
 #. (title)
 msgid "Check for Modifications"
-msgstr ""
+msgstr "Controlla l'esistenza di modifiche"
 
 #. (para)
 msgid ""
