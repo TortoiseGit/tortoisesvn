@@ -7,13 +7,14 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="stefan_kueng.html">EN</a>&nbsp;<a href="stefan_kueng.de.html">DE</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="stefan_kueng.html">EN</a></li>
+    <li><a href="stefan_kueng.de.html">DE</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.de.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h1 class="title"><a href="#">Stefan Küng</a></h1>
@@ -23,7 +24,7 @@
                     <br/>
                     Während ich an TortoiseSVN arbeite, habe ich immer meine
                     <a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&amp;location=http%3A%2F%2Fwww.amazon.com%2FSennheiser-HD650-Audiophile-Dynamic-Headphone%2Fdp%2FB00018MSNI%3Fie%3DUTF8%26s%3Delectronics%26qid%3D1177402520%26sr%3D8-2&amp;tag=to0d-20&amp;linkCode=ur2&amp;camp=1789&amp;creative=9325">Kopfhörer</a>
-                    <img src="http://www.assoc-amazon.com/e/ir?t=to0d-20&amp;l=ur2&amp;o=1" width="1" height="1" alt="" style="margin:0px !important">
+                    <img src="http://www.assoc-amazon.com/e/ir?t=to0d-20&amp;l=ur2&amp;o=1" width="1" height="1" alt="">
                     auf und höre Musik. Und da ich viele Stunden an TortoiseSVN
                     arbeite, brauch ich viel Musik :)
                     </p>
@@ -47,12 +48,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.de.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

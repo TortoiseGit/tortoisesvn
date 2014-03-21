@@ -8,13 +8,14 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="about.html">EN</a>&nbsp;<a href="about.zh.html">&#31616;&#20307;&#20013;&#25991;</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="about.html">EN</a></li>
+    <li><a href="about.zh.html">ZH</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h2 class="title"><a href="#">About TortoiseSVN</a></h2>
@@ -118,12 +119,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

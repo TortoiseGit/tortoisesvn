@@ -9,13 +9,14 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="extendedcontextmenu.html">EN</a>&nbsp;<a href="extendedcontextmenu.de.html">DE</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="extendedcontextmenu.html">EN</a></li>
+    <li><a href="extendedcontextmenu.de.html">DE</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.de.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h1 class="title"><a href="#">Erweitertes Kontextmenu</a></h1>
@@ -72,12 +73,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.de.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

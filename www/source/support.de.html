@@ -9,13 +9,15 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="support.html">EN</a>&nbsp;<a href="support.de.html">DE</a>&nbsp;<a href="support.zh.html">ZH</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="support.html">EN</a></li>
+    <li><a href="support.de.html">DE</a></li>
+    <li><a href="support.zh.html">ZH</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.de.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h1 class="title"><a href="#">Support</a></h1>
@@ -32,21 +34,21 @@
                     der F1-Taste um diese Hilfe anzuzeigen. Dieselbe
                     Dokumenation/Hilfe ist auch online hier erhältlich.</p>
 
-                    <table class="hover">
+                    <table class="translations hover">
                     <tr>
-                        <th class="lang">Sprache</th>
-                        <th class="lang" colspan="2">TortoiseSVN</th>
-                        <th class="lang" colspan="2">TortoiseMerge</th>
+                        <th>Sprache</th>
+                        <th colspan="2">TortoiseSVN</th>
+                        <th colspan="2">TortoiseMerge</th>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">&nbsp;Deutsch</td>
+                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">Deutsch</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-de.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_de/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-de.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_de/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">&nbsp;Englisch</td>
+                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">Englisch</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-en.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_en/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-en.pdf?download">PDF</a></td>
@@ -63,21 +65,21 @@
                     (noch) nicht freigegebene Versionen. Benutzen Sie diese
                     Dokumentation wenn Sie einen Nightly Build einsetzen.</p>
 
-                    <table class="hover">
+                    <table class="translations hover">
                     <tr>
-                        <th class="lang">Sprache</th>
-                        <th class="lang" colspan="2">TortoiseSVN</th>
-                        <th class="lang" colspan="2">TortoiseMerge</th>
+                        <th>Sprache</th>
+                        <th colspan="2">TortoiseSVN</th>
+                        <th colspan="2">TortoiseMerge</th>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">&nbsp;German</td>
+                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">German</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_de/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_de/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">&nbsp;English</td>
+                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">English</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_en/index.html">HTML</a></td>
                         <td></td>
@@ -139,12 +141,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.de.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

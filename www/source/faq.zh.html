@@ -9,13 +9,15 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="faq.html">EN</a>&nbsp;<a href="faq.de.html">DE</a>&nbsp;<a href="faq.zh.html">ZH</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="faq.html">EN</a></li>
+    <li><a href="faq.de.html">DE</a></li>
+    <li><a href="faq.zh.html">ZH</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.zh.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h1 class="title"><a href="#">TortoiseSVN FAQ</a></h1>
@@ -619,12 +621,11 @@ Folder/File2 : revision 2</pre>
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.zh.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

@@ -9,13 +9,14 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="donate.html">EN</a>&nbsp;<a href="donate.de.html">DE</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="donate.html">EN</a></li>
+    <li><a href="donate.de.html">DE</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
             <div class="post">
                 <h1 class="title"><a href="#">Donate</a></h1>
                 <div class="entry">
@@ -54,14 +55,14 @@
                         <td>
                             <input type="image" src="img/paypaldonate.png" name="submit" alt="Donate via PayPal">
                         </td>
-                        <td>Currency:&nbsp;<select name="currency_code">
-
-                        <option value="USD">U.S. Dollar</option>
-                        <option value="EUR" selected="selected">Euro</option>
-                        <option value="GBP">Pound Sterling</option>
-                        <option value="CHF">Swiss Franc</option>
-                        <!--<option value="AUD">Australian Dollar</option>
-                        <option value="CAD">Canadian Dollar</option>-->
+                        <td>Currency:
+                        <select name="currency_code">
+                            <option value="USD">U.S. Dollar</option>
+                            <option value="EUR" selected="selected">Euro</option>
+                            <option value="GBP">Pound Sterling</option>
+                            <option value="CHF">Swiss Franc</option>
+                            <!--<option value="AUD">Australian Dollar</option>
+                            <option value="CAD">Canadian Dollar</option>-->
                         </select>
                         </td>
                       </tr>
@@ -127,28 +128,28 @@
                         <td>
                             <input type="image" src="img/paypaldonate.png" name="submit" alt="Initiate monthly donation with PayPal subscription">
                         </td>
-                        <td>Amount:&nbsp;
+                        <td>Amount:
                             <select name="a3">
-                            <option value="5.00">5</option>
-                            <option value="10.00">10</option>
-                            <option value="20.00" selected="selected">20</option>
-                            <option value="30.00">30</option>
-                            <option value="50.00">50</option>
-                            <option value="100.00">100</option>
-                            <option value="200.00">200</option>
-                            <option value="500.00">500</option>
+                                <option value="5.00">5</option>
+                                <option value="10.00">10</option>
+                                <option value="20.00" selected="selected">20</option>
+                                <option value="30.00">30</option>
+                                <option value="50.00">50</option>
+                                <option value="100.00">100</option>
+                                <option value="200.00">200</option>
+                                <option value="500.00">500</option>
                             </select>
                         </td>
-                        <td>&nbsp;&nbsp;Currency:&nbsp;
-                        <select name="currency_code">
-                    <option value="USD">U.S. Dollar</option>
-                    <option value="EUR" selected="selected">Euro</option>
-                    <option value="GBP">Pound Sterling</option>
-                    <option value="CHF">Swiss Franc</option>
-                    <!--<option value="AUD">Australian Dollar</option>
-                    <option value="CAD">Canadian Dollar</option>
-                    --></select>
-                    </td>
+                        <td>Currency:
+                            <select name="currency_code">
+                                <option value="USD">U.S. Dollar</option>
+                                <option value="EUR" selected="selected">Euro</option>
+                                <option value="GBP">Pound Sterling</option>
+                                <option value="CHF">Swiss Franc</option>
+                                <!--<option value="AUD">Australian Dollar</option>
+                                <option value="CAD">Canadian Dollar</option>-->
+                            </select>
+                        </td>
                     </tr>
 
                     </table>
@@ -179,12 +180,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
 </div>
 </body>

@@ -9,13 +9,15 @@
 <link href="css/pack.css" rel="stylesheet">
 </head>
 <body>
-<div id="langselection">
-    <a href="support.html">EN</a>&nbsp;<a href="support.de.html">DE</a>&nbsp;<a href="support.zh.html">ZH</a>
-</div>
-<div id="wrapper">
+<ul class="langselection">
+    <li><a href="support.html">EN</a></li>
+    <li><a href="support.de.html">DE</a></li>
+    <li><a href="support.zh.html">ZH</a></li>
+</ul>
+<div class="wrapper">
     @@include("_includes/menu.html")
-    <div id="page">
-        <div id="content">
+    <div class="page">
+        <div class="content">
 
             <div class="post">
                 <h1 class="title"><a href="#">Support</a></h1>
@@ -35,126 +37,126 @@
                     the F1 key in any dialog to start up the help. That help
                     is the same as the documentation you find here.</p>
 
-                    <table class="hover">
+                    <table class="translations hover">
                     <tr>
-                        <th class="lang">Language</th>
-                        <th class="lang" colspan="2">TortoiseSVN</th>
-                        <th class="lang" colspan="2">TortoiseMerge</th>
+                        <th>Language</th>
+                        <th colspan="2">TortoiseSVN</th>
+                        <th colspan="2">TortoiseMerge</th>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">&nbsp;English</td>
+                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">English</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-en.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_en/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-en.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_en/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/zh_CN.png" alt="Chinese, simplified flag" width="18" height="12">&nbsp;Chinese, simplified</td>
+                        <td><img src="img/flags/world.small/zh_CN.png" alt="Chinese, simplified flag" width="18" height="12">Chinese, simplified</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-zh_CN.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_zh_CN/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-zh_CN.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_zh_CN/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/cs.png" alt="Czech flag" width="18" height="12">&nbsp;Czech</td>
+                        <td><img src="img/flags/world.small/cs.png" alt="Czech flag" width="18" height="12">Czech</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-cs.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_cs/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-cs.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_cs/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/nl.png" alt="Dutch flag" width="18" height="12">&nbsp;Dutch</td>
+                        <td><img src="img/flags/world.small/nl.png" alt="Dutch flag" width="18" height="12">Dutch</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-nl.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_nl/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-nl.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_nl/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/fi.png" alt="Finnish flag" width="18" height="12">&nbsp;Finnish</td>
+                        <td><img src="img/flags/world.small/fi.png" alt="Finnish flag" width="18" height="12">Finnish</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-fi.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_fi/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-fi.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_fi/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/fr.png" alt="French flag" width="18" height="12">&nbsp;French</td>
+                        <td><img src="img/flags/world.small/fr.png" alt="French flag" width="18" height="12">French</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-fr.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_fr/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-fr.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_fr/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">&nbsp;German</td>
+                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">German</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-de.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_de/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-de.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_de/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/id.png" alt="Indonesian flag" width="18" height="12">&nbsp;Indonesian</td>
+                        <td><img src="img/flags/world.small/id.png" alt="Indonesian flag" width="18" height="12">Indonesian</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-id.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_id/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-id.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_id/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/ja.png" alt="Japanese flag" width="18" height="12">&nbsp;Japanese</td>
+                        <td><img src="img/flags/world.small/ja.png" alt="Japanese flag" width="18" height="12">Japanese</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-ja.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_ja/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-ja.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_ja/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/pt_BR.png" alt="Portuguese, Brazil flag" width="18" height="12">&nbsp;Portuguese, Brazil</td>
+                        <td><img src="img/flags/world.small/pt_BR.png" alt="Portuguese, Brazil flag" width="18" height="12">Portuguese, Brazil</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-pt_BR.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_pt_BR/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-pt_BR.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_pt_BR/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/pt_PT.png" alt="Portuguese, Portugal flag" width="18" height="12">&nbsp;Portuguese, Portugal</td>
+                        <td><img src="img/flags/world.small/pt_PT.png" alt="Portuguese, Portugal flag" width="18" height="12">Portuguese, Portugal</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-pt_PT.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_pt_PT/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-pt_PT.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_pt_PT/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/ru.png" alt="Russian flag" width="18" height="12">&nbsp;Russian</td>
+                        <td><img src="img/flags/world.small/ru.png" alt="Russian flag" width="18" height="12">Russian</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-ru.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_ru/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-ru.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_ru/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sr_spc.png" alt="Serbian cyrillic flag" width="18" height="12">&nbsp;Serbian cyrillic</td>
+                        <td><img src="img/flags/world.small/sr_spc.png" alt="Serbian cyrillic flag" width="18" height="12">Serbian cyrillic</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-sr.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_sr/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-sr.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_sr/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sr_spl.png" alt="Serbian latin flag" width="18" height="12">&nbsp;Serbian latin</td>
+                        <td><img src="img/flags/world.small/sr_spl.png" alt="Serbian latin flag" width="18" height="12">Serbian latin</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-sr@latin.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_sr@latin/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-sr@latin.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_sr@latin/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sk.png" alt="Slovak flag" width="18" height="12">&nbsp;Slovak</td>
+                        <td><img src="img/flags/world.small/sk.png" alt="Slovak flag" width="18" height="12">Slovak</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-sk.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_sk/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-sk.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_sk/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sl.png" alt="Slovenian flag" width="18" height="12">&nbsp;Slovenian</td>
+                        <td><img src="img/flags/world.small/sl.png" alt="Slovenian flag" width="18" height="12">Slovenian</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-sl.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_sl/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-sl.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseMerge_sl/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/es.png" alt="Spanish flag" width="18" height="12">&nbsp;Spanish</td>
+                        <td><img src="img/flags/world.small/es.png" alt="Spanish flag" width="18" height="12">Spanish</td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseSVN-@@TSVNSHORTVERSION-es.pdf?download">PDF</a></td>
                         <td><a href="docs/release/TortoiseSVN_es/index.html">HTML</a></td>
                         <td><a href="http://downloads.sourceforge.net/tortoisesvn/TortoiseMerge-@@TSVNSHORTVERSION-es.pdf?download">PDF</a></td>
@@ -171,126 +173,126 @@
                     versions. Please note that these docs aren't updated
                     nightly but very irregularly.</p>
 
-                    <table class="hover">
+                    <table class="translations hover">
                     <tr>
-                        <th class="lang">Language</th>
-                        <th class="lang" colspan="2">TortoiseSVN</th>
-                        <th class="lang" colspan="2">TortoiseMerge</th>
+                        <th>Language</th>
+                        <th colspan="2">TortoiseSVN</th>
+                        <th colspan="2">TortoiseMerge</th>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">&nbsp;English</td>
+                        <td><img src="img/flags/world.small/gb.png" alt="English flag" width="18" height="12">English</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_en/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_en/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/zh_CN.png" alt="Chinese, simplified flag" width="18" height="12">&nbsp;Chinese, simplified</td>
+                        <td><img src="img/flags/world.small/zh_CN.png" alt="Chinese, simplified flag" width="18" height="12">Chinese, simplified</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_zh_CN/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_zh_CN/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/cs.png" alt="Czech flag" width="18" height="12">&nbsp;Czech</td>
+                        <td><img src="img/flags/world.small/cs.png" alt="Czech flag" width="18" height="12">Czech</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_cs/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_cs/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/nl.png" alt="Dutch flag" width="18" height="12">&nbsp;Dutch</td>
+                        <td><img src="img/flags/world.small/nl.png" alt="Dutch flag" width="18" height="12">Dutch</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_nl/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_nl/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/fi.png" alt="Finnish flag" width="18" height="12">&nbsp;Finnish</td>
+                        <td><img src="img/flags/world.small/fi.png" alt="Finnish flag" width="18" height="12">Finnish</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_fi/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_fi/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/fr.png" alt="French flag" width="18" height="12">&nbsp;French</td>
+                        <td><img src="img/flags/world.small/fr.png" alt="French flag" width="18" height="12">French</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_fr/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_fr/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">&nbsp;German</td>
+                        <td><img src="img/flags/world.small/de.png" alt="German flag" width="18" height="12">German</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_de/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_de/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/id.png" alt="Indonesian flag" width="18" height="12">&nbsp;Indonesian</td>
+                        <td><img src="img/flags/world.small/id.png" alt="Indonesian flag" width="18" height="12">Indonesian</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_id/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_id/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/ja.png" alt="Japanese flag" width="18" height="12">&nbsp;Japanese</td>
+                        <td><img src="img/flags/world.small/ja.png" alt="Japanese flag" width="18" height="12">Japanese</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_ja/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_ja/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/pt_BR.png" alt="Portuguese, Brazil flag" width="18" height="12">&nbsp;Portuguese, Brazil</td>
+                        <td><img src="img/flags/world.small/pt_BR.png" alt="Portuguese, Brazil flag" width="18" height="12">Portuguese, Brazil</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_pt_BR/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_pt_BR/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/pt_PT.png" alt="Portuguese, Portugal flag" width="18" height="12">&nbsp;Portuguese, Portugal</td>
+                        <td><img src="img/flags/world.small/pt_PT.png" alt="Portuguese, Portugal flag" width="18" height="12">Portuguese, Portugal</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_pt_PT/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_pt_PT/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/ru.png" alt="Russian flag" width="18" height="12">&nbsp;Russian</td>
+                        <td><img src="img/flags/world.small/ru.png" alt="Russian flag" width="18" height="12">Russian</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_ru/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_ru/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sr_spc.png" alt="Serbian cyrillic flag" width="18" height="12">&nbsp;Serbian cyrillic</td>
+                        <td><img src="img/flags/world.small/sr_spc.png" alt="Serbian cyrillic flag" width="18" height="12">Serbian cyrillic</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_sr/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_sr/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sr_spl.png" alt="Serbian latin flag" width="18" height="12">&nbsp;Serbian latin</td>
+                        <td><img src="img/flags/world.small/sr_spl.png" alt="Serbian latin flag" width="18" height="12">Serbian latin</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_sr@latin/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_sr@latin/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sk.png" alt="Slovak flag" width="18" height="12">&nbsp;Slovak</td>
+                        <td><img src="img/flags/world.small/sk.png" alt="Slovak flag" width="18" height="12">Slovak</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_sk/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_sk/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/sl.png" alt="Slovenian flag" width="18" height="12">&nbsp;Slovenian</td>
+                        <td><img src="img/flags/world.small/sl.png" alt="Slovenian flag" width="18" height="12">Slovenian</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_sl/index.html">HTML</a></td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseMerge_sl/index.html">HTML</a></td>
                     </tr>
                     <tr>
-                        <td><img src="img/flags/world.small/es.png" alt="Spanish flag" width="18" height="12">&nbsp;Spanish</td>
+                        <td><img src="img/flags/world.small/es.png" alt="Spanish flag" width="18" height="12">Spanish</td>
                         <td></td>
                         <td><a href="docs/nightly/TortoiseSVN_es/index.html">HTML</a></td>
                         <td></td>
@@ -330,7 +332,7 @@
                     <h3>Subversion book</h3>
                     <p>Read the official Subversion book
                     <a href="http://www.amazon.com/gp/product/0596004486?ie=UTF8&amp;tag=to0d-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596004486">Version Control with Subversion</a>
-                    <img src="http://www.assoc-amazon.com/e/ir?t=to0d-20&amp;l=as2&amp;o=1&amp;a=0596004486" width="1" height="1" alt="" style="margin:0px !important">
+                    <img src="http://www.assoc-amazon.com/e/ir?t=to0d-20&amp;l=as2&amp;o=1&amp;a=0596004486" width="1" height="1" alt="">
                     to find out what it's all about. This book explains the
                     general concepts of Subversion. It's no must, but it'll
                     give you deep insight. There's also a
@@ -362,12 +364,11 @@
                 </div>
             </div>
         </div>
-        <!-- end #content -->
+        <!-- end .content -->
 
         @@include("_includes/sidebar.html")
-        <div style="clear: both">&nbsp;</div>
     </div>
-    <!-- end #page -->
+    <!-- end .page -->
     @@include("_includes/footer.html")
     <script>
         (function() {

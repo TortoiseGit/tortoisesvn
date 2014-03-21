@@ -58,11 +58,6 @@ th {
     font-weight: bold;
 }
 
-td.lang,
-th.lang {
-    text-align: left;
-}
-
 p,
 ol,
 ul {
@@ -138,7 +133,7 @@ ul {
     color: #900;
 }
 
-#wrapper {
+.wrapper {
     margin: 0 auto;
     padding-top: 20px;
     width: 910px;
@@ -162,26 +157,26 @@ img.centered {
 }
 
 /* Header */
-#header {
+.header {
     margin: 0 auto;
     width: 910px;
     height: 50px;
 }
 
 /* Logo */
-#logo {
+.logo {
     color: white;
     float: left;
     text-shadow: 0 0 2px white;
     width: 640px;
 }
 
-#logo a {
+.logo a {
     border: none;
     color: white;
 }
 
-#logo h1 {
+.logo h1 {
     float: left;
     font-size: 2.6em;
     letter-spacing: -1px;
@@ -189,7 +184,7 @@ img.centered {
     padding: 0;
 }
 
-#logo p {
+.logo p {
     float: left;
     font: italic 14px Georgia, "Times New Roman", Times, serif;
     margin: 0;
@@ -197,15 +192,21 @@ img.centered {
 }
 
 /* Search */
-#langselection {
+.langselection li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 0.3em;
+}
+
+.langselection {
+    display: block;
     float: right;
-    padding: 15px;
+    padding: 0.7em;
     text-align: right;
-    width: 230px;
 }
 
 /* Menu */
-#menu {
+.menu {
     background-color: #565F68;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
@@ -218,7 +219,7 @@ img.centered {
     height: 50px;
 }
 
-#menu a {
+.menu a {
     background-color: white;
     border: none;
     -webkit-border-top-left-radius: 4px;
@@ -235,15 +236,15 @@ img.centered {
     padding: 8px 20px;
 }
 
-#menu a:hover {
+.menu a:hover {
     text-decoration: underline;
 }
 
-#menu li {
+.menu li {
     float: left;
 }
 
-#menu ul {
+.menu ul {
     line-height: normal;
     list-style: none;
     margin: 0;
@@ -251,7 +252,7 @@ img.centered {
 }
 
 /* Page */
-#page {
+.page {
     background: white url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center 20px;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
@@ -262,7 +263,7 @@ img.centered {
 }
 
 /* Content */
-#content {
+.content {
     float: right;
     padding: 20px 30px 0 0;
     width: 590px;
@@ -294,51 +295,50 @@ img.centered {
 }
 
 /* Sidebar */
-#sidebar {
-    float: left;
+.sidebar {
     padding: 20px 0 0 30px;
     width: 220px;
 }
 
-#sidebar a {
+.sidebar a {
     border: none;
     color: #417FDA;
 }
 
-#sidebar a:hover {
+.sidebar a:hover {
     text-decoration: underline;
 }
 
-#sidebar h2 {
+.sidebar h2 {
     color: #417FDA;
     letter-spacing: -0.5px;
     text-shadow: 0 0 2px #B7B7B7;
 }
 
-#sidebar li ul {
+.sidebar li ul {
     padding-bottom: 30px;
 }
 
-#sidebar li li {
+.sidebar li li {
     border-bottom: 1px dashed #D2D4C9;
     line-height: 35px;
 }
 
-#sidebar li li span {
+.sidebar li li span {
     display: block;
     font-style: italic;
     line-height: 100%;
     margin-top: -10px;
 }
 
-#sidebar ul {
+.sidebar ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 /* Footer */
-#footer {
+.footer {
     color: #B2B2B2;
     margin: 0 auto;
     padding: 20px 0 10px 0;
@@ -346,7 +346,7 @@ img.centered {
     height: 20px;
 }
 
-#footer p {
+.footer p {
     font-size: 9px;
     text-align: center;
     text-transform: uppercase;
@@ -391,6 +391,30 @@ a.fancybox,
     border: none;
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+.table-credits td:first-child {
+    width: 28%;
+}
+
+.translations,
+.left-aligned {
+    text-align: left;
+}
+
+.translations img {
+    margin-right: 0.3em;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after,
+.container:after {
+    clear: both;
 }
 
 a[hreflang = "en"]:after {

@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
         watch: {
             files: ['<%= dirs.src %>/**/*', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
-            tasks: 'dev',
+            tasks: 'build',
             options: {
                 livereload: true
             }
@@ -183,7 +183,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'dev',
+        'build',
         'connect',
         'watch'
     ]);
