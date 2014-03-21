@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "CheckoutDlg.h"
 #include "RepositoryBrowser.h"
-#include "MessageBox.h"
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "AppUtils.h"

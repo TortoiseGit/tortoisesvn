@@ -27,7 +27,6 @@
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
-#include "MessageBox.h"
 #include "libintl.h"
 #include "DirFileEnum.h"
 #include "SoundUtils.h"
@@ -266,7 +265,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString newCmdLine = p.GetCommandLine();
         if (newCmdLine.IsEmpty())
         {
-            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_INVALIDPATH), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             return FALSE;
         }
         CCmdLineParser p2(newCmdLine);
@@ -274,7 +273,7 @@ BOOL CTortoiseProcApp::InitInstance()
     }
     if ( parser.HasKey(L"path") && parser.HasKey(L"pathfile"))
     {
-        TSVNMessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_INVALIDPATH), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
         return FALSE;
     }
 
@@ -333,7 +332,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(L"pathfile"));
         if (sPathfileArgument.IsEmpty())
         {
-            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_NOPATH), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             return FALSE;
         }
         cmdLinePath.SetFromUnknown(sPathfileArgument);
@@ -389,7 +388,7 @@ BOOL CTortoiseProcApp::InitInstance()
         }
         if (sPathArgument.IsEmpty() && parser.HasKey(L"path"))
         {
-            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_NOPATH), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             return FALSE;
         }
         int asterisk = sPathArgument.Find('*');

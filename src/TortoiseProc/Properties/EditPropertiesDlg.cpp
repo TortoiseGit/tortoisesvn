@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "SVNProperties.h"
-#include "MessageBox.h"
 #include "TortoiseProc.h"
 #include "EditPropertiesDlg.h"
 #include "UnicodeUtils.h"
@@ -51,6 +50,10 @@
 #define ID_CMD_PROP_SAVEVALUE   1
 #define ID_CMD_PROP_REMOVE      2
 #define ID_CMD_PROP_EDIT        3
+
+
+#define IDCUSTOM1           23
+#define IDCUSTOM2           24
 
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
@@ -1109,7 +1112,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
         bool bFailed = false;
         if ((nProperties < 0)||(nProperties > 4096))
         {
-            TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             bFailed = true;
         }
         CProgressDlg prog;
@@ -1129,7 +1132,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                 if ((nNameBytes < 0)||(nNameBytes > 4096))
                 {
                     prog.Stop();
-                    TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                     bFailed = true;
                     continue;
                 }
@@ -1183,28 +1186,28 @@ void CEditPropertiesDlg::OnBnClickedImport()
                         else
                         {
                             prog.Stop();
-                            TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                             bFailed = true;
                         }
                     }
                     else
                     {
                         prog.Stop();
-                        TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                         bFailed = true;
                     }
                 }
                 else
                 {
                     prog.Stop();
-                    TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                     bFailed = true;
                 }
             }
             else
             {
                 prog.Stop();
-                TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_EDITPROPS_ERRIMPORTFORMAT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                 bFailed = true;
             }
         }

@@ -28,12 +28,12 @@ bool RebuildIconCacheCommand::Execute()
     if (CShellUpdater::RebuildIcons())
     {
         if (!bQuiet)
-            TSVNMessageBox(GetExplorerHWND(), IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_PROC_ICONCACHEREBUILT), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
     }
     else
     {
         if (!bQuiet)
-            TSVNMessageBox(GetExplorerHWND(), IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_PROC_ICONCACHENOTREBUILT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
     }
     return true;
 }

@@ -23,7 +23,6 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "PathUtils.h"
-#include "MessageBox.h"
 #include "registry.h"
 #include "FormatMessageWrapper.h"
 

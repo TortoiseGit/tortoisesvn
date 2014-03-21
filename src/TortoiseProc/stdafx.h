@@ -37,8 +37,6 @@
 
 #include <atlbase.h>
 
-#include "MessageBox.h"
-
 #pragma warning(push)
 #include "apr_general.h"
 #include "svn_pools.h"

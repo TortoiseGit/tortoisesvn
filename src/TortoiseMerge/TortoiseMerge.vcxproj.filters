@@ -63,9 +63,6 @@
     <ClCompile Include="MainFrm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OpenDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -187,9 +184,6 @@
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\TSVNPath.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp">
@@ -353,9 +347,6 @@
     <ClInclude Include="..\Utils\MiscUI\HyperLink.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\PathUtils.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -405,9 +396,6 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\XMessageBox.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\IconMenu.h">

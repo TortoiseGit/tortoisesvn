@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 
-#include "MessageBox.h"
 #include "InputLogDlg.h"
 #include "PropDlg.h"
 #include "Properties/EditPropertiesDlg.h"
@@ -3615,7 +3614,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         // no common copy from URL, so showing a log between
                         // the two urls is not possible.
-                        TSVNMessageBox(m_hWnd, IDS_ERR_NOCOMMONCOPYFROM, IDS_APPNAME, MB_ICONERROR);
+                        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_NOCOMMONCOPYFROM), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                         break;
                     }
 
@@ -5045,11 +5044,19 @@ bool CRepositoryBrowser::RunStartCommit( const CTSVNPathList& pathlist, CString&
     {
         if (exitcode)
         {
-            CString temp;
-            temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            if (TSVNMessageBox(GetSafeHwnd(), temp, L"TortoiseSVN", 0, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)), CString(MAKEINTRESOURCE(IDS_MSGBOX_RETRYWITHOUTHOOKS)))==IDCUSTOM2)
-                return true;
-            return false;
+            CString sErrorMsg;
+            sErrorMsg.Format(IDS_ERR_HOOKFAILED, (LPCWSTR)error);
+
+            CTaskDialog taskdlg(sErrorMsg,
+                                CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_ERROR_ICON);
+            return (taskdlg.DoModal(GetSafeHwnd()) == 1);
         }
     }
     return true;
@@ -5064,11 +5071,19 @@ bool CRepositoryBrowser::RunPreCommit( const CTSVNPathList& pathlist, svn_depth_
     {
         if (exitcode)
         {
-            CString temp;
-            temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            if (TSVNMessageBox(GetSafeHwnd(), temp, L"TortoiseSVN", 0, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)), CString(MAKEINTRESOURCE(IDS_MSGBOX_RETRYWITHOUTHOOKS)))==IDCUSTOM2)
-                return true;
-            return false;
+            CString sErrorMsg;
+            sErrorMsg.Format(IDS_ERR_HOOKFAILED, (LPCWSTR)error);
+
+            CTaskDialog taskdlg(sErrorMsg,
+                                CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_ERROR_ICON);
+            return (taskdlg.DoModal(GetSafeHwnd()) == 1);
         }
     }
     return true;

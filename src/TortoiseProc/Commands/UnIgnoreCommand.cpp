@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "UnIgnoreCommand.h"
 
-#include "MessageBox.h"
 #include "PathUtils.h"
 #include "SVNProperties.h"
 

@@ -331,7 +331,7 @@ bool Command::CheckPaths()
 {
     if ((pathList.GetCount() == 0) && (cmdLinePath.IsEmpty()))
     {
-        TSVNMessageBox(GetExplorerHWND(), IDS_ERR_PATHPARAMMISSING, IDS_APPNAME, MB_ICONERROR);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_PATHPARAMMISSING), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
         return false;
     }
 

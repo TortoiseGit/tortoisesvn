@@ -19,7 +19,6 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MessageBox.h"
 #include "CreatePatchDlg.h"
 #include "SVN.h"
 #include "DiffOptionsDlg.h"

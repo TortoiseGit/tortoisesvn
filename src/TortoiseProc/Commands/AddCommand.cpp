@@ -23,7 +23,9 @@
 #include "SVNProgressDlg.h"
 #include "ShellUpdater.h"
 #include "SVNStatus.h"
-#include "MessageBox.h"
+
+#define IDCUSTOM1           23
+#define IDCUSTOM2           24
 
 bool AddCommand::Execute()
 {

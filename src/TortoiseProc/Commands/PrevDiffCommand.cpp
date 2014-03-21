@@ -50,11 +50,11 @@ bool PrevDiffCommand::Execute()
         {
             if (st.GetLastErrorMessage().IsEmpty())
             {
-                TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
+                TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_NOPREVREVISION), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             }
             else
             {
-                TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
+                TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_NOSTATUS), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             }
         }
     }

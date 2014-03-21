@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "ChangedDlg.h"
-#include "MessageBox.h"
 #include "AppUtils.h"
 
 

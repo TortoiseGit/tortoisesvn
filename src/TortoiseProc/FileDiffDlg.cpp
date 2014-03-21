@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
-#include "MessageBox.h"
 #include "AppUtils.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
@@ -193,7 +192,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     if (AfxBeginThread(DiffThreadEntry, this)==NULL)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
-        TSVNMessageBox(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
     }
 
     // Start with focus on file list

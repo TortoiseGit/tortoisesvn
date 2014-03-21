@@ -20,7 +20,6 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "../TortoiseShell/resource.h"
-#include "MessageBox.h"
 #include "MyMemDC.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"

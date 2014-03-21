@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsLogCaches.h"
-#include "MessageBox.h"
 #include "SVN.h"
 #include "SVNError.h"
 #include "LogCachePool.h"

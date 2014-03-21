@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MessageBox.h"
 #include "TSVNPath.h"
 #include "RenameDlg.h"
 #include "AppUtils.h"

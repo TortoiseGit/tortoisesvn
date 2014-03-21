@@ -25,7 +25,6 @@
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "SVNProgressDlg.h"
-#include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "AppUtils.h"

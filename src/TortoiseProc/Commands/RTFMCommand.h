@@ -19,8 +19,6 @@
 #pragma once
 #include "Command.h"
 
-#include "MessageBox.h"
-
 /**
  * \ingroup TortoiseProc
  * Shows a dialog telling the user what TSVN is and to RTFM, then starts an
@@ -36,7 +34,7 @@ public:
     {
         // If the user tries to start TortoiseProc from the link in the programs start menu
         // show an explanation about what TSVN is (shell extension) and open up an explorer window
-        TSVNMessageBox(GetExplorerHWND(), IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INFORMATION), MAKEINTRESOURCE(IDS_PROC_RTFM), TDCBF_OK_BUTTON, TD_WARNING_ICON, NULL);
 
         PWSTR pszPath = NULL;
         if (SHGetKnownFolderPath(FOLDERID_Documents, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)

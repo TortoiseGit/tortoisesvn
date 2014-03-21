@@ -20,7 +20,6 @@
 #include "SetBugTraqAdv.h"
 #include "BrowseFolder.h"
 #include "COMError.h"
-#include "MessageBox.h"
 #include "BugTraqAssociations.h"
 #include "../IBugTraqProvider/IBugTraqProvider_h.h"
 

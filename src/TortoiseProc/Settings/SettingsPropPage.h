@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "MessageBox.h"
 
 /**
  * \ingroup TortoiseProc
@@ -71,7 +70,7 @@ protected:
     {
         registryKey = value;
         if (registryKey.GetLastError() != ERROR_SUCCESS)
-            TSVNMessageBox(m_hWnd, registryKey.getErrorString(), L"TortoiseSVN", MB_ICONERROR);
+            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), registryKey.getErrorString(), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
     }
 
     /**

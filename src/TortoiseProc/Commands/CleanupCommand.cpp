@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "CleanupCommand.h"
 
-#include "MessageBox.h"
 #include "SVN.h"
 #include "SVNGlobal.h"
 #include "SVNAdminDir.h"

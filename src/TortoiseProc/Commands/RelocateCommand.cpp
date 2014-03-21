@@ -23,7 +23,6 @@
 #include "ProgressDlg.h"
 #include "RelocateDlg.h"
 #include "SVN.h"
-#include "MessageBox.h"
 #include "PathUtils.h"
 
 bool RelocateCommand::Execute()

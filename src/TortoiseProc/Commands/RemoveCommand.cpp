@@ -19,11 +19,12 @@
 #include "stdafx.h"
 #include "RemoveCommand.h"
 
-#include "MessageBox.h"
 #include "ProgressDlg.h"
 #include "SVN.h"
 #include "InputLogDlg.h"
 #include "ShellUpdater.h"
+
+#define IDYESTOALL          19
 
 bool RemoveCommand::Execute()
 {

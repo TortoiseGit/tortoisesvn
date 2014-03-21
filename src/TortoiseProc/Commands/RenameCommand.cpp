@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "RenameCommand.h"
 
-#include "MessageBox.h"
 #include "SVNProgressDlg.h"
 #include "ProgressDlg.h"
 #include "RenameDlg.h"

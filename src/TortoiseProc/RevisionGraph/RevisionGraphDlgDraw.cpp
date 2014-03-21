@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "MyMemDC.h"
 #include "RevisionGraphDlg.h"
-#include "MessageBox.h"
 #include "SVN.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"

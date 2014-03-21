@@ -26,7 +26,6 @@
 #include "CopyDlg.h"
 #include "StatGraphDlg.h"
 #include "LogDlg.h"
-#include "MessageBox.h"
 #include "registry.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
@@ -5366,7 +5365,7 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
                     ShowErrorDialog(m_hWnd, CTSVNPath(), exts.GetLastErrorString());
                 }
                 else
-                    TSVNMessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+                    TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_LOG_COPY_SUCCESS), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
             }
 
             this->EnableWindow(TRUE);
@@ -6829,7 +6828,7 @@ void CLogDlg::ExecuteRevertChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
         {
             // seems the path got renamed
             // tell the user how to work around this.
-            TSVNMessageBox(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_LOG_REVERTREV_ERROR), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             EnableOKButton();
             return;      //exit
         }

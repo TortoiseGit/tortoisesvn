@@ -22,7 +22,6 @@
 #include "OpenDlg.h"
 #include "ProgressDlg.h"
 #include "Settings.h"
-#include "MessageBox.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "MainFrm.h"

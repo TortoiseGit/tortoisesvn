@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MessageBox.h"
 #include "DirFileEnum.h"
 #include "AddDlg.h"
 #include "SVNConfig.h"

@@ -26,7 +26,6 @@
 
 #ifdef WIN32
 #include "registry.h"
-#include "MiscUI/MessageBox.h"
 #else
 #include <iostream>
 #include "RegistryDummy.h"

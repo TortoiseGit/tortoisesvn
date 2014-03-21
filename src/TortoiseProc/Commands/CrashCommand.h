@@ -37,7 +37,7 @@ public:
     {
         MessageBox(NULL, L"You are testing the crashhandler.\nDo NOT send the crashreport!!!!", L"TortoiseSVN", MB_ICONINFORMATION);
         CrashProgram();
-        TSVNMessageBox(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_NOCOMMAND), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
         return true;
     }
     virtual bool            CheckPaths() override {return true;}

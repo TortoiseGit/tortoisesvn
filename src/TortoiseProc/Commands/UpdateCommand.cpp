@@ -22,7 +22,6 @@
 #include "UpdateDlg.h"
 #include "SVNProgressDlg.h"
 #include "Hooks.h"
-#include "MessageBox.h"
 
 bool UpdateCommand::Execute()
 {

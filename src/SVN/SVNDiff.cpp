@@ -31,7 +31,6 @@
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "registry.h"
-#include "MessageBox.h"
 #include "FileDiffDlg.h"
 #include "ProgressDlg.h"
 #include "Blame.h"
@@ -308,7 +307,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     {
         progDlg.Stop();
         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-        TSVNMessageBox(GetHWND(), IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+        TaskDialog(GetHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_EMPTYDIFF), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
         return false;
     }
     progDlg.Stop();

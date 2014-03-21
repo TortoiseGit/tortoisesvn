@@ -18,11 +18,14 @@
 //
 #include "stdafx.h"
 #include "DropExportCommand.h"
-#include "MessageBox.h"
 #include "SVN.h"
 #include "SVNAdminDir.h"
 #include "DirFileEnum.h"
 #include "ProgressDlg.h"
+
+#define IDCUSTOM1           23
+#define IDCUSTOM2           24
+#define IDCUSTOM3           25
 
 bool DropExportCommand::Execute()
 {

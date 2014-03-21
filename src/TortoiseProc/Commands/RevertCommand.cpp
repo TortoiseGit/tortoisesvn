@@ -21,7 +21,6 @@
 
 #include "RevertDlg.h"
 #include "SVNProgressDlg.h"
-#include "MessageBox.h"
 
 bool RevertCommand::Execute()
 {

@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "CopyDlg.h"
-#include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"

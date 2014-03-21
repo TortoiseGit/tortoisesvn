@@ -45,7 +45,6 @@
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
 #include "RepositoryInfo.h"
-#include "MessageBox.h"
 #include "LogCacheSettings.h"
 #include "CriticalSection.h"
 #include "SVNTrace.h"
@@ -57,6 +56,8 @@
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
+
+#define IDYESTOALL          19
 
 
 LCID SVN::s_locale = MAKELCID((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);

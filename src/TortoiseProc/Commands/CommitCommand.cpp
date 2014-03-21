@@ -80,7 +80,7 @@ bool CommitCommand::Execute()
     CTSVNPathList selectedList;
     if (parser.HasKey(L"logmsg") && (parser.HasKey(L"logmsgfile")))
     {
-        TSVNMessageBox(GetExplorerHWND(), IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_TWOLOGPARAMS), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
         return false;
     }
     CString sLogMsg = LoadLogMessage();

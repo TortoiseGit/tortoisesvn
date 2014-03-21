@@ -160,7 +160,7 @@ void CSettings::HandleRestart()
     {
         DWORD_PTR res = 0;
         ::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
-        TSVNMessageBox(NULL, IDS_SETTINGS_RESTARTSYSTEM, IDS_APPNAME, MB_ICONINFORMATION);
+        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SETTINGS_RESTARTSYSTEM), NULL, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
     }
     if (restart & ISettingsPropPage::Restart_Cache)
     {

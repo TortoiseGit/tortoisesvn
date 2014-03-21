@@ -992,12 +992,6 @@
     <ClCompile Include="..\Utils\StringBuffer.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
     <ClCompile Include="DiffOptionsDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
@@ -1961,12 +1955,6 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\XMessageBox.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="DiffOptionsDlg.h">

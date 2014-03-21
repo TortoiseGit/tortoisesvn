@@ -25,7 +25,6 @@
 #include "ProgressDlg.h"
 #include "BrowseFolder.h"
 #include "DirFileEnum.h"
-#include "MessageBox.h"
 #include "SVNStatus.h"
 #include "SVN.h"
 

@@ -22,7 +22,6 @@
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
 #include "SVNProperties.h"
-#include "MessageBox.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
@@ -527,8 +526,19 @@ void CCommitDlg::OnOK()
         {
             CString sErrorMsg;
             sErrorMsg.Format(IDS_HOOK_ERRORMSG, (LPCWSTR)error);
-            UINT msgRet = TSVNMessageBox(m_hWnd, sErrorMsg, L"TortoiseSVN", IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_MSGBOX_ABORT)), CString(MAKEINTRESOURCE(IDS_HOOK_FORCEDPROCEED)));
-            if (msgRet==IDCUSTOM1)
+
+            CTaskDialog taskdlg(sErrorMsg,
+                                CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_ERROR_ICON);
+            bool doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+
+            if (doIt)
             {
                 // parse the error message and select all mentioned paths if there are any
                 // the paths must be separated by newlines!

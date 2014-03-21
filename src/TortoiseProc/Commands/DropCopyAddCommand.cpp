@@ -20,7 +20,6 @@
 #include "DropCopyAddCommand.h"
 #include "FormatMessageWrapper.h"
 #include "SVNProgressDlg.h"
-#include "MessageBox.h"
 #include "StringUtils.h"
 
 bool DropCopyAddCommand::Execute()

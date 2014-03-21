@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "../version.h"
-#include "MessageBox.h"
 #include "CheckForUpdatesDlg.h"
 #include "registry.h"
 #include "AppUtils.h"
@@ -75,7 +74,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 
     if (AfxBeginThread(CheckThreadEntry, this)==NULL)
     {
-        TSVNMessageBox(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+        TaskDialog(this->m_hWnd, AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
     }
 
     SetTimer(100, 1000, NULL);

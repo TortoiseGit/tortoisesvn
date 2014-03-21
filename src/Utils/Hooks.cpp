@@ -25,7 +25,6 @@
 #include "SVN.h"
 #include "SVNHelpers.h"
 #include "SmartHandle.h"
-#include "MessageBox.h"
 
 CHooks* CHooks::m_pInstance = NULL;
 

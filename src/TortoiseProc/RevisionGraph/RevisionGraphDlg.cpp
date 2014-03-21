@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RevisionGraphDlg.h"
-#include "MessageBox.h"
 #include "SVN.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
@@ -290,10 +289,7 @@ bool CRevisionGraphDlg::UpdateData()
             // only show the error dialog if we're not in hidden mode
             if (m_bVisible)
             {
-                TSVNMessageBox( m_hWnd
-                              , m_Graph.m_state.GetLastErrorMessage()
-                              , L"TortoiseSVN"
-                              , MB_ICONERROR);
+                TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), m_Graph.m_state.GetLastErrorMessage(), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
             }
         }
 

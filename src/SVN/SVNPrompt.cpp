@@ -24,7 +24,6 @@
 #include "registry.h"
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
-#include "MessageBox.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "TSVNAuth.h"
@@ -33,6 +32,10 @@
 #include "SmartHandle.h"
 #include "TempFile.h"
 #include "PathUtils.h"
+
+#define IDCUSTOM1           23
+#define IDCUSTOM2           24
+#define IDCUSTOM3           25
 
 SVNPrompt::SVNPrompt(bool suppressUI)
 {

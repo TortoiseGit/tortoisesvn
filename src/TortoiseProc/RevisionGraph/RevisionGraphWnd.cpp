@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RevisionGraphWnd.h"
-#include "MessageBox.h"
 #include "SVN.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
@@ -861,7 +860,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
             if (hbm==0)
             {
-                TSVNMessageBox(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
+                TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_REVGRAPH_ERR_NOMEMORY), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
                 return;
             }
             HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
