@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                 preserveComments: false,
                 report: 'min'
             },
-            minify: {
+            dist: {
                 files: {
                     '<%= concat.js.dest %>': '<%= concat.js.dest %>'
                 }
@@ -114,7 +114,7 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            files: ['<%= dirs.src %>/**/*', '.csslintrc', '.jshintrc', 'Gruntfile.js'],
+            files: ['<%= dirs.src %>/**/*', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
             tasks: 'dev',
             options: {
                 livereload: true
@@ -148,10 +148,7 @@ module.exports = function(grunt) {
                 charset: 'utf-8',
                 doctype: 'HTML5',
                 failHard: true,
-                reset: true,
-                relaxerror: [
-                    'An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.'    // fix these later
-                ]
+                reset: true
             },
             files: {
                 src: '<%= dirs.dest %>/**/*.html'
@@ -161,14 +158,18 @@ module.exports = function(grunt) {
     });
 
     // Load any grunt plugins found in package.json.
-    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+    require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
     require('time-grunt')(grunt);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('dev', [
         'clean',
         'copy',
         'includereplace',
-        'concat',
+        'concat'
+    ]);
+
+    grunt.registerTask('build', [
+        'dev',
         'htmlmin',
         'cssmin',
         'uglify'
@@ -179,13 +180,6 @@ module.exports = function(grunt) {
         'validation',
         'csslint',
         'jshint'
-    ]);
-
-    grunt.registerTask('dev', [
-        'clean',
-        'copy',
-        'includereplace',
-        'concat'
     ]);
 
     grunt.registerTask('default', [
