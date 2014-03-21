@@ -385,6 +385,17 @@ a.fancybox,
     margin: 20px 0 40px 0;
 }
 
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid black;
+}
+
+.table-donate {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 a[hreflang = "en"]:after {
     background-image: url("../img/icon_english.png");
