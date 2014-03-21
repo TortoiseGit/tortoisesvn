@@ -386,20 +386,35 @@ a.fancybox,
 }
 
 
-a[hreflang ~="en"] {
-    background: transparent url("../img/icon_english.png") no-repeat center right;
-    padding-right: 18px !important;
+a[hreflang = "en"]:after {
+    background-image: url("../img/icon_english.png");
+    content: "";
+    display: inline-block;
+    margin-left: 0.3em;
+    vertical-align: text-bottom;
+    width: 14px;
+    height: 16px;
 }
 
 /* all A tags whose HREF attribute starts with mailto: */
-a[href ^="mailto:"] {
-    background: transparent url("../img/icon_mailto.gif") no-repeat center right;
-    padding-right: 18px !important;
+a[href ^="mailto:"]:after {
+    background-image: url("../img/icon_mailto.gif");
+    content: "";
+    display: inline-block;
+    margin-left: 0.3em;
+    vertical-align: text-bottom;
+    width: 14px;
+    height: 16px;
 }
 
 /* all A tags whose HREF attribute ends in .pdf */
-a[href$=".pdf"],
-a[href$=".pdf?download"] {
-    background: transparent url("../img/icon_pdf.gif") no-repeat center right;
-    padding-right: 18px !important;
+a[href$=".pdf"]:after,
+a[href$=".pdf?download"]:after {
+    background-image: url("../img/icon_pdf.gif");
+    content: "";
+    display: inline-block;
+    margin-left: 0.3em;
+    vertical-align: text-bottom;
+    width: 14px;
+    height: 16px;
 }
