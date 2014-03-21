@@ -7,12 +7,13 @@ module.exports = function(grunt) {
             dest: 'dist',
             src: 'source'
         },
+        ver: grunt.file.readJSON('version.json'),
 
         // Copy files that don't need compilation to dist/
         copy: {
             dist: {
                 files: [
-                    {dest: '<%= dirs.dest %>/', src: '*', filter: 'isFile', expand: true, cwd: '<%= dirs.src %>/'},
+                    {dest: '<%= dirs.dest %>/', src: ['*', '!*.html'], filter: 'isFile', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: '.htaccess', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: 'files/**', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: ['img/**', '!**/_old/**'], expand: true, cwd: '<%= dirs.src %>/'},
@@ -23,6 +24,13 @@ module.exports = function(grunt) {
 
         includereplace: {
             dist: {
+                options: {
+                    globals: {
+                        TSVNSHORTVERSION: '<%= ver.TSVNSHORTVERSION %>',
+                        TSVNVERSION: '<%= ver.TSVNVERSION %>',
+                        SVNVERSION: '<%= ver.SVNVERSION %>'
+                    }
+                },
                 files: [
                     {src: '*.html', dest: '<%= dirs.dest %>/', expand: true, cwd: '<%= dirs.src %>/'}
                 ]
