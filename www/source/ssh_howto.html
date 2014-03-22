@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - Securing Svnserve using SSH</title>
-<meta name="description" content="how to set up SSH with Subversion/TortoiseSVN">
-<meta name="keywords" content="ssh, howto, subversion">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Securing Svnserve using SSH",
+    "metaDescription": "<meta name=\"description\" content=\"how to set up SSH with Subversion/TortoiseSVN\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"ssh, howto, subversion\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -353,12 +349,5 @@ svn+ssh://svnuser@mydomain.com/repos</pre>
 
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
+        </div> <!-- .content -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

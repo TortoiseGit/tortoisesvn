@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Useful tips for Administrators</title>
-<meta name="description" content="useful tips for administrators">
-<meta name="keywords" content="administrator, tips">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Useful tips for Administrators",
+    "metaDescription": "<meta name=\"description\" content=\"Useful tips for Administrators\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"administrator, tips\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -37,13 +33,6 @@
                 it's already implemented in TortoiseSVN 1.6.x</p>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

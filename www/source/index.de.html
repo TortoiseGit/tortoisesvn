@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN</title>
-<meta name="keywords" content="TortoiseSVN">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.de.html", {
+    "title": "Home"
+})
 <body>
 <ul class="langselection">
     <li><a href="index.html">EN</a></li>
@@ -15,7 +9,8 @@
 </ul>
 <div class="wrapper">
     @@include("_includes/menu.de.html")
-    <div class="page">
+    @@include("_includes/sidebar.de.html")
+    <div class="page clearfix">
         <div class="content">
             <div class="post">
                 <h1 class="title"><a href="#">TortoiseSVN 1.8.5 released</a></h1>
@@ -38,13 +33,6 @@
                     </p>
                  </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.de.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

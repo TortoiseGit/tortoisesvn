@@ -26,6 +26,9 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     globals: {
+                        headHTML: '',
+                        metaDescription: '',
+                        metaKeywords: '',
                         TSVNSHORTVERSION: '<%= ver.TSVNSHORTVERSION %>',
                         TSVNVERSION: '<%= ver.TSVNVERSION %>',
                         SVNVERSION: '<%= ver.SVNVERSION %>'

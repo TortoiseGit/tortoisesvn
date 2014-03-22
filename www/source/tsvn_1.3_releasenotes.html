@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - Release notes for 1.3</title>
-<meta name="description" content="TortoiseSVN release notes, version 1.3">
-<meta name="keywords" content="release notes">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Release notes for 1.3",
+    "metaDescription": "<meta name=\"description\" content=\"TortoiseSVN release notes, version 1.3\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"release notes\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post" id="customcontent">
@@ -97,13 +93,6 @@
                 <a href="http://subversion.apache.org/faq.html#bdb43-upgrade">
                 Subversion FAQ page</a></p>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

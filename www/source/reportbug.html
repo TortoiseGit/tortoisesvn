@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - How to report a bug</title>
-<meta name="description" content="how to report a bug">
-<meta name="keywords" content="bug, report">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "How to report a bug",
+    "metaDescription": "<meta name=\"description\" content=\"How to report a bug\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"bug, report\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -94,13 +90,6 @@
                     for details on how to post.</p>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

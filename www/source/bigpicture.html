@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>The Big Picture</title>
-<meta name="keywords" content="big picture">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "The Big Picture",
+    "metaKeywords": "<meta name=\"keywords\" content=\"big picture\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -74,13 +70,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer-js.html")
-</div>
-</body>
-</html>

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - FAQ</title>
-<meta name="description" content="TortoiseSVN FAQ zh_CN">
-<meta name="keywords" content="faq">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.zh.html", {
+    "title": "FAQ",
+    "metaDescription": "<meta name=\"description\" content=\"TortoiseSVN FAQ zh_CN\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"faq\">"
+})
 <body>
 <ul class="langselection">
     <li><a href="faq.html">EN</a></li>
@@ -16,7 +11,8 @@
 </ul>
 <div class="wrapper">
     @@include("_includes/menu.zh.html")
-    <div class="page">
+    @@include("_includes/sidebar.zh.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -620,13 +616,6 @@ Folder/File2 : revision 2</pre>
 
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.zh.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

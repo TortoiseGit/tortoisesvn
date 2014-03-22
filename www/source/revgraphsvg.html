@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - save the revision graph as an svg file</title>
-<meta name="description" content="Save the revision graph as an svg file">
-<meta name="keywords" content="revision graph, svg">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Save the revision graph as an svg file",
+    "metaDescription": "<meta name=\"description\" content=\"Save the revision graph as an svg file\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"revision graph, svg\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
             <div class="post">
                 <h1 class="title"><a href="#">Save the revision graph as an svg file</a></h1>
@@ -57,13 +53,6 @@
                     the svg file scales fine.
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

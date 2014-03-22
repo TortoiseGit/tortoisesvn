@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - Issue tracker plugins</title>
-<meta name="description" content="plugins for TortoiseSVN to connect with issue trackers">
-<meta name="keywords" content="issue tracker, plugin">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Issue tracker plugins",
+    "metaDescription": "<meta name=\"description\" content=\"plugins for TortoiseSVN to connect with issue trackers\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"issue tracker, plugin\">"
+})
 <body>
 <ul class="langselection">
     <li><a href="issuetrackerplugins.html">EN</a></li>
@@ -15,7 +10,8 @@
 </ul>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -115,13 +111,6 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer.html")
-</div>
-</body>
-</html>

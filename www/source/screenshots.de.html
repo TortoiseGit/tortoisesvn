@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN Screenshots</title>
-<meta name="keywords" content="TortoiseSVN, screenshots">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.de.html", {
+    "title": "Screenshots",
+    "metaKeywords": "<meta name=\"keywords\" content=\"TortoiseSVN, screenshots\">"
+})
 <body>
 <ul class="langselection">
     <li><a href="screenshots.html">EN</a></li>
@@ -14,7 +9,8 @@
 </ul>
 <div class="wrapper">
     @@include("_includes/menu.de.html")
-    <div class="page">
+    @@include("_includes/sidebar.de.html")
+    <div class="page clearfix">
         <div class="content">
             <div class="post">
                 <h1 class="title"><a href="#">TortoiseSVN Screenshots</a></h1>
@@ -51,13 +47,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.de.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer-js.html")
-</div>
-</body>
-</html>

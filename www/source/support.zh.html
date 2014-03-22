@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - Support</title>
-<meta name="description" content="how to get support for TortoiseSVN">
-<meta name="keywords" content="support, mailing lists">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.zh.html", {
+    "title": "Support",
+    "metaDescription": "<meta name=\"description\" content=\"how to get support for TortoiseSVN\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"support, mailing lists\">"
+})
 <body>
 <ul class="langselection">
     <li><a href="support.html">EN</a></li>
@@ -16,7 +11,8 @@
 </ul>
 <div class="wrapper">
     @@include("_includes/menu.zh.html")
-    <div class="page">
+    @@include("_includes/sidebar.zh.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -359,14 +355,9 @@
                     来了解如何搜索邮件列表的相关内容。
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.zh.html")
-    </div>
-    <!-- end .page -->
-    @@include("_includes/footer.html")
-    <script>
+        <script>
         (function() {
             var cx = 'partner-pub-0430507460695576:j0zyjq-56po';
             var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
@@ -374,6 +365,5 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
         })();
     </script>
-</div>
-</body>
-</html>
+
+    @@include("_includes/footer.html")

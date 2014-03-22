@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TortoiseSVN - Log cache and repository UUIDs</title>
-<meta name="description" content="why UUIDs must be unique across repositories">
-<meta name="keywords" content="cache, log messages, repository, uuid">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/pack.css" rel="stylesheet">
-</head>
+@@include("_includes/header.html", {
+    "title": "Log cache and repository UUIDs",
+    "metaDescription": "<meta name=\"description\" content=\"why UUIDs must be unique across repositories\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"cache, log messages, repository, uuid\">"
+})
 <body>
 <div class="wrapper">
     @@include("_includes/menu.html")
-    <div class="page">
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
         <div class="content">
 
             <div class="post">
@@ -133,13 +129,6 @@
                     you have to activate the option "Allow ambiguous URLs".</p>
                 </div>
             </div>
-        </div>
-        <!-- end .content -->
+        </div> <!-- .content -->
 
-        @@include("_includes/sidebar.html")
-    </div>
-    <!-- end .page -->
     @@include("_includes/footer-js.html")
-</div>
-</body>
-</html>

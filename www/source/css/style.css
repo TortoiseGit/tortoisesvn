@@ -1,3 +1,17 @@
+/* `box-sizing` reset taken from Bootstrap */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #27343C;
     color: black;
@@ -84,7 +98,7 @@ ul {
     margin: 1em 0 0 1em;
     min-height: 52px;
     padding-left: 42px;
-    width: 80%;
+    width: 90%;
 }
 
 .caution h3,
@@ -139,23 +153,6 @@ ul {
     width: 910px;
 }
 
-.centered {
-    text-align: center;
-    vertical-align: middle;
-}
-
-img.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
 /* Header */
 .header {
     margin: 0 auto;
@@ -166,7 +163,6 @@ img.centered {
 /* Logo */
 .logo {
     color: white;
-    float: left;
     text-shadow: 0 0 2px white;
     width: 640px;
 }
@@ -266,7 +262,7 @@ img.centered {
 .content {
     float: right;
     padding: 20px 30px 0 0;
-    width: 590px;
+    width: 620px;
 }
 
 .post .title {
@@ -296,8 +292,9 @@ img.centered {
 
 /* Sidebar */
 .sidebar {
-    padding: 20px 0 0 30px;
-    width: 220px;
+    float: left;
+    padding: 104px 0 0 30px; /* 84px from .page + 20px */
+    width: 250px;
 }
 
 .sidebar a {
@@ -365,6 +362,23 @@ img.centered {
     padding: 2em;
 } */
 
+.centered {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.img-centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 a.fancybox,
 .fancybox a,
 .fancybox-skin a {
@@ -406,6 +420,7 @@ a.fancybox,
     margin-right: 0.3em;
 }
 
+/* clearfix taken from Bootstrap */
 .clearfix:before,
 .clearfix:after {
     content: " ";
