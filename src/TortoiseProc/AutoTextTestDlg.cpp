@@ -108,9 +108,9 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
             }
             m_sTimingLabel.Format(L"Parse time: %ld uSecs", timer.GetMusecsTaken());
         }
-        catch (std::exception)
+        catch (std::exception &ex)
         {
-            m_sResult = L"Regex is invalid!";
+            m_sResult = L"Regex is invalid!\r\n" + CString(ex.what());
         }
     }
     UpdateData(FALSE);
