@@ -67,6 +67,7 @@ CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
     , m_pProjectProperties(NULL)
     , m_bUrlIsFolder(false)
     , m_bThreadRunning(false)
+    , m_bCancelled(false)
 {
 }
 
@@ -290,6 +291,7 @@ UINT CEditPropertiesDlg::PropsThreadEntry(LPVOID pVoid)
 void CEditPropertiesDlg::ReadProperties (int first, int last)
 {
     SVNProperties props (m_revision, m_bRevProps, false);
+    props.m_bCancelled = &m_bCancelled;
     for (int i=first; i < last; ++i)
     {
         props.SetFilePath(m_pathlist[i]);
@@ -374,6 +376,7 @@ UINT CEditPropertiesDlg::PropsThread()
 {
     enum {CHUNK_SIZE = 100};
 
+    m_bCancelled = false;
     // get all properties in multiple threads
     async::CJobScheduler jobs (0, async::CJobScheduler::GetHWThreadCount());
     {
@@ -977,7 +980,10 @@ void CEditPropertiesDlg::OnOK()
 void CEditPropertiesDlg::OnCancel()
 {
     if (m_bThreadRunning)
+    {
+        m_bCancelled = true;
         return;
+    }
     CStandAloneDialogTmpl<CResizableDialog>::OnCancel();
 }
 

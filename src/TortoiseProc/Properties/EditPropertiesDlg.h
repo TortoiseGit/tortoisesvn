@@ -107,6 +107,7 @@ protected:
 
     CString         m_sUUID;
     ProjectProperties * m_pProjectProperties;
+    bool            m_bCancelled;
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(L"TORTOISESVN_AFTERTHREAD_MSG");

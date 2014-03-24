@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,6 +162,10 @@ public:
      */
     SVNRev GetRevision() const { return m_rev; }
 
+    /**
+     * Set to true to cancel operations
+     */
+    bool * m_bCancelled;
 private:        //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
