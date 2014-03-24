@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -156,11 +156,6 @@ public:
      * Call this before an import or an add operation.
      */
     void InsertAutoProps(svn_config_t *cfg);
-
-    /**
-     * Adds all the project properties to the specified entry
-     */
-    bool AddAutoProps(const CTSVNPath& path);
 
     /**
      * Returns the log message summary if the tsvn:logsummaryregex property is

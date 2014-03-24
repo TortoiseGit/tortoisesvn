@@ -341,11 +341,6 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
         {
             return false;
         }
-        if ((props)&&(pathList[nItem].IsDirectory()))
-        {
-            // try adding the project properties
-            props->AddAutoProps(pathList[nItem]);
-        }
     }
 
     return true;
