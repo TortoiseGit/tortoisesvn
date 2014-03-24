@@ -376,8 +376,10 @@ UINT CEditPropertiesDlg::PropsThread()
 
     // get all properties in multiple threads
     async::CJobScheduler jobs (0, async::CJobScheduler::GetHWThreadCount());
-
-    m_properties.clear();
+    {
+        async::CCriticalSectionLock lock(m_mutex);
+        m_properties.clear();
+    }
     for (int i=0; i < m_pathlist.GetCount(); i += CHUNK_SIZE)
         new async::CAsyncCall ( this
                               , &CEditPropertiesDlg::ReadProperties
@@ -390,6 +392,7 @@ UINT CEditPropertiesDlg::PropsThread()
     // fill the property list control with the gathered information
     int index=0;
     m_propList.SetRedraw(FALSE);
+    async::CCriticalSectionLock lock(m_mutex);
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
@@ -681,6 +684,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 
     EditPropBase * dlg = NULL;
     std::string sName = propName;
+    async::CCriticalSectionLock lock(m_mutex);
 
     if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
@@ -1019,7 +1023,8 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     std::string sName;
     if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
-        sName = CUnicodeUtils::StdGetUTF8 ((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        async::CCriticalSectionLock lock(m_mutex);
+        sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         PropValue& prop = m_properties[sName];
         if (prop.allthesamevalue)
         {
@@ -1076,6 +1081,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
         {
             int index = m_propList.GetNextSelectedItem(pos);
             sName = m_propList.GetItemText(index, 0);
+            async::CCriticalSectionLock lock(m_mutex);
             PropValue& prop = m_properties[CUnicodeUtils::StdGetUTF8((LPCTSTR)sName)];
             sValue = prop.value.c_str();
             len = sName.GetLength()*sizeof(TCHAR);
