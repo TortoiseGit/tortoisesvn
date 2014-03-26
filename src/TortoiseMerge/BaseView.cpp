@@ -5763,7 +5763,7 @@ void CBaseView::UseViewBlock(CBaseView * pwndView, int nFirstViewLine, int nLast
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-		if (skipMarked && (GetViewMarked(viewLine) || GetViewState(viewLine) == DIFFSTATE_EDITED))
+        if (skipMarked && (GetViewMarked(viewLine) || GetViewState(viewLine) == DIFFSTATE_EDITED))
             continue;
         viewdata line = pwndView->GetViewData(viewLine);
         if (line.ending != EOL_NOENDING)

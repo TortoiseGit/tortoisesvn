@@ -269,7 +269,7 @@ public:
     enum TChangeAction
     {
         HAS_COPY_FROM       = 0x01,
-                            
+
         ACTION_ADDED        = 0x04,
         ACTION_CHANGED      = 0x08,
         ACTION_REPLACED     = 0x10,
