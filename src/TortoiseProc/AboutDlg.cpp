@@ -70,8 +70,13 @@ BOOL CAboutDlg::OnInitDialog()
     {
         svnvertag = L"-release";
     }
+    CString sIPV6;
 
-    temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE),
+#if APR_HAVE_IPV6
+    sIPV6 = L"\r\nipv6 enabled";
+#endif
+
+    temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE), (LPCWSTR)sIPV6,
         svnver->major, svnver->minor, svnver->patch, (LPCWSTR)svnvertag,
         APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
         APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
