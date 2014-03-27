@@ -159,7 +159,7 @@ HBRUSH CFindDlg::OnCtlColor(CDC* pDC, CWnd *pWnd, UINT nCtlColor)
             return hbr;
         }
     default:
-        return CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+        break;
     }
     return CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 }
