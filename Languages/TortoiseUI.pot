@@ -1394,10 +1394,6 @@ msgstr ""
 msgid "&Unknown drives"
 msgstr ""
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr ""
@@ -1682,6 +1678,10 @@ msgstr ""
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
+msgstr ""
+
+#. Resource IDs: (364)
+msgid "Abort\nYou can fix the reason the hook script failed first."
 msgstr ""
 
 #. Resource IDs: (9)
@@ -4893,6 +4893,10 @@ msgstr ""
 msgid "Hook Type:"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr ""
@@ -5360,6 +5364,10 @@ msgstr ""
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5398,6 +5406,10 @@ msgstr ""
 
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
+msgstr ""
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
 msgstr ""
 
 #. Resource IDs: (82)
@@ -6910,6 +6922,10 @@ msgstr ""
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid "Proceed anyway\nIgnore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid "Proceed with the commit\nthe renamed/moved folders are committed recursively in the repository."
 msgstr ""
@@ -7998,6 +8014,10 @@ msgstr ""
 msgid "Search &log messages..."
 msgstr ""
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr ""
@@ -8583,6 +8603,10 @@ msgstr ""
 msgid "Some file(s) have been changed outside T-Merge.\nWould you like to reload and lose your changes?"
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr ""
@@ -8779,6 +8803,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "Success"
 msgstr ""
 
 #. Resource IDs: (1232)
@@ -9492,7 +9520,7 @@ msgstr ""
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
 msgstr ""
 
 #. Resource IDs: (281)
