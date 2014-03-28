@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -1426,10 +1426,6 @@ msgstr "&Об'єднані відмінності"
 msgid "&Unknown drives"
 msgstr "&Невідомі диски"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Оновити"
@@ -1741,6 +1737,12 @@ msgstr "Припинити"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Припинити &злиття"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5291,6 +5293,10 @@ msgstr "Тип зачіпки"
 msgid "Hook Type:"
 msgstr "Тип зачіпки:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr ""
@@ -5809,6 +5815,10 @@ msgstr ""
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5850,6 +5860,10 @@ msgstr "Внутрішня величина, що означає якість у
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Неправильна грошова одиниця."
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7508,6 +7522,12 @@ msgstr "Друкується"
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8721,6 +8741,10 @@ msgstr "Прокрутити праворуч"
 msgid "Search &log messages..."
 msgstr "Пошук &логових повідомлень..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Що шукати:"
@@ -9350,6 +9374,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Сортувати за кількістю фіксацій"
@@ -9614,6 +9642,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Серверний файл Subversion:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10506,7 +10538,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"

@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -1444,10 +1444,6 @@ msgstr "Diff &unifiée"
 msgid "&Unknown drives"
 msgstr "&Disques inconnus"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr "&Monter"
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "Mettre à jo&ur"
@@ -1759,6 +1755,12 @@ msgstr "Interrompre"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "&Abandonner la fusion"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5309,6 +5311,10 @@ msgstr "Type de hook"
 msgid "Hook Type:"
 msgstr "Type de hook :"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr "Le script hook a échoué !"
@@ -5827,6 +5833,10 @@ msgstr "Index des couleurs :"
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Les différences dans la ligne"
@@ -5868,6 +5878,10 @@ msgstr "Valeur interne indiquant la qualité de la compression"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Monnaie Invalide."
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7526,6 +7540,12 @@ msgstr "Impression"
 msgid "Proceed anyway"
 msgstr "Exécuter quand même"
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8739,6 +8759,10 @@ msgstr "Défiler à Droite"
 msgid "Search &log messages..."
 msgstr "Recherche dans le fichier journa&l..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Rechercher :"
@@ -9368,6 +9392,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr "Un ou plusieurs fichiers ont été modifiés en dehors de T-Merge.\nVoulez-vous recharger et perdre vos modifications ?"
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Trier par nombre de livraisons"
@@ -9632,6 +9660,10 @@ msgstr "Subversion à rapporté une erreur:"
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Fichier du serveur Subversion :"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10524,7 +10556,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"
@@ -10532,7 +10564,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."

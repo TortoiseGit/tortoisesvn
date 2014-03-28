@@ -18,6 +18,7 @@
 # Dharth <emilpg@gmail.com>, 2013
 # Francisco Javier Rodríguez Mesa <javier.rodriguez@fjrodriguez.com>, 2011
 # ggh <gdelahuebra@hotmail.com>, 2011
+# japaol <japaol@gmail.com>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
 # Juan Chacon <jchacon.fossey@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -33,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-19 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-03-25 19:20+0000\n"
+"Last-Translator: japaol <japaol@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,11 +134,11 @@ msgstr "Características de TortoiseSVN"
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "¿Qué hace de TortoiseSVN un tan buen cliente de Subversion? Aquí hay una pequeña lista de sus características."
+msgstr "¿Qué hace de TortoiseSVN un cliente tan bueno de Subversion? Aquí hay una pequeña lista de sus características."
 
 #. (term)
 msgid "Shell integration"
-msgstr "Integración con la consola de Windows"
+msgstr "Integración con Windows"
 
 #. (primary)
 msgid "Windows shell"
@@ -153,7 +154,7 @@ msgid ""
 "explorer). This means you can keep working with the tools you're already "
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
-msgstr "TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, el explorador). Esto significa que puede seguir trabajando con las herramientas que ya conoce. Y que no tiene que cambiar a una aplicación diferente cada vez que necesite las funciones del control de versiones."
+msgstr "TortoiseSVN se integra perfectamente con Windows (por ejemplo, en el Explorador de archivos). Esto significa que puede seguir trabajando con las herramientas que ya conoce. Y que no tiene que cambiar a una aplicación diferente cada vez que necesite las funciones del control de versiones."
 
 #. (para)
 msgid ""
@@ -163,18 +164,18 @@ msgid ""
 "bear in mind that TortoiseSVN is intentionally developed as an extension for"
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Y ni siquiera está obligado a usar el Explorador de Windows; los menús contextuales de TortoiseSVN también funcionan en otros administradores de archivos, y en el diálogo Archivo/Abrir que es común en la mayoría de aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que TortoiseSVN está desarrollado con la intención de ser una extensión del Explorador de Windows. Por este motivo, puede que en otras aplicaciones la integración no sea tan completa, y que por ejemplo, los íconos superpuestos no se muestren."
+msgstr "Y ni siquiera está obligado a usar el Explorador de archivos de Windows; los menús contextuales de TortoiseSVN también funcionan en otros administradores de archivos, y en el cuadro de diálogo Archivo/Abrir que es común en la mayoría de aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que TortoiseSVN está desarrollado con la intención de ser una extensión del Explorador de archivos de Windows. Por este motivo, puede que en otras aplicaciones la integración no sea tan completa, y que por ejemplo, los iconos superpuestos no se muestren."
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Íconos superpuestos"
+msgstr "Iconos superpuestos"
 
 #. (para)
 msgid ""
 "The status of every versioned file and folder is indicated by small overlay "
 "icons. That way you can see right away what the status of your working copy "
 "is."
-msgstr "El estado de cada carpeta y archivo versionado se indica por pequeños íconos superpuestos. De esta forma, puede ver fácilmente el estado en el que se encuentra su copia de trabajo."
+msgstr "El estado de cada carpeta y archivo versionado se indica por pequeños iconos superpuestos. De esta forma, puede ver fácilmente el estado en el que se encuentra su copia de trabajo."
 
 #. (term)
 msgid "Graphical User Interface"
@@ -185,7 +186,7 @@ msgid ""
 "When you list the changes to a file or folder, you can click on a revision "
 "to see the comments for that commit. You can also see a list of changed "
 "files - just double click on a file to see exactly what changed."
-msgstr "Cuando usted lista los cambios realizados a un archivo o carpeta, puede hacer click en una revisión para ver los comentarios de esa confirmación. Puede también ver una lista de archivos modificados - solamente haga click en un archivo para ver exactamente qué ha cambiado."
+msgstr "Cuando usted lista los cambios realizados a un archivo o carpeta, puede hacer click en una revisión para ver los comentarios de esa confirmación. Puede también ver una lista de archivos modificados - solamente haga doble click en un archivo para ver exactamente qué ha cambiado."
 
 #. (para)
 msgid ""
@@ -193,7 +194,7 @@ msgid ""
 " each item has a checkbox so you can choose which items you want to include."
 " Unversioned files can also be listed, in case you forgot to add that new "
 "file."
-msgstr "El diálogo de confirmación lista todos los ítems que han de ser incluidos en una confirmación, y cada item tiene una checkbox de tal manera que usted pueda escoger que cambios desea incluir.En caso que haya olvidado incluir algún archivo, los archivos que no están versionados pueden ser también listados."
+msgstr "El cuadro de diálogo de confirmación muestra todos los ítems que se incluirán en una confirmación, y cada ítem tiene una casilla para que pueda escoger que cambios desea incluir. En caso que haya olvidado añadir algún archivo, los archivos que no están versionados pueden ser también listados."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -2790,7 +2791,7 @@ msgid ""
 "import-in-place\"/>, unless you are performing the simple step of creating "
 "an initial <filename>/trunk /tags /branches</filename> structure in your "
 "repository. Since you are here, this is how the basic import works ..."
-msgstr ""
+msgstr "Esta sección describe el comando Importar de Subversion, que se diseñó para importar una estructura de carpetas en el repositorio de un sólo paso. Aunque realiza su cometido, tiene muchos inconvenientes: <placeholder-1/> Por estos motivos recomendamos no utilizar el comando Importar y emplear mejor el método en dos pasos descrito en <xref linkend=\"tsvn-dug-import-in-place\"/>,  a menos que esté realizando el paso inicial de crear la estructura de carpetas <filename>/trunk /tags /branches</filename> en el repositorio. Pero ya que estamos aquí, veamos como funciona la importación básica ..."
 
 #. (para)
 msgid ""
@@ -2868,14 +2869,14 @@ msgid ""
 "want to create this as a sub-folder of trunk rather than in the repository "
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
-msgstr ""
+msgstr "Utilice el navegador de repositorios para crear directamente una carpeta de proyecto en el repositorio. Si está utilizando alguna de las estructuras estándar probablemente querrá crearla como una subcarpeta de trunk en vez de la raíz del repositorio. El navegador de repositorios muestra la estructura del repositorio igual que el Explorador de archivos de Windows, de forma que puedes ver como está organizado."
 
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
 "will get a warning that the local folder is not empty. Ignore the warning. "
 "Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "Obtenga la nueva carpeta encima de la carpeta que quiere importar. Recibirá un aviso indicando que la carpeta local no está vacía. Ignore el aviso. Ahora tendrá una carpeta versionada con contenido no versionado."
 
 #. (para)
 msgid ""
@@ -3070,7 +3071,7 @@ msgid ""
 "checkout</literal>. An update of such a working copy will not fetch the "
 "missing files and folders but only update what you already have in your "
 "working copy."
-msgstr ""
+msgstr "Para seleccionar fácilmente los elementos que quiere obtener y forzar a la copia de trabajo a mantener sólo estos elementos, haga clic en el botón <guibutton>Seleccione los elementos...</guibutton>. Éste abrirá un cuadro de diálogo donde podrá seleccionar qué elementos quiere en su copia de trabajo y desmarcar los que no quiera. La copia de trabajo resultante se conoce como <literal>obtención dispersa</literal>. Las actualizaciones de este tipo de copias de trabajo no recuperarán los archivos ni carpetas que falten y sólo actualizará los elementos que ya estaban en la copia de trabajo."
 
 #. (para)
 msgid ""
@@ -17689,7 +17690,7 @@ msgid ""
 "<placeholder-2/> points to an unversioned directory, a dialog will ask for "
 "an URL to export to the directory in <placeholder-3/>. If you specify the "
 "key <placeholder-4/>, the automatic export path adjustments are blocked."
-msgstr ""
+msgstr "Exporta la copia de trabajo en <placeholder-1/> a otra carpeta. Si <placeholder-2/> apunta a una carpeta no versionada, un cuadro de diálogo le preguntará por la URL a exportar a la carpeta <placeholder-3/>. Si indica la clave <placeholder-4/>, se bloquearán los ajustes automáticos en la ruta de exportación."
 
 #. (option)
 #. (option)
@@ -18107,7 +18108,7 @@ msgid ""
 "<literal>path</literal> or <literal>revision</literal>, and "
 "<literal>paramvalue</literal> being the value to use for that parameter. The"
 " list of parameters allowed depends on the command used."
-msgstr ""
+msgstr "siendo <literal>cmd</literal> uno de los comandos permitidos, <literal>parametro</literal> el nombre de un parámetro como <literal>ruta</literal> o <literal>revision</literal>, y <literal>valor</literal> el valor a utilizar para ese parámetro. La lista de parámetros permitidos depende del comando utilizado."
 
 #. (para)
 msgid ""
@@ -19052,7 +19053,7 @@ msgid ""
 " installation folders for those applications. Otherwise, you need to "
 "download the required dictionary files from <ulink "
 "url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
-msgstr ""
+msgstr "O también puede instalar los diccionarios usted mismo. Si tiene OpenOffice o Mozilla instalado, puede copiar estos diccionarios, que están ubicados en las carpetas de instalación de dichas aplicaciones. En caso contrario, necesitará descargar los archivos de diccionarios necesarios de <ulink url=\"http://wiki.services.openoffice.org/wiki/ Dictionaries\"> <citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
 
 #. (filename)
 msgid "en_US.aff"
@@ -19879,7 +19880,7 @@ msgid ""
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
-msgstr ""
+msgstr "La ventana del archivo parche tiene un menú contextual que le permitirá previsualizar el efecto del parche en el archivo actual (aplicar sin guardar), aplicar y guardar los cambios para el archivo seleccionado, o aplicar y guardar los cambios to <emphasis>todos</emphasis> los archivos de la lista. Si hace doble clic se previsualizarán los cambios."
 
 #. (title)
 msgid "Buttons and Other Controls"
@@ -20004,7 +20005,7 @@ msgid ""
 "lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use"
 " text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
 " the left file are added to the right file."
-msgstr ""
+msgstr "Si está en la vista doble, soló podrá editar el archivo del panel derecho (<literal>Mío</literal>). Para aplicar los cambios hechos en el archivo de la izquierda (<literal>De ellos</literal>), haga <action>clic</action> con el botón derecho del ratón en las líneas modificadas y seleccione <menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Utilizar el bloque de 'ellos'</guimenuitem></menuchoice>. Los cambios del archivo de la izquierda se agregarán al fichero de la derecha."
 
 #. (para)
 msgid ""

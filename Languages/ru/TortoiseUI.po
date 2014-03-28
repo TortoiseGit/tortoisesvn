@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1434,10 +1434,6 @@ msgstr "Объедин. разли&чия"
 msgid "&Unknown drives"
 msgstr "&Неизвестные носители"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr "&Вверх"
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Обновить"
@@ -1749,6 +1745,12 @@ msgstr "Прервать"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Прервать с&лияние"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5299,6 +5301,10 @@ msgstr "Тип ловушки"
 msgid "Hook Type:"
 msgstr "Тип ловушки:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr "Скрипт ловушки завершился неуспешно!"
@@ -5817,6 +5823,10 @@ msgstr "Цвета индекса:"
 msgid "Info on external"
 msgstr "Информация о внешнем"
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Различия в строке"
@@ -5858,6 +5868,10 @@ msgstr "Внутреннее значение, показывающее каче
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Неправильное денежное значение."
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7516,6 +7530,12 @@ msgstr "Идёт печать"
 msgid "Proceed anyway"
 msgstr "Продолжить в любом случае"
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8729,6 +8749,10 @@ msgstr "Прокрутить вправо"
 msgid "Search &log messages..."
 msgstr "Найти в &сообщениях журнала..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Что искать:"
@@ -9358,6 +9382,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr "Некоторые файлы были изменены снаружи T-Merge.\nХотите ли перезагрузить и потерять ваши изменения?"
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Сортировать по количеству фиксаций"
@@ -9622,6 +9650,10 @@ msgstr "Subversion сообщило об ошибке:"
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Файл серверов Subversion:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10514,7 +10546,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"
@@ -10522,7 +10554,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."

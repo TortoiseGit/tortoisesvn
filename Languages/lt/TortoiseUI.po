@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/tortoisesvn/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -1425,10 +1425,6 @@ msgstr "&Unifikuotas palyginimas"
 msgid "&Unknown drives"
 msgstr "&Nežinomi diskai"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "Atna&ujinti"
@@ -1739,6 +1735,12 @@ msgstr "Abortuoti"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
+msgstr ""
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
 msgstr ""
 
 #. Resource IDs: (9)
@@ -5290,6 +5292,10 @@ msgstr ""
 msgid "Hook Type:"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr ""
@@ -5808,6 +5814,10 @@ msgstr ""
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5848,6 +5858,10 @@ msgstr ""
 
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
+msgstr ""
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
 msgstr ""
 
 #. Resource IDs: (82)
@@ -7507,6 +7521,12 @@ msgstr ""
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8720,6 +8740,10 @@ msgstr ""
 msgid "Search &log messages..."
 msgstr ""
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Ieškoti:"
@@ -9349,6 +9373,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr ""
@@ -9612,6 +9640,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "Success"
 msgstr ""
 
 #. Resource IDs: (1232)
@@ -10505,7 +10537,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"

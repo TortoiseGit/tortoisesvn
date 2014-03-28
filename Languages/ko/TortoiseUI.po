@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -1429,10 +1429,6 @@ msgstr "통합 비교 보기(&U)"
 msgid "&Unknown drives"
 msgstr "알 수 없는 드라이브(&U)"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "업데이트(&U)"
@@ -1744,6 +1740,12 @@ msgstr "취소"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "병합 취소(&M)"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5294,6 +5296,10 @@ msgstr "훅 종류"
 msgid "Hook Type:"
 msgstr "훅 종류:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr "Hook 스크립트 실패!"
@@ -5812,6 +5818,10 @@ msgstr "인덱스 색상:"
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Inline diff"
@@ -5853,6 +5863,10 @@ msgstr "압축 품질을 지시하는 내부 값"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "유효하지 않은 단위"
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7511,6 +7525,12 @@ msgstr "프린팅"
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8724,6 +8744,10 @@ msgstr "오른쪽으로 스크롤하기"
 msgid "Search &log messages..."
 msgstr "로그 메시지 검색(&l)..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "찾을 대상:"
@@ -9353,6 +9377,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr "일부 파일이 TortoiseMerge 외부에서 변경되었습니다.\n변경사항을 잃게 되는데, 리로드 하시겠습니까?"
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "커밋 개수에 따라 정렬"
@@ -9617,6 +9645,10 @@ msgstr "Subversion이 에러를 보고했습니다."
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Subversion 서버 파일:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10509,7 +10541,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"

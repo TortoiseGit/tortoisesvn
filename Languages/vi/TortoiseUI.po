@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -1424,10 +1424,6 @@ msgstr "&So sánh thống nhất"
 msgid "&Unknown drives"
 msgstr "&Ổ đĩa không nhận ra"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Cập nhật"
@@ -1739,6 +1735,12 @@ msgstr "Bỏ"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Bỏ &Hợp nhất"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5289,6 +5291,10 @@ msgstr "Kiểu móc"
 msgid "Hook Type:"
 msgstr "Kiểu móc:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr "Kịch bản hook thất bại!"
@@ -5807,6 +5813,10 @@ msgstr "Màu danh mục:"
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Diff nội tuyến"
@@ -5848,6 +5858,10 @@ msgstr "Giá trị bên trong thể hiện chất lượng nén"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Tiền tệ không hợp lệ"
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7506,6 +7520,12 @@ msgstr "Đang in"
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8719,6 +8739,10 @@ msgstr "Cuộn Phải"
 msgid "Search &log messages..."
 msgstr "Tìm kiếm trên các &thông điệp tường trình..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Tìm kiếm cho:"
@@ -9348,6 +9372,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr "Một (số) tập tin đã được thay đổi bên ngoài T-Merge.\nBạn muốn tải lại và mất các thay đổi của bạn?"
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Sắp xếp theo số lần cam kết"
@@ -9612,6 +9640,10 @@ msgstr "Subversion báo lỗi"
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "tập tin máy chủ Subversion:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10504,7 +10536,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"

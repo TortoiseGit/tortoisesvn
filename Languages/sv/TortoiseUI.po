@@ -13,7 +13,7 @@
 # Johan Foglemark <johanfoglemark@gmail.com>, 2011,2013
 # LordDaimos <karl.sjogren@gmail.com>, 2011
 # Kim Svensson <ks@linux.com>, 2011
-# Magnus Österlund <magnusosterlund78@gmail.com>, 2013
+# Magnus Österlund, 2013
 #   <pojk3n@gmail.com>, 2011
 # Stig Nordlander <stig@nordlander.eu>, 2013
 msgid ""
@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-14 08:27+0000\n"
+"PO-Revision-Date: 2014-03-28 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -1428,10 +1428,6 @@ msgstr "\"&Unified Diff\""
 msgid "&Unknown drives"
 msgstr "&Okända enheter"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr ""
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Uppdatera"
@@ -1743,6 +1739,12 @@ msgstr "Avbryt"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Avbryt &förening"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5293,6 +5295,10 @@ msgstr "Kroktyp"
 msgid "Hook Type:"
 msgstr "Kroktyp:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr ""
@@ -5811,6 +5817,10 @@ msgstr ""
 msgid "Info on external"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr ""
@@ -5852,6 +5862,10 @@ msgstr "Internt värde som visar komprimeringskvalitén"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Ogiltig valuta. "
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid ""
@@ -7510,6 +7524,12 @@ msgstr "Skriver ut"
 msgid "Proceed anyway"
 msgstr ""
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8723,6 +8743,10 @@ msgstr "Rulla höger"
 msgid "Search &log messages..."
 msgstr "Sök &loggmeddelanden..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Sök:"
@@ -9352,6 +9376,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Sortera efter antalet arkiveringar"
@@ -9616,6 +9644,10 @@ msgstr "Subversion rapporterade ett fel:"
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Serverkonfigurationsfil för Subversion:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10508,7 +10540,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"

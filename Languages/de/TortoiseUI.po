@@ -11,18 +11,25 @@
 # Authors:
 # Translators:
 # djungbeck, 2013
-# Lübbe Onken <l.onken@rac.de>, 2003-2014.
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2003-2014
+# djungbeck, 2013
+# djungbeck, 2013
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
+# Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2014
+# peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012-2014
+# lonken <l.onken@rac.de>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-20 09:47+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH <support@rac.de>\n"
+"PO-Revision-Date: 2014-03-28 09:51+0200\n"
+"Last-Translator: lonken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1428,10 +1435,6 @@ msgstr "&Standard-Diff"
 msgid "&Unknown drives"
 msgstr "&Unbekannte Laufwerke"
 
-#. Resource IDs: (1074)
-msgid "&Up"
-msgstr "&Hoch"
-
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "Akt&ualisieren"
@@ -1743,6 +1746,14 @@ msgstr "Abbrechen"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Zusammenführen &abbrechen"
+
+#. Resource IDs: (364)
+msgid ""
+"Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
+"Abbrechen\n"
+"Sie können die Ursache weshalb das Aktionsskript fehlschlug beseitigen."
 
 #. Resource IDs: (9)
 msgid "About"
@@ -5293,6 +5304,10 @@ msgstr "Aktionstyp"
 msgid "Hook Type:"
 msgstr "Aktionstyp:"
 
+#. Resource IDs: (364)
+msgid "Hook script failed"
+msgstr "Aktionsskript ist fehlgeschlagen"
+
 #. Resource IDs: (173)
 msgid "Hook script failed!"
 msgstr "Aktionsskript ist fehlgeschlagen!"
@@ -5811,6 +5826,10 @@ msgstr "Indexfarben:"
 msgid "Info on external"
 msgstr "Info über External"
 
+#. Resource IDs: (64)
+msgid "Information"
+msgstr "Information"
+
 #. Resource IDs: (156)
 msgid "Inline diff"
 msgstr "Unterschiede in der Zeile"
@@ -5852,6 +5871,10 @@ msgstr "Interner Maß für die Kompressionsqualität"
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
 msgstr "Ungültige Währung"
+
+#. Resource IDs: (84)
+msgid "Invalid parameters"
+msgstr "Ungültige Parameter"
 
 #. Resource IDs: (82)
 msgid ""
@@ -7510,6 +7533,14 @@ msgstr "Drucken"
 msgid "Proceed anyway"
 msgstr "Trotzdem durchführen"
 
+#. Resource IDs: (364)
+msgid ""
+"Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+"Trotzdem fortsetzen\n"
+"Das Aktionsskript ignorieren und den Befehl trotzdem fortsetzen"
+
 #. Resource IDs: (170)
 msgid ""
 "Proceed with the commit\n"
@@ -8723,6 +8754,10 @@ msgstr "Nach rechts rollen"
 msgid "Search &log messages..."
 msgstr "Durchsuche &Logmeldungen..."
 
+#. Resource IDs: (1074)
+msgid "Search &up"
+msgstr "Suchen nach &oben"
+
 #. Resource IDs: (65535)
 msgid "Search for:"
 msgstr "Suche nach:"
@@ -9352,6 +9387,10 @@ msgid ""
 "Would you like to reload and lose your changes?"
 msgstr "Einige Dateien wurden außerhalb von TortoiseMerge geändert.\nWollen Sie die Dateien neu laden und ihre Änderungen verlieren?"
 
+#. Resource IDs: (84)
+msgid "Something went wrong"
+msgstr "Etwas ist schief gegangen"
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Nach Anzahl der Übertragungen sortieren"
@@ -9616,6 +9655,10 @@ msgstr "Subversion hat einen Fehler gemeldet:"
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
 msgstr "Subversion Serverdatei:"
+
+#. Resource IDs: (64)
+msgid "Success"
+msgstr "Erfolg"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10508,7 +10551,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d\r\n"
@@ -10516,7 +10559,15 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\n\nSQLite %s"
+msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-util %d.%d.%d\r\n"
+"serf %d.%d.%d\r\n"
+"%s\r\n"
+"zlib %s\r\n"
+"SQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
