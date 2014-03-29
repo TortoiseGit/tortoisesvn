@@ -2243,7 +2243,6 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     CWaitCursorEx wait_cursor;
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
-    progDlg.SetAnimation(IDR_DOWNLOAD);
     CString sInfoLine;
     sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString());
     progDlg.SetLine(1, sInfoLine, true);
@@ -3563,7 +3562,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     const SVNRev& revision = selection.GetRepository(0).revision;
 
                     progDlg.SetTitle(IDS_REPOBROWSE_SAVEASPROGTITLE);
-                    progDlg.SetAnimation(IDR_DOWNLOAD);
                     progDlg.ShowModeless(GetSafeHwnd());
                     progDlg.SetProgress(0, pathCount);
                     SetAndClearProgressInfo(&progDlg);
@@ -4024,7 +4022,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CWaitCursorEx wait_cursor;
 
                     CProgressDlg progDlg;
-                    progDlg.SetAnimation(IDR_DOWNLOAD);
                     progDlg.SetTitle(IDS_APPNAME);
                     SetAndClearProgressInfo(&progDlg);
                     progDlg.ShowModeless(m_hWnd);

@@ -213,7 +213,6 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
     }
 
     m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);
-    m_progressDlg.SetAnimation(IDR_DOWNLOAD);
     m_progressDlg.SetShowProgressBar(TRUE);
     if (showprogress)
     {

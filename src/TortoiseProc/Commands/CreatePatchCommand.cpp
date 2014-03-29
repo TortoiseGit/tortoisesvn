@@ -259,7 +259,6 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     {
         progDlg.SetLine(2, savePath.GetUIPathString(), true);
     }
-    //progDlg.SetAnimation(IDR_ANIMATION);
 
     CTSVNPath tempPatchFilePath;
     if (bToClipboard)

@@ -78,7 +78,6 @@ bool CleanupCommand::Execute()
     int actionCounter = 0;
     CProgressDlg progress;
     progress.SetTitle(IDS_PROC_CLEANUP);
-    progress.SetAnimation(IDR_CLEANUPANI);
     progress.FormatNonPathLine(2, IDS_PROC_CLEANUP_INFO1, L"");
     progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
     progress.SetProgress(actionCounter++, actionTotal);

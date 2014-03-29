@@ -669,7 +669,6 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
         // BUG?: If a folder is marked as deleted, we export that folder too!
         CProgressDlg progress;
         progress.SetTitle(IDS_PROC_EXPORT_3);
-        progress.SetAnimation(IDR_MOVEANI);
         progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
         progress.SetTime(true);
         progress.ShowModeless(hWnd);

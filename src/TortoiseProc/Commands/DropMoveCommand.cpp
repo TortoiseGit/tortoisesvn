@@ -54,7 +54,6 @@ bool DropMoveCommand::Execute()
     if (progress.IsValid())
     {
         progress.SetTitle(IDS_PROC_MOVING);
-        progress.SetAnimation(IDR_MOVEANI);
         progress.SetTime(true);
         progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     }

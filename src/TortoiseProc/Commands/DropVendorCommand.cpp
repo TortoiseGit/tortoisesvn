@@ -39,7 +39,6 @@ bool DropVendorCommand::Execute()
     CProgressDlg progress;
     progress.SetTitle(IDS_PROC_VENDORDROP_TITLE);
     progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_VENDORDROP_GETDATA1)));
-    progress.SetAnimation(IDR_MOVEANI);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
     std::map<CString,bool> versionedFiles;

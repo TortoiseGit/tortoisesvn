@@ -2347,7 +2347,6 @@ void CLogDlg::DiffSelectedFile( bool ignoreprops )
 
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            progDlg.SetAnimation(IDR_DOWNLOAD);
             CString sInfoLine;
             sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION,
                 (LPCTSTR)(m_sRepositoryRoot + changedpath.GetPath()), (LPCTSTR)r.ToString());
@@ -2578,7 +2577,6 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
-    progDlg.SetAnimation(IDR_DOWNLOAD);
     CString sInfoLine;
     sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath,
                                                     (LPCTSTR)SVNRev(rev).ToString());
@@ -5585,7 +5583,6 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
             tempfile.SetFromWin(revFilename);
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            progDlg.SetAnimation(IDR_DOWNLOAD);
             CString sInfoLine;
             sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(),
                 (LPCTSTR)pCmi->RevSelected.ToString());
@@ -5622,7 +5619,6 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
 
         CProgressDlg progDlg;
         progDlg.SetTitle(IDS_APPNAME);
-        progDlg.SetAnimation(IDR_DOWNLOAD);
         CString sInfoLine;
         sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(),
             (LPCTSTR)pCmi->RevSelected.ToString());
@@ -6918,7 +6914,6 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
             this->EnableWindow(FALSE);
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            progDlg.SetAnimation(IDR_DOWNLOAD);
             for ( size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
             {
                 const CLogChangedPath& changedlogpathi
@@ -7004,7 +6999,6 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
             this->EnableWindow(FALSE);
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            progDlg.SetAnimation(IDR_DOWNLOAD);
             progDlg.SetTime(true);
             for ( size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
             {

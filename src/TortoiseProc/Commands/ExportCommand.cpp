@@ -118,7 +118,6 @@ bool ExportCommand::Execute()
                 {
                     CProgressDlg progress;
                     progress.SetTitle(IDS_PROC_UNVERSION);
-                    progress.SetAnimation(IDR_MOVEANI);
                     progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
                     progress.SetTime(true);
                     progress.ShowModeless(GetExplorerHWND());

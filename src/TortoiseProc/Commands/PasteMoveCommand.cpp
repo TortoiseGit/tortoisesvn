@@ -41,7 +41,6 @@ bool PasteMoveCommand::Execute()
     CString sNewName;
     CProgressDlg progress;
     progress.SetTitle(IDS_PROC_MOVING);
-    progress.SetAnimation(IDR_MOVEANI);
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)

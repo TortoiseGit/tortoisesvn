@@ -53,7 +53,6 @@ bool DropCopyCommand::Execute()
     }
     CProgressDlg progress;
     progress.SetTitle(IDS_PROC_COPYING);
-    progress.SetAnimation(IDR_MOVEANI);
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     UINT msgRet = IDNO;
@@ -81,7 +80,6 @@ bool DropCopyCommand::Execute()
             // rebuild the progress dialog
             progress.EnsureValid();
             progress.SetTitle(IDS_PROC_COPYING);
-            progress.SetAnimation(IDR_MOVEANI);
             progress.SetTime(true);
             progress.SetProgress(count, pathList.GetCount());
             progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));

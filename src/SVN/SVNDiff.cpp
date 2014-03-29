@@ -120,7 +120,6 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 
         CProgressDlg progDlg;
         progDlg.SetTitle(IDS_APPNAME);
-        progDlg.SetAnimation(IDR_DOWNLOAD);
         progDlg.SetTime(false);
         m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
         progDlg.ShowModeless(GetHWND());
@@ -256,7 +255,6 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
-    progDlg.SetAnimation(IDR_DOWNLOAD);
     progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
     progDlg.SetTime(false);
     m_pSVN->SetAndClearProgressInfo(&progDlg);
@@ -350,7 +348,6 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
-    progDlg.SetAnimation(IDR_DOWNLOAD);
     progDlg.SetTime(false);
     m_pSVN->SetAndClearProgressInfo(&progDlg);
     CAppUtils::DiffFlags diffFlags;

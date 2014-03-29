@@ -3543,7 +3543,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
                         CProgressDlg progress;
                         progress.SetTitle(IDS_PROC_EXPORT_3);
-                        progress.SetAnimation(IDR_MOVEANI);
                         progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
                         progress.SetTime(true);
                         progress.ShowModeless(m_hWnd);
@@ -4303,7 +4302,6 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry, bool ignoreprops)
             SVN svn;
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            progDlg.SetAnimation(IDR_DOWNLOAD);
             progDlg.SetTime(false);
             svn.SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
             progDlg.ShowModeless(m_hWnd);
