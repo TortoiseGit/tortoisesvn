@@ -4929,11 +4929,13 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 // what[0] contains the whole string
                 // what[1] contains the url part.
                 // what[2] contains the name
-                CString url = m_InitialUrl+L"/"+CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                CString sMatch = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                sMatch.TrimRight('/');
+                CString url = m_InitialUrl + L"/" + sMatch;
                 CItem item;
                 item.absolutepath = url;
                 item.kind = svn_node_dir;
-                item.path = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                item.path = sMatch;
                 SRepositoryInfo repoinfo;
                 repoinfo.root = url;
                 repoinfo.revision = SVNRev::REV_HEAD;
@@ -4953,11 +4955,13 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 // what[0] contains the whole string
                 // what[1] contains the url part.
                 // what[2] contains the name
-                CString url = m_InitialUrl+L"/"+CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                CString sMatch = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                sMatch.TrimRight('/');
+                CString url = m_InitialUrl + L"/" + sMatch;
                 CItem item;
                 item.absolutepath = url;
                 item.kind = svn_node_dir;
-                item.path = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                item.path = sMatch;
                 SRepositoryInfo repoinfo;
                 repoinfo.root = url;
                 repoinfo.revision = SVNRev::REV_HEAD;
