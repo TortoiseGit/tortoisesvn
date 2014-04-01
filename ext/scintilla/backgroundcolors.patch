@@ -1,6 +1,6 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 25349)
+--- include/Scintilla.h	(revision 25392)
 +++ include/Scintilla.h	(working copy)
 @@ -1008,6 +1008,7 @@
  #define SCN_HOTSPOTRELEASECLICK 2027
@@ -12,9 +12,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 25349)
+--- src/Editor.cxx	(revision 25392)
 +++ src/Editor.cxx	(working copy)
-@@ -2828,6 +2828,17 @@
+@@ -2851,6 +2851,17 @@
  		}
  	}
  
@@ -34,9 +34,9 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 25349)
+--- src/Editor.h	(revision 25392)
 +++ src/Editor.h	(working copy)
-@@ -494,6 +494,7 @@
+@@ -496,6 +496,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -46,14 +46,14 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 25349)
+--- win32/ScintillaWin.cxx	(revision 25392)
 +++ win32/ScintillaWin.cxx	(working copy)
 @@ -242,6 +242,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
 +	virtual void NotifyParent(SCNotification * scn);
- 	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
+ 	virtual void NotifyDoubleClick(Point pt, int modifiers);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
 @@ -1422,6 +1423,13 @@
@@ -67,6 +67,6 @@ Index: win32/ScintillaWin.cxx
 +		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
 +}
 +
- void ScintillaWin::NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt) {
+ void ScintillaWin::NotifyDoubleClick(Point pt, int modifiers) {
  	//Platform::DebugPrintf("ScintillaWin Double click 0\n");
- 	ScintillaBase::NotifyDoubleClick(pt, shift, ctrl, alt);
+ 	ScintillaBase::NotifyDoubleClick(pt, modifiers);
