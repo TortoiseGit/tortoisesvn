@@ -249,13 +249,32 @@ ul {
 
 /* Page */
 .page {
-    background: white url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center 20px;
+    background: white url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center 20px; 
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
             border-radius: 2px;
     margin: 0 auto;
     padding-top: 84px;
     width: 910px;
+}
+
+/* New front page with banner */
+.page-front {
+    background-color: white;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    margin: 0 auto;
+    padding-top: 84px;
+    width: 910px;
+}
+
+.live-banner {
+    background-color: white;
+    text-align: center;
+    margin-top: 2px;
+    padding-top: 20px;
+    margin-bottom: -80px;
 }
 
 /* Content */
