@@ -249,7 +249,7 @@ ul {
 
 /* Page */
 .page {
-    background: white url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center 20px; 
+    background: white url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center 20px;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
             border-radius: 2px;
@@ -258,8 +258,8 @@ ul {
     width: 910px;
 }
 
-/* New front page with banner */
-.page-front {
+/* New page with banner */
+.page-banner {
     background-color: white;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
@@ -271,14 +271,18 @@ ul {
 
 .live-banner {
     background-color: white;
-    text-align: center;
-    margin-top: 2px;
-    padding-top: 20px;
     margin-bottom: -80px;
+    margin-top: 1px;
+    padding-top: 19px;
+}
+
+.live-banner a > img {
+    margin-top: 15px;
 }
 
 /* Content */
 .content {
+    background-color: white;
     float: right;
     padding: 20px 30px 0 0;
     width: 620px;
@@ -400,7 +404,8 @@ ul {
 
 a.fancybox,
 .fancybox a,
-.fancybox-skin a {
+.fancybox-skin a,
+.live-banner a {
     border-bottom: none;
 }
 
