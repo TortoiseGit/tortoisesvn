@@ -1218,11 +1218,6 @@ void CLogDlg::SaveSplitterPos()
 
 void CLogDlg::OnLogCancel()
 {
-    // canceling means stopping the working thread if it's still running.
-    // we do this by using the Subversion cancel callback.
-
-    m_bCancelled = true;
-
     // Canceling can mean just to stop fetching data, depending on the text
     // shown on the cancel button (it will read "Cancel" in that case).
 
@@ -1230,7 +1225,10 @@ void CLogDlg::OnLogCancel()
     GetDlgItemText(IDC_LOGCANCEL, temp);
     temp2.LoadString(IDS_MSGBOX_CANCEL);
     if ((temp.Compare(temp2)==0) && !GetDlgItem(IDOK)->IsWindowVisible())
+    {
+        m_bCancelled = true;
         return;
+    }
 
     // we actually want to close the dialog.
 
@@ -1239,6 +1237,7 @@ void CLogDlg::OnLogCancel()
 
 void CLogDlg::OnCancel()
 {
+    bool bWasCancelled = m_bCancelled;
     // canceling means stopping the working thread if it's still running.
     // we do this by using the Subversion cancel callback.
 
@@ -1255,8 +1254,16 @@ void CLogDlg::OnCancel()
 
     if (threadsStillRunning)
     {
-        // end the process the hard way
-        TerminateProcess(GetCurrentProcess(), 0);
+        if (bWasCancelled)
+        {
+            // end the process the hard way
+            TerminateProcess(GetCurrentProcess(), 0);
+        }
+        else
+        {
+            // to force the shutdown, another click on cancel is required
+            return;
+        }
     }
     else
     {
