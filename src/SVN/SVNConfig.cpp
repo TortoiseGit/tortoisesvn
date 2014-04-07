@@ -75,6 +75,28 @@ BOOL SVNConfig::GetDefaultIgnores()
     return TRUE;
 }
 
+BOOL SVNConfig::GetWCIgnores(const CTSVNPath& path)
+{
+    if (config == nullptr)
+        return FALSE;
+    patterns = nullptr;
+    svn_wc_context_t * pctx = NULL;
+    svn_error_t * err = svn_wc_context_create(&pctx, NULL, pool, pool);
+    if (err)
+    {
+        svn_error_clear(err);
+        return FALSE;
+    }
+    err = svn_wc_get_ignores2(&patterns, pctx, path.GetSVNApiPath(pool), config, pool, pool);
+    if (err)
+    {
+        svn_error_clear(err);
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
 BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 {
     if (patterns == nullptr)
