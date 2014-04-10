@@ -62,7 +62,6 @@ CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropertiesDlg::IDD, pParent)
     , m_bRecursive(FALSE)
     , m_bChanged(false)
-    , m_revision(SVNRev::REV_WC)
     , m_bRevProps(false)
     , m_pProjectProperties(NULL)
     , m_bUrlIsFolder(false)
@@ -119,15 +118,29 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     if (m_pathlist.GetCount() == 1)
     {
         if (m_pathlist[0].IsUrl())
+        {
             SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetSVNPathString());
+            if (!m_revision.IsValid())
+                m_revision = SVNRev::REV_HEAD;
+        }
         else
+        {
             SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetWinPathString());
+            if (!m_revision.IsValid())
+                m_revision = SVNRev::REV_WC;
+        }
     }
     else
     {
         CString sTemp;
         sTemp.Format(IDS_EDITPROPS_NUMPATHS, m_pathlist.GetCount());
         SetDlgItemText(IDC_PROPPATH, sTemp);
+        if (!m_revision.IsValid())
+        {
+            m_revision = SVNRev::REV_WC;
+            if ((m_pathlist.GetCount() > 0) && (m_pathlist[0].IsUrl()))
+                m_revision = SVNRev::REV_HEAD;
+        }
     }
 
     SetWindowTheme(m_propList.GetSafeHwnd(), L"Explorer", NULL);
