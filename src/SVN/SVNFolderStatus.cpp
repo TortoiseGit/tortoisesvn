@@ -107,7 +107,6 @@ SVNFolderStatus::SVNFolderStatus(void)
 
 SVNFolderStatus::~SVNFolderStatus(void)
 {
-    CloseHandle(m_hInvalidationEvent);
     svn_pool_destroy(rootpool);
 }
 
