@@ -18,10 +18,20 @@ set "PYTHON_PATH=C:\Python27"
 set "PATH=%NANT_PATH%;%PERL_PATH%;%PYTHON_PATH%;%PATH%"
 
 call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+if %errorlevel% neq 0 (
+  echo vcvarsall.bat call failed.
+  goto End
+)
 
-rem cleanup the cov-dir if it's present
+
+:cleanup
 if exist "cov-int" rd /q /s "cov-int"
+if exist "TortoiseSVN.lzma" del "TortoiseSVN.lzma"
+if exist "TortoiseSVN.tar"  del "TortoiseSVN.tar"
+if exist "TortoiseSVN.tgz"  del "TortoiseSVN.tgz"
 
+
+:main
 rem we need to build the libraries before our files
 title nant -buildfile:../default.build clean ipv6 Subversion
 nant -buildfile:../default.build clean ipv6 Subversion
@@ -31,31 +41,41 @@ title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.bu
 "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build clean ipv6 TortoiseSVN
 "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build clean Overlays
 
-if exist "TortoiseSVN.tar" del "TortoiseSVN.tar"
-if exist "TortoiseSVN.tgz" del "TortoiseSVN.tgz"
-
 
 :tar
 rem try the tar tool in case it's in PATH
+set PATH=c:\msys\bin;%PATH%
 tar --version 1>&2 2>nul || (echo. & echo ERROR: tar not found & goto SevenZip)
-title Creating "TortoiseSVN.tgz"
-tar czvf "TortoiseSVN.tgz" "cov-int"
+title Creating "TortoiseSVN.lzma"...
+tar caf "TortoiseSVN.lzma" "cov-int"
 goto End
 
 
 :SevenZip
-rem try 7-Zip if it's the default installation path
-if not exist "%PROGRAMFILES%\7-zip\7z.exe" (
-  echo.
-  echo ERROR: "%PROGRAMFILES%\7-zip\7z.exe" not found
+call :SubDetectSevenzipPath
+
+rem Coverity is totally bogus with lzma...
+rem And since I cannot replicate the arguments with 7-Zip, just use tar/gzip.
+if exist "%SEVENZIP%" (
+  title Creating "TortoiseSVN.tar"...
+  "%SEVENZIP%" a -ttar "TortoiseSVN.tar" "cov-int"
+  "%SEVENZIP%" a -tgzip "TortoiseSVN.tgz" "TortoiseSVN.tar"
+  if exist "TortoiseSVN.tar" del "TortoiseSVN.tar"
   goto End
 )
 
-title Creating "TortoiseSVN.tar"...
-"%PROGRAMFILES%\7-zip\7z.exe" a -ttar "TortoiseSVN.tar" "cov-int"
-title Creating "TortoiseSVN.tgz"...
-"%PROGRAMFILES%\7-zip\7z.exe" a -tgzip "TortoiseSVN.tgz" "TortoiseSVN.tar"
-if exist "TortoiseSVN.tar" del "TortoiseSVN.tar"
+
+:SubDetectSevenzipPath
+for %%g in (7z.exe) do (set "SEVENZIP_PATH=%%~$path:g")
+if exist "%SEVENZIP_PATH%" (set "SEVENZIP=%SEVENZIP_PATH%" & exit /b)
+
+for %%g in (7za.exe) do (set "SEVENZIP_PATH=%%~$path:g")
+if exist "%SEVENZIP_PATH%" (set "SEVENZIP=%SEVENZIP_PATH%" & exit /b)
+
+for /f "tokens=2*" %%a in (
+  'reg query "hklm\software\7-zip" /v "path" 2^>nul ^| find "reg_sz" ^|^|
+   reg query "hklm\software\wow6432node\7-zip" /v "path" 2^>nul ^| find "reg_sz"') do set "SEVENZIP=%%b\7z.exe"
+exit /b
 
 
 :End
