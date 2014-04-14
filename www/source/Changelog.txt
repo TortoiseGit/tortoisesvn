@@ -1,3 +1,25 @@
+Version 1.8.6
+- BUG: Issue #617: Checkbox size too big on Aero
+       area in high dpi mode. (Stefan)
+- BUG: Issue #619: "show log" from merge dialog fetches
+       all revisions if no revision range is specified. (Stefan)
+- BUG: Issue #621: Export Log Cache did not
+       export to the expected path. (Sup Yut Sum)
+- BUG: Issue #620: merge message truncates url. (Stefan)
+- BUG: Issue #622: generated merge message contains
+       too many entries. (Stefan)
+- CHG: Issue #624: in page error writing log file. (Stefan)
+- BUG: Issue #626: Applying patch can find
+       wrong "better" path. (Stefan)
+- BUG: Issue #628: Invalid urls in repobrowser
+       for SVNParentPath. (Stefan)
+- BUG: Issue #629: log dialog closes merge
+       dialog. (Stefan)
+- BUG: Issue #630: svn:global-ignores not
+       used when adding. (Stefan)
+- BUG: Issue #631: Assertion when showing properties
+       dialog for url. (Stefan)
+
 Version 1.8.5
 - BUG: Issue #594: "Diff with url" generated
        patch does not apply. (Stefan)
