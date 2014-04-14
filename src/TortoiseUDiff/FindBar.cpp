@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2012-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,8 @@ void CFindBar::DoFind(bool bFindPrev)
 {
     int len = ::GetWindowTextLength(GetDlgItem(*this, IDC_FINDTEXT));
     std::unique_ptr<TCHAR[]> findtext(new TCHAR[len+1]);
-    ::GetWindowText(GetDlgItem(*this, IDC_FINDTEXT), findtext.get(), len+1);
+    if (!::GetWindowText(GetDlgItem(*this, IDC_FINDTEXT), findtext.get(), len + 1))
+        return;
     std::wstring ft = std::wstring(findtext.get());
     const bool bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, NULL);
     const UINT message = bFindPrev ? COMMITMONITOR_FINDMSGPREV : COMMITMONITOR_FINDMSGNEXT;
