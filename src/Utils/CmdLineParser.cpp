@@ -75,44 +75,60 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
             m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
             break;
         }
-        else if (sVal[0] == ' ' || wcslen(sVal) == 1 )
-        {
-            // cmdline ends with /Key: or a key with no value
-            tstring Key(sArg, (int)(sVal - sArg));
-            if(!Key.empty())
-            {
-                std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
-                m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
-            }
-            sCurrent = _wcsinc(sVal);
-            continue;
-        }
         else
         {
-            // key has value
             tstring Key(sArg, (int)(sVal - sArg));
             std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 
-            sVal = _wcsinc(sVal);
-
-            LPCTSTR sQuote = wcspbrk(sVal, m_sQuotes), sEndQuote(NULL);
-            if(sQuote == sVal)
+            LPCTSTR sQuote(NULL), sEndQuote(NULL);
+            if (wcslen(sVal) > 0)
             {
-                // string with quotes (defined in m_sQuotes, e.g. '")
-                sQuote = _wcsinc(sVal);
-                sEndQuote = wcspbrk(sQuote, m_sQuotes);
-            }
-            else
-            {
-                sQuote = sVal;
-                sEndQuote = wcschr(sQuote, ' ');
+                if (sVal[0] != ' ')
+                    sVal = _wcsinc(sVal);
+                else
+                {
+                    while (wcslen(sVal) > 0 && sVal[0] == ' ')
+                        sVal = _wcsinc(sVal);
+                }
+
+                LPCTSTR nextArg = wcspbrk(sVal, m_sDelims);
+
+                sQuote = wcspbrk(sVal, m_sQuotes);
+
+                if (nextArg == sVal)
+                {
+                    // current key has no value, but a next key exist - so don't use next key as value of current one
+                    --sVal;
+                    sQuote = sVal;
+                    sEndQuote = sVal;
+                }
+                else if (nextArg != NULL && nextArg < sQuote)
+                {
+                    // current key has a value w/o quotes, but next key one has value in quotes
+                    sQuote = sVal;
+                    sEndQuote = wcschr(sQuote, ' ');
+                }
+                else
+                {
+                    if (sQuote == sVal)
+                    {
+                        // string with quotes (defined in m_sQuotes, e.g. '")
+                        sQuote = _wcsinc(sVal);
+                        sEndQuote = wcspbrk(sQuote, m_sQuotes);
+                    }
+                    else
+                    {
+                        sQuote = sVal;
+                        sEndQuote = wcschr(sQuote, ' ');
+                    }
+                }
             }
 
-            if(sEndQuote == NULL)
+            if (sEndQuote == NULL)
             {
                 // no end quotes or terminating space, take the rest of the string to its end
                 tstring csVal(sQuote);
-                if(!Key.empty())
+                if (!Key.empty())
                 {
                     m_valueMap.insert(CValsMap::value_type(Key, csVal));
                 }
@@ -121,7 +137,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
             else
             {
                 // end quote
-                if(!Key.empty())
+                if (!Key.empty())
                 {
                     tstring csVal(sQuote, (int)(sEndQuote - sQuote));
                     m_valueMap.insert(CValsMap::value_type(Key, csVal));
