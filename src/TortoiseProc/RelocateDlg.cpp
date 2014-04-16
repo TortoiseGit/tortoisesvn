@@ -59,6 +59,7 @@ BOOL CRelocateDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_URLCombo.SetURLHistory(true, true);
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
     m_URLCombo.SetCurSel(0);
 
     RECT rect;
@@ -89,6 +90,7 @@ BOOL CRelocateDlg::OnInitDialog()
 void CRelocateDlg::OnOK()
 {
     UpdateData(TRUE);
+    m_URLCombo.SaveHistory();
     m_sToUrl = m_URLCombo.GetString();
     UpdateData(FALSE);
 
