@@ -765,21 +765,47 @@ CString CRepositoryLister::AddSubTreeExternals
     TI begin = query->GetSubPathExternals().begin();
     TI end = query->GetSubPathExternals().end();
 
-    if (externalsRelPath.IsEmpty())
+    int levels = CItem::Levels(externalsRelPath);
+    for (TI iter = begin; iter != end; ++iter)
     {
-        std::copy (begin, end, std::back_inserter (items));
-    }
-    else
-    {
-        // filtered externals
-
-        int levels = CItem::Levels (externalsRelPath);
-        for (TI iter = begin; iter != end; ++iter)
+        if ((iter->external_position == levels)
+            && (iter->external_rel_path.Find(externalsRelPath) == 0))
         {
-            if (   (iter->external_position == levels)
-                && (iter->external_rel_path.Find (externalsRelPath) == 0))
+            items.push_back(*iter);
+        }
+        // externals can be placed in subfolders which are not versioned:
+        // insert such unversioned folders here.
+        if (iter->external_rel_path.Find(externalsRelPath) == 0)
+        {
+            int startslash = 0;
+            for (int i = 0; i < levels; ++i)
             {
-                items.push_back (*iter);
+                startslash = iter->external_rel_path.Find('/', startslash) + 1;
+            }
+            int endslash = iter->external_rel_path.Find('/', startslash);
+            if (endslash < 0)
+                endslash = iter->external_rel_path.GetLength();
+            CString subpath = iter->external_rel_path.Mid(startslash, endslash - startslash);
+            if (!subpath.IsEmpty())
+            {
+                bool bFound = false;
+                for (const auto& p : items)
+                {
+                    if (p.path.Compare(subpath) == 0)
+                    {
+                        bFound = true;
+                        break;
+                    }
+                }
+                if (!bFound)
+                {
+                    CItem item = *iter;
+                    item.kind = svn_node_dir;
+                    item.path = subpath;
+                    item.unversioned = true;
+                    item.absolutepath = url + L"/" + subpath;
+                    items.push_back(item);
+                }
             }
         }
     }

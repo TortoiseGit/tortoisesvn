@@ -1391,12 +1391,17 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                             , !m_bSparseCheckoutMode && m_bShowExternals
                                             , children
                                             , redirectedUrl);
+        if (!pTreeItem->error.IsEmpty() && pTreeItem->unversioned)
+        {
+            pTreeItem->error.Empty();
+            pTreeItem->has_child_folders = true;
+        }
     }
 
     // add parent sub-tree externals
 
-    CString relPath = pTreeItem->unescapedname + '/';
-    for ( node = m_RepoTree.GetParentItem (node)
+    CString relPath;
+    for (
         ; node && pTreeItem->error.IsEmpty()
         ; node = m_RepoTree.GetParentItem (node))
     {
@@ -1412,6 +1417,11 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                                          , parentItem->repository
                                                          , relPath
                                                          , children);
+        if (!parentItem->error.IsEmpty() && parentItem->unversioned)
+        {
+            parentItem->error.Empty();
+            parentItem->has_child_folders = true;
+        }
         relPath = parentItem->unescapedname + '/' + relPath;
     }
 
@@ -1672,6 +1682,7 @@ HTREEITEM CRepositoryBrowser::Insert
     pTreeItem->repository = item.repository;
     pTreeItem->is_external = item.is_external;
     pTreeItem->kind = item.kind;
+    pTreeItem->unversioned = item.unversioned;
 
     bool isSelectedForDiff
         = pTreeItem->url.CompareNoCase (m_diffURL.GetSVNPathString()) == 0;

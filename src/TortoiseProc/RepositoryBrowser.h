@@ -53,6 +53,7 @@ public:
         , kind(svn_node_unknown)
         , svnparentpathroot(false)
         , bookmark(false)
+        , unversioned(false)
     {
     }
 
@@ -63,6 +64,7 @@ public:
     bool            is_external;                ///< if set, several operations may not be available
     bool            children_fetched;           ///< whether the contents of the folder are known/fetched or not
     bool            has_child_folders;
+    bool            unversioned;
     std::deque<CItem>    children;
     CString         error;
     svn_node_kind_t kind;
