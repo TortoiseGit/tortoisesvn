@@ -297,6 +297,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOLIST, &CRepositoryBrowser::OnNMCustomdrawRepolist)
     ON_COMMAND(ID_URL_HISTORY_BACK, &CRepositoryBrowser::OnUrlHistoryBack)
     ON_COMMAND(ID_URL_HISTORY_FORWARD, &CRepositoryBrowser::OnUrlHistoryForward)
+    ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOTREE, &CRepositoryBrowser::OnNMCustomdrawRepotree)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -4774,7 +4775,7 @@ void CRepositoryBrowser::SetListItemInfo( int index, const CItem * it )
     // pointer to the CItem structure
     m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
 
-    if (!it->complete)
+    if (!it->complete || it->unversioned)
         return;
 
     // revision
@@ -4822,7 +4823,7 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
     if (m_RepoList.HasText())
         return;
 
-    // Draw incomplete items in gray.
+    // Draw incomplete and unversioned items in gray.
     if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
     {
         *pResult = CDRF_NOTIFYITEMDRAW;
@@ -4837,12 +4838,36 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
             COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
-            if (pItem && !pItem->complete)
+            if (pItem && (!pItem->complete || pItem->unversioned))
             {
                 crText = GetSysColor(COLOR_GRAYTEXT);
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
+        }
+    }
+}
+
+void CRepositoryBrowser::OnNMCustomdrawRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMTVCUSTOMDRAW* pTVCD = reinterpret_cast<NMTVCUSTOMDRAW*>(pNMHDR);
+    // Take the default processing unless we set this to something else below.
+    *pResult = CDRF_DODEFAULT;
+    // Draw incomplete and unversioned items in gray.
+    if (CDDS_PREPAINT == pTVCD->nmcd.dwDrawStage)
+    {
+        *pResult = CDRF_NOTIFYITEMDRAW;
+    }
+    else if (CDDS_ITEMPREPAINT == pTVCD->nmcd.dwDrawStage)
+    {
+        // Tell Windows to paint the control itself.
+        *pResult = CDRF_DODEFAULT;
+
+        CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData((HTREEITEM)pTVCD->nmcd.dwItemSpec);
+        if (pItem && pItem->unversioned)
+        {
+            // Store the color back in the NMLVCUSTOMDRAW struct.
+            pTVCD->clrText = GetSysColor(COLOR_GRAYTEXT);
         }
     }
 }
@@ -5216,4 +5241,5 @@ void CRepositoryBrowser::SaveBookmarks()
         file.Close();
     }
 }
+
 

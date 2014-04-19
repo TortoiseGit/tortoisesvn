@@ -144,6 +144,7 @@ protected:
     afx_msg void OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMCustomdrawRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult);
