@@ -803,6 +803,7 @@ CString CRepositoryLister::AddSubTreeExternals
                     item.kind = svn_node_dir;
                     item.path = subpath;
                     item.unversioned = true;
+                    item.is_external = false;
                     item.absolutepath = url + L"/" + subpath;
                     items.push_back(item);
                 }
