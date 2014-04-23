@@ -185,14 +185,21 @@ void CEditPropExternals::OnBnClickedEdit()
 
 void CEditPropExternals::OnBnClickedRemove()
 {
+    std::vector<size_t> indexestoremove;
+    size_t selIndex = 0;
     POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
-    size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
-    if (m_externals.size() > selIndex)
+    while (pos)
     {
-        m_externals.erase(m_externals.begin() + selIndex);
-        m_ExtList.SetItemCountEx((int)m_externals.size());
-        m_ExtList.Invalidate();
+        selIndex = m_ExtList.GetNextSelectedItem(pos);
+        if (m_externals.size() > selIndex)
+            indexestoremove.push_back(selIndex);
     }
+    for (auto it = indexestoremove.crbegin(); it != indexestoremove.crend(); ++it)
+    {
+        m_externals.erase(m_externals.begin() + *it);
+    }
+    m_ExtList.SetItemCountEx((int)m_externals.size());
+    m_ExtList.Invalidate();
 }
 
 void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResult)
