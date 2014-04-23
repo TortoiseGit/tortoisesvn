@@ -208,9 +208,12 @@ void CEditPropExternalsValue::OnBnClickedBrowse()
     int rootlength = root.GetLength();
     if (strURLs.Left(rootlength).Compare(root)==0)
     {
-        strURLs = L"^/" + strURLs.Mid(rootlength);
-        strURLs.Replace(L"^//", L"^/");
-        m_URLCombo.SetWindowText(strURLs);
+        if ((strURLs.GetLength() > rootlength) && (strURLs.GetAt(rootlength) == '/'))
+        {
+            strURLs = L"^/" + strURLs.Mid(rootlength);
+            strURLs.Replace(L"^//", L"^/");
+            m_URLCombo.SetWindowText(strURLs);
+        }
     }
 }
 
