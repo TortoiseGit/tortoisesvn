@@ -44,7 +44,7 @@ title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.bu
 
 :tar
 rem try the tar tool in case it's in PATH
-set PATH=c:\msys\bin;%PATH%
+set PATH=C:\MSYS\bin;%PATH%
 tar --version 1>&2 2>nul || (echo. & echo ERROR: tar not found & goto SevenZip)
 title Creating "TortoiseSVN.lzma"...
 tar caf "TortoiseSVN.lzma" "cov-int"
@@ -73,8 +73,8 @@ for %%g in (7za.exe) do (set "SEVENZIP_PATH=%%~$path:g")
 if exist "%SEVENZIP_PATH%" (set "SEVENZIP=%SEVENZIP_PATH%" & exit /b)
 
 for /f "tokens=2*" %%a in (
-  'reg query "hklm\software\7-zip" /v "path" 2^>nul ^| find "reg_sz" ^|^|
-   reg query "hklm\software\wow6432node\7-zip" /v "path" 2^>nul ^| find "reg_sz"') do set "SEVENZIP=%%b\7z.exe"
+  'reg query "HKLM\SOFTWARE\7-Zip" /v "path" 2^>nul ^| find "REG_SZ" ^|^|
+   reg query "HKLM\SOFTWARE\Wow6432Node\7-Zip" /v "path" 2^>nul ^| find "REG_SZ"') do set "SEVENZIP=%%b\7z.exe"
 exit /b
 
 
