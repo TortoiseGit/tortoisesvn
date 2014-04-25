@@ -127,7 +127,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
             if (sEndQuote == NULL)
             {
                 // no end quotes or terminating space, take the rest of the string to its end
-                std::wstring csVal(sQuote);
+                std::wstring csVal(sQuote ? sQuote : L"");
                 if (!Key.empty())
                 {
                     m_valueMap.insert(CValsMap::value_type(Key, csVal));
