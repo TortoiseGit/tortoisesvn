@@ -118,20 +118,21 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     if ((svnPath == NULL)||(svnPath[0] == 0))
         return svn_wc_status_none;
     SVNTRACE (
-        err = svn_client_status5 (&youngest,
-                                ctx,
-                                svnPath,
-                                &rev,
-                                depth,
-                                TRUE,           // get all
-                                FALSE,          // update
-                                TRUE,           // no ignore
-                                FALSE,          // ignore externals
-                                TRUE,           // depth as sticky
-                                NULL,
-                                getallstatus,
-                                &statuskind,
-                                pool),
+        err = svn_client_status6 (&youngest,
+                                  ctx,
+                                  svnPath,
+                                  &rev,
+                                  depth,
+                                  TRUE,           // get all
+                                  FALSE,          // check out-of-date
+                                  TRUE,           // check working copy
+                                  TRUE,           // no ignore
+                                  FALSE,          // ignore externals
+                                  TRUE,           // depth as sticky
+                                  NULL,
+                                  getallstatus,
+                                  &statuskind,
+                                  pool),
         svnPath
     )
 
@@ -226,20 +227,21 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_status5 (&youngest,
-                                m_pctx,
-                                svnPath,
-                                &rev,
-                                svn_depth_empty,        // depth
-                                TRUE,                   // get all
-                                update,                 // update
-                                noignore,
-                                noexternals,
-                                TRUE,           // depth as sticky
-                                NULL,
-                                getstatushash,
-                                &hashbaton,
-                                m_pool),
+        Err = svn_client_status6 (&youngest,
+                                  m_pctx,
+                                  svnPath,
+                                  &rev,
+                                  svn_depth_empty,        // depth
+                                  TRUE,                   // get all
+                                  update,                 // check out-of-date
+                                  true,                   // check working copy
+                                  noignore,
+                                  noexternals,
+                                  TRUE,           // depth as sticky
+                                  NULL,
+                                  getstatushash,
+                                  &hashbaton,
+                                  m_pool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
@@ -292,20 +294,21 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_status5 (&headrev,
-                                m_pctx,
-                                svnPath,
-                                &rev,
-                                depth,
-                                TRUE,           // get all
-                                update,         // update
-                                bNoIgnore,
-                                bNoExternals,
-                                TRUE,           // depth as sticky
-                                NULL,
-                                getstatushash,
-                                &hashbaton,
-                                m_pool),
+        Err = svn_client_status6 (&headrev,
+                                  m_pctx,
+                                  svnPath,
+                                  &rev,
+                                  depth,
+                                  TRUE,                   // get all
+                                  update,                 // check out-of-date
+                                  true,                   // check working copy
+                                  bNoIgnore,
+                                  bNoExternals,
+                                  TRUE,           // depth as sticky
+                                  NULL,
+                                  getstatushash,
+                                  &hashbaton,
+                                  m_pool),
         svnPath
     )
     ClearCAPIAuthCacheOnError();

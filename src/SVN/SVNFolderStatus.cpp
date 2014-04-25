@@ -173,20 +173,21 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
                 const char * svnapipath = folderpath.GetSVNApiPath(pool);
                 if (svnapipath && svnapipath[0])
                 {
-                    err = svn_client_status5 (&youngest,
-                        localctx,
-                        svnapipath,
-                        &rev,
-                        svn_depth_empty,    // depth
-                        TRUE,               // get all
-                        FALSE,              // update
-                        TRUE,               // no ignore
-                        FALSE,              // ignore externals
-                        TRUE,               // depth as sticky
-                        NULL,
-                        findfolderstatus,
-                        this,
-                        pool);
+                    err = svn_client_status6 (&youngest,
+                                              localctx,
+                                              svnapipath,
+                                              &rev,
+                                              svn_depth_empty,  // depth
+                                              TRUE,             // get all
+                                              FALSE,            // check out-of-date
+                                              true,             // check working copy
+                                              TRUE,             // no ignore
+                                              FALSE,            // ignore externals
+                                              TRUE,             // depth as sticky
+                                              NULL,
+                                              findfolderstatus,
+                                              this,
+                                              pool);
                 }
                 else
                     dirstatus = NULL;
@@ -233,20 +234,21 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
         const char * svnapipath = dirpath.GetSVNApiPath(pool);
         if (svnapipath && svnapipath[0])
         {
-            err = svn_client_status5 (&youngest,
-                localctx,
-                svnapipath,
-                &rev,
-                svn_depth_immediates,       // depth
-                TRUE,                       // get all
-                FALSE,                      // update
-                TRUE,                       // no ignore
-                FALSE,                      // ignore externals
-                TRUE,                       // depth as sticky
-                NULL,
-                fillstatusmap,
-                this,
-                pool);
+            err = svn_client_status6 (&youngest,
+                                      localctx,
+                                      svnapipath,
+                                      &rev,
+                                      svn_depth_immediates,       // depth
+                                      TRUE,                       // get all
+                                      FALSE,                      // check out-of-date
+                                      TRUE,                       // check working copy
+                                      TRUE,                       // no ignore
+                                      FALSE,                      // ignore externals
+                                      TRUE,                       // depth as sticky
+                                      NULL,
+                                      fillstatusmap,
+                                      this,
+                                      pool);
         }
         else
         {

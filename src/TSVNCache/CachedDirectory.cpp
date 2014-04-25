@@ -518,14 +518,15 @@ CCachedDirectory::SvnUpdateMembersStatus()
     svn_error_t * pErr = nullptr;
     if (m_pCtx)
     {
-        pErr = svn_client_status5 (
+        pErr = svn_client_status6 (
                                    NULL,
                                    m_pCtx,
                                    svnapipath,
                                    &revision,
                                    svn_depth_immediates,
                                    TRUE,       // get all
-                                   FALSE,      // update
+                                   FALSE,      // check out-of-date
+                                   TRUE,       // check working copy
                                    TRUE,       // no ignores
                                    FALSE,      // ignore externals
                                    TRUE,       // depth as sticky
