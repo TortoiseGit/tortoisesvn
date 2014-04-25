@@ -61,6 +61,17 @@ module.exports = function(grunt) {
             }
         },
 
+        uncss: {
+            options: {
+                ignore: [/(#|\.)fancybox(\-[a-zA-Z]+)?/],
+                htmlroot: '<%= dirs.dest %>'
+            },
+            dist: {
+                src: '<%= dirs.dest %>/**/*.html',
+                dest: '<%= concat.core.dest %>'
+            }
+        },
+
         cssmin: {
             options: {
                 compatibility: 'ie8',
@@ -100,9 +111,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: '<%= dirs.dest %>',
                 dest: '<%= dirs.dest %>',
-                src: [
-                    '**/*.html'
-                ]
+                src: ['**/*.html']
             }
         },
 
@@ -146,11 +155,11 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            files: ['<%= dirs.src %>/**/*', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
-            tasks: 'dev',
             options: {
                 livereload: true
-            }
+            },
+            files: ['<%= dirs.src %>/**/*', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
+            tasks: 'dev'
         },
 
         clean: {
@@ -209,6 +218,7 @@ module.exports = function(grunt) {
         'includereplace',
         'useminPrepare',
         'concat',
+        'uncss',
         'cssmin',
         'uglify',
         'filerev',
