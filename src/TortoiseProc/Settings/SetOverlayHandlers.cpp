@@ -213,6 +213,14 @@ void CSetOverlayHandlers::OnBnClickedRegedt()
         CoTaskMemFree(pszPath);
         path += L"\\regedit.exe";
 
+        // regedit stores the key it showed last in
+        // HKEY_Current_User\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit\LastKey
+        // we set that here to
+        // HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+        // so when we start regedit, it will show that key on start
+        CRegString regLastKey(L"Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Regedit\\LastKey");
+        regLastKey = L"Computer\\HKEY_Local_Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers";
+
         SHELLEXECUTEINFO si = { sizeof(SHELLEXECUTEINFO) };
         si.hwnd = GetSafeHwnd();
         si.lpVerb = L"open";
