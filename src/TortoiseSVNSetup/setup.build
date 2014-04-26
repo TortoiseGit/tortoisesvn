@@ -81,11 +81,23 @@
             </items>
           </in>
           <do>
-            <exec program="signtool">
-              <arg value="sign" />
-              <arg value="${signinfo}" />
-              <arg value="${filename}" />
-            </exec>
+            <trycatch>
+              <try>
+                <exec program="signtool">
+                  <arg value="sign" />
+                  <arg value="${signinfo}" />
+                  <arg value="${filename}" />
+                </exec>
+              </try>
+              <catch>
+                <sleep minutes="1" />
+                <exec program="signtool">
+                  <arg value="sign" />
+                  <arg value="${signinfo}" />
+                  <arg value="${filename}" />
+                </exec>
+              </catch>
+            </trycatch>
           </do>
         </foreach>
       </if>
@@ -122,11 +134,23 @@
       </delete>
 
       <if test="${file::exists('..\..\signinfo.txt')}">
-        <exec program="signtool">
-          <arg value="sign" />
-          <arg value="${signinfo}" />
-          <arg value="..\..\bin\${msifilename}.msi" />
-        </exec>
+        <trycatch>
+          <try>
+            <exec program="signtool">
+              <arg value="sign" />
+              <arg value="${signinfo}" />
+              <arg value="..\..\bin\${msifilename}.msi" />
+            </exec>
+          </try>
+          <catch>
+            <sleep minutes="1" />
+            <exec program="signtool">
+              <arg value="sign" />
+              <arg value="${signinfo}" />
+              <arg value="..\..\bin\${msifilename}.msi" />
+            </exec>
+          </catch>
+        </trycatch>
       </if>
 
       <if test="${devrelease == ''}">
