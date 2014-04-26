@@ -255,7 +255,10 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
         sResolveMine.LoadString(kind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
         break;
     case svn_wc_conflict_reason_missing:
-        uReasonID = kind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MISSING : IDS_TREECONFLICT_REASON_FILE_MISSING;
+        if (conflict_operation == svn_wc_operation_merge)
+            uReasonID = kind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED : IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED;
+        else
+            uReasonID = kind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MISSING : IDS_TREECONFLICT_REASON_FILE_MISSING;
         sResolveMine.LoadString(IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED);
         break;
     case svn_wc_conflict_reason_unversioned:
