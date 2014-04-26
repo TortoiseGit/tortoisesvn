@@ -234,6 +234,7 @@ NAnt build script for the TortoiseSVN language pack installers
 
     <delete file="LanguagePack_${langISO}.wxs" failonerror="false" />
     <delete file="..\bin\TortoiseProc${langCC}.dll" failonerror="false" />
+    <delete file="..\bin\TortoiseProc32${langCC}.dll" failonerror="false" />
     <delete file="..\bin\TortoiseMerge${langCC}.dll" failonerror="false" />
     <delete file="..\bin\TortoiseBlame${langCC}.dll" failonerror="false" />
     <delete file="..\bin\TortoiseIDiff${langCC}.dll" failonerror="false" />
