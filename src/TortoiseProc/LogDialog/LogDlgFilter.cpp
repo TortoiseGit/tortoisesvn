@@ -537,9 +537,6 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             return false;
     }
 
-    if (patterns.empty() && subStringConditions.empty())
-        return !negate;
-
     if (hideNonMergeable && mergedrevs && !mergedrevs->empty())
     {
         if (mergedrevs->find(entry.GetRevision()) != mergedrevs->end())
@@ -547,6 +544,8 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
         if (entry.GetRevision() < minrev)
             return false;
     }
+    if (patterns.empty() && subStringConditions.empty() && !hideNonMergeable)
+        return !negate;
     // we need to perform expensive string / pattern matching
 
     scratch.Clear();
