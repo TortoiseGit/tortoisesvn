@@ -429,7 +429,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
                                   keep_locks,
                                   keepchangelist,
                                   true,       // commit_as_operations
-                                  false,      // include file externals
+                                  true,       // include file externals
                                   false,      // include dir externals
                                   clists,
                                   revprop_table,
