@@ -59,4 +59,8 @@ protected:
 
 private:
     CToolTips           m_tooltips;
+    CRegDWORD           m_regRefreshShell;
+    CRegDWORD           m_regExternals;
+    CRegDWORD           m_regFixTimestamps;
+    CRegDWORD           m_regVacuum;
 };
