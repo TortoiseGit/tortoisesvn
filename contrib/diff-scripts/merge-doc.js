@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Merge script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2013 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2014 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -18,6 +18,11 @@
 
 var objArgs, num, sTheirDoc, sMyDoc, sBaseDoc, sMergedDoc,
     objScript, word, baseDoc, myDoc, theirDoc, WSHShell;
+
+// ----- constants -----
+//var vbCritical = 0x10;
+var vbExclamation = 0x30;
+//var vbInformation = 0x40;
 
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;

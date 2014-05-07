@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Excel files
 //
-// Copyright (C) 2004-2008, 2012-2013 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2012-2014 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -186,7 +186,7 @@ for (var i = 1; i <= length; i++)
 
 // Close the special workbook quietly
 objSpecialWorkbook.Saved = true;
-objSpecialWorkbook.Close;
+objSpecialWorkbook.Close();
 
 // Activate first Worksheet
 objBaseWorkbook.Sheets(1).Activate();
