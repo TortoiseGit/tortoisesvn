@@ -274,11 +274,14 @@ ul {
     margin-bottom: -80px;
     margin-top: 1px;
     padding-top: 19px;
+    text-align: center;
 }
 
-.live-banner a > img {
-    margin-top: 15px;
+.live-banner a {
+    display: inline-block;
+    margin: 15px auto 0;
 }
+
 
 /* Content */
 .content {
