@@ -256,7 +256,8 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
         case svn_wc_status_normal:
             break;
         case svn_wc_status_external:
-            externals.AddPath(retPath);
+            if (!s->file_external)
+                externals.AddPath(retPath);
             break;
         default:
             reverts.AddPath(retPath);
@@ -276,7 +277,8 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
             case svn_wc_status_normal:
                 break;
             case svn_wc_status_external:
-                externals.AddPath(retPath);
+                if (!s->file_external)
+                    externals.AddPath(retPath);
                 break;
             default:
                 reverts.AddPath(retPath);
@@ -291,6 +293,7 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
                 externals.AddPath(*it);
         }
     }
+    externals.RemoveDuplicates();
     return L"";
 }
 
