@@ -1006,7 +1006,18 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 {
     if (!m_bUnversionedRecurse)
         return;
-    SVNConfig::Instance().GetWCIgnores(basePath);
+
+    CTSVNPath ignPath = basePath;
+    if (!SVNConfig::Instance().GetWCIgnores(ignPath))
+    {
+        // for multiple selection, the base path could be outside the working copy, so
+        // try to find a versioned path for this unversioned folder
+        ignPath = folderName.GetContainingDirectory();
+        while (!ignPath.IsEmpty() && !SVNConfig::Instance().GetWCIgnores(ignPath))
+        {
+            ignPath = folderName.GetContainingDirectory();
+        }
+    }
     CSimpleFileFind filefinder(folderName.GetWinPathString());
 
     CTSVNPath filename;

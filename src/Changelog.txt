@@ -1,6 +1,8 @@
 Version 1.8.8
 - BUG: Issue #640: Restore after commit - Unchecked
        files are not restored upon commit. (Stefan)
+- BUG: Issue #641: svn:global-ignores does not work
+       with multiple targets selected. (Stefan)
 
 Version 1.8.7
 - BUG: Issue #633: Relocate dialog does
