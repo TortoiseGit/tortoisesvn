@@ -469,3 +469,19 @@ void CInputLogDlg::OnComError( HRESULT hr )
     ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
 
+
+
+void CInputLogDlg::OnCancel()
+{
+    UpdateData();
+    m_sLogMsg = m_cInput.GetText();
+    CString reg;
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
+
+    CRegHistory history;
+    history.Load(reg, L"logmsgs");
+    history.AddEntry(m_sLogMsg);
+    history.Save();
+
+    CResizableStandAloneDialog::OnCancel();
+}

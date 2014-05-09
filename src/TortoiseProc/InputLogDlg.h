@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,6 +52,7 @@ protected:
     virtual BOOL OnInitDialog();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnOK();
+    virtual void OnCancel();
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
     afx_msg void OnEnChangeLogmessage();
