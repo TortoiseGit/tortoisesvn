@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-28 08:26+0000\n"
+"PO-Revision-Date: 2014-04-26 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Tamil (India) (http://www.transifex.com/projects/p/tortoisesvn/language/ta_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -248,6 +248,11 @@ msgstr "%s [Recover-ஆகியுள்ளது]"
 msgid "%s, but the directory already exists unversioned locally."
 msgstr "%s, ஆனால் இந்த directory ஏற்கனவே version-ஆகாமல்  local-ஆக உள்ளது."
 
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the directory is missing locally (deleted or moved away?)."
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
@@ -292,6 +297,11 @@ msgstr "%s, ஆனால் இந்த directory replace-செய்யப்
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, ஆனால் இந்த file ஏற்கனவே version-ஆகாமல்  local-ஆக உள்ளது."
+
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the file is missing locally (deleted or moved away?)."
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -11825,7 +11835,7 @@ msgid "inherited from"
 msgstr ""
 
 #. Resource IDs: (583)
-msgid "it does not exist."
+msgid "it does not exist (missing or moved away?)."
 msgstr ""
 
 #. Resource IDs: (583)

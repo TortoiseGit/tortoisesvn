@@ -35,7 +35,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-31 01:29+0000\n"
+"PO-Revision-Date: 2014-04-27 02:30+0000\n"
 "Last-Translator: Y.F Yang <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -266,6 +266,11 @@ msgstr "%s [已还原]"
 msgid "%s, but the directory already exists unversioned locally."
 msgstr "%s，该目录已经在本地存在，未版本控制。"
 
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the directory is missing locally (deleted or moved away?)."
+msgstr "%s，但该目录在本地缺失（已删除或移开？）。"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
@@ -310,6 +315,11 @@ msgstr "%s，但是该目录已经被替换"
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s，该文件已经在本地存在，未版本控制。"
+
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the file is missing locally (deleted or moved away?)."
+msgstr "%s，但该文件在本地缺失（已删除或移开？）。"
 
 #. Resource IDs: (609)
 #, c-format
@@ -11843,8 +11853,8 @@ msgid "inherited from"
 msgstr "继承自"
 
 #. Resource IDs: (583)
-msgid "it does not exist."
-msgstr "它不存在。"
+msgid "it does not exist (missing or moved away?)."
+msgstr "不存在（缺失或已移开？）。"
 
 #. Resource IDs: (583)
 msgid "it is already deleted."

@@ -13,6 +13,7 @@
 # djungbeck, 2013
 # djungbeck, 2013
 # djungbeck, 2013
+# lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
@@ -21,22 +22,21 @@
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012-2014
-# lonken <l.onken@rac.de>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-28 09:51+0200\n"
-"Last-Translator: lonken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2014-04-26 08:26+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
+#. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -50,7 +50,6 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Resource IDs: (188)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -259,6 +258,11 @@ msgstr "%s [wieder hergestellt]"
 msgid "%s, but the directory already exists unversioned locally."
 msgstr "%s, aber das Verzeichnis existiert lokal bereits unversioniert."
 
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the directory is missing locally (deleted or moved away?)."
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
@@ -303,6 +307,11 @@ msgstr "%s, aber das Verzeichnis wurde lokal bereits ersetzt."
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, aber die Datei existiert lokal bereits unversioniert."
+
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the file is missing locally (deleted or moved away?)."
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -1751,9 +1760,7 @@ msgstr "Zusammenführen &abbrechen"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
-"Abbrechen\n"
-"Sie können die Ursache weshalb das Aktionsskript fehlschlug beseitigen."
+msgstr "Abbrechen\nSie können die Ursache weshalb das Aktionsskript fehlschlug beseitigen."
 
 #. Resource IDs: (9)
 msgid "About"
@@ -7537,9 +7544,7 @@ msgstr "Trotzdem durchführen"
 msgid ""
 "Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
-"Trotzdem fortsetzen\n"
-"Das Aktionsskript ignorieren und den Befehl trotzdem fortsetzen"
+msgstr "Trotzdem fortsetzen\nDas Aktionsskript ignorieren und den Befehl trotzdem fortsetzen"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10559,15 +10564,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-util %d.%d.%d\r\n"
-"serf %d.%d.%d\r\n"
-"%s\r\n"
-"zlib %s\r\n"
-"SQLite %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11848,8 +11845,8 @@ msgid "inherited from"
 msgstr "Geerbt von"
 
 #. Resource IDs: (583)
-msgid "it does not exist."
-msgstr "es nicht existiert."
+msgid "it does not exist (missing or moved away?)."
+msgstr ""
 
 #. Resource IDs: (583)
 msgid "it is already deleted."

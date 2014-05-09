@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-28 08:26+0000\n"
+"PO-Revision-Date: 2014-04-26 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -252,6 +252,11 @@ msgstr "%s [Geridönüldü]"
 msgid "%s, but the directory already exists unversioned locally."
 msgstr "%s, ancak dizin yerelde zaten versiyonlanmamış olarak mevcut."
 
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the directory is missing locally (deleted or moved away?)."
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
@@ -296,6 +301,11 @@ msgstr "%s, ancak dizin başka biriyle değiştirilmişti."
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, ancak dosya yerelde zaten versiyonlanmamış olarak mevcut."
+
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the file is missing locally (deleted or moved away?)."
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -11829,8 +11839,8 @@ msgid "inherited from"
 msgstr ""
 
 #. Resource IDs: (583)
-msgid "it does not exist."
-msgstr "mevcut değil"
+msgid "it does not exist (missing or moved away?)."
+msgstr ""
 
 #. Resource IDs: (583)
 msgid "it is already deleted."

@@ -10,22 +10,30 @@
 # 
 # Authors:
 # Translators:
+# caio.northfleet <caio.northfleet@gmail.com>, 2014
+# caio.northfleet <caio.northfleet@gmail.com>, 2014
+# Crhistian <crhistian.ti@gmail.com>, 2011-2012
 # Crhistian <crhistian.ti@gmail.com>, 2011, 2012
 # Edson Chen <edson.chen@gmail.com>, 2011
 # Edson Chen <edson.chen@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Marcelo Boeira <marceloboeira@live.com>, 2013
+# Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
 # Rafael Heise <rmheise@gmail.com>, 2011-2012,2014
 # Rhapy <raphael.mendonca@hotmail.com>, 2014
-# Ricardo RCDMK Souza <srrcdmk@gmail.com>, 2012
+# Rhapy <raphael.mendonca@hotmail.com>, 2014
+# Ricardo Souza <srrcdmk@gmail.com>, 2012
+# Ricardo Souza <srrcdmk@gmail.com>, 2012
+# Ruben de Best <rubendebest@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-25 18:50+0000\n"
-"Last-Translator: Rhapy <raphael.mendonca@hotmail.com>\n"
+"PO-Revision-Date: 2014-05-07 19:10+0000\n"
+"Last-Translator: caio.northfleet <caio.northfleet@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2464,7 +2472,7 @@ msgstr "A fim de obter o máximo do Guia de Uso Diário: <placeholder-1/>"
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Características Gerais"
 
 #. (para)
 msgid ""
@@ -6142,7 +6150,7 @@ msgid ""
 " from re-appearing and always picks the option you choose next. You can "
 "still change (or remove) the default after doing this from "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "A caixa de opção <guilabel>Torne isto o padrão</guilabel> previne que este diálogo reapareça e sempre seleciona a próxima opção que você escolher. Você ainda pode mudar (ou remover) o padrão depois de fazer isso em <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configurações</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
@@ -6156,7 +6164,7 @@ msgid ""
 "(enabled by default), this will check the repository for newer messages and "
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
-msgstr ""
+msgstr "Se você quiser verificar novamente o servidor por novas mensagens de auditoria, você pode simplesmente atualizar a visualização usando <keycap>F5</keycap>. Se você estiver usando o cache de auditoria (habilitado por padrão), isto irá verificar o repositório por  mensagens mais novas e buscar apenas as novas. Se o cache de auditoria estiver em modo desativado, isto também tentará colocá-lo em modo disponível."
 
 #. (para)
 msgid ""
@@ -6165,7 +6173,7 @@ msgid ""
 "<keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server "
 "and update the log cache. Note that this only affects messages currently "
 "shown and does not invalidate the entire cache for that repository."
-msgstr ""
+msgstr "Se você estiver usando o cache de auditoria e achar que o conteúdo ou o autor da mensagem mudou, você pode usar <keycap>Shift-F5</keycap> ou <keycap>Ctrl-F5</keycap> para buscar novamente do servidor as mensagens apresentadas e atualizar o cache de auditoria. Note que isto afeta apenas as mensagens atualmente mostradas e não invalida inteiramente o cache deste repositório."
 
 #. (title)
 msgid "Viewing Differences"
@@ -6189,7 +6197,7 @@ msgid ""
 "viewing differences of text files. For viewing differences of image files, "
 "TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. "
 "Of course, you can use your own favourite diff program if you like."
-msgstr ""
+msgstr "Um dos requisitos mais comuns no desenvolvimento de projetos é ver o que foi modificado. Você pode querer ver as diferenças entre duas revisões de um mesmo arquivo, ou as diferenças entre dois arquivos separados. TortoiseSVN fornece uma ferramenta interna chamada <application>TortoiseMerge</application> para visualizar diferenças em arquivos de texto. Para visualizar diferenças em arquivos de imagem, TortoiseSVN também possui uma ferramenta chamada <application>TortoiseIDiff</application>. Claro, você pode usar seu programa favorito de diferenciação se quiser."
 
 #. (title)
 msgid "File Differences"
@@ -6204,7 +6212,7 @@ msgid ""
 "If you want to see what changes <emphasis>you</emphasis> have made in your "
 "working copy, just use the explorer context menu and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se você quiser ver as modificações que <emphasis>você</emphasis> fez na sua cópia de trabalho, apenas use o menu de contexto do explorer e selecione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diferenciar</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference to another branch/tag"
@@ -6219,7 +6227,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with "
 "URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in "
 "the repository with which you want to compare your local file to."
-msgstr ""
+msgstr "Se você quiser ver o que foi modificado no tronco (se você estiver trabalhando em um ramo) ou em um ramo específico (se você estiver trabalhando no tronco), você pode usar o menu de contexto do explorer. Apenas mantenha pressionado a tecla <keycap>Shift</keycap> enquanto clica com o botão direito no arquivo. Então selecione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diferenciar com URL</guimenuitem></menuchoice>. No diálogo seguinte, especifique a URL do repositório com o qual você quer comparar com seu arquivo local."
 
 #. (para)
 msgid ""
@@ -6227,7 +6235,7 @@ msgid ""
 "perhaps two tags, or a branch/tag and trunk. The context menu there allows "
 "you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read"
 " more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Você também pode usar o navegador de repositório e selecionar duas árvores para diferenciar, talvez duas etiquetas, ou um ramo/etiqueta e o tronco. O menu de contexto apresentado possibilita a você compará-los usando <guimenuitem>Comparar revisões</guimenuitem>. Leia mais em <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
@@ -6252,7 +6260,7 @@ msgid ""
 "the working BASE. This shows you the last change made to that file to bring "
 "it to the state you now see in your working copy. It will not show changes "
 "newer than your working copy."
-msgstr ""
+msgstr "Se você quiser ver a diferença entre a última revisão submetida e sua cópia de trabalho, assumindo que a cópia de trabalho não foi modificada, apenas clique com o botão direito no arquivo. Então selecione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diferenciar com a versão anterior</guimenuitem></menuchoice>. Isto irá realizar a diferenciação entre a revisão anterior à data da última submissão (como gravada na sua cópia de trabalho) e a base de trabalho. Isto mostra a você a última modificação feita naquele arquivo para trazê-lo ao estado que você agora vê em sua cópia de trabalho. Não serão mostradas modificações mais recentes que sua cópia de trabalho."
 
 #. (term)
 msgid "Difference between two previous revisions"
@@ -6264,7 +6272,7 @@ msgid ""
 "committed, use the Revision Log dialog and select the two revisions you want"
 " to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select "
 "<guimenuitem>Compare revisions</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Se você quiser ver a diferença entre duas revisões que já foram submetidas, use o diálogo de Auditoria de Revisões e selecione as duas revisões que você quer comparar (usando o habitual modificador <keycap>Ctrl</keycap>). Então selecione <guimenuitem>Comparar revisões</guimenuitem> no menu de contexto."
 
 #. (para)
 msgid ""
@@ -6286,7 +6294,7 @@ msgid ""
 "Revision Log dialog select the revision of interest, then select "
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
-msgstr ""
+msgstr "Se você quiser ver as mudanças feitas a todos os arquivos de uma revisão particular em uma visão, você pode usar a saída Comparação-Unificada (formato de correção GNU). Isso mostra apenas as diferenças com poucas linhas de contexto. É mais difícil de ler do que em uma comparação de arquivo visual, mas irá mostrar todas as mudanças juntas. A partir da janela de Auditoria de Revisão selecione a revisão de interesse, então selecione <guimenuitem>Mostrar Diferenças como Comparação-Unificada</guimenuitem> no menu de contexto."
 
 #. (term)
 msgid "Difference between files"
@@ -6298,7 +6306,7 @@ msgid ""
 "that directly in explorer by selecting both files (using the usual "
 "<keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se você quiser ver as diferenças entre dois arquivos diferentes, você pode fazer isso diretamente no Explorer selecionando ambos os arquivos (usando o modificador usual <keycap>Ctrl</keycap>). Então, a partir do menu de contexto do Explorer, selecionar <menuchoice><guimenu>TortoiseSVN</guimenu></guimenuitem>Diferenciar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6328,7 +6336,7 @@ msgid ""
 "URL</guimenuitem></menuchoice>. You can do the same thing for a working copy"
 " folder. TortoiseMerge shows these differences in the same way as it shows a"
 " patch file - a list of changed files which you can view one at a time."
-msgstr ""
+msgstr "Se você quiser ver as diferenças entre um arquivo na sua cópia de trabalho e um arquivo em um repositório Subversion, você pode fazer isso diretamente no Explorer selecionando o arquivo e então mantendo pressionada a tecla <keycap>Shift</keycap> enquanto clica com o botão direito do mouse para obter o menu de contexto. Selecione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diferenciar com URL</guimenuitem></menuchoice>. Você pode fazer o mesmo para uma pasta na cópia de trabalho. TortoiseMerge mostra estas diferenças da mesma maneira que ele mostra um arquivo de correção - uma lista de arquivos modificados que você pode ver um de cada vez."
 
 #. (term)
 msgid "Difference with blame information"
@@ -6340,7 +6348,7 @@ msgid ""
 "and date that changes were made, you can combine the diff and blame reports "
 "from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-"
 "diffs\"/> for more detail."
-msgstr ""
+msgstr "Se você quiser ver não apenas as diferenças mas também o autor, a revisão e a data em que as mudanças foram feitas, você pode combinar os relatórios de diferenças e de responsabilizações a partir da janela de auditoria de revisões. Leia <xref linkend=\"tsvn-dug-blame-diffs\"/> para mais detalhes."
 
 #. (term)
 msgid "Difference between folders"
@@ -8534,13 +8542,13 @@ msgstr ""
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Você pode customizar esta mensagem gerada com as seguintes propriedades: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Uma lista de revisões combinadas separadas por vírgula, p.ex., <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
@@ -8552,7 +8560,7 @@ msgstr ""
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Uma lista de revisões combinadas separadas por vírgula, se possível agrupadas em intervalos, p.ex., <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
@@ -8563,7 +8571,7 @@ msgstr ""
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Esta propriedade especifica a primeira parte da mensagem de auditoria gerada. As seguintes palavras-chave podem ser usadas: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8573,7 +8581,7 @@ msgstr ""
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "A mensagem de auditoria da revisão combinada, como ela foi entrada."
 
 #. (para)
 msgid ""
@@ -8587,17 +8595,17 @@ msgstr "O autor da revisão mesclada"
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "A própria revisão combinada."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Os IDs dos erros da revisão combinada, se existirem."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Esta propriedade especifica como o texto para cada revisão combinada deve se parecer. As seguintes palavras-chaves podem ser usadas: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8605,7 +8613,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Isto só funciona se as revisões combinadas já estiverem no cache de auditoria. Se você tiver desabilitado o cache de auditoria ou não tiver mostrado a auditoria logo antes da combinação, a mensagem gerada não conterá quaisquer informações sobre as revisões combinadas."
 
 #. (title)
 msgid "External Items"
@@ -9620,7 +9628,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Para customizar a mensagem gerada, determine as propriedades correspondentes do projeto na sua cópia de trabalho. Veja <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -13472,7 +13480,7 @@ msgstr ""
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "A revisão do arquivo original, se disponível"
 
 #. (para)
 msgid "The revision of the original file, if available, without quotes"
@@ -13480,7 +13488,7 @@ msgstr ""
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "A revisão do segundo arquivo, se disponível"
 
 #. (para)
 msgid "The revision of the second file, if available, without quotes"
@@ -13488,7 +13496,7 @@ msgstr ""
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr ""
+msgstr "A revisão marcada, se disponível"
 
 #. (para)
 msgid "The peg revision, if available, without quotes"
@@ -14644,7 +14652,7 @@ msgstr ""
 
 #. (title)
 msgid "Taskbar with default grouping"
-msgstr ""
+msgstr "Barra de tarefas com agrupamento padrão"
 
 #. (para)
 msgid ""
@@ -14656,7 +14664,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Taskbar with repository grouping"
-msgstr ""
+msgstr "Barra de tarefas com agrupamento por repositório"
 
 #. (para)
 msgid ""
@@ -16411,7 +16419,7 @@ msgstr ""
 
 #. (title)
 msgid "Update selected files from the repository"
-msgstr ""
+msgstr "Atualizar os arquivos selecionados a partir do repositório"
 
 #. (para)
 msgid ""
@@ -16433,7 +16441,7 @@ msgstr ""
 
 #. (title)
 msgid "Roll back (Undo) revisions in the repository"
-msgstr ""
+msgstr "Reverter (Desfazer) revisões no repositório"
 
 #. (primary)
 msgid "rollback"
@@ -16449,7 +16457,7 @@ msgstr "desfazer alteração"
 
 #. (title)
 msgid "Use the revision log dialog"
-msgstr ""
+msgstr "Usar a janela de auditoria de revisão"
 
 #. (para)
 msgid ""
@@ -16461,7 +16469,7 @@ msgstr ""
 msgid ""
 "Select the file or folder in which you need to revert the changes. If you "
 "want to revert all changes, this should be the top level folder."
-msgstr ""
+msgstr "Selecione o arquivo ou pasta onde deseja reverter as modificações. Se você quiser reverter todas as modificações, isto precisa ser a pasta de nível superior."
 
 #. (para)
 msgid ""
@@ -16499,7 +16507,7 @@ msgstr ""
 
 #. (title)
 msgid "Use the merge dialog"
-msgstr ""
+msgstr "Use a janela de combinação"
 
 #. (para)
 msgid ""
@@ -16578,7 +16586,7 @@ msgstr ""
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
-msgstr ""
+msgstr "Compare duas revisões de um arquivo ou pasta"
 
 #. (primary)
 msgid "compare files"
@@ -16630,7 +16638,7 @@ msgstr ""
 
 #. (title)
 msgid "Include a common sub-project"
-msgstr ""
+msgstr "Inclua um subprojeto em comum"
 
 #. (primary)
 msgid "common projects"
@@ -16638,7 +16646,7 @@ msgstr "Projetos comuns"
 
 #. (primary)
 msgid "vendor projects"
-msgstr ""
+msgstr "projetos de fornecedores"
 
 #. (para)
 msgid ""
@@ -16677,7 +16685,7 @@ msgstr ""
 
 #. (title)
 msgid "Use a nested working copy"
-msgstr ""
+msgstr "Use uma cópia de trabalho aninhada"
 
 #. (para)
 msgid ""
@@ -16702,7 +16710,7 @@ msgstr ""
 
 #. (title)
 msgid "Use a relative location"
-msgstr ""
+msgstr "Use um local relativo"
 
 #. (para)
 msgid ""
@@ -16770,11 +16778,11 @@ msgstr ""
 
 #. (title)
 msgid "Ignore files which are already versioned"
-msgstr ""
+msgstr "Ignorar arquivos que já estão versionados"
 
 #. (primary)
 msgid "remove versioning"
-msgstr ""
+msgstr "remover versionamento"
 
 #. (primary)
 msgid "detach from repository"
@@ -16822,7 +16830,7 @@ msgstr ""
 
 #. (title)
 msgid "Remove a working copy"
-msgstr ""
+msgstr "Remover uma cópia de trabalho"
 
 #. (para)
 msgid ""
@@ -16834,7 +16842,7 @@ msgstr ""
 
 #. (title)
 msgid "Useful Tips For Administrators"
-msgstr ""
+msgstr "Dicas Úteis para Administradores"
 
 #. (para)
 msgid ""
@@ -16862,7 +16870,7 @@ msgstr "msi"
 
 #. (primary)
 msgid "domain controller"
-msgstr ""
+msgstr "Controlador de domínio"
 
 #. (primary)
 msgid "deploy"
@@ -16907,11 +16915,11 @@ msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"
-msgstr ""
+msgstr "Redirecionar a verificação de atualização"
 
 #. (primary)
 msgid "upgrade check"
-msgstr ""
+msgstr "verificação de atualização"
 
 #. (primary)
 msgid "check new version"
@@ -17313,20 +17321,20 @@ msgstr ""
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
-msgstr ""
+msgstr "<option>/closeonend:0</option> não fechar o diálogo automaticamente"
 
 #. (para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> fechar automaticamente se não houver erros"
 
 #. (para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr ""
+msgstr "<option>/closeonend:2</option> fechar automaticamente se não houver erros e conflitos"
 
 #. (para)
 msgid ""
 "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr ""
+msgstr "<option>/closeonend:3</option> fechar automaticamente se não houver erros, conflitos e combinações"
 
 #. (para)
 msgid ""
@@ -17347,7 +17355,7 @@ msgstr ""
 
 #. (title)
 msgid "List of available commands and options"
-msgstr ""
+msgstr "Lista de comandos e opções disponíveis"
 
 #. (entry)
 msgid "Command"
@@ -18712,7 +18720,7 @@ msgstr ""
 msgid ""
 "If you selected a folder, TortoiseSVN first scans it recursively for items "
 "which can be added."
-msgstr ""
+msgstr "Se você selecionou uma pasta, o TortoiseSVN inicia fazendo uma busca recursiva nela por ítens que podem ser adicionados."
 
 #. (screen)
 #, no-wrap
@@ -18960,14 +18968,14 @@ msgstr ""
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
-msgstr ""
+msgstr "Pacotes de Idiomas e Corretores Ortográficos"
 
 #. (para)
 msgid ""
 "The standard installer has support only for English, but you can download "
 "separate language packs and spell check dictionaries separately after "
 "installation."
-msgstr ""
+msgstr "O instalador padrão tem suporte apenas para o Inglês, porém você pode fazer o download de pacotes de idiomas e corretores ortográficos separadamente após a instalação."
 
 #. (title)
 msgid "Language Packs"

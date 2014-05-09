@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-28 08:26+0000\n"
+"PO-Revision-Date: 2014-04-26 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/tortoisesvn/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -252,6 +252,11 @@ msgstr "%s [กู้คืน]"
 msgid "%s, but the directory already exists unversioned locally."
 msgstr ""
 
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the directory is missing locally (deleted or moved away?)."
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
@@ -295,6 +300,11 @@ msgstr "%s, แต่ directory ถูกแทนที่"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
+msgstr ""
+
+#. Resource IDs: (611)
+#, c-format
+msgid "%s, but the file is missing locally (deleted or moved away?)."
 msgstr ""
 
 #. Resource IDs: (609)
@@ -11829,7 +11839,7 @@ msgid "inherited from"
 msgstr ""
 
 #. Resource IDs: (583)
-msgid "it does not exist."
+msgid "it does not exist (missing or moved away?)."
 msgstr ""
 
 #. Resource IDs: (583)
