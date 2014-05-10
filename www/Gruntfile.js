@@ -123,7 +123,8 @@ module.exports = function(grunt) {
             js: {
                 src: [
                     '<%= dirs.dest %>/js/**/{,*/}*.js',
-                    '!<%= dirs.dest %>/js/jquery*.min.js'
+                    '!<%= dirs.dest %>/js/jquery*.min.js',
+                    '!<%= dirs.dest %>/js/prettify/lang-*.js'
                 ]
             },
             images: {
