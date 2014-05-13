@@ -1831,9 +1831,10 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
             bOpenWith = true;
         if (bOpenWith)
         {
-            CString cmd = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-            cmd += data->path.GetWinPathString() + L" ";
-            CAppUtils::LaunchApplication(cmd, NULL, false);
+            OPENASINFO oi = { 0 };
+            oi.pcszFile = data->path.GetWinPath();
+            oi.oaifInFlags = OAIF_EXEC;
+            SHOpenWithDialog(GetSafeHwnd(), &oi);
         }
     }
 }
@@ -2355,9 +2356,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 const int ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
                 if ((ret <= HINSTANCE_ERROR)||bOpenWith)
                 {
-                    CString c = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-                    c += sWinPath + L" ";
-                    CAppUtils::LaunchApplication(c, NULL, false);
+                    OPENASINFO oi = { 0 };
+                    oi.pcszFile = sWinPath;
+                    oi.oaifInFlags = OAIF_EXEC;
+                    SHOpenWithDialog(GetSafeHwnd(), &oi);
                 }
             }
         }

@@ -200,8 +200,10 @@ BOOL CCommonAppUtils::StartTextViewer(CString file)
     CString viewer = GetAppForFile (file, L".txt", L"open", false);
     if (viewer.IsEmpty())
     {
-        viewer = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-        viewer += file;
+        OPENASINFO oi = { 0 };
+        oi.pcszFile = file;
+        oi.oaifInFlags = OAIF_EXEC;
+        return SHOpenWithDialog(NULL, &oi) == S_OK ? TRUE : FALSE;
     }
     return LaunchApplication (viewer, IDS_ERR_TEXTVIEWSTART, false)
         ? TRUE

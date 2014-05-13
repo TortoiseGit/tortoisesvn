@@ -2275,9 +2275,10 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     if (bOpenWith)
     {
-        CString c = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-        c += tempfile.GetWinPathString();
-        CAppUtils::LaunchApplication(c, NULL, false);
+        OPENASINFO oi = { 0 };
+        oi.pcszFile = tempfile.GetWinPath();
+        oi.oaifInFlags = OAIF_EXEC;
+        SHOpenWithDialog(GetSafeHwnd(), &oi);
     }
     else
     {

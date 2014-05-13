@@ -2240,9 +2240,10 @@ void CLogDlg::DoOpenFileWith(bool bReadOnly, bool bOpenWith, const CTSVNPath& te
         ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
     if ((ret <= HINSTANCE_ERROR)||bOpenWith)
     {
-        CString cmd = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-        cmd += tempfile.GetWinPathString() + L" ";
-        CAppUtils::LaunchApplication(cmd, NULL, false);
+        OPENASINFO oi = { 0 };
+        oi.pcszFile = tempfile.GetWinPath();
+        oi.oaifInFlags = OAIF_EXEC;
+        SHOpenWithDialog(GetSafeHwnd(), &oi);
     }
 }
 

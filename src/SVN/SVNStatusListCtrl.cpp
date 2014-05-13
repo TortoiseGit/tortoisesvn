@@ -6245,9 +6245,10 @@ void CSVNStatusListCtrl::Open( const CTSVNPath& filepath, FileEntry * entry, boo
         ret = (int)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
     if (ret <= HINSTANCE_ERROR)
     {
-        CString c = L"RUNDLL32 Shell32,OpenAs_RunDLL ";
-        c += fp.GetWinPathString();
-        CAppUtils::LaunchApplication(c, NULL, false);
+        OPENASINFO oi = { 0 };
+        oi.pcszFile = fp.GetWinPath();
+        oi.oaifInFlags = OAIF_EXEC;
+        SHOpenWithDialog(GetSafeHwnd(), &oi);
     }
 }
 
