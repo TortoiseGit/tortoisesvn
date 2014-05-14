@@ -1,3 +1,19 @@
+Version 1.8.7
+- BUG: Issue #633: Relocate dialog does
+       not remember urls. (Stefan)
+- BUG: Issue #634: Repo browser does not
+       show nested externals. (Stefan)
+- BUG: Issue #635: externals property not correctly
+       converted to a relative url. (Stefan)
+- BUG: Issue #636: externals property dialog does not
+       handle multiple selections. (Stefan)
+- BUG: Issue #637: TortoiseMerge fails to detect
+       utf16 files if BOM is missing. (Stefan)
+- BUG: Issue #638: log dialog filter not fully
+       reapplied after refresh. (Stefan)
+- BUG: Issue #639: File externals not
+       committed. (Stefan)
+
 Version 1.8.6
 - BUG: Issue #617: Checkbox size too big on Aero
        area in high dpi mode. (Stefan)
