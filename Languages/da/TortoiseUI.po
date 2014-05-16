@@ -11,14 +11,15 @@
 # Authors:
 # Translators:
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# MrBigBoy <m-b-p@live.dk>, 2014
 # Mikkel Elmholdt <mikkel@elmholdt.dk>, 2011-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-04-26 08:26+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-05-13 13:10+0000\n"
+"Last-Translator: MrBigBoy <m-b-p@live.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,7 +252,7 @@ msgstr "%s, men kataloget eksisterer allerede uversioneret lokalt."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, men mappen mangler lokalt (slettet eller flyttet?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -301,7 +302,7 @@ msgstr "%s, men filen eksisterer allerede uversioneret lokalt."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, men filen mangler lokalt (slettet eller flyttet?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -509,7 +510,7 @@ msgstr "&Sidegrene"
 
 #. Resource IDs: (1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "&Bryd lås"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -565,7 +566,7 @@ msgstr "&Ryd op..."
 
 #. Resource IDs: (1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "&Ryd ændringslister"
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -781,7 +782,7 @@ msgstr "&Tilpas billeder til vinduet"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "&Ret tidsstempel"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -1464,7 +1465,7 @@ msgstr "&Brugernavn:"
 
 #. Resource IDs: (1647)
 msgid "&Vacuum pristine copies"
-msgstr ""
+msgstr "&Vakuum uberørte kopier"
 
 #. Resource IDs: (65535)
 msgid "&View"
@@ -1750,7 +1751,7 @@ msgstr "&Afbryd fletning"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "Afbryd\nDu skal rette årsagen til at Tilkoblingsscript mislykkedes først."
 
 #. Resource IDs: (9)
 msgid "About"
@@ -2330,7 +2331,7 @@ msgstr "Mix alpha-kanaler"
 
 #. Resource IDs: (156)
 msgid "Blocks"
-msgstr ""
+msgstr "Blokke"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2646,7 +2647,7 @@ msgstr "Fortryd\nElementerne er ikke blevet flyttet."
 msgid ""
 "Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "Annuller\nDet markede revision af den eksterne efterlades som den er."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2664,7 +2665,7 @@ msgstr "Fortryd\nDu må tilføje folderen manuelt."
 msgid ""
 "Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "Annuller\nDu er nødt til at køre en opdatering først for at få de eksterne"
 
 #. Resource IDs: (100)
 msgid ""
@@ -2728,7 +2729,7 @@ msgstr "Skift programmets stil\nSkift Stil"
 msgid ""
 "Change the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "Skift markede revision\nSVN:eksterne ejendom overordnede mappe ændres i overensstemmelse hermed."
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3906,7 +3907,7 @@ msgstr "Dialogstørrelser og -placeringer"
 
 #. Resource IDs: (156)
 msgid "Diff"
-msgstr ""
+msgstr "Sammenlign"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
@@ -3926,7 +3927,7 @@ msgstr "Sammenligningsfil:"
 
 #. Resource IDs: (17)
 msgid "Diff later"
-msgstr ""
+msgstr "Sammenlign senere"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3939,7 +3940,7 @@ msgstr "Sammenlign med URL"
 #. Resource IDs: (18)
 #, c-format
 msgid "Diff with \"%s\""
-msgstr ""
+msgstr "Sammenlign med \"%s\""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4126,7 +4127,7 @@ msgstr "Vil du tilbageføre alle ændringer i\n%s\nsom blev foretaget i denne re
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Vil du opdatere mappen \"%s%\" for at hente den anvendte svn:eksterne?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4330,7 +4331,7 @@ msgstr "Aktiver Redigering"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr ""
+msgstr "Aktivere træk genvejsmenu"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4472,7 +4473,7 @@ msgstr "Indtast højest %1 tegn."
 
 #. Resource IDs: (64)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "Indtast præfikset|*"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
@@ -4715,7 +4716,7 @@ msgstr "Mislykket!"
 
 #. Resource IDs: (266)
 msgid "Failed: target required"
-msgstr ""
+msgstr "Fejlet: mål kræves"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
@@ -4903,7 +4904,7 @@ msgstr "Filtrér stier"
 
 #. Resource IDs: (1644)
 msgid "Filter:"
-msgstr ""
+msgstr "Filter:"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -5303,7 +5304,7 @@ msgstr "Tilkoblingstype:"
 
 #. Resource IDs: (364)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Tilkoblingsscript fejlede"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
@@ -5821,11 +5822,11 @@ msgstr "Indeks farver:"
 
 #. Resource IDs: (266)
 msgid "Info on external"
-msgstr ""
+msgstr "Info af ekstern"
 
 #. Resource IDs: (64)
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
@@ -5871,7 +5872,7 @@ msgstr "Ugyldig Valuta."
 
 #. Resource IDs: (84)
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Ugyldige parametre"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6047,7 +6048,7 @@ msgstr "Efterlad konflikt:"
 
 #. Resource IDs: (252)
 msgid "Leave only marked changes"
-msgstr ""
+msgstr "Bevar kun markerede ændringer"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6332,7 +6333,7 @@ msgstr "Marker manglende filer som fjernet"
 
 #. Resource IDs: (252)
 msgid "Mark this change"
-msgstr ""
+msgstr "Marker denne ændring"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6660,7 +6661,7 @@ msgstr "Flyt til ændringsliste"
 
 #. Resource IDs: (266)
 msgid "Move-Replaced"
-msgstr ""
+msgstr "Flyt-Erstattet"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
@@ -6679,7 +6680,7 @@ msgstr "Flyt\nElementerne flyttes til den valgte sti."
 
 #. Resource IDs: (266)
 msgid "Moved"
-msgstr ""
+msgstr "Flyttet"
 
 #. Resource IDs: (210)
 #, c-format
@@ -7534,7 +7535,7 @@ msgstr "Fortsæt alligevel"
 msgid ""
 "Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "Forsæt alligevel\nIgnorer scriptet og kør kommandoen alligevel."
 
 #. Resource IDs: (170)
 msgid ""
@@ -8508,7 +8509,7 @@ msgstr "SVN &Forhandlergren her"
 
 #. Resource IDs: (18)
 msgid "SVN Add as &external here"
-msgstr ""
+msgstr "SVN tilføj som &ekstern her"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -8751,7 +8752,7 @@ msgstr "Søg i &logbeskeder..."
 
 #. Resource IDs: (1074)
 msgid "Search &up"
-msgstr ""
+msgstr "Søg &op"
 
 #. Resource IDs: (65535)
 msgid "Search for:"
@@ -9268,7 +9269,7 @@ msgstr "Viser en grafisk repræsentation af kopier/mærker/grene"
 msgid ""
 "Shows a unified diff of all changes of the path and those below, including "
 "property changes."
-msgstr ""
+msgstr "Viser en sammenligning af alle ændringer af stien, og dem nedenfor, herunder ejerskabs ændringer."
 
 #. Resource IDs: (13)
 msgid ""
@@ -9368,7 +9369,7 @@ msgstr "Glid"
 
 #. Resource IDs: (156)
 msgid "Smart tab char"
-msgstr ""
+msgstr "Smart fane bogstav"
 
 #. Resource IDs: (314)
 msgid ""
@@ -9384,7 +9385,7 @@ msgstr "En eller flere filer er blevet ændret udenfor T-Merge. Vil du genindlæ
 
 #. Resource IDs: (84)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Noget gik galt"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9506,7 +9507,7 @@ msgstr "Starter eksterne..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Start sammenligningsprogrammet med den nuværende valgte fil og den markerede før sammenligning senere."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9561,7 +9562,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Gemmer stien til den fil, der skal bruges til en sammenligning på et senere højreklik. Hold Ctrl-tasten nede for at fjerne den sidst gemte sti."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -9653,7 +9654,7 @@ msgstr "Subversion server-fil:"
 
 #. Resource IDs: (64)
 msgid "Success"
-msgstr ""
+msgstr "Succes"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -9871,7 +9872,7 @@ msgstr "Filen er for stor til at blive åbnet."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "Filen eller mappen \"%s\" findes allerede på den valgte placering! Du er nødt til at fjerne det først, før du kan tilføje en ekstern med det samme navn."
 
 #. Resource IDs: (80)
 #, c-format
@@ -10554,7 +10555,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10778,7 +10779,7 @@ msgstr "Unified &diff af HEAD-revisioner"
 
 #. Resource IDs: (18)
 msgid "Unified Diff"
-msgstr ""
+msgstr "Forenet sammenligning"
 
 #. Resource IDs: (81)
 #, c-format
@@ -10810,7 +10811,7 @@ msgstr "Låst op"
 
 #. Resource IDs: (252)
 msgid "Unmark this change"
-msgstr ""
+msgstr "Fjern markeringen af denne ændring"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -10873,7 +10874,7 @@ msgstr "Opdater arbejdskopi til revision"
 
 #. Resource IDs: (291)
 msgid "Update externals"
-msgstr ""
+msgstr "Opdater eksterne"
 
 #. Resource IDs: (93)
 msgid ""
@@ -10891,7 +10892,7 @@ msgstr "Opdater\nOpdater arbejdskopien og genåben arkiveringsdialogen for at pr
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Opdater\nOpdater til sidste revision"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11051,7 +11052,7 @@ msgstr "Brug højre blok"
 
 #. Resource IDs: (156)
 msgid "Use spaces"
-msgstr ""
+msgstr "Brug mellemrum"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11154,7 +11155,7 @@ msgstr "Annulleret af bruger"
 
 #. Resource IDs: (349)
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 #. Resource IDs: (69)
 msgid "Username:"
@@ -11286,7 +11287,7 @@ msgstr "Når det ikke er muligt at forbinde til versionsarkivserveren,\nkan TSVN
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Når aktiveret, vil TortoiseSVN flytte/kopiere kontekst menupunkter være tilgængelige, når du trækker mapper/filer"
 
 #. Resource IDs: (197)
 msgid ""
@@ -11304,13 +11305,13 @@ msgstr "Ved låsning af én eller flere filer vises dialogen\nhvor der kan indta
 msgid ""
 "When selected, Spaces will be used instead of tab\n"
 "Use spaces"
-msgstr ""
+msgstr "Når valgt vil mellemrum blive brugt istedet for faner\nBrug mellemrum"
 
 #. Resource IDs: (2062)
 msgid ""
 "When selected, it tries to infer tab / spaces to use\n"
 "Smart tab char"
-msgstr ""
+msgstr "Når valgt, forsøges der med at udlede fanen/mellemrum til at kunne bruges\nSmart fane char"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
@@ -11468,7 +11469,7 @@ msgstr "Du forsøger at tilføje elementet\n'%1!s!',\nmen elementet\n'%2!s!'\nek
 msgid ""
 "You've committed changes to external item that is tagged to a specific revision.\n"
 "Do you want to change the tagged revision now to the just committed revision?"
-msgstr ""
+msgstr "Du har begået ændringer til et eksternt element, der er mærket til en bestemt revision.\nØnsker du at ændre den valgte revision nu til bare nuværende revision?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -11836,7 +11837,7 @@ msgstr "arvet fra"
 
 #. Resource IDs: (583)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "det findes ikke (slettet eller flyttet?)."
 
 #. Resource IDs: (583)
 msgid "it is already deleted."
@@ -12176,7 +12177,7 @@ msgstr "skiftet:"
 
 #. Resource IDs: (288)
 msgid "tagging externals"
-msgstr ""
+msgstr "tagging eksterne"
 
 #. Resource IDs: (601)
 msgid "temp. offline"

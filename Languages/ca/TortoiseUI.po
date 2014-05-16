@@ -15,13 +15,14 @@
 # jmonguillot <jmonguillot@gmail.com>, 2013-2014
 # Libre El Chaval <el.libre@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
+# Haommin <tfs.msimangu@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-04 17:30+0000\n"
-"Last-Translator: jmonguillot <jmonguillot@gmail.com>\n"
+"PO-Revision-Date: 2014-05-13 10:48+0000\n"
+"Last-Translator: Haommin <tfs.msimangu@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +65,7 @@ msgstr "%.2f kBytes/s"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 conté un objecte no esperat."
+msgstr "%1 conté un objecte inesperat."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -79,12 +80,12 @@ msgstr "%1 conté un esquema incorrecte."
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 has a bad format."
-msgstr "%1 té un format incorrecte"
+msgstr "%1 té un format incorrecte."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 no ha sigut trobat."
+msgstr "%1 no s'ha trobat."
 
 #. Resource IDs: (169)
 #, c-format
@@ -163,7 +164,7 @@ msgstr "%1!s!\nMostrant %2!d! fitxers i %3!d! carpetes, %4!d! elements en total"
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr "%1: %2\nContinuar executant l'script?"
+msgstr "%1: %2\nVoleu continuar executant l'script?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -171,7 +172,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr "%1\nNo es troba el fitxer.\nSi us plau verifica que el camí i el nom són correctes."
+msgstr "%1\nNo es troba el fitxer.\nVerifiqueu que el camí i el nom del fitxer són correctes."
 
 #. Resource IDs: (357)
 #, c-format
@@ -234,12 +235,12 @@ msgstr "%s : Fitxer remot"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s : Base de Treball"
+msgstr "%s : Base de treball"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s : Còpia de Treball"
+msgstr "%s : Còpia de treball"
 
 #. Resource IDs: (3887)
 #, c-format
@@ -264,17 +265,17 @@ msgstr "%s, però el directori no existeix localment."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr "%s, però el directori ja ha estat afegit localment."
+msgstr "%s, però el directori ja s'ha afegit localment."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, però el directori ja ha sigut editat."
+msgstr "%s, però el directori ja s'ha editat."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, però el directori ja ha sigut esborrat, mogut o renombrat localment."
+msgstr "%s, però el directori ja s'ha esborrat, mogut o reanomenat localment."
 
 #. Resource IDs: (610)
 #, c-format
@@ -294,7 +295,7 @@ msgstr "%s, però el directori estava obstruït a la còpia de treball."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr "%s, però el directori ha sigut substituït"
+msgstr "%s, però el directori ha estat substituït"
 
 #. Resource IDs: (609)
 #, c-format
@@ -314,17 +315,17 @@ msgstr "%s, però el fitxer no existeix localment."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr "%s, però el fitxer ja ha estat afegit localment."
+msgstr "%s, però el fitxer ja s'ha afegit localment."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already edited."
-msgstr "%s, però el fitxer ja ha sigut editat."
+msgstr "%s, però el fitxer ja s'ha editat."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr "%s, però el fitxer ja ha sigut suprimit, desplaçat o canviat de nom localment."
+msgstr "%s, però el fitxer ja s'ha suprimit, desplaçat o reanomenat localment."
 
 #. Resource IDs: (610)
 #, c-format
@@ -344,7 +345,7 @@ msgstr "%s, però el fitxer estava obstruït a la còpia de treball."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was replaced"
-msgstr "%s, però el fitxer ha sigut substituït"
+msgstr "%s, però el fitxer ha estat substituït"
 
 #. Resource IDs: (376)
 #, c-format
@@ -420,7 +421,7 @@ msgstr "&Afegir Filtre"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "&Afegeix o Treu Botons"
+msgstr "&Afegeix o treu botons"
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
@@ -440,7 +441,7 @@ msgstr "&Permet URLs ambigües"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "&Aplica propietat recursivament"
+msgstr "&Aplica la propietat recursivament"
 
 #. Resource IDs: (610)
 msgid "&Apply the update to the move destination"
@@ -448,7 +449,7 @@ msgstr "&Aplica l'actualització a la destinació del moviment"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Aplicar comparació unificada"
+msgstr "&Aplica la comparació unificada"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -460,19 +461,19 @@ msgstr "&Assigna"
 
 #. Resource IDs: (16633)
 msgid "&Associate double-click event with:"
-msgstr "&Associa event doble clic amb:"
+msgstr "&Associa el doble clic amb:"
 
 #. Resource IDs: (1066)
 msgid "&Auto Hide"
-msgstr "&Auto Amaga"
+msgstr "&Amaga automàticament"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
-msgstr "&Autotancar:"
+msgstr "&Tancament automàtic:"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr "&Fes còpia de seguretat del fitxer original"
+msgstr "&Fes una còpia de seguretat del fitxer original"
 
 #. Resource IDs: (1559)
 msgid "&Binary"
@@ -480,15 +481,15 @@ msgstr "&Binari"
 
 #. Resource IDs: (114, 322)
 msgid "&Blame changes"
-msgstr "&Estableix Autoria dels canvis"
+msgstr "&Estableix l'autoria dels canvis"
 
 #. Resource IDs: (32782)
 msgid "&Blame previous revision"
-msgstr "&Mostra autoria de la revisió prèvia"
+msgstr "&Mostra l'autoria de la revisió prèvia"
 
 #. Resource IDs: (114)
 msgid "&Blame revisions"
-msgstr "&Mostra autoria de les revisions"
+msgstr "&Mostra l'autoria de les revisions"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
@@ -516,7 +517,7 @@ msgstr "Trenca &bloqueigs"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "&Navega repositori"
+msgstr "&Navega pel repositori"
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
@@ -524,15 +525,15 @@ msgstr "&Navega..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr "&Bugtraq (Integració seguidor d'incidències)"
+msgstr "&Bugtraq (Integració del seguidor d'incidències)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr "&Aparença Botó..."
+msgstr "&Aparença del botó..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
-msgstr "text &Botó:"
+msgstr "Text del &botó:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -552,7 +553,7 @@ msgstr "&Categoria:"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
-msgstr "&Escull ordres de:"
+msgstr "&Tria ordres de:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
@@ -576,7 +577,7 @@ msgstr "&Tanca"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr "&Tanca Finestra(es)"
+msgstr "&Tanca la finestra(es)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
@@ -620,11 +621,11 @@ msgstr "&Copia"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "Imatge del Botó &Còpia"
+msgstr "&Copia la imatge del botó"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
-msgstr "&Copia missatge de log al porta-retalls"
+msgstr "&Copia el missatge de log al porta-retalls"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
@@ -648,7 +649,7 @@ msgstr "&Data"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Dies d'activitat fins que els petits caches s'esborrin"
+msgstr "&Dies d'inactivitat fins que els petits caches s'esborrin"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -720,7 +721,7 @@ msgstr "&Edita conflictes"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
-msgstr "&Editar..."
+msgstr "&Edita..."
 
 #. Resource IDs: (1542)
 msgid "&Empty the recycle bin now"
@@ -728,7 +729,7 @@ msgstr "&Buida la paperera ara"
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr "&Habilita servidor intermediari"
+msgstr "&Habilita el servidor intermediari"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
