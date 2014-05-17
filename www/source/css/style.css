@@ -258,29 +258,6 @@ ul {
     width: 910px;
 }
 
-/* New page with banner */
-.page-banner {
-    background-color: white;
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-            border-radius: 2px;
-    margin: 0 auto;
-    padding-top: 84px;
-    width: 910px;
-}
-
-.live-banner {
-    background-color: white;
-    margin-bottom: -80px;
-    padding-top: 20px;
-    text-align: center;
-}
-
-.live-banner a {
-    display: inline-block;
-    margin: 15px auto 0;
-}
-
 
 /* Content */
 .content {
@@ -394,6 +371,8 @@ ul {
 
 .img-centered {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .img-responsive {
@@ -404,8 +383,7 @@ ul {
 
 a.fancybox,
 .fancybox a,
-.fancybox-skin a,
-.live-banner a {
+.fancybox-skin a {
     border-bottom: none;
 }
 
