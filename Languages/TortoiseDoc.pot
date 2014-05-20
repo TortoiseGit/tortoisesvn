@@ -408,15 +408,11 @@ msgid "System requirements"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both 32-bit and 64-bit flavours. The installer for 64-bit Windows also includes the 32-bit extension parts. Which means you don't need to install the 32-bit version separately to get the TortoiseSVN context menu and overlays in 32-bit applications."
+msgid "TortoiseSVN runs on Windows Vista or higher and is available in both 32-bit and 64-bit flavours. The installer for 64-bit Windows also includes the 32-bit extension parts. Which means you don't need to install the 32-bit version separately to get the TortoiseSVN context menu and overlays in 32-bit applications."
 msgstr ""
 
 #. (para)
-msgid "If you're using Windows XP, you <emphasis>must</emphasis> have at least the service pack 3 installed. It won't work if you haven't installed that SP yet!"
-msgstr ""
-
-#. (para)
-msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. Support for Windows XP with SP3 was dropped in 1.9.0. You can still download and install older versions if you need them."
 msgstr ""
 
 #. (title)
@@ -1087,7 +1083,11 @@ msgid "create repository"
 msgstr ""
 
 #. (para)
-msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
+msgid "Please note that the command line client that comes with TortoiseSVN does not support the older Berkeley Database (BDB) format."
+msgstr ""
+
+#. (para)
+msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information. <important><placeholder-1/></important>"
 msgstr ""
 
 #. (title)
@@ -2714,10 +2714,6 @@ msgstr ""
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
-
-#. (para)
-msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
 msgstr ""
 
 #. (para)
@@ -6072,11 +6068,11 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr ""
 
 #. (para)
-msgid "If your merge includes binary files, merging of conflicts in those is not possible. You have to choose one complete file. Use <emphasis>Prefer local</emphasis> to select the local version as it was in your working copy prior to the merge, or <emphasis>Prefer repository</emphasis> to select the incoming file from the merge source in the repository."
+msgid "If you are merging text files then these first two buttons allow you to merge non-conflicting lines as normal and always prefer one version where there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select your local version in every conflict, i.e. it will prefer what was already there before the merge over the incoming change from the merge source. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict, i.e. it will prefer the incoming changes from the merge source over what was already in your working copy. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
 msgstr ""
 
 #. (para)
-msgid "If you are merging text files then these first two buttons allow you to merge non-conflicting lines as normal and always prefer one version where there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select your local version in every conflict, i.e. it will prefer what was already there before the merge over the incoming change from the merge source. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict, i.e. it will prefer the incoming changes from the merge source over what was already in your working copy. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
+msgid "If your merge includes binary files, merging of conflicts in those is not possible in a line-by-line mode. A conflict in a binary file always refers to the complete file. Use <emphasis>Prefer local</emphasis> to select the local version as it was in your working copy prior to the merge, or <emphasis>Prefer repository</emphasis> to select the incoming file from the merge source in the repository."
 msgstr ""
 
 #. (para)
@@ -6436,7 +6432,7 @@ msgid "You can include merge information as well if you wish, although this opti
 msgstr ""
 
 #. (para)
-msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
+msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Once the blame process has finished the result is written into a temporary file and you can view the results."
 msgstr ""
 
 #. (title)
@@ -7346,6 +7342,10 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (e.g. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
+msgstr ""
+
+#. (para)
+msgid "As of version 1.8, TortoiseSVN and Subversion use so called <literal>inherited properties</literal>, which means a property that is set on a folder is automatically also implicitly set on all subfolders. So there's no need to set the properties on all folders anymore but only on the root folder."
 msgstr ""
 
 #. (title)
@@ -9380,6 +9380,7 @@ msgstr ""
 #. (entry)
 #. (entry)
 #. (entry)
+#. (entry)
 msgid "Description"
 msgstr ""
 
@@ -9602,9 +9603,11 @@ msgstr ""
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr ""
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -9628,6 +9631,7 @@ msgstr ""
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
 msgstr ""
 
+#. (literal)
 #. (literal)
 msgid "$WCUNVER?TText:FText$"
 msgstr ""
@@ -9690,6 +9694,10 @@ msgstr ""
 
 #. (entry)
 msgid "Replaced with the comment of the lock."
+msgstr ""
+
+#. (entry)
+msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned files or folders in the working copy, or <placeholder-3/> if not."
 msgstr ""
 
 #. (para)
@@ -10733,7 +10741,7 @@ msgid "Unversion a working copy"
 msgstr ""
 
 #. (para)
-msgid "If you have a working copy which you want to convert back to a plain folder tree without the <literal>.svn</literal> directories, you can simply export it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out how."
+msgid "If you have a working copy which you want to convert back to a plain folder tree without the <literal>.svn</literal> directory, you can simply export it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out how."
 msgstr ""
 
 #. (title)
@@ -10787,7 +10795,7 @@ msgid "A good walk-through on how to do that can be found in the knowledge base 
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 11 from Microsoft on each computer you want to install TortoiseSVN as per user."
+msgid "TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 12 from Microsoft on each computer you want to install TortoiseSVN as per user."
 msgstr ""
 
 #. (para)
@@ -10825,9 +10833,9 @@ msgstr ""
 #. (para)
 msgid ""
 "Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade check to your intranet server. You can set the registry key <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value) to an URL pointing to a text file in your intranet. That text file must have the following format: <screen>\n"
-"1.4.1.6000\n"
+"1.9.1.6000\n"
 "A new version of TortoiseSVN is available for you to download!\n"
-"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
+"http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
 
@@ -10852,10 +10860,7 @@ msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide 
 msgstr ""
 
 #. (para)
-msgid ""
-"But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
-"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
-"</screen>"
+msgid "But the feature is still available in TortoiseSVN and other svn clients. To enable it you have to set the Windows environment variable named <literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the value of that environment variable doesn't matter: if the variable exists the feature is active."
 msgstr ""
 
 #. (para)
@@ -11061,6 +11066,18 @@ msgid "Upgrade working copy"
 msgstr ""
 
 #. (entry)
+msgid "Diff later"
+msgstr ""
+
+#. (entry)
+msgid "Diff with 'filename'"
+msgstr ""
+
+#. (entry)
+msgid "Unified diff"
+msgstr ""
+
+#. (entry)
 msgid "Settings"
 msgstr ""
 
@@ -11106,9 +11123,11 @@ msgstr ""
 #. (primary)
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr ""
 
+#. (primary)
 #. (primary)
 #. (primary)
 msgid "command line"
@@ -11123,7 +11142,7 @@ msgid "Since some of the commands can take a list of target paths (e.g. committi
 msgstr ""
 
 #. (para)
-msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format, without a <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format, without a <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>. If you don't pass <option>/deletepathfile</option>, you have to delete the file yourself or the file gets left behind."
 msgstr ""
 
 #. (para)
@@ -11766,9 +11785,11 @@ msgid "The table below lists all the options which can be passed to the image di
 msgstr ""
 
 #. (title)
+#. (title)
 msgid "List of available options"
 msgstr ""
 
+#. (entry)
 #. (entry)
 msgid "Option"
 msgstr ""
@@ -11805,6 +11826,33 @@ msgid ""
 "                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
 "                  /fit /overlay\n"
 "</screen>"
+msgstr ""
+
+#. (title)
+msgid "TortoiseUDiff Commands"
+msgstr ""
+
+#. (para)
+msgid "The unified diff viewer has only two command line options:"
+msgstr ""
+
+#. (entry)
+msgid "Path to the unified diff file."
+msgstr ""
+
+#. (entry)
+msgid "Activates pipe mode. The unified diff is read from the console input."
+msgstr ""
+
+#. (para)
+msgid ""
+"Examples (which should be entered on one line): <screen>\n"
+"                TortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n"
+"            </screen> If you create the diff from another command, you can use TortoiseUDiff to show that diff directly: <screen>\n"
+"                svn diff | TortoiseUDiff.exe /u\n"
+"            </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
+"                svn diff | TortoiseUDiff.exe\n"
+"            </screen>"
 msgstr ""
 
 #. (title)

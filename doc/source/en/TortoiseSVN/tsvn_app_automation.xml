@@ -49,6 +49,8 @@
             If you pass such a file, use <option>/pathfile</option> instead of
             <option>/path</option>. To have TortoiseProc delete that file after
             the command is finished, you can pass the parameter <option>/deletepathfile</option>.
+            If you don't pass <option>/deletepathfile</option>, you have to delete the file
+            yourself or the file gets left behind.
         </para>
         <para>
             The progress dialog which is used for commits, updates and many more commands
@@ -848,6 +850,62 @@ TortoiseIDiff.exe /left:"c:\images\img1.jpg" /lefttitle:"image 1"
                   /fit /overlay
 </screen>
         </para>
-    </sect1>
-
+        </sect1>
+        <sect1 id="tsvn-automation-udiff">
+        <title>TortoiseUDiff Commands</title>
+        <indexterm>
+            <primary>automation</primary>
+        </indexterm>
+        <indexterm>
+            <primary>command line</primary>
+        </indexterm>
+        <para>
+            The unified diff viewer has only two command line options:
+        </para>
+        <para>
+            <table id="tsvn-automation-udiff-1-table">
+                <title>List of available options</title>
+                <tgroup cols="2">
+                    <colspec colnum="1" colwidth="2*"/>
+                    <colspec colnum="2" colwidth="6*"/>
+                    <thead>
+                        <row>
+                            <entry>Option</entry>
+                            <entry>Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry condition="pot">:patchfile</entry>
+                            <entry>
+                                Path to the unified diff file.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">:p</entry>
+                            <entry>
+                                Activates pipe mode. The unified diff is read from the
+                                console input.
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+        <para>
+            Examples (which should be entered on one line):
+            <screen>
+                TortoiseUDiff.exe /patchfile:"c:\diff.patch"
+            </screen>
+            If you create the diff from another command, you can use TortoiseUDiff
+            to show that diff directly:
+            <screen>
+                svn diff | TortoiseUDiff.exe /u
+            </screen>
+            this also works if you omit the <option>/p</option> parameter:
+            <screen>
+                svn diff | TortoiseUDiff.exe
+            </screen>
+        </para>
+  </sect1>
 </appendix>

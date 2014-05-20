@@ -45,7 +45,7 @@
             needs the CRT and MFC DLLs, which can only be deployed <emphasis>per
             computer</emphasis> and not <emphasis>per user</emphasis>.
             If you really must install TortoiseSVN on a per user basis, then you must
-            first install the MFC and CRT package version 11 from Microsoft on each
+            first install the MFC and CRT package version 12 from Microsoft on each
             computer you want to install TortoiseSVN as per user.
         </para>
         <para>
@@ -91,9 +91,9 @@
             to an URL pointing to a text file in your intranet. That text file must have
             the following format:
 <screen>
-1.4.1.6000
+1.9.1.6000
 A new version of TortoiseSVN is available for you to download!
-http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
+http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi
 </screen>
             The first line in that file is the version string. You must make sure that
             it matches the exact version string of the TortoiseSVN installation package.
@@ -128,13 +128,11 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
             what it is for.
         </para>
         <para>
-            But that option is only hidden for the user. You still can force the
-            TortoiseSVN installer to set that environment variable by setting the
-            <literal>ASPDOTNETHACK</literal>
-            property to TRUE. For example, you can start the installer like this:
-<screen>
-msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
-</screen>
+            But the feature is still available in TortoiseSVN and other svn clients.
+            To enable it you have to set the Windows environment variable named
+            <literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the value
+            of that environment variable doesn't matter: if the variable exists
+            the feature is active.
         </para>
         <important>
             <para>
@@ -332,6 +330,18 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
                         <row>
                             <entry condition="pot">0x0000000800000000</entry>
                             <entry>Upgrade working copy</entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">0x0000001000000000</entry>
+                            <entry>Diff later</entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">0x0000002000000000</entry>
+                            <entry>Diff with 'filename'</entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">0x0000004000000000</entry>
+                            <entry>Unified diff</entry>
                         </row>
                         <row>
                             <entry condition="pot">0x2000000000000000</entry>

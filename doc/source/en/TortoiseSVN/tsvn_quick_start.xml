@@ -16,22 +16,16 @@
         <sect2>
             <title>System requirements</title>
             <para>
-                TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both
+                TortoiseSVN runs on Windows Vista or higher and is available in both
                 32-bit and 64-bit flavours. The installer for 64-bit Windows also
                 includes the 32-bit extension parts. Which means you don't need
                 to install the 32-bit version separately to get the TortoiseSVN
                 context menu and overlays in 32-bit applications.
             </para>
-            <important>
-                <para>
-                    If you're using Windows XP, you <emphasis>must</emphasis> have at least
-                    the service pack 3 installed. It won't work if you haven't
-                    installed that SP yet!
-                </para>
-            </important>
             <para>
                 Support for Windows 98, Windows ME and Windows NT4 was dropped in
                 version 1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0.
+                Support for Windows XP with SP3 was dropped in 1.9.0.
                 You can still download and install older versions if you need them.
             </para>
         </sect2>

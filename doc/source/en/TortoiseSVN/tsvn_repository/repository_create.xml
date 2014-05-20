@@ -18,6 +18,12 @@
             <citetitle>Choosing a Data Store</citetitle>
         </ulink>
         in the Subversion book for more information.
+        <important>
+            <para>
+                Please note that the command line client that comes with
+                TortoiseSVN does not support the older Berkeley Database (BDB) format.
+            </para>
+        </important>
     </para>
     <sect2 id="tsvn-repository-create-commandline">
         <title>Creating a Repository with the Command Line Client</title>

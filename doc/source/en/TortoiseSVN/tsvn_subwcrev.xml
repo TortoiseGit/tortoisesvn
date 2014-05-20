@@ -444,6 +444,15 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                                 Replaced with the comment of the lock.
                             </entry>
                         </row>
+                        <row>
+                            <entry condition="pot">$WCUNVER$</entry>
+                            <entry>
+                                <literal>$WCUNVER?TText:FText$</literal> is
+                                replaced with <literal>TText</literal> if there are
+                                unversioned files or folders in the working copy,
+                                or <literal>FText</literal> if not.
+                            </entry>
+                        </row>
                     </tbody>
                 </tgroup>
             </table>

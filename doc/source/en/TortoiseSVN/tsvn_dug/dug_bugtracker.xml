@@ -330,6 +330,13 @@
                 higher levels (closer to <filename>trunk/</filename>).
             </para>
             <para>
+                As of version 1.8, TortoiseSVN and Subversion use so called
+                <literal>inherited properties</literal>, which means a property that
+                is set on a folder is automatically also implicitly set on all
+                subfolders. So there's no need to set the properties on all
+                folders anymore but only on the root folder.
+            </para>
+            <para>
                 For project properties <emphasis>only</emphasis>,
                 i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal>
                 and <literal>webviewer:</literal>

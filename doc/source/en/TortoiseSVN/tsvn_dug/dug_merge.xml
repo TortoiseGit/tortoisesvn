@@ -524,14 +524,6 @@
             <orderedlist>
                 <listitem>
                     <para>
-                        If your merge includes binary files, merging of conflicts in
-                        those is not possible. You have to choose one complete file.
-                        Use <emphasis>Prefer local</emphasis> to select the local
-                        version as it was in your working copy prior to the merge, or
-                        <emphasis>Prefer repository</emphasis> to select the incoming
-                        file from the merge source in the repository.
-                    </para>
-                    <para>
                         If you are merging text files then these first two buttons
                         allow you to merge non-conflicting lines as normal and always
                         prefer one version where there are conflicts.
@@ -545,6 +537,15 @@
                         already in your working copy. This sounds easy,
                         but the conflicts often cover more lines than you think
                         they will and you may get unexpected results.
+                    </para>
+                    <para>
+                        If your merge includes binary files, merging of conflicts in
+                        those is not possible in a line-by-line mode. A conflict
+                        in a binary file always refers to the complete file.
+                        Use <emphasis>Prefer local</emphasis> to select the local
+                        version as it was in your working copy prior to the merge, or
+                        <emphasis>Prefer repository</emphasis> to select the incoming
+                        file from the merge source in the repository.
                     </para>
                 </listitem>
                 <listitem>
