@@ -3521,7 +3521,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             // I'm not very happy about this fixed margin here
             // but I haven't found a way to ask the system what
             // the margin really is.
-            // At least it works on XP/Vista/win7, and even with
+            // At least it works on XP/Vista/win7/win8, and even with
             // increased font sizes
             leftmargin = 4;
         }
