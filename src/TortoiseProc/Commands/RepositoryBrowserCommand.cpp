@@ -99,6 +99,10 @@ bool RepositoryBrowserCommand::Execute()
         else
             dlg.SetSparseCheckoutMode(cmdLinePath);
     }
+    if (parser.HasVal(L"outfile"))
+    {
+        dlg.SetStandaloneMode(false);
+    }
     dlg.m_path = cmdLinePath;
     dlg.DoModal();
     if (parser.HasVal(L"outfile"))

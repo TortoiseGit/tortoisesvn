@@ -111,7 +111,7 @@ public:
     size_t GetHistoryBackwardCount() const override { return m_UrlHistory.size(); }
     bool IsThreadRunning() const override { return m_bThreadRunning; }
     void SetSparseCheckoutMode(const CTSVNPath& path) { m_bSparseCheckoutMode = true; m_bStandAlone = false; m_wcPath = path; }
-
+    void SetStandaloneMode(bool bStandAlone) { m_bStandAlone = bStandAlone; }
     /// overwrite SVN callbacks
     virtual BOOL Cancel() override;
 
