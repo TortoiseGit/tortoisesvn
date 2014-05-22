@@ -229,12 +229,8 @@
         <itemizedlist>
             <listitem>
                 <para>
-                    The path to the file external must place the file in an existing
-                    versioned folder. In general it makes most sense to place the file
-                    directly in the folder that has <literal>svn:externals</literal>
-                    set, but it can be in a versioned sub-folder if necessary.
-                    By contrast, directory externals will automatically create any
-                    intermediate unversioned folders as required.
+                    The path to the file external must be a direct child of the folder
+                    where you set the <literal>svn:externals</literal> property.
                 </para>
             </listitem>
             <listitem>

@@ -121,6 +121,8 @@
                     <literal>true</literal>.
                     Note that the extra columns are only available in XP.
                     Vista and later doesn't support that feature any more.
+                    However some third-party explorer replacements do support
+                    those even on Windows versions later than XP.
                 </para>
             </listitem>
         </varlistentry>
@@ -227,7 +229,7 @@
                 <para>
                     This option determines how the Win7 taskbar icons of the various
                     TortoiseSVN dialogs and windows are grouped together. This
-                    option has no effect on Windows XP or Vista!
+                    option has no effect on Vista!
                 </para>
                 <para>
                     <orderedlist>

@@ -53,12 +53,6 @@
         also use the group headings to select which files to commit.
     </para>
     <para>
-        On XP, there is a context menu when you right click on a group heading
-        which gives you the choice to check or uncheck all group entries. On Vista however
-        the context menu is not necessary. Click on the group header to select all
-        entries, then check one of the selected entries to check all.
-    </para>
-    <para>
         TortoiseSVN reserves one changelist name for its own use, namely
         <literal>ignore-on-commit</literal>. This is used to mark versioned
         files which you almost never want to commit even though they have local
@@ -78,4 +72,11 @@
             copy. They are simply a convenient way for you to organise your files.
         </para>
     </tip>
+    <warning>
+        <para>
+            Note that if you use changelists, externals will no longer show up
+            in their own groups anymore. Once there are changelists, files
+            and folders are grouped by changelist, not by external anymore.
+        </para>
+    </warning>
 </sect1>

@@ -256,6 +256,11 @@
                 to all working copies on update.
             </para>
             <para>
+                As of Subversion 1.8, you can also set the property
+                <literal>svn:auto-props</literal> on the root folder. The property value
+                is automatically inherited by all child items.
+            </para>
+            <para>
                 Whichever method you choose, you should note that auto-props
                 are only applied to files at the time they are added to the
                 working copy. Auto-props will never change the properties of files
@@ -418,6 +423,13 @@
                         If there is a conflict between the local autoprops and
                         <literal>tsvn:autoprops</literal>, the project settings take
                         precedence because they are specific to that project.
+                    </para>
+                    <para>
+                        As of Subversion 1.8, you should use the property
+                        <literal>svn:auto-props</literal> instead of
+                        <literal>tsvn:autoprops</literal> since this has the
+                        very same functionality but works with all svn clients
+                        and is not specific to TortoiseSVN.
                     </para>
                 </listitem>
                 <listitem>

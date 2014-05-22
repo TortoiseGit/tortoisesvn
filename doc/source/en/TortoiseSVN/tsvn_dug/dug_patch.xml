@@ -76,6 +76,14 @@
             <filename>.diff</filename> extension.
             You are now ready to submit your patch file.
         </para>
+        <tip>
+            Do not save the patch file with a <filename>.txt</filename> extension
+            if you intend to send it via email to someone else. Plain text files
+            are often mangled with by the email software and it often happens
+            that whitespaces and newline chars are automatically converted and compressed.
+            If that happens, the patch won't apply smoothly. So use <filename>.patch</filename> or
+            <filename>.diff</filename> as the extension when you save the patch file.
+        </tip>
         <para>
             You can also save the patch to the clipboard instead of to a file.
             You might want to do this so that you can paste it into an email for

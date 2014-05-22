@@ -81,6 +81,11 @@
                         which were changed since your last update
                     </para>
                 </listitem>
+                <listitem>
+                    <para>
+                        From the repository browser
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
@@ -115,6 +120,26 @@
             <graphic fileref="../images/ActionReplacedIcon.png"/>
             If a revision replaced a file or directory, the
             <emphasis>replaced</emphasis> icon is shown in the fourth column.
+        </para>
+        <para>
+            <graphic fileref="../images/ActionMovedIcon.png"/>
+            If a revision moved or renamed a file or directory, the
+            <emphasis>moved</emphasis> icon is shown in the fourth column.
+        </para>
+        <para>
+            <graphic fileref="../images/ActionMoveReplacedIcon.png"/>
+            If a revision replaced a file or directory by moving/renaming it, the
+            <emphasis>move replaced</emphasis> icon is shown in the fourth column.
+        </para>
+        <para>
+            <graphic fileref="../images/ActionMergedIcon.png"/>
+            If a revision merged a file or directory, the
+            <emphasis>merged</emphasis> icon is shown in the fourth column.
+        </para>
+        <para>
+            <graphic fileref="../images/ActionReverseMergedIcon.png"/>
+            If a revision reverse merged a file or directory, the
+            <emphasis>reverse merged</emphasis> icon is shown in the fourth column.
         </para>
     </sect2>
     <sect2 id="tsvn-dug-showlog-2">
