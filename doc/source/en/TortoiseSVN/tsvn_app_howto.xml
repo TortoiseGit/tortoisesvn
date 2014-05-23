@@ -1,579 +1,581 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix SYSTEM "../../dtd/dblite.dtd">
 <appendix id="tsvn-howto" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>How Do I...</title>
-    <simplesect>
-        <para>
-            This appendix contains solutions to problems/questions you might
-            have when using TortoiseSVN.
-        </para>
-    </simplesect>
-    <sect1 id="tsvn-howto-move">
-        <title>Move/copy a lot of files at once</title>
-        <indexterm>
-            <primary>moving</primary>
-        </indexterm>
-        <indexterm>
-            <primary>rename</primary>
-        </indexterm>
-        <indexterm>
-            <primary>reorganize</primary>
-        </indexterm>
-        <para>
-            Moving/Copying single files can be done by using
+  <title>How Do I...</title>
+  <simplesect>
+    <para>
+      This appendix contains solutions to problems/questions you might
+      have when using TortoiseSVN.
+    </para>
+  </simplesect>
+  <sect1 id="tsvn-howto-move">
+    <title>Move/copy a lot of files at once</title>
+    <indexterm>
+      <primary>moving</primary>
+    </indexterm>
+    <indexterm>
+      <primary>rename</primary>
+    </indexterm>
+    <indexterm>
+      <primary>reorganize</primary>
+    </indexterm>
+    <para>
+      Moving/Copying single files can be done by using
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Rename...</guimenuitem>
+      </menuchoice>.
+      But if you want to move/copy a lot of files, this way is just
+      too slow and too much work.
+    </para>
+    <para>
+      The recommended way is by <action>right dragging</action> the files to
+      the new location. Simply <action>right click</action> on the files you want
+      to move/copy without releasing the mouse button. Then drag the files
+      to the new location and release the mouse button. A context menu will appear
+      where you can either choose
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>SVN Copy versioned files here</guimenuitem>
+      </menuchoice>.
+      or
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>SVN Move versioned files here</guimenuitem>
+      </menuchoice>.
+    </para>
+    <para>
+      <mediaobject>
+        <videoobject>
+          <videodata fileref="images/svn_move.swf" format="SWF" contentwidth="590" contentdepth="290"/>
+        </videoobject>
+        <imageobject>
+          <imagedata fileref="images/svn_move.png"/>
+        </imageobject>
+      </mediaobject>
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-minlogmsgsize">
+    <title>Force users to enter a log message</title>
+    <indexterm>
+      <primary>log message</primary>
+    </indexterm>
+    <indexterm>
+      <primary>commit message</primary>
+    </indexterm>
+    <indexterm>
+      <primary>empty message</primary>
+    </indexterm>
+    <para>
+      There are two ways to prevent users from committing with an empty
+      log message. One is specific to TortoiseSVN, the other works for
+      all Subversion clients, but requires access to the server directly.
+    </para>
+    <sect2 id="tsvn-howto-minlogsize-hookscript">
+      <title>Hook-script on the server</title>
+      <para>
+        If you have direct access to the repository server, you can install
+        a pre-commit hook script which rejects all commits with an empty
+        or too short log message.
+      </para>
+      <para>
+        In the repository folder on the server, there's a sub-folder
+        <filename>hooks</filename>
+        which contains some example hook scripts you can use. The file
+        <filename>pre-commit.tmpl</filename>
+        contains a sample script which will reject commits if no log message
+        is supplied, or the message is too short.
+        The file also contains comments on how to install/use this script.
+        Just follow the instructions in that file.
+      </para>
+      <para>
+        This method is the recommended way if your users also use other
+        Subversion clients than TortoiseSVN. The drawback is that the commit
+        is rejected by the server and therefore users will get an error
+        message. The client can't know before the commit that it will be
+        rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton>
+        button disabled until the log message is long enough
+        then please use the method described below.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-minlogsize-projectproperties">
+      <title>Project properties</title>
+      <para>
+        TortoiseSVN uses properties to control some of its features. One of those
+        properties is the <literal>tsvn:logminsize</literal> property.
+      </para>
+      <para>
+        If you set that property on a folder, then TortoiseSVN will disable the
+        <guibutton>OK</guibutton> button in all commit dialogs until the user has
+        entered a log message with at least the length specified in the property.
+      </para>
+      <para>
+        For detailed information on those project properties, please refer to
+        <xref linkend="tsvn-dug-propertypage"/>.
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="tsvn-howto-selective-update">
+    <title>Update selected files from the repository</title>
+    <indexterm>
+      <primary>update</primary>
+    </indexterm>
+    <para>
+      Normally you update your working copy using
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Update</guimenuitem>
+      </menuchoice>.
+      But if you only want to pick up some new files that a colleague has added
+      without merging in any changes to other files at the same time, you need
+      a different approach.
+    </para>
+    <para>
+      Use
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Check for Modifications</guimenuitem>
+      </menuchoice>.
+      and click on <guibutton>Check repository</guibutton> to see what has changed
+      in the repository. Select the files you want to update locally, then use
+      the context menu to update just those files.
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-rollback">
+    <title>Roll back (Undo) revisions in the repository</title>
+    <indexterm>
+      <primary>rollback</primary>
+    </indexterm>
+    <indexterm>
+      <primary>revert</primary>
+    </indexterm>
+    <indexterm>
+      <primary>undo commit</primary>
+    </indexterm>
+    <indexterm>
+      <primary>undo change</primary>
+    </indexterm>
+    <sect2 id="tsvn-howto-rollback-log">
+      <title>Use the revision log dialog</title>
+      <para>
+        By far the easiest way to revert the changes from one or more revisions,
+        is to use the revision log dialog.
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            Select the file or folder in which you need to revert
+            the changes. If you want to revert all changes, this
+            should be the top level folder.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Select
             <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Rename...</guimenuitem>
-            </menuchoice>.
-            But if you want to move/copy a lot of files, this way is just
-            too slow and too much work.
-        </para>
-        <para>
-            The recommended way is by <action>right dragging</action> the files to
-            the new location. Simply <action>right click</action> on the files you want
-            to move/copy without releasing the mouse button. Then drag the files
-            to the new location and release the mouse button. A context menu will appear
-            where you can either choose
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>SVN Copy versioned files here</guimenuitem>
-            </menuchoice>.
-            or
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>SVN Move versioned files here</guimenuitem>
-            </menuchoice>.
-        </para>
-        <para>
-            <mediaobject>
-                <videoobject>
-                    <videodata fileref="images/svn_move.swf" format="SWF" contentwidth="590" contentdepth="290"/>
-                </videoobject>
-                <imageobject>
-                    <imagedata fileref="images/svn_move.png"/>
-                </imageobject>
-            </mediaobject>
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-minlogmsgsize">
-        <title>Force users to enter a log message</title>
-        <indexterm>
-            <primary>log message</primary>
-        </indexterm>
-        <indexterm>
-            <primary>commit message</primary>
-        </indexterm>
-        <indexterm>
-            <primary>empty message</primary>
-        </indexterm>
-        <para>
-            There are two ways to prevent users from committing with an empty
-            log message. One is specific to TortoiseSVN, the other works for
-            all Subversion clients, but requires access to the server directly.
-        </para>
-        <sect2 id="tsvn-howto-minlogsize-hookscript">
-            <title>Hook-script on the server</title>
-            <para>
-                If you have direct access to the repository server, you can install
-                a pre-commit hook script which rejects all commits with an empty
-                or too short log message.
-            </para>
-            <para>
-                In the repository folder on the server, there's a sub-folder
-                <filename>hooks</filename>
-                which contains some example hook scripts you can use. The file
-                <filename>pre-commit.tmpl</filename>
-                contains a sample script which will reject commits if no log message
-                is supplied, or the message is too short.
-                The file also contains comments on how to install/use this script.
-                Just follow the instructions in that file.
-            </para>
-            <para>
-                This method is the recommended way if your users also use other
-                Subversion clients than TortoiseSVN. The drawback is that the commit
-                is rejected by the server and therefore users will get an error
-                message. The client can't know before the commit that it will be
-                rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton>
-                button disabled until the log message is long enough
-                then please use the method described below.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-minlogsize-projectproperties">
-            <title>Project properties</title>
-            <para>
-                TortoiseSVN uses properties to control some of its features. One of those
-                properties is the <literal>tsvn:logminsize</literal> property.
-            </para>
-            <para>
-                If you set that property on a folder, then TortoiseSVN will disable the
-                <guibutton>OK</guibutton> button in all commit dialogs until the user has
-                entered a log message with at least the length specified in the property.
-            </para>
-            <para>
-                For detailed information on those project properties, please refer to
-                <xref linkend="tsvn-dug-propertypage"/>.
-            </para>
-        </sect2>
-    </sect1>
-    <sect1 id="tsvn-howto-selective-update">
-        <title>Update selected files from the repository</title>
-        <indexterm>
-            <primary>update</primary>
-        </indexterm>
-        <para>
-            Normally you update your working copy using
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Update</guimenuitem>
-            </menuchoice>.
-            But if you only want to pick up some new files that a colleague has added
-            without merging in any changes to other files at the same time, you need
-            a different approach.
-        </para>
-        <para>
-            Use
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Check for Modifications</guimenuitem>
-            </menuchoice>.
-            and click on <guibutton>Check repository</guibutton> to see what has changed
-            in the repository. Select the files you want to update locally, then use
-            the context menu to update just those files.
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-rollback">
-        <title>Roll back (Undo) revisions in the repository</title>
-        <indexterm>
-            <primary>rollback</primary>
-        </indexterm>
-        <indexterm>
-            <primary>revert</primary>
-        </indexterm>
-        <indexterm>
-            <primary>undo commit</primary>
-        </indexterm>
-        <indexterm>
-            <primary>undo change</primary>
-        </indexterm>
-        <sect2 id="tsvn-howto-rollback-log">
-            <title>Use the revision log dialog</title>
-            <para>
-                By far the easiest way to revert the changes from one or more revisions,
-                is to use the revision log dialog.
-            </para>
-            <orderedlist>
-                <listitem>
-                    <para>
-                        Select the file or folder in which you need to revert
-                        the changes. If you want to revert all changes, this
-                        should be the top level folder.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Select
-                        <menuchoice>
-                            <guimenu>TortoiseSVN</guimenu>
-                            <guimenuitem>Show Log</guimenuitem>
-                        </menuchoice>
-                        to display a list of revisions. You may need to use
-                        <guibutton>Show All</guibutton> or
-                        <guibutton>Next 100</guibutton>
-                        to show the revision(s) you are interested in.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Select the revision you wish to revert. If you want
-                        to undo a range of revisions, select the first one
-                        and hold the <keycap>Shift</keycap> key while selecting the last one.
-                        If you want to pick out individual revisions and ranges,
-                        use the <keycap>Ctrl</keycap> key while selecting revisions.
-                        <action>Right click</action> on the selected revision(s),
-                        then select
-                        <menuchoice>
-                            <guimenu>Context Menu</guimenu>
-                            <guimenuitem>Revert changes from this revision</guimenuitem>
-                        </menuchoice>.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Or if you want to make an earlier revision the new HEAD revision,
-                        <action>right click</action> on the selected revision,
-                        then select
-                        <menuchoice>
-                            <guimenu>Context Menu</guimenu>
-                            <guimenuitem>Revert to this revision</guimenuitem>
-                        </menuchoice>.
-                        This will discard <emphasis>all</emphasis> changes after
-                        the selected revision.
-                    </para>
-                </listitem>
-            </orderedlist>
-            <para>
-                You have reverted the changes within your working copy.
-                Check the results, then commit the changes.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-rollback-merge">
-            <title>Use the merge dialog</title>
-            <para>
-                If you want to enter revision numbers as a list, you can use the Merge dialog.
-                The previous method uses merging behind the scenes; this method
-                uses it explicitly.
-            </para>
-            <orderedlist>
-                <listitem>
-                    <para>
-                        In your working copy select
-                        <menuchoice>
-                            <guimenu>TortoiseSVN</guimenu>
-                            <guimenuitem>Merge</guimenuitem>
-                        </menuchoice>.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        In the <guilabel>Merge Type</guilabel> dialog select
-                        <guilabel>Merge a range of revisions</guilabel>.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        In the <guilabel>From:</guilabel> field enter the full
-                        repository URL of your working copy folder. This should come
-                        up as the default URL.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        In the <guilabel>Revision range to merge</guilabel> field enter the
-                        list of revisions to roll back (or use the log dialog to select them
-                        as described above).
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Make sure the <guilabel>Reverse merge</guilabel>
-                        checkbox is checked.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        In the <guilabel>Merge options</guilabel> dialog accept the defaults.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Click <guibutton>Merge</guibutton> to complete the merge.
-                    </para>
-                </listitem>
-            </orderedlist>
-            <para>
-                You have reverted the changes within your working copy.
-                Check that the results are as expected, then commit the changes.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-rollback-dumpload">
-            <title>Use <literal>svndumpfilter</literal></title>
-            <para>
-                Since TortoiseSVN never loses data, your <quote>rolled back</quote>
-                revisions still exist as intermediate revisions in the repository. Only
-                the HEAD revision was changed to a previous state.
-                If you want to make revisions disappear completely from your
-                repository, erasing all trace that they ever existed, you have
-                to use more extreme measures. Unless there is a really good reason
-                to do this, it is <emphasis>not recommended</emphasis>. One
-                possible reason would be that someone committed a confidential
-                document to a public repository.
-            </para>
-            <para>
-                The only way to remove data from the repository is to use the
-                Subversion command line tool <literal>svnadmin</literal>.
-                You can find a description of how this works in the
-                <ulink url="http://svnbook.red-bean.com/en/1.8/svn.reposadmin.maint.html">
-                    <citetitle>Repository Maintenance</citetitle>
-                </ulink>.
-            </para>
-        </sect2>
-    </sect1>
-    <sect1 id="tsvn-howto-compare">
-        <title>Compare two revisions of a file or folder</title>
-        <indexterm>
-            <primary>compare files</primary>
-        </indexterm>
-        <indexterm>
-            <primary>compare folders</primary>
-        </indexterm>
-        <indexterm>
-            <primary>changes</primary>
-        </indexterm>
-        <para>
-            If you want to compare two revisions in an item's history,
-            for example revisions 100 and 200 of the same file, just use
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Show Log</guimenuitem>
+              <guimenu>TortoiseSVN</guimenu>
+              <guimenuitem>Show Log</guimenuitem>
             </menuchoice>
-            to list the revision history for that file. Pick the two revisions
-            you want to compare then use
+            to display a list of revisions. You may need to use
+            <guibutton>Show All</guibutton> or
+            <guibutton>Next 100</guibutton>
+            to show the revision(s) you are interested in.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Select the revision you wish to revert. If you want
+            to undo a range of revisions, select the first one
+            and hold the <keycap>Shift</keycap> key while selecting the last one.
+            If you want to pick out individual revisions and ranges,
+            use the <keycap>Ctrl</keycap> key while selecting revisions.
+            <action>Right click</action> on the selected revision(s),
+            then select
             <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Compare Revisions</guimenuitem>
+              <guimenu>Context Menu</guimenu>
+              <guimenuitem>Revert changes from this revision</guimenuitem>
             </menuchoice>.
-        </para>
-        <para>
-            If you want to compare the same item in two different trees,
-            for example the trunk and a branch, you can use the repository
-            browser to open up both trees, select the file in both places,
-            then use
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Or if you want to make an earlier revision the new HEAD revision,
+            <action>right click</action> on the selected revision,
+            then select
             <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Compare Revisions</guimenuitem>
+              <guimenu>Context Menu</guimenu>
+              <guimenuitem>Revert to this revision</guimenuitem>
             </menuchoice>.
-        </para>
-        <para>
-            If you want to compare two trees to see what has changed,
-            for example the trunk and a tagged release, you can use
+            This will discard <emphasis>all</emphasis> changes after
+            the selected revision.
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        You have reverted the changes within your working copy.
+        Check the results, then commit the changes.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-rollback-merge">
+      <title>Use the merge dialog</title>
+      <para>
+        If you want to enter revision numbers as a list, you can use the Merge dialog.
+        The previous method uses merging behind the scenes; this method
+        uses it explicitly.
+      </para>
+      <orderedlist>
+        <listitem>
+          <para>
+            In your working copy select
             <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Revision Graph</guimenuitem>
-            </menuchoice>
-            Select the two nodes to compare, then use
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Compare HEAD Revisions</guimenuitem>
+              <guimenu>TortoiseSVN</guimenu>
+              <guimenuitem>Merge</guimenuitem>
             </menuchoice>.
-            This will show a list of changed files, and you can then select
-            individual files to view the changes in detail.
-            You can also export a tree structure containing all the changed
-            files, or simply a list of all changed files.
-            Read <xref linkend="tsvn-dug-compare-revs"/> for more information.
-            Alternatively use
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Unified Diff of HEAD Revisions</guimenuitem>
-            </menuchoice>
-            to see a summary of all differences, with minimal context.
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-common-projects">
-        <title>Include a common sub-project</title>
-        <indexterm>
-            <primary>common projects</primary>
-        </indexterm>
-        <indexterm>
-            <primary>externals</primary>
-        </indexterm>
-        <indexterm>
-            <primary>vendor projects</primary>
-        </indexterm>
-        <para>
-            Sometimes you will want to include another project within
-            your working copy, perhaps some library code. There are at
-            least 4 ways of dealing with this.
-        </para>
-        <sect2 id="tsvn-howto-common-externals">
-            <title>Use svn:externals</title>
-            <para>
-                Set the <literal>svn:externals</literal> property for a folder
-                in your project. This property consists of one or more lines;
-                each line has the name of a sub-folder which you want to use
-                as the checkout folder for common code, and the repository URL
-                that you want to be checked out there. For full details
-                refer to <xref linkend="tsvn-dug-externals"/>.
-            </para>
-            <para>
-                Commit the new folder. Now when you update, Subversion
-                will pull a copy of that project from its repository
-                into your working copy. The sub-folders will be created
-                automatically if required.
-                Each time you update your main working copy, you will also
-                receive the latest version of all external projects.
-            </para>
-            <para>
-                If the external project is in the same repository, any changes
-                you make there will be included in the commit list when
-                you commit your main project.
-            </para>
-            <para>
-                If the external project is in a different repository, any
-                changes you make to the external project will be notified
-                when you commit the main project, but you have to commit
-                those external changes separately.
-            </para>
-            <para>
-                Of the three methods described, this is the only one which needs
-                no setup on the client side. Once externals are specified in
-                the folder properties, all clients will get populated folders
-                when they update.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-common-nested">
-            <title>Use a nested working copy</title>
-            <para>
-                Create a new folder within your project to contain the
-                common code, but do not add it to Subversion.
-            </para>
-            <para>
-                Select
-                <menuchoice>
-                    <guimenu>TortoiseSVN</guimenu>
-                    <guimenuitem>Checkout</guimenuitem>
-                </menuchoice>
-                for the new folder and checkout a copy of the common
-                code into it. You now have a separate working copy nested
-                within your main working copy.
-            </para>
-            <para>
-                The two working copies are independent. When you commit
-                changes to the parent, changes to the nested WC are ignored.
-                Likewise when you update the parent, the nested WC is not updated.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-common-location">
-            <title>Use a relative location</title>
-            <para>
-                If you use the same common core code in several projects,
-                and you do not want to keep multiple working copies of it
-                for every project that uses it, you can just check it out
-                to a separate location which is related to all the other
-                projects which use it. For example:
-<screen>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            In the <guilabel>Merge Type</guilabel> dialog select
+            <guilabel>Merge a range of revisions</guilabel>.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            In the <guilabel>From:</guilabel> field enter the full
+            repository URL of your working copy folder. This should come
+            up as the default URL.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            In the <guilabel>Revision range to merge</guilabel> field enter the
+            list of revisions to roll back (or use the log dialog to select them
+            as described above).
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Make sure the <guilabel>Reverse merge</guilabel>
+            checkbox is checked.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            In the <guilabel>Merge options</guilabel> dialog accept the defaults.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Click <guibutton>Merge</guibutton> to complete the merge.
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        You have reverted the changes within your working copy.
+        Check that the results are as expected, then commit the changes.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-rollback-dumpload">
+      <title>
+        Use <literal>svndumpfilter</literal>
+      </title>
+      <para>
+        Since TortoiseSVN never loses data, your <quote>rolled back</quote>
+        revisions still exist as intermediate revisions in the repository. Only
+        the HEAD revision was changed to a previous state.
+        If you want to make revisions disappear completely from your
+        repository, erasing all trace that they ever existed, you have
+        to use more extreme measures. Unless there is a really good reason
+        to do this, it is <emphasis>not recommended</emphasis>. One
+        possible reason would be that someone committed a confidential
+        document to a public repository.
+      </para>
+      <para>
+        The only way to remove data from the repository is to use the
+        Subversion command line tool <literal>svnadmin</literal>.
+        You can find a description of how this works in the
+        <ulink url="http://svnbook.red-bean.com/en/1.8/svn.reposadmin.maint.html">
+          <citetitle>Repository Maintenance</citetitle>
+        </ulink>.
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="tsvn-howto-compare">
+    <title>Compare two revisions of a file or folder</title>
+    <indexterm>
+      <primary>compare files</primary>
+    </indexterm>
+    <indexterm>
+      <primary>compare folders</primary>
+    </indexterm>
+    <indexterm>
+      <primary>changes</primary>
+    </indexterm>
+    <para>
+      If you want to compare two revisions in an item's history,
+      for example revisions 100 and 200 of the same file, just use
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Show Log</guimenuitem>
+      </menuchoice>
+      to list the revision history for that file. Pick the two revisions
+      you want to compare then use
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>Compare Revisions</guimenuitem>
+      </menuchoice>.
+    </para>
+    <para>
+      If you want to compare the same item in two different trees,
+      for example the trunk and a branch, you can use the repository
+      browser to open up both trees, select the file in both places,
+      then use
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>Compare Revisions</guimenuitem>
+      </menuchoice>.
+    </para>
+    <para>
+      If you want to compare two trees to see what has changed,
+      for example the trunk and a tagged release, you can use
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Revision Graph</guimenuitem>
+      </menuchoice>
+      Select the two nodes to compare, then use
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>Compare HEAD Revisions</guimenuitem>
+      </menuchoice>.
+      This will show a list of changed files, and you can then select
+      individual files to view the changes in detail.
+      You can also export a tree structure containing all the changed
+      files, or simply a list of all changed files.
+      Read <xref linkend="tsvn-dug-compare-revs"/> for more information.
+      Alternatively use
+      <menuchoice>
+        <guimenu>Context Menu</guimenu>
+        <guimenuitem>Unified Diff of HEAD Revisions</guimenuitem>
+      </menuchoice>
+      to see a summary of all differences, with minimal context.
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-common-projects">
+    <title>Include a common sub-project</title>
+    <indexterm>
+      <primary>common projects</primary>
+    </indexterm>
+    <indexterm>
+      <primary>externals</primary>
+    </indexterm>
+    <indexterm>
+      <primary>vendor projects</primary>
+    </indexterm>
+    <para>
+      Sometimes you will want to include another project within
+      your working copy, perhaps some library code. There are at
+      least 4 ways of dealing with this.
+    </para>
+    <sect2 id="tsvn-howto-common-externals">
+      <title>Use svn:externals</title>
+      <para>
+        Set the <literal>svn:externals</literal> property for a folder
+        in your project. This property consists of one or more lines;
+        each line has the name of a sub-folder which you want to use
+        as the checkout folder for common code, and the repository URL
+        that you want to be checked out there. For full details
+        refer to <xref linkend="tsvn-dug-externals"/>.
+      </para>
+      <para>
+        Commit the new folder. Now when you update, Subversion
+        will pull a copy of that project from its repository
+        into your working copy. The sub-folders will be created
+        automatically if required.
+        Each time you update your main working copy, you will also
+        receive the latest version of all external projects.
+      </para>
+      <para>
+        If the external project is in the same repository, any changes
+        you make there will be included in the commit list when
+        you commit your main project.
+      </para>
+      <para>
+        If the external project is in a different repository, any
+        changes you make to the external project will be notified
+        when you commit the main project, but you have to commit
+        those external changes separately.
+      </para>
+      <para>
+        Of the three methods described, this is the only one which needs
+        no setup on the client side. Once externals are specified in
+        the folder properties, all clients will get populated folders
+        when they update.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-common-nested">
+      <title>Use a nested working copy</title>
+      <para>
+        Create a new folder within your project to contain the
+        common code, but do not add it to Subversion.
+      </para>
+      <para>
+        Select
+        <menuchoice>
+          <guimenu>TortoiseSVN</guimenu>
+          <guimenuitem>Checkout</guimenuitem>
+        </menuchoice>
+        for the new folder and checkout a copy of the common
+        code into it. You now have a separate working copy nested
+        within your main working copy.
+      </para>
+      <para>
+        The two working copies are independent. When you commit
+        changes to the parent, changes to the nested WC are ignored.
+        Likewise when you update the parent, the nested WC is not updated.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-common-location">
+      <title>Use a relative location</title>
+      <para>
+        If you use the same common core code in several projects,
+        and you do not want to keep multiple working copies of it
+        for every project that uses it, you can just check it out
+        to a separate location which is related to all the other
+        projects which use it. For example:
+        <screen>
 C:\Projects\Proj1
 C:\Projects\Proj2
 C:\Projects\Proj3
 C:\Projects\Common
-</screen>
-                and refer to the common code using a relative path, e.g.
-                <filename>..\..\Common\DSPcore</filename>.
-            </para>
-            <para>
-                If your projects are scattered in unrelated locations you
-                can use a variant of this, which is to put the common
-                code in one location and use drive letter substitution to
-                map that location to something you can hard code in your
-                projects, e.g. Checkout the common code to
-                <filename>D:\Documents\Framework</filename> or
-                <filename>C:\Documents and Settings\{login}\My Documents\framework</filename>
-                then use
-<screen>
+        </screen>
+        and refer to the common code using a relative path, e.g.
+        <filename>..\..\Common\DSPcore</filename>.
+      </para>
+      <para>
+        If your projects are scattered in unrelated locations you
+        can use a variant of this, which is to put the common
+        code in one location and use drive letter substitution to
+        map that location to something you can hard code in your
+        projects, e.g. Checkout the common code to
+        <filename>D:\Documents\Framework</filename> or
+        <filename>C:\Documents and Settings\{login}\My Documents\framework</filename>
+        then use
+        <screen>
 SUBST X: "D:\Documents\framework"
-</screen>
-                to create the drive mapping used in your source code.
-                Your code can then use absolute locations.
-<screen>
+        </screen>
+        to create the drive mapping used in your source code.
+        Your code can then use absolute locations.
+        <screen>
 #include "X:\superio\superio.h"
-</screen>
-            </para>
-            <para>
-                This method will only work in an all-PC environment,
-                and you will need to document the required drive mappings
-                so your team know where these mysterious files are.
-                This method is strictly for use in closed development environments,
-                and not recommended for general use.
-            </para>
-        </sect2>
-        <sect2 id="tsvn-howto-common-repository">
-            <title>Add the project to the repository</title>
-            <para>
-                The maybe easiest way is to simply add the project in
-                a subfolder to your own project working copy. However
-                this has the disadvantage that you have to update and
-                upgrade this external project manually.
-            </para>
-            <para>
-                To help with the upgrade, TortoiseSVN provides a command
-                in the explorer right-drag context menu. Simply right-drag
-                the folder where you unzipped the new version of the
-                external library to the folder in your working copy,
-                and then select
-                <menuchoice>
-                    <guimenu>Context Menu</guimenu>
-                    <guimenuitem>SVN Vendorbranch here</guimenuitem>
-                </menuchoice>.
-                This will then copy the new files over to the target
-                folder while automatically adding new files and removing
-                files that aren't in the new version anymore.
-            </para>
-        </sect2>
-    </sect1>
-    <sect1 id="tsvn-howto-repo-shortcut">
-        <title>Create a shortcut to a repository</title>
-        <indexterm>
-            <primary>shortcut</primary>
-        </indexterm>
-        <para>
-            If you frequently need to open the repository browser at a
-            particular location, you can create a desktop shortcut
-            using the automation interface to TortoiseProc. Just
-            create a new shortcut and set the target to:
-<screen>
+        </screen>
+      </para>
+      <para>
+        This method will only work in an all-PC environment,
+        and you will need to document the required drive mappings
+        so your team know where these mysterious files are.
+        This method is strictly for use in closed development environments,
+        and not recommended for general use.
+      </para>
+    </sect2>
+    <sect2 id="tsvn-howto-common-repository">
+      <title>Add the project to the repository</title>
+      <para>
+        The maybe easiest way is to simply add the project in
+        a subfolder to your own project working copy. However
+        this has the disadvantage that you have to update and
+        upgrade this external project manually.
+      </para>
+      <para>
+        To help with the upgrade, TortoiseSVN provides a command
+        in the explorer right-drag context menu. Simply right-drag
+        the folder where you unzipped the new version of the
+        external library to the folder in your working copy,
+        and then select
+        <menuchoice>
+          <guimenu>Context Menu</guimenu>
+          <guimenuitem>SVN Vendorbranch here</guimenuitem>
+        </menuchoice>.
+        This will then copy the new files over to the target
+        folder while automatically adding new files and removing
+        files that aren't in the new version anymore.
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="tsvn-howto-repo-shortcut">
+    <title>Create a shortcut to a repository</title>
+    <indexterm>
+      <primary>shortcut</primary>
+    </indexterm>
+    <para>
+      If you frequently need to open the repository browser at a
+      particular location, you can create a desktop shortcut
+      using the automation interface to TortoiseProc. Just
+      create a new shortcut and set the target to:
+      <screen>
 TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
-</screen>
-            Of course you need to include the real repository URL.
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-unversion">
-        <title>Ignore files which are already versioned</title>
-        <indexterm>
-            <primary>unversion</primary>
-        </indexterm>
-        <indexterm>
-            <primary>remove versioning</primary>
-        </indexterm>
-        <indexterm>
-            <primary>detach from repository</primary>
-        </indexterm>
-        <para>
-            If you accidentally added some files which should have been
-            ignored, how do you get them out of version control without
-            losing them? Maybe you have your own IDE configuration file
-            which is not part of the project, but which took you a long
-            time to set up just the way you like it.
-        </para>
-        <para>
-            If you have not yet committed the add, then all you have to do
-            is use
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Undo Add...</guimenuitem>
-            </menuchoice>
-            to undo the add. You should then add the file(s) to the ignore
-            list so they don't get added again later by mistake.
-        </para>
-        <para>
-            If the files are already in the repository, they have to be deleted
-            from the repository and added to the ignore list. Fortunately
-            TortoiseSVN has a convenient shortcut for doing this.
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Unversion and add to ignore list</guimenuitem>
-            </menuchoice>
-            will first mark the file/folder for deletion from the repository,
-            keeping the local copy. It also adds this item to the ignore list
-            so that it will not be added back into Subversion again by mistake.
-            Once this is done you just need to commit the parent folder.
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-unversion-wc">
-        <title>Unversion a working copy</title>
-        <para>
-            If you have a working copy which you want to convert back to
-            a plain folder tree without the <literal>.svn</literal>
-            directory, you can simply export it to itself. Read
-            <xref linkend="tsvn-dug-export-unversion"/> to find out how.
-        </para>
-    </sect1>
-    <sect1 id="tsvn-howto-remove-wc">
-        <title>Remove a working copy</title>
-        <para>
-            If you have a working copy which you no longer need, how do you
-            get rid of it cleanly? Easy - just delete it in Windows Explorer!
-            Working copies are private local entities, and they are self-contained.
-            Deleting a working copy in Windows Explorer does not affect the
-            data in the repository at all.
-        </para>
-    </sect1>
+      </screen>
+      Of course you need to include the real repository URL.
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-unversion">
+    <title>Ignore files which are already versioned</title>
+    <indexterm>
+      <primary>unversion</primary>
+    </indexterm>
+    <indexterm>
+      <primary>remove versioning</primary>
+    </indexterm>
+    <indexterm>
+      <primary>detach from repository</primary>
+    </indexterm>
+    <para>
+      If you accidentally added some files which should have been
+      ignored, how do you get them out of version control without
+      losing them? Maybe you have your own IDE configuration file
+      which is not part of the project, but which took you a long
+      time to set up just the way you like it.
+    </para>
+    <para>
+      If you have not yet committed the add, then all you have to do
+      is use
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Undo Add...</guimenuitem>
+      </menuchoice>
+      to undo the add. You should then add the file(s) to the ignore
+      list so they don't get added again later by mistake.
+    </para>
+    <para>
+      If the files are already in the repository, they have to be deleted
+      from the repository and added to the ignore list. Fortunately
+      TortoiseSVN has a convenient shortcut for doing this.
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Unversion and add to ignore list</guimenuitem>
+      </menuchoice>
+      will first mark the file/folder for deletion from the repository,
+      keeping the local copy. It also adds this item to the ignore list
+      so that it will not be added back into Subversion again by mistake.
+      Once this is done you just need to commit the parent folder.
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-unversion-wc">
+    <title>Unversion a working copy</title>
+    <para>
+      If you have a working copy which you want to convert back to
+      a plain folder tree without the <literal>.svn</literal>
+      directory, you can simply export it to itself. Read
+      <xref linkend="tsvn-dug-export-unversion"/> to find out how.
+    </para>
+  </sect1>
+  <sect1 id="tsvn-howto-remove-wc">
+    <title>Remove a working copy</title>
+    <para>
+      If you have a working copy which you no longer need, how do you
+      get rid of it cleanly? Easy - just delete it in Windows Explorer!
+      Working copies are private local entities, and they are self-contained.
+      Deleting a working copy in Windows Explorer does not affect the
+      data in the repository at all.
+    </para>
+  </sect1>
 </appendix>

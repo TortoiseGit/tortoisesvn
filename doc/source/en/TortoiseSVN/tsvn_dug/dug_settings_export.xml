@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
 <sect2 id="tsvn-dug-settings-export">
-    <title>Exporting TSVN Settings</title>
-    <para>
-        If you want to export all your client settings to use on another computer
-        you can do so using the Windows registry editor <filename>regedt32.exe</filename>.
-        Go to the registry key <literal>HKCU\Software\TortoiseSVN</literal> and export it
-        to a reg file. On the other computer, just import that file again (usually, a
-        double click on the reg file will do that).
-    </para>
-    <para>
-        Remember to save Subversion's general settings, which you can find in the Subversion
-        configuration file <literal>%APPDATA%\Subversion\config</literal>.
-    </para>
+  <title>Exporting TSVN Settings</title>
+  <para>
+    If you want to export all your client settings to use on another computer
+    you can do so using the Windows registry editor <filename>regedt32.exe</filename>.
+    Go to the registry key <literal>HKCU\Software\TortoiseSVN</literal> and export it
+    to a reg file. On the other computer, just import that file again (usually, a
+    double click on the reg file will do that).
+  </para>
+  <para>
+    Remember to save Subversion's general settings, which you can find in the Subversion
+    configuration file <literal>%APPDATA%\Subversion\config</literal>.
+  </para>
 </sect2>

@@ -1,96 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-dug-cleanup">
-    <title>Cleanup</title>
-    <indexterm>
-        <primary>cleanup</primary>
-    </indexterm>
-    <?dbhh topicname="HIDD_CLEANUP"?>
-    <para>
-        If a Subversion command cannot complete successfully, perhaps
-        due to server problems, your working copy can be left in an
-        inconsistent state. In that case you need to use
-        <menuchoice>
-            <guimenu>TortoiseSVN</guimenu>
-            <guimenuitem>Cleanup</guimenuitem>
-        </menuchoice>
-        on the folder. It is a good idea to do this at the top level
-        of the working copy.
-    </para>
-    <para>
-        In the cleanup dialog, there are also other useful options
-        to get the working copy into a <literal>clean</literal> state.
-        <variablelist>
-            <varlistentry>
-                <term>Clean up working copy status</term>
-                <listitem>
-                    <para>
-                        As stated above, this option tries to get an inconsistent
-                        working copy into a workable and usable state. This doesn't
-                        affect any data you have but only the internal states of
-                        the working copy database. This is the actual
-                        <literal>Cleanup</literal> command you know from older
-                        TortoiseSVN clients or other SVN clients.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Refresh shell overlays</term>
-                <listitem>
-                    <para>
-                        Sometimes the shell overlays, especially on the tree view
-                        on the left side of the explorer don't show the current
-                        status, or the status cache failed to recognize changes.
-                        In this situation, you can use this command to force
-                        a refresh.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Include externals</term>
-                <listitem>
-                    <para>
-                        If this is checked, then all actions are done for all
-                        files and folders included with the <literal>svn:externals</literal>
-                        property as well.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Delete unversioned files and folders, Delete ignored files and folders</term>
-                <listitem>
-                    <para>
-                        This is a fast and easy way to remove all generated files
-                        in your working copy. All files and folders that are not
-                        versioned are moved to the trash bin.
-                    </para>
-                    <para>
-                        Note: you can also do the same from the
-                        <menuchoice>
-                            <guimenu>TortoiseSVN</guimenu>
-                            <guimenuitem>Revert</guimenuitem>
-                        </menuchoice> dialog. There you also get a list of all
-                        the unversioned files and folders to select for removal.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Revert all changes recursively</term>
-                <listitem>
-                    <para>
-                        This command reverts all your local modifications which
-                        are not committed yet.
-                    </para>
-                    <para>
-                        Note: it's better to use the
-                        <menuchoice>
-                            <guimenu>TortoiseSVN</guimenu>
-                            <guimenuitem>Revert</guimenuitem>
-                        </menuchoice> command instead, because there you can
-                        first see and select the files which you want to revert.
-                    </para>
-                </listitem>
-            </varlistentry>
-        </variablelist>
-    </para>
+  <title>Cleanup</title>
+  <indexterm>
+    <primary>cleanup</primary>
+  </indexterm>
+  <?dbhh topicname="HIDD_CLEANUP"?>
+  <para>
+    If a Subversion command cannot complete successfully, perhaps
+    due to server problems, your working copy can be left in an
+    inconsistent state. In that case you need to use
+    <menuchoice>
+      <guimenu>TortoiseSVN</guimenu>
+      <guimenuitem>Cleanup</guimenuitem>
+    </menuchoice>
+    on the folder. It is a good idea to do this at the top level
+    of the working copy.
+  </para>
+  <para>
+    In the cleanup dialog, there are also other useful options
+    to get the working copy into a <literal>clean</literal> state.
+    <variablelist>
+      <varlistentry>
+        <term>Clean up working copy status</term>
+        <listitem>
+          <para>
+            As stated above, this option tries to get an inconsistent
+            working copy into a workable and usable state. This doesn't
+            affect any data you have but only the internal states of
+            the working copy database. This is the actual
+            <literal>Cleanup</literal> command you know from older
+            TortoiseSVN clients or other SVN clients.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Refresh shell overlays</term>
+        <listitem>
+          <para>
+            Sometimes the shell overlays, especially on the tree view
+            on the left side of the explorer don't show the current
+            status, or the status cache failed to recognize changes.
+            In this situation, you can use this command to force
+            a refresh.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Include externals</term>
+        <listitem>
+          <para>
+            If this is checked, then all actions are done for all
+            files and folders included with the <literal>svn:externals</literal>
+            property as well.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Delete unversioned files and folders, Delete ignored files and folders</term>
+        <listitem>
+          <para>
+            This is a fast and easy way to remove all generated files
+            in your working copy. All files and folders that are not
+            versioned are moved to the trash bin.
+          </para>
+          <para>
+            Note: you can also do the same from the
+            <menuchoice>
+              <guimenu>TortoiseSVN</guimenu>
+              <guimenuitem>Revert</guimenuitem>
+            </menuchoice> dialog. There you also get a list of all
+            the unversioned files and folders to select for removal.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Revert all changes recursively</term>
+        <listitem>
+          <para>
+            This command reverts all your local modifications which
+            are not committed yet.
+          </para>
+          <para>
+            Note: it's better to use the
+            <menuchoice>
+              <guimenu>TortoiseSVN</guimenu>
+              <guimenuitem>Revert</guimenuitem>
+            </menuchoice> command instead, because there you can
+            first see and select the files which you want to revert.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </para>
 </sect1>

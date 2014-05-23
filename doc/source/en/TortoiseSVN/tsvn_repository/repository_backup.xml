@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-repository-backup">
-    <title>Repository Backup</title>
-    <indexterm>
-        <primary>backup</primary>
-    </indexterm>
-    <para>
-        Whichever type of repository you use, it is vitally important
-        that you maintain regular backups, and that you verify the
-        backup. If the server fails, you may be able to access a
-        recent version of your files, but without the repository
-        all your history is lost forever.
-    </para>
-    <para>
-        The simplest (but not recommended) way is just to copy the
-        repository folder onto the backup medium. However, you have
-        to be absolutely sure that no process is accessing the data.
-        In this context, access means <emphasis>any</emphasis>
-        access at all. A BDB repository is written to even when
-        the operation only appears to require reading, such as getting
-        status. If your repository is accessed at all during the copy,
-        (web browser left open, WebSVN, etc.) the backup will be worthless.
-    </para>
-    <para>
-        The recommended method is to run
-<screen>
+  <title>Repository Backup</title>
+  <indexterm>
+    <primary>backup</primary>
+  </indexterm>
+  <para>
+    Whichever type of repository you use, it is vitally important
+    that you maintain regular backups, and that you verify the
+    backup. If the server fails, you may be able to access a
+    recent version of your files, but without the repository
+    all your history is lost forever.
+  </para>
+  <para>
+    The simplest (but not recommended) way is just to copy the
+    repository folder onto the backup medium. However, you have
+    to be absolutely sure that no process is accessing the data.
+    In this context, access means <emphasis>any</emphasis>
+    access at all. A BDB repository is written to even when
+    the operation only appears to require reading, such as getting
+    status. If your repository is accessed at all during the copy,
+    (web browser left open, WebSVN, etc.) the backup will be worthless.
+  </para>
+  <para>
+    The recommended method is to run
+    <screen>
 svnadmin hotcopy path/to/repository path/to/backup --clean-logs
-</screen>
-        to create a copy of your repository in a safe manner. Then backup
-        the copy. The <literal>--clean-logs</literal> option is not
-        required, but removes any redundant log files when you backup
-        a BDB repository, which may save some space.
-    </para>
-    <para>
-        The <literal>svnadmin</literal> tool is installed automatically
-        when you install the Subversion command line client. The easiest
-        way to get this is to check the option to include the command
-        line tools when installing TortoiseSVN, but if you prefer you can
-        download the latest version of command line tools directly from the
-        <ulink url="http://subversion.apache.org/packages.html#windows">
-            <citetitle>Subversion</citetitle>
-        </ulink>
-        website.
-    </para>
+    </screen>
+    to create a copy of your repository in a safe manner. Then backup
+    the copy. The <literal>--clean-logs</literal> option is not
+    required, but removes any redundant log files when you backup
+    a BDB repository, which may save some space.
+  </para>
+  <para>
+    The <literal>svnadmin</literal> tool is installed automatically
+    when you install the Subversion command line client. The easiest
+    way to get this is to check the option to include the command
+    line tools when installing TortoiseSVN, but if you prefer you can
+    download the latest version of command line tools directly from the
+    <ulink url="http://subversion.apache.org/packages.html#windows">
+      <citetitle>Subversion</citetitle>
+    </ulink>
+    website.
+  </para>
 </sect1>

@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
 <sect1 id="tmerge-dug-toolbar">
-    <title>Buttons and Other Controls</title>
-    <para>
-        Depending on your setting, you either see a toolbar or a ribbon
-        with many buttons. The buttons all show a tooltip explaining their
-        function when you hover the mouse pointer over them.
-    </para>
-    <para>
-        On the left side of the window is a locator bar. This provides
-        a quick visual reference as to where the changes lie within the
-        file. The bar has three columns. The left column refers to the
-        left pane, the right column to the right pane, and the centre
-        column to the bottom pane (if present). In one-pane view only
-        the left column is used. The locator bar can also be used as a
-        scroll bar to scroll all the windows simultaneously.
-    </para>
-    <para>
-        If you double click on a word then every occurrence of that word will
-        be highlighted throughout the document, both in the main panes and the
-        locator bar. Double click on the word again to remove the highlighting.
-    </para>
-    <para>
-        If you click in the left margin, or if you triple click within a line,
-        that whole line will be selected.
-    </para>
-    <para>
-        Below the bottom window is the status bar. This shows the number of
-        lines added and deleted in <literal>Theirs</literal> and
-        <literal>Mine</literal>, and the number of unresolved
-        conflicts remaining.
-        You can also see which line-ending style is in use, what
-        encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether
-        there is a byte-order-mark (BOM) present in UTF-8 files.
-        You can change line-ending style and encoding by double-clicking the corresponding column of that view.
-        A dialog box will be displayed.
-        The left side of the status bar is used to display hints when you
-        hover the mouse over a control.
-    </para>
+  <title>Buttons and Other Controls</title>
+  <para>
+    Depending on your setting, you either see a toolbar or a ribbon
+    with many buttons. The buttons all show a tooltip explaining their
+    function when you hover the mouse pointer over them.
+  </para>
+  <para>
+    On the left side of the window is a locator bar. This provides
+    a quick visual reference as to where the changes lie within the
+    file. The bar has three columns. The left column refers to the
+    left pane, the right column to the right pane, and the centre
+    column to the bottom pane (if present). In one-pane view only
+    the left column is used. The locator bar can also be used as a
+    scroll bar to scroll all the windows simultaneously.
+  </para>
+  <para>
+    If you double click on a word then every occurrence of that word will
+    be highlighted throughout the document, both in the main panes and the
+    locator bar. Double click on the word again to remove the highlighting.
+  </para>
+  <para>
+    If you click in the left margin, or if you triple click within a line,
+    that whole line will be selected.
+  </para>
+  <para>
+    Below the bottom window is the status bar. This shows the number of
+    lines added and deleted in <literal>Theirs</literal> and
+    <literal>Mine</literal>, and the number of unresolved
+    conflicts remaining.
+    You can also see which line-ending style is in use, what
+    encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether
+    there is a byte-order-mark (BOM) present in UTF-8 files.
+    You can change line-ending style and encoding by double-clicking the corresponding column of that view.
+    A dialog box will be displayed.
+    The left side of the status bar is used to display hints when you
+    hover the mouse over a control.
+  </para>
 </sect1>
