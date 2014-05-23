@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C654C2E8-557C-4C63-A9D1-E52A38D5509E}"
 	ProjectSection(SolutionItems) = preProject
 		..\doc\notes\AutolistDoc.txt = ..\doc\notes\AutolistDoc.txt
@@ -152,6 +154,103 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scintilla", "..\ext\scintilla\Scintilla.vcxproj", "{5877B917-512B-49F5-B514-1B4159E7A9CA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hunspell", "..\ext\hunspell\hunspell.vcxproj", "{53609BB3-D874-465C-AF7B-DF626DB0D89B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{B213CC81-24D8-4D16-AC91-64814AC10356}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\source\en\glossary.xml = ..\doc\source\en\glossary.xml
+		..\doc\source\en\Version.in = ..\doc\source\en\Version.in
+		..\doc\source\en\wishlist.xml = ..\doc\source\en\wishlist.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TortoiseMerge", "TortoiseMerge", "{4C0417C1-2DCD-4A7D-9147-61EFCC8347A3}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\source\en\TortoiseMerge\tme_app_automation.xml = ..\doc\source\en\TortoiseMerge\tme_app_automation.xml
+		..\doc\source\en\TortoiseMerge\tme_app_shortcuts.xml = ..\doc\source\en\TortoiseMerge\tme_app_shortcuts.xml
+		..\doc\source\en\TortoiseMerge\tme_basics.xml = ..\doc\source\en\TortoiseMerge\tme_basics.xml
+		..\doc\source\en\TortoiseMerge\tme_dug.xml = ..\doc\source\en\TortoiseMerge\tme_dug.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_conflicts.xml = ..\doc\source\en\TortoiseMerge\tme_dug_conflicts.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_controls.xml = ..\doc\source\en\TortoiseMerge\tme_dug_controls.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_icons.xml = ..\doc\source\en\TortoiseMerge\tme_dug_icons.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_open.xml = ..\doc\source\en\TortoiseMerge\tme_dug_open.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_settings.xml = ..\doc\source\en\TortoiseMerge\tme_dug_settings.xml
+		..\doc\source\en\TortoiseMerge\tme_dug_views.xml = ..\doc\source\en\TortoiseMerge\tme_dug_views.xml
+		..\doc\source\en\TortoiseMerge\tme_introduction.xml = ..\doc\source\en\TortoiseMerge\tme_introduction.xml
+		..\doc\source\en\TortoiseMerge\tme_preface.xml = ..\doc\source\en\TortoiseMerge\tme_preface.xml
+		..\doc\source\en\TortoiseMerge\tortoisemerge.xml = ..\doc\source\en\TortoiseMerge\tortoisemerge.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TortoiseSVN", "TortoiseSVN", "{5B73D72B-C0BE-461C-B9A5-E15236F2600D}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\source\en\TortoiseSVN\tortoisesvn.xml = ..\doc\source\en\TortoiseSVN\tortoisesvn.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_admins.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_admins.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_automation.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_automation.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_cli.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_cli.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_faq.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_faq.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_howto.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_howto.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_internals.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_internals.xml
+		..\doc\source\en\TortoiseSVN\tsvn_app_lang.xml = ..\doc\source\en\TortoiseSVN\tsvn_app_lang.xml
+		..\doc\source\en\TortoiseSVN\tsvn_basics.xml = ..\doc\source\en\TortoiseSVN\tsvn_basics.xml
+		..\doc\source\en\TortoiseSVN\tsvn_bugtraqprovider.xml = ..\doc\source\en\TortoiseSVN\tsvn_bugtraqprovider.xml
+		..\doc\source\en\TortoiseSVN\tsvn_preface.xml = ..\doc\source\en\TortoiseSVN\tsvn_preface.xml
+		..\doc\source\en\TortoiseSVN\tsvn_quick_start.xml = ..\doc\source\en\TortoiseSVN\tsvn_quick_start.xml
+		..\doc\source\en\TortoiseSVN\tsvn_subwcrev.xml = ..\doc\source\en\TortoiseSVN\tsvn_subwcrev.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tsvn_dug", "tsvn_dug", "{A45EDE46-65C0-40D5-AFDE-91BE226783EC}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_add.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_add.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_blame.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_blame.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_branchtag.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_branchtag.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_bugtracker.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_bugtracker.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_changelist.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_changelist.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_checkout.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_checkout.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_cleanup.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_cleanup.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_commit.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_commit.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_conflicts.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_conflicts.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_copy.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_copy.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_diff.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_diff.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_export.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_export.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_externals.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_externals.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_general.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_general.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_ignore.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_ignore.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_import.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_import.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_locking.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_locking.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_log.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_log.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_merge.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_merge.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_patch.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_patch.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_propertypage.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_propertypage.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_relocate.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_relocate.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_rename.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_rename.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_repobrowser.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_repobrowser.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_repoviewer.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_repoviewer.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_revert.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_revert.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_revgraph.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_revgraph.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_advanced.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_advanced.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_blame.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_blame.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_export.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_export.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_general.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_general.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_hooks.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_hooks.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_logcache.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_logcache.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_network.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_network.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_overlays.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_overlays.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_progs.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_progs.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_revgraph.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_revgraph.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_saved.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_settings_saved.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_update.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_update.xml
+		..\doc\source\en\TortoiseSVN\tsvn_dug\dug_wcstatus.xml = ..\doc\source\en\TortoiseSVN\tsvn_dug\dug_wcstatus.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tsvn_repository", "tsvn_repository", "{751141D4-4B89-4B3C-AE5A-3E57DF23516B}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\source\en\TortoiseSVN\tsvn_repository\checkout_links.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\checkout_links.xml
+		..\doc\source\en\TortoiseSVN\tsvn_repository\repository.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\repository.xml
+		..\doc\source\en\TortoiseSVN\tsvn_repository\repository_backup.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\repository_backup.xml
+		..\doc\source\en\TortoiseSVN\tsvn_repository\repository_create.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\repository_create.xml
+		..\doc\source\en\TortoiseSVN\tsvn_repository\repository_hooks.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\repository_hooks.xml
+		..\doc\source\en\TortoiseSVN\tsvn_repository\server.xml = ..\doc\source\en\TortoiseSVN\tsvn_repository\server.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -406,6 +505,14 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{3E25834A-06B8-4314-9213-6A03159E7AC3} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{5653005F-A9BC-4AE9-9E0A-5D48BD4C90F2} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{87D830D9-98C9-4C40-B177-A3B8AB11A7DA} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{5FA2BD8E-B119-4929-9AAB-705F96C42073} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{DC70FF3C-AB31-4242-9962-9171D9988977} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
+		{90721A98-6CC9-4128-B5AB-86719700F42F} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
+		{92A008DF-7495-4488-865C-51496F5502C3} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
+		{A5CB7831-91C7-4C60-AC79-0CEB64B4742E} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
 		{F845BEA9-90AA-4D71-B8A7-63B4C153F0A7} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{1F29DBDD-7DFF-4178-98F0-9137636788BC} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{4BE529FB-C2F2-49F7-A897-054B955564CF} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
@@ -413,33 +520,29 @@ Global
 		{4424F9D2-12EE-49A7-941E-45767900BEA3} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{6D95829D-AE04-47A7-B66B-DC2F581DDF01} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
+		{ED498504-302E-4CE1-974A-A00CAD156C78} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
+		{56016512-D578-46FD-85E0-9EDCD37433AC} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{8D11C73A-7D0D-4B44-AA3A-CEACD52F786E} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{BC5A5F3B-E41A-4C56-B16F-263D2C6D6475} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{BD0854A3-E300-4E57-8C17-E4771AE1CA01} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
 		{DB98402B-2CF6-4EC6-89F9-D19365EE8DE3} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{E6D5CCE5-A4A9-43D3-88D2-6637365BF319} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{C7E54DB1-C1AA-4154-9667-B443C7E18811} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{2C879469-DB8F-4BF0-B016-AE864D2A7BBC} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
+		{4034F594-DF25-4B3E-92F8-2795C263B483} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
+		{DD9856A3-E398-4367-C817-E4771AE1DECA} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
 		{4FEA9603-17C9-4254-82E2-761D99A3A519} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{B6F1198C-1F83-47D9-887C-045EE749F66E} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{AB494732-EF6D-44D0-BCF8-80FF04858D10} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{5877B917-512B-49F5-B514-1B4159E7A9CA} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{53609BB3-D874-465C-AF7B-DF626DB0D89B} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
-		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
-		{ED498504-302E-4CE1-974A-A00CAD156C78} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
-		{56016512-D578-46FD-85E0-9EDCD37433AC} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
-		{8D11C73A-7D0D-4B44-AA3A-CEACD52F786E} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
-		{3E25834A-06B8-4314-9213-6A03159E7AC3} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
-		{5653005F-A9BC-4AE9-9E0A-5D48BD4C90F2} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
-		{87D830D9-98C9-4C40-B177-A3B8AB11A7DA} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
-		{5FA2BD8E-B119-4929-9AAB-705F96C42073} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
-		{A5CB7831-91C7-4C60-AC79-0CEB64B4742E} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
-		{DC70FF3C-AB31-4242-9962-9171D9988977} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
-		{90721A98-6CC9-4128-B5AB-86719700F42F} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
-		{92A008DF-7495-4488-865C-51496F5502C3} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
-		{BD0854A3-E300-4E57-8C17-E4771AE1CA01} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
-		{F0D5506C-BB6B-43A7-A4EF-D4826F398185} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
-		{4034F594-DF25-4B3E-92F8-2795C263B483} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
-		{DD9856A3-E398-4367-C817-E4771AE1DECA} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
+		{4C0417C1-2DCD-4A7D-9147-61EFCC8347A3} = {B213CC81-24D8-4D16-AC91-64814AC10356}
+		{5B73D72B-C0BE-461C-B9A5-E15236F2600D} = {B213CC81-24D8-4D16-AC91-64814AC10356}
+		{A45EDE46-65C0-40D5-AFDE-91BE226783EC} = {5B73D72B-C0BE-461C-B9A5-E15236F2600D}
+		{751141D4-4B89-4B3C-AE5A-3E57DF23516B} = {5B73D72B-C0BE-461C-B9A5-E15236F2600D}
 	EndGlobalSection
 EndGlobal
