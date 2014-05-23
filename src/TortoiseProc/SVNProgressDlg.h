@@ -27,6 +27,7 @@
 #include "../IBugTraqProvider/IBugTraqProvider_h.h"
 #include "LinkControl.h"
 #include "Hooks.h"
+#include "LogDialog/LogDlgDataModel.h"
 
 class CCmdLineParser;
 
@@ -286,6 +287,7 @@ private:
     void        ResetVars();
     void        MergeAfterCommit();
     void        GenerateMergeLogMessage();
+    bool        IsRevisionRelatedToMerge(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
     void        CompareWithWC(NotificationData * data);
     CTSVNPathList GetPathsForUpdateHook(const CTSVNPathList& pathList);
 

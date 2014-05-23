@@ -47,6 +47,7 @@
 #include "CmdLineParser.h"
 #include "BstrSafeVector.h"
 #include "../../TSVNCache/CacheInterface.h"
+#include "CachedLogInfo.h"
 #include "SmartHandle.h"
 #include "RecycleBinDlg.h"
 #include "BrowseFolder.h"
@@ -4066,7 +4067,10 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
 
     try
     {
-        CLogCacheUtility logUtil(GetLogCachePool()->GetCache(sUUID, sRepositoryRoot), &m_ProjectProperties);
+        CCachedLogInfo* cache = GetLogCachePool()->GetCache(sUUID, sRepositoryRoot);
+        const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
+        CDictionaryBasedTempPath logPath(paths, (const char*)CUnicodeUtils::GetUTF8(relUrl));
+        CLogCacheUtility logUtil(cache, &m_ProjectProperties);
         for (int ranges = 0; ranges < m_mergedRevisions.GetCount(); ++ranges)
         {
             SVNRevRange range = m_mergedRevisions[ranges];
@@ -4116,16 +4120,20 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                     PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
                     if (pLogItem)
                     {
-                        CString sFormattedMsg = sFormatMsg;
-                        CString sMsg = CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
-                        sFormattedMsg.Replace(L"{msg}", sMsg);
-                        sMsg.Replace(L"\r\n", L" ");
-                        sMsg.Replace('\n', ' ');
-                        sFormattedMsg.Replace(L"{msgoneline}", sMsg);
-                        sFormattedMsg.Replace(L"{author}", CUnicodeUtils::StdGetUnicode(pLogItem->GetAuthor()).c_str());
-                        sFormattedMsg.Replace(L"{rev}", SVNRev(pLogItem->GetRevision()).ToString());
-                        sFormattedMsg.Replace(L"{bugids}", CUnicodeUtils::StdGetUnicode(pLogItem->GetBugIDs()).c_str());
-                        sLogMessages += sFormattedMsg;
+                        pLogItem->Finalize(cache, logPath);
+                        if (IsRevisionRelatedToMerge(logPath, pLogItem))
+                        {
+                            CString sFormattedMsg = sFormatMsg;
+                            CString sMsg = CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
+                            sFormattedMsg.Replace(L"{msg}", sMsg);
+                            sMsg.Replace(L"\r\n", L" ");
+                            sMsg.Replace('\n', ' ');
+                            sFormattedMsg.Replace(L"{msgoneline}", sMsg);
+                            sFormattedMsg.Replace(L"{author}", CUnicodeUtils::StdGetUnicode(pLogItem->GetAuthor()).c_str());
+                            sFormattedMsg.Replace(L"{rev}", SVNRev(pLogItem->GetRevision()).ToString());
+                            sFormattedMsg.Replace(L"{bugids}", CUnicodeUtils::StdGetUnicode(pLogItem->GetBugIDs()).c_str());
+                            sLogMessages += sFormattedMsg;
+                        }
                     }
                 }
             }
@@ -4287,5 +4295,16 @@ CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook( const CTSVNPathList& pathL
         }
     }
     return updatedList;
+}
+
+bool CSVNProgressDlg::IsRevisionRelatedToMerge(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem)
+{
+  const auto& changedPathes = pLogItem->GetChangedPaths();
+  for (size_t i = 0; i < changedPathes.GetCount(); ++i)
+  {
+    if (basePath.IsSameOrParentOf(changedPathes[i].GetCachedPath()))
+      return true;
+  }
+  return false;
 }
 
