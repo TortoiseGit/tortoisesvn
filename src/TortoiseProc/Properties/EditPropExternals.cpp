@@ -21,6 +21,7 @@
 #include "EditPropExternals.h"
 #include "EditPropExternalsValue.h"
 #include "SVN.h"
+#include "SVNInfo.h"
 #include "AppUtils.h"
 #include "ProgressDlg.h"
 #include "IconMenu.h"
@@ -313,6 +314,7 @@ void CEditPropExternals::OnBnClickedFindhead()
     DWORD count = 0;
     DWORD total = (DWORD)m_externals.size()*4;
     SVN svn;
+    SVNInfo svnInfo;
     for (auto it = m_externals.begin(); it != m_externals.end(); ++it)
     {
         progDlg.SetProgress(count++, total);
@@ -340,7 +342,11 @@ void CEditPropExternals::OnBnClickedFindhead()
             auto hi = headrevs.find(it->root);
             if (hi == headrevs.end())
             {
-                it->headrev = svn.GetHEADRevision(CTSVNPath(it->fullurl), true);
+                const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(it->fullurl), SVNRev(), SVNRev::REV_HEAD);
+                if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
+                    it->headrev = svn.GetHEADRevision(CTSVNPath(it->fullurl), true);
+                else
+                    it->headrev = pInfo->lastchangedrev;
                 headrevs[it->root] = it->headrev;
             }
             else
@@ -402,6 +408,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         case CMD_FETCH_AND_ADJUST:
             {
                 SVN svn;
+                SVNInfo svnInfo;
                 std::map<CString, svn_revnum_t> headrevs;
                 CProgressDlg progDlg;
                 progDlg.ShowModal(m_hWnd, TRUE);
@@ -429,7 +436,11 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                             auto hi = headrevs.find(m_externals[index].root);
                             if (hi == headrevs.end())
                             {
-                                m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
+                                const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(m_externals[index].fullurl), SVNRev(), SVNRev::REV_HEAD);
+                                if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
+                                    m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
+                                else
+                                    m_externals[index].headrev = pInfo->lastchangedrev;
                                 headrevs[m_externals[index].root] = m_externals[index].headrev;
                             }
                             else
