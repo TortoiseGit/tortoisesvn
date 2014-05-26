@@ -12,6 +12,7 @@
 # Translators:
 # brunzefb <brunzefb@yahoo.com>, 2013
 # brunzefb <brunzefb@yahoo.com>, 2013
+# lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
@@ -26,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-24 08:20+0000\n"
+"PO-Revision-Date: 2014-05-26 07:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -602,7 +603,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN läuft unter Windows Vista oder höher und steht als 32- oder 64-Bit Version zur Verfügung. Das Installationsprogramm für 64-Bit Windows enthält auch die 32-Bit Erweiterungen. Das bedeutet, dass Sie die 32-Bit Version nicht zusätzlich installieren müssen, damit Ihnen in 32-Bit Anwendungen die TortoiseSVN Kontextmenüs und überlagerten Symbole zur Verfügung stehen."
 
 #. (para)
 msgid ""
@@ -610,7 +611,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Windows 98, Windows ME und Windows NT4 werden ab Version 1.2.0 nicht mehr unterstützt. Windows 2000 und XP bis SP2 werden ab Version 1.7.0 nicht mehr unterstützt. Windows XP mit SP3 wird ab Version 1.9.0 nicht mehr unterstützt."
 
 #. (title)
 msgid "Installation"
@@ -1487,7 +1488,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n      "
 
 #. (para)
 msgid ""
@@ -1587,7 +1588,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1606,7 +1607,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1624,7 +1625,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -1652,7 +1653,7 @@ msgstr "Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei wesentlic
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm> working revision </firstterm>), and"
-msgstr ""
+msgstr "Die Revision auf der Ihre Arbeitsdatei basiert (wird als <firstterm>Arbeitsrevision</firstterm> bezeichnet) und"
 
 #. (para)
 msgid ""
@@ -1772,7 +1773,7 @@ msgstr "Projektarchiv anlegen"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN does "
 "not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Bitte beachten Sie, dass der Kommandozeileninterpreter, der mit TortoiseSVN installiert wird, die ältere Berkeley Datenbank (BDB) nicht unterstützt."
 
 #. (para)
 msgid ""
@@ -2012,7 +2013,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2038,7 +2039,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2055,7 +2056,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -5022,7 +5023,7 @@ msgstr "Aus dem Fortschritts-Dialog, nachdem eine Aktualisierung beendet wurde. 
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "Aus dem Projektarchivbetrachter"
 
 #. (para)
 msgid ""
@@ -5081,28 +5082,28 @@ msgid ""
 "<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
 "renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
 " the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMovedIcon.png\"/> in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>verschoben</emphasis> wurde."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
 "replaced a file or directory by moving/renaming it, the <emphasis>move "
 "replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMovedReplacedIcon.png\"/> in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>verschoben bzw. umbenannt</emphasis> wurde."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
 " file or directory, the <emphasis>merged</emphasis> icon is shown in the "
 "fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMergedIcon.png\"/> in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>zusammengeführt</emphasis> wurde."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
 "reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
 "icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReversedMergedIcon.png\"/> in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>rückwärts zusammengeführt</emphasis> wurde."
 
 #. (title)
 msgid "Getting Additional Information"
@@ -10322,15 +10323,15 @@ msgstr "Speichern Sie die Datei unter einem Namen Ihrer Wahl. Patchdateien könn
 
 #. (filename)
 msgid ".txt"
-msgstr ""
+msgstr ".txt"
 
 #. (filename)
 msgid ".patch"
-msgstr ""
+msgstr ".patch"
 
 #. (filename)
 msgid ".diff"
-msgstr ""
+msgstr ".diff"
 
 #. (tip)
 msgid ""
@@ -12275,7 +12276,7 @@ msgid ""
 "Selects your user interface language. Of course, you have to install the "
 "corresponding language pack first to get another UI language than the "
 "default English one."
-msgstr ""
+msgstr "Stellt die Sprache für die Benutzerschnittstelle ein. Damit Ihnen andere Sprachen als Englisch angezeigt werden, müssen Sie zunächst das entsprechende Sprachpaket installieren."
 
 #. (term)
 msgid "Check for updates"
@@ -14292,7 +14293,7 @@ msgstr "Wird aufgerufen vor einem Versuch, das Projektarchiv zu kontaktieren. Be
 #. (para)
 msgid ""
 "There are currently these types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Derzeit stehen folgende Arten von Aktionsskripten zur Verfügung <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15492,7 +15493,7 @@ msgstr "Wird durch den Sperrkommentar ersetzt."
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
 "files or folders in the working copy, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wird durch <placeholder-2/> ersetzt, falls die Arbeitskopie nicht versionierte Objekte enthält oder <placeholder-3/>, falls nicht."
 
 #. (para)
 msgid ""
@@ -17300,11 +17301,11 @@ msgstr "Später vergleichen"
 
 #. (entry)
 msgid "Diff with 'filename'"
-msgstr ""
+msgstr "Vergleiche mit \"Dateiname\""
 
 #. (entry)
 msgid "Unified diff"
-msgstr ""
+msgstr "Standard-Diff"
 
 #. (entry)
 msgid "Settings"
@@ -18302,7 +18303,7 @@ msgstr "Beispiele (die auf einer Zeile eingegeben werden sollten):\n<screen>Tort
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "TortoiseUDiff Befehle"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -18395,7 +18396,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n      "
 
 #. (para)
 #. (para)
@@ -18423,7 +18424,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18457,7 +18458,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18475,7 +18476,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n      "
 
 #. (para)
 #. (para)
@@ -18500,7 +18501,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add PATH...\n      "
 
 #. (para)
 msgid ""
@@ -18517,7 +18518,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n      "
 
 #. (para)
 #. (para)
@@ -18539,7 +18540,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH\n      "
 
 #. (para)
 msgid ""
@@ -18566,7 +18567,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\nor\nsvn log -v -r M:N [--stop-on-copy] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18589,7 +18590,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\nor\nsvn status -u -v PATH\n      "
 
 #. (para)
 msgid ""
@@ -18628,7 +18629,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -18661,7 +18662,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -18669,7 +18670,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename CURR_PATH NEW_PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -18677,7 +18678,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete PATH\n      "
 
 #. (para)
 msgid ""
@@ -18701,7 +18702,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] PATH...\n      "
 
 #. (screen)
 #, no-wrap
@@ -18709,7 +18710,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup PATH\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -18728,7 +18729,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n      "
 
 #. (para)
 msgid ""
@@ -18752,7 +18753,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -18764,7 +18765,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"LogMessage\" URL URL\nor\nsvn copy -m \"LogMessage\" URL@rev URL@rev\nor\nsvn copy -m \"LogMessage\" PATH URL\n      "
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18784,7 +18785,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -18792,7 +18793,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 
 #. (para)
 msgid ""
@@ -18806,7 +18807,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -18820,7 +18821,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n      "
 
 #. (para)
 msgid ""
@@ -18853,7 +18854,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate From_URL To_URL\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -18865,7 +18866,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n      "
 
 #. (para)
 msgid ""
@@ -18879,7 +18880,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LogMessage PATH URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -18888,7 +18889,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n      "
 
 #. (para)
 msgid ""
@@ -18909,7 +18910,7 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn propget svn:ignore PATH &gt; tempfile\n{neuen Ignorieren-Eintrag in tempfile bearbeiten}\nsvn propset svn:ignore -F tempfile PATH\n      "
 
 #. (para)
 msgid ""
@@ -18924,7 +18925,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH &gt; patch-file\n      "
 
 #. (para)
 msgid ""
@@ -19167,7 +19168,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Das Handbuch wurde ebenfalls in viele verschiedene Sprachen übersetzt. Sie können die übersetzten Handbücher von der <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>Supportseite</citetitle></ulink> auf unserer Webseite herunterladen."
 
 #. (title)
 msgid "Spellchecker"
