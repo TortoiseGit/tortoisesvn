@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-19 08:20+0000\n"
+"PO-Revision-Date: 2014-05-24 08:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -587,26 +587,20 @@ msgstr "Yêu cầu hệ thống"
 
 #. (para)
 msgid ""
-"TortoiseSVN runs on Windows XP with service pack 3 or higher and is "
-"available in both 32-bit and 64-bit flavours. The installer for 64-bit "
-"Windows also includes the 32-bit extension parts. Which means you don't need"
-" to install the 32-bit version separately to get the TortoiseSVN context "
-"menu and overlays in 32-bit applications."
-msgstr "TortoiseSVN chạy trên Windows XP với gói dịch vụ 3 hoặc cao hơn và có sẵn trong cả hai 32-bit và 64-bit. Cài đặt cho Windows 64-bit cũng bao gồm các phần mở rộng 32-bit. Điều đó có nghĩa là bạn không cần phải cài đặt phiên bản 32-bit riêng biệt để có được menu ngữ cảnh TortoiseSVN và lớp phủ trong các ứng dụng 32-bit."
-
-#. (para)
-msgid ""
-"If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
-"service pack 3 installed. It won't work if you haven't installed that SP "
-"yet!"
-msgstr "Nếu bạn đang sử dụng Windows XP, bạn <emphasis> phải </emphasis> có ít nhất là cài đặt gói dịch vụ 3. Nó sẽ không làm việc nếu bạn chưa cài đặt SP!"
+"TortoiseSVN runs on Windows Vista or higher and is available in both 32-bit "
+"and 64-bit flavours. The installer for 64-bit Windows also includes the "
+"32-bit extension parts. Which means you don't need to install the 32-bit "
+"version separately to get the TortoiseSVN context menu and overlays in "
+"32-bit applications."
+msgstr ""
 
 #. (para)
 msgid ""
 "Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
-"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
-"can still download and install older versions if you need them."
-msgstr "Hỗ trợ cho Windows 98, Windows ME và Windows NT4 đã bị bỏ trong phiên bản 1.2.0, và Windows 2000 và XP SP2 hỗ trợ đã bị bỏ trong 1.7.0. Bạn vẫn có thể tải về và cài đặt phiên bản cũ nếu bạn cần chúng."
+"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
+"Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
+" and install older versions if you need them."
+msgstr ""
 
 #. (title)
 msgid "Installation"
@@ -1045,13 +1039,13 @@ msgid ""
 "When a client reads data from the repository, it normally sees only the "
 "latest version of the filesystem tree. But the client also has the ability "
 "to view <emphasis>previous</emphasis> states of the filesystem. For example,"
-" a client can ask historical questions like, <quote>what did this directory "
-"contain last Wednesday?</quote>, or <quote>who was the last person to change"
-" this file, and what changes did they make?</quote> These are the sorts of "
-"questions that are at the heart of any <firstterm>version control "
+" a client can ask historical questions like, <quote> what did this directory"
+" contain last Wednesday? </quote>, or <quote> who was the last person to "
+"change this file, and what changes did they make? </quote> These are the "
+"sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr "Khi một khách hàng đọc dữ liệu từ kho lưu trữ, nó thường chỉ nhìn thấy có phiên bản mới nhất của cây hệ thống tập tin. Nhưng khách hàng cũng có khả năng xem <emphasis> trước </emphasis> trạng thái của hệ thống tập tin. Ví dụ, một khách hàng có thể đặt câu hỏi lịch sử như, <quote> thư mục này đã làm những gì chứa thứ Tư tuần trước? </quote> , Hoặc <quote> người cuối cùng để thay đổi tập tin này, và thay đổi những gì họ làm cho? </quote> Đây là loại câu hỏi được ở trung tâm của bất kỳ <firstterm> hệ thống kiểm soát phiên bản </firstterm> : Hệ thống được thiết kế để ghi lại và theo dõi những thay đổi dữ liệu theo thời gian."
+msgstr ""
 
 #. (title)
 msgid "Versioning Models"
@@ -1153,13 +1147,13 @@ msgstr "Giải pháp Sao chép-Sửa đổi-Hợp nhất"
 msgid ""
 "Subversion, CVS, and other version control systems use a <firstterm>copy-"
 "modify-merge</firstterm> model as an alternative to locking. In this model, "
-"each user's client reads the repository and creates a personal "
-"<firstterm>working copy</firstterm> of the file or project. Users then work "
-"in parallel, modifying their private copies. Finally, the private copies are"
-" merged together into a new, final version. The version control system often"
-" assists with the merging, but ultimately a human being is responsible for "
+"each user's client reads the repository and creates a personal <firstterm> "
+"working copy </firstterm> of the file or project. Users then work in "
+"parallel, modifying their private copies. Finally, the private copies are "
+"merged together into a new, final version. The version control system often "
+"assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr "Subversion, CVS, và các hệ thống kiểm soát phiên bản khác sử dụng một mô hình <firstterm> sao chép, sửa đổi, hợp nhất </firstterm> như là một thay thế cho khóa. Trong mô hình này, khách hàng của mỗi người dùng đọc các kho lưu trữ và tạo ra một cá nhân <firstterm> bản sao làm việc </firstterm> của tập tin hoặc dự án. Người dùng sau đó làm việc song song, sửa đổi các bản tin riêng của họ. Cuối cùng, các bản tin được kết hợp lại với nhau thành một phiên bản mới, cuối cùng. Hệ thống kiểm soát phiên bản thường hỗ trợ với sự kết hợp, nhưng cuối cùng một con người có trách nhiệm để làm cho nó xảy ra một cách chính xác."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1285,14 +1279,14 @@ msgid ""
 "A working copy also contains some extra files, created and maintained by "
 "Subversion, to help it carry out these commands. In particular, your working"
 " copy contains a subdirectory named <filename>.svn</filename>, also known as"
-" the working copy <firstterm>administrative directory</firstterm>. The files"
-" in this administrative directory help Subversion recognize which files "
-"contain unpublished changes, and which files are out-of-date with respect to"
-" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
-"administrative subdirectories in every versioned directory of your working "
-"copy. Subversion 1.7 takes a completely different approach and each working "
-"copy now has only one administrative subdirectory which is an immediate "
-"child of the root of that working copy."
+" the working copy <firstterm> administrative directory </firstterm>. The "
+"files in this administrative directory help Subversion recognize which files"
+" contain unpublished changes, and which files are out-of-date with respect "
+"to others' work. Prior to 1.7 Subversion maintained "
+"<filename>.svn</filename> administrative subdirectories in every versioned "
+"directory of your working copy. Subversion 1.7 takes a completely different "
+"approach and each working copy now has only one administrative subdirectory "
+"which is an immediate child of the root of that working copy."
 msgstr ""
 
 #. (para)
@@ -1321,11 +1315,11 @@ msgstr "Nói cách khác, thư mục gốc của kho lưu trữ có hai thư m�
 
 #. (para)
 msgid ""
-"To get a working copy, you must <firstterm>check out</firstterm> some "
+"To get a working copy, you must <firstterm> check out </firstterm> some "
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr "Để có được một bản sao làm việc, bạn phải <firstterm> kiểm tra ra</firstterm> một số cây con của kho. (Thuật ngữ <emphasis> kiểm tra ra </emphasis> có thể nghe như nó có cái gì để làm với khóa hoặc dự trữ tài nguyên, nhưng nó không, nó chỉ đơn giản là tạo ra một bản sao riêng của các dự án cho bạn)."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1334,9 +1328,9 @@ msgid ""
 "and original contents, Subversion can tell that you've changed the file. "
 "However, Subversion does not make your changes public until you explicitly "
 "tell it to. The act of publishing your changes is more commonly known as "
-"<firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) "
+"<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr "Giả sử bạn thay đổi <filename> button.c </filename> . Bởi vì <filename> . Svn </filename> thư mục nhớ lại ngày sửa đổi của tập tin và nội dung ban đầu, Subversion có thể nói rằng bạn đã thay đổi các tập tin. Tuy nhiên, Subversion không thực hiện thay đổi công khai cho đến khi bạn cho phép nó một cách rõ ràng. Các hành vi xuất bản thay đổi của bạn thường được gọi là <firstterm> cam kết </firstterm> (Hoặc <firstterm> kiểm tra vào </firstterm> ) các thay đổi vào kho."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1482,7 +1476,8 @@ msgid ""
 "...\n"
 "file:///X|/path/to/repos\n"
 "...\n"
-msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1556,7 +1551,7 @@ msgstr "Số Sửa Đổi Toàn Cục"
 #. (para)
 msgid ""
 "Unlike those of many other version control systems, Subversion's revision "
-"numbers apply to <emphasis>entire trees</emphasis>, not individual files. "
+"numbers apply to <emphasis> entire trees </emphasis>, not individual files. "
 "Each revision number selects an entire tree, a particular state of the "
 "repository after some committed change. Another way to think about it is "
 "that revision N represents the state of the repository filesystem after the "
@@ -1564,7 +1559,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr "Khác với các hệ thống quản lý phiên bản khác, con số chỉnh sửa của Subversion áp dụng đối với <emphasis>toàn bộ cây</emphasis> , không phải từng tập tin. Mỗi số phiên bản lựa chọn toàn bộ cây, một trạng thái đặc biệt của kho sau khi một số thay đổi được cam kết. Một cách khác để suy nghĩ về nó là sửa đổi N đại diện cho tình trạng của hệ thống tập tin kho lưu trữ sau khi các cam kết thứ N. Khi một người sử dụng Subversion nói về \"sửa đổi 5 của <filename>foo.c</filename> \", họ thật sự muốn nói là \"<filename>foo.c</filename> xuất hiện trong bản chỉnh sửa 5.\" Nói chung, các phiên bản N và M của một tập tin <emphasis>không</emphasis> nhất thiết phải có sự khác biệt!"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1579,9 +1574,10 @@ msgstr "Điều quan trọng cần lưu ý rằng các bản sao làm việc kh�
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:4\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:4\n"
+"integer.c:4\n"
+"button.c:4\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1597,9 +1593,10 @@ msgstr "Tại thời điểm này, thư mục làm việc này tương ứng ch�
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:5\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:5\n"
+"integer.c:4\n"
+"button.c:5\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1614,9 +1611,10 @@ msgstr "Giả sử rằng, vào thời điểm này, Sally cam kết thay đổi
 msgid ""
 "\n"
 "calc/Makefile:6\n"
-"     integer.c:6\n"
-"     button.c:6\n"
-msgstr "\ncalc/Makefile:6\n     integer.c:6\n     button.c:6\n"
+"integer.c:6\n"
+"button.c:6\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1643,8 +1641,8 @@ msgstr "Đối với mỗi tập tin trong một thư mục làm việc, Subvers
 #. (para)
 msgid ""
 "what revision your working file is based on (this is called the file's "
-"<firstterm>working revision</firstterm>), and"
-msgstr "tập tin làm việc của bạn được dựa trên sửa đổi nào (điều này được gọi là <firstterm>bản sửa đổi làm việc</firstterm> của tập tin), và"
+"<firstterm> working revision </firstterm>), and"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1762,6 +1760,12 @@ msgstr "tạo ra kho lưu trữ"
 
 #. (para)
 msgid ""
+"Please note that the command line client that comes with TortoiseSVN does "
+"not support the older Berkeley Database (BDB) format."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can create a repository with the FSFS backend or with the older Berkeley"
 " Database (BDB) format. The FSFS format is generally faster and easier to "
 "administer, and it works on network shares and Windows 98 without problems. "
@@ -1771,7 +1775,7 @@ msgid ""
 ".red-"
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
-"information."
+"information. <important><placeholder-1/></important>"
 msgstr ""
 
 #. (title)
@@ -1800,10 +1804,10 @@ msgstr "Tạo một thư mục khác <filename> MyNewRepository </filename> bên
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type bdb MyNewRepository\n"
-"</screen> or <screen>\n"
+"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
-"</screen>"
-msgstr "Mở dấu nhắc lệnh (hay DOS-Box), thay đổi vào <filename>D:\\SVN\\</filename>và đánh vào<screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> hoặc <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
+"          </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1997,7 +2001,8 @@ msgid ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-msgstr "\n/trunk\n/branches\n/tags\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2022,7 +2027,8 @@ msgid ""
 "/branches/calc\n"
 "/tags/paint\n"
 "/tags/calc\n"
-msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid "...or by project:"
@@ -2038,7 +2044,8 @@ msgid ""
 "/calc/trunk\n"
 "/calc/branches\n"
 "/calc/tags\n"
-msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2122,12 +2129,12 @@ msgid ""
 "C:\\Temp\\New\\trunk\n"
 "C:\\Temp\\New\\branches\n"
 "C:\\Temp\\New\\tags\n"
-"</screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
+"      </screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-"</screen>"
-msgstr "Lưu ý rằng tên của thư mục mà bạn đang nhập khẩu không xuất hiện trong kho lưu trữ, chỉ có nội dung của nó. Ví dụ, tạo cấu trúc thư mục sau đây: <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> Import <filename>C:\\Temp\\New</filename> vào thư mục gốc kho, sau đó sẽ như thế này: <screen>\n/trunk\n/branches\n/tags\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Repository Backup"
@@ -2160,8 +2167,8 @@ msgstr "cách đơn giản nhất (nhưng không được khuyến cáo) là ch�
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Phương pháp được đề nghị là chạy <screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> để tạo ra một bản sao của kho lưu trữ của bạn một cách an toàn. Sau đó, sao lưu các bản sao. Các lựa chọn <literal>--clean-logs</literal> là không cần thiết, nhưng loại bỏ các tập tin tường trình dư thừa khi bạn sao lưu một kho lưu trữ BDB, có thể tiết kiệm một số không gian."
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2220,8 +2227,8 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
-msgstr "Các kịch bản móc mẫu có thể được tìm thấy trong thư mục <filename>hooks</filename> của kho. Những kịch bản mẫu phù hợp cho các máy chủ Unix / Linux, nhưng cần phải được sửa đổi nếu máy chủ của bạn dựa trên Windows. Móc có thể là một tập tin batch hoặc thực thi. Các mẫu dưới đây cho thấy một tập tin thực thi có thể được sử dụng để thực hiện một cái móc pre-revprop-change. <screen>\nrem Chỉ cho phép các tin tường trình để được thay đổi.\nif \"%4\" == \"svn:log\" exit 0\necho Thuộc tính '%4' không thể thay đổi được >&amp;2\nexit 1\n</screen> Lưu ý rằng bất cứ điều gì gửi đến thiết bị xuất chuẩn được bỏ đi. Nếu bạn muốn có một thông báo xuất hiện trong hộp thoại Từ chối Cam kết, bạn phải gửi nó đến thiết bị lỗi chuẩn. Trong một tập tin batch việc này là đạt được bằng cách sử dụng <filename>>&amp;2</filename>."
+"    </screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2534,15 +2541,6 @@ msgid ""
 "file, a folder, a shortcut or for multiple selected items."
 msgstr "Trong một số trường hợp, bạn có thể thấy nhiều mục TortoiseSVN. Đây không phải là lỗi! <placeholder-1/> Ví dụ này là dành cho một shortcut chưa phiên bản trong một thư mục được phiên bản, và trong trình đơn khám phá tập tin có <emphasis>ba</emphasis> mục cho TortoiseSVN. Một là cho các thư mục, một cho chính các shortcut, và thứ ba cho các đối tượng shortcut trỏ đến. Để giúp bạn phân biệt giữa chúng, các biểu tượng có một chỉ báo ở góc dưới bên phải để hiển thị cho biết các mục trình đơn là cho một tập tin, thư mục, shortcut hoặc cho nhiều mục được lựa chọn."
 
-#. (para)
-msgid ""
-"If you are using Windows 2000 you will find that the context menus are shown"
-" as plain text, without the menu icons shown above. We are aware that this "
-"was working in previous versions, but Microsoft has changed the way its icon"
-" handlers work for Vista, requiring us to use a different display method "
-"which unfortunately does not work on Windows 2000."
-msgstr "Nếu bạn đang sử dụng Windows 2000, bạn sẽ thấy rằng trình đơn ngữ cảnh được hiển thị dưới dạng văn bản, mà không có các biểu tượng trình đơn hiển thị ở trên. Chúng tôi nhận thức được rằng nó chạy được trong các phiên bản trước, nhưng Microsoft đã thay đổi cách xử lý biểu tượng cho Vista, đòi hỏi chúng ta sử dụng một phương pháp hiển thị khác nhau mà tiếc là không hoạt động trên Windows 2000."
-
 #. (title)
 #. (title)
 msgid "Drag and Drop"
@@ -2688,8 +2686,8 @@ msgid ""
 "Some people like to have the authentication data deleted when they log off Windows, or on shutdown. The way to do that is to use a shutdown script to delete the <filename>%APPDATA%\\Subversion\\auth</filename> directory, e.g. <screen>\n"
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
-"</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
-msgstr "Một số người muốn có các dữ liệu xác thực đã bị xóa khi đăng xuất khỏi Windows, hoặc tắt máy tính. Cách để làm điều đó là sử dụng một kịch bản tắt máy để xóa các thư mục <filename>%APPDATA%\\Subversion\\auth</filename>, ví dụ như: <screen>\n@echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n</screen> Bạn có thể tìm thấy một mô tả làm thế nào để cài đặt các kịch bản như vậy tại <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+"      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2809,8 +2807,8 @@ msgid ""
 "C:\\Projects\\Widget\\source\n"
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
-"</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr "Trong hộp thoại này, bạn phải nhập vào URL của vị trí kho lưu trữ mà bạn muốn nhập khẩu dự án của bạn. Nó là rất quan trọng để nhận ra rằng các thư mục địa phương mà bạn đang nhập khẩu không tự nó xuất hiện trong kho, mà chỉ có nội dung của nó. Ví dụ nếu bạn có một cấu trúc: <screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> thì bạn có thể ngạc nhiên khi thấy rằng các thư mục con của bạn đi thẳng vào <literal> thân cây </literal> hơn là trong một thư mục con. Bạn cần phải chỉ định thư mục con như là một phần của URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Lưu ý rằng các lệnh nhập khẩu sẽ tự động tạo ra các thư mục con trong kho nếu chúng không tồn tại."
+"      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
+msgstr ""
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -3265,6 +3263,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Hộp thoại cam kết sẽ cho bạn thấy tất cả các tập tin thay đổi, bao gồm cả các tập tin được thêm, xoá và không được phiên bản. Nếu bạn không muốn một tập tin thay đổi được cam kết, chỉ cần bỏ chọn tập tin đó. Nếu bạn muốn để bao gồm một tập tin không được phiên bản, chỉ cần kiểm tra tập tin để thêm vào cam kết."
+
+#. (para)
+msgid ""
+"To quickly check or uncheck types of files like all versioned files or all "
+"modified files, click the link items just above the list of shown items."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3946,12 +3950,12 @@ msgstr "Đây là tập tin mà máy khách Subversion của bạn chỉ nhận 
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"    your changes\n"
+"your changes\n"
 "=======\n"
-"    code merged from repository\n"
+"code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr "Sự xung đột giữa các tập tin xảy ra khi hai hoặc nhiều nhà phát triển đã thay đổi một vài dòng cùng của một tập tin. Do Subversion không biết gì về dự án của bạn, nó để việc giải quyết những cuộc xung đột cho các nhà phát triển. Khu vực xung đột trong một tập tin văn bản được đánh dấu như thế này: <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n    các thay đổi của bạn\n=======\n    mã sáp nhập từ kho\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n</screen> Ngoài ra, đối với mỗi tập tin mâu thuẫn Subversion đặt thêm ba tập tin trong thư mục của bạn: <placeholder-1/>"
+"      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4308,12 +4312,6 @@ msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
 msgstr "Nhà phát triển B làm việc trên một chi nhánh thay đổi <filename> Foo.c </filename> và cam kết nó vào kho lưu trữ."
-
-#. (para)
-msgid ""
-"There is an equivalent case for folder moves, but it is not yet detected in "
-"Subversion 1.6 ..."
-msgstr "Có một trường hợp tương đương với di chuyển thư mục, nhưng nó chưa được phát hiện trong Subversion 1.6 ..."
 
 #. (para)
 msgid ""
@@ -4903,14 +4901,6 @@ msgstr "<placeholder-1/> Trong hộp thoại cam kết, bạn có thể nhìn th
 
 #. (para)
 msgid ""
-"On XP, there is a context menu when you right click on a group heading which"
-" gives you the choice to check or uncheck all group entries. On Vista "
-"however the context menu is not necessary. Click on the group header to "
-"select all entries, then check one of the selected entries to check all."
-msgstr "Trên XP, có một trình đơn ngữ cảnh khi bạn nhấp chuột phải vào một nhóm trong đó cung cấp cho bạn sự lựa chọn để chọn hoặc bỏ chọn tất cả các mục của nhóm. Trên Vista tuy nhiên trình đơn ngữ cảnh là không cần thiết. Click vào tiêu đề nhóm để chọn tất cả các mục, sau đó chọn một trong các mục được lựa chọn để chọn tất cả."
-
-#. (para)
-msgid ""
 "TortoiseSVN reserves one changelist name for its own use, namely <literal"
 ">ignore-on-commit</literal>. This is used to mark versioned files which you "
 "almost never want to commit even though they have local changes. This "
@@ -4932,6 +4922,13 @@ msgid ""
 "changelists will not affect the repository, nor anyone else's working copy. "
 "They are simply a convenient way for you to organise your files."
 msgstr "Danh sách thay đổi hoàn toàn là một tính năng ở máy khách địa phương. Tạo ra và loại bỏ danh sách thay đổi sẽ không ảnh hưởng đến kho lưu trữ, cũng không ảnh hưởng bất cứ bản sao làm việc của ai khác. Chúng chỉ đơn giản là một cách thuận tiện để bạn có thể tổ chức các tập tin của bạn."
+
+#. (para)
+msgid ""
+"Note that if you use changelists, externals will no longer show up in their "
+"own groups anymore. Once there are changelists, files and folders are "
+"grouped by changelist, not by external anymore."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -5014,6 +5011,10 @@ msgid ""
 msgstr "Từ hộp thoại tiến độ sau khi một bản cập nhật đã hoàn tất. Sau đó hộp thoại Tường Trình chỉ thể hiện các phiên bản đã được thay đổi kể từ khi cập nhật cuối cùng của bạn"
 
 #. (para)
+msgid "From the repository browser"
+msgstr ""
+
+#. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
@@ -5064,6 +5065,34 @@ msgid ""
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
 msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Nếu một phiên bản thay thế một tập tin hoặc thư mục, <emphasis> biểu tượng thay thế </emphasis> được hiển thị trong cột thứ tư."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
+"renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
+" the fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
+"replaced a file or directory by moving/renaming it, the <emphasis>move "
+"replaced</emphasis> icon is shown in the fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
+" file or directory, the <emphasis>merged</emphasis> icon is shown in the "
+"fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
+"reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
+"icon is shown in the fourth column."
+msgstr ""
 
 #. (title)
 msgid "Getting Additional Information"
@@ -5914,22 +5943,22 @@ msgstr "Nhấp chuột vào biểu tượng tìm kiếm để chọn thông tin 
 msgid ""
 "Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use a leading <literal>+</literal> to specify that a sub-string should be included, even if previously excluded with a <literal>-</literal>. Note that the order of inclusion/exclusion is significant here. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
-"</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"      </screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
 "Alice -Bob +Eve\n"
-"</screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
+"      </screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
 "-Case +SpecialCase\n"
-"</screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
+"      </screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
 "!Alice Bob\n"
-"</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
+"      </screen> searches for strings which do not contain both Alice and Bob <screen>\n"
 "!-Alice -Bob\n"
-"</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
+"      </screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
 "\"Alice and Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
+"      </screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
 "\"\"\n"
-"</screen> searches for a double-quote anywhere in the text <screen>\n"
+"      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr "Tìm kiếm chuỗi con đơn giản làm việc trong một cách tương tự như một công cụ tìm kiếm. Các chuỗi để tìm kiếm được phân cách bởi các khoảng trống, và tất cả các chuỗi phải khớp. Bạn có thể sử dụng một dấu <literal> - </literal> ở đầu để xác định một chuỗi con xác đinh mà không tìm thấy (đảo ngược khớp cho thuật ngữ đó), và bạn có thể sử dụng <literal>!</literal> vào đầu biểu thức để đảo ngược khớp cho toàn bộ biểu thức. Bạn có thể sử dụng một dấu <literal>+</literal> ở đầu để xác định một chuỗi con mà nên được bao gồm, ngay cả khi loại trừ với một dấu <literal>-</literal>. Lưu ý rằng thứ tự bao gồm / loại trừ có ý nghĩa quan trọng ở đây. Bạn có thể sử dụng dấu trích dẫn nội dung bài viết để bao quanh một chuỗi có chứa khoảng trống, và nếu bạn muốn tìm kiếm một dấu ngoặc kép, bạn có thể sử dụng hai dấu ngoặc kép với nhau như là một chuỗi tự-thoát. Lưu ý rằng các dấu gạch chéo ngược <emphasis> không </emphasis> được sử dụng như là một ký tự thoát và không có ý nghĩa đặc biệt trong tìm kiếm chuỗi con đơn giản. Các ví dụ này sẽ làm cho việc này dễ dàng hơn: <screen>\nAlice Bob -Eve\n</screen> tìm các chuỗi chứa cả hai Alice và Bob nhưng không chứa Eve <screen>\nAlice -Bob +Eve\n</screen> tìm các chuỗi chứa cả hai Alice nhưng không chứa Bob, hoặc các chuỗi chứa Eve. <screen>\n-Case +SpecialCase\n</screen> tìm các chuỗi không chứa Case, nhưng vẫn bao gồm các chuỗi chứa SpecialCase. <screen>\n!Alice Bob\n</screen> tìm các chuỗi không chứa cả hai Alice và Bob <screen>\n!-Alice -Bob\n</screen> bạn có nhớ định lý De Morgan's? NOT(NOT Alice AND NOT Bob) lược giản thành (Alice OR Bob). <screen>\n\"Alice and Bob\"\n</screen> tìm các biểu thức thực <quote>Alice and Bob</quote><screen>\n\"\"\n</screen> tìm dấu ngoặc kép bất cứ đâu trong văn bản <screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> tìm biểu thức thực <quote>Alice says \"hi\" to Bob</quote>."
+"      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -6816,11 +6845,11 @@ msgstr "thẻ"
 msgid ""
 "It often happens that you already have the files you need in another project"
 " in your repository, and you simply want to copy them across. You could "
-"simply copy the files and add them as described above, but that would not "
-"give you any history. And if you subsequently fix a bug in the original "
-"files, you can only merge the fix automatically if the new copy is related "
-"to the original in Subversion."
-msgstr "Thường hay xảy ra rằng bạn đã có các tập tin bạn cần trong một dự án khác trong kho của bạn, và bạn chỉ đơn giản là muốn sao chép chúng qua. Thật đơn giản, bạn chỉ cần có thể sao chép các tập tin và thêm chúng như mô tả ở trên, nhưng điều đó sẽ không cung cấp cho bạn bất kỳ lịch sử nào. Và nếu bạn sau đó sửa chữa một lỗi trong các tập tin ban đầu, bạn chỉ có thể kết hợp sửa chữa tự động nếu các bản sao mới có liên quan với bản gốc trong Subversion."
+"simply copy the files and add them, but that would not give you any history."
+" And if you subsequently fix a bug in the original files, you can only merge"
+" the fix automatically if the new copy is related to the original in "
+"Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7804,6 +7833,13 @@ msgstr "Một phương pháp thay thế là để thiết lập thuộc tính <l
 
 #. (para)
 msgid ""
+"As of Subversion 1.8, you can also set the property <literal>svn:auto-"
+"props</literal> on the root folder. The property value is automatically "
+"inherited by all child items."
+msgstr ""
+
+#. (para)
+msgid ""
 "Whichever method you choose, you should note that auto-props are only "
 "applied to files at the time they are added to the working copy. Auto-props "
 "will never change the properties of files which are already versioned."
@@ -7963,6 +7999,14 @@ msgid ""
 "<literal>tsvn:autoprops</literal>, the project settings take precedence "
 "because they are specific to that project."
 msgstr "Nếu có một cuộc xung đột giữa các autoprops địa phương và <literal> tsvn:autoprops </literal> , các thiết lập của dự án sẽ được ưu tiên vì chúng là cụ thể cho dự án đó."
+
+#. (para)
+msgid ""
+"As of Subversion 1.8, you should use the property <literal>svn:auto-"
+"props</literal> instead of <literal>tsvn:autoprops</literal> since this has "
+"the very same functionality but works with all svn clients and is not "
+"specific to TortoiseSVN."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8231,8 +8275,8 @@ msgid ""
 "my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
-"</screen>"
-msgstr "Bạn có thể chỉ ra việc một hộp thoại tùy chỉnh được dùng để thêm/biên tập thuộc tính của bạn hay không. TortoiseSVN cung cấp bốn hộp thoại, tùy thuộc vào kiều thuộc tính của bạn. <placeholder-1/> Các ảnh chụp màn hình phía trên được làm với những thứ sau <literal>tsvn:userdirproperties</literal>: <screen>\nmy:boolprop=bool;Đây là kiểu thuộc tính kiểu bool. Đánh dấu không không đánh dấu nó.(true;false;thuộc tính bool của tôi)\nmy:stateprop1=state;Đây là thuộc tính trạng thái. Chọn một trong hai trạng thái.(true;true;true value;false;false value)\nmy:stateprop2=state;Đây là thuộc tính trạng thái. Chọn một trong ba trạng thái.(maybe;true;câu trả lời là đúng;false;câu trả lời là sai;có lẽ;không trả lời)\nmy:stateprop3=state;Chỉ ra ngày để đặt thuộc tính này.(1;1;Thứ hai;2;Thứ ba;3;Thứ tư;4;Thứ năm;5;Thứ sáu;6;Thứ bảy;7;Chủ nhật)\nmy:singlelineprop=singleline;nhập vào một bình luận nhỏ(.*)\nmy:multilineprop=multiline;sao chép và dán một chương đầy đủ ở đây(.*)\n</screen>"
+"            </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8732,8 +8776,8 @@ msgstr "Tương đối so với thư mục mẹ"
 msgid ""
 "These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
 "../../widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr "Các URL luôn luôn bắt đầu với chuỗi <literal>../</literal> ví dụ: <screen>\n../../widgets/foo  common/foo-widget\n</screen> Điều này sẽ trích xuất <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> vào <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8750,15 +8794,15 @@ msgstr "Tương đối so với gốc kho"
 msgid ""
 "These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
 "^/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr "Các URL này luôn luôn bắt đầu với chuỗi <literal>^/</literal> ví dụ: <screen>\n^/widgets/foo  common/foo-widget\n</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> v <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr "Bạn có thể dễ dàng tham khảo các kho khác với cùng một <literal>SVNParentPath</literal> (Một thư mục thông thường chứa nhiều kho). Ví dụ: <screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> vào <filename>C:\\Working\\common\\claw-hammer</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr ""
 
 #. (term)
 msgid "Relative to scheme"
@@ -8768,8 +8812,8 @@ msgstr "Tương đối với giản đ"
 msgid ""
 "URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr "Các URL bắt đầu với chuỗi <literal>//</literal> chỉ sao chép phần giản đồ của URL. Điều này rất hữu ích khi cùng một tên máy phải truy cập với các giản dồ khác nhau tùy thuộc vào vị trí mạng; ví dụ như máy khách trong mạng nội bộ sử dụng <systemitem class=\"url\">http://</systemitem> trong khi các máy khách bên ngoài sử dụng <systemitem class=\"url\">svn+ssh://</systemitem>. Ví dụ: <screen>\n//example.com/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> hoặc <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> tùy thuộc vào phương pháp được sử dụng để kiểm xuất <filename>C:\\Working</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+msgstr ""
 
 #. (term)
 msgid "Relative to the server's hostname"
@@ -8779,8 +8823,8 @@ msgstr "Tương đối so với tên chủ của máy chủ"
 msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr "Các URL bắt đầu với chuỗi <literal>/</literal> sao chép giản dồ và một phần tên chủ của URL, ví dụ: <screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> vào <filename>C:\\Working\\common\\foo-widget</filename>. Nhưng nếu bạn kiểm xuất bản sao của bạn làm việc từ một máy chủ khác tại <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> thì các tham chiếu bên ngoài sẽ trích xuất <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8815,12 +8859,9 @@ msgstr "Kể từ Subversion 1.6, bạn có thể thêm các thành phần bên 
 
 #. (para)
 msgid ""
-"The path to the file external must place the file in an existing versioned "
-"folder. In general it makes most sense to place the file directly in the "
-"folder that has <literal>svn:externals</literal> set, but it can be in a "
-"versioned sub-folder if necessary. By contrast, directory externals will "
-"automatically create any intermediate unversioned folders as required."
-msgstr "Đường dẫn đến tập tin bên ngoài phải đặt các tập tin trong một thư mục được phiên bản đang tồn tại. Nói chung, nó có ý nghĩa nhất để đặt các tập tin trực tiếp trong thư mục có <literal> svn:externals </literal> được thiết lập, nhưng nó có thể được ở trong một thư mục con được phiên bản nếu cần thiết. Ngược lại, thư mục bên ngoài sẽ tự động tạo ra bất kỳ thư mục trung gian không phiên bản theo yêu cầu."
+"The path to the file external must be a direct child of the folder where you"
+" set the <literal>svn:externals</literal> property."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8920,11 +8961,11 @@ msgstr "Nếu bạn đã nhập khẩu dự án của bạn với cấu trúc th
 #. (para)
 msgid ""
 "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/trunk\n"
-"</screen> you might now use something like <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
-msgstr "URL đích mặc định cho chi nhánh mới sẽ là URL nguồn mà trên đó bản sao làm việc của bạn được dựa trên. Bạn sẽ cần phải chỉnh sửa URL đến đường dẫn mới cho chi nhánh / thẻ của bạn. Vì thế thay vì <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> bây giờ bạn có thể sử dụng một cái gì đó như <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> Nếu bạn không thể nhớ quy ước đặt tên bạn sử dụng lần cuối, nhấn vào nút bên phải để mở trình duyệt kho lưu trữ để bạn có thể xem cấu trúc kho lưu trữ hiện có."
+"http://svn.collab.net/repos/ProjectName/trunk\n"
+"      </screen> you might now use something like <screen>\n"
+"http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
+msgstr ""
 
 #. (title)
 msgid "intermediate folders"
@@ -9256,10 +9297,10 @@ msgstr "Phương pháp này bao gồm các trường hợp khi bạn đã thực
 
 #. (para)
 msgid ""
-"What you are asking Subversion to do is this: <quote>Calculate the changes "
+"What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
-"and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr "Những gì bạn đang yêu cầu Subversion làm là: <quote> Tính toán những thay đổi cần thiết để có được [TỪ] phiên bản 1 của chi nhánh A [SANG] sửa đổi 7 chi nhánh A, và áp dụng những thay đổi để sao chép các thay đổi đó sang bản làm việc của tôi (của thân cây hoặc chi nhánh B). </quote>"
+"and apply those changes to my working copy (of trunk or branch B). </quote>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9275,11 +9316,11 @@ msgstr "Hợp nhất hai cây khác nhau"
 #. (para)
 msgid ""
 "This is a more general case of the reintegrate method. What you are asking "
-"Subversion to do is: <quote>Calculate the changes necessary to get [FROM] "
+"Subversion to do is: <quote> Calculate the changes necessary to get [FROM] "
 "the head revision of the trunk [TO] the head revision of the branch, and "
-"apply those changes to my working copy (of the trunk).</quote> The net "
+"apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
-msgstr "Đây là trường hợp tổng quát hơn của phương pháp tái tích hợp. Những gì bạn đang yêu cầu Subversion làm là: <quote> Tính toán những thay đổi cần thiết để có được [TỪ] bản sửa chính của thân cây [ĐẾN] bản sửa đổi chính của chi nhánh, và áp dụng những thay đổi đó tới bản sao làm việc của tôi (của thân cây). </quote> Kết quả là thân cây giờ đây trông giống hệt như chi nhánh."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9588,13 +9629,13 @@ msgid ""
 "The merge progress dialog shows each stage of the merge, with the revision "
 "ranges involved. This may indicate one more revision than you were "
 "expecting. For example if you asked to merge revision 123 the progress "
-"dialog will report <quote>Merging revisions 122 through 123</quote>. To "
+"dialog will report <quote> Merging revisions 122 through 123 </quote>. To "
 "understand this you need to remember that Merge is closely related to Diff. "
 "The merge process works by generating a list of differences between two "
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr "Hộp thoại tiến triển hợp nhất cho thấy mỗi giai đoạn của hợp nhất, với phạm vi sửa đổi có liên quan. Điều này có thể chỉ ra một hay nhiều sửa đổi hơn bạn mong đợi. Ví dụ, nếu bạn yêu cầu kết hợp sửa đổi 123 hộp thoại tiến triển sẽ báo cáo <quote> Đang hợp nhất các bản sửa đổi 122 tới 123 </quote> . Để hiểu được điều này, bạn cần phải nhớ rằng Hợp Nhất liên quan chặt chẽ với Khác Biệt. Quá trình hợp nhất hoạt động bằng cách tạo ra một danh sách các sự khác biệt giữa hai điểm trong kho, và áp dụng những sự khác biệt vào bản sao làm việc của bạn. Hộp thoại tiến triển chỉ đơn giản là hiển thị các điểm bắt đầu và kết thúc cho các khác bi."
+msgstr ""
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -9753,15 +9794,6 @@ msgstr "Hợp nhất không phải luôn luôn diễn ra suôn sẻ. Đôi khi c
 
 #. (para)
 msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible. You have to choose one complete file. Use <emphasis>Prefer "
-"local</emphasis> to select the local version as it was in your working copy "
-"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
-"incoming file from the merge source in the repository."
-msgstr "Nếu hợp nhất của bạn bao gồm các tập tin nhị phân, kết hợp các cuộc xung đột đó là không thể. Bạn phải lựa chọn một tập tin hoàn chỉnh. Sử dụng <emphasis> Ưu tiên địa phương </emphasis> để chọn phiên bản địa phương như trong bản sao làm việc của bạn trước khi hợp nhất, hoặc <emphasis> Ưu tiên kho </emphasis> để chọn các tập tin đến từ các nguồn hợp nhất trong kho."
-
-#. (para)
-msgid ""
 "If you are merging text files then these first two buttons allow you to "
 "merge non-conflicting lines as normal and always prefer one version where "
 "there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
@@ -9773,6 +9805,16 @@ msgid ""
 "but the conflicts often cover more lines than you think they will and you "
 "may get unexpected results."
 msgstr "Nếu bạn là sáp nhập các tập tin văn bản thì hai nút đầu tiên này cho phép bạn hợp nhất các dòng không mâu thuẫn như bình thường và luôn luôn ưu tiên một phiên bản nơi có xung đột. Chọn <emphasis> Ưu tiên địa phương </emphasis> sẽ lựa chọn phiên bản địa phương của bạn trong mọi xung đột, tức là nó sẽ ưu tiên những gì đã có trước khi hợp nhất so với thay đổi đến từ các nguồn hợp nhất. Tương tự, <emphasis> Ưu tiên kho </emphasis> sẽ lựa chọn những thay đổi kho lưu trữ trong mọi xung đột, tức là nó sẽ ưu tiên những thay đổi đến từ nguồn kết hợp sơ với những gì đã có trong bản sao làm việc của bạn. Điều này nghe có vẻ dễ dàng, nhưng những xung đột thường trải trên nhiều dòng hơn bạn nghĩ và bạn có thể nhận được kết quả bất ngờ."
+
+#. (para)
+msgid ""
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible in a line-by-line mode. A conflict in a binary file always refers "
+"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
+"local version as it was in your working copy prior to the merge, or "
+"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
+"merge source in the repository."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10268,6 +10310,28 @@ msgid ""
 " now ready to submit your patch file."
 msgstr "Chỉ cần lưu tập tin bằng cách sử dụng một tên tập tin do bạn lựa chọn. Các tập tin vá lỗi có thể có bất kỳ phần mở rộng mà bạn thích, nhưng theo quy ước, họ nên sử dụng phần mở rộng <filename> .patch </filename> hoặc <filename> .diff </filename>. Bây giờ bạn đã sẵn sàng để n tập tin bản vá của bạn."
 
+#. (filename)
+msgid ".txt"
+msgstr ""
+
+#. (filename)
+msgid ".patch"
+msgstr ""
+
+#. (filename)
+msgid ".diff"
+msgstr ""
+
+#. (tip)
+msgid ""
+"Do not save the patch file with a <placeholder-1/> extension if you intend "
+"to send it via email to someone else. Plain text files are often mangled "
+"with by the email software and it often happens that whitespaces and newline"
+" chars are automatically converted and compressed. If that happens, the "
+"patch won't apply smoothly. So use <placeholder-2/> or <placeholder-3/> as "
+"the extension when you save the patch file."
+msgstr ""
+
 #. (para)
 msgid ""
 "You can also save the patch to the clipboard instead of to a file. You might"
@@ -10436,11 +10500,9 @@ msgstr "Bạn có thể bao gồm thông tin hợp nhất nếu bạn muốn, m�
 #. (para)
 msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
-"data to create the blame file. Please note: This can take several minutes to"
-" finish, depending on how much the file has changed and of course your "
-"network connection to the repository. Once the blame process has finished "
-"the result is written into a temporary file and you can view the results."
-msgstr "Một khi bạn nhấn <guibutton> OK </guibutton> TortoiseSVN bắt đầu lấy các dữ liệu để tạo ra các tập tin đổ lỗi. Xin lưu ý: Điều này có thể mất vài phút để kết thúc, tùy thuộc vào bao nhiêu tập tin đã thay đổi và tất nhiên vào kết nối mạng của bạn đến kho lưu trữ. Một khi quá trình đổ lỗi đã hoàn tất thì kết quả sẽ được viết vào một tập tin tạm thời và bạn có thể xem các kết quả."
+"data to create the blame file. Once the blame process has finished the "
+"result is written into a temporary file and you can view the results."
+msgstr ""
 
 #. (title)
 msgid "TortoiseBlame"
@@ -11990,6 +12052,15 @@ msgid ""
 "<filename>trunk/</filename>)."
 msgstr "Những thuộc tính này phải được thiết lập trên các thư mục hệ thống để làm việc. Khi bạn cam kết một tập tin hoặc thư mục các thuộc tính được đọc từ các thư mục đó. Nếu các thuộc tính không được tìm thấy ở đó, TortoiseSVN sẽ tìm kiếm trở lên thông qua cây thư mục để tìm thấy chúng cho đến khi nó đến một thư mục chưa phiên bản, hoặc gốc cây (ví dụ: <literal> C:\\ </literal> ) được tìm thấy. Nếu bạn có thể chắc chắn rằng mỗi người dùng chỉ kiểm xuất từ ví dụ như <filename> trunk/ </filename> và không phải là một thư mục con, thì nó là đủ nếu bạn thiết lập các thuộc tính trên <filename> trunk/ </filename> . Nếu bạn không thể chắc chắn, bạn nên thiết lập các thuộc tính một cách đệ quy trên mỗi thư mục con. Một thuộc tính thiết lập sâu hơn trong hệ thống phân cấp dự án sẽ ghi đè các thiết lập trên các mức độ cao hơn (gần với <filename> trunk/ </filename> )."
 
+#. (para)
+msgid ""
+"As of version 1.8, TortoiseSVN and Subversion use so called "
+"<literal>inherited properties</literal>, which means a property that is set "
+"on a folder is automatically also implicitly set on all subfolders. So "
+"there's no need to set the properties on all folders anymore but only on the"
+" root folder."
+msgstr ""
+
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "Không có Thông Tin về Bộ Theo Dõi Vấn Đề từ Trình Duyệt Kho"
@@ -12190,8 +12261,11 @@ msgid "Language"
 msgstr "Ngôn ngữ"
 
 #. (para)
-msgid "Selects your user interface language. What else did you expect?"
-msgstr "Chọn ngôn ngữ giao diện người dùng của bạn. Bạn còn mong đợi cái gì khác?"
+msgid ""
+"Selects your user interface language. Of course, you have to install the "
+"corresponding language pack first to get another UI language than the "
+"default English one."
+msgstr ""
 
 #. (term)
 msgid "Check for updates"
@@ -12379,13 +12453,13 @@ msgid ""
 "Most of the time, you won't need the TortoiseSVN context menu, apart for "
 "folders that are under version control by Subversion. For non- versioned "
 "folders, you only really need the context menu when you want to do a "
-"checkout. If you check the option <literal>Hide menus for unversioned "
-"paths</literal>, TortoiseSVN will not add its entries to the context menu "
-"for unversioned folders. But the entries are added for all items and paths "
-"in a versioned folder. And you can get the entries back for unversioned "
-"folders by holding the <keycap>Shift</keycap> key down while showing the "
-"context menu."
-msgstr "Hầu hết thời gian, bạn sẽ không cần trình đơn ngữ cảnh TortoiseSVN, ngoài các thư mục đang được kiểm soát phiên bản bằng Subversion. Đối với các thư mục không phải là phiên bản, bạn chỉ thực sự cần trình đơn ngữ cảnh khi bạn muốn làm một kiểm xuất. Nếu bạn kiểm tra tùy chọn <literal> Giấu trình đơn cho các đường dẫn không phiên bản</literal> TortoiseSVN sẽ không thêm các lựa chọn trình đơn ngữ cảnh cho các thư mục không phiên bản. Tuy nhiên, các lựa chọn được thêm vào cho tất cả các mục và đường dẫn trong một thư mục có phiên bản. Và bạn có thể nhận được các mục cho các thư mục không phiên bản bằng cách giữ phím <keycap> Shift</keycap> trong khi hiển thị trình đ ngữ cảnh."
+"checkout. If you check the option <literal> Hide menus for unversioned paths"
+" </literal>, TortoiseSVN will not add its entries to the context menu for "
+"unversioned folders. But the entries are added for all items and paths in a "
+"versioned folder. And you can get the entries back for unversioned folders "
+"by holding the <keycap>Shift</keycap> key down while showing the context "
+"menu."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13220,15 +13294,15 @@ msgstr "Người dùng đôi khi hỏi làm thế nào 3 thiết lập tương t
 msgid ""
 "An example will help here: <screen>\n"
 "Exclude:\n"
-"       C:\n"
-"       C:\\develop\\?\n"
-"       C:\\develop\\tsvn\\obj\n"
-"       C:\\develop\\tsvn\\bin\n"
+"C:\n"
+"C:\\develop\\?\n"
+"C:\\develop\\tsvn\\obj\n"
+"C:\\develop\\tsvn\\bin\n"
 "\n"
 "Include:\n"
-"       C:\\develop\n"
-"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr "Một ví dụ sẽ giúp ở đây: <screen>\nLoại trừ:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\nBao gồm:\n       C:\\develop\n</screen> Các thiết lập này vô hiệu hóa các lớp phủ biểu tượng cho ổ đĩa C:, trừ <literal>c:\\develop</literal>. Tất cả các dự án bên dưới thư mục đó sẽ hiển thị các lớp phủ, ngoại trừ  bản thân thư mục <literal>c:\\develop</literal>, mà đặc biệt được bỏ qua. Các thư mục nhị phân khuấy đảo cao cũng bị loại trừ."
+"C:\\develop\n"
+"    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13249,8 +13323,8 @@ msgstr "ổ đĩa SUBST"
 msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
-"</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr "Nó thường được thuận tiện để sử dụng một ổ đĩa <literal> SUBST </literal> để truy cập các bản sao làm việc của bạn, ví dụ như bằng cách sử dụng lệnh <screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen> Tuy nhiên điều này có thể gây ra các lớp phủ không cập nhật được, <literal> TSVNCache </literal> sẽ chỉ nhận được một thông báo khi một thay đổi tập tin, và đó là bình thường cho đường dẫn nguyên thủy. Điều này có nghĩa là lớp phủ của bạn trên đường dẫn <literal> subst </literal> không bao giờ có thể được cập nhật."
+"      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13355,8 +13429,8 @@ msgstr "Bạn cũng có thể chỉ định chương trình nào mà TortoiseSVN
 msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
-"</screen>"
-msgstr "Bạn phải chỉ định đường dẫn đầy đủ tới tập tin thực thi. Đối với TortoisePlink.exe đây là thư mục TortoiseSVN bin tiêu chuẩn. Sử dụng nút <guibutton> Duyệt </guibutton> để giúp xác định vị trí nó. Lưu ý nếu đường dẫn có khoảng trắng, bạn phải đặt nó bên trong dấu ngoặc kép, ví dụ <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
+"    </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13389,9 +13463,9 @@ msgid ""
 "Finally, setting up SSH on server and clients is a non-trivial process which"
 " is beyond the scope of this help file. However, you can find a guide in the"
 " TortoiseSVN FAQ listed under <ulink "
-"url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
-"SSH How-To</citetitle></ulink>."
-msgstr "Cuối cùng, thiết lập SSH trên máy chủ và khách là một quá trình không tầm thường đó là vượt ra ngoài phạm vi của tập tin trợ giúp này. Tuy nhiên, bạn có thể tìm thấy một hướng dẫn trong FAQ của TortoiseSVN được liệt kê dưới <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle> Subversion / TortoiseSVN SSH Làm thế nào </citetitle></ulink> ."
+"url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
+" SSH How-To</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "External Program Settings"
@@ -13517,20 +13591,20 @@ msgstr "Các tiêu đề cửa sổ không phải là tên tập tin thuần tú
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
-"    --right_display_name:%yname\n"
-"</screen> or with KDiff3: <screen>\n"
+"                                    --right_display_name:%yname\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> or with WinMerge: <screen>\n"
+"      </screen> or with WinMerge: <screen>\n"
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> or with Araxis: <screen>\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"    %base %mine\n"
-"</screen> or with UltraCompare: <screen>\n"
+"                       %base %mine\n"
+"      </screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
-"</screen>"
-msgstr "Ví dụ, với ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n    --right_display_name:%yname\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> or with WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n    %base %mine\n</screen> or with UltraCompare: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n</screen> or with DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13637,19 +13711,19 @@ msgstr "Một chương trình hợp nhất bên ngoài được sử dụng đ�
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> or with KDiff3: <screen>\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"    --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> or with Araxis: <screen>\n"
+"                      --L1 %bname --L2 %yname --L3 %tname\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"    /title3:%yname %theirs %base %mine %merged /a2\n"
-"</screen> or with WinMerge (2.8 or later): <screen>\n"
+"                       /title3:%yname %theirs %base %mine %merged /a2\n"
+"      </screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
-"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
-"</screen>"
-msgstr "Ví dụ, với Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n    --L1 %bname --L2 %yname --L3 %tname\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n    /title3:%yname %theirs %base %mine %merged /a2\n</screen> or with WinMerge (2.8 or later): <screen>\nC:\\Path-To\\WinMerge.exe %merged\n</screen> or with DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
+"      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -14207,8 +14281,8 @@ msgstr "Được gọi trước khi cố gắng liên lạc với các kho lưu 
 
 #. (para)
 msgid ""
-"There are currently six types of hook script available <placeholder-1/>"
-msgstr "Hiện nay có sáu loại kịch bản móc có sẵn <placeholder-1/>"
+"There are currently these types of hook script available <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14349,8 +14423,8 @@ msgid ""
 "When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
-"</screen>"
-msgstr "Khi gỡ lỗi các kịch bản móc bạn có thể muốn echo các dòng tiến triển vào màn hình điều khiển DOS, hoặc chèn lệnh dừng để ngăn cửa sổ điều khiển khỏi biến mất khi kịch bản hoàn tất. Bởi vì I/O được chuyển hướng việc này thường không làm được. Tuy nhiên bạn có thể chuyển hướng nhập và xuất một cách rõ ràng đến CON để khắc phục việc này. Ví dụ <screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n</screen>"
+"    </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14558,8 +14632,10 @@ msgid ""
 "Explorer are normally only active in a working copy. If you want those to be"
 " accessible everywhere, not just in working copies, set this value to "
 "<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr "Các cột thêm TortoiseSVN thêm vào để xem chi tiết trong Windows Explorer thường chỉ hoạt động trong một bản sao làm việc. Nếu bạn muốn những cột đó có thể truy cập ở khắp mọi nơi, không chỉ ở bản sao làm việc, thiết lập giá trị này thành <literal> đúng </literal> . Lưu ý rằng các cột thêm chỉ có sẵn trong XP. Vista và mới hơn không hỗ trợ tính năng đó nữa."
+"XP. Vista and later doesn't support that feature any more. However some "
+"third-party explorer replacements do support those even on Windows versions "
+"later than XP."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14631,8 +14707,8 @@ msgstr "Việc kiểm soát danh sách tình trạng được sử dụng trong 
 msgid ""
 "This option determines how the Win7 taskbar icons of the various TortoiseSVN"
 " dialogs and windows are grouped together. This option has no effect on "
-"Windows XP or Vista!"
-msgstr "Tùy chọn này xác định cách mà các biểu tượng thanh tác vụ Win7 của các hộp thoại TortoiseSVN khác nhau và các cửa sổ được nhóm lại với nhau. Tùy chọn này không có tác dụng trên Windows XP hoặc Vista!"
+"Vista!"
+msgstr ""
 
 #. (title)
 msgid "Taskbar with default grouping"
@@ -14968,8 +15044,8 @@ msgstr "SubWCRev đọc tình trạng Subversion của tất cả các tập tin
 msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
-"</screen>"
-msgstr "SubWCRev.exe được gọi từ dòng lệnh hoặc một kịch bản, và được điều khiển bằng cách sử dụng các thông số dòng lệnh. <screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14999,6 +15075,7 @@ msgstr "Danh sách các thiết bị chuyển mạch dòng lệnh có sẵn"
 msgid "Switch"
 msgstr "Chuyển"
 
+#. (entry)
 #. (entry)
 #. (entry)
 #. (entry)
@@ -15288,9 +15365,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15318,6 +15397,7 @@ msgid ""
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> được thay thế bằng <placeholder-2/> nếu có thay đổi địa phương, hoặc <placeholder-3/> nếu không."
 
+#. (literal)
 #. (literal)
 msgid "$WCUNVER?TText:FText$"
 msgstr ""
@@ -15398,6 +15478,12 @@ msgstr "Thay thế bằng tên của chủ sở hữu khóa."
 msgid "Replaced with the comment of the lock."
 msgstr "Thay thế với lời nhận xét của khóa."
 
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"files or folders in the working copy, or <placeholder-3/> if not."
+msgstr ""
+
 #. (para)
 msgid ""
 "If a source and destination files are supplied, SubWCRev copies source to "
@@ -15408,12 +15494,12 @@ msgstr "Nếu một tập tin nguồn và đích được cung cấp, SubWCRev s
 msgid ""
 "SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
 "#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
-"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"      </screen> But you can usually work around it by other means, for example: <screen>\n"
 "#define SVN_RANGE       $WCRANGE$\n"
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
-"</screen>"
-msgstr "SubWCRev không trực tiếp hỗ trợ lồng ghép các biểu thức, ví dụ bạn không thể dùng một biểu thức như: <screen>\n#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n</screen> Nhưng bạn thường dùng cách khác, ví dụ: <screen>\n#define SVN_RANGE       $WCRANGE$\n#define SVN_REV         $WCREV$\n#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16703,17 +16789,17 @@ msgid ""
 "C:\\Projects\\Proj2\n"
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
-"</screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
-msgstr "Nếu bạn sử dụng cùng một mã lõi phổ biến ở một số dự án, và bạn không muốn giữ nhiều bản sao làm việc của nó cho mỗi dự án có sử dụng nó, bạn có thể kiểm xuất nó đến một vị trí riêng biệt có liên quan đến tất cả các dự án khác sử dụng nó. Ví dụ: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> và tham khảo các mã chung bằng cách sử dụng một đường dẫn tương đối, ví dụ như <filename>..\\..\\Common\\DSPcore</filename>."
+"        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, e.g. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
 "SUBST X: \"D:\\Documents\\framework\"\n"
-"</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
+"        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
-"</screen>"
-msgstr "Nếu các dự án của bạn nằm rải rác tại các địa điểm không liên quan, bạn có thể sử dụng một biến thể của nó, đó là đặt các mã chung ở một vị trí và dùng thay thế ký tự ổ đĩa để ánh xạ vị trí đó vào cái gì bạn có thể mã cứng vào dự án của bạn, ví dụ như Kiểm xuất mã chung vào <filename>D:\\Documents\\Framework</filename> hoặc <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> sau đó sử dụng <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> để tạo ra các ánh xạ ổ đĩa được sử dụng trong mã nguồn của bạn. Mã của bạn sau đó có thể sử dụng địa điểm tuyệt đối. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
+"        </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16757,8 +16843,8 @@ msgstr "phím tắt"
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
-"</screen> Of course you need to include the real repository URL."
-msgstr "Nếu bạn thường xuyên cần phải mở trình duyệt kho lưu trữ tại một địa điểm cụ thể, bạn có thể tạo một shortcut trên desktop bằng cách sử dụng các giao diện tự động hóa đến TortoiseProc. Chỉ cần tạo ra một shortcut mới và đặt mục tiêu: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n</screen> Tất nhiên bạn cần phải bao gồm các URL kho thực sự."
+"      </screen> Of course you need to include the real repository URL."
+msgstr ""
 
 #. (title)
 msgid "Ignore files which are already versioned"
@@ -16807,10 +16893,10 @@ msgstr "Bỏ phiên bản một bản sao hoạt động"
 #. (para)
 msgid ""
 "If you have a working copy which you want to convert back to a plain folder "
-"tree without the <literal>.svn</literal> directories, you can simply export "
-"it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out"
-" how."
-msgstr "Nếu bạn có một bản sao làm việc mà bạn muốn chuyển đổi trở lại thành một cây thư mục đơn giản mà không có thư mục <literal> .svn </literal>, bạn chỉ đơn giản có thể xuất khẩu vào chính nó. Đọc <xref linkend=\"tsvn-dug-export-unversion\"/> để tìm hiểu cách thức."
+"tree without the <literal>.svn</literal> directory, you can simply export it"
+" to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out "
+"how."
+msgstr ""
 
 #. (title)
 msgid "Remove a working copy"
@@ -16879,10 +16965,10 @@ msgid ""
 "TortoiseSVN must be installed under <emphasis>Computer "
 "Configuration</emphasis> and not under <emphasis>User "
 "Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC "
-"DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
-"<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
+"DLLs, which can only be deployed <emphasis> per computer </emphasis> and not"
+" <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"11 from Microsoft on each computer you want to install TortoiseSVN as per "
+"12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
 msgstr ""
 
@@ -16935,11 +17021,11 @@ msgstr "Nếu bạn đang chịu trách nhiệm cho rất nhiều người dùng
 #. (para)
 msgid ""
 "Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade check to your intranet server. You can set the registry key <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value) to an URL pointing to a text file in your intranet. That text file must have the following format: <screen>\n"
-"1.4.1.6000\n"
+"1.9.1.6000\n"
 "A new version of TortoiseSVN is available for you to download!\n"
-"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
-"</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr "Phiên bản 1.4.0 và sau này của TortoiseSVN cho phép bạn chuyển hướng kiểm tra nâng cấp đến máy chủ mạng nội bộ của bạn. Bạn có thể thiết lập các khóa registry <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (giá trị chuỗi) đến một URL trỏ đến một tập tin văn bản trong mạng nội bộ của bạn. Tập tin văn bản đó phải có định dạng sau đây: <screen>\n1.4.1.6000\nMột phiên bản mới của TortoiseSVN hiện có sẵn để bạn có thể tải về!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n</screen> Dòng đầu tiên trong tập tin đó là một chuỗi phiên bản. Bạn phải chắc chắn rằng nó phù hợp với chuỗi phiên bản chính xác của gói cài đặt TortoiseSVN. Dòng thứ hai là một văn bản tùy chỉnh, được hiển thị trong hộp thoại cam kết. Bạn có thể viết bất cứ điều gì bạn muốn. Chỉ cần lưu ý rằng không gian trong hộp thoại cam kết là hạn chế. Thông điệp quá dài sẽ được cắt ngắn! Dòng thứ ba là URL đến gói cài đặt mới. URL này được mở ra khi người dùng nhấp vào nhãn thông báo tùy chỉnh trong hộp thoại cam kết. Bạn cũng có thể chỉ người dùng đến một trang web thay vì các tập tin MSI trực tiếp. URL được mở ra với trình duyệt web mặc định, vì vậy nếu bạn chỉ định một trang web, trang đó được mở ra và hiển thị cho người dùng. Nếu bạn chỉ định các gói MSI, trình duyệt sẽ yêu cầu người dùng lưu các tập tin MSI tại địa phương."
+"http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
+"      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
+msgstr ""
 
 #. (title)
 msgid ""
@@ -16969,10 +17055,12 @@ msgstr "Kể từ phiên bản 1.4.0 và sau đó, trình cài đặt TortoiseSV
 
 #. (para)
 msgid ""
-"But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
-"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
-"</screen>"
-msgstr "Nhưng tùy chọn đó là ẩn cho người sử dụng. Bạn vẫn có thể ép buộc trình cài đặt TortoiseSVN thiết lập biến môi trường đó bằng cách thiết lập thuộc tính <literal>ASPDOTNETHACK</literal> thành TRUE. Ví dụ, bạn có thể bắt đầu trình cài đặt như thế này: <screen>\nmsiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n</screen>"
+"But the feature is still available in TortoiseSVN and other svn clients. To "
+"enable it you have to set the Windows environment variable named "
+"<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
+"value of that environment variable doesn't matter: if the variable exists "
+"the feature is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17197,6 +17285,18 @@ msgid "Upgrade working copy"
 msgstr "Nâng cấp bản sao làm việc"
 
 #. (entry)
+msgid "Diff later"
+msgstr ""
+
+#. (entry)
+msgid "Diff with 'filename'"
+msgstr ""
+
+#. (entry)
+msgid "Unified diff"
+msgstr ""
+
+#. (entry)
 msgid "Settings"
 msgstr "Các thiết lập"
 
@@ -17211,12 +17311,12 @@ msgstr "Giới thiệu về"
 #. (para)
 msgid ""
 "Example: to disable the <quote>Relocate</quote> the <quote>Delete unversioned items</quote> and the <quote>Settings</quote> menu entries, add the values assigned to the entries like this: <screen>\n"
-"  0x0000000000080000\n"
+"0x0000000000080000\n"
 "+ 0x0000000080000000\n"
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
-"</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr "Ví dụ: để vô hiệu hóa <quote>Di dời</quote> các mục trình đơn <quote>Xóa các mục không phiên bản</quote> và <quote>Các thiết lập</quote>, thêm các giá trị được gán cho các mục như thế này: <screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> Giá trị <literal>DWORD</literal> thấp hơn (<literal>0x80080000</literal>) phải được lưu trong <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, giá trị <literal>DWORD</literal> cao hơn (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+"      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+msgstr ""
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -17249,9 +17349,11 @@ msgstr "Các lệnh TortoiseSVN"
 #. (primary)
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "tự động hóa"
 
+#. (primary)
 #. (primary)
 #. (primary)
 msgid "command line"
@@ -17283,8 +17385,10 @@ msgid ""
 "order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
 "use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
-"the parameter <option>/deletepathfile</option>."
-msgstr "Bạn cũng có thể chỉ định một tập tin, trong đó có một danh sách các đường dẫn, cách nhau bằng ký tự dòng mới. Các tập tin phải được định dạng UTF-16, mà không có một <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle> BOM </citetitle></ulink> . Nếu bạn truyền một tập tin như vậy, sử dụng <option> /pathfile </option> thay vì <option> /path </option> . Để TortoiseProc xóa các tập tin sau khi lệnh này kết thúc, bạn có thể truyền vào tham số <option> /deletepathfile </option> ."
+"the parameter <option>/deletepathfile</option>. If you don't pass "
+"<option>/deletepathfile</option>, you have to delete the file yourself or "
+"the file gets left behind."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18139,9 +18243,11 @@ msgid ""
 msgstr "Bảng dưới đây liệt kê tất cả các tùy chọn có thể được truyền đến công cụ khác biệt hình ảnh trên dòng lệnh."
 
 #. (title)
+#. (title)
 msgid "List of available options"
 msgstr "Danh sách các tùy chọn có sẵn"
 
+#. (entry)
 #. (entry)
 msgid "Option"
 msgstr "Tùy chọn"
@@ -18183,6 +18289,33 @@ msgid ""
 "                  /fit /overlay\n"
 "</screen>"
 msgstr "Ví dụ (nên được nhập vào trên một dòng): <screen>\nTortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n                  /fit /overlay\n</screen>"
+
+#. (title)
+msgid "TortoiseUDiff Commands"
+msgstr ""
+
+#. (para)
+msgid "The unified diff viewer has only two command line options:"
+msgstr ""
+
+#. (entry)
+msgid "Path to the unified diff file."
+msgstr ""
+
+#. (entry)
+msgid "Activates pipe mode. The unified diff is read from the console input."
+msgstr ""
+
+#. (para)
+msgid ""
+"Examples (which should be entered on one line): <screen>\n"
+"TortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n"
+"      </screen> If you create the diff from another command, you can use TortoiseUDiff to show that diff directly: <screen>\n"
+"svn diff | TortoiseUDiff.exe /u\n"
+"      </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
+"svn diff | TortoiseUDiff.exe\n"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
@@ -18251,7 +18384,8 @@ msgstr "Một số mục là tùy chọn, và những cái này những thườn
 msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
-msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18278,7 +18412,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18311,7 +18446,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18328,7 +18464,8 @@ msgstr "Trong TortoiseSVN, hộp thoại cam kết sử dụng nhiều lệnh Su
 msgid ""
 "\n"
 "svn status -v PATH\n"
-msgstr "\nsvn status -v PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18352,7 +18489,8 @@ msgstr "Nếu bạn chọn bất kỳ tập tin và thư mục không phiên b�
 msgid ""
 "\n"
 "svn add PATH...\n"
-msgstr "\nsvn add PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18368,7 +18506,8 @@ msgstr "Khi bạn click vào OK, cam kết Subversion diễn ra. Nếu bạn đ�
 msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
-msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18389,7 +18528,8 @@ msgstr "Nếu <guilabel> Giữ khóa </guilabel> được duyệt, sử dụng c
 msgid ""
 "\n"
 "svn diff PATH\n"
-msgstr "\nsvn diff PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18413,9 +18553,10 @@ msgstr "Bạn cũng có thể tìm khác biệt 2 tập tin bất kỳ bằng c�
 msgid ""
 "\n"
 "svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
-"  or\n"
+"or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
-msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n  or\nsvn log -v -r M:N [--stop-on-copy] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18435,9 +18576,10 @@ msgstr "Nếu <guilabel> Dừng trên bản sao/đổi tên </guilabel> được
 msgid ""
 "\n"
 "svn status -v PATH\n"
-"  or\n"
+"or\n"
 "svn status -u -v PATH\n"
-msgstr "\nsvn status -v PATH\n  or\nsvn status -u -v PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18462,8 +18604,8 @@ msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
-"</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr "Những gì TortoiseSVN làm là một <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> nơi URL là kho lưu trữ <emphasis>root</emphasis> và phân tích dữ liệu được trả về."
+"        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
+msgstr ""
 
 #. (title)
 msgid "Repo Browser"
@@ -18475,7 +18617,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
-msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18507,21 +18650,24 @@ msgstr "Đã giải quyết"
 msgid ""
 "\n"
 "svn resolved PATH\n"
-msgstr "\nsvn resolved PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
-msgstr "\nsvn rename CURR_PATH NEW_PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
-msgstr "\nsvn delete PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18544,14 +18690,16 @@ msgstr "Khi bạn click vào OK, Subversion hoàn nguyên diễn ra. Nếu bạn
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
-msgstr "\nsvn revert [-R] PATH...\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
-msgstr "\nsvn cleanup PATH\n"
+"      "
+msgstr ""
 
 #. (title)
 msgid "Get Lock"
@@ -18569,7 +18717,8 @@ msgstr "Giai đoạn đầu tiên là kiểm tra tình trạng mà quyết đị
 msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
-msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18592,18 +18741,20 @@ msgstr "Thả Khóa"
 msgid ""
 "\n"
 "svn unlock PATH\n"
-msgstr "\nsvn unlock PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn copy -m \"LogMessage\" URL URL\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" URL@rev URL@rev\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
-msgstr "\nsvn copy -m \"LogMessage\" URL URL\n  or\nsvn copy -m \"LogMessage\" URL@rev URL@rev\n  or\nsvn copy -m \"LogMessage\" PATH URL\n"
+"      "
+msgstr ""
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18622,14 +18773,16 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
-msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18642,7 +18795,8 @@ msgstr "Các <guibutton> Kiểm tra Hợp nhất </guibutton> thực hiện vi�
 msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
-msgstr "\nsvn diff From_URL@revN To_URL@revM\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18655,7 +18809,8 @@ msgstr "Các <guibutton> Khác biệt thống nhất </guibutton> cho thấy cá
 msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
-msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18687,7 +18842,8 @@ msgstr "Trong cả hai trường hợp, nếu <guilabel> Bỏ qua thành phần 
 msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
-msgstr "\nsvn switch --relocate From_URL To_URL\n"
+"      "
+msgstr ""
 
 #. (title)
 msgid "Create Repository Here"
@@ -18698,7 +18854,8 @@ msgstr "Tạo Kho Chứa Ở Đây"
 msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
-msgstr "\nsvnadmin create --fs-type fsfs PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18711,7 +18868,8 @@ msgstr "Nếu bạn chọn một thư mục, TortoiseSVN đầu tiên quét nó 
 msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
-msgstr "\nsvn import -m LogMessage PATH URL\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
@@ -18719,7 +18877,8 @@ msgid ""
 "\n"
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
-msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18739,7 +18898,8 @@ msgid ""
 "svn propget svn:ignore PATH &gt; tempfile\n"
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
-msgstr "\nsvn propget svn:ignore PATH > tempfile\n{edit new ignore item into tempfile}\nsvn propset svn:ignore -F tempfile PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18753,7 +18913,8 @@ msgstr "Bởi vì thuộc tính <literal> svn:ignore </literal> thường là m�
 msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
-msgstr "\nsvn diff PATH > patch-file\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18978,10 +19139,10 @@ msgid ""
 "The TortoiseSVN user interface has been translated into many different "
 "languages, so you may be able to download a language pack to suit your "
 "needs. You can find the language packs on our <ulink "
-"url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation "
-"status page</citetitle></ulink>. And if there is no language pack available,"
-" why not join the team and submit your own translation ;-)"
-msgstr "Giao diện người TortoiseSVN đã được dịch ra nhiều ngôn ngữ khác nhau, vì vậy bạn có thể tải về gói ngôn ngữ phù hợp với nhu cầu của bạn. Bạn có thể tìm thấy các gói ngôn ngữ của chúng tôi <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle> trang tình trạng phiên dịch </citetitle></ulink>. Và nếu không có gói ngôn ngữ có sẵn, tại sao không tham gia nhóm nghiên cứu và nộp bản dịch của bạn ;-)"
+"url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
+" status page</citetitle></ulink>. And if there is no language pack "
+"available, why not join the team and submit your own translation ;-)"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18994,9 +19155,9 @@ msgstr "Mỗi gói ngôn ngữ được đóng gói như là một bộ cài đ�
 msgid ""
 "The documentation has also been translated into several different languages."
 " You can download translated manuals from the <ulink "
-"url=\"http://tortoisesvn.net/support\"><citetitle>support "
+"url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr "Tài liệu cũng đã được dịch sang nhiều ngôn ngữ khác nhau. Bạn có thể tải về các hướng dẫn sử dụng dịch từ <ulink url=\"http://tortoisesvn.net/support\"><citetitle> Trang hỗ trợ </citetitle></ulink> trên trang web của chúng tôi."
+msgstr ""
 
 #. (title)
 msgid "Spellchecker"
@@ -19984,10 +20145,10 @@ msgid ""
 "If you're in two pane view, then you can only edit the file in the right "
 "pane (<literal>Mine</literal>). To apply changes made in the left file "
 "(<literal>Theirs</literal>), <action>right click</action> on the changed "
-"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use"
-" text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
-" the left file are added to the right file."
-msgstr "Nếu bạn đang ở trong chế độ xem hai ngăn, thì bạn chỉ có thể chỉnh sửa các tập tin trong khung bên phải ( <literal> Của tôi </literal> ). Để áp dụng các thay đổi được thực hiện trong các tập tin bên trái ( <literal> Của họ </literal> ), <action> nhấp chuột phải </action> trên các đường bị thay đổi và chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử dụng khối văn bản từ 'của họ' </guimenuitem></menuchoice> . Sau đó, các thay đổi từ tập tin bên trái được thêm vào tập tin bên phải."
+"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
+"Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
+"from the left file are added to the right file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20014,9 +20175,9 @@ msgid ""
 "view</emphasis>) you can only edit the file in the bottom view "
 "(<literal>Merged</literal>). As in two pane view, you can <action>right "
 "click</action> on conflicted lines and either select "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from "
-"'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Use text block from 'mine' "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
+" 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem> Use text block from 'mine' "
 "</guimenuitem></menuchoice>. In addition, if you want "
 "<emphasis>both</emphasis> blocks, you can select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
@@ -20025,7 +20186,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr "Nếu bạn đang ở trong màn xem ba cửa sổ (đôi khi được gọi là <emphasis> màn xem hợp nhất </emphasis> ) Bạn chỉ có thể chỉnh sửa các tập tin trong chế độ xem phía đáy ( <literal> Hợp Nhất </literal> ). Trong màn xem hai cửa sổ, bạn có thể <action> nhấp chuột phải </action> trên các đường mâu thuẫn và lựa chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử dụng khối văn bản từ 'của họ' </guimenuitem></menuchoice> hoặc <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử dụng khối văn bản từ 'của tôi' </guimenuitem></menuchoice> . Ngoài ra, nếu bạn muốn <emphasis> cả hai </emphasis> khối, bạn có thể chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử dụng khối văn bản từ 'của tôi' trước 'của họ' </guimenuitem></menuchoice> hoặc <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử dụng khối văn bản từ 'của họ' trước 'của tôi' </guimenuitem></menuchoice> . Theo lệnh mà bạn đã chọn, các thay đổi được sử dụng trong kết quả là tập tin được <literal> Hợp Nhất </literal>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20471,8 +20632,8 @@ msgstr "Chuyển Mạch Dòng Lệnh TortoiseMerge"
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
-"</screen>"
-msgstr "Hầu hết các chuyển mạch yêu cầu thêm thông tin như một đường dẫn hoặc một chuỗi khác. Trong những trường hợp đó, nối thêm ':' vào chuyển đổi và đặt chuỗi/đường dẫn sau nó. Ví dụ: <screen>\n/base:\"c:\\folder\\my base file.txt\"\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "List of available command line options"
@@ -20635,5 +20796,5 @@ msgstr "Ngăn chặn các tập tin bị chỉnh sửa. Điều đó có nghĩa 
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
-"</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr "Bạn cũng có thể cung cấp tên tập tin đơn giản trên dòng lệnh để tương thích với các chương trình khác. Trong hình thức đơn giản hóa này dòng lệnh là <screen>\nTortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n</screen> Nếu hai tập tin được đưa ra, chúng sẽ được so sánh với nhau. Nếu ba tập tin được đưa ra, cái đầu tiên được xem như các tập tin CƠ SỞ, và hai cái còn lại được so sánh với nó trong tìm khác biệt ba chiều."
+"      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
+msgstr ""

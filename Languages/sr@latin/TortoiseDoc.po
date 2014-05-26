@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-24 19:21+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2014-05-24 08:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -591,26 +591,20 @@ msgstr "Zahtevi sistema"
 
 #. (para)
 msgid ""
-"TortoiseSVN runs on Windows XP with service pack 3 or higher and is "
-"available in both 32-bit and 64-bit flavours. The installer for 64-bit "
-"Windows also includes the 32-bit extension parts. Which means you don't need"
-" to install the 32-bit version separately to get the TortoiseSVN context "
-"menu and overlays in 32-bit applications."
-msgstr "TortoiseSVN radi na Vindouz HP sa servis pakom 3  ili višim operativnim sistemima i dostupan je na 32-bitnim i 64-bitnim sistemima. Instalacija za 64-bitni Vindouz uključuje, takođe, 32-bitno proširenje. Što znači da ne morate instalirati 32-bitnu verziju posebno da biste dobili TortoiseSVN kontekst meni i prekrivač u 32-bitnim aplikacijama."
-
-#. (para)
-msgid ""
-"If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
-"service pack 3 installed. It won't work if you haven't installed that SP "
-"yet!"
-msgstr "Ako koristite Vindous HP, vi <emphasis>morate</emphasis>  imati instaliran najmanje servis pak 3. To neće raditi ako još nemate intstaliran taj SP!"
+"TortoiseSVN runs on Windows Vista or higher and is available in both 32-bit "
+"and 64-bit flavours. The installer for 64-bit Windows also includes the "
+"32-bit extension parts. Which means you don't need to install the 32-bit "
+"version separately to get the TortoiseSVN context menu and overlays in "
+"32-bit applications."
+msgstr ""
 
 #. (para)
 msgid ""
 "Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
-"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
-"can still download and install older versions if you need them."
-msgstr "Podrška za Vindouz 98, Vindous ME i Vindous NT4 izbačena je u verziji 1.2.0 i  Vindous 2000 i HP do SP2 podrška je izbačena u 1.7.0. Možete još uvek skinuti i instalirati stariju verziju ako vam je potrebna."
+"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
+"Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
+" and install older versions if you need them."
+msgstr ""
 
 #. (title)
 msgid "Installation"
@@ -1049,13 +1043,13 @@ msgid ""
 "When a client reads data from the repository, it normally sees only the "
 "latest version of the filesystem tree. But the client also has the ability "
 "to view <emphasis>previous</emphasis> states of the filesystem. For example,"
-" a client can ask historical questions like, <quote>what did this directory "
-"contain last Wednesday?</quote>, or <quote>who was the last person to change"
-" this file, and what changes did they make?</quote> These are the sorts of "
-"questions that are at the heart of any <firstterm>version control "
+" a client can ask historical questions like, <quote> what did this directory"
+" contain last Wednesday? </quote>, or <quote> who was the last person to "
+"change this file, and what changes did they make? </quote> These are the "
+"sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr "Kada klijent čita podatke iz spremišta, on normalno vidi samo zadnju verziju stabla fajlsistema. Ali klijent takođe ima mogućnost da vidi <emphasis>prethodno</emphasis> stanje fajlsistema. Na primer, klijent može postaviti istorijska pitanja kao,  <quote>šta je ovaj folder sadržao prošle srede?</quote>, ili <quote>koja je poslednja osoba koja je menjala ovaj fajl, i koje izmene je uradila?</quote> Ovo je vrsta pitanja koja su srce svakog  <firstterm>sistema kontrole verzija</firstterm>: sistema koji su dizajnirani da aktivno beleže i prate izmene podataka."
+msgstr ""
 
 #. (title)
 msgid "Versioning Models"
@@ -1157,13 +1151,13 @@ msgstr "Kopiraj-Menjaj-Stopi rešenje"
 msgid ""
 "Subversion, CVS, and other version control systems use a <firstterm>copy-"
 "modify-merge</firstterm> model as an alternative to locking. In this model, "
-"each user's client reads the repository and creates a personal "
-"<firstterm>working copy</firstterm> of the file or project. Users then work "
-"in parallel, modifying their private copies. Finally, the private copies are"
-" merged together into a new, final version. The version control system often"
-" assists with the merging, but ultimately a human being is responsible for "
+"each user's client reads the repository and creates a personal <firstterm> "
+"working copy </firstterm> of the file or project. Users then work in "
+"parallel, modifying their private copies. Finally, the private copies are "
+"merged together into a new, final version. The version control system often "
+"assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr "Subverzija, CVS i drugi sistemi kontrole verzija koriste <firstterm>kopiraj-menjaj-stopi</firstterm> model kao alternativu zaključavanju. U ovom modelu svaki korisnički klijent čita spremište i kreira ličnu <firstterm>radnu kopiju</firstterm> fajla ili projekta. Korisnici onda rade paralelno, menjajući svoje privatne kopije. Finalno, privatne kopije se spajaju u novu, finalnu verziju. Sistem kontrole verzija često posreduje u spajanju, ali ljudi su odgovorni da učine da sve bude korektno."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1289,15 +1283,15 @@ msgid ""
 "A working copy also contains some extra files, created and maintained by "
 "Subversion, to help it carry out these commands. In particular, your working"
 " copy contains a subdirectory named <filename>.svn</filename>, also known as"
-" the working copy <firstterm>administrative directory</firstterm>. The files"
-" in this administrative directory help Subversion recognize which files "
-"contain unpublished changes, and which files are out-of-date with respect to"
-" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
-"administrative subdirectories in every versioned directory of your working "
-"copy. Subversion 1.7 takes a completely different approach and each working "
-"copy now has only one administrative subdirectory which is an immediate "
-"child of the root of that working copy."
-msgstr "Radna kopija sadrži i neke dodatne fajlove, kreirane i podržane od Subverzije, da pomognu u sprovođenju ovih komandi. Posebno, vaša radna kopija sadrži subdirektorijume po imenu <filename>.svn</filename>, takođe poznate kao  <firstterm>administrativne direktorijume</firstterm>  radne kopije. Fajlovi u ovom administrativnom direktorjumu pomažu Subverziji da prepozna koji fajlovi sadrže nepublikovane izmene i koji fajl je zastareo u odnosu na izmene ostalih. Pre 1.7 Subverzija je održavala  <filename>.svn</filename> administrativne subdirektorijume u svakom verzionisanom direktorijumu vaše radne kopije. Subverzija 1.7 uzima potpuno različit pristup u svakoj radnoj kopiji sada ima samo jedan admisnistrativni subdirektorijum koji je prvi potomak korena radne kopije."
+" the working copy <firstterm> administrative directory </firstterm>. The "
+"files in this administrative directory help Subversion recognize which files"
+" contain unpublished changes, and which files are out-of-date with respect "
+"to others' work. Prior to 1.7 Subversion maintained "
+"<filename>.svn</filename> administrative subdirectories in every versioned "
+"directory of your working copy. Subversion 1.7 takes a completely different "
+"approach and each working copy now has only one administrative subdirectory "
+"which is an immediate child of the root of that working copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1325,11 +1319,11 @@ msgstr "Drugim rečima, koreni folder spremišta ima dva podfoldera: <filename>p
 
 #. (para)
 msgid ""
-"To get a working copy, you must <firstterm>check out</firstterm> some "
+"To get a working copy, you must <firstterm> check out </firstterm> some "
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr "Da biste dobili radnu kopiju morate <firstterm>preuzeti</firstterm> neko podstablo spremišta. (Termin <emphasis>preuzeti</emphasis> može zvučati kao nešto što se radi zaključavanjem ili rezervisanjem resursa, ali to nije to; to jednostavno kreira privatnu kopiju projekta za vas.)"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1338,9 +1332,9 @@ msgid ""
 "and original contents, Subversion can tell that you've changed the file. "
 "However, Subversion does not make your changes public until you explicitly "
 "tell it to. The act of publishing your changes is more commonly known as "
-"<firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) "
+"<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr "Pretpostavimo da ste napravili izmene u <filename>button.c</filename>. Kako <filename>.svn</filename> folder pamti datum izmene fajla i originalni sadržaj, Subverzija vam  može reći da ste izmenili fajl.Čin publikovanja vaših izmena je najčešće poznat  kao  <firstterm>urezivanje</firstterm> (ili <firstterm>prijavljivanje</firstterm>) izmena u spremište."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1486,7 +1480,8 @@ msgid ""
 "...\n"
 "file:///X|/path/to/repos\n"
 "...\n"
-msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1560,7 +1555,7 @@ msgstr "Globalni revizioni brojevi"
 #. (para)
 msgid ""
 "Unlike those of many other version control systems, Subversion's revision "
-"numbers apply to <emphasis>entire trees</emphasis>, not individual files. "
+"numbers apply to <emphasis> entire trees </emphasis>, not individual files. "
 "Each revision number selects an entire tree, a particular state of the "
 "repository after some committed change. Another way to think about it is "
 "that revision N represents the state of the repository filesystem after the "
@@ -1568,7 +1563,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr "Drugačije nego kod većine drugih sistema kontrole verzija, Subverzioni revizioni brojevi se pojavljuju kao <emphasis>cela stabla</emphasis>, a ne individualni fajlovi. Svaki revizioni broj selektuje celo stablo, partikularno stanje spremišta posle nekog urezivanja izmena. Drugi način razmišljanja o tome je da revizija N pretstavlja stanje fajlsistema spremišta posle Ntog urezivanja. Kada korisnik Subverzije govori o ``revisija 5 od <filename>foo.c</filename>'', on stvarno misli ``<filename>foo.c</filename>  kako se javlja u reviziji 5.\" Primetimo da uopšte revizije N i M fajla <emphasis>nisu</emphasis> obavezno različite. "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1583,9 +1578,10 @@ msgstr "Važno je primetiti da radna kopija ne korespondira uvek bilo kojoj poje
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:4\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:4\n"
+"integer.c:4\n"
+"button.c:4\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1601,9 +1597,10 @@ msgstr "Trenutno ovaj radni folder odgovara tačno reviziji 4 u spremištu. Međ
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:5\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:5\n"
+"integer.c:4\n"
+"button.c:5\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1618,9 +1615,10 @@ msgstr "Pretpostavimo to, u tom trenutku, Saki urezuje izmene <filename>integer.
 msgid ""
 "\n"
 "calc/Makefile:6\n"
-"     integer.c:6\n"
-"     button.c:6\n"
-msgstr "\ncalc/Makefile:6\n     integer.c:6\n     button.c:6\n"
+"integer.c:6\n"
+"button.c:6\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1647,8 +1645,8 @@ msgstr "Za svaki fajl u radnom folderu Subverzija upisuje dva važna komada info
 #. (para)
 msgid ""
 "what revision your working file is based on (this is called the file's "
-"<firstterm>working revision</firstterm>), and"
-msgstr "na koju reviziju je vaša radna kopija zasnovana )to se zove fajlova <firstterm>radna revizija</firstterm>), i"
+"<firstterm> working revision </firstterm>), and"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1766,6 +1764,12 @@ msgstr "kreiraj spremište"
 
 #. (para)
 msgid ""
+"Please note that the command line client that comes with TortoiseSVN does "
+"not support the older Berkeley Database (BDB) format."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can create a repository with the FSFS backend or with the older Berkeley"
 " Database (BDB) format. The FSFS format is generally faster and easier to "
 "administer, and it works on network shares and Windows 98 without problems. "
@@ -1775,8 +1779,8 @@ msgid ""
 ".red-"
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
-"information."
-msgstr "Možete kreirati spremište sa FSFS bekend ili sa starom Berkli bazom (BDB) format. FSFS format je generalno brži i lakši za administriranje, i radi na mrežnim deljenjeima i Vindous 98 bez problema. BDB format se smatra mnogo stabilnijim jednostavno zato što se dugo koristi ali kako je FSFS u upotrbi više godina taj argument je sada slab. Pročitaj  <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> u Subverzionoj knjizi za više informacija."
+"information. <important><placeholder-1/></important>"
+msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1804,10 +1808,10 @@ msgstr "Kreirajte drugi folder <filename>MyNewRepository</filename> unutar <file
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type bdb MyNewRepository\n"
-"</screen> or <screen>\n"
+"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
-"</screen>"
-msgstr "Otvorite komandni prompt (ili DOS -boks), pređite u <filename>D:\\SVN\\</filename> and type <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> or <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
+"          </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2001,7 +2005,8 @@ msgid ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-msgstr "\n/trunk\n/branches\n/tags\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2026,7 +2031,8 @@ msgid ""
 "/branches/calc\n"
 "/tags/paint\n"
 "/tags/calc\n"
-msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid "...or by project:"
@@ -2042,7 +2048,8 @@ msgid ""
 "/calc/trunk\n"
 "/calc/branches\n"
 "/calc/tags\n"
-msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n"
+"    "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2126,12 +2133,12 @@ msgid ""
 "C:\\Temp\\New\\trunk\n"
 "C:\\Temp\\New\\branches\n"
 "C:\\Temp\\New\\tags\n"
-"</screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
+"      </screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-"</screen>"
-msgstr "Primetimo da ime foldera koji uvozite ne pojavljuje se u spremištu, samo sadržaj. Na primer, kreirajte sledeće strukture foldera:<screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen>  Uvezite <filename>C:\\Temp\\New</filename> u koren spremišts, koje će sada izgledati kao:<screen>\n/trunk\n/branches\n/tags\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Repository Backup"
@@ -2164,8 +2171,8 @@ msgstr "Jednostavan (ali nepreporučljiv) način je da se samo kopira folder spr
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Preporučljiv metod je da se pokrene <screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> da se kreira kopija vašeg spremišta na bezbedan način. Zatim se pravi kopija osiguranja. Opcija <literal>--clean-logs</literal> nije potrebna, ali uklanja redundantne fajlove dnevnika kada osiguravate BDB spremišta, što štedi nešto prostora."
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2224,8 +2231,8 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
-msgstr "Jednostavne zakačive skripte mogu se naći u <filename>zakačaljke> folderu spremišta. Ove jednostavne skripte su pogodne za Juniks/Linuks servere ali traže izmene ako je server zasnovan na Vindouzu. Zakačke mogu biti grupni fajl ili izvršilac. Uzorak ispod pokazuje grupni fajl koji se može koristiti da se primeni kao pre-revprop-izmena zakačaljka. <screen>\nrem Only allow log messages to be changed.\nif \"%4\" == \"svn:log\" exit 0\necho Property '%4' cannot be changed &gt;&amp;2\nexit 1\n</screen> Primetimo da se sve poslato na stdout odbacuje. Ako želite da se poruka pojavi u Odbaci urezivanje dijalogu morate je poslati na stderr. U beč fajlu se to postiže korišćenjem <filename>&gt;&amp;2</filename>."
+"    </screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2538,15 +2545,6 @@ msgid ""
 "file, a folder, a shortcut or for multiple selected items."
 msgstr "U nekim slučajevima možete videti više TortoiseSVN ulaza. To nije bag! <placeholder-1/> Ovaj primer je za neverzionisane skraćenice u okviru verzionisanog foldera, i u Eksplorer fajl meniju postoji <emphasis>stablo</emphasis> ulaz za TortoiseSVN. Jedno je za folder, jedno za same skraćenice, i treće za objekte na koje pokazuju skraćenice. Da bismo vam pomogli da ih razlikujete, ikone imaju indikator u donjem desnom uglu koji pokazuje da li je meni ulaz za fajl, skraćenicu ili višestruko selektovane stavke. "
 
-#. (para)
-msgid ""
-"If you are using Windows 2000 you will find that the context menus are shown"
-" as plain text, without the menu icons shown above. We are aware that this "
-"was working in previous versions, but Microsoft has changed the way its icon"
-" handlers work for Vista, requiring us to use a different display method "
-"which unfortunately does not work on Windows 2000."
-msgstr "Ako koristite Vindouz 2000 naćićete da je kontekst meni prikazan kao potpuni tekst, bez ikona menija prikazanih iznad. Mi smo upoznati da je tako radilo u prethodnoj verziji, ali Mikrosoft je izmenio način rukovanja ikonama za Vistu, što od nas zahteva da koristimo različit način prikazivanja koji, na nesreću, ne radi na Vindouzu 2000."
-
 #. (title)
 #. (title)
 msgid "Drag and Drop"
@@ -2692,8 +2690,8 @@ msgid ""
 "Some people like to have the authentication data deleted when they log off Windows, or on shutdown. The way to do that is to use a shutdown script to delete the <filename>%APPDATA%\\Subversion\\auth</filename> directory, e.g. <screen>\n"
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
-"</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
-msgstr "Neki ljudi vole da imaju obrisane autentikacione podatke kada se odloguju iz Vindouza ili pri šatdaunu. Način da se to uradi je korišćenje šatdaun skripta da obriše <filename>%APPDATA%\\Subversion\\auth</filename>  folder, npr. <screen>\n@echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n</screen> Možete naći opis kako da instalirate takvu skriptu na <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+"      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2813,8 +2811,8 @@ msgid ""
 "C:\\Projects\\Widget\\source\n"
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
-"</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr "U ovom dijalogu imate da unesete URL lokacije spremišta gde želite da uvezete vaš projekat. Veoma je važno da vodite računa da lokalni folder koji uvozite se ne pojavljuje sam u spremištu, samo njegov sadržaj. Na primer ako imate strukturu: <screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen>i unesete <filename>C:\\Projects\\Widget</filename> u <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> bićete iznenađeni kad uvidite da vaši podimenici idu u<literal>trunk</literal> radije nego da budu u <literal>Widget</literal> podfolder. Potrebno je da secificirate podfolder kao deo URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Primetimo uvozna komanda će automatski kreirati podfolder unutar spremišta ako on ne postoji.."
+"      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
+msgstr ""
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -3269,6 +3267,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Dijalog urezivanja će vam pokazati svaki izmnjeni fajl, uključujući dodate, neverzionisane fajlove. Ako ne želite da izmenjeni fajlovi budu urezani, samo otčekirjte te fajlove. Ako želite da uključite neverzionisani fajl, samo čekirajte taj fajl da ga dodate u urezivanje."
+
+#. (para)
+msgid ""
+"To quickly check or uncheck types of files like all versioned files or all "
+"modified files, click the link items just above the list of shown items."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3950,12 +3954,12 @@ msgstr "ovo je fajl koji je vaš Subverzioni klijent upravo primio sa servera ka
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"    your changes\n"
+"your changes\n"
 "=======\n"
-"    code merged from repository\n"
+"code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr "Fajl konflikt se javlja kada dva ili više programera izmene iste linije fajla. Kako Subverzija ne zna ništa o vašem projektu, ostaavlja rešenje konflikta programerima. Konfliktna oblast u tekst fajlu označava se kao : <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n    your changes\n=======\n    code merged from repository\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n</screen> Takođe, za svaki fajl u konfliktu Subverzija stavlja tri dodatna fajla u vaš folder: <placeholder-1/>"
+"      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4312,12 +4316,6 @@ msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
 msgstr "Programer B radeći na grani menja <filename>Foo.c</filename> i urezuje ga u spremište."
-
-#. (para)
-msgid ""
-"There is an equivalent case for folder moves, but it is not yet detected in "
-"Subversion 1.6 ..."
-msgstr "Postoji ekvivalentan slučaj za foldere, ali to još nije detektovano u Subverziji 1.6 ..."
 
 #. (para)
 msgid ""
@@ -4907,14 +4905,6 @@ msgstr "<placeholder-1/> U dijalogu urezivanja možete videti ove iste fajlove, 
 
 #. (para)
 msgid ""
-"On XP, there is a context menu when you right click on a group heading which"
-" gives you the choice to check or uncheck all group entries. On Vista "
-"however the context menu is not necessary. Click on the group header to "
-"select all entries, then check one of the selected entries to check all."
-msgstr "Na  XP, postoji kontekst meni kada uradite desni klik na grupno zaglavlje koje vam daje izbor da čekirate ili otčekirate sve grupne ulaze. Na Visti međutim, kontekst meni nije neophodan. Kliknite na grupno zaglavlje da izaberete ulaze, zatim čekirajte izabrane ulaze da čekirate sve."
-
-#. (para)
-msgid ""
 "TortoiseSVN reserves one changelist name for its own use, namely <literal"
 ">ignore-on-commit</literal>. This is used to mark versioned files which you "
 "almost never want to commit even though they have local changes. This "
@@ -4936,6 +4926,13 @@ msgid ""
 "changelists will not affect the repository, nor anyone else's working copy. "
 "They are simply a convenient way for you to organise your files."
 msgstr "Lista izmena je čista mogućnost lokalnog klijenta. kreiranjem i uklanjanjem lista izmena ne utiče na spremište, niti na bilo koju radnu kopiju. Ona je jednostavno uobičajeni način da organizujete vaše fajlove."
+
+#. (para)
+msgid ""
+"Note that if you use changelists, externals will no longer show up in their "
+"own groups anymore. Once there are changelists, files and folders are "
+"grouped by changelist, not by external anymore."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -5018,6 +5015,10 @@ msgid ""
 msgstr "Iz Progresa dijaloga kada je obnavljanje završeno. Tada Dnevnik dijalog samo prikazuje te revizije koje su bile izmenjene od vašeg zadnjeg obnavljanja."
 
 #. (para)
+msgid "From the repository browser"
+msgstr ""
+
+#. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
@@ -5068,6 +5069,34 @@ msgid ""
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
 msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/>Ako je revizija  premestila fajl ili folder, <emphasis>premešten</emphasis> ikona je prikazana u četvrtoj koloni."
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
+"renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
+" the fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
+"replaced a file or directory by moving/renaming it, the <emphasis>move "
+"replaced</emphasis> icon is shown in the fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
+" file or directory, the <emphasis>merged</emphasis> icon is shown in the "
+"fourth column."
+msgstr ""
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
+"reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
+"icon is shown in the fourth column."
+msgstr ""
 
 #. (title)
 msgid "Getting Additional Information"
@@ -5918,22 +5947,22 @@ msgstr "Kliknite na ikonu pretraživanja da izaberete koje informacije želite d
 msgid ""
 "Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use a leading <literal>+</literal> to specify that a sub-string should be included, even if previously excluded with a <literal>-</literal>. Note that the order of inclusion/exclusion is significant here. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
-"</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"      </screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
 "Alice -Bob +Eve\n"
-"</screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
+"      </screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
 "-Case +SpecialCase\n"
-"</screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
+"      </screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
 "!Alice Bob\n"
-"</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
+"      </screen> searches for strings which do not contain both Alice and Bob <screen>\n"
 "!-Alice -Bob\n"
-"</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
+"      </screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
 "\"Alice and Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
+"      </screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
 "\"\"\n"
-"</screen> searches for a double-quote anywhere in the text <screen>\n"
+"      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr "Jednostavno substring pretraživanje radi na sličan način kao mašina za pretraživanje. Stringovi za pretraživanje su razdvojeni razmacima i svi stringovi moraju biti nađeni. Možete koristiti vodeći <literal>-</literal>  da specificirate da partikularni string nije nađen (inverzno sparivanje za te termine), i možete koristiti <literal>!</literal> na početku izraza za inverzno sparivanje celog izraza. Možete koristiti vodeći  <literal>+</literal> da specificirate da substring bude uključen čak i ako je prethodno isključen sa  <literal>-</literal>. Primetite da je redosled uključivanja/isključivanja važan ovde. Možete koristiti znak navoda da okružite string koji može sadržati razmake , i ako želite da tražite znak navoda morate koristiti dva znaka navoda zajedno kao samoizbegavajućom sekvencom. Primetimo da inverzna kosa crta se <emphasis>ne</emphasis> koristi kao izbegavajući karakteri nema specifično značenje u jednostavnom substring pretraživanju: <screen>\nAlice Bob -Eve\n</screen> traži stringove Alice and Bob ali ne Eve <screen>\nAlice -Bob +Eve\n</screen> traži stringove koji sadrže$ Alice ali ne Bob, ili string koji sadrži Eve. <screen>\n-Case +SpecialCase\n</screen> traži string koji ne sadrži Case, ali još obuhvata stringove koji sadrže SpecialCase. <screen>\n!Alice Bob\n</screen> traži stringove koji sadrže Alice i Bob <screen>\n!-Alice -Bob\n</screen> <<<<<<sećate li se De Morganove teoreme? NOT(NOT Alice AND NOT Bob) redukuje se u (Alice OR Bob). <screen>\n\"Alice and Bob\"\n</screen> traži literalni izraz  <quote>Alice i Bob</quote><screen>\n\"\"\n</screen> traži dvostruke navodnike bilo gde u tekstu<screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> traži literalni izraz <quote>Alice says \"hi\" to Bob</quote>."
+"      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -6820,11 +6849,11 @@ msgstr "oznaka"
 msgid ""
 "It often happens that you already have the files you need in another project"
 " in your repository, and you simply want to copy them across. You could "
-"simply copy the files and add them as described above, but that would not "
-"give you any history. And if you subsequently fix a bug in the original "
-"files, you can only merge the fix automatically if the new copy is related "
-"to the original in Subversion."
-msgstr "Često se dešava to da već imate fajlove koji su vam potrebni u drugom projektu u vašem spremištu i jednostavno želite da ih kopirate unutar. Možete jednostavno kopirati fajlove i dodati ih kako je opisano gore, ali to vam neće dati istoriju. Ako subsekventno fiksirate bagove u originalnim fajlovima možete samo stopiti fiksirano automatski ako se nova kopija odnosi na originalnu Subverziju."
+"simply copy the files and add them, but that would not give you any history."
+" And if you subsequently fix a bug in the original files, you can only merge"
+" the fix automatically if the new copy is related to the original in "
+"Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7808,6 +7837,13 @@ msgstr "Alternativni metod je da se podesi <literal>tsvn:autoprops</literal> oso
 
 #. (para)
 msgid ""
+"As of Subversion 1.8, you can also set the property <literal>svn:auto-"
+"props</literal> on the root folder. The property value is automatically "
+"inherited by all child items."
+msgstr ""
+
+#. (para)
+msgid ""
 "Whichever method you choose, you should note that auto-props are only "
 "applied to files at the time they are added to the working copy. Auto-props "
 "will never change the properties of files which are already versioned."
@@ -7967,6 +8003,14 @@ msgid ""
 "<literal>tsvn:autoprops</literal>, the project settings take precedence "
 "because they are specific to that project."
 msgstr "Ako postoji konflikt između lokalnih autoprops i <literal>tsvn:autoprops</literal>,  podešavanje projekta uzima primat jer je specifično za projekt."
+
+#. (para)
+msgid ""
+"As of Subversion 1.8, you should use the property <literal>svn:auto-"
+"props</literal> instead of <literal>tsvn:autoprops</literal> since this has "
+"the very same functionality but works with all svn clients and is not "
+"specific to TortoiseSVN."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8235,8 +8279,8 @@ msgid ""
 "my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
-"</screen>"
-msgstr "Možete, takođe, specificirati da li koristiti prilagođen dijalog da se dodaju/urede vaše osobine. TortoiseSVN nudi četiri različita dijaloga, u zavisnosti od tipa osobina <placeholder-1/> Gornja slika je napravljena sa sledećim <literal>tsvn:userdirproperties</literal>: <screen>\nmy:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)\nmy:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)\nmy:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)\nmy:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\nmy:singlelineprop=singleline;enter a small comment(.*)\nmy:multilineprop=multiline;copy and paste a full chapter here(.*)\n</screen>"
+"            </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8736,8 +8780,8 @@ msgstr "Relativno na predački folder"
 msgid ""
 "These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
 "../../widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr "Ovi URLovi uvek počinju stringom <literal>../</literal> na primer: <screen>\n../../widgets/foo  common/foo-widget\n</screen> Ovo treba da ekstrahuje <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8754,15 +8798,15 @@ msgstr "Relativno na koren spremišta"
 msgid ""
 "These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
 "^/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr "Ovi URLovi uvek počinju stringom <literal>^/</literal> na primer: <screen>\n^/widgets/foo  common/foo-widget\n</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr "Možete se lako pozvati na drugo spremište sa istim  <literal>SVNPredakPutanja</literal> (zajednički folder koji drži više spremišta). Na primer: <screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> u <filename>C:\\Working\\common\\claw-hammer</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr ""
 
 #. (term)
 msgid "Relative to scheme"
@@ -8772,8 +8816,8 @@ msgstr "Relativno na šemu"
 msgid ""
 "URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr "URL koji počinje stringom <literal>//</literal> kopira samo deo šeme URLa. Ovo je korisno kada se mora pristupiti  domćinu istog imena sa različitim šemama u zavisnosti od mrežne lokacije; npr. klijenti na intranetu koriste  <systemitem class=\"url\">http://</systemitem> dok spoljšnji klijenti koriste <systemitem class=\"url\">svn+ssh://</systemitem>. Na primer:  <screen>\n//example.com/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> ili <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> u zavisnosti koji metod je korišćen za preuzimanje <filename>C:\\Working</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+msgstr ""
 
 #. (term)
 msgid "Relative to the server's hostname"
@@ -8783,8 +8827,8 @@ msgstr "Relativno do serverovog imena domaćina"
 msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr "URL koji počinju stringom <literal>/</literal> kopiraju šemu i deo sa imenom domaćina URLa, na primer: <screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>. Ali ako preuzmete vašu radni kopiju sa drugog servera na <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> tada će spoljašnje reference izdvojiti <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8819,12 +8863,9 @@ msgstr "Kao Subverzija 1.6 možete dodati pojedinačni spoljašnji fajl u vašu 
 
 #. (para)
 msgid ""
-"The path to the file external must place the file in an existing versioned "
-"folder. In general it makes most sense to place the file directly in the "
-"folder that has <literal>svn:externals</literal> set, but it can be in a "
-"versioned sub-folder if necessary. By contrast, directory externals will "
-"automatically create any intermediate unversioned folders as required."
-msgstr "Spoljašnji program za putanju ka fajlu mora smetstiti fajl u postojeći verzionisani folder. Uopšteno, razumljivije je  smestiti fajl direktno u folder koji ima <literal>svn:externals</literal> podešen, ali može biti u verzionisanom pod-folderu ako je neophodno. Na suprot tome, spoljašnji programa za foldere će automatski kreirati intermedijalne neverzionisane foldere ako su potrebni."
+"The path to the file external must be a direct child of the folder where you"
+" set the <literal>svn:externals</literal> property."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8924,11 +8965,11 @@ msgstr "Ako ste uvezli vaš projekat sa preporučenom strukturom foldera, kreira
 #. (para)
 msgid ""
 "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/trunk\n"
-"</screen> you might now use something like <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
-msgstr "Podrazumevan destinacioni URL za novu granu bio bi izvorni URL na kome je radna kopija zasnovana. Potrebno vam je da uredite URL ka novoj putanji za granu/oznaka. Tako umesto <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> možete sada koristiti nešto kao <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> Ako ne možete zapamtiti konvenciju imenovanja koju ste koristili u poslednje vreme, kliknite na dugme desno da otvorite pretraživač spremišta tako možete videti postojeću strukturu spremišta."
+"http://svn.collab.net/repos/ProjectName/trunk\n"
+"      </screen> you might now use something like <screen>\n"
+"http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
+msgstr ""
 
 #. (title)
 msgid "intermediate folders"
@@ -9260,10 +9301,10 @@ msgstr "Metoda se koristi u slučaju kad ste napravili jednu ili više revizija 
 
 #. (para)
 msgid ""
-"What you are asking Subversion to do is this: <quote>Calculate the changes "
+"What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
-"and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr "Kako pitate Subverziju da to uradi: <quote>Izračunati izmene neophodne da uzmete [OD] revizije 1 grane A [DO] revizije 7 grane A, primenite ove izmene u mojoj radnoj kopiji (deblo ili grana B).</quote>"
+"and apply those changes to my working copy (of trunk or branch B). </quote>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9279,11 +9320,11 @@ msgstr "Stopi dva različita stabla"
 #. (para)
 msgid ""
 "This is a more general case of the reintegrate method. What you are asking "
-"Subversion to do is: <quote>Calculate the changes necessary to get [FROM] "
+"Subversion to do is: <quote> Calculate the changes necessary to get [FROM] "
 "the head revision of the trunk [TO] the head revision of the branch, and "
-"apply those changes to my working copy (of the trunk).</quote> The net "
+"apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
-msgstr "Ovo je mnogo opštiji slučaj reintegracionog metoda. Ono što pitate Subverziju da to uradi je: <quote>Izračunajte izmene neophodne da dobijete [OD] glavne revizije debla [DO]glavne revizije grane,i primeniti te izmen na moju radnu kopiju (debla).</quote> čist rezultat je to deblo sada izgleda tačno kao grana."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9592,13 +9633,13 @@ msgid ""
 "The merge progress dialog shows each stage of the merge, with the revision "
 "ranges involved. This may indicate one more revision than you were "
 "expecting. For example if you asked to merge revision 123 the progress "
-"dialog will report <quote>Merging revisions 122 through 123</quote>. To "
+"dialog will report <quote> Merging revisions 122 through 123 </quote>. To "
 "understand this you need to remember that Merge is closely related to Diff. "
 "The merge process works by generating a list of differences between two "
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr "Stapanje progres dijalog prikazuje svako stanje stapanja, sa revizionim opsezima uključenim. To može indicirati jednu više reviziju nego što ste očekivali. Na primer, ako tražite da stopite reviziju 123 dijalog napredovanja pokazuje <quote>Stapanje revizija122 do 123</quote>. Da shvatite ovo potrebno je da se setite da je Stapanje blisko zavisno sa Diff. Proces stapanja radi generišući listu razlika između dve tačke u spremištu, i primenjuje te razlike na radnu kopiju. Dijalog napredovanja jednostavno prikazuje početnu i krajnju tačku za diff."
+msgstr ""
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -9757,15 +9798,6 @@ msgstr "Stapanje uvek ne ide ravno. Ponekad ima konflikta, i ako stapate više o
 
 #. (para)
 msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible. You have to choose one complete file. Use <emphasis>Prefer "
-"local</emphasis> to select the local version as it was in your working copy "
-"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
-"incoming file from the merge source in the repository."
-msgstr "Ako vaše stapanje uključuje binarne fajlove, stapanjem konflikta u njima nije moguće. Vi ste izabrali jedan kompletan fajl. Koristite <emphasis>Pretpostavi lokalno</emphasis>  da selektovanje  lokalne verzije kako je u vašoj radnoj kopiji pre stapanja, ili emphasis>Pretpostavi spremište</emphasis>  da izabere dolazeći fajl iz izvora stapanja u spremištu."
-
-#. (para)
-msgid ""
 "If you are merging text files then these first two buttons allow you to "
 "merge non-conflicting lines as normal and always prefer one version where "
 "there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
@@ -9777,6 +9809,16 @@ msgid ""
 "but the conflicts often cover more lines than you think they will and you "
 "may get unexpected results."
 msgstr "Ako stapate tekst fajlove onda prva dva tastera omogućavaju vam da stopite non-konflikt linije kao normalne i uvek pretpostavite verziju gde su konflikti. Izborom <emphasis>Pretpostavi lokalno</emphasis> izabraćete vašu lokalnu verziju u svakom konfliktu, tj. to će preferisati to što je već ranije stopljeno iz dolazećih izmena iz izvora stapanja. međutim, <emphasis>Pretpostavi spremište</emphasis> će izabrati izmene u svakom konfliktu, tj. pretpostaviće dolazeće izmene iz izvora stapanja preko onog što je već u radnoj kopiji. Ovo zvući lako, ali konflikti često pokrivaju više linija nego što mislite da ima i možete dobiti neočekivane rezultate."
+
+#. (para)
+msgid ""
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible in a line-by-line mode. A conflict in a binary file always refers "
+"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
+"local version as it was in your working copy prior to the merge, or "
+"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
+"merge source in the repository."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10272,6 +10314,28 @@ msgid ""
 " now ready to submit your patch file."
 msgstr "Samo sačuvajte fajl koristeći fajlime po vašem izboru. Fajlovi zakrpa imaju ekstenziju koju god želite, ali konvencionalno bi trebalo da koristei<filename>.patch</filename> ili <filename>.diff</filename> ekstenziju. Sada ste spremni da podnesete vaš fajl zakrpu."
 
+#. (filename)
+msgid ".txt"
+msgstr ""
+
+#. (filename)
+msgid ".patch"
+msgstr ""
+
+#. (filename)
+msgid ".diff"
+msgstr ""
+
+#. (tip)
+msgid ""
+"Do not save the patch file with a <placeholder-1/> extension if you intend "
+"to send it via email to someone else. Plain text files are often mangled "
+"with by the email software and it often happens that whitespaces and newline"
+" chars are automatically converted and compressed. If that happens, the "
+"patch won't apply smoothly. So use <placeholder-2/> or <placeholder-3/> as "
+"the extension when you save the patch file."
+msgstr ""
+
 #. (para)
 msgid ""
 "You can also save the patch to the clipboard instead of to a file. You might"
@@ -10440,11 +10504,9 @@ msgstr "Možete uključiti stopljene informacije ako želite, takođe ova opcija
 #. (para)
 msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
-"data to create the blame file. Please note: This can take several minutes to"
-" finish, depending on how much the file has changed and of course your "
-"network connection to the repository. Once the blame process has finished "
-"the result is written into a temporary file and you can view the results."
-msgstr "Kada jednom pritisnete <guibutton>OK</guibutton> TortoiseSVN počinje vraćati podatke da kreira fajl okrivljavanja. Molim primetite: Ovo može uzeti nekoliko minuta da se završi, u zavisnosti od toga koliko je fajl izmenjen i svakako mrežne konekcije u spremištu. Jednom kada proces okrivljavanja završi rezultat je upisan u privremeni fajl i vi možete videti rezultat."
+"data to create the blame file. Once the blame process has finished the "
+"result is written into a temporary file and you can view the results."
+msgstr ""
 
 #. (title)
 msgid "TortoiseBlame"
@@ -11994,6 +12056,15 @@ msgid ""
 "<filename>trunk/</filename>)."
 msgstr "Ove osobine moraju biti podešene na folderu za sistem koji radi. Kada urezujete fajl ili folder osobine su pročitane iz foldera. Ako osobine nisu nađene tamo, TortoiseSVN će pretraživati nagore kroz stablo foldera da ga nađete dok ne dođe neverzionisani folder, ili koren stabla (npr. <literal>C:\\</literal>) nađen. Ako možete biti sigurni da svaki korisnik preuzima samo sa npr. <filename>trunk/</filename> a ne neke sub-foldere, zatim to je dovoljno ako podesite osobine  na <filename>trunk/</filename>.  Ako ne možete biti sigurni, morate podesiti osobine rekurzivno na svakom sub-folderu. Osobine podešene dublje u hijerarhiji projekta koja prepisuje podešavanje na višim nivoima (bliže ka <filename>trunk/</filename>)."
 
+#. (para)
+msgid ""
+"As of version 1.8, TortoiseSVN and Subversion use so called "
+"<literal>inherited properties</literal>, which means a property that is set "
+"on a folder is automatically also implicitly set on all subfolders. So "
+"there's no need to set the properties on all folders anymore but only on the"
+" root folder."
+msgstr ""
+
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "Nema Problem Tragač Informacije iz Pretraživača Spremišta"
@@ -12194,8 +12265,11 @@ msgid "Language"
 msgstr "Jezik"
 
 #. (para)
-msgid "Selects your user interface language. What else did you expect?"
-msgstr "Izaberite vaš jezik korisnočkog interfejsa. Šta ste još očekivali?"
+msgid ""
+"Selects your user interface language. Of course, you have to install the "
+"corresponding language pack first to get another UI language than the "
+"default English one."
+msgstr ""
 
 #. (term)
 msgid "Check for updates"
@@ -12383,13 +12457,13 @@ msgid ""
 "Most of the time, you won't need the TortoiseSVN context menu, apart for "
 "folders that are under version control by Subversion. For non- versioned "
 "folders, you only really need the context menu when you want to do a "
-"checkout. If you check the option <literal>Hide menus for unversioned "
-"paths</literal>, TortoiseSVN will not add its entries to the context menu "
-"for unversioned folders. But the entries are added for all items and paths "
-"in a versioned folder. And you can get the entries back for unversioned "
-"folders by holding the <keycap>Shift</keycap> key down while showing the "
-"context menu."
-msgstr "Većinu vremena nije vam potreban TortoiseSVN kontekst meni, osim za foldere koji su pod kontrolom verzija sa Subverzijom. Za neverzionisane foldere vama je satvarno potreban kontekst meni samo pri preuzimanju. Ako označite opciju <literal>Sakrijte menije za neverzionisane putanje</literal>, TortoiseSVN neće dodati svoje ulaze u kontekst meni za neverzionisane foldere. Ali ulazi su dodati za sve stavke i putanje verzionisanih foldera. Možete dobiti ulaze natrag za neverzionisane foldere držanjem <keycap>Šift</keycap> tastera dok se prikazuje kontekst meni."
+"checkout. If you check the option <literal> Hide menus for unversioned paths"
+" </literal>, TortoiseSVN will not add its entries to the context menu for "
+"unversioned folders. But the entries are added for all items and paths in a "
+"versioned folder. And you can get the entries back for unversioned folders "
+"by holding the <keycap>Shift</keycap> key down while showing the context "
+"menu."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13224,15 +13298,15 @@ msgstr "Korisnici ponekad pitaju kako ova tri podešavanja intergaguju. Za svaku
 msgid ""
 "An example will help here: <screen>\n"
 "Exclude:\n"
-"       C:\n"
-"       C:\\develop\\?\n"
-"       C:\\develop\\tsvn\\obj\n"
-"       C:\\develop\\tsvn\\bin\n"
+"C:\n"
+"C:\\develop\\?\n"
+"C:\\develop\\tsvn\\obj\n"
+"C:\\develop\\tsvn\\bin\n"
 "\n"
 "Include:\n"
-"       C:\\develop\n"
-"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr "Primer će pomoći ovde: <screen>\nExclude:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\nInclude:\n       C:\\develop\n</screen> Ova podešavanja onemogućavaju prekrivače ikona za C: drajv, odim za <literal>c:\\develop</literal>. Svi projekti ispod tog foldera će prikazati prekrivače, osim  samog <literal>c:\\develop</literal> foldera, koji se specifično zanemaruje. Specifični binarni imenici takođe se izbacuju."
+"C:\\develop\n"
+"    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13253,8 +13327,8 @@ msgstr "SUBST diskovi"
 msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
-"</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr "Često je običaj da se koristi <literal>SUBST</literal> drajv  da pristupi  vašim radnim kopijama, tj. koristeći komandu <screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen> Međutim ovo može prouzrokovati prekrivanja nisu obnovljeni, kao <literal>TSVNCache</literal>  će samo primiti jednu notifikaciju kada se fajl izmeni, i to je normalno za originalnu putanju. Ovo znači da vaši prekrivači na <literal>subst</literal> putanji može biti da se nikad ne obnavlja."
+"      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13359,8 +13433,8 @@ msgstr "Možete takođe specificirati koji program TortoiseSVN treba da koristi 
 msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
-"</screen>"
-msgstr "Morate specificirati punu putanju za izvršne programe. Za TortoisePlink.exe ovo je standardni TortoiseSVN bin folder. Koristite <guibutton>Pretraži</guibutton> dugme kao pomoć da se nađe. Primetimo to da ako putanja sadrži prazna polja, morate zaokružiti navodnicima, npr. <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
+"    </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13393,9 +13467,9 @@ msgid ""
 "Finally, setting up SSH on server and clients is a non-trivial process which"
 " is beyond the scope of this help file. However, you can find a guide in the"
 " TortoiseSVN FAQ listed under <ulink "
-"url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
-"SSH How-To</citetitle></ulink>."
-msgstr "Na kraju, podešavanje SSH na serveru i klijentima je ne-trivijalan proces koji je van interesa ovog fajla pomoći. Međutim, možete naći vodič u TortoiseSVN ČPP izlistanih pod <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
+"url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
+" SSH How-To</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "External Program Settings"
@@ -13521,20 +13595,20 @@ msgstr "Naslov prozora nije čisto ime fajla. TortoiseSVN tretira to kao  ime da
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
-"    --right_display_name:%yname\n"
-"</screen> or with KDiff3: <screen>\n"
+"                                    --right_display_name:%yname\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> or with WinMerge: <screen>\n"
+"      </screen> or with WinMerge: <screen>\n"
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> or with Araxis: <screen>\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"    %base %mine\n"
-"</screen> or with UltraCompare: <screen>\n"
+"                       %base %mine\n"
+"      </screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
-"</screen>"
-msgstr "Na primer, sa ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n    --right_display_name:%yname\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> or with WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n    %base %mine\n</screen> or with UltraCompare: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n</screen> or with DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13641,19 +13715,19 @@ msgstr "Eksterni program za stapanje koristi se da reši konfliktne fajlove. Par
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> or with KDiff3: <screen>\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"    --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> or with Araxis: <screen>\n"
+"                      --L1 %bname --L2 %yname --L3 %tname\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"    /title3:%yname %theirs %base %mine %merged /a2\n"
-"</screen> or with WinMerge (2.8 or later): <screen>\n"
+"                       /title3:%yname %theirs %base %mine %merged /a2\n"
+"      </screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
-"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
-"</screen>"
-msgstr "Na primer, sa Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n    --L1 %bname --L2 %yname --L3 %tname\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n    /title3:%yname %theirs %base %mine %merged /a2\n</screen> or with WinMerge (2.8 or later): <screen>\nC:\\Path-To\\WinMerge.exe %merged\n</screen> or with DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
+"      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -14211,8 +14285,8 @@ msgstr "Pozvan pre pokušaja da se kontaktira spremište.. Pozvan najviše jedno
 
 #. (para)
 msgid ""
-"There are currently six types of hook script available <placeholder-1/>"
-msgstr "Postoji tekućih šest tipova zakačivih skripti dostupan <placeholder-1/>"
+"There are currently these types of hook script available <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14353,8 +14427,8 @@ msgid ""
 "When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
-"</screen>"
-msgstr " Kada debagujete ѕakačive skripte možete želeti eho progres linije na DOS konzoli, ili ubacite pauzu da zaustavite konzolni prozor da nestane kada se skript kompletira. Pošto je U/I preusmeren to neće raditi normalno. Međutim možete preusmeriti ulaz i izlaz eksplicitno na CON da prevaziđete ovo. npr. <screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n</screen>"
+"    </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14562,8 +14636,10 @@ msgid ""
 "Explorer are normally only active in a working copy. If you want those to be"
 " accessible everywhere, not just in working copies, set this value to "
 "<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr "Dodatne kolone TortoiseSVN koje dodaje detaljnom pregledu u Vindouz Eksploreru aktivne su samo u radnoj kopiji. Ako želite da budu dostupne  bilo gde, ne samo u radnoj kopiji, odesite ovu vrednost na <literal>istina</literal>. Primetimo da su ekstra kolone dostupne samo na HP. Vista i kasniji ne podržavaju ovu osobinu."
+"XP. Vista and later doesn't support that feature any more. However some "
+"third-party explorer replacements do support those even on Windows versions "
+"later than XP."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14635,8 +14711,8 @@ msgstr "Status list kontrola koja se koristi u raznim dijalozima (npr. urezivanj
 msgid ""
 "This option determines how the Win7 taskbar icons of the various TortoiseSVN"
 " dialogs and windows are grouped together. This option has no effect on "
-"Windows XP or Vista!"
-msgstr "Ova opcija određuje Vin7 ikone alatnog panela raznih TortoiseSVN dijaloga i prozora su grupisane zajedno. Ova opcija nema efekta na Vindousu HP ili Visti!"
+"Vista!"
+msgstr ""
 
 #. (title)
 msgid "Taskbar with default grouping"
@@ -14972,8 +15048,8 @@ msgstr "SubWCRev čita Subverzioni status svih fajlova u radnoj kopiji, izostavl
 msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
-"</screen>"
-msgstr "SubWCRev.exe je pozvan iz komandne linije ili skripta, i kontrolisan koristeći parametre komandne linije. <screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15003,6 +15079,7 @@ msgstr "Lista dostupnih prekidača komandne linije"
 msgid "Switch"
 msgstr "Zamena"
 
+#. (entry)
 #. (entry)
 #. (entry)
 #. (entry)
@@ -15292,9 +15369,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TTekst"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15322,6 +15401,7 @@ msgid ""
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> je zamenjeno sa <placeholder-2/> ako postoje lokalne izmene, ili <placeholder-3/> ako ne."
 
+#. (literal)
 #. (literal)
 msgid "$WCUNVER?TText:FText$"
 msgstr "$WCUNVER?TText:FText$"
@@ -15402,6 +15482,12 @@ msgstr "Zamenjeno imenom vlasnika katanca."
 msgid "Replaced with the comment of the lock."
 msgstr "Zamenjeno komentarom katanca."
 
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"files or folders in the working copy, or <placeholder-3/> if not."
+msgstr ""
+
 #. (para)
 msgid ""
 "If a source and destination files are supplied, SubWCRev copies source to "
@@ -15412,12 +15498,12 @@ msgstr "Ako su izvorni i odredišni fajlovi snabdeveni, SubWCRev kopira izvor u 
 msgid ""
 "SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
 "#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
-"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"      </screen> But you can usually work around it by other means, for example: <screen>\n"
 "#define SVN_RANGE       $WCRANGE$\n"
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
-"</screen>"
-msgstr "SubWCRev ne podržava direktno gnježdenje izraza, tako na primer ne možete koristiti izraze kao: <screen>\n#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n</screen> Ali možete uobičajeno raditi u okolini na drugi način, na primer: <screen>\n#define SVN_RANGE       $WCRANGE$\n#define SVN_REV         $WCREV$\n#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16707,17 +16793,17 @@ msgid ""
 "C:\\Projects\\Proj2\n"
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
-"</screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
-msgstr "Ako koristite isti zajednički osnovni kod u više projekata, i ne želite da čuvate višestruke radne kopije za svaki projekat koji ih koristi, možete ih samo preuzeti u izdvojene lokacije koje su povezane sa svim ostalim projektima koji ih koriste. Na primer: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> i pozovite se na zajednički kod koristeći relativnu putanju,  npr. <filename>..\\..\\Common\\DSPcore</filename>."
+"        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, e.g. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
 "SUBST X: \"D:\\Documents\\framework\"\n"
-"</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
+"        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
-"</screen>"
-msgstr "Ako je vaš projekat razbacan u nevezanim lokacijama možete koristiti varijantu ovoga, što će staviti zajednički kod u jednu lokaciju i koristiti slovo drajva kao zmenu da označi lokaciju ka nečemu što teško kodirate u vašem projektu, npr. Preuzimanje zajedničkog koda sa <filename>D:\\Documents\\Framework</filename> ili <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename>  zatim koristite <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> da kreirate mapiranje drajvova koji se koriste u izvornom kodu. Vaš kod tada može koristiti apsolutne lokacije. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
+"        </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16761,8 +16847,8 @@ msgstr "skraćenica"
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
-"</screen> Of course you need to include the real repository URL."
-msgstr "Ako vam često treba da otvarate pretraživač spremišta na posebnoj lokaciji, možete kreirati prečicu na desktopu koristeći automtizovani interfejs ka TortoiseProc. Samo kreirajte novu prečicu i podesite cilj ka <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n</screen> Svakako potrebno je da uključite pravi URL spremišta."
+"      </screen> Of course you need to include the real repository URL."
+msgstr ""
 
 #. (title)
 msgid "Ignore files which are already versioned"
@@ -16811,10 +16897,10 @@ msgstr "Neverzionisana radna kopija"
 #. (para)
 msgid ""
 "If you have a working copy which you want to convert back to a plain folder "
-"tree without the <literal>.svn</literal> directories, you can simply export "
-"it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out"
-" how."
-msgstr "Ako imate radnu kopiju koju želite da konvertujete nazad u čisto stablo foldera bez <literal>.svn</literal> foldera, možete je jednostavno izvesti u sebe samu. Pročitajte <xref linkend=\"tsvn-dug-export-unversion\"/> da nađete više detalja."
+"tree without the <literal>.svn</literal> directory, you can simply export it"
+" to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out "
+"how."
+msgstr ""
 
 #. (title)
 msgid "Remove a working copy"
@@ -16883,12 +16969,12 @@ msgid ""
 "TortoiseSVN must be installed under <emphasis>Computer "
 "Configuration</emphasis> and not under <emphasis>User "
 "Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC "
-"DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
-"<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
+"DLLs, which can only be deployed <emphasis> per computer </emphasis> and not"
+" <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"11 from Microsoft on each computer you want to install TortoiseSVN as per "
+"12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr "TortoiseSVN mora se instalirati pod <emphasis>Computer Configuration</emphasis> a ne pod <emphasis>User Configuration</emphasis>. Ovo je zato što TortoiseSVN traži CRT i MFC DLLove koji se šalju <emphasis>per computer</emphasis> a ne <emphasis>per user</emphasis>. Ako stvarno morate instalisati TortoiseSVN po korisniku morate najpre instalirati MFC i CRT oakete verzije 11 Mikrosofta na svaki kompjuter gde želite da instalirate TortoiseSVN po korisniku."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16939,11 +17025,11 @@ msgstr "Ako ste odgovorni za više korisnika na vašem domenu, možda želite da
 #. (para)
 msgid ""
 "Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade check to your intranet server. You can set the registry key <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value) to an URL pointing to a text file in your intranet. That text file must have the following format: <screen>\n"
-"1.4.1.6000\n"
+"1.9.1.6000\n"
 "A new version of TortoiseSVN is available for you to download!\n"
-"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
-"</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr "Verzija 1.4.0 i dalje TortoiseSVN dozvoljavaju da preusmerite proveru dogradnje  ka vašem internet serveru. Možete podesiti ključ registra <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string vrednost) ka URL koji pokazuje na tekst fajl vašeg intraneta. Taj tekst fajl mora imati sledeći format:  <screen>\n1.4.1.6000\nA new version of TortoiseSVN is available for you to download!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n</screen> Prva linija u tom fajlu je string verzije. Morate osigurati da to tačno opisuje string verzije TortoiseSVN instalacionog paketa. Druga linija je podrazumevan tekst prikazan u dijalogu dogradnje. Tu možete napisati što god želite. Obratite pažnju da je prostor u dijalogu dogradnje ograničen. Suviše dugačke poruke će biti skraćene! Treća linija je URL ka novom instalacionom paketu. URL je otvoren kada korisnik klikne na oznaku podrazumevane poruke u dijalogo dogradnje. Možete takođe samo uputiti korisnika na veb stranicu umesto na MSI fajl direktno. URL se otvara podrazumevanim pretraživačem veba, tako da ako specificirate veb stranicu, ta stranica se otvorila i prikazuje se korisniku. Ako specificirate MSI paket, pretraživač će pitati korisnika da sačuva MSI fajl lkalno."
+"http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
+"      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
+msgstr ""
 
 #. (title)
 msgid ""
@@ -16973,10 +17059,12 @@ msgstr "Od verzije 1.4.0 i dalje, instalacija TortoiseSVN ne omogućava više ko
 
 #. (para)
 msgid ""
-"But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
-"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
-"</screen>"
-msgstr "Ali ta opcija je samo sakrivena za korisnika. Vi još možete naterati TortoiseSVN unstalaciju da podesi tu promenljivu okruženja podešavanjem <literal>ASPDOTNETHACK</literal> karakteristike na ISTINA. Na primer, možete početi instalaciju kao: <screen>\nmsiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n</screen>"
+"But the feature is still available in TortoiseSVN and other svn clients. To "
+"enable it you have to set the Windows environment variable named "
+"<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
+"value of that environment variable doesn't matter: if the variable exists "
+"the feature is active."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17201,6 +17289,18 @@ msgid "Upgrade working copy"
 msgstr "Nadogrdnja radne kopije"
 
 #. (entry)
+msgid "Diff later"
+msgstr "Dif kasnoje"
+
+#. (entry)
+msgid "Diff with 'filename'"
+msgstr ""
+
+#. (entry)
+msgid "Unified diff"
+msgstr ""
+
+#. (entry)
 msgid "Settings"
 msgstr "Postavke"
 
@@ -17215,12 +17315,12 @@ msgstr "O"
 #. (para)
 msgid ""
 "Example: to disable the <quote>Relocate</quote> the <quote>Delete unversioned items</quote> and the <quote>Settings</quote> menu entries, add the values assigned to the entries like this: <screen>\n"
-"  0x0000000000080000\n"
+"0x0000000000080000\n"
 "+ 0x0000000080000000\n"
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
-"</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr "Primer: da se onemogući <quote>Relociraj</quote>  <quote>Obriši neverzionisane stavke</quote> i <quote>Podešavanja</quote> ulazi menija, dodajte vrednosti pridružene ulazima kao ove: <screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> Manja <literal>DWORD</literal> vrednost (<literal>0x80080000</literal>) mora biti smeštena u <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, veća <literal>DWORD</literal> vrednost (<literal>0x20000000</literal>) u <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+"      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+msgstr ""
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -17253,9 +17353,11 @@ msgstr "TortoiseSVN komande"
 #. (primary)
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "utomatizovanje"
 
+#. (primary)
 #. (primary)
 #. (primary)
 msgid "command line"
@@ -17287,8 +17389,10 @@ msgid ""
 "order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
 "use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
-"the parameter <option>/deletepathfile</option>."
-msgstr "Možete takođe specificirati fajl koji sadrži listu putanja razdvojenu novim linijama. Fajl mora biti UTF-16 format, bez <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>.  Ako prevučete takav fajl koristite <option>/pathfile</option> umesto <option>/path</option>. Da bi TortoiseSVN obrisala taj fajl posle završetka komande možete prevući parametar <option>/deletepathfile</option>."
+"the parameter <option>/deletepathfile</option>. If you don't pass "
+"<option>/deletepathfile</option>, you have to delete the file yourself or "
+"the file gets left behind."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18143,9 +18247,11 @@ msgid ""
 msgstr "Tabela koja sledi lista svih opcija koje mogu biti prenete u diff slike alatu na komandnoj liniji."
 
 #. (title)
+#. (title)
 msgid "List of available options"
 msgstr "Lista raspoloživih opcija"
 
+#. (entry)
 #. (entry)
 msgid "Option"
 msgstr "Opcije"
@@ -18187,6 +18293,33 @@ msgid ""
 "                  /fit /overlay\n"
 "</screen>"
 msgstr "Primer (koji treba da bude unet na jednoj liniji): <screen>\nTortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n                  /fit /overlay\n</screen>"
+
+#. (title)
+msgid "TortoiseUDiff Commands"
+msgstr ""
+
+#. (para)
+msgid "The unified diff viewer has only two command line options:"
+msgstr ""
+
+#. (entry)
+msgid "Path to the unified diff file."
+msgstr ""
+
+#. (entry)
+msgid "Activates pipe mode. The unified diff is read from the console input."
+msgstr ""
+
+#. (para)
+msgid ""
+"Examples (which should be entered on one line): <screen>\n"
+"TortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n"
+"      </screen> If you create the diff from another command, you can use TortoiseUDiff to show that diff directly: <screen>\n"
+"svn diff | TortoiseUDiff.exe /u\n"
+"      </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
+"svn diff | TortoiseUDiff.exe\n"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
@@ -18255,7 +18388,8 @@ msgstr "Neke stavke su opcionalne i one su često kontrolisane čekboksovima ili
 msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
-msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18282,7 +18416,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18315,7 +18450,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18332,7 +18468,8 @@ msgstr "U TortoiseSVN, dijalog urezivanja koristi više Subverzionih komandi. Pr
 msgid ""
 "\n"
 "svn status -v PATH\n"
-msgstr "\nsvn status -v PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18356,7 +18493,8 @@ msgstr "Ako proverite neke neverzionisane fajlove i foldere, te stavke će prvo 
 msgid ""
 "\n"
 "svn add PATH...\n"
-msgstr "\nsvn add PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18372,7 +18510,8 @@ msgstr "Kada kliknete OK, Subverziono urezivanje počinje. Ako ostavite sve sele
 msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
-msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18393,7 +18532,8 @@ msgstr "Ako je  <guilabel>Keep locks</guilabel> čekirano, koristite <literal>--
 msgid ""
 "\n"
 "svn diff PATH\n"
-msgstr "\nsvn diff PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18417,9 +18557,10 @@ msgstr "Možete takođe diff neka dva fajla koristeći TortoiseSVN, da li su ili
 msgid ""
 "\n"
 "svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
-"  or\n"
+"or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
-msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n  or\nsvn log -v -r M:N [--stop-on-copy] PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18439,9 +18580,10 @@ msgstr "Ako je <guilabel>Stop na kopiraj/preimenuj</guilabel> čekirano, koristi
 msgid ""
 "\n"
 "svn status -v PATH\n"
-"  or\n"
+"or\n"
 "svn status -u -v PATH\n"
-msgstr "\nsvn status -v PATH\n  or\nsvn status -u -v PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18466,8 +18608,8 @@ msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
-"</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr "Ono što TortoiseSVN radi je <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> gde je URL spremište <emphasis>koren</emphasis> i onda analizira vraćene podatke."
+"        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
+msgstr ""
 
 #. (title)
 msgid "Repo Browser"
@@ -18479,7 +18621,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
-msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18511,21 +18654,24 @@ msgstr "Rešeno"
 msgid ""
 "\n"
 "svn resolved PATH\n"
-msgstr "\nsvn resolved PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
-msgstr "\nsvn rename CURR_PATH NEW_PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
-msgstr "\nsvn delete PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18548,14 +18694,16 @@ msgstr "Kada kliknete OK, Subverziono vraćanje se dešava. Ako ostavite izbor f
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
-msgstr "\nsvn revert [-R] PATH...\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
-msgstr "\nsvn cleanup PATH\n"
+"      "
+msgstr ""
 
 #. (title)
 msgid "Get Lock"
@@ -18573,7 +18721,8 @@ msgstr "Prva faza u proveri statusa koja određuje fajlove u vašoj radnij kopij
 msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
-msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18596,18 +18745,20 @@ msgstr "Skini Katanac"
 msgid ""
 "\n"
 "svn unlock PATH\n"
-msgstr "\nsvn unlock PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn copy -m \"LogMessage\" URL URL\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" URL@rev URL@rev\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
-msgstr "\nsvn copy -m \"LogMessage\" URL URL\n  or\nsvn copy -m \"LogMessage\" URL@rev URL@rev\n  or\nsvn copy -m \"LogMessage\" PATH URL\n"
+"      "
+msgstr ""
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18626,14 +18777,16 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
-msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18646,7 +18799,8 @@ msgstr "<guibutton>Test Stapanje</guibutton> omogućava isto stapanje kao <liter
 msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
-msgstr "\nsvn diff From_URL@revN To_URL@revM\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18659,7 +18813,8 @@ msgstr "<guibutton>Ujedinjene diff</guibutton> prikazuju diff operaciju koja će
 msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
-msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18691,7 +18846,8 @@ msgstr "U oba slučaja, ako je <guilabel>Nedostaju eksternali</guilabel> čekira
 msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
-msgstr "\nsvn switch --relocate From_URL To_URL\n"
+"      "
+msgstr ""
 
 #. (title)
 msgid "Create Repository Here"
@@ -18702,7 +18858,8 @@ msgstr "Kreuraj spremište ovde"
 msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
-msgstr "\nsvnadmin create --fs-type fsfs PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18715,7 +18872,8 @@ msgstr "Ako izaberete folder, TortoiseSVN prvo pregleda sve rekurzivno za stavke
 msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
-msgstr "\nsvn import -m LogMessage PATH URL\n"
+"      "
+msgstr ""
 
 #. (screen)
 #, no-wrap
@@ -18723,7 +18881,8 @@ msgid ""
 "\n"
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
-msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18743,7 +18902,8 @@ msgid ""
 "svn propget svn:ignore PATH &gt; tempfile\n"
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
-msgstr "\nsvn propget svn:ignore PATH &gt; tempfile\n{edit new ignore item into tempfile}\nsvn propset svn:ignore -F tempfile PATH\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18757,7 +18917,8 @@ msgstr "Zato što  <literal>svn:ignore</literal>  osobina je često viš-linijsk
 msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
-msgstr "\nsvn diff PATH &gt; patch-file\n"
+"      "
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18982,10 +19143,10 @@ msgid ""
 "The TortoiseSVN user interface has been translated into many different "
 "languages, so you may be able to download a language pack to suit your "
 "needs. You can find the language packs on our <ulink "
-"url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation "
-"status page</citetitle></ulink>. And if there is no language pack available,"
-" why not join the team and submit your own translation ;-)"
-msgstr "TortoiseSVN korisnički interfejs je preveden na mnoge različite jezike, tako da možete da skinete jezički paket koji vam je potreban. Jezičke pakete možete naći na <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>strana statusa prevoda</citetitle></ulink>. I ako jezički paket još nije dostupan, zašto da se ne priključite timu i dodate svoj lični prevod ;-)"
+"url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
+" status page</citetitle></ulink>. And if there is no language pack "
+"available, why not join the team and submit your own translation ;-)"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18998,9 +19159,9 @@ msgstr "Svaki jezički paket je spakovanu kao <literal>.msi</literal> instalacij
 msgid ""
 "The documentation has also been translated into several different languages."
 " You can download translated manuals from the <ulink "
-"url=\"http://tortoisesvn.net/support\"><citetitle>support "
+"url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr "Dokumentacija je prevedena na više raznih jezika. Možete skinuti prevedene manuale sa <ulink url=\"http://tortoisesvn.net/support\"><citetitle>strana podrške</citetitle></ulink> na našem vebsajtu."
+msgstr ""
 
 #. (title)
 msgid "Spellchecker"
@@ -19988,10 +20149,10 @@ msgid ""
 "If you're in two pane view, then you can only edit the file in the right "
 "pane (<literal>Mine</literal>). To apply changes made in the left file "
 "(<literal>Theirs</literal>), <action>right click</action> on the changed "
-"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use"
-" text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
-" the left file are added to the right file."
-msgstr "Ako ste u dva panela pregledu tada možete samo da uredite fajl u desnom panelu (<literal>Moj</literal>).  Da primenite izmene u levom fajlu (<literal>NJihov</literal>), <action>desni klik</action> na izmenjenim linijama izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Koristi tekst blok iz  'njihov' </guimenuitem></menuchoice>. Zatim izmene iz levog fajla su dodate u desni fajl."
+"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
+"Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
+"from the left file are added to the right file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20018,9 +20179,9 @@ msgid ""
 "view</emphasis>) you can only edit the file in the bottom view "
 "(<literal>Merged</literal>). As in two pane view, you can <action>right "
 "click</action> on conflicted lines and either select "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from "
-"'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Use text block from 'mine' "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
+" 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem> Use text block from 'mine' "
 "</guimenuitem></menuchoice>. In addition, if you want "
 "<emphasis>both</emphasis> blocks, you can select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
@@ -20029,7 +20190,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr "Ako ste u tri panela pregledu (ponekad zvan <emphasis>pregled spajanja</emphasis>) možete samo urediti fajl u donjem pregledu (<literal>Stopljen</literal>). Kao u dva panela pregledu, možete  uraditi <action>desni klik</action> na konfliktne linije ili izaberite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'njihov' </guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'moj' </guimenuitem></menuchoice>. Uz to, ako želite  <emphasis>oba</emphasis> bloka, možete izabrati <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'mine'  pre 'njihov'</guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem> Koristite tekst blok od 'njihov' pre 'moj'</guimenuitem></menuchoice>. Saglasno komandi koju ste izabrali izmene su korišćene u proizvedenom <literal>Stopnjenom</literal>  fajlu."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20475,8 +20636,8 @@ msgstr "TortoiseMerge prekidači komandne linije"
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
-"</screen>"
-msgstr "Većina prekidača zahteva dodatne informacije kao putanja ili neki drugi stringovi. U ovim slučajevima dodavanje ':' prekidaču i stavljajući string/putanja posle toga. Primer: <screen>\n/base:\"c:\\folder\\my base file.txt\"\n</screen>"
+"      </screen>"
+msgstr ""
 
 #. (title)
 msgid "List of available command line options"
@@ -20639,5 +20800,5 @@ msgstr "Prevencija da se fajl uređuje. To znači da su uređivačke mogućnosti
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
-"</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr "Možete takođe snabdeti jednostavna fajlimena u komandnoj liniji zbog kompatibilnosti sa drugim diff programima. U ovoj pojednostavljenoj formi komandne linije je <screen>\nTortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n</screen> Ako su data dva fajla oni će biti upoređeni jedan sa drugim. Ako su tri fajla data prvi se uzima kao OSNOVNI fajl, i druga dva se upoređuju sa njim u tri-načina razl."
+"      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
+msgstr ""

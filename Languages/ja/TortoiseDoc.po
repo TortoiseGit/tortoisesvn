@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-03-19 16:40+0000\n"
+"PO-Revision-Date: 2014-05-25 01:51+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -591,26 +591,20 @@ msgstr "システム要件"
 
 #. (para)
 msgid ""
-"TortoiseSVN runs on Windows XP with service pack 3 or higher and is "
-"available in both 32-bit and 64-bit flavours. The installer for 64-bit "
-"Windows also includes the 32-bit extension parts. Which means you don't need"
-" to install the 32-bit version separately to get the TortoiseSVN context "
-"menu and overlays in 32-bit applications."
-msgstr "TortoiseSVNはWindows XP Service Pack 3以上で動作し、32ビット版と64ビット版のどちらも使用できます。64ビット版Windows用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションでTortoiseSVNのコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
-
-#. (para)
-msgid ""
-"If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
-"service pack 3 installed. It won't work if you haven't installed that SP "
-"yet!"
-msgstr "Windows XPを使用している場合は、<emphasis>必ず</emphasis>Service Pack 3以上をインストールしてください。サービスパックをインストールしないと、動作しないかもしれません。"
+"TortoiseSVN runs on Windows Vista or higher and is available in both 32-bit "
+"and 64-bit flavours. The installer for 64-bit Windows also includes the "
+"32-bit extension parts. Which means you don't need to install the 32-bit "
+"version separately to get the TortoiseSVN context menu and overlays in "
+"32-bit applications."
+msgstr "TortoiseSVNはWindows Vista以上で動作し、32ビット版と64ビット版のどちらでも使用できます。64ビット版Windows用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションでTortoiseSVNのコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
 
 #. (para)
 msgid ""
 "Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
-"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
-"can still download and install older versions if you need them."
-msgstr "Windows 98、Windows ME、Windows NT4に対するサポートはバージョン1.2.0以前で終了し、Windows 2000とXPのSP2までは1.7.0以前で終了しました。もし必要であれば、旧バージョンをダウンロードしてインストールすることができます。"
+"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
+"Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
+" and install older versions if you need them."
+msgstr "Windows 98、Windows ME、Windows NT4に対するサポートはバージョン1.2.0以前で終了し、Windows 2000とXPのSP2までは1.7.0以前で終了しました。Windows XP SP3は1.9.0以前で終了しました。もしそれらが必要であれば、旧バージョンをダウンロードしてインストールすることができます。"
 
 #. (title)
 msgid "Installation"
@@ -1049,13 +1043,13 @@ msgid ""
 "When a client reads data from the repository, it normally sees only the "
 "latest version of the filesystem tree. But the client also has the ability "
 "to view <emphasis>previous</emphasis> states of the filesystem. For example,"
-" a client can ask historical questions like, <quote>what did this directory "
-"contain last Wednesday?</quote>, or <quote>who was the last person to change"
-" this file, and what changes did they make?</quote> These are the sorts of "
-"questions that are at the heart of any <firstterm>version control "
+" a client can ask historical questions like, <quote> what did this directory"
+" contain last Wednesday? </quote>, or <quote> who was the last person to "
+"change this file, and what changes did they make? </quote> These are the "
+"sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr "クライアントがリポジトリからデータを読み出すとき、普通はファイルシステムツリーの最新バージョンだけが見えます。しかし、ファイルシステムの<emphasis>以前の</emphasis>状態も見ることができます。たとえばクライアントは、<quote>先週の水曜日にこのディレクトリには何が入っていたのか？</quote>、とか<quote>最後にこのファイルを変更したのは誰で、その人は何を変更したのか？</quote>といった履歴に関する調査をすることができます。これらはあらゆる <firstterm>バージョン管理システム</firstterm> の核心になる関わる問いです。つまりバージョン管理システムは時間と共に、データを記録し変更内容を追跡するように設計されているのです。"
+msgstr "クライアントがリポジトリからデータを読み出すときには、普通はファイルシステムツリーの最新のバージョンだけが見えます。しかし、ファイルシステムの <emphasis>以前の</emphasis> 状態も見ることができます。たとえばクライアントは、<quote>先週の水曜日にこのディレクトリには何が入っていたのか？</quote>、とか<quote>最後にこのファイルを変更したのは誰で、その人は何を変更したのか？</quote> といった履歴に関する調査をすることができます。これらはあらゆる <firstterm>バージョン管理システム</firstterm> の核心になる関わる問いです。つまりバージョン管理システムは時間と共に、データを記録し修正内容を追跡するように設計されているのです。"
 
 #. (title)
 msgid "Versioning Models"
@@ -1157,13 +1151,13 @@ msgstr "コピー・変更・マージモデル"
 msgid ""
 "Subversion, CVS, and other version control systems use a <firstterm>copy-"
 "modify-merge</firstterm> model as an alternative to locking. In this model, "
-"each user's client reads the repository and creates a personal "
-"<firstterm>working copy</firstterm> of the file or project. Users then work "
-"in parallel, modifying their private copies. Finally, the private copies are"
-" merged together into a new, final version. The version control system often"
-" assists with the merging, but ultimately a human being is responsible for "
+"each user's client reads the repository and creates a personal <firstterm> "
+"working copy </firstterm> of the file or project. Users then work in "
+"parallel, modifying their private copies. Finally, the private copies are "
+"merged together into a new, final version. The version control system often "
+"assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr "Subversion や CVS などのバージョン管理システムは、ロックではなく<firstterm>コピー・変更・マージ</firstterm>モデルを使用します。このモデルでは、ユーザーのクライアントが個別にリポジトリを読み込み、ファイルやプロジェクトの個人的な<firstterm>作業コピー</firstterm>を作成します。そこからユーザーは並行して作業し、個人のコピーを変更します。最後に個人のコピーを新しい最終版にマージします。バージョン管理システムはマージの補助を行いますが、正しくマージする最終責任は人間が負うことになります。"
+msgstr "Subversion や CVS などのバージョン管理システムは、ロックの代わりに <firstterm>コピー・変更・マージ</firstterm> モデルを使用します。このモデルでは、ユーザーのクライアントが個別にリポジトリを読み込み、ファイルやプロジェクトの個人的な <firstterm> 作業コピー </firstterm> を作成します。そこからユーザーは並行して作業し、個人のコピーを変更します。最後に個人のコピーを新しい最終版にマージします。バージョン管理システムはマージの補助を行いますが、正しくマージする最終責任は人間が負うことになります。"
 
 #. (para)
 msgid ""
@@ -1289,15 +1283,15 @@ msgid ""
 "A working copy also contains some extra files, created and maintained by "
 "Subversion, to help it carry out these commands. In particular, your working"
 " copy contains a subdirectory named <filename>.svn</filename>, also known as"
-" the working copy <firstterm>administrative directory</firstterm>. The files"
-" in this administrative directory help Subversion recognize which files "
-"contain unpublished changes, and which files are out-of-date with respect to"
-" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
-"administrative subdirectories in every versioned directory of your working "
-"copy. Subversion 1.7 takes a completely different approach and each working "
-"copy now has only one administrative subdirectory which is an immediate "
-"child of the root of that working copy."
-msgstr "作業コピーには、 Subversion のコマンドの実行を補助するために、作成・保守される特別なファイルがあります。具体的には、作業コピーの中に <filename>.svn</filename> という名前のサブディレクトリが作られます。これは作業コピーの <firstterm>管理ディレクトリ</firstterm> として知られています。管理ディレクトリ内のファイルは、まだ公開していない変更があるか、また他の人の作業によって最新でなくなっているかを Subversion が認識する助けになります。 Subversion 1.7 以前では、 <filename>.svn</filename> ディレクトリは作業コピー内のバージョン管理対象のディレクトリそれぞれに作られていました。 Subversion 1.7 で完全に方法が変更され、各作業コピーが持つ管理ディレクトリは作業コピーのルートの直下に1つだけ作られるようになりました。"
+" the working copy <firstterm> administrative directory </firstterm>. The "
+"files in this administrative directory help Subversion recognize which files"
+" contain unpublished changes, and which files are out-of-date with respect "
+"to others' work. Prior to 1.7 Subversion maintained "
+"<filename>.svn</filename> administrative subdirectories in every versioned "
+"directory of your working copy. Subversion 1.7 takes a completely different "
+"approach and each working copy now has only one administrative subdirectory "
+"which is an immediate child of the root of that working copy."
+msgstr "作業コピーには、 Subversion のコマンドの実行を補助するために、作成・保守される特別なファイルがあります。具体的には、作業コピーの中に <filename>.svn</filename> という名前のサブディレクトリが作られます。これは作業コピーの <firstterm> 管理ディレクトリ </firstterm> として知られています。管理ディレクトリ内のファイルは、まだ公開していない変更があるか、また他の人の作業によって最新でなくなっているかを Subversion が認識する助けになります。 Subversion 1.7 以前では、 <filename>.svn</filename> ディレクトリは作業コピー内のバージョン管理対象のディレクトリそれぞれに作られていました。 Subversion 1.7 で完全に方法が変更され、各作業コピーが持つ管理ディレクトリは作業コピーのルートの直下に1つだけ作られるようになりました。"
 
 #. (para)
 msgid ""
@@ -1325,7 +1319,7 @@ msgstr "具体的には、リポジトリのルートディレクトリに <file
 
 #. (para)
 msgid ""
-"To get a working copy, you must <firstterm>check out</firstterm> some "
+"To get a working copy, you must <firstterm> check out </firstterm> some "
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
@@ -1338,9 +1332,9 @@ msgid ""
 "and original contents, Subversion can tell that you've changed the file. "
 "However, Subversion does not make your changes public until you explicitly "
 "tell it to. The act of publishing your changes is more commonly known as "
-"<firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) "
+"<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr "<filename>button.c</filename> を変更したとしましょう。 <filename>.svn</filename> ディレクトリには、ファイルの更新日時と元の内容が記録されていますから、 Subversion はファイルが変更されていることがわかります。しかし、変更は明確に指示するまで公開はされません。変更を公開する操作は通常、変更をリポジトリへ <firstterm>コミット</firstterm> する（もしくは <firstterm>チェックイン</firstterm> する）と呼ばれています。"
+msgstr "<filename>button.c</filename> を変更したとしましょう。 <filename>.svn</filename> ディレクトリには、ファイルの変更日時と元の内容が記録されていますから、 Subversion はファイルが変更されていることがわかります。しかし、変更は明確に指示するまで公開はされません。変更を公開する操作は通常、変更をリポジトリへ <firstterm>コミット</firstterm> する（もしくは <firstterm>チェックイン</firstterm> する）と呼ばれています。"
 
 #. (para)
 msgid ""
@@ -1486,7 +1480,8 @@ msgid ""
 "...\n"
 "file:///X|/path/to/repos\n"
 "...\n"
-msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n"
+"      "
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n..."
 
 #. (para)
 msgid ""
@@ -1560,7 +1555,7 @@ msgstr "グローバルリビジョン番号"
 #. (para)
 msgid ""
 "Unlike those of many other version control systems, Subversion's revision "
-"numbers apply to <emphasis>entire trees</emphasis>, not individual files. "
+"numbers apply to <emphasis> entire trees </emphasis>, not individual files. "
 "Each revision number selects an entire tree, a particular state of the "
 "repository after some committed change. Another way to think about it is "
 "that revision N represents the state of the repository filesystem after the "
@@ -1583,9 +1578,10 @@ msgstr "作業コピーが、リポジトリの特定のリビジョンに常に
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:4\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:4\n"
+"integer.c:4\n"
+"button.c:4\n"
+"      "
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1601,9 +1597,10 @@ msgstr "この時点では作業ディレクトリは、リポジトリのリビ
 msgid ""
 "\n"
 "calc/Makefile:4\n"
-"     integer.c:4\n"
-"     button.c:5\n"
-msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:5\n"
+"integer.c:4\n"
+"button.c:5\n"
+"      "
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1618,9 +1615,10 @@ msgstr "この時点で、サリーが <filename>integer.c</filename> を変更�
 msgid ""
 "\n"
 "calc/Makefile:6\n"
-"     integer.c:6\n"
-"     button.c:6\n"
-msgstr "\ncalc/Makefile:6\n     integer.c:6\n     button.c:6\n"
+"integer.c:6\n"
+"button.c:6\n"
+"      "
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -1647,7 +1645,7 @@ msgstr "作業ディレクトリ内のファイルに対して、Subversion は�
 #. (para)
 msgid ""
 "what revision your working file is based on (this is called the file's "
-"<firstterm>working revision</firstterm>), and"
+"<firstterm> working revision </firstterm>), and"
 msgstr "作業しているファイルが基づいているリビジョン（これは <firstterm>作業リビジョン</firstterm> と呼ばれる）、および、"
 
 #. (para)
@@ -1766,6 +1764,12 @@ msgstr "リポジトリ作成"
 
 #. (para)
 msgid ""
+"Please note that the command line client that comes with TortoiseSVN does "
+"not support the older Berkeley Database (BDB) format."
+msgstr "TortoiseSVNに付属のコマンドラインクライアントは、古いBarkeley Database（BDB）フォーマットをサポートしませんのでご注意ください。"
+
+#. (para)
+msgid ""
 "You can create a repository with the FSFS backend or with the older Berkeley"
 " Database (BDB) format. The FSFS format is generally faster and easier to "
 "administer, and it works on network shares and Windows 98 without problems. "
@@ -1775,8 +1779,8 @@ msgid ""
 ".red-"
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
-"information."
-msgstr "リポジトリは FSFS バックエンドか、より古い Berkeley Database (BDB) フォーマットで作成できます。 FSFS フォーマットは一般的に高速で、管理しやすく、ネットワークフォルダーや Windows 98 でも問題なく動作します。 BDB フォーマットは長い間テストされてきているので安定していると考えられてきましたが、 FSFS にも数年の使用実績があり、その主張は弱くなってきています。詳しくは Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> をご覧ください。"
+"information. <important><placeholder-1/></important>"
+msgstr "リポジトリはFSFSバックエンドか、より古いBerkeley Database（BDB）フォーマットで作成できます。FSFSフォーマットは一般的に高速で、管理しやすく、ネットワークフォルダーやWindows 98でも問題なく動作します。BDBフォーマットは長い間テストされてきているので安定していると考えられてきましたが、FSFSにも長年の使用実績があり、その主張は弱くなってきています。詳しくはSubversion Bookの <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> をご覧ください。<important><placeholder-1/></important>"
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1804,9 +1808,9 @@ msgstr "<filename>D:\\SVN\\</filename> の中に <filename>MyNewRepository</file
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type bdb MyNewRepository\n"
-"</screen> or <screen>\n"
+"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
-"</screen>"
+"          </screen>"
 msgstr "コマンドプロンプト（またはDOSボックス）を開き、 <filename>D:\\SVN\\</filename> に移動して、 <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> もしくは <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen> と入力してください。"
 
 #. (para)
@@ -2001,7 +2005,8 @@ msgid ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-msgstr "\n/trunk\n/branches\n/tags\n"
+"    "
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2026,7 +2031,8 @@ msgid ""
 "/branches/calc\n"
 "/tags/paint\n"
 "/tags/calc\n"
-msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n"
+"    "
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2042,7 +2048,8 @@ msgid ""
 "/calc/trunk\n"
 "/calc/branches\n"
 "/calc/tags\n"
-msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n"
+"    "
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -2126,12 +2133,12 @@ msgid ""
 "C:\\Temp\\New\\trunk\n"
 "C:\\Temp\\New\\branches\n"
 "C:\\Temp\\New\\tags\n"
-"</screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
+"      </screen> Import <filename>C:\\Temp\\New</filename> into the repository root, which will then look like this: <screen>\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-"</screen>"
-msgstr "なお、インポートするフォルダーの名前はリポジトリに現れず、その内容のみがインポートされます。たとえば、以下のようなフォルダー構造を作成した場合、 <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> リポジトリルートに <filename>C:\\Temp\\New</filename> をインポートすると、次のようになります。<screen>\n/trunk\n/branches\n/tags\n</screen>"
+"      </screen>"
+msgstr "中身をインポートしたフォルダーの名前はリポジトリに現れないことに注意してください。たとえば、以下のようなフォルダー構造を作成した場合、 <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> リポジトリルートに <filename>C:\\Temp\\New</filename> をインポートすると、次のようになります。<screen>\n/trunk\n/branches\n/tags\n</screen>"
 
 #. (title)
 msgid "Repository Backup"
@@ -2164,7 +2171,7 @@ msgstr "簡単な（しかしお勧めできない）方法は、リポジトリ
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr "お勧めの方法は、<screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> を実行して、リポジトリのコピーを安全な方法で作成することです。それからこのコピーをバックアップしてください。 <literal>--clean-logs</literal> オプションは必須ではありませんが、 BDB リポジトリをバックアップする際に、冗長なログを削除して容量を節約します。"
 
 #. (para)
@@ -2224,7 +2231,7 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+"    </screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr "フックスクリプトのサンプルは、リポジトリの <filename>hooks</filename> ディレクトリにあります。これらのサンプルスクリプトは Unix/Linux サーバー用であり、Windows ベースのサーバーの場合は修正が必要となります。フックはバッチファイルもしくは実行形式です。以下のサンプルは pre-revprop-change フックを実装したバッチファイルの例です。<screen>\nrem ログメッセージのみを変更可能にする。\nif \"%4\" == \"svn:log\" exit 0\necho 「%4」プロパティは変更できません &gt;&amp;2\nexit 1\n</screen>標準出力へ出力されたものは、すべて破棄されてしまうことに注意してください。コミットを拒否するダイアログにメッセージを表示したい場合は、標準エラー出力に出力しなければなりません。このバッチファイルでは <filename>&gt;&amp;2</filename> を使用しています。"
 
 #. (title)
@@ -2538,15 +2545,6 @@ msgid ""
 "file, a folder, a shortcut or for multiple selected items."
 msgstr "場合によっては、TortoiseSVN のエントリを、複数目にするかもしれません。これはバグではありません。 <placeholder-1/> この例では、バージョン管理下のフォルダー内にバージョン管理外のショートカットがある場合、エクスプローラーのファイルメニューに TortoiseSVN のエントリが <emphasis>3つ</emphasis> 現れます。ひとつはフォルダー用、ひとつはショートカット用、最後にショートカットが指すオブジェクト用です。見分けるためにアイコンの右下に、ファイル、フォルダー、ショートカットのメニューエントリか、複数選択した項目かを示すマークがつきます。"
 
-#. (para)
-msgid ""
-"If you are using Windows 2000 you will find that the context menus are shown"
-" as plain text, without the menu icons shown above. We are aware that this "
-"was working in previous versions, but Microsoft has changed the way its icon"
-" handlers work for Vista, requiring us to use a different display method "
-"which unfortunately does not work on Windows 2000."
-msgstr "Windows 2000 を使用している場合、コンテキストメニューはテキストのみとなり、メニューアイコンがつきません。以前のバージョンでは動作していましたが、マイクロソフトが Vista でアイコンハンドラの動作を変更したため、別の表示方法をとらねばならず、申し訳ありませんが Windows 2000 では動作しなくなりました。"
-
 #. (title)
 #. (title)
 msgid "Drag and Drop"
@@ -2692,7 +2690,7 @@ msgid ""
 "Some people like to have the authentication data deleted when they log off Windows, or on shutdown. The way to do that is to use a shutdown script to delete the <filename>%APPDATA%\\Subversion\\auth</filename> directory, e.g. <screen>\n"
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
-"</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+"      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 msgstr "Windows のログオフ時やシャットダウン時に認証データを削除したい場合は、 <filename>%APPDATA%\\Subversion\\auth</filename> ディレクトリを削除するシャットダウンスクリプトを使用すれば実現できます。例えば、<screen>\n@echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n</screen> このようなスクリプトをインストールする方法は、<ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink> に説明があります。"
 
 #. (para)
@@ -2813,8 +2811,8 @@ msgid ""
 "C:\\Projects\\Widget\\source\n"
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
-"</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr "このダイアログで、プロジェクトのインポート先となるリポジトリの場所を示すURLを入力してください。リポジトリには、インポートで指定したローカルフォルダーは作成されず、その内容のみがインポートされるということ注意してください。例えば次のような構造があるとします。<screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen>ここで、 <filename>C:\\Projects\\Widget</filename> を <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> にインポートすると、<literal>Widget</literal> サブディレクトリではなく、その中のサブディレクトリが <literal>trunk</literal> の直下に現れるので、驚くかもしれません。サブディレクトリ名は、 <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem> というようにURLの一部として指定する必要があります。インポートコマンドでは、リポジトリの中にサブディレクトリがない場合、自動的に作成されることに注意してください。"
+"      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
+msgstr "このダイアログで、プロジェクトのインポート先のリポジトリの場所を示すURLを入力する必要があります。リポジトリには、インポートしようとするローカルフォルダーは現れず、その中身だけが現れるということ注意してください。例えば次のような構造があるとします。<screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen>ここで、 <filename>C:\\Projects\\Widget</filename> を <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> にインポートすると、<literal>Widget</literal> サブディレクトリではなく、その中のサブディレクトリが <literal>trunk</literal> の直下に現れるので、驚くかもしれません。サブディレクトリ名は、 <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem> というようにURLの一部として指定する必要があります。インポートコマンドでは、リポジトリの中にサブディレクトリがない場合、自動的に作成されることに注意してください。"
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -3269,6 +3267,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "コミットダイアログには変更されたファイルや、追加・削除・バージョン管理外のファイルが表示されます。変更されたファイルをコミットしたくない場合は、ファイルのチェックをはずしてください。バージョン管理外のファイルを含める場合は、追加・コミットするファイルにチェックをつけてください。"
+
+#. (para)
+msgid ""
+"To quickly check or uncheck types of files like all versioned files or all "
+"modified files, click the link items just above the list of shown items."
+msgstr "バージョン管理中のファイルや変更されたファイルのすべてを手早くチェックしたり外したりしたい場合は、項目が表示されている一覧の上部にある項目をクリックしてください。"
 
 #. (para)
 msgid ""
@@ -3950,11 +3954,11 @@ msgstr "作業コピーを更新したときに Subversion クライアントが
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"    your changes\n"
+"your changes\n"
 "=======\n"
-"    code merged from repository\n"
+"code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+"      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr "ファイルの競合は、複数の開発者があるファイルの同じ行を変更した際に発生します。 Subversion はプロジェクトの事情を何も知らないため、開発者間の競合については解決できません。テキストファイルの場合、競合している箇所は以下のようなマークがつけられます。<screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n    your changes\n=======\n    code merged from repository\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n</screen> また、競合しているファイルについては、３つのファイルが Subversion によって追加されます。 <placeholder-1/>"
 
 #. (para)
@@ -4312,12 +4316,6 @@ msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
 msgstr "ブランチで作業している開発者Ｂが、 <filename>Foo.c</filename> を変更しリポジトリにコミットします。"
-
-#. (para)
-msgid ""
-"There is an equivalent case for folder moves, but it is not yet detected in "
-"Subversion 1.6 ..."
-msgstr "フォルダーの移動と同等ですが、 Subversion 1.6 でもまだ検出できません……"
 
 #. (para)
 msgid ""
@@ -4907,14 +4905,6 @@ msgstr "<placeholder-1/> コミットダイアログでは、同じファイル�
 
 #. (para)
 msgid ""
-"On XP, there is a context menu when you right click on a group heading which"
-" gives you the choice to check or uncheck all group entries. On Vista "
-"however the context menu is not necessary. Click on the group header to "
-"select all entries, then check one of the selected entries to check all."
-msgstr "XP では、グループ見出しを右クリックすると、グループ全体を選択・非選択にするコンテキストメニューが現れます。 Vista ではコンテキストメニューは必要ありません。全項目を選択するにはグループヘッダを選択し、その後すべてチェックする場合には、選択している項目のどれかをチェックしてください。"
-
-#. (para)
-msgid ""
 "TortoiseSVN reserves one changelist name for its own use, namely <literal"
 ">ignore-on-commit</literal>. This is used to mark versioned files which you "
 "almost never want to commit even though they have local changes. This "
@@ -4936,6 +4926,13 @@ msgid ""
 "changelists will not affect the repository, nor anyone else's working copy. "
 "They are simply a convenient way for you to organise your files."
 msgstr "変更リストは純粋にローカルクライアントの機能です。変更リストを作成・削除しても、リポジトリや他人の作業コピーには影響しません。単に自分でファイルを管理する、便利な方法でしかありません。"
+
+#. (para)
+msgid ""
+"Note that if you use changelists, externals will no longer show up in their "
+"own groups anymore. Once there are changelists, files and folders are "
+"grouped by changelist, not by external anymore."
+msgstr "なお、変更リストを使用する場合、外部参照はグループとして表示されなくなりました。変更リストがあるときは、ファイルやフォルダーが外部参照ではなく変更リストでグループ化されます。"
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -5018,6 +5015,10 @@ msgid ""
 msgstr "更新が終わった進行ダイアログから。前回の更新から変更のあったリビジョンのみ、ログダイアログに表示されます。"
 
 #. (para)
+msgid "From the repository browser"
+msgstr "リポジトリブラウザーから"
+
+#. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
@@ -5068,6 +5069,34 @@ msgid ""
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
 msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> そのリビジョンでファイルやフォルダーが置換された場合、<emphasis>置換</emphasis> アイコンが4列目に表示されます。"
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
+"renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
+" the fourth column."
+msgstr "<graphic fileref=\"../images/ActionMovedIcon.png\"/> そのリビジョンでファイルやディレクトリが移動されたり名前が変更されたりした場合、<emphasis>移動</emphasis> アイコンが4列目に表示されます。"
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
+"replaced a file or directory by moving/renaming it, the <emphasis>move "
+"replaced</emphasis> icon is shown in the fourth column."
+msgstr "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> そのリビジョンでファイルやフォルダーが移動または名前変更によって置換された場合、<emphasis>移動置換</emphasis> アイコンが4列目に表示されます。"
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
+" file or directory, the <emphasis>merged</emphasis> icon is shown in the "
+"fourth column."
+msgstr "<graphic fileref=\"../images/ActionMergedIcon.png\"/> そのリビジョンでファイルやフォルダーがマージされた場合、<emphasis>マージ</emphasis> アイコンが4列目に表示されます。"
+
+#. (para)
+msgid ""
+"<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
+"reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
+"icon is shown in the fourth column."
+msgstr "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> そのリビジョンでファイルやフォルダーが逆マージされた場合、<emphasis>逆マージ</emphasis> アイコンが4列目に表示されます。"
 
 #. (title)
 msgid "Getting Additional Information"
@@ -5918,22 +5947,22 @@ msgstr "検索アイコンクリックすると、検索対象となる情報の
 msgid ""
 "Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use a leading <literal>+</literal> to specify that a sub-string should be included, even if previously excluded with a <literal>-</literal>. Note that the order of inclusion/exclusion is significant here. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
-"</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"      </screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
 "Alice -Bob +Eve\n"
-"</screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
+"      </screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
 "-Case +SpecialCase\n"
-"</screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
+"      </screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
 "!Alice Bob\n"
-"</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
+"      </screen> searches for strings which do not contain both Alice and Bob <screen>\n"
 "!-Alice -Bob\n"
-"</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
+"      </screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
 "\"Alice and Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
+"      </screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
 "\"\"\n"
-"</screen> searches for a double-quote anywhere in the text <screen>\n"
+"      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
-"</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr "部分文字列での検索の仕方は、検索エンジンと似ています。複数の文字列を空白で区切って入力すると、すべての文字列を含む項目が検索されます。文字列の前に <literal>-</literal> を付けると、その文字列が含まれないものが検索されます（語句の否定検索）。そして、最初に <literal>!</literal> を付けると、検索文字列全体が否定になります。前に <literal>+</literal> を付けた文字列は、以前に <literal>-</literal> を付けて除外した文字列であっても、含まれるものが検索されます。なお、含まれる・除外される指示の順番が重要であることに気を付けてください。空白を含む文字列を検索する場合は、文字列を引用符で囲んでください。引用符の文字を含む文字列を検索する場合は、引用符を２つ並べてエスケープしてください。なお、バックスラッシュ文字はエスケープ文字 <emphasis>ではなく</emphasis> 、部分文字列検索では特別な意味を持たないことに注意してください。次のサンプルを見たほうが簡単でしょう。<screen>\nAlice Bob -Eve\n</screen> は、 Alice と Bob を含み、 Eve を含まない文字列を検索します。 <screen>\nAlice -Bob +Eve\n</screen> は、 Alice を含んでかつ Bob を含まないか、 Eve を含む文字列を検索します。 <screen>\n-Case +SpecialCase\n</screen> は、 Case を含まないが、 SpecialCase は含む文字列を検索します。 <screen>\n!Alice Bob\n</screen> は、 Alice も Bob も含まない文字列を検索します。<screen>\n!-Alice -Bob\n</screen> は、ド・モルガンの法則を思い出してください。 NOT(NOT Alice AND NOT Bob) なので、 (Alice OR Bob) となります。 <screen>\n\"Alice and Bob\"\n</screen> は、 <quote>Alice and Bob</quote> という文字列を検索します。<screen>\n\"\"\n</screen> は、テキストのどこかに二重引用符が含まれている文字列を検索します。 <screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> は、 <quote>Alice says \"hi\" to Bob</quote>　という文字列を検索します。"
+"      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
+msgstr "単純な文字列での検索の仕方は、検索エンジンと似ています。複数の文字列を空白で区切って入力すると、すべての文字列を含む項目が検索されます。文字列の前に <literal>-</literal> を付けると、その文字列が含まれないものが検索されます（語句の否定検索）。そして、最初に <literal>!</literal> を付けると、検索文字列全体が否定になります。前に <literal>+</literal> を付けた文字列は、以前に <literal>-</literal> を付けて除外した文字列であっても、含まれるものが検索されます。なお、含まれる・除外される指示の順番が重要であることに気を付けてください。空白を含む文字列を検索する場合は、文字列を引用符で囲んでください。引用符の文字を含む文字列を検索する場合は、引用符を2つ並べてエスケープしてください。なお、バックスラッシュ文字はエスケープ文字 <emphasis>ではなく</emphasis> 、単純な文字列検索では特別な意味を持たないことに注意してください。次のサンプルを見たほうが簡単でしょう。<screen>\nAlice Bob -Eve\n</screen> は、 Alice と Bob を含み、 Eve を含ま内文字列を検索します。 <screen>\nAlice -Bob +Eve\n</screen> は、 Alice を含んでかつ Bob を含まないか、 Eve を含む文字列を検索します。 <screen>\n-Case +SpecialCase\n</screen> は、 Case という文字列を含まないが、 SpecialCase という文字列は含む文字列を検索します。 <screen>\n!Alice Bob\n</screen> は、 Alice も　Bob も含まない文字列を検索します。<screen>\n!-Alice -Bob\n</screen> は、ド・モルガンの法則を思い出してください。 NOT(NOT Alice AND NOT Bob) なので、 (Alice OR Bob) となります。 <screen>\n\"Alice and Bob\"\n</screen> は、 <quote>Alice and Bob</quote> という文字列を検索します。<screen>\n\"\"\n</screen> は、テキストのどこかに二重引用符が含まれている文字列を検索します。 <screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> は、 <quote>Alice says \"hi\" to Bob</quote>　という文字列を検索します。"
 
 #. (para)
 msgid ""
@@ -6820,11 +6849,11 @@ msgstr "タグ"
 msgid ""
 "It often happens that you already have the files you need in another project"
 " in your repository, and you simply want to copy them across. You could "
-"simply copy the files and add them as described above, but that would not "
-"give you any history. And if you subsequently fix a bug in the original "
-"files, you can only merge the fix automatically if the new copy is related "
-"to the original in Subversion."
-msgstr "リポジトリ内の別なプロジェクトにある既存のファイルを流用したくなり、プロジェクトをまたがってコピーしたくなる場合があります。このようにファイルを単純にコピーして追加しても良いのですが、そうするとそれまでの履歴が見えなくなってしまいます。また、後で元のファイルにバグ修正が行われた場合、新しいコピーが Subversion 内の元のファイルに関連づけられていないと、修正を自動的にマージすることができません。"
+"simply copy the files and add them, but that would not give you any history."
+" And if you subsequently fix a bug in the original files, you can only merge"
+" the fix automatically if the new copy is related to the original in "
+"Subversion."
+msgstr "リポジトリ内の別なプロジェクトにある既存のファイルを流用したくなり、プロジェクトをまたがってコピーしたくなる場合があります。上記のようにファイルを単純にコピーして追加しても良いのですが、そうするとそれまでの履歴が見えなくなってしまいます。また、後で元のファイルにバグ修正が行われた場合、新しいコピーが Subversion 内の元のファイルに関連づけられていないと、修正を自動的にマージすることができません。"
 
 #. (para)
 msgid ""
@@ -7808,6 +7837,13 @@ msgstr "もうひとつの方法は、 <literal>tsvn:autoprops</literal> プロ�
 
 #. (para)
 msgid ""
+"As of Subversion 1.8, you can also set the property <literal>svn:auto-"
+"props</literal> on the root folder. The property value is automatically "
+"inherited by all child items."
+msgstr "Subversion 1.8で、ルートフォルダーに <literal>svn:auto-props</literal> プロパティが設定できるようになりました。プロパティの値が自動的にすべての子項目に継承されます。"
+
+#. (para)
+msgid ""
 "Whichever method you choose, you should note that auto-props are only "
 "applied to files at the time they are added to the working copy. Auto-props "
 "will never change the properties of files which are already versioned."
@@ -7967,6 +8003,14 @@ msgid ""
 "<literal>tsvn:autoprops</literal>, the project settings take precedence "
 "because they are specific to that project."
 msgstr "ローカルの autoprops と <literal>tsvn:autoprops</literal> が競合する場合は、プロジェクトごとに指定されている、プロジェクト設定を優先します。"
+
+#. (para)
+msgid ""
+"As of Subversion 1.8, you should use the property <literal>svn:auto-"
+"props</literal> instead of <literal>tsvn:autoprops</literal> since this has "
+"the very same functionality but works with all svn clients and is not "
+"specific to TortoiseSVN."
+msgstr "Subversion 1.8では、<literal>tsvn:autoprops</literal>ではなく<literal>svn:auto-props</literal>をお使いください。これは二条に似た動作をしますが、TortoiseSVNに限らずすべてのSubversionクライアントで機能します。"
 
 #. (para)
 msgid ""
@@ -8235,7 +8279,7 @@ msgid ""
 "my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
-"</screen>"
+"            </screen>"
 msgstr "ユーザー定義のプロパティを追加・編集するために使用されるカスタムダイアログを指定することができます。 TortoiseSVN はプロパティ型に合わせた４種類のダイアログを提供しています。 <placeholder-1/> 上記のスクリーンショットは、 <literal>tsvn:userdirproperties</literal> に次の値を設定すると作成することができます。<screen>\nmy:boolprop=bool;これは bool 型のプロパティです。チェックを付けたり外したりできます。(true;false;my bool prop)\nmy:stateprop1=state;これは state 型のプロパティです。２つの状態のうち１つを選択します。(true;true;true value;false;false value)\nmy:stateprop2=state;これは state 型のプロパティです。３つの状態のうち１つを選択します。(maybe;true;正解;false;間違い;maybe;未回答)\nmy:stateprop3=state;このプロパティに曜日を設定します。(1;1;月曜日;2;火曜日;3;水曜日;4;木曜日;5;金曜日;6;土曜日;7;日曜日)\nmy:singlelineprop=singleline;短いコメントを入力してください。(.*)\nmy:multilineprop=multiline;章全体をここにコピー＆ペーストしてください。(.*)\n</screen>"
 
 #. (para)
@@ -8736,7 +8780,7 @@ msgstr "親ディレクトリへの相対パス"
 msgid ""
 "These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
 "../../widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr "この URL は、以下の例のように、常に <literal>../</literal> という文字列で始まります。<screen>\n../../widgets/foo  common/foo-widget\n</screen>これは、<filename>C:\\Working\\common\\foo-widget</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> を抽出します。"
 
 #. (para)
@@ -8754,15 +8798,15 @@ msgstr "リポジトリのルートへの相対パス"
 msgid ""
 "These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
 "^/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr "この URL は、以下の例のように、常に <literal>^/</literal> という文字列で始まります。<screen>\n^/widgets/foo  common/foo-widget\n</screen>これは、<filename>C:\\Working\\common\\foo-widget</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> を抽出します。"
 
 #. (para)
 msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr "同じ <literal>SVNParentPath</literal>（複数のリポジトリを保持する共通ディレクトリ）にある他のリポジトリに、容易に参照できます。例は以下のようになります。<screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen>これは、<filename>C:\\Working\\common\\claw-hammer</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> を抽出します。"
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr "同じ <literal>SVNParentPath</literal> (複数のリポジトリを保持する共通ディレクトリ) にある他のリポジトリに、容易に参照できます。例は以下のようになります。<screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen>これは、<filename>C:\\Working\\common\\claw-hammer</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> を抽出します。"
 
 #. (term)
 msgid "Relative to scheme"
@@ -8772,7 +8816,7 @@ msgstr "スキームへの相対パス"
 msgid ""
 "URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr "<literal>//</literal> で始まる URL は URL のスキーム部のみをコピーします。これは同じホスト名に対して、ネットワークの場所によって異なるスキームでアクセスしなければならない場合に便利です。例えば、インターネットにあるクライアントは <systemitem class=\"url\">http://</systemitem> を使用するのに、外部クライアントは <systemitem class=\"url\">svn+ssh://</systemitem> を使用するということです。以下に例を挙げます。<screen>\n//example.com/svn/repos-1/widgets/foo  common/foo-widget\n</screen>これは、<filename>C:\\Working</filename> をチェックアウトするのに使用した方法により、<systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> か <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> を抽出します。"
 
 #. (term)
@@ -8783,7 +8827,7 @@ msgstr "サーバーのホスト名への相対パス"
 msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+"            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr "<literal>/</literal> で始まる URL は URL のスキーム部とホスト名部をコピーします。以下に例を挙げます。<screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen>これは <filename>C:\\Working\\common\\foo-widget</filename> に <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> を抽出します。しかし、<systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> というように別のサーバーから作業コピーをチェックアウトすると、外部参照は <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem> を抽出します。"
 
 #. (para)
@@ -8819,12 +8863,9 @@ msgstr "Subversion 1.6 では、フォルダーと同じ文法を用いて、単
 
 #. (para)
 msgid ""
-"The path to the file external must place the file in an existing versioned "
-"folder. In general it makes most sense to place the file directly in the "
-"folder that has <literal>svn:externals</literal> set, but it can be in a "
-"versioned sub-folder if necessary. By contrast, directory externals will "
-"automatically create any intermediate unversioned folders as required."
-msgstr "外部ファイルへのパスは、既存のバージョン管理下にあるフォルダーにファイルを配置しなければなりません。一般的に、<literal>svn:externals</literal> がセットされているフォルダーに、直接ファイルを配置するのがほとんどだと思いますが、バージョン管理下のサブフォルダーにすることもできます。対照的に、外部ディレクトリは、必要に応じてバージョン管理外の中間サブフォルダーを、自動的に作成します。"
+"The path to the file external must be a direct child of the folder where you"
+" set the <literal>svn:externals</literal> property."
+msgstr "外部参照ファイルへのパスは、<literal>svn:externals</literal>プロパティで設定したフォルダーの直下の子でなければなりません。"
 
 #. (para)
 msgid ""
@@ -8924,10 +8965,10 @@ msgstr "プロジェクトを標準的なディレクトリ構成でインポー
 #. (para)
 msgid ""
 "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/trunk\n"
-"</screen> you might now use something like <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
+"http://svn.collab.net/repos/ProjectName/trunk\n"
+"      </screen> you might now use something like <screen>\n"
+"http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr "新しいブランチのコピー先 URL のデフォルトは、作業コピーの基準になったコピー元 URL になっています。ブランチ/タグの URL を新しいパスに変更してください。つまり、<screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> の代わりに、<screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> のようにするということです。前回使用した命名規則を思い出せなければ、右にあるボタンをクリックすれば、リポジトリブラウザーが開かれ、既存のリポジトリの構造を確認することができます。"
 
 #. (title)
@@ -9260,10 +9301,10 @@ msgstr "これは、1つ以上のリビジョンがブランチ（もしくは�
 
 #. (para)
 msgid ""
-"What you are asking Subversion to do is this: <quote>Calculate the changes "
+"What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
-"and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr "Subversion に以下のことを行うように指示を出しています。<quote>ブランチ A のリビジョン 1 [FROM] から、ブランチ A のリビジョン 7 [TO] までの必要な変更点を計算し、(トランクやブランチ B の) 作業コピーに変更点を適用する</quote>"
+"and apply those changes to my working copy (of trunk or branch B). </quote>"
+msgstr "Subversion に以下のことを行うように指示を出しています。<quote>ブランチAのリビジョン 1 [FROM] から、ブランチAのリビジョン 7 [TO] までの必要な変更点を計算し、（トランクやブランチBの）作業コピーに変更点を適用する</quote>"
 
 #. (para)
 msgid ""
@@ -9279,9 +9320,9 @@ msgstr "異なる２つのツリーをマージ"
 #. (para)
 msgid ""
 "This is a more general case of the reintegrate method. What you are asking "
-"Subversion to do is: <quote>Calculate the changes necessary to get [FROM] "
+"Subversion to do is: <quote> Calculate the changes necessary to get [FROM] "
 "the head revision of the trunk [TO] the head revision of the branch, and "
-"apply those changes to my working copy (of the trunk).</quote> The net "
+"apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
 msgstr "これは、再統合する方法のもっと一般的なケースで、Subversion に対して、<quote>トランクの HEAD リビジョン（開始点）からブランチの HEAD リビジョン（終了点）までの必要な変更点を計算し、（トランクの）作業コピーに変更点を適用しなさい</quote> と指示します。結果的に、トランクがまさしくブランチと同様になっているということになります。"
 
@@ -9592,13 +9633,13 @@ msgid ""
 "The merge progress dialog shows each stage of the merge, with the revision "
 "ranges involved. This may indicate one more revision than you were "
 "expecting. For example if you asked to merge revision 123 the progress "
-"dialog will report <quote>Merging revisions 122 through 123</quote>. To "
+"dialog will report <quote> Merging revisions 122 through 123 </quote>. To "
 "understand this you need to remember that Merge is closely related to Diff. "
 "The merge process works by generating a list of differences between two "
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr "マージ進行ダイアログには、マージの各状態を、リビジョン範囲とともに表示します。ここには想定していたよりも１つ多くリビジョンを表示するかもしれません。例えば、リビジョン 123 をマージするように指示した場合、進行ダイアログには、<quote>リビジョン 122 〜 123 をマージ</quote> と表示されます。マージは差分と密接に関連していることを思い出してください。マージ処理は、リポジトリの二点間における差分の一覧を生成し、その差分を作業コピーに適用する形で動作します。進行ダイアログは、単純にこの差分の始点と終点を表示しているに過ぎません。"
+msgstr "マージ進行ダイアログには、マージの各状態を、リビジョン範囲とともに表示します。ここには想定していたよりも一つ多くリビジョンを表示するかもしれません。例えば、リビジョン 123 をマージするように指示した場合、進行ダイアログには、<quote>リビジョン 122 〜 123 をマージ</quote> と表示されます。マージは差分と密接に関連していることを思い出してください。マージ処理は、リポジトリの二点間における差分の一覧を生成し、その差分を作業コピーに適用する形で動作します。進行ダイアログは、単純にこの差分の始点と終点を表示しているに過ぎません。"
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -9757,15 +9798,6 @@ msgstr "マージが常にすんなり完了するとは限りません。時に
 
 #. (para)
 msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible. You have to choose one complete file. Use <emphasis>Prefer "
-"local</emphasis> to select the local version as it was in your working copy "
-"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
-"incoming file from the merge source in the repository."
-msgstr "マージ対象にバイナリファイルが含まれていると、そのファイルの競合をマージすることはできません。どちらかのファイルを選択する必要があります。 <emphasis>ローカルを優先する</emphasis> を実行すると、自分の作業コピー内にあるローカル版が採用され、 <emphasis>リポジトリを優先する</emphasis> を実行すると、リポジトリ内のマージ元のファイルが採用されます。"
-
-#. (para)
-msgid ""
 "If you are merging text files then these first two buttons allow you to "
 "merge non-conflicting lines as normal and always prefer one version where "
 "there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
@@ -9777,6 +9809,16 @@ msgid ""
 "but the conflicts often cover more lines than you think they will and you "
 "may get unexpected results."
 msgstr "テキストファイルをマージする場合、最初の２つのボタンを押すと競合しない行はそのままマージされ、競合する行については指定したバージョンが常に優先されます。<emphasis>ローカルを優先する</emphasis>を選択すると、すべての競合点でローカルの変更が選択されます。つまり、マージ元の変更よりも、ローカルの内容が優先されます。同様に、<emphasis>リポジトリを優先する</emphasis>を実行すると、すべての競合点でリポジトリの変更が選択されます。つまり、自分の作業コピーにあったものより、マージ元の変更が優先されます。簡単なようですが、競合が予想以上に多くの行を上書きしてしまい、予期しない結果をもたらすことがあります。"
+
+#. (para)
+msgid ""
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible in a line-by-line mode. A conflict in a binary file always refers "
+"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
+"local version as it was in your working copy prior to the merge, or "
+"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
+"merge source in the repository."
+msgstr "マージ対象にバイナリファイルが含まれていると、そのファイルの競合を行単位にマージすることはできません。バイナリファイルの競合は、どちらのファイル全体を使うかを選択する必要があります。<emphasis>ローカルを優先する</emphasis>を実行すると、自分の作業コピー内にあるローカル版が採用され、<emphasis>リポジトリを優先する</emphasis>を実行すると、リポジトリ内のマージ元のファイルが採用されます。"
 
 #. (para)
 msgid ""
@@ -10272,6 +10314,28 @@ msgid ""
 " now ready to submit your patch file."
 msgstr "それでは、任意のファイル名でファイルを保存してください。パッチファイルは任意の拡張子でかまいませんが、<filename>.patch</filename> や <filename>.diff</filename> を拡張子に使用するのが通例となっています。これでパッチファイルを送信する準備ができました。"
 
+#. (filename)
+msgid ".txt"
+msgstr ".txt"
+
+#. (filename)
+msgid ".patch"
+msgstr ".patch"
+
+#. (filename)
+msgid ".diff"
+msgstr ".diff"
+
+#. (tip)
+msgid ""
+"Do not save the patch file with a <placeholder-1/> extension if you intend "
+"to send it via email to someone else. Plain text files are often mangled "
+"with by the email software and it often happens that whitespaces and newline"
+" chars are automatically converted and compressed. If that happens, the "
+"patch won't apply smoothly. So use <placeholder-2/> or <placeholder-3/> as "
+"the extension when you save the patch file."
+msgstr "パッチファイルを他の人にメールで送る場合は、<placeholder-1/>の拡張子で保存しないでください。生のテキストファイルは、メールソフトが空白や改行文字を自動的に変換したり切り詰めたりしてしまうことがあります。そうなると、パッチを円滑に適用できません。そのため、パッチファイルを保存するときは<placeholder-2/>または<placeholder-3/>の拡張子を使用してください。"
+
 #. (para)
 msgid ""
 "You can also save the patch to the clipboard instead of to a file. You might"
@@ -10440,11 +10504,9 @@ msgstr "このオプションには、サーバーから取得するためかな
 #. (para)
 msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
-"data to create the blame file. Please note: This can take several minutes to"
-" finish, depending on how much the file has changed and of course your "
-"network connection to the repository. Once the blame process has finished "
-"the result is written into a temporary file and you can view the results."
-msgstr "<guibutton>OK</guibutton> を押すと、TortoiseSVN は注釈ファイルを作成するため、データの取得を始めます。なお、ファイルへの変更の量とリポジトリへのネットワーク接続に依存しますが、終了するまでに数分かかります。注釈プロセスが終了すると、結果を一時ファイルに書き出し、結果を表示します。"
+"data to create the blame file. Once the blame process has finished the "
+"result is written into a temporary file and you can view the results."
+msgstr "<guibutton>OK</guibutton>を押すと、TortoiseSVNは注釈ファイルを作成するため、データの取得を始めます。注釈処理が終了すると、結果を一時ファイルに書き出し、結果を表示します。"
 
 #. (title)
 msgid "TortoiseBlame"
@@ -11051,7 +11113,7 @@ msgid ""
 "The default behavior (grouping off) has all rows sorted strictly by "
 "revision. As a result, long-living branches with sparse commits occupy a "
 "whole column for only a few changes and the graph becomes very broad."
-msgstr "デフォルト（グループ化無効）では、すべての行がリビジョンの時系列になるよう厳密に配置されます。その結果、歴史が長くコミット頻度が低いブランチは、変更量の割に長く列を占有するすることになるため、グラフが非常に広くなってしまいます。"
+msgstr "デフォルト（グループ化無効）では、すべての行がリビジョンの時系列になるよう厳密に配置されます。その結果、歴史が長くコミット頻度が低いブランチは、変更量の割に長く列を占有することになるため、グラフが非常に広くなってしまいます。"
 
 #. (para)
 msgid ""
@@ -11994,6 +12056,15 @@ msgid ""
 "<filename>trunk/</filename>)."
 msgstr "これらのプロパティは、作業するシステムのフォルダーに設定しなければなりません。ファイルやフォルダーをコミットする際に、このフォルダーからプロパティが読み取られます。フォルダーにプロパティが設定されていない場合、プロパティはフォルダー階層を上位に向かって、バージョン管理外フォルダーか、ツリーのルート（例: <literal>C:\\</literal>）に到達するまで検索されます。すべてのユーザーが、例えば <filename>trunk/</filename> からチェックアウトし、サブフォルダーからチェックアウトしないことが確認できるのであれば、 <filename>trunk/</filename> にそのプロパティを設定するだけで充分です。サブフォルダーからもチェックアウトする可能性があるのであれば、プロパティを各サブフォルダーに再帰的に設定するべきです。プロジェクトの深い階層で設定されたプロパティは、高いレベルの（<filename>trunk/</filename> に近い）ものより優先されます。"
 
+#. (para)
+msgid ""
+"As of version 1.8, TortoiseSVN and Subversion use so called "
+"<literal>inherited properties</literal>, which means a property that is set "
+"on a folder is automatically also implicitly set on all subfolders. So "
+"there's no need to set the properties on all folders anymore but only on the"
+" root folder."
+msgstr "バージョン1.8より、TortoiseSVNおよびSubversionでは、フォルダーに設定したプロパティが自動的にサブフォルダーに継承されようになりました。これを<literal>プロパティ継承</literal>と呼びます。そのため、ルートフォルダーに設定すれば、すべてのフォルダーにプロパティを設定する必要はなくなりました。"
+
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "リポジトリブラウザーからは課題追跡システムの情報を利用できない"
@@ -12194,8 +12265,11 @@ msgid "Language"
 msgstr "言語"
 
 #. (para)
-msgid "Selects your user interface language. What else did you expect?"
-msgstr "ユーザーインターフェイスの言語を選択してください。他に何かありますか?"
+msgid ""
+"Selects your user interface language. Of course, you have to install the "
+"corresponding language pack first to get another UI language than the "
+"default English one."
+msgstr "ユーザーインターフェイスの言語を選択してください。もちろん、英語以外を利用する場合は適切な言語パックを先にインストールしておく必要があります。"
 
 #. (term)
 msgid "Check for updates"
@@ -12383,12 +12457,12 @@ msgid ""
 "Most of the time, you won't need the TortoiseSVN context menu, apart for "
 "folders that are under version control by Subversion. For non- versioned "
 "folders, you only really need the context menu when you want to do a "
-"checkout. If you check the option <literal>Hide menus for unversioned "
-"paths</literal>, TortoiseSVN will not add its entries to the context menu "
-"for unversioned folders. But the entries are added for all items and paths "
-"in a versioned folder. And you can get the entries back for unversioned "
-"folders by holding the <keycap>Shift</keycap> key down while showing the "
-"context menu."
+"checkout. If you check the option <literal> Hide menus for unversioned paths"
+" </literal>, TortoiseSVN will not add its entries to the context menu for "
+"unversioned folders. But the entries are added for all items and paths in a "
+"versioned folder. And you can get the entries back for unversioned folders "
+"by holding the <keycap>Shift</keycap> key down while showing the context "
+"menu."
 msgstr "Subversion のバージョン管理下にあるフォルダーを離れているときは、ほとんどの場合、 TortoiseSVN のコンテキストメニューを使用しません。バージョン管理外のフォルダーで本当にコンテキストメニューを必要とするのは、チェックアウト時くらいでしょう。<literal>バージョン管理外のパスではメニューを表示しない</literal>のオプションをチェックすると、 バージョン管理外フォルダーのコンテキストメニューでは、TortoiseSVN のメニュー項目が表示されなくなります。ただし、バージョン管理下のフォルダーでは、すべての項目を表示します。　<keycap>Shift</keycap>　を押しながらコンテキストメニューを表示させると、バージョン管理外のフォルダーでもすべてのメニュー項目を表示させることができます。"
 
 #. (para)
@@ -13224,14 +13298,14 @@ msgstr "ユーザーは時々これら3つの設定がどのように作用す�
 msgid ""
 "An example will help here: <screen>\n"
 "Exclude:\n"
-"       C:\n"
-"       C:\\develop\\?\n"
-"       C:\\develop\\tsvn\\obj\n"
-"       C:\\develop\\tsvn\\bin\n"
+"C:\n"
+"C:\\develop\\?\n"
+"C:\\develop\\tsvn\\obj\n"
+"C:\\develop\\tsvn\\bin\n"
 "\n"
 "Include:\n"
-"       C:\\develop\n"
-"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
+"C:\\develop\n"
+"    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr "分かりやすい例を示します。<screen>\n除外するパス:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\n含めるパス:\n       C:\\develop\n</screen> このように設定すると、 C: ドライブのオーバーレイ表示は無効になりますが、 <literal>c:\\develop</literal> 以下については、明確に除外されている <literal>c:\\develop</literal> フォルダー自身を除き、すべてのプロジェクトにオーバーレイ表示されます。頻繁に変更されるバイナリが入るフォルダーも除外されます。"
 
 #. (para)
@@ -13253,7 +13327,7 @@ msgstr "SUBST ドライブ"
 msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
-"</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
+"      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
 msgstr "作業コピーにアクセスするのに、以下のように <literal>SUBST</literal> ドライブを使用すると便利なことがあります。<screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen>しかし、 <literal>TSVNCache</literal> はファイルが変更されたという通知をひとつしか受け取れず、それは通常割り当て元のパスに対してであるため、オーバーレイ表示を更新できません。そのため、 <literal>subst</literal> パスのオーバーレイ表示はまったく更新されない可能性があります。"
 
 #. (para)
@@ -13359,7 +13433,7 @@ msgstr "TortoiseSVN が svn+ssh リポジトリと安全な接続を確立する
 msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
-"</screen>"
+"    </screen>"
 msgstr "実行ファイルのフルパスを指定しなければなりません。TortoisePlink.exe の場合、 TortoiseSVN の標準 bin ディレクトリにあります。その場所を指定するには <guibutton>参照</guibutton> ボタンが役に立ちます。パスに空白が含まれる場合、以下のように引用符で囲んでください。<screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
 
 #. (para)
@@ -13393,9 +13467,9 @@ msgid ""
 "Finally, setting up SSH on server and clients is a non-trivial process which"
 " is beyond the scope of this help file. However, you can find a guide in the"
 " TortoiseSVN FAQ listed under <ulink "
-"url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
-"SSH How-To</citetitle></ulink>."
-msgstr "最終的に、サーバーとクライアントにSSHを設定するのは、このヘルプファイルの範疇を超えている重要なプロセスです。しかし、TortoiseSVN FAQ にリストされている <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink> にガイドがあります。"
+"url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
+" SSH How-To</citetitle></ulink>."
+msgstr "最終的に、サーバーとクライアントにSSHを設定するのは、このヘルプファイルの範疇を超えている重要なプロセスです。しかし、TortoiseSVN FAQ にリストされている <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink> にガイドがあります。"
 
 #. (title)
 msgid "External Program Settings"
@@ -13521,19 +13595,19 @@ msgstr "ウィンドウタイトルは単なるファイル名ではありませ
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
-"    --right_display_name:%yname\n"
-"</screen> or with KDiff3: <screen>\n"
+"                                    --right_display_name:%yname\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> or with WinMerge: <screen>\n"
+"      </screen> or with WinMerge: <screen>\n"
 "C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> or with Araxis: <screen>\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"    %base %mine\n"
-"</screen> or with UltraCompare: <screen>\n"
+"                       %base %mine\n"
+"      </screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
-"</screen>"
+"      </screen>"
 msgstr "ExamDiff Pro の設定例: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n    --right_display_name:%yname\n</screen> KDiff3 の設定例: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> WinMerge の設定例:<screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> Araxis の設定例: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n    %base %mine\n</screen> UltraCompare の設定例: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n</screen> DiffMerge の設定例: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
 
 #. (para)
@@ -13641,18 +13715,18 @@ msgstr "外部マージプログラムを競合したファイルの解決に使
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> or with KDiff3: <screen>\n"
+"      </screen> or with KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"    --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> or with Araxis: <screen>\n"
+"                      --L1 %bname --L2 %yname --L3 %tname\n"
+"      </screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"    /title3:%yname %theirs %base %mine %merged /a2\n"
-"</screen> or with WinMerge (2.8 or later): <screen>\n"
+"                       /title3:%yname %theirs %base %mine %merged /a2\n"
+"      </screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
-"</screen> or with DiffMerge: <screen>\n"
+"      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
-"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
-"</screen>"
+"      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"      </screen>"
 msgstr "Perforce Merge の設定例: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> KDiff3 の設定例: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n    --L1 %bname --L2 %yname --L3 %tname\n</screen> Araxis の設定例: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n    /title3:%yname %theirs %base %mine %merged /a2\n</screen> WinMerge (2.8 以降) の設定例: <screen>\nC:\\Path-To\\WinMerge.exe %merged\n</screen> DiffMerge の設定例: <screen>\nC:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
 
 #. (title)
@@ -14211,8 +14285,8 @@ msgstr "リポジトリに接続を試みる前に呼び出されます。通常
 
 #. (para)
 msgid ""
-"There are currently six types of hook script available <placeholder-1/>"
-msgstr "現在、6種類のフックスクリプトが使用できます。<placeholder-1/>"
+"There are currently these types of hook script available <placeholder-1/>"
+msgstr "現在、次の種類のフックスクリプトが使用できます。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14353,7 +14427,7 @@ msgid ""
 "When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
-"</screen>"
+"    </screen>"
 msgstr "フックスクリプトをデバッグするとき、DOSコンソールに実行中の行を表示したり、スクリプトが実行完了したときにウィンドウが閉じるのを防ぐためにpauseを挿入したりしたくなったりすることがあるでしょう。入出力がリダイレクトされているため、これは正しく動作しません。しかし、入出力を明示的にCONにリダイレクトすることはできます。例えば、<screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n</screen>"
 
 #. (para)
@@ -14562,8 +14636,10 @@ msgid ""
 "Explorer are normally only active in a working copy. If you want those to be"
 " accessible everywhere, not just in working copies, set this value to "
 "<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr "作業コピーを Windows エクスプローラーの詳細表示で表示させたとき、 TortoiseSVN が列を追加します。作業コピーばかりでなくどこでも列を追加したい場合、この値を <literal>true</literal> に設定してください。なお、列の追加は Windows XP でしか行われず、 Vista 以降ではこの機能はサポートされていません。"
+"XP. Vista and later doesn't support that feature any more. However some "
+"third-party explorer replacements do support those even on Windows versions "
+"later than XP."
+msgstr "作業コピーを Windows エクスプローラーの詳細表示で表示させたとき、TortoiseSVNが列を追加します。作業コピーばかりでなくどこでも列を追加したい場合、この値を <literal>true</literal> に設定してください。なお、列の追加はWindows XPでしか行われず、Vista以降ではこの機能はサポートされていません。\nただし、サードパーティー製のエクスプローラーによっては、WindowsのバージョンがXP以降であってもサポートされることがあります。"
 
 #. (para)
 msgid ""
@@ -14635,8 +14711,8 @@ msgstr "様々なダイアログ（例えばコミット、変更をチェック
 msgid ""
 "This option determines how the Win7 taskbar icons of the various TortoiseSVN"
 " dialogs and windows are grouped together. This option has no effect on "
-"Windows XP or Vista!"
-msgstr "このオプションは、様々な TortoiseSVN のダイアログやウィンドウが、 Windows 7 のタスクバー内でグループ化される方法を決定します。このオプションは、 Windows XP や Vista では効果がありません。"
+"Vista!"
+msgstr "このオプションは、様々なTortoiseSVNのダイアログやウィンドウが、Windows 7のタスクバー内でグループ化される方法を決定します。このオプションは、Vistaでは効果がありません。"
 
 #. (title)
 msgid "Taskbar with default grouping"
@@ -14972,8 +15048,8 @@ msgstr "SubWCRevは、デフォルトで作業コピーの外部参照を除い�
 msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
-"</screen>"
-msgstr "コマンドラインやスクリプトから SubWCRev.exe を呼び出し、コマンドラインパラメーターで制御します。<screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
+"      </screen>"
+msgstr "SubWCRev.exeはコマンドラインやスクリプトから呼び出されます。制御にはコマンドラインパラメーターを使用します。<screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
 
 #. (para)
 msgid ""
@@ -15003,6 +15079,7 @@ msgstr "使用できるコマンドラインスイッチ一覧"
 msgid "Switch"
 msgstr "切り替え"
 
+#. (entry)
 #. (entry)
 #. (entry)
 #. (entry)
@@ -15292,9 +15369,11 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -15322,6 +15401,7 @@ msgid ""
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> は、ローカルで変更があれば <placeholder-2/> に、そうでなければ <placeholder-3/> に置き換わります。"
 
+#. (literal)
 #. (literal)
 msgid "$WCUNVER?TText:FText$"
 msgstr "$WCUNVER?TText:FText$"
@@ -15402,6 +15482,12 @@ msgstr "ロック所有者の名前に置き換わります。"
 msgid "Replaced with the comment of the lock."
 msgstr "ロックについてのコメントに置き換わります。"
 
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
+"files or folders in the working copy, or <placeholder-3/> if not."
+msgstr "<placeholder-1/>は、作業コピーにバージョン管理外のファイルやフォルダーがある場合は<placeholder-2/>に、そうでなければ<placeholder-3/>に置換されます。"
+
 #. (para)
 msgid ""
 "If a source and destination files are supplied, SubWCRev copies source to "
@@ -15412,11 +15498,11 @@ msgstr "元ファイルと先ファイルを与えると、SubWCRev は元ファ
 msgid ""
 "SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
 "#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
-"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"      </screen> But you can usually work around it by other means, for example: <screen>\n"
 "#define SVN_RANGE       $WCRANGE$\n"
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
-"</screen>"
+"      </screen>"
 msgstr "SubWCRev は式のネストを直接サポートしていません。たとえば、次のような式は使用することができません。 <screen>\n#define SVN_REVISION \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n</screen> しかし、次のように形式を変更すれば使用することができます。 <screen>\n#define SVN_RANGE       $WCRANGE$\n#define SVN_REV         $WCREV$\n#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
 
 #. (para)
@@ -16707,16 +16793,16 @@ msgid ""
 "C:\\Projects\\Proj2\n"
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
-"</screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
+"        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr "同じ共通コアコードを複数のプロジェクトで使用するが、使用するプロジェクトごとに複数の同じ作業コピーを維持したくなければ、使用するその他のプロジェクトと関連する、独立した場所にチェックアウトできます。例えば以下のようになります。\n<screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen>\nその上で、共通コードには相対パスで参照してください。例: <filename>..\\..\\Common\\DSPcore</filename>"
 
 #. (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, e.g. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
 "SUBST X: \"D:\\Documents\\framework\"\n"
-"</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
+"        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
-"</screen>"
+"        </screen>"
 msgstr "プロジェクトが関係ない場所に散乱している場合、以下のバリエーションを使用できます。共通コードを一カ所に置き、その場所をプロジェクト内でハードコードしているものになるようドライブレター変換を使用します。例えば、共通コードを <filename>D:\\Documents\\Framework</filename> か <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> にチェックアウトし、<screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> として自分のソースコード内で使用するドライブマッピングを作成してください。自分のコードでは絶対パスを指定できます。<screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 
 #. (para)
@@ -16761,7 +16847,7 @@ msgstr "ショートカット"
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
-"</screen> Of course you need to include the real repository URL."
+"      </screen> Of course you need to include the real repository URL."
 msgstr "特定の場所をリポジトリブラウザーでたびたび開く必要があるのなら、TortoiseProc の自動化インターフェイスを使用して、デスクトップショートカットを作成できます。単に新しいショートカットを作成し、項目の場所を以下のようにセットしてください。<screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n</screen> もちろん本当のリポジトリ URL を含める必要があります。"
 
 #. (title)
@@ -16811,10 +16897,10 @@ msgstr "作業コピーをバージョン管理外に"
 #. (para)
 msgid ""
 "If you have a working copy which you want to convert back to a plain folder "
-"tree without the <literal>.svn</literal> directories, you can simply export "
-"it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out"
-" how."
-msgstr "作業コピーから <literal>.svn</literal> ディレクトリを削除し、通常のフォルダーツリーにする場合、これを単純にエクスポートできます。どのようにするかは、 <xref linkend=\"tsvn-dug-export-unversion\"/> をご覧ください。"
+"tree without the <literal>.svn</literal> directory, you can simply export it"
+" to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out "
+"how."
+msgstr "作業コピーから<literal>.svn</literal>ディレクトリを削除し、通常のフォルダーツリーにする場合、これを単純にエクスポートできます。どのようにするかは、<xref linkend=\"tsvn-dug-export-unversion\"/>をご覧ください。"
 
 #. (title)
 msgid "Remove a working copy"
@@ -16883,12 +16969,12 @@ msgid ""
 "TortoiseSVN must be installed under <emphasis>Computer "
 "Configuration</emphasis> and not under <emphasis>User "
 "Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC "
-"DLLs, which can only be deployed <emphasis>per computer</emphasis> and not "
-"<emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
+"DLLs, which can only be deployed <emphasis> per computer </emphasis> and not"
+" <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a "
 "per user basis, then you must first install the MFC and CRT package version "
-"11 from Microsoft on each computer you want to install TortoiseSVN as per "
+"12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr "TortoiseSVNは、<emphasis>ユーザーの構成</emphasis>ではなく<emphasis>コンピュータの構成</emphasis>の下にインストールする必要があります。  TortoiseSVN は CRT と MFC DLL を必要としており、それは<emphasis>ユーザーごと</emphasis>ではなく<emphasis>コンピュータごと</emphasis>に配布されるからです。どうしてもユーザーごとに TortoiseSVN をインストールする必要がある場合は、TortoiseSVN をインストールするすべてのコンピュータに対して、Microsoft から MFC と CRT のパッケージのバージョン11をインストールする必要があります。"
+msgstr "TortoiseSVNは、<emphasis>ユーザーの構成</emphasis>ではなく<emphasis>コンピュータの構成</emphasis>の下にインストールする必要があります。TortoiseSVNはCRTとMFC DLL 必要としており、それは<emphasis>ユーザーごと</emphasis>ではなく<emphasis>コンピュータごと</emphasis>に配布されるからです。どうしてもユーザーごとにTortoiseSVNをインストールする必要がある場合は、TortoiseSVNをインストールするすべてのコンピュータに対して、Microsoft製MFCとCRTのパッケージのバージョン12をインストールする必要があります。"
 
 #. (para)
 msgid ""
@@ -16939,11 +17025,11 @@ msgstr "自分のドメインにいるたくさんのユーザーに対して責
 #. (para)
 msgid ""
 "Versions 1.4.0 and later of TortoiseSVN allow you to redirect that upgrade check to your intranet server. You can set the registry key <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (string value) to an URL pointing to a text file in your intranet. That text file must have the following format: <screen>\n"
-"1.4.1.6000\n"
+"1.9.1.6000\n"
 "A new version of TortoiseSVN is available for you to download!\n"
-"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
-"</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr "TortoiseSVN 1.4.0 以降では、イントラネットのサーバーにその更新チェックのリダイレクトすることができます。レジストリキーの<filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> （文字列値）をご使用のイントラネット内のテキストフ​​ァイルを指すURLに設定してください。そのテキストフ​​ァイルには、次の形式である必要があります。 <screen>\n1.4.1.6000\nTortoiseSVN の新しいバージョンが使用可能です。\nhttp://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n</screen> ファイルの最初の行はバージョン文字列です。TortoiseSVNのインストールパッケージの正確なバージョン文字列と一致していることを確認する必要があります。2行目は、コミットダイアログに表示する文字列です。任意の文字列を設定することができます。ただし、コミットダイアログの容量が制限されていることに注意してください。メッセージが長すぎると、切り捨てられてしまいます。3行目は、新しいインストールパッケージへのURLです。コミットダイアログでカスタムメッセージラベルをユーザーがクリックすると、このURLが開かれます。また、単に直接ではなく、MSIファイルのWebページを指すことができます。 URLは、Webページを指定した場合には、そのページが開かれ、ユーザーに表示される、デフォルトのWebブラウザーで開かれます。 MSIパッケージを指定した場合、ブラウザーはローカルでMSIファイルを保存するようにユーザーに要求します。"
+"http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
+"      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
+msgstr "TortoiseSVN 1.4.0 以降では、イントラネットのサーバーにその更新チェックのリダイレクトすることができます。レジストリキーの<filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> （文字列値）をご使用のイントラネット内のテキストフ​​ァイルを指すURLに設定してください。そのテキストフ​​ァイルには、次の形式である必要があります。 <screen>\n1.9.1.6000\nTortoiseSVN の新しいバージョンが使用可能です。\nhttp://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n</screen> ファイルの最初の行はバージョン文字列です。TortoiseSVNのインストールパッケージの正確なバージョン文字列と一致していることを確認する必要があります。2行目は、コミットダイアログに表示する文字列です。任意の文字列を設定することができます。ただし、コミットダイアログの容量が制限されていることに注意してください。メッセージが長すぎると、切り捨てられてしまいます。3行目は、新しいインストールパッケージへのURLです。コミットダイアログでカスタムメッセージラベルをユーザーがクリックすると、このURLが開かれます。また、単に直接ではなく、MSIファイルのWebページを指すことができます。 URLは、Webページを指定した場合には、そのページが開かれ、ユーザーに表示される、デフォルトのWebブラウザーで開かれます。 MSIパッケージを指定した場合、ブラウザーはローカルでMSIファイルを保存するようにユーザーに要求します。"
 
 #. (title)
 msgid ""
@@ -16973,10 +17059,12 @@ msgstr "何でもかんでも<emphasis>すべて</emphasis>を選択してしま
 
 #. (para)
 msgid ""
-"But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
-"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
-"</screen>"
-msgstr "しかし、このオプションはユーザーに対して隠されているだけです。TortoiseSVN のインストーラーにこの環境変数を設定するように強制するには、<literal>ASPDOTNETHACK</literal> プロパティを TRUE にしてください。例えば、インストーラーを起動する際に以下のようにしてください。<screen>\nmsiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n</screen>"
+"But the feature is still available in TortoiseSVN and other svn clients. To "
+"enable it you have to set the Windows environment variable named "
+"<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
+"value of that environment variable doesn't matter: if the variable exists "
+"the feature is active."
+msgstr "しかし、この機能はTortoiseSVNやその他のSVNクライアントで利用できます。有効にするには、Windowsの<literal>ASPDOTNETHACK</literal>という名前の環境変数を<literal>1</literal>に設定してください。実際には、この環境変数の値は意識されません。環境変数があれば機能が有効になります。"
 
 #. (para)
 msgid ""
@@ -17201,6 +17289,18 @@ msgid "Upgrade working copy"
 msgstr "作業コピーをアップグレード"
 
 #. (entry)
+msgid "Diff later"
+msgstr "差分元として選択"
+
+#. (entry)
+msgid "Diff with 'filename'"
+msgstr "次のファイルと比較: 「ファイル名」"
+
+#. (entry)
+msgid "Unified diff"
+msgstr "Unified形式の差分"
+
+#. (entry)
 msgid "Settings"
 msgstr "設定"
 
@@ -17215,12 +17315,12 @@ msgstr "TortoiseSVN について"
 #. (para)
 msgid ""
 "Example: to disable the <quote>Relocate</quote> the <quote>Delete unversioned items</quote> and the <quote>Settings</quote> menu entries, add the values assigned to the entries like this: <screen>\n"
-"  0x0000000000080000\n"
+"0x0000000000080000\n"
 "+ 0x0000000080000000\n"
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
-"</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr "例: <quote>再配置</quote>・<quote>バージョン管理外の項目を削除する</quote>・<quote>設定</quote> といったメニューエントリを無効にするには、以下のように値を設定してください。<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> 下位の <literal>DWORD</literal> 値 (<literal>0x80080000</literal>) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の <literal>DWORD</literal> 値（<literal>0x20000000</literal>）は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
+"      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
+msgstr "例: <quote>再配置</quote>・<quote>バージョン管理外の項目を削除する</quote>・<quote>設定</quote> といったメニューエントリを無効にするには、以下のように値を設定してください。<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> 下位の <literal>DWORD</literal> 値 (<literal>0x80080000</literal>) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の <literal>DWORD</literal> 値 (<literal>0x20000000</literal>) は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -17253,9 +17353,11 @@ msgstr "TortoiseSVNのコマンド"
 #. (primary)
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "自動化"
 
+#. (primary)
 #. (primary)
 #. (primary)
 msgid "command line"
@@ -17287,8 +17389,10 @@ msgid ""
 "order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
 "use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
-"the parameter <option>/deletepathfile</option>."
-msgstr "ファイルで複数のパスを指定することもできます。複数のパスを改行で区切って記述します。ファイルは UTF-16 形式で、 <ulink url=\"http://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A4%E3%83%88%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%9E%E3%83%BC%E3%82%AF\"><citetitle>BOM</citetitle></ulink> を入れないでください。ファイルで指定したい場合は、 <option>/path</option> の代わりに <option>/pathfile</option> を使用してください。 <option>/deletepathfile</option> を使用すると、コマンド実行後に TortoiseProc がファイルを自動的に削除します。"
+"the parameter <option>/deletepathfile</option>. If you don't pass "
+"<option>/deletepathfile</option>, you have to delete the file yourself or "
+"the file gets left behind."
+msgstr "改行で区切った複数のパスを記述したファイルで指定することもできます。ファイルはUTF-16形式で、<ulink url=\"http://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A4%E3%83%88%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%9E%E3%83%BC%E3%82%AF\"><citetitle>BOM</citetitle></ulink> を入れないでください。ファイルを渡したい場合は、<option>/path</option>ではなく<option>/pathfile</option>を使用してください。コマンド実行後にTortoiseProcがファイルを自動削除するようにしたい場合は、<option>/deletepathfile</option>を使用してください。<option>/deletepathfile</option>を指定しない場合、手作業でファイルを削除しなければファイルは残ります。"
 
 #. (para)
 msgid ""
@@ -18143,9 +18247,11 @@ msgid ""
 msgstr "以下の表は、コマンドラインで画像差分ツールに渡す、全オプションの一覧です。"
 
 #. (title)
+#. (title)
 msgid "List of available options"
 msgstr "使用できるオプションの一覧"
 
+#. (entry)
 #. (entry)
 msgid "Option"
 msgstr "オプション"
@@ -18187,6 +18293,33 @@ msgid ""
 "                  /fit /overlay\n"
 "</screen>"
 msgstr "サンプル（一行で入力してください）: <screen>\nTortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n                  /fit /overlay\n</screen>"
+
+#. (title)
+msgid "TortoiseUDiff Commands"
+msgstr "TortoiseUDiffコマンド"
+
+#. (para)
+msgid "The unified diff viewer has only two command line options:"
+msgstr "Unified差分ビューアーにはコマンドラインオプションが2つだけあります。"
+
+#. (entry)
+msgid "Path to the unified diff file."
+msgstr "Unified差分ファイルへのパスです。"
+
+#. (entry)
+msgid "Activates pipe mode. The unified diff is read from the console input."
+msgstr "パイプモードを有効にします。Unified差分を標準入力から読み取ります。"
+
+#. (para)
+msgid ""
+"Examples (which should be entered on one line): <screen>\n"
+"TortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n"
+"      </screen> If you create the diff from another command, you can use TortoiseUDiff to show that diff directly: <screen>\n"
+"svn diff | TortoiseUDiff.exe /u\n"
+"      </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
+"svn diff | TortoiseUDiff.exe\n"
+"      </screen>"
+msgstr "例（1行で入力してください）<screen>\n                TortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n            </screen>他のコマンドで差分を取った場合、TortoiseUDiffで差分を直接表示させることができます。<screen>\n                svn diff | TortoiseUDiff.exe /u\n            </screen><option>/p</option>パラメーターを省略しても動作します。<screen>\n                svn diff | TortoiseUDiff.exe\n            </screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
@@ -18255,7 +18388,8 @@ msgstr "いくつかの項目はオプションで、TortoiseSVN ではチェッ
 msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
-msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
+"      "
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n      "
 
 #. (para)
 #. (para)
@@ -18282,7 +18416,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n"
+"      "
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18315,7 +18450,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
+"      "
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18332,7 +18468,8 @@ msgstr "TortoiseSVN ではコミットダイアログを使って複数の Subve
 msgid ""
 "\n"
 "svn status -v PATH\n"
-msgstr "\nsvn status -v PATH\n"
+"      "
+msgstr "\nsvn status -v PATH\n      "
 
 #. (para)
 #. (para)
@@ -18356,7 +18493,8 @@ msgstr "バージョン管理外のファイルやフォルダーをチェック
 msgid ""
 "\n"
 "svn add PATH...\n"
-msgstr "\nsvn add PATH...\n"
+"      "
+msgstr "\nsvn add PATH...\n      "
 
 #. (para)
 msgid ""
@@ -18372,7 +18510,8 @@ msgstr "OK をクリックすると、その場で Subversion のコミット（
 msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
-msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
+"      "
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n      "
 
 #. (para)
 #. (para)
@@ -18393,7 +18532,8 @@ msgstr "<guilabel>ロックを保持</guilabel> にチェックしているな�
 msgid ""
 "\n"
 "svn diff PATH\n"
-msgstr "\nsvn diff PATH\n"
+"      "
+msgstr "\nsvn diff PATH\n      "
 
 #. (para)
 msgid ""
@@ -18417,9 +18557,10 @@ msgstr "TortoiseSVN で、バージョン管理下であってもなくても、
 msgid ""
 "\n"
 "svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
-"  or\n"
+"or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
-msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n  もしくは\nsvn log -v -r M:N [--stop-on-copy] PATH\n"
+"      "
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\nor\nsvn log -v -r M:N [--stop-on-copy] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18439,9 +18580,10 @@ msgstr "<guilabel>コピー/名前の変更が発生したら停止</guilabel> �
 msgid ""
 "\n"
 "svn status -v PATH\n"
-"  or\n"
+"or\n"
 "svn status -u -v PATH\n"
-msgstr "\nsvn status -v PATH\n  または\nsvn status -u -v PATH\n"
+"      "
+msgstr "\nsvn status -v PATH\nor\nsvn status -u -v PATH\n      "
 
 #. (para)
 msgid ""
@@ -18466,8 +18608,8 @@ msgid ""
 "What TortoiseSVN does is an <screen>\n"
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
-"</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr "TortoiseSVN は <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> を行い（URLはリポジトリの <emphasis>root</emphasis>）、返ってきたデータを解析します。"
+"        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
+msgstr "What TortoiseSVN does is an <screen>\nsvn info URL_of_WC\nsvn log -v URL\n        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
 
 #. (title)
 msgid "Repo Browser"
@@ -18479,7 +18621,8 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
-msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n"
+"      "
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -18511,21 +18654,24 @@ msgstr "解決済み"
 msgid ""
 "\n"
 "svn resolved PATH\n"
-msgstr "\nsvn resolved PATH\n"
+"      "
+msgstr "\nsvn resolved PATH\n      "
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
-msgstr "\nsvn rename CURR_PATH NEW_PATH\n"
+"      "
+msgstr "\nsvn rename CURR_PATH NEW_PATH\n      "
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn delete PATH\n"
-msgstr "\nsvn delete PATH\n"
+"      "
+msgstr "\nsvn delete PATH\n      "
 
 #. (para)
 msgid ""
@@ -18548,14 +18694,16 @@ msgstr "OK をクリックすると、その場で Subversion の変更の取り
 msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
-msgstr "\nsvn revert [-R] PATH...\n"
+"      "
+msgstr "\nsvn revert [-R] PATH...\n      "
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn cleanup PATH\n"
-msgstr "\nsvn cleanup PATH\n"
+"      "
+msgstr "\nsvn cleanup PATH\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -18573,7 +18721,8 @@ msgstr "第一段階として、作業コピー内でロックできる項目を
 msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
-msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n"
+"      "
+msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n      "
 
 #. (para)
 msgid ""
@@ -18596,18 +18745,20 @@ msgstr "ロックの解除"
 msgid ""
 "\n"
 "svn unlock PATH\n"
-msgstr "\nsvn unlock PATH\n"
+"      "
+msgstr "\nsvn unlock PATH\n      "
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn copy -m \"LogMessage\" URL URL\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" URL@rev URL@rev\n"
-"  or\n"
+"or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
-msgstr "\nsvn copy -m \"LogMessage\" URL URL\n  または\nsvn copy -m \"LogMessage\" URL@rev URL@rev\n  または\nsvn copy -m \"LogMessage\" PATH URL\n"
+"      "
+msgstr "\nsvn copy -m \"LogMessage\" URL URL\nor\nsvn copy -m \"LogMessage\" URL@rev URL@rev\nor\nsvn copy -m \"LogMessage\" PATH URL\n      "
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18626,14 +18777,16 @@ msgid ""
 "\n"
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
-msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n"
+"      "
+msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n      "
 
 #. (screen)
 #, no-wrap
 msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
-msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
+"      "
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 
 #. (para)
 msgid ""
@@ -18646,7 +18799,8 @@ msgstr "<guibutton>マージのテスト</guibutton> は、<literal>--dry-run</l
 msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
-msgstr "\nsvn diff From_URL@revN To_URL@revM\n"
+"      "
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -18659,7 +18813,8 @@ msgstr "<guibutton>Unified diff</guibutton> はマージ処理されるものを
 msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
-msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n"
+"      "
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n      "
 
 #. (para)
 msgid ""
@@ -18691,7 +18846,8 @@ msgstr "どちらの場合でも、<guilabel>外部参照を除外する</guilab
 msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
-msgstr "\nsvn switch --relocate From_URL To_URL\n"
+"      "
+msgstr "\nsvn switch --relocate From_URL To_URL\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -18702,7 +18858,8 @@ msgstr "ここにリポジトリを作成"
 msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
-msgstr "\nsvnadmin create --fs-type fsfs PATH\n"
+"      "
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n      "
 
 #. (para)
 msgid ""
@@ -18715,7 +18872,8 @@ msgstr "フォルダーを選択すると、TortoiseSVN はまず、追加でき
 msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
-msgstr "\nsvn import -m LogMessage PATH URL\n"
+"      "
+msgstr "\nsvn import -m LogMessage PATH URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -18723,7 +18881,8 @@ msgid ""
 "\n"
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
-msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n"
+"      "
+msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n      "
 
 #. (para)
 msgid ""
@@ -18743,7 +18902,8 @@ msgid ""
 "svn propget svn:ignore PATH &gt; tempfile\n"
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
-msgstr "\nsvn propget svn:ignore PATH &gt; tempfile\n{tempfile を編集し無視する項目を追加してください}\nsvn propset svn:ignore -F tempfile PATH\n"
+"      "
+msgstr "\nsvn propget svn:ignore PATH &gt; tempfile\n{tempfileを編集し無視する項目を追加してください}\nsvn propset svn:ignore -F tempfile PATH"
 
 #. (para)
 msgid ""
@@ -18757,7 +18917,8 @@ msgstr "<literal>svn:ignore</literal> プロパティは複数行の値をとる
 msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
-msgstr "\nsvn diff PATH &gt; patch-file\n"
+"      "
+msgstr "\nsvn diff PATH &gt; patch-file\n      "
 
 #. (para)
 msgid ""
@@ -18982,10 +19143,10 @@ msgid ""
 "The TortoiseSVN user interface has been translated into many different "
 "languages, so you may be able to download a language pack to suit your "
 "needs. You can find the language packs on our <ulink "
-"url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation "
-"status page</citetitle></ulink>. And if there is no language pack available,"
-" why not join the team and submit your own translation ;-)"
-msgstr "TortoiseSVN のユーザーインターフェイスはたくさんの言語に翻訳されており、ご希望の言語パックをダウンロードできるでしょう。言語パックは私たちの翻訳ページ <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink> で見つけられると思います。まだ言語パックが用意されていないのなら、チームに参加して翻訳をしてみましょう ;-)"
+"url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
+" status page</citetitle></ulink>. And if there is no language pack "
+"available, why not join the team and submit your own translation ;-)"
+msgstr "TortoiseSVNのユーザーインターフェイスはたくさんの言語に翻訳されています。<ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>翻訳状況ページ</citetitle></ulink>からご希望の言語パックをダウンロードすることができます。まだ言語パックが用意されていない言語ならば、チームに参加して翻訳をしてみましょう ;-)"
 
 #. (para)
 msgid ""
@@ -18998,9 +19159,9 @@ msgstr "各言語パックは、<literal>.msi</literal>インストーラーと�
 msgid ""
 "The documentation has also been translated into several different languages."
 " You can download translated manuals from the <ulink "
-"url=\"http://tortoisesvn.net/support\"><citetitle>support "
+"url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr "ドキュメントは、いくつかの言語に翻訳されています。私たちのウェブサイトの<ulink url=\"http://tortoisesvn.net/support\"><citetitle>サポートページ</citetitle></ulink>から翻訳されたマニュアルをダウンロードすることができます。"
+msgstr "ドキュメントもさまざまな言語に翻訳されています。ウェブサイトの<ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>サポートページ</citetitle></ulink>から翻訳されたマニュアルをダウンロードすることができます。"
 
 #. (title)
 msgid "Spellchecker"
@@ -19988,9 +20149,9 @@ msgid ""
 "If you're in two pane view, then you can only edit the file in the right "
 "pane (<literal>Mine</literal>). To apply changes made in the left file "
 "(<literal>Theirs</literal>), <action>right click</action> on the changed "
-"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use"
-" text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
-" the left file are added to the right file."
+"lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
+"Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
+"from the left file are added to the right file."
 msgstr "2画面表示の場合、右画面（<literal>Mine</literal>）のみ編集できます。左のファイル（<literal>Theirs</literal>）に変更を加えるには、変更する行で<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>「theirs」のテキストブロックを使用</guimenuitem></menuchoice>を選択してください。そうすれば、左のファイルからの変更が右のファイルに加えられます。"
 
 #. (para)
@@ -20018,9 +20179,9 @@ msgid ""
 "view</emphasis>) you can only edit the file in the bottom view "
 "(<literal>Merged</literal>). As in two pane view, you can <action>right "
 "click</action> on conflicted lines and either select "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from "
-"'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Use text block from 'mine' "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
+" 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem> Use text block from 'mine' "
 "</guimenuitem></menuchoice>. In addition, if you want "
 "<emphasis>both</emphasis> blocks, you can select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from"
@@ -20475,7 +20636,7 @@ msgstr "TortoiseMergeのコマンドラインスイッチ"
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
-"</screen>"
+"      </screen>"
 msgstr "ほとんどのスイッチには、パスやその他の文字列などの追加情報が必要です。この場合、スイッチの後に「:」に続けて文字列やパスを指定してください。例えば、次のように指定します。<screen>\n/base:\"c:\\folder\\my base file.txt\"\n</screen>"
 
 #. (title)
@@ -20639,5 +20800,5 @@ msgstr "ファイルが編集されるのを防止します。つまり、 Torto
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
-"</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
+"      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr "他の差分プログラムとの互換のため、コマンドラインにはファイル名だけを渡すこともできるようになっています。略式のコマンドラインは、 <screen>\nTortoiseMerge &lt;baseファイルパス&gt; &lt;mineファイルパス&gt; [ &lt;theirsファイルパス&gt; ]\n</screen>という書式です。２つのファイルを与えると、互いに比較します。３つのファイルを与えると、最初のファイルをベースファイルとして、他の２つと比較する３方向差分になります。"
