@@ -157,8 +157,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
     } while (File.gcount() > 0);
     printf(File.getloc().name().c_str());
     File.close();
-    RESOURCEENTRY emptyentry;
-    emptyentry.menuID = 0;
+    RESOURCEENTRY emptyentry = {0};
     (*this)[std::wstring(L"")] = emptyentry;
     if (!m_bQuiet)
         _ftprintf(stdout, L"%d Entries found, %d were already translated and %d got deleted\n", nEntries, nTranslated, nDeleted);
@@ -309,4 +308,3 @@ void CPOFile::AdjustEOLs(std::wstring& str)
     }
     str.swap(result);
 }
-
