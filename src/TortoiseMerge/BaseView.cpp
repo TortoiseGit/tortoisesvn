@@ -103,6 +103,7 @@ CBaseView::CBaseView()
     , m_bWholeWord(false)
     , m_pDC(NULL)
     , m_pWorkingFile(NULL)
+    , m_bInsertMode(true)
 {
     m_ptCaretViewPos.x = 0;
     m_ptCaretViewPos.y = 0;
@@ -3030,6 +3031,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             RemoveSelectedText();
         }
         break;
+    case VK_INSERT:
+        m_bInsertMode = !m_bInsertMode;
+        UpdateCaret();
+        break;
+
     }
     CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
@@ -3443,7 +3449,10 @@ void CBaseView::UpdateCaret()
         nCaretOffset >= m_nOffsetChar &&
         nCaretOffset < (m_nOffsetChar+GetScreenChars()))
     {
-        CreateSolidCaret(2, GetLineHeight());
+        if (m_bInsertMode)
+            CreateSolidCaret(2, GetLineHeight());
+        else
+            CreateSolidCaret(GetCharWidth(), GetLineHeight());
         SetCaretPos(TextToClient(ptCaretPos));
         ShowCaret();
     }
@@ -3656,7 +3665,17 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 lineData.sLine.Insert(ptCaretViewPos.x, '\t');
         }
         else
-            lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
+        {
+            if (m_bInsertMode)
+                lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
+            else
+            {
+                if (lineData.sLine.GetLength() > ptCaretViewPos.x)
+                    lineData.sLine.SetAt(ptCaretViewPos.x, (wchar_t)nChar);
+                else
+                    lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
+            }
+        }
         if (IsStateEmpty(lineData.state))
         {
             // if not last line set EOL
@@ -3745,28 +3764,28 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         if (m_pViewData->GetCount() > nViewLine)
             eOriginalEnding = GetViewLineEnding(nViewLine);
 
-        if (!sLineRight.IsEmpty() || (eOriginalEnding!=m_lineendings))
+        if (!sLineRight.IsEmpty() || (eOriginalEnding != m_lineendings))
         {
             viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, m_lineendings, HIDESTATE_SHOWN);
             SetViewData(nViewLine, newFirstLine);
         }
 
-        int nInsertLine = (m_pViewData->GetCount()==0) ? 0 : nViewLine + 1;
+        int nInsertLine = (m_pViewData->GetCount() == 0) ? 0 : nViewLine + 1;
         viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN);
         InsertViewData(nInsertLine, newLastLine);
         SetModified();
         SaveUndoStep();
 
         // adds new line everywhere except me
-        if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
+        if (IsViewGood(m_pwndLeft) && m_pwndLeft != this)
         {
             m_pwndLeft->InsertViewEmptyLines(nInsertLine, 1);
         }
-        if (IsViewGood(m_pwndRight) && m_pwndRight!=this)
+        if (IsViewGood(m_pwndRight) && m_pwndRight != this)
         {
             m_pwndRight->InsertViewEmptyLines(nInsertLine, 1);
         }
-        if (IsViewGood(m_pwndBottom) && m_pwndBottom!=this)
+        if (IsViewGood(m_pwndBottom) && m_pwndBottom != this)
         {
             m_pwndBottom->InsertViewEmptyLines(nInsertLine, 1);
         }
@@ -3778,7 +3797,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
         BuildAllScreen2ViewVector();
         // move the cursor to the new line
-        ptCaretViewPos = SetupPoint(0, nViewLine+1);
+        ptCaretViewPos = SetupPoint(0, nViewLine + 1);
         SetCaretAndGoalViewPosition(ptCaretViewPos);
     }
     else
