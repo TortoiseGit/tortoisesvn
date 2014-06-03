@@ -54,14 +54,18 @@ void CFindDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_WHOLEWORD, m_bWholeWord);
     DDX_Check(pDX, IDC_SEARCHUP, m_bSearchUp);
     DDX_Control(pDX, IDC_FINDCOMBO, m_FindCombo);
+    DDX_Control(pDX, IDC_REPLACECOMBO, m_ReplaceCombo);
     DDX_Control(pDX, IDC_FINDSTATUS, m_FindStatus);
 }
 
 
 BEGIN_MESSAGE_MAP(CFindDlg, CDialog)
     ON_CBN_EDITCHANGE(IDC_FINDCOMBO, &CFindDlg::OnCbnEditchangeFindcombo)
+    ON_CBN_EDITCHANGE(IDC_REPLACECOMBO, &CFindDlg::OnCbnEditchangeFindcombo)
     ON_BN_CLICKED(IDC_COUNT, &CFindDlg::OnBnClickedCount)
     ON_WM_CTLCOLOR()
+    ON_BN_CLICKED(IDC_REPLACE, &CFindDlg::OnBnClickedReplace)
+    ON_BN_CLICKED(IDC_REPLACEALL, &CFindDlg::OnBnClickedReplaceall)
 END_MESSAGE_MAP()
 
 
@@ -116,6 +120,10 @@ BOOL CFindDlg::OnInitDialog()
     m_FindCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Search");
     m_FindCombo.SetCurSel(0);
 
+    m_ReplaceCombo.DisableTrimming();
+    m_ReplaceCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Replace");
+    m_ReplaceCombo.SetCurSel(0);
+
     m_FindCombo.SetFocus();
 
     return FALSE;
@@ -125,6 +133,8 @@ void CFindDlg::OnCbnEditchangeFindcombo()
 {
     UpdateData();
     GetDlgItem(IDOK)->EnableWindow(!m_FindCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_REPLACE)->EnableWindow(!m_ReplaceCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_ReplaceCombo.GetString().IsEmpty());
 }
 
 void CFindDlg::OnBnClickedCount()
@@ -168,4 +178,45 @@ void CFindDlg::SetStatusText(const CString& str, COLORREF color)
 {
     m_clrFindStatus = color;
     m_FindStatus.SetWindowText(str);
+}
+
+void CFindDlg::OnBnClickedReplace()
+{
+    UpdateData();
+    SetStatusText(L"");
+    m_FindCombo.SaveHistory();
+    m_ReplaceCombo.SaveHistory();
+    m_regMatchCase = m_bMatchCase;
+    m_regLimitToDiffs = m_bLimitToDiffs;
+    m_regWholeWord = m_bWholeWord;
+
+    if (m_ReplaceCombo.GetString().IsEmpty())
+        return;
+    m_bFindNext = true;
+    if (m_pParent)
+        m_pParent->SendMessage(m_FindMsg, FindType::Replace);
+    else if (GetParent())
+        GetParent()->SendMessage(m_FindMsg, FindType::Replace);
+    m_bFindNext = false;
+}
+
+
+void CFindDlg::OnBnClickedReplaceall()
+{
+    UpdateData();
+    SetStatusText(L"");
+    m_FindCombo.SaveHistory();
+    m_ReplaceCombo.SaveHistory();
+    m_regMatchCase = m_bMatchCase;
+    m_regLimitToDiffs = m_bLimitToDiffs;
+    m_regWholeWord = m_bWholeWord;
+
+    if (m_ReplaceCombo.GetString().IsEmpty())
+        return;
+    m_bFindNext = true;
+    if (m_pParent)
+        m_pParent->SendMessage(m_FindMsg, FindType::ReplaceAll);
+    else if (GetParent())
+        GetParent()->SendMessage(m_FindMsg, FindType::ReplaceAll);
+    m_bFindNext = false;
 }
