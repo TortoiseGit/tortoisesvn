@@ -46,6 +46,7 @@ public:
     CString GetReplaceString() { return m_ReplaceCombo.GetString(); }
     void SetFindString(const CString& str) { if (!str.IsEmpty()) { m_FindCombo.SetWindowText(str); } }
     void SetStatusText(const CString& str, COLORREF color = RGB(0, 0, 255));
+    void SetReadonly(bool bReadonly);
 // Dialog Data
     enum { IDD = IDD_FIND };
 

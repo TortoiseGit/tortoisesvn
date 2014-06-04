@@ -180,6 +180,13 @@ void CFindDlg::SetStatusText(const CString& str, COLORREF color)
     m_FindStatus.SetWindowText(str);
 }
 
+void CFindDlg::SetReadonly(bool bReadonly)
+{
+    m_ReplaceCombo.EnableWindow(bReadonly ? FALSE : TRUE);
+    GetDlgItem(IDC_REPLACE)->EnableWindow(bReadonly ? FALSE : TRUE);
+    GetDlgItem(IDC_REPLACEALL)->EnableWindow(bReadonly ? FALSE : TRUE);
+}
+
 void CFindDlg::OnBnClickedReplace()
 {
     UpdateData();

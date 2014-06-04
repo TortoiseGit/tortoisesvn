@@ -5131,6 +5131,7 @@ void CBaseView::OnEditFind()
     m_pFindDialog->Create(this);
 
     m_pFindDialog->SetFindString(HasTextSelection() ? GetSelectedText() : L"");
+    m_pFindDialog->SetReadonly(m_bReadonly);
 }
 
 LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
@@ -5176,6 +5177,8 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
         }
         else if ((CFindDlg::FindType)wParam == CFindDlg::FindType::Replace)
         {
+            if (!IsWritable())
+                return 0;
             bool bFound = false;
             if (m_pFindDialog->SearchUp())
                 bFound = Search(SearchPrevious, true, true);
@@ -5184,13 +5187,10 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
             if (bFound)
             {
                 CString sReplaceText = m_pFindDialog->GetReplaceString();
-                if (IsWritable())
-                {
-                    CUndo::GetInstance().BeginGrouping();
-                    RemoveSelectedText();
-                    InsertText(sReplaceText);
-                    CUndo::GetInstance().EndGrouping();
-                }
+                CUndo::GetInstance().BeginGrouping();
+                RemoveSelectedText();
+                InsertText(sReplaceText);
+                CUndo::GetInstance().EndGrouping();
             }
 
         }
