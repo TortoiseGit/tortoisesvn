@@ -106,6 +106,12 @@
     status cache option (see below).
   </para>
   <para>
+    If you have files in the "ignore-on-commit" changelist, you can chose to
+    make those files not propagate their status to the parent folder. That way if
+    only files in that changelist are modified, the parent folder still shows
+    the unmodified overlay icon.
+  </para>
+  <para>
     The next group allows you to select which classes of storage should
     show overlays. By default, only hard drives are selected.
     You can even disable all icon overlays, but where's the fun in that?
