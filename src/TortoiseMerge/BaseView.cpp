@@ -5196,6 +5196,8 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
         }
         else if ((CFindDlg::FindType)wParam == CFindDlg::FindType::ReplaceAll)
         {
+            if (!IsWritable())
+                return 0;
             bool bFound = false;
             int replaceCount = 0;
             CUndo::GetInstance().BeginGrouping();
@@ -5205,12 +5207,9 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
                 if (bFound)
                 {
                     CString sReplaceText = m_pFindDialog->GetReplaceString();
-                    if (IsWritable())
-                    {
-                        RemoveSelectedText();
-                        InsertText(sReplaceText);
-                        ++replaceCount;
-                    }
+                    RemoveSelectedText();
+                    InsertText(sReplaceText);
+                    ++replaceCount;
                 }
             } while (bFound);
             CUndo::GetInstance().EndGrouping();
