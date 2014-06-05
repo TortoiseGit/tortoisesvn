@@ -85,6 +85,7 @@ private:
     CRegDWORD       m_regLimitToDiffs;
     CRegDWORD       m_regWholeWord;
     COLORREF        m_clrFindStatus;
+    bool            m_bReadonly;
 public:
     afx_msg void OnBnClickedReplace();
     afx_msg void OnBnClickedReplaceall();
