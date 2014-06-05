@@ -5181,9 +5181,9 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
                 return 0;
             bool bFound = false;
             if (m_pFindDialog->SearchUp())
-                bFound = Search(SearchPrevious, true, true);
+                bFound = Search(SearchPrevious, true, true, false);
             else
-                bFound = Search(SearchNext, true, true);
+                bFound = Search(SearchNext, true, true, false);
             if (bFound)
             {
                 CString sReplaceText = m_pFindDialog->GetReplaceString();
@@ -5200,10 +5200,12 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
                 return 0;
             bool bFound = false;
             int replaceCount = 0;
+            POINT lastPoint = m_ptSelectionViewPosStart;
+            m_ptSelectionViewPosStart.x = m_ptSelectionViewPosStart.y = 0;
             CUndo::GetInstance().BeginGrouping();
             do
             {
-                bFound = Search(SearchNext, true, false);
+                bFound = Search(SearchNext, true, false, true);
                 if (bFound)
                 {
                     CString sReplaceText = m_pFindDialog->GetReplaceString();
@@ -5213,6 +5215,8 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM wParam, LPARAM /*lParam*/)
                 }
             } while (bFound);
             CUndo::GetInstance().EndGrouping();
+            if (replaceCount == 0)
+                m_ptSelectionViewPosStart = lastPoint;
             CString message;
             message.Format(IDS_FIND_REPLACED, replaceCount);
             if (m_pFindDialog)
@@ -5301,15 +5305,15 @@ bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& st
 
 void CBaseView::OnEditFindprev()
 {
-    Search(SearchPrevious, false, true);
+    Search(SearchPrevious, false, true, false);
 }
 
 void CBaseView::OnEditFindnext()
 {
-    Search(SearchNext, false, true);
+    Search(SearchNext, false, true, false);
 }
 
-bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFound)
+bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFound, bool stopEof)
 {
     if (m_sFindText.IsEmpty())
         return false;
@@ -5347,6 +5351,8 @@ bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFo
     {
         if (nViewLine < 0)
         {
+            if (stopEof)
+                return false;
             nViewLine = m_pViewData->GetCount()-1;
             startline = start.y;
             if (flashIfNotFound)
@@ -5358,6 +5364,8 @@ bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFo
         }
         if (nViewLine > end.y)
         {
+            if (stopEof)
+                return false;
             nViewLine = 0;
             startline = start.y;
             if (flashIfNotFound)

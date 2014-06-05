@@ -408,7 +408,7 @@ protected:  // methods
 
     enum            SearchDirection{SearchNext=0, SearchPrevious=1};
     bool            StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const;
-    bool            Search(SearchDirection srchDir, bool useStart, bool flashIfNotFound);
+    bool            Search(SearchDirection srchDir, bool useStart, bool flashIfNotFound, bool stopEof);
     void            BuildFindStringArray();
 
     void            RemoveLine(int nLineIndex);
