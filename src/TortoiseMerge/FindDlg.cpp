@@ -185,8 +185,8 @@ void CFindDlg::SetReadonly(bool bReadonly)
 {
     m_bReadonly = bReadonly;
     m_ReplaceCombo.EnableWindow(bReadonly ? FALSE : TRUE);
-    GetDlgItem(IDC_REPLACE)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty() && !m_ReplaceCombo.GetString().IsEmpty());
-    GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty() && !m_ReplaceCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_REPLACE)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty());
 }
 
 void CFindDlg::OnBnClickedReplace()
