@@ -69,6 +69,8 @@ protected:
     afx_msg void OnCbnEditchangeFindcombo();
     afx_msg void OnBnClickedCount();
     afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd *pWnd, UINT nCtlColor);
+    afx_msg void OnBnClickedReplace();
+    afx_msg void OnBnClickedReplaceall();
 private:
     UINT            m_FindMsg;
     bool            m_bTerminating;
@@ -86,7 +88,4 @@ private:
     CRegDWORD       m_regWholeWord;
     COLORREF        m_clrFindStatus;
     bool            m_bReadonly;
-public:
-    afx_msg void OnBnClickedReplace();
-    afx_msg void OnBnClickedReplaceall();
 };
