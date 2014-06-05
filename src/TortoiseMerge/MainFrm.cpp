@@ -2702,7 +2702,8 @@ void CMainFrame::OnEditCreateunifieddifffile()
     if(!TryGetFileName(outputFile))
         return;
 
-    CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
+    CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
+    CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, regContextLines, true);
     CAppUtils::StartUnifiedDiffViewer(outputFile, CPathUtils::GetFileNameFromPath(outputFile));
 }
 

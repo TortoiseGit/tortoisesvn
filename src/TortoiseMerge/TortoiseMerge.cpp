@@ -473,7 +473,8 @@ BOOL CTortoiseMergeApp::InitInstance()
             }
             if (!outfile.IsEmpty())
             {
-                CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, false);
+                CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
+                CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, regContextLines, false);
                 return FALSE;
             }
         }

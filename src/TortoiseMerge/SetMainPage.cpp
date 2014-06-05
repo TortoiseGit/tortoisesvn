@@ -34,6 +34,7 @@ CSetMainPage::CSetMainPage()
     , m_bFirstDiffOnLoad(FALSE)
     , m_bFirstConflictOnLoad(FALSE)
     , m_nTabSize(0)
+    , m_nContextLines(0)
     , m_bIgnoreEOL(FALSE)
     , m_bOnePane(FALSE)
     , m_bViewLinenumbers(FALSE)
@@ -58,11 +59,13 @@ CSetMainPage::CSetMainPage()
     m_regAutoAdd = CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE);
     m_regMaxInline = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_regUseRibbons = CRegDWORD(L"Software\\TortoiseMerge\\UseRibbons", TRUE);
+    m_regContextLines = CRegDWORD(L"Software\\TortoiseMerge\\ContextLines", 0);
 
     m_bBackup = m_regBackup;
     m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
     m_bFirstConflictOnLoad = m_regFirstConflictOnLoad;
     m_nTabSize = m_regTabSize;
+    m_nContextLines = m_regContextLines;
     m_bIgnoreEOL = m_regIgnoreEOL;
     m_bOnePane = m_regOnePane;
     m_bViewLinenumbers = m_regViewLinenumbers;
@@ -85,6 +88,8 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_FIRSTCONFLICTONLOAD, m_bFirstConflictOnLoad);
     DDX_Text(pDX, IDC_TABSIZE, m_nTabSize);
     DDV_MinMaxInt(pDX, m_nTabSize, 1, 1000);
+    DDX_Text(pDX, IDC_CONTEXTLINES, m_nContextLines);
+    DDV_MinMaxInt(pDX, m_nContextLines, 0, 1000);
     DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
     DDX_Check(pDX, IDC_ONEPANE, m_bOnePane);
     DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
@@ -110,6 +115,7 @@ void CSetMainPage::SaveData()
     m_regFirstDiffOnLoad = m_bFirstDiffOnLoad;
     m_regFirstConflictOnLoad = m_bFirstConflictOnLoad;
     m_regTabSize = m_nTabSize;
+    m_regContextLines = m_nContextLines;
     m_regIgnoreEOL = m_bIgnoreEOL;
     m_regOnePane = m_bOnePane;
     m_regFontName = m_sFontName;
@@ -144,6 +150,7 @@ BOOL CSetMainPage::OnInitDialog()
     m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
     m_bFirstConflictOnLoad = m_regFirstConflictOnLoad;
     m_nTabSize = m_regTabSize;
+    m_nContextLines = m_regContextLines;
     m_bIgnoreEOL = m_regIgnoreEOL;
     m_bOnePane = m_regOnePane;
     m_sFontName = m_regFontName;
@@ -195,6 +202,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
     ON_BN_CLICKED(IDC_FIRSTCONFLICTONLOAD, &CSetMainPage::OnModified)
     ON_BN_CLICKED(IDC_LINENUMBERS, &CSetMainPage::OnModified)
     ON_EN_CHANGE(IDC_TABSIZE, &CSetMainPage::OnModified)
+    ON_EN_CHANGE(IDC_CONTEXTLINES, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTSIZES, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTNAMES, &CSetMainPage::OnModified)
     ON_BN_CLICKED(IDC_CASEINSENSITIVE, &CSetMainPage::OnModified)

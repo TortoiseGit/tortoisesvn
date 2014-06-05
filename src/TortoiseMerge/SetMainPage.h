@@ -65,6 +65,8 @@ protected:
     CRegDWORD       m_regFirstConflictOnLoad;
     int             m_nTabSize;
     CRegDWORD       m_regTabSize;
+    int             m_nContextLines;
+    CRegDWORD       m_regContextLines;
     BOOL            m_bIgnoreEOL;
     CRegDWORD       m_regIgnoreEOL;
     BOOL            m_bOnePane;

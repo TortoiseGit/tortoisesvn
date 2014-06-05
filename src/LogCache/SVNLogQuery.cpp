@@ -403,14 +403,13 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
 
     CHooks::Instance().PreConnect(targets);
     SVNTRACE (
-        svn_error_t *result = svn_client_log6 ( targets.MakePathArray (localpool)
+        svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
                                               , peg_revision
                                               , revision_ranges
                                               , limit
                                               , includeChanges
                                               , strictNodeHistory
                                               , includeMerges
-                                              , svn_move_behavior_auto_moves
                                               , revprops
                                               , LogReceiver
                                               , (void *)&baton
