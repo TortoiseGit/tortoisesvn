@@ -124,6 +124,7 @@ public:
 
     static void MarkWindowAsUnpinnable(HWND hWnd);
 
+    static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = NULL, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};

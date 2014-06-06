@@ -761,3 +761,69 @@ void CCommonAppUtils::MarkWindowAsUnpinnable( HWND hWnd )
     }
 }
 
+HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory, AUTOCOMPLETELISTOPTIONS acloOptions, AUTOCOMPLETEOPTIONS acoOptions, REFCLSID clsid)
+{
+    IAutoComplete *pac;
+    HRESULT hr = CoCreateInstance(CLSID_AutoComplete,
+                                  NULL,
+                                  CLSCTX_INPROC_SERVER,
+                                  IID_PPV_ARGS(&pac));
+    if (FAILED(hr))
+    {
+        return hr;
+    }
+
+    IUnknown *punkSource;
+    hr = CoCreateInstance(clsid,
+                          NULL,
+                          CLSCTX_INPROC_SERVER,
+                          IID_PPV_ARGS(&punkSource));
+    if (FAILED(hr))
+    {
+        pac->Release();
+        return hr;
+    }
+
+    if ((acloOptions != ACLO_NONE) || (szCurrentWorkingDirectory != NULL))
+    {
+        IACList2 *pal2;
+        hr = punkSource->QueryInterface(IID_PPV_ARGS(&pal2));
+        if (SUCCEEDED(hr))
+        {
+            if (acloOptions != ACLO_NONE)
+            {
+                hr = pal2->SetOptions(acloOptions);
+            }
+
+            if (szCurrentWorkingDirectory != NULL)
+            {
+                ICurrentWorkingDirectory *pcwd;
+                hr = pal2->QueryInterface(IID_PPV_ARGS(&pcwd));
+                if (SUCCEEDED(hr))
+                {
+                    hr = pcwd->SetDirectory(szCurrentWorkingDirectory);
+                    pcwd->Release();
+                }
+            }
+
+            pal2->Release();
+        }
+    }
+
+    hr = pac->Init(hWndEdit, punkSource, NULL, NULL);
+
+    if (acoOptions != ACO_NONE)
+    {
+        IAutoComplete2 *pac2;
+        hr = pac->QueryInterface(IID_PPV_ARGS(&pac2));
+        if (SUCCEEDED(hr))
+        {
+            hr = pac2->SetOptions(acoOptions);
+            pac2->Release();
+        }
+    }
+
+    punkSource->Release();
+    pac->Release();
+    return hr;
+}
