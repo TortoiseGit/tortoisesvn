@@ -41,6 +41,8 @@ bool RenameCommand::Execute()
     {
         CRenameDlg dlg;
         dlg.m_name = filename;
+        if (!SVN::PathIsURL(cmdLinePath))
+            dlg.SetFileSystemAutoComplete();
         if (dlg.DoModal() != IDOK)
             return FALSE;
         sNewName = dlg.m_name;

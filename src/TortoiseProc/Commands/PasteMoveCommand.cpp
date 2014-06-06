@@ -57,6 +57,7 @@ bool PasteMoveCommand::Execute()
                 name = sNewName;
             progress.Stop();
             CRenameDlg dlg;
+            dlg.SetFileSystemAutoComplete();
             dlg.m_name = name;
             dlg.SetInputValidator(this);
             m_renPath = pathList[nPath];

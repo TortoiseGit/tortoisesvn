@@ -41,6 +41,7 @@ bool DropMoveCommand::Execute()
     {
         // ask for a new name of the source item
         CRenameDlg renDlg;
+        renDlg.SetFileSystemAutoComplete();
         renDlg.SetInputValidator(this);
         renDlg.m_windowtitle.LoadString(IDS_PROC_MOVERENAME);
         renDlg.m_name = pathList[0].GetFileOrDirectoryName();
@@ -75,6 +76,7 @@ bool DropMoveCommand::Execute()
                     name = sNewName;
                 progress.Stop();
                 CRenameDlg dlg;
+                dlg.SetFileSystemAutoComplete();
                 dlg.SetInputValidator(this);
                 dlg.m_name = name;
                 dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);

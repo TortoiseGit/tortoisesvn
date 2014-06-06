@@ -43,6 +43,7 @@ bool DropCopyCommand::Execute()
         // ask for a new name of the source item
         CRenameDlg renDlg;
         renDlg.SetInputValidator(this);
+        renDlg.SetFileSystemAutoComplete();
         renDlg.m_windowtitle.LoadString(IDS_PROC_COPYRENAME);
         renDlg.m_name = pathList[0].GetFileOrDirectoryName();
         if (renDlg.DoModal() != IDOK)
@@ -72,6 +73,7 @@ bool DropCopyCommand::Execute()
             // Offer a rename
             progress.Stop();
             CRenameDlg dlg;
+            dlg.SetFileSystemAutoComplete();
             dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetUIFileOrDirectoryName());
             if (dlg.DoModal() != IDOK)
             {

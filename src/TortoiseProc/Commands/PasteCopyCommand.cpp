@@ -60,6 +60,7 @@ bool PasteCopyCommand::Execute()
             // Offer a rename
             progress.Stop();
             CRenameDlg dlg;
+            dlg.SetFileSystemAutoComplete();
             dlg.SetInputValidator(this);
             m_renPath = sourcePath;
             dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetUIFileOrDirectoryName());
