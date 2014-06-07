@@ -35,6 +35,7 @@
 #include "HintCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
+#include "SimpleIni.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
 #include "dte80a.tlh"
@@ -65,6 +66,25 @@ enum RefreshEnum
     Simple,
     Cache
 };
+
+class MonitorItem
+{
+public:
+    MonitorItem(const CString& name, const CString& path = CString(), const CString& parentpath = CString()) 
+        : Name(name)
+        , WCPathOrUrl(path)
+        , parentTreePath(parentpath)
+    {}
+    MonitorItem() {}
+    ~MonitorItem() {}
+
+    CString                 Name;
+    CString                 WCPathOrUrl;
+    CString                 parentTreePath;
+};
+
+
+typedef std::function<bool(HTREEITEM)> MonitorItemHandler;
 
 // fwd declaration
 class CIconMenu;
@@ -100,6 +120,7 @@ public:
 
     const SVNRevRangeArray& GetSelectedRevRanges() {return m_selectedRevs;}
     void SetSelectedRevRanges(const SVNRevRangeArray& revArray);
+    void SetMonitoringMode() { m_bMonitoringMode = true; }
 
 // Dialog Data
     enum { IDD = IDD_LOGMESSAGE };
@@ -327,6 +348,14 @@ private:
     PTOKEN_USER GetUserTokenFromProcessId(DWORD pid);
     bool RunningInSameUserContextWithSameProcessIntegrity(DWORD pidVisualStudio);
 
+    // MonitoringMode
+    void InitMonitoringMode();
+    bool CreateToolbar();
+    void DoSizeV3(int delta);
+    void InitMonitorProjTree();
+    HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem);
+    HTREEITEM FindMonitorParent(const CString& parentTreePath);
+    HTREEITEM RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -439,6 +468,17 @@ private:
     ListViewAccServer * m_pChangedListAccServer;
 
     bool                m_bVisualStudioRunningAtStart;
+
+    // MonitoringMode
+    bool                m_bMonitoringMode;
+    HWND                m_hwndToolbar;
+    HIMAGELIST          m_hToolbarImages;
+    CRect               m_ProjTreeOrigRect;
+    CSplitterControl    m_wndSplitterLeft;
+    CTreeCtrl           m_projTree;
+    CSimpleIni          m_monitoringFile;
+
+
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

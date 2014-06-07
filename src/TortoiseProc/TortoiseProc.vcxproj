@@ -263,6 +263,7 @@
     <ClCompile Include="Commands\LogCommand.cpp" />
     <ClCompile Include="Commands\MergeAllCommand.cpp" />
     <ClCompile Include="Commands\MergeCommand.cpp" />
+    <ClCompile Include="Commands\MonitorCommand.cpp" />
     <ClCompile Include="Commands\PasteCopyCommand.cpp" />
     <ClCompile Include="Commands\PasteMoveCommand.cpp" />
     <ClCompile Include="Commands\PrevDiffCommand.cpp" />
@@ -585,6 +586,7 @@
     <ClInclude Include="Commands\LogCommand.h" />
     <ClInclude Include="Commands\MergeAllCommand.h" />
     <ClInclude Include="Commands\MergeCommand.h" />
+    <ClInclude Include="Commands\MonitorCommand.h" />
     <ClInclude Include="Commands\PasteCopyCommand.h" />
     <ClInclude Include="Commands\PasteMoveCommand.h" />
     <ClInclude Include="Commands\PrevDiffCommand.h" />
@@ -775,8 +777,6 @@
     <None Include="..\Resources\AddBackground.ico" />
     <None Include="..\Resources\aerobackground.ico" />
     <None Include="..\Resources\backward.ico" />
-    <None Include="..\Resources\bin167.avi" />
-    <None Include="..\Resources\bin168.avi" />
     <None Include="..\Resources\bugtraq.ico" />
     <None Include="..\Resources\cache.ico" />
     <None Include="..\Resources\CacheList.ico" />
@@ -784,7 +784,6 @@
     <None Include="..\Resources\cancel-pressed.ico" />
     <None Include="..\Resources\CFMBackground.ico" />
     <None Include="..\Resources\CheckoutBackground.ico" />
-    <None Include="..\Resources\cleananim.avi" />
     <None Include="..\Resources\CommitBackground.ico" />
     <None Include="..\Resources\CommitBackgroundBranches.ico" />
     <None Include="..\Resources\copy.ico" />
@@ -794,7 +793,6 @@
     <None Include="..\Resources\depthfilesovl.ico" />
     <None Include="..\Resources\depthimmediatesovl.ico" />
     <None Include="..\Resources\dialogs.ico" />
-    <None Include="..\Resources\download.avi" />
     <None Include="..\Resources\Drives.ico" />
     <None Include="..\Resources\explorer.ico" />
     <None Include="..\Resources\ExportBackground.ico" />
@@ -883,7 +881,6 @@
     <None Include="..\Resources\save.ico" />
     <None Include="..\Resources\saveas.ico" />
     <None Include="..\Resources\saveddata.ico" />
-    <None Include="..\Resources\search.avi" />
     <None Include="..\Resources\ssh.ico" />
     <None Include="..\Resources\svnfolder.ico" />
     <None Include="..\Resources\switch.ico" />
@@ -940,6 +937,11 @@
     <Image Include="..\Resources\actionmovereplaced.ico" />
     <Image Include="..\Resources\Bookmarks.ico" />
     <Image Include="..\Resources\ccollabgui.ico" />
+    <Image Include="..\Resources\monitor_add.ico" />
+    <Image Include="..\Resources\monitor_edit.ico" />
+    <Image Include="..\Resources\monitor_getall.ico" />
+    <Image Include="..\Resources\monitor_options.ico" />
+    <Image Include="..\Resources\monitor_remove.ico" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="..\compatibility.manifest" />

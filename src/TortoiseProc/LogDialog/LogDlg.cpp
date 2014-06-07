@@ -185,6 +185,9 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_tTo(0)
     , m_bVisualStudioRunningAtStart(false)
     , m_bEnsureSelection(false)
+    , m_bMonitoringMode(false)
+    , m_hwndToolbar(NULL)
+    , m_hToolbarImages(NULL)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -229,6 +232,8 @@ CLogDlg::~CLogDlg()
     }
     if (m_boldFont)
         DeleteObject(m_boldFont);
+    if (m_hToolbarImages)
+        ImageList_Destroy(m_hToolbarImages);
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -239,6 +244,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
     DDX_Control(pDX, IDC_SPLITTERTOP, m_wndSplitter1);
     DDX_Control(pDX, IDC_SPLITTERBOTTOM, m_wndSplitter2);
+    DDX_Control(pDX, IDC_SPLITTERLEFT, m_wndSplitterLeft);
     DDX_Check(pDX, IDC_CHECK_STOPONCOPY, m_bStrict);
     DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
     DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
@@ -249,6 +255,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
     DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
     DDX_Check(pDX, IDC_HIDENONMERGEABLE, m_bHideNonMergeables);
+    DDX_Control(pDX, IDC_PROJTREE, m_projTree);
 }
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
@@ -515,31 +522,21 @@ void CLogDlg::ConfigureResizableControlAnchors()
 {
     // resizable stuff
     AddMainAnchors();
-    AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
-    AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
-    AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
-    AddAnchor(IDC_GETALL, BOTTOM_LEFT);
-    AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
-    AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
-    AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
-    AddAnchor(IDC_HIDENONMERGEABLE, BOTTOM_LEFT);
-    AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDOK, BOTTOM_RIGHT);
-    AddAnchor(IDC_LOGCANCEL, BOTTOM_RIGHT);
-    AddAnchor(IDHELP, BOTTOM_RIGHT);
 }
 
 void CLogDlg::RestoreLogDlgWindowAndSplitters()
 {
     DWORD yPos1 = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
     DWORD yPos2 = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
-    RECT rcDlg, rcLogList, rcChgMsg;
+    DWORD xPos = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
+    RECT rcDlg, rcLogList, rcChgMsg, rcProjTree;
     GetClientRect(&rcDlg);
     m_LogList.GetWindowRect(&rcLogList);
     ScreenToClient(&rcLogList);
     m_ChangedFileListCtrl.GetWindowRect(&rcChgMsg);
     ScreenToClient(&rcChgMsg);
+    m_projTree.GetWindowRect(&rcProjTree);
+    ScreenToClient(&rcProjTree);
 
     if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - 185))
     {
@@ -567,7 +564,20 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
             DoSizeV2(delta);
         }
     }
-
+    if (xPos || m_bMonitoringMode)
+    {
+        if (xPos == 0)
+            xPos = 80;
+        RECT rectSplitter;
+        m_wndSplitterLeft.GetWindowRect(&rectSplitter);
+        ScreenToClient(&rectSplitter);
+        int delta = xPos - rectSplitter.left;
+        if ((rcProjTree.right + delta > rcProjTree.left) && (rcProjTree.right + delta < m_LogListOrigRect.Width()))
+        {
+            m_wndSplitterLeft.SetWindowPos(NULL, xPos, rectSplitter.top, 0, 0, SWP_NOSIZE);
+            DoSizeV3(delta);
+        }
+    }
     SetSplitterRange();
 }
 
@@ -585,6 +595,7 @@ void CLogDlg::GetOriginalControlRectangles()
     m_LogList.GetClientRect(m_LogListOrigRect);
     GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
     m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
+    m_projTree.GetClientRect(m_ProjTreeOrigRect);
 }
 
 void CLogDlg::SetupDatePickerControls()
@@ -684,9 +695,15 @@ BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
-    ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
+    if (!m_bMonitoringMode)
+    {
+        ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
 
-    SubclassControls();
+        SubclassControls();
+    }
+    else
+        InitMonitoringMode();
+
     InitializeTaskBarListPtr();
     SetupDialogFonts();
     ExtraInitialization();
@@ -716,11 +733,14 @@ BOOL CLogDlg::OnInitDialog()
     SetupAccessibility();
     SetupToolTips();
 
-    // first start a thread to obtain the log messages without
-    // blocking the dialog
-    InterlockedExchange(&m_bLogThreadRunning, TRUE);
-    new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
-    // detect Visual Studio Running with thread
+    if (!m_bMonitoringMode)
+    {
+        // first start a thread to obtain the log messages without
+        // blocking the dialog
+        InterlockedExchange(&m_bLogThreadRunning, TRUE);
+        new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
+        // detect Visual Studio Running with thread
+    }
     new async::CAsyncCall(this, &CLogDlg::DetectVisualStudioRunningThread, &vsRunningScheduler);
     GetDlgItem(IDC_LOGLIST)->SetFocus();
     return FALSE;
@@ -728,6 +748,10 @@ BOOL CLogDlg::OnInitDialog()
 
 void CLogDlg::SetDlgTitle(bool bOffline)
 {
+    if (m_bMonitoringMode)
+    {
+        SetWindowText(CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+    }
     if (m_sTitle.IsEmpty())
         GetWindowText(m_sTitle);
 
@@ -1206,6 +1230,8 @@ void CLogDlg::SaveSplitterPos()
             CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
         CRegDWORD regPos2 =
             CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
+        CRegDWORD regPos3 =
+            CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
@@ -1213,6 +1239,12 @@ void CLogDlg::SaveSplitterPos()
         m_wndSplitter2.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         regPos2 = rectSplitter.top;
+        if (m_bMonitoringMode)
+        {
+            m_wndSplitterLeft.GetWindowRect(&rectSplitter);
+            ScreenToClient(&rectSplitter);
+            regPos3 = rectSplitter.left;
+        }
     }
 }
 
@@ -3701,6 +3733,29 @@ void CLogDlg::DoSizeV2(int delta)
     m_ChangedFileListCtrl.Invalidate();
 }
 
+void CLogDlg::DoSizeV3(int delta)
+{
+    RemoveMainAnchors();
+
+    CSplitterControl::ChangeWidth(&m_projTree, delta, CW_LEFTALIGN);
+    CSplitterControl::ChangeWidth(&m_cFilter, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_LogList, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_wndSplitter1, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(GetDlgItem(IDC_MSGVIEW), -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_wndSplitter2, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_ChangedFileListCtrl, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(GetDlgItem(IDC_LOGINFO), -delta, CW_RIGHTALIGN);
+
+    AddMainAnchors();
+    ArrangeLayout();
+    AdjustMinSize();
+    SetSplitterRange();
+    GetDlgItem(IDC_MSGVIEW)->Invalidate();
+    m_LogList.Invalidate();
+    m_ChangedFileListCtrl.Invalidate();
+    m_cFilter.Redraw();
+}
+
 void CLogDlg::AdjustMinSize()
 {
     // adjust the minimum size of the dialog to prevent the resizing from
@@ -3731,6 +3786,11 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
             SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
             DoSizeV2(pHdr->delta);
         }
+        else if (wParam == IDC_SPLITTERLEFT)
+        {
+            SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
+            DoSizeV3(pHdr->delta);
+        }
         break;
     }
 
@@ -3755,6 +3815,7 @@ void CLogDlg::SetSplitterRange()
 
         m_wndSplitter1.SetRange(rcTop.top+20, rcBottom.bottom-50);
         m_wndSplitter2.SetRange(rcTop.top+50, rcBottom.bottom-20);
+        m_wndSplitterLeft.SetRange(80, rcTop.right - m_LogListOrigRect.Width());
     }
 }
 
@@ -6108,20 +6169,53 @@ CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
 
 void CLogDlg::AddMainAnchors()
 {
+    AddAnchor(IDC_PROJTREE, TOP_LEFT, BOTTOM_LEFT);
+    AddAnchor(IDC_SPLITTERLEFT, TOP_LEFT, BOTTOM_LEFT);
     AddAnchor(IDC_LOGLIST, TOP_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_SPLITTERTOP, MIDDLE_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_MSGVIEW, MIDDLE_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_SPLITTERBOTTOM, MIDDLE_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
+    AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
+    AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
+    AddAnchor(IDC_GETALL, BOTTOM_LEFT);
+    AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
+    AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
+    AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
+    AddAnchor(IDC_HIDENONMERGEABLE, BOTTOM_LEFT);
+    AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(IDC_LOGCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDHELP, BOTTOM_RIGHT);
+    if (m_bMonitoringMode)
+        AdjustDateFilterVisibility();
 }
 
 void CLogDlg::RemoveMainAnchors()
 {
+    RemoveAnchor(IDC_PROJTREE);
+    RemoveAnchor(IDC_SPLITTERLEFT);
+    RemoveAnchor(IDC_SEARCHEDIT);
     RemoveAnchor(IDC_LOGLIST);
     RemoveAnchor(IDC_SPLITTERTOP);
     RemoveAnchor(IDC_MSGVIEW);
     RemoveAnchor(IDC_SPLITTERBOTTOM);
     RemoveAnchor(IDC_LOGMSG);
+    RemoveAnchor(IDC_LOGINFO);
+    RemoveAnchor(IDC_SHOWPATHS);
+    RemoveAnchor(IDC_CHECK_STOPONCOPY);
+    RemoveAnchor(IDC_INCLUDEMERGE);
+    RemoveAnchor(IDC_GETALL);
+    RemoveAnchor(IDC_NEXTHUNDRED);
+    RemoveAnchor(IDC_REFRESH);
+    RemoveAnchor(IDC_STATBUTTON);
+    RemoveAnchor(IDC_HIDENONMERGEABLE);
+    RemoveAnchor(IDC_PROGRESS);
+    RemoveAnchor(IDOK);
+    RemoveAnchor(IDC_LOGCANCEL);
+    RemoveAnchor(IDHELP);
 }
 
 void CLogDlg::OnEnscrollMsgview()
@@ -7237,4 +7331,219 @@ LRESULT CLogDlg::OnRefreshSelection( WPARAM /*wParam*/, LPARAM /*lParam*/ )
         m_LogList.SetItemState(selMark, LVIS_SELECTED, LVIS_SELECTED);
     }
     return 0;
+}
+
+bool CLogDlg::CreateToolbar()
+{
+    m_hwndToolbar = CreateWindowEx(0,
+                                   TOOLBARCLASSNAME,
+                                   (LPCWSTR)NULL,
+                                   WS_CHILD | WS_BORDER | WS_VISIBLE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS,
+                                   0, 0, 0, 0,
+                                   GetSafeHwnd(),
+                                   (HMENU)NULL,
+                                   AfxGetResourceHandle(),
+                                   NULL);
+    if (m_hwndToolbar == INVALID_HANDLE_VALUE)
+        return false;
+
+    ::SendMessage(m_hwndToolbar, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
+
+#define MONITORMODE_TOOLBARBUTTONCOUNT  7
+    TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
+    // create an image list containing the icons for the toolbar
+    m_hToolbarImages = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4);
+    if (m_hToolbarImages == NULL)
+        return false;
+    auto iString = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
+                                 (WPARAM)AfxGetResourceHandle(), (LPARAM)IDS_MONITOR_TOOLBARTEXTS);
+    int index = 0;
+    HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_GETALL), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_LOGDLG_MONITOR_CHECKREPOSITORIESNOW;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_ADD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_LOGDLG_MONITOR_ADDPROJECT;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    tbb[index].iBitmap = 0;
+    tbb[index].idCommand = 0;
+    tbb[index].fsState = TBSTATE_ENABLED;
+    tbb[index].fsStyle = BTNS_SEP;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = 0;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_EDIT), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_LOGDLG_MONITOR_EDIT;
+    tbb[index].fsState = BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_REMOVE), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_LOGDLG_MONITOR_REMOVE;
+    tbb[index].fsState = BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    tbb[index].iBitmap = 0;
+    tbb[index].idCommand = 0;
+    tbb[index].fsState = TBSTATE_ENABLED;
+    tbb[index].fsStyle = BTNS_SEP;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = 0;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_OPTIONS), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_MISC_OPTIONS;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    ::SendMessage(m_hwndToolbar, TB_SETIMAGELIST, 0, (LPARAM)m_hToolbarImages);
+    ::SendMessage(m_hwndToolbar, TB_ADDBUTTONS, (WPARAM)index, (LPARAM)(LPTBBUTTON)&tbb);
+    ::SendMessage(m_hwndToolbar, TB_AUTOSIZE, 0, 0);
+    return true;
+}
+
+void CLogDlg::InitMonitoringMode()
+{
+    CreateToolbar();
+
+    // set up the control visibility and positions
+    GetDlgItem(IDC_SHOWPATHS)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_CHECK_STOPONCOPY)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_INCLUDEMERGE)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_NEXTHUNDRED)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_REFRESH)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_STATBUTTON)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDHELP)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_SPLITTERLEFT)->ShowWindow(SW_SHOW);
+    GetDlgItem(IDC_PROJTREE)->ShowWindow(SW_SHOW);
+
+    CRect rect;
+    ::GetClientRect(m_hwndToolbar, &rect);
+
+    CRect rcDlg;
+    GetClientRect(&rcDlg);
+
+    CRect rcSearch;
+    m_cFilter.GetWindowRect(&rcSearch);
+    ScreenToClient(&rcSearch);
+    CRect rcOK;
+    GetDlgItem(IDOK)->GetWindowRect(&rcOK);
+    ScreenToClient(&rcOK);
+
+    ::SetWindowPos(m_hwndToolbar, NULL, rcSearch.left, 0, rcDlg.Width(), rect.Height(), SWP_SHOWWINDOW);
+    AddAnchor(m_hwndToolbar, TOP_LEFT, TOP_RIGHT);
+
+    int delta = 90;
+    GetDlgItem(IDC_PROJTREE)->SetWindowPos(NULL, rcSearch.left, rcSearch.top + rect.Height(), delta, rcOK.bottom - rcSearch.top - rect.Height(), SWP_SHOWWINDOW);
+    GetDlgItem(IDC_SPLITTERLEFT)->SetWindowPos(NULL, rcSearch.left + delta, rcSearch.top + rect.Height(), 4, rcOK.bottom - rcSearch.top, SWP_SHOWWINDOW);
+
+    delta += 4;
+    CSplitterControl::ChangePos(GetDlgItem(IDC_SEARCHEDIT), 0, rect.Height());
+    CSplitterControl::ChangePos(GetDlgItem(IDC_FROMLABEL), 0, rect.Height());
+    CSplitterControl::ChangePos(GetDlgItem(IDC_DATEFROM), 0, rect.Height());
+    CSplitterControl::ChangePos(GetDlgItem(IDC_TOLABEL), 0, rect.Height());
+    CSplitterControl::ChangePos(GetDlgItem(IDC_DATETO), 0, rect.Height());
+    CSplitterControl::ChangeHeight(&m_LogList, -rect.Height(), CW_BOTTOMALIGN);
+
+    CSplitterControl::ChangeWidth(&m_cFilter, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_LogList, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_wndSplitter1, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(GetDlgItem(IDC_MSGVIEW), -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_wndSplitter2, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_ChangedFileListCtrl, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(GetDlgItem(IDC_LOGINFO), -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangePos(GetDlgItem(IDC_LOGINFO), 0, 75);
+    CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, 75, CW_TOPALIGN);
+
+    // fill the project tree
+    InitMonitorProjTree();
+}
+
+void CLogDlg::InitMonitorProjTree()
+{
+    CString sDataFilePath = CPathUtils::GetAppDataDirectory();
+    sDataFilePath += L"\\MonitoringData.ini";
+    m_monitoringFile.LoadFile(sDataFilePath);
+    CSimpleIni::TNamesDepend mitems;
+    m_monitoringFile.GetAllSections(mitems);
+    for (const auto& mitem : mitems)
+    {
+        CString Name = m_monitoringFile.GetValue(mitem, L"Name", L"");
+        if (!Name.IsEmpty())
+        {
+            MonitorItem * pMonitorItem = new MonitorItem(Name);
+            pMonitorItem->parentTreePath = m_monitoringFile.GetValue(mitem, L"parentTreePath", L"");
+            pMonitorItem->WCPathOrUrl = m_monitoringFile.GetValue(mitem, L"WCPathOrUrl", L"");
+            InsertMonitorItem(pMonitorItem);
+        }
+    }
+}
+
+HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem)
+{
+    TVINSERTSTRUCT tvinsert = { 0 };
+    tvinsert.hParent = FindMonitorParent(pMonitorItem->parentTreePath);
+    tvinsert.hInsertAfter = TVI_SORT;
+    tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+    tvinsert.itemex.pszText = pMonitorItem->Name.GetBuffer();
+    tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 0 : 1;
+    tvinsert.itemex.lParam = (LPARAM)pMonitorItem;
+    tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : m_nIconFolder;
+    tvinsert.itemex.iSelectedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : m_nIconFolder;
+
+    return m_projTree.InsertItem(&tvinsert);
+}
+
+HTREEITEM CLogDlg::RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler)
+{
+    HTREEITEM hFound = hItem;
+    while (hFound)
+    {
+        if (hFound == TVI_ROOT)
+            hFound = m_projTree.GetNextItem(TVI_ROOT, TVGN_ROOT);
+        if (handler(hFound))
+            return hFound;
+        HTREEITEM hChild = m_projTree.GetChildItem(hFound);
+        if (hChild)
+        {
+            hChild = RecurseMonitorTree(hChild, handler);
+            if (hChild)
+                return hChild;
+        }
+        hFound = m_projTree.GetNextItem(hFound, TVGN_NEXT);
+    }
+    return NULL;
+}
+
+HTREEITEM CLogDlg::FindMonitorParent(const CString& parentTreePath)
+{
+    HTREEITEM hRetItem = TVI_ROOT;
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        if (pItem->parentTreePath.CompareNoCase(parentTreePath) == 0)
+        {
+            hRetItem = hItem;
+            return true;
+        }
+        return false;
+    });
+    return hRetItem;
 }

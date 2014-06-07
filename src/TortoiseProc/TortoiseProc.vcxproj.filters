@@ -168,6 +168,9 @@
     <Filter Include="Commands\RepoCreate">
       <UniqueIdentifier>{02543189-d6fa-451f-be9e-4531c5051a70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Commands\Monitor">
+      <UniqueIdentifier>{997c6825-059b-49ae-b4b2-3729b98d2d83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -1069,6 +1072,9 @@
     </ClCompile>
     <ClCompile Include="Commands\DropExternalCommand.cpp">
       <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MonitorCommand.cpp">
+      <Filter>Commands\Monitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2041,6 +2047,9 @@
     <ClInclude Include="Commands\DropExternalCommand.h">
       <Filter>Commands\Drop</Filter>
     </ClInclude>
+    <ClInclude Include="Commands\MonitorCommand.h">
+      <Filter>Commands\Monitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2059,12 +2068,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\AddBackground.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\bin167.avi">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\bin168.avi">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\bugtraq.ico">
@@ -2086,9 +2089,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\CheckoutBackground.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\cleananim.avi">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\CommitBackground.ico">
@@ -2116,9 +2116,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\dialogs.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\download.avi">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\Drives.ico">
@@ -2367,9 +2364,6 @@
     <None Include="..\Resources\saveddata.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\search.avi">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\ssh.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2459,6 +2453,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Resources\actionmovereplaced.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitor_add.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitor_edit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitor_getall.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitor_options.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitor_remove.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
