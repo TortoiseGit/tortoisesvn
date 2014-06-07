@@ -104,6 +104,7 @@ public:
     BOOL SetCueBanner(LPCWSTR lpcwText);
 
     void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
+    void Redraw() { ResizeWindow(); }
 protected:
     virtual void    PreSubclassWindow( );
     virtual BOOL    PreTranslateMessage( MSG* pMsg );

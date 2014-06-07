@@ -3753,7 +3753,7 @@ void CLogDlg::DoSizeV3(int delta)
     GetDlgItem(IDC_MSGVIEW)->Invalidate();
     m_LogList.Invalidate();
     m_ChangedFileListCtrl.Invalidate();
-    m_cFilter.Invalidate();
+    m_cFilter.Redraw();
 }
 
 void CLogDlg::AdjustMinSize()
