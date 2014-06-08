@@ -124,6 +124,7 @@ HWND FindParentWindow(HWND hWnd)
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     CheckUpgrade();

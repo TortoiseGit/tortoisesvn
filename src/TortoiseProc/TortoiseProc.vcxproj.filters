@@ -1076,6 +1076,9 @@
     <ClCompile Include="Commands\MonitorCommand.cpp">
       <Filter>Commands\Monitor</Filter>
     </ClCompile>
+    <ClCompile Include="MonitorProjectDlg.cpp">
+      <Filter>Commands\Monitor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2048,6 +2051,9 @@
       <Filter>Commands\Drop</Filter>
     </ClInclude>
     <ClInclude Include="Commands\MonitorCommand.h">
+      <Filter>Commands\Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="MonitorProjectDlg.h">
       <Filter>Commands\Monitor</Filter>
     </ClInclude>
   </ItemGroup>

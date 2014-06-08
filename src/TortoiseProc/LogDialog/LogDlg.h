@@ -57,6 +57,7 @@
 #define LOGFILTER_DATERANGE     0x0100
 
 #define LOGFILTER_TIMER     101
+#define MONITOR_TIMER       102
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -74,6 +75,10 @@ public:
         : Name(name)
         , WCPathOrUrl(path)
         , parentTreePath(parentpath)
+        , interval(5)
+        , lastchecked(0)
+        , lastHEAD(0)
+        , UnreadItems(0)
     {}
     MonitorItem() {}
     ~MonitorItem() {}
@@ -81,6 +86,10 @@ public:
     CString                 Name;
     CString                 WCPathOrUrl;
     CString                 parentTreePath;
+    int                     interval;
+    __time64_t              lastchecked;
+    svn_revnum_t            lastHEAD;
+    int                     UnreadItems;
 };
 
 
@@ -177,8 +186,16 @@ protected:
     afx_msg void OnLvnKeydownFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnEnscrollMsgview();
     afx_msg void OnDestroy();
-
     afx_msg void OnClose();
+    afx_msg void OnMonitorCheckNow();
+    afx_msg void OnMonitorAddProject();
+    afx_msg void OnMonitorEditProject();
+    afx_msg void OnMonitorRemoveProject();
+    afx_msg void OnMonitorOptions();
+    afx_msg void OnMonitorThreadFinished();
+    afx_msg void OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult);
+
     virtual void OnCancel();
     virtual void OnOK();
     virtual BOOL OnInitDialog();
@@ -353,9 +370,16 @@ private:
     bool CreateToolbar();
     void DoSizeV3(int delta);
     void InitMonitorProjTree();
+    void RefreshMonitorProjTree();
+    void MonitorEditProject(MonitorItem * pProject);
     HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem);
     HTREEITEM FindMonitorParent(const CString& parentTreePath);
+    HTREEITEM FindMonitorItem(const CString& wcpathorurl);
     HTREEITEM RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler);
+    void SaveMonitorProjects();
+    void MonitorTimer();
+    void MonitorThread();
+    void ShutDownMonitoring();
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -477,8 +501,8 @@ private:
     CSplitterControl    m_wndSplitterLeft;
     CTreeCtrl           m_projTree;
     CSimpleIni          m_monitoringFile;
-
-
+    volatile LONG       m_bMonitorThreadRunning;
+    std::vector<MonitorItem>    m_monitorItemListForThread;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

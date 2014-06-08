@@ -950,6 +950,7 @@ public:
     void SetCancelBool(bool * bCancel) { m_pbCancel = bCancel; }
 
     const CTSVNPath& GetRedirectedUrlPath() const {return m_redirectedUrl;}
+    void AssumeCacheEnabled(bool bEnable) { m_bAssumeCacheEnabled = bEnable; }
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
@@ -960,7 +961,7 @@ protected:
     CTSVNPath                   m_redirectedUrl;///< the target url in case of a redirect
     svn_wc_conflict_kind_t      m_resolvekind;  ///< resolve kind for the conflict resolver callback
     svn_wc_conflict_choice_t    m_resolveresult;///< resolve result for the conflict resolver callback
-
+    bool                        m_bAssumeCacheEnabled;  ///< if true, overrides the log cache enabled setting and assumes it is enabled
     static LCID                 s_locale;
     static bool                 s_useSystemLocale;
 
