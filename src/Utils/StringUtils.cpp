@@ -610,11 +610,13 @@ public:
         splittedline = CStringUtils::LinesWrap(longline, 80);
         ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
         CString widecrypt = CStringUtils::Encrypt(L"test");
-        CString wide = CStringUtils::Decrypt(widecrypt);
-        ATLASSERT(wide == L"test");
+        wchar_t * wide = CStringUtils::Decrypt(widecrypt);
+        ATLASSERT(wcscmp(wide, L"test") == 0);
+        delete[] wide;
         CStringA charcrypt = CStringUtils::Encrypt("test");
-        CStringA charnorm = CStringUtils::Decrypt(charcrypt);
-        ATLASSERT(charnorm == "test");
+        char * charnorm = CStringUtils::Decrypt(charcrypt);
+        ATLASSERT(strcmp(charnorm, "test") == 0);
+        delete [] charnorm;
     }
 } StringUtilsTest;
 
