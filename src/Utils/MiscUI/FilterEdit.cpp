@@ -378,16 +378,12 @@ void CFilterEdit::DrawDimText()
         return;
 
     CClientDC   dcDraw(this);
-    CRect       rRect;
     int         iState = dcDraw.SaveDC();
-
-    GetClientRect(&rRect);
-    rRect.OffsetRect(1, 1);
 
     dcDraw.SelectObject((*GetFont()));
     dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
     dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
-    dcDraw.DrawText(m_pCueBanner.get(), (int)wcslen(m_pCueBanner.get()), &rRect, DT_CENTER | DT_VCENTER);
+    dcDraw.DrawText(m_pCueBanner.get(), (int)wcslen(m_pCueBanner.get()), &m_rcEditArea, DT_CENTER | DT_VCENTER);
     dcDraw.RestoreDC(iState);
     return;
 }
