@@ -180,6 +180,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_hMovedIcon(NULL)
     , m_hMoveReplacedIcon(NULL)
     , m_nIconFolder(0)
+    , m_nOpenIconFolder(0)
     , m_prevLogEntriesSize(0)
     , m_temprev(0)
     , m_tFrom(0)
@@ -190,6 +191,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_hwndToolbar(NULL)
     , m_hToolbarImages(NULL)
     , m_bMonitorThreadRunning(FALSE)
+    , m_nMonitorUrlIcon(0)
+    , m_nMonitorWCIcon(0)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -701,6 +704,7 @@ void CLogDlg::ExtraInitialization()
 {
     m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
     m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+    m_nOpenIconFolder = SYS_IMAGE_LIST().GetDirOpenIconIndex();
     m_sMessageBuf.Preallocate(100000);
     m_mergedRevs.clear();
 }
@@ -709,6 +713,7 @@ BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    ExtraInitialization();
     if (!m_bMonitoringMode)
     {
         ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
@@ -720,7 +725,6 @@ BOOL CLogDlg::OnInitDialog()
 
     InitializeTaskBarListPtr();
     SetupDialogFonts();
-    ExtraInitialization();
     RestoreSavedDialogSettings();
     SetupLogMessageViewControl();
     SetupLogListControl();
@@ -7504,6 +7508,10 @@ void CLogDlg::InitMonitoringMode()
     DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
     m_projTree.SetExtendedStyle(exStyle, exStyle);
     SetWindowTheme(m_projTree.GetSafeHwnd(), L"Explorer", NULL);
+    m_nMonitorUrlIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORURL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_nMonitorWCIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORWC), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_projTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
+
 
     // fill the project tree
     InitMonitorProjTree();
@@ -7542,31 +7550,41 @@ void CLogDlg::RefreshMonitorProjTree()
         if (!Name.IsEmpty())
         {
             MonitorItem * pMonitorItem = new MonitorItem(Name);
-            pMonitorItem->parentTreePath = m_monitoringFile.GetValue(mitem, L"parentTreePath", L"");
             pMonitorItem->WCPathOrUrl = m_monitoringFile.GetValue(mitem, L"WCPathOrUrl", L"");
             pMonitorItem->interval = _wtoi(m_monitoringFile.GetValue(mitem, L"interval", L"5"));
             pMonitorItem->lastchecked = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastchecked", L"0"));
             pMonitorItem->lastHEAD = _wtoi(m_monitoringFile.GetValue(mitem, L"lastHEAD", L"0"));
             pMonitorItem->UnreadItems = _wtoi(m_monitoringFile.GetValue(mitem, L"UnreadItems", L"0"));
-            InsertMonitorItem(pMonitorItem);
+            InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
         }
     }
     m_projTree.SetRedraw(TRUE);
 }
 
 
-HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem)
+HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& sParentPath /*= CString()*/)
 {
+    bool bUrl = !!::PathIsURL(pMonitorItem->WCPathOrUrl);
     TVINSERTSTRUCT tvinsert = { 0 };
-    tvinsert.hParent = FindMonitorParent(pMonitorItem->parentTreePath);
+    tvinsert.hParent = FindMonitorParent(sParentPath);
     tvinsert.hInsertAfter = TVI_SORT;
-    tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+    tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_EXPANDEDIMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.pszText = LPSTR_TEXTCALLBACK;
-    tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 0 : 1;
+    tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 1 : 0;
     tvinsert.itemex.lParam = (LPARAM)pMonitorItem;
-    tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : m_nIconFolder;
-    tvinsert.itemex.iSelectedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : m_nIconFolder;
+    tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
+    tvinsert.itemex.iExpandedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
+    tvinsert.itemex.iSelectedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
 
+    // mark the parent as having children
+    if (tvinsert.hParent && (tvinsert.hParent != TVI_ROOT))
+    {
+        TVITEM tvItem;
+        tvItem.mask = TVIF_CHILDREN | TVIF_HANDLE;
+        tvItem.cChildren = 1;
+        tvItem.hItem = tvinsert.hParent;
+        m_projTree.SetItem(&tvItem);
+    }
     return m_projTree.InsertItem(&tvinsert);
 }
 
@@ -7600,8 +7618,7 @@ HTREEITEM CLogDlg::FindMonitorParent(const CString& parentTreePath)
     HTREEITEM hRetItem = TVI_ROOT;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
-        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
-        if (pItem->parentTreePath.CompareNoCase(parentTreePath) == 0)
+        if (GetTreePath(hItem).Compare(parentTreePath)==0)
         {
             hRetItem = hItem;
             return true;
@@ -7609,6 +7626,25 @@ HTREEITEM CLogDlg::FindMonitorParent(const CString& parentTreePath)
         return false;
     });
     return hRetItem;
+}
+
+CString CLogDlg::GetTreePath(HTREEITEM hItem)
+{
+    CString path;
+    MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+    if (pItem)
+    {
+        path = pItem->Name;
+        HTREEITEM hParent = m_projTree.GetParentItem(hItem);
+        while (hParent)
+        {
+            pItem = (MonitorItem *)m_projTree.GetItemData(hParent);
+            if (pItem)
+                path = pItem->Name + L"\\" + path;
+            hParent = m_projTree.GetParentItem(hParent);
+        }
+    }
+    return path;
 }
 
 HTREEITEM CLogDlg::FindMonitorItem(const CString& wcpathorurl)
@@ -7699,9 +7735,15 @@ void CLogDlg::SaveMonitorProjects()
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
         CString sSection;
         sSection.Format(L"item_%d", count++);
+        HTREEITEM hParent = m_projTree.GetParentItem(hItem);
+        CString sParentPath;
+        if (hParent)
+        {
+            sParentPath = GetTreePath(hParent);
+        }
         CString sTmp;
         m_monitoringFile.SetValue(sSection, L"Name", pItem->Name);
-        m_monitoringFile.SetValue(sSection, L"parentTreePath", pItem->parentTreePath);
+        m_monitoringFile.SetValue(sSection, L"parentTreePath", sParentPath);
         m_monitoringFile.SetValue(sSection, L"WCPathOrUrl", pItem->WCPathOrUrl);
         sTmp.Format(L"%lld", pItem->lastchecked);
         m_monitoringFile.SetValue(sSection, L"lastchecked", sTmp);
@@ -7822,6 +7864,7 @@ void CLogDlg::ShutDownMonitoring()
 void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+    *pResult = 0;
     if (pNMTreeView->itemNew.hItem)
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(pNMTreeView->itemNew.hItem);
@@ -7838,6 +7881,8 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             m_logEntries.ClearAll();
 
             GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+            if (pItem->WCPathOrUrl.IsEmpty())
+                return;
             DialogEnableWindow(IDC_PROJTREE, FALSE);
 
             svn_revnum_t head = pItem->lastHEAD;
@@ -7863,7 +7908,6 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
         }
     }
-    *pResult = 0;
 }
 
 

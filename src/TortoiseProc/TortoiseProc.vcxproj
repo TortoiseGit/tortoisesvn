@@ -180,6 +180,7 @@
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BufferDC.cpp" />
     <ClCompile Include="..\Utils\MiscUI\DIB.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\DragDropTreeCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FilterEdit.cpp" />
@@ -490,6 +491,7 @@
     <ClInclude Include="..\Utils\MiscUI\BufferDC.h" />
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
     <ClInclude Include="..\Utils\MiscUI\DIB.h" />
+    <ClInclude Include="..\Utils\MiscUI\DragDropTreeCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\ExtTextOutFL.h" />
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
     <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h" />
@@ -939,6 +941,8 @@
     <Image Include="..\Resources\actionmovereplaced.ico" />
     <Image Include="..\Resources\Bookmarks.ico" />
     <Image Include="..\Resources\ccollabgui.ico" />
+    <Image Include="..\Resources\monitorurl.ico" />
+    <Image Include="..\Resources\monitorwc.ico" />
     <Image Include="..\Resources\monitor_add.ico" />
     <Image Include="..\Resources\monitor_edit.ico" />
     <Image Include="..\Resources\monitor_getall.ico" />

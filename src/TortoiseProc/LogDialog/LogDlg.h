@@ -36,6 +36,7 @@
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
 #include "SimpleIni.h"
+#include "DragDropTreeCtrl.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
 #include "dte80a.tlh"
@@ -71,21 +72,24 @@ enum RefreshEnum
 class MonitorItem
 {
 public:
-    MonitorItem(const CString& name, const CString& path = CString(), const CString& parentpath = CString()) 
+    MonitorItem(const CString& name, const CString& path = CString()) 
         : Name(name)
         , WCPathOrUrl(path)
-        , parentTreePath(parentpath)
         , interval(5)
         , lastchecked(0)
         , lastHEAD(0)
         , UnreadItems(0)
     {}
-    MonitorItem() {}
+    MonitorItem()
+        : interval(5)
+        , lastchecked(0)
+        , lastHEAD(0)
+        , UnreadItems(0)
+    {}
     ~MonitorItem() {}
 
     CString                 Name;
     CString                 WCPathOrUrl;
-    CString                 parentTreePath;
     int                     interval;
     __time64_t              lastchecked;
     svn_revnum_t            lastHEAD;
@@ -372,7 +376,7 @@ private:
     void InitMonitorProjTree();
     void RefreshMonitorProjTree();
     void MonitorEditProject(MonitorItem * pProject);
-    HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem);
+    HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem, const CString& sParentPath = CString());
     HTREEITEM FindMonitorParent(const CString& parentTreePath);
     HTREEITEM FindMonitorItem(const CString& wcpathorurl);
     HTREEITEM RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler);
@@ -380,6 +384,7 @@ private:
     void MonitorTimer();
     void MonitorThread();
     void ShutDownMonitoring();
+    CString GetTreePath(HTREEITEM hItem);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -474,6 +479,7 @@ private:
     HICON               m_hMovedIcon;
     HICON               m_hMoveReplacedIcon;
     int                 m_nIconFolder;
+    int                 m_nOpenIconFolder;
 
     HACCEL              m_hAccel;
 
@@ -499,10 +505,12 @@ private:
     HIMAGELIST          m_hToolbarImages;
     CRect               m_ProjTreeOrigRect;
     CSplitterControl    m_wndSplitterLeft;
-    CTreeCtrl           m_projTree;
+    CDragDropTreeCtrl   m_projTree;
     CSimpleIni          m_monitoringFile;
     volatile LONG       m_bMonitorThreadRunning;
     std::vector<MonitorItem>    m_monitorItemListForThread;
+    int                 m_nMonitorUrlIcon;
+    int                 m_nMonitorWCIcon;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

@@ -1079,6 +1079,9 @@
     <ClCompile Include="MonitorProjectDlg.cpp">
       <Filter>Commands\Monitor</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\DragDropTreeCtrl.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2056,6 +2059,9 @@
     <ClInclude Include="MonitorProjectDlg.h">
       <Filter>Commands\Monitor</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\DragDropTreeCtrl.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2474,6 +2480,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Resources\monitor_remove.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitorurl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\monitorwc.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
