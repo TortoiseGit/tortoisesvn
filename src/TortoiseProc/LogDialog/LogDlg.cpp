@@ -4374,6 +4374,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
     } // if (nIDEvent == LOGFILTER_TIMER)
     if (nIDEvent == MONITOR_TIMER)
         MonitorTimer();
+    if (nIDEvent == MONITOR_POPUP_TIMER)
+        MonitorPopupTimer();
     DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
     __super::OnTimer(nIDEvent);
 }
@@ -7778,6 +7780,45 @@ void CLogDlg::MonitorTimer()
     SetTimer(MONITOR_TIMER, 60 * 1000, NULL);
 }
 
+void CLogDlg::MonitorPopupTimer()
+{
+    if (CAppUtils::IsFullscreenWindowActive())
+    {
+        // restart the timer and wait until no fullscreen app is active
+        SetTimer(MONITOR_POPUP_TIMER, 5000, NULL);
+    }
+    else
+    {
+        CMFCDesktopAlertWnd * pPopup = new CMFCDesktopAlertWnd;
+
+        pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::SLIDE);
+        pPopup->SetAnimationSpeed(30);
+        pPopup->SetTransparency(200);
+        pPopup->SetSmallCaption(TRUE);
+        pPopup->SetAutoCloseTime(3000);
+
+        // Create indirect:
+        CMFCDesktopAlertWndInfo params;
+
+        params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
+                                          IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+        params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
+        //params.m_strURL = m_strLink;
+        //params.m_nURLCmdID = 101;
+
+        pPopup->Create(this, params);
+
+        //HICON hIcon = (HICON) ::LoadImage(AfxGetResourceHandle(),
+        //                                  MAKEINTRESOURCE(IDI_APP),
+        //                                  IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
+
+        //pPopup->SetIcon(hIcon, FALSE);
+        //pPopup->SetWindowText(_T("Message"));
+
+        KillTimer(MONITOR_POPUP_TIMER);
+    }
+}
+
 void CLogDlg::MonitorThread()
 {
     InterlockedExchange(&m_bMonitorThreadRunning, TRUE);
@@ -7798,7 +7839,8 @@ void CLogDlg::MonitorThread()
             {
                 // new head revision: fetch the log
                 std::unique_ptr<const CCacheLogQuery> cachedData;
-                cachedData = ReceiveLog(CTSVNPathList(CTSVNPath(item.WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
+                CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
+                cachedData = ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
 
                 // Err will also be set if the user cancelled.
 
@@ -7808,9 +7850,33 @@ void CLogDlg::MonitorThread()
                     svn_error_clear(Err);
                     Err = NULL;
                 }
-                if (item.lastHEAD)
-                    item.UnreadItems = head - item.lastHEAD;
-                item.lastHEAD = head;
+                if ((Err == nullptr) && (item.lastHEAD >= 0))
+                {
+                    CString sRoot = GetRepositoryRoot(WCPathOrUrl);
+                    CString sUrl = GetURLFromPath(WCPathOrUrl);
+                    CString relUrl = sUrl.Mid(sRoot.GetLength());
+                    CCachedLogInfo* cache = cachedData->GetCache();
+                    const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
+                    CDictionaryBasedTempPath logPath(paths, (const char*)CUnicodeUtils::GetUTF8(relUrl));
+                    CLogCacheUtility logUtil(cache, &m_ProjectProperties);
+
+                    for (svn_revnum_t rev = item.lastHEAD; rev <= head; ++rev)
+                    {
+                        if (logUtil.IsCached(rev))
+                        {
+                            PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+                            if (pLogItem)
+                            {
+                                pLogItem->Finalize(cache, logPath);
+                                if (IsRevisionRelatedToUrl(logPath, pLogItem))
+                                {
+                                    ++item.UnreadItems;
+                                }
+                            }
+                        }
+                    }
+                    item.lastHEAD = head;
+                }
             }
             item.lastchecked = currenttime;
         }
@@ -7821,14 +7887,43 @@ void CLogDlg::MonitorThread()
     RefreshCursor();
 }
 
+bool CLogDlg::IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem)
+{
+    const auto& changedPathes = pLogItem->GetChangedPaths();
+    for (size_t i = 0; i < changedPathes.GetCount(); ++i)
+    {
+        if (basePath.IsSameOrParentOf(changedPathes[i].GetCachedPath()))
+            return true;
+    }
+    return false;
+}
+
 void CLogDlg::OnMonitorThreadFinished()
 {
+    CString sTemp;
+    int changedprojects = 0;
     for (auto& item : m_monitorItemListForThread)
     {
         HTREEITEM hItem = FindMonitorItem(item.WCPathOrUrl);
         if (hItem)
         {
             MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+            if ((pItem->UnreadItems != item.UnreadItems) && (pItem->lastHEAD != item.lastHEAD))
+            {
+                if (changedprojects)
+                {
+                    m_sMonitorNotificationTitle.Format(IDS_MONITOR_NOTIFY_MULTITITLE, changedprojects + 1);
+                    m_sMonitorNotificationText += L"\n";
+                    sTemp.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                    m_sMonitorNotificationText += sTemp;
+                }
+                else
+                {
+                    m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
+                    m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                }
+                ++changedprojects;
+            }
             pItem->lastchecked = item.lastchecked;
             pItem->lastHEAD = item.lastHEAD;
             pItem->UnreadItems = item.UnreadItems;
@@ -7836,6 +7931,11 @@ void CLogDlg::OnMonitorThreadFinished()
     }
     m_monitorItemListForThread.clear();
     m_projTree.Invalidate();
+
+    if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())
+    {
+        SetTimer(MONITOR_POPUP_TIMER, 10, NULL);
+    }
 }
 
 void CLogDlg::ShutDownMonitoring()

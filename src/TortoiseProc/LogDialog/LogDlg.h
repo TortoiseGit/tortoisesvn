@@ -59,6 +59,7 @@
 
 #define LOGFILTER_TIMER     101
 #define MONITOR_TIMER       102
+#define MONITOR_POPUP_TIMER 103
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -382,9 +383,11 @@ private:
     HTREEITEM RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler);
     void SaveMonitorProjects();
     void MonitorTimer();
+    void MonitorPopupTimer();
     void MonitorThread();
     void ShutDownMonitoring();
     CString GetTreePath(HTREEITEM hItem);
+    bool IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -511,6 +514,8 @@ private:
     std::vector<MonitorItem>    m_monitorItemListForThread;
     int                 m_nMonitorUrlIcon;
     int                 m_nMonitorWCIcon;
+    CString             m_sMonitorNotificationTitle;
+    CString             m_sMonitorNotificationText;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
