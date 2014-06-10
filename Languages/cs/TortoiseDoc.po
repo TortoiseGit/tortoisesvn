@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Jiri Sedlak <jiri_sedlak@users.sourceforge.net>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2014
 msgid ""
@@ -17,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-24 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-06-08 09:30+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -593,7 +594,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN běží na Windows Vista nebo vyšší a je k dispozici v obou 32bitových a 64bitových variantách. Instalátor pro 64bitový Windows také obsahuje části rozšíření pro 32bitovou verzi. Což znamená, že nemusíte instalovat 32bitovou verzi zvlášť, abyste dostali kontextové menu TortoiseSVN a překryvy v 32bitových aplikacích."
 
 #. (para)
 msgid ""
@@ -601,7 +602,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Podpora pro Windows 98, Windows ME a Windows NT4 byla ukončena ve verzi 1.2.0 a podpora Windows 2000 a XP SP2 byla ukončena ve verzi 1.7.0. Podpora Windows XP SP3 byla ukončena ve verzi 1.9.0. Stále si můžete stáhnout a nainstalovat starší verze, pokud je budete potřebovat."
 
 #. (title)
 msgid "Installation"
@@ -1046,7 +1047,7 @@ msgid ""
 "sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr ""
+msgstr "Když klient čte data z úložiště, obvykle vidí pouze poslední verzi stromu souborového systému. Ale klient má také možnost zobrazit <emphasis>předchozí</emphasis> stavy souborového systému. Například, klient může položit historickou otázky jako: <quote>co tento adresář obsahoval minulou středu?</quote>, nebo <quote>kdo byl poslední, kdo změnil tento soubor, a jaké změny udělali? </quote>To jsou druhy otázek, které jsou srdcem každého <firstterm>systému pro správu verzí</firstterm>: systémy, které jsou navrženy tak, aby uchovávaly a sledovaly změny údajů v čase."
 
 #. (title)
 msgid "Versioning Models"
@@ -1154,7 +1155,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS, a další systémy pro správu verzí používají model <firstterm>Kopírovat-Upravit-sloučit</firstterm> jako alternativa k zamykání. V tomto modelu, každý klient uživatele čte úložiště a vytvoří osobní <firstterm>pracovní kopii</firstterm> ze souboru nebo projektu. Uživatelé pak pracují paralelně, a mění svoje vlastní soukromé kopie. Nakonec soukromé kopie jsou sloučeny do nové, konečné verze. Systém pro správu verzí často pomáhá se slučováním, ale v konečném důsledku je člověk odpovědný za to, aby vše proběhlo v pořádku."
 
 #. (para)
 msgid ""
@@ -1288,7 +1289,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr ""
+msgstr "Pracovní kopie také obsahuje i některé další soubory, vytvořené a udržované Subversion, na pomoc při provádění těchto příkazů. Zejména vaše pracovní kopie obsahuje podadresář <filename>.svn</filename>, také známý jako <firstterm>správcovský adresář</firstterm> pracovní kopie. Soubory ve správcovském adresáři pomáhají Subversion poznat, které soubory obsahují nezveřejněné změny a které jsou zastaralé s ohledem na práci ostatních. Před verzí 1.7 Subversion měl správcovské podadresáře <filename>.svn</filename> v každém adresáři s verzí ve vaší pracovní kopii. Subversion 1.7 má úplně jiný přístup a každá pracovní kopie má pouze jeden správcovský podadresář, která je přímý potomek kořene této pracovní kopie."
 
 #. (para)
 msgid ""
@@ -1320,7 +1321,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Chcete-li získat pracovní kopii, nejdříve musíte <firstterm>získat</firstterm> některý podstrom úložiště. (Termín <emphasis>získat</emphasis> může znít, že má něco společného s blokováním nebo vyhrazením prostředků, ale to není pravda; jednoduše vytvoří vaši soukromou kopii projektu)"
 
 #. (para)
 msgid ""
@@ -1331,7 +1332,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "Předpokládejme, že provedete změny v <filename>tlacitko.c</filename>. Vzhledem k tomu, že adresář <filename>.svn</filename> si pamatuje datum změny souboru a původní obsah, Subversion může zjistit, že jste změnili soubor. Nicméně, Subversion změny veřejnými, dokud mu to výslovně neřeknete. Akt publikování změn je více znám jako <firstterm>odevzdání</firstterm> (nebo <firstterm>zapsání</firstterm>) změn do úložiště."
 
 #. (para)
 msgid ""
@@ -1478,7 +1479,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/cesta/k/úložišti\n...\nfile:///X|/cesta/k/úložišti\n...\n      "
 
 #. (para)
 msgid ""
@@ -1560,7 +1561,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "Na rozdíl od těch mnoha jiných systémů pro správu verzí, revizní čísla Subversion se vztahují na <emphasis>celé stromy</emphasis>, ne na jednotlivé soubory. Každé revizní číslo vybere celý strom, konkrétní stav úložiště po odevzdání nějaké změny. Další způsob, jak si to představit je, že revize N reprezentuje stav souborového systému úložiště po Ntém odevzdání. Když uživatel Subversion mluví o ``5. revizi <filename>bla.c</filename>'', myslí tím jak vypadá ``<filename>bla.c</filename> v 5. revizi.'' Nezapomeňte, že obvykle revize N a M souboru se <emphasis>nemusí</emphasis> nutně lišit!"
 
 #. (para)
 msgid ""
@@ -1578,7 +1579,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\nkalkul/Makefile:4\ncelecislo.c:4\ntlacitko.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1597,7 +1598,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\nkalkul/Makefile:4\ncelecislo.c:4\ntlacitko.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1615,7 +1616,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\nkalkul/Makefile:6\ncelecislo.c:6\ntlacitko.c:6\n      "
 
 #. (para)
 msgid ""
@@ -1643,7 +1644,7 @@ msgstr "U každého souboru v pracovním adresáři, Subversion zaznamenává dv
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm> working revision </firstterm>), and"
-msgstr ""
+msgstr "na jaké revizi je Váš pracovní soubor založen (toto se nazývá <firstterm>pracovní revize</firstterm> souboru) a"
 
 #. (para)
 msgid ""
@@ -1763,7 +1764,7 @@ msgstr "vytvořit úložiště"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN does "
 "not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Nezapomeňte prosím, že klient příkazového řádku, který je součástí TortoiseSVN, nepodporuje starší formát Databáze Berkeley (BDB)."
 
 #. (para)
 msgid ""
@@ -1777,7 +1778,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information. <important><placeholder-1/></important>"
-msgstr ""
+msgstr "Můžete vytvořit úložiště s podpůrnou vrstvou FSFS nebo starším formátem databáze Berkeley (BDB). Formát FSFS je obecně rychlejší a snadnější pro správu a funguje bez problémů jak na sdílené síti, tak i na Windows 98. Formát BDB byl kdysi považován za stabilnější jen proto, že se používal déle, ale protože FSFS se nyní používá v této oblasti již několik let, tento argument je teď spíše výmluva. Pro více informací si přečtěte  <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výběr datového úložiště</citetitle></ulink><citetitle>Výběr datového úložiště </citetitle></ulink> v knize Subversion. <important><placeholder-1/></important>"
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1808,7 +1809,7 @@ msgid ""
 "          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr ""
+msgstr "Spusťte příkazový řádek (nebo DOS), přejděte na <filename> D:\\SVN\\</filename> a napište <screen>\nsvnadmin create --fs-type bdb MojeNoveUloziste\n</screen> nebo <screen>\nsvnadmin create --fs-type fsfs MojeNoveUloziste\n</screen>"
 
 #. (para)
 msgid ""
@@ -2003,7 +2004,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/kmen\n/větve\n/značky\n      "
 
 #. (para)
 msgid ""
@@ -2029,7 +2030,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/kmen/barva\n/trunk/kalkul \n/větve/barva \n/větve/kalkul\n/značky/barva\n/značky/kalkul\n      "
 
 #. (para)
 msgid "...or by project:"
@@ -2046,7 +2047,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/barva/kmen\n/barva/větve\n/barva/značky\n/kalkul/kmen\n/kalkul/větve\n/kalkul/značky\n      "
 
 #. (para)
 msgid ""
@@ -2135,7 +2136,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "      </screen>"
-msgstr ""
+msgstr "Nezapomeňte, že název adresáře, který importujete, se nezobrazí v úložišti, pouze jeho obsah. Například, vytvořte následující strukturu adresáře: <screen>\nC:\\Temp\\Novy\\kmen\nC:\\Temp\\Novy\\vetve\nC:\\Temp\\Novy\\štítky\n</screen> Import <filename>C:\\Temp\\Novy</filename> do kořene úložiště, pak bude vypadat takto: <screen>\n/kmen\n/větve \n/značky \n</screen>"
 
 #. (title)
 msgid "Repository Backup"
@@ -2169,7 +2170,7 @@ msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr ""
+msgstr "Doporučená metoda je spustit <screen>\nsvnadmin hotcopy cesta/k/úložišti cesta/k/záloze --clean-logs\n</screen> k vytvoření kopie Vašeho úložiště bezpečným způsobem. Pak zálohujte kopii. Příkaz <literal>--clean-logs</literal> není nutný, ale odstraní všechny nadbytečné záznamy souborů při zálohování BDB úložiště, které můžou ušetřit kapacitu."
 
 #. (para)
 msgid ""
@@ -2229,7 +2230,7 @@ msgid ""
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
 "    </screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
-msgstr ""
+msgstr "Příklady hákových skriptů lze nalézt v adresáři <filename>hooks</filename> v úložišti. Tyto ukázkové skripty jsou vhodné pro Unix/Linux servery, ale je třeba  je změnit, pokud máte Windows server. Hák může být dávkový soubor nebo spustitelný soubor. Příklad níže ukazuje dávkový soubor, který by mohl být použit k před-provedením-změn-vlastností revizí. <screen>\nrem Pouze zprávy záznamu mohou být změněny.\nid \"%4\" == \"svn:log\" exit 0\necho Vlastnost '%4' nemůže být změněna &gt;&amp;2\nexit 1\n</screen> Nezapomeňte, že všechno poslané do stdout je zahozeno. Pokud chcete, aby se zpráva zobrazila v dialogovém okně Odmítnutí odevzdání je třeba ji poslat na stderr. V dávkovém souboru je tohoto dosaženo použitím <filename>&gt;&amp;2</filename>."
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2688,7 +2689,7 @@ msgid ""
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
-msgstr ""
+msgstr "Někteří lidé chtějí mít své údaje ověření vymazány, když se odhlásí ze systému Windows, nebo při vypnutí. Můžete toho dosáhnout použitím skriptu ke smazání adresáře <filename>%APPDATA%\\Subversion\\auth</filename> např. <screen>\n@Echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n</screen> Návod, jak tyto skripty nainstalovat naleznete na <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -2809,7 +2810,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr ""
+msgstr "V tomto dialogovém oknu je třeba zadat URL adresu místa v úložišti, kam chcete Váš projekt importovat. Je velmi důležité si uvědomit, že místní adresář, který importujete, se nezobrazí úložišti, pouze jeho obsah. Například pokud máte strukturu: <screen>\nC:\\Projekty\\Widget\\zdroj\nC:\\Projekty\\Widget\\dok\nC:\\Projekty\\Widget\\obrázky\n</screen> a importujete <filename>C:\\Projekty\\Widget</filename> do <systemitem class=\"url\"> http://mojedomena.cz/svn/kmen</systemitem> pak můžete být překvapeni, když zjistíte, že vaše podadresáře byly umístěny rovnou do <literal>kmene</literal> a ne do podadresáře <literal>Widget</literal>. Musíte zadat podadresáře jako součást URL, <systemitem class=\"url\"> http://mojedomena.cz/svn/kmen/Widget-X</systemitem> . Nezapomeňte, že příkaz Importovat automaticky vytvoří v úložišti podadresáře, pokud neexistují."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -3956,7 +3957,7 @@ msgid ""
 "code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr ""
+msgstr "Konflikt souboru nastane, když dva nebo více vývojářů změní stejné řádky v souboru. Protože Subversion neví nic o Vašem projektu, ponechá řešení konfliktů na vývojářích. Konfliktní oblast je v textovém souboru označena takto: <screen> \n&lt;&lt;&lt;&lt;&lt;&lt;&lt; název souboru\nvaše změny\n=======\n   kód sloučený z úložiště\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revize\n</screen> Také, pro každý soubor v konfliktu Subversion umístí další tři soubory ve Vašem adresáři: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -5072,7 +5073,7 @@ msgid ""
 "<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
 "renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
 " the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMovedIcon.png\"/> Pokud revize přesunula nebo přejmenovala soubor či adresář, ikona <emphasis>přesunuto</emphasis> je zobrazena ve čtvrtém sloupci."
 
 #. (para)
 msgid ""
@@ -5959,7 +5960,7 @@ msgid ""
 "      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr ""
+msgstr "Prosté hledání podřetězců funguje podobně jako vyhledávač. Hledané řetězce jsou oddělené mezerami a všechny řetězce se musí shodovat. Můžete použít <literal>-</literal> před slovem, aby se určitý podřetězec nevyhledával (obrácená shoda se slovem), nebo použijte <literal>!</literal> na začátku výrazu k obrácení shody celého výrazu. Můžete také použít <literal>+</literal> před slovem k určení podřetězce, který by měl být zahrnut, i když byl předtím vyjmut pomocí <literal>-</literal>. Nezapomeňte, že pořadí zahrnutí/vyjmutí je zde důležité. Můžete použít uvozovky pro hledání řetězce s mezerami, a pokud chcete hledat uvozovky, můžete použít dvě uvozovky dohromady jako sebe maskující sekvence. Nezapomeňte, že obrácené lomítko se <emphasis>nepoužívá</emphasis>  jako maskující znak a nemá žádný zvláštní význam v prostém hledání podřetězců. Příklady Vám to objasní: <screen>\nJana Honza -Eva\n</screen> vyhledá řetězce obsahující Jana i Honza ale ne Eva <screen>\nJana -Honza +Eva\n</screen> vyhledá řetězce obsahující Janu ale ne Honzu, nebo řetězce obsahující Evu. <screen>\n-Případ +ZvláštníPřípad\n</screen> vyhledá řetězce, které neobsahují Velikost, ale stále zahrne řetězce obsahující ZvláštníPřípad. <screen>\n!Jana Honza\n</screen> vyhledá řetězce, které neobsahují Jana a Honza <screen>\n!-Jana -Honza\n</screen> pamatujete si na De Morganův teorém? NOT(NOT Jana AND NOT Honza) se zkrátí na (Jana OR Honza). <screen>\n\"Jana a Honza\"\n</screen> hledá doslovný výraz <quote>Jana a Honza</quote><screen>\n\"\"\n</screen> hledá dvě uvozovky kdekoliv v textu <screen>\\n\n\"Jana řekla Honzovi \"\"ahoj\"\"\"\n</screen> hledá doslovný výraz <quote>Jana řekla Honzovi \"ahoj\"</quote>."
 
 #. (para)
 msgid ""
@@ -8277,7 +8278,7 @@ msgid ""
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "            </screen>"
-msgstr ""
+msgstr "Můžete také určit, zdali bude použit vlastní dialogové okno při přidávání/úpravě Vaší vlastnosti. TortoiseSVN nabízí čtyři různá okna, v závislosti na typu Vaší vlastnosti. <placeholder-1/> Snímky obrazovky výše byly vytvořeny pomocí následujících <literal>tsvn:userdirproperties</literal>: <screen>\nmoje:vlastbool=bool;Toto je vlastnost typu bool. Buď ji zaškrtněte, nebo odškrtněte.(true;false;Moje vlastnost bool)\nmoje:vlaststav1=state;Toto je stavová vlastnost. Vyberte jeden ze dvou stavů.(true;true;Hodnota pravda;false;Hodnota nepravda)\nmoje:vlaststav2=state;Toto je stavová vlastnost. Vyberte jeden ze tří stavů.(maybe;true;Odpověď je správně;false;Odpověď je špatně;maybe;Nezodpovězeno)\nmoje:vlaststav3=state;Určete den pro nastavení této vlastnosti.(1;1;Pondělí;2;Úterý;3;Středa;4;Čtvrtek;5;Pátek;6;Sobota;7;Neděle)\nmoje;jednořádkovávlast=singleline;Zadejte krátký komentář(.*)\nmoje:mnohořádkovávlast=multiline;Zde můžete ze scránky vložit celou kapitolu(.*)\n       </screen>"
 
 #. (para)
 msgid ""
@@ -8778,7 +8779,7 @@ msgid ""
 "These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
 "../../widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
+msgstr "Tyto adresy URL vždy začínat řetězcem <literal>../</literal> např.: <screen>\n../../Nastroje/bla  spolecne/bla-nastroj\n</screen> Toto vyjme <systemitem class=\"url\"> http://priklad.cz/svn/uloz-1/nastroje/foo</systemitem> do <filename>C:\\Práce\\spolecne\\bla-nastroj</filename>."
 
 #. (para)
 msgid ""
@@ -8796,14 +8797,14 @@ msgid ""
 "These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
 "^/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
+msgstr "Tyto adresy URL vždy začínat řetězcem <literal>^/</literal> např.: <screen>\n^/nastroje/bla  spolecne/bla-nastroj\n</screen> Toto vyjme <systemitem class=\"url\"> http://priklad.cz/svn/uloz-1/nastroje/bla</systemitem> do <filename>C:\\Práce\\spolecne\\bla-nastroj</filename>."
 
 #. (para)
 msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr ""
+msgstr "Můžete snadno odkazovat na jiná úložiště se stejnou <literal>SVNParentPath</literal> (Společný adresář obsahující několik úložišť). Například: <screen>\n^/../Uloz-2/kladiva/dráp  spolecne/drap-kladivo\n</screen> Toto vyjme <systemitem class=\"url\"> http://priklad.cz/svn/uloz-2/kladiva/drap</systemitem> do <filename>C:\\Práce\\spolecne\\ drap-kladivo</filename>."
 
 #. (term)
 msgid "Relative to scheme"
@@ -8814,7 +8815,7 @@ msgid ""
 "URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr ""
+msgstr "URL začínající řetězcem <literal>//</literal> zkopírují pouze schématickou část URL. To je užitečné, když musí být přístup na stejné jméno hostitele přes různá schémata v závislosti na umístění v síti, např. klienti v intranetu používají <systemitem class=\"url\">http://</systemitem> zatímco externí klienti používají <systemitem class=\"url\">svn+ssh://</systemitem>. Například: <screen>\n//Priklad.cz/svn/uloz-1/nástroje/bla  spolecne/bla-nastroj\n</screen> Toto vyjme <systemitem class=\"url\"> http://priklad.cz/svn/uloz-1/nastroje/bla</systemitem> nebo <systemitem class=\"url\">svn+ssh://priklad.cz/svn/uloz-1/nastroje/bla</systemitem> podle toho, jaký způsob byl použit pro získání <filename>C:\\Pracovní</filename>."
 
 #. (term)
 msgid "Relative to the server's hostname"
@@ -8825,7 +8826,7 @@ msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr ""
+msgstr "URL začínající řetězcem <literal>/</literal> kopíruje schéma a hostitelskou část URL, například: <screen>\n/svn/uloz-1/nastroje/bla  spolecne/bla-nastroj\n</screen> Toto vyjme <systemitem class=\"url\">http://priklad.cz/svn/uloz-1/nastroje/bla</systemitem> do <filename>C:\\Práce\\spolecne\\bla-nastroj</filename>. Ale pokud získáte Vaši pracovní kopii z jiného serveru na <systemitem class=\"url\">svn+ssh://dalsi.mirror.cz/svn/uloz-1/projekt1/kmen</systemitem> pak externí odkaz vyjme <systemitem class=\"url\">svn+ssh://dalsi.mirror.cz/svn/uloz-1/nastroje/bla</systemitem>."
 
 #. (para)
 msgid ""
@@ -8966,7 +8967,7 @@ msgid ""
 "      </screen> you might now use something like <screen>\n"
 "http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
-msgstr ""
+msgstr "Výchozí cílová adresa URL pro novou větev bude zdrojová URL, na nichž je založena vaše pracovní kopie. Budete muset tuto URL upravit na novou cestu vaší větve/značky. Takže místo <screen>\n    http://svn.collab.net/uloz/JmenoProjektu/kmen\n</screen> můžete nyní používat něco jako <screen>\n    http://svn.collab.net/uloz/JmenoProjektu/znacky/Vydani_1.10\n</screen> Pokud si nemůžete vzpomenout na pojmenování, které jste použili naposledy, klikněte na tlačítko vpravo pro otevření průzkumníka úložiště, takže můžete zobrazit existující strukturu úložiště."
 
 #. (title)
 msgid "intermediate folders"
@@ -9301,7 +9302,7 @@ msgid ""
 "What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
 "and apply those changes to my working copy (of trunk or branch B). </quote>"
-msgstr ""
+msgstr "Co žádáte Subversion, aby udělal, je toto: <quote>Vypočítat nezbytné změny, jak se dostat [Z] revize 1 větve A [DO] revize 7 větve A a tyto změny provést v mé pracovní kopii (kmene nebo větve B). </quote>"
 
 #. (para)
 msgid ""
@@ -9321,7 +9322,7 @@ msgid ""
 "the head revision of the trunk [TO] the head revision of the branch, and "
 "apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Toto je obecnější případ znovu začleňovací metody. Co žádáte od Subversion, aby udělal, je: <quote> Vypočítat změny nezbytné pro získání [Z] revize head kmene [DO] head revize větve a uplatnit tyto změny na moji pracovní kopii (kmene). </quote> Výsledkem je, že kmen nyní vypadá přesně jako větev."
 
 #. (para)
 msgid ""
@@ -9636,7 +9637,7 @@ msgid ""
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr ""
+msgstr "Dialogové okno průběhu sloučení ukazuje každou fázi sloučení, s uvedeným rozsahem revizí. To může znamenat o jednu revizi více, než jste čekali. Například, pokud chcete sloučit revize 123, dialogové okno průběhu oznámí <quote>Slučuji revize 122 až 123</quote>. Je třeba si uvědomit, že sloučení je úzce spjato s porovnáním. Proces sloučení funguje tak, že tvoří seznam rozdílů mezi dvěma body v úložišti a tyto rozdíly vnese do pracovní kopie. Dialogové okno průběhu jen ukazuje počáteční a koncové body pro porovnání."
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -9815,7 +9816,7 @@ msgid ""
 "local version as it was in your working copy prior to the merge, or "
 "<emphasis>Prefer repository</emphasis> to select the incoming file from the "
 "merge source in the repository."
-msgstr ""
+msgstr "Pokud Vaše sloučení obsahuje binární soubory, slučování konfliktů v těchto souborech není možné v režimu řádek po řádku. Konflikt v binárním souboru vždy poukazuje na celý soubor. Použitím <emphasis>Upřednostnit místní</emphasis> vyberete místní verzi, to je tu, která byla v pracovní kopii před sloučením, nebo <emphasis>Upřednostnit úložiště</emphasis>, abyste vybrali přicházející soubor ze zdroje sloučení v úložišti."
 
 #. (para)
 msgid ""
@@ -10313,15 +10314,15 @@ msgstr "Jednoduše uložte soubor pomocí jména dle Vašeho výběru. Záplatov
 
 #. (filename)
 msgid ".txt"
-msgstr ""
+msgstr ".txt"
 
 #. (filename)
 msgid ".patch"
-msgstr ""
+msgstr ".patch"
 
 #. (filename)
 msgid ".diff"
-msgstr ""
+msgstr ".diff"
 
 #. (tip)
 msgid ""
@@ -10503,7 +10504,7 @@ msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Once the blame process has finished the "
 "result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Po stisknutí <guibutton>OK</guibutton> TortoiseSVN začne schraňovat data pro vytvoření souboru obvinění. Jakmile je proces obvinění dokončen výsledek je zapsán do dočasného souboru, který si můžete prohlédnout."
 
 #. (title)
 msgid "TortoiseBlame"
@@ -12060,7 +12061,7 @@ msgid ""
 "on a folder is automatically also implicitly set on all subfolders. So "
 "there's no need to set the properties on all folders anymore but only on the"
 " root folder."
-msgstr ""
+msgstr "Od verze 1.8 používají TortoiseSVN a Subversion takzvané  <literal>zděděné vlastnosti</literal>, tím jsou vlastnosti použité na složku také automaticky nastaveny ve všech podsložkách. Tím odpadá nutnost nastavovat vlastnosti ve všech složkách, stačí je nastavit pouze v kořenové."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -12460,7 +12461,7 @@ msgid ""
 "versioned folder. And you can get the entries back for unversioned folders "
 "by holding the <keycap>Shift</keycap> key down while showing the context "
 "menu."
-msgstr ""
+msgstr "Většinu času kontextové menu TortoiseSVN nebudete potřebovat, kromě adresářů, které jsou pod správou verzí Subversion. Pro adresáře bez verzí budete kontextové menu opravdu potřebovat, když chcete provést získání. Pokud zaškrtnete volbu <literal>Skrýt menu pro cesty bez verzí</literal>, TortoiseSVN nepřidá sv položky do kontextového menu pro adresáře bez verze. Ale jsou přidány pro všechny položky a cesty v adresáři s verzí. Můžete je dostat zpět pro adresáře bez verzí tím, že podržíte klávesu <keycap>Shift</keycap>, při zobrazení kontextového menu."
 
 #. (para)
 msgid ""
@@ -13303,7 +13304,7 @@ msgid ""
 "Include:\n"
 "C:\\develop\n"
 "    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr ""
+msgstr "Zde pomůže příklad: <screen>\nExclude:\n       C:\n       C:\\vývoj\\?\n       C:\\vývoj\tsvn\\obj\n       C:\\vývoj\tsvn\\bin\n\nInclude:\n       C:\\vývoj\n</screen> Tato nastavení vypnou překryvy ikon pro disk C:, s výjimkou <literal>c:\\vývoj</literal>. Všechny uvedené projekty pod tímto adresářem budou zobrazovat překryvy, s výjimkou samotného adresáře <literal>c:\\vývoj</literal>, který je specificky ignorován. Vysoko oběhové binární adresáře jsou rovněž vyloučeny."
 
 #. (para)
 msgid ""
@@ -13325,7 +13326,7 @@ msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr ""
+msgstr "Je často vhodné použít jednotku <literal>SUBST</literal> k  přístupu do vašich pracovních kopií, např. pomocí příkazu <screen>\nsubst T: C:\\TortoiseSVN\\kmen\\dok</screen> nicméně to může způsobit, že se překrývání neaktualizuje, protože <literal>TSVNCache</literal> dostane pouze jedno oznámení, kdy se soubor změní a to je obecně v původní cestě. To znamená, že Vaše překryvy na <literal>subst</literal> cestě nemůžou být nikdy aktualizovány."
 
 #. (para)
 msgid ""
@@ -13431,7 +13432,7 @@ msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "    </screen>"
-msgstr ""
+msgstr "Musíte zadat celou cestu ke spustitelnému souboru. Pro TortoisePlink.exe toto je standardní TortoiseSVN bin. Použijte tlačítko <guibutton>Procházet</guibutton> pro pomoc při hledání umístění. Upozorňujeme, že pokud cesta obsahuje mezery, musíte ji uzavřít do uvozovek, např. <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -13466,7 +13467,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "Nakonec, nastavení SSH na serveru a v klientech je složitý proces, který je nad rámec tohoto souboru nápovědy. Nicméně návod můžete najít v nejčastějších otázkách TortoiseSVN v položce <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH Jak na to</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
@@ -13605,7 +13606,7 @@ msgid ""
 "      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "      </screen>"
-msgstr ""
+msgstr "Například, s ExamDiff Pro: <screen>\nC:\\Cesta-k\\ExamDiff.exe %base %mine --left_display_name:%bname\n    --right_display_name:%yname\n</screen> nebo s KDiff3: <screen>\nC:\\Cesta-ke\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> nebo s WinMerge: <screen>\nC:\\Cesta-k\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> nebo s Araxis: <screen>\nC:\\Cesta-ke\\compare.exe /max /wait /title1:%bname /title2:%yname\n    %base %mine\n</screen> nebo s UltraCompare: <screen>\nC:\\Cesta-k\\uc.exe %base %mine -title1 %bname -title2\n%yname\n</screen> nebo s DiffMerge: <screen>\nC:\\Cesta-k\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
 
 #. (para)
 msgid ""
@@ -13724,7 +13725,7 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
 "      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "      </screen>"
-msgstr ""
+msgstr "Například, s Perforce Merge: <screen>\nC:\\Cesta-k\\P4Merge.exe %base %theirs %mine %merged\n</screen> nebo s KDiff3: <screen>\nC:\\Cesta-k\\kdiff3.exe %base %mine %theirs -o %merged\n    --L1 %bname --L2 %yname --L3 %tname\n</screen> nebo s Araxis: <screen>\nC:\\Cesta-ke\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n    /title3:%yname %theirs %base %mine %merged /a2\n</screen> nebo s WinMerge ( verze 2.8 a vyšší): <screen>\nC:\\Cesta-k\\WinMerge.exe %merged\n</screen> nebo s DiffMerge: <screen>\nC:\\Cesta-k\\DiffMerge.exe -caption=%mname -result=%merged -merge\n    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -14283,7 +14284,7 @@ msgstr "Volán před pokusem kontaktovat úložiště. Volán nejvýše jednou z
 #. (para)
 msgid ""
 "There are currently these types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "V současnosti jsou dostupné tyto typy hákových skriptů <placeholder-1/> "
 
 #. (para)
 msgid ""
@@ -14425,7 +14426,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "    </screen>"
-msgstr ""
+msgstr "Při ladění hákových skriptů můžete chtít, aby byl hlášen postup do konzole DOS, nebo vložit pozastavení, aby se zabránilo jejímu zavření při dokončení skriptu. Protože vstup i výstup je přesměrováván, toto většinou nebude fungovat. Můžete je ale výslovně přesměrovat do konzole, aby se tomuto předešlo. Např. <screen>\necho Kontrola stavu &gt; con\npause &lt; con &gt; con\n</screen>"
 
 #. (para)
 msgid ""
@@ -14636,7 +14637,7 @@ msgid ""
 "XP. Vista and later doesn't support that feature any more. However some "
 "third-party explorer replacements do support those even on Windows versions "
 "later than XP."
-msgstr ""
+msgstr "Další sloupce, které TortoiseSVN přidá k zobrazení podrobností v Průzkumníku Windows, jsou obvykle aktivní pouze v pracovní kopii. Pokud chcete, aby byly dostupné všude, ne jen v pracovní kopii, nastavte tuto hodnotu na <literal>true</literal>. Všimněte si, že další sloupce jsou k dispozici pouze v systému Windows XP. Vista a novější už tuto funkci nepodporují. Některé náhrady Průzkumníka od třetích stran tyto podporují i ve verzích vydaných po XP."
 
 #. (para)
 msgid ""
@@ -14709,7 +14710,7 @@ msgid ""
 "This option determines how the Win7 taskbar icons of the various TortoiseSVN"
 " dialogs and windows are grouped together. This option has no effect on "
 "Vista!"
-msgstr ""
+msgstr "Tato volba určuje, jak jsou ikony a okna rázných dialogů TortoiseSVN seskupeny na hlavním panelu ve Win7. Tato volba nemá žádný vliv na Windows Vista!"
 
 #. (title)
 msgid "Taskbar with default grouping"
@@ -15046,7 +15047,7 @@ msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev.exe je volán z příkazové řádky nebo skriptu a je ovládán pomocí parametrů příkazového řádku. <screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
 
 #. (para)
 msgid ""
@@ -15483,7 +15484,7 @@ msgstr "Nahrazeno komentářem k zámku."
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
 "files or folders in the working copy, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> je nahrazen <placeholder-2/> pokud v pracovní kopii existují soubory nebo složky bez verze, nebo <placeholder-3/> pokud ne."
 
 #. (para)
 msgid ""
@@ -15500,7 +15501,7 @@ msgid ""
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev přímo nepodporuje vnořování výrazů, takže například nemůžete použít výraz jako: <screen>\n#define SVN_REVISION     \"$WCMIXED$?WCRANGE$:$WCREV$$\"\n</screen> Ale většinou je toto možné obejít jinými způsoby, například: <screen>\n#define SVN_RANGE       $WCRANGE$\n#define SVN_REV         $WCREV$\n#define SVN_REVISION     \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -16791,7 +16792,7 @@ msgid ""
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
 "        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
-msgstr ""
+msgstr "Pokud používáte stejné společné kódové jádro v několika projektech a nechcete mít více pracovních kopií jádra pro každý projekt, který ho používá, stačí ho získat do samostatného místa, které se vztahuje na všechny ostatní projekty, které ho používají. Například: <screen>\nC:\\Projekty\\Proj1\nC:\\Projekty\\Proj2\nC:\\Projekty\\Proj3\nC:\\Projekty\\Společné \n</screen> a odkázat na společný kód pomocí relativní cesty, např. <filename>..\\..\\Společné\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -16800,7 +16801,7 @@ msgid ""
 "        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
 "        </screen>"
-msgstr ""
+msgstr "Pokud jsou Vaše projekty rozptýleny v nesouvisejících místech, můžete použít variantu tohoto, což je dát společný kód na jedno místo a použít substituci písmena jednotky k zmapování umístění na něco, co můžete pevně zakódovat do Vašich projektů, např. Získat společný kód do <filename>D:\\Dokumenty\\Framework</filename> nebo <filename>C:\\Documents and Settings\\{přihlašovací jméno}\\Mé Dokumenty\\framework</filename> pak použijte <screen>\nSUBST X: \"D:\\Dokumenty\\framework\"\n</screen> k vytvoření mapování disku použité ve Vašem zdrojovém kódu. Váš kód pak může použít absolutní umístění. <screen>\n#Include \"X:\\Superio\\superio.h\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -16845,7 +16846,7 @@ msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
 "      </screen> Of course you need to include the real repository URL."
-msgstr ""
+msgstr "Pokud často potřebujete otevřít průzkumníka úložiště v konkrétním umístění, můžete vytvořit zástupce na ploše pomocí rozhraní automatizace TortoiseProc. Stačí vytvořit nového zástupce a stanovit cíl na: <screen>\nTortoiseProc.exe/command:repobrowser/path: \"url/do/uloziste\"\n</screen> Samozřejmě je nutné zadat URL skutečného úložiště."
 
 #. (title)
 msgid "Ignore files which are already versioned"
@@ -16897,7 +16898,7 @@ msgid ""
 "tree without the <literal>.svn</literal> directory, you can simply export it"
 " to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out "
 "how."
-msgstr ""
+msgstr "Pokud máte pracovní kopii, kterou chcete převést zpět na běžný adresářový strom, bez adresáře <literal>.svn</literal>, můžete jednoduše exportovat do sebe. Přečtěte si <xref linkend=\"tsvn-dug-export-unversion\"/>, abyste zjistili, jak na to."
 
 #. (title)
 msgid "Remove a working copy"
@@ -16971,7 +16972,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN musí být nainstalován pod <emphasis>Konfigurace počítače</emphasis> a ne pod <emphasis>Konfigurace uživatele</emphasis>. Je to proto, že TortoiseSVN potřebuje DLL knihovny CRT a MFC, které můžou být nasazeny pouze na <emphasis>každý počítač zvlášť</emphasis> a ne <emphasis>zvlášť pro jednoho uživatele</emphasis>. Pokud opravdu musíte nainstalovat TortoiseSVN zvlášť pro každého uživatele, pak musíte nejprve nainstalovat balík MFC a CRT verze 12 od společnosti Microsoft na každém počítači, na který chcete nainstalovat TortoiseSVN pro každého uživatele zvlášť."
 
 #. (para)
 msgid ""
@@ -17026,7 +17027,7 @@ msgid ""
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
 "      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr ""
+msgstr "Verze TortoiseSVN 1.4.0 a novější Vám umožní tuto kontrolu přesměrovat na váš intranetový server. Můžete nastavit klíč registru <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (Řetězcová hodnota) na URL odkazující na textový soubor ve Vašem intranetu. Tento textový soubor musí mít následující formát: <screen>\n1.9.1.6000\nNová verze TortoiseSVN je pro Vás k dispozici ke stažení!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n</screen> První řádek v tomto souboru je řetězec verze. Musíte se ujistit, že se přesně shoduje s řetězcem verze instalačního balíčku TortoiseSVN. Druhý řádek je vlastní text, který se zobrazí v dialogovém okně odevzdání. Můžete napsat, co chcete. Jen vezměte na vědomí, že prostor v dialogovém okně je omezen. Příliš dlouhé zprávy budou zkosené! Třetí řádek je URL nového instalačního balíčku. Tato adresa URL se otevře, když uživatel klikne na štítek vlastní zprávy v dialogovém okně odevzdání. Můžete také odkázat uživatele na webové stránky místo přímo na soubor MSI. URL je otevřena výchozím internetovým prohlížečem, takže pokud zadáte webovou stránku, tato stránka je otevřena a zobrazena uživateli. Zadáte-li MSI balíček, prohlížeč požádá uživatele o uložení souboru MSI."
 
 #. (title)
 msgid ""
@@ -17061,7 +17062,7 @@ msgid ""
 "<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
 "value of that environment variable doesn't matter: if the variable exists "
 "the feature is active."
-msgstr ""
+msgstr "Ale tato funkce je stále dostupná v TortoiseSVN a dalších klientech svn. Pro zapnutí je nutné nastavit proměnnou prostředí Windows s názvem <literal>ASPDOTNETHACK</literal> na <literal>1</literal>. Ve skutečnosti hodnota proměnné ani nehraje roli: Pokud existuje, je funkce aktivní."
 
 #. (para)
 msgid ""
@@ -17291,11 +17292,11 @@ msgstr "Porovnat později"
 
 #. (entry)
 msgid "Diff with 'filename'"
-msgstr ""
+msgstr "Porovnat s 'názevsouboru'"
 
 #. (entry)
 msgid "Unified diff"
-msgstr ""
+msgstr "Sjednocený rozdíl"
 
 #. (entry)
 msgid "Settings"
@@ -17317,7 +17318,7 @@ msgid ""
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
 "      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "Příklad: Pro vypnutí položek menu <quote>Přemístit</quote>, <quote>Smazat položky bez verze</quote> a <quote>Nastavení</quote>, přidejte hodnoty přiřazené položkám, jako jsou tyto: <screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> Nižší hodnota <literal>DWORD</literal> (<literal>0x80080000</literal>) pak musí být uložena v <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, vyšší hodnota <literal>DWORD</literal> (<literal>0x20000000</literal>) v <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -17389,7 +17390,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "Můžete také zadat soubor, který obsahuje seznam cest, oddělených novými řádky. Soubor musí být ve formátu UTF-16 bez <ulink url=\"http://cs.wikipedia.org/wiki/BOM\"><citetitle>BOM</citetitle></ulink>. Pokud předáte takový soubor, použijte <option>/pathfile</option> místo <option>/path</option>. Chcete-li, aby TortoiseProc tento soubor smazal, až bude příkaz hotov, můžete předat parametr <option>/deletepathfile</option>. Pokud ho nepředáte, musíte ho smazat sami, jinak zůstane nedotčen."
 
 #. (para)
 msgid ""
@@ -18293,15 +18294,15 @@ msgstr "Příklad (který by měl být uveden na jednom řádku): <screen>\nTort
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "Příkazy TortoiseUDiff"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
-msgstr ""
+msgstr "Prohlížeč sjednoceného rozdílu má pouze dvě volby příkazového řádku:"
 
 #. (entry)
 msgid "Path to the unified diff file."
-msgstr ""
+msgstr "Cesta k souboru sjednoceného rozdílu."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
@@ -18386,7 +18387,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL CESTA\n     "
 
 #. (para)
 #. (para)
@@ -18414,7 +18415,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_Pracovní_Kopie\nsvn update [-r rev] CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18448,7 +18449,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_Pracovní_Kopie\nsvn update [-r rev] [-depth ARG] [--ignore-externals] CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18466,7 +18467,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v CESTA\n     "
 
 #. (para)
 #. (para)
@@ -18491,7 +18492,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add CESTA...\n     "
 
 #. (para)
 msgid ""
@@ -18508,7 +18509,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"Zpráva záznamu\" [-depth ARG] [--no-unlock] CESTA...\n     "
 
 #. (para)
 #. (para)
@@ -18530,7 +18531,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18557,7 +18558,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] CESTA\nnebo\nsvn log -v -r M:N [--stop-on-copy] CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18580,7 +18581,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v CESTA\nnebo\nsvn status -u -v CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18606,7 +18607,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr ""
+msgstr "Co TortoiseSVN dělá je <screen>\nsvn info URL_Pracovní_Kopie\nsvn log -v URL\n        </screen> where URL je <emphasis>kořen</emphasis> úložiště a pak vrácená data zpracuje."
 
 #. (title)
 msgid "Repo Browser"
@@ -18619,7 +18620,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_Pracovní_Kopie\nsvn list [-r rev] -v URL\n     "
 
 #. (para)
 msgid ""
@@ -18652,7 +18653,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved CESTA\n     "
 
 #. (screen)
 #, no-wrap
@@ -18660,7 +18661,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename SOUČAS_CESTA NOVÁ_CESTA\n     "
 
 #. (screen)
 #, no-wrap
@@ -18668,7 +18669,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18692,7 +18693,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] CESTA...\n     "
 
 #. (screen)
 #, no-wrap
@@ -18700,7 +18701,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup CESTA\n     "
 
 #. (title)
 msgid "Get Lock"
@@ -18719,7 +18720,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"Zprávazamknutí\" [--force] CESTA...\n     "
 
 #. (para)
 msgid ""
@@ -18743,7 +18744,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock CESTA\n     "
 
 #. (screen)
 #, no-wrap
@@ -18755,7 +18756,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"LogMessage\" URL URL\nnebo\nsvn copy -m \"LogMessage\" URL@rev URL@rev\nnebo\nsvn copy -m \"LogMessage\" CESTA URL\n     "
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18775,7 +18776,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_Pracovní_Kopie\nsvn switch [-r rev] URL CESTA\n     "
 
 #. (screen)
 #, no-wrap
@@ -18783,7 +18784,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force Z_URL@revN Do_URL@revM CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18797,7 +18798,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff Z_URL@revN Do_URL@revM\n     "
 
 #. (para)
 msgid ""
@@ -18811,7 +18812,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18844,7 +18845,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate Z_URL Do_URL\n     "
 
 #. (title)
 msgid "Create Repository Here"
@@ -18856,7 +18857,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18870,7 +18871,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LogMessage CESTA URL\n     "
 
 #. (screen)
 #, no-wrap
@@ -18879,7 +18880,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v CESTA\nsvn log -r N:M CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18900,7 +18901,7 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn propget svn:ignore CESTA &gt; dočsoubor\n{upravit nové ignorovanou položku do dočasného souboru}\nsvn propset svn:ignore -F dočsoubor CESTA\n     "
 
 #. (para)
 msgid ""
@@ -18915,7 +18916,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff CESTA &gt; záplatovýsoubor\n     "
 
 #. (para)
 msgid ""
@@ -19143,7 +19144,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "Uživatelské rozhraní TortoiseSVN bylo přeloženo do mnoha různých jazyků, takže budete mít možnost si stáhnout jazykový balíček, který vyhovuje Vašim potřebám. Jazykové balíčky najdete na naší <ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>stránce stavu překladu</citetitle></ulink> . A pokud není jazykový balíček k dispozici, proč se nepřipojit k týmu a nepředložit svůj vlastní překlad ;-)"
 
 #. (para)
 msgid ""
@@ -19158,7 +19159,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Dokumentace byla také přeložena do několika různých jazyků. Můžete si přeložené manuály stáhnout ze <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>stránky podpory</citetitle></ulink> na našich webových stránkách."
 
 #. (title)
 msgid "Spellchecker"
@@ -20149,7 +20150,7 @@ msgid ""
 "lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
 "Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
 "from the left file are added to the right file."
-msgstr ""
+msgstr "Pokud jste ve dvou panelovém zobrazení, pak můžete upravit soubor pouze v pravém panelu (<literal>Můj</literal>). Chcete-li použít změny provedené v levém souboru (<literal>Jejich</literal>), <action>klikněte pravým tlačítkem myši</action> na změněné řádky a zvolte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použít text z 'jejich' bloku</guimenuitem></menuchoice>. Pak se změny z levého souboru přidají do pravého souboru."
 
 #. (para)
 msgid ""
@@ -20187,7 +20188,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr ""
+msgstr "Pokud jste ve tří panelovém zobrazení (někdy nazývaném <emphasis>zobrazení sloučení</emphasis>) soubor lze upravovat pouze v dolní části zobrazení (<literal>Sloučeno</literal>). Tak jako ve dvou panelovém zobrazení můžete <action>kliknout pravým tlačítkem myši </action> na konfliktní řádek a buď vybrat <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použít text z 'jejich' bloku</guimenuitem></menuchoice> nebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použít text z 'mého' bloku</guimenuitem></menuchoice>. Kromě toho, pokud chcete <emphasis>oba</emphasis> bloky, můžete vybrat <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použít textový blok z 'mého' před 'jejich'</guimenuitem></menuchoice> nebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použít textový blok z 'jejich' před 'mým'</guimenuitem></menuchoice>. Podle příkazu, který jste vybrali, jsou změny použity ve výsledném <literal>Sloučeném</literal> souboru."
 
 #. (para)
 msgid ""
@@ -20634,7 +20635,7 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "      </screen>"
-msgstr ""
+msgstr "Většina přepínačů požaduje další informace, jako cestu, nebo nějaký jiný řetězec. V těchto případech do přepínače přidejte ':' a řetězec/cestu zadejte po něm. Příklad: <screen>\n/base:\"c:\\adresář\\můjpůvodsoubor.txt\"\n     </screen>"
 
 #. (title)
 msgid "List of available command line options"
@@ -20798,4 +20799,4 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr ""
+msgstr "Můžete také dodat jednoduché názvy souborů na příkazovém řádku pro kompatibilitu s jinými programy rozdílů. V této zjednodušené formě je příkazový řádek <screen>\nTortoiseMerge CestaPůvSoubor CestaMůjSoubor [CestaJejichSoubor]</screen> jestliže jsou evedeny dva soubory budou porovnány mezi sebou. Pokud jsou uvedeny tři soubory, první je brán jako původní soubor a ostatní dva jsou s ním porovnány v trojím porovnávání."
