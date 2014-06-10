@@ -827,3 +827,19 @@ HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorki
     pac->Release();
     return hr;
 }
+
+bool CCommonAppUtils::IsFullscreenWindowActive()
+{
+    HWND hwnd = GetForegroundWindow();
+    RECT rcWindow;
+    GetWindowRect(hwnd, &rcWindow);
+
+    HMONITOR hm = MonitorFromRect(&rcWindow, MONITOR_DEFAULTTONULL);
+    if (!hm)
+        return false;
+
+    MONITORINFO mi = { sizeof(mi) };
+    GetMonitorInfo(hm, &mi);
+
+    return !!EqualRect(&rcWindow, &mi.rcMonitor);
+}
