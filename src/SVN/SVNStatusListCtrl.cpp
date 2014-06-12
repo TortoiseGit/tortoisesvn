@@ -4975,7 +4975,7 @@ INT_PTR CSVNStatusListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
         return -1;
 
     pTI->hwnd = m_hWnd;
-    pTI->uId = (UINT)((row<<10)+(col&0x3ff)+1);
+    pTI->uId = (UINT_PTR)((row<<10)+(col&0x3ff)+1);
     pTI->lpszText = LPSTR_TEXTCALLBACK;
 
     pTI->rect = cellrect;

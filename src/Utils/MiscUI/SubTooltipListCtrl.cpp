@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2012, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,7 +67,7 @@ INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 
         //Fill in the TOOLINFO structure
         pTI->hwnd = m_hWnd;
-        pTI->uId = (UINT)((nItem<<10)+(nSubItem&0x3ff)+1);
+        pTI->uId = (UINT_PTR)((nItem<<10)+(nSubItem&0x3ff)+1);
         pTI->lpszText = LPSTR_TEXTCALLBACK;
         pTI->rect = rcClient;
 
