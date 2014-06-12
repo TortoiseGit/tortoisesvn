@@ -950,7 +950,13 @@ public:
     void SetCancelBool(bool * bCancel) { m_pbCancel = bCancel; }
 
     const CTSVNPath& GetRedirectedUrlPath() const {return m_redirectedUrl;}
+
+    /// override the cache enabled setting and assume the cache is enabled
     void AssumeCacheEnabled(bool bEnable) { m_bAssumeCacheEnabled = bEnable; }
+
+    /// suppresses all UI dialogs like authentication dialogs
+    void SuppressUI(bool bSuppress) { m_prompt.SuppressUI(bSuppress); }
+    bool IsSuppressedUI() { return m_prompt.IsSilent(); }
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool

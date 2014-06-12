@@ -70,6 +70,8 @@ const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
 #define WM_TSVN_REFRESH_SELECTION   (WM_APP + 1)
 
+#define OVERLAY_MODIFIED        1
+
 enum LogDlgContextMenuCommands
 {
     // needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
@@ -193,6 +195,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bMonitorThreadRunning(FALSE)
     , m_nMonitorUrlIcon(0)
     , m_nMonitorWCIcon(0)
+    , m_nErrorOvl(0)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -1748,7 +1751,7 @@ void CLogDlg::LogThread()
 //this is the thread function which calls the subversion function
 void CLogDlg::StatusThread()
 {
-    bool bAllowStatusCheck = !!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogStatusCheck", TRUE);
+    bool bAllowStatusCheck = m_bMonitoringMode || !!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogStatusCheck", TRUE);
     if ((bAllowStatusCheck)&&(!m_wcRev.IsValid()))
     {
         // fetch the revision the wc path is on so we can mark it
@@ -2881,7 +2884,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 
 BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-    if ((m_bLogThreadRunning || m_bMonitorThreadRunning)||(netScheduler.GetRunningThreadCount()))
+    if (m_bLogThreadRunning || (!m_bMonitorThreadRunning && (netScheduler.GetRunningThreadCount())))
     {
         if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDC_LOGCANCEL))))
         {
@@ -7512,6 +7515,9 @@ void CLogDlg::InitMonitoringMode()
     SetWindowTheme(m_projTree.GetSafeHwnd(), L"Explorer", NULL);
     m_nMonitorUrlIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORURL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
     m_nMonitorWCIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORWC), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_nErrorOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MODIFIEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    if (m_nErrorOvl >= 0)
+        SYS_IMAGE_LIST().SetOverlayImage(m_nErrorOvl, OVERLAY_MODIFIED);
     m_projTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
 
 
@@ -7573,6 +7579,7 @@ HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& 
     tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_EXPANDEDIMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.pszText = LPSTR_TEXTCALLBACK;
     tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 1 : 0;
+    tvinsert.itemex.state = TVIS_EXPANDED;
     tvinsert.itemex.lParam = (LPARAM)pMonitorItem;
     tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
     tvinsert.itemex.iExpandedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
@@ -7586,6 +7593,7 @@ HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& 
         tvItem.cChildren = 1;
         tvItem.hItem = tvinsert.hParent;
         m_projTree.SetItem(&tvItem);
+        m_projTree.Expand(tvinsert.hParent, TVE_EXPAND);
     }
     return m_projTree.InsertItem(&tvinsert);
 }
@@ -7761,22 +7769,29 @@ void CLogDlg::SaveMonitorProjects()
 
 void CLogDlg::MonitorTimer()
 {
-    if (m_bLogThreadRunning || m_bMonitorThreadRunning)
+    if (m_bLogThreadRunning || m_bMonitorThreadRunning || netScheduler.GetRunningThreadCount())
     {
         SetTimer(MONITOR_TIMER, 60 * 1000, NULL);
         return;
     }
 
+    __time64_t currenttime = NULL;
+    _time64(&currenttime);
+
     m_monitorItemListForThread.clear();
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
-        m_monitorItemListForThread.push_back(*pItem);
+        if (pItem->lastchecked + (pItem->interval * 60) < currenttime)
+            m_monitorItemListForThread.push_back(*pItem);
         return false;
     });
 
-    InterlockedExchange(&m_bMonitorThreadRunning, TRUE);
-    new async::CAsyncCall(this, &CLogDlg::MonitorThread, &netScheduler);
+    if (!m_monitorItemListForThread.empty())
+    {
+        InterlockedExchange(&m_bMonitorThreadRunning, TRUE);
+        new async::CAsyncCall(this, &CLogDlg::MonitorThread, &netScheduler);
+    }
     SetTimer(MONITOR_TIMER, 60 * 1000, NULL);
 }
 
@@ -7795,7 +7810,7 @@ void CLogDlg::MonitorPopupTimer()
         pPopup->SetAnimationSpeed(30);
         pPopup->SetTransparency(200);
         pPopup->SetSmallCaption(TRUE);
-        pPopup->SetAutoCloseTime(3000);
+        pPopup->SetAutoCloseTime(5000);
 
         // Create indirect:
         CMFCDesktopAlertWndInfo params;
@@ -7816,6 +7831,8 @@ void CLogDlg::MonitorPopupTimer()
         //pPopup->SetWindowText(_T("Message"));
 
         KillTimer(MONITOR_POPUP_TIMER);
+        m_sMonitorNotificationTitle.Empty();
+        m_sMonitorNotificationText.Empty();
     }
 }
 
@@ -7834,6 +7851,7 @@ void CLogDlg::MonitorThread()
             continue;
         if (item.lastchecked + (item.interval * 60) < currenttime)
         {
+            SuppressUI(true);
             svn_revnum_t head = GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
             if (head != item.lastHEAD)
             {
@@ -7877,9 +7895,12 @@ void CLogDlg::MonitorThread()
                     }
                     item.lastHEAD = head;
                 }
+                // we should never get asked for authentication here!
+                item.authfailed = PromptShown();
             }
             item.lastchecked = currenttime;
         }
+        SuppressUI(false);
     }
 
     InterlockedExchange(&m_bMonitorThreadRunning, FALSE);
@@ -7910,23 +7931,27 @@ void CLogDlg::OnMonitorThreadFinished()
             MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
             if ((pItem->UnreadItems != item.UnreadItems) && (pItem->lastHEAD != item.lastHEAD))
             {
-                if (changedprojects)
+                if (item.UnreadItems)
                 {
-                    m_sMonitorNotificationTitle.Format(IDS_MONITOR_NOTIFY_MULTITITLE, changedprojects + 1);
-                    m_sMonitorNotificationText += L"\n";
-                    sTemp.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
-                    m_sMonitorNotificationText += sTemp;
-                }
-                else
-                {
-                    m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
-                    m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                    if (changedprojects)
+                    {
+                        m_sMonitorNotificationTitle.Format(IDS_MONITOR_NOTIFY_MULTITITLE, changedprojects + 1);
+                        m_sMonitorNotificationText += L"\n";
+                        sTemp.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                        m_sMonitorNotificationText += sTemp;
+                    }
+                    else
+                    {
+                        m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
+                        m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                    }
                 }
                 ++changedprojects;
             }
             pItem->lastchecked = item.lastchecked;
             pItem->lastHEAD = item.lastHEAD;
             pItem->UnreadItems = item.UnreadItems;
+            pItem->authfailed = item.authfailed;
         }
     }
     m_monitorItemListForThread.clear();
@@ -7936,6 +7961,7 @@ void CLogDlg::OnMonitorThreadFinished()
     {
         SetTimer(MONITOR_POPUP_TIMER, 10, NULL);
     }
+    SaveMonitorProjects();
 }
 
 void CLogDlg::ShutDownMonitoring()
@@ -7998,7 +8024,11 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             m_hasWC = m_path.IsUrl();
             m_bStrict = false;
             m_bSaveStrict = false;
-            m_ProjectProperties.ReadProps(m_path);
+            if (!m_path.IsUrl())
+                m_ProjectProperties.ReadProps(m_path);
+            else
+                m_ProjectProperties = ProjectProperties();
+            m_wcRev = SVNRev();
             if (::IsWindow(m_hWnd))
                 UpdateData(FALSE);
 
@@ -8028,7 +8058,7 @@ void CLogDlg::OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult)
                 wcscpy_s(textbuf, pItem->Name);
             pTVDispInfo->item.pszText = textbuf;
             m_projTree.SetItemState(pTVDispInfo->item.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+            m_projTree.SetItemState(pTVDispInfo->item.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         }
-
     }
 }

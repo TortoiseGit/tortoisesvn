@@ -80,12 +80,14 @@ public:
         , lastchecked(0)
         , lastHEAD(0)
         , UnreadItems(0)
+        , authfailed(false)
     {}
     MonitorItem()
         : interval(5)
         , lastchecked(0)
         , lastHEAD(0)
         , UnreadItems(0)
+        , authfailed(false)
     {}
     ~MonitorItem() {}
 
@@ -95,6 +97,7 @@ public:
     __time64_t              lastchecked;
     svn_revnum_t            lastHEAD;
     int                     UnreadItems;
+    bool                    authfailed;
 };
 
 
@@ -514,6 +517,7 @@ private:
     std::vector<MonitorItem>    m_monitorItemListForThread;
     int                 m_nMonitorUrlIcon;
     int                 m_nMonitorWCIcon;
+    int                 m_nErrorOvl;
     CString             m_sMonitorNotificationTitle;
     CString             m_sMonitorNotificationText;
 };

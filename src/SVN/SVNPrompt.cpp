@@ -184,6 +184,8 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
     }
     else
     {
+        if (svn->m_bSuppressed)
+            svn->m_bPromptShown = true;
         *cred = NULL;
         if (!svn->m_bSuppressed)
             ::SendMessage(FindParentWindow(svn->m_hParentWnd), WM_SVNAUTHCANCELLED, 0, 0);
@@ -212,6 +214,8 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
     }
     else
     {
+        if (svn->m_bSuppressed)
+            svn->m_bPromptShown = true;
         *cred = NULL;
         if (!svn->m_bSuppressed)
             ::SendMessage(FindParentWindow(svn->m_hParentWnd), WM_SVNAUTHCANCELLED, 0, 0);
@@ -315,6 +319,8 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             }
         }
     }
+    if (svn->m_bSuppressed)
+        svn->m_bPromptShown = true;
 
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
@@ -454,7 +460,11 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
         }
     }
     else
+    {
+        if (svn->m_bSuppressed)
+            svn->m_bPromptShown = true;
         *cred = NULL;
+    }
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;
@@ -494,7 +504,11 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
         *cred = ret;
     }
     else
+    {
+        if (svn->m_bSuppressed)
+            svn->m_bPromptShown = true;
         *cred = NULL;
+    }
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;

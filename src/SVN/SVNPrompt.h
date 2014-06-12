@@ -55,6 +55,8 @@ public:
      */
     bool IsSilent() const {return m_bSuppressed;}
 
+    void SuppressUI(bool bSuppress) { m_bSuppressed = bSuppress; }
+
 private:
     BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
     BOOL SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save);
