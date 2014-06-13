@@ -957,6 +957,7 @@ public:
     /// suppresses all UI dialogs like authentication dialogs
     void SuppressUI(bool bSuppress) { m_prompt.SuppressUI(bSuppress); }
     bool IsSuppressedUI() { return m_prompt.IsSilent(); }
+    void SetAuthInfo(const CString& username, const CString& password);
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
