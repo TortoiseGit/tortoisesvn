@@ -585,7 +585,7 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
         // if we couldn't connect to the server, ask the user
 
         bool cancelled = svn.GetSVNError() && (svn.GetSVNError()->apr_err == SVN_ERR_CANCELLED);
-        if (   !cancelled
+        if (   !svn.IsSuppressedUI() && !cancelled
             && (info->headRevision == NO_REVISION)
             && IsOffline (info))
         {
