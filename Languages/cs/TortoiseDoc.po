@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-08 09:30+0000\n"
+"PO-Revision-Date: 2014-06-12 18:20+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -5080,21 +5080,21 @@ msgid ""
 "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
 "replaced a file or directory by moving/renaming it, the <emphasis>move "
 "replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> Pokud revize nahradila soubor nebo adresář jejich přesunutím/přejmenováním, ikona <emphasis>nahrazeno přesunem</emphasis> je zobrazena ve čtvrtém sloupci."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
 " file or directory, the <emphasis>merged</emphasis> icon is shown in the "
 "fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMergedIcon.png\"/> Pokud revize sloučila soubor či adresář, ikona <emphasis>sloučeno</emphasis> je zobrazena ve čtvrtém sloupci."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
 "reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
 "icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> Pokud revize zpětně sloučila soubor či adresář, ikona <emphasis>zpětně sloučeno</emphasis> je zobrazena ve čtvrtém sloupci."
 
 #. (title)
 msgid "Getting Additional Information"
@@ -6851,7 +6851,7 @@ msgid ""
 " And if you subsequently fix a bug in the original files, you can only merge"
 " the fix automatically if the new copy is related to the original in "
 "Subversion."
-msgstr ""
+msgstr "Často se stává, že již máte soubory, které potřebujete v jiném projektu v úložišti a vy je prostě chcete zkopírovat. Jednoduše by se mohli zkopírovat a přidat, jak je popsáno výše, ale to by Vám nedalo žádnou historii. A pokud následně opravíte chybu v původních souborech, můžete sloučit opravu automaticky pouze, pokud je nová kopie podobná originálu v Subversion."
 
 #. (para)
 msgid ""
