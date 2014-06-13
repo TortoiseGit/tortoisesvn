@@ -28,13 +28,13 @@ CodeCollaboratorInfo::CodeCollaboratorInfo(CString revisions, CString repoUrl)
     if (encrypted.IsEmpty())
         CollabPassword = L"";
     else
-        CollabPassword = CStringUtils::Decrypt((LPCWSTR)encrypted);
+        CollabPassword = CStringUtils::Decrypt((LPCWSTR)encrypted).get();
     SvnUser = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnUser", L"");
     encrypted = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\SvnPassword", L"");
     if (encrypted.IsEmpty())
         SvnPassword = L"";
     else
-        SvnPassword = CStringUtils::Decrypt((LPCWSTR)encrypted);
+        SvnPassword = CStringUtils::Decrypt((LPCWSTR)encrypted).get();
     RepoUrl = repoUrl;
     m_Revisions = revisions;
 }

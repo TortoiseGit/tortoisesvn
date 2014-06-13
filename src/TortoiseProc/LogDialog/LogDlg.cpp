@@ -7713,8 +7713,8 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
     {
         dlg.m_sName = pProject->Name;
         dlg.m_sPathOrURL = pProject->WCPathOrUrl;
-        dlg.m_sUsername = CStringUtils::Decrypt(pProject->username);
-        dlg.m_sPassword = CStringUtils::Decrypt(pProject->password);
+        dlg.m_sUsername = CStringUtils::Decrypt(pProject->username).get();
+        dlg.m_sPassword = CStringUtils::Decrypt(pProject->password).get();
     }
     if (dlg.DoModal() == IDOK)
     {
@@ -7857,7 +7857,7 @@ void CLogDlg::MonitorThread()
         if (item.lastchecked + (item.interval * 60) < currenttime)
         {
             SuppressUI(true);
-            SetAuthInfo(CStringUtils::Decrypt(item.username), CStringUtils::Decrypt(item.password));
+            SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
             svn_revnum_t head = GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
             if (head != item.lastHEAD)
             {

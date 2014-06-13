@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2011-2013 - TortoiseSVN
+// Copyright (C) 2008, 2011-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,20 +35,18 @@ svn_error_t * tsvn_simple_first_creds(void **credentials,
         *credentials = NULL;
         Creds cr = tsvn_creds[realmstring];
         svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
-        char * t = cr.GetUsername();
-        if (t==NULL)
+        auto t = cr.GetUsername();
+        if (t.get()==NULL)
             return SVN_NO_ERROR;
-        creds->username = (char *)apr_pcalloc(pool, strlen(t)+1);
-        strcpy_s((char*)creds->username, strlen(t)+1, t);
-        SecureZeroMemory(t, strlen(t));
-        delete [] t;
+        creds->username = (char *)apr_pcalloc(pool, strlen(t.get())+1);
+        strcpy_s((char*)creds->username, strlen(t.get())+1, t.get());
+        SecureZeroMemory(t.get(), strlen(t.get()));
         t = cr.GetPassword();
         if (t==NULL)
             return SVN_NO_ERROR;
-        creds->password = (char *)apr_pcalloc(pool, strlen(t)+1);
-        strcpy_s((char*)creds->password, strlen(t)+1, t);
-        SecureZeroMemory(t, strlen(t));
-        delete [] t;
+        creds->password = (char *)apr_pcalloc(pool, strlen(t.get())+1);
+        strcpy_s((char*)creds->password, strlen(t.get())+1, t.get());
+        SecureZeroMemory(t.get(), strlen(t.get()));
         creds->may_save = false;
         *credentials = creds;
     }

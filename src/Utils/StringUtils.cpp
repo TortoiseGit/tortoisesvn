@@ -471,7 +471,7 @@ void CStringUtils::PipesToNulls(TCHAR* buffer)
     }
 }
 
-char * CStringUtils::Decrypt( const char * text )
+std::unique_ptr<char[]> CStringUtils::Decrypt(const char * text)
 {
     DWORD dwLen = 0;
     if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
@@ -490,15 +490,15 @@ char * CStringUtils::Decrypt( const char * text )
         return NULL;
     SecureZeroMemory(blobin.pbData, blobin.cbData);
 
-    char * result = new char[blobout.cbData+1];
-    strncpy_s(result, blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
+    std::unique_ptr<char[]> result(new char[blobout.cbData + 1]);
+    strncpy_s(result.get(), blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
     SecureZeroMemory(blobout.pbData, blobout.cbData);
     LocalFree(blobout.pbData);
     LocalFree(descr);
     return result;
 }
 
-wchar_t * CStringUtils::Decrypt( const wchar_t * text )
+std::unique_ptr<wchar_t[]> CStringUtils::Decrypt(const wchar_t * text)
 {
     DWORD dwLen = 0;
     if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
@@ -517,8 +517,8 @@ wchar_t * CStringUtils::Decrypt( const wchar_t * text )
         return NULL;
     SecureZeroMemory(blobin.pbData, blobin.cbData);
 
-    wchar_t * result = new wchar_t[(blobout.cbData)/sizeof(wchar_t)+1];
-    wcsncpy_s(result, (blobout.cbData)/sizeof(wchar_t)+1, (const wchar_t*)blobout.pbData, blobout.cbData/sizeof(wchar_t));
+    std::unique_ptr<wchar_t[]> result(new wchar_t[(blobout.cbData) / sizeof(wchar_t) + 1]);
+    wcsncpy_s(result.get(), (blobout.cbData)/sizeof(wchar_t)+1, (const wchar_t*)blobout.pbData, blobout.cbData/sizeof(wchar_t));
     SecureZeroMemory(blobout.pbData, blobout.cbData);
     LocalFree(blobout.pbData);
     LocalFree(descr);
@@ -610,13 +610,11 @@ public:
         splittedline = CStringUtils::LinesWrap(longline, 80);
         ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
         CString widecrypt = CStringUtils::Encrypt(L"test");
-        wchar_t * wide = CStringUtils::Decrypt(widecrypt);
-        ATLASSERT(wcscmp(wide, L"test") == 0);
-        delete[] wide;
+        auto wide = CStringUtils::Decrypt(widecrypt);
+        ATLASSERT(wcscmp(wide.get(), L"test") == 0);
         CStringA charcrypt = CStringUtils::Encrypt("test");
-        char * charnorm = CStringUtils::Decrypt(charcrypt);
-        ATLASSERT(strcmp(charnorm, "test") == 0);
-        delete [] charnorm;
+        auto charnorm = CStringUtils::Decrypt(charcrypt);
+        ATLASSERT(strcmp(charnorm.get(), "test") == 0);
     }
 } StringUtilsTest;
 
