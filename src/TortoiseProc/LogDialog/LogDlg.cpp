@@ -8016,7 +8016,8 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
                 head = GetHEADRevision(CTSVNPath(pItem->WCPathOrUrl), false);
 
             m_path = CTSVNPath(pItem->WCPathOrUrl);
-            m_pegrev = SVNRev::REV_HEAD;
+            m_pegrev = head;
+            m_head = head;
             m_startrev = head;
             m_bStartRevIsHead = false;
             m_LogRevision = head;
