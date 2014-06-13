@@ -98,6 +98,8 @@ public:
     svn_revnum_t            lastHEAD;
     int                     UnreadItems;
     bool                    authfailed;
+    CString                 username;
+    CString                 password;
 };
 
 

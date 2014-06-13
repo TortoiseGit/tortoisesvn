@@ -746,7 +746,7 @@ BOOL CLogDlg::OnInitDialog()
     ConfigureResizableControlAnchors();
     SetPromptParentWindow(m_hWnd);
     CenterThisWindow();
-    EnableSaveRestore(L"LogDlg");
+    EnableSaveRestore(m_bMonitoringMode ? L"MonitorLogDlg" : L"LogDlg");
     SetSplitterRange();
     RestoreLogDlgWindowAndSplitters();
     ConfigureDialogForPickingRevisionsOrShowingLog();
@@ -7563,6 +7563,8 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->lastchecked = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastchecked", L"0"));
             pMonitorItem->lastHEAD = _wtoi(m_monitoringFile.GetValue(mitem, L"lastHEAD", L"0"));
             pMonitorItem->UnreadItems = _wtoi(m_monitoringFile.GetValue(mitem, L"UnreadItems", L"0"));
+            pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
+            pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
             InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
         }
     }
@@ -7711,6 +7713,8 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
     {
         dlg.m_sName = pProject->Name;
         dlg.m_sPathOrURL = pProject->WCPathOrUrl;
+        dlg.m_sUsername = CStringUtils::Decrypt(pProject->username);
+        dlg.m_sPassword = CStringUtils::Decrypt(pProject->password);
     }
     if (dlg.DoModal() == IDOK)
     {
@@ -7721,6 +7725,12 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
             pEditProject = new MonitorItem();
         pEditProject->Name = dlg.m_sName;
         pEditProject->WCPathOrUrl = dlg.m_sPathOrURL;
+        pEditProject->username = CStringUtils::Encrypt(dlg.m_sUsername);
+        pEditProject->password = CStringUtils::Encrypt(dlg.m_sPassword);
+        pEditProject->username.Remove('\r');
+        pEditProject->password.Remove('\r');
+        pEditProject->username.Replace('\n', ' ');
+        pEditProject->password.Replace('\n', ' ');
 
         // insert the new item
         // if this was an edit, we don't have to do anything since
@@ -7763,6 +7773,8 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"UnreadItems", sTmp);
         sTmp.Format(L"%d", pItem->interval);
         m_monitoringFile.SetValue(sSection, L"interval", sTmp);
+        m_monitoringFile.SetValue(sSection, L"username", pItem->username);
+        m_monitoringFile.SetValue(sSection, L"password", pItem->password);
         return false;
     });
 }
@@ -7823,13 +7835,6 @@ void CLogDlg::MonitorPopupTimer()
 
         pPopup->Create(this, params);
 
-        //HICON hIcon = (HICON) ::LoadImage(AfxGetResourceHandle(),
-        //                                  MAKEINTRESOURCE(IDI_APP),
-        //                                  IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
-
-        //pPopup->SetIcon(hIcon, FALSE);
-        //pPopup->SetWindowText(_T("Message"));
-
         KillTimer(MONITOR_POPUP_TIMER);
         m_sMonitorNotificationTitle.Empty();
         m_sMonitorNotificationText.Empty();
@@ -7852,6 +7857,7 @@ void CLogDlg::MonitorThread()
         if (item.lastchecked + (item.interval * 60) < currenttime)
         {
             SuppressUI(true);
+            SetAuthInfo(CStringUtils::Decrypt(item.username), CStringUtils::Decrypt(item.password));
             svn_revnum_t head = GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
             if (head != item.lastHEAD)
             {
@@ -7859,7 +7865,6 @@ void CLogDlg::MonitorThread()
                 std::unique_ptr<const CCacheLogQuery> cachedData;
                 CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
                 cachedData = ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
-
                 // Err will also be set if the user cancelled.
 
                 if (Err && (Err->apr_err == SVN_ERR_CANCELLED))
@@ -7901,11 +7906,13 @@ void CLogDlg::MonitorThread()
             item.lastchecked = currenttime;
         }
         SuppressUI(false);
+        SetAuthInfo(L"", L"");
     }
 
     InterlockedExchange(&m_bMonitorThreadRunning, FALSE);
     PostMessage(WM_COMMAND, ID_LOGDLG_MONITOR_THREADFINISHED);
     RefreshCursor();
+    m_bCancelled = false;
 }
 
 bool CLogDlg::IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem)
@@ -8038,6 +8045,8 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             InterlockedExchange(&m_bLogThreadRunning, TRUE);
             new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
         }
+        ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_EDIT, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
+        ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
     }
 }
 

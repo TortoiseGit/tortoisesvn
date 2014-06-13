@@ -39,4 +39,6 @@ protected:
 public:
     CString m_sName;
     CString m_sPathOrURL;
+    CString m_sUsername;
+    CString m_sPassword;
 };

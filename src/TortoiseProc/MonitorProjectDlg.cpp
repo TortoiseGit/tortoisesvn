@@ -30,6 +30,8 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CMonitorProjectDlg::IDD, pParent)
     , m_sName(_T(""))
     , m_sPathOrURL(_T(""))
+    , m_sUsername(_T(""))
+    , m_sPassword(_T(""))
 {
 
 }
@@ -43,6 +45,8 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     CDialogEx::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_NAME, m_sName);
     DDX_Text(pDX, IDC_PATHORURL, m_sPathOrURL);
+    DDX_Text(pDX, IDC_USERNAME, m_sUsername);
+    DDX_Text(pDX, IDC_PASSWORD, m_sPassword);
 }
 
 
