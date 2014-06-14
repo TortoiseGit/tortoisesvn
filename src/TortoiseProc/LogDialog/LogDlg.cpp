@@ -3032,12 +3032,12 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                                                     m_sRepositoryRoot), &m_ProjectProperties);
                             if (logUtil.IsCached(rev))
                             {
-                                PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+                                auto pLogItem = logUtil.GetRevisionData(rev);
                                 if (pLogItem)
                                 {
                                     // insert the data
                                     m_logEntries.Sort(CLogDataVector::RevisionCol, false);
-                                    m_logEntries.AddSorted (pLogItem, &m_ProjectProperties);
+                                    m_logEntries.AddSorted (pLogItem.release(), &m_ProjectProperties);
 
                                     int selMark = m_LogList.GetSelectionMark();
                                     // now start filter the log list
@@ -7887,11 +7887,11 @@ void CLogDlg::MonitorThread()
                     {
                         if (logUtil.IsCached(rev))
                         {
-                            PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+                            auto pLogItem = logUtil.GetRevisionData(rev);
                             if (pLogItem)
                             {
                                 pLogItem->Finalize(cache, logPath);
-                                if (IsRevisionRelatedToUrl(logPath, pLogItem))
+                                if (IsRevisionRelatedToUrl(logPath, pLogItem.get()))
                                 {
                                     ++item.UnreadItems;
                                 }
@@ -8047,6 +8047,8 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
         }
         ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_EDIT, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
         ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
+        m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+        m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
     }
 }
 
@@ -8067,8 +8069,6 @@ void CLogDlg::OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             else
                 wcscpy_s(textbuf, pItem->Name);
             pTVDispInfo->item.pszText = textbuf;
-            m_projTree.SetItemState(pTVDispInfo->item.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-            m_projTree.SetItemState(pTVDispInfo->item.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         }
     }
 }

@@ -76,7 +76,7 @@ public:
     /// The bCopiedSelf, bChecked and hasChildren members will always be
     /// @a FALSE; childStackDepth will be 0.
 
-    PLOGENTRYDATA GetRevisionData (svn_revnum_t revision);
+    std::unique_ptr<LOGENTRYDATA> GetRevisionData(svn_revnum_t revision);
 };
 
 /**

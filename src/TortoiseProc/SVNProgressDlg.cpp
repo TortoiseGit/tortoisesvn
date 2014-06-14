@@ -4117,11 +4117,11 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
             {
                 if (logUtil.IsCached(rev))
                 {
-                    PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+                    auto pLogItem = logUtil.GetRevisionData(rev);
                     if (pLogItem)
                     {
                         pLogItem->Finalize(cache, logPath);
-                        if (IsRevisionRelatedToMerge(logPath, pLogItem))
+                        if (IsRevisionRelatedToMerge(logPath, pLogItem.get()))
                         {
                             CString sFormattedMsg = sFormatMsg;
                             CString sMsg = CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
