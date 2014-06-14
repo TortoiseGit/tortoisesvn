@@ -7790,6 +7790,7 @@ void CLogDlg::MonitorTimer()
     __time64_t currenttime = NULL;
     _time64(&currenttime);
 
+    CAutoWriteLock locker(m_monitorguard);
     m_monitorItemListForThread.clear();
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
@@ -7848,6 +7849,8 @@ void CLogDlg::MonitorThread()
     __time64_t currenttime = NULL;
     _time64(&currenttime);
 
+    CAutoReadLock locker(m_monitorguard);
+    SVN svn(true);
     for (auto& item : m_monitorItemListForThread)
     {
         if (m_bCancelled)
@@ -7856,27 +7859,20 @@ void CLogDlg::MonitorThread()
             continue;
         if (item.lastchecked + (item.interval * 60) < currenttime)
         {
-            SuppressUI(true);
-            SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
-            svn_revnum_t head = GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
+            svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
+            svn_revnum_t head = svn.GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
             if (head != item.lastHEAD)
             {
                 // new head revision: fetch the log
                 std::unique_ptr<const CCacheLogQuery> cachedData;
                 CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
-                cachedData = ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
+                cachedData = svn.ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
                 // Err will also be set if the user cancelled.
 
-                if (Err && (Err->apr_err == SVN_ERR_CANCELLED))
+                if ((svn.GetSVNError() == nullptr) && (item.lastHEAD >= 0))
                 {
-                    m_bCancelled = true;
-                    svn_error_clear(Err);
-                    Err = NULL;
-                }
-                if ((Err == nullptr) && (item.lastHEAD >= 0))
-                {
-                    CString sRoot = GetRepositoryRoot(WCPathOrUrl);
-                    CString sUrl = GetURLFromPath(WCPathOrUrl);
+                    CString sRoot = svn.GetRepositoryRoot(WCPathOrUrl);
+                    CString sUrl = svn.GetURLFromPath(WCPathOrUrl);
                     CString relUrl = sUrl.Mid(sRoot.GetLength());
                     CCachedLogInfo* cache = cachedData->GetCache();
                     const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
@@ -7905,8 +7901,7 @@ void CLogDlg::MonitorThread()
             }
             item.lastchecked = currenttime;
         }
-        SuppressUI(false);
-        SetAuthInfo(L"", L"");
+        svn.SetAuthInfo(L"", L"");
     }
 
     InterlockedExchange(&m_bMonitorThreadRunning, FALSE);
@@ -7930,38 +7925,47 @@ void CLogDlg::OnMonitorThreadFinished()
 {
     CString sTemp;
     int changedprojects = 0;
-    for (auto& item : m_monitorItemListForThread)
     {
-        HTREEITEM hItem = FindMonitorItem(item.WCPathOrUrl);
-        if (hItem)
+        CAutoReadLock locker(m_monitorguard);
+        for (const auto& item : m_monitorItemListForThread)
         {
-            MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
-            if ((pItem->UnreadItems != item.UnreadItems) && (pItem->lastHEAD != item.lastHEAD))
+            HTREEITEM hItem = FindMonitorItem(item.WCPathOrUrl);
+            if (hItem)
             {
-                if (item.UnreadItems)
+                MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+                if ((pItem->UnreadItems != item.UnreadItems) && (pItem->lastHEAD != item.lastHEAD))
                 {
-                    if (changedprojects)
+                    if (item.UnreadItems)
                     {
-                        m_sMonitorNotificationTitle.Format(IDS_MONITOR_NOTIFY_MULTITITLE, changedprojects + 1);
-                        m_sMonitorNotificationText += L"\n";
-                        sTemp.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
-                        m_sMonitorNotificationText += sTemp;
+                        if (changedprojects)
+                        {
+                            m_sMonitorNotificationTitle.Format(IDS_MONITOR_NOTIFY_MULTITITLE, changedprojects + 1);
+                            m_sMonitorNotificationText += L"\n";
+                            sTemp.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                            m_sMonitorNotificationText += sTemp;
+                        }
+                        else
+                        {
+                            m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
+                            m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
+                        }
                     }
-                    else
-                    {
-                        m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
-                        m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
-                    }
+                    ++changedprojects;
                 }
-                ++changedprojects;
+                pItem->lastchecked = item.lastchecked;
+                pItem->lastHEAD = item.lastHEAD;
+                pItem->UnreadItems = item.UnreadItems;
+                pItem->authfailed = item.authfailed;
+
+                m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+                m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
             }
-            pItem->lastchecked = item.lastchecked;
-            pItem->lastHEAD = item.lastHEAD;
-            pItem->UnreadItems = item.UnreadItems;
-            pItem->authfailed = item.authfailed;
         }
     }
-    m_monitorItemListForThread.clear();
+    {
+        CAutoWriteLock locker(m_monitorguard);
+        m_monitorItemListForThread.clear();
+    }
     m_projTree.Invalidate();
 
     if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())

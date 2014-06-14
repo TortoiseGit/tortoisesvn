@@ -37,6 +37,7 @@
 #include "ListViewAccServer.h"
 #include "SimpleIni.h"
 #include "DragDropTreeCtrl.h"
+#include "ReaderWriterLock.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
 #include "dte80a.tlh"
@@ -522,6 +523,7 @@ private:
     int                 m_nErrorOvl;
     CString             m_sMonitorNotificationTitle;
     CString             m_sMonitorNotificationText;
+    CReaderWriterLock   m_monitorguard;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
