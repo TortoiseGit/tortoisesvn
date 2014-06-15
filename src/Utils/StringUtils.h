@@ -118,10 +118,12 @@ public:
     static void PipesToNulls(TCHAR* buffer);
 
 
+#if defined(_MFC_VER)
     static std::unique_ptr<char[]>      Decrypt(const char * text);
     static CStringA                     Encrypt(const char * text);
     static std::unique_ptr<wchar_t[]>   Decrypt(const wchar_t * text);
     static CStringW                     Encrypt(const wchar_t * text);
+#endif
 
 };
 

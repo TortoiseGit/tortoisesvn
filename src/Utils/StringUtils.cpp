@@ -471,6 +471,7 @@ void CStringUtils::PipesToNulls(TCHAR* buffer)
     }
 }
 
+#if defined(_MFC_VER)
 std::unique_ptr<char[]> CStringUtils::Decrypt(const char * text)
 {
     DWORD dwLen = 0;
@@ -570,6 +571,7 @@ CStringW CStringUtils::Encrypt( const wchar_t * text )
 
     return result;
 }
+#endif // #if defined(_MFC_VER)
 
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
