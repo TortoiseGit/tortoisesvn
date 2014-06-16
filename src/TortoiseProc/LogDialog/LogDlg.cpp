@@ -68,7 +68,8 @@
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
-#define WM_TSVN_REFRESH_SELECTION   (WM_APP + 1)
+#define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
+#define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
 
 #define OVERLAY_MODIFIED        1
 
@@ -196,6 +197,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_nMonitorUrlIcon(0)
     , m_nMonitorWCIcon(0)
     , m_nErrorOvl(0)
+    , m_hMonitorIconNormal(NULL)
+    , m_hMonitorIconNewCommits(NULL)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -231,7 +234,12 @@ CLogDlg::~CLogDlg()
     DestroyIcon(m_hReverseMergedIcon);
     DestroyIcon(m_hMovedIcon);
     DestroyIcon(m_hMoveReplacedIcon);
-    if ( m_pStoreSelection )
+    if (m_bMonitoringMode)
+    {
+        DestroyIcon(m_hMonitorIconNormal);
+        DestroyIcon(m_hMonitorIconNewCommits);
+    }
+    if (m_pStoreSelection)
     {
         m_pStoreSelection->ClearSelection();
         delete m_pStoreSelection;
@@ -268,6 +276,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
     ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
+    ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -1290,6 +1299,11 @@ void CLogDlg::OnLogCancel()
 
 void CLogDlg::OnCancel()
 {
+    if (m_bMonitoringMode)
+    {
+        ShowWindow(SW_HIDE);
+        return;
+    }
     bool bWasCancelled = m_bCancelled;
     // canceling means stopping the working thread if it's still running.
     // we do this by using the Subversion cancel callback.
@@ -1360,7 +1374,10 @@ void CLogDlg::OnClose()
         if (threadsStillRunning)
             return;
     }
-    __super::OnClose();
+    if (m_bMonitoringMode)
+        ShowWindow(SW_HIDE);
+    else
+        __super::OnClose();
 }
 
 void CLogDlg::OnDestroy()
@@ -2167,6 +2184,11 @@ void CLogDlg::UpdateSelectedRevs()
 
 void CLogDlg::OnOK()
 {
+    if (m_bMonitoringMode)
+    {
+        ShowWindow(SW_HIDE);
+        return;
+    }
     // since the log dialog is also used to select revisions for other
     // dialogs, we have to do some work before closing this dialog
     if ((GetKeyState(VK_MENU)&0x8000) == 0)
@@ -7528,6 +7550,22 @@ void CLogDlg::InitMonitoringMode()
     m_limit = (int)(DWORD)reg;
 
     SetTimer(MONITOR_TIMER, 200, NULL);
+
+
+    // Set up the tray icon
+    m_hMonitorIconNormal = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORNORMAL));
+    m_hMonitorIconNewCommits = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORCOMMITS));
+
+    m_SystemTray.cbSize = sizeof(NOTIFYICONDATA);
+    m_SystemTray.hWnd = GetSafeHwnd();
+    m_SystemTray.hIcon = m_hMonitorIconNormal;
+    m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
+    m_SystemTray.uCallbackMessage = WM_TSVN_MONITOR_TASKBARCALLBACK;
+    if (Shell_NotifyIcon(NIM_ADD, &m_SystemTray) == FALSE)
+    {
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+    }
 }
 
 void CLogDlg::InitMonitorProjTree()
@@ -7552,6 +7590,7 @@ void CLogDlg::RefreshMonitorProjTree()
         return false;
     });
     m_projTree.DeleteAllItems();
+    int itemcount = 0;
     for (const auto& mitem : mitems)
     {
         CString Name = m_monitoringFile.GetValue(mitem, L"Name", L"");
@@ -7566,8 +7605,13 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
             pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
             InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
+            ++itemcount;
         }
     }
+    if (itemcount == 0)
+        m_projTree.ShowText(CString(MAKEINTRESOURCE(IDS_MONITOR_ADDHINT)), true);
+    else
+        m_projTree.ClearText();
     m_projTree.SetRedraw(TRUE);
 }
 
@@ -7925,6 +7969,7 @@ void CLogDlg::OnMonitorThreadFinished()
 {
     CString sTemp;
     int changedprojects = 0;
+    bool hasUnreadItems = false;
     {
         CAutoReadLock locker(m_monitorguard);
         for (const auto& item : m_monitorItemListForThread)
@@ -7949,6 +7994,7 @@ void CLogDlg::OnMonitorThreadFinished()
                             m_sMonitorNotificationTitle.LoadString(IDS_MONITOR_NOTIFY_TITLE);
                             m_sMonitorNotificationText.Format(IDS_MONITOR_NOTIFY_TEXT, (LPCWSTR)item.Name, item.UnreadItems - pItem->UnreadItems);
                         }
+                        hasUnreadItems = true;
                     }
                     ++changedprojects;
                 }
@@ -7966,6 +8012,14 @@ void CLogDlg::OnMonitorThreadFinished()
         CAutoWriteLock locker(m_monitorguard);
         m_monitorItemListForThread.clear();
     }
+    m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
+    m_SystemTray.uFlags = NIF_ICON;
+    if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+    {
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+    }
+
     m_projTree.Invalidate();
 
     if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())
@@ -8048,11 +8102,31 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
 
             InterlockedExchange(&m_bLogThreadRunning, TRUE);
             new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
+
+            m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+            m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         }
         ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_EDIT, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
         ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
-        m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-        m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+
+        bool hasUnreadItems = false;
+        RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+        {
+            MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+            if (pItem && pItem->UnreadItems)
+            {
+                hasUnreadItems = true;
+                return true;
+            }
+            return false;
+        });
+        m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
+        m_SystemTray.uFlags = NIF_ICON;
+        if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+        {
+            Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+            Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+        }
     }
 }
 
@@ -8075,4 +8149,92 @@ void CLogDlg::OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult)
             pTVDispInfo->item.pszText = textbuf;
         }
     }
+}
+
+LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
+{
+    switch (lParam)
+    {
+        case WM_MOUSEMOVE:
+        {
+            // find the number of unread items
+            int unreadItems = 0;
+            int unreadProjects = 0;
+            RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+            {
+                MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+                if (pItem && pItem->UnreadItems)
+                {
+                    ++unreadProjects;
+                    unreadItems += pItem->UnreadItems;
+                }
+                return false;
+            });
+
+
+            // update the tool tip data
+            m_SystemTray.uFlags = NIF_TIP;
+            if (unreadItems)
+            {
+                CString sFormat(MAKEINTRESOURCE(unreadItems == 1 ? IDS_MONITOR_NEWCOMMIT : IDS_MONITOR_NEWCOMMITS));
+                swprintf_s(m_SystemTray.szTip, _countof(m_SystemTray.szTip), (LPCWSTR)sFormat, unreadItems, unreadProjects);
+            }
+            else
+                swprintf_s(m_SystemTray.szTip, _countof(m_SystemTray.szTip), L"TortoiseSVN Commit Monitor");
+            if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+            {
+                Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+                Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+            }
+        }
+            break;
+        case WM_LBUTTONDBLCLK:
+            ShowWindow(SW_SHOW);
+            m_SystemTray.hIcon = m_hMonitorIconNormal;
+            m_SystemTray.uFlags = NIF_ICON;
+            if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+            {
+                Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+                Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+            }
+            return TRUE;
+        case NIN_KEYSELECT:
+        case NIN_SELECT:
+        case WM_RBUTTONUP:
+        case WM_CONTEXTMENU:
+        {
+            POINT pt;
+            GetCursorPos(&pt);
+
+            HMENU hMenu = ::LoadMenu(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MONITORTRAY));
+            hMenu = ::GetSubMenu(hMenu, 0);
+
+            // set the default entry
+            MENUITEMINFO iinfo = { 0 };
+            iinfo.cbSize = sizeof(MENUITEMINFO);
+            iinfo.fMask = MIIM_STATE;
+            GetMenuItemInfo(hMenu, 0, MF_BYPOSITION, &iinfo);
+            iinfo.fState |= MFS_DEFAULT;
+            SetMenuItemInfo(hMenu, 0, MF_BYPOSITION, &iinfo);
+
+            // show the menu
+            ::SetForegroundWindow(*this);
+            int cmd = ::TrackPopupMenu(hMenu, TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, NULL, *this, NULL);
+            ::PostMessage(*this, WM_NULL, 0, 0);
+            ::DestroyMenu(hMenu);
+            switch (cmd)
+            {
+                case ID_POPUP_EXIT:
+                    m_bCancelled = true;
+                    EndDialog(0);
+                    break;
+                case ID_POPUP_SHOWMONITOR:
+                    ShowWindow(SW_SHOW);
+                    break;
+            }
+        }
+            break;
+    }
+    return TRUE;
+
 }

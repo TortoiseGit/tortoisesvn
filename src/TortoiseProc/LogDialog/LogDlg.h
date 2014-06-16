@@ -206,6 +206,7 @@ protected:
     afx_msg void OnMonitorThreadFinished();
     afx_msg void OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg LRESULT OnTaskbarCallBack(WPARAM wParam, LPARAM lParam);
 
     virtual void OnCancel();
     virtual void OnOK();
@@ -514,7 +515,7 @@ private:
     HIMAGELIST          m_hToolbarImages;
     CRect               m_ProjTreeOrigRect;
     CSplitterControl    m_wndSplitterLeft;
-    CDragDropTreeCtrl   m_projTree;
+    CHintCtrl<CDragDropTreeCtrl> m_projTree;
     CSimpleIni          m_monitoringFile;
     volatile LONG       m_bMonitorThreadRunning;
     std::vector<MonitorItem>    m_monitorItemListForThread;
@@ -524,6 +525,10 @@ private:
     CString             m_sMonitorNotificationTitle;
     CString             m_sMonitorNotificationText;
     CReaderWriterLock   m_monitorguard;
+    NOTIFYICONDATA      m_SystemTray;
+    HICON               m_hMonitorIconNormal;
+    HICON               m_hMonitorIconNewCommits;
+
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
