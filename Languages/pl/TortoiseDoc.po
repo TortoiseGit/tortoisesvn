@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-08 15:00+0000\n"
+"PO-Revision-Date: 2014-06-15 23:10+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -4932,7 +4932,7 @@ msgid ""
 "Note that if you use changelists, externals will no longer show up in their "
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
-msgstr ""
+msgstr "Należy zauważyć, że jeśli używa się listy zmian, zewnętrzne nie będą już więcej pokazywane w swojej grupie. Gdy są tam listy zmian, pliki i foldery są grupowane przez listy zmian a nie przez zewnętrzne."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -9639,7 +9639,7 @@ msgid ""
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr ""
+msgstr "Okno dialogowe postępu scalenia pokazuje każdy etap scalania z zakresem zaangażowanych wersji. Może to oznaczać jedną wersję więcej, niż się spodziewaliśmy. Na przykład, jeśli zażądano scalenia wersji 123, okno dialogowe postępu zaraportuje <quote> Scalenie wersji 122 do 123 </quote>. Aby to zrozumieć trzeba pamiętać, że Scal jest ściśle związana z Porównaj. Proces scalania działa, generując listę różnic między dwoma punktami w repozytorium i stosując te różnice do kopii roboczej. Dialog postępu po prostu pokazuje początkowy i końcowy punkt różnicy."
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -13328,7 +13328,7 @@ msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr ""
+msgstr "Często wygodne jest użycie dysku <literal>SUBST</literal> dla dostępu do kopii roboczej, np. za pomocą polecenia <screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen> Jednak może to spowodować brak aktualizacji nakładek, gdyż <literal>TSVNCache</literal> otrzymuje tylko jedno powiadomienie zmiany w pliku, a jest ono zazwyczaj wykonywane dla oryginalnej ścieżki. Oznacza to, że nakładki na ścieżce <literal>subst</literal> mogą nie być nigdy uaktualnione."
 
 #. (para)
 msgid ""
@@ -13608,7 +13608,7 @@ msgid ""
 "      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "      </screen>"
-msgstr ""
+msgstr "Przykład, dla ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname --right_display_name:%yname\n</screen> lub dla KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> lub dla WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> lub dla Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname %base %mine\n</screen> lub dla UltraCompare: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n</screen> lub dla DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
 
 #. (para)
 msgid ""
@@ -14428,7 +14428,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "    </screen>"
-msgstr ""
+msgstr "Podczas debugujących skryptów przechwytujących w których chcecie wypisać linie postępu w konsoli DOS, lub wstawić wstrzymanie by wstrzymać zamknięcie okna konsoli gdy skrypt się zakończy. Ponieważ WE/WY jest przekierowane nie będzie to sdziałać poprawnie. Można jednakt przekierować wejście i wyjście na CON by to naprawić, np. <screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n    </screen>"
 
 #. (para)
 msgid ""
@@ -14639,7 +14639,7 @@ msgid ""
 "XP. Vista and later doesn't support that feature any more. However some "
 "third-party explorer replacements do support those even on Windows versions "
 "later than XP."
-msgstr ""
+msgstr "Dodatkowe kolumny dodawane przez TortoiseSVN do widoku Szczegóły w eksploratorze Windows są zazwyczaj aktywne tylko w kopii roboczej. Jeśli chcecie, by były dostępne wszędzie, nie tylko w kopii roboczej, ustawcie tę wartość na <literal>true</literal>. Należy pamiętać, że dodatkowe kolumny są dostępne tylko w XP. Vista i nowsze nie obsługują już tej funkcji. Jednak niektóre programy firm trzecich zastępujące eksplorator nie obsługują tego nawet w wersjach Windows późniejszych niż XP. "
 
 #. (para)
 msgid ""
@@ -15503,7 +15503,7 @@ msgid ""
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev nie obsługuje bezpośrednio zagnieżdżania wyrażeń, więc nie można na przykład używać wyrażeń takich jak: <screen>\n#define SVN_REVISION \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n</screen> Ale zazwyczaj można to obejść w inny sposób, na przykład: <screen>\n#define SVN_RANGE $WCRANGE$\n#define SVN_REV $WCREV$\n#define SVN_REVISION \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -16794,7 +16794,7 @@ msgid ""
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
 "        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
-msgstr ""
+msgstr "Jeśli używacie tego samego wspólnego jądra kodu w kilku projektach, a nie chcecie przechowywać wielu kopii roboczych to dla każdego projektu, który go używa, wystarczy je pobrać w innym miejscu, które jest powiązane z wszystkimi innymi projektami, które z niego korzystają. Na przykład: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> i odnosić się do wspólnego kodu przy użyciu ścieżki względnej, np. <filename>..\\..\\Common\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -17029,7 +17029,7 @@ msgid ""
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
 "      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr ""
+msgstr "Wersja 1.4.0 TortoiseSVN i późniejsze pozwalają przekierować sprawdzenie nowych wersji na serwer intranetowy. Można ustawić klucz rejestru <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (wartość ciągu znaków) na adres URL wskazujący plik tekstowy w intranecie. Ten plik tekstowy musi mieć następujący format: <screen>\n1.9.1.6000\nNowa wersja TortoiseSVN jest dostępna do pobrania!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n</screen> Pierwsza linia to zapis numeru wersji. Trzeba upewnić się, że jest ona zgodna z właściwym numerem wersji pakietu instalacyjnego TortoiseSVN. Następna linia to niestandardowy tekst, wyświetlany w oknie zatwierdzenia. Można wpisać, co się chce. Należy jednak pamiętać, że przestrzeń w oknie zatwierdzenia jest ograniczona. Zbyt długi komunikat zostanie obcięty! Trzecia linia to adres URL nowego pakietu instalacyjnego. Ten URL jest otwierany gdy użytkownik kliknie na etykiecie niestandardowej wiadomości w oknie zatwierdzenia. Można również przekierować użytkownika na stronę w sieci zamiast bezpośrednio do pliku MSI. Adres URL jest otwierany w domyślnej przeglądarce, zatem wskazanie strony internetowej skutkuje otwarciem jej i pokazaniem użytkownikowi. Jeśli zostanie wskazany pakiet MSI , przeglądarka poprosi użytkownika o zapisanie lokalnie pliku MSI."
 
 #. (title)
 msgid ""
