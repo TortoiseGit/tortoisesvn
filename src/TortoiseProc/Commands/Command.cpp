@@ -201,7 +201,7 @@ static const struct CommandInfo
 Command * CommandServer::GetCommand(const CString& sCmd)
 {
     // Look up the command
-    TSVNCommand command = cmdAbout;     // Something harmless as a default
+    TSVNCommand command = cmdMonitor;   // Start the commit monitor if TortoiseProc is started without a command parameter
     for (int nCommand = 0; nCommand < _countof(commandInfo); nCommand++)
     {
         if (sCmd.Compare(commandInfo[nCommand].pCommandName) == 0)

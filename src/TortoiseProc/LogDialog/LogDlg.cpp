@@ -70,8 +70,26 @@ const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
 #define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
+#define WM_TSVN_MONITOR_NOTIFY_CLICK    (WM_APP + 3)
 
 #define OVERLAY_MODIFIED        1
+
+class MonitorAlertWnd : public CMFCDesktopAlertWnd
+{
+public:
+    MonitorAlertWnd(HWND hParent) : CMFCDesktopAlertWnd(), m_hParent(hParent) {}
+    ~MonitorAlertWnd() {}
+
+    virtual BOOL OnClickLinkButton(UINT uiCmdID)
+    {
+        ::SendMessage(m_hParent, WM_TSVN_MONITOR_NOTIFY_CLICK, uiCmdID, 0);
+        return TRUE;
+    }
+private:
+    HWND m_hParent;
+};
+
+
 
 enum LogDlgContextMenuCommands
 {
@@ -277,6 +295,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
     ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
+    ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -327,6 +346,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_MONITOR_THREADFINISHED, &CLogDlg::OnMonitorThreadFinished)
     ON_NOTIFY(TVN_SELCHANGED, IDC_PROJTREE, &CLogDlg::OnTvnSelchangedProjtree)
     ON_NOTIFY(TVN_GETDISPINFO, IDC_PROJTREE, &CLogDlg::OnTvnGetdispinfoProjtree)
+    ON_NOTIFY(NM_CLICK, IDC_PROJTREE, &CLogDlg::OnNMClickProjtree)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -2887,9 +2907,16 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
                 return TRUE;
             }
         }
-        if (GetFocus()==GetDlgItem(IDC_LOGMSG))
+        if (GetFocus() == GetDlgItem(IDC_LOGMSG))
         {
             DiffSelectedFile(false);
+            return TRUE;
+        }
+        if (GetFocus() == GetDlgItem(IDC_PROJTREE))
+        {
+            HTREEITEM hItem = m_projTree.GetSelectedItem();
+            if (hItem)
+                MonitorShowProject(hItem);
             return TRUE;
         }
     }
@@ -7861,10 +7888,10 @@ void CLogDlg::MonitorPopupTimer()
     }
     else
     {
-        CMFCDesktopAlertWnd * pPopup = new CMFCDesktopAlertWnd;
+        MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
 
         pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::SLIDE);
-        pPopup->SetAnimationSpeed(30);
+        pPopup->SetAnimationSpeed(40);
         pPopup->SetTransparency(200);
         pPopup->SetSmallCaption(TRUE);
         pPopup->SetAutoCloseTime(5000);
@@ -7875,8 +7902,8 @@ void CLogDlg::MonitorPopupTimer()
         params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
                                           IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
         params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
-        //params.m_strURL = m_strLink;
-        //params.m_nURLCmdID = 101;
+        params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
+        params.m_nURLCmdID = 101;
 
         pPopup->Create(this, params);
 
@@ -8056,78 +8083,8 @@ void CLogDlg::OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     *pResult = 0;
-    if (pNMTreeView->itemNew.hItem)
-    {
-        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(pNMTreeView->itemNew.hItem);
-        if (pItem)
-        {
-            m_ChangedFileListCtrl.SetItemCountEx(0);
-            m_ChangedFileListCtrl.Invalidate();
-            m_LogList.SetItemCountEx(0);
-            m_LogList.Invalidate();
-            CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
-            pMsgView->SetWindowText(L"");
-
-            SetSortArrow(&m_LogList, -1, true);
-            m_logEntries.ClearAll();
-
-            GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-            if (pItem->WCPathOrUrl.IsEmpty())
-                return;
-            DialogEnableWindow(IDC_PROJTREE, FALSE);
-
-            svn_revnum_t head = pItem->lastHEAD;
-            if (head == 0)
-                head = GetHEADRevision(CTSVNPath(pItem->WCPathOrUrl), false);
-
-            m_path = CTSVNPath(pItem->WCPathOrUrl);
-            m_pegrev = head;
-            m_head = head;
-            m_startrev = head;
-            m_bStartRevIsHead = false;
-            m_LogRevision = head;
-            m_endrev = max(0, head - m_limit + 1);
-            m_hasWC = m_path.IsUrl();
-            m_bStrict = false;
-            m_bSaveStrict = false;
-            if (!m_path.IsUrl())
-                m_ProjectProperties.ReadProps(m_path);
-            else
-                m_ProjectProperties = ProjectProperties();
-            m_wcRev = SVNRev();
-            if (::IsWindow(m_hWnd))
-                UpdateData(FALSE);
-
-            pItem->UnreadItems = 0;
-
-            InterlockedExchange(&m_bLogThreadRunning, TRUE);
-            new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
-
-            m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-            m_projTree.SetItemState(pNMTreeView->itemNew.hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
-        }
-        ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_EDIT, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
-        ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
-
-        bool hasUnreadItems = false;
-        RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
-        {
-            MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
-            if (pItem && pItem->UnreadItems)
-            {
-                hasUnreadItems = true;
-                return true;
-            }
-            return false;
-        });
-        m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
-        m_SystemTray.uFlags = NIF_ICON;
-        if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
-        {
-            Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
-            Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
-        }
-    }
+    ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_EDIT, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
+    ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(!!(pNMTreeView->itemNew.state & TVIS_SELECTED), 0));
 }
 
 
@@ -8225,8 +8182,19 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             switch (cmd)
             {
                 case ID_POPUP_EXIT:
+                {
                     m_bCancelled = true;
+                    bool threadsStillRunning
+                        = !netScheduler.WaitForEmptyQueueOrTimeout(8000)
+                        || !diskScheduler.WaitForEmptyQueueOrTimeout(8000);
+
+                    if (threadsStillRunning)
+                    {
+                        // end the process the hard way
+                        TerminateProcess(GetCurrentProcess(), 0);
+                    }
                     EndDialog(0);
+                }
                     break;
                 case ID_POPUP_SHOWMONITOR:
                     ShowWindow(SW_SHOW);
@@ -8237,4 +8205,96 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
     }
     return TRUE;
 
+}
+
+void CLogDlg::OnNMClickProjtree(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+    CPoint pt;
+    GetCursorPos(&pt);
+    m_projTree.ScreenToClient(&pt);
+
+    UINT unFlags = 0;
+    HTREEITEM hItem = m_projTree.HitTest(pt, &unFlags);
+    if ((unFlags & TVHT_ONITEM) && (hItem != NULL))
+    {
+        return MonitorShowProject(hItem);
+    }
+    *pResult = 0;
+}
+
+void CLogDlg::MonitorShowProject(HTREEITEM hItem)
+{
+    MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+    if (pItem)
+    {
+        m_ChangedFileListCtrl.SetItemCountEx(0);
+        m_ChangedFileListCtrl.Invalidate();
+        m_LogList.SetItemCountEx(0);
+        m_LogList.Invalidate();
+        CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+        pMsgView->SetWindowText(L"");
+
+        SetSortArrow(&m_LogList, -1, true);
+        m_logEntries.ClearAll();
+
+        GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+        if (pItem->WCPathOrUrl.IsEmpty())
+            return;
+        DialogEnableWindow(IDC_PROJTREE, FALSE);
+
+        svn_revnum_t head = pItem->lastHEAD;
+        if (head == 0)
+            head = GetHEADRevision(CTSVNPath(pItem->WCPathOrUrl), false);
+
+        m_path = CTSVNPath(pItem->WCPathOrUrl);
+        m_pegrev = head;
+        m_head = head;
+        m_startrev = head;
+        m_bStartRevIsHead = false;
+        m_LogRevision = head;
+        m_endrev = max(0, head - m_limit + 1);
+        m_hasWC = m_path.IsUrl();
+        m_bStrict = false;
+        m_bSaveStrict = false;
+        if (!m_path.IsUrl())
+            m_ProjectProperties.ReadProps(m_path);
+        else
+            m_ProjectProperties = ProjectProperties();
+        m_wcRev = SVNRev();
+        if (::IsWindow(m_hWnd))
+            UpdateData(FALSE);
+
+        pItem->UnreadItems = 0;
+
+        InterlockedExchange(&m_bLogThreadRunning, TRUE);
+        new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
+
+        m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+        m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+    }
+
+    bool hasUnreadItems = false;
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        if (pItem && pItem->UnreadItems)
+        {
+            hasUnreadItems = true;
+            return true;
+        }
+        return false;
+    });
+    m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
+    m_SystemTray.uFlags = NIF_ICON;
+    if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+    {
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+    }
+}
+
+LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    ShowWindow(SW_SHOW);
+    return 0;
 }

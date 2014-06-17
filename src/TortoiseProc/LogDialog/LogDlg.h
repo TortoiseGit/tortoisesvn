@@ -103,7 +103,6 @@ public:
     CString                 password;
 };
 
-
 typedef std::function<bool(HTREEITEM)> MonitorItemHandler;
 
 // fwd declaration
@@ -207,6 +206,8 @@ protected:
     afx_msg void OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg LRESULT OnTaskbarCallBack(WPARAM wParam, LPARAM lParam);
+    afx_msg void OnNMClickProjtree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg LRESULT OnMonitorNotifyClick(WPARAM wParam, LPARAM lParam);
 
     virtual void OnCancel();
     virtual void OnOK();
@@ -395,6 +396,7 @@ private:
     void ShutDownMonitoring();
     CString GetTreePath(HTREEITEM hItem);
     bool IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
+    void MonitorShowProject(HTREEITEM hItem);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -528,7 +530,6 @@ private:
     NOTIFYICONDATA      m_SystemTray;
     HICON               m_hMonitorIconNormal;
     HICON               m_hMonitorIconNewCommits;
-
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
