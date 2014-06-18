@@ -7653,7 +7653,8 @@ HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& 
     tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_EXPANDEDIMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.pszText = LPSTR_TEXTCALLBACK;
     tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 1 : 0;
-    tvinsert.itemex.state = TVIS_EXPANDED;
+    tvinsert.itemex.state = TVIS_EXPANDED | (pMonitorItem->UnreadItems ? TVIS_BOLD : 0);
+    tvinsert.itemex.stateMask = TVIS_EXPANDED | TVIS_BOLD;
     tvinsert.itemex.lParam = (LPARAM)pMonitorItem;
     tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
     tvinsert.itemex.iExpandedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
@@ -7770,7 +7771,43 @@ void CLogDlg::OnMonitorEditProject()
 
 void CLogDlg::OnMonitorRemoveProject()
 {
-
+    HTREEITEM hSelItem = m_projTree.GetSelectedItem();
+    if (hSelItem)
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hSelItem);
+        if (pItem)
+        {
+            CString sTask1;
+            sTask1.Format(IDS_MONITOR_DELETE_TASK2, (LPCTSTR)pItem->Name);
+            CTaskDialog taskdlg(sTask1,
+                                CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK1)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
+                                TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(m_hWnd) != 1)
+                return;
+            HTREEITEM hChild = m_projTree.GetChildItem(hSelItem);
+            if (hChild)
+            {
+                RecurseMonitorTree(hChild, [&](HTREEITEM hItem)->bool
+                {
+                    MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+                    delete pItem;
+                    return false;
+                });
+            }
+            delete pItem;
+            m_projTree.DeleteItem(hSelItem);
+            SaveMonitorProjects();
+            RefreshMonitorProjTree();
+        }
+    }
 }
 
 void CLogDlg::OnMonitorOptions()
@@ -8148,6 +8185,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             break;
         case WM_LBUTTONDBLCLK:
             ShowWindow(SW_SHOW);
+            SetForegroundWindow();
             m_SystemTray.hIcon = m_hMonitorIconNormal;
             m_SystemTray.uFlags = NIF_ICON;
             if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
@@ -8199,6 +8237,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                     break;
                 case ID_POPUP_SHOWMONITOR:
                     ShowWindow(SW_SHOW);
+                    SetForegroundWindow();
                     break;
             }
         }
@@ -8297,5 +8336,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
 LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     ShowWindow(SW_SHOW);
+    SetForegroundWindow();
     return 0;
 }
