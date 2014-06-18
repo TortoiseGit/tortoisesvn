@@ -3142,12 +3142,13 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         if (pMsgView)
         {
             RECT rc;
-            LRESULT lRes = pMsgView->SendMessage(EM_POSFROMCHAR, pEnLink->chrg.cpMin, 0);
-            rc.left = LOWORD(lRes);
-            rc.top = HIWORD(lRes);
-            lRes = pMsgView->SendMessage(EM_POSFROMCHAR, pEnLink->chrg.cpMax, 0);
-            rc.right = LOWORD(lRes);
-            rc.bottom = HIWORD(lRes)+12;
+            POINTL pt;
+            pMsgView->SendMessage(EM_POSFROMCHAR, (WPARAM)&pt, pEnLink->chrg.cpMin);
+            rc.left = pt.x;
+            rc.top = pt.y;
+            pMsgView->SendMessage(EM_POSFROMCHAR, (WPARAM)&pt, pEnLink->chrg.cpMax);
+            rc.right = pt.x;
+            rc.bottom = pt.y+12;
             if ((prevRect.left != rc.left)||(prevRect.top != rc.top))
             {
                 m_tooltips.DelTool(pMsgView, 1);
