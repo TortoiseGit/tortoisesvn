@@ -67,6 +67,7 @@
 #define ICONITEMBORDER 5
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
+const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated");
 
 #define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
@@ -209,6 +210,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bVisualStudioRunningAtStart(false)
     , m_bEnsureSelection(false)
     , m_bMonitoringMode(false)
+    , m_bKeepHidden(false)
     , m_hwndToolbar(NULL)
     , m_hToolbarImages(NULL)
     , m_bMonitorThreadRunning(FALSE)
@@ -256,6 +258,7 @@ CLogDlg::~CLogDlg()
     {
         DestroyIcon(m_hMonitorIconNormal);
         DestroyIcon(m_hMonitorIconNewCommits);
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
     }
     if (m_pStoreSelection)
     {
@@ -293,6 +296,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
+    ON_REGISTERED_MESSAGE(WM_TASKBARCREATED, OnTaskbarCreated)
     ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
@@ -347,6 +351,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_SELCHANGED, IDC_PROJTREE, &CLogDlg::OnTvnSelchangedProjtree)
     ON_NOTIFY(TVN_GETDISPINFO, IDC_PROJTREE, &CLogDlg::OnTvnGetdispinfoProjtree)
     ON_NOTIFY(NM_CLICK, IDC_PROJTREE, &CLogDlg::OnNMClickProjtree)
+    ON_WM_WINDOWPOSCHANGING()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -7570,21 +7575,14 @@ void CLogDlg::InitMonitoringMode()
         SYS_IMAGE_LIST().SetOverlayImage(m_nErrorOvl, OVERLAY_MODIFIED);
     m_projTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
 
-
-    // fill the project tree
-    InitMonitorProjTree();
-    AssumeCacheEnabled(true);
-    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
-    m_limit = (int)(DWORD)reg;
-
-    SetTimer(MONITOR_TIMER, 200, NULL);
-
-
     // Set up the tray icon
+    ChangeWindowMessageFilter(WM_TASKBARCREATED, MSGFLT_ADD);
+
     m_hMonitorIconNormal = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORNORMAL));
     m_hMonitorIconNewCommits = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORCOMMITS));
 
     m_SystemTray.cbSize = sizeof(NOTIFYICONDATA);
+    m_SystemTray.uVersion = NOTIFYICON_VERSION_4;
     m_SystemTray.hWnd = GetSafeHwnd();
     m_SystemTray.hIcon = m_hMonitorIconNormal;
     m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
@@ -7594,6 +7592,14 @@ void CLogDlg::InitMonitoringMode()
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
+
+    // fill the project tree
+    InitMonitorProjTree();
+    AssumeCacheEnabled(true);
+    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
+    m_limit = (int)(DWORD)reg;
+
+    SetTimer(MONITOR_TIMER, 200, NULL);
 }
 
 void CLogDlg::InitMonitorProjTree()
@@ -7619,6 +7625,7 @@ void CLogDlg::RefreshMonitorProjTree()
     });
     m_projTree.DeleteAllItems();
     int itemcount = 0;
+    bool hasUnreadItems = false;
     for (const auto& mitem : mitems)
     {
         CString Name = m_monitoringFile.GetValue(mitem, L"Name", L"");
@@ -7634,6 +7641,8 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
             InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
             ++itemcount;
+            if (pMonitorItem->UnreadItems)
+                hasUnreadItems = true;
         }
     }
     if (itemcount == 0)
@@ -7641,6 +7650,15 @@ void CLogDlg::RefreshMonitorProjTree()
     else
         m_projTree.ClearText();
     m_projTree.SetRedraw(TRUE);
+
+    m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
+    m_SystemTray.uFlags = NIF_ICON;
+    if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+    {
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+    }
+
 }
 
 
@@ -8077,12 +8095,15 @@ void CLogDlg::OnMonitorThreadFinished()
         CAutoWriteLock locker(m_monitorguard);
         m_monitorItemListForThread.clear();
     }
-    m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
-    m_SystemTray.uFlags = NIF_ICON;
-    if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+    if (hasUnreadItems)
     {
-        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
-        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+        m_SystemTray.hIcon = m_hMonitorIconNewCommits;
+        m_SystemTray.uFlags = NIF_ICON;
+        if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+        {
+            Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+            Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+        }
     }
 
     m_projTree.Invalidate();
@@ -8184,6 +8205,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
         }
             break;
         case WM_LBUTTONDBLCLK:
+            m_bKeepHidden = false;
             ShowWindow(SW_SHOW);
             SetForegroundWindow();
             m_SystemTray.hIcon = m_hMonitorIconNormal;
@@ -8236,6 +8258,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                 }
                     break;
                 case ID_POPUP_SHOWMONITOR:
+                    m_bKeepHidden = false;
                     ShowWindow(SW_SHOW);
                     SetForegroundWindow();
                     break;
@@ -8335,7 +8358,23 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
 
 LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    m_bKeepHidden = false;
     ShowWindow(SW_SHOW);
     SetForegroundWindow();
+    return 0;
+}
+
+
+void CLogDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
+{
+    if (m_bKeepHidden)
+        lpwndpos->flags &= ~SWP_SHOWWINDOW;
+
+    __super::OnWindowPosChanging(lpwndpos);
+}
+
+LRESULT CLogDlg::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    RefreshMonitorProjTree();
     return 0;
 }

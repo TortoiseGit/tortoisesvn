@@ -139,7 +139,7 @@ public:
 
     const SVNRevRangeArray& GetSelectedRevRanges() {return m_selectedRevs;}
     void SetSelectedRevRanges(const SVNRevRangeArray& revArray);
-    void SetMonitoringMode() { m_bMonitoringMode = true; }
+    void SetMonitoringMode(bool starthidden) { m_bMonitoringMode = true; m_bKeepHidden = starthidden; }
 
 // Dialog Data
     enum { IDD = IDD_LOGMESSAGE };
@@ -157,6 +157,7 @@ protected:
 
     afx_msg LRESULT OnRefreshSelection(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+    afx_msg LRESULT OnTaskbarCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedInfoIcon(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -208,6 +209,7 @@ protected:
     afx_msg LRESULT OnTaskbarCallBack(WPARAM wParam, LPARAM lParam);
     afx_msg void OnNMClickProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg LRESULT OnMonitorNotifyClick(WPARAM wParam, LPARAM lParam);
+    afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
 
     virtual void OnCancel();
     virtual void OnOK();
@@ -513,6 +515,7 @@ private:
 
     // MonitoringMode
     bool                m_bMonitoringMode;
+    bool                m_bKeepHidden;
     HWND                m_hwndToolbar;
     HIMAGELIST          m_hToolbarImages;
     CRect               m_ProjTreeOrigRect;
@@ -530,6 +533,7 @@ private:
     NOTIFYICONDATA      m_SystemTray;
     HICON               m_hMonitorIconNormal;
     HICON               m_hMonitorIconNewCommits;
+    static const UINT   WM_TASKBARCREATED;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

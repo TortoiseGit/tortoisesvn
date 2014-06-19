@@ -25,7 +25,7 @@ bool MonitorCommand::Execute()
 {
     CLogDlg dlg;
     theApp.m_pMainWnd = &dlg;
-    dlg.SetMonitoringMode();
+    dlg.SetMonitoringMode(!!parser.HasKey(L"tray"));
     dlg.DoModal();
     return true;
 }
