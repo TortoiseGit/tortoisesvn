@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-24 08:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-06-17 22:00+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -593,7 +593,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN toimii Windows Vistassa ja sitä uudemmissa Windows-versioissa. Se on saatavana sekä 32- että 64-bittisenä versiona. 64-bittinen asennusohjelma sisältää myös 32-bittiset laajennusosat, minkä ansiosta 32-bittistä versiota ei tarvitse asentaa erikseen, jotta TortoiseSVN-komennot ja kuvakkeet saataisiin käyttöön 32-bittisissä sovelluksissa."
 
 #. (para)
 msgid ""
@@ -601,7 +601,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Tuki Windows 98, Windows ME ja Windows NT4 -käyttöjärjestelmille loppui versiossa 1.2.0; Windows 2000 -tuki sekä Windows XP SP2 -tuki puolestaan loppui versiossa 1.7.0. Tuki Windows XP SP3 -järjestelmälle loppui versiossa 1.9.0.  Voit yhä asentaa jonkun näistä vanhemmista versioista, mikäli tarvitset niitä."
 
 #. (title)
 msgid "Installation"
@@ -1046,7 +1046,7 @@ msgid ""
 "sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr ""
+msgstr "Kun asiakasohjelma hakee tietoa arkistosta, se näkee yleensä vain tiedostojärjestelmän viimeisimmän version. On kuitenkin mahdollista tutkia myös tiedostojärjestelmän <emphasis>edellisiä</emphasis> tiloja. Ohjelma voi tehdä esimerkiksi menneisyyteen liittyviä kysymyksiä, kuten <quote>mitä tämä kansio sisälsi viime keskiviikkona? </quote>, tai <quote>kuka muutti tätä tietostoa viimeksi, ja mitä muutoksia tehtiin? </quote> Tällaiset kysymykset ovat keskeisiä mille tahansa <firstterm>versionhallintajärjestelmälle</firstterm>: järjestelmälle, joka on suunniteltu tallettamaan ja palauttamaan tietoon ajan kuluessa tapahtuneet muutokset."
 
 #. (title)
 msgid "Versioning Models"
@@ -1154,7 +1154,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS ja monet muut versionhallintajärjestelmät käyttävät <firstterm>kopioi-muokkaa-yhdistä</firstterm> -mallia vaihtoehtona lukitukselle. Tässä mallissa kunkin käyttäjän asiakasohjelma lukee arkistoa ja muodostaa henkilökohtaisen <firstterm> työkopion </firstterm> projektista. Käyttäjät työskentelevät sitten yhtä aikaa, kukin muokaten omia kopioitaan.  Lopulta omat kopiot yhdistetään uudeksi, lopulliseksi versioksi. Versionhallintajärjestelmä auttaa usein yhdistämisessä, mutta loppujen lopuksi käyttäjä on vastuussa siitä, että yhdistäminen tapahtuu oikein."
 
 #. (para)
 msgid ""
@@ -1288,7 +1288,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr ""
+msgstr "Työkopio sisältää myös ylimääräisiä tiedostoja, joita Subversion luo ja ylläpitää. Eräs näistä on <filename>.svn</filename> -hakemisto, jota  kutsutaan työkopion <firstterm> hallintohakemistoksi </firstterm>. Hallintohakemiston tiedostojen avulla Subversion havaitsee, mitkä tiedostot sisältävät julkaisemattomia muutoksia, ja mitkä tiedostot ovat vanhentuneita suhteessa muiden työhön. Ennen versiota 1.7 Subversion loi hallintohakemiston jokaiseen työkopion versioituun hakemistoon. Versiosta 1.7 alkaen Subversion toimii täysin eri tavoin: kullakin työkopiolla on vain yksi hallintohakemisto, joka sijaitsee suoraan työkopion juuren alla."
 
 #. (para)
 msgid ""
@@ -1320,7 +1320,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Saadaksesi työkopion sinun täytyy kopioida jonkin arkiston polun tiedostot työasemallesi. Tätä kutsutaan <firstterm> työkopion noutamiseksi </firstterm> (engl. check out). Työkopion noutamisella ei ole tekemistä lukituksen tai resurssien varaamisen kanssa; se vain luo sinulle oman paikallisen kopion projektista."
 
 #. (para)
 msgid ""
@@ -1331,7 +1331,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "Oletetaan, että teet muutoksia tiedostoon <filename>button.c</filename>. Koska <filename>.svn</filename> -hakemisto muistaa tiedoston muutospäivämäärän ja alkuperäisen sisällön, Subversion tietää, että olet muuttanut tiedostoa. Subversion ei kuitenkaan julkaise muutoksiasi ennen kuin erikseen komennat sitä. Muutosten julkaisutoimentpidettä kutsutaan yleisemmin <firstterm> arkistoon toimittamiseksi </firstterm> (engl. commit)."
 
 #. (para)
 msgid ""
@@ -1478,7 +1478,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/polku/arkistoon\n...\nfile:///X|/polku/arkistoon\n..."
 
 #. (para)
 msgid ""
@@ -1560,7 +1560,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "Toisin kuin monissa muissa versionhallintajärjestelmissä, Subversionin versionumerot kuvaavat <emphasis> kokonaisia puita </emphasis>, eivät yksittäisiä tiedostoja. Kukin versionumero määrittää kokonaisen puun, tietyn arkiston tilan jonkin toimitetun muutoksen jälkeen. Toinen tapa ajatella asiaa on, että versio N kuvaa arkiston tilan N:nnen toimituksen jälkeen. Kun Subversion-käyttäjät puhuvat ``tiedoston  <filename>foo.c</filename> versiosta 5'', he tarkoittavat oikeasti ``tiedostoa <filename>foo.c</filename> sellaisena kun se esiintyy versiossa 5.'' Huomaa, että yleisesti ottaen jonkun tiedoston versiot N ja M  <emphasis>eivät</emphasis> välttämättä poikkea toisistaan!"
 
 #. (para)
 msgid ""
@@ -1578,7 +1578,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\n     integer.c:4\n     button.c:4"
 
 #. (para)
 msgid ""
@@ -1597,7 +1597,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5"
 
 #. (para)
 msgid ""
@@ -1615,7 +1615,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\n     integer.c:6\n     button.c:6"
 
 #. (para)
 msgid ""
@@ -1643,7 +1643,7 @@ msgstr "Subversion tallettaa jokaista työkopion tiedostoa varten kaksi oleellis
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm> working revision </firstterm>), and"
-msgstr ""
+msgstr "mihin versioon työkopiosi tiedosto perustuu (tätä kutsutaan tiedoston <firstterm> työversioksi </firstterm>), ja"
 
 #. (para)
 msgid ""
@@ -1763,7 +1763,7 @@ msgstr "luo arkisto"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN does "
 "not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Huomaa, että TortoiseSVN-asennuksen mukana tuleva komentorivisovellus ei tue vanhempaa Berkeley-tietokantamuotoa (BDB)."
 
 #. (para)
 msgid ""
@@ -1777,7 +1777,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information. <important><placeholder-1/></important>"
-msgstr ""
+msgstr "Voit luoda arkiston FSFS-muodossa tai vanhemmassa Berkeley Database (BDB) -muodossa. FSFS on yleisesti ottaen nopeampi ja toimii verkkojakojen sekä Windows 98:n kanssa ongelmitta. BDB-muotoa pidettiin ennen  vakaampana, koska se oli ollut käytössä pidempään. Koska FSFS on nyt ollut käytössä jo useita vuosia, tämä perustelu ontuu hieman. Lue lisää Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink>. <important><placeholder-1/></important>"
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1808,7 +1808,7 @@ msgid ""
 "          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr ""
+msgstr "Avaa komentokehote (tai DOS-ikkuna), vaihda kansioon <filename>D:\\SVN\\</filename> ja kirjoita <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> tai <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
 
 #. (para)
 msgid ""
@@ -2003,7 +2003,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags"
 
 #. (para)
 msgid ""
@@ -2029,7 +2029,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc"
 
 #. (para)
 msgid "...or by project:"
@@ -2046,7 +2046,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags"
 
 #. (para)
 msgid ""
@@ -9815,7 +9815,7 @@ msgid ""
 "local version as it was in your working copy prior to the merge, or "
 "<emphasis>Prefer repository</emphasis> to select the incoming file from the "
 "merge source in the repository."
-msgstr ""
+msgstr "Jos yhdistämiseen liittyy binääritiedostoja, ristiriitojen yhdistäminen ei ole mahdollista rivi riviltä -tilassa.  Binääritiedoston ristiriita viittaa aina kokonaiseen tiedostoon. Valitse <emphasis>Suosi paikallista versiota</emphasis> valitaksesi paikallisen version työkopiostasi sellaisena, kuin se oli ennen yhdistämistä.  Vaihtoehto <emphasis>Suosi arkiston versiota</emphasis> puolestaan valitsee arkiston yhdistämislähteestä tulevan tiedoston."
 
 #. (para)
 msgid ""
@@ -10503,7 +10503,7 @@ msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Once the blame process has finished the "
 "result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Kun napsautat <guibutton>OK</guibutton>, TortoiseSVN käynistää haun tulostiedoston luomiseksi. Kun tekijöiden selvitys on päättynyt, tulokset kirjoitetaan väliaikaiseen tiedostoon ja pääset tutkimaan niitä."
 
 #. (title)
 msgid "TortoiseBlame"
@@ -12060,7 +12060,7 @@ msgid ""
 "on a folder is automatically also implicitly set on all subfolders. So "
 "there's no need to set the properties on all folders anymore but only on the"
 " root folder."
-msgstr ""
+msgstr "Versiosta 1.8 alkaen TortoiseSVN ja Subversion käyttävät <literal>perittyjä ominaisuuksia</literal>, jotka periytyvät automaattisesti kansiosta sen alikansioihin. Ei ole siis enää tarpeen asettaa ominaisuuksia kaikille kansioille, juurikansio riittää."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -15483,7 +15483,7 @@ msgstr "Korvataan lukituskommentilla."
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
 "files or folders in the working copy, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> korvataan muodolla <placeholder-2/> mikäli työkopiossa on versioimattomia tiedostoja/kansioita, tai muodolla <placeholder-3/> jos näin ei ole."
 
 #. (para)
 msgid ""
@@ -16897,7 +16897,7 @@ msgid ""
 "tree without the <literal>.svn</literal> directory, you can simply export it"
 " to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out "
 "how."
-msgstr ""
+msgstr "Jos haluat muuttaa työkopiosi takaisin tavalliseksi kansioksi ilman <filename>.svn</filename>-hakemistoa, voit yksinkertaisesti viedä sen itseensä. Lue lisää luvusta <xref linkend=\"tsvn-dug-export-unversion\"/>."
 
 #. (title)
 msgid "Remove a working copy"
@@ -17061,7 +17061,7 @@ msgid ""
 "<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
 "value of that environment variable doesn't matter: if the variable exists "
 "the feature is active."
-msgstr ""
+msgstr "Ominaisuus on kuitenkin vielä käytettävissä TortoiseSVN:ssä ja muissa Subversion-asiakasohjelmissa.  Ottaaksesi sen käyttöön aseta Windows-ympäristömuuttuja <literal>ASPDOTNETHACK</literal> arvoon <literal>1</literal>."
 
 #. (para)
 msgid ""
@@ -17291,11 +17291,11 @@ msgstr "Vertaa myöhemmin"
 
 #. (entry)
 msgid "Diff with 'filename'"
-msgstr ""
+msgstr "Vertaa 'tiedostonimen' kanssa"
 
 #. (entry)
 msgid "Unified diff"
-msgstr ""
+msgstr "Unified diff"
 
 #. (entry)
 msgid "Settings"
@@ -17389,7 +17389,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "Voit myös luoda tiedoston, jossa on joukko rivinvaihdoin eroteltuja polkuja.  Tiedoston on oltava UTF-16-muodossa, ilman <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink> -merkintää.  Jos välität ko. tiedoston, käytä valitsinta <option>/pathfile</option> valitsimen <option>/path</option> sijaan.  Jos haluat, että tiedosto poistetaan komennon suorituksen päätyttyä, anna valitsin <option>/deletepathfile</option>. Muussa tapauksessa sinun on poistettava tiedosto itse."
 
 #. (para)
 msgid ""
@@ -18293,19 +18293,19 @@ msgstr "Esimerkki (syötä yhdelle riville): <screen>\nTortoiseIDiff.exe /left:\
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "TortoiseUDiff-komennot"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
-msgstr ""
+msgstr "Unified diff -katseluohjelmalla on vain kaksi komentorivivalitsinta:"
 
 #. (entry)
 msgid "Path to the unified diff file."
-msgstr ""
+msgstr "Polku Unified diff -tiedostoon."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
-msgstr ""
+msgstr "Aktivoi putkitilan.  Unified diff luetaan putkesta."
 
 #. (para)
 msgid ""

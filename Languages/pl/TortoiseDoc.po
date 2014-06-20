@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-15 23:10+0000\n"
+"PO-Revision-Date: 2014-06-17 21:25+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +190,7 @@ msgstr "Łatwy dostęp do poleceń Subversion"
 msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
-msgstr "Polecenia wersjonowania są dostępne z menu kontekstowego eksploratora. TortoiseSVN dodaje swoje własne drzewo podmenu."
+msgstr "Wszystkie polecenia Subversion są dostępne z menu kontekstowego eksploratora. TortoiseSVN dodaje swoje własne drzewo podmenu."
 
 #. (para)
 msgid ""
@@ -2812,7 +2812,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr ""
+msgstr "W tym oknie należy wprowadzić adres URL repozytorium, do którego chcecie zaimportować projekt. Bardzo ważne jest uświadomienie sobie, że sam lokalny folder importu nie pojawi się w repozytorium, a tylko jego zawartość. Na przykład, jeśli macie strukturę: <screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen> i importujecie <filename>C:\\Projects\\Widget</filename> do <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> to możecie być zaskoczeni, że podkatalogi trafiły prosto do folderu <literal>trunk</literal> zamiast pozostać w podkatalogu <literal>Widget</literal>. Musicie wskazać podkatalog jako część adresu URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Zauważcie, że polecenie importu automatycznie utworzy podkatalogi w repozytorium, jeśli one nie istnieją."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -5962,7 +5962,7 @@ msgid ""
 "      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr ""
+msgstr "Proste wyszukiwania podciągu działa w sposób podobny do wyszukiwarki. Ciągi znaków do wyszukiwania są oddzielone spacjami, a wszystkie ciągi muszą być zgodne. Można użyć znaku wiodącego <literal>-</literal>, aby określić, że dany podciąg ma nie zostać znaleziony (odwrócić pasujące do tego terminu), i można użyć <literal>!</literal> na początku wyrażenia, aby odwrócić spasowanie dla całego wyrażenia. Możecie użyć wiodącego <literal>+</literal>, aby określić, że podciąg powinien być włączony, nawet jeśli wcześniej był wyłączony przez <literal>-</literal>. Należy pamiętać, że kolejność włączenia/wyłączenia jest tutaj istotna. Możecie używać cudzysłowu, aby otoczyć łańcuch, który musi zawierać spacje natomiast jeśli chcecie szukać użycia cudzysłów należy użyć dwóch cudzysłowów razem jako własnej sekwencji ucieczki. Zauważcie, że znak odwrotnego ukośnika <emphasis>nie</emphasis> jest znakiem ucieczki i nie ma specjalnego znaczenia w wyszukiwaniu prostego podciągu. Przykłady ułatwią zrozumienie: <screen>\nAlicja Robert -Ewa\n</screen> wyszukuje ciągi znaków zawierające zarówno Alicja jak i Robert, ale nie Ewa. <screen>\nAlicja -Robert +Ewa\n</screen> wyszukuje ciągi znaków zawierające Alicja ale nie Robert lub ciągi zawierające Ewa. <screen>\n-Case +SpecialCase\n</screen> wyszukuje ciągi nie zawierające Case, ale wciąż dołącza ciągi zawierające SpecialCase. <screen>\n!Alicja Robert\n</screen> wyszukuje ciągów, które nie zawierają ani Alicja ani Robert <screen>\n!-Alicja -Robert\n</screen> czy pamiętasz prawa De Morgana? NOT(NOT Alicja AND NOT Robert) redukuje się do (Alice OR Bob). <screen>\n\"Alicja i Robert\"\n</screen> wyszukuje dosłownego wyrażenia <quote>Alicja i Robert</quote><screen>\n\"\" </screen> wyszukuje cudzysłowu wszędzie w treści <screen>\n\"Alicja mówi \"\"cześć\"\" do Roberta\"\n</screen> wyszukuje dosłownego wyrażenia <quote>Alicja mówi \"cześć\" do Roberta</quote>."
 
 #. (para)
 msgid ""
@@ -8280,7 +8280,7 @@ msgid ""
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "            </screen>"
-msgstr ""
+msgstr "Można również określić, czy niestandardowe okno dialogowe służy do dodawania/edycji atrybutu. TortoiseSVN oferuje cztery różne okna dialogowe, w zależności od rodzaju atrybutu. <placeholder-1/> Zrzuty ekranu powyżej zostały wykonane dla następujących <literal>tsvn:userdirproperties</literal> <screen>\nmy:boolprop=bool; To atrybut typu logicznego. Zaznacza się go lub odznacza. (true;false;własny atrybut logiczny)\nmy:stateprop1=state;To atrybut enumeracyjny. Wybiera się jeden z dwóch stanów. (true;true;wartość prawdy;false;wartość fałszu)\nmy:stateprop2=state;To atrybut enumeracyjny. Wybiera się jeden z trzech stanów.(maybe;true;odpowiedź jest poprawna;false;ospowiedź jest zła;maybe;nie odpowiedziano)\nmy:stateprop3=state;Wskaż dzień by ustawić atrybut.(1;1;Poniedziałek;2;Wtorek;3;Środa;4;Czwartek;5;Piątek;6;Sobota;7;Niedziela)\nmy:singlelineprop=singleline;wprowadź krótki komentarz(.*)\nmy:multilineprop=multiline;skopiuj i wklej tutaj cały rozdział(.*)\n</screen>"
 
 #. (para)
 msgid ""
@@ -8828,7 +8828,7 @@ msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr ""
+msgstr "Adresy URL rozpoczynające się od ciągu <literal>/</literal> kopiują część adresu URL ze schematem i nazwą hosta, na przykład: <screen>\n/svn/repos-1/widgets/foo common/foo-widget\n</screen> Spowoduje to wypakowanie <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> do <filename>C:\\Working\\common\\foo-widget</filename>. Ale jeśli pobierzecie kopię roboczą z innego serwera <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> wtedy zewnętrzne odniesienie wypakuje <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
 msgid ""
@@ -12463,7 +12463,7 @@ msgid ""
 "versioned folder. And you can get the entries back for unversioned folders "
 "by holding the <keycap>Shift</keycap> key down while showing the context "
 "menu."
-msgstr ""
+msgstr "Przez większość czasu nie ma potrzeby używania menu kontekstowego TortoiseSVN poza folderami, które są pod kontrolą wersji przez Subversion. W przypadku folderów niewersjonowanych, tak naprawdę w menu kontekstowym potrzeba polecenia pobrania. Jeśli zaznaczycie opcję <literal> Ukryj menu dla niewersjonowanych ścieżek </literal>, TortoiseSVN nie będzie dodawać swoich wpisów do menu kontekstowego dla folderów bez informacji o wersji. Ale wpisy są dodawane do wszystkich elementów i ścieżek w wersjonowanych folderach. Można przy tym odzyskać pozycje dla katalogów bez informacji o wersji przytrzymując klawisz klawisz <keycap>Shift</keycap> podczas otwierania menu kontekstowego."
 
 #. (para)
 msgid ""
@@ -13727,7 +13727,7 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
 "      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "      </screen>"
-msgstr ""
+msgstr "Przykład, dla Perforce Merge: <screen>\nC:\\Sciezka-Do\\P4Merge.exe %base %theirs %mine %merged\n</screen> lub dla KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged --L1 %bname --L2 %yname --L3 %tname\n</screen> lub dla Araxis: <screen>\nC:\\Sciezka-Do\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n/title3:%yname %theirs %base %mine %merged /a2\n</screen> lub dla WinMerge (2.8 or later): <screen>\nC:\\Sciezka-Do\\WinMerge.exe %merged\n</screen> lub dla DiffMerge: <screen>\nC:\\Sciezka-Do\\DiffMerge.exe -caption=%mname -result=%merged -merge -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -16803,7 +16803,7 @@ msgid ""
 "        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
 "        </screen>"
-msgstr ""
+msgstr "Jeśli projekty są rozproszone w niezależnych miejscach można użyć wariantu, polegającego na umieszczeniu wspólnego kodu w jednym miejscu, wykonaniu substytucji napędu dla tej lokalizacji, by otrzymać literę dysku do wpisania na sztywno w kodzie projektów, np. Pobierzcie wspólny kod do <filename>D:\\Documents\\Framework</filename> lub <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> następnie wykonajcie <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> aby utworzyć mapowanie dysku używanego w kodzie źródłowym. Wasz kod może wtedy użyć absolutnej lokalizacji. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 
 #. (para)
 msgid ""
