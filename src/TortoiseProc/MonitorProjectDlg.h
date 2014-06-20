@@ -41,4 +41,5 @@ public:
     CString m_sPathOrURL;
     CString m_sUsername;
     CString m_sPassword;
+    int m_monitorInterval;
 };

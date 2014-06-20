@@ -7842,6 +7842,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
         dlg.m_sPathOrURL = pProject->WCPathOrUrl;
         dlg.m_sUsername = CStringUtils::Decrypt(pProject->username).get();
         dlg.m_sPassword = CStringUtils::Decrypt(pProject->password).get();
+        dlg.m_monitorInterval = pProject->interval;
     }
     if (dlg.DoModal() == IDOK)
     {
@@ -7852,6 +7853,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
             pEditProject = new MonitorItem();
         pEditProject->Name = dlg.m_sName;
         pEditProject->WCPathOrUrl = dlg.m_sPathOrURL;
+        pEditProject->interval = dlg.m_monitorInterval;
         pEditProject->username = CStringUtils::Encrypt(dlg.m_sUsername);
         pEditProject->password = CStringUtils::Encrypt(dlg.m_sPassword);
         pEditProject->username.Remove('\r');
@@ -8006,7 +8008,7 @@ void CLogDlg::MonitorThread()
                     CDictionaryBasedTempPath logPath(paths, (const char*)CUnicodeUtils::GetUTF8(relUrl));
                     CLogCacheUtility logUtil(cache, &m_ProjectProperties);
 
-                    for (svn_revnum_t rev = item.lastHEAD; rev <= head; ++rev)
+                    for (svn_revnum_t rev = item.lastHEAD + 1; rev <= head; ++rev)
                     {
                         if (logUtil.IsCached(rev))
                         {

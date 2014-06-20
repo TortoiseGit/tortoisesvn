@@ -32,6 +32,7 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     , m_sPathOrURL(_T(""))
     , m_sUsername(_T(""))
     , m_sPassword(_T(""))
+    , m_monitorInterval(5)
 {
 
 }
@@ -47,6 +48,8 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_PATHORURL, m_sPathOrURL);
     DDX_Text(pDX, IDC_USERNAME, m_sUsername);
     DDX_Text(pDX, IDC_PASSWORD, m_sPassword);
+    DDX_Text(pDX, IDC_INTERVAL, m_monitorInterval);
+    DDV_MinMaxInt(pDX, m_monitorInterval, 1, 1000);
 }
 
 
