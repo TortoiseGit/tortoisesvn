@@ -1082,6 +1082,9 @@
     <ClCompile Include="..\Utils\MiscUI\DragDropTreeCtrl.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
+    <ClCompile Include="MonitorOptionsDlg.cpp">
+      <Filter>Commands\Monitor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2061,6 +2064,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\DragDropTreeCtrl.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MonitorOptionsDlg.h">
+      <Filter>Commands\Monitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -59,6 +59,7 @@
 #include "CodeCollaborator.h"
 #include "CodeCollaboratorSettingsDlg.h"
 #include "MonitorProjectDlg.h"
+#include "MonitorOptionsDlg.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 
@@ -7830,7 +7831,8 @@ void CLogDlg::OnMonitorRemoveProject()
 
 void CLogDlg::OnMonitorOptions()
 {
-
+    CMonitorOptionsDlg dlg;
+    dlg.DoModal();
 }
 
 void CLogDlg::MonitorEditProject(MonitorItem * pProject)
@@ -7919,7 +7921,13 @@ void CLogDlg::MonitorTimer()
     __time64_t currenttime = NULL;
     _time64(&currenttime);
 
-    CAutoWriteLock locker(m_monitorguard);
+    CAutoReadWeakLock locker(m_monitorguard);
+    if (!locker.IsAcquired())
+    {
+        SetTimer(MONITOR_TIMER, 1000, NULL);
+        return;
+    }
+
     m_monitorItemListForThread.clear();
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
