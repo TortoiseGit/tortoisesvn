@@ -321,7 +321,8 @@ bool CPathUtils::DoesPercentNeedEscaping(LPCSTR str)
     return false;
 }
 
-CString CPathUtils::GetAppDirectory(HMODULE hMod /* = NULL */)
+
+CString CPathUtils::GetAppPath(HMODULE hMod /*= NULL*/)
 {
     CString path;
     DWORD len = 0;
@@ -331,9 +332,15 @@ CString CPathUtils::GetAppDirectory(HMODULE hMod /* = NULL */)
     {
         bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
         path.ReleaseBuffer(0);
-        len = GetModuleFileName(hMod, path.GetBuffer(bufferlen+1), bufferlen);
-    } while(len == bufferlen);
+        len = GetModuleFileName(hMod, path.GetBuffer(bufferlen + 1), bufferlen);
+    } while (len == bufferlen);
     path.ReleaseBuffer();
+    return GetLongPathname(path);
+}
+
+CString CPathUtils::GetAppDirectory(HMODULE hMod /* = NULL */)
+{
+    CString path = GetAppPath(hMod);
     path = path.Left(path.ReverseFind('\\')+1);
     return GetLongPathname(path);
 }

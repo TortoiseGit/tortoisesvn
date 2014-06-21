@@ -51,6 +51,11 @@ public:
     static CStringA PathEscape(const CStringA& path);
 
     /**
+     * Returns the path to the applications exe file
+     */
+    static CString GetAppPath(HMODULE hMod = NULL);
+
+    /**
      * Returns the path to the installation folder, in our case the TortoiseSVN/bin folder.
      * \remark the path returned has a trailing backslash
      */
