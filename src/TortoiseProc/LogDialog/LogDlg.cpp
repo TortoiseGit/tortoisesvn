@@ -73,6 +73,7 @@ const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated")
 #define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
 #define WM_TSVN_MONITOR_NOTIFY_CLICK    (WM_APP + 3)
+#define WM_TSVN_MONITOR_TREEDROP        (WM_APP + 4)
 
 #define OVERLAY_MODIFIED        1
 
@@ -301,6 +302,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
+    ON_MESSAGE(WM_TSVN_MONITOR_TREEDROP, OnTreeDrop)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -7575,6 +7577,7 @@ void CLogDlg::InitMonitoringMode()
     if (m_nErrorOvl >= 0)
         SYS_IMAGE_LIST().SetOverlayImage(m_nErrorOvl, OVERLAY_MODIFIED);
     m_projTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
+    m_projTree.SetDroppedMessage(WM_TSVN_MONITOR_TREEDROP);
 
     // Set up the tray icon
     ChangeWindowMessageFilter(WM_TASKBARCREATED, MSGFLT_ADD);
@@ -7885,7 +7888,7 @@ void CLogDlg::SaveMonitorProjects()
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
         CString sSection;
-        sSection.Format(L"item_%d", count++);
+        sSection.Format(L"item_%03d", count++);
         HTREEITEM hParent = m_projTree.GetParentItem(hItem);
         CString sParentPath;
         if (hParent)
@@ -8385,6 +8388,13 @@ void CLogDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 
 LRESULT CLogDlg::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    RefreshMonitorProjTree();
+    return 0;
+}
+
+LRESULT CLogDlg::OnTreeDrop(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    SaveMonitorProjects();
     RefreshMonitorProjTree();
     return 0;
 }
