@@ -33,6 +33,7 @@ CDragDropTreeCtrl::CDragDropTreeCtrl()
     m_nDelayInterval = 500;     // Default delay interval = 500 milliseconds
     m_nScrollInterval = 200;    // Default scroll interval = 200 milliseconds
     m_nScrollMargin = 10;       // Default scroll margin = 10 pixels
+    m_WMOnDropped = 0;
 }
 
 CDragDropTreeCtrl::~CDragDropTreeCtrl()
@@ -184,6 +185,8 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
         SetItem(&tvItem);
 
         m_hDragItem = NULL;
+        if (m_WMOnDropped)
+            GetParent()->SendMessage(m_WMOnDropped, (WPARAM)hItem);
     }
 }
 

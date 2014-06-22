@@ -25,6 +25,7 @@ public:
     CDragDropTreeCtrl();
     virtual ~CDragDropTreeCtrl();
 
+    void SetDroppedMessage(UINT msg) { m_WMOnDropped = msg; }
 protected:
     virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
     HTREEITEM HighlightDropTarget(CPoint point);
@@ -39,6 +40,7 @@ protected:
     BOOL m_bDragging;
     CImageList* m_pImageList;
     HTREEITEM m_hDragItem;
+    UINT m_WMOnDropped;
 
     afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
