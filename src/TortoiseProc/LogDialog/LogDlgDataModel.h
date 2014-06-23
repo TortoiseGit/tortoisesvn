@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -169,6 +169,7 @@ private:
         int hasChildren:1;
         int nonInheritable:1;
         int subtractiveMerge:1;
+        int unread:1;
         mutable int bugIDsPending:1;
     };
 
@@ -233,6 +234,9 @@ public:
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 
     bool GetChecked() const {return checked != FALSE;}
+
+    bool GetUnread() const { return unread != FALSE; }
+    void SetUnread(bool ur) { unread = ur; }
 };
 
 typedef CLogEntryData LOGENTRYDATA, *PLOGENTRYDATA;

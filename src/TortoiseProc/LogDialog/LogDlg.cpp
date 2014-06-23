@@ -969,6 +969,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         if (pLogEntry == NULL)
             return;
 
+        pLogEntry->SetUnread(false);
+
         pMsgView->SetRedraw(FALSE);
 
         // the rich edit control doesn't count the CR char!
@@ -1494,6 +1496,12 @@ void CLogDlg::LogThread()
 {
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
 
+    {
+        CAutoReadLock pathlock(m_monitorpathguard);
+        if (m_path.IsEquivalentToWithoutCase(CTSVNPath(m_pathCurrentlyChecked)))
+            return;
+    }
+
     new async::CAsyncCall(this, &CLogDlg::StatusThread, &diskScheduler);
 
     //disable the "Get All" button while we're receiving
@@ -1714,6 +1722,19 @@ void CLogDlg::LogThread()
                                             !LogCache::CSettings::GetEnabled());
         else
             m_logEntries.ClearAll();
+
+        if (m_bMonitoringMode && (m_revUnread > 0))
+        {
+            // mark all entries that are new as unread, so they're shown
+            // in bold in the list control
+            for (size_t i = 0; i < m_logEntries.GetVisibleCount(); ++i)
+            {
+                PLOGENTRYDATA pEntry = m_logEntries.GetVisible(i);
+                if (pEntry && (pEntry->GetRevision() > m_revUnread))
+                    pEntry->SetUnread(true);
+            }
+            m_revUnread = 0;
+        }
     }
     m_LogList.ClearText();
     if (!succeeded)
@@ -3266,7 +3287,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         crText = m_Colors.GetColor(CColors::Modified);
                     if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
                         crText = GetSysColor(COLOR_GRAYTEXT);
-                    if (data->GetRevision() == m_wcRev)
+                    if ((data->GetRevision() == m_wcRev) || data->GetUnread())
                     {
                         SelectObject(pLVCD->nmcd.hdc, m_boldFont);
                         // We changed the font, so we're returning CDRF_NEWFONT. This
@@ -8006,6 +8027,10 @@ void CLogDlg::MonitorThread()
                 // new head revision: fetch the log
                 std::unique_ptr<const CCacheLogQuery> cachedData;
                 CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
+                {
+                    CAutoWriteLock pathlock(m_monitorpathguard);
+                    m_pathCurrentlyChecked = item.WCPathOrUrl;
+                }
                 cachedData = svn.ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
                 // Err will also be set if the user cancelled.
 
@@ -8040,6 +8065,10 @@ void CLogDlg::MonitorThread()
                 item.authfailed = PromptShown();
             }
             item.lastchecked = currenttime;
+            {
+                CAutoWriteLock pathlock(m_monitorpathguard);
+                m_pathCurrentlyChecked.Empty();
+            }
         }
         svn.SetAuthInfo(L"", L"");
     }
@@ -8310,6 +8339,8 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
         pMsgView->SetWindowText(L"");
 
+        m_nSortColumnPathList = 0;
+        m_bAscendingPathList = false;
         SetSortArrow(&m_LogList, -1, true);
         m_logEntries.ClearAll();
 
@@ -8328,10 +8359,11 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_startrev = head;
         m_bStartRevIsHead = false;
         m_LogRevision = head;
-        m_endrev = max(0, head - m_limit + 1);
+        m_endrev = max(1, head - m_limit + 1);
         m_hasWC = m_path.IsUrl();
         m_bStrict = false;
         m_bSaveStrict = false;
+        m_revUnread = head - pItem->UnreadItems;
         if (!m_path.IsUrl())
             m_ProjectProperties.ReadProps(m_path);
         else

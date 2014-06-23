@@ -330,6 +330,7 @@ CLogEntryData::CLogEntryData
     , projectProperties (projectProperties)
     , checked (false)
     , bugIDsPending (true)
+    , unread(false)
 {
     // derived header info
 

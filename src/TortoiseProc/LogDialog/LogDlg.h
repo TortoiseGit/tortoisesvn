@@ -531,10 +531,13 @@ private:
     CString             m_sMonitorNotificationTitle;
     CString             m_sMonitorNotificationText;
     CReaderWriterLock   m_monitorguard;
+    CReaderWriterLock   m_monitorpathguard;
+    CString             m_pathCurrentlyChecked;
     NOTIFYICONDATA      m_SystemTray;
     HICON               m_hMonitorIconNormal;
     HICON               m_hMonitorIconNewCommits;
     static const UINT   WM_TASKBARCREATED;
+    svn_revnum_t        m_revUnread;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");
