@@ -8035,7 +8035,8 @@ void CLogDlg::MonitorThread()
                 }
                 cachedData = svn.ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
                 // Err will also be set if the user cancelled.
-
+                if (m_bCancelled)
+                    continue;
                 if ((svn.GetSVNError() == nullptr) && (item.lastHEAD >= 0))
                 {
                     CString sRoot = svn.GetRepositoryRoot(WCPathOrUrl);
@@ -8349,6 +8350,31 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
         if (pItem->WCPathOrUrl.IsEmpty())
             return;
+
+        // to avoid the log cache from being accessed from two threads
+        // at the same time and waiting for the lock to get released,
+        // force the monitoring thread to end now and then show the log
+        // 
+        // it's much faster to end the monitoring thread and wait a few milliseconds
+        // than to start the log thread and have that thread wait until
+        // the monitoring thread releases the lock for the cache - that might
+        // take several seconds!
+        if (m_bMonitorThreadRunning)
+        {
+            m_bCancelled = true;
+            bool threadsStillRunning
+                = !netScheduler.WaitForEmptyQueueOrTimeout(5000)
+                || !diskScheduler.WaitForEmptyQueueOrTimeout(5000);
+
+            // can we close the app cleanly?
+
+            if (threadsStillRunning)
+            {
+                return;
+            }
+        }
+        m_bCancelled = false;
+
         DialogEnableWindow(IDC_PROJTREE, FALSE);
 
         svn_revnum_t head = pItem->lastHEAD;
@@ -8366,10 +8392,11 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_bStrict = false;
         m_bSaveStrict = false;
         m_revUnread = head - pItem->UnreadItems;
-        if (!m_path.IsUrl())
-            m_ProjectProperties.ReadProps(m_path);
-        else
-            m_ProjectProperties = ProjectProperties();
+        m_hasWC = !m_path.IsUrl();
+        m_ProjectProperties = ProjectProperties();
+        ReadProjectPropertiesAndBugTraqInfo();
+        ConfigureColumnsForLogListControl();
+
         m_wcRev = SVNRev();
         if (::IsWindow(m_hWnd))
             UpdateData(FALSE);
