@@ -709,6 +709,58 @@ CAppUtils::FindRegexMatches
     return result;
 }
 
+// from CSciEdit
+namespace {
+	bool IsValidURLChar(wchar_t ch)
+	{
+		return iswalnum(ch) ||
+			ch == L'_' || ch == L'/' || ch == L';' || ch == L'?' || ch == L'&' || ch == L'=' ||
+			ch == L'%' || ch == L':' || ch == L'.' || ch == L'#' || ch == L'-' || ch == L'+';
+	}
+
+	bool IsUrl(const CString& sText)
+	{
+		if (!PathIsURLW(sText))
+			return false;
+		if (sText.Find(L"://") >= 0)
+			return true;
+		return false;
+	}
+}
+
+/**
+* implements URL searching with the same logic as CSciEdit::StyleURLs
+*/
+std::vector<CHARRANGE>
+CAppUtils::FindURLMatches(const CString& msg)
+{
+	std::vector<CHARRANGE> result;
+
+	int len = msg.GetLength();
+	int starturl = -1;
+
+	for (int i = 0; i <= msg.GetLength(); ++i)
+	{
+		if ((i < len) && IsValidURLChar(msg[i]))
+		{
+			if (starturl < 0)
+				starturl = i;
+		}
+		else
+		{
+			if ((starturl >= 0) && IsUrl(msg.Mid(starturl, i - starturl)))
+			{
+				CHARRANGE range = { starturl, i };
+				result.push_back(range);
+			}
+			starturl = -1;
+		}
+	}
+
+	return result;
+}
+
+
 bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end)
 {
     int i=start;

@@ -458,8 +458,6 @@ void CLogDlg::SetupLogMessageViewControl()
 {
      // set the font to use in the log message view, configured in the settings dialog
     GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
-    // automatically detect URLs in the log message and turn them into links
-    GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
     // make the log message rich edit control send a message when the mouse pointer is over a link
     GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK|ENM_SCROLL);
 }
@@ -894,6 +892,7 @@ namespace
         std::vector<CHARRANGE> ranges;
         std::vector<CHARRANGE> idRanges;
         std::vector<CHARRANGE> revRanges;
+        std::vector<CHARRANGE> urlRanges;
 
         BOOL RunRegex (ProjectProperties *project)
         {
@@ -905,6 +904,8 @@ namespace
             revRanges = CAppUtils::FindRegexMatches ( text
                                                     , project->GetLogRevRegex()
                                                     , L"\\d+");
+
+            urlRanges = CAppUtils::FindURLMatches(sText);
 
             return TRUE;
         }
@@ -1038,6 +1039,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         regexRunner.GetResult();
         CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.idRanges);
         CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.revRanges);
+        CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.urlRanges);
         CHARRANGE range;
         range.cpMin = 0;
         range.cpMax = 0;
