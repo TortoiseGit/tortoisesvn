@@ -3921,9 +3921,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         {
                             int index = GetNextSelectedItem(pos);
                             FileEntry * e = GetListEntry(index);
-                            e->textstatus = svn_wc_status_normal;
-                            e->propstatus = svn_wc_status_none;
-                            e->status = svn_wc_status_added;
+                            if (!e->IsVersioned())
+                            {
+                                e->textstatus = svn_wc_status_normal;
+                                e->propstatus = svn_wc_status_none;
+                                e->status = svn_wc_status_added;
+                            }
                             SetEntryCheck(e,index,true);
 
                             const CTSVNPath& folderpath = entry->path;
