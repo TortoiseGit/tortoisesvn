@@ -211,6 +211,8 @@ protected:
     afx_msg LRESULT OnMonitorNotifyClick(WPARAM wParam, LPARAM lParam);
     afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
     afx_msg LRESULT OnTreeDrop(WPARAM wParam, LPARAM lParam);
+    afx_msg void OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnInlineedit();
 
     virtual void OnCancel();
     virtual void OnOK();

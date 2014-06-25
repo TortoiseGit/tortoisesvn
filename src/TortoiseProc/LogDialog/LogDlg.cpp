@@ -355,6 +355,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_GETDISPINFO, IDC_PROJTREE, &CLogDlg::OnTvnGetdispinfoProjtree)
     ON_NOTIFY(NM_CLICK, IDC_PROJTREE, &CLogDlg::OnNMClickProjtree)
     ON_WM_WINDOWPOSCHANGING()
+    ON_NOTIFY(TVN_ENDLABELEDIT, IDC_PROJTREE, &CLogDlg::OnTvnEndlabeleditProjtree)
+    ON_COMMAND(ID_INLINEEDIT, &CLogDlg::OnInlineedit)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -2906,18 +2908,20 @@ void CLogDlg::EditLogMessage( size_t index )
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
+    CWnd * wndFocus = GetFocus();
+
     // Skip Ctrl-C when copying text out of the log message or search filter
-    BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN &&
-        (pMsg->wParam==L'C' || pMsg->wParam== VK_INSERT) &&
-        (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) &&
-        GetKeyState(VK_CONTROL)&0x8000 );
-    if (pMsg->message == WM_KEYDOWN && pMsg->wParam==VK_RETURN)
+    BOOL bSkipAccelerator = (pMsg->message == WM_KEYDOWN &&
+                             (pMsg->wParam == L'C' || pMsg->wParam == VK_INSERT) &&
+                             (wndFocus == GetDlgItem(IDC_MSGVIEW) || wndFocus == GetDlgItem(IDC_SEARCHEDIT)) &&
+                             GetKeyState(VK_CONTROL) & 0x8000);
+    if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_RETURN)
     {
-        if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+        if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
         {
             if (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\CtrlEnter", TRUE)))
             {
-                if ( GetDlgItem(IDOK)->IsWindowVisible() )
+                if (GetDlgItem(IDOK)->IsWindowVisible())
                 {
                     GetDlgItem(IDOK)->SetFocus();
                     PostMessage(WM_COMMAND, IDOK);
@@ -2930,7 +2934,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
             }
             return TRUE;
         }
-        if (GetFocus()==GetDlgItem(IDC_LOGLIST))
+        if (wndFocus == GetDlgItem(IDC_LOGLIST))
         {
             if (CRegDWORD(L"Software\\TortoiseSVN\\DiffByDoubleClickInLog", FALSE))
             {
@@ -2938,16 +2942,21 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
                 return TRUE;
             }
         }
-        if (GetFocus() == GetDlgItem(IDC_LOGMSG))
+        if (wndFocus == GetDlgItem(IDC_LOGMSG))
         {
             DiffSelectedFile(false);
             return TRUE;
         }
-        if (GetFocus() == GetDlgItem(IDC_PROJTREE))
+        if (wndFocus == GetDlgItem(IDC_PROJTREE))
         {
             HTREEITEM hItem = m_projTree.GetSelectedItem();
             if (hItem)
                 MonitorShowProject(hItem);
+            return TRUE;
+        }
+        if (wndFocus == m_projTree.GetEditControl())
+        {
+            m_projTree.EndEditLabelNow(FALSE);
             return TRUE;
         }
     }
@@ -7795,7 +7804,25 @@ HTREEITEM CLogDlg::FindMonitorItem(const CString& wcpathorurl)
 
 void CLogDlg::OnMonitorCheckNow()
 {
+    // clear the log view
+    m_ChangedFileListCtrl.SetItemCountEx(0);
+    m_ChangedFileListCtrl.Invalidate();
+    m_LogList.SetItemCountEx(0);
+    m_LogList.Invalidate();
+    CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+    pMsgView->SetWindowText(L"");
+    m_logEntries.ClearAll();
+    GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
+    // mark all entries as 'never checked before'
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        pItem->lastchecked = 0;
+        return false;
+    });
+    // start the check timer
+    SetTimer(MONITOR_TIMER, 1000, NULL);
 }
 
 void CLogDlg::OnMonitorAddProject()
@@ -8022,6 +8049,9 @@ void CLogDlg::MonitorThread()
             continue;
         if (item.lastchecked + (item.interval * 60) < currenttime)
         {
+            CString sCheckInfo;
+            sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
+            SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
             svn_revnum_t head = svn.GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
             if (head != item.lastHEAD)
@@ -8072,9 +8102,11 @@ void CLogDlg::MonitorThread()
                 CAutoWriteLock pathlock(m_monitorpathguard);
                 m_pathCurrentlyChecked.Empty();
             }
+            SetDlgItemText(IDC_LOGINFO, L"");
         }
         svn.SetAuthInfo(L"", L"");
     }
+    SetDlgItemText(IDC_LOGINFO, L"");
 
     InterlockedExchange(&m_bMonitorThreadRunning, FALSE);
     PostMessage(WM_COMMAND, ID_LOGDLG_MONITOR_THREADFINISHED);
@@ -8458,4 +8490,32 @@ LRESULT CLogDlg::OnTreeDrop(WPARAM /*wParam*/, LPARAM /*lParam*/)
     SaveMonitorProjects();
     RefreshMonitorProjTree();
     return 0;
+}
+
+void CLogDlg::OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMTVDISPINFO pTVDispInfo = reinterpret_cast<LPNMTVDISPINFO>(pNMHDR);
+
+    MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(pTVDispInfo->item.hItem);
+    if (pItem && pTVDispInfo->item.pszText)
+    {
+        CString sName = pTVDispInfo->item.pszText;
+        if (sName != pItem->Name)
+        {
+            pItem->Name = sName;
+            SaveMonitorProjects();
+            RefreshMonitorProjTree();
+        }
+    }
+
+    *pResult = 0;
+}
+
+void CLogDlg::OnInlineedit()
+{
+    if (GetFocus() == &m_projTree)
+    {
+        HTREEITEM hTreeItem = m_projTree.GetSelectedItem();
+        m_projTree.EditLabel(hTreeItem);
+    }
 }
