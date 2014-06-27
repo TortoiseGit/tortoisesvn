@@ -10,25 +10,25 @@
 # 
 # Authors:
 # Translators:
-# shcham <shcham@gmail.com>, 2013
-# Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011
+# Alexander Shchekaturov <shcham@gmail.com>, 2013
+# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011
 # _deniska <denis_levin@mail.ru>, 2011,2013
 # _deniska <denis_levin@mail.ru>, 2013
-# sassy <sassy.but.classic@gmail.com>, 2013
-# Dmitry Sytkov <sytkov@gmail.com>, 2011
+# Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
+# Дмитрий Сытьков <sytkov@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011-2012
-# sassy <sassy.but.classic@gmail.com>, 2013
-# shcham <shcham@gmail.com>, 2013
-# Dmitry Sytkov <sytkov@gmail.com>, 2011
+# Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
+# Alexander Shchekaturov <shcham@gmail.com>, 2013
+# Дмитрий Сытьков <sytkov@gmail.com>, 2011
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-04-27 05:25+0000\n"
-"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
+"PO-Revision-Date: 2014-06-23 08:48+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,6 +194,11 @@ msgstr "%I64d Байт/с"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d КБайт передано"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr ""
 
 #. Resource IDs: (8)
 #, c-format
@@ -681,6 +686,12 @@ msgstr "У&далить неверсированные элементы..."
 msgid "&Delete..."
 msgstr "&Удалить..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Различия"
@@ -860,6 +871,10 @@ msgstr "Разделы &Справки"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Скрыть"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr ""
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1200,6 +1215,10 @@ msgstr "&Удалить"
 msgid "&Rename"
 msgstr "&Переименовать"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr ""
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Обозреватель &хранилища"
@@ -1295,6 +1314,10 @@ msgstr "&Журнал"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "По&казывать меню для:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr ""
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1500,6 +1523,11 @@ msgstr "Рабочей &копии"
 msgid "&file list control"
 msgstr "&файл со списками контроля"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr ""
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1677,6 +1705,10 @@ msgstr "<descr>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<новая группа изменений>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3314,6 +3346,10 @@ msgstr "Размеры контейнеров"
 msgid "Context Menus: "
 msgstr "Контекстные меню:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr ""
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Сжать присоединённое окно"
@@ -3789,6 +3825,10 @@ msgstr "Удалить &игнорируемые файлы и папки"
 msgid "Delete &unversioned files and folders"
 msgstr "Удалить &неверсированные файлы и папки"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Удалить кэш Хранилища"
@@ -4062,6 +4102,11 @@ msgstr "Сделать это для всех неверсированных/и�
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Вы действительно желаете удалить панель инструментов '%s'?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr ""
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4252,6 +4297,10 @@ msgstr "Редактировать изображение на кнопке"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "Внешнее"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr ""
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5604,6 +5653,12 @@ msgstr "Если отмечено, файлы из неверсированны�
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr ""
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Если отмечено, то наличие неверсированных файлов помечает родительскую папку как изменённую,\r\nт.е. у неё на значке будет пометка 'изменена'."
@@ -6577,6 +6632,10 @@ msgstr "Изменённые"
 msgid "Modified node"
 msgstr "Изменённый узел"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Дополнительно"
@@ -7086,6 +7145,10 @@ msgstr "Найден один или несколько авто-сохранё�
 msgid "One or more files are in a conflicted state."
 msgstr "Один или более файлов имеют конфликты."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr ""
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Толь&ко зарегистрировать слияние (блокирует слияние этих ревизий)"
@@ -7232,6 +7295,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Перезаписать\nЦелевой файл заменен."
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr ""
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7316,6 +7383,10 @@ msgstr "Путь"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Найден путь, который лучше соответствует заплатке."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7584,6 +7655,10 @@ msgstr "Программы (*.exe)|*.exe|Все файлы (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Окно выполнения"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr ""
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8164,6 +8239,10 @@ msgid ""
 "Repeat"
 msgstr "Повторить последнее действие\nПовторить"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8171,8 +8250,17 @@ msgid ""
 msgstr "Заменяет заданный текст другим\nЗаменить"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Заменить:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9107,6 +9195,10 @@ msgstr "Показывать внутристрочные различия\nВн
 msgid "Show Lock dialog before locking files"
 msgstr "Показывать диалог блокировки перед блокированием файлов"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Показывать больше кнопок"
@@ -9507,6 +9599,10 @@ msgstr "Ловушка начало-обновления"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Запустить редактор реестра"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10443,6 +10539,10 @@ msgstr "Таймауты"
 msgid "Tip"
 msgstr "Подсказка"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10565,6 +10665,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s\r\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11871,6 +11993,12 @@ msgstr "Последнее чтение:"
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "Обновление:"
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr ""
 
 #. Resource IDs: (11, 195)
 msgid "locked"

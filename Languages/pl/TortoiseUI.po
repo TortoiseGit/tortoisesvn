@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-17 21:21+0000\n"
+"PO-Revision-Date: 2014-06-24 14:01+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -192,6 +192,11 @@ msgstr "%I64d Bajtów/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kB przesłanych"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr "%d projektów posiada aktualizacje:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -679,6 +684,12 @@ msgstr "&Usuń niewersjonowane elementy..."
 msgid "&Delete..."
 msgstr "&Usuń..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "&Usuń\nProjekt został usunięty. Jeżeli miał podprojekty, zostały one również usunięte."
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Porównaj"
@@ -858,6 +869,10 @@ msgstr "Tematy &Pomocy"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Ukryj"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr "U&kryj obiekty ignorowane"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1198,6 +1213,10 @@ msgstr "&Usuń"
 msgid "&Rename"
 msgstr "&Zmień nazwę"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr "&Zastąp"
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Przeglądarka &repozytorium"
@@ -1293,6 +1312,10 @@ msgstr "Pokaż &dziennik"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Pokaż menu dla:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr "&Pokaż Monitor"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1498,6 +1521,11 @@ msgstr "&Kopia robocza"
 msgid "&file list control"
 msgstr "kontrola listy &plików"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr "'%s' : %ld nowych zatwierdzeń"
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1675,6 +1703,10 @@ msgstr "<opis>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<nowa lista zmian>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr "=&Sprawdź teraz=&Dodaj Projekt=E&dytuj=&Usuń=&Opcje=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3312,6 +3344,10 @@ msgstr "Rozmiary kontenerów"
 msgid "Context Menus: "
 msgstr "Menu kontekstowe: "
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr "Linie kontekstu do poprawek"
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Zwiń okno dokowane"
@@ -3787,6 +3823,10 @@ msgstr "Usuń &ignorowane pliki i katalogi"
 msgid "Delete &unversioned files and folders"
 msgstr "Usuń &niewersjonowane pliki i katalogi"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr "Usuń Projekt"
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Usuń bufor repozytorium"
@@ -4060,6 +4100,11 @@ msgstr "Wykonaj dla wszystkich niewersjonowanych/zmienionych elementów"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Czy na pewno chcesz usunąć pasek narzędzi '%s'?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr "Czy chcesz usunąć monitorowany projekt '%s'?"
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4158,7 +4203,7 @@ msgstr "Niech katalog pobrania nie będzie płytką kopią roboczą.\nZamiast te
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
-msgstr "Nie odzyskuj zapisanych automatzcznie dokumentów\nUżyj ostatnich jawnie zapisanych wersji dokumentów"
+msgstr "Nie odzyskuj zapisanych automatycznie dokumentów\nUżyj ostatnich jawnie zapisanych wersji dokumentów"
 
 #. Resource IDs: (363)
 msgid ""
@@ -4251,13 +4296,17 @@ msgstr "Edytuj obraz przycisku"
 msgid "Edit External"
 msgstr "Edytuj zewnętrzne"
 
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr "Edytuj projekt do monitorowania"
+
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
 msgstr "Edytuj atrybuty"
 
 #. Resource IDs: (297)
 msgid "Edit Property Conflict"
-msgstr "Edytuj konflikty atrybutów"
+msgstr "Edytuj konflikt atrybutów"
 
 #. Resource IDs: (298)
 msgid "Edit Tree Conflicts"
@@ -5602,6 +5651,12 @@ msgstr "Jeśli włączone, pliki znajdujące się w folderach nie objętych\r\nw
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr "jeśli ustawiono, zmienione pliko będące na liście zmian \"ignore-on-commit\" nie oznaczają folderów nadrzędnych jako zmienione\ntj, dostaną zwykłą ikonę póki nie zmienią się inne pliki lub foldery."
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Jeżeli opcja jest włączona, niewersjonowane pliki skutkują oznaczeniem nadrzędnego folderu jako zmodyfikowany\r\nnp. otrzymają one ikonę nakładkową 'zmodyfikowane'."
@@ -6575,6 +6630,10 @@ msgstr "Zmodyfikowano"
 msgid "Modified node"
 msgstr "Zmieniony węzeł"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr "Interwał monitorowania w minutach:"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Więcej"
@@ -7084,6 +7143,10 @@ msgstr "Jeden lub więcej automatycznie zapisanych dokumentów zostało znalezio
 msgid "One or more files are in a conflicted state."
 msgstr "Jeden lub wiele plików znajduje się w stanie konfliktu."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr "Jeden projekt ma aktualizacje:"
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Tylko &zapisz fakt scalania (zablokuje te wersje przed powtórnym scalaniem)"
@@ -7100,7 +7163,7 @@ msgstr "Można użyć wyłącznie liczb (ewentualnie oddzielonych przecinkami)!"
 
 #. Resource IDs: (626)
 msgid "Only properties changed"
-msgstr "Zmieniono tylko właściwości"
+msgstr "Zmieniono tylko atrybuty"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -7230,6 +7293,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Nadpisz\nPlik docelowy został zastąpiony."
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr "POPUP"
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7314,6 +7381,10 @@ msgstr "Ścieżka"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Znaleziono ścieżkę, która lepiej pasuje do tej ścieżki."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr "Ścieżka lub URL:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7582,6 +7653,10 @@ msgstr "Programy (*.exe)|*.exe|Wszystkie pliki (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Stan zaawansowania"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr "Projekt"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8162,6 +8237,10 @@ msgid ""
 "Repeat"
 msgstr "Powtarza ostatnią operację\nPowtórz"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr "Zastąp &Wszystkie"
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8169,8 +8248,17 @@ msgid ""
 msgstr "Zamienia podany tekst na inny\nZamień"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr "Zastąp przez:"
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Zastąp:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr "Zastąpiono %d dopasowań"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9105,6 +9193,10 @@ msgstr "Pokaż różnice w linii\nRóżnice w linii"
 msgid "Show Lock dialog before locking files"
 msgstr "Pokaż dialog blokady przed zablokowaniem plików"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr "Pokaż okno Monitorowania"
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Pokaż więcej przycisków"
@@ -9505,6 +9597,10 @@ msgstr "Przechwycenie początku uaktualniania"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Uruchom edytor rejestru"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr "Uruchom razem z &Windows"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10441,6 +10537,10 @@ msgstr "Timeouty"
 msgid "Tip"
 msgstr "Podpowiedź"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr "By dodać monitorowanie projektom kliknij przycisk \"Dodaj\" powyżej"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10563,6 +10663,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr "TortoiseSVN Opcje Monitora Zatwierdzenia"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr "TortoiseSVN Monitor Zatwierdzenia\n%d nowe zatwierdzenie w %d projekcie"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr "TortoiseSVN Monitor Zatwierddzenia\n%d nowych zatwierdzeń w %d projektach"
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr "TortoiseSVN Monitor Ptojektu"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11241,7 +11363,7 @@ msgstr "UWAGA:\r\nZmieniaj te ustawienia tylko wtedy, kiedy jesteś pewien, co r
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr "Werrsja kopii:"
+msgstr "Wersja KR:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11869,6 +11991,12 @@ msgstr "odczyt: "
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "ost. uaktualnienie: "
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr "pozostaw nazwę użytkownika i hasło puste jeśli repozytorium pozwala na anonimowy dostęp lub autentykacja już jest zapisana"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

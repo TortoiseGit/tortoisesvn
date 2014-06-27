@@ -15,25 +15,25 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008
 # Ilias-Dimitrios Vrachnis, 2013
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2014
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2013
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2014
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2013
 # Nozomu Kaneko <nozom.kaneko@gmail.com>, 2013
 # Osamu NAKAMURA <osamu0329nakamura@gmail.com>, 2013
-# plazmism <gomidori@live.jp>, 2013
+# タカハシ <gomidori@live.jp>, 2013
 # Ratnadeep Debnath <rtnpro@transifex.com>, 2012
 # Shinya Okano <tokibito@gmail.com>, 2011
 # Tadashi Jokagi <elf@elf.no-ip.org>, 2011
 # Tetsuya Morimoto <tetsuya.morimoto@gmail.com>, 2011
 # Yoshitaka Yamashita <drum@magic-touch.org>, 2013
 # youten, 2011
-# 高一人参 @欠陥遺伝子 <www.carrotsoft@gmail.com>, 2012
+# carrotsoft <www.carrotsoft@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-04-26 12:36+0000\n"
-"Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2014-06-23 11:47+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,6 +199,11 @@ msgstr "%I64d バイト/秒"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KBを転送しました"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr "%d件のプロジェクトに更新があります。"
 
 #. Resource IDs: (8)
 #, c-format
@@ -686,6 +691,12 @@ msgstr "バージョン管理外の項目を削除(&D)..."
 msgid "&Delete..."
 msgstr "削除(&D)..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "削除(&D)\nプロジェクトは削除されます。もしサブプロジェクトがあれば、同様に削除されます。"
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "差分を表示(&D)"
@@ -865,6 +876,10 @@ msgstr "ヘルプトピック(&H)"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "隠す(&H)"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr "無視する項目を表示にする(&H)"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1205,6 +1220,10 @@ msgstr "削除(&R)"
 msgid "&Rename"
 msgstr "名前を変更(&R)"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr "置換(&R)"
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "リポジトリブラウザー(&R)"
@@ -1300,6 +1319,10 @@ msgstr "ログを表示(&S)"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "メニューを表示(&S):"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr "モニターを表示(&S)"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1505,6 +1528,11 @@ msgstr "作業コピー(&W)"
 msgid "&file list control"
 msgstr "ファイルリストコントロール(&F)"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr "'%s' : %ld件の新しいコミット"
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1682,6 +1710,10 @@ msgstr "<descr>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<新しい変更リスト>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr "=すぐにチェック(&C)=プロジェクトを追加(&A)=編集(&D)=削除(&R)=オプション(&O)=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3319,6 +3351,10 @@ msgstr "コンテナサイズ"
 msgid "Context Menus: "
 msgstr "コンテキストメニュー: "
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr "パッチのコンテキストライン"
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "ドッキングしているウィンドウをコントラクトする"
@@ -3794,6 +3830,10 @@ msgstr "無視するファイルやフォルダーを削除(&I)"
 msgid "Delete &unversioned files and folders"
 msgstr "バージョン管理外のファイルやフォルダーを削除(&U)"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr "プロジェクトの削除"
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "リポジトリのキャッシュを削除"
@@ -4067,6 +4107,11 @@ msgstr "バージョン管理外もしくは変更された項目すべてにこ
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "本当にこのツールバー「%s」を削除してもよろしいですか？"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr "モニターしているプロジェクト「%s」を削除しますか？"
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4257,6 +4302,10 @@ msgstr "ボタンイメージを編集"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "外部参照を編集"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr "モニターするプロジェクトを編集"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5609,6 +5658,12 @@ msgstr "有効にすると、バージョン管理外のフォルダーに存在
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr "有効にすると、変更されたファイルがコミット時に無視される変更リストに登録されていれば、。尾やフォルダーが変更済みとしてマークされません。\nつまり、他のファイルやフォルダーが変更されていない限り、通常のアイコンになります。"
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "有効にすると、バージョン管理外のファイルを含むフォルダーの状態を変更としてマークします。\r\nつまり、変更のオーバーレイアイコンが付きます。"
@@ -6582,6 +6637,10 @@ msgstr "変更"
 msgid "Modified node"
 msgstr "変更されたノード"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr "モニター間隔（分）:"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "その他"
@@ -7091,6 +7150,10 @@ msgstr "一つ以上の自動保存されたドキュメントが見つかりま
 msgid "One or more files are in a conflicted state."
 msgstr "競合しているファイルがあります。"
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr "1件のプロジェクトに更新があります。"
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "マージを実施せず、マージしたことにする(&Y)"
@@ -7237,6 +7300,10 @@ msgid ""
 "The target file is replaced."
 msgstr "上書き\nターゲットファイルを置き換えます。"
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr "ポップアップ"
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7321,6 +7388,10 @@ msgstr "パス"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "パッチに適合するパスが見つかりました。"
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr "パスまたはURL:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7589,6 +7660,10 @@ msgstr "プログラム (*.exe)|*.exe|すべてのファイル (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "進行状況"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr "プロジェクト"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8169,6 +8244,10 @@ msgid ""
 "Repeat"
 msgstr "直前に行った操作を繰り返す\n繰り返し"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr "すべて置換(&A)"
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8176,8 +8255,17 @@ msgid ""
 msgstr "指定された文字列を、他の文字列に置き換える\n置換"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr "置換語:"
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "置換:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr "一致した%d件を置換しました"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9112,6 +9200,10 @@ msgstr "行内の差分を表示する\n行内差分"
 msgid "Show Lock dialog before locking files"
 msgstr "ファイルをロックする前にロックダイアログを表示する"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr "モニターダイアログを表示"
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "多くのボタンを表示"
@@ -9512,6 +9604,10 @@ msgstr "Start Update フック"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "レジストリエディターを起動する"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr "&Windowsで開始"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10448,6 +10544,10 @@ msgstr "タイムアウト"
 msgid "Tip"
 msgstr "Tip"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr "モニターするプロジェクトに追加するには、上の［追加］ボタンをクリックしてください"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10570,6 +10670,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr "TortoiseSVNコミットモニターオプション"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr "TortoiseSVNコミットモニター\n%d件の新しいコミットが%d件のプロジェクトにあります"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr "TortoiseSVNコミットモニター\n%d件の新しいコミットが%d件のプロジェクトにあります"
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr "TortoiseSVNプロジェクトモニター"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11876,6 +11998,12 @@ msgstr "最終読み出し日: "
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "最終更新日: "
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr "リポジトリが匿名でのアクセスを許しているか、すでに認証が格納されているのであれば、ユーザー名とパスワードを空欄にしておいて下さい"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

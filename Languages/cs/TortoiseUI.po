@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-04-27 14:40+0000\n"
+"PO-Revision-Date: 2014-06-23 19:41+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,11 @@ msgstr "%I64d Bajtů/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBajtů přeneseno"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr "%d projektů má aktualizace:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -671,6 +676,12 @@ msgstr "&Smazat položky bez verze..."
 msgid "&Delete..."
 msgstr "&Smazat..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "&Smazat\nProjekt je odstraněn. Pokud má podprojekty, ty jsou také smazány."
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Porovnat"
@@ -850,6 +861,10 @@ msgstr "&Témata nápovědy"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Skrýt"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr "&Skrýt ignorované položky"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1190,6 +1205,10 @@ msgstr "Odst&ranit"
 msgid "&Rename"
 msgstr "&Přejmenovat"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr "&Nahradit"
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "P&růzkumník úložiště"
@@ -1285,6 +1304,10 @@ msgstr "&Zobrazit záznam"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Zobrazit Menu pro:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr "&Zobrazit monitor"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1490,6 +1513,11 @@ msgstr "&Pracovní kopie"
 msgid "&file list control"
 msgstr "&ovládání seznamu souborů"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr "'%s' : %ld nových odevzdání"
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1667,6 +1695,10 @@ msgstr "<popis>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<nový seznam změn>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr "=Zkontrolovat nyní=&Přidat projekt=&Upravit=&Odstranit=&Možnosti=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3304,6 +3336,10 @@ msgstr "Velikosti kontejnerů"
 msgid "Context Menus: "
 msgstr "Kontextové Menu:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr "Kontextové řádky pro záplaty"
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Zmenšit kotvící okno"
@@ -3779,6 +3815,10 @@ msgstr "&Smazat ignorované soubory a adresáře"
 msgid "Delete &unversioned files and folders"
 msgstr "&Odstranit soubory a adresáře bez verze"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr "Smazat projekt"
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Odstranit úschovu Úložiště"
@@ -4052,6 +4092,11 @@ msgstr "Toto provést pro všechny upravené položky/položky bez verze"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Opravdu chcete smazat nástrojovou lištu '%s'?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr "Opravdu chcete smazat sledovaný projekt '%s'?"
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4242,6 +4287,10 @@ msgstr "Upravit Obrázek Tlačítka"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "Upravit externí"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr "Upravit projekt ke sledování"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5594,6 +5643,12 @@ msgstr "Pokud nastaveno, soubory v adresářích bez verze mohou být zobrazeny 
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr "Pokud nastaveno, změněné soubory, které jsou v seznamu změn \"ignorovat při odevzdávání\" neoznačí stav nadřazeného adresáře jako změněný,\ntzn. mají normální ikonu, pokud není změněn jiný soubor nebo složka."
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Pokud nastaveno, soubory bez verze označí stav nadřazeného adresáře jako změněný,\ntzn. dostanou ikonu změněno."
@@ -6567,6 +6622,10 @@ msgstr "Změněný"
 msgid "Modified node"
 msgstr "Změněný uzel"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr "Interval sledování v minutách:"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Více"
@@ -7076,6 +7135,10 @@ msgstr "Jeden nebo více automaticky uložené dokumenty byly nalezeny."
 msgid "One or more files are in a conflicted state."
 msgstr "Jeden nebo více souborů je v konfliktním stavu."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr "Jeden projekt má aktualizace:"
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Pouze &zaznamenat sloučení (zamezí sloučení rozsahu revizí)"
@@ -7222,6 +7285,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Přepsat\nCílový soubor je nahrazen."
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr "VYSKAKOVACÍ OKNO"
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7306,6 +7373,10 @@ msgstr "Cesta"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Zjištěna cesta, která se lépe shoduje se záplatou."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr "Cesta nebo URL:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7574,6 +7645,10 @@ msgstr "Programy (*.exe)|*.exe|Všechny soubory (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Průběh"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr "Projekt"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8154,6 +8229,10 @@ msgid ""
 "Repeat"
 msgstr "Zopakovat poslední činnost\nZopakovat"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr "Nahradit &vše"
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8161,8 +8240,17 @@ msgid ""
 msgstr "Nahradí určený text jiným textem\nNahradit"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr "Nahradit čím:"
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Nahradit:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr "Nahrazeno %d shod"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9097,6 +9185,10 @@ msgstr "Zobrazit Rozdíl v řádku\nRozdíl v řádku"
 msgid "Show Lock dialog before locking files"
 msgstr "Zobrazit dialogové okno Uzamčení před zamknutím souborů"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr "Zobrazit dialogové okno monitoru"
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Zobrazit Více Tlačítek"
@@ -9497,6 +9589,10 @@ msgstr "Spustit hák aktualizace"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Spustit editor registru"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr "Spustit při přihlášení do &Windows"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10433,6 +10529,10 @@ msgstr "Časové limity"
 msgid "Tip"
 msgstr "Rada"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr "Pro přidání projektů ke sledování klikněte na tlačítko \"Přidat\" výše"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10555,6 +10655,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Sestavení %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr "TortoiseSVN Volby monitoru odevzdání"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr "TortoiseSVN Monitoru odevzdání\n%d nové odevzdání v %d projektu"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr "TortoiseSVN Monitoru odevzdání\n%d nových odevzdání v %d projektech"
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr "TortoiseSVN Monitoru projektu"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11861,6 +11983,12 @@ msgstr "poslední čtení: "
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "poslední aktualizace:"
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr "uživatelské jméno a heslo nechejte prázdné, pokud úložiště umožňuje anonymní přístup, nebo pokud je ověření již uloženo"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-12 22:49+0000\n"
+"PO-Revision-Date: 2014-06-24 00:50+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -186,6 +186,11 @@ msgstr "%I64d tavua/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kilotavua siirretty"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr "%d projektissa on päivityksiä:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -673,6 +678,12 @@ msgstr "&Poista versioimattomat kohteet..."
 msgid "&Delete..."
 msgstr "&Poista..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "&Poista\nProjekti poistetaan. Mahdolliset aliprojektit poistetaan myös."
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Vertaa"
@@ -852,6 +863,10 @@ msgstr "&Ohjeen aiheet"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Piilota"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr "P&iilota ohitetut kohteet"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1192,6 +1207,10 @@ msgstr "&Poista"
 msgid "&Rename"
 msgstr "&Nimeä uudelleen"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr "&Korvaa"
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Arkistoselain"
@@ -1287,6 +1306,10 @@ msgstr "Näytä &loki"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Näytä valikot:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr "&Näytä seurain"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1492,6 +1515,11 @@ msgstr "&Työkopiosta"
 msgid "&file list control"
 msgstr "&tiedostoluettelokontrolli"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr "'%s' : %ld uutta toimitusta"
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1669,6 +1697,10 @@ msgstr "<descr>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<uusi muutoslista>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr "=&Tarkista nyt=&Lisää projekti=&Muokkaa=&Poista=&Asetukset=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3306,6 +3338,10 @@ msgstr "Säiliöiden koot"
 msgid "Context Menus: "
 msgstr "Kontekstivalikot:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr "Paikkojen kontekstirivit"
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Kutista ankkuroitu ikkuna"
@@ -3781,6 +3817,10 @@ msgstr "Poista &ohitetut tiedostot ja kansiot"
 msgid "Delete &unversioned files and folders"
 msgstr "Poista &versioimattomat tiedostot ja kansiot"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr "Poista projekti"
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Poista arkistovälimuisti"
@@ -4054,6 +4094,11 @@ msgstr "Tee tämä kaikille versioimattomille/muutetuille tiedostoille"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Haluatko todella poistaa valintapalkin '%s'?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr "Haluatko poistaa seuratun projektin '%s'?"
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4244,6 +4289,10 @@ msgstr "Muokkaa painikkeen kuvaa"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "Muokkaa ulkoisia viitteitä"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr "Muokkaa seurattavaa projektia"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5596,6 +5645,12 @@ msgstr "Mikäli asetettu, versioimattomissa kansioissa olevat tiedostot voidaan 
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr "Mikäli asetettu, \"ohita toimitettaessa\" -listan tiedostot eivät muuttuessaan aseta yläkansiotaan muuttuneeksi. Yläkansio siis säilyttää normaalin kuvakepäällyksen kunnes jotain muuta tiedostoa muutetaan."
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Mikäli asetettu, versioimattomat tiedostot muuttavat yläkansion tilan muuttuneeksi\r\nts. ne saavat 'muuttunut'-kuvakepäällyksen."
@@ -6569,6 +6624,10 @@ msgstr "Muutettu"
 msgid "Modified node"
 msgstr "Muokattu solmu"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr "Seurantaväli minuuteissa:"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Lisää"
@@ -7078,6 +7137,10 @@ msgstr "Yksi tai useampi automaattisesti talletettu dokumentti löytyi."
 msgid "One or more files are in a conflicted state."
 msgstr "Yksi tai useampi tiedosto on ristiriitatilassa."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr "Yhtä projektia on päivitetty:"
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "&Pelkkä yhdistämismerkintä (estä versioiden yhdistäminen jatkossa)"
@@ -7224,6 +7287,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Kirjoita yli\nKohdetiedosto korvataan."
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr "POPUP"
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7308,6 +7375,10 @@ msgstr "Polku"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Löydettin polku joka täsmää paremmin paikkatiedoston kanssa."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr "Polku tai paikannin:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7576,6 +7647,10 @@ msgstr "Ohjelmat (*.exe)|*.exe|Kaikki tiedostot (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Edistyminen"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr "Projekti"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8156,6 +8231,10 @@ msgid ""
 "Repeat"
 msgstr "Toista viimeisin komento\nToista"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr "Korvaa &kaikki"
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8163,8 +8242,17 @@ msgid ""
 msgstr "Korvaa tekstin toisella\nKorvaa"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr "Korvaa: "
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Korvaa:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr "%d korvausta tehty"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9099,6 +9187,10 @@ msgstr "Näytä rivin sisäiset erot\nRivin sisäiset erot"
 msgid "Show Lock dialog before locking files"
 msgstr "Näytä lukitusikkuna ennen tiedostojen lukitsemista"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr "Näytä seurainikkuna"
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Näytä enemmän painikkeita"
@@ -9499,6 +9591,10 @@ msgstr "Aloita päivitys"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Käynnistä rekisterin muokkaus"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr "Käynnistä &Windowsin käynnistyessä"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10435,6 +10531,10 @@ msgstr "Aikakatkaisut"
 msgid "Tip"
 msgstr "Vihje"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr "Valitse \"Lisää\" yllä lisätäksesi seurattavia projekteja"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10557,6 +10657,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr "TortoiseSVN-toimitusseurannan asetukset"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr "TortoiseSVN-toimitusseuranta\n%d uusi toimitus %d projektiin"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr "TortoiseSVN-toimitusseuranta\n%d uutta toimitusta %d projektiin"
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr "TortoiseSVN-projektiseuranta"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11863,6 +11985,12 @@ msgstr "luku:"
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "päivitys:"
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr "jätä käyttäjätunnus ja salasana tyhjiksi, jos arkisto sallii anonyymin käytön, tai mikäli todennustiedot on jo talletettu"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

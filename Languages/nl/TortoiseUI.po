@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # wieki <a.wiekens@gmail.com>, 2014
-# duvel3 <duvel3@gmail.com>, 2013-2014
+# Bas <duvel3@gmail.com>, 2013-2014
 # Eric van Aert <ericvanaert@gmail.com>, 2012
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-04-26 08:26+0000\n"
+"PO-Revision-Date: 2014-06-23 08:48+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -191,6 +191,11 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes verstuurd"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr ""
 
 #. Resource IDs: (8)
 #, c-format
@@ -678,6 +683,12 @@ msgstr "&Verwijder objecten zonder versiebeheer..."
 msgid "&Delete..."
 msgstr "Verwij&deren"
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Verschil"
@@ -857,6 +868,10 @@ msgstr "Help &onderwerpen"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Verbergen"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr ""
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1197,6 +1212,10 @@ msgstr "&Verwijderen"
 msgid "&Rename"
 msgstr "&Hernoemen"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr ""
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Archief-verkenner"
@@ -1292,6 +1311,10 @@ msgstr "&Toon logboek"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Toon menu's voor:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr ""
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1497,6 +1520,11 @@ msgstr "&Werkkopie"
 msgid "&file list control"
 msgstr "&bestandenlijst instellingen"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr ""
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1674,6 +1702,10 @@ msgstr "<descr>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<nieuwe werkset>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3311,6 +3343,10 @@ msgstr "Container formaten"
 msgid "Context Menus: "
 msgstr "Contextmenus:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr ""
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Trek geparkeerd venster aan"
@@ -3786,6 +3822,10 @@ msgstr "Verwijder &genegeerde mappen en bestanden"
 msgid "Delete &unversioned files and folders"
 msgstr "Verwijder mappen en bestanden &zonder versiebeheer"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Verwijder archief-cache"
@@ -4059,6 +4099,11 @@ msgstr "Doe dit voor alle onderdelen zonder versiebeheer of met wijzigingen"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Wilt u de werkbalk '%s' echt verwijderen?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr ""
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4249,6 +4294,10 @@ msgstr "Wijzig knop-afbeelding"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "Extern wijzigen"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr ""
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5601,6 +5650,12 @@ msgstr "Hiermee kunnen bestanden uit mappen zonder versiebeheer getoond worden i
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr ""
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Activeer deze optie om mappen als gewijzigd te markeren als er bestanden in staan\r\ndie niet onder versiebeheer vallen. De map krijgt dan het 'gewijzigd' overlay pictogram."
@@ -6574,6 +6629,10 @@ msgstr "Gewijzigd"
 msgid "Modified node"
 msgstr "Knoop gewijzigd"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Meer"
@@ -7083,6 +7142,10 @@ msgstr "Eén of meer automatisch opgeslagen documenten zijn gevonden."
 msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr ""
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Samenvoegen alleen &vastleggen (blokkeer revisies voor later samenvoegen)"
@@ -7229,6 +7292,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Overschrijven\nHet doelbestand wordt vervangen."
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr ""
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7313,6 +7380,10 @@ msgstr "Pad"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Pad gevonden dat beter past bij de patch."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7581,6 +7652,10 @@ msgstr "Programma's (*.exe)|*.exe|Alle Bestanden (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Voortgang"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr ""
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8161,6 +8236,10 @@ msgid ""
 "Repeat"
 msgstr "Herhaal de vorige actie\nHerhalen"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8168,8 +8247,17 @@ msgid ""
 msgstr "Vervang tekst met andere tekst\nVervangen"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Vervangen:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9104,6 +9192,10 @@ msgstr "Toon inline-verschil\nInline-verschil"
 msgid "Show Lock dialog before locking files"
 msgstr "Toon de Blokkeer dialoog voordat bestanden geblokkeerd worden"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Toon meer knoppen"
@@ -9504,6 +9596,10 @@ msgstr "Start Ververs Hook-script"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Start register-bewerker"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10440,6 +10536,10 @@ msgstr "Timeouts"
 msgid "Tip"
 msgstr "Tip"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10561,6 +10661,28 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
+msgstr ""
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
 msgstr ""
 
 #. Resource IDs: (281)
@@ -11868,6 +11990,12 @@ msgstr "laatste leesactie: "
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "laatste verversing: "
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr ""
 
 #. Resource IDs: (11, 195)
 msgid "locked"

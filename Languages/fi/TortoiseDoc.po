@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-17 22:00+0000\n"
+"PO-Revision-Date: 2014-06-24 20:01+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -2135,7 +2135,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "      </screen>"
-msgstr ""
+msgstr "Huomaa että tuomasi kansion nimi ei näy arkistossa,  pelkästään sen sisältö. Esimerkki: Luo seuraava kansiorakenne <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n</screen> Tuo <filename>C:\\Temp\\New</filename> arkiston juureen, joka näyttää lopputuloksena seuraavalta: <screen>\n/trunk\n/branches\n/tags\n</screen>"
 
 #. (title)
 msgid "Repository Backup"
@@ -2169,7 +2169,7 @@ msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr ""
+msgstr "Suositeltava tapa on suorittaa  komento <screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> luodaksesi kopion arkistosta turvallisesti. Tämän jälkeen varmista kopio. Valitsinta <literal>--clean-logs</literal> ei tarvita, mutta se poistaa mahdolliset tarpeettomat lokitiedostot, kun varmistat BDB-muotoista arkistoa; tämä säästää hieman tilaa."
 
 #. (para)
 msgid ""
@@ -2229,7 +2229,7 @@ msgid ""
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
 "    </screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
-msgstr ""
+msgstr "Esimerkkejä toimintokomennoista löytyy arkiston <filename>hooks</filename> -hakemistosta. Nämä esimerkit on tarkoitettu Unix/Linux -palvelimille, ja niitä on muutettava, mikäli palvelimesi on Windows-pohjainen. Toimintokomento voi olla komentojono tai ohjelma. Seuraava esimerkki näyttää komentojonon, jota voitaisiin käyttää toteuttamaan pre-revprop-change -toimintokomento. <screen>\nrem Only allow log messages to be changed.\nif \"%4\" == \"svn:log\" exit 0\necho Property '%4' cannot be changed &gt;&amp;2\nexit 1\n</screen> Huomaa, että kaikki komennon stdout-kahvaan tehty tulostus katoaa.  Mikäli haluat virheilmoituksen ilmestyvän Toimitus peruttu -ikkunaan, se on kirjoitettava stderr-kahvaan. Komentojonossa tämän voi tehdä lausekkeella <filename>&gt;&amp;2</filename>."
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2688,7 +2688,7 @@ msgid ""
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
-msgstr ""
+msgstr "Jotkut käyttäjät haluavat, että tunnistustiedot poistetaan, kun Windows suljetaan tai siitä kirjaudiutaan ulos. Tämä voidaan tehdä uloskirjautumiskomentojonolla, joka poistaa kansion <filename>%APPDATA%\\Subversion\\auth</filename>, esim. <screen>\n@echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n</screen> Verkkosivusto <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink> sisältää ohjeita tällaisten komentojonojen käyttämiseen."
 
 #. (para)
 msgid ""
@@ -2809,7 +2809,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr ""
+msgstr "Tähän ikkunaan sinun on annettava arkistopaikannin, johon haluat tuoda projektisi. On tärkeää muistaa, että paikallinen kansio, jota olet tuomassa, ei itse siirry arkistoon, vain sen sisältö. Jos kansiorakenteesi näyttää esimerkiksi seuraavalta: <screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n</screen> ja tuot kansion <filename>C:\\Projects\\Widget</filename> arkistopaikantimeen <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem>, saatat yllättyä havaitessasi, että alikansiosi ovat suoraan hakemistossa <literal>trunk</literal> alihakemiston <literal>Widget</literal> sijaan. Alikansio on annettava osana paikanninta: <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Huomaa, että tuontikomento luo automaattisesti alikansiot arkistoon, jos niitä ei vielä ole olemassa."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -3269,7 +3269,7 @@ msgstr "Toimitusikkuna näyttää kaikki muuttuneet tiedostot, mukaan lukien lis
 msgid ""
 "To quickly check or uncheck types of files like all versioned files or all "
 "modified files, click the link items just above the list of shown items."
-msgstr ""
+msgstr "Voit nopeasti valita tai poistaa valinnan kaikilta tietyn tyyppisiltä tiedostoilta napsauttamalla jotain tiedostolistan yläpuolella olevista linkeistä."
 
 #. (para)
 msgid ""
@@ -3956,7 +3956,7 @@ msgid ""
 "code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr ""
+msgstr "Tiedostoristiriita syntyy, kun kaksi tai useampia kehittäjiä on muuttanut samoja rivejä jossain tiedostossa. Koska Subversion ei tiedä mitään projektistasi, se jättää ristiriitojen ratkonnan kehittäjän vastuulle. Ristiriitainen alue merkitään tekstitiedostoissa seuraavasti: <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; tiedostonimi\n    sinun muutoksesi\n=======\n    arkistosta yhdistetyt muutokset\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; versio\n</screen> Tämän lisäksi Subversion luo jokaista ristiriitaista tiedostoa kohti kolme ylimääräistä tiedostoa hakemistoosi: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4929,7 +4929,7 @@ msgid ""
 "Note that if you use changelists, externals will no longer show up in their "
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
-msgstr ""
+msgstr "Huomaa. että jos käytät muutoslistoja, ulkoiset viitteet eivät enää näy omina ryhminään. Muutoslistojen olemassaolo muuttaa ryhmityksen niiden sisällön mukaiseksi."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -5013,7 +5013,7 @@ msgstr "Etenemisikkunasta päivityksen päätyttyä. Tällöin loki näyttää v
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "Arkistoselaimesta"
 
 #. (para)
 msgid ""
@@ -5072,28 +5072,28 @@ msgid ""
 "<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
 "renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
 " the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMovedIcon.png\"/> Jos versio muutti tai nimesi uudelleen tiedoston tai hakemiston, niin <emphasis>siirretty</emphasis>-kuvake näytetään neljännessä sarakkeessa."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
 "replaced a file or directory by moving/renaming it, the <emphasis>move "
 "replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> Jos versio korvasi tiedoston tai hakemiston siirtämällä tai nimeämällä sen uudelleen, niin <emphasis>siirtämällä korvattu</emphasis>-kuvake näytetään neljännessä sarakkeessa."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
 " file or directory, the <emphasis>merged</emphasis> icon is shown in the "
 "fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMergedIcon.png\"/> Jos versio yhdisti tiedoston tai hakemiston, niin <emphasis>yhdistetty</emphasis>-kuvake näytetään neljännessä sarakkeessa."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> If a revision "
 "reverse merged a file or directory, the <emphasis>reverse merged</emphasis> "
 "icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReverseMergedIcon.png\"/> Jos versio yhdisti käänteisesti tiedoston tai hakemiston, niin <emphasis>käänteisesti yhdistetty</emphasis>-kuvake näytetään neljännessä sarakkeessa."
 
 #. (title)
 msgid "Getting Additional Information"
@@ -5959,7 +5959,7 @@ msgid ""
 "      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr ""
+msgstr "Yksinkertainen osamerkkijonohaku toimii samaan tapaan kuin hakukone. Etsittävät merkkijonot erotetaan välilyönnein, ja kaikkien on täsmättävä. Voit käyttää etuliitettä <literal>-</literal> kertomaan, että osamerkkijonoa ei saa löytyä, ja etuliitettä <literal>!</literal> lausekkeen alussa kertomaan, että koko lauseke on täsmättävä käänteisesti. Voit käyttää etuliitettä <literal>+</literal> kertomaan, että osamerkkijonon on löydyttävä (vaikka se olisi aiemmin suljettu pois etuliitteellä <literal>-</literal>). Huomaa, että järjestyksellä on tässä väliä. Voit käyttää lainausmerkkejä ympäröimään merkkijonoja, joissa on välilyöntejä, ja mikäli haluat etsiä itse lainausmerkkiä, tapahtuu se laittamalla kaksi lainausmerkkiä perätysten. Huomaa, että kenoviivaa <emphasis>ei</emphasis> käytetä pakomerkkinä. Esimerkit selventävät asiaa: <screen>\nAlice Bob -Eve\n</screen> etsii merkkijonoja, joissa esiintyy sekä Alice että Bob muttei Eve. <screen>\nAlice -Bob +Eve\n</screen> etsii merkkijonoja, joissa esiintyy sekä Alice muttei Bob, tai jonoja joissa esiintyy Eve. <screen>\n-Case +SpecialCase\n</screen> etsii merkkijonoja, joissa ei esiinny Case, ottaen kuitenkin mukaan jonot, joissa esiintyy SpecialCase. <screen>\n!Alice Bob\n</screen> etsii merkkijonoja, joissa ei esiinny sekä Alice että Bob. <screen>\n!-Alice -Bob\n</screen> muistatko De Morganin lauseen? NOT(NOT Alice AND NOT Bob) yksinkertaistuu muotoon (Alice OR Bob). <screen>\n\"Alice and Bob\"\n</screen> etsii merkkijonoa <quote>Alice and Bob</quote>. <screen>\n\"\"\n</screen> etsii lainausmerkkiä missä tahansa tekstissä. <screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> etsii merkkijonoa <quote>Alice says \"hi\" to Bob</quote>."
 
 #. (para)
 msgid ""
@@ -6850,7 +6850,7 @@ msgid ""
 " And if you subsequently fix a bug in the original files, you can only merge"
 " the fix automatically if the new copy is related to the original in "
 "Subversion."
-msgstr ""
+msgstr "Usein käy, että sinulla on jo tarvitsemasi tiedostot jossain arkistosi toisessa projektissa, ja haluat vain kopioida ne uuteen projektiin. Voisit yksinkertaisesti kopioida tiedostot työkopioosi ja lisätä ne, mutta tällöin menettäisit muutoshistorian. Lisäksi on huomattava, että jos myöhemmin teet muutoksia alkuperäisiin tiedostoihin, voit yhdistää ne automaattisesti vain, jos uusi kopio on suhteessa vanhaan Subversion-arkistossa."
 
 #. (para)
 msgid ""
@@ -7837,7 +7837,7 @@ msgid ""
 "As of Subversion 1.8, you can also set the property <literal>svn:auto-"
 "props</literal> on the root folder. The property value is automatically "
 "inherited by all child items."
-msgstr ""
+msgstr "Subversion-versiosta 1.8 alkaen voit myös asettaa ominaisuuden <literal>svn:auto-props</literal> juurikansiolle. Ominaisuuden arvo periytyy automaattisesti alipuun alkioille."
 
 #. (para)
 msgid ""
@@ -8007,7 +8007,7 @@ msgid ""
 "props</literal> instead of <literal>tsvn:autoprops</literal> since this has "
 "the very same functionality but works with all svn clients and is not "
 "specific to TortoiseSVN."
-msgstr ""
+msgstr "Subversion-versiosta 1.8 alkaen on suositeltavaa käyttää ominaisuuden <literal>tsvn:autoprops</literal> sijaan uutta <literal>svn:auto-props</literal> -ominaisuutta.  Sillä on sama toiminnallisuus, mutta se toimii kaikkien Subversion-ohjelmien kanssa eikä ole TortoiseSVN-spesifi."
 
 #. (para)
 msgid ""
@@ -8277,7 +8277,7 @@ msgid ""
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "            </screen>"
-msgstr ""
+msgstr "Voit myös määritellä, käytetäänkö ominaisuutesi lisäykseen ja muokkaukseen räätälöityä ikkunaa. TortoiseSVN tarjoaa neljä erilaista ikkunaa ominaisuutesi tyypistä riippuen <placeholder-1/> Yllä olevat ruutukaappaukset tehtiin seuraavalla <literal>tsvn:userdirproperties</literal> -arvolla: <screen>\nmy:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)\nmy:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)\nmy:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)\nmy:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\nmy:singlelineprop=singleline;enter a small comment(.*)\nmy:multilineprop=multiline;copy and paste a full chapter here(.*)\n</screen>"
 
 #. (para)
 msgid ""
@@ -8778,7 +8778,7 @@ msgid ""
 "These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
 "../../widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
+msgstr "Nämä paikantimet alkavat aina merkkijonolla <literal>../</literal>: <screen>\n../../widgets/foo  common/foo-widget\n</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
@@ -8796,14 +8796,14 @@ msgid ""
 "These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
 "^/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
+msgstr "Nämä paikantimet alkavat aina merkkijonolla <literal>^/</literal>: <screen>\n^/widgets/foo  common/foo-widget\n</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr ""
+msgstr "Voit helposti viitata muihin arkistoihin, joilla on sama <literal>SVNParentPath</literal> (yhteinen hakemisto, jossa on useita arkistoja). Esimerkki: <screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> työkopion kansioon <filename>C:\\Working\\common\\claw-hammer</filename>."
 
 #. (term)
 msgid "Relative to scheme"
@@ -8814,7 +8814,7 @@ msgid ""
 "URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr ""
+msgstr "Merkkijonolla <literal>//</literal> alkavat paikantimet jättävät yhteyskäytännön avoimeksi. Tämä on hyödyllistä, jos samaan palvelimeen on kytkeydyttävä eri yhteyskäytännöillä; esim. intranet-asiakkaat käyttävät <systemitem class=\"url\">http://</systemitem>-yhteyskäytäntöä, kun taas internet-asiakkaat käyttävät <systemitem class=\"url\">svn+ssh://</systemitem>-yhteyskäytäntöä. Esimerkki: <screen>\n//example.com/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> tai kansion <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> työkopion <filename>C:\\Working</filename> yhteyskäytännöstä riippuen."
 
 #. (term)
 msgid "Relative to the server's hostname"
@@ -8825,7 +8825,7 @@ msgid ""
 "URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr ""
+msgstr "Merkkijonolla <literal>/</literal> alkavat paikantimet jättävät yhteyskäytännön ja palvelimen nimen avoimiksi. Esimerkki: <screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>. Jos kuitenkin hat työkopiosi toiselta palvelimelta <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, niin ulkoinen viite noutaa kansion <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
 msgid ""
@@ -8862,7 +8862,7 @@ msgstr "Versiosta 1.6 alkaen voit lisätä ulkoisia viittauksia yksittäisiin ti
 msgid ""
 "The path to the file external must be a direct child of the folder where you"
 " set the <literal>svn:externals</literal> property."
-msgstr ""
+msgstr "Polun ulkoiseen tiedostoon tulee sijaita suoraan siinä hakemistossa, jolle <literal>svn:externals</literal> -ominaisuus asetetaan."
 
 #. (para)
 msgid ""
@@ -8966,7 +8966,7 @@ msgid ""
 "      </screen> you might now use something like <screen>\n"
 "http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
-msgstr ""
+msgstr "Uuden haaran oletusarvoinen kohde on sama kuin se, mistä työkopio on noudettu. Joudut siis muokkaamaan kohdepaikantimen haluamaksesi.  Niinpä alkuperäinen paikannin <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> muuttuisi esim. muotoon <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> Jos et muista edellisellä kerralla käyttämääsi nimeämistapaa, napsauta oikealla olevaa \"...\"-näppäintä, joka avaa arkistoselaimen, jolla voit tutkia arkiston nykyistä rakennetta."
 
 #. (title)
 msgid "intermediate folders"
@@ -9301,7 +9301,7 @@ msgid ""
 "What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
 "and apply those changes to my working copy (of trunk or branch B). </quote>"
-msgstr ""
+msgstr "Tässä tapauksessa pyydät Subversionia tekemään seuraavaa: <quote>Määritä tarvittavat muutokset, joilla päästään kehityshaaran A versiosta 1 [Mistä] kehityshaaran A versioon 7 [Mihin]. Sovella sitten nämä muutokset työkopiooni (joka osoittaa päähaaraan tai haaraan B).</quote>"
 
 #. (para)
 msgid ""
@@ -9321,7 +9321,7 @@ msgid ""
 "the head revision of the trunk [TO] the head revision of the branch, and "
 "apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Tämä on yleisempi versio takaisin yhdistämisestä, missä Subversion suorittaa seuraavat toimenpiteet: <quote>Määritä tarvittavat muutokset, jotta päästään päähaaran [Mistä] uusimmasta versiosta kehityshaaran [Mihin] uusimpaan versioon. Sovella sitten nämä muutokset työkopioon (joka osoittaa päähaaraan).</quote> Lopputuloksena päähaara on identtinen kehityshaaran kanssa."
 
 #. (para)
 msgid ""
@@ -9636,7 +9636,7 @@ msgid ""
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr ""
+msgstr "Yhdistämisen etenemisikkuna näyttää kunkin yhdistämisen vaiheen ja siihen liittyvät versiovälit. Tällöin voit joskus nähdä yhden odottamattoman ylimääräisen version: jos esimerkiksi yhdistit version 123, edistymisikkuna kertoo <quote> Yhdistetään versiot 122 - 123 </quote>. Tämän ymmärtääksesi sinun on muistettava, että yhdistäminen on läheisessä suhteessa vertailuun. Yhdistäminen toimii tuottamalla luettelon eroista kahden arkistokohdan välillä ja sovittaa ne työkopioosi. Edistymisikkuna näyttää vertailun alku- ja loppukohdat."
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -10313,15 +10313,15 @@ msgstr "Talleta tiedosto valitsemallasi nimellä. Paikkatiedostoilla voi olla ha
 
 #. (filename)
 msgid ".txt"
-msgstr ""
+msgstr ".txt"
 
 #. (filename)
 msgid ".patch"
-msgstr ""
+msgstr ".patch"
 
 #. (filename)
 msgid ".diff"
-msgstr ""
+msgstr ".diff"
 
 #. (tip)
 msgid ""
@@ -10331,7 +10331,7 @@ msgid ""
 " chars are automatically converted and compressed. If that happens, the "
 "patch won't apply smoothly. So use <placeholder-2/> or <placeholder-3/> as "
 "the extension when you save the patch file."
-msgstr ""
+msgstr "Älä tallenna paikkatiedostoa päätteellä <placeholder-1/> jos haluat lähettää sen sähköpostin liitteenä.  Tavalliset tekstitiedostot muuttuvat usein sähköpostiohjelmiston toimesta, esimerkiksi tyhjä- ja rivinvaihtomerkit saatetaan tiivistää pois.  Jos näin käy, paikkatiedostoa ei usein voi soveltaa ongelmitta. Käytä mieluummin päätteitä <placeholder-2/> tai <placeholder-3/> tallettaessasi paikkatiedostoa."
 
 #. (para)
 msgid ""
@@ -12266,7 +12266,7 @@ msgid ""
 "Selects your user interface language. Of course, you have to install the "
 "corresponding language pack first to get another UI language than the "
 "default English one."
-msgstr ""
+msgstr "Valitsee käyttöliittymän kielen.  Sinun on ensin asennettava tarvittava kielipaketti, muuten tarjolla on oletusarvoisesti vain englanti."
 
 #. (term)
 msgid "Check for updates"
@@ -12460,7 +12460,7 @@ msgid ""
 "versioned folder. And you can get the entries back for unversioned folders "
 "by holding the <keycap>Shift</keycap> key down while showing the context "
 "menu."
-msgstr ""
+msgstr "Useimmiten tarvitset TortoiseSVN-kontekstivalikkoa vain versioiduille kansioille. Versioimattomille kansioille tarvitset kontekstivalikon vain noutaessasi työkopiota. Jos asetus <literal> Piilota valikot versioimattomille poluille </literal> on päällä, TortoiseSVN ei lisää kontekstivalikkoaan versioimattomille kansioille. Valikot lisätään aina versioiduille kansioille ja tiedostoille. Voit myös pakottaa valikon versioimattomille kansioille pitämällä <keycap>Shift</keycap>-näppäimen pohjassa avatessasi kontekstivalikkoa."
 
 #. (para)
 msgid ""
@@ -13303,7 +13303,7 @@ msgid ""
 "Include:\n"
 "C:\\develop\n"
 "    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr ""
+msgstr "Esimerkki: <screen>\nOhitettavat polut:\nC:\nC:\\develop\\?\nC:\\develop\\tsvn\\obj\nC:\\develop\\tsvn\\bin\n\nSisällytettävät polut:\nC:\\develop\n</screen> Nämä asetukset estävät kuvakepäällykset C-asemassa lukuun ottamatta pokua <literal>c:\\develop</literal>. Kaikki tämän kansion alikansiot näyttävät kuvakepäällykset, lukuun ottamatta itse kansiota <literal>c:\\develop</literal>. joka on erityisesti ohitettu. Binäärikansiot, joihin kohdistuu paljon muutoksia, on myös ohitettu."
 
 #. (para)
 msgid ""
@@ -13325,7 +13325,7 @@ msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr ""
+msgstr "On usein näppärää ottaa käyttöön <literal>SUBST</literal>-asema työkopion käyttämiseksi, esim. komennolla <screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n</screen> Tästä voi kuitenkin seurata kuvakepäällysten päivitysongelmia, koska tiedoston muuttuessa <literal>TSVNCache</literal> saa siitä tiedon vain yhden kerran, ja tämä koskee tavallisesti alkuperäistä polkua. Tästä johtuen <literal>subst</literal>-asemien kuvakepäällykset eivät koskaan päivity."
 
 #. (para)
 msgid ""
@@ -13431,7 +13431,7 @@ msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "    </screen>"
-msgstr ""
+msgstr "Sinun on annettava suoritettavan ohjelman koko polkunimi. TortoisePlink.exe -ohjelmalle tämä on TortoiseSVN-ohjelman bin-kansio. Voit käyttää <guibutton>Selaa</guibutton>-painiketta sen löytämiseksi. Huomaa, että jos polussa on välilyöntejä, se on ympäröitävä lainausmerkein, esim. <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -13466,7 +13466,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "Lopuksi, SSH-asennus palvelimelle ja asiakastyöasemiin on mutkikas toimenpide, jota tämä käyttöohje ei kata. Löydät kuitenkin oppaan TortoiseSVN FAQ-sivulta otsikolla <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
@@ -13605,7 +13605,7 @@ msgid ""
 "      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "      </screen>"
-msgstr ""
+msgstr "Esimerkkejä: ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n    --right_display_name:%yname\n</screen> tai KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> tai WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> tai Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n    %base %mine\n</screen> tai UltraCompare: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n</screen> tai DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n</screen>"
 
 #. (para)
 msgid ""
@@ -13724,7 +13724,7 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
 "      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "      </screen>"
-msgstr ""
+msgstr "Esimerkkejä: Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> tai KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n    --L1 %bname --L2 %yname --L3 %tname\n</screen> tai Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n    /title3:%yname %theirs %base %mine %merged /a2\n</screen> tai WinMerge (2.8 tai uudempi): <screen>\nC:\\Path-To\\WinMerge.exe %merged\n</screen> tai DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -14283,7 +14283,7 @@ msgstr "Käynnistetään ennen kuin arkistoyhteys muodostetaan, maksimissaan ker
 #. (para)
 msgid ""
 "There are currently these types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Nykyisin käytettävissä on seuraavan tyyppisiä komentojonoja <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14425,7 +14425,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "    </screen>"
-msgstr ""
+msgstr "Testatessasi toimintokomentoja saatat tarvita konsolille tulostamista tai tauon lisäämistä estääksesi konsoli-ikkunaa katoamasta komentojonon päättyessä. Koska I/O on uudelleen ohjattu, tämä ei normaalisti toimi. Voit kuitenkin saada tämän aikaan ohjaamalla syötön ja tulostuksen CON-laitteelle. Esimerkki: <screen>\necho Tarkistetaan tilaa &gt; con\npause &lt; con &gt; con\n</screen>"
 
 #. (para)
 msgid ""
@@ -14636,7 +14636,7 @@ msgid ""
 "XP. Vista and later doesn't support that feature any more. However some "
 "third-party explorer replacements do support those even on Windows versions "
 "later than XP."
-msgstr ""
+msgstr "TortoiseSVN:n Resurssienhallintaan lisäämät ylimääräiset sarakkeet ovat normaalisti käytettävissä vain työkopioissa. Jos haluat ne saataville kaikkialla, aseta sen arvoksi <literal>true</literal>. Huomaa, että lisäsarakkeet ovat näkyvissä vain Windows XP:ssä. Myöhemmät Windows-versiot eivät enää tue tätä ominaisuutta, tosin jotkut kolmannen osapuolen tekemät Resurssienhallinnan korvaajat tukevat tätä myös uudemmissa Windows-versioissa."
 
 #. (para)
 msgid ""
@@ -14709,7 +14709,7 @@ msgid ""
 "This option determines how the Win7 taskbar icons of the various TortoiseSVN"
 " dialogs and windows are grouped together. This option has no effect on "
 "Vista!"
-msgstr ""
+msgstr "Tämä valinta määrittää, miten TortoiseSVN-ikkunoiden kuvakkeet ryhmitellään Windows 7 -tehtäväpalkissa. Tämä valinta ei tee mitään Windows Vistassa!"
 
 #. (title)
 msgid "Taskbar with default grouping"
@@ -15046,7 +15046,7 @@ msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev.exe -ohjelmaa kutsutaan komentoriviltä tai komentojonosta, ja sitä voidaan ohjata seuraavilla valitsimilla: <screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
 
 #. (para)
 msgid ""
@@ -15500,7 +15500,7 @@ msgid ""
 "#define SVN_REV         $WCREV$\n"
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev ei suoraan tue sisäkkäisä lausekkeita, joten et voi käyttää esimerkiksi seuraavaa lauseketta: <screen>\n#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n</screen> Voit kuitenkin yleensä kiertää rajoituksen esimerkiksi seuraavalla tavalla: <screen>\n#define SVN_RANGE $WCRANGE$\n#define SVN_REV $WCREV$\n#define SVN_REVISION \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -16791,7 +16791,7 @@ msgid ""
 "C:\\Projects\\Proj3\n"
 "C:\\Projects\\Common\n"
 "        </screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
-msgstr ""
+msgstr "Jos käytät samaa komponenttia useissa projekteissa, etkä halua siitä useita erillisiä työkopita kaikille sitä käyttäville projekteille, voit sen sijaan tehdä työkopion, joka on samassa suhteellisessa paikassa kaikkiin sitä käyttäviin projekteihin nähden. Esimerkki: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> viittaa yhteiseen komponenttiin suhteellisella polulla, esim. <filename>..\\..\\Common\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -16800,7 +16800,7 @@ msgid ""
 "        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
 "        </screen>"
-msgstr ""
+msgstr "Jos projektisi ovat hajallaan ilman yhteistä paikkaa, voit käyttää muunnelmaa: sijoita yhteinen komponentti yhteen paikkaan, ja käytä asematunnuksen korvausta kuvataksesi paikan joksikin, johon voit viitata muista projekteista. Esimerkki: Hae työkopio yhteisestä komponentista paikkaan <filename>D:\\Documents\\Framework</filename> tai <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> ja käytä sitten <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> luodaksesi asematunnuskorvauksen. Koodisi voi sitten käyttää absoluuttista viittausta: <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 
 #. (para)
 msgid ""
@@ -16845,7 +16845,7 @@ msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
 "      </screen> Of course you need to include the real repository URL."
-msgstr ""
+msgstr "Jos avaat usein arkistoselaimen tiettyyn paikantimeen, voit luoda siihen pikakuvakkeen työpöydälle käyttäen TortoiseProc-ohjelman automaatiorajapintaa. Luo uusi pikakuvake ja aseta sen kohde seuraavasti: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"paikannin/arkistoon\"\n</screen> Joudut tietenkin antamaan todellisen arkistopaikantimen."
 
 #. (title)
 msgid "Ignore files which are already versioned"
@@ -16971,7 +16971,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN on asennettava ryhmäkäytännöt-kansioon <emphasis>Tietokoneasetukset</emphasis> kansion <emphasis>Käyttäjäasetukset</emphasis> sijaan. Tämä johtuu siitä, että TortoiseSVN tarvitsee uusia CRT- ja MFC-kirjastoja, jotka voidaan asentaa ainoastaan <emphasis> työasemakohtaisesti </emphasis>. Jos todella haluat asentaa TortoiseSVN käyttäjäkohtaisesti, joudut ensin asentamaan MFC- ja CRT-kirjastojen version 12 kuhunkin työasemaan käyttäjäkohtaisesti."
 
 #. (para)
 msgid ""
@@ -17026,7 +17026,7 @@ msgid ""
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
 "      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr ""
+msgstr "Versiosta 1.4.0 alkaen TortoiseSVN tukee päivitystarkistuksen uudelleenohjausta  intranet-palvelimellesi. Voit asettaa rekisteriavaimen <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (merkkijonoarvo) paikantimeen, joka osoittaa intranetissäsi olevaan tekstitiedostoon. Tiedoston on oltava seuraavanlainen: <screen>\n1.9.1.6000\nUusi TortoiseSVN-versio on ilmestynyt!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n</screen> Tiedoston ensimmäinen rivi on versiomerkkijono. Sen on täsmättävä TortoiseSVN-asennuspaketin version kanssa. Toinen rivi on vapaata tekstiä, joka näytetään ohjelman päivitysikkunassa. Voit kirjoittaa siihen, mitä haluat. Huomaa kuitenkin, että päivitysikkunan koko on rajallinen - liian pitkät tekstit katkaistaan! Kolmas rivi on paikannin uuteen asennuspakettiin. Tämä paikannin avataan, kun käyttäjä napsauttaa vapaata tekstiä päivitysikkunassa. Voit halutessasi ohjata käyttäjän jollekin web-sivulle MSI-tiedoston sijaan. Paikannin avataan oletusselaimeen, joten jos määrität web-sivun, sivu avataan ja näytetään käyttäjälle. Jos määrität MSI-paketin, selain pyytää tallettamaan MSI-paketin paikallisesti."
 
 #. (title)
 msgid ""
@@ -17317,7 +17317,7 @@ msgid ""
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
 "      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "Esimerkki: estääksesi komennot <quote>Sijoita työkopio uudelleen</quote>, <quote>Poista versioimattomat tiedostot</quote> ja <quote>Asetukset</quote>, lisää komentoihin kytketyt arvot seuraavasti:<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> Alempi <literal>DWORD</literal>-arvo (<literal>0x80080000</literal>) on sitten talletettava avaimeen <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>; ylempi <literal>DWORD</literal> -arvo (<literal>0x20000000</literal>) puolestaan avaimeen <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -18316,7 +18316,7 @@ msgid ""
 "      </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
 "svn diff | TortoiseUDiff.exe\n"
 "      </screen>"
-msgstr ""
+msgstr "Esimerkkejä (jotka tulee syöttää yhdellä rivillä): <screen>\nTortoiseUDiff.exe /patchfile:\"c:\\diff.patch\"\n</screen> Mikäli luot vertailutiedot toisella työkalulla, voit käyttää TortoiseUDiff-ohjelmaa sen näyttämiseen suoraan: <screen>\nsvn diff | TortoiseUDiff.exe /p\n</screen> tämä toimii myös ilman <option>/p</option> -valitsinta: <screen>\nsvn diff | TortoiseUDiff.exe\n</screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
@@ -18386,7 +18386,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] PAIKANNIN POLKU\n    "
 
 #. (para)
 #. (para)
@@ -18414,7 +18414,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info TYÖKOPION_PAIKANNIN\nsvn update [-r rev] POLKU\n    "
 
 #. (para)
 msgid ""
@@ -18448,7 +18448,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info TYÖKOPION_PAIKANNIN\nsvn update [-r rev] [-depth ARG] [--ignore-externals] POLKU\n    "
 
 #. (para)
 msgid ""
@@ -18466,7 +18466,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v POLKU\n    "
 
 #. (para)
 #. (para)
@@ -18491,7 +18491,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add POLKU...\n      "
 
 #. (para)
 msgid ""
@@ -18508,7 +18508,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LokiViesti\" [-depth ARG] [--no-unlock] POLKU...\n      "
 
 #. (para)
 #. (para)
@@ -18530,7 +18530,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18557,7 +18557,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] POLKU\ntai\nsvn log -v -r M:N [--stop-on-copy] POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18580,7 +18580,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v POLKU\ntai\nsvn status -u -v POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18606,7 +18606,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr ""
+msgstr "TortoiseSVN suorittaa komennot <screen>\nsvn info TYÖKOPION_PAIKANNIN\nsvn log -v PAIKANNIN\n</screen> missä paikannin on arkiston <emphasis>juuri</emphasis>. Sen jälkeen tiedot analysoidaan."
 
 #. (title)
 msgid "Repo Browser"
@@ -18619,7 +18619,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info TYÖKOPION_PAIKANNIN\nsvn list [-r rev] -v PAIKANNIN\n      "
 
 #. (para)
 msgid ""
@@ -18652,7 +18652,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved POLKU\n      "
 
 #. (screen)
 #, no-wrap
@@ -18660,7 +18660,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename NYKYINEN_POLKU UUSI_POLKU\n      "
 
 #. (screen)
 #, no-wrap
@@ -18668,7 +18668,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18692,7 +18692,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] POLKU...\n      "
 
 #. (screen)
 #, no-wrap
@@ -18700,7 +18700,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup POLKU\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -18719,7 +18719,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"LukitusViesti\" [--force] POLKU...\n      "
 
 #. (para)
 msgid ""
@@ -18743,7 +18743,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock POLKU\n      "
 
 #. (screen)
 #, no-wrap
@@ -18755,7 +18755,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"LokiViesti\" PAIKANNIN PAIKANNIN\ntai\nsvn copy -m \"LokiViesti\" PAIKANNIN@versio PAIKANNIN@versio\ntai\nsvn copy -m \"LokiViesti\" POLKU PAIKANNIN\n      "
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18775,7 +18775,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info TYÖKOPION_PAIKANNIN\nsvn switch [-r versio] PAIKANNIN POLKU\n      "
 
 #. (screen)
 #, no-wrap
@@ -18783,7 +18783,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force MISTÄ_PAIKANNIN@versioN MIHIN_PAIKANNIN@versioM POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18797,7 +18797,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff MISTÄ_PAIKANNIN@versioN MIHIN_PAIKANNIN@versioM\n      "
 
 #. (para)
 msgid ""
@@ -18811,7 +18811,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r versio] [--ignore-externals] PAIKANNIN VIENTIPOLKU\n      "
 
 #. (para)
 msgid ""
@@ -18844,7 +18844,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate MISTÄ_PAIKANNIN MIHIN_PAIKANNIN\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -18856,7 +18856,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18870,7 +18870,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LokiViesti POLKU PAIKANNIN\n      "
 
 #. (screen)
 #, no-wrap
@@ -18879,7 +18879,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v POLKU\nsvn log -r N:M POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18900,7 +18900,7 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn propget svn:ignore POLKU&gt; tempfile\n{muokkaa uusi ohitettava polku tiedostoon tempfile}\nsvn propset svn:ignore -F tempfile POLKU\n      "
 
 #. (para)
 msgid ""
@@ -18915,7 +18915,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff POLKU &gt; patch-file\n      "
 
 #. (para)
 msgid ""
@@ -19143,7 +19143,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "TortoiseSVN-ohjelman käyttöliittymä on käännetty useille kielille, joten saatat hyvinkin löytää tarvitsemasi käännöksen. Löydät kielipaketit <ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>käännösten tilanne</citetitle></ulink>-sivultamme. Jos tarvitsemaasi kieltä ei ole vielä saatavilla, liity joukkoon toimita oma käännöksesi ;-)"
 
 #. (para)
 msgid ""
@@ -19158,7 +19158,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Käyttöohjeet on myös käännetty useille eri kielille. Ne ovat saatavilla verkkosivustomme <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>tukisivulta</citetitle></ulink>."
 
 #. (title)
 msgid "Spellchecker"
@@ -20149,7 +20149,7 @@ msgid ""
 "lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
 "Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
 "from the left file are added to the right file."
-msgstr ""
+msgstr "Ollessasi kahden paneelin näkymässä voit muokata vain oikeassa paneelissa olevaa tiedostoa (<literal>Minun</literal>) .  Ottaaksesi käyttöön muutokset vasemmassa paneelissa (<literal>Heidän</literal>) näytetystä tiedostosta, <action>oikea-napsauta</action> muuttuneita rivejä ja valitse <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem> Käytä 'heidän' tekstilohkonsa</guimenuitem></menuchoice>. Silloin vasemman tiedoston muutokset lisätään oikeaan tiedostoon."
 
 #. (para)
 msgid ""
@@ -20187,7 +20187,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr ""
+msgstr "Kolmen paneelin näkymässä (jota joskus kutsutaan <emphasis>yhdistämisnäkymäksi</emphasis>) voit muokata vain alimmassa paneelissa olevaa tiedostoa (<literal>Yhdistetty</literal>). Kuten kahden paneelin näkymässä, voit <action>oikea-napsauttaa</action> ristiriidassa olevia rivejä ja joko valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'heidän' tekstilohkonsa</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'minun' tekstilohkoni</guimenuitem></menuchoice>. Jos haluat <emphasis>molemmat</emphasis> tekstilohkot, voit myös valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'minun' tekstilohkoni ennen 'heidän'</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'heidän' tekstilohkonsa ennen 'minun' tekstilohkoani</guimenuitem></menuchoice>. Muutokset tehdään tiedostoon <literal>Yhdistetty</literal>."
 
 #. (para)
 msgid ""
@@ -20634,7 +20634,7 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "      </screen>"
-msgstr ""
+msgstr "Useimmat valitsimet tarvitsevat lisätietoa kuten tiedostopolun tai jonkun muun merkkijonon. Näissä tapauksissa lisää valitsimeen merkki ':' ja tiedostopolku/merkkijono.  Esimerkki: <screen>\n/base:\"c:\\folder\\minun kantatiedostoni.txt\"\n</screen>"
 
 #. (title)
 msgid "List of available command line options"
@@ -20798,4 +20798,4 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr ""
+msgstr "Voit myös välittää yksinkertaisia tiedostonimiä komentorivillä ollaksesi yhteensopiva muiden diff-ohjelmien kanssa. Yksinkertaistetussa muodossa komentorivi on <screen>\nTortoiseMerge KantaTiedostopolku MinunTiedostopolku [ HeidänTiedostopolku ]\n</screen> Jos kaksi tiedostoa annetaan, niitä vertaillaan.  Mikäli annetaan kolme tiedostoa, ensimmäisen oletetaan olevan BASE-versio, ja kahta muuta verrataan siihen."

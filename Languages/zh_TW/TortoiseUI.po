@@ -11,21 +11,21 @@
 # Authors:
 # Translators:
 # Arith Hsu <arithmandar@gmail.com>, 2011,2013-2014
-# binota <binota@binota.org>, 2013
-# zcecil <zcecil@csie.org>, 2013-2014
+# Binota Liu <binota@binota.org>, 2013
+# Cecil Sheng <zcecil@csie.org>, 2013-2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2014
 # Nick Vrvilo <nick@vrvilo.com>, 2011
-# zcecil <zcecil@csie.org>, 2013
-# zcecil <zcecil@csie.org>, 2011-2013
-# zcecil <zcecil@csie.org>, 2011
+# Cecil Sheng <zcecil@csie.org>, 2013
+# Cecil Sheng <zcecil@csie.org>, 2011-2013
+# Cecil Sheng <zcecil@csie.org>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-24 00:54+0000\n"
-"Last-Translator: zcecil <zcecil@csie.org>\n"
+"PO-Revision-Date: 2014-06-23 08:48+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -191,6 +191,11 @@ msgstr "每秒 %I64d 位元組"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "傳輸了 %I64d k位元組"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr ""
 
 #. Resource IDs: (8)
 #, c-format
@@ -678,6 +683,12 @@ msgstr "刪除無版本控制的檔案(&D)..."
 msgid "&Delete..."
 msgstr "刪除(&D)..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "比對差異(&D)"
@@ -857,6 +868,10 @@ msgstr "說明主題(&H)"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "隱藏 (&H)"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr ""
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1197,6 +1212,10 @@ msgstr "移除(&R)"
 msgid "&Rename"
 msgstr "重新命名(&R)"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr ""
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "檔案庫瀏覽器(&R)"
@@ -1292,6 +1311,10 @@ msgstr "顯示記錄訊息(&S)"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "顯示選單於(&S):"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr ""
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1497,6 +1520,11 @@ msgstr "工作複本(&W)"
 msgid "&file list control"
 msgstr "檔案列表控制(&F)"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr ""
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1674,6 +1702,10 @@ msgstr "<描述>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<新變更列表>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3311,6 +3343,10 @@ msgstr "容器大小"
 msgid "Context Menus: "
 msgstr "快顯式選單:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr ""
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "縮短停駐的視窗"
@@ -3786,6 +3822,10 @@ msgstr "刪除忽略的檔案和目錄(&I)"
 msgid "Delete &unversioned files and folders"
 msgstr "刪除無版本控制的檔案和目錄(&U)"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "刪除檔案庫快取"
@@ -4059,6 +4099,11 @@ msgstr "對所有無版本控制/有變更的項目進行作業"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "是否確定要刪除工具列 '%s' ?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr ""
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4249,6 +4294,10 @@ msgstr "編輯按鈕影像"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "編輯外部"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr ""
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5601,6 +5650,12 @@ msgstr "設定此選項時, 位於無版本控制目錄下的檔案也會在狀�
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr ""
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "設定此選項時, 含有無版本控制的檔案會使上層的資料夾顯示為異動\r\n也就是會顯示異動的圖示."
@@ -6574,6 +6629,10 @@ msgstr "異動"
 msgid "Modified node"
 msgstr "異動過的節點"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "更多"
@@ -7083,6 +7142,10 @@ msgstr "找到自動儲存的文件."
 msgid "One or more files are in a conflicted state."
 msgstr "尚有一個以上的檔案處於衝突狀態."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr ""
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "僅記錄合併(&Y) (阻止版本被合併)"
@@ -7229,6 +7292,10 @@ msgid ""
 "The target file is replaced."
 msgstr "覆寫\n已取代目標檔案"
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr ""
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7313,6 +7380,10 @@ msgstr "路徑"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "已找到更符合補綴的路徑."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7581,6 +7652,10 @@ msgstr "程式 (*.exe)|*.exe|所有檔案 (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "進度"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr ""
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8161,6 +8236,10 @@ msgid ""
 "Repeat"
 msgstr "重覆上次動作\n重覆"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8168,8 +8247,17 @@ msgid ""
 msgstr "用指定的文字取代特定文字\n取代"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "取代:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9104,6 +9192,10 @@ msgstr "檢示單行差異\n單行差異"
 msgid "Show Lock dialog before locking files"
 msgstr "鎖定檔案前顯示鎖定視窗"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "顯示更多按鈕"
@@ -9504,6 +9596,10 @@ msgstr "開始更新掛勾"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "啟動登錄編輯器"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10440,6 +10536,10 @@ msgstr "暫停"
 msgid "Tip"
 msgstr "小技巧"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10562,6 +10662,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11868,6 +11990,12 @@ msgstr "上次讀取:"
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "最後更新:"
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr ""
 
 #. Resource IDs: (11, 195)
 msgid "locked"

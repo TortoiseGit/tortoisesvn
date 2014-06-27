@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-20 07:35+0000\n"
-"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
+"PO-Revision-Date: 2014-06-23 08:48+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -186,6 +186,11 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KB overført"
+
+#. Resource IDs: (64)
+#, c-format
+msgid "%d projects have updates:"
+msgstr ""
 
 #. Resource IDs: (8)
 #, c-format
@@ -673,6 +678,12 @@ msgstr "&Slet ikke-versionerede emner..."
 msgid "&Delete..."
 msgstr "&Slet..."
 
+#. Resource IDs: (65)
+msgid ""
+"&Delete\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
+
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Sammenlign"
@@ -852,6 +863,10 @@ msgstr "&Hjælp emner"
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Skjul"
+
+#. Resource IDs: (1562)
+msgid "&Hide ignored items"
+msgstr ""
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1192,6 +1207,10 @@ msgstr "&Fjern"
 msgid "&Rename"
 msgstr "O&mdøb"
 
+#. Resource IDs: (1511)
+msgid "&Replace"
+msgstr ""
+
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Versionsarkivbro&wser"
@@ -1287,6 +1306,10 @@ msgstr "&Vis logbog"
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Vis Menuer for:"
+
+#. Resource IDs: (32872)
+msgid "&Show Monitor"
+msgstr ""
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1492,6 +1515,11 @@ msgstr "&Arbejdskopi"
 msgid "&file list control"
 msgstr "&Fil liste kontrol"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "'%s' : %ld new commits"
+msgstr ""
+
 #. Resource IDs: (84)
 #, c-format
 msgid ""
@@ -1669,6 +1697,10 @@ msgstr "<descr>"
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<ny ændringsliste>"
+
+#. Resource IDs: (64)
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3306,6 +3338,10 @@ msgstr "Beholderstørrelser"
 msgid "Context Menus: "
 msgstr "Kontekstmenuer:"
 
+#. Resource IDs: (65535)
+msgid "Context lines for patches"
+msgstr ""
+
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Sammentræk fastgjort vindue"
@@ -3781,6 +3817,10 @@ msgstr "Slet &ignorerede filer og foldere"
 msgid "Delete &unversioned files and folders"
 msgstr "Slet &uversionerede filer og foldere"
 
+#. Resource IDs: (65)
+msgid "Delete Project"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Slet versionsarkiv cache"
@@ -4054,6 +4094,11 @@ msgstr "Gør dette for alle uversionerede/ændrede elementer"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Er du sikker på at du vil slette værktøjslinjen '%s'?"
 
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to delete the monitored project '%s'?"
+msgstr ""
+
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4244,6 +4289,10 @@ msgstr "Rediger knapbillede"
 #. Resource IDs: (319)
 msgid "Edit External"
 msgstr "Rediger Ekstern"
+
+#. Resource IDs: (359)
+msgid "Edit Project to monitor"
+msgstr ""
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5596,6 +5645,12 @@ msgstr "Hvis valgt, kan filer i ikke-versionerede mapper vises i statuselementet
 
 #. Resource IDs: (196)
 msgid ""
+"If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
+"i.e., they get the normal icon unless another file or folder is modified."
+msgstr ""
+
+#. Resource IDs: (196)
+msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr "Hvis valgt, vil ikke-versionerede filer markere status af den overordnede mappe som ændret\r\ndvs. blive vist med ikonoverdækningen for \"ændret\"."
@@ -6569,6 +6624,10 @@ msgstr "Ændret"
 msgid "Modified node"
 msgstr "Ændret knude"
 
+#. Resource IDs: (65535)
+msgid "Monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Mere"
@@ -7078,6 +7137,10 @@ msgstr "Et eller flere automatisk gemte dokumenter blev fundet."
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flere filer indeholder konflikter."
 
+#. Resource IDs: (64)
+msgid "One project has updates:"
+msgstr ""
+
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
 msgstr "Registrer k&un fletningen (forhindr revisioner i at blive flettet)"
@@ -7224,6 +7287,10 @@ msgid ""
 "The target file is replaced."
 msgstr "Overskriv\nErstat destinations-filen"
 
+#. Resource IDs: (65535)
+msgid "POPUP"
+msgstr ""
+
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
@@ -7308,6 +7375,10 @@ msgstr "Sti"
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
 msgstr "Sti fundet, der matcher patch bedre."
+
+#. Resource IDs: (65535)
+msgid "Path or URL:"
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7576,6 +7647,10 @@ msgstr "Programmer (*.exe)|*.exe|Alle filer (*.*)|*.*||"
 #. Resource IDs: (134)
 msgid "Progress"
 msgstr "Fremskridts-dialog"
+
+#. Resource IDs: (65535)
+msgid "Project"
+msgstr ""
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8156,6 +8231,10 @@ msgid ""
 "Repeat"
 msgstr "Gentag sidste handling\nGentag"
 
+#. Resource IDs: (1512)
+msgid "Replace &All"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
@@ -8163,8 +8242,17 @@ msgid ""
 msgstr "Erstat en bestemt tekst med en anden\nErstat"
 
 #. Resource IDs: (65535)
+msgid "Replace with:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Replace:"
 msgstr "Erstat:"
+
+#. Resource IDs: (95)
+#, c-format
+msgid "Replaced %d matches"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9099,6 +9187,10 @@ msgstr "Vis forskelle indlejret\nIndlejret Forskelle"
 msgid "Show Lock dialog before locking files"
 msgstr "Vis låsedialog før låsning af filer"
 
+#. Resource IDs: (65)
+msgid "Show Monitor Dialog"
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
 msgstr "Vis flere knapper"
@@ -9499,6 +9591,10 @@ msgstr "\"Start opdatering\"-tilkobling"
 #. Resource IDs: (1542)
 msgid "Start registry editor"
 msgstr "Start registry editor"
+
+#. Resource IDs: (1562)
+msgid "Start with &Windows"
+msgstr ""
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10435,6 +10531,10 @@ msgstr "Timeouts"
 msgid "Tip"
 msgstr "Tip"
 
+#. Resource IDs: (65)
+msgid "To add projects to be monitored, click the \"Add\" button above"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -10557,6 +10657,28 @@ msgid ""
 "zlib %s\r\n"
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Commit Monitor Options"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commit in %d project"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Commit Monitor\r\n"
+"%d new commits in %d projects"
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "TortoiseSVN Project Monitor"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11863,6 +11985,12 @@ msgstr "sidste læsning:"
 #. Resource IDs: (65535)
 msgid "last update: "
 msgstr "sidste opdatering:"
+
+#. Resource IDs: (65535)
+msgid ""
+"leave username and password empty if the repository allows anonymous access,"
+" or if the authentication is stored already"
+msgstr ""
 
 #. Resource IDs: (11, 195)
 msgid "locked"

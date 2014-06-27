@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-12 18:20+0000\n"
+"PO-Revision-Date: 2014-06-23 20:22+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -5014,7 +5014,7 @@ msgstr "Z dialogového okna Průběhu po dokončení aktualizace. Pak dialogové
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "V Průzkumníku úložiště"
 
 #. (para)
 msgid ""
@@ -18317,7 +18317,7 @@ msgid ""
 "      </screen> this also works if you omit the <option>/p</option> parameter: <screen>\n"
 "svn diff | TortoiseUDiff.exe\n"
 "      </screen>"
-msgstr ""
+msgstr "Příklady (které by měly být zadány na jednom řádku): <screen>\nTortoiseUDiff.exe /patchfile:\"c:\\rozdily.patch\"\n      </screen> Pokud soubor porovnání vytvoříte pomocí jiného příkazu, můžete TortoiseUDiff použít k přímému zobrazení rozdílů: <screen>\nsvn diff | TortoiseUDiff.exe /u\n      </screen> toto také funguje pokud vynecháte parametr <option>/p</option>: <screen>\nsvn diff | TortoiseUDiff.exe\n      </screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
