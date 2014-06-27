@@ -402,6 +402,7 @@ private:
     CString GetTreePath(HTREEITEM hItem);
     bool IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
     void MonitorShowProject(HTREEITEM hItem);
+    void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;

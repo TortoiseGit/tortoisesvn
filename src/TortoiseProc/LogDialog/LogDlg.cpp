@@ -2070,7 +2070,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     {
         ShowContextMenuForChangedPaths(pWnd, point);
     }
-    else if ((selCount > 0)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
+    else if (pWnd == &m_projTree)
+    {
+        ShowContextMenuForMonitorTree(pWnd, point);
+    }
+    else if ((selCount > 0) && (pWnd == GetDlgItem(IDC_MSGVIEW)))
     {
         POSITION pos = m_LogList.GetFirstSelectedItemPosition();
         int selIndex = -1;
@@ -8518,4 +8522,52 @@ void CLogDlg::OnInlineedit()
         HTREEITEM hTreeItem = m_projTree.GetSelectedItem();
         m_projTree.EditLabel(hTreeItem);
     }
+}
+
+void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
+{
+    m_bCancelled = false;
+    HTREEITEM hSelectedTreeItem = m_projTree.GetSelectedItem();
+    if ((point.x == -1) && (point.y == -1))
+    {
+        CRect rect;
+        m_projTree.GetItemRect(hSelectedTreeItem, &rect, TRUE);
+        m_projTree.ClientToScreen(&rect);
+        point = rect.CenterPoint();
+    }
+
+    UINT uFlags;
+    CPoint ptTree = point;
+    m_projTree.ScreenToClient(&ptTree);
+    HTREEITEM hItem = m_projTree.HitTest(ptTree, &uFlags);
+    // in case the right-clicked item is not the selected one, select it
+    if ((hItem) && (uFlags & TVHT_ONITEM) && (hItem != hSelectedTreeItem))
+    {
+        m_projTree.SelectItem(hItem);
+    }
+
+    // entry is selected, now show the popup menu
+    CIconMenu popup;
+    if (!popup.CreatePopupMenu())
+        return;
+
+    popup.AppendMenuIcon(ID_LOGDLG_MONITOR_EDIT, IDS_LOG_POPUP_MONITOREDIT, IDI_MONITOR_EDIT);
+    popup.AppendMenuIcon(ID_LOGDLG_MONITOR_REMOVE, IDS_LOG_POPUP_MONITORREMOVE, IDI_MONITOR_REMOVE);
+
+
+    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
+                                   TPM_RIGHTBUTTON, point.x, point.y, this, 0);
+    CLogWndHourglass wait;
+
+    switch (cmd)
+    {
+        case ID_LOGDLG_MONITOR_EDIT:
+            OnMonitorEditProject();
+            break;
+        case ID_LOGDLG_MONITOR_REMOVE:
+            OnMonitorRemoveProject();
+            break;
+        default:
+            break;
+    } // switch (cmd)
 }
