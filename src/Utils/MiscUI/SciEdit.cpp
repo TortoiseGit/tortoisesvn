@@ -1244,7 +1244,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
                 LONG matchedpos = 0;
                 for (std::tr1::sregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                 {
-                    ATLTRACE(L"matched id : %s\n", std::string((*it2)[0]).c_str());
+                    ATLTRACE("matched id : %s\n", std::string((*it2)[0]).c_str());
 
                     // bold style up to the id match
                     ATLTRACE("position = %ld\n", it2->position(0));
@@ -1282,7 +1282,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
                 // group 2 as the bug ID
                 if (match.size() >= 2)
                 {
-                    ATLTRACE(L"matched id : %s\n", std::string(match[1]).c_str());
+                    ATLTRACE("matched id : %s\n", std::string(match[1]).c_str());
                     Call(SCI_SETSTYLING, match[1].first-s.begin()-pos, STYLE_ISSUEBOLD);
                     Call(SCI_SETSTYLING, std::string(match[1]).size(), STYLE_ISSUEBOLDITALIC);
                     pos = (LONG)(match[1].second-s.begin());
