@@ -988,10 +988,12 @@ static void BuildInfoSubstring(CString &str, UINT nID, int count)
     if (!count)
         return;
 
+    if (!str.IsEmpty())
+        str += L", ";
     CString temp;
     temp.LoadString(nID);
     str += temp;
-    str.AppendFormat(L":%d ", count);
+    str.AppendFormat(L":%d", count);
 }
 
 CString CSVNProgressDlg::BuildInfoString()
