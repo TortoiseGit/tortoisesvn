@@ -1146,6 +1146,19 @@ INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wPar
 {
     switch (uMsg)
     {
+    case WM_INITDIALOG:
+        {
+            HWND hwndOwner = GetParent(hwndDlg);
+            RECT rc, rcOwner, rcDlg;
+            GetWindowRect(hwndOwner, &rcOwner);
+            GetWindowRect(hwndDlg, &rcDlg);
+            CopyRect(&rc, &rcOwner);
+            OffsetRect(&rcDlg, -rcDlg.left, -rcDlg.top);
+            OffsetRect(&rc, -rc.left, -rc.top);
+            OffsetRect(&rc, -rcDlg.right, -rcDlg.bottom);
+            SetWindowPos(hwndDlg, HWND_TOP, rcOwner.left + (rc.right / 2), rcOwner.top + (rc.bottom / 2), 0, 0, SWP_NOSIZE);
+        }
+        break;
     case WM_COMMAND:
         {
             switch (LOWORD(wParam))
