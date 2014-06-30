@@ -124,10 +124,6 @@ protected:
     afx_msg void    OnUpdateViewInlinediff(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI);
     afx_msg void    OnEditCreateunifieddifffile();
-    afx_msg void    OnUpdateEditTabspace(CCmdUI *pCmdUI);
-    afx_msg void    OnEditTabspace();
-    afx_msg void    OnUpdateEditSmartTab(CCmdUI *pCmdUI);
-    afx_msg void    OnEditSmartTab();
     afx_msg void    OnUpdateViewLinediffbar(CCmdUI *pCmdUI);
     afx_msg void    OnViewLinediffbar();
     afx_msg void    OnUpdateViewLocatorbar(CCmdUI *pCmdUI);
@@ -268,7 +264,6 @@ protected:
     CRegDWORD       m_regUseRibbons;
     CRegDWORD       m_regUseTaskDialog;
     CRegDWORD       m_regIgnoreComments;
-    CRegDWORD       m_regTabMode;
 
     std::map<CString, std::tuple<CString, CString, CString>>    m_IgnoreCommentsMap;
     CSimpleIni      m_regexIni;

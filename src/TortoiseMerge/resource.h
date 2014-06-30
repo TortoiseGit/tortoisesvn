@@ -428,8 +428,6 @@
 #define ID_BUTTON17                     32971
 #define ID_EDIT_ENABLE                  32976
 #define ID_FILE_ENABLEEDIT              32978
-#define ID_EDIT_TABSPACE                32979
-#define ID_EDIT_SMARTTAB                32980
 #define ID_BUTTON3                      32981
 #define ID_BUTTON4                      32982
 #define ID_BUTTON15                     32990
