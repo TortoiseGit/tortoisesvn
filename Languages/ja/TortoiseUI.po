@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-23 11:47+0000\n"
+"PO-Revision-Date: 2014-06-28 10:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -741,6 +741,10 @@ msgstr "競合を編集(&E)"
 msgid "&Edit conflicts"
 msgstr "競合を編集(&E)"
 
+#. Resource IDs: (65)
+msgid "&Edit project"
+msgstr "プロジェクトを編集(&E)"
+
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "編集(&E)..."
@@ -1215,6 +1219,10 @@ msgstr "課題IDの入力を確認する(&R)"
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
 msgstr "削除(&R)"
+
+#. Resource IDs: (65)
+msgid "&Remove project"
+msgstr "プロジェクトを削除(&R)"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -2888,6 +2896,11 @@ msgstr "チェック:"
 #. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN の最新バージョンが使用可能かどうかをチェックしています..."
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Checking project '%s' for updates..."
+msgstr "%sプロジェクトの更新を検出中...."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"

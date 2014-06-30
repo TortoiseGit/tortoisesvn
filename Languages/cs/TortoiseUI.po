@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-23 19:41+0000\n"
+"PO-Revision-Date: 2014-06-29 11:17+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -726,6 +726,10 @@ msgstr "&Upravit konflikt"
 msgid "&Edit conflicts"
 msgstr "&Upravit konflikty"
 
+#. Resource IDs: (65)
+msgid "&Edit project"
+msgstr "&Upravit projekt"
+
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "&Upravit..."
@@ -1200,6 +1204,10 @@ msgstr "&Připomenout zadání čísla chyby"
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
 msgstr "Odst&ranit"
+
+#. Resource IDs: (65)
+msgid "&Remove project"
+msgstr "&Odstranit projekt"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -2873,6 +2881,11 @@ msgstr "Zkontrolovat:"
 #. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Ověřuji, zda je dostupná nová verze TortoiseSVN..."
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Checking project '%s' for updates..."
+msgstr "Kontrola aktualizací projektu '%s'... "
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
