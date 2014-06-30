@@ -81,6 +81,7 @@ public:
         , lastchecked(0)
         , lastHEAD(0)
         , UnreadItems(0)
+        , unreadFirst(0)
         , authfailed(false)
     {}
     MonitorItem()
@@ -88,6 +89,7 @@ public:
         , lastchecked(0)
         , lastHEAD(0)
         , UnreadItems(0)
+        , unreadFirst(0)
         , authfailed(false)
     {}
     ~MonitorItem() {}
@@ -97,6 +99,7 @@ public:
     int                     interval;
     __time64_t              lastchecked;
     svn_revnum_t            lastHEAD;
+    svn_revnum_t            unreadFirst;
     int                     UnreadItems;
     bool                    authfailed;
     CString                 username;
@@ -213,6 +216,7 @@ protected:
     afx_msg LRESULT OnTreeDrop(WPARAM wParam, LPARAM lParam);
     afx_msg void OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnInlineedit();
+    afx_msg void OnEndSession(BOOL bEnding);
 
     virtual void OnCancel();
     virtual void OnOK();

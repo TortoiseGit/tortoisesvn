@@ -357,6 +357,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_WM_WINDOWPOSCHANGING()
     ON_NOTIFY(TVN_ENDLABELEDIT, IDC_PROJTREE, &CLogDlg::OnTvnEndlabeleditProjtree)
     ON_COMMAND(ID_INLINEEDIT, &CLogDlg::OnInlineedit)
+    ON_WM_ENDSESSION()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -1336,6 +1337,7 @@ void CLogDlg::OnCancel()
     if (m_bMonitoringMode)
     {
         ShowWindow(SW_HIDE);
+        SaveMonitorProjects();
         return;
     }
     bool bWasCancelled = m_bCancelled;
@@ -2244,6 +2246,7 @@ void CLogDlg::OnOK()
     if (m_bMonitoringMode)
     {
         ShowWindow(SW_HIDE);
+        SaveMonitorProjects();
         return;
     }
     // since the log dialog is also used to select revisions for other
@@ -8096,6 +8099,8 @@ void CLogDlg::MonitorThread()
                             }
                         }
                     }
+                    if (item.unreadFirst == 0)
+                        item.unreadFirst = item.lastHEAD;
                     item.lastHEAD = head;
                 }
                 // we should never get asked for authentication here!
@@ -8165,6 +8170,7 @@ void CLogDlg::OnMonitorThreadFinished()
                 pItem->lastchecked = item.lastchecked;
                 pItem->lastHEAD = item.lastHEAD;
                 pItem->UnreadItems = item.UnreadItems;
+                pItem->unreadFirst = item.unreadFirst;
                 pItem->authfailed = item.authfailed;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
@@ -8427,7 +8433,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_hasWC = m_path.IsUrl();
         m_bStrict = false;
         m_bSaveStrict = false;
-        m_revUnread = head - pItem->UnreadItems;
+        m_revUnread = pItem->unreadFirst;
         m_hasWC = !m_path.IsUrl();
         m_ProjectProperties = ProjectProperties();
         ReadProjectPropertiesAndBugTraqInfo();
@@ -8438,6 +8444,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
             UpdateData(FALSE);
 
         pItem->UnreadItems = 0;
+        pItem->unreadFirst = 0;
 
         InterlockedExchange(&m_bLogThreadRunning, TRUE);
         new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
@@ -8570,4 +8577,11 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         default:
             break;
     } // switch (cmd)
+}
+
+
+void CLogDlg::OnEndSession(BOOL bEnding)
+{
+    SaveMonitorProjects();
+    __super::OnEndSession(bEnding);
 }
