@@ -28,16 +28,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-25 10:40+0200\n"
-"Last-Translator: lonken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2014-06-30 06:23+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
+#. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -51,7 +51,6 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Resource IDs: (188)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -692,10 +691,7 @@ msgstr "&Löschen..."
 msgid ""
 "&Delete\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-"&Löschen\n"
-"Das Projekt wird entfernt. Wenn es Unterprojekte hat, werden diese ebenfalls "
-"entfernt."
+msgstr "&Löschen\nDas Projekt wird entfernt. Wenn es Unterprojekte hat, werden diese ebenfalls entfernt."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -740,6 +736,10 @@ msgstr "Konflikt b&earbeiten"
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
 msgstr "Konflikte b&earbeiten"
+
+#. Resource IDs: (65)
+msgid "&Edit project"
+msgstr "Projekt &bearbeiten"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -1215,6 +1215,10 @@ msgstr "&Erinnere mich daran, eine Problem-ID einzugeben"
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
 msgstr "Ent&fernen"
+
+#. Resource IDs: (65)
+msgid "&Remove project"
+msgstr "Projekt &entfernen"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -2888,6 +2892,11 @@ msgstr "Wählen:"
 #. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Überprüfe, ob eine neue Version von TortoiseSVN zur Verfügung steht..."
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Checking project '%s' for updates..."
+msgstr "Überprüfe Projekt '%s' auf Aktualisierungen..."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
@@ -5660,29 +5669,19 @@ msgstr "Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr ""
-"Aktivieren Sie diese Option, damit Dateien in der \"Beim-Übertragen-"
-"ignorieren\" Liste den Elternordner nicht als verändert markieren.\n"
-"\n"
-"D.h. sie zeigen das normale Symbol es sei denn ein anderer Ordner oder eine "
-"andere Datei wurde verändert."
+msgstr "Aktivieren Sie diese Option, damit Dateien in der \"Beim-Übertragen-ignorieren\" Liste den Elternordner nicht als verändert markieren.\n\nD.h. sie zeigen das normale Symbol es sei denn ein anderer Ordner oder eine andere Datei wurde verändert."
 
 #. Resource IDs: (196)
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
-msgstr ""
-"Aktivieren Sie diese Option, damit das übergeordnete Verzeichnis als\r\n"
-"verändert gekennzeichnet (erhält das 'modifiziert' Symbol) wird, wenn\r\n"
-"es nicht versionierte Dateien enthält."
+msgstr "Aktivieren Sie diese Option, damit das übergeordnete Verzeichnis als\r\nverändert gekennzeichnet (erhält das 'modifiziert' Symbol) wird, wenn\r\nes nicht versionierte Dateien enthält."
 
 #. Resource IDs: (2052)
 msgid ""
 "If the graph contains multiple trees, separate them by slight variations in "
 "background color."
-msgstr ""
-"Falls der Graph mehrere Bäume enthält, werden diese durch leicht "
-"unterschiedliche Hintergrundfarben gekennzeichnet."
+msgstr "Falls der Graph mehrere Bäume enthält, werden diese durch leicht unterschiedliche Hintergrundfarben gekennzeichnet."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -10690,18 +10689,14 @@ msgstr "TortoiseSVN Commit-Monitor Optionen"
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
-"TortoiseSVN Commit-Monitor\r\n"
-"%d neue Übertragung in %d Projekt"
+msgstr "TortoiseSVN Commit-Monitor\r\n%d neue Übertragung in %d Projekt"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
-"TortoiseSVN Commit-Monitor\r\n"
-"%d neue Übertragungen in %d Projekten"
+msgstr "TortoiseSVN Commit-Monitor\r\n%d neue Übertragungen in %d Projekten"
 
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
@@ -11036,9 +11031,7 @@ msgstr "Update\nAktualisieren Sie die Datei und versuchen Sie sie erneut sperren
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
-"Aktualisieren\n"
-"Die Arbeitskopie aktualisieren und den Übertragen-Dialog erneut öffnen."
+msgstr "Aktualisieren\nDie Arbeitskopie aktualisieren und den Übertragen-Dialog erneut öffnen."
 
 #. Resource IDs: (291)
 msgid ""
@@ -12019,9 +12012,7 @@ msgstr "Zuletzt aktualisiert: "
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
-"Lassen Sie Benutzername und Passwort leer, falls das Projektarchiv anonymen "
-"Zugriff erlaubt oder wenn die Anmeldeinformationen bereits gespeichert sind"
+msgstr "Lassen Sie Benutzername und Passwort leer, falls das Projektarchiv anonymen Zugriff erlaubt oder wenn die Anmeldeinformationen bereits gespeichert sind"
 
 #. Resource IDs: (11, 195)
 msgid "locked"
