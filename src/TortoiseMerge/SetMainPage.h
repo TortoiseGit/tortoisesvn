@@ -68,6 +68,8 @@ protected:
     CRegDWORD       m_regTabMode;
     int             m_nTabSize;
     CRegDWORD       m_regTabSize;
+    BOOL            m_bEnableEditorConfig;
+    CRegDWORD       m_regEnableEditorConfig;
     int             m_nContextLines;
     CRegDWORD       m_regContextLines;
     BOOL            m_bIgnoreEOL;

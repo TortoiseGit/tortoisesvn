@@ -205,6 +205,7 @@
 #define IDC_NAME                        1508
 #define IDC_REGEX                       1509
 #define IDC_CONTEXTLINES                1509
+#define IDC_ENABLEEDITORCONFIG          1510
 #define IDC_NAME3                       1511
 #define IDC_REPLACE                     1511
 #define IDC_REPLACEALL                  1512
@@ -438,7 +439,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        171
 #define _APS_NEXT_COMMAND_VALUE         32991
-#define _APS_NEXT_CONTROL_VALUE         1510
+#define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -37,6 +37,7 @@ CSetMainPage::CSetMainPage()
     , m_bUseSpaces(FALSE)
     , m_bSmartTabChar(FALSE)
     , m_nTabSize(0)
+    , m_bEnableEditorConfig(FALSE)
     , m_nContextLines(0)
     , m_bIgnoreEOL(FALSE)
     , m_bOnePane(FALSE)
@@ -53,6 +54,7 @@ CSetMainPage::CSetMainPage()
     m_regFirstConflictOnLoad = CRegDWORD(L"Software\\TortoiseMerge\\FirstConflictOnLoad", TRUE);
     m_regTabMode = CRegDWORD(_T("Software\\TortoiseMerge\\TabMode"), 0);
     m_regTabSize = CRegDWORD(L"Software\\TortoiseMerge\\TabSize", 4);
+    m_regEnableEditorConfig = CRegDWORD(L"Software\\TortoiseMerge\\EnableEditorConfig", FALSE);
     m_regIgnoreEOL = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreEOL", TRUE);
     m_regOnePane = CRegDWORD(L"Software\\TortoiseMerge\\OnePane");
     m_regViewLinenumbers = CRegDWORD(L"Software\\TortoiseMerge\\ViewLinenumbers", 1);
@@ -71,6 +73,7 @@ CSetMainPage::CSetMainPage()
     m_bUseSpaces = (m_regTabMode & TABMODE_USESPACES) ? TRUE : FALSE;
     m_bSmartTabChar = (m_regTabMode & TABMODE_SMARTINDENT) ? TRUE : FALSE;
     m_nTabSize = m_regTabSize;
+    m_bEnableEditorConfig = m_regEnableEditorConfig;
     m_nContextLines = m_regContextLines;
     m_bIgnoreEOL = m_regIgnoreEOL;
     m_bOnePane = m_regOnePane;
@@ -96,6 +99,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_SMARTTABCHAR, m_bSmartTabChar);
     DDX_Text(pDX, IDC_TABSIZE, m_nTabSize);
     DDV_MinMaxInt(pDX, m_nTabSize, 1, 1000);
+    DDX_Check(pDX, IDC_ENABLEEDITORCONFIG, m_bEnableEditorConfig);
     DDX_Text(pDX, IDC_CONTEXTLINES, m_nContextLines);
     DDV_MinMaxInt(pDX, m_nContextLines, 0, 1000);
     DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
@@ -124,6 +128,7 @@ void CSetMainPage::SaveData()
     m_regFirstConflictOnLoad = m_bFirstConflictOnLoad;
     m_regTabMode = (m_bUseSpaces ? TABMODE_USESPACES : TABMODE_NONE) | (m_bSmartTabChar ? TABMODE_SMARTINDENT : TABMODE_NONE);
     m_regTabSize = m_nTabSize;
+    m_regEnableEditorConfig = m_bEnableEditorConfig;
     m_regContextLines = m_nContextLines;
     m_regIgnoreEOL = m_bIgnoreEOL;
     m_regOnePane = m_bOnePane;
@@ -161,6 +166,7 @@ BOOL CSetMainPage::OnInitDialog()
     m_bUseSpaces = (m_regTabMode & TABMODE_USESPACES) ? TRUE : FALSE;
     m_bSmartTabChar = (m_regTabMode & TABMODE_SMARTINDENT) ? TRUE : FALSE;
     m_nTabSize = m_regTabSize;
+    m_bEnableEditorConfig = m_regEnableEditorConfig;
     m_nContextLines = m_regContextLines;
     m_bIgnoreEOL = m_regIgnoreEOL;
     m_bOnePane = m_regOnePane;
@@ -215,6 +221,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
     ON_BN_CLICKED(IDC_USESPACES, &CSetMainPage::OnModified)
     ON_BN_CLICKED(IDC_SMARTTABCHAR, &CSetMainPage::OnModified)
     ON_EN_CHANGE(IDC_TABSIZE, &CSetMainPage::OnModified)
+    ON_BN_CLICKED(IDC_ENABLEEDITORCONFIG, &CSetMainPage::OnModified)
     ON_EN_CHANGE(IDC_CONTEXTLINES, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTSIZES, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTNAMES, &CSetMainPage::OnModified)
