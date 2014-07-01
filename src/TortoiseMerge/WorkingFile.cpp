@@ -57,6 +57,17 @@ CString CWorkingFile::GetDescriptiveName()
     }
     return m_sDescriptiveName;
 }
+
+CString CWorkingFile::GetReflectedName()
+{
+    return m_sReflectedName;
+}
+
+void CWorkingFile::SetReflectedName(const CString& newReflectedName)
+{
+    m_sReflectedName = newReflectedName;
+}
+
 //
 // Make an empty file with this name
 void CWorkingFile::CreateEmptyFile()

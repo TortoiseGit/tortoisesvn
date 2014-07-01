@@ -738,10 +738,13 @@ void CMainFrame::ClearViewNamesAndPaths()
 {
     m_pwndLeftView->m_sWindowName.Empty();
     m_pwndLeftView->m_sFullFilePath.Empty();
+    m_pwndLeftView->m_sReflectedName.Empty();
     m_pwndRightView->m_sWindowName.Empty();
     m_pwndRightView->m_sFullFilePath.Empty();
+    m_pwndRightView->m_sReflectedName.Empty();
     m_pwndBottomView->m_sWindowName.Empty();
     m_pwndBottomView->m_sFullFilePath.Empty();
+    m_pwndBottomView->m_sReflectedName.Empty();
 }
 
 bool CMainFrame::LoadViews(int line)
@@ -885,6 +888,7 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
             m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + L" - " + m_Data.m_yourFile.GetWindowName();
             m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename() + L" - " + m_Data.m_yourFile.GetFilename();
+            m_pwndLeftView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
             m_pwndLeftView->m_pWorkingFile = &m_Data.m_yourFile;
             m_pwndLeftView->SetTarget();
             m_pwndLeftView->SetWritableIsChangable(true);
@@ -913,6 +917,7 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName();
             m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
             m_pwndLeftView->m_sConvertedFilePath = m_Data.m_baseFile.GetConvertedFileName();
+            m_pwndLeftView->m_sReflectedName = m_Data.m_baseFile.GetReflectedName();
             m_pwndLeftView->m_pWorkingFile = &m_Data.m_baseFile;
             m_pwndLeftView->SetWritableIsChangable(true);
 
@@ -922,6 +927,7 @@ bool CMainFrame::LoadViews(int line)
             m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
             m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
             m_pwndRightView->m_sConvertedFilePath = m_Data.m_yourFile.GetConvertedFileName();
+            m_pwndRightView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
             m_pwndRightView->m_pWorkingFile = &m_Data.m_yourFile;
             m_pwndRightView->SetWritable();
             m_pwndRightView->SetTarget();
@@ -988,6 +994,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndLeftView->m_sWindowName += L" - " + m_Data.m_theirFile.GetWindowName();
         m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
         m_pwndLeftView->m_sConvertedFilePath = m_Data.m_theirFile.GetConvertedFileName();
+        m_pwndLeftView->m_sReflectedName = m_Data.m_theirFile.GetReflectedName();
         m_pwndLeftView->m_pWorkingFile = &m_Data.m_theirFile;
 
         m_pwndRightView->m_pViewData = &m_Data.m_YourBaseBoth;
@@ -997,6 +1004,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndRightView->m_sWindowName += L" - " + m_Data.m_yourFile.GetWindowName();
         m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
         m_pwndRightView->m_sConvertedFilePath = m_Data.m_yourFile.GetConvertedFileName();
+        m_pwndRightView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
         m_pwndRightView->m_pWorkingFile = &m_Data.m_yourFile;
 
         m_pwndBottomView->m_pViewData = &m_Data.m_Diff3;
@@ -1006,6 +1014,7 @@ bool CMainFrame::LoadViews(int line)
         m_pwndBottomView->m_sWindowName += L" - " + m_Data.m_mergedFile.GetWindowName();
         m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();
         m_pwndBottomView->m_sConvertedFilePath = m_Data.m_mergedFile.GetConvertedFileName();
+        m_pwndBottomView->m_sReflectedName = m_Data.m_mergedFile.GetReflectedName();
         m_pwndBottomView->m_pWorkingFile = &m_Data.m_mergedFile;
 
         if (m_wndSplitter2.IsColumnHidden(1))

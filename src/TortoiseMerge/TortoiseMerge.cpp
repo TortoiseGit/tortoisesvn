@@ -243,12 +243,16 @@ BOOL CTortoiseMergeApp::InitInstance()
     // Fill in the command line options
     pFrame->m_Data.m_baseFile.SetFileName(parser.GetVal(L"base"));
     pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(L"basename"));
+    pFrame->m_Data.m_baseFile.SetReflectedName(parser.GetVal(L"basereflectedname"));
     pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(L"theirs"));
     pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(L"theirsname"));
+    pFrame->m_Data.m_theirFile.SetReflectedName(parser.GetVal(L"theirsreflectedname"));
     pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(L"mine"));
     pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(L"minename"));
+    pFrame->m_Data.m_yourFile.SetReflectedName(parser.GetVal(L"minereflectedname"));
     pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(L"merged"));
     pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(L"mergedname"));
+    pFrame->m_Data.m_mergedFile.SetReflectedName(parser.GetVal(L"mergedreflectedname"));
     pFrame->m_Data.m_sPatchPath = parser.HasVal(L"patchpath") ? parser.GetVal(L"patchpath") : L"";
     pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
     if (parser.HasKey(L"patchoriginal"))
