@@ -214,7 +214,7 @@
     </nant>
   </target>
 
-  <target name="TortoiseSVN" depends="VSNET,env">
+  <target name="TortoiseSVN" depends="VSNET,env,editorconfig">
     <description>
       Builds TortoiseSVN. The libraries must have been built
       before.
@@ -222,6 +222,18 @@
     <nant target="TortoiseSVN">
       <buildfiles>
         <include name="src\TortoiseSVN.build" />
+      </buildfiles>
+    </nant>
+  </target>
+
+  <target name="editorconfig" depends="VSNET,env">
+    <description>
+      Builds editorconfig. The library must have been built
+      before TortoiseMerge.
+    </description>
+    <nant target="build">
+      <buildfiles>
+        <include name="ext\build\editorconfig.build" />
       </buildfiles>
     </nant>
   </target>
