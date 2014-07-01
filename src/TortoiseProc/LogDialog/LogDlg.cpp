@@ -8553,6 +8553,10 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         m_projTree.SelectItem(hItem);
     }
 
+    MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+    if (pItem == 0)
+        return;
+
     // entry is selected, now show the popup menu
     CIconMenu popup;
     if (!popup.CreatePopupMenu())
@@ -8560,7 +8564,11 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
 
     popup.AppendMenuIcon(ID_LOGDLG_MONITOR_EDIT, IDS_LOG_POPUP_MONITOREDIT, IDI_MONITOR_EDIT);
     popup.AppendMenuIcon(ID_LOGDLG_MONITOR_REMOVE, IDS_LOG_POPUP_MONITORREMOVE, IDI_MONITOR_REMOVE);
-
+    if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl))
+    {
+        popup.AppendMenu(MF_SEPARATOR, NULL);
+        popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
+    }
 
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
                                    TPM_RIGHTBUTTON, point.x, point.y, this, 0);
@@ -8573,6 +8581,13 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_LOGDLG_MONITOR_REMOVE:
             OnMonitorRemoveProject();
+            break;
+        case ID_UPDATE:
+        {
+            CString sCmd;
+            sCmd.Format(L"/command:update /path:\"%s\"", (LPCTSTR)pItem->WCPathOrUrl);
+            CAppUtils::RunTortoiseProc(sCmd);
+        }
             break;
         default:
             break;
