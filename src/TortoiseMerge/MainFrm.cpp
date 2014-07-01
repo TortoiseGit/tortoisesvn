@@ -3163,6 +3163,8 @@ void CMainFrame::FillTabModeButton(CMFCRibbonButton * pButton, int start)
     pButton->AddSubItem(new CMFCRibbonButton(start + TABSIZEBUTTON2, L"2"));
     pButton->AddSubItem(new CMFCRibbonButton(start + TABSIZEBUTTON4, L"4"));
     pButton->AddSubItem(new CMFCRibbonButton(start + TABSIZEBUTTON8, L"8"));
+    pButton->AddSubItem(new CMFCRibbonSeparator(TRUE));
+    pButton->AddSubItem(new CMFCRibbonButton(start + ENABLEEDITORCONFIG, L"EditorConfig"));
 }
 
 void CMainFrame::OnEncodingLeft( UINT cmd )
@@ -3251,6 +3253,8 @@ void CMainFrame::OnTabMode(CBaseView *view, int cmd)
         view->SetTabSize(4);
     else if (cmd == TABSIZEBUTTON8)
         view->SetTabSize(8);
+    else if (cmd == ENABLEEDITORCONFIG)
+        view->SetEditorConfigEnabled(!view->GetEditorConfigEnabled());
     view->RefreshViews();
 }
 
@@ -3354,7 +3358,11 @@ void CMainFrame::OnUpdateTabMode(CBaseView *view, CCmdUI *pCmdUI, int startid)
             pCmdUI->SetCheck(view->GetTabSize() == 4);
         else if (cmd == TABSIZEBUTTON8)
             pCmdUI->SetCheck(view->GetTabSize() == 8);
+        else if (cmd == ENABLEEDITORCONFIG)
+            pCmdUI->SetCheck(view->GetEditorConfigEnabled());
         pCmdUI->Enable(view->IsWritable());
+        if (cmd == ENABLEEDITORCONFIG)
+            pCmdUI->Enable(view->IsWritable() && view->GetEditorConfigLoaded());
     }
     else
         pCmdUI->Enable(FALSE);
