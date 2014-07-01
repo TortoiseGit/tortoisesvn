@@ -278,6 +278,10 @@ void CBaseView::SetEditorConfigEnabled(bool bEditorConfigEnabled)
         if (ec.Load(m_sFullFilePath))
         {
             m_bEditorConfigLoaded = TRUE;
+            if (ec.m_nTabWidth != nullptr)
+                m_nTabSize = ec.m_nTabWidth;
+            if (ec.m_bIndentStyle != nullptr)
+                m_nTabMode = (m_nTabMode & ~TABMODE_USESPACES) | (ec.m_bIndentStyle ? TABMODE_USESPACES : TABMODE_NONE);
         }
     }
 }
