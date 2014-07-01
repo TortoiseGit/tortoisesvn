@@ -388,7 +388,8 @@ bool CAppUtils::StartExtDiff(
     {
         viewer =
             L"\"" + CPathUtils::GetAppDirectory() + L"TortoiseMerge.exe" + L"\"" +
-            L" /base:%base /mine:%mine /basename:%bname /minename:%yname";
+            L" /base:%base /mine:%mine /basename:%bname /minename:%yname" +
+            L" /basereflectedname:%burl /minereflectedname:%yurl";
         if (flags.bBlame)
             viewer += L" /blame";
         if (!g_sGroupingUUID.IsEmpty())
