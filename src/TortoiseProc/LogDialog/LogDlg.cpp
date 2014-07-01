@@ -8031,6 +8031,7 @@ void CLogDlg::MonitorPopupTimer()
         params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
         params.m_nURLCmdID = 101;
 
+        PlaySound(L"MailBeep", NULL, SND_ALIAS | SND_ASYNC | SND_NODEFAULT);
         pPopup->Create(this, params);
 
         KillTimer(MONITOR_POPUP_TIMER);
