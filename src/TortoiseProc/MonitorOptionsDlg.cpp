@@ -31,6 +31,8 @@ IMPLEMENT_DYNAMIC(CMonitorOptionsDlg, CDialogEx)
 CMonitorOptionsDlg::CMonitorOptionsDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CMonitorOptionsDlg::IDD, pParent)
     , m_bStartWithWindows(FALSE)
+    , m_bShowNotification(FALSE)
+    , m_bPlaySound(FALSE)
 {
 
 }
@@ -43,6 +45,8 @@ void CMonitorOptionsDlg::DoDataExchange(CDataExchange* pDX)
 {
     CDialogEx::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_CHECK1, m_bStartWithWindows);
+    DDX_Check(pDX, IDC_SHOWNOTIFICATION, m_bShowNotification);
+    DDX_Check(pDX, IDC_PLAYSOUND, m_bPlaySound);
 }
 
 

@@ -34,10 +34,12 @@ public:
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
 
     DECLARE_MESSAGE_MAP()
 public:
     BOOL m_bStartWithWindows;
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    BOOL m_bShowNotification;
+    BOOL m_bPlaySound;
 };

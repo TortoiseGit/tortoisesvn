@@ -545,6 +545,8 @@ private:
     HICON               m_hMonitorIconNewCommits;
     static const UINT   WM_TASKBARCREATED;
     svn_revnum_t        m_revUnread;
+    bool                m_bPlaySound;
+    bool                m_bShowNotification;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

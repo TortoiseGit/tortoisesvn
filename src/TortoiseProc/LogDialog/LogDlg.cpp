@@ -221,6 +221,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_nErrorOvl(0)
     , m_hMonitorIconNormal(NULL)
     , m_hMonitorIconNewCommits(NULL)
+    , m_bPlaySound(true)
+    , m_bShowNotification(true)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
@@ -7650,6 +7652,10 @@ void CLogDlg::InitMonitorProjTree()
     CString sDataFilePath = CPathUtils::GetAppDataDirectory();
     sDataFilePath += L"\\MonitoringData.ini";
     m_monitoringFile.LoadFile(sDataFilePath);
+
+    m_bPlaySound = _wtoi(m_monitoringFile.GetValue(L"global", L"PlaySound", L"1")) != 0;
+    m_bShowNotification = _wtoi(m_monitoringFile.GetValue(L"global", L"ShowNotifications", L"1")) != 0;
+
     RefreshMonitorProjTree();
 }
 
@@ -7891,8 +7897,14 @@ void CLogDlg::OnMonitorRemoveProject()
 
 void CLogDlg::OnMonitorOptions()
 {
-    CMonitorOptionsDlg dlg;
+    CMonitorOptionsDlg dlg(this);
+    dlg.m_bPlaySound = m_bPlaySound;
+    dlg.m_bShowNotification = m_bShowNotification;
     dlg.DoModal();
+    m_bPlaySound = !!dlg.m_bPlaySound;
+    m_bShowNotification = !!dlg.m_bShowNotification;
+
+    SaveMonitorProjects();
 }
 
 void CLogDlg::MonitorEditProject(MonitorItem * pProject)
@@ -7968,6 +7980,9 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"password", pItem->password);
         return false;
     });
+
+    m_monitoringFile.SetValue(L"global", L"PlaySound", m_bPlaySound ? L"1" : L"0");
+    m_monitoringFile.SetValue(L"global", L"ShowNotifications", m_bShowNotification ? L"1" : L"0");
 }
 
 void CLogDlg::MonitorTimer()
@@ -8014,25 +8029,30 @@ void CLogDlg::MonitorPopupTimer()
     }
     else
     {
-        MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
+        if (m_bShowNotification)
+        {
+            MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
 
-        pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::SLIDE);
-        pPopup->SetAnimationSpeed(40);
-        pPopup->SetTransparency(200);
-        pPopup->SetSmallCaption(TRUE);
-        pPopup->SetAutoCloseTime(5000);
+            pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::SLIDE);
+            pPopup->SetAnimationSpeed(40);
+            pPopup->SetTransparency(200);
+            pPopup->SetSmallCaption(TRUE);
+            pPopup->SetAutoCloseTime(5000);
 
-        // Create indirect:
-        CMFCDesktopAlertWndInfo params;
+            // Create indirect:
+            CMFCDesktopAlertWndInfo params;
 
-        params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
-                                          IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-        params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
-        params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
-        params.m_nURLCmdID = 101;
+            params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
+                                              IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+            params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
+            params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
+            params.m_nURLCmdID = 101;
+            pPopup->Create(this, params);
+        }
 
-        PlaySound(L"MailBeep", NULL, SND_ALIAS | SND_ASYNC | SND_NODEFAULT);
-        pPopup->Create(this, params);
+        if (m_bPlaySound)
+            PlaySound(L"MailBeep", NULL, SND_ALIAS | SND_ASYNC | SND_NODEFAULT);
+
 
         KillTimer(MONITOR_POPUP_TIMER);
         m_sMonitorNotificationTitle.Empty();
