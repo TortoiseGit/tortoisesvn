@@ -179,7 +179,7 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
     std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
-    m_bFetchChildren    = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
+    m_bFetchChildren    = false;
     m_bShowExternals    = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
     m_bShowLocks        = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", true);
     m_bTrySVNParentPath = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserTrySVNParentPath", true);
@@ -741,6 +741,8 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
     m_barRepository.ShowUrl (m_InitialUrl, m_repository.revision);
     ChangeToUrl (m_InitialUrl, m_repository.revision, true);
     RefreshBookmarks();
+
+    m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
 
     m_bInitDone = TRUE;
     return 0;
