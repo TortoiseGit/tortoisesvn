@@ -77,10 +77,6 @@ const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated")
 
 #define OVERLAY_MODIFIED        1
 
-// {F4F87BDF-1B1B-4019-82C9-C75A697FA52E}
-static const GUID MonitorTrayGUID =
-{ 0xf4f87bdf, 0x1b1b, 0x4019, { 0x82, 0xc9, 0xc7, 0x5a, 0x69, 0x7f, 0xa5, 0x2e } };
-
 
 class MonitorAlertWnd : public CMFCDesktopAlertWnd
 {
@@ -7633,21 +7629,18 @@ void CLogDlg::InitMonitoringMode()
 
     m_SystemTray.cbSize = sizeof(NOTIFYICONDATA);
     m_SystemTray.uVersion = NOTIFYICON_VERSION_4;
+    Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
     m_SystemTray.uID = 101;
     m_SystemTray.hWnd = GetSafeHwnd();
     m_SystemTray.hIcon = m_hMonitorIconNormal;
     m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
     m_SystemTray.uCallbackMessage = WM_TSVN_MONITOR_TASKBARCALLBACK;
-    if (IsWindows7OrGreater())
-    {
-        m_SystemTray.guidItem = MonitorTrayGUID;
-        m_SystemTray.uFlags |= NIF_GUID;
-    }
     if (Shell_NotifyIcon(NIM_ADD, &m_SystemTray) == FALSE)
     {
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
+    Shell_NotifyIcon(NIM_SETVERSION, &m_SystemTray);
 
     // fill the project tree
     InitMonitorProjTree();
@@ -7714,8 +7707,6 @@ void CLogDlg::RefreshMonitorProjTree()
 
     m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
     m_SystemTray.uFlags = NIF_ICON;
-    if (IsWindows7OrGreater())
-        m_SystemTray.uFlags |= NIF_GUID;
 
     if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
     {
@@ -8224,8 +8215,6 @@ void CLogDlg::OnMonitorThreadFinished()
     {
         m_SystemTray.hIcon = m_hMonitorIconNewCommits;
         m_SystemTray.uFlags = NIF_ICON;
-        if (IsWindows7OrGreater())
-            m_SystemTray.uFlags |= NIF_GUID;
         if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
         {
             Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
@@ -8317,8 +8306,6 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
 
             // update the tool tip data
             m_SystemTray.uFlags = NIF_TIP;
-            if (IsWindows7OrGreater())
-                m_SystemTray.uFlags |= NIF_GUID;
             if (unreadItems)
             {
                 CString sFormat(MAKEINTRESOURCE(unreadItems == 1 ? IDS_MONITOR_NEWCOMMIT : IDS_MONITOR_NEWCOMMITS));
@@ -8339,8 +8326,6 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             SetForegroundWindow();
             m_SystemTray.hIcon = m_hMonitorIconNormal;
             m_SystemTray.uFlags = NIF_ICON;
-            if (IsWindows7OrGreater())
-                m_SystemTray.uFlags |= NIF_GUID;
             if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
             {
                 Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
@@ -8510,8 +8495,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
     });
     m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
     m_SystemTray.uFlags = NIF_ICON;
-    if (IsWindows7OrGreater())
-        m_SystemTray.uFlags |= NIF_GUID;
     if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
     {
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
