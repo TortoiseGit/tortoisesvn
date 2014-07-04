@@ -53,7 +53,9 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
         wchar_t buf[MAX_PATH] = {0};
         GetModuleFileName(NULL, buf, MAX_PATH);
         std::wstring n = buf;
-        n = n.substr(n.find_last_of('\\'));
+        n = n.substr(n.find_last_of('\\') + 1);
+        n = n.substr(0, n.find_last_of('.'));
+        n = L"." + n;
         id += n;
     }
 
