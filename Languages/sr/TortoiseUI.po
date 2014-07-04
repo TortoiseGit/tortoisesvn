@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-28 08:46+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-06-30 17:57+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +190,7 @@ msgstr "%I64d кБајта пренето"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d пројеката има усклађивања:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -682,7 +682,7 @@ msgstr "&Обриши..."
 msgid ""
 "&Delete\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Обриши\nПројекат је уклоњен. Ако има под-пројекте, они су такође уклоњени."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -730,7 +730,7 @@ msgstr "Ур&еди сукобе"
 
 #. Resource IDs: (65)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Уреди пројекат"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -870,7 +870,7 @@ msgstr "&Сакри"
 
 #. Resource IDs: (1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "&Сакри занемарене ставке"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1209,7 +1209,7 @@ msgstr "&Уклони"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
-msgstr ""
+msgstr "&Уклони пројекат"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1217,7 +1217,7 @@ msgstr "&Преименуј"
 
 #. Resource IDs: (1511)
 msgid "&Replace"
-msgstr ""
+msgstr "&Замени"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1317,7 +1317,7 @@ msgstr "&Прикажи меније за:"
 
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
-msgstr ""
+msgstr "&Прикажи монитор"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1526,7 +1526,7 @@ msgstr "&фајл листа контрола"
 #. Resource IDs: (65)
 #, c-format
 msgid "'%s' : %ld new commits"
-msgstr ""
+msgstr "'%s' : %ld нова урезивања"
 
 #. Resource IDs: (84)
 #, c-format
@@ -1708,7 +1708,7 @@ msgstr "<new changelist>"
 
 #. Resource IDs: (64)
 msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr ""
+msgstr "=&Провери сада=&Додај пројекат=Уре&ди=&Уклони=&Опције=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -2887,7 +2887,7 @@ msgstr "Провера да ли је доступна новија верзиј
 #. Resource IDs: (65)
 #, c-format
 msgid "Checking project '%s' for updates..."
-msgstr ""
+msgstr "Провера пројекта  '%s'  за усклађења..."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
@@ -3353,7 +3353,7 @@ msgstr "Садржај менија:"
 
 #. Resource IDs: (65535)
 msgid "Context lines for patches"
-msgstr ""
+msgstr "Линије садржаја за закрпе"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
@@ -3832,7 +3832,7 @@ msgstr "Бришшите &неверзионисане фајлове и фол�
 
 #. Resource IDs: (65)
 msgid "Delete Project"
-msgstr ""
+msgstr "Обриши пројекат"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4110,7 +4110,7 @@ msgstr "Желите ли заиста обрисати алатни панел 
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
+msgstr "Да ли желите да обрише посматрани пројекат '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4305,7 +4305,7 @@ msgstr "Уреди спољашњи"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "Уреди пројекат за посматрање"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -5660,7 +5660,7 @@ msgstr "Ако је постављено, приликом провере ста
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr ""
+msgstr "Ако је изабран онда измењени фајлови који су у  \"занемари-при-урезивању\" листи измена не маркирају предачки фолдер као измењен\r\nтј. они узимају нормалну икону осим ако други фајл или фолдер није измењен."
 
 #. Resource IDs: (196)
 msgid ""
@@ -6639,7 +6639,7 @@ msgstr "Измењен чвор"
 
 #. Resource IDs: (65535)
 msgid "Monitor interval in minutes:"
-msgstr ""
+msgstr "Монитор интервал у минутима:"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -7152,7 +7152,7 @@ msgstr "Једна или више фајл су у стању сукоба."
 
 #. Resource IDs: (64)
 msgid "One project has updates:"
-msgstr ""
+msgstr "Један пројекат има усклађивања:"
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
@@ -7302,7 +7302,7 @@ msgstr "Преписивање\nЦиљни фолдер је замењен."
 
 #. Resource IDs: (65535)
 msgid "POPUP"
-msgstr ""
+msgstr "ПОПУП"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7391,7 +7391,7 @@ msgstr "Нађена путања боље упоређује закрпу"
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
-msgstr ""
+msgstr "Путања УРЛ:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7663,7 +7663,7 @@ msgstr "Напредак"
 
 #. Resource IDs: (65535)
 msgid "Project"
-msgstr ""
+msgstr "Пројекат"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -8246,7 +8246,7 @@ msgstr "Понови задњу акцију\nПонови"
 
 #. Resource IDs: (1512)
 msgid "Replace &All"
-msgstr ""
+msgstr "Замени &Све"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8256,7 +8256,7 @@ msgstr "Замени означени текст неким другим тек�
 
 #. Resource IDs: (65535)
 msgid "Replace with:"
-msgstr ""
+msgstr "Замени са:"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
@@ -8265,7 +8265,7 @@ msgstr "Замени:"
 #. Resource IDs: (95)
 #, c-format
 msgid "Replaced %d matches"
-msgstr ""
+msgstr "Замењено %d нађених"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -9202,7 +9202,7 @@ msgstr "Прикажи дијалог закључавања пре закључ
 
 #. Resource IDs: (65)
 msgid "Show Monitor Dialog"
-msgstr ""
+msgstr "Прикажи монитор дијалог"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
@@ -9607,7 +9607,7 @@ msgstr "Покрени уређивач регистра"
 
 #. Resource IDs: (1562)
 msgid "Start with &Windows"
-msgstr ""
+msgstr "Крени са &Виндоуз"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10546,7 +10546,7 @@ msgstr "Тип"
 
 #. Resource IDs: (65)
 msgid "To add projects to be monitored, click the \"Add\" button above"
-msgstr ""
+msgstr "Да би додао пројекат та буде посматран кликни на \"Додај\" дугме изнад "
 
 #. Resource IDs: (224)
 msgid ""
@@ -10673,25 +10673,25 @@ msgstr "ТортоисеСвн %d.%d.%d, Build %d - %s, %s%s\r\nSubversion %d.%d
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Commit Monitor Options"
-msgstr ""
+msgstr "ТортоисеСВН опције монитора урезивања"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "ТортоисеСВН монитор урезивања\r\n%d нових урезивања у %d пројекат"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "ТортоисеСВН монитор урезивања\r\n%d нових урезивања у %d пројекта"
 
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "ТортоисеСВН монитор пројекта"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -12003,7 +12003,7 @@ msgstr "задње обнављање:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
+msgstr "Остави корисничко име и лозинку празне ако спремиште дозвољава анонимни приступ, или ако је аутентикација већ запамћена"
 
 #. Resource IDs: (11, 195)
 msgid "locked"
