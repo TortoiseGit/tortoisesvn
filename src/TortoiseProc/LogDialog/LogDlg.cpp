@@ -7684,10 +7684,11 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->WCPathOrUrl = m_monitoringFile.GetValue(mitem, L"WCPathOrUrl", L"");
             pMonitorItem->interval = _wtoi(m_monitoringFile.GetValue(mitem, L"interval", L"5"));
             pMonitorItem->lastchecked = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastchecked", L"0"));
-            pMonitorItem->lastHEAD = _wtoi(m_monitoringFile.GetValue(mitem, L"lastHEAD", L"0"));
+            pMonitorItem->lastHEAD = _wtol(m_monitoringFile.GetValue(mitem, L"lastHEAD", L"0"));
             pMonitorItem->UnreadItems = _wtoi(m_monitoringFile.GetValue(mitem, L"UnreadItems", L"0"));
             pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
             pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
+            pMonitorItem->unreadFirst = _wtol(m_monitoringFile.GetValue(mitem, L"unreadFirst", L"0"));
             InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
             ++itemcount;
             if (pMonitorItem->UnreadItems)
@@ -7974,6 +7975,8 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"lastHEAD", sTmp);
         sTmp.Format(L"%d", pItem->UnreadItems);
         m_monitoringFile.SetValue(sSection, L"UnreadItems", sTmp);
+        sTmp.Format(L"%lld", pItem->unreadFirst);
+        m_monitoringFile.SetValue(sSection, L"unreadFirst", sTmp);
         sTmp.Format(L"%d", pItem->interval);
         m_monitoringFile.SetValue(sSection, L"interval", sTmp);
         m_monitoringFile.SetValue(sSection, L"username", pItem->username);
