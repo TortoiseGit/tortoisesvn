@@ -8085,7 +8085,7 @@ void CLogDlg::MonitorThread()
             SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
             svn_revnum_t head = svn.GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
-            if (head != item.lastHEAD)
+            if ((head > 0) && (head != item.lastHEAD))
             {
                 // new head revision: fetch the log
                 std::unique_ptr<const CCacheLogQuery> cachedData;
