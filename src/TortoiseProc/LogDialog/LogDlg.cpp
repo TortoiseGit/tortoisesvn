@@ -7629,7 +7629,6 @@ void CLogDlg::InitMonitoringMode()
 
     m_SystemTray.cbSize = sizeof(NOTIFYICONDATA);
     m_SystemTray.uVersion = NOTIFYICON_VERSION_4;
-    Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
     m_SystemTray.uID = 101;
     m_SystemTray.hWnd = GetSafeHwnd();
     m_SystemTray.hIcon = m_hMonitorIconNormal;
@@ -7640,7 +7639,6 @@ void CLogDlg::InitMonitoringMode()
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
-    Shell_NotifyIcon(NIM_SETVERSION, &m_SystemTray);
 
     // fill the project tree
     InitMonitorProjTree();
