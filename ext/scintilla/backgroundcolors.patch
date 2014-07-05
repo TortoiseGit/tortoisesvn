@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 25527)
+--- include/Scintilla.h	(Revision 25654)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -1011,6 +1011,7 @@
+@@ -1015,6 +1015,7 @@
  #define SCN_HOTSPOTRELEASECLICK 2027
  #define SCN_FOCUSIN 2028
  #define SCN_FOCUSOUT 2029
@@ -12,11 +12,14 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 25527)
+--- src/Editor.cxx	(Revision 25654)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -2857,6 +2857,17 @@
- 		}
- 	}
+@@ -2789,8 +2789,19 @@
+ 	FontAlias ctrlCharsFont = vsDraw.styles[STYLE_CONTROLCHAR].font;
+ 
+ 	// See if something overrides the line background color.
+-	const ColourOptional background = vsDraw.Background(pdoc->GetMark(line), caret.active, ll->containsCaret);
++	ColourOptional background = vsDraw.Background(pdoc->GetMark(line), caret.active, ll->containsCaret);
  
 +	SCNotification scn = {0};
 +	scn.nmhdr.code = SCN_GETBKCOLOR;
@@ -25,18 +28,18 @@ Index: src/Editor.cxx
 +	NotifyParent(&scn);
 +	if (scn.lParam != -1)
 +	{
-+		background = scn.lParam;
-+		overrideBackground = true;
++		background.Set(scn.lParam);
++		background.isSet = true;
 +	}
 +
  	const bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
- 	        (!overrideBackground) && (vsDraw.whitespaceColours.back.isSet);
+ 	        (!background.isSet) && (vsDraw.whitespaceColours.back.isSet);
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 25527)
+--- src/Editor.h	(Revision 25654)
 +++ src/Editor.h	(Arbeitskopie)
-@@ -499,6 +499,7 @@
+@@ -497,6 +497,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -46,9 +49,9 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 25527)
+--- win32/ScintillaWin.cxx	(Revision 25654)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
-@@ -248,6 +248,7 @@
+@@ -249,6 +249,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -56,7 +59,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, int modifiers);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1497,6 +1498,13 @@
+@@ -1507,6 +1508,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
