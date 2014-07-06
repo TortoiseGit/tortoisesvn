@@ -699,15 +699,22 @@ void CMainFrame::OnFileOpen()
 {
     if (CheckForSave(CHFSR_OPEN)==IDCANCEL)
         return;
+    return OnFileOpen(false);
+}
+
+void CMainFrame::OnFileOpen(bool fillyours)
+{
     COpenDlg dlg;
-    if (dlg.DoModal()!=IDOK)
+    if (fillyours)
+        dlg.m_sBaseFile = m_Data.m_yourFile.GetFilename();
+    if (dlg.DoModal() != IDOK)
     {
         return;
     }
     m_dlgFilePatches.ShowWindow(SW_HIDE);
     m_dlgFilePatches.Init(NULL, NULL, CString(), NULL);
     TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile,
-        (LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
+          (LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
     m_Data.m_baseFile.SetFileName(dlg.m_sBaseFile);
     m_Data.m_theirFile.SetFileName(dlg.m_sTheirFile);
     m_Data.m_yourFile.SetFileName(dlg.m_sYourFile);
