@@ -8,6 +8,8 @@ Version 1.8.8
 - BUG: Issue #644: Bug in rename when "similar file name"
        renames are involved and file names
        include multiple dots. (Stefan)
+- BUG: Issue #653: Unified diff from log no longer
+       includes property changes. (Stefan)
 
 Version 1.8.7
 - BUG: Issue #633: Relocate dialog does
