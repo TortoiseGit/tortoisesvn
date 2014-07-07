@@ -620,7 +620,7 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
             DoSizeV2(delta);
         }
     }
-    if (xPos || m_bMonitoringMode)
+    if (m_bMonitoringMode)
     {
         if (xPos == 0)
             xPos = 80;
