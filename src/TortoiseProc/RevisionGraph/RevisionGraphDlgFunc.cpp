@@ -380,13 +380,13 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
     {
         SVNDiff diff (svn.get(), this->m_hWnd);
         diff.SetAlternativeTool (alternativeTool);
-        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, L"");
+        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, L"", false, false, false);
     }
     else
     {
         CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
             url2, rev2, peg,
-            SVNRev(), L"", alternativeTool);
+            SVNRev(), L"", alternativeTool, false, false, false);
     }
 }
 

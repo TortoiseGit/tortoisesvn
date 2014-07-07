@@ -154,7 +154,8 @@ public:
                                     const CString& options,
                                     bool bAlternateDiff = false,
                                     bool bIgnoreAncestry = false,
-                                    bool /* blame */ = false);
+                                    bool  blame  = false,
+                                    bool bIgnoreProperties = true);
 
     /**
      * Replacement for SVNDiff::ShowCompare(), but started as a separate process.

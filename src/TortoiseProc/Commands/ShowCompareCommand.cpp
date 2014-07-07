@@ -56,7 +56,7 @@ bool ShowCompareCommand::Execute()
     diff.SetJumpLine(parser.GetLongVal(L"line"));
 
     if (unified)
-        bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry);
+        bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry, blame, ignoreprops);
     else
         bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreprops, diffoptions, ignoreancestry, blame, nodekind);
 

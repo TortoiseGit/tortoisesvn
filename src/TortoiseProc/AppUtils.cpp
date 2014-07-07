@@ -1035,7 +1035,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
                                      const CTSVNPath& url2, const SVNRev& rev2,
                                      const SVNRev& peg, const SVNRev& headpeg,
                                      const CString& options,
-                                     bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
+                                     bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool blame /* = false */, bool bIgnoreProperties /* = true*/)
 {
     CString sCmd = L"/command:showcompare /unified";
     sCmd += L" /url1:\"" + url1.GetSVNPathString();
@@ -1059,6 +1059,12 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 
     if (bIgnoreAncestry)
         sCmd += L" /ignoreancestry";
+
+    if (blame)
+        sCmd += L" /blame";
+
+    if (bIgnoreProperties)
+        sCmd += L" /ignoreprops";
 
     if (hWnd)
     {

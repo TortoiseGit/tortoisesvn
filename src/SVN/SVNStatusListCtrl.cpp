@@ -3722,9 +3722,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         SVNDiff diff(NULL, this->m_hWnd, true);
 
                         if (entry->remotestatus <= svn_wc_status_normal)
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, SVNRev(), SVNRev(), options);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, SVNRev(), SVNRev(), options, false, false, false, false);
                         else
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, SVNRev(), SVNRev(), options);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, SVNRev(), SVNRev(), options, false, false, false, false);
                     }
                 }
                 break;

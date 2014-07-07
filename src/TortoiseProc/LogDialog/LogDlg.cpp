@@ -2693,10 +2693,10 @@ void CLogDlg::DoDiffFromLog( INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t r
         }
         if (PromptShown())
             diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1,
-                                    SVNRev(), options);
+                                    SVNRev(), options, false, ignoreprops);
         else
             CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile),
-                                                rev1, SVNRev(), m_LogRevision, options);
+                                                rev1, SVNRev(), m_LogRevision, options, false, false, blame, ignoreprops);
     }
     else
     {
@@ -5367,7 +5367,7 @@ void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), options);
+            diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), options, false, false, false);
 
             this->EnableWindow(TRUE);
             this->SetFocus();
@@ -5376,7 +5376,7 @@ void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     }
     else
         CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, pCmi->RevPrevious, m_path,
-        pCmi->RevSelected, SVNRev(), m_LogRevision, options);
+        pCmi->RevSelected, SVNRev(), m_LogRevision, options, false, false, false, false);
 }
 
 void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5406,7 +5406,7 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options);
+            diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options, false, false, false);
 
             this->EnableWindow(TRUE);
             this->SetFocus();
@@ -5414,7 +5414,7 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         new async::CAsyncCall(f, &netScheduler);
     }
     else
-        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options);
+        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options, false, false, false, false);
 }
 
 void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)

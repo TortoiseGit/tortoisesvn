@@ -4127,20 +4127,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     if (PromptShown())
                         diff.ShowUnifiedDiff (path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), options);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), options, false, false, false);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), options);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), options, false, false, false, false);
                 }
                 else
                 {
                     const CTSVNPath& path2 = selection.GetURLEscaped (0, 1);
                     if (PromptShown())
                         diff.ShowUnifiedDiff(path, revision,
-                                            path2, revision, SVNRev(), options);
+                                            path2, revision, SVNRev(), options, false, false, false);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            path2, revision, SVNRev(), SVNRev(), options);
+                                            path2, revision, SVNRev(), SVNRev(), options, false, false, false, false);
                 }
             }
             break;
