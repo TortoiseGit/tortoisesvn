@@ -8028,9 +8028,11 @@ void CLogDlg::MonitorTimer()
 
 void CLogDlg::MonitorPopupTimer()
 {
-    if (CAppUtils::IsFullscreenWindowActive())
+    QUERY_USER_NOTIFICATION_STATE ns = QUNS_ACCEPTS_NOTIFICATIONS;
+    SHQueryUserNotificationState(&ns);
+    if (ns != QUNS_ACCEPTS_NOTIFICATIONS)
     {
-        // restart the timer and wait until no fullscreen app is active
+        // restart the timer and wait until notifications can be shown
         SetTimer(MONITOR_POPUP_TIMER, 5000, NULL);
     }
     else
@@ -8249,6 +8251,8 @@ void CLogDlg::ShutDownMonitoring()
         return false;
     });
     m_projTree.DeleteAllItems();
+
+    Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
 }
 
 
