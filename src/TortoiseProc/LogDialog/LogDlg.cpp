@@ -782,9 +782,9 @@ BOOL CLogDlg::OnInitDialog()
     SetupFilterControlBitmaps();
     AdjustControlSizesForLocalization();
     GetOriginalControlRectangles();
-    SetupDatePickerControls();
     SetFilterCueText();
     ConfigureResizableControlAnchors();
+    SetupDatePickerControls();
     SetPromptParentWindow(m_hWnd);
     CenterThisWindow();
     EnableSaveRestore(m_bMonitoringMode ? L"MonitorLogDlg" : L"LogDlg");
@@ -6305,6 +6305,11 @@ void CLogDlg::AddMainAnchors()
 {
     AddAnchor(IDC_PROJTREE, TOP_LEFT, BOTTOM_LEFT);
     AddAnchor(IDC_SPLITTERLEFT, TOP_LEFT, BOTTOM_LEFT);
+    AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATEFROM, TOP_RIGHT);
+    AddAnchor(IDC_TOLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATETO, TOP_RIGHT);
     AddAnchor(IDC_LOGLIST, TOP_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_SPLITTERTOP, MIDDLE_LEFT, MIDDLE_RIGHT);
     AddAnchor(IDC_MSGVIEW, MIDDLE_LEFT, MIDDLE_RIGHT);
@@ -6332,6 +6337,10 @@ void CLogDlg::RemoveMainAnchors()
     RemoveAnchor(IDC_PROJTREE);
     RemoveAnchor(IDC_SPLITTERLEFT);
     RemoveAnchor(IDC_SEARCHEDIT);
+    RemoveAnchor(IDC_FROMLABEL);
+    RemoveAnchor(IDC_DATEFROM);
+    RemoveAnchor(IDC_TOLABEL);
+    RemoveAnchor(IDC_DATETO);
     RemoveAnchor(IDC_LOGLIST);
     RemoveAnchor(IDC_SPLITTERTOP);
     RemoveAnchor(IDC_MSGVIEW);
