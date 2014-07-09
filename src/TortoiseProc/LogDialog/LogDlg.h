@@ -216,7 +216,7 @@ protected:
     afx_msg LRESULT OnTreeDrop(WPARAM wParam, LPARAM lParam);
     afx_msg void OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnInlineedit();
-    afx_msg void OnEndSession(BOOL bEnding);
+    afx_msg BOOL OnQueryEndSession();
 
     virtual void OnCancel();
     virtual void OnOK();

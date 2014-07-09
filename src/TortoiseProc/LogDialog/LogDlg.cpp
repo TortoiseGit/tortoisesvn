@@ -360,7 +360,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_WM_WINDOWPOSCHANGING()
     ON_NOTIFY(TVN_ENDLABELEDIT, IDC_PROJTREE, &CLogDlg::OnTvnEndlabeleditProjtree)
     ON_COMMAND(ID_INLINEEDIT, &CLogDlg::OnInlineedit)
-    ON_WM_ENDSESSION()
+    ON_WM_QUERYENDSESSION()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -8635,8 +8635,12 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
 }
 
 
-void CLogDlg::OnEndSession(BOOL bEnding)
+BOOL CLogDlg::OnQueryEndSession()
 {
+    if (!__super::OnQueryEndSession())
+        return FALSE;
+
     SaveMonitorProjects();
-    __super::OnEndSession(bEnding);
+
+    return TRUE;
 }
