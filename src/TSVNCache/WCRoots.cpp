@@ -108,10 +108,11 @@ bool CWCRoots::AddPath( const CTSVNPath& path )
     return AddPathInternal(path) != m_WCDBs.end();
 }
 
-void CWCRoots::NotifyChange( const CTSVNPath& path )
+bool CWCRoots::NotifyChange( const CTSVNPath& path )
 {
     AutoLocker lock(m_critSec);
     CTSVNPath p(path);
+    bool changed = true;
     while (p.IsAdminDir())
     {
         p = p.GetContainingDirectory();
@@ -129,6 +130,7 @@ void CWCRoots::NotifyChange( const CTSVNPath& path )
                 WCRootsTimes dbTimes;
                 dbTimes.LastTicks = GetTickCount64();
                 dbTimes.FileTime = wcDbFile.GetLastWriteTime();
+                changed = (dbTimes.FileTime != it->second.FileTime);
                 it->second = dbTimes;
             }
             else
@@ -138,4 +140,5 @@ void CWCRoots::NotifyChange( const CTSVNPath& path )
             }
         }
     }
+    return changed;
 }

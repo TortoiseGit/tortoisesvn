@@ -46,7 +46,7 @@ public:
 
     /// Forces a re-read of the last-write-filetime of the wc.db
     /// file for the specified \c path.
-    void NotifyChange(const CTSVNPath& path);
+    bool NotifyChange(const CTSVNPath& path);
 
 private:
     std::map<CTSVNPath, WCRootsTimes>::iterator AddPathInternal(const CTSVNPath& path);

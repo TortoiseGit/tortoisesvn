@@ -214,7 +214,15 @@ void CFolderCrawler::WorkerThread()
                             continue;
                         if (lowerpath.Find(L"\\wc.db")>0)
                         {
-                            CSVNStatusCache::Instance().WCRoots()->NotifyChange(workingPath);
+                            bool changed = CSVNStatusCache::Instance().WCRoots()->NotifyChange(workingPath);
+                            // do nothing if the file hasn't really changed
+                            // this is required to avoid an endless loop because of some virus scanners:
+                            // McAfee opens files to scan and triggers a change notification, but then restores
+                            // the last-modified-time of the file. We can detect this here: if the file time
+                            // did not change, then the notification was due to a virus scanner or some other
+                            // 'security' tool.
+                            if (!changed)
+                                continue;
                         }
                     }
                     else if (!workingPath.Exists())
