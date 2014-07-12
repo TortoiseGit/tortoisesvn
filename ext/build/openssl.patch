@@ -1,7 +1,7 @@
 Index: engines/e_capi.c
 ===================================================================
---- engines/e_capi.c	(revision 25122)
-+++ engines/e_capi.c	(working copy)
+--- engines/e_capi.c	(Revision 25671)
++++ engines/e_capi.c	(Arbeitskopie)
 @@ -57,7 +57,10 @@
  #include <openssl/crypto.h>
  #include <openssl/buffer.h>
@@ -141,7 +141,43 @@ Index: engines/e_capi.c
  #endif
  
  
-@@ -1635,6 +1745,7 @@
+@@ -827,6 +937,15 @@
+ 	case NID_md5_sha1:
+ 		alg = CALG_SSL3_SHAMD5;
+ 		break;
++	case NID_sha256:
++		alg = CALG_SHA_256;
++		break;
++	case NID_sha384:
++		alg = CALG_SHA_384;
++		break;
++	case NID_sha512:
++		alg = CALG_SHA_512;
++		break;
+ 	default:
+ 		{
+ 		char algstr[10];
+@@ -1438,11 +1557,15 @@
+ 						contname, provname, ptype);
+     if(ctx->store_flags & CERT_SYSTEM_STORE_LOCAL_MACHINE)
+         dwFlags = CRYPT_MACHINE_KEYSET;
+-    if (!CryptAcquireContextA(&key->hprov, contname, provname, ptype, dwFlags)) 
++	// first try enhanced version
++	if(!CryptAcquireContextA(&key->hprov, contname, MS_ENH_RSA_AES_PROV_A, PROV_RSA_AES, dwFlags))
+ 		{
+-		CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_CRYPTACQUIRECONTEXT_ERROR);
+-		capi_addlasterror();
+-		goto err;
++			if (!CryptAcquireContextA(&key->hprov, contname, provname, ptype, dwFlags))
++				{
++				CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_CRYPTACQUIRECONTEXT_ERROR);
++				capi_addlasterror();
++				goto err;
++				}
+ 		}
+ 	if (!CryptGetUserKey(key->hprov, keyspec, &key->key))
+ 		{
+@@ -1635,6 +1758,7 @@
  	PCCERT_CONTEXT cert = NULL, excert = NULL;
  	CAPI_CTX *ctx;
  	CAPI_KEY *key;
@@ -149,7 +185,7 @@ Index: engines/e_capi.c
  	ctx = ENGINE_get_ex_data(e, capi_idx);
  
  	*pcert = NULL;
-@@ -1696,9 +1807,22 @@
+@@ -1696,9 +1820,22 @@
  
  
  	/* Select the appropriate certificate */
@@ -174,7 +210,7 @@ Index: engines/e_capi.c
  	/* Set the selected certificate and free the rest */
  
  	for(i = 0; i < sk_X509_num(certs); i++)
-@@ -1734,8 +1858,10 @@
+@@ -1734,8 +1871,10 @@
  
  static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
  	{
@@ -187,7 +223,7 @@ Index: engines/e_capi.c
  
  #ifdef OPENSSL_CAPIENG_DIALOG
  
-@@ -1752,7 +1878,7 @@
+@@ -1752,7 +1891,7 @@
  #define CRYPTUI_SELECT_INTENDEDUSE_COLUMN                0x000000004
  #endif
  
@@ -196,7 +232,7 @@ Index: engines/e_capi.c
  #define dlg_prompt L"Select a certificate to use for authentication"
  #define dlg_columns	 CRYPTUI_SELECT_LOCATION_COLUMN \
  			|CRYPTUI_SELECT_INTENDEDUSE_COLUMN
-@@ -1764,7 +1890,7 @@
+@@ -1764,7 +1903,7 @@
  	PCCERT_CONTEXT cert;
  	CAPI_CTX *ctx;
  	CAPI_KEY *key;
@@ -205,7 +241,7 @@ Index: engines/e_capi.c
  	int i, idx = -1;
  	if (sk_X509_num(certs) == 1)
  		return 0;
-@@ -1793,8 +1919,10 @@
+@@ -1793,8 +1932,10 @@
  			}
  
  		}
