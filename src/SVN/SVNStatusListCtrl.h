@@ -1018,6 +1018,7 @@ private:
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+    virtual BOOL OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
     afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg BOOL OnToolTipText(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);

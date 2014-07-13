@@ -131,6 +131,139 @@ const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 // the submenu items get command ID's sequent to this number
 #define IDSVNLC_MOVETOCS            51
 
+struct icompare
+{
+    bool operator() (const std::wstring& lhs, const std::wstring& rhs) const
+    {
+        return _wcsicmp(lhs.c_str(), rhs.c_str()) < 0;
+    }
+};
+
+class CIShellFolderHook : public IShellFolder
+{
+public:
+    CIShellFolderHook(LPSHELLFOLDER sf, const CTSVNPathList& pathlist)
+    {
+        sf->AddRef();
+        m_iSF = sf;
+        // it seems the paths in the HDROP need to be sorted, otherwise
+        // it might not work properly or even crash.
+        // to get the items sorted, we just add them to a set
+        for (int i = 0; i < pathlist.GetCount(); ++i)
+            sortedpaths.insert(pathlist[i].GetWinPath());
+    }
+
+    ~CIShellFolderHook() { m_iSF->Release(); }
+
+    // IUnknown methods --------
+    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, __RPC__deref_out void **ppvObject) { return m_iSF->QueryInterface(riid, ppvObject); }
+    virtual ULONG STDMETHODCALLTYPE AddRef(void) { return m_iSF->AddRef(); }
+    virtual ULONG STDMETHODCALLTYPE Release(void) { return m_iSF->Release(); }
+
+
+    // IShellFolder methods ----
+    virtual HRESULT STDMETHODCALLTYPE GetUIObjectOf(HWND hwndOwner, UINT cidl, PCUITEMID_CHILD_ARRAY apidl, REFIID riid, UINT *rgfReserved, void **ppv);
+
+    virtual HRESULT STDMETHODCALLTYPE CompareIDs(LPARAM lParam, __RPC__in PCUIDLIST_RELATIVE pidl1, __RPC__in PCUIDLIST_RELATIVE pidl2) { return m_iSF->CompareIDs(lParam, pidl1, pidl2); }
+    virtual HRESULT STDMETHODCALLTYPE GetDisplayNameOf(__RPC__in_opt PCUITEMID_CHILD pidl, SHGDNF uFlags, __RPC__out STRRET *pName) { return m_iSF->GetDisplayNameOf(pidl, uFlags, pName); }
+    virtual HRESULT STDMETHODCALLTYPE CreateViewObject(__RPC__in_opt HWND hwndOwner, __RPC__in REFIID riid, __RPC__deref_out_opt void **ppv) { return m_iSF->CreateViewObject(hwndOwner, riid, ppv); }
+    virtual HRESULT STDMETHODCALLTYPE EnumObjects(__RPC__in_opt HWND hwndOwner, SHCONTF grfFlags, __RPC__deref_out_opt IEnumIDList **ppenumIDList) { return m_iSF->EnumObjects(hwndOwner, grfFlags, ppenumIDList); }
+    virtual HRESULT STDMETHODCALLTYPE BindToObject(__RPC__in PCUIDLIST_RELATIVE pidl, __RPC__in_opt IBindCtx *pbc, __RPC__in REFIID riid, __RPC__deref_out_opt void **ppv) { return m_iSF->BindToObject(pidl, pbc, riid, ppv); }
+    virtual HRESULT STDMETHODCALLTYPE ParseDisplayName(__RPC__in_opt HWND hwnd, __RPC__in_opt IBindCtx *pbc, __RPC__in_string LPWSTR pszDisplayName, __reserved ULONG *pchEaten, __RPC__deref_out_opt PIDLIST_RELATIVE *ppidl, __RPC__inout_opt ULONG *pdwAttributes) { return m_iSF->ParseDisplayName(hwnd, pbc, pszDisplayName, pchEaten, ppidl, pdwAttributes); }
+    virtual HRESULT STDMETHODCALLTYPE GetAttributesOf(UINT cidl, __RPC__in_ecount_full_opt(cidl) PCUITEMID_CHILD_ARRAY apidl, __RPC__inout SFGAOF *rgfInOut) { return m_iSF->GetAttributesOf(cidl, apidl, rgfInOut); }
+    virtual HRESULT STDMETHODCALLTYPE BindToStorage(__RPC__in PCUIDLIST_RELATIVE pidl, __RPC__in_opt IBindCtx *pbc, __RPC__in REFIID riid, __RPC__deref_out_opt void **ppv) { return m_iSF->BindToStorage(pidl, pbc, riid, ppv); }
+    virtual HRESULT STDMETHODCALLTYPE SetNameOf(__in_opt HWND hwnd, __in PCUITEMID_CHILD pidl, __in LPCWSTR pszName, __in SHGDNF uFlags, __deref_opt_out PITEMID_CHILD *ppidlOut) { return m_iSF->SetNameOf(hwnd, pidl, pszName, uFlags, ppidlOut); }
+
+
+
+protected:
+    LPSHELLFOLDER m_iSF;
+    std::set<std::wstring, icompare> sortedpaths;
+};
+
+HRESULT STDMETHODCALLTYPE CIShellFolderHook::GetUIObjectOf(HWND hwndOwner, UINT cidl, PCUITEMID_CHILD_ARRAY apidl, REFIID riid, UINT *rgfReserved, void **ppv)
+{
+    if (InlineIsEqualGUID(riid, IID_IDataObject))
+    {
+        HRESULT hres = m_iSF->GetUIObjectOf(hwndOwner, cidl, apidl, IID_IDataObject, NULL, ppv);
+        if (FAILED(hres))
+            return hres;
+
+        IDataObject * idata = (LPDATAOBJECT)(*ppv);
+        // the IDataObject returned here doesn't have a HDROP, so we create one ourselves and add it to the IDataObject
+        // the HDROP is necessary for most context menu handlers
+        int nLength = 0;
+        for (auto it = sortedpaths.cbegin(); it != sortedpaths.cend(); ++it)
+        {
+            nLength += (int)it->size();
+            nLength += 1; // '\0' separator
+        }
+        int nBufferSize = sizeof(DROPFILES) + ((nLength + 5)*sizeof(TCHAR));
+        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
+        SecureZeroMemory(pBuffer.get(), nBufferSize);
+        DROPFILES* df = (DROPFILES*)pBuffer.get();
+        df->pFiles = sizeof(DROPFILES);
+        df->fWide = 1;
+        TCHAR* pFilenames = (TCHAR*)((BYTE*)(pBuffer.get()) + sizeof(DROPFILES));
+        TCHAR* pCurrentFilename = pFilenames;
+
+        for (auto it = sortedpaths.cbegin(); it != sortedpaths.cend(); ++it)
+        {
+            wcscpy_s(pCurrentFilename, it->size() + 1, it->c_str());
+            pCurrentFilename += it->size();
+            *pCurrentFilename = '\0'; // separator between file names
+            pCurrentFilename++;
+        }
+        *pCurrentFilename = '\0'; // terminate array
+        pCurrentFilename++;
+        *pCurrentFilename = '\0'; // terminate array
+        STGMEDIUM medium = { 0 };
+        medium.tymed = TYMED_HGLOBAL;
+        medium.hGlobal = GlobalAlloc(GMEM_ZEROINIT | GMEM_MOVEABLE, nBufferSize + 20);
+        if (medium.hGlobal)
+        {
+            LPVOID pMem = ::GlobalLock(medium.hGlobal);
+            if (pMem)
+            {
+                memcpy(pMem, pBuffer.get(), nBufferSize);
+                GlobalUnlock(medium.hGlobal);
+                FORMATETC formatetc = { 0 };
+                formatetc.cfFormat = CF_HDROP;
+                formatetc.dwAspect = DVASPECT_CONTENT;
+                formatetc.lindex = -1;
+                formatetc.tymed = TYMED_HGLOBAL;
+                medium.pUnkForRelease = NULL;
+                hres = idata->SetData(&formatetc, &medium, TRUE);
+                return hres;
+            }
+        }
+        return E_OUTOFMEMORY;
+    }
+    else
+    {
+        // just pass it on to the base object
+        return m_iSF->GetUIObjectOf(hwndOwner, cidl, apidl, riid, rgfReserved, ppv);
+    }
+}
+
+
+IContextMenu2 * g_IContext2 = NULL;
+IContextMenu3 * g_IContext3 = NULL;
+
+HRESULT CALLBACK dfmCallback(IShellFolder * /*psf*/, HWND /*hwnd*/, IDataObject * /*pdtobj*/, UINT uMsg, WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    switch (uMsg)
+    {
+        case DFM_MERGECONTEXTMENU:
+            return S_OK;
+        case DFM_INVOKECOMMAND:
+        case DFM_INVOKECOMMANDEX:
+        case DFM_GETDEFSTATICID: // Required for Windows 7 to pick a default
+            return S_FALSE;
+    }
+    return E_NOTIMPL;
+}
+
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
     ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
@@ -3008,9 +3141,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
         CMenu changelistSubMenu;
         CMenu ignoreSubMenu;
         CIconMenu clipSubMenu;
+        CMenu shellMenu;
         if (popup.CreatePopupMenu())
         {
-            if ((wcStatus >= svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_external))
+            int cmdID = IDSVNLC_MOVETOCS;
+            if ((wcStatus >= svn_wc_status_normal) && (wcStatus != svn_wc_status_ignored) && (wcStatus != svn_wc_status_external))
             {
                 if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
                 {
@@ -3369,15 +3504,15 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         }
                     }
                 }
-                if ((!entry->IsFolder())&&((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty())))
+                if ((!entry->IsFolder()) && ((!entry->lock_token.IsEmpty()) || (!entry->lock_remotetoken.IsEmpty())))
                 {
                     if (m_dwContextMenus & SVNSLC_POPUNLOCKFORCE)
                     {
                         popup.AppendMenuIcon(IDSVNLC_UNLOCKFORCE, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK);
                     }
                 }
-                if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
-                    &&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted)&&(wcStatus!=svn_wc_status_ignored))
+                if ((!entry->IsFolder()) && (wcStatus >= svn_wc_status_normal)
+                    && (wcStatus != svn_wc_status_missing) && (wcStatus != svn_wc_status_deleted) && (wcStatus != svn_wc_status_ignored))
                 {
                     if (m_dwContextMenus & SVNSLC_POPCREATEPATCH)
                     {
@@ -3416,7 +3551,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     }
                 }
                 if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)
-                    &&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
+                    && (wcStatus != svn_wc_status_unversioned) && (wcStatus != svn_wc_status_none))
                 {
                     popup.AppendMenu(MF_SEPARATOR);
                     // changelist commands
@@ -3425,7 +3560,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         popup.AppendMenuIcon(IDSVNLC_REMOVEFROMCS, IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
                     }
-                    if ((!entry->IsFolder())&&(changelistSubMenu.CreateMenu()))
+                    if ((!entry->IsFolder()) && (changelistSubMenu.CreateMenu()))
                     {
                         CString temp;
                         temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
@@ -3441,10 +3576,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         {
                             // find the changelist names
                             bool bNeedSeparator = true;
-                            int cmdID = IDSVNLC_MOVETOCS;
                             for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
                             {
-                                if ((entry->changelist.Compare(it->first))&&(it->first.Compare(SVNSLC_IGNORECHANGELIST)))
+                                if ((entry->changelist.Compare(it->first)) && (it->first.Compare(SVNSLC_IGNORECHANGELIST)))
                                 {
                                     if (bNeedSeparator)
                                     {
@@ -3457,12 +3591,174 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             }
                         }
                         temp.LoadString(IDS_STATUSLIST_CONTEXT_MOVETOCS);
-                        popup.AppendMenu(MF_POPUP|MF_STRING, (UINT_PTR)changelistSubMenu.GetSafeHmenu(), temp);
+                        popup.AppendMenu(MF_POPUP | MF_STRING, (UINT_PTR)changelistSubMenu.GetSafeHmenu(), temp);
                     }
                 }
             }
 
-            int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
+            // insert the shell context menu
+            LPCONTEXTMENU pContextMenu = nullptr; // common pointer to IContextMenu and higher version interface
+            IShellFolder * psfFolder = nullptr;
+            CIShellFolderHook * pFolderhook = nullptr;
+            LPITEMIDLIST * pidlArray = nullptr;
+            int pidlArrayItems = 0;
+            HKEY ahkeys[16];
+            int numkeys = 0;
+            SecureZeroMemory(ahkeys, _countof(ahkeys)*sizeof(HKEY));
+            {
+                CTSVNPathList targetList;
+                FillListOfSelectedItemPaths(targetList);
+                if (targetList.GetCount() > 0)
+                {
+                    // get IShellFolder interface of Desktop (root of shell namespace)
+                    SHGetDesktopFolder(&psfFolder);    // needed to obtain full qualified pidl
+
+                    // ParseDisplayName creates a PIDL from a file system path relative to the IShellFolder interface
+                    // but since we use the Desktop as our interface and the Desktop is the namespace root
+                    // that means that it's a fully qualified PIDL, which is what we need
+
+                    int nItems = targetList.GetCount();
+                    pidlArray = (LPITEMIDLIST *)CoTaskMemAlloc((nItems + 10) * sizeof(LPITEMIDLIST));
+                    SecureZeroMemory(pidlArray, (nItems + 10) * sizeof(LPITEMIDLIST));
+                    int succeededItems = 0;
+                    PIDLIST_RELATIVE pidl = NULL;
+
+                    size_t bufsize = 1024;
+                    std::unique_ptr<WCHAR[]> filepath(new WCHAR[bufsize]);
+                    for (size_t i = 0; i < nItems; i++)
+                    {
+                        if (bufsize < targetList[i].GetWinPathString().GetLength())
+                        {
+                            bufsize = targetList[i].GetWinPathString().GetLength() + 3;
+                            filepath = std::unique_ptr<WCHAR[]>(new WCHAR[bufsize]);
+                        }
+                        wcscpy_s(filepath.get(), bufsize, targetList[i].GetWinPath());
+                        if (SUCCEEDED(psfFolder->ParseDisplayName(NULL, 0, filepath.get(), NULL, &pidl, NULL)))
+                        {
+                            pidlArray[succeededItems++] = pidl; // copy pidl to pidlArray
+                        }
+                    }
+                    pidlArrayItems = succeededItems;
+
+                    if (RegOpenKey(HKEY_CLASSES_ROOT, L"*", &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                        numkeys--;
+                    if (RegOpenKey(HKEY_CLASSES_ROOT, L"AllFileSystemObjects", &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                        numkeys--;
+                    if (targetList[0].IsDirectory())
+                    {
+                        if (RegOpenKey(HKEY_CLASSES_ROOT, L"Folder", &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                            numkeys--;
+                        if (RegOpenKey(HKEY_CLASSES_ROOT, L"Directory", &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                            numkeys--;
+                    }
+                    CString ext = targetList[0].GetFileExtension();
+                    if (RegOpenKey(HKEY_CLASSES_ROOT, (LPCWSTR)ext, &ahkeys[numkeys++]) == ERROR_SUCCESS)
+                    {
+                        WCHAR buf[MAX_PATH] = { 0 };
+                        DWORD dwSize = MAX_PATH;
+                        if (RegQueryValueEx(ahkeys[numkeys - 1], L"", NULL, NULL, (LPBYTE)buf, &dwSize) == ERROR_SUCCESS)
+                        {
+                            if (RegOpenKey(HKEY_CLASSES_ROOT, buf, &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                                numkeys--;
+                        }
+                    }
+                    CString sExplorerExt = L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\" + ext;
+                    if (RegOpenKey(HKEY_CURRENT_USER, (LPCWSTR)sExplorerExt, &ahkeys[numkeys++]) != ERROR_SUCCESS)
+                        numkeys--;
+
+
+                    pFolderhook = new CIShellFolderHook(psfFolder, targetList);
+                    LPCONTEXTMENU icm1 = nullptr;
+
+                    DEFCONTEXTMENU dcm = { 0 };
+                    dcm.hwnd = m_hWnd;
+                    dcm.psf = pFolderhook;
+                    dcm.cidl = pidlArrayItems;
+                    dcm.apidl = (PCUITEMID_CHILD_ARRAY)pidlArray;
+                    dcm.cKeys = numkeys;
+                    dcm.aKeys = ahkeys;
+                    if (SUCCEEDED(SHCreateDefaultContextMenu(&dcm, IID_IContextMenu, (void**)&icm1)))
+
+                    //if (SUCCEEDED(CDefFolderMenu_Create2(NULL, m_hWnd, (UINT)pidlArrayItems, (PCUITEMID_CHILD_ARRAY)pidlArray, pFolderhook, dfmCallback, numkeys, ahkeys, &icm1)))
+                    {
+                        int iMenuType = 0;  // to know which version of IContextMenu is supported
+                        if (icm1)
+                        {   // since we got an IContextMenu interface we can now obtain the higher version interfaces via that
+                            if (icm1->QueryInterface(IID_IContextMenu3, (void**)&pContextMenu) == S_OK)
+                                iMenuType = 3;
+                            else if (icm1->QueryInterface(IID_IContextMenu2, (void**)&pContextMenu) == S_OK)
+                                iMenuType = 2;
+
+                            if (pContextMenu)
+                                icm1->Release(); // we can now release version 1 interface, cause we got a higher one
+                            else
+                            {
+                                // since no higher versions were found
+                                // redirect ppContextMenu to version 1 interface
+                                iMenuType = 1;
+                                pContextMenu = icm1;
+                            }
+                        }
+                        if (pContextMenu)
+                        {
+                            if (shellMenu.CreatePopupMenu())
+                            {
+                                // lets fill the our popup menu
+                                pContextMenu->QueryContextMenu(shellMenu.m_hMenu, 0, cmdID, 10000, CMF_NORMAL | CMF_EXPLORE);
+
+                                popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)shellMenu.m_hMenu, L"Shell");
+
+                                // subclass window to handle menu related messages in CShellContextMenu
+                                if (iMenuType > 1)  // only subclass if its version 2 or 3
+                                {
+                                    if (iMenuType == 2)
+                                        g_IContext2 = (LPCONTEXTMENU2)pContextMenu;
+                                    else    // version 3
+                                        g_IContext3 = (LPCONTEXTMENU3)pContextMenu;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
+            g_IContext2 = nullptr;
+            g_IContext3 = nullptr;
+            if (cmd >= cmdID && cmd <= 10000) // see if returned idCommand belongs to shell menu entries
+            {
+                CMINVOKECOMMANDINFOEX cmi = { 0 };
+                cmi.cbSize = sizeof(CMINVOKECOMMANDINFOEX);
+                cmi.fMask = CMIC_MASK_UNICODE | CMIC_MASK_PTINVOKE;
+                if (GetKeyState(VK_CONTROL) < 0)
+                    cmi.fMask |= CMIC_MASK_CONTROL_DOWN;
+                if (GetKeyState(VK_SHIFT) < 0)
+                    cmi.fMask |= CMIC_MASK_SHIFT_DOWN;
+                cmi.hwnd = m_hWnd;
+                cmi.lpVerb = MAKEINTRESOURCEA(cmd - cmdID);
+                cmi.lpVerbW = MAKEINTRESOURCEW(cmd - cmdID);
+                cmi.nShow = SW_SHOWNORMAL;
+                cmi.ptInvoke = point;
+                cmi.nShow = SW_SHOWNORMAL;
+
+                pContextMenu->InvokeCommand((LPCMINVOKECOMMANDINFO)&cmi);
+
+                cmd = 0;
+            }
+            if (pContextMenu)
+                pContextMenu->Release();
+            if (pFolderhook)
+                delete pFolderhook;
+            if (psfFolder)
+                psfFolder->Release();
+            for (int i = 0; i < pidlArrayItems; i++)
+            {
+                if (pidlArray[i])
+                    CoTaskMemFree(pidlArray[i]);
+            }
+            CoTaskMemFree(pidlArray);
+            for (int i = 0; i < numkeys; ++i)
+                RegCloseKey(ahkeys[i]);
+
             m_bWaitCursor = true;
             int iItemCountBeforeMenuCmd = GetItemCount();
             size_t iChangelistCountBeforeMenuCmd = m_changelists.size();
@@ -6500,4 +6796,42 @@ void CSVNStatusListCtrlDropTarget::SetDropDescriptionCopy()
     sDropDesc.LoadString(IDS_DROPDESC_ADD);
     CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
     SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
+}
+
+
+BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+{
+    switch (message)
+    {
+        case WM_MENUCHAR:   // only supported by IContextMenu3
+            if (g_IContext3)
+            {
+                g_IContext3->HandleMenuMsg2(message, wParam, lParam, pResult);
+                return TRUE;
+            }
+            break;
+
+        case WM_DRAWITEM:
+        case WM_MEASUREITEM:
+            if (wParam)
+                break; // if wParam != 0 then the message is not menu-related
+
+        case WM_INITMENU:
+        case WM_INITMENUPOPUP:
+            if (g_IContext3)
+            {
+                g_IContext3->HandleMenuMsg2(message, wParam, lParam, pResult);
+                return TRUE;
+            }
+            else if (g_IContext2)
+                g_IContext2->HandleMenuMsg(message, wParam, lParam);
+
+            return TRUE;
+            break;
+
+        default:
+            break;
+    }
+
+    return CListCtrl::OnWndMsg(message, wParam, lParam, pResult);
 }
