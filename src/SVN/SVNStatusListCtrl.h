@@ -1130,6 +1130,9 @@ private:
     std::map<CString, std::tuple<CString, CString>>  m_restorepaths;
     mutable CReaderWriterLock   m_guard;
 
+    HMENU                       m_hShellMenu;
+    LPCONTEXTMENU               m_pContextMenu;
+
     friend class CSVNStatusListCtrlDropTarget;
 };
 

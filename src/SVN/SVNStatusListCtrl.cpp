@@ -247,8 +247,15 @@ HRESULT STDMETHODCALLTYPE CIShellFolderHook::GetUIObjectOf(HWND hwndOwner, UINT 
 }
 
 
-IContextMenu2 * g_IContext2 = NULL;
-IContextMenu3 * g_IContext3 = NULL;
+IContextMenu2 *         g_IContext2 = NULL;
+IContextMenu3 *         g_IContext3 = NULL;
+CIShellFolderHook *     g_pFolderhook = nullptr;
+IShellFolder *          g_psfDesktopFolder = nullptr;
+LPITEMIDLIST *          g_pidlArray = nullptr;
+int                     g_pidlArrayItems = 0;
+
+#define SHELL_MIN_CMD   10000
+#define SHELL_MAX_CMD   20000
 
 HRESULT CALLBACK dfmCallback(IShellFolder * /*psf*/, HWND /*hwnd*/, IDataObject * /*pdtobj*/, UINT uMsg, WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
@@ -355,6 +362,8 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_nIconFolder(0)
     , m_bResortAfterShow(false)
     , m_bAllowPeggedExternals(false)
+    , m_pContextMenu(nullptr)
+    , m_hShellMenu(0)
 {
     m_tooltipbuf[0] = 0;
 }
@@ -3597,134 +3606,19 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             }
 
             // insert the shell context menu
-            LPCONTEXTMENU pContextMenu = nullptr; // common pointer to IContextMenu and higher version interface
-            IShellFolder * psfFolder = nullptr;
-            CIShellFolderHook * pFolderhook = nullptr;
-            LPITEMIDLIST * pidlArray = nullptr;
-            int pidlArrayItems = 0;
-            HKEY ahkeys[16];
-            int numkeys = 0;
-            SecureZeroMemory(ahkeys, _countof(ahkeys)*sizeof(HKEY));
+            if (shellMenu.CreatePopupMenu())
             {
-                CTSVNPathList targetList;
-                FillListOfSelectedItemPaths(targetList);
-                if (targetList.GetCount() > 0)
-                {
-                    // get IShellFolder interface of Desktop (root of shell namespace)
-                    SHGetDesktopFolder(&psfFolder);    // needed to obtain full qualified pidl
-
-                    // ParseDisplayName creates a PIDL from a file system path relative to the IShellFolder interface
-                    // but since we use the Desktop as our interface and the Desktop is the namespace root
-                    // that means that it's a fully qualified PIDL, which is what we need
-
-                    int nItems = targetList.GetCount();
-                    pidlArray = (LPITEMIDLIST *)CoTaskMemAlloc((nItems + 10) * sizeof(LPITEMIDLIST));
-                    SecureZeroMemory(pidlArray, (nItems + 10) * sizeof(LPITEMIDLIST));
-                    int succeededItems = 0;
-                    PIDLIST_RELATIVE pidl = NULL;
-
-                    size_t bufsize = 1024;
-                    std::unique_ptr<WCHAR[]> filepath(new WCHAR[bufsize]);
-                    for (size_t i = 0; i < nItems; i++)
-                    {
-                        if (bufsize < targetList[i].GetWinPathString().GetLength())
-                        {
-                            bufsize = targetList[i].GetWinPathString().GetLength() + 3;
-                            filepath = std::unique_ptr<WCHAR[]>(new WCHAR[bufsize]);
-                        }
-                        wcscpy_s(filepath.get(), bufsize, targetList[i].GetWinPath());
-                        if (SUCCEEDED(psfFolder->ParseDisplayName(NULL, 0, filepath.get(), NULL, &pidl, NULL)))
-                        {
-                            pidlArray[succeededItems++] = pidl; // copy pidl to pidlArray
-                        }
-                    }
-                    pidlArrayItems = succeededItems;
-
-                    if (RegOpenKey(HKEY_CLASSES_ROOT, L"*", &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                        numkeys--;
-                    if (RegOpenKey(HKEY_CLASSES_ROOT, L"AllFileSystemObjects", &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                        numkeys--;
-                    if (targetList[0].IsDirectory())
-                    {
-                        if (RegOpenKey(HKEY_CLASSES_ROOT, L"Folder", &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                            numkeys--;
-                        if (RegOpenKey(HKEY_CLASSES_ROOT, L"Directory", &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                            numkeys--;
-                    }
-                    CString ext = targetList[0].GetFileExtension();
-                    if (RegOpenKey(HKEY_CLASSES_ROOT, (LPCWSTR)ext, &ahkeys[numkeys++]) == ERROR_SUCCESS)
-                    {
-                        WCHAR buf[MAX_PATH] = { 0 };
-                        DWORD dwSize = MAX_PATH;
-                        if (RegQueryValueEx(ahkeys[numkeys - 1], L"", NULL, NULL, (LPBYTE)buf, &dwSize) == ERROR_SUCCESS)
-                        {
-                            if (RegOpenKey(HKEY_CLASSES_ROOT, buf, &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                                numkeys--;
-                        }
-                    }
-                    CString sExplorerExt = L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\" + ext;
-                    if (RegOpenKey(HKEY_CURRENT_USER, (LPCWSTR)sExplorerExt, &ahkeys[numkeys++]) != ERROR_SUCCESS)
-                        numkeys--;
-
-
-                    pFolderhook = new CIShellFolderHook(psfFolder, targetList);
-                    LPCONTEXTMENU icm1 = nullptr;
-
-                    DEFCONTEXTMENU dcm = { 0 };
-                    dcm.hwnd = m_hWnd;
-                    dcm.psf = pFolderhook;
-                    dcm.cidl = pidlArrayItems;
-                    dcm.apidl = (PCUITEMID_CHILD_ARRAY)pidlArray;
-                    dcm.cKeys = numkeys;
-                    dcm.aKeys = ahkeys;
-                    if (SUCCEEDED(SHCreateDefaultContextMenu(&dcm, IID_IContextMenu, (void**)&icm1)))
-
-                    //if (SUCCEEDED(CDefFolderMenu_Create2(NULL, m_hWnd, (UINT)pidlArrayItems, (PCUITEMID_CHILD_ARRAY)pidlArray, pFolderhook, dfmCallback, numkeys, ahkeys, &icm1)))
-                    {
-                        int iMenuType = 0;  // to know which version of IContextMenu is supported
-                        if (icm1)
-                        {   // since we got an IContextMenu interface we can now obtain the higher version interfaces via that
-                            if (icm1->QueryInterface(IID_IContextMenu3, (void**)&pContextMenu) == S_OK)
-                                iMenuType = 3;
-                            else if (icm1->QueryInterface(IID_IContextMenu2, (void**)&pContextMenu) == S_OK)
-                                iMenuType = 2;
-
-                            if (pContextMenu)
-                                icm1->Release(); // we can now release version 1 interface, cause we got a higher one
-                            else
-                            {
-                                // since no higher versions were found
-                                // redirect ppContextMenu to version 1 interface
-                                iMenuType = 1;
-                                pContextMenu = icm1;
-                            }
-                        }
-                        if (pContextMenu)
-                        {
-                            if (shellMenu.CreatePopupMenu())
-                            {
-                                // lets fill the our popup menu
-                                pContextMenu->QueryContextMenu(shellMenu.m_hMenu, 0, cmdID, 10000, CMF_NORMAL | CMF_EXPLORE);
-
-                                popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)shellMenu.m_hMenu, L"Shell");
-
-                                // subclass window to handle menu related messages in CShellContextMenu
-                                if (iMenuType > 1)  // only subclass if its version 2 or 3
-                                {
-                                    if (iMenuType == 2)
-                                        g_IContext2 = (LPCONTEXTMENU2)pContextMenu;
-                                    else    // version 3
-                                        g_IContext3 = (LPCONTEXTMENU3)pContextMenu;
-                                }
-                            }
-                        }
-                    }
-                }
+                popup.AppendMenu(MF_SEPARATOR);
+                popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)shellMenu.m_hMenu, CString(MAKEINTRESOURCE(IDS_STATUSLIST_CONTEXT_SHELL)));
+                m_hShellMenu = shellMenu.m_hMenu;
             }
+            else
+                m_hShellMenu = NULL;
+
             int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
             g_IContext2 = nullptr;
             g_IContext3 = nullptr;
-            if (cmd >= cmdID && cmd <= 10000) // see if returned idCommand belongs to shell menu entries
+            if (cmd >= SHELL_MIN_CMD && cmd <= SHELL_MAX_CMD) // see if returned idCommand belongs to shell menu entries
             {
                 CMINVOKECOMMANDINFOEX cmi = { 0 };
                 cmi.cbSize = sizeof(CMINVOKECOMMANDINFOEX);
@@ -3734,30 +3628,27 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 if (GetKeyState(VK_SHIFT) < 0)
                     cmi.fMask |= CMIC_MASK_SHIFT_DOWN;
                 cmi.hwnd = m_hWnd;
-                cmi.lpVerb = MAKEINTRESOURCEA(cmd - cmdID);
-                cmi.lpVerbW = MAKEINTRESOURCEW(cmd - cmdID);
+                cmi.lpVerb = MAKEINTRESOURCEA(cmd - SHELL_MIN_CMD);
+                cmi.lpVerbW = MAKEINTRESOURCEW(cmd - SHELL_MIN_CMD);
                 cmi.nShow = SW_SHOWNORMAL;
                 cmi.ptInvoke = point;
-                cmi.nShow = SW_SHOWNORMAL;
 
-                pContextMenu->InvokeCommand((LPCMINVOKECOMMANDINFO)&cmi);
+                m_pContextMenu->InvokeCommand((LPCMINVOKECOMMANDINFO)&cmi);
 
                 cmd = 0;
             }
-            if (pContextMenu)
-                pContextMenu->Release();
-            if (pFolderhook)
-                delete pFolderhook;
-            if (psfFolder)
-                psfFolder->Release();
-            for (int i = 0; i < pidlArrayItems; i++)
+            if (m_pContextMenu)
+                m_pContextMenu->Release();
+            if (g_pFolderhook)
+                delete g_pFolderhook;
+            if (g_psfDesktopFolder)
+                g_psfDesktopFolder->Release();
+            for (int i = 0; i < g_pidlArrayItems; i++)
             {
-                if (pidlArray[i])
-                    CoTaskMemFree(pidlArray[i]);
+                if (g_pidlArray[i])
+                    CoTaskMemFree(g_pidlArray[i]);
             }
-            CoTaskMemFree(pidlArray);
-            for (int i = 0; i < numkeys; ++i)
-                RegCloseKey(ahkeys[i]);
+            CoTaskMemFree(g_pidlArray);
 
             m_bWaitCursor = true;
             int iItemCountBeforeMenuCmd = GetItemCount();
@@ -6818,6 +6709,112 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
 
         case WM_INITMENU:
         case WM_INITMENUPOPUP:
+        {
+            HMENU hMenu = (HMENU)wParam;
+            if ((hMenu == m_hShellMenu) && (GetMenuItemCount(hMenu) == 0))
+            {
+                // the shell submenu is populated only on request, i.e. right
+                // before the submenu is shown
+                g_pFolderhook = nullptr;
+                {
+                    CTSVNPathList targetList;
+                    FillListOfSelectedItemPaths(targetList);
+                    if (targetList.GetCount() > 0)
+                    {
+                        // get IShellFolder interface of Desktop (root of shell namespace)
+                        SHGetDesktopFolder(&g_psfDesktopFolder);    // needed to obtain full qualified pidl
+
+                        // ParseDisplayName creates a PIDL from a file system path relative to the IShellFolder interface
+                        // but since we use the Desktop as our interface and the Desktop is the namespace root
+                        // that means that it's a fully qualified PIDL, which is what we need
+
+                        int nItems = targetList.GetCount();
+                        g_pidlArray = (LPITEMIDLIST *)CoTaskMemAlloc((nItems + 10) * sizeof(LPITEMIDLIST));
+                        SecureZeroMemory(g_pidlArray, (nItems + 10) * sizeof(LPITEMIDLIST));
+                        int succeededItems = 0;
+                        PIDLIST_RELATIVE pidl = NULL;
+
+                        size_t bufsize = 1024;
+                        std::unique_ptr<WCHAR[]> filepath(new WCHAR[bufsize]);
+                        for (size_t i = 0; i < nItems; i++)
+                        {
+                            if (bufsize < targetList[i].GetWinPathString().GetLength())
+                            {
+                                bufsize = targetList[i].GetWinPathString().GetLength() + 3;
+                                filepath = std::unique_ptr<WCHAR[]>(new WCHAR[bufsize]);
+                            }
+                            wcscpy_s(filepath.get(), bufsize, targetList[i].GetWinPath());
+                            if (SUCCEEDED(g_psfDesktopFolder->ParseDisplayName(NULL, 0, filepath.get(), NULL, &pidl, NULL)))
+                            {
+                                g_pidlArray[succeededItems++] = pidl; // copy pidl to pidlArray
+                            }
+                        }
+                        g_pidlArrayItems = succeededItems;
+
+                        CString ext = targetList[0].GetFileExtension();
+
+                        ASSOCIATIONELEMENT const rgAssocItem[] =
+                        {
+                            { ASSOCCLASS_PROGID_STR, NULL, ext },
+                            { ASSOCCLASS_SYSTEM_STR, NULL, ext },
+                            { ASSOCCLASS_APP_STR, NULL, ext },
+                            { ASSOCCLASS_STAR, NULL, NULL},
+                            { ASSOCCLASS_FOLDER, NULL, NULL },
+                        };
+                        IQueryAssociations * pIQueryAssociations;
+                        AssocCreateForClasses(rgAssocItem, ARRAYSIZE(rgAssocItem), IID_IQueryAssociations, (void**)&pIQueryAssociations);
+
+                        g_pFolderhook = new CIShellFolderHook(g_psfDesktopFolder, targetList);
+                        LPCONTEXTMENU icm1 = nullptr;
+
+                        DEFCONTEXTMENU dcm = { 0 };
+                        dcm.hwnd = m_hWnd;
+                        dcm.psf = g_pFolderhook;
+                        dcm.cidl = g_pidlArrayItems;
+                        dcm.apidl = (PCUITEMID_CHILD_ARRAY)g_pidlArray;
+                        dcm.punkAssociationInfo = pIQueryAssociations;
+                        if (SUCCEEDED(SHCreateDefaultContextMenu(&dcm, IID_IContextMenu, (void**)&icm1)))
+                        {
+                            int iMenuType = 0;  // to know which version of IContextMenu is supported
+                            if (icm1)
+                            {   // since we got an IContextMenu interface we can now obtain the higher version interfaces via that
+                                if (icm1->QueryInterface(IID_IContextMenu3, (void**)&m_pContextMenu) == S_OK)
+                                    iMenuType = 3;
+                                else if (icm1->QueryInterface(IID_IContextMenu2, (void**)&m_pContextMenu) == S_OK)
+                                    iMenuType = 2;
+
+                                if (m_pContextMenu)
+                                    icm1->Release(); // we can now release version 1 interface, cause we got a higher one
+                                else
+                                {
+                                    // since no higher versions were found
+                                    // redirect ppContextMenu to version 1 interface
+                                    iMenuType = 1;
+                                    m_pContextMenu = icm1;
+                                }
+                            }
+                            if (m_pContextMenu)
+                            {
+                                // lets fill the our popup menu
+                                UINT flags = CMF_NORMAL;
+                                flags |= (GetKeyState(VK_SHIFT) & 0x8000) != 0 ? CMF_EXTENDEDVERBS : 0;
+                                m_pContextMenu->QueryContextMenu(hMenu, 0, SHELL_MIN_CMD, SHELL_MAX_CMD, flags);
+
+
+                                // subclass window to handle menu related messages in CShellContextMenu
+                                if (iMenuType > 1)  // only subclass if its version 2 or 3
+                                {
+                                    if (iMenuType == 2)
+                                        g_IContext2 = (LPCONTEXTMENU2)m_pContextMenu;
+                                    else    // version 3
+                                        g_IContext3 = (LPCONTEXTMENU3)m_pContextMenu;
+                                }
+                            }
+                        }
+                        pIQueryAssociations->Release();
+                    }
+                }
+            }
             if (g_IContext3)
             {
                 g_IContext3->HandleMenuMsg2(message, wParam, lParam, pResult);
@@ -6825,10 +6822,10 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
             }
             else if (g_IContext2)
                 g_IContext2->HandleMenuMsg(message, wParam, lParam);
-
             return TRUE;
-            break;
+        }
 
+            break;
         default:
             break;
     }
