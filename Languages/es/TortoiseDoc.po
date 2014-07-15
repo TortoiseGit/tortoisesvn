@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-30 17:31+0000\n"
+"PO-Revision-Date: 2014-07-07 10:51+0000\n"
 "Last-Translator: Roberto Gómez\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -2970,7 +2970,7 @@ msgstr "crear copia de trabajo"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr ""
+msgstr "obtención dispersa"
 
 #. (primary)
 msgid "partial checkout"
@@ -18414,7 +18414,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL RUTA\n      "
 
 #. (para)
 #. (para)
@@ -18442,7 +18442,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18476,7 +18476,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18494,7 +18494,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v RUTA\n      "
 
 #. (para)
 #. (para)
@@ -18519,7 +18519,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add RUTA...\n      "
 
 #. (para)
 msgid ""
@@ -18536,7 +18536,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] RUTA...\n      "
 
 #. (para)
 #. (para)
@@ -18558,7 +18558,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18585,7 +18585,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] RUTA\no\nsvn log -v -r M:N [--stop-on-copy] RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18608,7 +18608,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v RUTA\no\nsvn status -u -v RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18634,7 +18634,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr ""
+msgstr "Lo que hace TortoiseSVN es un <screen>\nsvn info URL_de_la_copia_de_trabajo\nsvn log -v URL\n        </screen> donde URL es el repositorio <emphasis>raíz</emphasis> y analiza la información devuelta."
 
 #. (title)
 msgid "Repo Browser"
@@ -18647,7 +18647,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_de_la_copia_de_trabajo\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -18680,7 +18680,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved RUTA\n      "
 
 #. (screen)
 #, no-wrap
@@ -18688,7 +18688,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename RUTA_ACTUAL NUEVA_RUTA\n      "
 
 #. (screen)
 #, no-wrap
@@ -18696,7 +18696,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18720,7 +18720,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] RUTA...\n      "
 
 #. (screen)
 #, no-wrap
@@ -18728,7 +18728,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup RUTA\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -18747,7 +18747,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"Mensaje de bloqueo\" [--force] RUTA...\n      "
 
 #. (para)
 msgid ""
@@ -18771,7 +18771,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock RUTA\n      "
 
 #. (screen)
 #, no-wrap
@@ -18783,7 +18783,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"Mensaje de registro\" URL URL\no\nsvn copy -m \"Mensaje de registro\" URL@rev URL@rev\no\nsvn copy -m \"Mensaje de registro\" RUTA URL\n      "
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -18803,7 +18803,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_de_la_copia_de_trabajo\nsvn switch [-r rev] URL RUTA\n      "
 
 #. (screen)
 #, no-wrap
@@ -18811,7 +18811,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18825,7 +18825,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -18839,7 +18839,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL RUTA_Exportación\n      "
 
 #. (para)
 msgid ""
@@ -18872,7 +18872,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate URL_Origen URL_Destino\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -18884,7 +18884,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18898,7 +18898,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m \"Mensaje de registro\" RUTA URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -18907,7 +18907,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v RUTA\nsvn log -r N:M RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18928,7 +18928,7 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn propget svn:ignore RUTA &gt; ficherotemporal \n{editar los nuevos ítems a ignorar en el archivo ficherotemporal}\nsvn propset svn:ignore -F ficherotemporal RUTA\n      "
 
 #. (para)
 msgid ""
@@ -18943,7 +18943,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff RUTA &gt; fichero-parche\n      "
 
 #. (para)
 msgid ""
@@ -20607,7 +20607,7 @@ msgstr "Alterna entre el ajuste de línea"
 
 #. (term)
 msgid "Ctrl-G"
-msgstr ""
+msgstr "Ctrl-G"
 
 #. (para)
 msgid "Go to line"
@@ -20615,15 +20615,15 @@ msgstr "Ir a la línea"
 
 #. (para)
 msgid "Select all text"
-msgstr ""
+msgstr "Seleccionar todo el texto"
 
 #. (term)
 msgid "Ctrl-U"
-msgstr ""
+msgstr "Ctrl-U"
 
 #. (para)
 msgid "Switches views"
-msgstr ""
+msgstr "Cambia las vistas"
 
 #. (term)
 msgid "Ctrl-mousewheel"

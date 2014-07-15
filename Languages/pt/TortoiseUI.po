@@ -14,7 +14,7 @@
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
-# JustinoAveiro <paulojustino.nec@gmail.com>, 2013
+# JustinoAveiro <paulojustino.nec@gmail.com>, 2013-2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
 # Sandro Amaral <sandro123iv@gmail.com>, 2011
 msgid ""
@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-28 08:46+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-07-07 13:24+0000\n"
+"Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,7 +261,7 @@ msgstr "%s, mas o diretório já existe localmente sem versão."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, mas a pasta não existe localmente (removida ou movida?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -451,7 +451,7 @@ msgstr "&Aplicar propriedade recursivamente"
 
 #. Resource IDs: (610)
 msgid "&Apply the update to the move destination"
-msgstr ""
+msgstr "&Aplicar a atualização ao destino do movimento"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -575,7 +575,7 @@ msgstr "&Limpar..."
 
 #. Resource IDs: (1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "&Limpar Listas de Alterações"
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -733,7 +733,7 @@ msgstr "&Editar conflitos"
 
 #. Resource IDs: (65)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Editar projecto"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -1212,7 +1212,7 @@ msgstr "&Remover"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
-msgstr ""
+msgstr "&Remover projecto"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1795,7 +1795,7 @@ msgstr "Abortar &Integração"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "Abortar\nPodes corrigir primeiro a razão pela qual o script de gancho falhou."
 
 #. Resource IDs: (9)
 msgid "About"
@@ -2890,7 +2890,7 @@ msgstr "Verificando se está disponível uma versão mais recente do TortoiseSVN
 #. Resource IDs: (65)
 #, c-format
 msgid "Checking project '%s' for updates..."
-msgstr ""
+msgstr "Verificando actualizações para o projecto '%s'..."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
@@ -3290,7 +3290,7 @@ msgstr "Configurar o &TortoiseSVN para nunca usar a reciclagem"
 
 #. Resource IDs: (7)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Configura Regex do filtro "
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3640,7 +3640,7 @@ msgstr ""
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Contagem: %u correspondências."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -3984,7 +3984,7 @@ msgstr "Arquivo de comparação:"
 
 #. Resource IDs: (17)
 msgid "Diff later"
-msgstr ""
+msgstr "Diff mais tarde"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3997,7 +3997,7 @@ msgstr "Comparar com URL"
 #. Resource IDs: (18)
 #, c-format
 msgid "Diff with \"%s\""
-msgstr ""
+msgstr "Diff com \"%s\""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4993,16 +4993,16 @@ msgstr "Localiza o texto especificado\nLocalizar"
 #. Resource IDs: (95)
 #, c-format
 msgid "Find: Can't find the text \"%s\""
-msgstr ""
+msgstr "Pesquisa: Não encontro o texto \"%s\""
 
 #. Resource IDs: (95)
 msgid ""
 "Find: First occurrence from the bottom found. Beginning of document reached."
-msgstr ""
+msgstr "Pesquisa: Encontrada primeira ocorrência a partir do fundo. Atingido início do documento."
 
 #. Resource IDs: (95)
 msgid "Find: First occurrence from the top found. End of document reached."
-msgstr ""
+msgstr "Pesquisa: Encontrada primeira ocorrência a partir do topo. Atingido fim do documento."
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -5086,7 +5086,7 @@ msgstr "Ecrã Inteiro"
 
 #. Resource IDs: (113)
 msgid "Full data"
-msgstr ""
+msgstr "Dados completos"
 
 #. Resource IDs: (116)
 msgid "Full revision data without changed paths"
@@ -5370,7 +5370,7 @@ msgstr "Tipo de Gancho:"
 
 #. Resource IDs: (364)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Falhou script de gancho"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
@@ -5898,7 +5898,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "Information"
-msgstr ""
+msgstr "Informação"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
@@ -5944,7 +5944,7 @@ msgstr "Moeda Inválida."
 
 #. Resource IDs: (84)
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Parâmetros inválidos"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6405,7 +6405,7 @@ msgstr "Marcar ficheiros desaparecidos como removidos"
 
 #. Resource IDs: (252)
 msgid "Mark this change"
-msgstr ""
+msgstr "Marcar esta alteração"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6756,7 +6756,7 @@ msgstr "Move\nOs itens serão movidos para o caminho destino."
 
 #. Resource IDs: (266)
 msgid "Moved"
-msgstr ""
+msgstr "Movido"
 
 #. Resource IDs: (210)
 #, c-format
@@ -6866,7 +6866,7 @@ msgstr "Novo nome não pode estar vazio ou ser igual ao original!"
 
 #. Resource IDs: (101)
 msgid "Newlines"
-msgstr ""
+msgstr "Linhas-novas"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7402,7 +7402,7 @@ msgstr "Caminhos"
 
 #. Resource IDs: (116)
 msgid "Paths relative to root"
-msgstr ""
+msgstr "Caminhos relativos à raiz"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -7666,7 +7666,7 @@ msgstr "Progresso"
 
 #. Resource IDs: (65535)
 msgid "Project"
-msgstr ""
+msgstr "Projecto"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -7951,15 +7951,15 @@ msgstr "A refrescar shell para %1!s!"
 
 #. Resource IDs: (32, 156, 165)
 msgid "Regex Filter"
-msgstr ""
+msgstr "Filtro Regex"
 
 #. Resource IDs: (164)
 msgid "Regex Filters"
-msgstr ""
+msgstr "Filtros Regex"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
-msgstr ""
+msgstr "Regex:"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8091,7 +8091,7 @@ msgstr "Remove dados de autenticação guardados"
 msgid ""
 "Remove all comments before doing the diff so changes inside comments don't "
 "show as different"
-msgstr ""
+msgstr "Remover todos os comentários antes de efetuar o diff, para que as alterações dentro dos comentários não apareçam como diferenças"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -8249,7 +8249,7 @@ msgstr "Repete a última acção\nRepetir"
 
 #. Resource IDs: (1512)
 msgid "Replace &All"
-msgstr ""
+msgstr "Substituir &Todos"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8259,7 +8259,7 @@ msgstr "Substitui determinado texto por um texto diferente\nSubstituir"
 
 #. Resource IDs: (65535)
 msgid "Replace with:"
-msgstr ""
+msgstr "Substituir com:"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
@@ -8857,7 +8857,7 @@ msgstr "Procurar mensagens de &registo..."
 
 #. Resource IDs: (1074)
 msgid "Search &up"
-msgstr ""
+msgstr "Pesquisar &cima"
 
 #. Resource IDs: (65535)
 msgid "Search for:"
@@ -9494,7 +9494,7 @@ msgstr "Alguns ficheiro(s) foram alterados fora do T-Merge.\nDesejas recarrega-l
 
 #. Resource IDs: (84)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Algo correu mal"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9620,7 +9620,7 @@ msgstr "Arrancar externos..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Arrancar o visualizador de diffs com o ficheiro actualmente selecionado e o anteriormente marcado para diff mais tarde."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9767,7 +9767,7 @@ msgstr "Arquivo de servidor do Subversion:"
 
 #. Resource IDs: (64)
 msgid "Success"
-msgstr ""
+msgstr "Sucesso"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10314,7 +10314,7 @@ msgstr "A cópia de trabalho alvo tem modificações locais!"
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr ""
+msgstr "O texto é idêntico, mas os ficheiros não condizem!\nForam encontradas as seguintes diferenças:"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10672,7 +10672,7 @@ msgid ""
 "%s\r\n"
 "zlib %s\r\n"
 "SQLite %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Commit Monitor Options"
@@ -10694,7 +10694,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "Monitor de Projecto TortoiseSVN"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10950,7 +10950,7 @@ msgstr "Desbloqueado"
 
 #. Resource IDs: (252)
 msgid "Unmark this change"
-msgstr ""
+msgstr "Desmarcar esta alteração"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -11031,7 +11031,7 @@ msgstr "Actualizar\nActualiza a cópia de trabalho e reabre a caixa de diálogo 
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Actualizar\nActualizar para a revisão HEAD"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11454,7 +11454,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
-msgstr ""
+msgstr "Alterações de espeços em branco (tabs, espaços)"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -12006,7 +12006,7 @@ msgstr "última actualização:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
+msgstr "Deixar utilizador e palavra-passe vazia se o repositório permite acesso anónimo, ou se a autenticação já está armazenada"
 
 #. Resource IDs: (11, 195)
 msgid "locked"
