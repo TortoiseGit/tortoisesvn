@@ -1414,7 +1414,10 @@ void CLogDlg::OnClose()
             return;
     }
     if (m_bMonitoringMode)
+    {
+        SaveMonitorProjects();
         ShowWindow(SW_HIDE);
+    }
     else
         __super::OnClose();
 }
@@ -8637,10 +8640,9 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
 
 BOOL CLogDlg::OnQueryEndSession()
 {
+    SaveMonitorProjects();
     if (!__super::OnQueryEndSession())
         return FALSE;
-
-    SaveMonitorProjects();
 
     return TRUE;
 }
