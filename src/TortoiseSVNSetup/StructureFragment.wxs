@@ -48,16 +48,6 @@
             <RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
           </Component>
 
-          <Component Id="C__SoundsRegistry" Guid="$(var.GuidSoundsReg)" Win64="$(var.Win64YesNo)">
-            <!-- only used because this component needs a key path! -->
-            <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="SoundUtils KeyPath" Value="keypath" Type="string" />
-
-            <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Error" />
-            <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Warning" />
-            <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Notification" />
-            <RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\Schemes\TortoiseProc" />
-          </Component>
-
           <Directory Id="D__Bin" Name="bin" >
 
             <Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
@@ -1032,12 +1022,6 @@
               <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
               <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TortoiseMerge" Advertise="no"
               Target="[INSTALLDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
-            </Component>
-
-            <Component Id="C__Sounds" Guid="$(var.GuidSounds)" Win64="$(var.Win64YesNo)">
-              <File Id="F__sounderror" Name="TortoiseSVN_error.wav" DiskId="1" Source="..\Resources\TortoiseSVN_error.wav" KeyPath="yes" />
-              <File Id="F__soundwarning" Name="TortoiseSVN_Warning.wav" DiskId="1" Source="..\Resources\TortoiseSVN_Warning.wav" />
-              <File Id="F__soundnotification" Name="TortoiseSVN_Notification.wav" DiskId="1" Source="..\Resources\TortoiseSVN_Notification.wav" />
             </Component>
 
             <Component Id="C__TortoiseBlame" Guid="$(var.GuidTortoiseBlame)" Win64="$(var.Win64YesNo)">

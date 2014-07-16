@@ -28,7 +28,6 @@
 #include "StringUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
-#include "SoundUtils.h"
 #include "SVNDiff.h"
 #include "SVNLogHelper.h"
 #include "SVNHelpers.h"
@@ -410,8 +409,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
-                CSoundUtils::PlayTSVNWarning();
-
+                PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
                 m_bWarningShown = true;
             }
         }
@@ -515,7 +513,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
             data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
-            CSoundUtils::PlayTSVNWarning();
+            PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
 
             m_bWarningShown = true;
         }
@@ -646,7 +644,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
                 data->bConflictSummary = true;
-                CSoundUtils::PlayTSVNWarning();
+                PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
                 m_bConflictWarningShown = true;
                 m_nConflicts = 0;
                 // This item will now be added after the switch statement
@@ -703,7 +701,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
                 data->bConflictSummary = true;
-                CSoundUtils::PlayTSVNWarning();
+                PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
                 m_bConflictWarningShown = true;
                 m_nConflicts = 0;
                 // This item will now be added after the switch statement
@@ -1280,7 +1278,7 @@ void CSVNProgressDlg::ReportSVNError()
 
 void CSVNProgressDlg::ReportError(const CString& sError)
 {
-    CSoundUtils::PlayTSVNError();
+    PlaySound((LPCTSTR)SND_ALIAS_SYSTEMEXCLAMATION, NULL, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), m_Colors.GetColor(CColors::Conflict));
     m_bErrorsOccurred = true;
 }
@@ -1296,13 +1294,13 @@ void CSVNProgressDlg::ReportHookFailed(hooktype t, const CTSVNPathList& pathList
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
 {
-    CSoundUtils::PlayTSVNWarning();
+    PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), m_Colors.GetColor(CColors::Conflict));
 }
 
 void CSVNProgressDlg::ReportNotification(const CString& sNotification)
 {
-    CSoundUtils::PlayTSVNNotification();
+    PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
 }
 

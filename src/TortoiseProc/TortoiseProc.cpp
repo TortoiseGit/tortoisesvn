@@ -29,7 +29,6 @@
 #include "UnicodeUtils.h"
 #include "libintl.h"
 #include "DirFileEnum.h"
-#include "SoundUtils.h"
 #include "SVN.h"
 #include "SVNAdminDir.h"
 #include "SVNGlobal.h"
