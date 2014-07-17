@@ -407,6 +407,7 @@ private:
     bool IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
     void MonitorShowProject(HTREEITEM hItem);
     void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
+    static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;

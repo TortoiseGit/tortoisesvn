@@ -7712,7 +7712,28 @@ void CLogDlg::RefreshMonitorProjTree()
     if (itemcount == 0)
         m_projTree.ShowText(CString(MAKEINTRESOURCE(IDS_MONITOR_ADDHINT)), true);
     else
+    {
         m_projTree.ClearText();
+
+        std::vector<HTREEITEM> folders;
+        RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+        {
+            if (m_projTree.ItemHasChildren(hItem))
+                folders.push_back(hItem);
+            return false;
+        });
+        folders.push_back(TVI_ROOT);
+        for (const auto& parent : folders)
+        {
+            TVSORTCB tvs;
+            tvs.hParent = parent;
+            tvs.lpfnCompare = TreeSort;
+            tvs.lParam = (LPARAM)this;
+
+            m_projTree.SortChildrenCB(&tvs);
+        }
+
+    }
     m_projTree.SetRedraw(TRUE);
 
     m_SystemTray.hIcon = hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal;
@@ -7726,6 +7747,13 @@ void CLogDlg::RefreshMonitorProjTree()
 
 }
 
+int CLogDlg::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam3*/)
+{
+    MonitorItem * Item1 = (MonitorItem*)lParam1;
+    MonitorItem * Item2 = (MonitorItem*)lParam2;
+
+    return StrCmpLogicalW(Item1->Name, Item2->Name);
+}
 
 HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& sParentPath /*= CString()*/)
 {
