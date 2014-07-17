@@ -1044,7 +1044,7 @@ void CCommitDlg::GetAutocompletionList()
     // and scan them for strings we can use
     int nListItems = m_ListCtrl.GetItemCount();
     CRegDWORD removedExtension(L"Software\\TortoiseSVN\\AutocompleteRemovesExtensions", FALSE);
-    for (int i=0; i<nListItems && m_bRunThread; ++i)
+    for (int i = 0; i < nListItems && m_bRunThread; ++i)
     {
         // stop parsing after timeout
         if ((!m_bRunThread) || (GetTickCount64() - starttime > timeoutvalue))
@@ -1052,7 +1052,7 @@ void CCommitDlg::GetAutocompletionList()
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
             continue;
-        if (!entry->IsChecked() && (entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)==0))
+        if (!entry->IsChecked() && (entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST) == 0))
             continue;
 
         // add the path parts to the auto completion list too
@@ -1076,8 +1076,18 @@ void CCommitDlg::GetAutocompletionList()
             if ((dotPos >= 0) && (dotPos > lastPos))
                 m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
         }
-
-        if ((entry->status <= svn_wc_status_normal)||(entry->status == svn_wc_status_ignored))
+    }
+    for (int i = 0; i < nListItems && m_bRunThread; ++i)
+    {
+        // stop parsing after timeout
+        if ((!m_bRunThread) || (GetTickCount64() - starttime > timeoutvalue))
+            return;
+        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
+        if (!entry)
+            continue;
+        if (!entry->IsChecked() && (entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST) == 0))
+            continue;
+        if ((entry->status <= svn_wc_status_normal) || (entry->status == svn_wc_status_ignored))
             continue;
 
         CString sExt = entry->GetPath().GetFileExtension();
