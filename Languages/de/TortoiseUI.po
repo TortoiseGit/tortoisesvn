@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-30 06:23+0000\n"
+"PO-Revision-Date: 2014-07-17 07:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1160,6 +1160,10 @@ msgstr "&Ständig offline"
 msgid "&Platform dependent (native)"
 msgstr "&Platformabhängig (nativ)"
 
+#. Resource IDs: (1654)
+msgid "&Play sound on notification"
+msgstr "&Ton bei Benachrichtigung abspielen"
+
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Port:"
@@ -1327,6 +1331,10 @@ msgstr "&Zeige Menüs für:"
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
 msgstr "&Zeige Monitor"
+
+#. Resource IDs: (1529)
+msgid "&Show popup notifications"
+msgstr "&Zeige Popup-Benachrichtigungen"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -4391,15 +4399,19 @@ msgstr "Leer"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr "Auto-&Eigenschaften aktivieren"
+msgstr "Aktiviere Auto-&Eigenschaften"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr "Auto-Eigenschaften aktivieren"
+msgstr "Aktiviere Auto-Eigenschaften"
 
 #. Resource IDs: (156)
 msgid "Enable Edit"
-msgstr "Bearbeiten aktivieren"
+msgstr "Aktiviere Bearbeiten"
+
+#. Resource IDs: (1510)
+msgid "Enable EditorConfig"
+msgstr "Aktiviere Editor-Konfiguration"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
@@ -11445,18 +11457,6 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Wenn ein oder mehrere Dateien gesperrt werden sollen, wird ein Dialog\nangezeigt, der eine Beschreibung des Grundes für das Sperren anfordert."
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, Spaces will be used instead of tab\n"
-"Use spaces"
-msgstr "Leerzeichen anstelle von Tabulatoren verwenden\nVerwende Leerzeichen"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, it tries to infer tab / spaces to use\n"
-"Smart tab char"
-msgstr "Versuche zu erkennen, ob Leerzeichen oder Tabulatoren\nIntelligenter Tabulatore"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
