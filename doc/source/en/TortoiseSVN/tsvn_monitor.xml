@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
+<chapter id="tsvn-monitor">
+  <title>Commit Monitor</title>
+  <simplesect>
+    <indexterm>
+      <primary>commit monitor</primary>
+    </indexterm>
+    <indexterm>
+      <primary>remote commits</primary>
+    </indexterm>
+    <indexterm>
+      <primary>monitoring projects</primary>
+    </indexterm>
+    <para>
+      The commit monitor is a helpful tool that monitors repositories and
+      notifies you in case there are new commits.
+    </para>
+  </simplesect>
+  <!-- ================================================================= -->
+  <!-- ======================== SECTION 1 ============================== -->
+  <!-- ================================================================= -->
+  <sect1 id="tsvn-commitmonitor-addprojects">
+    <title>Adding projects to monitor</title>
+    <para>
+      If you first start the commit monitor, the tree view on the left side
+      is empty. To add projects, click on the button at the top of the dialog
+      named <guibutton>Add Project</guibutton>.
+    </para>
+    <para>
+      <figure id="tsvn-commitmonitor-addprojects-dia-1">
+        <title>The edit project dialog of the commit monitor</title>
+        <graphic fileref="images/monitor-editproject.png"/>
+      </figure>
+      To add a project for monitoring, fill in the required information.
+      The name of the project is not optional and must be filled in, all
+      other information is optional.
+    </para>
+    <para>
+      If the box for <literal>Path or Url</literal> is left empty, then
+      a folder is added. This is useful to group monitored projects.
+    </para>
+    <para>
+      The fields <literal>Username</literal> and <literal>Password</literal>
+      should only be filled in if the repository does not provide anonymous
+      read access, and only if the authentication is not stored by Subversion
+      itself.
+    </para>
+    <para>
+      The <literal>Monitor interval in minutes</literal> specifies the minutes
+      to wait in between checks.
+    </para>
+  </sect1>
+  <!-- ================================================================= -->
+  <!-- ======================== SECTION 2 ============================== -->
+  <!-- ================================================================= -->
+  <sect1 id="tsvn-commitmonitor-maindialog">
+    <title>Monitor dialog</title>
+    <para>
+      <figure id="tsvn-commitmonitor-maindialog-dia-1">
+        <title>The main dialog of the commit monitor</title>
+        <graphic fileref="images/monitor.png"/>
+      </figure>
+      The commit monitor shows all monitored projects on the left in a tree
+      view. The projects can be moved around, for example one project can be moved
+      below another project, making it a child/subproject.
+    </para>
+    <para>
+      A click on a project shows all the log messages of that project on
+      the right.
+    </para>
+    <para>
+      Projects that have updates are shown in bold, with the number of
+      new commits in brackets at the right. A click on a project marks
+      it automatically as read.
+    </para>
+  </sect1>
+</chapter>
