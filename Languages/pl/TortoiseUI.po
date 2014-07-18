@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-29 17:53+0000\n"
+"PO-Revision-Date: 2014-07-16 19:43+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1157,6 +1157,10 @@ msgstr "&Zawsze offline"
 msgid "&Platform dependent (native)"
 msgstr "&Platforma zależna (natywny)"
 
+#. Resource IDs: (1654)
+msgid "&Play sound on notification"
+msgstr "Odtwarzaj dźwięk przy &powiadomieniu"
+
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Port:"
@@ -1324,6 +1328,10 @@ msgstr "&Pokaż menu dla:"
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
 msgstr "&Pokaż Monitor"
+
+#. Resource IDs: (1529)
+msgid "&Show popup notifications"
+msgstr "Pokaż wy&skakujące powiadomienia"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -4397,6 +4405,10 @@ msgstr "Uaktywnij Auto-Atrybuty"
 #. Resource IDs: (156)
 msgid "Enable Edit"
 msgstr "Włącz edycję"
+
+#. Resource IDs: (1510)
+msgid "Enable EditorConfig"
+msgstr "Włącz KonfigEdytora"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
@@ -11442,18 +11454,6 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Blokując jeden lub więcej zaznaczonych plików, pokaże okienko,\nw którym należy podać opis (przyczynę założenia blokady)"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, Spaces will be used instead of tab\n"
-"Use spaces"
-msgstr "Gdy zaznaczono, zamiast znaków tabulacji zostaną wstawione spacje\nUżyj spacji"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, it tries to infer tab / spaces to use\n"
-"Smart tab char"
-msgstr "Po wybraniu, próbuje wywnioskować wstawianie tabulacji / spacji\nInteligentny znak tabulacji"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"

@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-06-28 10:50+0000\n"
+"PO-Revision-Date: 2014-07-16 17:41+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1164,6 +1164,10 @@ msgstr "常にオフライン(&P)"
 msgid "&Platform dependent (native)"
 msgstr "環境依存（ネイティブ）(&P)"
 
+#. Resource IDs: (1654)
+msgid "&Play sound on notification"
+msgstr "通知時に音を鳴らす(&P)"
+
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "ポート(&P):"
@@ -1331,6 +1335,10 @@ msgstr "メニューを表示(&S):"
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
 msgstr "モニターを表示(&S)"
+
+#. Resource IDs: (1529)
+msgid "&Show popup notifications"
+msgstr "通知時にポップアップを表示(&S)"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -4404,6 +4412,10 @@ msgstr "プロパティの自動付与を有効化"
 #. Resource IDs: (156)
 msgid "Enable Edit"
 msgstr "編集を有効化"
+
+#. Resource IDs: (1510)
+msgid "Enable EditorConfig"
+msgstr "EditorConfigを有効化"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
@@ -11449,18 +11461,6 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "選択している１つ以上のファイルをロックする際に、ロックについての\nメッセージを問い合わせるダイアログを表示する。"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, Spaces will be used instead of tab\n"
-"Use spaces"
-msgstr "選択すると、タブの代わりに空白が使用されます\n空白を使用"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, it tries to infer tab / spaces to use\n"
-"Smart tab char"
-msgstr "選択すると、空白をできるだけタブ文字に置き換えます\nスマートタブ文字"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"

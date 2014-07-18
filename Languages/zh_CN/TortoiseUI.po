@@ -36,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-01 04:46+0000\n"
-"Last-Translator: liushuyu011 <liushuyu_011@163.com>\n"
+"PO-Revision-Date: 2014-07-16 17:34+0000\n"
+"Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1168,6 +1168,10 @@ msgstr "永远离线(&P)"
 msgid "&Platform dependent (native)"
 msgstr "依赖于平台(&P)"
 
+#. Resource IDs: (1654)
+msgid "&Play sound on notification"
+msgstr "通知时播放声音(&P)"
+
 #. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "端口(&P): "
@@ -1335,6 +1339,10 @@ msgstr "显示菜单(&S):"
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
 msgstr "显示监视器(&S)"
+
+#. Resource IDs: (1529)
+msgid "&Show popup notifications"
+msgstr "显示弹出式通知(&S)"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -4408,6 +4416,10 @@ msgstr "启用自动属性"
 #. Resource IDs: (156)
 msgid "Enable Edit"
 msgstr "启用编辑"
+
+#. Resource IDs: (1510)
+msgid "Enable EditorConfig"
+msgstr "启用编辑器配置"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
@@ -11453,18 +11465,6 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "当锁定一个或多个文件时，显示对话框询问锁定的描述消息"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, Spaces will be used instead of tab\n"
-"Use spaces"
-msgstr "选中此项时，将使用空格代替制表符\n使用空格"
-
-#. Resource IDs: (2062)
-msgid ""
-"When selected, it tries to infer tab / spaces to use\n"
-"Smart tab char"
-msgstr "选中此项时，将尝试推断要使用制表符还是空格\n智能制表符"
 
 #. Resource IDs: (101)
 msgid "Whitespace changes (tabs, spaces)"
