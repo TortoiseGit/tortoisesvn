@@ -8181,6 +8181,10 @@ msgid "You can also choose to mark folders as modified if they contain unversion
 msgstr ""
 
 #. (para)
+msgid "If you have files in the \"ignore-on-commit\" changelist, you can chose to make those files not propagate their status to the parent folder. That way if only files in that changelist are modified, the parent folder still shows the unmodified overlay icon."
+msgstr ""
+
+#. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr ""
 
@@ -9364,6 +9368,74 @@ msgstr ""
 
 #. (para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgstr ""
+
+#. (title)
+msgid "Commit Monitor"
+msgstr ""
+
+#. (primary)
+msgid "commit monitor"
+msgstr ""
+
+#. (primary)
+msgid "remote commits"
+msgstr ""
+
+#. (primary)
+msgid "monitoring projects"
+msgstr ""
+
+#. (para)
+msgid "The commit monitor is a helpful tool that monitors repositories and notifies you in case there are new commits."
+msgstr ""
+
+#. (title)
+msgid "Adding projects to monitor"
+msgstr ""
+
+#. (para)
+msgid "If you first start the commit monitor, the tree view on the left side is empty. To add projects, click on the button at the top of the dialog named <guibutton>Add Project</guibutton>."
+msgstr ""
+
+#. (title)
+msgid "The edit project dialog of the commit monitor"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> To add a project for monitoring, fill in the required information. The name of the project is not optional and must be filled in, all other information is optional."
+msgstr ""
+
+#. (para)
+msgid "If the box for <literal>Path or Url</literal> is left empty, then a folder is added. This is useful to group monitored projects."
+msgstr ""
+
+#. (para)
+msgid "The fields <literal>Username</literal> and <literal>Password</literal> should only be filled in if the repository does not provide anonymous read access, and only if the authentication is not stored by Subversion itself."
+msgstr ""
+
+#. (para)
+msgid "The <literal>Monitor interval in minutes</literal> specifies the minutes to wait in between checks."
+msgstr ""
+
+#. (title)
+msgid "Monitor dialog"
+msgstr ""
+
+#. (title)
+msgid "The main dialog of the commit monitor"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> The commit monitor shows all monitored projects on the left in a tree view. The projects can be moved around, for example one project can be moved below another project, making it a child/subproject."
+msgstr ""
+
+#. (para)
+msgid "A click on a project shows all the log messages of that project on the right."
+msgstr ""
+
+#. (para)
+msgid "Projects that have updates are shown in bold, with the number of new commits in brackets at the right. A click on a project marks it automatically as read."
 msgstr ""
 
 #. (title)
@@ -13360,7 +13432,7 @@ msgid "Ctrl-F"
 msgstr ""
 
 #. (para)
-msgid "Open the Find dialog for text searches"
+msgid "Open the Find dialog for text searches and replaces"
 msgstr ""
 
 #. (term)
