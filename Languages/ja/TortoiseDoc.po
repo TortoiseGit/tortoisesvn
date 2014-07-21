@@ -13,15 +13,15 @@
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2011-2014
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2012-2013
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2014
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-05-25 01:51+0000\n"
-"Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13241,6 +13241,14 @@ msgstr "バージョン管理外のファイルを含むフォルダーに、変
 
 #. (para)
 msgid ""
+"If you have files in the \"ignore-on-commit\" changelist, you can chose to "
+"make those files not propagate their status to the parent folder. That way "
+"if only files in that changelist are modified, the parent folder still shows"
+" the unmodified overlay icon."
+msgstr ""
+
+#. (para)
+msgid ""
 "The next group allows you to select which classes of storage should show "
 "overlays. By default, only hard drives are selected. You can even disable "
 "all icon overlays, but where's the fun in that?"
@@ -14998,6 +15006,97 @@ msgid ""
 " Please also have a look at the list of people who contributed to the "
 "project by sending in patches or translations."
 msgstr "TortoiseSVNで作業している間、私たちは音楽を聴くのが大好きです。我々はプロジェクトに多くの時間を費やしているため、<emphasis>多くの</emphasis>音楽が必要です。そこで、私たちの好きな音楽のCDやDVDのウィッシュリストを、 <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> で公開しています。また、パッチや翻訳を提供してプロジェクトに貢献している人のリストもご覧ください。"
+
+#. (title)
+msgid "Commit Monitor"
+msgstr ""
+
+#. (primary)
+msgid "commit monitor"
+msgstr ""
+
+#. (primary)
+msgid "remote commits"
+msgstr ""
+
+#. (primary)
+msgid "monitoring projects"
+msgstr ""
+
+#. (para)
+msgid ""
+"The commit monitor is a helpful tool that monitors repositories and notifies"
+" you in case there are new commits."
+msgstr ""
+
+#. (title)
+msgid "Adding projects to monitor"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you first start the commit monitor, the tree view on the left side is "
+"empty. To add projects, click on the button at the top of the dialog named "
+"<guibutton>Add Project</guibutton>."
+msgstr ""
+
+#. (title)
+msgid "The edit project dialog of the commit monitor"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> To add a project for monitoring, fill in the required "
+"information. The name of the project is not optional and must be filled in, "
+"all other information is optional."
+msgstr ""
+
+#. (para)
+msgid ""
+"If the box for <literal>Path or Url</literal> is left empty, then a folder "
+"is added. This is useful to group monitored projects."
+msgstr ""
+
+#. (para)
+msgid ""
+"The fields <literal>Username</literal> and <literal>Password</literal> "
+"should only be filled in if the repository does not provide anonymous read "
+"access, and only if the authentication is not stored by Subversion itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"The <literal>Monitor interval in minutes</literal> specifies the minutes to "
+"wait in between checks."
+msgstr ""
+
+#. (title)
+msgid "Monitor dialog"
+msgstr ""
+
+#. (title)
+msgid "The main dialog of the commit monitor"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The commit monitor shows all monitored projects on the left"
+" in a tree view. The projects can be moved around, for example one project "
+"can be moved below another project, making it a child/subproject."
+msgstr ""
+
+#. (para)
+msgid ""
+"A click on a project shows all the log messages of that project on the "
+"right."
+msgstr ""
+
+#. (para)
+msgid ""
+"Projects that have updates are shown in bold, with the number of new commits"
+" in brackets at the right. A click on a project marks it automatically as "
+"read."
+msgstr ""
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -20479,8 +20578,8 @@ msgid "Ctrl-F"
 msgstr "Ctrl+F"
 
 #. (para)
-msgid "Open the Find dialog for text searches"
-msgstr "文字列検索用に検索ダイアログを開く"
+msgid "Open the Find dialog for text searches and replaces"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-O"
