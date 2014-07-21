@@ -1364,6 +1364,8 @@ void CLogDlg::OnCancel()
         if (bWasCancelled)
         {
             // end the process the hard way
+            if (m_bMonitoringMode)
+                Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
             TerminateProcess(GetCurrentProcess(), 0);
         }
         else
@@ -8413,6 +8415,8 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                     if (threadsStillRunning)
                     {
                         // end the process the hard way
+                        if (m_bMonitoringMode)
+                            Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
                         TerminateProcess(GetCurrentProcess(), 0);
                     }
                     EndDialog(0);
