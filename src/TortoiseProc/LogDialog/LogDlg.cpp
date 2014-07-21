@@ -69,6 +69,7 @@
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated");
+const UINT CLogDlg::WM_TSVN_COMMITMONITOR_SHOWDLGMSG = RegisterWindowMessage(_T("TSVNCommitMonitor_ShowDlgMsg"));
 
 #define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
@@ -302,6 +303,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
     ON_REGISTERED_MESSAGE(WM_TASKBARCREATED, OnTaskbarCreated)
+    ON_REGISTERED_MESSAGE(WM_TSVN_COMMITMONITOR_SHOWDLGMSG, OnShowDlgMsg)
     ON_MESSAGE(WM_TSVN_REFRESH_SELECTION, OnRefreshSelection)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
@@ -813,6 +815,7 @@ void CLogDlg::SetDlgTitle(bool bOffline)
     if (m_bMonitoringMode)
     {
         SetWindowText(CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+        return;
     }
     if (m_sTitle.IsEmpty())
         GetWindowText(m_sTitle);
@@ -8680,4 +8683,12 @@ BOOL CLogDlg::OnQueryEndSession()
         return FALSE;
 
     return TRUE;
+}
+
+LRESULT CLogDlg::OnShowDlgMsg(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    m_bKeepHidden = false;
+    ShowWindow(SW_SHOW);
+    SetForegroundWindow();
+    return 0;
 }

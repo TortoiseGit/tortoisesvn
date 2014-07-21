@@ -161,6 +161,7 @@ protected:
     afx_msg LRESULT OnRefreshSelection(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnTaskbarCreated(WPARAM wParam, LPARAM lParam);
+    afx_msg LRESULT OnShowDlgMsg(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedInfoIcon(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -545,6 +546,7 @@ private:
     HICON               m_hMonitorIconNormal;
     HICON               m_hMonitorIconNewCommits;
     static const UINT   WM_TASKBARCREATED;
+    static const UINT   WM_TSVN_COMMITMONITOR_SHOWDLGMSG;
     svn_revnum_t        m_revUnread;
     bool                m_bPlaySound;
     bool                m_bShowNotification;
