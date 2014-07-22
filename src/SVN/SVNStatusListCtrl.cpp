@@ -3605,15 +3605,20 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
             }
 
-            // insert the shell context menu
-            if (shellMenu.CreatePopupMenu())
+            m_hShellMenu = NULL;
+            if (wcStatus != svn_wc_status_missing &&
+                wcStatus != svn_wc_status_deleted)
             {
-                popup.AppendMenu(MF_SEPARATOR);
-                popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)shellMenu.m_hMenu, CString(MAKEINTRESOURCE(IDS_STATUSLIST_CONTEXT_SHELL)));
-                m_hShellMenu = shellMenu.m_hMenu;
+                // insert the shell context menu
+                if (shellMenu.CreatePopupMenu())
+                {
+                    popup.AppendMenu(MF_SEPARATOR);
+                    popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)shellMenu.m_hMenu, CString(MAKEINTRESOURCE(IDS_STATUSLIST_CONTEXT_SHELL)));
+                    m_hShellMenu = shellMenu.m_hMenu;
+                }
+                else
+                    m_hShellMenu = NULL;
             }
-            else
-                m_hShellMenu = NULL;
 
             int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
             g_IContext2 = nullptr;
@@ -3657,7 +3662,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 if (g_pidlArray[i])
                     CoTaskMemFree(g_pidlArray[i]);
             }
-            CoTaskMemFree(g_pidlArray);
+            if (g_pidlArray)
+                CoTaskMemFree(g_pidlArray);
             g_pidlArray = nullptr;
             g_pidlArrayItems = 0;
 
@@ -6776,69 +6782,78 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
                             g_pidlArray[succeededItems++] = pidl; // copy pidl to pidlArray
                         }
                     }
+                    if (succeededItems == 0)
+                    {
+                        CoTaskMemFree(g_pidlArray);
+                        g_pidlArray = nullptr;
+                    }
+
                     g_pidlArrayItems = succeededItems;
 
-                    CString ext = targetList[0].GetFileExtension();
-
-                    ASSOCIATIONELEMENT const rgAssocItem[] =
+                    if (g_pidlArrayItems)
                     {
-                        { ASSOCCLASS_PROGID_STR, NULL, ext },
-                        { ASSOCCLASS_SYSTEM_STR, NULL, ext },
-                        { ASSOCCLASS_APP_STR, NULL, ext },
-                        { ASSOCCLASS_STAR, NULL, NULL },
-                        { ASSOCCLASS_FOLDER, NULL, NULL },
-                    };
-                    IQueryAssociations * pIQueryAssociations;
-                    AssocCreateForClasses(rgAssocItem, ARRAYSIZE(rgAssocItem), IID_IQueryAssociations, (void**)&pIQueryAssociations);
+                        CString ext = targetList[0].GetFileExtension();
 
-                    g_pFolderhook = new CIShellFolderHook(g_psfDesktopFolder, targetList);
-                    LPCONTEXTMENU icm1 = nullptr;
-
-                    DEFCONTEXTMENU dcm = { 0 };
-                    dcm.hwnd = m_hWnd;
-                    dcm.psf = g_pFolderhook;
-                    dcm.cidl = g_pidlArrayItems;
-                    dcm.apidl = (PCUITEMID_CHILD_ARRAY)g_pidlArray;
-                    dcm.punkAssociationInfo = pIQueryAssociations;
-                    if (SUCCEEDED(SHCreateDefaultContextMenu(&dcm, IID_IContextMenu, (void**)&icm1)))
-                    {
-                        int iMenuType = 0;  // to know which version of IContextMenu is supported
-                        if (icm1)
-                        {   // since we got an IContextMenu interface we can now obtain the higher version interfaces via that
-                            if (icm1->QueryInterface(IID_IContextMenu3, (void**)&m_pContextMenu) == S_OK)
-                                iMenuType = 3;
-                            else if (icm1->QueryInterface(IID_IContextMenu2, (void**)&m_pContextMenu) == S_OK)
-                                iMenuType = 2;
-
-                            if (m_pContextMenu)
-                                icm1->Release(); // we can now release version 1 interface, cause we got a higher one
-                            else
-                            {
-                                // since no higher versions were found
-                                // redirect ppContextMenu to version 1 interface
-                                iMenuType = 1;
-                                m_pContextMenu = icm1;
-                            }
-                        }
-                        if (m_pContextMenu)
+                        ASSOCIATIONELEMENT const rgAssocItem[] =
                         {
-                            // lets fill the our popup menu
-                            UINT flags = CMF_NORMAL;
-                            flags |= (GetKeyState(VK_SHIFT) & 0x8000) != 0 ? CMF_EXTENDEDVERBS : 0;
-                            m_pContextMenu->QueryContextMenu(hMenu, 0, SHELL_MIN_CMD, SHELL_MAX_CMD, flags);
+                            { ASSOCCLASS_PROGID_STR, NULL, ext },
+                            { ASSOCCLASS_SYSTEM_STR, NULL, ext },
+                            { ASSOCCLASS_APP_STR, NULL, ext },
+                            { ASSOCCLASS_STAR, NULL, NULL },
+                            { ASSOCCLASS_FOLDER, NULL, NULL },
+                        };
+                        IQueryAssociations * pIQueryAssociations;
+                        AssocCreateForClasses(rgAssocItem, ARRAYSIZE(rgAssocItem), IID_IQueryAssociations, (void**)&pIQueryAssociations);
 
+                        g_pFolderhook = new CIShellFolderHook(g_psfDesktopFolder, targetList);
+                        LPCONTEXTMENU icm1 = nullptr;
 
-                            // subclass window to handle menu related messages in CShellContextMenu
-                            if (iMenuType > 1)  // only subclass if its version 2 or 3
+                        DEFCONTEXTMENU dcm = { 0 };
+                        dcm.hwnd = m_hWnd;
+                        dcm.psf = g_pFolderhook;
+                        dcm.cidl = g_pidlArrayItems;
+                        dcm.apidl = (PCUITEMID_CHILD_ARRAY)g_pidlArray;
+                        dcm.punkAssociationInfo = pIQueryAssociations;
+                        if (SUCCEEDED(SHCreateDefaultContextMenu(&dcm, IID_IContextMenu, (void**)&icm1)))
+                        {
+                            int iMenuType = 0;  // to know which version of IContextMenu is supported
+                            if (icm1)
+                            {   // since we got an IContextMenu interface we can now obtain the higher version interfaces via that
+                                if (icm1->QueryInterface(IID_IContextMenu3, (void**)&m_pContextMenu) == S_OK)
+                                    iMenuType = 3;
+                                else if (icm1->QueryInterface(IID_IContextMenu2, (void**)&m_pContextMenu) == S_OK)
+                                    iMenuType = 2;
+
+                                if (m_pContextMenu)
+                                    icm1->Release(); // we can now release version 1 interface, cause we got a higher one
+                                else
+                                {
+                                    // since no higher versions were found
+                                    // redirect ppContextMenu to version 1 interface
+                                    iMenuType = 1;
+                                    m_pContextMenu = icm1;
+                                }
+                            }
+                            if (m_pContextMenu)
                             {
-                                if (iMenuType == 2)
-                                    g_IContext2 = (LPCONTEXTMENU2)m_pContextMenu;
-                                else    // version 3
-                                    g_IContext3 = (LPCONTEXTMENU3)m_pContextMenu;
+                                // lets fill the our popup menu
+                                UINT flags = CMF_NORMAL;
+                                flags |= (GetKeyState(VK_SHIFT) & 0x8000) != 0 ? CMF_EXTENDEDVERBS : 0;
+                                m_pContextMenu->QueryContextMenu(hMenu, 0, SHELL_MIN_CMD, SHELL_MAX_CMD, flags);
+
+
+                                // subclass window to handle menu related messages in CShellContextMenu
+                                if (iMenuType > 1)  // only subclass if its version 2 or 3
+                                {
+                                    if (iMenuType == 2)
+                                        g_IContext2 = (LPCONTEXTMENU2)m_pContextMenu;
+                                    else    // version 3
+                                        g_IContext3 = (LPCONTEXTMENU3)m_pContextMenu;
+                                }
                             }
                         }
+                        pIQueryAssociations->Release();
                     }
-                    pIQueryAssociations->Release();
                 }
             }
             if (g_IContext3)
