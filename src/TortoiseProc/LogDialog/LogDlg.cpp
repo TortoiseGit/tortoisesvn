@@ -8138,6 +8138,10 @@ void CLogDlg::MonitorThread()
             SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
             svn_revnum_t head = svn.GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
+            if (m_bCancelled)
+                continue;
+            if (item.lastHEAD < 0)
+                item.lastHEAD = 0;
             if ((head > 0) && (head != item.lastHEAD))
             {
                 // new head revision: fetch the log
