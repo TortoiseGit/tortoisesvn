@@ -2082,7 +2082,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
 {
     svn_ra_session_t *ra_session;
     const char * urla;
-    svn_revnum_t rev;
+    svn_revnum_t rev = -1;
 
     SVNPool localpool(pool);
     Prepare();
