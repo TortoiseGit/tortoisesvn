@@ -60,8 +60,11 @@
 #include "CodeCollaboratorSettingsDlg.h"
 #include "MonitorProjectDlg.h"
 #include "MonitorOptionsDlg.h"
+#include "Callback.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
+#include <fstream>
+#include <sstream>
 
 #include "../LogCache/Streams/StreamException.h"
 
@@ -7705,7 +7708,9 @@ void CLogDlg::RefreshMonitorProjTree()
             MonitorItem * pMonitorItem = new MonitorItem(Name);
             pMonitorItem->WCPathOrUrl = m_monitoringFile.GetValue(mitem, L"WCPathOrUrl", L"");
             pMonitorItem->interval = _wtoi(m_monitoringFile.GetValue(mitem, L"interval", L"5"));
+            pMonitorItem->minminutesinterval = _wtoi(m_monitoringFile.GetValue(mitem, L"minminutesinterval", L"0"));
             pMonitorItem->lastchecked = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastchecked", L"0"));
+            pMonitorItem->lastcheckedrobots = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastcheckedrobots", L"0"));
             pMonitorItem->lastHEAD = _wtol(m_monitoringFile.GetValue(mitem, L"lastHEAD", L"0"));
             pMonitorItem->UnreadItems = _wtoi(m_monitoringFile.GetValue(mitem, L"UnreadItems", L"0"));
             pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
@@ -8022,6 +8027,8 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"WCPathOrUrl", pItem->WCPathOrUrl);
         sTmp.Format(L"%lld", pItem->lastchecked);
         m_monitoringFile.SetValue(sSection, L"lastchecked", sTmp);
+        sTmp.Format(L"%lld", pItem->lastcheckedrobots);
+        m_monitoringFile.SetValue(sSection, L"lastcheckedrobots", sTmp);
         sTmp.Format(L"%ld", pItem->lastHEAD);
         m_monitoringFile.SetValue(sSection, L"lastHEAD", sTmp);
         sTmp.Format(L"%d", pItem->UnreadItems);
@@ -8030,6 +8037,8 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"unreadFirst", sTmp);
         sTmp.Format(L"%d", pItem->interval);
         m_monitoringFile.SetValue(sSection, L"interval", sTmp);
+        sTmp.Format(L"%d", pItem->minminutesinterval);
+        m_monitoringFile.SetValue(sSection, L"minminutesinterval", sTmp);
         m_monitoringFile.SetValue(sSection, L"username", pItem->username);
         m_monitoringFile.SetValue(sSection, L"password", pItem->password);
         return false;
@@ -8131,7 +8140,7 @@ void CLogDlg::MonitorThread()
             break;
         if (item.WCPathOrUrl.IsEmpty())
             continue;
-        if (item.lastchecked + (item.interval * 60) < currenttime)
+        if (item.lastchecked + (max(item.minminutesinterval, item.interval) * 60) < currenttime)
         {
             CString sCheckInfo;
             sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
@@ -8194,6 +8203,107 @@ void CLogDlg::MonitorThread()
             }
             SetDlgItemText(IDC_LOGINFO, L"");
         }
+        if (item.lastcheckedrobots + (60 * 60 * 24 * 2) < currenttime)
+        {
+            std::wstring sRobotsURL = svn.GetURLFromPath(CTSVNPath(item.WCPathOrUrl));
+            sRobotsURL += _T("/svnrobots.txt");
+            std::wstring sRootRobotsURL;
+            std::wstring sDomainRobotsURL = sRobotsURL.substr(0, sRobotsURL.find('/', sRobotsURL.find(':') + 3)) + _T("/svnrobots.txt");
+            sRootRobotsURL = svn.GetRepositoryRoot(CTSVNPath(item.WCPathOrUrl));
+            if (!sRootRobotsURL.empty())
+                sRootRobotsURL += _T("/svnrobots.txt");
+            CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
+            std::string in;
+            std::unique_ptr<CCallback> callback(new CCallback);
+            callback->SetAuthData(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
+            if (m_bCancelled)
+                continue;
+            if ((!sDomainRobotsURL.empty()) && (URLDownloadToFile(NULL, sDomainRobotsURL.c_str(), sFile.GetWinPath(), 0, callback.get()) == S_OK))
+            {
+                std::ifstream fs(sFile.GetWinPath());
+                if (!fs.bad())
+                {
+                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                    char c;
+                    while (fs.get(c))
+                    {
+                        if (in.capacity() == in.size())
+                            in.reserve(in.capacity() * 3);
+                        in.append(1, c);
+                    }
+                    if ((in.find("<html>") != std::string::npos) ||
+                        (in.find("<HTML>") != std::string::npos) ||
+                        (in.find("<head>") != std::string::npos) ||
+                        (in.find("<HEAD>") != std::string::npos))
+                        in.clear();
+                }
+            }
+            if (m_bCancelled)
+                continue;
+            if (in.empty() && (!sRootRobotsURL.empty()) && (svn.Export(CTSVNPath(sRootRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD)))
+            {
+                std::ifstream fs(sFile.GetWinPath());
+                if (!fs.bad())
+                {
+                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                    char c;
+                    while (fs.get(c))
+                    {
+                        if (in.capacity() == in.size())
+                            in.reserve(in.capacity() * 3);
+                        in.append(1, c);
+                    }
+                    fs.close();
+                }
+            }
+            if (m_bCancelled)
+                continue;
+            if (in.empty() && svn.Export(CTSVNPath(sRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
+            {
+                std::ifstream fs(sFile.GetWinPath());
+                if (!fs.bad())
+                {
+                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                    char c;
+                    while (fs.get(c))
+                    {
+                        if (in.capacity() == in.size())
+                            in.reserve(in.capacity() * 3);
+                        in.append(1, c);
+                    }
+                    fs.close();
+                }
+            }
+            DeleteFile(sFile.GetWinPath());
+            // the format of the svnrobots.txt file is as follows:
+            // # comment
+            // checkinterval = XXX
+            //
+            // with 'checkinterval' being the minimum amount of time to wait
+            // between checks in minutes.
+
+            std::istringstream iss(in);
+            std::string line;
+            int minutes = 0;
+            bool disallowdiffs = false;
+            while (getline(iss, line))
+            {
+                if (line.length())
+                {
+                    if (line.at(0) != '#')
+                    {
+                        if ((line.length() > 13) && (line.substr(0, 13).compare("checkinterval") == 0))
+                        {
+                            std::string num = line.substr(line.find('=') + 1);
+                            minutes = atoi(num.c_str());
+                        }
+                    }
+                }
+            }
+            item.lastcheckedrobots = currenttime;
+            item.minminutesinterval = minutes;
+        }
+
         svn.SetAuthInfo(L"", L"");
     }
     SetDlgItemText(IDC_LOGINFO, L"");
@@ -8249,10 +8359,12 @@ void CLogDlg::OnMonitorThreadFinished()
                     ++changedprojects;
                 }
                 pItem->lastchecked = item.lastchecked;
+                pItem->lastcheckedrobots = item.lastcheckedrobots;
                 pItem->lastHEAD = item.lastHEAD;
                 pItem->UnreadItems = item.UnreadItems;
                 pItem->unreadFirst = item.unreadFirst;
                 pItem->authfailed = item.authfailed;
+                pItem->minminutesinterval = item.minminutesinterval;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
                 m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);

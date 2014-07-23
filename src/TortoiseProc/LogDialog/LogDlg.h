@@ -78,7 +78,9 @@ public:
         : Name(name)
         , WCPathOrUrl(path)
         , interval(5)
+        , minminutesinterval(0)
         , lastchecked(0)
+        , lastcheckedrobots(0)
         , lastHEAD(0)
         , UnreadItems(0)
         , unreadFirst(0)
@@ -86,7 +88,9 @@ public:
     {}
     MonitorItem()
         : interval(5)
+        , minminutesinterval(0)
         , lastchecked(0)
+        , lastcheckedrobots(0)
         , lastHEAD(0)
         , UnreadItems(0)
         , unreadFirst(0)
@@ -97,7 +101,9 @@ public:
     CString                 Name;
     CString                 WCPathOrUrl;
     int                     interval;
+    int                     minminutesinterval;
     __time64_t              lastchecked;
+    __time64_t              lastcheckedrobots;
     svn_revnum_t            lastHEAD;
     svn_revnum_t            unreadFirst;
     int                     UnreadItems;
