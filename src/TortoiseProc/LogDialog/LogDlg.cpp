@@ -8022,11 +8022,11 @@ void CLogDlg::SaveMonitorProjects()
         m_monitoringFile.SetValue(sSection, L"WCPathOrUrl", pItem->WCPathOrUrl);
         sTmp.Format(L"%lld", pItem->lastchecked);
         m_monitoringFile.SetValue(sSection, L"lastchecked", sTmp);
-        sTmp.Format(L"%lld", pItem->lastHEAD);
+        sTmp.Format(L"%ld", pItem->lastHEAD);
         m_monitoringFile.SetValue(sSection, L"lastHEAD", sTmp);
         sTmp.Format(L"%d", pItem->UnreadItems);
         m_monitoringFile.SetValue(sSection, L"UnreadItems", sTmp);
-        sTmp.Format(L"%lld", pItem->unreadFirst);
+        sTmp.Format(L"%ld", pItem->unreadFirst);
         m_monitoringFile.SetValue(sSection, L"unreadFirst", sTmp);
         sTmp.Format(L"%d", pItem->interval);
         m_monitoringFile.SetValue(sSection, L"interval", sTmp);
