@@ -4,7 +4,7 @@ setlocal
 pushd %~dp0
 
 rem you can set the COVDIR variable to your coverity path
-if not defined COVDIR set "COVDIR=C:\cov-analysis-win32-7.0.2"
+if not defined COVDIR set "COVDIR=C:\cov-analysis-win32-7.5.0"
 if defined COVDIR if not exist "%COVDIR%" (
   echo.
   echo ERROR: Coverity not found in "%COVDIR%"
@@ -17,12 +17,6 @@ set "PERL_PATH=C:\Perl\perl\bin"
 set "PYTHON_PATH=C:\Python27"
 set "PATH=%NANT_PATH%;%PERL_PATH%;%PYTHON_PATH%;%PATH%"
 
-call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
-if %errorlevel% neq 0 (
-  echo vcvarsall.bat call failed.
-  goto End
-)
-
 
 :cleanup
 if exist "cov-int" rd /q /s "cov-int"
@@ -32,14 +26,34 @@ if exist "TortoiseSVN.tgz"  del "TortoiseSVN.tgz"
 
 
 :main
+rem Win32
+call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+if %ERRORLEVEL% neq 0 (
+  echo vcvarsall.bat call failed.
+  goto End
+)
+
 rem we need to build the libraries before our files
 title nant -buildfile:../default.build clean ipv6 Subversion
 nant -buildfile:../default.build clean ipv6 Subversion
 
 rem the actual coverity command
-title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build clean ipv6 TortoiseSVN
-"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build clean ipv6 TortoiseSVN
-"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build clean Overlays
+title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
+"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
+"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build Overlays
+
+
+rem x64
+call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86_amd64
+if %ERRORLEVEL% neq 0 (
+  echo vcvarsall.bat call failed.
+  goto End
+)
+title nant -buildfile:../default.build clean x64 ipv6 cross Subversion
+nant -buildfile:../default.build clean x64 ipv6 cross Subversion
+
+title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build x64 ipv6 cross TortoiseSVN
+"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build x64 ipv6 cross TortoiseSVN
 
 
 :tar
