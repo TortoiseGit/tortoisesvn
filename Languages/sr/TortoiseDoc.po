@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-07-21 19:41+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13245,7 +13245,7 @@ msgid ""
 "make those files not propagate their status to the parent folder. That way "
 "if only files in that changelist are modified, the parent folder still shows"
 " the unmodified overlay icon."
-msgstr ""
+msgstr "Ако имате фајлове у \"занемари-при-урезивању\" листи измена, можете изабрати да направите те фајлове да не преносе свој статус у предачки фолдер. Тако ако си само фајлови из листе измена измењени предачки фолдер још увек приказује немодификоване прекривачке иконе."
 
 #. (para)
 msgid ""
@@ -15009,94 +15009,94 @@ msgstr "Док радимо на ТортоисеСВН волимо да слу
 
 #. (title)
 msgid "Commit Monitor"
-msgstr ""
+msgstr "Монитор урезивања"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "монитор урезивања"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "даљинско урезивање"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "надгледање пројекта"
 
 #. (para)
 msgid ""
 "The commit monitor is a helpful tool that monitors repositories and notifies"
 " you in case there are new commits."
-msgstr ""
+msgstr "Монитор урезивања је помоћни алат који надгледа спремишта и нотира вам у случају да има нових урезивања."
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "Додавање пројекта у монитор"
 
 #. (para)
 msgid ""
 "If you first start the commit monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Ако најпре покренете монитор урезивања, троструки преглед с леве стране је празан. Да додате пројекте кликните на дугме на врху дијалога означено као <guibutton>Додај пројекат</guibutton>."
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "Дијалог уређења пројекта монитора урезивања "
 
 #. (para)
 msgid ""
 "<placeholder-1/> To add a project for monitoring, fill in the required "
 "information. The name of the project is not optional and must be filled in, "
 "all other information is optional."
-msgstr ""
+msgstr "<placeholder-1/>  Да додате пројекат за посматрање попуните захтеване информације. Име пројекта није опционо и мора се уписати, све остале информације су опционе."
 
 #. (para)
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
-msgstr ""
+msgstr "Ако је бокс за <literal>Путања или Урл</literal> остао празан онда је фолдер додат. Ово је корисно да се групишу посматрани пројекти. "
 
 #. (para)
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
 "access, and only if the authentication is not stored by Subversion itself."
-msgstr ""
+msgstr "Поља <literal>Корисничко име</literal> и <literal>Лозинка</literal> морају бити уписана само ако спремиште не омогућава анониман приступ за читање и само ако аутентикација није уписана од саме Субверзије."
 
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks."
-msgstr ""
+msgstr "<literal>Монитор интервал у минутама</literal> одређује минуте за чекање између провера."
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "Монитор дијалог"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "Главни дијалог монитора урезивања"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The commit monitor shows all monitored projects on the left"
 " in a tree view. The projects can be moved around, for example one project "
 "can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Монитор урезивања приказује све посматране пројекте у левом троструком прегледу. Пројекти могу бити померени, на пример један пројекта може бити померен испод другог пројекта чинћи га потомачки/подпројекат."
 
 #. (para)
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Клик на пројекат приказује све поруке дневника пројекта са дене стране."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Пројекти који су усклађени приказани су подебљано са бројем нових урезивања у заградама са десне стране. Клик на пројекат аутоматски га означава као прочитан."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -20579,7 +20579,7 @@ msgstr "Цтрл-Ф"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "Отвара Нађи дијалог за тражење текста и замене"
 
 #. (term)
 msgid "Ctrl-O"

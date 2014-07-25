@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-07-23 20:10+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13245,7 +13245,7 @@ msgid ""
 "make those files not propagate their status to the parent folder. That way "
 "if only files in that changelist are modified, the parent folder still shows"
 " the unmodified overlay icon."
-msgstr ""
+msgstr "Jeśli macie pliki na liście zmian \"ignore-on-commit\", możecie sprawić by te pliki nie rozgłaszały swego stanu na folder nadrzędny. W ten sposób gdy zmienione zostały tylko pliki na tej liście zmian, folder nadrzędny pokazuje wciąż nakładkę ikony \"niezmodyfikowane\"."
 
 #. (para)
 msgid ""
@@ -15009,94 +15009,94 @@ msgstr "Podczas pracy nad TortoiseSVN lubimy słuchać muzyki. A ponieważ spęd
 
 #. (title)
 msgid "Commit Monitor"
-msgstr ""
+msgstr "Monitor Zatwierdzeń"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "monitor zatwierdzeń"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "zdalne zatwierdzenia"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "monitorowane projekty"
 
 #. (para)
 msgid ""
 "The commit monitor is a helpful tool that monitors repositories and notifies"
 " you in case there are new commits."
-msgstr ""
+msgstr "Monitor zatwierdzeń jest pomocnym narzędziem śledzącym repozytoria i powiadamiającym was w przypadku nowych zatwierdzeń."
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "Dodawanie projektów do monitora"
 
 #. (para)
 msgid ""
 "If you first start the commit monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Gdy uruchamiacie po raz pierwszy monitor zatwierdzeń, widok drzewa po lewej stronie jest pusty. By dodać projekt, należy wcisnąć przycisk u góry okna dialogowego <guibutton>Dodaj Projekt</guibutton>."
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "Okno edycji projektu monitora zatwierdzeń"
 
 #. (para)
 msgid ""
 "<placeholder-1/> To add a project for monitoring, fill in the required "
 "information. The name of the project is not optional and must be filled in, "
 "all other information is optional."
-msgstr ""
+msgstr "<placeholder-1/> By dodać projekty do śledzenia, wypełnijcie wymagane informacje. Nazwa projektu nie jest opcjonalna i musi być wpisane, wszystkie inne informacje są opcjonalne."
 
 #. (para)
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
-msgstr ""
+msgstr "Jeśli pole <literal>Ścieżka lub URL</literal> pozostawiono puste, zostanie dodany folder. Jest to użyteczne do grupowania śledzonych projektów."
 
 #. (para)
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
 "access, and only if the authentication is not stored by Subversion itself."
-msgstr ""
+msgstr "Pola <literal>Użytkownik</literal> i <literal>hasło</literal> powinny być wypełnione tylko jesli repozytorium nie dopuszcza anonimowego dostępu do odczytu, i tylko jeśli dane autoryzacji nie są przechowywane w samym Subversion."
 
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks."
-msgstr ""
+msgstr "<literal>Interwał monitorowania w minutach</literal> określa liczbę minut oczekiwania pomiędzy sprawdzeniami."
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "Okno monitora"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "Główne okno monitora zatwierdzeń"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The commit monitor shows all monitored projects on the left"
 " in a tree view. The projects can be moved around, for example one project "
 "can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Monitor zatwierdzeń pokazuje wszystkie śledzone projekty na lewym widoku drzewa. Projekty mogą być dowolnie przenoszone, na przykład projekt może zostać przeniesiony pod inny projekt stając się jego dzieckiem/podprojektem."
 
 #. (para)
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Kliknięcie na projekt pokazuje po prawej stronie komunikaty dziennika."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Projekty mające aktualizacje wyświetlane są pogrubioną czcionką, z liczbą zatwierdzeń w nawiasach z prawej. kliknięcie na projekcie oznacza go automatycznie jako przeczytany."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -20579,7 +20579,7 @@ msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "Otwórz okno dialogowe Znajdź, by wyszukiwać i zastępować tekst"
 
 #. (term)
 msgid "Ctrl-O"
