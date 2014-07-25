@@ -1346,7 +1346,7 @@ void CLogDlg::OnCancel()
     if (m_bMonitoringMode)
     {
         ShowWindow(SW_HIDE);
-        SaveMonitorProjects();
+        SaveMonitorProjects(true);
         SaveSplitterPos();
         return;
     }
@@ -1424,7 +1424,7 @@ void CLogDlg::OnClose()
     }
     if (m_bMonitoringMode)
     {
-        SaveMonitorProjects();
+        SaveMonitorProjects(true);
         ShowWindow(SW_HIDE);
         SaveSplitterPos();
     }
@@ -2262,7 +2262,7 @@ void CLogDlg::OnOK()
     if (m_bMonitoringMode)
     {
         ShowWindow(SW_HIDE);
-        SaveMonitorProjects();
+        SaveMonitorProjects(true);
         SaveSplitterPos();
         return;
     }
@@ -7946,7 +7946,7 @@ void CLogDlg::OnMonitorRemoveProject()
             }
             delete pItem;
             m_projTree.DeleteItem(hSelItem);
-            SaveMonitorProjects();
+            SaveMonitorProjects(true);
             RefreshMonitorProjTree();
         }
     }
@@ -7961,7 +7961,7 @@ void CLogDlg::OnMonitorOptions()
     m_bPlaySound = !!dlg.m_bPlaySound;
     m_bShowNotification = !!dlg.m_bShowNotification;
 
-    SaveMonitorProjects();
+    SaveMonitorProjects(false);
 }
 
 void CLogDlg::MonitorEditProject(MonitorItem * pProject)
@@ -8001,12 +8001,12 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
             InsertMonitorItem(pEditProject);
         }
 
-        SaveMonitorProjects();
+        SaveMonitorProjects(false);
         RefreshMonitorProjTree();
     }
 }
 
-void CLogDlg::SaveMonitorProjects()
+void CLogDlg::SaveMonitorProjects( bool todisk )
 {
     m_monitoringFile.Reset();
     int count = 0;
@@ -8046,6 +8046,15 @@ void CLogDlg::SaveMonitorProjects()
 
     m_monitoringFile.SetValue(L"global", L"PlaySound", m_bPlaySound ? L"1" : L"0");
     m_monitoringFile.SetValue(L"global", L"ShowNotifications", m_bShowNotification ? L"1" : L"0");
+    if (todisk)
+    {
+        CString sDataFilePath = CPathUtils::GetAppDataDirectory();
+        sDataFilePath += L"\\MonitoringData.ini";
+        FILE * pFile = NULL;
+        _tfopen_s(&pFile, sDataFilePath, L"wb");
+        m_monitoringFile.SaveFile(pFile);
+        fclose(pFile);
+    }
 }
 
 void CLogDlg::MonitorTimer()
@@ -8392,19 +8401,12 @@ void CLogDlg::OnMonitorThreadFinished()
     {
         SetTimer(MONITOR_POPUP_TIMER, 10, NULL);
     }
-    SaveMonitorProjects();
+    SaveMonitorProjects(false);
 }
 
 void CLogDlg::ShutDownMonitoring()
 {
-    SaveMonitorProjects();
-
-    CString sDataFilePath = CPathUtils::GetAppDataDirectory();
-    sDataFilePath += L"\\MonitoringData.ini";
-    FILE * pFile = NULL;
-    _tfopen_s(&pFile, sDataFilePath, L"wb");
-    m_monitoringFile.SaveFile(pFile);
-    fclose(pFile);
+    SaveMonitorProjects(true);
 
     // remove all existing data from the control and free the memory
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
@@ -8695,7 +8697,7 @@ LRESULT CLogDlg::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 LRESULT CLogDlg::OnTreeDrop(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    SaveMonitorProjects();
+    SaveMonitorProjects(false);
     RefreshMonitorProjTree();
     return 0;
 }
@@ -8711,7 +8713,7 @@ void CLogDlg::OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult)
         if (sName != pItem->Name)
         {
             pItem->Name = sName;
-            SaveMonitorProjects();
+            SaveMonitorProjects(false);
             RefreshMonitorProjTree();
         }
     }
@@ -8794,7 +8796,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
 
 BOOL CLogDlg::OnQueryEndSession()
 {
-    SaveMonitorProjects();
+    SaveMonitorProjects(true);
     if (!__super::OnQueryEndSession())
         return FALSE;
 

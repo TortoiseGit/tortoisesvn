@@ -405,7 +405,7 @@ private:
     HTREEITEM FindMonitorParent(const CString& parentTreePath);
     HTREEITEM FindMonitorItem(const CString& wcpathorurl);
     HTREEITEM RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler);
-    void SaveMonitorProjects();
+    void SaveMonitorProjects(bool todisk);
     void MonitorTimer();
     void MonitorPopupTimer();
     void MonitorThread();
