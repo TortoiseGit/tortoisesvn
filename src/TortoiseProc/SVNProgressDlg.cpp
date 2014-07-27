@@ -929,6 +929,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         bInInteractiveResolving = false;
         bNoNotify = true;
         break;
+    case svn_wc_notify_commit_finalizing:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_COMMITTINGTRANSACTION);
+        break;
     case svn_wc_notify_upgraded_path:
     case svn_wc_notify_failed_conflict:
     case svn_wc_notify_failed_missing:
