@@ -3020,7 +3020,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                 {
                     ptCaretPos.x = pos;
                     SetCaretAndGoalPosition(ptCaretPos);
-                    OnCaretMove(bShift);
+                    OnCaretMove(MOVELEFT, bShift);
                 }
             }
         }
@@ -3048,7 +3048,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                     ptCaretPos.x--;
                 }
                 SetCaretAndGoalPosition(ptCaretPos);
-                OnCaretMove(bShift);
+                OnCaretMove(MOVERIGHT, bShift);
             }
         }
         break;
