@@ -1805,7 +1805,7 @@ void CLogDlg::LogThread()
 
     m_LogProgress.ShowWindow(FALSE);
     if (!m_bMonitoringMode)
-        GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(!m_mergedRevs.empty());
+        GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(!m_mergedRevs.empty() || (svn_revnum_t(m_copyfromrev) > 0));
     else
         DialogEnableWindow(IDC_PROJTREE, TRUE);
 
