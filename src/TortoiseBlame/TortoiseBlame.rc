@@ -55,6 +55,7 @@ BEGIN
     POPUP "&Copy to clipboard"
     BEGIN
         MENUITEM "&Copy log message to clipboard", ID_COPYTOCLIPBOARD
+        MENUITEM "Copy &revision number to clipboard", ID_COPYTOCLIPBOARD_REV
         MENUITEM SEPARATOR
         MENUITEM "&Blame previous revision",    ID_BLAME_PREVIOUS_REVISION
         MENUITEM "Show &changes",               ID_DIFF_PREVIOUS_REVISION

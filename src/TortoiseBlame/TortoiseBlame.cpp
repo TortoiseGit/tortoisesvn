@@ -866,6 +866,26 @@ void TortoiseBlame::CopySelectedLogToClipboard()
     }
 }
 
+void TortoiseBlame::CopySelectedRevToClipboard()
+{
+    if (m_selectedRev <= 0)
+        return;
+
+    TCHAR bufRev[40] = { 0 };
+    swprintf_s(bufRev, L"%ld", m_selectedRev);
+    auto len = wcslen(bufRev);
+    CClipboardHelper clipboardHelper;
+    if (!clipboardHelper.Open(app.wBlame))
+        return;
+
+    EmptyClipboard();
+    HGLOBAL hClipboardData = CClipboardHelper::GlobalAlloc((len + 1)*sizeof(TCHAR));
+    TCHAR* pchData = (TCHAR*)GlobalLock(hClipboardData);
+    wcscpy_s(pchData, len + 1, bufRev);
+    GlobalUnlock(hClipboardData);
+    SetClipboardData(CF_UNICODETEXT, hClipboardData);
+}
+
 void TortoiseBlame::BlamePreviousRevision()
 {
     LONG nRevisionTo = m_selectedOrigRev - 1;
@@ -1069,6 +1089,9 @@ void TortoiseBlame::Command(int id)
         break;
     case ID_COPYTOCLIPBOARD:
         CopySelectedLogToClipboard();
+        break;
+    case ID_COPYTOCLIPBOARD_REV:
+        CopySelectedRevToClipboard();
         break;
     case ID_BLAME_PREVIOUS_REVISION:
         BlamePreviousRevision();

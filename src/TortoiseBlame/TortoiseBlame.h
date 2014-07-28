@@ -94,6 +94,7 @@ public:
     void StartSearchSel();
     void DoSearchNext();
     void CopySelectedLogToClipboard();
+    void CopySelectedRevToClipboard();
     void BlamePreviousRevision();
     void DiffPreviousRevision() const;
     void ShowLog();
