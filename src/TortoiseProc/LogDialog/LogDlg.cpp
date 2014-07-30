@@ -1348,6 +1348,7 @@ void CLogDlg::OnCancel()
         ShowWindow(SW_HIDE);
         SaveMonitorProjects(true);
         SaveSplitterPos();
+        SaveWindowRect(L"MonitorLogDlg", false);
         return;
     }
     bool bWasCancelled = m_bCancelled;
@@ -1427,6 +1428,7 @@ void CLogDlg::OnClose()
         SaveMonitorProjects(true);
         ShowWindow(SW_HIDE);
         SaveSplitterPos();
+        SaveWindowRect(L"MonitorLogDlg", false);
     }
     else
         __super::OnClose();
@@ -2264,6 +2266,7 @@ void CLogDlg::OnOK()
         ShowWindow(SW_HIDE);
         SaveMonitorProjects(true);
         SaveSplitterPos();
+        SaveWindowRect(L"MonitorLogDlg", false);
         return;
     }
     // since the log dialog is also used to select revisions for other
