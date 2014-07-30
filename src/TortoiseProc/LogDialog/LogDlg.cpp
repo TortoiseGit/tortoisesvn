@@ -8294,7 +8294,6 @@ void CLogDlg::MonitorThread()
             std::istringstream iss(in);
             std::string line;
             int minutes = 0;
-            bool disallowdiffs = false;
             while (getline(iss, line))
             {
                 if (line.length())
