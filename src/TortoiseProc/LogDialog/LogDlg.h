@@ -98,18 +98,21 @@ public:
     {}
     ~MonitorItem() {}
 
-    CString                 Name;
-    CString                 WCPathOrUrl;
-    int                     interval;
-    int                     minminutesinterval;
-    __time64_t              lastchecked;
-    __time64_t              lastcheckedrobots;
-    svn_revnum_t            lastHEAD;
-    svn_revnum_t            unreadFirst;
-    int                     UnreadItems;
-    bool                    authfailed;
-    CString                 username;
-    CString                 password;
+    CString                     Name;
+    CString                     WCPathOrUrl;
+    int                         interval;
+    int                         minminutesinterval;
+    __time64_t                  lastchecked;
+    __time64_t                  lastcheckedrobots;
+    svn_revnum_t                lastHEAD;
+    svn_revnum_t                unreadFirst;
+    int                         UnreadItems;
+    bool                        authfailed;
+    CString                     username;
+    CString                     password;
+    CString                     sMsgRegex;
+    std::wregex                 msgregex;
+    std::vector<std::string>    authorstoignore;
 };
 
 typedef std::function<bool(HTREEITEM)> MonitorItemHandler;
@@ -556,6 +559,8 @@ private:
     svn_revnum_t        m_revUnread;
     bool                m_bPlaySound;
     bool                m_bShowNotification;
+    CString             m_sMonitorMsgRegex;
+    std::vector<std::string> m_MonitorAuthorsToIgnore;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

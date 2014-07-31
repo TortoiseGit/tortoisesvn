@@ -34,6 +34,7 @@ public:
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void OnOK();
 
     DECLARE_MESSAGE_MAP()
 public:
@@ -41,5 +42,7 @@ public:
     CString m_sPathOrURL;
     CString m_sUsername;
     CString m_sPassword;
+    CString m_sIgnoreUsers;
+    CString m_sIgnoreRegex;
     int m_monitorInterval;
 };

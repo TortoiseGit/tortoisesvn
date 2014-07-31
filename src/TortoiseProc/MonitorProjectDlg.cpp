@@ -33,6 +33,8 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     , m_sUsername(_T(""))
     , m_sPassword(_T(""))
     , m_monitorInterval(5)
+    , m_sIgnoreUsers(_T(""))
+    , m_sIgnoreRegex(_T(""))
 {
 
 }
@@ -50,6 +52,8 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_PASSWORD, m_sPassword);
     DDX_Text(pDX, IDC_INTERVAL, m_monitorInterval);
     DDV_MinMaxInt(pDX, m_monitorInterval, 1, 1000);
+    DDX_Text(pDX, IDC_IGNOREUSERS, m_sIgnoreUsers);
+    DDX_Text(pDX, IDC_IGNOREREGEX, m_sIgnoreRegex);
 }
 
 
@@ -58,3 +62,29 @@ END_MESSAGE_MAP()
 
 
 // CMonitorProjectDlg message handlers
+
+
+void CMonitorProjectDlg::OnOK()
+{
+    UpdateData();
+
+    try
+    {
+        std::wregex r1 = std::wregex(m_sIgnoreRegex);
+        UNREFERENCED_PARAMETER(r1);
+    }
+    catch (std::exception)
+    {
+        CString text = CString(MAKEINTRESOURCE(IDS_ERR_INVALIDREGEX));
+        CString title = CString(MAKEINTRESOURCE(IDS_ERR_ERROR));
+        EDITBALLOONTIP bt;
+        bt.cbStruct = sizeof(bt);
+        bt.pszText = text;
+        bt.pszTitle = title;
+        bt.ttiIcon = TTI_WARNING;
+        SendDlgItemMessage(IDC_IGNOREREGEX, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+        return;
+    }
+
+    CDialogEx::OnOK();
+}

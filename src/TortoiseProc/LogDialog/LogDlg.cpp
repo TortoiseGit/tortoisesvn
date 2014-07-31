@@ -1751,11 +1751,49 @@ void CLogDlg::LogThread()
         {
             // mark all entries that are new as unread, so they're shown
             // in bold in the list control
+            std::wregex rx;
+            try
+            {
+                if (!m_sMonitorMsgRegex.IsEmpty())
+                    rx = std::wregex(m_sMonitorMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
+            }
+            catch (std::exception)
+            {
+                m_sMonitorMsgRegex.Empty();
+            }
             for (size_t i = 0; i < m_logEntries.GetVisibleCount(); ++i)
             {
                 PLOGENTRYDATA pEntry = m_logEntries.GetVisible(i);
                 if (pEntry && (pEntry->GetRevision() > m_revUnread))
+                {
+                    bool bIgnore = false;
+                    for (const auto& authortoignore : m_MonitorAuthorsToIgnore)
+                    {
+                        if (_stricmp(pEntry->GetAuthor().c_str(), authortoignore.c_str()) == 0)
+                        {
+                            bIgnore = true;
+                            break;
+                        }
+                    }
+                    if (!bIgnore && !m_sMonitorMsgRegex.IsEmpty())
+                    {
+                        try
+                        {
+                            if (std::regex_match(pEntry->GetMessageW().cbegin(),
+                                pEntry->GetMessageW().cend(),
+                                rx))
+                            {
+                                bIgnore = true;
+                            }
+                        }
+                        catch (std::exception)
+                        {
+                        }
+                    }
+                    if (bIgnore)
+                        continue;
                     pEntry->SetUnread(true);
+                }
             }
             m_revUnread = 0;
         }
@@ -7719,6 +7757,17 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
             pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
             pMonitorItem->unreadFirst = _wtol(m_monitoringFile.GetValue(mitem, L"unreadFirst", L"0"));
+            pMonitorItem->sMsgRegex = m_monitoringFile.GetValue(mitem, L"MsgRegex", L"");
+            try
+            {
+                pMonitorItem->msgregex = std::wregex(pMonitorItem->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
+            }
+            catch (std::exception)
+            {
+                pMonitorItem->msgregex = std::wregex();
+                pMonitorItem->sMsgRegex.Empty();
+            }
+            stringtok(pMonitorItem->authorstoignore, CUnicodeUtils::StdGetUTF8(m_monitoringFile.GetValue(mitem, L"ignoreauthors", L"")), true, " ,;");
             InsertMonitorItem(pMonitorItem, m_monitoringFile.GetValue(mitem, L"parentTreePath", L""));
             ++itemcount;
             if (pMonitorItem->UnreadItems)
@@ -7977,6 +8026,13 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
         dlg.m_sUsername = CStringUtils::Decrypt(pProject->username).get();
         dlg.m_sPassword = CStringUtils::Decrypt(pProject->password).get();
         dlg.m_monitorInterval = pProject->interval;
+        dlg.m_sIgnoreRegex = pProject->sMsgRegex;
+        dlg.m_sIgnoreUsers.Empty();
+        for (const auto& s : pProject->authorstoignore)
+        {
+            dlg.m_sIgnoreUsers += CUnicodeUtils::GetUnicode(s.c_str());
+            dlg.m_sIgnoreUsers += L" ";
+        }
     }
     if (dlg.DoModal() == IDOK)
     {
@@ -7994,6 +8050,17 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
         pEditProject->password.Remove('\r');
         pEditProject->username.Replace('\n', ' ');
         pEditProject->password.Replace('\n', ' ');
+        pEditProject->sMsgRegex = dlg.m_sIgnoreRegex;
+        try
+        {
+            pEditProject->msgregex = std::wregex(pEditProject->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
+        }
+        catch (std::exception)
+        {
+            pEditProject->msgregex = std::wregex();
+            pEditProject->sMsgRegex.Empty();
+        }
+        stringtok(pEditProject->authorstoignore, CUnicodeUtils::StdGetUTF8((LPCWSTR)dlg.m_sIgnoreUsers), true, " ,;");
 
         // insert the new item
         // if this was an edit, we don't have to do anything since
@@ -8044,6 +8111,15 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         m_monitoringFile.SetValue(sSection, L"minminutesinterval", sTmp);
         m_monitoringFile.SetValue(sSection, L"username", pItem->username);
         m_monitoringFile.SetValue(sSection, L"password", pItem->password);
+        m_monitoringFile.SetValue(sSection, L"MsgRegex", pItem->sMsgRegex);
+        sTmp.Empty();
+        for (const auto& s : pItem->authorstoignore)
+        {
+            sTmp += CUnicodeUtils::GetUnicode(s.c_str());
+            sTmp += L" ";
+        }
+        m_monitoringFile.SetValue(sSection, L"ignoreauthors", sTmp);
+
         return false;
     });
 
@@ -8193,6 +8269,33 @@ void CLogDlg::MonitorThread()
                             auto pLogItem = logUtil.GetRevisionData(rev);
                             if (pLogItem)
                             {
+                                bool bIgnore = false;
+                                for (const auto& authortoignore : item.authorstoignore)
+                                {
+                                    if (_stricmp(pLogItem->GetAuthor().c_str(), authortoignore.c_str()) == 0)
+                                    {
+                                        bIgnore = true;
+                                        break;
+                                    }
+                                }
+                                if (!bIgnore && !item.sMsgRegex.IsEmpty())
+                                {
+                                    try
+                                    {
+                                        if (std::regex_match(pLogItem->GetMessageW().cbegin(),
+                                            pLogItem->GetMessageW().cend(),
+                                            item.msgregex))
+                                        {
+                                            bIgnore = true;
+                                        }
+                                    }
+                                    catch (std::exception)
+                                    {
+                                    }
+                                }
+                                if (bIgnore)
+                                    continue;
+
                                 pLogItem->Finalize(cache, logPath);
                                 if (IsRevisionRelatedToUrl(logPath, pLogItem.get()))
                                 {
@@ -8589,6 +8692,8 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_bAscendingPathList = false;
         SetSortArrow(&m_LogList, -1, true);
         m_logEntries.ClearAll();
+        m_MonitorAuthorsToIgnore.clear();
+        m_sMonitorMsgRegex.Empty();
 
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
         if (pItem->WCPathOrUrl.IsEmpty())
@@ -8637,6 +8742,8 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_revUnread = pItem->unreadFirst;
         m_hasWC = !m_path.IsUrl();
         m_ProjectProperties = ProjectProperties();
+        m_MonitorAuthorsToIgnore = pItem->authorstoignore;
+        m_sMonitorMsgRegex = pItem->sMsgRegex;
         ReadProjectPropertiesAndBugTraqInfo();
         ConfigureColumnsForLogListControl();
 
