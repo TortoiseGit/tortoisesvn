@@ -190,6 +190,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term condition="pot">DlgStickySize</term>
+      <listitem>
+        <para>
+          This value specifies the number of pixels a dialog has to be
+          near a border before the dialog sticks to it.
+          The default value is 3. To disable this value set the value
+          to zero.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term condition="pot">FixCaseRenames</term>
       <listitem>
         <para>
