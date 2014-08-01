@@ -85,11 +85,15 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
     settings[i++].def.l = 0;
 
-    settings[i].sName   = L"DiffBlamesWithTortoiseMerge";
+    settings[i].sName = L"DiffBlamesWithTortoiseMerge";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = false;
 
-    settings[i].sName   = L"FixCaseRenames";
+    settings[i].sName   = L"DlgStickySize";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 3;
+
+    settings[i].sName = L"FixCaseRenames";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
 
@@ -177,7 +181,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 38 so far...
+    // 39 so far...
     ASSERT(i < _countof(settings));
 }
 
