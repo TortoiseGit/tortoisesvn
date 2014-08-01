@@ -53,6 +53,7 @@ CResizableStandAloneDialog::CResizableStandAloneDialog(UINT nIDTemplate, CWnd* p
     : CStandAloneDialogTmpl<CResizableDialog>(nIDTemplate, pParentWnd)
     , m_bVertical(false)
     , m_bHorizontal(false)
+    , m_stickySize(CRegDWORD(L"Software\\TortoiseSVN\\DlgStickySize", 3))
 {
 }
 
@@ -73,6 +74,41 @@ void CResizableStandAloneDialog::OnSizing(UINT fwSide, LPRECT pRect)
 void CResizableStandAloneDialog::OnMoving(UINT fwSide, LPRECT pRect)
 {
     m_bVertical = m_bHorizontal = false;
+    if (pRect)
+    {
+        HMONITOR hMonitor = MonitorFromRect(pRect, MONITOR_DEFAULTTONEAREST);
+        if (hMonitor)
+        {
+            MONITORINFO minfo = { 0 };
+            minfo.cbSize = sizeof(minfo);
+            if (GetMonitorInfo(hMonitor, &minfo))
+            {
+                int width = pRect->right - pRect->left;
+                int heigth = pRect->bottom - pRect->top;
+                if (abs(pRect->left - minfo.rcWork.left) < m_stickySize)
+                {
+                    pRect->left = minfo.rcWork.left;
+                    pRect->right = pRect->left + width;
+                }
+                if (abs(pRect->right - minfo.rcWork.right) < m_stickySize)
+                {
+                    pRect->right = minfo.rcWork.right;
+                    pRect->left = pRect->right - width;
+                }
+                if (abs(pRect->top - minfo.rcWork.top) < m_stickySize)
+                {
+                    pRect->top = minfo.rcWork.top;
+                    pRect->bottom = pRect->top + heigth;
+                }
+                if (abs(pRect->bottom - minfo.rcWork.bottom) < m_stickySize)
+                {
+                    pRect->bottom = minfo.rcWork.bottom;
+                    pRect->top = pRect->bottom - heigth;
+                }
+            }
+        }
+    }
+
     CStandAloneDialogTmpl<CResizableDialog>::OnMoving(fwSide, pRect);
 }
 

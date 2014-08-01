@@ -533,6 +533,7 @@ private:
     bool        m_bVertical;
     bool        m_bHorizontal;
     CRect       m_rcOrgWindowRect;
+    int         m_stickySize;
 };
 
 class CStandAloneDialog : public CStandAloneDialogTmpl<CDialog>
