@@ -8756,8 +8756,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         }
         m_bCancelled = false;
 
-        DialogEnableWindow(IDC_PROJTREE, FALSE);
-
         svn_revnum_t head = pItem->lastHEAD;
         if (head == 0)
             head = GetHEADRevision(CTSVNPath(pItem->WCPathOrUrl), false);
