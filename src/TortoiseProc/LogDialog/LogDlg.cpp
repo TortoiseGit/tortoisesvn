@@ -8748,6 +8748,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
 
             if (threadsStillRunning)
             {
+                m_projTree.SelectItem(NULL);
                 return;
             }
         }
