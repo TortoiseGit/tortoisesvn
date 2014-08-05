@@ -7569,6 +7569,13 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
+    tbb[index].iBitmap = 0;
+    tbb[index].idCommand = 0;
+    tbb[index].fsState = TBSTATE_ENABLED;
+    tbb[index].fsStyle = BTNS_SEP;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = 0;
+
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_ADD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_ADDPROJECT;
@@ -7576,13 +7583,6 @@ bool CLogDlg::CreateToolbar()
     tbb[index].fsStyle = BTNS_BUTTON;
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
-
-    tbb[index].iBitmap = 0;
-    tbb[index].idCommand = 0;
-    tbb[index].fsState = TBSTATE_ENABLED;
-    tbb[index].fsStyle = BTNS_SEP;
-    tbb[index].dwData = 0;
-    tbb[index++].iString = 0;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_EDIT), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
