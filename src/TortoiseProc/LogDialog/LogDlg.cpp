@@ -8593,8 +8593,12 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             }
         }
             break;
+        case WM_LBUTTONUP:
         case WM_LBUTTONDBLCLK:
             m_bKeepHidden = false;
+            // remove selection, show empty log list
+            m_projTree.SelectItem(NULL);
+            MonitorShowProject(NULL);
             ShowWindow(SW_SHOW);
             SetForegroundWindow();
             m_SystemTray.hIcon = m_hMonitorIconNormal;
@@ -8678,6 +8682,25 @@ void CLogDlg::OnNMClickProjtree(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::MonitorShowProject(HTREEITEM hItem)
 {
+    if (hItem == NULL)
+    {
+        m_ChangedFileListCtrl.SetItemCountEx(0);
+        m_ChangedFileListCtrl.Invalidate();
+        m_LogList.SetItemCountEx(0);
+        m_LogList.Invalidate();
+        CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+        pMsgView->SetWindowText(L"");
+
+        m_nSortColumnPathList = 0;
+        m_bAscendingPathList = false;
+        SetSortArrow(&m_LogList, -1, true);
+        m_logEntries.ClearAll();
+        m_MonitorAuthorsToIgnore.clear();
+        m_sMonitorMsgRegex.Empty();
+
+        GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+        return;
+    }
     MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
     if (pItem)
     {
