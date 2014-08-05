@@ -587,30 +587,6 @@
       to get a coffee while the merge is running ;)
     </para>
   </sect2>
-  <sect2 id="tsvn-dug-merge-all">
-    <title>Merge a Completed Branch</title>
-    <?dbhh topicname="HIDD_MERGEALL"?>
-    <indexterm>
-      <primary>merge reintegrate</primary>
-    </indexterm>
-    <para>
-      If you want to merge all changes from a feature branch
-      back to trunk, then you can use the
-      <menuchoice>
-        <guimenu>TortoiseSVN</guimenu>
-        <guimenuitem>Merge reintegrate...</guimenuitem>
-      </menuchoice>
-      from the extended context menu (hold down the <keycap>Shift</keycap>
-      key while you right click on the file).
-      <figure id="tsvn-dug-mergeall-dia-1">
-        <title>The Merge reintegrate Dialog</title>
-        <graphic fileref="../images/MergeAll.png"/>
-      </figure>
-      This dialog is very easy. All you have to do is set the options for
-      the merge, as described in <xref linkend="tsvn-dug-merge-options"/>.
-      The rest is done by TortoiseSVN automatically using merge tracking.
-    </para>
-  </sect2>
   <sect2 id="tsvn-dug-merge-maintenance">
     <title>Feature Branch Maintenance</title>
     <para>
@@ -639,6 +615,23 @@
       is complete then you can merge it back to <literal>trunk</literal>
       using either <guilabel>Reintegrate a branch</guilabel> or
       <guilabel>Merge two different trees</guilabel>.
+    </para>
+    <para>
+      Another (fast) way to merge all changes from trunk to the feature branch
+      is to use the
+      <menuchoice>
+        <guimenu>TortoiseSVN</guimenu>
+        <guimenuitem>Merge all...</guimenuitem>
+      </menuchoice>
+      from the extended context menu (hold down the <keycap>Shift</keycap>
+      key while you right click on the file).
+      <figure id="tsvn-dug-mergeall-dia-1">
+        <title>The Merge-All Dialog</title>
+        <graphic fileref="../images/MergeAll.png"/>
+      </figure>
+      This dialog is very easy. All you have to do is set the options for
+      the merge, as described in <xref linkend="tsvn-dug-merge-options"/>.
+      The rest is done by TortoiseSVN automatically using merge tracking.
     </para>
   </sect2>
 </sect1>

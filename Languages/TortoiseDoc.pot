@@ -6127,22 +6127,6 @@ msgid "If you do not want to use this interactive callback, there is a checkbox 
 msgstr ""
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr ""
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr ""
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr ""
-
-#. (para)
-msgid "If you want to merge all changes from a feature branch back to trunk, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge reintegrate...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
-msgstr ""
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr ""
 
@@ -6156,6 +6140,14 @@ msgstr ""
 
 #. (para)
 msgid "If the feature is going to take longer and you need to account for changes in <literal>trunk</literal>, then you need to keep the branch synchronised. This simply means that periodically you merge trunk changes into the branch, so that the branch contains all the trunk changes <emphasis>plus</emphasis> the new feature. The synchronisation process uses <guilabel>Merge a range of revisions</guilabel>. When the feature is complete then you can merge it back to <literal>trunk</literal> using either <guilabel>Reintegrate a branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
+msgstr ""
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid "Another (fast) way to merge all changes from trunk to the feature branch is to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge all...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
 msgstr ""
 
 #. (title)
