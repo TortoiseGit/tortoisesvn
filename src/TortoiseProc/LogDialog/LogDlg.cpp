@@ -1522,8 +1522,11 @@ void CLogDlg::LogThread()
 
     {
         CAutoReadLock pathlock(m_monitorpathguard);
-        if (m_path.IsEquivalentToWithoutCase(CTSVNPath(m_pathCurrentlyChecked)))
+        if (m_path.IsEmpty() && m_path.IsEquivalentToWithoutCase(CTSVNPath(m_pathCurrentlyChecked)))
+        {
+            InterlockedExchange(&m_bLogThreadRunning, FALSE);
             return;
+        }
     }
 
     new async::CAsyncCall(this, &CLogDlg::StatusThread, &diskScheduler);
