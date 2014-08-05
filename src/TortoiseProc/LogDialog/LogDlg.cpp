@@ -1541,6 +1541,8 @@ void CLogDlg::LogThread()
     DialogEnableWindow(IDC_INCLUDEMERGE, FALSE);
     DialogEnableWindow(IDC_STATBUTTON, FALSE);
     DialogEnableWindow(IDC_REFRESH, FALSE);
+    if (m_bMonitoringMode)
+        DialogEnableWindow(IDC_PROJTREE, FALSE);
 
     CString temp;
     temp.LoadString(IDS_PROGRESSWAIT);
