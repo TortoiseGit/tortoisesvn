@@ -8700,8 +8700,12 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
         m_logEntries.ClearAll();
         m_MonitorAuthorsToIgnore.clear();
         m_sMonitorMsgRegex.Empty();
+        m_path.Reset();
 
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+
+        m_bCancelled = true;
+
         return;
     }
     MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
