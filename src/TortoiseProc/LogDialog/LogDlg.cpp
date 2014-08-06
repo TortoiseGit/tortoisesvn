@@ -6379,9 +6379,9 @@ void CLogDlg::AddMainAnchors()
     AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
     AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
     AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
-    AddAnchor(IDC_GETALL, BOTTOM_LEFT);
     AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
     AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
+    AddAnchor(IDC_GETALL, m_bMonitoringMode ? BOTTOM_RIGHT : BOTTOM_LEFT);
     AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
     AddAnchor(IDC_HIDENONMERGEABLE, BOTTOM_LEFT);
     AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -7630,7 +7630,6 @@ void CLogDlg::InitMonitoringMode()
     GetDlgItem(IDC_CHECK_STOPONCOPY)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_INCLUDEMERGE)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(SW_HIDE);
-    GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_NEXTHUNDRED)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_REFRESH)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_STATBUTTON)->ShowWindow(SW_HIDE);
@@ -7650,6 +7649,9 @@ void CLogDlg::InitMonitoringMode()
     CRect rcOK;
     GetDlgItem(IDOK)->GetWindowRect(&rcOK);
     ScreenToClient(&rcOK);
+    CRect rcGetAll;
+    GetDlgItem(IDC_GETALL)->GetWindowRect(&rcGetAll);
+    ScreenToClient(&rcGetAll);
 
     ::SetWindowPos(m_hwndToolbar, NULL, rcSearch.left, 0, rcDlg.Width(), rect.Height(), SWP_SHOWWINDOW);
     AddAnchor(m_hwndToolbar, TOP_LEFT, TOP_RIGHT);
@@ -7657,6 +7659,7 @@ void CLogDlg::InitMonitoringMode()
     int delta = 90;
     GetDlgItem(IDC_PROJTREE)->SetWindowPos(NULL, rcSearch.left, rcSearch.top + rect.Height(), delta, rcOK.bottom - rcSearch.top - rect.Height(), SWP_SHOWWINDOW);
     GetDlgItem(IDC_SPLITTERLEFT)->SetWindowPos(NULL, rcSearch.left + delta, rcSearch.top + rect.Height(), 4, rcOK.bottom - rcSearch.top, SWP_SHOWWINDOW);
+    GetDlgItem(IDC_GETALL)->SetWindowPos(NULL, rcOK.left - rcGetAll.Width()/2, rcOK.top, 0, 0, SWP_SHOWWINDOW | SWP_NOSIZE);
 
     delta += 4;
     CSplitterControl::ChangePos(GetDlgItem(IDC_SEARCHEDIT), 0, rect.Height());
@@ -7673,6 +7676,7 @@ void CLogDlg::InitMonitoringMode()
     CSplitterControl::ChangeWidth(&m_wndSplitter2, -delta, CW_RIGHTALIGN);
     CSplitterControl::ChangeWidth(&m_ChangedFileListCtrl, -delta, CW_RIGHTALIGN);
     CSplitterControl::ChangeWidth(&m_LogProgress, -delta, CW_RIGHTALIGN);
+    CSplitterControl::ChangeWidth(&m_LogProgress, -rcGetAll.Width(), CW_LEFTALIGN);
     CSplitterControl::ChangePos(&m_LogProgress, 0, 20);
     CSplitterControl::ChangeWidth(GetDlgItem(IDC_LOGINFO), -delta, CW_RIGHTALIGN);
     CSplitterControl::ChangePos(GetDlgItem(IDC_LOGINFO), 0, 75);
