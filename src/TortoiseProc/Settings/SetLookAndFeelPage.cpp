@@ -209,6 +209,8 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATE : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFFLATER : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFFNOW : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPREVDIFF : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
@@ -228,6 +230,7 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOPY : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSWITCH : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUMERGE : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUMERGEALL : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUEXPORT : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURELOCATE : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEREPOS : 0;
