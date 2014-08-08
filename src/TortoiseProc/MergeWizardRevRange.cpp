@@ -246,6 +246,8 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
         {
             sUrl = sUrl.Left(atposurl);
         }
+        else
+            rev == SVNRev::REV_HEAD;
     }
 
     CTSVNPath url(sUrl);
