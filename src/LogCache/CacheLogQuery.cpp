@@ -532,6 +532,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         if (   receiverError
             || e.GetCode() == SVN_ERR_CANCELLED
             || e.GetCode() == SVN_ERR_FS_NOT_FOUND  // deleted paths etc.
+            || e.GetCode() == SVN_ERR_FS_NO_SUCH_REVISION
             || !repositoryInfoCache->IsOffline (uuid, root, true))
         {
             // we want to cache whatever data we could receive so far ..
