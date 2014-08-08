@@ -8768,13 +8768,18 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         if (head == 0)
             head = GetHEADRevision(CTSVNPath(pItem->WCPathOrUrl), false);
 
+        m_limit = (int)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100) + 1;
+
         m_path = CTSVNPath(pItem->WCPathOrUrl);
         m_pegrev = head;
         m_head = head;
         m_startrev = head;
         m_bStartRevIsHead = false;
         m_LogRevision = head;
-        m_endrev = max(1, head - m_limit + 1);
+        if (m_limit == 0)
+            m_endrev = 0;
+        else
+            m_endrev = max(1, head - m_limit + 1);
         m_hasWC = m_path.IsUrl();
         m_bStrict = false;
         m_bSaveStrict = false;
