@@ -3021,7 +3021,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
         {
             HTREEITEM hItem = m_projTree.GetSelectedItem();
             if (hItem)
-                MonitorShowProject(hItem);
+                MonitorShowProject(hItem, nullptr);
             return TRUE;
         }
         if (wndFocus == m_projTree.GetEditControl())
@@ -8607,7 +8607,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             m_bKeepHidden = false;
             // remove selection, show empty log list
             m_projTree.SelectItem(NULL);
-            MonitorShowProject(NULL);
+            MonitorShowProject(NULL, nullptr);
             ShowWindow(SW_SHOW);
             SetForegroundWindow();
             m_SystemTray.hIcon = m_hMonitorIconNormal;
@@ -8682,15 +8682,17 @@ void CLogDlg::OnNMClickProjtree(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
     UINT unFlags = 0;
     HTREEITEM hItem = m_projTree.HitTest(pt, &unFlags);
+    *pResult = 0;
     if ((unFlags & TVHT_ONITEM) && (hItem != NULL))
     {
-        return MonitorShowProject(hItem);
+        MonitorShowProject(hItem, pResult);
     }
-    *pResult = 0;
 }
 
-void CLogDlg::MonitorShowProject(HTREEITEM hItem)
+void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
 {
+    if (pResult)
+        *pResult = 0;
     if (hItem == NULL)
     {
         m_ChangedFileListCtrl.SetItemCountEx(0);
@@ -8755,6 +8757,8 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem)
             if (threadsStillRunning)
             {
                 m_projTree.SelectItem(NULL);
+                if (pResult)
+                    *pResult = 1;   // prevent default processing
                 return;
             }
         }

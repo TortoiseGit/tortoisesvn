@@ -415,7 +415,7 @@ private:
     void ShutDownMonitoring();
     CString GetTreePath(HTREEITEM hItem);
     bool IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
-    void MonitorShowProject(HTREEITEM hItem);
+    void MonitorShowProject(HTREEITEM hItem, LRESULT * pResult);
     void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
     static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
 public:
