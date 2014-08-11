@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -9865,30 +9865,6 @@ msgid ""
 msgstr "Si vous ne voulez pas utiliser le mode interactif, il y a une case à cocher dans la barre de progression de la fusion <guilabel>Fusion non-interactive</guilabel>. Si celle-ci est cochée pour une fusion, et que la fusion génère des conflits, le(s) fichier(s) sont marqués comme conflictueux et l'opération de fusion continue. Vous aurez à résoudre les conflits lorsque la fusion sera terminée. Si la case n'est pas cochée, vous avez la possibilité de résoudre le conflit avant que le fichier soit marqué comme conflictuel <emphasis>pendant</emphasis> la fusion. L'avantage est que si un fichier est impliqué dans plusieurs fusions (plusieurs révisions concernent celui ci), les fusions successives pourront se passer sans encombres selon les lignes affectées. Mais bien sûr vous ne pouvez pas aller prendre un café pendant que la fusion s'exécute ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Fusionner une branche complétée"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "intégration des fusions"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "La boîte de dialogue de fusion"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Si vous voulez fusionner toutes les modifications d'une branche de fonctionnalité dans le tronc, vous pouvez utiliser la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusoin de réintégration...</guimenuitem></menuchoice> depuis le menu contextuel (appuyez sur la touche <keycap>Maj</keycap> en faisant un click droit sur le fichier). <placeholder-1/> Cette fenêtre est très simple. Tout ce que vous avez à faire est de paramétrer la fusion, comme décrit dans <xref linkend=\"tsvn-dug-merge-options\"/>. Le reste est fait automatiquement par TortoiseSVN grâce au suivi de fusion."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Branche de maintenance d'une fonctionnalité"
 
@@ -9922,6 +9898,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Dans le cas où la fonctionnalité prend du temps et que vous souhaitez récupérer les évolutions du <literal>trunk</literal>, alors vous devez garder votre branche synchronisée. Cela signifie simplement que vous devez fusionner de temps en temps les évolutions du tronc dans votre branche, de manière à ce que votre branche contiennent toutes les modifications du tronc <emphasis>en plus</emphasis> de la nouvelle fonctionnalité. Le processus de synchronisation utilise la commande <guilabel>Fusionner une plage de révisions</guilabel>. Quand le développement de la fonctionnalité est achevé vous pouvez alors fusionner la branche avec le tronc (i.e. <literal>trunk</literal>) en utilisant <guilabel>Réintégrer une branche</guilabel> ou <guilabel>Fusionner deux arborescences</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14694,6 +14686,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN vous permet d'utiliser un comparateur de fichier tiers. Cependant, la plupart de ces logiciels ne sont pas adaptés à la gestion d'annotation (<xref linkend=\"tsvn-dug-blame-diffs\"/>), auquel cas, vous pourriez vouloir revenir à TortoiseMerge. Pour ce faire, mettez cette valeur à <literal>true</literal>."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

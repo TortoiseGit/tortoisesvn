@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -9865,30 +9865,6 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr ""
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr ""
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr ""
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr ""
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr ""
 
@@ -9921,6 +9897,22 @@ msgid ""
 "of revisions</guilabel>. When the feature is complete then you can merge it "
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
+msgstr ""
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
 msgstr ""
 
 #. (title)
@@ -14693,6 +14685,13 @@ msgid ""
 " however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
 msgstr ""
 
 #. (para)

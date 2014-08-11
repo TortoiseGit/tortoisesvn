@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -9857,30 +9857,6 @@ msgid ""
 msgstr "Jos et halua käyttää interaktiivista ristiriitojen selvitystä, ruksaa yhdistämisikkunan valinta <guilabel>Yhdistä ilman kysymyksiä</guilabel>. Kun tämä asetus on aktiivinen, yhdistämisen aikana syntyvät ristiriidat aiheuttavat tiedoston merkitsemisen ristiriitaiseksi, minkä jälkeen yhdistäminen saa jatkua. Ristiriidat on ratkottava yhdistämisen päätyttyä. Mikäli asetus ei ole aktiivinen, voit koettaa ratkaista mahdolliset ristiriidat <emphasis>yhdistämisen aikana</emphasis>. Tästä on se hyöty, että mikäli tiedostoon kohdistuu useita yhdistämisiä (useat versiot tekevät tiedostoon muutoksia), jälkeen päin tulevat yhdistämiset saattavat onnistua (riippuen siitä, mitkä rivit muuttuvat). Mutta tällöin et tietenkään voi kävellä hakemaan kahvia yhdistämisen aikana ;)."
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Valmiin haaran yhdistäminen"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "yhdistä takaisin"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Yhdistä takaisin -ikkuna"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Jos haluat yhdistää kaikki muutokset kehityshaarasta takaisin päähaaraan, voit käyttää laajennetun kontekstivalikon komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Yhdistä takaisin...</guimenuitem></menuchoice> (pidä <keycap>Shift</keycap>-näppäin painettuna avatessasi valikon). <placeholder-1/> Tämä ikkuna on helppo täyttää. Riittää, kun asetat yhdistämisasetukset (ks. luku <xref linkend=\"tsvn-dug-merge-options\"/>). TortoiseSVN huolehtii lopusta automaattisesti käyttäen hyväkseen tietoa aiemmin tehdyistä yhdistämisistä."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Kehityshaaran ylläpito"
 
@@ -9914,6 +9890,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Jos ominaisuuden kehittäminen vie pitkään, ja joudut sen aikana ottamaan huomioon päähaarassa tapahtuvia muutoksia, joudut pitämään haarat synkronoituina. Tämä tarkoittaa yksinkertaisesti sitä, että yhdistät aika ajoin päähaaran muutokset kehityshaaraan, jolloin kehityshaara sisältää päähaaran muutokset <emphasis>sekä</emphasis> uuden ominaisuuden. Synkronointiin käytetään yhdistämisvalintaa <guilabel>Yhdistä versioväli</guilabel>. Kun ominaisuus on valmis, voit yhdistää sen takaisin päähaaraan joko komennolla <guilabel>Yhdistä haara takaisin</guilabel> tai <guilabel>Yhdistä kaksi eri puuta</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14686,6 +14678,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällaiset työkalut eivät kuitenkaan sovellu tekijätietojen selvittämiseen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), joten saatat tällöin haluta palata käyttämään TortoiseMergeä. Tehdäksesi tämän, aseta arvoksi <literal>true</literal>."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

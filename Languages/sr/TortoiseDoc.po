@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-21 19:41+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9860,30 +9860,6 @@ msgid ""
 msgstr "Ако не желите да користите интерактиван повратни позив постоји чекбокс у прогрес дијалогу  стапања <guilabel>Стопи не-интерактивно</guilabel>. Ако је ово одабрано  за стапање  и стапање проузрокује конфликт, фајл је маркиран да је у конфликту и стапање се наставља. Ви ћете решити конфликт после свршетка укупног стапања. Ако није подешено онда пре него се фајл маркира као конфликтан добијате шансу да решите конфликт <emphasis>током</emphasis> стапања.Ово има предност ако фајл добије вишеструка спајања (вишеструке ревизије примењују измене тог фајл), сукцесивна стапања се могу наставити у зависности на које линије се односи. Али свакако не можете шетати около по кафу док стапање ради ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Спајање целе гране"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "стопи реинтегрирај"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Дијалог реинтегрисаног спајања"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Ако желите стопити све измене посебне гране назад у дебло тада можете користити <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Стопити реинтегрисано...</guimenuitem></menuchoice> из проширеног контекст менија (држи <keycap>Shift</keycap> тастер док десно кликнете на фајл). <placeholder-1/> Овај дијалог је веома лак. Све што имате да урадите је да подесите опције за стапање како је описано <xref linkend=\"tsvn-dug-merge-options\"/>. преостало је дато са ТортоисеСВН аутоматски користећи праћење стапања."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Особина одржавања гране"
 
@@ -9917,6 +9893,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Ако особина узима много времена и треба вам рачун за измене у <literal>деблу</literal>, потрбно је да задржите синхронизацију гране. То једноставно значи да периодично стапате измене дебла у грану, тако да грана садржи све измене дебла <emphasis>плус</emphasis> нове особине. Процес синхронизације користи <guilabel>Стопи опсег ревизија</guilabel>. Када је особина комплетна можете је стопити назад на <literal>дебло</literal> користећи или <guilabel>Реинтегриши грану</guilabel> или <guilabel>Стопи два различита стабла</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14689,6 +14681,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "ТортоисеСВН допушта да означите спољашњи дифф прегледач. Већина таквих прегледача, међутим, не одговара за измену окривљавања  (<xref linkend=\"tsvn-dug-blame-diffs\"/>), тако да можете желети да се вратите ТортоисеМерге у том случају. Да бисте то урадили  креирајте  подесите ову вредност на <literal>истина</literal>."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

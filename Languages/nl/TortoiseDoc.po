@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -9862,30 +9862,6 @@ msgid ""
 msgstr "Als je niet gebruik wilt maken van deze interactieve onderzoeksmethode, dan kun je gebruik maken van het selectievak <guilabel>Samenvoegen zonder tussenkomst</guilabel> in het samenvoeg voortgangsscherm. Als deze optie aangevinkt is en er treedt een conflict op met een bestand, dan zal dat bestand als conflicterend gemarkeerd worden en gaat de samenvoeging verder. Je moet het conflict dan oplossen nadat de hele samenvoeging afgerond is. Als deze optie niet aangevinkt is, dan krijg je de kans om een conflict met een bestand op te lossen <emphasis>tijdens</emphasis> het samenvoegen, voordat het als conflicterend gemarkeerd wordt. Dit heeft als voordeel, dat als een bestand meerdere keren wordt samengevoegd (meerdere revisies voeren een wijziging door aan dat bestand), de opeenvolgende samenvoegingen succesvol kunnen verlopen afhankelijk van de regels die veranderd zijn. Maar je kunt natuurlijk niet even koffie gaan halen als een samenvoeging bezig is. ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Samenvoegen van een Afgehandelde Tak"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "samenvoegen herintegratie"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "De Samenvoeg Re-integratie Dialoog"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Als je alle wijzigingen van een tak met nieuwe functies wilt samenvoegen naar de basislijn, dan kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reïntegratie samenvoeging...</guimenuitem></menuchoice> vanuit het uitgebreide context menu (houdt de <keycap>Shift</keycap> knop ingedrukt als je met rechts op een bestand klikt). <placeholder-1/> Dit scherm is heel eenvoudig. Het enige wat je hoeft te doen is de opties voor de samenvoeging in te stellen, zoals beschreven in <xref linkend=\"tsvn-dug-merge-options\"/>. De rest wordt automatisch door TortoiseSVN gedaan met gebruik van samenvoeg traceer informatie."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Onderhoud aan een Tak met Nieuwe Functies"
 
@@ -9919,6 +9895,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Als de ontwikkeling langer duurt en je rekening moet gaan houden met wijzigingen in de <literal>basislijn</literal>, dan moet je je tak synchroon houden met de basislijn. Dit houdt gewoon in dat je regelmatig de wijzigingen in de basislijn moet samenvoegen naar je tak, zodat de tak de wijzigingen van de basislijn <emphasis>plus</emphasis> de nieuwe functie heeft. Het synchronisatie proces gebruikt de <guilabel>Voeg een reeks revisies samen</guilabel> functie. Als de functie klaar is, kun je deze samenvoegen naar de <literal>basislijn</literal> met <guilabel>Reïntegreer een tak</guilabel> of met <guilabel>Twee verschillende bomen samenvoegen</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14691,6 +14683,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN geeft de mogelijkheid om een extern diff programma in te stellen. De meeste programma's zijn echter niet geschikt voor het verklaren van verschillen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), waardoor je misschien terug wilt vallen op TortoiseMerge in die gevallen. Stel hiervoor deze waarde in op <literal>true</literal>"
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

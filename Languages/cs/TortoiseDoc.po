@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -9858,30 +9858,6 @@ msgid ""
 msgstr "Pokud nechcete používat toto interaktivní zpětné volání, existuje zaškrtávací políčko v dialogovém okně průběhu sloučení, <guilabel>Neinteraktivní slučování</guilabel>. Pokud je toto nastaveno pro sloučení a sloučení by mělo konflikt, je soubor označen jako v konfliktu a sloučení pokračuje. Konflikty budete muset vyřešit, až celé sloučení skončí. Pokud toto není nastaveno, pak předtím, než je soubor označen jako konfliktní, máte šanci konflikt vyřešit <emphasis>během</emphasis> sloučení. Má to tu výhodu, že pokud je soubor slučován vícekrát (více revizí zahrnují změnu tohoto souboru), můžou následná sloučení uspět v závislosti na tom, které řádky jsou zasaženy. Ale samozřejmě si nemůžete odejít na kafe zatímco slučování běží ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Sloučení Dokončenou větev"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "znovu začleňovací sloučení"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Dialogové okno znovu začlenění sloučení"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Pokud chcete sloučit všechny změny z větve funkcí zpět do kmene, pak můžete použít <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Znovu začlenění sloučení</guimenuitem></menuchoice> z rozšířeného kontextového menu (podržte klávesu <keycap>Shift</keycap>, při kliknutí pravým tlačítkem na soubor). <placeholder-1/> Toto dialogové okno je velmi jednoduché. Jediné, co musíte udělat, je nastavit volby pro sloučení, jak je popsáno v <xref linkend=\"tsvn-dug-merge-options\"/>. O zbytek se postará TortoiseSVN automaticky pomocí sledování sloučení."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Údržba Větve Funkcí"
 
@@ -9915,6 +9891,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Pokud tato funkce bude trvat déle a je třeba zohlednit změny v <literal>kmeni</literal>, pak je třeba, aby větev byla synchronizována. To prostě znamená, že pravidelně slučujete změny kmene do větve, tak, aby větev obsahovala všechny změny kmene <emphasis>plus</emphasis> novou funkci. Proces synchronizace využívá <guilabel>Sloučit rozsah revizí</guilabel>. Když je funkce dokončena pak ji můžete sloučit zpět do <literal>kmene</literal> buď pomocí <guilabel>Znovu začlenit větev</guilabel> nebo <guilabel> Sloučit dva různé stromy</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14687,6 +14679,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN Vám umožňuje přiřadit externí prohlížeč rozdílů. Většina takových prohlížečů, však není vhodná pro změnu obvinění (<xref linkend=\"tsvn-dug-blame-diffs\"/>), takže byste mohli chtít vtomto případě jít zpět na TortoiseMerge. Chcete-li tak učinit, nastavte tuto hodnotu na <literal>true</literal>."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

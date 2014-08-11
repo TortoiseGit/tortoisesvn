@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -9873,30 +9873,6 @@ msgid ""
 msgstr "如果您不想使用交互式回调，在合并进度对话框中有一个 <guilabel>非交互式合并</guilabel> 复选框。如果选中它，若合并中出现了冲突，该文件会被标记为冲突，然后继续合并。你必须在整个合并完成后解决这些冲突。如果不选中它，那么在冲文件被标记为冲突之前你有机会在合并 <emphasis>过程中</emphasis> 解决冲突。它的优势是如果一个文件获得多个合并 (多个修订版本将更改应用于该文件)，后续的合并是否成功取决于受影响的行。但这样在合并期间你可不能离开去尿尿哦 ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "合并已完成的分支"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "合并复兴分支"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "合并复兴分支对话框"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "如果您要从分支合并所有更改至主干，您可以从扩展的上下文菜单 (按住 <keycap>Shift</keycap> 键同时右击该文件) 中使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并复兴分支...</guimenuitem></menuchoice>。<placeholder-1/> 此对话框很简单。你所要做的就是设置合并选项, 如 <xref linkend=\"tsvn-dug-merge-options\"/> 中所述。剩下部分是通过 TortoiseSVN 自动使用合并跟踪来完成。"
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "特性分支维护"
 
@@ -9930,6 +9906,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "如果该特性需要花费更长的时间，就要考虑到 <literal>主干</literal> 中的变化，那么你就需要保持分支同步。这仅仅意味着定期地将主干的修改合并到分支，使分支包含所有主干的修改并 <emphasis>加上</emphasis> 新特性。同步过程使用 <guilabel>合并一个版本范围</guilabel> 。当完成新特性时，那么你可以使用 <guilabel>复兴分支</guilabel> 或 <guilabel>合并两个不同的树</guilabel> 将其合并回 <literal>主干</literal>。"
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14701,6 +14693,13 @@ msgid ""
 " however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
 msgstr ""
 
 #. (para)

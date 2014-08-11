@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -9855,30 +9855,6 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Spajanje zaključene veje"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "vključitev veje"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Okno Vključitev veje"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Če želite spojiti vse spremembe iz glavne veje na stransko vejo, na kateri trenutno delate, lahko uporabite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vključitev veje...</guimenuitem></menuchoice> iz razširjenega kontekstnega menija (ob desnem kliku držite pritisnjeno tipko<keycap>Shift</keycap>). <placeholder-1/> Pogovorno okno je enostavno. Vse, kar morate storiti, je nastaviti možnosti za spajanje, kot je to opisano v <xref linkend=\"tsvn-dug-merge-options\"/>. Vse ostalo naredi TortoiseSVN sam s pomočjo sledenja spajanja."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Vzdrževanje stranskih vej"
 
@@ -9912,6 +9888,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Če bo razvoj na stranski veji potekal dalj časa, pri tem pa morate upoštevati tudi spremembe na <literal>glavni veji</literal>, morate poskrbeti, da sta vejo sinhronizirani. To preprosto pomeni, da morate v določenih časovnih razmakih spajati spremembe iz glavne veje na stransko. Tako stranska veja vsebuje vse spremembe iz glavne veje, <emphasis>poleg tega pa</emphasis> tudi spremembe zaradi razvoja nove zmožnosti. Za sinhronizacij uporabljate možnost <guilabel>Spoji območje revizij</guilabel>. Ko je razvoj na stranski veji končan, lahko spojite spremembe nazaj na <literal>glavno vejo</literal> z uporabo možnosti <guilabel>Vključitev veje</guilabel> ali <guilabel>Spoji dve različni drevesi</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14683,6 +14675,13 @@ msgid ""
 " however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
 msgstr ""
 
 #. (para)

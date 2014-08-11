@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-19 08:21+0000\n"
+"PO-Revision-Date: 2014-08-08 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -9856,30 +9856,6 @@ msgid ""
 msgstr "Nếu bạn không muốn sử dụng tương tác gọi lại này, có một hộp kiểm trong hộp thoại tiến triển hợp nhất <guilabel> Hợp nhất không tương tác </guilabel> . Nếu đây là thiết lập cho một hợp nhất và hợp nhất sẽ cho kết quả trong một xung đột, tập tin được đánh dấu xung đột và hợp nhất sẽ đi tiếp. Bạn sẽ phải giải quyết những xung đột sau khi toàn bộ hợp nhất được hoàn thành. Nếu nó không được thiết lập, thì trước khi một tập tin được đánh dấu là mâu thuẫn bạn có cơ hội để giải quyết xung đột <emphasis> trong lúc </emphasis> hợp nhất. Điều này có lợi thế rằng nếu một tập tin có nhiều hợp nhất (nhiều bản sửa đổi áp dụng một thay đổi đến tập tin đó), các hợp nhất tiếp theo có thể thành công tùy thuộc vào những dòng bị ảnh hưởng. Nhưng tất nhiên, bạn không thể chỗ khác để lấy cà phê trong khi hợp nhất đang chạy;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Hợp nhất một Chi nhánh Đầy đủ"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "tái tích hợp sáp nhập"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Hộp thoại tái tích hợp sáp nh"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Nếu bạn muốn hợp nhất tất cả các thay đổi từ một chi nhánh tính năng vào thân cây, thì bạn có thể sử dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Tái hòa nhập hợp nhất... </guimenuitem></menuchoice> từ trình đơn ngữ cảnh mở rộng (giữ phím <keycap> Shift </keycap> trong khi bạn kích chuột phải vào tập tin). <placeholder-1/> Hộp thoại này rất dễ dàng. Tất cả những gì bạn phải làm là thiết lập các tùy chọn cho hợp nhất, theo mô tả trong <xref linkend=\"tsvn-dug-merge-options\"/> . Phần còn lại được thực hiện bởi TortoiseSVN một cách tự động bằng cách sử dụng theo dõi hợp nh."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Bảo trì các Chi nhánh Tính năng"
 
@@ -9913,6 +9889,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Nếu tính năng này sẽ mất nhiều thời gian và bạn cần vào tài khoản cho những thay đổi trong <literal> thân cây </literal> , thì bạn cần phải giữ cho chi nhánh đồng bộ. Điều này đơn giản chỉ có nghĩa là định kỳ, bạn hợp nhất các thay đổi thân cây vào chi nhánh, do đó chi nhánh có chứa tất cả các thay đổi thân <emphasis> cộng thêm </emphasis> tính năng mới. Quá trình đồng bộ sử dụng <guilabel> Hợp nhất một loạt các sửa đổi </guilabel> . Khi tính năng hoàn tất, sau đó bạn có thể kết hợp nó trở lại <literal> thân cây </literal> bằng cách sử dụng <guilabel> Tái tích hợp một chi nhánh </guilabel> hoặc <guilabel> Hợp nhất hai cây khác nhau </guilabel> ."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr ""
 
 #. (title)
 msgid "Locking"
@@ -14685,6 +14677,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN cho phép bạn chỉ định một trình xem khác biệt bên ngoài. Hầu hết các trình xem như vậy, tuy nhiên, không phù hợp cho đổ lỗi thay đổi ( <xref linkend=\"tsvn-dug-blame-diffs\"/> ), Vì vậy bạn có thể quay trở lại TortoiseMerge trong trường hợp này. Để làm như vậy, thiết lập giá trị này thành <literal> đúng </literal> ."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""

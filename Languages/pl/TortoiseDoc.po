@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-23 20:10+0000\n"
+"PO-Revision-Date: 2014-08-08 22:20+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -9860,30 +9860,6 @@ msgid ""
 msgstr "Jeśli nie chcecie używać tego interaktywnego okna informacji zwrotnej, istnieje pole wyboru w oknie dialogowym postępu <guilabel>Scalaj nieinteraktywnie</guilabel>. Jeśli jest zaznaczone dla scalenia a ono spowoduje konflikt, plik jest oznakowany jako skonfliktowany i scalanie przechodzi dalej. Będziecie musieli rozwiązać konflikty kiedy całe scalanie zostanie zakończone. Jeśli nie jest zaznaczone, to zanim plik zostaje oznaczony jako skonfliktowany macie szansę, aby rozwiązać konflikt <emphasis>w trakcie</emphasis> scalania. Ma to tę zaletę, że jeśli plik wchodzi w skład wielu acaleń (wiele wersji wprowadziło zmiany w tym pliku), kolejne scalenie może się udać w zależności od tego, których linii dotyczą. Ale oczywiście nie można wyjść na kawę, podczas gdy wykonuje się scalenie ;)"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "Scalenie ukończonej gałęzi"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "reintegruj scalanie"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "Okno dialogowe scalenia reintegracyjnego"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "Jeśli chcecie scalić wszystkie zmiany z gałęzi funkcji z powrotem do linii głównej, można użyć <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reintegruj scalanie...</guimenuitem></menuchoice> z rozszerzonego menu kontekstowego (przytrzymajcie klawisz <keycap>Shift</keycap>, podczas kliknięcia prawym przyciskiem myszy na pliku). <placeholder-1/> To okno jest bardzo proste. Wszystko co musicie zrobić, to ustawić opcje dla scalenia, jak opisano w <xref linkend=\"tsvn-dug-merge-options\"/>. Resztę wykonuje automatycznie TortoiseSVN wykorzystując śledzenie scaleń."
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "Utrzymanie gałęzi funkcji"
 
@@ -9917,6 +9893,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "Jeśli funkcja będzie dopracowywana dłużej i trzeba brać pod uwagę zmiany w <literal>linii głównej</literal>, musicie mieć gałąź synchronizowaną. Oznacza to,​​okresowe scalenia zmian linii głównej do gałęzi, tak, by gałąź zawierała wszystkie zmiany linii głównej <emphasis>oraz</emphasis> z nowej funkcji. Proces synchronizacji wykorzystuje <guilabel>Scal zakres wersji</guilabel>. Gdy funkcja jest zakończona, to możesz połączyć ją z powrotem do <literal>linii głównej</literal> za pomocą <guilabel>Reintegruj gałąź</guilabel> lub <guilabel>Scal dwa różne drzewa</guilabel>."
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr "Okno dialogowe Scalaj-Wszystko"
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr "Inną (szybką) drogą by scalić wszystkie zmiany z linii głównej do gałęzi funkcji jest użycie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Scalaj wszystko...</guimenuitem></menuchoice> z rozszerzonego menu kontekstowego (należy przytrzymać klawisz <keycap>Shift</keycap> podczas prawokliku na pliku). <placeholder-1/> To okno jest naprawdę proste. Wszystko co trzeba zrobić to ustawienie opcji scalenia, jak to opisano w sekcji <xref linkend=\"tsvn-dug-merge-options\"/>. Reszta wykonywana jest przez TortoiseSVN automatycznie przy użyciu śledzenia scaleń."
 
 #. (title)
 msgid "Locking"
@@ -14689,6 +14681,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN pozwala na przypisanie zewnętrznej porównywarki. Większość takich przeglądarek jednak nie nadaje się do adnotowania zmian (<xref linkend=\"tsvn-dug-blame-diffs\"/>), więc może chcecie wrócić w tym przypadku do TortoiseMerge. Aby to zrobić, ustawcie tę wartość na <literal>true</literal>."
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr "Ta wartość określa liczbę pikseli poniżej której okno dialogowe przykleja się do krawędzi. Domyślna wartość to 3. By wyłączyć takie zachowanie należy ustawić wartość na zero."
 
 #. (para)
 msgid ""

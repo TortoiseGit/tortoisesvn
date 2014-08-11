@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-07 06:20+0000\n"
+"PO-Revision-Date: 2014-08-09 10:20+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -9860,30 +9860,6 @@ msgid ""
 msgstr "この対話的コールバックが必要なければ、マージ進行ダイアログに <guilabel>非対話的なマージ</guilabel> チェックボックスがあります。マージ時にこれをセットし、マージ結果に競合がある場合、ファイルに競合マークが付き、マージを継続します。マージがすべて完了したあとで、競合を解決しなければなりません。セットしない場合は、競合マークがファイルに付く前に、<emphasis>マージ中</emphasis>に競合解決を行う機会があります。ファイルが複数のマージ（複数のリビジョンがそのファイルに変更を与える）を受ける場合、影響を受ける行によって、続くマージが成功するという利点があります。しかしもちろん、マージ実行中には、コーヒーを入れにそこを離れるわけにはいきません。"
 
 #. (title)
-msgid "Merge a Completed Branch"
-msgstr "完全なブランチをマージ"
-
-#. (primary)
-msgid "merge reintegrate"
-msgstr "マージの再統合"
-
-#. (title)
-msgid "The Merge reintegrate Dialog"
-msgstr "マージ再統合ダイアログ"
-
-#. (para)
-msgid ""
-"If you want to merge all changes from a feature branch back to trunk, then "
-"you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge"
-" reintegrate...</guimenuitem></menuchoice> from the extended context menu "
-"(hold down the <keycap>Shift</keycap> key while you right click on the "
-"file). <placeholder-1/> This dialog is very easy. All you have to do is set "
-"the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
-"options\"/>. The rest is done by TortoiseSVN automatically using merge "
-"tracking."
-msgstr "機能ブランチの変更を、トランクにすべてマージして戻す場合、拡張コンテキストメニュー（<keycap>Shift</keycap> キーを押したままファイルを右クリック）にある <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージの再統合...</guimenuitem></menuchoice> を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、 <xref linkend=\"tsvn-dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN は、マージ追跡を使用して残りを自動的に処理します。 "
-
-#. (title)
 msgid "Feature Branch Maintenance"
 msgstr "機能ブランチの保守"
 
@@ -9917,6 +9893,22 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr "その機能に時間がかかり、<literal>トランク</literal>に対して変更を説明する必要がある場合、ブランチの同期を維持する必要があります。これは、トランクの変更点 <emphasis>プラス</emphasis> 新機能をブランチが持つように、単純にトランクへの変更を定期的にブランチへマージするということです。同期プロセスでは <guilabel>リビジョンの範囲をマージ</guilabel> を用います。機能が完成したら、<guilabel>ブランチを再統合する</guilabel> や <guilabel>異なる２つのツリーをマージ</guilabel> のどちらかを用いて、<literal>trunk</literal> にマージできます。"
+
+#. (title)
+msgid "The Merge-All Dialog"
+msgstr "すべてマージダイアログ"
+
+#. (para)
+msgid ""
+"Another (fast) way to merge all changes from trunk to the feature branch is "
+"to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge "
+"all...</guimenuitem></menuchoice> from the extended context menu (hold down "
+"the <keycap>Shift</keycap> key while you right click on the file). "
+"<placeholder-1/> This dialog is very easy. All you have to do is set the "
+"options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
+"options\"/>. The rest is done by TortoiseSVN automatically using merge "
+"tracking."
+msgstr "トランクのすべての変更を機能ブランチに反映する他の（手早い）方法として、拡張コンテキストメニュー（<keycap>Shift</keycap>キーを押したままファイルを右クリック）にある<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>すべてマージ...</guimenuitem></menuchoice>を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、 <xref linkend=\"tsvn-dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN は、マージ追跡を使用して残りを自動的に処理します。 "
 
 #. (title)
 msgid "Locking"
@@ -14689,6 +14681,13 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN は外部の差分ビューアーを使用することができます。しかし、多くのビューアーには注釈履歴 （<xref linkend=\"tsvn-dug-blame-diffs\"/>）が統合されていませんので、その場合はTortoiseMerge に戻したくなることもあるでしょう。そのためには、この値を<literal>true</literal>に設定してください。"
+
+#. (para)
+msgid ""
+"This value specifies the number of pixels a dialog has to be near a border "
+"before the dialog sticks to it. The default value is 3. To disable this "
+"value set the value to zero."
+msgstr ""
 
 #. (para)
 msgid ""
