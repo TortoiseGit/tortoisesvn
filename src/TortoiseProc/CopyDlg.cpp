@@ -155,7 +155,13 @@ BOOL CCopyDlg::OnInitDialog()
     m_URLCombo.SetCurSel(0);
     CString relPath = m_wcURL.Mid(m_repoRoot.GetLength());
     if (!m_URL.IsEmpty())
-        relPath = m_URL.Mid(m_repoRoot.GetLength());
+    {
+        // allow the use of urls relative to the repo root
+        if (m_URL[0] != '^')
+            relPath = m_URL.Mid(m_repoRoot.GetLength());
+        else
+            relPath = m_URL.Mid(1);
+    }
     CTSVNPath r = CTSVNPath(relPath);
     relPath = r.GetUIPathString();
     relPath.Replace('\\', '/');
