@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 25654)
+--- include/Scintilla.h	(Revision 25765)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -1015,6 +1015,7 @@
+@@ -1024,6 +1024,7 @@
  #define SCN_HOTSPOTRELEASECLICK 2027
  #define SCN_FOCUSIN 2028
  #define SCN_FOCUSOUT 2029
@@ -12,46 +12,85 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 25654)
+--- src/Editor.cxx	(Revision 25765)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -2789,8 +2789,19 @@
- 	FontAlias ctrlCharsFont = vsDraw.styles[STYLE_CONTROLCHAR].font;
+@@ -99,6 +99,7 @@
+ }
+ 
+ Editor::Editor() {
++	view.editor = this;
+ 	ctrlID = 0;
+ 
+ 	stylesValid = false;
+Index: src/Editor.h
+===================================================================
+--- src/Editor.h	(Revision 25765)
++++ src/Editor.h	(Arbeitskopie)
+@@ -560,6 +560,7 @@
+ 	static sptr_t BytesResult(sptr_t lParam, const unsigned char *val, size_t len);
+ 
+ public:
++	virtual void NotifyParent(SCNotification * scn) = 0;
+ 	// Public so the COM thunks can access it.
+ 	bool IsUnicodeMode() const;
+ 	// Public so scintilla_send_message can use it.
+Index: src/EditView.cxx
+===================================================================
+--- src/EditView.cxx	(Revision 25765)
++++ src/EditView.cxx	(Arbeitskopie)
+@@ -46,6 +46,7 @@
+ #include "EditModel.h"
+ #include "MarginView.h"
+ #include "EditView.h"
++#include "Editor.h"
+ 
+ #ifdef SCI_NAMESPACE
+ using namespace Scintilla;
+@@ -185,6 +186,7 @@
+ 	pixmapIndentGuideHighlight = 0;
+ 	llc.SetLevel(LineLayoutCache::llcCaret);
+ 	posCache.SetSize(0x400);
++	editor = NULL;
+ }
+ 
+ EditView::~EditView() {
+@@ -1624,7 +1626,18 @@
+ 	}
  
  	// See if something overrides the line background color.
--	const ColourOptional background = vsDraw.Background(pdoc->GetMark(line), caret.active, ll->containsCaret);
-+	ColourOptional background = vsDraw.Background(pdoc->GetMark(line), caret.active, ll->containsCaret);
- 
-+	SCNotification scn = {0};
+-	const ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
++	ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
++	SCNotification scn = { 0 };
 +	scn.nmhdr.code = SCN_GETBKCOLOR;
 +	scn.line = line;
 +	scn.lParam = -1;
-+	NotifyParent(&scn);
++	if (editor)
++		((Editor*)editor)->NotifyParent(&scn);
 +	if (scn.lParam != -1)
 +	{
 +		background.Set(scn.lParam);
 +		background.isSet = true;
 +	}
-+
- 	const bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
- 	        (!background.isSet) && (vsDraw.whitespaceColours.back.isSet);
  
-Index: src/Editor.h
+ 	const int posLineStart = model.pdoc->LineStart(line);
+ 
+Index: src/EditView.h
 ===================================================================
---- src/Editor.h	(Revision 25654)
-+++ src/Editor.h	(Arbeitskopie)
-@@ -497,6 +497,7 @@
- 	virtual void SetCtrlID(int identifier);
- 	virtual int GetCtrlID() { return ctrlID; }
- 	virtual void NotifyParent(SCNotification scn) = 0;
-+	virtual void NotifyParent(SCNotification * scn) = 0;
- 	virtual void NotifyStyleToNeeded(int endStyleNeeded);
- 	void NotifyChar(int ch);
- 	void NotifySavePoint(bool isSavePoint);
+--- src/EditView.h	(Revision 25765)
++++ src/EditView.h	(Arbeitskopie)
+@@ -74,6 +74,7 @@
+ 	Surface *pixmapLine;
+ 	Surface *pixmapIndentGuide;
+ 	Surface *pixmapIndentGuideHighlight;
++	void	*editor;
+ 
+ 	LineLayoutCache llc;
+ 	PositionCache posCache;
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 25654)
+--- win32/ScintillaWin.cxx	(Revision 25765)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
-@@ -249,6 +249,7 @@
+@@ -261,6 +261,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -59,7 +98,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, int modifiers);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1507,6 +1508,13 @@
+@@ -1653,6 +1654,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
