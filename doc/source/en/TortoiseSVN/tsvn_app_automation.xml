@@ -395,11 +395,12 @@ Don't touch these lines:
                 The <option>/path</option>
                 is the working copy to branch/tag from.
                 And the <option>/url</option> is the
-                target URL. To already check the option <literal>
-                  Switch
-                  working copy to new branch/tag
-                </literal> you can pass
-                the <option>/switchaftercopy</option> switch.
+                target URL. If the urls starts with a <literal>^</literal> it is assumed
+                to be relative to the repository root.
+                To already check the option
+                <literal>Switch working copy to new branch/tag</literal> you can pass
+                the <option>/switchaftercopy</option> switch. To check the option
+                <literal>Create intermediate folders</literal> pass the <option>/makeparents</option> switch.
                 You can also specify the <option>/logmsg</option> switch
                 to pass a predefined log message to the branch/tag dialog.
                 Or, if you don't want to pass the log message on the

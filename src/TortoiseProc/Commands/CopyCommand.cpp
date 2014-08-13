@@ -45,6 +45,7 @@ bool CopyCommand::Execute()
     CString logmessage = msg;
     SVNRev copyRev = SVNRev::REV_HEAD;
     BOOL doSwitch = parser.HasKey(L"switchaftercopy");
+    BOOL makeParents = parser.HasKey(L"makeparents");
     do
     {
         repeat = FALSE;
@@ -52,6 +53,7 @@ bool CopyCommand::Execute()
         dlg.m_sLogMessage = logmessage;
         dlg.m_CopyRev = copyRev;
         dlg.m_bDoSwitch = doSwitch;
+        dlg.m_bMakeParents = makeParents;
         if (dlg.DoModal() == IDOK)
         {
             theApp.m_pMainWnd = NULL;
@@ -70,6 +72,7 @@ bool CopyCommand::Execute()
             logmessage = dlg.m_sLogMessage;
             copyRev = dlg.m_CopyRev;
             doSwitch = dlg.m_bDoSwitch;
+            makeParents = dlg.m_bMakeParents;
             progDlg.DoModal();
             CRegDWORD err = CRegDWORD(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
