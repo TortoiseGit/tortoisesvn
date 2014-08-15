@@ -8167,7 +8167,8 @@ void CLogDlg::MonitorTimer()
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
-        if (pItem->lastchecked + (pItem->interval * 60) < currenttime)
+        if (!pItem->WCPathOrUrl.IsEmpty() &&
+            ((pItem->lastchecked + (max(pItem->minminutesinterval, pItem->interval) * 60)) < currenttime))
             m_monitorItemListForThread.push_back(*pItem);
         return false;
     });
@@ -8195,7 +8196,7 @@ void CLogDlg::MonitorPopupTimer()
         {
             MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
 
-            pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::SLIDE);
+            pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::FADE);
             pPopup->SetAnimationSpeed(40);
             pPopup->SetTransparency(200);
             pPopup->SetSmallCaption(TRUE);
@@ -8237,7 +8238,7 @@ void CLogDlg::MonitorThread()
             break;
         if (item.WCPathOrUrl.IsEmpty())
             continue;
-        if (item.lastchecked + (max(item.minminutesinterval, item.interval) * 60) < currenttime)
+        if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
         {
             CString sCheckInfo;
             sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
@@ -8327,7 +8328,7 @@ void CLogDlg::MonitorThread()
             }
             SetDlgItemText(IDC_LOGINFO, L"");
         }
-        if (item.lastcheckedrobots + (60 * 60 * 24 * 2) < currenttime)
+        if ((item.lastcheckedrobots + (60 * 60 * 24 * 2)) < currenttime)
         {
             std::wstring sRobotsURL = svn.GetURLFromPath(CTSVNPath(item.WCPathOrUrl));
             sRobotsURL += _T("/svnrobots.txt");
@@ -8514,8 +8515,10 @@ void CLogDlg::OnMonitorThreadFinished()
     if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())
     {
         SetTimer(MONITOR_POPUP_TIMER, 10, NULL);
+        SaveMonitorProjects(true);
     }
-    SaveMonitorProjects(false);
+    else
+        SaveMonitorProjects(false);
 }
 
 void CLogDlg::ShutDownMonitoring()
