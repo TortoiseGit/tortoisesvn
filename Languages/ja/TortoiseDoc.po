@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-09 10:20+0000\n"
+"PO-Revision-Date: 2014-08-13 05:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -4909,7 +4909,7 @@ msgid ""
 ">ignore-on-commit</literal>. This is used to mark versioned files which you "
 "almost never want to commit even though they have local changes. This "
 "feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr "TortoiseSVN は <literal>ignore-on-commit</literal> という名前の変更リストを、自身で使用するために予約しています。これは、ローカルで変更があってもコミットしたくない、バージョン管理下のファイルをマークするのに使用します。この機能は、 <xref linkend=\"tsvn-dug-commit-ignore\"/>で説明します。"
+msgstr "<literal>ignore-on-commit</literal>という変更リスト名は、TortoiseSVNが自身で使用するために予約しています。これは、ローカルで変更があってもコミットしたくない、バージョン管理下のファイルをマークするのに使用します。この機能は、<xref linkend=\"tsvn-dug-commit-ignore\"/>で説明します。"
 
 #. (para)
 msgid ""
@@ -13237,7 +13237,7 @@ msgid ""
 "make those files not propagate their status to the parent folder. That way "
 "if only files in that changelist are modified, the parent folder still shows"
 " the unmodified overlay icon."
-msgstr ""
+msgstr "変更リスト<literal>ignore-on-commit</literal>にファイルが登録されている場合、状態を親フォルダーの表示に反映させないようにすることができます。つまり、変更リスト内のファイルだけが変更されても、親フォルダーのオーバーレイアイコンは「未変更」のままになります。"
 
 #. (para)
 msgid ""
@@ -15030,7 +15030,7 @@ msgstr ""
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "プロジェクトをモニターに追加"
 
 #. (para)
 msgid ""
@@ -15071,11 +15071,11 @@ msgstr ""
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "モニターダイアログ"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "コミットダイアログのメインダイアログ"
 
 #. (para)
 msgid ""

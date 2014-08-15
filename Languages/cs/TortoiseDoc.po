@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 08:14+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-08-14 14:01+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5329,7 +5329,7 @@ msgid ""
 "test merge. It is a good idea to merge into an unmodified working copy so "
 "that you can revert the changes if it doesn't work out! This is a useful "
 "feature if you want to merge selected revisions from one branch to another."
-msgstr "Sloučit vybranou revizi(e) do jiné pracovní kopie. Dialogové okno pro výběr adresáře umožňuje zvolit pracovní kopii ke sloučení, ale poté už není žádné dialogové okno pro potvrzení, ani příležitost sloučení vyzkoušet. Je dobrý nápad sloučit do nezměněné pracovní kopie, takže můžete vrátit změny, pokud to nevyjde! To je užitečná vlastnost, pokud chcete sloučit vybrané revize z jedné větve do druhé."
+msgstr "Sloučit vybranou revizi(e) do jiné pracovní kopie. Dialogové okno pro výběr adresáře umožňuje zvolit pracovní kopii ke sloučení, ale poté už není žádné dialogové okno pro potvrzení, ani příležitost sloučení vyzkoušet. Je doporučeno slučovat do nezměněné pracovní kopie, abyste mohli vrátit změny, pokud to nevyjde! To je užitečná vlastnost, pokud chcete sloučit vybrané revize z jedné větve do druhé."
 
 #. (term)
 msgid "Checkout..."
@@ -7487,7 +7487,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
 " copy."
-msgstr "Pokud příkaz Subversion nemůže být úspěšně dokončen, třeba kvůli problémům serveru, může Vaše pracovní kopie zůstat v rozporuplném stavu. V takovém případě je třeba použít na adresář <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vyčistit</guimenuitem></menuchoice>. Je dobrý nápad toto provádět na nejvyšší úrovni v pracovní kopii."
+msgstr "Pokud příkaz Subversion nemůže být úspěšně dokončen, třeba kvůli problémům serveru, může Vaše pracovní kopie zůstat v rozporuplném stavu. V takovém případě je třeba použít na adresář <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vyčistit</guimenuitem></menuchoice>. Je doporučeno toto provádět na nejvyšší úrovni pracovní kopie."
 
 #. (term)
 msgid "Clean up working copy status"
@@ -9894,7 +9894,7 @@ msgstr "Pokud tato funkce bude trvat déle a je třeba zohlednit změny v <liter
 
 #. (title)
 msgid "The Merge-All Dialog"
-msgstr ""
+msgstr "Dialogové okno Sloučit vše..."
 
 #. (para)
 msgid ""
@@ -9906,7 +9906,7 @@ msgid ""
 "options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
-msgstr ""
+msgstr "Další (rychlou) cestou, jak sloučit všechny změny z kmene do větve funkcí, je použití <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Sloučit vše...</guimenuitem></menuchoice> z rozšířeného kontextového menu (podržte klávesu <keycap>Shift</keycap>, při kliknutí pravým tlačítkem na soubor). <placeholder-1/> Toto dialogové okno je velmi jednoduché. Jediné, co musíte udělat, je nastavit volby pro sloučení, jak je popsáno v <xref linkend=\"tsvn-dug-merge-options\"/>. O zbytek se postará TortoiseSVN automaticky pomocí sledování sloučení."
 
 #. (title)
 msgid "Locking"
@@ -12259,7 +12259,7 @@ msgid ""
 "Selects your user interface language. Of course, you have to install the "
 "corresponding language pack first to get another UI language than the "
 "default English one."
-msgstr ""
+msgstr "Vybere jazyk uživatelského rozhraní. Pro možnost zvolení jiného jazyka, než výchozí angličtiny, je zapotřebí nainstalovat odpovídající jazykový balíček."
 
 #. (term)
 msgid "Check for updates"
@@ -14685,7 +14685,7 @@ msgid ""
 "This value specifies the number of pixels a dialog has to be near a border "
 "before the dialog sticks to it. The default value is 3. To disable this "
 "value set the value to zero."
-msgstr ""
+msgstr "Tato hodnota určuje vzdálenost v pixelech od okraje při které k němu dialogové okno přilne. Výchozí hodnota je 3. Pro zakázání nastavte tuto hodnotu na nulu."
 
 #. (para)
 msgid ""
@@ -15006,19 +15006,19 @@ msgstr "Při práci na TortoiseSVN rádi posloucháme hudbu. A protože trávím
 
 #. (title)
 msgid "Commit Monitor"
-msgstr ""
+msgstr "Monitor odevzdání"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "monitor odevzdání"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "vzdálená odevzdání"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "sledování projektů"
 
 #. (para)
 msgid ""
@@ -15028,7 +15028,7 @@ msgstr ""
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "Přidávání projektů do monitoru"
 
 #. (para)
 msgid ""
@@ -15039,7 +15039,7 @@ msgstr ""
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "Dialogové okno úpravy projektu v monitoru odevzdání"
 
 #. (para)
 msgid ""
@@ -15059,7 +15059,7 @@ msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
 "access, and only if the authentication is not stored by Subversion itself."
-msgstr ""
+msgstr "Pole <literal>Uživatelské jméno</literal> a <literal>Heslo</literal> by měla být vyplněna, pokud úložiště neposkytuje anonymní přístup pro čtení a pouze pokud ověření neukládá Subversion."
 
 #. (para)
 msgid ""
@@ -15069,11 +15069,11 @@ msgstr ""
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "Dialogové okno monitoru"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "Hlavní dialogové okno monitoru odevzdání"
 
 #. (para)
 msgid ""
@@ -15086,14 +15086,14 @@ msgstr ""
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Kliknutím na projekt jsou vpravo zobrazeny všechny jeho zprávy odevzdání."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Projekty, které mají aktualizace jsou zobrazeny tučně spolu s číslem v závorce udávající počet nových odevzdání. Kliknutí na projekt ho automaticky označí jako přečtený."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -20576,7 +20576,7 @@ msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "Otevře dialogové okno Najít pro vyhledávání a nahrazování textu"
 
 #. (term)
 msgid "Ctrl-O"

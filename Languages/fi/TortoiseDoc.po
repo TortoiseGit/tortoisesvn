@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 08:14+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-08-13 23:20+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9893,7 +9893,7 @@ msgstr "Jos ominaisuuden kehittäminen vie pitkään, ja joudut sen aikana ottam
 
 #. (title)
 msgid "The Merge-All Dialog"
-msgstr ""
+msgstr "Yhdistä kaikki -ikkuna"
 
 #. (para)
 msgid ""
@@ -9905,7 +9905,7 @@ msgid ""
 "options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
-msgstr ""
+msgstr "Toinen (nopea) tapa yhdistää kaikki muutokset päähaarasta kehityshaaraan on käyttää laajennetun kontekstivalikon komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Yhdistä kaikki...</guimenuitem></menuchoice> (pidä <keycap>Shift</keycap>-näppäin painettuna avatessasi valikon). <placeholder-1/> Tämä ikkuna on helppo täyttää. Riittää, kun asetat yhdistämisasetukset kappaleen <xref linkend=\"tsvn-dug-merge-options\"/> mukaisesti. TortoiseSVN huolehtii lopusta automaattisesti käyttäen hyväkseen tietoa aiemmin tehdyistä yhdistämisistä."
 
 #. (title)
 msgid "Locking"
@@ -13234,7 +13234,7 @@ msgid ""
 "make those files not propagate their status to the parent folder. That way "
 "if only files in that changelist are modified, the parent folder still shows"
 " the unmodified overlay icon."
-msgstr ""
+msgstr "Jos muutoslistassa \"ohita toimitettaessa\" on tiedostoja, voit määrittää, että näihin tiedostoihin tehtävät muutokset eivät leviä yläkansioon. Tämän ansiosta yläkansio näyttää yhä \"ei muutettu\" -kuvakepäällystä, mikäli pelkästään muutoslistan tiedostot ovat muuttuneet."
 
 #. (para)
 msgid ""
@@ -14684,7 +14684,7 @@ msgid ""
 "This value specifies the number of pixels a dialog has to be near a border "
 "before the dialog sticks to it. The default value is 3. To disable this "
 "value set the value to zero."
-msgstr ""
+msgstr "Tämä arvo määrittää, kuinka lähellä reunaa ikkunan on oltava, jotta se tarttuu siihen. Oletusarvo on 3 pikseliä. Tarttuminen estetään asettamalla arvoksi nolla."
 
 #. (para)
 msgid ""
@@ -15005,94 +15005,94 @@ msgstr "TortoiseSVN:n kehittämisen lomassa kuuntelemme mieluusti musiikkia. Ja 
 
 #. (title)
 msgid "Commit Monitor"
-msgstr ""
+msgstr "Toimitusseurain"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "toimitusseurain"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "etätoimitukset"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "projektien seuranta"
 
 #. (para)
 msgid ""
 "The commit monitor is a helpful tool that monitors repositories and notifies"
 " you in case there are new commits."
-msgstr ""
+msgstr "Toimitusseurain on kätevä työkalu, joka seuraa arkistojen tilaa ja antaa ilmoituksen, kun uusia toimituksia on saatavilla."
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "Projektien lisääminen seurantaan"
 
 #. (para)
 msgid ""
 "If you first start the commit monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Kun käynnistät toimitusseuraimen ensi kertaa, vasemmalla puolella oleva puunäkymä on tyhjä. Lisää projekteja napsauttamalla ikkunan yläosassa olevaa <guibutton>Lisää projekti</guibutton> -painiketta."
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "Toimitusseuraimen projektinmuokkausikkuna"
 
 #. (para)
 msgid ""
 "<placeholder-1/> To add a project for monitoring, fill in the required "
 "information. The name of the project is not optional and must be filled in, "
 "all other information is optional."
-msgstr ""
+msgstr "<placeholder-1/> Täytä tarvittavat tiedot lisätäksesi projektin seurantaan. Ainoastaan projektin nimi on pakollinen."
 
 #. (para)
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
-msgstr ""
+msgstr "Mikäli kenttä <literal>Polku tai paikannin</literal> on tyhjä, lisätään kansio. Tätä voidaan käyttää ryhmittämään seurattavia projekteja."
 
 #. (para)
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
 "access, and only if the authentication is not stored by Subversion itself."
-msgstr ""
+msgstr "Kenttiä <literal>Käyttäjä</literal> ja <literal>Salasana</literal> tulee käyttää vain, jos arkisto ei tarjoa anonyymiä lukuoikeutta ja Subversion itse ei tallenna todennustietoja."
 
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks."
-msgstr ""
+msgstr "Kenttä <literal>Tarkistusväli minuuteissa</literal> määrittää, kuinka usein arkiston tila tarkistetaan."
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "Seurantaikkuna"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "Toimitusseuraimen pääikkuna"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The commit monitor shows all monitored projects on the left"
 " in a tree view. The projects can be moved around, for example one project "
 "can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Toimitusseurain näyttää seurattavat projektit vasemmanpuoleisessa puunäkymässä. Projekteja voidaan siirtää, ja ryhmitellä vapaasti, esimerkiksi tekemällä jostain projektista toisen projektin lapsi/aliprojekti."
 
 #. (para)
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Projektia napsauttamalla näet kaikki sen lokiviestit oikealla."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Projektit, joissa on päivityksia, näytetään lihavoituina; uusien toimitusten määrä ilmoitetaan hakasuluissa oikealla. Projektin napsauttaminen merkitsee sen automaattisesti luetuksi."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -20575,7 +20575,7 @@ msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "Avaa Etsi-ikkuna tekstihakuja ja korvauksia varten"
 
 #. (term)
 msgid "Ctrl-O"
