@@ -320,7 +320,7 @@
   <target name="uploadsymbols" depends="env,VersionInfo">
     <description>
       Uploads all the debug symbols and binaries to the crash report
-      server http://crash-server.com
+      server http://drdump.com
     </description>
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
     <property name="platformfoldername" value=""   if="${platform == 'win32'}" />
