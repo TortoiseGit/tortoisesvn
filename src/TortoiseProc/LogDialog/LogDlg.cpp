@@ -7816,6 +7816,7 @@ void CLogDlg::RefreshMonitorProjTree()
     if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
     {
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
 
@@ -8506,6 +8507,7 @@ void CLogDlg::OnMonitorThreadFinished()
         if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
         {
             Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+            m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
             Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
         }
     }
@@ -8601,6 +8603,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
             {
                 Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+                m_SystemTray.uFlags = NIF_MESSAGE | NIF_TIP;
                 Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
             }
         }
@@ -8618,6 +8621,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
             {
                 Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+                m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
                 Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
             }
             return TRUE;
@@ -8824,6 +8828,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
     if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
     {
         Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
 }
