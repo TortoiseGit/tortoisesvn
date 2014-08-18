@@ -11,22 +11,29 @@
 # Authors:
 # Translators:
 # Friedrich Brunzema <brunzefb@yahoo.com>, 2013
-# Lübbe Onken <l.onken@rac.de>, 2005-2014
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2005-2014
+# Friedrich Brunzema <brunzefb@yahoo.com>, 2013
+# lonken <l.onken@rac.de>, 2014
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
 # peu <peu@rekoba.de>, 2012-2013
+# peu <peu@rekoba.de>, 2012
+# peu <peu@rekoba.de>, 2013
+# peu <peu@rekoba.de>, 2012
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 11:02+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2014-08-15 10:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. (title)
@@ -17962,6 +17969,10 @@ msgid ""
 msgstr "Öffnet den <guilabel>Alle Zusammenführen</guilabel>-Dialog. Der <placeholder-1/> bezeichnet das Zielverzeichnis."
 
 #. (literal)
+msgid "^"
+msgstr ""
+
+#. (literal)
 msgid "Switch working copy to new branch/tag"
 msgstr "Wechselt die Arbeitskopie zum neuen Zweig / zur neuen Marke"
 
@@ -17969,16 +17980,26 @@ msgstr "Wechselt die Arbeitskopie zum neuen Zweig / zur neuen Marke"
 msgid "/switchaftercopy"
 msgstr "/switchaftercopy"
 
+#. (literal)
+msgid "Create intermediate folders"
+msgstr "Zwischenordner erstellen"
+
+#. (option)
+msgid "/makeparents"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. To already "
-"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
-"You can also specify the <placeholder-5/> switch to pass a predefined log "
-"message to the branch/tag dialog. Or, if you don't want to pass the log "
-"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
-"points to a file containing the log message."
-msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel URL. Um die Option <placeholder-3/> zu aktivieren, können Sie den <placeholder-4/> Parameter mit übergeben. Sie können mit dem <placeholder-5/> Parameter eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-6/> verwenden, wobei <placeholder-7/> auf eine Datei zeigt, die die Logmeldung enthält."
+" branch/tag from. And the <placeholder-2/> is the target URL. If the urls "
+"starts with a <placeholder-3/> it is assumed to be relative to the "
+"repository root. To already check the option <placeholder-4/> you can pass "
+"the <placeholder-5/> switch. To check the option <placeholder-6/> pass the "
+"<placeholder-7/> switch. You can also specify the <placeholder-8/> switch to"
+" pass a predefined log message to the branch/tag dialog. Or, if you don't "
+"want to pass the log message on the command line, use <placeholder-9/>, "
+"where <placeholder-10/> points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."

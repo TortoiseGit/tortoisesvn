@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 08:14+0000\n"
+"PO-Revision-Date: 2014-08-15 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -17960,6 +17960,10 @@ msgid ""
 msgstr "Otvorí dialog pre zlúčiť všetko. Parameter <placeholder-1/> určuje cieľový adresár."
 
 #. (literal)
+msgid "^"
+msgstr ""
+
+#. (literal)
 msgid "Switch working copy to new branch/tag"
 msgstr ""
 
@@ -17967,15 +17971,25 @@ msgstr ""
 msgid "/switchaftercopy"
 msgstr ""
 
+#. (literal)
+msgid "Create intermediate folders"
+msgstr "Vytvoriť medziadresáre"
+
+#. (option)
+msgid "/makeparents"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. To already "
-"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
-"You can also specify the <placeholder-5/> switch to pass a predefined log "
-"message to the branch/tag dialog. Or, if you don't want to pass the log "
-"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
-"points to a file containing the log message."
+" branch/tag from. And the <placeholder-2/> is the target URL. If the urls "
+"starts with a <placeholder-3/> it is assumed to be relative to the "
+"repository root. To already check the option <placeholder-4/> you can pass "
+"the <placeholder-5/> switch. To check the option <placeholder-6/> pass the "
+"<placeholder-7/> switch. You can also specify the <placeholder-8/> switch to"
+" pass a predefined log message to the branch/tag dialog. Or, if you don't "
+"want to pass the log message on the command line, use <placeholder-9/>, "
+"where <placeholder-10/> points to a file containing the log message."
 msgstr ""
 
 #. (entry)

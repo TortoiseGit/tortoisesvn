@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-13 05:50+0000\n"
-"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2014-08-15 10:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17962,6 +17962,10 @@ msgid ""
 msgstr "「すべてマージ」ダイアログを開きます。 <placeholder-1/> で対象ディレクトリを指定します。"
 
 #. (literal)
+msgid "^"
+msgstr ""
+
+#. (literal)
 msgid "Switch working copy to new branch/tag"
 msgstr "新しいブランチ/タグへ作業コピーを切り替え"
 
@@ -17969,16 +17973,26 @@ msgstr "新しいブランチ/タグへ作業コピーを切り替え"
 msgid "/switchaftercopy"
 msgstr "/switchaftercopy"
 
+#. (literal)
+msgid "Create intermediate folders"
+msgstr "中間フォルダーを作成"
+
+#. (option)
+msgid "/makeparents"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. To already "
-"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
-"You can also specify the <placeholder-5/> switch to pass a predefined log "
-"message to the branch/tag dialog. Or, if you don't want to pass the log "
-"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
-"points to a file containing the log message."
-msgstr "ブランチ/タグダイアログを開きます。 <placeholder-1/> でブランチ/タグの作成元の作業コピーを指定します。また、 <placeholder-2/> は作成先の URL です。 <placeholder-3/> オプションを既定でチェックしておきたい場合は、 <placeholder-4/> を指定してください。 <placeholder-5/> でログメッセージの初期値を指定できます。また、コマンドラインでログメッセージを渡したくない場合は、 <placeholder-6/> を使用します。 <placeholder-7/> でログメッセージが入ったファイルの場所を指定します。"
+" branch/tag from. And the <placeholder-2/> is the target URL. If the urls "
+"starts with a <placeholder-3/> it is assumed to be relative to the "
+"repository root. To already check the option <placeholder-4/> you can pass "
+"the <placeholder-5/> switch. To check the option <placeholder-6/> pass the "
+"<placeholder-7/> switch. You can also specify the <placeholder-8/> switch to"
+" pass a predefined log message to the branch/tag dialog. Or, if you don't "
+"want to pass the log message on the command line, use <placeholder-9/>, "
+"where <placeholder-10/> points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."

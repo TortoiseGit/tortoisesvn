@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 08:14+0000\n"
+"PO-Revision-Date: 2014-08-15 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -17958,6 +17958,10 @@ msgid ""
 msgstr "Mở hộp thoại kết hợp tất cả. Các <placeholder-1/> xác định thư mục đích."
 
 #. (literal)
+msgid "^"
+msgstr ""
+
+#. (literal)
 msgid "Switch working copy to new branch/tag"
 msgstr "Chuyển bản sao làm việc sang nhánh/thẻ mới"
 
@@ -17965,16 +17969,26 @@ msgstr "Chuyển bản sao làm việc sang nhánh/thẻ mới"
 msgid "/switchaftercopy"
 msgstr "/switchaftercopy"
 
+#. (literal)
+msgid "Create intermediate folders"
+msgstr "Tạo các thư mục trung gian"
+
+#. (option)
+msgid "/makeparents"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. To already "
-"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
-"You can also specify the <placeholder-5/> switch to pass a predefined log "
-"message to the branch/tag dialog. Or, if you don't want to pass the log "
-"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
-"points to a file containing the log message."
-msgstr "Bật lên hộp thoại chi nhánh/thẻ. <placeholder-1/> là bản sao làm việc đến từ chi nhánh/thẻ. Và <placeholder-2/> là URL mục tiêu. Đã kiểm tra tùy chọn <placeholder-3/>, bạn có thể truyền vào chuyển đổi <placeholder-4/>. Bạn cũng có thể chỉ định chuyển đổi <placeholder-5/> để truyền vào một thông điệp tường trình được xác định trước đến hộp thoại chi nhánh/thẻ. Hoặc, nếu bạn không muốn truyền vào thông điệp tường trình bằng dòng lệnh, sử dụng <placeholder-6/>, nơi <placeholder-7/> chỉ tới một tập tin có chứa các thông điệp tường trình."
+" branch/tag from. And the <placeholder-2/> is the target URL. If the urls "
+"starts with a <placeholder-3/> it is assumed to be relative to the "
+"repository root. To already check the option <placeholder-4/> you can pass "
+"the <placeholder-5/> switch. To check the option <placeholder-6/> pass the "
+"<placeholder-7/> switch. You can also specify the <placeholder-8/> switch to"
+" pass a predefined log message to the branch/tag dialog. Or, if you don't "
+"want to pass the log message on the command line, use <placeholder-9/>, "
+"where <placeholder-10/> points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."

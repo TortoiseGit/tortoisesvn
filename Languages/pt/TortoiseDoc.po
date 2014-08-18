@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-08 08:14+0000\n"
+"PO-Revision-Date: 2014-08-15 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -17967,6 +17967,10 @@ msgid ""
 msgstr "Abre a caixa de diálogo integrar todos. O <placeholder-1/> específica a pasta de destino."
 
 #. (literal)
+msgid "^"
+msgstr ""
+
+#. (literal)
 msgid "Switch working copy to new branch/tag"
 msgstr "Troca a cópia de trabalho para o novo ramo/etiqueta"
 
@@ -17974,16 +17978,26 @@ msgstr "Troca a cópia de trabalho para o novo ramo/etiqueta"
 msgid "/switchaftercopy"
 msgstr "/switchaftercopy"
 
+#. (literal)
+msgid "Create intermediate folders"
+msgstr "Criar pastas intermédias"
+
+#. (option)
+msgid "/makeparents"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. To already "
-"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
-"You can also specify the <placeholder-5/> switch to pass a predefined log "
-"message to the branch/tag dialog. Or, if you don't want to pass the log "
-"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
-"points to a file containing the log message."
-msgstr "Lança a caixa de diálogo ramo/etiqueta. O <placeholder-1/> é a cópia de trabalho de origem do ramo/etiqueta, e o <placeholder-2/> é o URL destino. Para activares a opção <placeholder-3/> podes passar o switch <placeholder-4/>. Podes também especificar o switch <placeholder-5/> para colocar uma mensagem de registo por defeito para a caixa de diálogo ramo/etiqueta. Ou, se não quiseres colocar a mensagem de registo na linha de comandos, usa <placeholder-6/>, onde <placeholder-7/> aponta para um ficheiro contendo a mensagem de registo pretendida."
+" branch/tag from. And the <placeholder-2/> is the target URL. If the urls "
+"starts with a <placeholder-3/> it is assumed to be relative to the "
+"repository root. To already check the option <placeholder-4/> you can pass "
+"the <placeholder-5/> switch. To check the option <placeholder-6/> pass the "
+"<placeholder-7/> switch. You can also specify the <placeholder-8/> switch to"
+" pass a predefined log message to the branch/tag dialog. Or, if you don't "
+"want to pass the log message on the command line, use <placeholder-9/>, "
+"where <placeholder-10/> points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."
