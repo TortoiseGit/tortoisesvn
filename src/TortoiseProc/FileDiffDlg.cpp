@@ -265,7 +265,7 @@ UINT CFileDiffDlg::DiffThread()
     return 0;
 }
 
-void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
+void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame, bool bDefault)
 {
     CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
 
@@ -280,7 +280,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame)
             url2 = m_bDoPegDiff ? url1 : CTSVNPath(GetURLFromPath(m_path2) + L"/" + fd.path.GetSVNPathString());
     }
 
-    if (fd.propchanged && bProps && (!blame || bProps))
+    if ((fd.propchanged && bProps && (!blame || bProps)) ||
+        (bDefault && (fd.node == svn_node_dir)))
     {
         DiffProps(selIndex);
     }
@@ -494,7 +495,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     if (selIndex >= (int)m_arFilteredList.size())
         return;
 
-    DoDiff(selIndex, true, false, m_bBlame);
+    DoDiff(selIndex, true, false, m_bBlame, true);
 }
 
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -683,7 +684,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, true, true, false);
+                    DoDiff(index, true, true, false, false);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -704,7 +705,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, true, false, false);
+                    DoDiff(index, true, false, false, false);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -725,7 +726,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, false, true, false);
+                    DoDiff(index, false, true, false, false);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -800,7 +801,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     CoInitialize(NULL);
                     this->EnableWindow(FALSE);
 
-                    DoDiff(index, true, false, true);
+                    DoDiff(index, true, false, true, false);
 
                     this->EnableWindow(TRUE);
                     this->SetFocus();
@@ -1074,7 +1075,7 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
                     // Return pressed in file list. Show diff, as for double click
                     int selIndex = m_cFileList.GetSelectionMark();
                     if ((selIndex >= 0) && (selIndex < (int)m_arFileList.size()))
-                        DoDiff(selIndex, true, false, m_bBlame);
+                        DoDiff(selIndex, true, false, m_bBlame, true);
                     return TRUE;
                 }
             }
