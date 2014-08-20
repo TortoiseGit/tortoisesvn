@@ -357,6 +357,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_MONITOR_ADDPROJECT, &CLogDlg::OnMonitorAddProject)
     ON_COMMAND(ID_LOGDLG_MONITOR_EDIT, &CLogDlg::OnMonitorEditProject)
     ON_COMMAND(ID_LOGDLG_MONITOR_REMOVE, &CLogDlg::OnMonitorRemoveProject)
+    ON_COMMAND(ID_MISC_MARKALLASREAD, &CLogDlg::OnMonitorMarkAllAsRead)
     ON_COMMAND(ID_MISC_OPTIONS, &CLogDlg::OnMonitorOptions)
     ON_COMMAND(ID_LOGDLG_MONITOR_THREADFINISHED, &CLogDlg::OnMonitorThreadFinished)
     ON_NOTIFY(TVN_SELCHANGED, IDC_PROJTREE, &CLogDlg::OnTvnSelchangedProjtree)
@@ -7552,7 +7553,7 @@ bool CLogDlg::CreateToolbar()
 
     ::SendMessage(m_hwndToolbar, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-#define MONITORMODE_TOOLBARBUTTONCOUNT  7
+#define MONITORMODE_TOOLBARBUTTONCOUNT  9
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
     m_hToolbarImages = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4);
@@ -7596,6 +7597,21 @@ bool CLogDlg::CreateToolbar()
     tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_REMOVE;
     tbb[index].fsState = BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    tbb[index].iBitmap = 0;
+    tbb[index].idCommand = 0;
+    tbb[index].fsState = TBSTATE_ENABLED;
+    tbb[index].fsStyle = BTNS_SEP;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = 0;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_MARKALLASREAD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_MISC_MARKALLASREAD;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
@@ -7955,6 +7971,27 @@ void CLogDlg::OnMonitorCheckNow()
     });
     // start the check timer
     SetTimer(MONITOR_TIMER, 1000, NULL);
+}
+
+void CLogDlg::OnMonitorMarkAllAsRead()
+{
+    // mark all entries as unread
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        pItem->UnreadItems = 0;
+        pItem->unreadFirst = 0;
+        m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+        return false;
+    });
+
+    HTREEITEM hItem = m_projTree.GetSelectedItem();
+    if (hItem)
+    {
+        // re-select the item so all revisions are marked as read as well
+        LRESULT result = 0;
+        MonitorShowProject(hItem, &result);
+    }
 }
 
 void CLogDlg::OnMonitorAddProject()
