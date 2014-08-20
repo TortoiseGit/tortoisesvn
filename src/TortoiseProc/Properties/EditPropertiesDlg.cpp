@@ -933,7 +933,6 @@ void CEditPropertiesDlg::RemoveProps()
             taskdlg.SetDefaultCommandControl(IDCUSTOM1);
             if ((m_pathlist.GetCount() > 1) || (selCount > 1))
                 taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
             ret = (UINT)taskdlg.DoModal(GetSafeHwnd());
             if ((m_pathlist.GetCount() > 1) || (selCount > 1))
             {
