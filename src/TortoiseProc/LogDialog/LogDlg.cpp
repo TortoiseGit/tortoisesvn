@@ -8996,6 +8996,7 @@ void CLogDlg::MonitorShowDlg()
     // remove selection, show empty log list
     m_projTree.SelectItem(NULL);
     MonitorShowProject(NULL, nullptr);
+    m_cFilter.SetWindowText(L"");
     ShowWindow(SW_SHOW);
     SetForegroundWindow();
     m_SystemTray.hIcon = m_hMonitorIconNormal;
