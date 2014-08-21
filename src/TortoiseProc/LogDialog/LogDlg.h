@@ -419,6 +419,7 @@ private:
     void MonitorShowProject(HTREEITEM hItem, LRESULT * pResult);
     void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
     static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
+    void MonitorShowDlg();
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;

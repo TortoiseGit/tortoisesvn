@@ -8647,20 +8647,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
             break;
         case WM_LBUTTONUP:
         case WM_LBUTTONDBLCLK:
-            m_bKeepHidden = false;
-            // remove selection, show empty log list
-            m_projTree.SelectItem(NULL);
-            MonitorShowProject(NULL, nullptr);
-            ShowWindow(SW_SHOW);
-            SetForegroundWindow();
-            m_SystemTray.hIcon = m_hMonitorIconNormal;
-            m_SystemTray.uFlags = NIF_ICON;
-            if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
-            {
-                Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
-                m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
-                Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
-            }
+            MonitorShowDlg();
             return TRUE;
         case NIN_KEYSELECT:
         case NIN_SELECT:
@@ -8706,9 +8693,7 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                 }
                     break;
                 case ID_POPUP_SHOWMONITOR:
-                    m_bKeepHidden = false;
-                    ShowWindow(SW_SHOW);
-                    SetForegroundWindow();
+                    MonitorShowDlg();
                     break;
             }
         }
@@ -8872,9 +8857,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
 
 LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    m_bKeepHidden = false;
-    ShowWindow(SW_SHOW);
-    SetForegroundWindow();
+    MonitorShowDlg();
     return 0;
 }
 
@@ -9003,8 +8986,24 @@ BOOL CLogDlg::OnQueryEndSession()
 
 LRESULT CLogDlg::OnShowDlgMsg(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    MonitorShowDlg();
+    return 0;
+}
+
+void CLogDlg::MonitorShowDlg()
+{
     m_bKeepHidden = false;
+    // remove selection, show empty log list
+    m_projTree.SelectItem(NULL);
+    MonitorShowProject(NULL, nullptr);
     ShowWindow(SW_SHOW);
     SetForegroundWindow();
-    return 0;
+    m_SystemTray.hIcon = m_hMonitorIconNormal;
+    m_SystemTray.uFlags = NIF_ICON;
+    if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
+    {
+        Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+        m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
+        Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
+    }
 }
