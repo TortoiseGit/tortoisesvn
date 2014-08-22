@@ -180,6 +180,7 @@ public:
      * depending on the \c bUTF8 param.
      */
     static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
+    static bool WriteStringToTextFile(const std::wstring& path, const std::string& text);
 #endif
 
     /**

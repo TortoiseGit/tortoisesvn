@@ -443,6 +443,21 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
     }
     return true;
 }
+
+bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::string& text)
+{
+    DWORD dwWritten = 0;
+    CAutoFile hFile = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (!hFile)
+        return false;
+
+    if (!WriteFile(hFile, text.c_str(), (DWORD)text.length(), &dwWritten, NULL))
+    {
+        return false;
+    }
+    return true;
+}
+
 #endif // #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 
 inline static void PipeToNull(TCHAR* ptr)
