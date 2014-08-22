@@ -780,7 +780,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     }
     else
     {
-        ::MessageBox(wMain, searchstringnotfound, L"TortoiseBlame", MB_ICONINFORMATION);
+        ::MessageBox(currentDialog ? currentDialog : wMain, searchstringnotfound, L"TortoiseBlame", MB_ICONINFORMATION);
     }
     return true;
 }
