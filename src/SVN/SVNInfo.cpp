@@ -232,6 +232,19 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_cl
                 case svn_wc_conflict_kind_property:
                     if (conflict->their_abspath)
                         cdata.prejfile = CUnicodeUtils::GetUnicode(conflict->their_abspath);
+                    if (conflict->prop_reject_abspath)
+                        cdata.prejfile = CUnicodeUtils::GetUnicode(conflict->prop_reject_abspath);
+                    if (conflict->property_name)
+                        cdata.propname = conflict->property_name;
+
+                    if (conflict->prop_value_base)
+                        cdata.propvalue_base = std::string(conflict->prop_value_base->data, conflict->prop_value_base->len);
+                    if (conflict->prop_value_working)
+                        cdata.propvalue_working = std::string(conflict->prop_value_working->data, conflict->prop_value_working->len);
+                    if (conflict->prop_value_incoming_old)
+                        cdata.propvalue_incoming_old = std::string(conflict->prop_value_incoming_old->data, conflict->prop_value_incoming_old->len);
+                    if (conflict->prop_value_incoming_new)
+                        cdata.propvalue_incoming_new = std::string(conflict->prop_value_incoming_new->data, conflict->prop_value_incoming_new->len);
                     break;
                 case svn_wc_conflict_kind_tree:
                     {

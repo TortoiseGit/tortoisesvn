@@ -39,6 +39,13 @@ public:
     CString             conflict_wrk;
     CString             prejfile;
 
+    // property conflict data
+    std::string         propname;
+    std::string         propvalue_base;
+    std::string         propvalue_working;
+    std::string         propvalue_incoming_old;
+    std::string         propvalue_incoming_new;
+
     // tree conflict data
     CString             treeconflict_path;
     svn_node_kind_t     treeconflict_nodekind;
