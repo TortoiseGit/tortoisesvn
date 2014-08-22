@@ -347,6 +347,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                              svn_error_t * err, apr_pool_t * pool)
 {
     static bool bInInteractiveResolving = false;
+    static bool sent_first_txdelta = false;
 
     bool bNoNotify = false;
     bool bDoAddData = true;
@@ -713,7 +714,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         }
         break;
     case svn_wc_notify_commit_postfix_txdelta:
-        data->sActionColumnText.LoadString(IDS_SVNACTION_POSTFIX);
+        if (!sent_first_txdelta)
+        {
+            sent_first_txdelta = true;
+            data->sActionColumnText.LoadString(IDS_SVNACTION_POSTFIX);
+        }
         break;
     case svn_wc_notify_failed_revert:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDREVERT);
@@ -931,6 +936,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         break;
     case svn_wc_notify_commit_finalizing:
         data->sActionColumnText.LoadString(IDS_SVNACTION_COMMITTINGTRANSACTION);
+        data->sPathColumnText.Empty();
         break;
     case svn_wc_notify_upgraded_path:
     case svn_wc_notify_failed_conflict:
