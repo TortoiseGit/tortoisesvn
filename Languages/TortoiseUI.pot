@@ -1209,10 +1209,6 @@ msgstr ""
 msgid "&Reset to Default"
 msgstr ""
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr ""
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr ""
@@ -1676,7 +1672,7 @@ msgid "<new changelist>"
 msgstr ""
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -2999,6 +2995,10 @@ msgstr ""
 msgid "Committing to a tag"
 msgstr ""
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr ""
@@ -3186,6 +3186,10 @@ msgstr ""
 #. Resource IDs: (126)
 #, c-format
 msgid "Copy %1!s!\r\nto %2!s!"
+msgstr ""
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
 msgstr ""
 
 #. Resource IDs: (142)
@@ -5266,6 +5270,10 @@ msgstr ""
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog or the repository browser."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr ""
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5870,6 +5878,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr ""
@@ -5904,6 +5916,10 @@ msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Marks the conflict as resolved.\r\nNote: this does not resolve the conlict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -5974,6 +5990,10 @@ msgstr ""
 msgid "Merge all"
 msgstr ""
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr ""
@@ -5984,10 +6004,6 @@ msgstr ""
 
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
-msgstr ""
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
 msgstr ""
 
 #. Resource IDs: (595)
@@ -6019,7 +6035,7 @@ msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
 msgstr ""
 
 #. Resource IDs: (14)
-msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgid "Merges all missing revisions from trunk into the working copy of a feature branch using merge-tracking information"
 msgstr ""
 
 #. Resource IDs: (1073)
@@ -7343,6 +7359,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -7689,10 +7709,6 @@ msgstr ""
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
-msgstr ""
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8835,6 +8851,14 @@ msgstr ""
 msgid "Starts the diff viewer with the currently selected file and the one marked before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr ""
@@ -9169,7 +9193,7 @@ msgstr ""
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
+msgid "The item '%s' has property conflicts:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (608)
@@ -10211,6 +10235,10 @@ msgstr ""
 
 #. Resource IDs: (69)
 msgid "Username:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
 msgstr ""
 
 #. Resource IDs: (313)
