@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2013 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
+#include "Tooltip.h"
 
 // CEditPropConflictDlg dialog
 
@@ -32,6 +33,8 @@ public:
 
     bool    SetPrejFile(const CTSVNPath& prejFile);
     void    SetConflictedItem(const CTSVNPath& conflictItem) {m_conflictItem = conflictItem;}
+    void    SetPropertyName(const std::string& name) { m_propname = name; }
+    void    SetPropValues(const std::string& propvalue_base, const std::string& propvalue_working, const std::string& propvalue_incoming_old, const std::string& propvalue_incoming_new);
 
 
 // Dialog Data
@@ -40,15 +43,24 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     DECLARE_MESSAGE_MAP()
 
-    afx_msg void OnBnClickedResolve();
     afx_msg void OnBnClickedEditprops();
-    afx_msg void OnBnClickedResolvetheirs();
-
+    afx_msg void OnBnClickedStartmergeeditor();
+    afx_msg void OnBnClickedResolved();
 private:
     CTSVNPath       m_prejFile;
     CTSVNPath       m_conflictItem;
+    CTSVNPath       m_ResultPath;
     CString         m_sPrejText;
+
+    std::string     m_propname;
+    std::string     m_value_base;
+    std::string     m_value_working;
+    std::string     m_value_incomingold;
+    std::string     m_value_incomingnew;
+
+    CToolTips       m_tooltips;
 };

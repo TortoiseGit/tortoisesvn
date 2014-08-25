@@ -47,40 +47,32 @@ bool ConflictEditorCommand::Execute()
     {
         switch (conflIt->kind)
         {
-        case svn_wc_conflict_kind_text:
+            case svn_wc_conflict_kind_text:
             {
                 // we have a text conflict, use our merge tool to resolve the conflict
 
                 CTSVNPath theirs = CTSVNPath(conflIt->conflict_new);
-                CTSVNPath mine   = CTSVNPath(conflIt->conflict_wrk);
-                CTSVNPath base   = CTSVNPath(conflIt->conflict_old);
+                CTSVNPath mine = CTSVNPath(conflIt->conflict_wrk);
+                CTSVNPath base = CTSVNPath(conflIt->conflict_old);
                 if (mine.IsEmpty())
                     mine = merge;
                 bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
                                                   base, theirs, mine, merge, true, CString(), CString(), CString(), CString(), merge.GetFileOrDirectoryName());
             }
-            break;
-        case svn_wc_conflict_kind_property:
+                break;
+            case svn_wc_conflict_kind_property:
             {
                 // we have a property conflict
                 CTSVNPath prej(conflIt->prejfile);
-                if (!prej.IsEmpty())
-                {
-                    // there's a problem: the prej file contains a _description_ of the conflict, and
-                    // that description string might be translated. That means we have no way of parsing
-                    // the file to find out the conflicting values.
-                    // The only thing we can do: show a dialog with the conflict description, then
-                    // let the user either accept the existing property or open the property edit dialog
-                    // to manually change the properties and values. And a button to mark the conflict as
-                    // resolved.
-                    CEditPropConflictDlg dlg;
-                    dlg.SetPrejFile(prej);
-                    dlg.SetConflictedItem(merge);
-                    bRet = (dlg.DoModal() != IDCANCEL);
-                }
+                CEditPropConflictDlg dlg;
+                dlg.SetPrejFile(prej);
+                dlg.SetConflictedItem(merge);
+                dlg.SetPropertyName(conflIt->propname);
+                dlg.SetPropValues(conflIt->propvalue_base, conflIt->propvalue_working, conflIt->propvalue_incoming_old, conflIt->propvalue_incoming_new);
+                bRet = (dlg.DoModal() != IDCANCEL);
             }
-            break;
-        case svn_wc_conflict_kind_tree:
+                break;
+            case svn_wc_conflict_kind_tree:
             {
                 CTSVNPath treeConflictPath = CTSVNPath(conflIt->treeconflict_path);
 
@@ -95,7 +87,7 @@ bool ConflictEditorCommand::Execute()
                 INT_PTR dlgRet = dlg.DoModal();
                 bRet = (dlgRet != IDCANCEL);
             }
-            break;
+                break;
         }
     }
 
