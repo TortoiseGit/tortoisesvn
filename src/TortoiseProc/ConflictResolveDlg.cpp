@@ -118,6 +118,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
     switch (m_pConflictDescription->reason)
     {
+    case svn_wc_conflict_reason_added:  // properties are always added
     case svn_wc_conflict_reason_edited:
         sReasonText.LoadString(IDS_EDITCONFLICT_REASONINFO_EDITED);
         break;
