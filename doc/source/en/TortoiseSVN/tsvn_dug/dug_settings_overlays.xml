@@ -106,7 +106,7 @@
     status cache option (see below).
   </para>
   <para>
-    If you have files in the "ignore-on-commit" changelist, you can chose to
+    If you have files in the <literal>ignore-on-commit</literal> changelist, you can chose to
     make those files not propagate their status to the parent folder. That way if
     only files in that changelist are modified, the parent folder still shows
     the unmodified overlay icon.
