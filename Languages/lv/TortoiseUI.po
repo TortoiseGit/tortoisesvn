@@ -13,13 +13,14 @@
 # Kristofers <kristozz@gmail.com>, 2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # miersuzzemes <miersuzzemes@inbox.lv>, 2012
+# miersuzzemes <miersuzzemes@inbox.lv>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-08-24 16:59+0000\n"
+"Last-Translator: miersuzzemes <miersuzzemes@inbox.lv>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/tortoisesvn/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -189,7 +190,7 @@ msgstr "%I64d kilobaiti pārsūtīti"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d projektiem ir pieejami atjauninājumi:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -222,12 +223,12 @@ msgstr "%s (bezsaistē)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s% (rekursīvi)"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Merged file"
-msgstr ""
+msgstr "%s : Sapludināts fails"
 
 #. Resource IDs: (151)
 #, c-format
@@ -257,7 +258,7 @@ msgstr "%s, bet jau eksistē neversionēta lokāla mape."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, taču mape neeksistē lokāli (tikusi izdzēsta vai pārvietota?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -282,12 +283,12 @@ msgstr "%s, bet mape tika lokāli izdzēsta, pārvietota vai pārsaukta."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, taču mape tikusi pārvietota kaut kur citur"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, taču mape tikusi pārvietota uz šejieni"
 
 #. Resource IDs: (609)
 #, c-format
@@ -307,7 +308,7 @@ msgstr "%s, bet šis fails jau pastāv neversionēts, lokāli."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, bet fails nav atrodams lokāli (izdzēsts vai pārvietots citur?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -332,12 +333,12 @@ msgstr "%s, bet fails tika lokāli izdzēsts, pārvietots vai pārsaukts."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, taču fails ticis pārvietots kaut kur citur"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, taču fails ticis pārvietots uz šejieni"
 
 #. Resource IDs: (609)
 #, c-format
@@ -399,11 +400,11 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr ""
+msgstr "&Par TortoiseMerge"
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "&Apstiprināt šībrīža strādājošās kopijas stāvokli (atzīmēt kā atrisinātu)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -419,7 +420,7 @@ msgstr "&Pievienot >>"
 
 #. Resource IDs: (1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "Pievienot &Filtru"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -515,7 +516,7 @@ msgstr "&Zari"
 
 #. Resource IDs: (1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "&Lauzt saslēgumus"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -667,7 +668,7 @@ msgstr "&Dzēst (paturēt lokālo)"
 
 #. Resource IDs: (1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "&Dzēst filitru"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -717,7 +718,7 @@ msgstr "&Rediģēt"
 
 #. Resource IDs: (1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Labot filtru"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -729,7 +730,7 @@ msgstr "&Rediģēt konfliktus"
 
 #. Resource IDs: (65)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Labot projektu"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -797,7 +798,7 @@ msgstr "&Ietilpināt bildes logā"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "&Salabot laika spiedogus"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -861,7 +862,7 @@ msgstr "&Palīdzība"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr ""
+msgstr "&Palīdzības temati"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -1047,11 +1048,11 @@ msgstr "&Pārveidot krāsu stumbra kopijām"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "&Pārvietotie bloki"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
-msgstr ""
+msgstr "&Navigēt"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1152,7 +1153,7 @@ msgstr "&No platformas atkarīgs (dzimtais)"
 
 #. Resource IDs: (1654)
 msgid "&Play sound on notification"
-msgstr ""
+msgstr "&Atskaņot skaņu paziņojuma brīdī"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1220,7 +1221,7 @@ msgstr "&Pārsaukt"
 
 #. Resource IDs: (1511)
 msgid "&Replace"
-msgstr ""
+msgstr "&Aizvietot"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1324,7 +1325,7 @@ msgstr ""
 
 #. Resource IDs: (1529)
 msgid "&Show popup notifications"
-msgstr ""
+msgstr "&Rādīt uznirstošos paziņojumus"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1344,7 +1345,7 @@ msgstr "&Sākt repo-skatītāju"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr ""
+msgstr "&Statusa josla"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1356,7 +1357,7 @@ msgstr "&Apstāties uz kopēšanas/pārsaukšanas"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "&Subversion lietotājvārds"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1420,7 +1421,7 @@ msgstr "&Uz: (beigu URL un revīzija apgabalam, ko apvienot)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
-msgstr ""
+msgstr "&Rīkjosla"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -1533,7 +1534,7 @@ msgstr "&failu saraksta kontrole"
 #. Resource IDs: (65)
 #, c-format
 msgid "'%s' : %ld new commits"
-msgstr ""
+msgstr "'%s' : %ld jauni nodevumi"
 
 #. Resource IDs: (84)
 #, c-format
@@ -1562,11 +1563,11 @@ msgstr "(binārā vārtība)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(saturs un īpašības)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(tikai saturs)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -1907,7 +1908,7 @@ msgstr "Pievienot &ignorējamo sarakstam"
 
 #. Resource IDs: (102)
 msgid "Add to Bookmarks"
-msgstr ""
+msgstr "Pievienot grāmatzīmēm"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
@@ -2139,11 +2140,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "Pievienot labo boku"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "Pievienot šo bloku pa kreisi"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2309,7 +2310,7 @@ msgstr "Automātiskā aizpildīšana iesaka vārdus (parasti klases vai locekļa
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-sapludināšana %1!s! iekš %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2379,7 +2380,7 @@ msgstr "Sapludināt alfa"
 
 #. Resource IDs: (156)
 msgid "Blocks"
-msgstr ""
+msgstr "Bloki"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2387,7 +2388,7 @@ msgstr "Zilais stils"
 
 #. Resource IDs: (616)
 msgid "Bookmarks"
-msgstr ""
+msgstr "Grāmatzīmes"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2859,7 +2860,7 @@ msgstr "Paņemt darba kopiju no repozitārija"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Zemāk atzīmējiet autentifikācijas elementus, kurus izdzēst"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2894,7 +2895,7 @@ msgstr "Pārbaudīt vai ir pieejama jaunāka TortoiseSVN versija..."
 #. Resource IDs: (65)
 #, c-format
 msgid "Checking project '%s' for updates..."
-msgstr ""
+msgstr "Pārbauda vai projektam '%s' nav pieejami atjauninājumi..."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
@@ -2978,11 +2979,11 @@ msgstr "Notīrīšanas rīks\nNotīrīt"
 
 #. Resource IDs: (1279)
 msgid "Clear all"
-msgstr ""
+msgstr "Notīrīt visu"
 
 #. Resource IDs: (1284)
 msgid "Clear..."
-msgstr ""
+msgstr "Notīrīt..."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3230,11 +3231,11 @@ msgstr "Salīdzināt un vainot ar iepriekšējo revīziju"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (&properties only)"
-msgstr ""
+msgstr "Salīdzināt revīzijas (&tikai īpašības)"
 
 #. Resource IDs: (115)
 msgid "Compare revisions (conten&t only)"
-msgstr ""
+msgstr "Salīdzināt revīzijas (tikai &saturu)"
 
 #. Resource IDs: (210)
 msgid "Compare two files"

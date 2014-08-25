@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-15 10:10+0000\n"
+"PO-Revision-Date: 2014-08-25 07:50+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -9903,7 +9903,7 @@ msgstr "Falls die Entwicklung länger dauern wird und Sie Änderungen in <litera
 
 #. (title)
 msgid "The Merge-All Dialog"
-msgstr ""
+msgstr "Der Alles-zusammenführen Dialog"
 
 #. (para)
 msgid ""
@@ -9915,7 +9915,7 @@ msgid ""
 "options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
-msgstr ""
+msgstr "Eine andere (schnelle) Methode, um Änderungen vom Stamm in den Entwicklerzweig zu übertragen, ist  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Alles zusammenführen...</guimenuitem></menuchoice> aus dem erweiterten Kontextmenü aufrufen (Halten Sie die <keycap>Umsch</keycap> Taste gedrückt, währen Sie einen Rechtsklick auf die Datei machen). <placeholder-1/> Dieser Dialog ist sehr einfach. Sie müssen lediglich die in <xref linkend=\"tsvn-dug-merge-options\"/> beschriebenen Optionen einstellen. Der Rest wird mit Hilfe der protokollierten Integrationen automatisch von TortoiseSVN erledigt."
 
 #. (title)
 msgid "Locking"
@@ -13244,7 +13244,7 @@ msgid ""
 "make those files not propagate their status to the parent folder. That way "
 "if only files in that changelist are modified, the parent folder still shows"
 " the unmodified overlay icon."
-msgstr ""
+msgstr "Wenn Sie Dateien in der <literal>ignore-on-commit<literal> Änderungsliste haben, können Sie festlegen, dass diese Dateien ihren Status nicht an den Elternordner weiterreichen. Dadurch wird der Elternordner als unmodifiziert angezeigt, solange nur Dateien in dieser Änderungsliste verändert werden."
 
 #. (para)
 msgid ""
@@ -14694,7 +14694,7 @@ msgid ""
 "This value specifies the number of pixels a dialog has to be near a border "
 "before the dialog sticks to it. The default value is 3. To disable this "
 "value set the value to zero."
-msgstr ""
+msgstr "Dieser Wert legt die Anzahl an Pixeln fest unter die der Abstand eines Dialoges zum Rand sinken muss, damit sich der Dialog am Rand anheftet. Der Vorgabewert ist drei. Zum deaktivieren setzen Sie den Wert auf null."
 
 #. (para)
 msgid ""
@@ -15015,94 +15015,94 @@ msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne 
 
 #. (title)
 msgid "Commit Monitor"
-msgstr ""
+msgstr "Projektmonitor"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "Projektmonitor"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "Entfernte Übertragungen"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "Projekte beobachten"
 
 #. (para)
 msgid ""
 "The commit monitor is a helpful tool that monitors repositories and notifies"
 " you in case there are new commits."
-msgstr ""
+msgstr "Der Projektmonitor ist ein nützliches Werkzeug, das Projekarchive beobachtet und Sie benachrichtigt, falls es neue Übertragungen gibt."
 
 #. (title)
 msgid "Adding projects to monitor"
-msgstr ""
+msgstr "Projekte zum Monitor hinzufügen"
 
 #. (para)
 msgid ""
 "If you first start the commit monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Wenn Sie den Projektmonitor das erste Mal starten, ist die Baumansicht auf der linken Seite leer. Ein neues Projekte fügen Sie mit der Schaltfläche zum <guibutton>Projekt hinzufügen</guibutton> Monitor hinzu."
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "Der Dialog zum Bearbeiten der Projekte"
 
 #. (para)
 msgid ""
 "<placeholder-1/> To add a project for monitoring, fill in the required "
 "information. The name of the project is not optional and must be filled in, "
 "all other information is optional."
-msgstr ""
+msgstr "<placeholder-1/> Füllen Sie die nötigen Informationen aus, um ein Projekt zur Überwachung hinzuzufügen. Der Name des Projektes ist erforderlich, alle anderen Informationen sind optional."
 
 #. (para)
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
-msgstr ""
+msgstr "Wenn Sie das Feld für <literal>Pfad oder URL</literal> leer lassen, wird ein Ordner hinzugefügt. Das ist nützlich, um überwachte Projekte zusammenzufassen."
 
 #. (para)
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
 "access, and only if the authentication is not stored by Subversion itself."
-msgstr ""
+msgstr "Die Felder <literal>Benutzername</literal> und <literal>Passwort</literal> sollten nur ausgefüllt werden, wenn das Projektarchiv keinen anonymen Zugriff zulässt und auch nur, wenn die Anmeldedaten nicht schon von Subversion selber gespeichert werden."
 
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks."
-msgstr ""
+msgstr "Das <literal>Überwachungsintervall in Minuten</literal> legt die Zeit zwischen zwei Überprüfungen fest."
 
 #. (title)
 msgid "Monitor dialog"
-msgstr ""
+msgstr "Monitordialog"
 
 #. (title)
 msgid "The main dialog of the commit monitor"
-msgstr ""
+msgstr "Der Hauptdialog des Projektmonitors"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The commit monitor shows all monitored projects on the left"
 " in a tree view. The projects can be moved around, for example one project "
 "can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Der Projektmonitor stellt alle überwachten Projekte in einer Baumansicht am linken Rand dar. Die Projekte können im Baum verschoben werden, so kann zum Beispiel ein Projekt zu einem Unterprojekt eines anderen gemacht werden."
 
 #. (para)
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Ein Klick auf ein Projekt zeigt auf der rechten Seite alle Logmeldungen dieses Projektes."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Projekte mit Aktualisierungen werden fett angezeigt, mit der Anzahl der neuen Übertragungen in Klammern. Ein Klick auf ein Projekt markiert es automatisch als gelesen."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -17079,7 +17079,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN muss unter <emphasis>Computerkonfiguration</emphasis> und nicht unter <emphasis>Benutzerkonfiguration</emphasis> installiert werden. Das liegt daran, dass TortoiseSVN die CRT und MFC DLLs benötigen, die nur <emphasis>per computer</emphasis> und nicht <emphasis>per Benutzer</emphasis> eingesetzt werden. Wenn Sie TortoiseSVN wirklich pro Benutzer installieren wollen, müssen Sie zunächst die MFC and CRT Pakete in der Version 12 von Microsoft auf jedem davon betroffenen Rechner installieren."
 
 #. (para)
 msgid ""
@@ -17169,7 +17169,7 @@ msgid ""
 "<literal>ASPDOTNETHACK</literal> to <literal>1</literal>. Actually, the "
 "value of that environment variable doesn't matter: if the variable exists "
 "the feature is active."
-msgstr ""
+msgstr "Aber die Funktion steht in TortoiseSVN und anderen SVN Clients weiterhin zur Verfügung. Um sie zu aktivieren, setzen Sie die Windows Umgebungsvariable <literal>ASPDOTNETHACK</literal> auf den Wert <literal>1</literal>. Der Wert der Variablen spielt keine Rolle. Sobald die Variable definiert ist, ist die Funktion aktiv."
 
 #. (para)
 msgid ""
@@ -17970,7 +17970,7 @@ msgstr "Öffnet den <guilabel>Alle Zusammenführen</guilabel>-Dialog. Der <place
 
 #. (literal)
 msgid "^"
-msgstr ""
+msgstr "^"
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
@@ -17986,7 +17986,7 @@ msgstr "Zwischenordner erstellen"
 
 #. (option)
 msgid "/makeparents"
-msgstr ""
+msgstr "/makeparents"
 
 #. (entry)
 msgid ""
@@ -17999,7 +17999,7 @@ msgid ""
 " pass a predefined log message to the branch/tag dialog. Or, if you don't "
 "want to pass the log message on the command line, use <placeholder-9/>, "
 "where <placeholder-10/> points to a file containing the log message."
-msgstr ""
+msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel URL. Wenn die URL mit einem <placeholder-3/> beginnt wird sie relativ zur Wurzel des Projektes betrachtet. Sie können die Option <placeholder-4/> gleich aktivieren, indem Sie den <placeholder-5/> Parameter mit übergeben. Um die Option <placeholder-6/> zu aktivieren, können Sie den <placeholder-7/> Parameter mit übergeben. Sie können mit dem <placeholder-8/> Parameter eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-9/> verwenden, wobei <placeholder-10/> auf eine Datei zeigt, die die Logmeldung enthält."
 
 #. (entry)
 msgid "Opens the settings dialog."

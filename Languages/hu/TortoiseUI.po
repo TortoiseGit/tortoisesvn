@@ -11,13 +11,14 @@
 # Authors:
 # Translators:
 # Baquatelle <abel@abel.hu>, 2012
+# Petrovics Sándor <egeramasrol@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-08-24 16:30+0000\n"
+"Last-Translator: Petrovics Sándor <egeramasrol@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/tortoisesvn/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +102,7 @@ msgstr "%1!ld! perc, %2!ld! másodperc"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (Kapcsolat nélkül)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -138,14 +139,14 @@ msgstr ""
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
-msgstr ""
+msgstr "%1!s!\nRevízió %2!s!, szerző %3!s!, dátum %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
-msgstr ""
+msgstr "%1!s!\nRevízió %2!s!, szerző %3!s!, méret %4!s!, dátum %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -187,7 +188,7 @@ msgstr "%I64d kB forgalom"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d projektnek van frissítése:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -220,7 +221,7 @@ msgstr "%s (offline)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (rekurzívan)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -255,7 +256,7 @@ msgstr "%s, de már létezik egy helyi, verziókezelésen kívüli könyvtár."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, de helyi könyvtár hiányzik (törölték vagy máshová helyezték át?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -280,7 +281,7 @@ msgstr "%s, de a helyi könyvtár már törlődött, átneveződött vagy el let
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, de a könyvtár máshová lett áthelyezve"
 
 #. Resource IDs: (610)
 #, c-format
@@ -743,7 +744,7 @@ msgstr "&Proxy szerver engedélyezése"
 
 #. Resource IDs: (32976)
 msgid "&Enable edit"
-msgstr ""
+msgstr "Szerkeszt&és engedélyezése"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -2043,7 +2044,7 @@ msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állít
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr ""
+msgstr "Szerkesztés engedélyezése ehhez a nézethez\nSzerkesztés engedélyezése"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -3038,7 +3039,7 @@ msgstr "Kattints a \"Speciális\" gombra a kiterjesztésfüggő egyesítő progr
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
-msgstr ""
+msgstr "Kattints ide, a szövegblokk mozgató parancsok megtekintéséhez\nSzövegblokk használat"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -3681,7 +3682,7 @@ msgstr "Új mappa létrehozása:\r\n%s"
 
 #. Resource IDs: (156)
 msgid "Create patch file"
-msgstr ""
+msgstr "Patch fájl létrehozása"
 
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
@@ -4395,7 +4396,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Enable Edit"
-msgstr ""
+msgstr "Szerkesztés engedélyezése"
 
 #. Resource IDs: (1510)
 msgid "Enable EditorConfig"
@@ -5213,7 +5214,7 @@ msgstr "Ugrás a következő eltéréshez\nKövetkező eltérés"
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
-msgstr ""
+msgstr "Ugrás a következő soron belüli eltérésre\nKövetkező soron belüli eltérés"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5231,11 +5232,11 @@ msgstr "Ugrs az előző eltéréshez\nElőző eltérés"
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
-msgstr ""
+msgstr "Ugrás az előző soron belüli eltérésre\nElőző soron belüli eltérés"
 
 #. Resource IDs: (156)
 msgid "Goto Line"
-msgstr ""
+msgstr "Ugrás sorra"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -6034,7 +6035,7 @@ msgstr "Forrás-fa összekapcsolása"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "Ugrás a következő konfliktusra"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -6813,13 +6814,13 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Navigate"
-msgstr ""
+msgstr "Navigálás"
 
 #. Resource IDs: (2056)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
-msgstr ""
+msgstr "Ugrás a nézet egy adott sorára\nUgrás sorra"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -6882,15 +6883,15 @@ msgstr "Következő oldal\nKövetkező oldal"
 
 #. Resource IDs: (156)
 msgid "Next conflict"
-msgstr ""
+msgstr "Következő konfliktus"
 
 #. Resource IDs: (156)
 msgid "Next difference"
-msgstr ""
+msgstr "Következő eltérés"
 
 #. Resource IDs: (156)
 msgid "Next inline difference"
-msgstr ""
+msgstr "Következő soron belüli eltérés"
 
 #. Resource IDs: (81)
 msgid ""
@@ -7343,7 +7344,7 @@ msgstr "Jelszó:"
 
 #. Resource IDs: (156)
 msgid "Paste"
-msgstr ""
+msgstr "Beillesztés"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7585,15 +7586,15 @@ msgstr "Előző oldal\nElőző oldal"
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
-msgstr ""
+msgstr "Előző konfliktus"
 
 #. Resource IDs: (156)
 msgid "Previous difference"
-msgstr ""
+msgstr "Előző eltérés"
 
 #. Resource IDs: (156)
 msgid "Previous inline difference"
-msgstr ""
+msgstr "Előző soron belüli eltérés"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8708,7 +8709,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8764,7 +8765,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "Mentés másként"
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -8774,7 +8775,7 @@ msgstr "Mentés másként..."
 msgid ""
 "Save as\n"
 "You're asked where to save the file"
-msgstr ""
+msgstr "Mentés másként\nMegkérdezzük Önt, a fájl mentési helyéről"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10883,7 +10884,7 @@ msgstr "Kijelölést megszüntet"
 
 #. Resource IDs: (156)
 msgid "Undo"
-msgstr ""
+msgstr "Visszavonás"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -10896,13 +10897,13 @@ msgstr "Egy művelet visszavonása"
 
 #. Resource IDs: (14)
 msgid "Undo Add..."
-msgstr ""
+msgstr "Hozzáadás visszavonása..."
 
 #. Resource IDs: (3603)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
-msgstr ""
+msgstr "Az utolsó módosítás visszavonása\nVisszavonás"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."

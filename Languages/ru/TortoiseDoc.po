@@ -17,6 +17,7 @@
 # _deniska <denis_levin@mail.ru>, 2012
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
+# rlagutin <rlagutin@tradingview.com>, 2014
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
 # Вячеслав Третьяков <tret2003@gmail.com>, 2013
 msgid ""
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-15 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-08-18 08:10+0000\n"
+"Last-Translator: rlagutin <rlagutin@tradingview.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1567,7 +1568,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "В отличие от многих других систем управления версиями, номера ревизий в Subversion относятся к <emphasis>деревьям целиком</emphasis>, а не к отдельным файлам. Каждый номер ревизии обозначает целое дерево - некоторое состояние хранилища после зафиксированного изменения. Иначе говоря, можно считать, что ревизия N представляет состояние файловой системы хранилища после выполнения N-ой фиксации. Когда пользователь Subversion говорит о \"ревизии 5 <filename>foo.c</filename>\", это в действительности означает \"<filename>foo.c</filename>, каким он был в ревизии 5\". Обратите внимание -- ревизии N и M одного и того же файла, таким образом, могут <emphasis>не иметь</emphasis> отличий."
 
 #. (para)
 msgid ""
@@ -1770,7 +1771,7 @@ msgstr "создание хранилища"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN does "
 "not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Важно: консольный клиент, имеющийся в комплекте с TortoiseSVN, не совместим с более старым форматом Berkeley Database (BDB)."
 
 #. (para)
 msgid ""
@@ -3963,7 +3964,7 @@ msgid ""
 "code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr ""
+msgstr "Конфликт в файле происходит, когда несколько разработчиков внесли изменения в одни и те же строки. Subversion не знает ничего о вашем проекте, поэтому разрешение конфликтов ложится на плечи разработчиков.  Зона конфликта в текстовом файле отмечена следующим образом: <screen>\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; имя файла\n\nваши изменения\n\n=======\n\nрезультат автоматического мержа с репозиторием\n\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; ревизия\n\n</screen> Также, для каждого файла, имеющего конфликты, Subversion  создает в том же каталоге три дополнительных файла: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15092,14 +15093,14 @@ msgstr ""
 msgid ""
 "A click on a project shows all the log messages of that project on the "
 "right."
-msgstr ""
+msgstr "Клик на строке проекта отображает справа все сообщения журнала этого проекта."
 
 #. (para)
 msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
-msgstr ""
+msgstr "Проекты, в которых произошли обновления, отображаются жирным шрифтом. Количество новых коммитов заключено в скобки и находится справа. Клик на строке проекта помечает его как содержащий только прочитанные уведомления."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -15151,7 +15152,7 @@ msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "      </screen>"
-msgstr ""
+msgstr "SubWCRev.exe вызывается из командной строки или скрипта и управляется при помощи параметров командной строки. <screen>\n\nSubWCRev ПутьКРабочейКопии [Файл_Исходной_Версии Файл_Целевой_Версии] [-nmdfe]\n\n</screen>"
 
 #. (para)
 msgid ""
@@ -15588,7 +15589,7 @@ msgstr "Заменяется на комментарий блокировки."
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are unversioned "
 "files or folders in the working copy, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> заменяется на <placeholder-2/>, если в рабочей копии присутствуют неверсионные файлы или каталоги, или на <placeholder-3/>, если таких файлов нет."
 
 #. (para)
 msgid ""
