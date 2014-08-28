@@ -269,7 +269,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
         m_pLogDlg->SetMergePath(wcPath);
 
         UpdateData(TRUE);
-        if (m_sRevRange.Find(L"HEAD") < 0)
+        if (!m_sRevRange.IsEmpty() && (m_sRevRange.Find(L"HEAD") < 0))
         {
             CString sRevRange = m_sRevRange;
             int atpos = -1;
