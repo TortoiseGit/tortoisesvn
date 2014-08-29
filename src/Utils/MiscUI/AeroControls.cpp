@@ -813,14 +813,14 @@ LRESULT AeroControlBase::ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wPar
             HDC hdc = BeginPaint(hWnd, &ps);
             RECT rc;
             GetWindowRect(hWnd, &rc);
-            MapWindowPoints(NULL, hWnd, (LPPOINT) &rc, 2);
+            MapWindowPoints(NULL, hWnd, (LPPOINT)&rc, 2);
 
-            if(hdc)
+            if (hdc)
             {
-                PaintControl(hWnd, hdc, &rc, false);
+                PaintControl(hWnd, hdc, &ps.rcPaint, false);
 
                 BP_PAINTPARAMS params = { sizeof(BP_PAINTPARAMS) };
-                params.dwFlags        = 0L;
+                params.dwFlags = 0L;
                 HDC hdcPaint = NULL;
                 HPAINTBUFFER hBufferedPaint = m_theme.BeginBufferedPaint(hdc, &rc, BPBF_TOPDOWNDIB, &params, &hdcPaint);
                 if (hdcPaint)
