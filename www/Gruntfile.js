@@ -30,6 +30,7 @@ module.exports = function(grunt) {
                         headHTML: '',
                         metaDescription: '',
                         metaKeywords: '',
+                        DATE: '<%= grunt.template.today("dddd, mmmm dS, yyyy, HH:MM:ss Z") %>',
                         TSVNSHORTVERSION: '<%= ver.TSVNSHORTVERSION %>',
                         TSVNVERSION: '<%= ver.TSVNVERSION %>',
                         SVNVERSION: '<%= ver.SVNVERSION %>'
@@ -226,7 +227,7 @@ module.exports = function(grunt) {
         'includereplace',
         'useminPrepare',
         'concat',
-        'uncss',
+        //'uncss',
         'cssmin',
         'uglify',
         'filerev',
