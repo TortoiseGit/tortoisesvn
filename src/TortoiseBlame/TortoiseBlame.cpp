@@ -1969,17 +1969,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     if (message == uFindReplaceMsg)
     {
         LPFINDREPLACE lpfr = (LPFINDREPLACE)lParam;
-
-        // If the FR_DIALOGTERM flag is set,
-        // invalidate the handle identifying the dialog box.
-        if (lpfr->Flags & FR_DIALOGTERM)
+        // there are actually processes that send this message to other
+        // processes, with lParam set to zero or even invalid data!
+        // We can't do anything about invalid data, but we can check
+        // for a null pointer.
+        if (lpfr)
         {
-            app.currentDialog = NULL;
-            return 0;
-        }
-        if (lpfr->Flags & FR_FINDNEXT)
-        {
-            app.DoSearch(lpfr->lpstrFindWhat, lpfr->Flags);
+            // If the FR_DIALOGTERM flag is set,
+            // invalidate the handle identifying the dialog box.
+            if (lpfr->Flags & FR_DIALOGTERM)
+            {
+                app.currentDialog = NULL;
+                return 0;
+            }
+            if (lpfr->Flags & FR_FINDNEXT)
+            {
+                app.DoSearch(lpfr->lpstrFindWhat, lpfr->Flags);
+            }
         }
         return 0;
     }
