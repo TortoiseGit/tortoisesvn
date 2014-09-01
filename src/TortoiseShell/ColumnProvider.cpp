@@ -52,6 +52,8 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
     __try
     {
+        if (psci == nullptr)
+            return E_POINTER;
         return GetColumnInfo_Wrap(dwIndex, psci);
     }
     __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
