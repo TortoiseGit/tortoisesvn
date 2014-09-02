@@ -227,7 +227,7 @@ module.exports = function(grunt) {
         'includereplace',
         'useminPrepare',
         'concat',
-        //'uncss',
+        'uncss',
         'cssmin',
         'uglify',
         'filerev',
