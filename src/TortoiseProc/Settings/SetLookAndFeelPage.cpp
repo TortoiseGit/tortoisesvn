@@ -134,6 +134,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     InsertItem(IDS_MENUADD, IDI_ADD, MENUADD);
     InsertItem(IDS_MENUIMPORT, IDI_IMPORT, MENUIMPORT);
     InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME);
+    InsertItem(IDS_MENUCOPYURL, IDI_COPYURL, MENUCOPYURL);
     InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE);
     InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH);
     InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
@@ -237,6 +238,7 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUADD : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIMPORT : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUBLAME : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOPYURL : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIGNORE : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;

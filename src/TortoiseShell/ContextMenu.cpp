@@ -161,6 +161,9 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
     { ShellMenuBlame,                       MENUBLAME,          IDI_BLAME,              IDS_MENUBLAME,              IDS_MENUDESCBLAME,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_blame" },
 
+    { ShellMenuCopyUrl,                     MENUCOPYURL,        IDI_COPYURL,            IDS_MENUCOPYURL,            IDS_MENUDESCCOPYURL,
+        { ITEMIS_INSVN, ITEMIS_UNSUPPORTEDFORMAT }, { 0, 0 }, { 0, 0 }, { 0, 0 }, L"tsvn_copyurl" },
+
     { ShellMenuIgnoreSub,                   MENUIGNORE,         IDI_IGNORE,             IDS_MENUIGNORE,             IDS_MENUDESCIGNORE,
         {ITEMIS_INVERSIONEDFOLDER, ITEMIS_IGNORED|ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_ignoresub" },
 
@@ -232,6 +235,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: Initialize\n");
     PreserveChdir preserveChdir;
     files_.clear();
+    urls_.clear();
     folder_.clear();
     uuidSource.clear();
     uuidTarget.clear();
@@ -316,7 +320,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                             if (stat.status->kind == svn_node_dir)
                             {
                                 itemStates |= ITEMIS_FOLDER;
-                                if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+                                if ((status != svn_wc_status_unversioned) && (status != svn_wc_status_ignored) && (status != svn_wc_status_none))
                                     itemStates |= ITEMIS_FOLDERINSVN;
                                 if (strpath.IsWCRoot())
                                     itemStates |= ITEMIS_WCROOT;
@@ -329,6 +333,16 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                                 itemStates |= ITEMIS_CONFLICTED;
                             if (stat.status->copied)
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
+                            if (stat.status->repos_relpath && stat.status->repos_root_url)
+                            {
+                                size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
+                                len += 2;
+                                std::unique_ptr<char[]> url(new char[len]);
+                                strcpy_s(url.get(), len, stat.status->repos_root_url);
+                                strcat_s(url.get(), len, "/");
+                                strcat_s(url.get(), len, stat.status->repos_relpath);
+                                urls_.push_back(CUnicodeUtils::StdGetUnicode(url.get()));
+                            }
                         }
                         else
                         {
@@ -429,6 +443,16 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                                     if (props.HasProperty("svn:needs-lock"))
                                         itemStates |= ITEMIS_NEEDSLOCK;
                                 }
+                            }
+                            if (stat.status->repos_relpath && stat.status->repos_root_url)
+                            {
+                                size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
+                                len += 2;
+                                std::unique_ptr<char[]> url(new char[len]);
+                                strcpy_s(url.get(), len, stat.status->repos_root_url);
+                                strcat_s(url.get(), len, "/");
+                                strcat_s(url.get(), len, stat.status->repos_relpath);
+                                urls_.push_back(CUnicodeUtils::StdGetUnicode(url.get()));
                             }
                         }
                         else
@@ -559,6 +583,16 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                             itemStates |= ITEMIS_ADDEDWITHHISTORY;
                         if (strpath.IsWCRoot())
                             itemStates |= ITEMIS_WCROOT;
+                        if (urls_.empty() && stat.status->repos_relpath && stat.status->repos_root_url)
+                        {
+                            size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
+                            len += 2;
+                            std::unique_ptr<char[]> url(new char[len]);
+                            strcpy_s(url.get(), len, stat.status->repos_root_url);
+                            strcat_s(url.get(), len, "/");
+                            strcat_s(url.get(), len, stat.status->repos_relpath);
+                            urls_.push_back(CUnicodeUtils::StdGetUnicode(url.get()));
+                        }
                     }
                     else
                     {
@@ -1534,6 +1568,9 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             break;
         case ShellMenuBlame:
             AddPathCommand(svnCmd, L"blame", true);
+            break;
+        case ShellMenuCopyUrl:
+            AddPathFileCommand(svnCmd, L"copyurls");
             break;
         case ShellMenuCreatePatch:
             AddPathFileCommand(svnCmd, L"createpatch");

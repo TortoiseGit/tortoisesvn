@@ -267,6 +267,9 @@
   <ItemGroup>
     <Manifest Include="..\compatibility.manifest" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\copy.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

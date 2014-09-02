@@ -2062,6 +2062,9 @@
     <ClInclude Include="MonitorOptionsDlg.h">
       <Filter>Commands\Monitor</Filter>
     </ClInclude>
+    <ClInclude Include="Commands\CopyUrlsCommand.h">
+      <Filter>Commands\Misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">

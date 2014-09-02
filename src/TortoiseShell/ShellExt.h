@@ -143,6 +143,7 @@ protected:
         ShellMenuDeleteIgnoreCaseSensitiveGlobal,
         ShellMenuRepoBrowse,
         ShellMenuBlame,
+        ShellMenuCopyUrl,
         ShellMenuApplyPatch,
         ShellMenuCreatePatch,
         ShellMenuRevisionGraph,
@@ -195,6 +196,7 @@ protected:
     std::map<UINT_PTR, tstring>     myVerbsIDMap;
     tstring                         folder_;
     std::vector<tstring>            files_;
+    std::vector<tstring>            urls_;
     DWORD                           itemStates;         ///< see the globals.h file for the ITEMIS_* defines
     DWORD                           itemStatesFolder;   ///< used for states of the folder_ (folder background and/or drop target folder)
     tstring                         uuidSource;

@@ -66,6 +66,7 @@ IDI_PROPERTIES          ICON                    "..\\Resources\\menuproperties.i
 IDI_DELUNVERSIONED      ICON                    "..\\Resources\\menudelunversioned.ico"
 IDI_APPSMALL            ICON                    "..\\Resources\\TortoiseSmall.ico"
 IDI_CLIPPASTE           ICON                    "..\\Resources\\clippaste.ico"
+IDI_COPYURL             ICON                    "D:\\Development\\SVN\\TortoiseSVN\\src\\Resources\\copy.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -397,6 +398,8 @@ BEGIN
     IDS_MENUUNIDIFF         "Unified Diff"
     IDS_MENUUNIDESCDIFF     "Shows a unified diff of all changes of the path and those below, including property changes."
     IDS_DROPEXTERNAL        "SVN Add as &external here"
+    IDS_MENUCOPYURL         "Copy URL to clipboard"
+    IDS_MENUDESCCOPYURL     "Copies the URLs of all selected items to the clipboard"
 END
 
 STRINGTABLE
