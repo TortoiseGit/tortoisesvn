@@ -30,8 +30,27 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include <algorithm>
+#include <fstream>
 
 CRegStdString regTagsPattern = CRegStdString(L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
+
+void LoadIgnorePatterns(const char * wc, SubWCRev_t * SubStat)
+{
+    std::string path = wc;
+    std::string ignorepath = path + "/.subwcrevignore";
+
+    std::ifstream infile;
+    infile.open(ignorepath);
+    if (infile.good())
+    {
+        std::string line;
+        while (std::getline(infile, line))
+        {
+            if (!line.empty())
+                SubStat->ignorepatterns.insert(line);
+        }
+    }
+}
 
 // Copy the URL from src to dest, unescaping on the fly.
 void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
@@ -197,6 +216,15 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
     {
         return SVN_NO_ERROR;
+    }
+
+    if (status && status->repos_relpath && !sb->SubStat->ignorepatterns.empty())
+    {
+        for (const auto& pattern : sb->SubStat->ignorepatterns)
+        {
+            if (strwildcmp(pattern.c_str(), status->repos_relpath))
+                return SVN_NO_ERROR;
+        }
     }
 
     if (status->kind == svn_node_dir)

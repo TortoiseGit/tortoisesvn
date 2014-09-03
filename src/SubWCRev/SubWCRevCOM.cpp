@@ -197,6 +197,11 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     svn_client_ctx_t * ctx;
     svn_client_create_context2(&ctx, NULL, pool);
 
+    const char *wcroot;
+    svn_client_get_wc_root(&wcroot, internalpath, ctx, pool, pool);
+    LoadIgnorePatterns(wcroot, &SubStat);
+    LoadIgnorePatterns(internalpath, &SubStat);
+
     svn_error_t * svnerr = svn_status(  internalpath,   //path
         &SubStat,       //status_baton
         TRUE,           //noignore
@@ -220,7 +225,6 @@ HRESULT __stdcall SubWCRev::GetWCInfo2(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOO
     if (wcPath==NULL)
         return E_INVALIDARG;
 
-    SecureZeroMemory(&SubStat, sizeof(SubStat));
     SubStat.bExternalsNoMixedRevision = externalsNoMixed;
     return GetWCInfoInternal(wcPath, folders, externals);
 }
@@ -230,7 +234,6 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
     if (wcPath==NULL)
         return E_INVALIDARG;
 
-    SecureZeroMemory(&SubStat, sizeof(SubStat));
     return GetWCInfoInternal(wcPath, folders, externals);
 }
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 #include <vector>
+#include <set>
 
 #include "apr_pools.h"
 #include "svn_error.h"
@@ -47,8 +48,30 @@ typedef struct SubWcLockData_t
  * This structure is used as the status baton for WC crawling
  * and contains all the information we are collecting.
  */
-typedef struct SubWCRev_t
+struct SubWCRev_t
 {
+    SubWCRev_t()
+        : MinRev(0)
+        , MaxRev(0)
+        , CmtRev(0)
+        , CmtDate(0)
+        , HasMods(FALSE)
+        , HasUnversioned(FALSE)
+        , bFolders(FALSE)
+        , bExternals(FALSE)
+        , bExternalsNoMixedRevision(FALSE)
+        , bHexPlain(FALSE)
+        , bHexX(FALSE)
+        , bIsSvnItem(FALSE)
+        , bIsExternalsNotFixed(FALSE)
+        , bIsExternalMixed(FALSE)
+        , bIsTagged(FALSE)
+    {
+        SecureZeroMemory(Url, sizeof(Url));
+        SecureZeroMemory(RootUrl, sizeof(RootUrl));
+        SecureZeroMemory(Author, sizeof(Author));
+        SecureZeroMemory(&LockData, sizeof(LockData));
+    }
     svn_revnum_t MinRev;    // Lowest update revision found
     svn_revnum_t MaxRev;    // Highest update revision found
     svn_revnum_t CmtRev;    // Highest commit revision found
@@ -57,7 +80,7 @@ typedef struct SubWCRev_t
     BOOL HasUnversioned;    // True if unversioned items found
     BOOL bFolders;          // If TRUE, status of folders is included
     BOOL bExternals;        // If TRUE, status of externals is included
-    BOOL bExternalsNoMixedRevision; // If TRUE, externals set to an explicit revision lead not to an mixed revsion error
+    BOOL bExternalsNoMixedRevision; // If TRUE, externals set to an explicit revision lead not to an mixed revision error
     BOOL bHexPlain;         // If TRUE, revision numbers are output in HEX
     BOOL bHexX;             // If TRUE, revision numbers are output in HEX with '0x'
     char Url[URL_BUF];      // URL of working copy
@@ -66,9 +89,10 @@ typedef struct SubWCRev_t
     BOOL  bIsSvnItem;           // True if the item is under SVN
     SubWcLockData_t LockData;   // Data regarding the lock of the file
     BOOL  bIsExternalsNotFixed; // True if one external is not fixed to a specified revision
-    BOOL  bIsExternalMixed; // True if one external, which is fixed has not the explicit revsion set
+    BOOL  bIsExternalMixed; // True if one external, which is fixed has not the explicit revision set
     BOOL  bIsTagged;   // True if working copy URL contains "tags" keyword
-} SubWCRev_t;
+    std::set<std::string> ignorepatterns;   // a list of file patterns to ignore
+};
 
 /**
  * \ingroup SubWCRev
@@ -77,7 +101,7 @@ typedef struct SubWCRev_t
  */
 typedef struct SubWcExtData_t
 {
-    const char * Path;            // The name of the directory (abosulte path) into which this external should be checked out
+    const char * Path;            // The name of the directory (absolute path) into which this external should be checked out
     svn_opt_revision_t Revision;  // What revision to check out.
 } SubWcExtData_t;
 
@@ -104,3 +128,4 @@ svn_status (       const char *path,
                    svn_client_ctx_t *ctx,
                    apr_pool_t *pool);
 
+void LoadIgnorePatterns(const char * wc, SubWCRev_t * SubStat);

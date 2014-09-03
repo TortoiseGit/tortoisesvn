@@ -28,7 +28,6 @@
 #include <fcntl.h>
 #include <memory>
 
-
 #pragma warning(push)
 #include "apr_pools.h"
 #include "svn_error.h"
@@ -77,7 +76,9 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -x                 :   if given, then SubWCRev will write the revisions\n\
                        numbers in HEX instead of decimal\n\
 -X                 :   if given, then SubWCRev will write the revisions\n\
-                       numbers in HEX with '0x' before them\n"
+                       numbers in HEX with '0x' before them\n\
+-F                 :   if given, does not use the .subwcrevignore file\n"
+
 #define HelpText4 "\
 Switches must be given in a single argument, e.g. '-nm' not '-n -m'.\n\
 \n\
@@ -168,7 +169,6 @@ $WCISLOCKED$    True if the item is locked\n"
 
 // Value for apr_time_t to signify "now"
 #define USE_TIME_NOW    -2  // 0 and -1 might already be significant.
-
 
 
 bool FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
@@ -748,9 +748,8 @@ int _tmain(int argc, _TCHAR* argv[])
     BOOL bErrOnUnversioned = FALSE;
     BOOL bErrOnMixed = FALSE;
     BOOL bQuiet = FALSE;
+    BOOL bUseSubWCRevIgnore = TRUE;
     SubWCRev_t SubStat;
-    SecureZeroMemory(&SubStat, sizeof(SubStat));
-    SubStat.bFolders = FALSE;
 
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"SubWCRev " _T(APP_X64_STRING));
@@ -811,6 +810,8 @@ int _tmain(int argc, _TCHAR* argv[])
                 SubStat.bHexPlain = TRUE;
             if (wcschr(Params, 'X') != 0)
                 SubStat.bHexX = TRUE;
+            if (wcschr(Params, 'F') != 0)
+                bUseSubWCRevIgnore = FALSE;
         }
         else
         {
@@ -967,7 +968,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] src;
             return ERR_READ;
         }
-
     }
     // Now check the status of every file in the working copy
     // and gather revision status information in SubStat.
@@ -989,9 +989,15 @@ int _tmain(int argc, _TCHAR* argv[])
         svn_wc_set_adm_dir("_svn", pool);
     }
 
-    char *wc_utf8;
-    wc_utf8 = Utf16ToUtf8(wc, pool);
+    char *wc_utf8 = Utf16ToUtf8(wc, pool);
     internalpath = svn_dirent_internal_style (wc_utf8, pool);
+    if (bUseSubWCRevIgnore)
+    {
+        const char *wcroot;
+        svn_client_get_wc_root(&wcroot, internalpath, ctx, pool, pool);
+        LoadIgnorePatterns(wcroot, &SubStat);
+        LoadIgnorePatterns(internalpath, &SubStat);
+    }
 
     svnerr = svn_status(    internalpath,   //path
                             &SubStat,       //status_baton
