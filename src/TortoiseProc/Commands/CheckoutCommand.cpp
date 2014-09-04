@@ -144,14 +144,14 @@ bool CheckoutCommand::Execute()
 
         progDlg.SetCommand
             (useStandardCheckout
-                ? dlg.m_checkoutDepths.size()
+                ? !dlg.m_checkoutDepths.empty()
                     ? CSVNProgressDlg::SVNProgress_SparseCheckout
                     : CSVNProgressDlg::SVNProgress_Checkout
                 : dlg.m_parentExists && (dlg.m_URLs.GetCount() == 1)
                     ? CSVNProgressDlg::SVNProgress_Update
                     : CSVNProgressDlg::SVNProgress_SingleFileCheckout);
 
-        if (dlg.m_checkoutDepths.size())
+        if (!dlg.m_checkoutDepths.empty())
             progDlg.SetPathDepths(dlg.m_checkoutDepths);
         progDlg.SetAutoClose (parser);
         progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
