@@ -35,7 +35,8 @@
 #include "ProgressDlg.h"
 #include "Blame.h"
 
-SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) : m_bDeleteSVN(false)
+SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */)
+    : m_bDeleteSVN(false)
     , m_pSVN(NULL)
     , m_hWnd(NULL)
     , m_bRemoveTempFiles(false)
