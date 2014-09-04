@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ public:
 
     // construction
 
-    SVNError (svn_errno_t code, const CStringA& message);
+    SVNError (svn_errno_t errcode, const CStringA& errmessage);
     explicit SVNError (svn_error_t* error);
     explicit SVNError (const svn_error_t* error);
 
