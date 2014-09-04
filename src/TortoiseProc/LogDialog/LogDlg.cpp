@@ -229,6 +229,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bPlaySound(true)
     , m_bShowNotification(true)
 {
+    SecureZeroMemory(&m_SystemTray,sizeof(m_SystemTray));
     m_bFilterWithRegex =
         !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
     m_bFilterCaseSensitively =
@@ -3609,7 +3610,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
 {
     // Get the selected state of the
     // item being drawn.
-    LVITEM   rItem;
+    LVITEM rItem;
     SecureZeroMemory(&rItem, sizeof(LVITEM));
     rItem.mask  = LVIF_STATE;
     rItem.iItem = (int)pLVCD->nmcd.dwItemSpec;
