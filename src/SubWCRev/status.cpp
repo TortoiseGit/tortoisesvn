@@ -218,7 +218,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
         return SVN_NO_ERROR;
     }
 
-    if (status && status->repos_relpath && !sb->SubStat->ignorepatterns.empty())
+    if (status->repos_relpath && !sb->SubStat->ignorepatterns.empty())
     {
         for (const auto& pattern : sb->SubStat->ignorepatterns)
         {
