@@ -205,8 +205,8 @@ void CStandardNodePositioning::ShiftNodes
     , CSize delta)
 {
     // walk along this branch
-
-    delta += node->treeShift;
+    if (node != nullptr)
+        delta += node->treeShift;
     for ( ; node != NULL; node = node->nextInBranch)
     {
         node->rect += delta;
@@ -228,7 +228,9 @@ CRect CStandardNodePositioning::BoundingRect
 {
     // walk along this branch
 
-    CRect result = node->rect;
+    CRect result = { 0 };
+    if (node != nullptr)
+        result = node->rect;
     for ( ; node != NULL; node = node->nextInBranch)
     {
         result.UnionRect (result, node->rect);
