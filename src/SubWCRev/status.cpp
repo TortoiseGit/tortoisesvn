@@ -366,9 +366,9 @@ svn_status (    const char *path,
                 apr_pool_t *pool)
 {
     SubWCRev_StatusBaton_t sb;
-    std::vector<SubWcExtData_t> * extarray = new std::vector<SubWcExtData_t>;
+    auto extarray = std::make_unique<std::vector<SubWcExtData_t>>();
     sb.SubStat = (SubWCRev_t *)status_baton;
-    sb.extarray = extarray;
+    sb.extarray = extarray.get();
     sb.pool = pool;
     sb.wc_ctx = ctx->wc_ctx;
 
@@ -421,8 +421,6 @@ svn_status (    const char *path,
             }
         }
     }
-
-    delete extarray;
 
     return SVN_NO_ERROR;
 }
