@@ -6,10 +6,13 @@
   <target name="clean">
 
     <if test="${cleanup == 'yes'}">
-      <exec program="devenv.com">
+      <exec program="msbuild.exe">
         <arg value="${solutionname}" />
-        <arg value="/clean" />
-        <arg value="${configuration}|${platform}" />
+        <arg value="/t:Clean" />
+        <arg value="/p:Configuration=${configuration}" />
+        <arg value="/p:Platform=${platform}" />
+        <arg value="/verbosity:quiet" />
+        <arg value="/maxcpucount" />
       </exec>
     </if>
   </target>
@@ -54,10 +57,13 @@
   </target>
 
   <target name="TortoiseSVN" depends="clean,versioninfo">
-    <exec program="devenv.com">
+    <exec program="msbuild.exe">
       <arg value="${solutionname}" />
-      <arg value="/rebuild" />
-      <arg value="${configuration}|${platform}" />
+      <arg value="/t:Rebuild" />
+      <arg value="/p:Configuration=${configuration}" />
+      <arg value="/p:Platform=${platform}" />
+      <arg value="/verbosity:minimal" />
+      <arg value="/maxcpucount" />
     </exec>
   </target>
 

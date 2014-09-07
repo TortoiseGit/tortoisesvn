@@ -52,16 +52,23 @@
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
 
 
-    <exec program="devenv.com">
+    <exec program="msbuild.exe">
       <arg value="${solutionname}" />
-      <arg value="/rebuild" />
-      <arg value="release|win32" />
+      <arg value="/t:rebuild" />
+      <arg value="/p:Configuration=Release" />
+      <arg value="/p:Platform=Win32" />
+      <arg value="/verbosity:minimal" />
+      <arg value="/maxcpucount" />
     </exec>
-    <exec program="devenv.com">
+    <exec program="msbuild.exe">
       <arg value="${solutionname}" />
-      <arg value="/rebuild" />
-      <arg value="release|x64" />
+      <arg value="/t:Rebuild" />
+      <arg value="/p:Configuration=Release" />
+      <arg value="/p:Platform=x64" />
+      <arg value="/verbosity:minimal" />
+      <arg value="/maxcpucount" />
     </exec>
+
     <setenv>
       <variable name="Platform" value="win32" />
     </setenv>

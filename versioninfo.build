@@ -20,12 +20,13 @@
           tofile="src\version.h"
           overwrite="true"
         />
-        <exec program="devenv.com" workingdir="src" failonerror="false">
+        <exec program="msbuild.exe" workingdir="src" failonerror="false">
           <arg value="${solutionname}" />
-          <arg value="/rebuild" />
-          <arg value="${configuration}|${platform}" />
-          <arg value="/project" />
-          <arg value="SubWCRev" />
+          <arg value="/t:Utilities\SubWCRev:Rebuild" />
+          <arg value="/p:Configuration=${configuration}" />
+          <arg value="/p:Platform=${platform}" />
+          <arg value="/verbosity:minimal" />
+          <arg value="/maxcpucount" />
         </exec>
       </if>
     </if>
