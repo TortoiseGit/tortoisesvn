@@ -75,7 +75,6 @@ bool DropVendorCommand::Execute()
     progress.SetTime(true);
     progress.SetProgress(0, (DWORD)vendorFiles.size());
     DWORD count = 0;
-    BOOL bSuccess = FALSE;
     for (auto it = vendorFiles.cbegin(); (it != vendorFiles.cend()) && (!progress.HasUserCancelled()); ++it)
     {
         CString srcPath = root.GetWinPathString() + L"\\" + it->first;
@@ -91,7 +90,14 @@ bool DropVendorCommand::Execute()
             versionedFiles.erase(found);
             if (!it->second)
             {
-                bSuccess = CopyFile(srcPath, dstPath, FALSE);
+                if (!CopyFile(srcPath, dstPath, FALSE))
+                {
+                    CFormatMessageWrapper error;
+                    CString sErr;
+                    sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                    MessageBox(GetExplorerHWND(), sErr, L"TortoiseSVN", MB_ICONERROR);
+                    return FALSE;
+                }
             }
         }
         else
@@ -104,8 +110,19 @@ bool DropVendorCommand::Execute()
                     if (v->first.CompareNoCase(it->first) == 0)
                     {
                         CString dstsrc = droppath + L"\\" + v->first;
-                        svn.Move(CTSVNPathList(CTSVNPath(dstsrc)), CTSVNPath(dstPath));
-                        bSuccess = CopyFile(srcPath, dstPath, FALSE);
+                        if (!svn.Move(CTSVNPathList(CTSVNPath(dstsrc)), CTSVNPath(dstPath)))
+                        {
+                            svn.ShowErrorDialog(GetExplorerHWND());
+                            return FALSE;
+                        }
+                        if (!CopyFile(srcPath, dstPath, FALSE))
+                        {
+                            CFormatMessageWrapper error;
+                            CString sErr;
+                            sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                            MessageBox(GetExplorerHWND(), sErr, L"TortoiseSVN", MB_ICONERROR);
+                            return FALSE;
+                        }
                         versionedFiles.erase(v);
                         break;
                     }
@@ -115,10 +132,23 @@ bool DropVendorCommand::Execute()
             {
                 CTSVNPathList plist = CTSVNPathList(CTSVNPath(dstPath));
                 if (!it->second)
-                    bSuccess = CopyFile(srcPath, dstPath,  FALSE);
+                {
+                    if (!CopyFile(srcPath, dstPath, FALSE))
+                    {
+                        CFormatMessageWrapper error;
+                        CString sErr;
+                        sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                        MessageBox(GetExplorerHWND(), sErr, L"TortoiseSVN", MB_ICONERROR);
+                        return FALSE;
+                    }
+                }
                 else
-                    bSuccess = CreateDirectory(dstPath, NULL);
-                svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true);
+                    CreateDirectory(dstPath, NULL);
+                if (!svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true))
+                {
+                    svn.ShowErrorDialog(GetExplorerHWND());
+                    return FALSE;
+                }
             }
         }
     }
@@ -133,8 +163,12 @@ bool DropVendorCommand::Execute()
         // again in case removing it was done accidentally
         CTSVNPath delpath = CTSVNPath(droppath + L"\\" + it->first);
         delpath.Delete(true);
-        svn.Remove(CTSVNPathList(delpath), true, false);
+        if (!svn.Remove(CTSVNPathList(delpath), true, false))
+        {
+            svn.ShowErrorDialog(GetExplorerHWND());
+            return FALSE;
+        }
     }
 
-    return bSuccess != FALSE;
+    return TRUE;
 }
