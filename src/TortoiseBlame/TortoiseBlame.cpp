@@ -192,13 +192,20 @@ void TortoiseBlame::SetTitle()
     WCHAR pathbuf[MAX_PATH] = {0};
     if (szViewtitle.size() >= MAX_PATH)
     {
-        std::wstring str = szViewtitle;
-        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
-        std::wstring replacement = L"$1$2...$3";
-        std::wstring str2 = std::regex_replace(str, rx, replacement);
-        if (str2.size() >= MAX_PATH)
-            str2 = str2.substr(0, MAX_PATH-2);
-        PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH-(UINT)wcslen(szTitle), 0);
+        try
+        {
+            std::wstring str = szViewtitle;
+            std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+            std::wstring replacement = L"$1$2...$3";
+            std::wstring str2 = std::regex_replace(str, rx, replacement);
+            if (str2.size() >= MAX_PATH)
+                str2 = str2.substr(0, MAX_PATH - 2);
+            PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH - (UINT)wcslen(szTitle), 0);
+        }
+        catch (std::exception)
+        {
+            PathCompactPathEx(pathbuf, szViewtitle.c_str(), MAX_PATH_LENGTH - (UINT)wcslen(szTitle), 0);
+        }
     }
     else
         PathCompactPathEx(pathbuf, szViewtitle.c_str(), MAX_PATH_LENGTH-(UINT)wcslen(szTitle), 0);
