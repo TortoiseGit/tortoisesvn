@@ -167,9 +167,6 @@ void CEditPropConflictDlg::OnBnClickedStartmergeeditor()
 
 void CEditPropConflictDlg::OnBnClickedResolved()
 {
-    // remove the prej file to 'resolve' the conflict
-    m_prejFile.Delete(false);
-
     // read the content of the result file
     CAutoFile hFile = CreateFile(m_ResultPath.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
     if (hFile)
@@ -186,7 +183,11 @@ void CEditPropConflictDlg::OnBnClickedResolved()
 
         // Write the property value
         SVNProperties props(m_conflictItem, SVNRev::REV_WC, false, false);
-        props.Add(m_propname, value);
+        if (props.Add(m_propname, value))
+        {
+            // remove the prej file to 'resolve' the conflict
+            m_prejFile.Delete(false);
+        }
     }
 
     EndDialog(IDC_RESOLVETHEIRS);
