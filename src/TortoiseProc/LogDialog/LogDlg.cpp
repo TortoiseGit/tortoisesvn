@@ -226,6 +226,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_nErrorOvl(0)
     , m_hMonitorIconNormal(NULL)
     , m_hMonitorIconNewCommits(NULL)
+    , m_revUnread(0)
     , m_bPlaySound(true)
     , m_bShowNotification(true)
 {
