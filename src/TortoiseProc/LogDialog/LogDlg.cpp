@@ -4970,7 +4970,7 @@ void CLogDlg::UpdateLogInfoLabel()
         {
             rev1 = pLogEntry->GetRevision();
             pLogEntry = m_logEntries.GetVisible (m_logEntries.GetVisibleCount()-1);
-            rev2 = pLogEntry->GetRevision();
+            rev2 = pLogEntry ? pLogEntry->GetRevision() : 0;
             selectedrevs = m_LogList.GetSelectedCount();
 
             if (m_bSingleRevision)

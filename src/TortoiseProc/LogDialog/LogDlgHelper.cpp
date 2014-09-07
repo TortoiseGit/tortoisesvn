@@ -78,7 +78,8 @@ CStoreSelection::~CStoreSelection()
 
         for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
         {
-            LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
+            auto pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
+            LONG nRevision = pLogEntry ? pLogEntry->GetRevision() : 0;
             if ( m_SetSelectedRevisions.contains (nRevision) )
             {
                 m_logdlg->m_LogList.SetSelectionMark(i);
