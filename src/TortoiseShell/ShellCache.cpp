@@ -626,8 +626,8 @@ void ShellCache::CPathFilter::PostProcessData()
     }
 
     // remove duplicate info
-
-    data.erase (++dest, end);
+    if (begin != end)
+        data.erase(++dest, end);
 }
 
 // lookup. default result is "unknown".
