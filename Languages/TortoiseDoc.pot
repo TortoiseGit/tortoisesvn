@@ -8173,7 +8173,7 @@ msgid "You can also choose to mark folders as modified if they contain unversion
 msgstr ""
 
 #. (para)
-msgid "If you have files in the \"ignore-on-commit\" changelist, you can chose to make those files not propagate their status to the parent folder. That way if only files in that changelist are modified, the parent folder still shows the unmodified overlay icon."
+msgid "If you have files in the <literal>ignore-on-commit</literal> changelist, you can chose to make those files not propagate their status to the parent folder. That way if only files in that changelist are modified, the parent folder still shows the unmodified overlay icon."
 msgstr ""
 
 #. (para)
@@ -9482,6 +9482,27 @@ msgstr ""
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
 msgstr ""
 
+#. (para)
+msgid ""
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"/trunk/doc\n"
+"/trunk/doc/*\n"
+"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"*.png\n"
+"*.jpg\n"
+"*.ico\n"
+"*.bmp\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid "The ignore patterns are case-sensitive, just like Subversion is."
+msgstr ""
+
+#. (para)
+msgid "To create a file with a starting dot in the Windows explorer, enter <filename>.subwcrevignore.</filename>. Note the trailing dot."
+msgstr ""
+
 #. (title)
 msgid "List of available command line switches"
 msgstr ""
@@ -9562,6 +9583,14 @@ msgstr ""
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX, with '0X' prepended."
+msgstr ""
+
+#. (filename)
+msgid ".subwcrevignore"
+msgstr ""
+
+#. (entry)
+msgid "If this switch is given, SubWCRev will ignore any <placeholder-1/> files and include all files."
 msgstr ""
 
 #. (entry)
