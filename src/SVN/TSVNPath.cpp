@@ -827,6 +827,12 @@ void CTSVNPathList::AddPath(const CTSVNPath& newPath)
 }
 int CTSVNPathList::GetCount() const
 {
+    // cast to an int: we don't return a size_t
+    // here for several reasons:
+    // - we can't really handle more than 4gb of paths
+    // - svn only handles path arrays of max size int
+    // - in most places an int is used, by returning an int
+    //   we avoid a lot of casts
     return (int)m_paths.size();
 }
 void CTSVNPathList::Clear()
