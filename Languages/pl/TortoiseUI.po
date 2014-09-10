@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-23 19:22+0000\n"
+"PO-Revision-Date: 2014-09-09 22:38+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1249,10 +1249,6 @@ msgstr "&Usuń dane nt. użycia"
 msgid "&Reset to Default"
 msgstr "Przywróć wartości &domyślne"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Rozwiąż używając atrybutów lokalnych"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Restore defaults"
@@ -1721,8 +1717,8 @@ msgid "<new changelist>"
 msgstr "<nowa lista zmian>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr "=&Sprawdź teraz=&Dodaj Projekt=E&dytuj=&Usuń=&Opcje=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgstr "=&Sprawdź Teraz=&Dodaj Projekt=E&dytuj=&Usuń=&Zaznacz jako przeczytane=&Opcje=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3223,6 +3219,10 @@ msgstr "Zatwierdzenie niewersjonowanego folderu nie doda jego elementów podrzę
 msgid "Committing to a tag"
 msgstr "Zatwierdzenie do etykiety"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr "Zatwierdzanie transakcji..."
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Porównaj wersje &główne (HEAD)"
@@ -3398,6 +3398,10 @@ msgstr "Skopiowano"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Skopiowany z: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr "Kopiuje do schowka adresy URL wszystkich wybranych elementów"
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopiuj"
@@ -3420,6 +3424,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopiuj %1!s!\r\ndo %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr "Kopiuj numer we&rsji do schowka "
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4754,6 +4762,14 @@ msgstr "Nie udało się połączyć.\nLink może być niepoprawny."
 msgid "Failed to convert ActiveX object."
 msgstr "Nie udało się skonwertować obiektu ActiveX."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr "Nie udało się skopiować pliku '%' do '%s'.\n\n%s"
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Nie udało się utworzyć pustego dokumentu."
@@ -5709,6 +5725,10 @@ msgid ""
 "the repository browser."
 msgstr "Jeśli chcesz złamać blokadę, użyj okna 'Sprawdź zmiany' lub przeglądarki repozytorium."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignoruj"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6390,6 +6410,10 @@ msgstr "Wiele pozycji wybranych by pokazać różnice"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Oznacz jako &rozwiązane (przeniesienie stanie się kopią)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr "Oznacz jako Rozwiązany"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Oznacz jako rozwiązany"
@@ -6431,6 +6455,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Oznacza jako plik z rozwiązanym konfliktem w Subversion\nOznacz jako rozwiązany"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr "Zaznacza konflikt jako rozwiązany.\nUwaga: to nie rozwiązuje konfliktu, oznacza go tylko jako rozwiązany!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6502,6 +6532,10 @@ msgstr "Scal &zakres wersji"
 msgid "Merge all"
 msgstr "Scalaj wszystko"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Scal Wszystko..."
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Włącz zmiany do kopii roboczej"
@@ -6513,10 +6547,6 @@ msgstr "Scalaj nieinteraktywnie"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Opcje scalania"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Reintegruj scalanie..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6548,9 +6578,9 @@ msgstr "Scalone wersje {revrange} z {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Scala wszystkie wersje brakujące w kopii roboczej używając informacji o śledzeniu scalania"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr "Scal wszystkie brakujące wersje z linii głównej do kopii roboczej odgałęzienia funkcyjnego wykorzystując informace śledzenia scalenia"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7973,6 +8003,10 @@ msgid "Regex Filters"
 msgstr "Filtry z Wyrażeniem Regularnym"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr "Komunikat pasujący do wyrażenia:"
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Wyrażenie Regularne:"
 
@@ -8368,10 +8402,6 @@ msgstr "Rozwiąż konflikt:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Rozwiąż &później"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Rozwiąż używając &jego właściwości"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9637,6 +9667,14 @@ msgid ""
 "before for diffing later."
 msgstr "Uruchamia przeglądarkę różnic z aktualnie wybranym plikiem i zaznaczonym wcześniej do późniejszych porównań."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr "Uruchamia narzędzie edytora scalania gdzie można rozwiązać konflikt atrybutów"
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr "Uruchamia okno atrybutów tam, gdzie można ręcznie edytować atrybut."
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statyczny"
@@ -10057,8 +10095,10 @@ msgstr "Dostawca dla systemu śledzenia błędów nie był stanie zweryfikować 
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Element '%s' ma konflikty atrybutów:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr "Element '%s' ma konflikt w atrybucie:\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -11314,6 +11354,10 @@ msgstr "Użytkownik"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Użytkownik:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr "Użytkownicy do pominięcia:"
 
 #. Resource IDs: (313)
 msgid ""

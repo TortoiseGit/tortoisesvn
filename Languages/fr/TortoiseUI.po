@@ -15,6 +15,7 @@
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011-2014
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011, 2012
 # Florentin GUTH <kegnarok.rm@laposte.net>, 2013
+# Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
 # gobes <gobes2@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
@@ -39,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -210,7 +211,7 @@ msgstr "%I64d ko transférés"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d projets ont des mises à jour:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -750,7 +751,7 @@ msgstr "&Editer les conflits"
 
 #. Resource IDs: (65)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Editer le projet"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -890,7 +891,7 @@ msgstr "&Cacher"
 
 #. Resource IDs: (1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "&Cacher les éléments ignorés"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1233,7 +1234,7 @@ msgstr "&Effacer"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
-msgstr ""
+msgstr "&Retirer le projet"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1241,7 +1242,7 @@ msgstr "&Renommer"
 
 #. Resource IDs: (1511)
 msgid "&Replace"
-msgstr ""
+msgstr "&Remplacer"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1262,10 +1263,6 @@ msgstr "&Réinitialiser mes données d'utilisation"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Réinitialiser aux Valeurs par Défaut"
-
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Résoudre en utilisant les propriétés locales"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1341,7 +1338,7 @@ msgstr "&Afficher les Menus pour:"
 
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
-msgstr ""
+msgstr "&Afficher le moniteur"
 
 #. Resource IDs: (1529)
 msgid "&Show popup notifications"
@@ -1735,7 +1732,7 @@ msgid "<new changelist>"
 msgstr "<nouvelle liste de changements>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3237,6 +3234,10 @@ msgstr "Les ascendants ne seront par ajoutés récursivement lors d'une livraiso
 msgid "Committing to a tag"
 msgstr "Livrer dans un tag"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr "Livraison de la transaction..."
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Comparer les révisions &HEAD"
@@ -3412,6 +3413,10 @@ msgstr "Copié"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Copié depuis : %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Copier"
@@ -3434,6 +3439,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Copier %1!s!\r\nvers %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3860,7 +3869,7 @@ msgstr "S&upprimer les fichiers et les dossiers non versionnés"
 
 #. Resource IDs: (65)
 msgid "Delete Project"
-msgstr ""
+msgstr "Supprimer le projet"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4768,6 +4777,14 @@ msgstr "Impossible de se connecter.\nLe lien peut être défectueux."
 msgid "Failed to convert ActiveX object."
 msgstr "Échec de conversion de l'objet ActiveX."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Échec de création d'un document vide."
@@ -4811,7 +4828,7 @@ msgstr "Échoué !"
 
 #. Resource IDs: (266)
 msgid "Failed: target required"
-msgstr ""
+msgstr "Echec: cible requise"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
@@ -5723,6 +5740,10 @@ msgid ""
 "the repository browser."
 msgstr "Si vous souhaitez cassez le verrou, utilisez la boîte de dialogue 'Vérifier les Modifications' ou le navigateur de dépôt."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorer"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -5973,7 +5994,7 @@ msgstr "Monnaie Invalide."
 
 #. Resource IDs: (84)
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Paramètres invalides"
 
 #. Resource IDs: (82)
 msgid ""
@@ -6149,7 +6170,7 @@ msgstr "Laissé en conflit:"
 
 #. Resource IDs: (252)
 msgid "Leave only marked changes"
-msgstr ""
+msgstr "Laisser seulement les changements sélectionnés"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6404,6 +6425,10 @@ msgstr "Trop d'éléments sélectionnés pour afficher le différentiel"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Marquer comme &résolu (le déplacement deviendra une copie)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr "Marquer comme Résolu"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Marquer comme résolu"
@@ -6426,7 +6451,7 @@ msgstr "Faire de la révision en court votre copie de travail"
 
 #. Resource IDs: (101)
 msgid "Mark for comparison"
-msgstr "Marquer à comparer"
+msgstr "Sélectionner pour comparer"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
@@ -6434,7 +6459,7 @@ msgstr "Marquer les fichiers manquants comme supprimés"
 
 #. Resource IDs: (252)
 msgid "Mark this change"
-msgstr ""
+msgstr "Marquer ce changement"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6445,6 +6470,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Marque un fichier comme résolu dans Subversion\nMarquer comme résolu"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr "Marque le conflit comme résolu.\nNote: cela ne résout pas le conflit, il est seulement marqué comme résolu!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6516,6 +6547,10 @@ msgstr "Fusionner une plage de &révisions"
 msgid "Merge all"
 msgstr "Tout fusionner"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Fusionner tout..."
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Fusionner les changements dans la copie de travail"
@@ -6527,10 +6562,6 @@ msgstr "Fusion non-interactive"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Options de fusion"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Réintégration de la fusion..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6562,9 +6593,9 @@ msgstr "A fusionné la(es) révision(s) {revrange} à partir de {mergeurl} :\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Fusionne toutes les révisions manquantes dans la copie de travail en utilisant les informations de suivi des fusions"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7334,7 +7365,7 @@ msgstr "Ecraser\nLe fichier cible est remplacé."
 
 #. Resource IDs: (65535)
 msgid "POPUP"
-msgstr ""
+msgstr "MENU CONTEXTUEL"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7423,7 +7454,7 @@ msgstr "Chemin trouvé qui correspond mieux au patch."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
-msgstr ""
+msgstr "Chemin ou URL:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7695,7 +7726,7 @@ msgstr "Progression"
 
 #. Resource IDs: (65535)
 msgid "Project"
-msgstr ""
+msgstr "Projet"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
@@ -7985,6 +8016,10 @@ msgstr "Filtre regex"
 #. Resource IDs: (164)
 msgid "Regex Filters"
 msgstr "Filtres regex"
+
+#. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Regex:"
@@ -8288,7 +8323,7 @@ msgstr "Remplacer le texte par un autre\nRemplacer"
 
 #. Resource IDs: (65535)
 msgid "Replace with:"
-msgstr ""
+msgstr "Remplacer par:"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
@@ -8382,10 +8417,6 @@ msgstr "Résoudre le conflit :"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Résoudre plus &tard"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Résoudre en utilisan&t leur propriété"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9523,7 +9554,7 @@ msgstr "Un ou plusieurs fichiers ont été modifiés en dehors de T-Merge.\nVoul
 
 #. Resource IDs: (84)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelquechose s'est mal passé"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9649,6 +9680,14 @@ msgstr "Démarrage des externes..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
 msgstr ""
 
 #. Resource IDs: (16514)
@@ -9796,7 +9835,7 @@ msgstr "Fichier du serveur Subversion :"
 
 #. Resource IDs: (64)
 msgid "Success"
-msgstr ""
+msgstr "Succès"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10071,8 +10110,10 @@ msgstr "Le fournisseur du système de suivi des problèmes n'a pas été capable
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "L'élément '%s' a des propriétés conflictuelles: "
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -10979,7 +11020,7 @@ msgstr "Déverrouillé"
 
 #. Resource IDs: (252)
 msgid "Unmark this change"
-msgstr ""
+msgstr "Désélectionner ce changement"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -11323,11 +11364,15 @@ msgstr "Annulé par l'utilisateur"
 
 #. Resource IDs: (349)
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Nom :"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr "Utilisateurs à ignorer:"
 
 #. Resource IDs: (313)
 msgid ""
@@ -11993,7 +12038,7 @@ msgstr "hérité de"
 
 #. Resource IDs: (583)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "ça n'existe pas (manquant ou déplacé?)."
 
 #. Resource IDs: (583)
 msgid "it is already deleted."
@@ -12023,7 +12068,7 @@ msgstr "dernière mise à jour:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
+msgstr "laisser le nom d'utilisateur et le mot de passe vides si le dépôt autorise les accès anonymes, ou si l'authentification est déjà stockée"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-14 08:13+0000\n"
+"PO-Revision-Date: 2014-09-10 07:53+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -1241,10 +1241,6 @@ msgstr "&Vynulovat uživatelská data"
 msgid "&Reset to Default"
 msgstr "&Vynulovat na výchozí"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Vyřešit použitím místní vlastnosti"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Obnovit výchozí"
@@ -1713,8 +1709,8 @@ msgid "<new changelist>"
 msgstr "<nový seznam změn>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr "=Zkontrolovat nyní=&Přidat projekt=&Upravit=&Odstranit=&Možnosti=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgstr "=&Zkontrolovat nyní=&Přidat projekt=&Upravit=&Odstranit=Označit &vše jako přečtené=&Možnosti=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3215,6 +3211,10 @@ msgstr "Odevzdáním adresáře bez verze rekurzivně nepřidá své podřízen�
 msgid "Committing to a tag"
 msgstr "Odevzdávám do značky"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr "Odevzdávání přenosu..."
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Porovnat &HEAD revize"
@@ -3390,6 +3390,10 @@ msgstr "Zkopírované"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Zkopírováno z: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopírovat"
@@ -3412,6 +3416,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopírovat %1!s!\r\ndo %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr "Zkopírovat číslo &revize do schránky"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4746,6 +4754,14 @@ msgstr "Připojení selhalo.\nProblém může být v lince."
 msgid "Failed to convert ActiveX object."
 msgstr "Konvertování objektu ActiveX selhalo."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr "Nelze zkopírovat soubor '%' do '%s'.\n\n%s"
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Nemohu vytvořit prázdný dokument."
@@ -5701,6 +5717,10 @@ msgid ""
 "the repository browser."
 msgstr "Pokud chcete rozbít zámek, použijte dialogové okno \"Zkontrolovat změny\", nebo průzkumníka úložiště."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorovat"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6382,6 +6402,10 @@ msgstr "Vybráno velké množství položek pro porovnání"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Označit jako &vyřešené (přesunutí se stane kopií)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr "Označit jako vyřešené"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Označit jako vyřešené"
@@ -6423,6 +6447,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Označit soubor jako vyřešený v Subversion\nOznačit jako vyřešený"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr "Označí konflikty jako vyřešené.\nPoznámka: toto konflikt nevyřeší, jen ho pouze tak označí!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6494,6 +6524,10 @@ msgstr "Sloučit &rozsah revizí"
 msgid "Merge all"
 msgstr "Sloučit vše"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Sloučit vše..."
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Sloučit změny do pracovní kopie"
@@ -6505,10 +6539,6 @@ msgstr "Neinteraktivní slučování"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Nastavení sloučení"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Znovu začlenění sloučení..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6540,9 +6570,9 @@ msgstr "Sloučené revize {revrange} z {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Sloučí všechny chybějící revize zpět do pracovní kopie použitím informace o sledování sloučení"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7965,6 +7995,10 @@ msgid "Regex Filters"
 msgstr "Filtry s regulárním výrazem"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr "Zpráva odpovídající regulárnímu výrazu:"
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Regulární výraz:"
 
@@ -8360,10 +8394,6 @@ msgstr "Vyřešte konflikt:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Vyřešit &později"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Vyřešit pomocí &jejich vlastnosti"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9629,6 +9659,14 @@ msgid ""
 "before for diffing later."
 msgstr "Spustí prohlížeč rozdílů porovnávající současně zvolený soubor se souborem označeným pro pozdější porovnání."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr "Spustí nástroj sloučení kde můžete vyřešit konflikt vlastností."
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr "Spustí dialogové okno vlastností kde můžete vlastnost upravit ručně."
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statický"
@@ -10049,8 +10087,10 @@ msgstr "Poskytovatel sledovače problémů nemohl ověřit řetězec parametru"
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Položka '%s' má konflikt vlastností:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11306,6 +11346,10 @@ msgstr "Uživatelské jméno"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Jméno uživatele:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

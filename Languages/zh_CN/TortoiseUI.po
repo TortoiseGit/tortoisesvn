@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 17:34+0000\n"
+"PO-Revision-Date: 2014-09-08 14:19+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1260,10 +1260,6 @@ msgstr "重置我的使用信息(&R)"
 msgid "&Reset to Default"
 msgstr "恢复到默认值(&R)"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "使用本地属性解决(&R)"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "恢复默认值(&R)"
@@ -1732,8 +1728,8 @@ msgid "<new changelist>"
 msgstr "(新修改列表)"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr "=立即检查(&C)=添加项目(&A)=编辑(&D)=移除(&R)=选项(&O)=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgstr "=立即检查(&N)=添加项目(&A)=编辑(&d)=移除(&R)=全部标记为已读(&M)=选项(&O)=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3234,6 +3230,10 @@ msgstr "提交未版本控制的目录不会递归增加它的子孙！\n你可�
 msgid "Committing to a tag"
 msgstr "正在提交到 Tag"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr "提交事务中..."
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "与最新版本比较(&H)"
@@ -3409,6 +3409,10 @@ msgstr "已复制"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "复制自: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr "复制所有选定项的 URL 到剪贴板"
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "复制"
@@ -3431,6 +3435,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "复制 %1!s!\r\n到 %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr "复制修订编号到剪贴板(&R)"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4765,6 +4773,14 @@ msgstr "连接失败。\n硬件链接可能中断。"
 msgid "Failed to convert ActiveX object."
 msgstr "转换 ActiveX 对象失败。"
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr "复制文件 '%' 至 '%s' 失败。\n\n%s"
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "无法创建空文件。"
@@ -5720,6 +5736,10 @@ msgid ""
 "the repository browser."
 msgstr "如果你想要破除锁定，请使用'检查修改'对话框或者版本库浏览器。"
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "忽略"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6401,6 +6421,10 @@ msgstr "已选定多项来显示差异"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "标记为已解决(&R) (这将导致变成一份副本)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr "标记为已解决"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "标记为已解决"
@@ -6442,6 +6466,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "把一个文件在 Subversion 中标记为已解决\n标记为已解决"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr "标记该冲突为已解决。\n注意：这并不能解决该冲突，只是标记它为已解决！"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6513,6 +6543,10 @@ msgstr "合并一个版本范围(&R)"
 msgid "Merge all"
 msgstr "合并所有"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "合并所有..."
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "合并更改到工作副本"
@@ -6524,10 +6558,6 @@ msgstr "非交互合并"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "合并选项"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "合并复兴分支..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6559,9 +6589,9 @@ msgstr "合并了修改版本号{revrange} 从 {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "使用合并跟踪信息将所有丢失的版本合并到工作副本"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr "使用合并跟踪信息将所有丢失的版本从主干合并到工作副本的一个功能分支"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7984,6 +8014,10 @@ msgid "Regex Filters"
 msgstr "正则过滤器"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr "正则表达式匹配的信息："
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "正则表达式："
 
@@ -8379,10 +8413,6 @@ msgstr "解决冲突: "
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "以后解决(&A)"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "使用它们的属性解决(&T)"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9648,6 +9678,14 @@ msgid ""
 "before for diffing later."
 msgstr "启动比较查看器,同时选定当前文件和之前选定的一个文件用来做比较."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr "启动合并工具以便您解决属性冲突"
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr "打开属性对话框以便您手动编辑属性。"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "静态"
@@ -10068,8 +10106,10 @@ msgstr "问题跟踪器提供者不能验证参数字符串"
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "条目“%s”有属性冲突: "
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr "项目 '%s' 存在属性冲突：\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -11325,6 +11365,10 @@ msgstr "用户名"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "用户名称: "
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr "忽略用户："
 
 #. Resource IDs: (313)
 msgid ""

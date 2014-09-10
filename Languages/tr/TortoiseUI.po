@@ -12,7 +12,7 @@
 # Translators:
 # Huseyin <hyagli@hotmail.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Muhammet Kara <muhammet.k@gmail.com>, 2011-2012,2014
+# Muhammet Kara <muhammetk@gmail.com>, 2011-2012,2014
 # Vural Göze <vuralgoze@gmail.com>, 2011
 # Vural Göze <vuralgoze@gmail.com>, 2011
 # Vural Göze <vuralgoze@gmail.com>, 2012-2013
@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -1245,10 +1245,6 @@ msgstr "Kullanım verilerimi &sıfırla"
 msgid "&Reset to Default"
 msgstr "&Varsayılana geri dön"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Yerel özelliği kullanarak çöz"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Varsayılanları yükle"
@@ -1717,7 +1713,7 @@ msgid "<new changelist>"
 msgstr "<yeni değişim listesi>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3219,6 +3215,10 @@ msgstr "Versiyonlanmamış bir klasörü teslim etmek alt öğeleri özyineli ol
 msgid "Committing to a tag"
 msgstr "Bir etikete teslim ediliyor"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "&Baş revizyonları karşılaştır"
@@ -3394,6 +3394,10 @@ msgstr "Kopyalandı"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Buradan kopyalandı: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopyala"
@@ -3416,6 +3420,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "%1!s!'yi \r\nto %2!s!'ya kopyala"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4750,6 +4758,14 @@ msgstr "Bağlantı hatası.\nBağlantı kopuk olabilir."
 msgid "Failed to convert ActiveX object."
 msgstr "ActiveX nesnesi dönüştürülemedi."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Boş döküman yaratılamadı."
@@ -5705,6 +5721,10 @@ msgid ""
 "the repository browser."
 msgstr "Kilidi kırmak istiyorsanız, 'Güncellemeleri Kontrol Et' diyaloğunu veya depo tarayıcısını kullanın."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Aldırma"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6386,6 +6406,10 @@ msgstr "Farkı göstermek için birden fazla öğe seçildi"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Çözümlendi olarak işaretle"
@@ -6427,6 +6451,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Dosyayı Subversion'da çözümlendi olarak işaretler\nÇözümlendi olarak işaretle"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6498,6 +6528,10 @@ msgstr "Bir aralıktaki &revizyonları birleştir"
 msgid "Merge all"
 msgstr "Hepsini Birleştir"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Değişiklikleri çalışan kopyaya birleştir"
@@ -6509,10 +6543,6 @@ msgstr "İnteraktif Olmayan Biçimde Birleştir"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Birleştirme ayarları"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Birleştirmeyi yeniden entegre et"
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6544,9 +6574,9 @@ msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Tüm eksik revizyonları birleştirme takibi bilgisini kullanarak çalışan kopyayla yeniden birleştirir"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7969,6 +7999,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8364,10 +8398,6 @@ msgstr "Çakışmayı çözümle:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Sonra Çö&zümle"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -9633,6 +9663,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "İstatistik"
@@ -10053,8 +10091,10 @@ msgstr "Sorun-izleyici sağlayıcı parametre dizisini doğrulamayamadı."
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "'%s' öğesinin sahip olduğu nitelik çakışmaları:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11310,6 +11350,10 @@ msgstr "Kullanıcı adı"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Kullanıcı adı:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

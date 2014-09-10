@@ -16,6 +16,7 @@
 #   <clbaldock@gmail.com>, 2011
 # Clément <rousseau.clement@gmail.com>, 2011
 # Fabrice Daugan <fabrice.daugan@gmail.com>, 2011
+# Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -25,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-15 10:10+0000\n"
+"PO-Revision-Date: 2014-09-08 08:15+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -10313,15 +10314,15 @@ msgstr "Sauvegardez juste le fichier en utilisant un nom de fichier de votre cho
 
 #. (filename)
 msgid ".txt"
-msgstr ""
+msgstr ".txt"
 
 #. (filename)
 msgid ".patch"
-msgstr ""
+msgstr ".patch"
 
 #. (filename)
 msgid ".diff"
-msgstr ""
+msgstr ".diff"
 
 #. (tip)
 msgid ""
@@ -13238,10 +13239,10 @@ msgstr "Vous pouvez aussi choisir de marquer les répertoires comme modifiés s'
 
 #. (para)
 msgid ""
-"If you have files in the \"ignore-on-commit\" changelist, you can chose to "
-"make those files not propagate their status to the parent folder. That way "
-"if only files in that changelist are modified, the parent folder still shows"
-" the unmodified overlay icon."
+"If you have files in the <literal>ignore-on-commit</literal> changelist, you"
+" can chose to make those files not propagate their status to the parent "
+"folder. That way if only files in that changelist are modified, the parent "
+"folder still shows the unmodified overlay icon."
 msgstr ""
 
 #. (para)
@@ -15171,6 +15172,29 @@ msgid ""
 "the template."
 msgstr "Si vous voulez que SubWCRev exécute la substitution de mots-clé, pour que les champs comme la révision du dépôt et l'URL soient sauvegardées dans un fichier texte, vous devez fournir un fichier modèle <literal>FichierVersionSrc</literal> et un fichier de sortie <literal>FichierVersionDst</literal> qui contient la version substituée du modèle."
 
+#. (para)
+msgid ""
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"/trunk/doc\n"
+"/trunk/doc/*\n"
+"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"*.png\n"
+"*.jpg\n"
+"*.ico\n"
+"*.bmp\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid "The ignore patterns are case-sensitive, just like Subversion is."
+msgstr ""
+
+#. (para)
+msgid ""
+"To create a file with a starting dot in the Windows explorer, enter "
+"<filename>.subwcrevignore.</filename>. Note the trailing dot."
+msgstr ""
+
 #. (title)
 msgid "List of available command line switches"
 msgstr "Liste des commutateurs de ligne de commande disponibles"
@@ -15275,6 +15299,16 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "Si ce commutateur est donné, SubWCRev renverra les numéros de révision en héxadécimal, préfixés de '0X'."
+
+#. (filename)
+msgid ".subwcrevignore"
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will ignore any <placeholder-1/> files and"
+" include all files."
+msgstr ""
 
 #. (entry)
 msgid ""

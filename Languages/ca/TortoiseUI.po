@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:34+0000\n"
+"PO-Revision-Date: 2014-09-08 10:09+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -1245,10 +1245,6 @@ msgstr "&Reinicialitza les meves dades d'us"
 msgid "&Reset to Default"
 msgstr "&Reinicialitza a Valors per Defecte"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Resol utilitzant propietat local"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Restaura valor per defecte"
@@ -1717,8 +1713,8 @@ msgid "<new changelist>"
 msgstr "<nova llista de canvis>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr "=&Comprovar ara=&Afegir Projecte=E&ditar=&Suprimir=&Opcions=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgstr "=&Comprovar Ara=&Afegir Projecte=E&ditar=Sup&rimir=&Marca tots com llegits=&Opcions=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -2067,7 +2063,7 @@ msgstr "Permet a diferents repositoris utilitzar la mateixa UUID, p.ex. reposito
 
 #. Resource IDs: (119)
 msgid "Already merged"
-msgstr "A"
+msgstr "Ja s'ha fusionat"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
@@ -3219,6 +3215,10 @@ msgstr "Entregar una carpeta sense versionar no afegeix recursivament els seus e
 msgid "Committing to a tag"
 msgstr "Entregant a una etiqueta"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr "Confirmant la transacció..."
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Compara revisions &HEAD"
@@ -3394,6 +3394,10 @@ msgstr "Copiat(s)"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Copiat de: %1!s!@%2!ld!\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr "Copia les URLs de tots els elements seleccionats al porta-retalls"
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Copia"
@@ -3416,6 +3420,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Copia %1!s!\na %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr "Copia el número de &revisió al porta-retalls"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4750,6 +4758,14 @@ msgstr "No s'ha pogut connectar.\nL'enllaç pot estar trencat."
 msgid "Failed to convert ActiveX object."
 msgstr "No s'ha pogut crear objecte ActiveX."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr "La còpia del fitxer '%' a '%s' ha fallat.\n\n%s"
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "No ha pogut crear document buit."
@@ -5705,6 +5721,10 @@ msgid ""
 "the repository browser."
 msgstr "Si vols trencar el bloqueig, utilitza el diàleg 'Troba Modificacions' o el navegador del repositori."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignora"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6386,6 +6406,10 @@ msgstr "Molts elements seleccionats per mostrar diferències"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Marca com a &resolt (el desplaçament esdevindrà una còpia)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr "Marca com a Resolt"
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Marca com a resolt"
@@ -6427,6 +6451,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Marca un fitxer com a resolt al Subversion\nMarca com a resolt"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr "Marca el conflicte com a resolt.\nNota: això no resol el conflicte, simplement el marca com a resolt!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6498,6 +6528,10 @@ msgstr "Fusiona un &rang de revisions"
 msgid "Merge all"
 msgstr "Fusiona tot"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Fusiona tot..."
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Fusiona canvis a la còpia de treball"
@@ -6509,10 +6543,6 @@ msgstr "Fusió no interactiva"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Opcions de Fusionar"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Reintegra Fusió..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6544,9 +6574,9 @@ msgstr "Revisió(ns) fusionada(es) {revrange} de {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Fusiona les revisions que falten amb la còpia de treball utilitzant informació merge-tracking "
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr "Fusiona totes les revisions que falten des del tronc vers la còpia de treball d'una branca funció utilitzant informació merge-tracking "
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7969,6 +7999,10 @@ msgid "Regex Filters"
 msgstr "Filtres regex"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr "Missatge de coincidències de Regex:"
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Regex:"
 
@@ -8364,10 +8398,6 @@ msgstr "Resol conflicte:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Resol des&prés"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Resol utilitzant la &seva propietat"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9633,6 +9663,14 @@ msgid ""
 "before for diffing later."
 msgstr "Inicia el visualitzador de diferències entre el fitxer seleccionat actualment i el fitxer triat abans per comparar més endavant."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr "Inicia l'eina fusionada on podràs resoldre el conflicte de propietat"
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr "Inicia el diàleg de propietat on podràs editar la propietat manualment."
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Estàtic"
@@ -10053,8 +10091,10 @@ msgstr "El proveïdor del seguidor d'incidències no ha pogut validar la cadena 
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "L'element '%s' té conflictes de propietat:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr "L'element '%s' té conflictes de propietat:\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -11310,6 +11350,10 @@ msgstr "Nom d'usuari"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Nom d'usuari"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr "Usuaris per ignorar:"
 
 #. Resource IDs: (313)
 msgid ""

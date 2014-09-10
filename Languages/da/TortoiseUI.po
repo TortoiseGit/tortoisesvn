@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -1243,10 +1243,6 @@ msgstr "&Nulstil anvendelsesdata"
 msgid "&Reset to Default"
 msgstr "&Gendan til standard"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "Brug &lokal egenskab til at løse konflikt"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "Gendan &standardindstillinger"
@@ -1715,7 +1711,7 @@ msgid "<new changelist>"
 msgstr "<ny ændringsliste>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3217,6 +3213,10 @@ msgstr "Begå en versionsspecifik mappe vil ikke rekursivt tilføje sit barn pun
 msgid "Committing to a tag"
 msgstr "Check ind til mærke"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Sammenlign &HEAD-revisioner"
@@ -3392,6 +3392,10 @@ msgstr "Kopieret"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Kopieret fra: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopiér"
@@ -3414,6 +3418,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopier %1!s!\r\ntil %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4748,6 +4756,14 @@ msgstr "Forbindelse mislykkedes.\nLink er måske utilgængeligt."
 msgid "Failed to convert ActiveX object."
 msgstr "Det lykkedes ikke at konvertere ActiveX-objekt."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Det lykkedes ikke at oprette et tomt dokument."
@@ -5703,6 +5719,10 @@ msgid ""
 "the repository browser."
 msgstr "Hvis du ønsker at bryde låsen, skal du bruge 'Check for ændringer' dialogen eller versionarkiv browseren."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorer"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6384,6 +6404,10 @@ msgstr "Flere elementer er valgt til forskelsvisning"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Marker som &løst (flytningen omdannes til en kopi)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Marker som løst"
@@ -6425,6 +6449,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6496,6 +6526,10 @@ msgstr "Flet et &interval af revisioner"
 msgid "Merge all"
 msgstr "Flet alle"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Flet ændringer ind i arbejdskopien"
@@ -6507,10 +6541,6 @@ msgstr "Flet ikke-interaktive"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Indstillinger for fletning"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Reintegreringsfletning..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6542,9 +6572,9 @@ msgstr "Flettet revision(er) {revrange} fra {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Fletter alle manglende revisioner tilbage i arbejdskopien ved hjælp af sporingsinformation om fletninger."
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7967,6 +7997,10 @@ msgid "Regex Filters"
 msgstr "Regex Filtre"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Regex:"
 
@@ -8362,10 +8396,6 @@ msgstr "Løs konflikt:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Løs &senere"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Løs ved at bruge &deres egenskab"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9631,6 +9661,14 @@ msgid ""
 "before for diffing later."
 msgstr "Start sammenligningsprogrammet med den nuværende valgte fil og den markerede før sammenligning senere."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statisk"
@@ -10051,8 +10089,10 @@ msgstr "Sagsbehandlerudbyderen kunne ikke validere parameterstrengen"
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Emnet \"%s\" har konfliktende egenskaber"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11308,6 +11348,10 @@ msgstr "Brugernavn"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Brugernavn:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

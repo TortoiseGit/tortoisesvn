@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-25 07:45+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1252,10 +1252,6 @@ msgstr "&Meine Verwendungsdaten zurücksetzen"
 msgid "&Reset to Default"
 msgstr "&Auf Standardwerte setzen"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Mit der lokalen Eigenschaft auflösen"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Standardwerte"
@@ -1724,8 +1720,8 @@ msgid "<new changelist>"
 msgstr "<neue Änderungsliste>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
-msgstr "=Jetzt &prüfen=Projekt &hinzufügen=&Bearbeiten=&Entfernen=&Optionen=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3226,6 +3222,10 @@ msgstr "Beim Übertragen eines unversionierten Ordners werden dessen Unterobjekt
 msgid "Committing to a tag"
 msgstr "Übertragen in eine Marke"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD Revisionen vergleichen"
@@ -3401,6 +3401,10 @@ msgstr "Kopiert"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Kopiert von: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopieren"
@@ -3423,6 +3427,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopiere %1!s!\r\nnach %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4757,6 +4765,14 @@ msgstr "Fehler beim Verbinden\nVerweis könnte defekt sein."
 msgid "Failed to convert ActiveX object."
 msgstr "Fehler beim Konvertieren des ActiveX Objekts."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Konnte leeres Dokument nicht erstellen"
@@ -5712,6 +5728,10 @@ msgid ""
 "the repository browser."
 msgstr "Sie können die Sperre im 'Auf Änderungen prüfen' Dialog oder im Projektarchiv-Betrachter aufbrechen."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorieren"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6393,6 +6413,10 @@ msgstr "Viele Objekte zum Vergleichen gewählt"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Als &aufgelöst markieren (diese Verschiebung wird zu einer Kopie)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Als aufgelöst markieren"
@@ -6434,6 +6458,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Markiert einen Dateikonflikt in Subversion als aufgelöst\nAls aufgelöst markieren"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6505,6 +6535,10 @@ msgstr "Einen Revisions&bereich"
 msgid "Merge all"
 msgstr "Alles zusammenführen"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Änderungen in der Arbeitskopie zusammenführen"
@@ -6516,10 +6550,6 @@ msgstr "Nicht interaktiv zusammenführen"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Einstellungen"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Wiedereingliedern..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6551,9 +6581,9 @@ msgstr "Revision(en) {revrange} von {mergeurl} zusammengeführt:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Führt unter Verwendung des Zusammenführen-Protokolls sämtliche fehlenden Revisionen in der Arbeitskopie zusammen"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7976,6 +8006,10 @@ msgid "Regex Filters"
 msgstr "RegEx Filter"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Regex:"
 
@@ -8371,10 +8405,6 @@ msgstr "Konflikt auflösen:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "&Später auflösen"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Mit &deren Eigenschaft auflösen"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9640,6 +9670,14 @@ msgid ""
 "before for diffing later."
 msgstr "Startet das Vergleichsprogramm mit der aktuellen und mit der vorgemerkten Datei."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statisch"
@@ -10060,8 +10098,10 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter n
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Das Objekt '%s' hat Eigenschaftskonflikte:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11317,6 +11357,10 @@ msgstr "Benutzername"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Benutzername:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

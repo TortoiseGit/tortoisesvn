@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-21 16:22+0000\n"
+"PO-Revision-Date: 2014-09-09 08:40+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -13233,10 +13233,10 @@ msgstr "バージョン管理外のファイルを含むフォルダーに、変
 
 #. (para)
 msgid ""
-"If you have files in the \"ignore-on-commit\" changelist, you can chose to "
-"make those files not propagate their status to the parent folder. That way "
-"if only files in that changelist are modified, the parent folder still shows"
-" the unmodified overlay icon."
+"If you have files in the <literal>ignore-on-commit</literal> changelist, you"
+" can chose to make those files not propagate their status to the parent "
+"folder. That way if only files in that changelist are modified, the parent "
+"folder still shows the unmodified overlay icon."
 msgstr "変更リスト<literal>ignore-on-commit</literal>にファイルが登録されている場合、状態を親フォルダーの表示に反映させないようにすることができます。つまり、変更リスト内のファイルだけが変更されても、親フォルダーのオーバーレイアイコンは「未変更」のままになります。"
 
 #. (para)
@@ -15026,7 +15026,7 @@ msgstr "モニター中のプロジェクト"
 msgid ""
 "The commit monitor is a helpful tool that monitors repositories and notifies"
 " you in case there are new commits."
-msgstr ""
+msgstr "コミットモニターは、リポジトリを監視して新しいコミットがあった時に通知する便利なツールです。"
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15037,11 +15037,11 @@ msgid ""
 "If you first start the commit monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "コミットモニターを始めて使用するとき、左側のツリービューは空です。プロジェクトを追加するには、ダイアログの上にある<guibutton>プロジェクトを追加</guibutton>と書かれたボタンをクリックしてください。"
 
 #. (title)
 msgid "The edit project dialog of the commit monitor"
-msgstr ""
+msgstr "コミットモニターのプロジェクトの編集ダイアログ"
 
 #. (para)
 msgid ""
@@ -15166,6 +15166,29 @@ msgid ""
 "the template."
 msgstr "リポジトリリビジョンや URL といったフィールドをテキストファイルに保存するため、SubWCRev がキーワード置換を行うようにしたい場合があります。その場合、テンプレートファイル <literal>SrcVersionFile</literal> や、テンプレートの置換バージョンを含む出力ファイル <literal>DstVersionFile</literal> を用意する必要があります。"
 
+#. (para)
+msgid ""
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"/trunk/doc\n"
+"/trunk/doc/*\n"
+"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"*.png\n"
+"*.jpg\n"
+"*.ico\n"
+"*.bmp\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid "The ignore patterns are case-sensitive, just like Subversion is."
+msgstr ""
+
+#. (para)
+msgid ""
+"To create a file with a starting dot in the Windows explorer, enter "
+"<filename>.subwcrevignore.</filename>. Note the trailing dot."
+msgstr ""
+
 #. (title)
 msgid "List of available command line switches"
 msgstr "使用できるコマンドラインスイッチ一覧"
@@ -15270,6 +15293,16 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "このスイッチが与えられた場合、SubWCRev はリビジョン番号を「0X」で始まる十六進数で出力します。"
+
+#. (filename)
+msgid ".subwcrevignore"
+msgstr ".subwcrevignore"
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will ignore any <placeholder-1/> files and"
+" include all files."
+msgstr "このスイッチが指定されると、SubWCRevはすべての<placeholder-1/>ファイルと含まれるすべてのファイルを無視します。"
 
 #. (entry)
 msgid ""
@@ -17992,7 +18025,7 @@ msgid ""
 " pass a predefined log message to the branch/tag dialog. Or, if you don't "
 "want to pass the log message on the command line, use <placeholder-9/>, "
 "where <placeholder-10/> points to a file containing the log message."
-msgstr ""
+msgstr "ブランチ/タグダイアログを開きます。<placeholder-1/>でブランチ/タグの作成元の作業コピーを指定します。また、<placeholder-2/>は作成先のURLです。 URLが<placeholder-3/>で始まる場合は、リポジトリのルートからの相対URLとみなされます。<placeholder-4/>オプションを既定でチェックしておきたい場合は、<placeholder-5/>を指定してください。<placeholder-6/>オプションをチェックするには、<placeholder-7/>スイッチを指定してください。<placeholder-8/>でログメッセージの初期値を指定できます。また、コマンドラインでログメッセージを渡したくない場合は、<placeholder-9/>を使用します。<placeholder-10/>でログメッセージが入ったファイルの場所を指定します。"
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -20592,7 +20625,7 @@ msgstr "Ctrl+F"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "文字列の検索や置換のために検索ダイアログを開く"
 
 #. (term)
 msgid "Ctrl-O"

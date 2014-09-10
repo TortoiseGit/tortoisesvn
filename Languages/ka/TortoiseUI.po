@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -1240,10 +1240,6 @@ msgstr "ჩემი ქმედებების მონაცემთა 
 msgid "&Reset to Default"
 msgstr "&აღდგენა ნაგულისხმებამდე"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&მოგვარება ლოკალური პარამეტრით"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "ნაგულისხმების &აღდგენა"
@@ -1712,7 +1708,7 @@ msgid "<new changelist>"
 msgstr "<ცვლილებათა ახალი სია>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3214,6 +3210,10 @@ msgstr "არავერსიული დასტის ფიქსაც�
 msgid "Committing to a tag"
 msgstr "ჭდის ფიქსაცია"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD ვერსიების შედარება"
@@ -3389,6 +3389,10 @@ msgstr "კოპირებულია"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "პირველწყარო: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "კოპირება"
@@ -3411,6 +3415,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "კოპირება: %1!s!\r\nაქ %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4745,6 +4753,14 @@ msgstr "დაკავშირება ვერ ხერხდება.\n�
 msgid "Failed to convert ActiveX object."
 msgstr "ActiveX ობიექტის გარდაქმნა ვერ ხერხდება."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "ცარიელი დოკუმენტის შექმნა ცერ მოხერხდა."
@@ -5700,6 +5716,10 @@ msgid ""
 "the repository browser."
 msgstr "დაბლოკვის მოსახსნელად ისარგებლეთ დიალოგით 'შემოწმება ცვლილებებზე' ან საცავის ბრაუზერით."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "იგნორირება"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6381,6 +6401,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "მონიშვნა მოგვარებულად"
@@ -6422,6 +6446,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "ფაილის ქვევერსიაში მოგვარებულად მონიშვნა\nმოგვარებულად მონიშვნა"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6493,6 +6523,10 @@ msgstr "ვერსიათა &დიაპაზონის შერწყ
 msgid "Merge all"
 msgstr "ყველას შერწყმა"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "ცვლილებების შერწყმა სამუშაო ასლში"
@@ -6504,10 +6538,6 @@ msgstr "შერწყმა დიალოგის გარეშე"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "შერწყმის პარამეტრები"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "უჯრების შერწყმა..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6539,9 +6569,9 @@ msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "ყველა გამოტოვებული ვერსიის შერწყმა სამუშაო ასლთან შერწყმის თვალმიდევნების მონაცმებზე დაყრდნობით"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7964,6 +7994,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8359,10 +8393,6 @@ msgstr "კონფლიქტის გადაწყვეტა:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "გადაწყვეტა &მოგვიანებით"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -9628,6 +9658,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "სტატიკური"
@@ -10048,8 +10086,10 @@ msgstr "პრობლემათა თვალმიდევნები�
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "ელემენტს '%s' პარამეტრების კონფლიქტი აქვს:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11305,6 +11345,10 @@ msgstr ""
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "სახელი:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

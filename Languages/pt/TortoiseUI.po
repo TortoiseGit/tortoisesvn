@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -1246,10 +1246,6 @@ msgstr "&Reiniciar os meus dados de utilização"
 msgid "&Reset to Default"
 msgstr "&Restaurar Valor por Omissão"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Resolver com propriedade local"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Restaurar valores por omissão"
@@ -1718,7 +1714,7 @@ msgid "<new changelist>"
 msgstr "<nova lista de alterações>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3220,6 +3216,10 @@ msgstr "O submeter de uma pasta não versionada não adiciona recursivamente os 
 msgid "Committing to a tag"
 msgstr "Submetendo para uma etiqueta"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Comparar as &Revisões HEAD"
@@ -3395,6 +3395,10 @@ msgstr "Copiado"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Copiado de: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Copiar"
@@ -3417,6 +3421,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Copiar %1!s!\r\npara %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4751,6 +4759,14 @@ msgstr "Falha ao ligar.\nA ligação pode estar quebrada."
 msgid "Failed to convert ActiveX object."
 msgstr "Falha ao converter objecto ActiveX."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Falha ao criar documento vazio."
@@ -5706,6 +5722,10 @@ msgid ""
 "the repository browser."
 msgstr "Se pretenderes quebrar o bloqueio, usa a caixa de diálogo 'verificar alterações' ou o navegador de repositório."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorar"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6387,6 +6407,10 @@ msgstr "Demasiados itens seleccionados para o dif."
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "Marcar como &resolvido (movimento tornar-se-á cópia)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Marcar como resolvido"
@@ -6428,6 +6452,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Marca um arquivo como resolvido no Subversion\nMarcar como resolvido"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6499,6 +6529,10 @@ msgstr "Integrar um &intervalo de revisões"
 msgid "Merge all"
 msgstr "Integrar tudo"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Integrar alterações na cópia de trabalho"
@@ -6510,10 +6544,6 @@ msgstr "Integração não interactiva"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Opções de integração"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Reintegrar integração..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6545,9 +6575,9 @@ msgstr "Revisões integrada(s) {revrange} de {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Integra todas as revisões em falta na cópia de trabalho usando informação de rastreio de integração"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7970,6 +8000,10 @@ msgid "Regex Filters"
 msgstr "Filtros Regex"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "Regex:"
 
@@ -8365,10 +8399,6 @@ msgstr "Resolver conflito"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Resolver mais &tarde"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "Resolver usando a propriedade &deles"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9634,6 +9664,14 @@ msgid ""
 "before for diffing later."
 msgstr "Arrancar o visualizador de diffs com o ficheiro actualmente selecionado e o anteriormente marcado para diff mais tarde."
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Estático"
@@ -10054,8 +10092,10 @@ msgstr "O fornecedor do controlador de problemas não conseguiu validar a cadeia
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "O item '%s' tem conflitos de propriedade"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11311,6 +11351,10 @@ msgstr "Nome de Utilizador"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Nome de utilizador:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -1248,10 +1248,6 @@ msgstr "&Wis mijn gebruiksdata"
 msgid "&Reset to Default"
 msgstr "&Standaard herstellen"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Los conflict op met lokale eigenschap"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "Standaard &herstellen"
@@ -1720,7 +1716,7 @@ msgid "<new changelist>"
 msgstr "<nieuwe werkset>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3222,6 +3218,10 @@ msgstr "Vastleggen van een map zonder versiebeheer zal de objecten in de map nie
 msgid "Committing to a tag"
 msgstr "Vastleggen naar een label"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Vergelijk &HEAD revisies"
@@ -3397,6 +3397,10 @@ msgstr "Gekopieerd"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Gekopiëerd van: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopiëren"
@@ -3419,6 +3423,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopiëer %1!s!\r\nnaar %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4753,6 +4761,14 @@ msgstr "Verbinden mislukt.\nKoppeling kan fout zijn."
 msgid "Failed to convert ActiveX object."
 msgstr "Converteren ActiveX object mislukt."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Maken van leeg document mislukt."
@@ -5708,6 +5724,10 @@ msgid ""
 "the repository browser."
 msgstr "Als u een blokkade wilt doorbreken, gebruik dan het 'Kijk of er updates zijn'-dialoogvenster of gebruik de archief-verkenner."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Negeren"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6389,6 +6409,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Markeer als opgelost"
@@ -6430,6 +6454,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Markeert een bestand als opgelost in Subversion\nMarkeer als opgelost"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6501,6 +6531,10 @@ msgstr "Voeg een &reeks revisies samen"
 msgid "Merge all"
 msgstr "Alles samenvoegen"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Voeg wijzigingen samen in de werkkopie"
@@ -6512,10 +6546,6 @@ msgstr "Samenvoegen zonder tussenkomst"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Samenvoeg-instellingen"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Reïntegratie samenvoeging..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6547,9 +6577,9 @@ msgstr "Herziening(en) {revrange} van {mergeurl} samengevoegd:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Voegt alle ontbrekende revisies samen in de werkkopie, gebruikmakend van merge-tracking informatie"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7972,6 +8002,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8367,10 +8401,6 @@ msgstr "Los conflict op:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "&Later oplossen"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -9636,6 +9666,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statisch"
@@ -10056,8 +10094,10 @@ msgstr "De issue-tracker provider kon de opdracht-tekenreeks niet valideren"
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Onderdeel '%s' heeft eigenschap-conflicten:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11313,6 +11353,10 @@ msgstr "Gebruikersnaam"
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Gebruikersnaam:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

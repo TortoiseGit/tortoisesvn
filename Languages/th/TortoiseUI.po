@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/tortoisesvn/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -1245,10 +1245,6 @@ msgstr "&จัดข้อมูลการใช้งานใหม่"
 msgid "&Reset to Default"
 msgstr "เ&ปลี่ยนเป็นค่าปริยาย"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr ""
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&คืนค่าปริยาย"
@@ -1717,7 +1713,7 @@ msgid "<new changelist>"
 msgstr "<รายการแก้ไขใหม่>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3219,6 +3215,10 @@ msgstr ""
 msgid "Committing to a tag"
 msgstr ""
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr ""
@@ -3394,6 +3394,10 @@ msgstr "คัดลอก"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "คัดลอกจาก: %1!s!@%2!ld!\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "คัดลอก"
@@ -3416,6 +3420,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "คัดลอก %1!s!\nไปยัง %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4750,6 +4758,14 @@ msgstr ""
 msgid "Failed to convert ActiveX object."
 msgstr ""
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr ""
@@ -5705,6 +5721,10 @@ msgid ""
 "the repository browser."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr ""
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6386,6 +6406,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr ""
@@ -6426,6 +6450,12 @@ msgstr ""
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -6498,6 +6528,10 @@ msgstr ""
 msgid "Merge all"
 msgstr ""
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr ""
@@ -6508,10 +6542,6 @@ msgstr ""
 
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
-msgstr ""
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
 msgstr ""
 
 #. Resource IDs: (595)
@@ -6544,8 +6574,8 @@ msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
 msgstr ""
 
 #. Resource IDs: (1073)
@@ -7969,6 +7999,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8363,10 +8397,6 @@ msgstr ""
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
-msgstr ""
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -9633,6 +9663,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr ""
@@ -10053,8 +10091,10 @@ msgstr ""
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "รายการ '%s' มีคุณสมบัติที่ขัดแย้ง:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11310,6 +11350,10 @@ msgstr ""
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "ชื่อผู้ใช้"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

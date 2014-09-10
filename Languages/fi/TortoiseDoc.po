@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-08-15 10:10+0000\n"
+"PO-Revision-Date: 2014-09-08 08:15+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -13230,11 +13230,11 @@ msgstr "Voit myös asettaa kansiot näytettäviksi muutettuina, jos ne sisältä
 
 #. (para)
 msgid ""
-"If you have files in the \"ignore-on-commit\" changelist, you can chose to "
-"make those files not propagate their status to the parent folder. That way "
-"if only files in that changelist are modified, the parent folder still shows"
-" the unmodified overlay icon."
-msgstr "Jos muutoslistassa \"ohita toimitettaessa\" on tiedostoja, voit määrittää, että näihin tiedostoihin tehtävät muutokset eivät leviä yläkansioon. Tämän ansiosta yläkansio näyttää yhä \"ei muutettu\" -kuvakepäällystä, mikäli pelkästään muutoslistan tiedostot ovat muuttuneet."
+"If you have files in the <literal>ignore-on-commit</literal> changelist, you"
+" can chose to make those files not propagate their status to the parent "
+"folder. That way if only files in that changelist are modified, the parent "
+"folder still shows the unmodified overlay icon."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15163,6 +15163,29 @@ msgid ""
 "the template."
 msgstr "Jos haluat, että SubWCRev korvaa avainsanat, jotta sellaiset kentät kuten esim. arkistoversio ja paikannin tallettuvat tekstitiedostoon, sinun on annettava kaavaintiedosto <literal>SrcVersionFile</literal> sekä tulostiedosto <literal>DstVersionFile</literal>, joka sisältää kaavaimen sisällön laajennettuna."
 
+#. (para)
+msgid ""
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"/trunk/doc\n"
+"/trunk/doc/*\n"
+"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"*.png\n"
+"*.jpg\n"
+"*.ico\n"
+"*.bmp\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid "The ignore patterns are case-sensitive, just like Subversion is."
+msgstr ""
+
+#. (para)
+msgid ""
+"To create a file with a starting dot in the Windows explorer, enter "
+"<filename>.subwcrevignore.</filename>. Note the trailing dot."
+msgstr ""
+
 #. (title)
 msgid "List of available command line switches"
 msgstr "Lista käytettävissä olevista komentorivivalitsimista"
@@ -15267,6 +15290,16 @@ msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX, "
 "with '0X' prepended."
 msgstr "Jos tämä valitsin on annettu, SubWCRev näyttää versionumeron heksadesimaalisena etuliitteen '0X' kanssa."
+
+#. (filename)
+msgid ".subwcrevignore"
+msgstr ""
+
+#. (entry)
+msgid ""
+"If this switch is given, SubWCRev will ignore any <placeholder-1/> files and"
+" include all files."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -17960,7 +17993,7 @@ msgstr "Avaa Yhdistä kaikki -ikkunan. Valitsin <placeholder-1/> määrittää k
 
 #. (literal)
 msgid "^"
-msgstr ""
+msgstr "^"
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
@@ -17976,7 +18009,7 @@ msgstr "Luo välihakemistot"
 
 #. (option)
 msgid "/makeparents"
-msgstr ""
+msgstr "/makeparents"
 
 #. (entry)
 msgid ""
@@ -17989,7 +18022,7 @@ msgid ""
 " pass a predefined log message to the branch/tag dialog. Or, if you don't "
 "want to pass the log message on the command line, use <placeholder-9/>, "
 "where <placeholder-10/> points to a file containing the log message."
-msgstr ""
+msgstr "Avaa haarautumisikkunan. Valitsin <placeholder-1/> kertoo työkopion, josta haara / merkitty versio tehdään. Valitsin <placeholder-2/> on kohdepaikannin. Jos paikannin alkaa merkillä <placeholder-3/> sen oletetaan  olevan suhteessa arkiston juureen. Valinta <placeholder-4/> voidaan määrittää valitsimella <placeholder-5/>. Valinta <placeholder-6/> voidaan määrittää valitsimella <placeholder-7/>. Voit myös antaa valitsimen <placeholder-8/> lokiviestipohjan antamiseksi.  Mikäli et halua antaa lokiviestiä komentorivillä. käytä valitsinta <placeholder-9/>, missä <placeholder-10/> kertoo tiedoston, missä lokiviesti on."
 
 #. (entry)
 msgid "Opens the settings dialog."

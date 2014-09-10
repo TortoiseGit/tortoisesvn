@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -1246,10 +1246,6 @@ msgstr "나의 사용 정보 리셋(&R)"
 msgid "&Reset to Default"
 msgstr "초기값으로 리셋(&R)"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "지역 속성을 사용해서 충돌해결하기(&R)"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "기본값으로 복원(&R)"
@@ -1718,7 +1714,7 @@ msgid "<new changelist>"
 msgstr "<새로운 변경 리스트>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3220,6 +3216,10 @@ msgstr "버전없는 폴더를 커밋하면 재귀적으로 그 하위 항목을
 msgid "Committing to a tag"
 msgstr "태그에 커밋"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD 리비전 비교"
@@ -3395,6 +3395,10 @@ msgstr "복사됨"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "다음에서 복사됨: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "복사"
@@ -3417,6 +3421,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "%1!s!을/를\r\n%2!s!로 복사"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4751,6 +4759,14 @@ msgstr "연결하는데 실패했습니다.\n링크가 깨진것 같습니다."
 msgid "Failed to convert ActiveX object."
 msgstr "ActiveX 객체를 변환하는데 실패했습니다."
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "빈 문서 작성 실패."
@@ -5706,6 +5722,10 @@ msgid ""
 "the repository browser."
 msgstr "잠금을 해제하려면, '변경 확인' 대화상자나 저장소 브라우저를 사용하십시오."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "무시"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6387,6 +6407,10 @@ msgstr "차이를 보기위해 많은 항목이 선택되었습니다"
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr "해결된 것으로 표시 (이동은 복사가 됨) (&R)"
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "충돌해결상태로 표시"
@@ -6428,6 +6452,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Subversion에서 파일들을 충돌해결상태로 표시합니다.\n충돌해결 상태로 표시합니다."
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6499,6 +6529,10 @@ msgstr "리비전 구간 병합(&R)"
 msgid "Merge all"
 msgstr "전체 병합"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "작업사본에 변경사항 병합"
@@ -6510,10 +6544,6 @@ msgstr "비-대화식으로 병합"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "병합 설정"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "재통합 병합..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6545,9 +6575,9 @@ msgstr "{mergeurl}에서 수정 {revrange} 병합:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "병합 추적 정보를 사용하여 누락된 리비전을 다시 작업사본에 병합합니다"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7970,6 +8000,10 @@ msgid "Regex Filters"
 msgstr "정규표현식 필터들"
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr "정규표현식:"
 
@@ -8365,10 +8399,6 @@ msgstr "충돌 상황 해결:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "충돌 상황을 나중에 해결함(&A)"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr "속성을 사용해서 해결하기 (&T)"
 
 #. Resource IDs: (148)
 msgid ""
@@ -9634,6 +9664,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "정적인"
@@ -10054,8 +10092,10 @@ msgstr "이슈 트레커 프로바이더가 파라메터 스트링의 유효성�
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "'%s' 아이템의 속성이 충돌되었습니다:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11311,6 +11351,10 @@ msgstr ""
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "사용자명:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

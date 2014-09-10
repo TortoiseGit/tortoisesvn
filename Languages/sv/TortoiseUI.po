@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -1248,10 +1248,6 @@ msgstr "&Nollställ användningsdata"
 msgid "&Reset to Default"
 msgstr "Åte&rställ till standard"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "Lös med hjälp av lokala inställninga&r"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "Åte&rställ till standard"
@@ -1720,7 +1716,7 @@ msgid "<new changelist>"
 msgstr "<ny ändringslista>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3222,6 +3218,10 @@ msgstr "Om en mapp som inte är versionshanterad arkiveras så läggs dess barn 
 msgid "Committing to a tag"
 msgstr "Arkivera till märke"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "Jämför &HEAD revisioner"
@@ -3397,6 +3397,10 @@ msgstr "Kopierad"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Kopierad från: %1!s!@%2!ld!\r\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Kopiera"
@@ -3419,6 +3423,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Kopiera %1!s!\r\ntill %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4753,6 +4761,14 @@ msgstr "Misslyckades med att ansluta.\nLänken kan vara trasig."
 msgid "Failed to convert ActiveX object."
 msgstr "Misslyckades med att konvertera ActiveX objekt. "
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Kunde inte skapa en tom fil."
@@ -5708,6 +5724,10 @@ msgid ""
 "the repository browser."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Ignorera"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6389,6 +6409,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Markera som löst"
@@ -6430,6 +6454,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Markerar filen som löst i Subversion\nMarkera som löst"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6501,6 +6531,10 @@ msgstr "Förena ett &revisionsinterval"
 msgid "Merge all"
 msgstr "Förena alla"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Förena ändringarna med arbetskopian"
@@ -6512,10 +6546,6 @@ msgstr "Återintegrera utan användarinteraktivitet"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Alternativ för förening"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Återintegrera..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6547,9 +6577,9 @@ msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Förena alla revisioner som saknas baserat på föreningsspårningsinformation till arbetskopian"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7972,6 +8002,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8367,10 +8401,6 @@ msgstr "Lös konflikt: "
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Lös sen&are"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -9636,6 +9666,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statistik"
@@ -10056,8 +10094,10 @@ msgstr "Ärendespårningsprovidern misslyckades med att validera parameter texte
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Objektet '%s' har egenskapskonflikter:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11313,6 +11353,10 @@ msgstr ""
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Användarnamn:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""

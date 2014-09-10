@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-07-16 09:16+0000\n"
+"PO-Revision-Date: 2014-09-08 09:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -1241,10 +1241,6 @@ msgstr "&Làm lại thông tin sử dụng của tôi"
 msgid "&Reset to Default"
 msgstr "&Làm lại mọi thứ về mặc định"
 
-#. Resource IDs: (1382)
-msgid "&Resolve using local property"
-msgstr "&Giả quyết bằng thuộc tính trên máy"
-
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Khôi phục mặc định"
@@ -1713,7 +1709,7 @@ msgid "<new changelist>"
 msgstr "<danh sách thay đổi mới>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -3215,6 +3211,10 @@ msgstr "Cam kết một thư mục không phiên bản sẽ không thêm các m�
 msgid "Committing to a tag"
 msgstr "Đang cam kết vào một thẻ"
 
+#. Resource IDs: (266)
+msgid "Committing transaction..."
+msgstr ""
+
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
 msgstr "So sánh các bản chỉnh sửa &CHÍNH"
@@ -3390,6 +3390,10 @@ msgstr "Đã sao chép"
 msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr "Sao chép từ: %1!s!@%2!ld!\n"
 
+#. Resource IDs: (18)
+msgid "Copies the URLs of all selected items to the clipboard"
+msgstr ""
+
 #. Resource IDs: (78, 16991)
 msgid "Copy"
 msgstr "Sao chép"
@@ -3412,6 +3416,10 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr "Sao chép %1!s!\nsang %2!s!"
+
+#. Resource IDs: (32797)
+msgid "Copy &revision number to clipboard"
+msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4746,6 +4754,14 @@ msgstr "Thất bại khi kết nối\nLiên kết có thể bị vỡ."
 msgid "Failed to convert ActiveX object."
 msgstr "Thất bại trong việc chuyển đổi đối tượng ActiveX"
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Failed to copy the file '%' to '%s'.\n"
+"\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Thất bại trong việc tạo tài liệu trống."
@@ -5701,6 +5717,10 @@ msgid ""
 "the repository browser."
 msgstr "Nếu bạn muốn phá khóa, dùng hộp thoại 'Kiểm Tra Sửa Đổi' hoặc trình duyệt kho chứa."
 
+#. Resource IDs: (65535)
+msgid "Ignore"
+msgstr "Bỏ qua"
+
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
@@ -6382,6 +6402,10 @@ msgstr ""
 msgid "Mark as &resolved (the move will become a copy)"
 msgstr ""
 
+#. Resource IDs: (1400)
+msgid "Mark as Resolved"
+msgstr ""
+
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
 msgstr "Đánh dấu như đã được giải quyết"
@@ -6423,6 +6447,12 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr "Đánh dấu tập tin như đã được giải quyết trong Subversion\nĐánh dấu như đã được giải quyết"
+
+#. Resource IDs: (65)
+msgid ""
+"Marks the conflict as resolved.\r\n"
+"Note: this does not resolve the conlict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -6494,6 +6524,10 @@ msgstr "Hợp nhất các bản chỉnh sửa trong một &phạm vi"
 msgid "Merge all"
 msgstr "Hợp nhất tất cả"
 
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
 msgstr "Hợp nhất các thay đổi vào bản làm việc"
@@ -6505,10 +6539,6 @@ msgstr "Hợp nhất không tương tác"
 #. Resource IDs: (595, 1487, 1534)
 msgid "Merge options"
 msgstr "Lựa chon hợp nhất"
-
-#. Resource IDs: (14)
-msgid "Merge reintegrate..."
-msgstr "Tái tích hợp cho hợp nhật..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -6540,9 +6570,9 @@ msgstr "Các bản hợp nhất {revrange} từ {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
-"Merges all missing revisions back into the working copy using merge-tracking"
-" information"
-msgstr "Hợp nhất tất cả các bản chỉnh sửa chưa có vào lại bản sao đang làm sử dụng thông tin theo dõi hợp nhất"
+"Merges all missing revisions from trunk into the working copy of a feature "
+"branch using merge-tracking information"
+msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -7965,6 +7995,10 @@ msgid "Regex Filters"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Regex matching message:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Regex:"
 msgstr ""
 
@@ -8360,10 +8394,6 @@ msgstr "Giải quyết mâu thuẫn:"
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
 msgstr "Giải quyết &sau"
-
-#. Resource IDs: (1383)
-msgid "Resolve using &their property"
-msgstr ""
 
 #. Resource IDs: (148)
 msgid ""
@@ -9629,6 +9659,14 @@ msgid ""
 "before for diffing later."
 msgstr ""
 
+#. Resource IDs: (65)
+msgid "Starts the merged tool where you can resolve the property conflict"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Starts the property dialog where you can edit the property manually."
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Tĩnh"
@@ -10049,8 +10087,10 @@ msgstr "Bộ cung cấp theo dõi vấn đề không thể xác nhận được 
 
 #. Resource IDs: (597)
 #, c-format
-msgid "The item '%s' has property conflicts:"
-msgstr "Món '%s' có thuộc tính mâu thuẫn:"
+msgid ""
+"The item '%s' has property conflicts:\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
@@ -11306,6 +11346,10 @@ msgstr ""
 #. Resource IDs: (69)
 msgid "Username:"
 msgstr "Tên đăng nhập:"
+
+#. Resource IDs: (65535)
+msgid "Users to ignore:"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""
