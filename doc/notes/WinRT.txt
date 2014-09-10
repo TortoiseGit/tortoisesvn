@@ -1,0 +1,37 @@
+Subversion client for WinRT/Metro/WinPhone
+==========================================
+
+A full svn client for the Win (phone) 8.1 interface would probably not make much
+sense. An svn client is usually used as a tool, not as the main application.
+
+But a CommitMonitor/Project Monitor type of client could be useful.
+
+There's a repo-browser/logviewer app available in the store:
+http://apps.microsoft.com/windows/en-us/app/metro-svn/a4eb3a49-c146-47c8-ac0f-dfb1fe6fd9b2
+but it didn't work for me: showing the log for the TSVN repo failed completely,
+browsing the repo only got to the root, browsing further down blocked.
+
+
+Problems
+--------
+WinRT has a very limited set of APIs that are available, many APIs are not allowed
+to be used in Store apps. Which is why simply compiling the svn libraries and
+its dependencies does not work:
+* OpenSSL uses a lot of APIs that are forbidden, e.g. LoadLibrary(), Winsock
+* apr/apr-util uses Winsock as well, which is not available
+
+Since the whole networking stack of svn relies on Winsock, porting those to be
+compatible with WinRT would be a major effort.
+
+I haven't tested all the other libraries that are necessary to compile svn, but
+I expect similar problems there as well.
+
+
+How to proceed
+--------------
+For now I think it's too risky and too much work to start a WinRT client.
+And if we ever go there: for a CommitMonitor/ProjectMonitor type of app we
+might best just implement the ra-layers in WinRT from scratch. We only need
+file/dir-listing (for browsing), file downloads, show log.
+Maybe creating a diff would be nice too.
+
