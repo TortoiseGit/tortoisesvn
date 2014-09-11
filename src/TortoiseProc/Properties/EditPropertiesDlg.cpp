@@ -715,7 +715,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         dlg->SetProperties(m_properties);
         PropValue& prop = m_properties[sName];
         dlg->SetPropertyName(sName);
-        if (prop.allthesamevalue)
+        if (prop.allthesamevalue && !prop.isinherited)
             dlg->SetPropertyValue(prop.value);
         dlg->SetPathList(m_pathlist);
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
@@ -732,7 +732,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
             // the property already exists: switch to "edit" instead of "add"
             PropValue& prop = m_properties[sName];
             dlg->SetPropertyName(sName);
-            if (prop.allthesamevalue)
+            if (prop.allthesamevalue && !prop.isinherited)
                 dlg->SetPropertyValue(prop.value);
         }
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
