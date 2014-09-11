@@ -449,11 +449,17 @@ UINT CEditPropertiesDlg::PropsThread()
         }
         index++;
     }
-    int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount()-1;
+
+    int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount() - 1;
     for (int col = 0; col <= maxcol; col++)
     {
-        m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+        m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE);
     }
+    // resize the middle column so that all columns fit into the client area
+    RECT rc;
+    m_propList.GetClientRect(&rc);
+    const int bordersize = 20;
+    m_propList.SetColumnWidth(1, rc.right - m_propList.GetColumnWidth(0) - m_propList.GetColumnWidth(2) - bordersize);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     m_propList.SetRedraw(TRUE);
