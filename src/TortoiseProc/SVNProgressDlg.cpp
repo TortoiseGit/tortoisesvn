@@ -2548,6 +2548,8 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 
     DWORD exitcode = 0;
     CString error;
+    // read the project properties from the fresh working copy
+    m_ProjectProperties.ReadProps(m_targetPathList[0]);
     CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
     CTSVNPathList updatedList = GetPathsForUpdateHook(m_targetPathList);
     if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, updatedList, exitcode, error)))
