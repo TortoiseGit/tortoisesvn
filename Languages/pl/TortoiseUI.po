@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-09 22:38+0000\n"
+"PO-Revision-Date: 2014-09-12 06:31+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -2740,10 +2740,6 @@ msgstr "Nie jest możliwe pokazanie różnic ze względu na niekonsekwentne znak
 msgid "Casca&de"
 msgstr "Kaska&dowo"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "Kaskadowe menu kontekstowe"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "Bez uwzględnienia wielkości liter"
@@ -4765,10 +4761,10 @@ msgstr "Nie udało się skonwertować obiektu ActiveX."
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr "Nie udało się skopiować pliku '%' do '%s'.\n\n%s"
+msgstr "Nie udało się skopiować pliku '%s' do '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -6390,6 +6386,10 @@ msgstr "Jas"
 msgid "Mail system DLL is invalid."
 msgstr "DLL systemu pocztowego jest niepoprawny."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr "Główne menu kontekstowe"
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Zapisz jako domyślny"
@@ -6459,8 +6459,8 @@ msgstr "Oznacza jako plik z rozwiązanym konfliktem w Subversion\nOznacz jako ro
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
-msgstr "Zaznacza konflikt jako rozwiązany.\nUwaga: to nie rozwiązuje konfliktu, oznacza go tylko jako rozwiązany!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
+msgstr "Oznaza konflikt jako rozwiązany.\nUwaga: nie rozwiązuje to konfliktu a tylko oznacza go jako rozwiązany!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -9668,8 +9668,8 @@ msgid ""
 msgstr "Uruchamia przeglądarkę różnic z aktualnie wybranym plikiem i zaznaczonym wcześniej do późniejszych porównań."
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
-msgstr "Uruchamia narzędzie edytora scalania gdzie można rozwiązać konflikt atrybutów"
+msgid "Starts the merge tool where you can resolve the property conflict"
+msgstr "Uruchamia narzędzie scalania gdzie można rozwiązać konflikt atrybutów"
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
@@ -10929,6 +10929,12 @@ msgstr "Niezmieniony węzeł"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Odznacz"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr "Niezaznaczone elementy są wyświetlane w podmenu, zaznaczone w głównym menu kontekstowym."
 
 #. Resource IDs: (156)
 msgid "Undo"

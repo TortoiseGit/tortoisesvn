@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-11 09:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -2732,10 +2732,6 @@ msgstr "Δεν ειναι δυνατό να προβληθούν οι διαφο
 msgid "Casca&de"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "Αναδυόμενο πλαίσιο μενού"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "Συγγραφέων αδιάφορο για πεζά/κεφαλαία"
@@ -4757,7 +4753,7 @@ msgstr "Αποτυχία μετατροπή αντικειμένου ActiveX"
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
 msgstr ""
@@ -6382,6 +6378,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "Το υποσύστημα DLL του ηλεκτρονικού ταχυδρομίου είναι άκυρο."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr ""
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Κάνει το προκείμενο το πρότυπο"
@@ -6451,7 +6451,7 @@ msgstr "Επισήσμανση ενός αρχείου ως επιλημένου
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -9660,7 +9660,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
+msgid "Starts the merge tool where you can resolve the property conflict"
 msgstr ""
 
 #. Resource IDs: (65)
@@ -10921,6 +10921,12 @@ msgstr "Μη τροποποιημένος κόμβος"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Αποεπιλογή"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"

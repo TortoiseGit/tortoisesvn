@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-11 09:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -2734,10 +2734,6 @@ msgstr "Razlik ni mogoče prikazati zaradi nedoslednih novih vrstic v datoteki."
 msgid "Casca&de"
 msgstr "Roletna razpore&ditev"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "Kaskadni kontekstni meni"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "Upoštevaj velike/male črke"
@@ -4759,7 +4755,7 @@ msgstr "Objekta ActiveX ni mogoče pretvoriti."
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
 msgstr ""
@@ -6384,6 +6380,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "Dinamična knjižnica (DLL) poštnega sistema ni veljavna."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr ""
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Nastavi kot privzeto"
@@ -6453,7 +6453,7 @@ msgstr "Označi datoteko kot rešeno v sistemu Subversion\nOznači kot razrešen
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -9662,7 +9662,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
+msgid "Starts the merge tool where you can resolve the property conflict"
 msgstr ""
 
 #. Resource IDs: (65)
@@ -10923,6 +10923,12 @@ msgstr "Nespremenjeno vozlišče"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Izključi"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"

@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 08:15+0000\n"
+"PO-Revision-Date: 2014-09-12 07:23+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -13244,7 +13244,7 @@ msgid ""
 " can chose to make those files not propagate their status to the parent "
 "folder. That way if only files in that changelist are modified, the parent "
 "folder still shows the unmodified overlay icon."
-msgstr ""
+msgstr "Wenn Sie Dateien in der <literal>ignore-on-commit<literal> Änderungsliste haben, können Sie festlegen, dass diese Dateien ihren Status nicht an den Elternordner weiterreichen. Dadurch wird der Elternordner als unmodifiziert angezeigt, solange nur Dateien in dieser Änderungsliste verändert werden."
 
 #. (para)
 msgid ""
@@ -15188,13 +15188,13 @@ msgstr ""
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
-msgstr ""
+msgstr "Die Ausschlussmuster sind, wie Subversion Groß-/Kleinschreibungssensitiv."
 
 #. (para)
 msgid ""
 "To create a file with a starting dot in the Windows explorer, enter "
 "<filename>.subwcrevignore.</filename>. Note the trailing dot."
-msgstr ""
+msgstr "Um eine Datei mit einem führenden Punkt in Windes Explorer anzulegen, geben Sie <filename>.subwcrevignore.</filename> ein. Beachten Sie den angehängten Punkt."
 
 #. (title)
 msgid "List of available command line switches"
@@ -15303,13 +15303,13 @@ msgstr "Mit dieser Option gibt SubWCRev die Revisionsnummern in HEX mit voranges
 
 #. (filename)
 msgid ".subwcrevignore"
-msgstr ""
+msgstr ".subwcrevignore"
 
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will ignore any <placeholder-1/> files and"
 " include all files."
-msgstr ""
+msgstr "Mit dieser Option ignoriert SubWCRev sämtliche <placeholder-1/> Dateien und schließt alle Dateien ein."
 
 #. (entry)
 msgid ""
@@ -18452,15 +18452,15 @@ msgstr "TortoiseUDiff Befehle"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
-msgstr ""
+msgstr "Der Standard-Diff Betrachter hat nur zwei Kommandozeilenoptionen:"
 
 #. (entry)
 msgid "Path to the unified diff file."
-msgstr ""
+msgstr "Pfad zur Standard-Diff Datei."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
-msgstr ""
+msgstr "Aktiviert den Pipe Modus. Das Standard-Diff wird von der Standardeingabe gelesen."
 
 #. (para)
 msgid ""

@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-11 09:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -2739,10 +2739,6 @@ msgstr "Verschil kan niet getoond worden omdat er verschillende soorten regelein
 msgid "Casca&de"
 msgstr "&Stapelen"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "Context submenu"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "Hoofdlettergevoelig"
@@ -4764,7 +4760,7 @@ msgstr "Converteren ActiveX object mislukt."
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
 msgstr ""
@@ -6389,6 +6385,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "De DLL van het mailsysteem is ongeldig."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr ""
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Maak dit de standaard"
@@ -6458,7 +6458,7 @@ msgstr "Markeert een bestand als opgelost in Subversion\nMarkeer als opgelost"
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -9667,7 +9667,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
+msgid "Starts the merge tool where you can resolve the property conflict"
 msgstr ""
 
 #. Resource IDs: (65)
@@ -10928,6 +10928,12 @@ msgstr "Ongewijzigde knoop"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Niet markeren"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"

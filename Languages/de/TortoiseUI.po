@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-12 07:23+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -262,7 +262,7 @@ msgstr "%s [wieder hergestellt]"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr "%s, aber das Verzeichnis existiert lokal bereits unversioniert."
+msgstr "%s, aber das Verzeichnis existiert lokal bereits nicht versioniert."
 
 #. Resource IDs: (611)
 #, c-format
@@ -312,7 +312,7 @@ msgstr "%s, aber das Verzeichnis wurde lokal bereits ersetzt."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr "%s, aber die Datei existiert lokal bereits unversioniert."
+msgstr "%s, aber die Datei existiert lokal bereits nicht versioniert."
 
 #. Resource IDs: (611)
 #, c-format
@@ -569,7 +569,7 @@ msgstr "&Wähle Befehle von:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr "&Objekte auswählen..."
+msgstr "&Elemente auswählen..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
@@ -681,7 +681,7 @@ msgstr "Filter lö&schen"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
-msgstr "Nicht versionierte Objekte &löschen..."
+msgstr "Nicht versionierte Elemente &löschen..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -879,7 +879,7 @@ msgstr "&Verbergen"
 
 #. Resource IDs: (1562)
 msgid "&Hide ignored items"
-msgstr "Ignorierte Objekte &verbergen"
+msgstr "Ignorierte Elemente &verbergen"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -888,7 +888,7 @@ msgstr "&Symbole"
 #. Resource IDs: (15)
 #, c-format
 msgid "&Ignore %d items by name"
-msgstr "&Ignoriere %d Objekte nach Name"
+msgstr "&Ignoriere %d Elemente nach Name"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
@@ -1486,11 +1486,11 @@ msgstr "Akt&ualisieren"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr "&Aktualisiere Objekt zu Revision"
+msgstr "&Aktualisiere Element zu Revision"
 
 #. Resource IDs: (114)
 msgid "&Update item to revision..."
-msgstr "&Aktualisiere Objekt zu Revision..."
+msgstr "&Aktualisiere Element zu Revision..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1721,7 +1721,7 @@ msgstr "<neue Änderungsliste>"
 
 #. Resource IDs: (64)
 msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr ""
+msgstr "=Jetzt &prüfen=Projekt &hinzufügen=&Bearbeiten=&Entfernen=Alles als gelesen &markieren=&Optionen=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1896,7 +1896,7 @@ msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
 msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
-msgstr "Objekt hinzufügen\nDies wird unter Windows zu Problemen führen."
+msgstr "Element hinzufügen\nDies wird unter Windows zu Problemen führen."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -2200,14 +2200,14 @@ msgstr "Sind Sie sicher, dass Sie den Konflikt aufgelöst haben?"
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Sind Sie sicher, dass Sie den Puffer für die gewählten %d Objekte löschen möchten?"
+msgstr "Sind Sie sicher, dass Sie den Puffer für die gewählten %d Elemente löschen möchten?"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr "Sind Sie sicher dass Sie die Änderungen an %d Objekten rückgängig machen wollen?\nSie werden alle Änderungen seit der letzten Aktualisierung verlieren!"
+msgstr "Sind Sie sicher dass Sie die Änderungen an %d Elementen rückgängig machen wollen?\nSie werden alle Änderungen seit der letzten Aktualisierung verlieren!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
@@ -2593,7 +2593,7 @@ msgstr "Abbrechen\nTortoiseMerge nicht verlassen."
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
-msgstr "Abbrechen\nDas Objekt nicht auflösen."
+msgstr "Abbrechen\nDas Element nicht auflösen."
 
 #. Resource IDs: (214)
 msgid ""
@@ -2689,13 +2689,13 @@ msgstr "Abbrechen\nDer Ordner wird nicht exportiert."
 msgid ""
 "Cancel\n"
 "The items are not imported."
-msgstr "Abbrechen\nDie Objekte werden nicht importiert."
+msgstr "Abbrechen\nDie Elemente werden nicht importiert."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
-msgstr "Abbrechen\nDie Objekte werden nicht verschoben."
+msgstr "Abbrechen\nDie Elemente werden nicht verschoben."
 
 #. Resource IDs: (288)
 msgid ""
@@ -2742,10 +2742,6 @@ msgstr "Kann die Unterschiede aufgrund inkonsistenter Zeilenumbrüche in der Dat
 #. Resource IDs: (16926)
 msgid "Casca&de"
 msgstr "Überla&ppend"
-
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "TortoiseSVN Kontextmenü"
 
 #. Resource IDs: (117)
 msgid "Case-sensitive"
@@ -2931,11 +2927,11 @@ msgstr "Prüfsumme:"
 
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr "Objekt auswählen:"
+msgstr "Element auswählen:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr "Objekte auswählen..."
+msgstr "Elemente auswählen..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3216,7 +3212,7 @@ msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
-msgstr "Beim Übertragen eines unversionierten Ordners werden dessen Unterobjekte nicht automatisch hinzugefügt!\nDie Unterordner müssen vorher per 'Hinzufügen...' rekursiv in die Versionskontrolle übernommen werden."
+msgstr "Beim Übertragen eines nicht versionierten Ordners werden dessen Unterelemente nicht automatisch hinzugefügt!\nDie Unterordner müssen vorher per 'Hinzufügen...' rekursiv in die Versionskontrolle übernommen werden."
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
@@ -3224,7 +3220,7 @@ msgstr "Übertragen in eine Marke"
 
 #. Resource IDs: (266)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "Übertrage Transaktion..."
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3403,7 +3399,7 @@ msgstr "Kopiert von: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (18)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Kopiert die URLs aller markierten Elemente in die Zwischenablage"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3414,7 +3410,7 @@ msgstr "Kopieren"
 msgid ""
 "Copy %1!ld! items to\r\n"
 "%2!s!"
-msgstr "Kopiere %1!ld! Objekte\r\nnach %2!s!"
+msgstr "Kopiere %1!ld! Elemente\r\nnach %2!s!"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3430,7 +3426,7 @@ msgstr "Kopiere %1!s!\r\nnach %2!s!"
 
 #. Resource IDs: (32797)
 msgid "Copy &revision number to clipboard"
-msgstr ""
+msgstr "Kopiere &Revisionsnummer in die Zwischenablage"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3452,7 +3448,7 @@ msgstr "Kopieren und umbenennen"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
-msgstr "Objekt hierher kopieren und umbenennen"
+msgstr "Element hierher kopieren und umbenennen"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3460,7 +3456,7 @@ msgstr "Kopiert von"
 
 #. Resource IDs: (103)
 msgid "Copy items to here"
-msgstr "Objekte hierher kopieren"
+msgstr "Elemente hierher kopieren"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -3865,25 +3861,25 @@ msgstr "Puffer des Projektarchivs löschen"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr "Nicht versionierte Objekte löschen"
+msgstr "Nicht versionierte Elemente löschen"
 
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and &ignore %d items by name"
-msgstr "Lösche und &ignoriere %d Objekte nach Name"
+msgstr "Lösche und &ignoriere %d Elemente nach Name"
 
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "Lösche und ignoriere %d Objekte nach &Erweiterung"
+msgstr "Lösche und ignoriere %d Elemente nach &Erweiterung"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
-msgstr "Nicht versionierte Objekte löschen"
+msgstr "Nicht versionierte Elemente löschen"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "Nicht versionierte Objekte löschen..."
+msgstr "Nicht versionierte Elemente löschen..."
 
 #. Resource IDs: (199)
 msgid ""
@@ -3916,7 +3912,7 @@ msgstr "Löscht Dateien / Ordner aus der Versionskontrolle"
 
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "Entfernt Dateien / Ordner aus der Versionskontrolle ohne die Objekte zu löschen"
+msgstr "Entfernt Dateien / Ordner aus der Versionskontrolle ohne die Elemente zu löschen"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -4113,11 +4109,11 @@ msgstr "Für alle vorhandenen Ordner durchführen"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr "Für alle vorhandenen Objekte durchführen"
+msgstr "Für alle vorhandenen Elemente durchführen"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr "Für alle gewählten Objekte durchführen"
+msgstr "Für alle gewählten Elemente durchführen"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4125,7 +4121,7 @@ msgstr "Die Aktion für alle gewählten, nicht versionierten Ordner durchführen
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr "Für alle nicht versionierten/geänderten Objekte durchführen"
+msgstr "Für alle nicht versionierten/geänderten Elemente durchführen"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4763,15 +4759,15 @@ msgstr "Fehler beim Verbinden\nVerweis könnte defekt sein."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
-msgstr "Fehler beim Konvertieren des ActiveX Objekts."
+msgstr "Fehler beim Konvertieren des ActiveX Objekt."
 
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Fehler beim Kopieren von '%s' nach '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -4781,7 +4777,7 @@ msgstr "Konnte leeres Dokument nicht erstellen"
 msgid ""
 "Failed to create object.  Make sure the application is entered in the system"
 " registry."
-msgstr "Fehler beim Anlegen des Objekts. Stellen Sie sicher, dass die Anwendung in der Systemregistrierung eingetragen ist."
+msgstr "Fehler beim Anlegen des Elements. Stellen Sie sicher, dass die Anwendung in der Systemregistrierung eingetragen ist."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -5332,7 +5328,7 @@ msgstr "Menüs für nicht versionierte Pfade verbergen"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
-msgstr "Alle Zweige ausblenden, die das Objekt nicht verändert haben"
+msgstr "Alle Zweige ausblenden, die das Element nicht verändert haben"
 
 #. Resource IDs: (2053)
 msgid "Hide all tags"
@@ -5735,7 +5731,7 @@ msgstr "Ignorieren"
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
-msgstr "Ignoriere %d Objekte nach &Erweiterung"
+msgstr "Ignoriere %d Elemente nach &Erweiterung"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
@@ -5793,7 +5789,7 @@ msgstr "Ignoriert"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
-msgstr "Ignorierte Objekte eingeschlossen"
+msgstr "Ignorierte Elemente eingeschlossen"
 
 #. Resource IDs: (2055)
 msgid ""
@@ -5825,7 +5821,7 @@ msgstr "Bilder"
 
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
-msgstr "Direkte Unterobjekte, einschließlich Ordnern"
+msgstr "Direkte Unterelemente, einschließlich Ordnern"
 
 #. Resource IDs: (77, 139)
 msgid "Import"
@@ -5839,7 +5835,7 @@ msgstr "Importiere %1!s! in %2!s!%3!s!"
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
-msgstr "Importiere %ld Objekte"
+msgstr "Importiere %ld Elemente"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5879,7 +5875,7 @@ msgstr "In %1 importieren"
 msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr "Import\nDie Objekte werden importiert, wobei für jedes Objekt eine neue Revision angelegt wird."
+msgstr "Import\nDie Elemente werden importiert, wobei für jedes Element eine neue Revision angelegt wird."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -6046,11 +6042,11 @@ msgstr "Es scheint, als versuchten Sie, Ihre Arbeitskopie in einen anderen Pfad 
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
-msgstr "Objekte in &Externals"
+msgstr "Elemente in &Externals"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
-msgstr "Anzuzeigende Objekte"
+msgstr "Anzuzeigende Elemente"
 
 #. Resource IDs: (1074)
 msgid "J&ump to first conflict when loading"
@@ -6393,6 +6389,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "Mail System DLL ist ungültig."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr "Haupt-Kontextmenü"
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Diese Einstellung immer verwenden"
@@ -6407,7 +6407,7 @@ msgstr "Manuelle Pre-Commit Aktion"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
-msgstr "Viele Objekte zum Vergleichen gewählt"
+msgstr "Viele Elemente zum Vergleichen gewählt"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6415,7 +6415,7 @@ msgstr "Als &aufgelöst markieren (diese Verschiebung wird zu einer Kopie)"
 
 #. Resource IDs: (1400)
 msgid "Mark as Resolved"
-msgstr ""
+msgstr "Als aufgelöst markieren"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6462,8 +6462,8 @@ msgstr "Markiert einen Dateikonflikt in Subversion als aufgelöst\nAls aufgelös
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
-msgstr ""
+"Note: this does not resolve the conflict, only marks it as resolved!"
+msgstr "Markiert den Konflikt als aufgelöst\n\nAchtung: Der Konflikt wird nicht tatsächlich gelöst, sondern nur entsprechend markiert!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6537,7 +6537,7 @@ msgstr "Alles zusammenführen"
 
 #. Resource IDs: (14)
 msgid "Merge all..."
-msgstr ""
+msgstr "Alles zusammenführen..."
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
@@ -6583,7 +6583,7 @@ msgstr "Revision(en) {revrange} von {mergeurl} zusammengeführt:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Führt unter Verwendung des Zusammenführen-Protokolls sämtliche fehlenden Revisionen aus trunk in der Arbeitskopie zusammen"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -6710,7 +6710,7 @@ msgstr "Weitere Farben..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr "Mehr als ein Objekt abgelegt."
+msgstr "Mehr als ein Element abgelegt."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6729,7 +6729,7 @@ msgstr "Maus"
 msgid ""
 "Move %1!ld! items to\r\n"
 "%2!s!"
-msgstr "Verschiebe %1!ld! Objekte nach\r\n%2!s!"
+msgstr "Verschiebe %1!ld! Elemente nach\r\n%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -6748,11 +6748,11 @@ msgstr "Nach &Oben"
 
 #. Resource IDs: (1002)
 msgid "Move Item Down"
-msgstr "Objekt nach unten verschieben"
+msgstr "Element nach unten verschieben"
 
 #. Resource IDs: (1002)
 msgid "Move Item Up"
-msgstr "Objekt nach oben verschieben"
+msgstr "Element nach oben verschieben"
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6760,7 +6760,7 @@ msgstr "Verschieben und umbenennen"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
-msgstr "Objekt hierher verschieben und umbenennen"
+msgstr "Element hierher verschieben und umbenennen"
 
 #. Resource IDs: (266)
 msgid "Move broken"
@@ -6768,7 +6768,7 @@ msgstr "Verschieben beschädigt"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
-msgstr "Objekte hierher verschieben"
+msgstr "Elemente hierher verschieben"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
@@ -6800,7 +6800,7 @@ msgstr "Verschieben: Neuer Name für %s"
 msgid ""
 "Move\n"
 "The items are moved to the target path."
-msgstr "Verschieben\nDie Objekte werden in den Zielpfad verschoben."
+msgstr "Verschieben\nDie Elemente werden in den Zielpfad verschoben."
 
 #. Resource IDs: (266)
 msgid "Moved"
@@ -6961,7 +6961,7 @@ msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
-msgstr "Mit der aktuellen Einstellung werden keine Dateien angezeigt.\nWählen Sie eine oder mehrere der untenstehenden Optionen, um\nunversionierte, ignorierte oder unmodifizierte Dateien zu sehen\nÄnderungen im Projektarchiv werden erst nach 'Projektarchiv prüfen' angezeigt."
+msgstr "Mit der aktuellen Einstellung werden keine Dateien angezeigt.\nWählen Sie eine oder mehrere der untenstehenden Optionen, um\nnicht versionierte, ignorierte oder unmodifizierte Dateien zu sehen\nÄnderungen im Projektarchiv werden erst nach 'Projektarchiv prüfen' angezeigt."
 
 #. Resource IDs: (170)
 msgid ""
@@ -6969,7 +6969,7 @@ msgid ""
 "There's nothing for TortoiseSVN to do here...\n"
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
-msgstr "Seit der letzten Übertragung wurden keine Dateien geändert oder hinzugefügt.\nEs gibt hier für TortoiseSVN nichts zu tun.\nSie können sich die unversionierten Objekte anzeigen lassen,\nindem Sie die untenstehende Option aktivieren."
+msgstr "Seit der letzten Übertragung wurden keine Dateien geändert oder hinzugefügt.\nEs gibt hier für TortoiseSVN nichts zu tun.\nSie können sich die nicht versionierten Elemente anzeigen lassen,\nindem Sie die untenstehende Option aktivieren."
 
 #. Resource IDs: (77)
 msgid ""
@@ -7054,7 +7054,7 @@ msgstr "Wenn Sie die automatisch gespeicherten Dokumente wieder herstellen, müs
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr "Hinweis: Der Ordner enthält nicht versionierte Objekte"
+msgstr "Hinweis: Der Ordner enthält nicht versionierte Elemente"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -7211,7 +7211,7 @@ msgstr "Zusammenführen nur &aufzeichnen (Revisionen vom Zusammenführen ausschl
 
 #. Resource IDs: (19)
 msgid "Only file children"
-msgstr "Nur Dateiobjekte"
+msgstr "Nur Dateielemente"
 
 #. Resource IDs: (169)
 msgid ""
@@ -7225,7 +7225,7 @@ msgstr "Nur Eigenschaften geändert"
 
 #. Resource IDs: (19)
 msgid "Only this item"
-msgstr "Nur dieses Objekt"
+msgstr "Nur dieses Element"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
@@ -7401,15 +7401,15 @@ msgstr "Dateinamensliste einfügen"
 msgid ""
 "Pastes the svn path from the clipboard, resulting in a move (cut) or copy "
 "operation"
-msgstr "Fügt den SVN Pfad aus der Zwischenablage ein. Die Objekte werden verschoben (ausschneiden) oder kopiert"
+msgstr "Fügt den SVN Pfad aus der Zwischenablage ein. Die Elemente werden verschoben (ausschneiden) oder kopiert"
 
 #. Resource IDs: (1076)
 msgid "Patch &all items"
-msgstr "&Alle Objekte patchen"
+msgstr "&Alle Elemente patchen"
 
 #. Resource IDs: (1075)
 msgid "Patch &selected item"
-msgstr "&Gewähltes Objekt patchen"
+msgstr "&Gewähltes Element patchen"
 
 #. Resource IDs: (376)
 msgid "Patch all files"
@@ -7677,7 +7677,7 @@ msgstr "Trotzdem fortsetzen\nDas Aktionsskript ignorieren und den Befehl trotzde
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
-msgstr "Mit dem Übertragen fortfahren\nDie umbenannten/verschobenen Objekte werden rekursiv in das Projektarchiv übertragen."
+msgstr "Mit dem Übertragen fortfahren\nDie umbenannten/verschobenen Ordner werden rekursiv in das Projektarchiv übertragen."
 
 #. Resource IDs: (89)
 msgid ""
@@ -8007,7 +8007,7 @@ msgstr "RegEx Filter"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
-msgstr ""
+msgstr "RegEx Treffermeldung:"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
@@ -8124,7 +8124,7 @@ msgstr "Entfernen"
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
-msgstr "Lösche %ld Objekte"
+msgstr "Lösche %ld Elemente"
 
 #. Resource IDs: (126)
 #, c-format
@@ -8188,7 +8188,7 @@ msgstr "Entfernen\nEntfernen erzwingen"
 msgid ""
 "Remove\n"
 "Remove the property only from this item."
-msgstr "Entfernen\nEntfernen die Eigenschaft nur von diesem Objekt"
+msgstr "Entfernen\nEntfernt die Eigenschaft nur von diesem Element"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8216,7 +8216,7 @@ msgstr "Die Einträge\n%s\nwurden aus der 'Ignorieren' Liste entfernt."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr "Entfernt alle nicht versionierten und ignorierten Objekte"
+msgstr "Entfernt alle nicht versionierten und ignorierten Elemente"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
@@ -8254,7 +8254,7 @@ msgstr "'%s' Umbenennen:"
 msgid ""
 "Rename item from %1!s!\r\n"
 "to %2!s!"
-msgstr "Objekt von %1!s!\r\nin %2!s! umbenennen"
+msgstr "Element von %1!s!\r\nin %2!s! umbenennen"
 
 #. Resource IDs: (221)
 msgid "Rename/move"
@@ -8277,7 +8277,7 @@ msgstr "Benennt Dateien / Ordner unter Versionskontrolle um"
 
 #. Resource IDs: (1562)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr "Übertragen-Dialog wieder öffnen, wenn Objekte nicht übertragen wurden"
+msgstr "Übertragen-Dialog wieder öffnen, wenn Elemente nicht übertragen wurden"
 
 #. Resource IDs: (197)
 msgid ""
@@ -8410,7 +8410,7 @@ msgstr "&Später auflösen"
 msgid ""
 "Resolve\n"
 "The item is marked as resolved."
-msgstr "Auflösen\nDas Objekt wird als aufgelöst markiert."
+msgstr "Auflösen\nDas Element wird als aufgelöst markiert."
 
 #. Resource IDs: (74, 209)
 msgid "Resolved"
@@ -8500,7 +8500,7 @@ msgstr "Macht alle Änderungen seit der letzten Aktualisierung rückgängig"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
-msgstr "Nimmt gerade hinzugefügte Objekte wieder aus der Versionskontrolle"
+msgstr "Entfernt gerade hinzugefügte Elemente wieder aus der Versionskontrolle"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
@@ -8674,23 +8674,23 @@ msgstr "SVN kopieren und zu dieser Arbeitskopie hinzufügen"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
-msgstr "SVN Objekte hierher kopieren und umbenennen"
+msgstr "SVN Elemente hierher kopieren und umbenennen"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned item(s) here"
-msgstr "SVN Objekte hierher kopieren"
+msgstr "SVN Elemente hierher kopieren"
 
 #. Resource IDs: (14)
 msgid "SVN Export all items here"
-msgstr "SVN alle Objekte hierher exportieren"
+msgstr "SVN alle Elemente hierher exportieren"
 
 #. Resource IDs: (15)
 msgid "SVN Export changed items here"
-msgstr "SVN geänderte Objekte hier exportieren"
+msgstr "SVN geänderte Elemente hier exportieren"
 
 #. Resource IDs: (14)
 msgid "SVN Export versioned items here"
-msgstr "SVN versionierte Objekte hierher exportieren"
+msgstr "SVN versionierte Elemente hierher exportieren"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
@@ -8698,11 +8698,11 @@ msgstr "SVN lokale Sperre"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned item here"
-msgstr "SVN Objekte hierher verschieben und umbenennen"
+msgstr "SVN Elemente hierher verschieben und umbenennen"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned item(s) here"
-msgstr "SVN Objekte hierher verschieben"
+msgstr "SVN Elemente hierher verschieben"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -8972,7 +8972,7 @@ msgstr "Bitte wählen Sie eine Schaltfläche."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
-msgstr "Wählen Sie ein Objekt, für welches Sie Hilfe möchten"
+msgstr "Wählen Sie ein Element, für welches Sie Hilfe möchten"
 
 #. Resource IDs: (213)
 msgid "Select changelist"
@@ -9010,7 +9010,7 @@ msgstr "Skriptdatei auswählen"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
-msgstr "Zu übertragende Objekte automatisch markieren"
+msgstr "Zu übertragende Elemente automatisch markieren"
 
 #. Resource IDs: (78)
 msgid "Select merge application"
@@ -9153,7 +9153,7 @@ msgstr "&Kurzes Datum- / Zeitformat"
 
 #. Resource IDs: (12)
 msgid "Short URL of Subversion items"
-msgstr "Kurze URL von Subversion-Objekten"
+msgstr "Kurze URL von Subversion-Elementen"
 
 #. Resource IDs: (214)
 msgid "Shorten property list"
@@ -9514,7 +9514,7 @@ msgstr "Übersprungen: Zugriff verweigert"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr "Übersprungen: Kein versioniertes Elternobjekt"
+msgstr "Übersprungen: Kein versioniertes Elternelement"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
@@ -9671,12 +9671,12 @@ msgid ""
 msgstr "Startet das Vergleichsprogramm mit der aktuellen und mit der vorgemerkten Datei."
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
-msgstr ""
+msgid "Starts the merge tool where you can resolve the property conflict"
+msgstr "Startet das Vergleichsprogramm in dem Sie den Eigenschaftskonflikt auflösen können."
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Startet den Eigenschaftsdialog in dem Sie die Eigenschaft manuell ändern können."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9713,7 +9713,7 @@ msgstr "Statuspuffer nur für einen Ordner. Keine rekursiv überlagerten Symbole
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
-msgstr "Status eines Objekts in SVN"
+msgstr "Status eines Elements in SVN"
 
 #. Resource IDs: (16)
 msgid "Steal loc&k"
@@ -9848,7 +9848,7 @@ msgstr "Wechsle zu Zweig / Marke"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr "Zum Elternobjekt zurück"
+msgstr "Zum Elterne zurück"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9958,11 +9958,11 @@ msgstr "Testen Sie die regulären Ausdrücke"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
-msgstr "Objekt / Inhalt:"
+msgstr "Textstatus:"
 
 #. Resource IDs: (207)
 msgid "Text status"
-msgstr "Text Status"
+msgstr "Textstatus"
 
 #. Resource IDs: (120)
 msgid ""
@@ -10041,7 +10041,7 @@ msgstr "Die Datei ist zu groß, um sie zu öffnen."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr "Das Objekt \"%s\" existiert bereits am Ablageort! Sie müssen es löschen, bevor Sie dort ein External mit dem gleichen Namen hinzufügen."
+msgstr "Das Element \"%s\" existiert bereits am Ablageort! Sie müssen es löschen, bevor Sie dort ein External mit dem gleichen Namen hinzufügen."
 
 #. Resource IDs: (80)
 #, c-format
@@ -10101,7 +10101,7 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter n
 msgid ""
 "The item '%s' has property conflicts:\r\n"
 "%s"
-msgstr ""
+msgstr "Das Element '%s' hat Eigenschaftskonflikte:\n\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10407,7 +10407,7 @@ msgstr "Deren"
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
-msgstr "Es befinden sich Änderungen oder unversionierte Objekte innerhalb\nvon Ordnern, welche Sie mittels 'svn:externals' eingebunden haben.\nDiese Dateien werden nicht aufgelistet.\nSie müssen die Änderungen separat übertragen."
+msgstr "Es befinden sich Änderungen oder nicht versionierte Elemente innerhalb\nvon Ordnern, welche Sie mittels 'svn:externals' eingebunden haben.\nDiese Dateien werden nicht aufgelistet.\nSie müssen die Änderungen separat übertragen."
 
 #. Resource IDs: (200)
 #, c-format
@@ -10616,7 +10616,7 @@ msgid ""
 "are also checked in the commit dialog.\n"
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
-msgstr "Um rekursiv übertragen zu können und diesen Fehler zu umgehen,\nmüssen alle Unterobjekte des gewählten Ordners ebenfalls\nim Übertragen-Dialog markiert sein.\nAndernfalls muss TortoiseSVN die Daten nicht-rekursiv übertragen.\nDabei ist das Löschen von Verzeichnissen nicht erlaubt."
+msgstr "Um rekursiv übertragen zu können und diesen Fehler zu umgehen,\nmüssen alle Unterelemente des gewählten Ordners ebenfalls\nim Übertragen-Dialog markiert sein.\nAndernfalls muss TortoiseSVN die Daten nicht-rekursiv übertragen.\nDabei ist das Löschen von Verzeichnissen nicht erlaubt."
 
 #. Resource IDs: (284)
 msgid ""
@@ -10763,7 +10763,7 @@ msgstr "TortoiseSVN autom. übertragen: Externals auf fixe Revision gesetzt."
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr "TortoiseSVN hat einen deutlichen Geschwindigkeitsrückgang beim Verschieben von %1!ld! Objekten in den Papierkorb festgestellt. Der Papierkorb enthält derzeit %2!ld! Objekte, was vermutlich die Ursache der Verzögerung ist.\nUm das Problem zu beseitigen, sollten Sie den Papierkorb jetzt löschen."
+msgstr "TortoiseSVN hat einen deutlichen Geschwindigkeitsrückgang beim Verschieben von %1!ld! Elementen in den Papierkorb festgestellt. Der Papierkorb enthält derzeit %2!ld! Elemente, was vermutlich die Ursache der Verzögerung ist.\nUm das Problem zu beseitigen, sollten Sie den Papierkorb jetzt löschen."
 
 #. Resource IDs: (98)
 #, c-format
@@ -10861,7 +10861,7 @@ msgstr "URL-Historie"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
-msgstr "URL von Subversion Objekten"
+msgstr "URL von Subversion Elementen"
 
 #. Resource IDs: (1491)
 msgid "URL to merge &from"
@@ -10932,6 +10932,12 @@ msgstr "Unveränderter Knoten"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Abwählen"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr "Nicht markierte Elemente werden im Untermenü angezeigt, markierte im Haupt-Kontextmenü"
 
 #. Resource IDs: (156)
 msgid "Undo"
@@ -11042,7 +11048,7 @@ msgstr "Die Arbeitskopie aus der Versionskontrolle nehmen"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
-msgstr "Unversioniert"
+msgstr "Nicht versioniert"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -11360,7 +11366,7 @@ msgstr "Benutzername:"
 
 #. Resource IDs: (65535)
 msgid "Users to ignore:"
-msgstr ""
+msgstr "Zu ignorierende Anwender:"
 
 #. Resource IDs: (313)
 msgid ""
@@ -11494,7 +11500,7 @@ msgstr "Diese Option aktiviert die TortoiseSVN verschieben/kopieren Kontextmenü
 msgid ""
 "When enabled, the versioned items listed in the commit dialog are "
 "automatically selected"
-msgstr "Aktivieren Sie diese Option, damit die versionierten Objekte im Übertragen-Dialog automatisch markiert werden."
+msgstr "Aktivieren Sie diese Option, damit die versionierten Elemente im Übertragen-Dialog automatisch markiert werden."
 
 #. Resource IDs: (197)
 msgid ""
@@ -11596,7 +11602,7 @@ msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
-msgstr "Sie haben mehr als eine Datei/Ordner abgelegt, um sie zum Projektarchiv hinzuzufügen.\nEs ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\njedes Objekt einzeln hinzufügen und dafür jeweils eine Revision anlegen."
+msgstr "Sie haben mehr als eine Datei/Ordner abgelegt, um sie zum Projektarchiv hinzuzufügen.\nEs ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\njedes Element einzeln hinzufügen und dafür jeweils eine Revision anlegen."
 
 #. Resource IDs: (16)
 msgid ""
@@ -11610,7 +11616,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr "Sie haben %d Einträge für den Vergleich gewählt.\nFür jeden dieser Einträge wird eine neue Instanz des Vergleichsprogramms gestartet.\nWollen Sie wirklich die Unterschiede von so vielen Objekten gleichzeitig anzeigen?"
+msgstr "Sie haben %d Einträge für den Vergleich gewählt.\nFür jeden dieser Einträge wird eine neue Instanz des Vergleichsprogramms gestartet.\nWollen Sie wirklich die Unterschiede von so vielen Elementen gleichzeitig anzeigen?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
@@ -11652,13 +11658,13 @@ msgid ""
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
-msgstr "Sie versuchen folgendes Objekt hinzuzufügen:\n'%1!s!',\nEs existiert aber bereits ein Objekt namens:\n'%2!s!'\n\nEs scheint, dass dieses Objekt außerhalb von Subversion umbenannt wurde\nund sich nur die Groß-/Kleinschreibung geändert hat.\nWollen Sie es wirklich hinzufügen?"
+msgstr "Sie versuchen folgendes Element hinzuzufügen:\n'%1!s!',\nEs existiert aber bereits ein Element namens:\n'%2!s!'\n\nEs scheint, dass dieses Element außerhalb von Subversion umbenannt wurde\nund sich nur die Groß-/Kleinschreibung geändert hat.\nWollen Sie es wirklich hinzufügen?"
 
 #. Resource IDs: (288)
 msgid ""
 "You've committed changes to external item that is tagged to a specific revision.\n"
 "Do you want to change the tagged revision now to the just committed revision?"
-msgstr "Sie haben Änderungen an ein externes Objekt übertragen, das an eine spezifische Revision gebunden ist.\nWollen Sie diese Revision auf die gerade übertragene Revision setzen?"
+msgstr "Sie haben Änderungen an ein externes Element übertragen, das an eine spezifische Revision gebunden ist.\nWollen Sie diese Revision auf die gerade übertragene Revision setzen?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -11832,7 +11838,7 @@ msgstr "und unterstützen Sie die Entwickler"
 
 #. Resource IDs: (583)
 msgid "another item already exists in its place."
-msgstr "sich ein anderes Objekt an dieser Stelle befindet."
+msgstr "sich ein anderes Element an dieser Stelle befindet."
 
 #. Resource IDs: (340)
 msgid ""
@@ -12323,7 +12329,7 @@ msgid ""
 "Date, LastChangedDate : The date/time the object was last modified.\r\n"
 "Rev, LastChangedRevision : The last revision the object changed.\r\n"
 "Id : A compressed summary of the previous 4 keywords."
-msgstr "svn:keywords\r\nSchlüsselwörter, die expandiert werden sollen. Gültige Schlüsselwörter sind:\r\nURL, HeadURL : Die URL für die neueste Revision des Objektes.\r\nAuthor, LastChangedBy : Die letzte Person, die die Datei geändert hat.\r\nDate, LastChangedDate : Das Datum / die Zeit, zu der das Objekt zuletzt geändert wurde.\r\nRev, LastChangedRevision : Die letzte Revision, in der das Objekt geändert wurde.\r\nId : Eine komprimierte Zusammenfassung der vier genannten Schlüsselwörter."
+msgstr "svn:keywords\r\nSchlüsselwörter, die expandiert werden sollen. Gültige Schlüsselwörter sind:\r\nURL, HeadURL : Die URL für die neueste Revision des Elementes.\r\nAuthor, LastChangedBy : Die letzte Person, die die Datei geändert hat.\r\nDate, LastChangedDate : Das Datum / die Zeit, zu der das Element zuletzt geändert wurde.\r\nRev, LastChangedRevision : Die letzte Revision, in der das Element geändert wurde.\r\nId : Eine komprimierte Zusammenfassung der vier genannten Schlüsselwörter."
 
 #. Resource IDs: (576)
 msgid ""

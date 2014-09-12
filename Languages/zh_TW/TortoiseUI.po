@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-11 09:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -2739,10 +2739,6 @@ msgstr "無法比對差異, 因為檔案中的換行字元不一致."
 msgid "Casca&de"
 msgstr "顯層式顯示(&D)"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "階層式快顯功能表"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "大小寫視為不同"
@@ -4764,7 +4760,7 @@ msgstr "無法轉換 ActiveX 物件."
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
 msgstr ""
@@ -6389,6 +6385,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "郵件系統 DLL 錯誤."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr ""
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "設為預設值"
@@ -6458,8 +6458,8 @@ msgstr "將檔案標記為已消除衝突狀態\n標記為已消除"
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
-msgstr "將衝突標記為已消除.\n請注意: 這個動作不會真正解決問題, 只是當作已經處理了!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
+msgstr ""
 
 #. Resource IDs: (596)
 msgid ""
@@ -9667,8 +9667,8 @@ msgid ""
 msgstr "啟動差異檢視程式比對目前選定的檔案和先前標記為「稍後比對差異」的檔案."
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
-msgstr "啟動合併工具以處理屬性衝突"
+msgid "Starts the merge tool where you can resolve the property conflict"
+msgstr ""
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
@@ -10928,6 +10928,12 @@ msgstr "無變更的節點"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "取消勾選"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"

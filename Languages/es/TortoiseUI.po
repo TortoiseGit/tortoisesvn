@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 09:52+0000\n"
+"PO-Revision-Date: 2014-09-11 09:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -2752,10 +2752,6 @@ msgstr "No se pueden mostrar las diferencias porque los finales de línea en el 
 msgid "Casca&de"
 msgstr "Casca&da"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "Menu contextual en cascada"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "Distingue mayúsculas-minúsculas"
@@ -4777,7 +4773,7 @@ msgstr "Fallo al convertir objecto ActiveX."
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
 msgstr ""
@@ -6402,6 +6398,10 @@ msgstr "Lum"
 msgid "Mail system DLL is invalid."
 msgstr "La DLL del sistema de correo no es válida."
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr ""
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "Establecer como por defecto"
@@ -6471,7 +6471,7 @@ msgstr "Marca un archivo como resuelto en Subversion\nMarcar como resuelto"
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
+"Note: this does not resolve the conflict, only marks it as resolved!"
 msgstr ""
 
 #. Resource IDs: (596)
@@ -9680,7 +9680,7 @@ msgid ""
 msgstr "Lanza el Visor de Diferencias con el fichero seleccionado actualmente y el que estaba marcado para ver diferencias más tarde"
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
+msgid "Starts the merge tool where you can resolve the property conflict"
 msgstr ""
 
 #. Resource IDs: (65)
@@ -10941,6 +10941,12 @@ msgstr "Nodo sin cambios"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Desmarcar"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Undo"

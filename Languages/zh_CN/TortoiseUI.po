@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 14:19+0000\n"
+"PO-Revision-Date: 2014-09-11 10:05+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -2751,10 +2751,6 @@ msgstr "由于文件中采用了不同的换行方式，不能显示其差异。
 msgid "Casca&de"
 msgstr "层叠(&D)"
 
-#. Resource IDs: (65535)
-msgid "Cascaded context menu"
-msgstr "右键菜单"
-
 #. Resource IDs: (117)
 msgid "Case-sensitive"
 msgstr "区分大小写"
@@ -4776,10 +4772,10 @@ msgstr "转换 ActiveX 对象失败。"
 #. Resource IDs: (84)
 #, c-format
 msgid ""
-"Failed to copy the file '%' to '%s'.\n"
+"Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr "复制文件 '%' 至 '%s' 失败。\n\n%s"
+msgstr "复制文件 '%s' 至 '%s' 失败。\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -6401,6 +6397,10 @@ msgstr "亮度"
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
 
+#. Resource IDs: (65535)
+msgid "Main context menu"
+msgstr "主要右键菜单"
+
 #. Resource IDs: (1431)
 msgid "Make this the default"
 msgstr "设为默认值"
@@ -6470,8 +6470,8 @@ msgstr "把一个文件在 Subversion 中标记为已解决\n标记为已解决"
 #. Resource IDs: (65)
 msgid ""
 "Marks the conflict as resolved.\r\n"
-"Note: this does not resolve the conlict, only marks it as resolved!"
-msgstr "标记该冲突为已解决。\n注意：这并不能解决该冲突，只是标记它为已解决！"
+"Note: this does not resolve the conflict, only marks it as resolved!"
+msgstr "标记冲突为已解决。\n注意，这并不实际解决该冲突，只是标记它为已解决！"
 
 #. Resource IDs: (596)
 msgid ""
@@ -9679,7 +9679,7 @@ msgid ""
 msgstr "启动比较查看器,同时选定当前文件和之前选定的一个文件用来做比较."
 
 #. Resource IDs: (65)
-msgid "Starts the merged tool where you can resolve the property conflict"
+msgid "Starts the merge tool where you can resolve the property conflict"
 msgstr "启动合并工具以便您解决属性冲突"
 
 #. Resource IDs: (65)
@@ -10940,6 +10940,12 @@ msgstr "未修改的节点"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "取消选中"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are shown in the submenu, checked items on the main context "
+"menu"
+msgstr "未选中项目显示在子菜单中，选中的项目则显示在主要的右键菜单"
 
 #. Resource IDs: (156)
 msgid "Undo"
