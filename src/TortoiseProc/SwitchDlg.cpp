@@ -31,7 +31,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , m_URL(L"")
     , Revision(L"HEAD")
     , m_pLogDlg(NULL)
-    , m_bNoExternals(FALSE)
+    , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_bStickyDepth(FALSE)
     , m_bIgnoreAncestry(FALSE)
     , m_bFolder(false)
@@ -238,6 +238,10 @@ void CSwitchDlg::OnOK()
     }
 
     UpdateData(FALSE);
+
+    CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
+    regNoExt = m_bNoExternals;
+
     CResizableStandAloneDialog::OnOK();
 }
 

@@ -32,7 +32,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , Revision(L"HEAD")
     , m_strCheckoutDirectory(L"")
     , m_sCheckoutDirOrig(L"")
-    , m_bNoExternals(FALSE)
+    , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_pLogDlg(NULL)
     , m_standardCheckout(true)
     , m_bIndependentWCs(FALSE)
@@ -435,8 +435,12 @@ void CCheckoutDlg::OnOK()
     // store state info & close dialog
 
     UpdateData(FALSE);
-    CRegString lastCheckoutPath = CRegString(L"Software\\TortoiseSVN\\History\\lastCheckoutPath");
+    CRegString lastCheckoutPath(L"Software\\TortoiseSVN\\History\\lastCheckoutPath");
     lastCheckoutPath = m_strCheckoutDirectory.Left(m_strCheckoutDirectory.ReverseFind('\\'));
+
+    CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
+    regNoExt = m_bNoExternals;
+
     CResizableStandAloneDialog::OnOK();
 }
 

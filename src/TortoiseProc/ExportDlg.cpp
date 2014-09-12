@@ -32,7 +32,7 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
     , Revision(L"HEAD")
     , m_strExportDirectory(L"")
     , m_sExportDirOrig(L"")
-    , m_bNoExternals(FALSE)
+    , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_bNoKeywords(FALSE)
     , m_pLogDlg(NULL)
     , m_blockPathAdjustments(FALSE)
@@ -296,6 +296,10 @@ void CExportDlg::OnOK()
     }
 
     UpdateData(FALSE);
+
+    CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
+    regNoExt = m_bNoExternals;
+
     CResizableStandAloneDialog::OnOK();
 }
 

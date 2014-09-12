@@ -28,7 +28,7 @@ IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CUpdateDlg::IDD, pParent)
     , Revision(L"HEAD")
-    , m_bNoExternals(FALSE)
+    , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_bStickyDepth(TRUE)
     , m_pLogDlg(NULL)
     , m_depth(svn_depth_unknown)
@@ -157,6 +157,9 @@ void CUpdateDlg::OnOK()
     }
 
     UpdateData(FALSE);
+
+    CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
+    regNoExt = m_bNoExternals;
 
     CStandAloneDialog::OnOK();
 }
