@@ -71,6 +71,8 @@ BOOL CEditPropTSVNSizes::OnInitDialog()
 
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
+        if (it->second.isinherited)
+            continue;
         if (it->first.compare(PROJECTPROPNAME_LOGMINSIZE) == 0)
         {
             m_LogMinSize = atoi(it->second.value.c_str());

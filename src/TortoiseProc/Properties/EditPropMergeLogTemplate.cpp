@@ -68,6 +68,8 @@ BOOL CEditPropMergeLogTemplate::OnInitDialog()
 
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
+        if (it->second.isinherited)
+            continue;
         if (it->first.compare(PROJECTPROPNAME_MERGELOGTEMPLATETITLE) == 0)
         {
             CString sTitle = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();

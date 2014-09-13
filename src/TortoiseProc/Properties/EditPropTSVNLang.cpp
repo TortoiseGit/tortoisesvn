@@ -73,6 +73,8 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     DWORD projLang = 0;
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
+        if (it->second.isinherited)
+            continue;
         if (it->first.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0)
         {
             m_bKeepEnglish = it->second.value.empty();
