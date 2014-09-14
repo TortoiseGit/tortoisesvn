@@ -542,7 +542,7 @@ namespace
             , change ( (unsigned char) iter->GetRawChange() )
             , textModifies ( (unsigned char) iter->GetTextModifies() )
             , propsModifies ( (unsigned char) iter->GetPropsModifies() )
-            , copyFromPath(NO_INDEX)
+            , copyFromPath( (index_t) NO_INDEX)
             , copyFromRevision(0)
         {
             if (iter->HasFromPath())
