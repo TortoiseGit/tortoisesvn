@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-09 08:40+0000\n"
+"PO-Revision-Date: 2014-09-13 22:07+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -553,7 +553,7 @@ msgstr "システムからの出力とキーボード入力は、このように
 
 #. (para)
 msgid "Important notes are marked with an icon."
-msgstr "重要な注釈はこのアイコンでマークをつけました。"
+msgstr "重要な注釈はアイコンで印をつけています。"
 
 #. (para)
 msgid "Tips that make your life easier."
@@ -3300,7 +3300,7 @@ msgid ""
 " the folder will find it anyway. Committing a folder does "
 "<emphasis>not</emphasis> mean that every file gets marked as changed; It "
 "just makes your life easier by doing more work for you."
-msgstr "ファイルをコミットする際、コミットダイアログは選択したファイルのみ表示します。フォルダーをコミットする際には、コミットダイアログはファイルを自動で選択します。作成した新しいファイルを忘れていた場合でも、フォルダーをコミットすればそのファイルを探します。フォルダーをコミットするというのは、全てのファイルを変更したとマークつけるという意味では<emphasis>ありません</emphasis>。単に楽ができるということです。"
+msgstr "ファイルをコミットする際、コミットダイアログは選択したファイルのみ表示します。フォルダーをコミットする際には、コミットダイアログはファイルを自動で選択します。作成した新しいファイルを忘れていた場合でも、フォルダーをコミットすればそのファイルを探します。フォルダーをコミットするというのは、全てのファイルが変更されたとみなすという意味では<emphasis>ありません</emphasis>。単に楽ができるということです。"
 
 #. (title)
 msgid "Many unversioned files in the commit dialog"
@@ -3472,7 +3472,7 @@ msgid ""
 "changes</guimenuitem></menuchoice> which will change the right view to only "
 "include the changes you've marked before and undo the changes you have not "
 "marked."
-msgstr "TortoiseMergeを利用してファイルを編集する場合、変更点を今までのように編集する方法のほか、含めたい変更をすべてマークする方法があります。変更されたブロック上で<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>この変更をマーク</guimenuitem></menuchoice>を実行して変更を含めます。最後に<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>マークした変更のみを残す</guimenuitem></menuchoice>を実行すると、マークした変更のみを含め、マークされていない変更を破棄するように右ビューを更新します。"
+msgstr "TortoiseMergeを使用してファイルを編集する場合、変更点を今までのように編集する方法のほか、含めたい変更をすべてマークする方法があります。変更されたブロック上で<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>この変更をマーク</guimenuitem></menuchoice>を実行して変更を含めます。最後に<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>マークした変更のみを残す</guimenuitem></menuchoice>を実行すると、マークした変更のみを含め、マークされていない変更を破棄するように右ビューを更新します。"
 
 #. (para)
 msgid ""
@@ -3926,7 +3926,7 @@ msgid ""
 "This is your file as it existed in your working copy before you updated your"
 " working copy - that is, without conflict markers. This file has your latest"
 " changes in it and nothing else."
-msgstr "作業コピーを更新する前に、作業コピーに存在していた（競合マーカーがついていない）ファイルです。このファイルには最新の変更のみが含まれています。"
+msgstr "作業コピーを更新する前に、作業コピーに存在していた（競合の印がついていない）ファイルです。このファイルには最新の変更のみが含まれています。"
 
 #. (term)
 msgid "filename.ext.rOLDREV"
@@ -3973,7 +3973,7 @@ msgid ""
 " don't have to worry about the conflict markers. If you do use a text editor"
 " then you should search for lines starting with the string "
 "<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>競合の編集</guimenuitem></menuchoice> で外部マージツールや競合エディターを起動するか、テキストエディターを使用して手作業で競合を解決するかしてください。コードがどうあるべきか決定し、必要な変更をしてから保存してください。 TortoiseMerge やその他の有名なマージツールを使用した方が、３画面表示でこれらのファイルを確認でき、競合マーカーを気にする必要がないため、より簡単でしょう。テキストエディターを使用する場合は、 <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal> という文字列で始まる行を検索してください。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>競合の編集</guimenuitem></menuchoice> で外部マージツールや競合エディターを起動するか、テキストエディターを使用して手作業で競合を解決するかしてください。コードがどうあるべきか決定し、必要な変更をしてから保存してください。TortoiseMergeやその他の有名なマージツールを使用した方が、３画面表示でこれらのファイルを確認でき、競合マーカーを気にする必要がないため、より簡単でしょう。テキストエディターを使用する場合は、 <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal> という文字列で始まる行を検索してください。"
 
 #. (para)
 msgid ""
@@ -3984,7 +3984,7 @@ msgid ""
 "<filename>filename.ext.mine</filename> and "
 "<filename>filename.ext.r*</filename> files, to allow you to commit your "
 "changes."
-msgstr "その後、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>競合の解決</guimenuitem></menuchoice> コマンドを実行し、リポジトリに変更をコミットしてください。なお、競合の解決コマンドは、実際に競合を解決する訳ではありません。変更をコミットできるよう、<filename>filename.ext.mine</filename> や <filename>filename.ext.r*</filename> ファイルを削除するだけです。"
+msgstr "その後、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>競合の解決</guimenuitem></menuchoice>コマンドを実行し、リポジトリに変更をコミットしてください。なお、競合の解決コマンドは、実際に競合を解決する訳ではありません。変更をコミットできるように<filename>filename.ext.mine</filename>や<filename>filename.ext.r*</filename>ファイルを削除するだけです。"
 
 #. (para)
 msgid ""
@@ -3994,7 +3994,7 @@ msgid ""
 " you want to discard your changes and keep the repository version, just use "
 "the Revert command. If you want to keep your version and overwrite the "
 "repository version, use the Resolved command, then commit your version."
-msgstr "バイナリファイルが競合した場合、 Subversion はそのファイルをマージしようとしません。ローカルファイルには変更が加えられず（自分が変更したままで）、 <filename>filename.ext.r*</filename> ファイルを作られます。自分の変更を取り消し、リポジトリのバージョンにしたい場合は、「変更の取り消し」コマンドを使ってください。リポジトリのバージョンを自分の変更したファイルで置き換えるのなら、「競合の解決」コマンドを実行してからコミットしてください。"
+msgstr "バイナリファイルが競合した場合、 Subversion はそのファイルをマージしようとしません。ローカルファイルには変更が加えられず（自分が変更したままで）、<filename>filename.ext.r*</filename>ファイルを作られます。自分の変更を取り消し、リポジトリのバージョンにしたい場合は、「変更の取り消し」コマンドを使ってください。リポジトリのバージョンを自分の変更したファイルで置き換えるのなら、「競合の解決」コマンドを実行してからコミットしてください。"
 
 #. (para)
 msgid ""
@@ -4003,7 +4003,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice>"
 " This will bring up a dialog listing all conflicted files in that folder, "
 "and you can select which ones to mark as resolved."
-msgstr "親フォルダーを右クリックし、　<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>競合の解決...</guimenuitem></menuchoice> を実行すると、「競合の解決」コマンドを複数のファイルに実行できます。指定したフォルダーにある競合したファイルがすべてダイアログに表示されます。解決するものを選択してください。"
+msgstr "親フォルダーを右クリックし、<menuchoice<guimenu>TortoiseSVN</guimenu><guimenuitem>競合の解決...</guimenuitem></menuchoice>を実行すると、「競合の解決」コマンドを複数のファイルに実行できます。指定したフォルダーにある競合したファイルがすべてダイアログに表示されます。解決したとみなすものを選択してください。"
 
 #. (title)
 msgid "Property Conflicts"
@@ -4023,7 +4023,7 @@ msgid ""
 " remote property</guilabel>. If the changes must be merged then select "
 "<guilabel>Manually edit property</guilabel>, sort out what the property "
 "value should be and mark as resolved."
-msgstr "一方の変更を取り消してもう一方で上書きする場合は、 <guilabel>ローカルのプロパティを用いて解決する</guilabel> か <guilabel>リモートのプロパティを用いて解決する</guilabel> を選択してください。変更をマージする必要がある場合は、 <guilabel>手作業でプロパティを編集</guilabel> を選択し、どのプロパティをどうするかをマークして解決してください。"
+msgstr "一方の変更を取り消してもう一方で上書きする場合は、<guilabel>ローカルのプロパティを用いて解決する</guilabel>か<guilabel>リモートのプロパティを用いて解決する</guilabel>を選択してください。変更をマージする必要がある場合は、<guilabel>手作業でプロパティを編集</guilabel>を選択し、どのプロパティをどうするか決めてから、解決してください。"
 
 #. (title)
 msgid "Tree Conflicts"
@@ -4084,7 +4084,7 @@ msgid ""
 "If the conflict results from a rename rather than a delete then "
 "<filename>Bar.c</filename> is marked as added, but does not contain "
 "developer A's modifications."
-msgstr "削除ではなく名前変更の結果が競合した場合、 <filename>Bar.c</filename> は追加としてマークされますが、開発者Ａの変更点は含まれていません。"
+msgstr "削除ではなく名前変更の結果が競合した場合、<filename>Bar.c</filename>は追加としてマークされますが、開発者Ａの変更点は含まれていません。"
 
 #. (para)
 #. (para)
@@ -4102,7 +4102,7 @@ msgid ""
 "Developer A's changes and discard the deletion. Or, by marking the conflict "
 "as resolved without doing anything he effectively discards Developer A's "
 "changes."
-msgstr "開発者Ｂは、現在、開発者Ａの変更を保持するかどうかを選ばなければなりません。ファイルの名前変更の場合では、名前変更されたファイル <filename>Bar.c</filename> に対して、 <filename>Foo.c</filename> に行った変更をマージできます。単なるファイルやディレクトリの削除の場合には、開発者Ａの変更を保持し、削除を取り消すという選択もできます。もしくは、何もせずに競合を解決状態にし、事実上開発者Ａの変更を破棄することもできます。"
+msgstr "開発者Ｂは、現在、開発者Ａの変更を保持するかどうかを選ばなければなりません。ファイルの名前変更の場合では、名前変更されたファイル <filename>Bar.c</filename> に対して、 <filename>Foo.c</filename> に行った変更をマージできます。単なるファイルやディレクトリの削除の場合には、開発者Ａの変更を保持し、削除を取り消すという選択もできます。もしくは、何もせずに競合を解決したとみなし、事実上開発者Ａの変更を破棄することもできます。"
 
 #. (para)
 msgid ""

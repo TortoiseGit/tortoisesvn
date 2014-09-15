@@ -11,12 +11,15 @@
 # Authors:
 # Translators:
 # Crhistian <crhistian.ti@gmail.com>, 2012
+# Crhistian <crhistian.ti@gmail.com>, 2012
 # Edson Chen <edson.chen@gmail.com>, 2011
 # Eduardo Marques <ebmarques@gmail.com>, 2011
+# FelipeL <felipe.idj@hotmail.com>, 2014
 # FelipeL <felipe.idj@hotmail.com>, 2014
 # igorruckert <igorruckert@yahoo.com.br>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Matheus Macabu <mkbu95@gmail.com>, 2013
 # Rafael Heise <rmheise@gmail.com>, 2011-2014
 # Ricardo Souza <srrcdmk@gmail.com>, 2012
@@ -26,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-09-13 02:00+0000\n"
+"Last-Translator: FelipeL <felipe.idj@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -689,7 +692,7 @@ msgstr "E&xcluir..."
 msgid ""
 "&Delete\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Excluir\nO projeto foi removido. Se ele tinha sub-projetos, eles também foram removidos."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -1719,7 +1722,7 @@ msgstr "<nova lista de alterações>"
 
 #. Resource IDs: (64)
 msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr ""
+msgstr "=&Verificar Agora=&Adicionar projeto=E&dit=&Remover=&Marcar tudas como lido=&Opções=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3218,7 +3221,7 @@ msgstr "Submetendo para o marcador"
 
 #. Resource IDs: (266)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "Comitando transação..."
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3364,7 +3367,7 @@ msgstr "Menus de Contexto:"
 
 #. Resource IDs: (65535)
 msgid "Context lines for patches"
-msgstr ""
+msgstr "Linhas de contexto para correções"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
@@ -4324,7 +4327,7 @@ msgstr "Editar Externo"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "Editar Projeto para monitor"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -4765,7 +4768,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Falha ao copiar os arquivos '%s' to '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -5691,7 +5694,7 @@ msgstr "Se ativo, arquivos pertencentes a pastas que não estão sob controle de
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr ""
+msgstr "Se definido, arquivos modificados depois que estão na lista de alterações \"ignore-on-commit \" não marcadam as pastas pai como modificadas\r\nou seja, eles recebem o ícone normal, a menos que outro arquivo ou pasta seja modificado."
 
 #. Resource IDs: (196)
 msgid ""
@@ -6389,7 +6392,7 @@ msgstr "DLL do sistema de correio inválida."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Menu de contexto principal"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6461,7 +6464,7 @@ msgstr "Marca um arquivo como resolvido no Subversion\nMarcar como resolvido"
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr ""
+msgstr "Marca o conflito como resolvido. \r\nNota: isso não resolve o conflito, só marca como resolvido!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6581,7 +6584,7 @@ msgstr "Combinar revisões {revrange} de {mergeurl}:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Mescla todas as revisões que faltam do tronco em uma cópia de trabalho de um ramo de funcionalidade, usando as informações de rastreamento de fusão"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -8005,7 +8008,7 @@ msgstr "Expressões Regulares do Filtro"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
-msgstr ""
+msgstr "Mensagem Regex correspondente:"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
@@ -9670,11 +9673,11 @@ msgstr "Iniciar o visualizar de diferenças com o arquivo atualmente selecionado
 
 #. Resource IDs: (65)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Inicia a ferramenta de mesclagem onde você pode resolver o conflito de propriedade"
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Inicia o diálogo de propriedades onde você pode editar a propriedade manualmente."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10099,7 +10102,7 @@ msgstr "O provedor de rastreamento de ocorrências não pode validar a frase pas
 msgid ""
 "The item '%s' has property conflicts:\r\n"
 "%s"
-msgstr ""
+msgstr "O item '%s' tem conflitos de propriedade:\r\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10739,18 +10742,18 @@ msgstr "Opções do Monitor de Commit do TortoiseSVN"
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "Monitor de Commit TortoiseSVN\r\n%d novo commit no projeto %d"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "Monitor de Commit TortoiseSVN\r\n%d novos commits no projeto %d"
 
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "Monitor de Projeto TortoiseSVN"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10935,7 +10938,7 @@ msgstr "Desmarcar"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Itens não marcados são mostrados no submenu, itens marcados, no menu de contexto principal"
 
 #. Resource IDs: (156)
 msgid "Undo"
