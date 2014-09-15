@@ -49,6 +49,7 @@
 #define PROJECTPROPNAME_MERGELOGTEMPLATETITLE "tsvn:mergelogtemplatetitle"
 #define PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE "tsvn:mergelogtemplatereversetitle"
 #define PROJECTPROPNAME_MERGELOGTEMPLATEMSG "tsvn:mergelogtemplatemsg"
+#define PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM "tsvn:mergelogtemplatemsgtitlebottom"
 
 #define PROJECTPROPNAME_LOGWIDTHLINE      "tsvn:logwidthmarker"
 #define PROJECTPROPNAME_LOGMINSIZE        "tsvn:logminsize"
@@ -292,6 +293,8 @@ public:
     CString     sMergeLogTemplateReverseTitle;
     /// template for the messge lines of the generated log message of a merge
     CString     sMergeLogTemplateMsg;
+    /// true if the merge log message title should be inserted after the log message
+    BOOL        bMergeLogTemplateMsgTitleBottom;;
 
 private:
 

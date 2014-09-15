@@ -53,6 +53,7 @@ ProjectProperties::ProjectProperties(void)
     , nBugIdPos(-1)
     , m_bFound(false)
     , m_bPropsRead(false)
+    , bMergeLogTemplateMsgTitleBottom(FALSE)
 {
 }
 
@@ -214,6 +215,16 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         CheckStringProp(sMergeLogTemplateTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATETITLE);
         CheckStringProp(sMergeLogTemplateReverseTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE);
         CheckStringProp(sMergeLogTemplateMsg, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEMSG);
+        if (sPropName.compare(PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM) == 0)
+        {
+            CString val;
+            val = sPropVal;
+            val = val.Trim(L" \n\r\t");
+            if ((val.CompareNoCase(L"true") == 0) || (val.CompareNoCase(L"yes") == 0))
+                bFileListInEnglish = TRUE;
+            else
+                bFileListInEnglish = FALSE;
+        }
     }
 
     propsPath = path;

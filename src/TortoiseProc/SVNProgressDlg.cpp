@@ -4160,7 +4160,10 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
     sSuggestedMessage.Replace(L"{revisionsr}", sRevListR);
     sSuggestedMessage.Replace(L"{revrange}", sRevListRange);
     sSuggestedMessage.Replace(L"{mergeurl}", relUrl);
-    sSuggestedMessage += sLogMessages;
+    if (m_ProjectProperties.bMergeLogTemplateMsgTitleBottom)
+        sSuggestedMessage = sLogMessages + sSuggestedMessage;
+    else
+        sSuggestedMessage += sLogMessages;
 
     CRegHistory history;
     history.SetMaxHistoryItems((LONG)CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25));
