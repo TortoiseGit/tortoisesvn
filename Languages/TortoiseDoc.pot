@@ -5456,6 +5456,10 @@ msgid "This property specifies how the text for each merged revision should look
 msgstr ""
 
 #. (para)
+msgid "This property specifies the position of the title string specified with the <literal>tsvn:mergelogtemplatetitle</literal> or <literal>tsvn:mergelogtemplatereversetitle</literal>. If the property is set to <literal>yes</literal> or <literal>true</literal>, then the title string is appended at the bottom instead of the top."
+msgstr ""
+
+#. (para)
 msgid "This only works if the merged revisions are already in the log cache. If you have disabled the log cache or not shown the log first before the merge, the generated message won't contain any information about the merged revisions."
 msgstr ""
 

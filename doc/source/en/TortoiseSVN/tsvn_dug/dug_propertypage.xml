@@ -1064,21 +1064,34 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
                   </varlistentry>
                 </variablelist>
               </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term condition="pot">tsvn:mergelogtemplatemsgtitlebottom</term>
+            <listitem>
               <para>
-                <important>
-                  <para>
-                    This only works if the merged revisions
-                    are already in the log cache. If you have disabled
-                    the log cache or not shown the log first
-                    before the merge, the generated message
-                    won't contain any information about the merged
-                    revisions.
-                  </para>
-                </important>
+                This property specifies the position of the title string specified
+                with the <literal>tsvn:mergelogtemplatetitle</literal> or
+                <literal>tsvn:mergelogtemplatereversetitle</literal>. If the
+                property is set to <literal>yes</literal> or <literal>true</literal>,
+                then the title string is appended at the bottom instead of
+                the top.
               </para>
             </listitem>
           </varlistentry>
         </variablelist>
+      </para>
+      <para>
+        <important>
+          <para>
+            This only works if the merged revisions
+            are already in the log cache. If you have disabled
+            the log cache or not shown the log first
+            before the merge, the generated message
+            won't contain any information about the merged
+            revisions.
+          </para>
+        </important>
       </para>
     </sect3>
   </sect2>
