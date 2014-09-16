@@ -158,6 +158,9 @@ bool CommitCommand::Execute()
                     // not what we want!
                     updateProgDlg.SetDepth(svn_depth_unknown);
                     updateProgDlg.SetProjectProperties(props);
+                    CRegDWORD updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
+                    int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
+                    updateProgDlg.SetOptions(options);
                     updateProgDlg.DoModal();
 
                     // re-open commit dialog only if update *SUCCEEDED*
