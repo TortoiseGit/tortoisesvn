@@ -1213,11 +1213,13 @@ void CRevisionGraphWnd::DoMergeTo()
 
 void CRevisionGraphWnd::DoUpdate()
 {
+    CRegDWORD updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
+    int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
     CSVNProgressDlg progDlg;
-    progDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
-    progDlg.SetOptions (0); // don't ignore externals
-    progDlg.SetPathList (CTSVNPathList (CTSVNPath (m_sPath)));
-    progDlg.SetRevision (m_SelectedEntry1->GetRevision());
+    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+    progDlg.SetOptions(options);
+    progDlg.SetPathList(CTSVNPathList(CTSVNPath(m_sPath)));
+    progDlg.SetRevision(m_SelectedEntry1->GetRevision());
     progDlg.SetDepth();
     progDlg.DoModal();
 

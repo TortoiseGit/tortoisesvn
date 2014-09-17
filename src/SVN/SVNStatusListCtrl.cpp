@@ -3950,8 +3950,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         }
                         if (bAllExist && (cmd == IDSVNLC_UPDATE))
                         {
+                            CRegDWORD updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
+                            int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
                             CSVNProgressDlg dlg;
                             dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+                            dlg.SetOptions(options);
                             dlg.SetPathList(targetList);
                             dlg.SetRevision(SVNRev::REV_HEAD);
                             dlg.DoModal();
