@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-09-15 12:10+0000\n"
+"Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1715,7 +1715,7 @@ msgstr "<ny endringsliste>"
 
 #. Resource IDs: (64)
 msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr ""
+msgstr "=&Sjekk Nå=&Legg til Prosjekt=&Rediger=&Fjern=&Marker alle som lest=&Alternativer=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -3214,7 +3214,7 @@ msgstr "Sender inn til et merke"
 
 #. Resource IDs: (266)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "Sender inn transaksjon..."
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3393,7 +3393,7 @@ msgstr "Kopiert fra: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (18)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Kopierer URL for alle markerte elementer til utklippstavlen"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3420,7 +3420,7 @@ msgstr "Kopiér %1!s!\r\ntil %2!s!"
 
 #. Resource IDs: (32797)
 msgid "Copy &revision number to clipboard"
-msgstr ""
+msgstr "Kopiér &revisjonsnummer til utklippstavlen"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -4761,7 +4761,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Kunne ikke kopiere filen '%s' til '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -6385,7 +6385,7 @@ msgstr "Dynamisk bibliotek for e-postsystemet er ugyldig."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Hoved-sammenhengsmeny"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6409,7 +6409,7 @@ msgstr "Merk som &løst (flyttingen blir en kopiering)"
 
 #. Resource IDs: (1400)
 msgid "Mark as Resolved"
-msgstr ""
+msgstr "Merk som Løst"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6457,7 +6457,7 @@ msgstr "Merker en fil som løst i Subversion\nMerk som løst"
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr ""
+msgstr "Markerer konflikten som løst.↩\nMerk: dette løser ikke konflikgten, bare markerer den som løst!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6531,7 +6531,7 @@ msgstr "Flett alt"
 
 #. Resource IDs: (14)
 msgid "Merge all..."
-msgstr ""
+msgstr "Flett alle..."
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
@@ -6577,7 +6577,7 @@ msgstr "Flettet revisjon(er) {revrange} fra {mergeurl}:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Fletter alle manglende revisjoner fra stammen inn i arbeidskopien til en utviklingsgren ved å bruke flettesporingsinformasjon"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -8001,7 +8001,7 @@ msgstr "Regulært Uttrykk-filtre"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
-msgstr ""
+msgstr "Melding for treff på regulært uttrykk:"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
@@ -9666,11 +9666,11 @@ msgstr "Starter sammenligning mellom den valgte filen og den som ble markert for
 
 #. Resource IDs: (65)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Starter flettingsverktøyet, der du kan løse egenskapskonflikten"
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Starter egenskapsdialogen, der du kan redigere egenskapen manuelt."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10095,7 +10095,7 @@ msgstr "Leverandøren av saksporing kunne ikke validere parameterstrengen"
 msgid ""
 "The item '%s' has property conflicts:\r\n"
 "%s"
-msgstr ""
+msgstr "Elementet '%s' har egenskapskonflikter:↩\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10931,7 +10931,7 @@ msgstr "Fjern avhuking"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Elementer som ikke er huket av, vises i undermenyen, de som er huket av, vises i hoved-sammenhengsmenyen"
 
 #. Resource IDs: (156)
 msgid "Undo"
@@ -11360,7 +11360,7 @@ msgstr "Brukernavn:"
 
 #. Resource IDs: (65535)
 msgid "Users to ignore:"
-msgstr ""
+msgstr "Brukere å ignorere:"
 
 #. Resource IDs: (313)
 msgid ""

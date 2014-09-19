@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-08 08:15+0000\n"
+"PO-Revision-Date: 2014-09-17 10:03+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -8638,6 +8638,15 @@ msgstr "Tämä ominaisuus määrittää, miltä kunkin yhdistetyn version teksti
 
 #. (para)
 msgid ""
+"This property specifies the position of the title string specified with the "
+"<literal>tsvn:mergelogtemplatetitle</literal> or "
+"<literal>tsvn:mergelogtemplatereversetitle</literal>. If the property is set"
+" to <literal>yes</literal> or <literal>true</literal>, then the title string"
+" is appended at the bottom instead of the top."
+msgstr ""
+
+#. (para)
+msgid ""
 "This only works if the merged revisions are already in the log cache. If you"
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
@@ -13234,7 +13243,7 @@ msgid ""
 " can chose to make those files not propagate their status to the parent "
 "folder. That way if only files in that changelist are modified, the parent "
 "folder still shows the unmodified overlay icon."
-msgstr ""
+msgstr "Jos muutoslistassa <literal>ohita toimitettaessa</literal> on tiedostoja, voit määrittää, että näihin tiedostoihin tehtävät muutokset eivät leviä yläkansioon. Tämän ansiosta yläkansio näyttää yhä \"ei muutettu\" -kuvakepäällystä, mikäli pelkästään muutoslistan tiedostot ovat muuttuneet."
 
 #. (para)
 msgid ""
@@ -15174,17 +15183,17 @@ msgid ""
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr ""
+msgstr "SubWCRev kykenee ohittamaan halutut tiedostot tai polut.  Ohituslausekkeet luetaan tiedostosta, jonka nimi on <filename>.subwcrevignore</filename>.  Tiedosto voidaan lukea annetusta polusta tai työkopion juuresta. Mikäli tiedostoa ei löydy, mitään tiedostoja tai polkuja ei ohiteta. Tiedosto <filename>.subwcrevignore</filename> voi sisältää useita rivinvaihdolla eroteltuja ohituslausekkeita. Lausekkeet täsmätään arkiston juuren kanssa suhteellisten polkujen kanssa. Esimerkki: Ohittaaksesi kaikki tiedostot TortoiseSVN-projektin <filename>doc</filename> -kansiosta aseta ohituslausekkeet seuraavasti:\n <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Ohittaaksesi kaikki kuvatiedostot aseta ohituslausekkeet seuraavasti: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
-msgstr ""
+msgstr "Samoin kuin Subversionissa yleensä, ohituslausekkeissa isot ja pienet kirjaimet tarkoittavat eri asioita."
 
 #. (para)
 msgid ""
 "To create a file with a starting dot in the Windows explorer, enter "
 "<filename>.subwcrevignore.</filename>. Note the trailing dot."
-msgstr ""
+msgstr "Luodaksesi pisteellä alkavan tiedostonimen Windows-resurssienhallinnassa, anna nimeksi <filename>.subwcrevignore.</filename>. Huomaa piste lopussa."
 
 #. (title)
 msgid "List of available command line switches"
@@ -15293,13 +15302,13 @@ msgstr "Jos tämä valitsin on annettu, SubWCRev näyttää versionumeron heksad
 
 #. (filename)
 msgid ".subwcrevignore"
-msgstr ""
+msgstr ".subwcrevignore"
 
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will ignore any <placeholder-1/> files and"
 " include all files."
-msgstr ""
+msgstr "Kun tämä valitsin on annettu, SubWCRev ohittaa kaikki <placeholder-1/>-tiedostot ja sisällyttää kaikki muut tiedostot."
 
 #. (entry)
 msgid ""
