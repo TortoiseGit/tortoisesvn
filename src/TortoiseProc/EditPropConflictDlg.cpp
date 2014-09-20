@@ -98,7 +98,7 @@ BOOL CEditPropConflictDlg::OnInitDialog()
     m_tooltips.AddTool(IDC_STARTMERGEEDITOR, IDS_EDITPROPCONFLICT_TT_STARTEDITOR);
     m_tooltips.AddTool(IDC_RESOLVED, IDS_EDITPROPCONFLICT_TT_RESOLVED);
     m_tooltips.AddTool(IDC_EDITPROPS, IDS_EDITPROPCONFLICT_TT_MANUAL);
-    
+
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);

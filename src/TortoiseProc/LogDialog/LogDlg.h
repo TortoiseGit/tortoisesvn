@@ -74,7 +74,7 @@ enum RefreshEnum
 class MonitorItem
 {
 public:
-    MonitorItem(const CString& name, const CString& path = CString()) 
+    MonitorItem(const CString& name, const CString& path = CString())
         : Name(name)
         , WCPathOrUrl(path)
         , interval(5)

@@ -8820,7 +8820,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         // to avoid the log cache from being accessed from two threads
         // at the same time and waiting for the lock to get released,
         // force the monitoring thread to end now and then show the log
-        // 
+        //
         // it's much faster to end the monitoring thread and wait a few milliseconds
         // than to start the log thread and have that thread wait until
         // the monitoring thread releases the lock for the cache - that might
