@@ -944,6 +944,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
     pMsgView->SetWindowText(L" ");
     // empty the changed files list
     m_ChangedFileListCtrl.SetRedraw(FALSE);
+    OnOutOfScope(m_ChangedFileListCtrl.SetRedraw(TRUE));
+
     m_currentChangedArray.RemoveAll();
     m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
     m_ChangedFileListCtrl.SetItemCountEx(0);
@@ -955,7 +957,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
     {
         // force a redraw
         m_ChangedFileListCtrl.Invalidate();
-        m_ChangedFileListCtrl.SetRedraw(TRUE);
         return;
     }
 
@@ -965,7 +966,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
     if (selCount == 0)
     {
         // if nothing is selected, we have nothing more to do
-        m_ChangedFileListCtrl.SetRedraw(TRUE);
         return;
     }
     else
@@ -980,7 +980,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         size_t selIndex = m_LogList.GetNextSelectedItem(pos);
         if (selIndex >= m_logEntries.GetVisibleCount())
         {
-            m_ChangedFileListCtrl.SetRedraw(TRUE);
             return;
         }
         m_nSearchIndex = (int)selIndex;
@@ -991,6 +990,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         pLogEntry->SetUnread(false);
 
         pMsgView->SetRedraw(FALSE);
+        OnOutOfScope(pMsgView->SetRedraw(TRUE); pMsgView->Invalidate());
 
         // the rich edit control doesn't count the CR char!
         // to be exact: CRLF is treated as one char.
@@ -1062,9 +1062,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         range.cpMin = 0;
         range.cpMax = 0;
         pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-
-        pMsgView->SetRedraw(TRUE);
-        pMsgView->Invalidate();
     }
 
     // sort according to the settings
@@ -1094,7 +1091,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
     }
 
     CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
-    m_ChangedFileListCtrl.SetRedraw(TRUE);
 }
 
 void CLogDlg::OnBnClickedGetall()
@@ -1525,14 +1521,12 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
 void CLogDlg::LogThread()
 {
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
+    OnOutOfScope(InterlockedExchange(&m_bLogThreadRunning, FALSE));
 
     {
         CAutoReadLock pathlock(m_monitorpathguard);
         if (m_path.IsEmpty() && m_path.IsEquivalentToWithoutCase(CTSVNPath(m_pathCurrentlyChecked)))
-        {
-            InterlockedExchange(&m_bLogThreadRunning, FALSE);
             return;
-        }
     }
 
     new async::CAsyncCall(this, &CLogDlg::StatusThread, &diskScheduler);
@@ -2507,6 +2501,7 @@ void CLogDlg::DiffSelectedFile( bool ignoreprops )
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
             DoDiffFromLog(selIndex, rev1, rev2, false, false, ignoreprops);
             this->EnableWindow(TRUE);
@@ -2546,6 +2541,7 @@ void CLogDlg::DiffSelectedFile( bool ignoreprops )
             auto f = [=]()
             {
                 CoInitialize(NULL);
+                OnOutOfScope(CoUninitialize());
                 this->EnableWindow(FALSE);
                 DoDiffFromLog(selIndex, rev1, rev2, false, false, ignoreprops);
                 this->EnableWindow(TRUE);
@@ -5445,14 +5441,13 @@ void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), options, false, false, false);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5484,14 +5479,13 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options, false, false, false);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5634,7 +5628,9 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]() mutable
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             // should we show a progress dialog here? Copies are done really fast
             // and without much network traffic.
@@ -5650,9 +5646,6 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
                 else
                     TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_LOG_COPY_SUCCESS), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
             }
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5666,22 +5659,23 @@ void CLogDlg::ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevis
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, pCmi->RevSelected, SVNRev(), false, L"");
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
+    {
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path,
-        pCmi->RevSelected, SVNRev(), m_LogRevision,
-        false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                                    pCmi->RevSelected, SVNRev(), m_LogRevision,
+                                    false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+    }
 }
 
 void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5704,16 +5698,15 @@ void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCm
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL),
-                r1, SVNRev(), false, L"", false, false, nodekind);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
+                             r1, SVNRev(), false, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5735,25 +5728,26 @@ void CLogDlg::ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevision
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevPrevious,
-                CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
-                false, L"", false, false, nodekind);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
+                             CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
+                             false, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
+    {
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-        pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
-        SVNRev(), m_LogRevision, false, L"",
-        !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
+                                    pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+                                    SVNRev(), m_LogRevision, false, L"",
+                                    !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
+    }
 }
 
 void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5765,20 +5759,21 @@ void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& p
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, pCmi->RevSelected, SVNRev(), false, L"", false, true);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
+    {
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_BASE, m_path,
-        pCmi->RevSelected, SVNRev(), m_LogRevision, false, L"", false, false, true);
+                                    pCmi->RevSelected, SVNRev(), m_LogRevision, false, L"", false, false, true);
+    }
 }
 
 void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5794,23 +5789,24 @@ void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevSelected2,
                 CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
                 false, L"", false, true, nodekind);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
+    {
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-        pCmi->RevSelected, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
-        SVNRev(), m_LogRevision, false, L"", false, false, true, nodekind);
+                                    pCmi->RevSelected, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+                                    SVNRev(), m_LogRevision, false, L"", false, false, true, nodekind);
+    }
 }
 
 
@@ -5827,20 +5823,23 @@ void CLogDlg::ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& p
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevPrevious,
-                CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
-                false, L"", false, true, nodekind);
+                             CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
+                             false, L"", false, true, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
         netScheduler.WaitForEmptyQueue();
     }
     else
+    {
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-        pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
-        SVNRev(), m_LogRevision, false, L"", false, false, true, nodekind);
+                                    pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+                                    SVNRev(), m_LogRevision, false, L"", false, false, true, nodekind);
+    }
 }
 
 void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5862,7 +5861,9 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             CTSVNPath tempfile;
             tempfile.SetFromWin(revFilename);
@@ -5887,9 +5888,6 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
             }
             progDlg.Stop();
             SetAndClearProgressInfo((HWND)NULL);
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5900,7 +5898,9 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
     auto f = [=]()
     {
         CoInitialize(NULL);
+        OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
+        OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
         CProgressDlg progDlg;
         progDlg.SetTitle(IDS_APPNAME);
@@ -5932,9 +5932,6 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
             SetAndClearProgressInfo((HWND)NULL);
             DoOpenFileWith(true, bOpenWith, tempfile);
         }
-
-        this->EnableWindow(TRUE);
-        this->SetFocus();
     };
     new async::CAsyncCall(f, &netScheduler);
 }
@@ -5953,12 +5950,14 @@ void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
 
             CBlame blame;
             CString tempfile;
             tempfile = blame.BlameToTempFile(m_path, startrev, endrev, m_pegrev,
-                L"", includeMerge, TRUE, TRUE);
+                                             L"", includeMerge, TRUE, TRUE);
             if (!tempfile.IsEmpty())
             {
                 if (textViewer)
@@ -5970,20 +5969,17 @@ void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
                 {
                     CString sParams = L"/path:\"" + m_path.GetSVNPathString() + L"\" ";
                     CAppUtils::LaunchTortoiseBlame(tempfile,
-                        CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),
-                        sParams,
-                        startrev,
-                        endrev,
-                        m_pegrev);
+                                                   CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),
+                                                   sParams,
+                                                   startrev,
+                                                   endrev,
+                                                   m_pegrev);
                 }
             }
             else
             {
                 blame.ShowErrorDialog(m_hWnd);
             }
-
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -6639,7 +6635,7 @@ void CLogDlg::OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpat
     }
 }
 
-// todo: remove duplicated code line ~5752
+// TODO: remove duplicated code line ~5752
 CString CLogDlg::GetWcPathFromUrl(CString url)
 {
     CString wcPath;
@@ -7077,10 +7073,10 @@ void CLogDlg::ExecuteDiffChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, I
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, false, false, ignoreprops);
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7089,10 +7085,10 @@ void CLogDlg::ExecuteDiffChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, I
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             DiffSelectedFile(ignoreprops);
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7103,10 +7099,10 @@ void CLogDlg::ExecuteBlameDiffChangedPaths( INT_PTR selIndex, ContextMenuInfoFor
     auto f = [=]()
     {
         CoInitialize(NULL);
+        OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
+        OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
         DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, true, false, false);
-        this->EnableWindow(TRUE);
-        this->SetFocus();
     };
     new async::CAsyncCall(f, &netScheduler);
 }
@@ -7116,10 +7112,10 @@ void CLogDlg::ExecuteGnuDiff1ChangedPaths( INT_PTR selIndex, ContextMenuInfoForC
     auto f = [=]()
     {
         CoInitialize(NULL);
+        OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
+        OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
         DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, false, true, false);
-        this->EnableWindow(TRUE);
-        this->SetFocus();
     };
     new async::CAsyncCall(f, &netScheduler);
 }
@@ -7174,28 +7170,27 @@ void CLogDlg::ExecuteShowPropertiesChangedPaths( ContextMenuInfoForChangedPathsP
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
 
     if (pCmi->sUrl.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetWinPath());
-        EnableOKButton();
         return;
     }
     CPropDlg dlg;
     dlg.m_rev = pCmi->Rev1;
     dlg.m_Path = CTSVNPath(pCmi->fileUrl);
     dlg.DoModal();
-    EnableOKButton();
 }
 
 void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
     if (pCmi->sUrl.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetWinPath());
-        EnableOKButton();
         return;
     }
     m_bCancelled = false;
@@ -7238,7 +7233,9 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
             for ( size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
@@ -7277,24 +7274,16 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
                     SetAndClearProgressInfo((HWND)NULL);
                     ShowErrorDialog(m_hWnd);
                     tempfile.Delete(false);
-                    EnableOKButton();
                     return;
                 }
                 progDlg.SetProgress((DWORD)i+1, (DWORD)pCmi->ChangedLogPathIndices.size());
             }
             progDlg.Stop();
             SetAndClearProgressInfo((HWND)NULL);
-            this->EnableWindow(TRUE);
-            this->SetFocus();
 
         };  // end lambda definition
         new async::CAsyncCall(f, &netScheduler);
     }
-    else
-    {
-        EnableOKButton();
-    }
-
 }
 
 void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi )
@@ -7323,7 +7312,9 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
             progDlg.SetTime(true);
@@ -7361,8 +7352,6 @@ void CLogDlg::ExecuteExportTreeChangedPaths( ContextMenuInfoForChangedPathsPtr p
             }
             progDlg.Stop();
             SetAndClearProgressInfo((HWND)NULL);
-            this->EnableWindow(TRUE);
-            this->SetFocus();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7375,20 +7364,20 @@ void CLogDlg::ExecuteOpenChangedPaths( INT_PTR selIndex, ContextMenuInfoForChang
     auto f = [=]()
     {
         CoInitialize(NULL);
+        OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
-        Open(bOpenWith,m_currentChangedArray[selIndex].GetPath(),getrev);
-        this->EnableWindow(TRUE);
-        this->SetFocus();
+        OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
+        Open(bOpenWith, m_currentChangedArray[selIndex].GetPath(), getrev);
     };
     new async::CAsyncCall(f, &netScheduler);
 }
 
 void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath )
 {
+    OnOutOfScope(EnableOKButton());
     if (pCmi->sUrl.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetWinPath());
-        EnableOKButton();
         return;
     }
     CBlameDlg dlg;
@@ -7405,7 +7394,9 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
         auto f = [=]()
         {
             CoInitialize(NULL);
+            OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
+            OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             CBlame blame;
             CString tempfile;
             tempfile = blame.BlameToTempFile(CTSVNPath(pCmi->fileUrl), startrev,
@@ -7421,20 +7412,17 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
                 {
                     CString sParams = L"/path:\"" + pCmi->fileUrl + L"\" ";
                     CAppUtils::LaunchTortoiseBlame(tempfile,
-                        CPathUtils::GetFileNameFromPath(pCmi->fileUrl),
-                        sParams,
-                        startrev,
-                        endrev,
-                        pegrev);
+                                                   CPathUtils::GetFileNameFromPath(pCmi->fileUrl),
+                                                   sParams,
+                                                   startrev,
+                                                   endrev,
+                                                   pegrev);
                 }
             }
             else
             {
                 blame.ShowErrorDialog(m_hWnd);
             }
-            this->EnableWindow(TRUE);
-            this->SetFocus();
-            EnableOKButton();
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7444,6 +7432,7 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
     if (pCmi->sUrl.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetWinPath());
@@ -7469,17 +7458,16 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
     if (bMergeLog)
         sCmd += L" /merge";
     CAppUtils::RunTortoiseProc(sCmd);
-    EnableOKButton();
 }
 
 void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
     if (pCmi->sUrl.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetWinPath());
-        EnableOKButton();
         return;
     }
     m_bCancelled = false;
@@ -7497,7 +7485,6 @@ void CLogDlg::ExecuteBrowseRepositoryChangedPaths( ContextMenuInfoForChangedPath
     }
 
     CAppUtils::RunTortoiseProc(sCmd);
-    EnableOKButton();
 }
 
 void CLogDlg::ExecuteViewPathRevisionChangedPaths( INT_PTR selIndex )
@@ -8429,6 +8416,7 @@ void CLogDlg::MonitorThread()
             if (!sRootRobotsURL.empty())
                 sRootRobotsURL += _T("/svnrobots.txt");
             CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
+            OnOutOfScope(DeleteFile(sFile.GetWinPath()));
             std::string in;
             std::unique_ptr<CCallback> callback(new CCallback);
             callback->SetAuthData(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
@@ -8439,6 +8427,7 @@ void CLogDlg::MonitorThread()
                 std::ifstream fs(sFile.GetWinPath());
                 if (!fs.bad())
                 {
+                    OnOutOfScope(fs.close());
                     in.reserve((unsigned int)fs.rdbuf()->in_avail());
                     char c;
                     while (fs.get(c))
@@ -8461,6 +8450,7 @@ void CLogDlg::MonitorThread()
                 std::ifstream fs(sFile.GetWinPath());
                 if (!fs.bad())
                 {
+                    OnOutOfScope(fs.close());
                     in.reserve((unsigned int)fs.rdbuf()->in_avail());
                     char c;
                     while (fs.get(c))
@@ -8469,7 +8459,6 @@ void CLogDlg::MonitorThread()
                             in.reserve(in.capacity() * 3);
                         in.append(1, c);
                     }
-                    fs.close();
                 }
             }
             if (m_bCancelled)
@@ -8479,6 +8468,7 @@ void CLogDlg::MonitorThread()
                 std::ifstream fs(sFile.GetWinPath());
                 if (!fs.bad())
                 {
+                    OnOutOfScope(fs.close());
                     in.reserve((unsigned int)fs.rdbuf()->in_avail());
                     char c;
                     while (fs.get(c))
@@ -8487,10 +8477,8 @@ void CLogDlg::MonitorThread()
                             in.reserve(in.capacity() * 3);
                         in.append(1, c);
                     }
-                    fs.close();
                 }
             }
-            DeleteFile(sFile.GetWinPath());
             // the format of the svnrobots.txt file is as follows:
             // # comment
             // checkinterval = XXX
