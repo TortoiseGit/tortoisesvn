@@ -108,6 +108,7 @@ public:
     svn_revnum_t                unreadFirst;
     int                         UnreadItems;
     bool                        authfailed;
+    CString                     lastErrorMsg;
     CString                     username;
     CString                     password;
     CString                     sMsgRegex;

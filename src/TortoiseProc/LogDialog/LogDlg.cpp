@@ -2620,6 +2620,22 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
         {
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
         }
+        if (m_bMonitoringMode)
+        {
+            // reset the auth-failed flag
+            HTREEITEM hItem = m_projTree.GetSelectedItem();
+            if (hItem)
+            {
+                MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+                if (pItem)
+                {
+                    pItem->authfailed = false;
+                    pItem->lastErrorMsg.Empty();
+                    m_projTree.SetItemState(hItem, 0, TVIS_OVERLAYMASK);
+                    SaveMonitorProjects(false);
+                }
+            }
+        }
         return;
     }
     if (CRegDWORD(L"Software\\TortoiseSVN\\DiffByDoubleClickInLog", FALSE))
@@ -8281,6 +8297,8 @@ void CLogDlg::MonitorThread()
             break;
         if (item.WCPathOrUrl.IsEmpty())
             continue;
+        if (item.authfailed)
+            continue;   // if authentication failed before, don't try again
         if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
         {
             CString sCheckInfo;
@@ -8361,8 +8379,38 @@ void CLogDlg::MonitorThread()
                         item.unreadFirst = item.lastHEAD;
                     item.lastHEAD = head;
                 }
+                else
+                {
+                    auto Err = svn.GetSVNError();
+                    if (Err)
+                    {
+                        if ((SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+                            (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+                            (Err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
+                            (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+                        {
+                            item.authfailed = true;
+                            item.lastErrorMsg = svn.GetLastErrorMessage();
+                        }
+                    }
+                }
                 // we should never get asked for authentication here!
-                item.authfailed = PromptShown();
+                item.authfailed = item.authfailed || PromptShown();
+            }
+            else
+            {
+                auto Err = svn.GetSVNError();
+                if (Err)
+                {
+                    if ((SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+                        (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+                        (Err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN)||
+                        (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+                    {
+                        item.authfailed = true;
+                        item.lastErrorMsg = svn.GetLastErrorMessage();
+                    }
+                }
             }
             item.lastchecked = currenttime;
             {
@@ -8371,7 +8419,7 @@ void CLogDlg::MonitorThread()
             }
             SetDlgItemText(IDC_LOGINFO, L"");
         }
-        if ((item.lastcheckedrobots + (60 * 60 * 24 * 2)) < currenttime)
+        if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24 * 2)) < currenttime))
         {
             std::wstring sRobotsURL = svn.GetURLFromPath(CTSVNPath(item.WCPathOrUrl));
             sRobotsURL += _T("/svnrobots.txt");
@@ -8531,6 +8579,7 @@ void CLogDlg::OnMonitorThreadFinished()
                 pItem->UnreadItems = item.UnreadItems;
                 pItem->unreadFirst = item.unreadFirst;
                 pItem->authfailed = item.authfailed;
+                pItem->lastErrorMsg = item.lastErrorMsg;
                 pItem->minminutesinterval = item.minminutesinterval;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
@@ -8770,7 +8819,16 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
         if (pItem->WCPathOrUrl.IsEmpty())
             return;
-
+        if (pItem->authfailed && !pItem->lastErrorMsg.IsEmpty())
+        {
+            CString temp(MAKEINTRESOURCE(IDS_LOG_CLEARERROR));
+            m_LogList.ShowText(pItem->lastErrorMsg + L"\n\n" + temp, true);
+            FillLogMessageCtrl(false);
+            m_path.Reset();
+            GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+            m_bCancelled = true;
+            return;
+        }
         // to avoid the log cache from being accessed from two threads
         // at the same time and waiting for the lock to get released,
         // force the monitoring thread to end now and then show the log
