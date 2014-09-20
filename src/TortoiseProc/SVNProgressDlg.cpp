@@ -3838,7 +3838,7 @@ void CSVNProgressDlg::OnBnClickedNoninteractive()
 {
     LRESULT res = ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_GETCHECK, 0, 0);
     m_AlwaysConflicted = (res == BST_CHECKED);
-    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
+    CRegDWORD nonint(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
     nonint = m_AlwaysConflicted;
 }
 

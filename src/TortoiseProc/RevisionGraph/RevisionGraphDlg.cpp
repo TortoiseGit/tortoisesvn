@@ -68,7 +68,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 {
     // save option state
 
-    CRegStdDWORD regOpts = CRegStdDWORD(L"Software\\TortoiseSVN\\RevisionGraphOptions", 1);
+    CRegStdDWORD regOpts(L"Software\\TortoiseSVN\\RevisionGraphOptions", 1);
     regOpts = m_Graph.m_state.GetOptions()->GetRegistryFlags();
 
     // GDI+ cleanup
@@ -819,7 +819,7 @@ void CRevisionGraphDlg::OnViewShowoverview()
         m_Graph.SetShowOverview (true);
     }
 
-    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\ShowRevGraphOverview", FALSE);
+    CRegDWORD reg(L"Software\\TortoiseSVN\\ShowRevGraphOverview", FALSE);
     reg = m_Graph.GetShowOverview();
     m_Graph.Invalidate(FALSE);
 }

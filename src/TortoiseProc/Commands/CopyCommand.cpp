@@ -74,7 +74,7 @@ bool CopyCommand::Execute()
             doSwitch = dlg.m_bDoSwitch;
             makeParents = dlg.m_bMakeParents;
             progDlg.DoModal();
-            CRegDWORD err = CRegDWORD(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
+            CRegDWORD err(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
             repeat = progDlg.DidErrorsOccur();

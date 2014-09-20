@@ -97,7 +97,7 @@ bool CRegHistory::Save() const
     {
         TCHAR sKey[4096] = {0};
         swprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
-        CRegStdString regkey = CRegStdString(sKey);
+        CRegStdString regkey(sKey);
         regkey = m_arEntries[n];
     }
     // remove items exceeding the max number of history items

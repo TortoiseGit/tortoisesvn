@@ -180,7 +180,7 @@ bool CommitCommand::Execute()
             // If there was an error and the user set the
             // "automatically re-open commit dialog" option, do so.
 
-            CRegDWORD err = CRegDWORD(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
+            CRegDWORD err(L"Software\\TortoiseSVN\\ErrorOccurred", FALSE);
             err = (DWORD)progDlg.DidErrorsOccur();
             bRepeat = progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();

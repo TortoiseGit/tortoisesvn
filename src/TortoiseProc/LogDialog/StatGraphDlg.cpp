@@ -1513,13 +1513,13 @@ void CStatGraphDlg::StoreCurrentGraphType()
     }
 
     // store current chart type in registry
-    CRegDWORD lastStatsPage = CRegDWORD(L"Software\\TortoiseSVN\\LastViewedStatsPage", 0);
+    CRegDWORD lastStatsPage(L"Software\\TortoiseSVN\\LastViewedStatsPage", 0);
     lastStatsPage = statspage;
 
-    CRegDWORD regAuthors = CRegDWORD(L"Software\\TortoiseSVN\\StatAuthorsCaseSensitive");
+    CRegDWORD regAuthors(L"Software\\TortoiseSVN\\StatAuthorsCaseSensitive");
     regAuthors = m_bAuthorsCaseSensitive;
 
-    CRegDWORD regSort = CRegDWORD(L"Software\\TortoiseSVN\\StatSortByCommitCount");
+    CRegDWORD regSort(L"Software\\TortoiseSVN\\StatSortByCommitCount");
     regSort = m_bSortByCommitCount;
 }
 

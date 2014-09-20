@@ -1302,12 +1302,9 @@ void CLogDlg::SaveSplitterPos()
 {
     if (!IsIconic())
     {
-        CRegDWORD regPos1 =
-            CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
-        CRegDWORD regPos2 =
-            CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
-        CRegDWORD regPos3 =
-            CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
+        CRegDWORD regPos1(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
+        CRegDWORD regPos2(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
+        CRegDWORD regPos3(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
@@ -1398,10 +1395,10 @@ void CLogDlg::OnCancel()
             UpdateData();
             if (m_bSaveStrict)
                 m_regLastStrict = m_bStrict;
-            CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\ShowAllEntry");
+            CRegDWORD reg(L"Software\\TortoiseSVN\\ShowAllEntry");
             reg = (DWORD)m_btnShow.m_nMenuResult;
 
-            CRegDWORD reg2 = CRegDWORD(L"Software\\TortoiseSVN\\LogShowPaths");
+            CRegDWORD reg2(L"Software\\TortoiseSVN\\LogShowPaths");
             reg2 = (DWORD)m_cShowPaths.GetCheck();
             SaveSplitterPos();
         }
@@ -2343,9 +2340,9 @@ void CLogDlg::OnOK()
     UpdateData();
     if (m_bSaveStrict)
         m_regLastStrict = m_bStrict;
-    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\ShowAllEntry");
+    CRegDWORD reg(L"Software\\TortoiseSVN\\ShowAllEntry");
     reg = (DWORD)m_btnShow.m_nMenuResult;
-    CRegDWORD reg2 = CRegDWORD(L"Software\\TortoiseSVN\\LogHidePaths");
+    CRegDWORD reg2(L"Software\\TortoiseSVN\\LogHidePaths");
     reg2 = (DWORD)m_cShowPaths.GetCheck();
     SaveSplitterPos();
 

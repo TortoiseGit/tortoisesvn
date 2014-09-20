@@ -451,11 +451,11 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             server = server.Mid(f1, len);
             svn->m_server = server;
             groups += server;
-            CRegString server_groups = CRegString(groups);
+            CRegString server_groups(groups);
             server_groups = server;
             regpath += server;
             regpath += L"\\ssl-client-cert-file";
-            CRegString client_cert_filepath_reg = CRegString(regpath);
+            CRegString client_cert_filepath_reg(regpath);
             client_cert_filepath_reg = filename;
         }
     }

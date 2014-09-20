@@ -169,7 +169,7 @@ bool CHooks::Save()
         strhooks += '\n';
     }
 
-    CRegString reghooks = CRegString(L"Software\\TortoiseSVN\\hooks");
+    CRegString reghooks(L"Software\\TortoiseSVN\\hooks");
     reghooks = strhooks;
     if (reghooks.GetLastError() != ERROR_SUCCESS)
         return false;

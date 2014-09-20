@@ -2059,7 +2059,7 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 
 void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
-    CRegString placement = CRegString(L"Software\\TortoiseMerge\\WindowPos");
+    CRegString placement(L"Software\\TortoiseMerge\\WindowPos");
     TCHAR szBuffer[_countof("-32767")*8 + sizeof("65535")*2];
 
     swprintf_s(szBuffer, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
@@ -2767,14 +2767,14 @@ void CMainFrame::OnViewComparewhitespaces()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 0;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 0);
 }
@@ -2783,14 +2783,14 @@ void CMainFrame::OnViewIgnorewhitespacechanges()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 2;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 2);
 }
@@ -2799,14 +2799,14 @@ void CMainFrame::OnViewIgnoreallwhitespacechanges()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = 1;
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 {
-    CRegDWORD regIgnoreWS = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreWS");
+    CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     DWORD dwIgnoreWS = regIgnoreWS;
     pCmdUI->SetCheck(dwIgnoreWS == 1);
 }

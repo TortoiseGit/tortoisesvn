@@ -104,7 +104,7 @@ void CRecycleBinDlg::OnBnClickedEmptybin()
 
 void CRecycleBinDlg::OnBnClickedDontusebin()
 {
-    CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE);
+    CRegDWORD reg(L"Software\\TortoiseSVN\\RevertWithRecycleBin", TRUE);
     reg = FALSE;
     CStandAloneDialog::OnCancel();
 }

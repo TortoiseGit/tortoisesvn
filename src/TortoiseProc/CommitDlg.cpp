@@ -578,7 +578,7 @@ void CCommitDlg::SaveSplitterPos()
 {
     if (!IsIconic())
     {
-        CRegDWORD regPos = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer");
+        CRegDWORD regPos(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer");
         RECT rectSplitter;
         m_wndSplitter.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);

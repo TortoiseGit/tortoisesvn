@@ -129,7 +129,7 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     m_URLCombo.SaveHistory();
 
     CString sRegKey = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
-    CRegString regMergeUrlForWC = CRegString(sRegKey);
+    CRegString regMergeUrlForWC(sRegKey);
     regMergeUrlForWC = sUrl;
 
     ((CMergeWizard*)GetParent())->URL1 = sUrl;

@@ -226,10 +226,10 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
     m_URLTo = m_URLCombo2.GetString();
 
     CString sRegKeyFrom = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
-    CRegString regMergeUrlForWCFrom = CRegString(sRegKeyFrom);
+    CRegString regMergeUrlForWCFrom(sRegKeyFrom);
     regMergeUrlForWCFrom = m_URLFrom;
     CString sRegKeyTo = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
-    CRegString regMergeUrlForWCTo = CRegString(sRegKeyTo);
+    CRegString regMergeUrlForWCTo(sRegKeyTo);
     regMergeUrlForWCTo = m_URLTo;
 
     ((CMergeWizard*)GetParent())->URL1 = m_URLFrom;
