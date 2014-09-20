@@ -2065,6 +2065,9 @@
     <ClInclude Include="Commands\CopyUrlsCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\OnOutOfScope.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
