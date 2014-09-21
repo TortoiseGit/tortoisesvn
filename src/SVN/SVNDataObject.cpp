@@ -152,6 +152,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         HRESULT res = SHCreateStreamOnFileEx(filepath.GetWinPath(), STGM_READ, FILE_ATTRIBUTE_NORMAL, FALSE, NULL, &pIStream);
         if (res == S_OK)
         {
+            // http://blogs.msdn.com/b/oldnewthing/archive/2014/09/18/10558763.aspx
+            LARGE_INTEGER liZero = { 0, 0 };
+            pIStream->Seek(liZero, STREAM_SEEK_END, NULL);
+
             pmedium->pstm = pIStream;
             pmedium->tymed = TYMED_ISTREAM;
             return S_OK;
