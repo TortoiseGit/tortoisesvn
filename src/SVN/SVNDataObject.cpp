@@ -30,6 +30,7 @@ CLIPFORMAT CF_PREFERREDDROPEFFECT = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_PR
 CLIPFORMAT CF_SVNURL = (CLIPFORMAT)RegisterClipboardFormat(L"TSVN_SVNURL");
 CLIPFORMAT CF_INETURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_INETURL);
 CLIPFORMAT CF_SHELLURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_SHELLURL);
+CLIPFORMAT CF_FILE_ATTRIBUTES_ARRAY = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILE_ATTRIBUTES_ARRAY);
 
 SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev, bool bFilesAsUrlLinks) : m_svnPaths(svnpaths)
     , m_pegRev(peg)
@@ -460,6 +461,37 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         pmedium->pUnkForRelease = NULL;
         return S_OK;
     }
+    else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_FILE_ATTRIBUTES_ARRAY))
+    {
+        int nBufferSize = sizeof(FILE_ATTRIBUTES_ARRAY) + m_svnPaths.GetCount()*sizeof(DWORD);
+        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
+
+        SecureZeroMemory(pBuffer.get(), nBufferSize);
+
+        FILE_ATTRIBUTES_ARRAY* cf = (FILE_ATTRIBUTES_ARRAY*)pBuffer.get();
+        cf->cItems = m_svnPaths.GetCount();
+        cf->dwProductFileAttributes = DWORD_MAX;
+        cf->dwSumFileAttributes = 0;
+        for (int i = 0; i < m_svnPaths.GetCount(); i++)
+        {
+            DWORD fileattribs = m_svnPaths[i].IsUrl() ? FILE_ATTRIBUTE_NORMAL : m_svnPaths[i].GetFileAttributes();
+            cf->rgdwFileAttributes[i] = fileattribs;
+            cf->dwProductFileAttributes &= fileattribs;
+            cf->dwSumFileAttributes |= fileattribs;
+        }
+
+        pmedium->tymed = TYMED_HGLOBAL;
+        pmedium->hGlobal = GlobalAlloc(GMEM_ZEROINIT | GMEM_MOVEABLE | GMEM_DDESHARE, nBufferSize);
+        if (pmedium->hGlobal)
+        {
+            LPVOID pMem = ::GlobalLock(pmedium->hGlobal);
+            if (pMem)
+                memcpy(pMem, pBuffer.get(), nBufferSize);
+            GlobalUnlock(pmedium->hGlobal);
+        }
+        pmedium->pUnkForRelease = NULL;
+        return S_OK;
+    }
 
     for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
     {
@@ -511,6 +543,12 @@ STDMETHODIMP SVNDataObject::QueryGetData(FORMATETC* pformatetc)
         (pformatetc->dwAspect == DVASPECT_CONTENT) &&
         (pformatetc->cfFormat == CF_HDROP) &&
         m_revision.IsWorking())
+    {
+        return S_OK;
+    }
+    if ((pformatetc->tymed & TYMED_HGLOBAL) &&
+        (pformatetc->dwAspect == DVASPECT_CONTENT) &&
+        (pformatetc->cfFormat == CF_FILE_ATTRIBUTES_ARRAY))
     {
         return S_OK;
     }
@@ -758,6 +796,13 @@ void CSVNEnumFormatEtc::Init(bool localonly)
     index++;
 
     m_formats[index].cfFormat = CF_SHELLURL;
+    m_formats[index].dwAspect = DVASPECT_CONTENT;
+    m_formats[index].lindex = -1;
+    m_formats[index].ptd = NULL;
+    m_formats[index].tymed = TYMED_HGLOBAL;
+    index++;
+
+    m_formats[index].cfFormat = CF_FILE_ATTRIBUTES_ARRAY;
     m_formats[index].dwAspect = DVASPECT_CONTENT;
     m_formats[index].lindex = -1;
     m_formats[index].ptd = NULL;
