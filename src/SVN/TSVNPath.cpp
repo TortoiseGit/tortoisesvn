@@ -57,7 +57,9 @@ CTSVNPath::CTSVNPath(void) :
     m_customData(NULL),
     m_bIsSpecialDirectoryKnown(false),
     m_bIsSpecialDirectory(false),
-    m_fileSize(0)
+    m_fileSize(0),
+    m_bIsAttributesKnown(false),
+    m_attributes(0)
 {
 }
 
@@ -325,6 +327,14 @@ bool CTSVNPath::Exists() const
     return m_bExists;
 }
 
+
+DWORD CTSVNPath::GetFileAttributes() const
+{
+    if (!m_bIsAttributesKnown)
+        UpdateAttributes();
+    return m_attributes;
+}
+
 bool CTSVNPath::Delete(bool bTrash) const
 {
     EnsureBackslashPathSet();
@@ -401,6 +411,8 @@ void CTSVNPath::UpdateAttributes() const
         }
         m_bIsReadOnly = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
         m_bExists = true;
+        m_bIsAttributesKnown = true;
+        m_attributes = attribs.dwFileAttributes;
     }
     else
     {

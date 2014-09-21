@@ -125,6 +125,11 @@ public:
     CString GetFileExtension() const;
     CString GetFileOrDirExtension() const;
 
+    /**
+     * returns the file attributes
+     */
+    DWORD GetFileAttributes() const;
+
     bool IsEmpty() const;
     void Reset();
     /**
@@ -267,6 +272,7 @@ private:
     mutable bool m_bLastWriteTimeKnown;
     mutable bool m_bURLKnown;
     mutable bool m_bIsURL;
+    mutable bool m_bIsAttributesKnown;
     mutable __int64 m_lastWriteTime;
     mutable __int64 m_fileSize;
     mutable bool m_bIsReadOnly;
@@ -283,6 +289,7 @@ private:
     mutable LPARAM m_customData;
     mutable bool m_bIsSpecialDirectoryKnown;
     mutable bool m_bIsSpecialDirectory;
+    mutable DWORD m_attributes;
 
     friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
