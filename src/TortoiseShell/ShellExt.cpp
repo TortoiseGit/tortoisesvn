@@ -34,6 +34,11 @@ extern ShellObjects g_shellObjects;
 CShellExt::CShellExt(FileState state)
     : m_crasher(L"TortoiseSVN", false)
     , regDiffLater(L"Software\\TortoiseMerge\\DiffLater", L"")
+    , itemStates(0)
+    , itemStatesFolder(0)
+    , space(0)
+    , columnrev(0)
+    , filestatus(svn_wc_status_none)
 {
     m_State = state;
 
