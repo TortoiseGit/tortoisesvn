@@ -586,6 +586,160 @@ CStringW CStringUtils::Encrypt( const wchar_t * text )
     return result;
 }
 
+BYTE HexLookup[513] = {
+    "000102030405060708090a0b0c0d0e0f"
+    "101112131415161718191a1b1c1d1e1f"
+    "202122232425262728292a2b2c2d2e2f"
+    "303132333435363738393a3b3c3d3e3f"
+    "404142434445464748494a4b4c4d4e4f"
+    "505152535455565758595a5b5c5d5e5f"
+    "606162636465666768696a6b6c6d6e6f"
+    "707172737475767778797a7b7c7d7e7f"
+    "808182838485868788898a8b8c8d8e8f"
+    "909192939495969798999a9b9c9d9e9f"
+    "a0a1a2a3a4a5a6a7a8a9aaabacadaeaf"
+    "b0b1b2b3b4b5b6b7b8b9babbbcbdbebf"
+    "c0c1c2c3c4c5c6c7c8c9cacbcccdcecf"
+    "d0d1d2d3d4d5d6d7d8d9dadbdcdddedf"
+    "e0e1e2e3e4e5e6e7e8e9eaebecedeeef"
+    "f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff"
+};
+BYTE DecLookup[] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // gap before first hex digit
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,       // 0123456789
+    0, 0, 0, 0, 0, 0, 0,             // :;<=>?@ (gap)
+    10, 11, 12, 13, 14, 15,         // ABCDEF
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // GHIJKLMNOPQRS (gap)
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // TUVWXYZ[/]^_` (gap)
+    10, 11, 12, 13, 14, 15          // abcdef
+};
+
+std::string CStringUtils::ToHexString(BYTE* pSrc, int nSrcLen)
+{
+    WORD * pwHex = (WORD*)HexLookup;
+    auto dest = std::make_unique<char[]>((nSrcLen * 2) + 1);
+    WORD * pwDest = (WORD*)dest.get();
+    for (int j = 0; j < nSrcLen; j++)
+    {
+        *pwDest = pwHex[*pSrc];
+        pwDest++; pSrc++;
+    }
+    *((BYTE*)pwDest) = 0;  // terminate the string
+    return std::string(dest.get());
+}
+
+bool CStringUtils::FromHexString(const std::string& src, BYTE* pDest)
+{
+    if (src.size() % 2)
+        return false;
+    for (auto it = src.cbegin(); it != src.cend(); ++it)
+    {
+        if ((*it < '0') || (*it > 'f'))
+            return false;
+        int d = DecLookup[*it] << 4;
+        ++it;
+        d |= DecLookup[*it];
+        *pDest++ = (BYTE)d;
+    }
+    return true;
+}
+
+std::string CStringUtils::Encrypt(const std::string& s, const std::string& password)
+{
+    std::string encryptedstring;
+    HCRYPTPROV hProv = NULL;
+    // Get handle to user default provider.
+    if (CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
+    {
+        HCRYPTHASH hHash = NULL;
+        // Create hash object.
+        if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
+        {
+            // Hash password string.
+            DWORD dwLength = DWORD(sizeof(WCHAR)*password.size());
+            if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
+            {
+                // Create block cipher session key based on hash of the password.
+                HCRYPTKEY hKey = NULL;
+                if (CryptDeriveKey(hProv, CALG_AES_256, hHash, CRYPT_EXPORTABLE, &hKey))
+                {
+                    // Determine number of bytes to encrypt at a time.
+                    std::string starname = "*";
+                    starname += s;
+
+                    dwLength = (DWORD)starname.size();
+                    std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength + 1024]);
+                    memcpy(buffer.get(), starname.c_str(), dwLength);
+                    // Encrypt data
+                    if (CryptEncrypt(hKey, 0, true, 0, buffer.get(), &dwLength, dwLength + 1024))
+                    {
+                        encryptedstring = CStringUtils::ToHexString(buffer.get(), dwLength);
+                    }
+                    CryptDestroyKey(hKey);  // Release provider handle.
+                }
+            }
+            CryptDestroyHash(hHash);
+        }
+        CryptReleaseContext(hProv, 0);
+    }
+    else
+        DebugBreak();
+    return encryptedstring;
+
+}
+
+std::string CStringUtils::Decrypt(const std::string& s, const std::string& password)
+{
+    std::string decryptstring;
+    HCRYPTPROV hProv = NULL;
+    // Get handle to user default provider.
+    if (CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
+    {
+        HCRYPTHASH hHash = NULL;
+        // Create hash object.
+        if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
+        {
+            // Hash password string.
+            DWORD dwLength = DWORD(sizeof(WCHAR)*password.size());
+            if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
+            {
+                HCRYPTKEY hKey = NULL;
+                // Create block cipher session key based on hash of the password.
+                if (CryptDeriveKey(hProv, CALG_AES_256, hHash, CRYPT_EXPORTABLE, &hKey))
+                {
+                    dwLength = DWORD(s.size() + 1024); // 1024 bytes should be enough for padding
+                    std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength]);
+
+                    std::unique_ptr<BYTE[]> strIn(new BYTE[s.size() + 1]);
+                    if (CStringUtils::FromHexString(s, strIn.get()))
+                    {
+                        // copy encrypted password to temporary buffer
+                        memcpy(buffer.get(), strIn.get(), s.size());
+                        dwLength = s.size() / 2;
+                        CryptDecrypt(hKey, 0, true, 0, (BYTE *)buffer.get(), &dwLength);
+                        decryptstring = std::string((char*)buffer.get(), dwLength);
+                        if (!decryptstring.empty() && (decryptstring[0] == '*'))
+                        {
+                            decryptstring = decryptstring.substr(1);
+                        }
+                        else
+                            decryptstring.clear();
+                    }
+                    CryptDestroyKey(hKey);  // Release provider handle.
+                }
+            }
+            CryptDestroyHash(hHash); // Destroy session key.
+        }
+        CryptReleaseContext(hProv, 0);
+    }
+    else
+        DebugBreak();
+
+    return decryptstring;
+}
+
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
 
@@ -630,6 +784,10 @@ public:
         CStringA charcrypt = CStringUtils::Encrypt("test");
         auto charnorm = CStringUtils::Decrypt(charcrypt);
         ATLASSERT(strcmp(charnorm.get(), "test") == 0);
+
+        std::string encrypted = CStringUtils::Encrypt("test", "test");
+        std::string decrypted = CStringUtils::Decrypt(encrypted, "test");
+        ATLASSERT(decrypted.compare("test") == 0);
     }
 } StringUtilsTest;
 
