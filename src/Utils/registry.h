@@ -624,6 +624,80 @@ void CRegDWORDCommon<Base>::InternalWrite (HKEY hKey, const DWORD& value)
     LastError = RegSetValueEx (hKey, GetPlainString (m_key), 0, REG_DWORD,(const BYTE*) &value, sizeof(value));
 }
 
+template<class Base>
+class CRegQWORDCommon : public CRegTypedBase<QWORD, Base>
+{
+private:
+
+    /**
+    * provide type-specific code to extract data from and write data to an open registry key.
+    */
+
+    virtual void InternalRead(HKEY hKey, QWORD& value);
+    virtual void InternalWrite(HKEY hKey, const QWORD& value);
+
+public:
+
+    CRegQWORDCommon(void);
+    /**
+    * Constructor.
+    * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
+    * \param def the default value used when the key does not exist or a read error occurred
+    * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
+    * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
+    * \param sam
+    */
+    CRegQWORDCommon(const typename Base::StringT& key, QWORD def = 0, bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
+    CRegQWORDCommon(QWORD lookupInterval, const typename Base::StringT& key, QWORD def = 0, bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
+
+    CRegQWORDCommon& operator=(QWORD rhs) { CRegTypedBase<QWORD, Base>::operator =(rhs); return *this; }
+    CRegQWORDCommon& operator+=(QWORD d) { return *this = *this + d; }
+    CRegQWORDCommon& operator-=(QWORD d) { return *this = *this - d; }
+    CRegQWORDCommon& operator*=(QWORD d) { return *this = *this * d; }
+    CRegQWORDCommon& operator/=(QWORD d) { return *this = *this / d; }
+    CRegQWORDCommon& operator%=(QWORD d) { return *this = *this % d; }
+    CRegQWORDCommon& operator<<=(QWORD d) { return *this = *this << d; }
+    CRegQWORDCommon& operator>>=(QWORD d) { return *this = *this >> d; }
+    CRegQWORDCommon& operator&=(QWORD d) { return *this = *this & d; }
+    CRegQWORDCommon& operator|=(QWORD d) { return *this = *this | d; }
+    CRegQWORDCommon& operator^=(QWORD d) { return *this = *this ^ d; }
+};
+
+// implement CRegQWORDCommon<> methods
+
+template<class Base>
+CRegQWORDCommon<Base>::CRegQWORDCommon(void)
+    : CRegTypedBase<QWORD, Base>(0)
+{}
+
+template<class Base>
+CRegQWORDCommon<Base>::CRegQWORDCommon(const typename Base::StringT& key, QWORD def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<QWORD, Base>(key, def, force, base, sam)
+{}
+
+template<class Base>
+CRegQWORDCommon<Base>::CRegQWORDCommon(QWORD lookupInterval, const typename Base::StringT& key, QWORD def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<QWORD, Base>(lookupInterval, key, def, force, base, sam)
+{}
+
+template<class Base>
+void CRegQWORDCommon<Base>::InternalRead(HKEY hKey, QWORD& value)
+{
+    DWORD size = sizeof(value);
+    DWORD type = 0;
+    if ((LastError = RegQueryValueEx(hKey, GetPlainString(m_key), NULL, &type, (BYTE*)&value, &size)) == ERROR_SUCCESS)
+    {
+        ASSERT(type == REG_QWORD);
+    }
+}
+
+template<class Base>
+void CRegQWORDCommon<Base>::InternalWrite(HKEY hKey, const QWORD& value)
+{
+    LastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_QWORD, (const BYTE*)&value, sizeof(value));
+}
+
+
 /**
  * \ingroup Utils
  * CString value in registry. with this class you can use CString values in registry
@@ -1061,27 +1135,35 @@ T& CKeyList<T>::GetAt (int index) const
  */
 
 #ifdef __CSTRINGT_H__
-CRegDWORDCommon<CRegBase>;
+CRegDWORDCommon < CRegBase > ;
 typedef CRegDWORDCommon<CRegBase> CRegDWORD;
+CRegQWORDCommon < CRegBase > ;
+typedef CRegQWORDCommon<CRegBase> CRegQWORD;
 CRegStringCommon<CRegBase>;
 typedef CRegStringCommon<CRegBase> CRegString;
 
 #ifdef _MAP_
-CKeyList<CRegDWORD>;
+CKeyList < CRegDWORD > ;
 typedef CKeyList<CRegDWORD> CRegDWORDList;
+CKeyList < CRegQWORD > ;
+typedef CKeyList<CRegQWORD> CRegQWORDList;
 CKeyList<CRegString>;
 typedef CKeyList<CRegString> CRegStringList;
 #endif
 #endif
 
-CRegDWORDCommon<CRegStdBase>;
+CRegDWORDCommon < CRegStdBase > ;
 typedef CRegDWORDCommon<CRegStdBase> CRegStdDWORD;
+CRegQWORDCommon < CRegStdBase > ;
+typedef CRegQWORDCommon<CRegStdBase> CRegStdQWORD;
 CRegStringCommon<CRegStdBase>;
 typedef CRegStringCommon<CRegStdBase> CRegStdString;
 
 #ifdef _MAP_
-CKeyList<CRegStdDWORD>;
+CKeyList < CRegStdDWORD > ;
 typedef CKeyList<CRegStdDWORD> CRegStdDWORDList;
+CKeyList < CRegStdQWORD > ;
+typedef CKeyList<CRegStdQWORD> CRegStdQWORDList;
 CKeyList<CRegStdString>;
 typedef CKeyList<CRegStdString> CRegStdStringList;
 #endif
