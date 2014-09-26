@@ -27,130 +27,44 @@
 
 
 // registry entries
-std::vector<CString> regArray = {
-    L"AllowAuthSave",
-    L"AllowUnversionedObstruction",
-    L"AlwaysExtendedMenu",
-    L"AutoCompleteMinChars",
-    L"AutocompleteRemovesExtensions",
-    L"BlockPeggedExternals",
-    L"BlockStatus",
-    L"CacheTrayIcon",
-    L"ColumnsEveryWhere",
-    L"ConfigDir",
-    L"CtrlEnter",
-    L"DialogTitles",
-    L"DiffBlamesWithTortoiseMerge",
-    L"DlgStickySize",
-    L"FixCaseRenames",
-    L"FullRowSelect",
-    L"GroupTaskbarIconsPerRepo",
-    L"GroupTaskbarIconsPerRepoOverlay",
-    L"HideExternalInfo",
-    L"IncludeExternals",
-    L"LogFindCopyFrom",
-    L"LogMultiRevFormat",
-    L"LogStatusCheck",
-    L"MergeLogSeparator",
-    L"NumDiffWarning",
-    L"OldVersionCheck",
-    L"OutOfDateRetry",
-    L"RepoBrowserTrySVNParentPath",
-    L"ScintillaDirect2D",
-    L"ShellMenuAccelerators",
-    L"ShowContextMenuIcons",
-    L"ShowAppContextMenuIcons",
-    L"StyleCommitMessages",
-    L"UpdateCheckURL",
-    L"VersionCheck",
+std::vector<CString> regUseArray = {
+    L"TortoiseSVN\\*",
+    L"TortoiseSVN\\RevisionGraph\\*",
+    L"TortoiseSVN\\Colors\\*",
+    L"TortoiseSVN\\History\\**",
+    L"TortoiseSVN\\History\\repoURLS\\**",
+    L"TortoiseSVN\\History\\repoPaths\\**",
+    L"TortoiseSVN\\LogCache\\*",
+    L"TortoiseSVN\\Servers\\global\\**",
+    L"TortoiseSVN\\StatusColumns\\*",
+    L"TortoiseMerge\\*",
+};
 
-    L"EnableDragContextMenu",
-    L"ShowContextMenuIcons",
-    L"CacheType",
-    L"RecursiveOverlay",
-    L"FolderOverlay",
-    L"DriveMaskRemote",
-    L"DriveMaskFixed",
-    L"DriveMaskCDROM",
-    L"DriveMaskRemovable",
-    L"DriveMaskFloppy",
-    L"DriveMaskRAM",
-    L"DriveMaskUnknown",
-    L"ShellMenuAccelerators",
-    L"UnversionedAsModified",
-    L"IgnoreOnCommitIgnored",
-    L"HideMenusForUnversionedItems",
-    L"GetLockTop",
-    L"ShowExcludedFoldersAsNormal",
-    L"AlwaysExtendedMenu",
-    L"ContextMenuEntries",
-    L"ContextMenuEntrieshigh",
-    L"ContextMenuEntriesMaskLow",
-    L"ContextMenuEntriesMaskHigh",
-    L"ContextMenuEntriesMaskLow",
-    L"ContextMenuEntriesMaskHigh",
-    L"LanguageID",
-    L"BlockStatus",
-    L"ColumnsEveryWhere",
-    L"NoContextPaths",
-
-    L"LogDateFormat",
-    L"UseSystemLocaleForDates",
-    L"ShowLockDlg",
-    L"MaxHistoryItems",
-    L"LogFontName",
-    L"LogFontSize",
-    L"SelectFilesForCommit",
-    L"TextBlame",
-    L"BlameIncludeMerge",
-    L"DefaultCheckoutUrl",
-    L"noext",
-    L"RevertWithRecycleBin",
-    L"CleanupRefreshShell",
-    L"CleanupExternals",
-    L"CleanupFixTimeStamps",
-    L"CleanupVacuum",
-    L"IncludeExternals",
-    L"OutOfDateRetry",
-    L"IncompleteReopen",
-    L"UnversionedRecurse",
-    L"BlockPeggedExternals",
-    L"RevisionGraph\\BranchPattern",
-    L"AutocompleteParseTimeout",
-    L"AutocompleteRemovesExtensions",
-    L"VersionCheck",
-    L"AddBeforeCommit",
-    L"ShowExternals",
-    L"MaxHistoryItems",
-    L"KeepChangeLists",
-    L"AlwaysWarnIfNoIssue",
-    L"CommitReopen",
-    L"NumberOfLogs",
-    L"LastLogStrict",
-    L"UseRegexFilter",
-    L"MaxBugIDColWidth",
-    L"FilterCaseSensitively",
-    L"LogMultiRevFormat",
-    L"LogShowPaths",
-    L"ShowAllEntry",
-    L"StyleCommitMessages",
-    L"LogFindCopyFrom",
-    L"LogStatusCheck",
-    L"LogHidePaths",
-    L"DiffByDoubleClickInLog",
-    L"StatAuthorsCaseSensitive",
-    L"StatSortByCommitCount",
-    L"LastViewedStatsPage",
-    L"MergeWizardMode",
-    L"EnableDWMFrame",
-
-    L"Colors\\*",
-    L"History\\*",
-    L"History\\repoURLS\\*",
-    L"History\\repoPaths\\*",
-    L"LogCache\\*",
-    L"Servers\\global\\*",
-    L"StatusColumns\\*",
+std::vector<CString> regBlockArray = {
+    L"*debug*",
+    L"syncpath",
+    L"syncpw",
+    L"checknewerweek",
+    L"currentversion",
+    L"diff",
+    L"hooks",
+    L"merge",
+    L"tblamepos",
+    L"tblamesize",
+    L"tblamestate",
+    L"*windowpos",
+    L"nocontextpaths",
+    L"configdir",
+    L"defaultcheckoutpath",
+    L"lastcheckoutpath",
+    L"erroroccurred",
+    L"newversion",
+    L"newversiontext",
+    L"newversionlink",
+    L"historyhintshown",
+    L"mergewcurl",
+    L"scintilladirect2d",
+    L"udiffpagesetup*",
 };
 
 
@@ -165,19 +79,19 @@ bool SyncCommand::Execute()
         //return false;
     }
 
-    {
-        CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-        auto encrypted = CStringUtils::Encrypt(L"testpassword");
-        regPW = encrypted;
-    }
-
     CSimpleIni iniFile;
+    iniFile.SetMultiLine(true);
 
     CAutoRegKey hMainKey;
     RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", 0, KEY_READ, hMainKey.GetPointer());
     FILETIME filetime = { 0 };
     RegQueryInfoKey(hMainKey, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, &filetime);
 
+    //{
+    //    CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
+    //    auto encrypted = CStringUtils::Encrypt(L"testpassword");
+    //    regPW = encrypted;
+    //}
 
     bool bCloudIsNewer = false;
     {
@@ -204,10 +118,13 @@ bool SyncCommand::Execute()
                     std::string encrypted = std::string(filebuf.get(), bytesread);
                     CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
                     auto password = CStringUtils::Decrypt(CString(regPW));
-                    std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
-                    std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
-                    // pass the decrypted data to the ini file
-                    iniFile.LoadFile(decrypted.c_str(), decrypted.size());
+                    if (password.get())
+                    {
+                        std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
+                        std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
+                        // pass the decrypted data to the ini file
+                        iniFile.LoadFile(decrypted.c_str(), decrypted.size());
+                    }
                 }
             }
         }
@@ -218,129 +135,180 @@ bool SyncCommand::Execute()
 
     // go through all registry values and update either the registry
     // or the ini file, depending on which is newer
-    for (const auto& regname : regArray)
+    for (const auto& regname : regUseArray)
     {
         CAutoRegKey hKey;
+        CAutoRegKey hKeyKey;
         DWORD regtype = 0;
         DWORD regsize = 0;
-        CString sKeyPath = L"Software\\TortoiseSVN";
+        CString sKeyPath = L"Software";
         CString sValuePath = regname;
         CString sIniKeyName = regname;
+        CString sRegname = regname;
         if (regname.Find('\\') >= 0)
         {
             // handle values in sub-keys
-            sKeyPath = L"Software\\TortoiseSVN\\" + regname.Left(regname.ReverseFind('\\'));
+            sKeyPath = L"Software\\" + regname.Left(regname.ReverseFind('\\'));
             sValuePath = regname.Mid(regname.ReverseFind('\\') + 1);
         }
         if (RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKey.GetPointer()) == ERROR_SUCCESS)
         {
             bool bEnum = false;
+            bool bEnumKeys = false;
             int index = 0;
+            int keyindex = 0;
             // an asterisk means: use all values inside the specified key
             if (sValuePath == L"*")
                 bEnum = true;
-            do 
+            if (sValuePath == L"**")
             {
-                if (bEnum)
+                bEnumKeys = true;
+                bEnum = true;
+                RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKeyKey.GetPointer());
+            }
+            do
+            {
+                if (bEnumKeys)
                 {
-                    // start enumerating all values
-                    wchar_t cValueName[MAX_PATH] = { 0 };
-                    DWORD cLen = _countof(cValueName);
-                    if (RegEnumValue(hKey, index, cValueName, &cLen, NULL, NULL, NULL, NULL) != ERROR_SUCCESS)
+                    bEnum = true;
+                    index = 0;
+                    wchar_t cKeyName[MAX_PATH] = { 0 };
+                    DWORD cLen = _countof(cKeyName);
+                    if (RegEnumKeyEx(hKeyKey, keyindex, cKeyName, &cLen, NULL, NULL, NULL, NULL) != ERROR_SUCCESS)
                     {
-                        bEnum = false;
+                        bEnumKeys = false;
                         break;
                     }
-                    ++index;
-                    sValuePath = cValueName;
-                    sIniKeyName = regname.Left(regname.ReverseFind('\\')) + L"\\" + sValuePath;
-                }
-                if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, NULL, &regsize) == ERROR_SUCCESS)
-                {
-                    if (regtype != 0)
+                    ++keyindex;
+                    sKeyPath = L"Software\\" + regname.Left(regname.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
+                    sRegname = regname.Left(regname.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
+                    hKey.CloseHandle();
+                    if (RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKey.GetPointer()) != ERROR_SUCCESS)
                     {
-                        auto regbuf = std::make_unique<BYTE[]>(regsize);
-                        if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, regbuf.get(), &regsize) == ERROR_SUCCESS)
+                        bEnumKeys = false;
+                        break;
+                    }
+                }
+                do
+                {
+                    if (bEnum)
+                    {
+                        // start enumerating all values
+                        wchar_t cValueName[MAX_PATH] = { 0 };
+                        DWORD cLen = _countof(cValueName);
+                        if (RegEnumValue(hKey, index, cValueName, &cLen, NULL, NULL, NULL, NULL) != ERROR_SUCCESS)
                         {
-                            switch (regtype)
+                            bEnum = false;
+                            break;
+                        }
+                        ++index;
+                        sValuePath = cValueName;
+                        CString sValueLower = sValuePath;
+                        sValueLower.MakeLower();
+                        bool bIgnore = false;
+                        for (const auto& ignore : regBlockArray)
+                        {
+                            if (wcswildcmp(ignore, sValueLower))
                             {
-                                case REG_DWORD:
+                                bIgnore = true;
+                                break;
+                            }
+                        }
+                        if (bIgnore)
+                            continue;
+                        sIniKeyName = sRegname.Left(sRegname.ReverseFind('\\'));
+                        if (sIniKeyName.IsEmpty())
+                            sIniKeyName = sValuePath;
+                        else
+                            sIniKeyName += L"\\" + sValuePath;
+                    }
+                    if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, NULL, &regsize) == ERROR_SUCCESS)
+                    {
+                        if (regtype != 0)
+                        {
+                            auto regbuf = std::make_unique<BYTE[]>(regsize);
+                            if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, regbuf.get(), &regsize) == ERROR_SUCCESS)
+                            {
+                                switch (regtype)
                                 {
-                                    DWORD value = *(DWORD*)regbuf.get();
-                                    sValue = iniFile.GetValue(L"registry_dword", sIniKeyName);
-                                    DWORD nValue = DWORD(_wtol(sValue));
-                                    if (nValue != value)
+                                    case REG_DWORD:
                                     {
+                                        DWORD value = *(DWORD*)regbuf.get();
+                                        sValue = iniFile.GetValue(L"registry_dword", sIniKeyName);
+                                        DWORD nValue = DWORD(_wtol(sValue));
+                                        if (nValue != value)
+                                        {
+                                            if (bCloudIsNewer)
+                                            {
+                                                RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
+                                            }
+                                            else
+                                            {
+                                                bHaveChanges = true;
+                                                sValue.Format(L"%ld", value);
+                                                iniFile.SetValue(L"registry_dword", sIniKeyName, sValue);
+                                            }
+                                        }
                                         if (bCloudIsNewer)
-                                        {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
-                                        }
-                                        else
-                                        {
-                                            bHaveChanges = true;
-                                            sValue.Format(L"%ld", value);
-                                            iniFile.SetValue(L"registry_dword", sIniKeyName, sValue);
-                                        }
+                                            iniFile.Delete(L"registry_dword", sIniKeyName);
                                     }
-                                    if (bCloudIsNewer)
-                                        iniFile.Delete(L"registry_dword", sIniKeyName);
-                                }
-                                    break;
-                                case REG_QWORD:
-                                {
-                                    QWORD value = *(QWORD*)regbuf.get();
-                                    sValue = iniFile.GetValue(L"registry_qword", sIniKeyName);
-                                    QWORD nValue = QWORD(_wtoi64(sValue));
-                                    if (nValue != value)
+                                        break;
+                                    case REG_QWORD:
                                     {
+                                        QWORD value = *(QWORD*)regbuf.get();
+                                        sValue = iniFile.GetValue(L"registry_qword", sIniKeyName);
+                                        QWORD nValue = QWORD(_wtoi64(sValue));
+                                        if (nValue != value)
+                                        {
+                                            if (bCloudIsNewer)
+                                            {
+                                                RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
+                                            }
+                                            else
+                                            {
+                                                bHaveChanges = true;
+                                                sValue.Format(L"%I64d", value);
+                                                iniFile.SetValue(L"registry_qword", sIniKeyName, sValue);
+                                            }
+                                        }
                                         if (bCloudIsNewer)
-                                        {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
-                                        }
-                                        else
-                                        {
-                                            bHaveChanges = true;
-                                            sValue.Format(L"%I64d", value);
-                                            iniFile.SetValue(L"registry_qword", sIniKeyName, sValue);
-                                        }
+                                            iniFile.Delete(L"registry_qword", sIniKeyName);
                                     }
-                                    if (bCloudIsNewer)
-                                        iniFile.Delete(L"registry_qword", sIniKeyName);
-                                }
-                                    break;
-                                case REG_EXPAND_SZ:
-                                case REG_MULTI_SZ:
-                                case REG_SZ:
-                                {
-                                    sValue = (LPCWSTR)regbuf.get();
-                                    CString iniValue = iniFile.GetValue(L"registry_string", sIniKeyName);
-                                    if (iniValue != sValue)
+                                        break;
+                                    case REG_EXPAND_SZ:
+                                    case REG_MULTI_SZ:
+                                    case REG_SZ:
                                     {
+                                        sValue = (LPCWSTR)regbuf.get();
+                                        CString iniValue = iniFile.GetValue(L"registry_string", sIniKeyName);
+                                        if (iniValue != sValue)
+                                        {
+                                            if (bCloudIsNewer)
+                                            {
+                                                RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)(LPCWSTR)iniValue, (iniValue.GetLength() + 1)*sizeof(WCHAR));
+                                            }
+                                            else
+                                            {
+                                                bHaveChanges = true;
+                                                iniFile.SetValue(L"registry_string", sIniKeyName, sValue);
+                                            }
+                                        }
                                         if (bCloudIsNewer)
-                                        {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)(LPCWSTR)iniValue, (iniValue.GetLength() + 1)*sizeof(WCHAR));
-                                        }
-                                        else
-                                        {
-                                            bHaveChanges = true;
-                                            iniFile.SetValue(L"registry_string", sIniKeyName, sValue);
-                                        }
+                                            iniFile.Delete(L"registry_string", sIniKeyName);
                                     }
-                                    if (bCloudIsNewer)
-                                        iniFile.Delete(L"registry_string", sIniKeyName);
+                                        break;
                                 }
-                                    break;
                             }
                         }
                     }
-                }
-            } while (bEnum);
+                } while (bEnum);
+            } while (bEnumKeys);
         }
     }
 
     if (bCloudIsNewer)
     {
-        CString regpath = L"Software\\TortoiseSVN\\";
+        CString regpath = L"Software\\";
 
         CSimpleIni::TNamesDepend keys;
         iniFile.GetAllKeys(L"registry_dword", keys);
