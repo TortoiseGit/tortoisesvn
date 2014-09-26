@@ -280,6 +280,7 @@
     <ClCompile Include="Commands\SettingsCommand.cpp" />
     <ClCompile Include="Commands\ShowCompareCommand.cpp" />
     <ClCompile Include="Commands\SwitchCommand.cpp" />
+    <ClCompile Include="Commands\SyncCommand.cpp" />
     <ClCompile Include="Commands\UnIgnoreCommand.cpp" />
     <ClCompile Include="Commands\UnLockCommand.cpp" />
     <ClCompile Include="Commands\UpdateCheckCommand.cpp" />
@@ -608,6 +609,7 @@
     <ClInclude Include="Commands\SettingsCommand.h" />
     <ClInclude Include="Commands\ShowCompareCommand.h" />
     <ClInclude Include="Commands\SwitchCommand.h" />
+    <ClInclude Include="Commands\SyncCommand.h" />
     <ClInclude Include="Commands\UnIgnoreCommand.h" />
     <ClInclude Include="Commands\UnLockCommand.h" />
     <ClInclude Include="Commands\UpdateCheckCommand.h" />

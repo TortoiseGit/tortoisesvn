@@ -68,6 +68,7 @@
 #include "SettingsCommand.h"
 #include "ShowCompareCommand.h"
 #include "SwitchCommand.h"
+#include "SyncCommand.h"
 #include "UnIgnoreCommand.h"
 #include "UnLockCommand.h"
 #include "UpdateCheckCommand.h"
@@ -127,6 +128,7 @@ typedef enum
     cmdSettings,
     cmdShowCompare,
     cmdSwitch,
+    cmdSync,
     cmdUnIgnore,
     cmdUnlock,
     cmdUpdate,
@@ -190,6 +192,7 @@ static const struct CommandInfo
     {   cmdSettings,        L"settings"          },
     {   cmdShowCompare,     L"showcompare"       },
     {   cmdSwitch,          L"switch"            },
+    {   cmdSync,            L"sync"              },
     {   cmdUnIgnore,        L"unignore"          },
     {   cmdUnlock,          L"unlock"            },
     {   cmdUpdate,          L"update"            },
@@ -319,6 +322,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new ShowCompareCommand;
         case cmdSwitch:
             return new SwitchCommand;
+        case cmdSync:
+            return new SyncCommand;
         case cmdUnIgnore:
             return new UnIgnoreCommand;
         case cmdUnlock:

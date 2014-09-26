@@ -171,6 +171,9 @@
     <Filter Include="Commands\Monitor">
       <UniqueIdentifier>{997c6825-059b-49ae-b4b2-3729b98d2d83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Commands\Sync">
+      <UniqueIdentifier>{ed2e5dcd-b25e-4267-bee1-9929efa3a30a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -1081,6 +1084,9 @@
     </ClCompile>
     <ClCompile Include="MonitorOptionsDlg.cpp">
       <Filter>Commands\Monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\SyncCommand.cpp">
+      <Filter>Commands\Sync</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2067,6 +2073,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\OnOutOfScope.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\SyncCommand.h">
+      <Filter>Commands\Sync</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
