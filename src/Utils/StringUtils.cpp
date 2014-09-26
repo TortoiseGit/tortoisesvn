@@ -717,7 +717,7 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
                     {
                         // copy encrypted password to temporary buffer
                         memcpy(buffer.get(), strIn.get(), s.size());
-                        dwLength = s.size() / 2;
+                        dwLength = DWORD(s.size() / 2);
                         CryptDecrypt(hKey, 0, true, 0, (BYTE *)buffer.get(), &dwLength);
                         decryptstring = std::string((char*)buffer.get(), dwLength);
                         if (!decryptstring.empty() && (decryptstring[0] == '*'))
