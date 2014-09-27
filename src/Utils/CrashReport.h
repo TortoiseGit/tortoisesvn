@@ -345,48 +345,29 @@ public:
     CCrashReportTSVN(LPCTSTR appname, bool bOwnProcess = true)
         : m_nInstallStatus(0)
     {
-        char s_month[6] = { 0 };
-        int month, day, year;
-        struct tm t = {0};
-        static const char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
-        sscanf_s(__DATE__, "%s %d %d", s_month, (unsigned int)_countof(s_month)-1, &day, &year);
-        month = (int)((strstr(month_names, s_month)-month_names))/3;
+        ApplicationInfo appInfo;
+        SecureZeroMemory(&appInfo, sizeof(appInfo));
+        appInfo.ApplicationInfoSize = sizeof(ApplicationInfo);
+        appInfo.ApplicationGUID = "71040f62-f78a-4953-b5b3-5c148349fed7";
+        appInfo.Prefix = "tsvn";
+        appInfo.AppName = appname;
+        appInfo.Company = L"TortoiseSVN";
 
-        t.tm_mon = month;
-        t.tm_mday = day;
-        t.tm_year = year - 1900;
-        t.tm_isdst = -1;
-        __time64_t compiletime = _mktime64(&t);
+        appInfo.Hotfix = 0;
+        appInfo.V[0] = TSVN_VERMAJOR;
+        appInfo.V[1] = TSVN_VERMINOR;
+        appInfo.V[2] = TSVN_VERMICRO;
+        appInfo.V[3] = TSVN_VERBUILD;
 
-        __time64_t now;
-        _time64(&now);
+        HandlerSettings handlerSettings;
+        SecureZeroMemory(&handlerSettings, sizeof(handlerSettings));
+        handlerSettings.HandlerSettingsSize = sizeof(handlerSettings);
+        handlerSettings.LeaveDumpFilesInTempFolder = FALSE;
+        handlerSettings.UseWER = FALSE;
+        handlerSettings.OpenProblemInBrowser = TRUE;
+        handlerSettings.SubmitterID = 0;
 
-        if ((now - compiletime)<(60*60*24*31*3))
-        {
-            ApplicationInfo appInfo;
-            SecureZeroMemory(&appInfo, sizeof(appInfo));
-            appInfo.ApplicationInfoSize = sizeof(ApplicationInfo);
-            appInfo.ApplicationGUID = "71040f62-f78a-4953-b5b3-5c148349fed7";
-            appInfo.Prefix = "tsvn";
-            appInfo.AppName = appname;
-            appInfo.Company = L"TortoiseSVN";
-
-            appInfo.Hotfix = 0;
-            appInfo.V[0] = TSVN_VERMAJOR;
-            appInfo.V[1] = TSVN_VERMINOR;
-            appInfo.V[2] = TSVN_VERMICRO;
-            appInfo.V[3] = TSVN_VERBUILD;
-
-            HandlerSettings handlerSettings;
-            SecureZeroMemory(&handlerSettings, sizeof(handlerSettings));
-            handlerSettings.HandlerSettingsSize = sizeof(handlerSettings);
-            handlerSettings.LeaveDumpFilesInTempFolder = FALSE;
-            handlerSettings.UseWER = FALSE;
-            handlerSettings.OpenProblemInBrowser = TRUE;
-            handlerSettings.SubmitterID = 0;
-
-            CCrashReport::Instance().InitCrashHandler(&appInfo, &handlerSettings, bOwnProcess);
-        }
+        CCrashReport::Instance().InitCrashHandler(&appInfo, &handlerSettings, bOwnProcess);
     }
 
 
