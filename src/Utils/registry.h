@@ -27,6 +27,10 @@
 #define ASSERT(x)
 #endif
 
+#ifndef QWORD
+typedef unsigned __int64 QWORD, *PQWORD;
+#endif
+
 /**
  * \ingroup Utils
  * Base class for the registry classes.
