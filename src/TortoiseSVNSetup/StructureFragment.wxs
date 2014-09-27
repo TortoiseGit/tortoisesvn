@@ -82,12 +82,9 @@
 
             <?if $(env.IncludeCrashReportDll) = 1 ?>
             <Component Id="C__crash" Guid="$(var.GuidCrashRpt)" Win64="$(var.Win64YesNo)">
-              <!--
-              <File Id="F__crashrpt" Name="CrashRpt1300.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\CrashRpt1300.dll" KeyPath="yes" />
-              <File Id="F__crashsender" Name="CrashSender1300.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\CrashSender1300.exe" />
-              <File Id="F__crashlang" Name="crashrpt_lang.ini" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\crashrpt_lang.ini" />
-              -->
               <File Id="F__crashrpt" Name="crshhndl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\crshhndl.dll" KeyPath="yes" />
+              <File Id="F__sendrpt" Name="sendrpt.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\sendrpt.exe" />
+              <File Id="F__dbghelp" Name="dbghelp.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\dbghelp.dll" />
             </Component>
             <?endif ?>
 

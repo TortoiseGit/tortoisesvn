@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <ExternalDir>$(SolutionDir)..\external\</ExternalDir>
-    <GsoapDir>$(ExternalDir)gsoap-win32-2.8.0</GsoapDir>
+    <GsoapDir>$(SolutionDir)..\CrashHandler\DumpUploaderServiceLib</GsoapDir>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)out\$(Platform)\$(Configuration)\</OutDir>

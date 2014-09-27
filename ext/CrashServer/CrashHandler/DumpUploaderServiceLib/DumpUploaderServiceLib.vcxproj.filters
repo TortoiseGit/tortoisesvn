@@ -9,6 +9,10 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
     <Filter Include="DumpUploadService Files">
       <UniqueIdentifier>{db00495d-2b06-45d8-8086-64902f518c55}</UniqueIdentifier>
     </Filter>
@@ -23,14 +27,14 @@
     <ClCompile Include="gsoapWinInet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stdsoap2.cpp">
+      <Filter>Gsoap Files</Filter>
+    </ClCompile>
     <ClCompile Include="generated\soapC.cpp">
       <Filter>DumpUploadService Files</Filter>
     </ClCompile>
-    <ClCompile Include="generated\soapUploaderSoapProxy.cpp">
+    <ClCompile Include="generated\soapCustomBinding_DumpUploadService3_UploaderProxy.cpp">
       <Filter>DumpUploadService Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\external\gsoap-win32-2.8.0\stdsoap2.cpp">
-      <Filter>Gsoap Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,13 +44,16 @@
     <ClInclude Include="gsoapWinInet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="generated\DumpUploader.h">
+      <Filter>DumpUploadService Files</Filter>
+    </ClInclude>
     <ClInclude Include="generated\soapH.h">
       <Filter>DumpUploadService Files</Filter>
     </ClInclude>
     <ClInclude Include="generated\soapStub.h">
       <Filter>DumpUploadService Files</Filter>
     </ClInclude>
-    <ClInclude Include="generated\soapUploaderSoapProxy.h">
+    <ClInclude Include="generated\soapCustomBinding_DumpUploadService3_UploaderProxy.h">
       <Filter>DumpUploadService Files</Filter>
     </ClInclude>
   </ItemGroup>

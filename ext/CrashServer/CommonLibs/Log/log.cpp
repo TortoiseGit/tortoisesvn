@@ -1,8 +1,8 @@
-// Copyright 2012, 2014 Idol Software, Inc.
+// Copyright 2014 Idol Software, Inc.
 //
-// This file is part of CrashHandler library.
+// This file is part of Doctor Dump SDK.
 //
-// CrashHandler library is free software: you can redistribute it and/or modify
+// Doctor Dump SDK is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
@@ -199,6 +199,8 @@ void FormatLogMessage(ELogMessageType type,
         output += _T("] ");
 #else
         output += _T(" ");
+        output += pszThreadId;
+        output += _T(" ");
 #endif
 
         switch (type)
@@ -219,7 +221,7 @@ void FormatLogMessage(ELogMessageType type,
             ASSERT(false);
         }
 
-        if (nLevel>0)
+        if (nLevel > 0)
             output.AppendFormat(_T("%i"), nLevel);
         else
             output += _T(' ');
@@ -266,7 +268,7 @@ void FormatLogMessage(ELogMessageType type,
         ASSERT(false);
     }
 
-    if (nLevel>0)
+    if (nLevel > 0)
         output.AppendFormat(_T("%i"), nLevel);
     output += _T('\t');
     output += pszMessage;
@@ -341,20 +343,10 @@ CString GetSystemInformation()
             case 1: info += rcOS.wProductType == VER_NT_WORKSTATION ? _T("7") : _T("Server 2008 R2"); break;
             case 2: info += rcOS.wProductType == VER_NT_WORKSTATION ? _T("8") : _T("Server 2012"); break;
             case 3: info += rcOS.wProductType == VER_NT_WORKSTATION ? _T("8.1") : _T("Server 2012 R2"); break;
-            default:
-            {
-                CString future;
-                future.Format(_T("%ld.%ld%s"), rcOS.dwMajorVersion, rcOS.dwMinorVersion, VER_NT_WORKSTATION ? _T("") : _T(" Server"));
-                info += future;
-                break;
+            default: ASSERT(false); info.AppendFormat(_T("%sV%d.%d.%d"), rcOS.wProductType == VER_NT_WORKSTATION ? _T("") : _T("Server "), rcOS.dwMajorVersion, rcOS.dwMinorVersion, rcOS.dwBuildNumber); break;
             }
             break;
-        default:
-        {
-            CString future;
-            future.Format(_T("%ld.%ld%s"), rcOS.dwMajorVersion, rcOS.dwMinorVersion, VER_NT_WORKSTATION ? _T("") : _T(" Server"));
-            info += future;
-            break;
+        default: ASSERT(false); info.AppendFormat(_T("%sV%d.%d.%d"), rcOS.wProductType == VER_NT_WORKSTATION ? _T("") : _T("Server "), rcOS.dwMajorVersion, rcOS.dwMinorVersion, rcOS.dwBuildNumber); break;
         }
         if (_tcslen(rcOS.szCSDVersion) > 0)
         {
@@ -370,35 +362,33 @@ CString GetModuleInformation()
 {
     CString info;
     TCHAR szApp[MAX_PATH];
-    if(!GetModuleFileName(NULL, szApp, MAX_PATH))
+    if (!GetModuleFileName(NULL, szApp, _countof(szApp)))
         return info;
 
     info = szApp;
 
     DWORD dwDummy;
-    DWORD dwInfoSize;
-
-    dwInfoSize = GetFileVersionInfoSize(szApp, &dwDummy);
-    if(dwInfoSize)
+    DWORD dwInfoSize = GetFileVersionInfoSize(szApp, &dwDummy);
+    if (dwInfoSize)
     {
         LPVOID pInfoBuffer = _alloca(dwInfoSize);
-        if(GetFileVersionInfo(szApp, 0, dwInfoSize, pInfoBuffer))
+        if (GetFileVersionInfo(szApp, 0, dwInfoSize, pInfoBuffer))
         {
             VS_FIXEDFILEINFO *pInfo = NULL;
-            UINT InfoSize = 0;
-            if(VerQueryValue (pInfoBuffer, _T("\\"), (LPVOID *)&pInfo, &InfoSize) && InfoSize == sizeof(VS_FIXEDFILEINFO))
+            UINT nInfoSize = 0;
+            if (VerQueryValue (pInfoBuffer, _T("\\"), (LPVOID *)&pInfo, &nInfoSize) && nInfoSize == sizeof(VS_FIXEDFILEINFO))
             {
-                CString strVersion;
-                strVersion.Format(_T(" (%d.%d.%d.%d)"),
+                info.AppendFormat(_T(" (%d.%d.%d.%d)"),
                             HIWORD(pInfo->dwFileVersionMS),
                             LOWORD(pInfo->dwFileVersionMS),
                             HIWORD(pInfo->dwFileVersionLS),
                             LOWORD(pInfo->dwFileVersionLS)
                         );
-                info += strVersion;
             }
         }
     }
+
+    info.AppendFormat(_T(" PID: %d (0x%x)"), GetCurrentProcessId(), GetCurrentProcessId());
 
     return info;
 }
@@ -487,105 +477,11 @@ FileMedia::FileMedia(LPCTSTR pszFilename, bool bAppend, bool bFlush, bool bNewFi
     m_sOrigFilename(pszFilename)
 {
     OpenLogFile();
-//  SYSTEMTIME st;
-//  GetLocalTime(&st);
-//
-//  m_sFilename = pszFilename;
-//  m_sFilename.Replace(_T("%DATETIME%"), _T("%DATE% %TIME%"));
-//  if (m_sFilename.Find(_T("%DATE%")) != -1)
-//  {
-//      TCHAR bufdate[128];
-//      _stprintf_s(bufdate, _T("%i-%02i-%02i"), st.wYear, st.wMonth, st.wDay);
-//      m_sFilename.Replace(_T("%DATE%"), bufdate);
-//  }
-//  if (m_sFilename.Find(_T("%TIME%")) != -1)
-//  {
-//      GetLocalTime(&st);
-//      TCHAR buftime[128];
-//      _stprintf_s(buftime, _T("%02i-%02i"), st.wHour, st.wMinute);
-//      m_sFilename.Replace(_T("%TIME%"), buftime);
-//  }
-//
-//  if (!CreateFileDir(m_sFilename))
-//  {
-//      _RPT1(_CRT_ERROR, "FileMedia: Can't create folder '%S'", (LPCWSTR) m_sFilename);
-//      return;
-//  }
-//
-//
-//  // Создадим для доступа к этому файлу мьютекс
-//  CString sMtx(m_sFilename);
-//  sMtx.ToUpper();
-//  for (CString::iterator it = sMtx.begin(), end = sMtx.end(); it != end; ++it)
-//  {
-//      if (!_istalnum(*it))
-//          *it = _T('_');
-//  }
-//  m_hMutex = CreateMutex(NULL, TRUE, (LPCTSTR)sMtx);
-//  DWORD dwMtxError = GetLastError();
-//
-//  m_hFile = CreateFile(m_sFilename,
-//      GENERIC_WRITE,
-//      FILE_SHARE_READ | FILE_SHARE_WRITE,
-//      NULL,
-//      (bAppend || dwMtxError == ERROR_ALREADY_EXISTS) ? OPEN_ALWAYS : CREATE_ALWAYS,
-//      FILE_ATTRIBUTE_NORMAL,
-//      NULL);
-//
-//  if (m_hFile == INVALID_HANDLE_VALUE)
-//  {
-//      if (dwMtxError != ERROR_ALREADY_EXISTS)
-//          VERIFY(ReleaseMutex(m_hMutex));
-//      m_hMutex.Close();
-//      return;
-//  }
-//
-//  if (dwMtxError != ERROR_ALREADY_EXISTS)
-//  {
-//      CString header;
-//      header.Format(
-//          _T("================================================\r\n")
-//          _T("=== Trace Log Started on %i-%02i-%02i %02i:%02i:%02i ===\r\n")
-//          _T("=== %s ===\r\n")
-//          _T("================================================\r\n")
-//          _T("\r\n%s\r\n\r\n")
-//          , st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond
-//          , (LPCTSTR)GetSystemInformation()
-//          , (LPCTSTR)GetModuleInformation());
-//
-//      LONG dwDistanceToMoveHigh = 0; // Нужен, чтобы писать в файлы больше 4Гб
-//      VERIFY(SetFilePointer(m_hFile, 0, &dwDistanceToMoveHigh, FILE_END) != INVALID_SET_FILE_POINTER || GetLastError() == NO_ERROR);
-//      CStringA headerA = header;
-//      DWORD dwWritten;
-////        VERIFY(WriteFile(m_hFile, (LPCTSTR)header, (DWORD)header.size() * sizeof(TCHAR), &dwWritten, NULL));
-//      VERIFY(WriteFile(m_hFile, (LPCSTR)headerA, (DWORD)headerA.size() * sizeof(CHAR), &dwWritten, NULL));
-//      if (m_hMutex != NULL)
-//          VERIFY(ReleaseMutex(m_hMutex));
-//  }
 }
 
 FileMedia::~FileMedia()
 {
     CloseLogFile();
-//  if (m_hFile != INVALID_HANDLE_VALUE && WaitForSingleObject(m_hMutex, 1000) != WAIT_TIMEOUT)
-//  {
-//      SYSTEMTIME st;
-//      GetLocalTime(&st);
-//      CString header;
-//      header.Format(
-//          _T("=================================================\r\n")
-//          _T("=== Trace Log Finished on %i-%02i-%02i %02i:%02i:%02i ===\r\n")
-//          _T("=================================================\r\n")
-//          , st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
-//
-//      LONG dwDistanceToMoveHigh = 0; // Нужен, чтобы писать в файлы больше 4Гб
-//      VERIFY(SetFilePointer(m_hFile, 0, &dwDistanceToMoveHigh, FILE_END) != INVALID_SET_FILE_POINTER || GetLastError() == NO_ERROR);
-//      CStringA headerA = header;
-//      DWORD dwWritten;
-////        VERIFY(WriteFile(m_hFile, (LPCTSTR)header, (DWORD) header.size() * sizeof(TCHAR), &dwWritten, NULL));
-//      VERIFY(WriteFile(m_hFile, (LPCSTR)headerA, (DWORD) headerA.size() * sizeof(CHAR), &dwWritten, NULL));
-//      VERIFY(ReleaseMutex(m_hMutex));
-//  }
 }
 
 void FileMedia::CloseLogFile()
@@ -691,7 +587,6 @@ void FileMedia::OpenLogFile()
         VERIFY(SetFilePointer(m_hFile, 0, &dwDistanceToMoveHigh, FILE_END) != INVALID_SET_FILE_POINTER || GetLastError() == NO_ERROR);
         CStringA headerA = header;
         DWORD dwWritten;
-//      VERIFY(WriteFile(m_hFile, (LPCTSTR)header, (DWORD)header.size() * sizeof(TCHAR), &dwWritten, NULL));
         VERIFY(WriteFile(m_hFile, (LPCSTR)headerA, (DWORD)headerA.GetLength() * sizeof(CHAR), &dwWritten, NULL));
         if (m_hMutex != NULL)
             VERIFY(ReleaseMutex(m_hMutex));
@@ -748,7 +643,6 @@ void FileMedia::Write(ELogMessageType type, ELogMessageLevel nLevel, LPCTSTR psz
     CStringA outputA = output;
 
     DWORD dwWritten;
-//  VERIFY(WriteFile(m_hFile, (LPCTSTR)output, (DWORD) output.size() * sizeof(TCHAR), &dwWritten, NULL));
     VERIFY(WriteFile(m_hFile, (LPCSTR)outputA, (DWORD) outputA.GetLength() * sizeof(CHAR), &dwWritten, NULL));
     if (m_bFlush)
         VERIFY(FlushFileBuffers(m_hFile));
