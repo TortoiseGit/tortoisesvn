@@ -24,6 +24,7 @@
 #include "SmartHandle.h"
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
 
 
 // registry entries
@@ -70,6 +71,7 @@ std::vector<CString> regBlockArray = {
 
 bool SyncCommand::Execute()
 {
+    bool bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
 
@@ -334,6 +336,113 @@ bool SyncCommand::Execute()
             reg = CString(iniFile.GetValue(L"registry_string", k, L""));
         }
     }
+    // sync project monitor settings
+    CString sDataFilePath = CPathUtils::GetAppDataDirectory();
+    sDataFilePath += L"\\MonitoringData.ini";
+    CSimpleIni monitorIni;
+    if (bCloudIsNewer)
+    {
+        CSimpleIni origMonitorIni;
+        origMonitorIni.LoadFile(sDataFilePath);
+
+        CSimpleIni::TNamesDepend keys;
+        iniFile.GetAllKeys(L"ini_monitor", keys);
+        for (const auto& k : keys)
+        {
+            CString sKey = k;
+            CString sSection = sKey.Left(sKey.Find('.'));
+            sKey = sKey.Mid(sKey.Find('.') + 1);
+            if (sKey.CompareNoCase(L"name") == 0)
+            {
+                // make sure the non-synced values are still used
+                monitorIni.SetValue(sSection, L"lastchecked", origMonitorIni.GetValue(sSection, L"lastchecked", L"0"));
+                monitorIni.SetValue(sSection, L"lastcheckedrobots", origMonitorIni.GetValue(sSection, L"lastcheckedrobots", L"0"));
+                monitorIni.SetValue(sSection, L"lastHEAD", origMonitorIni.GetValue(sSection, L"lastHEAD", L"0"));
+                monitorIni.SetValue(sSection, L"UnreadItems", origMonitorIni.GetValue(sSection, L"UnreadItems", L"0"));
+                monitorIni.SetValue(sSection, L"unreadFirst", origMonitorIni.GetValue(sSection, L"unreadFirst", L"0"));
+            }
+            CString sValue = CString(iniFile.GetValue(L"ini_monitor", k, L""));
+            if ((sKey.Compare(L"username") == 0) || (sKey.Compare(L"password") == 0))
+            {
+                sValue = CStringUtils::Encrypt(sValue);
+            }
+            monitorIni.SetValue(sSection, sKey, sValue);
+        }
+        FILE * pFile = NULL;
+        _tfopen_s(&pFile, sDataFilePath, L"wb");
+        monitorIni.SaveFile(pFile);
+        fclose(pFile);
+        // TODO: now send a message to a possible running monitor to force it
+        // to reload the ini file. Otherwise it would overwrite the ini
+        // file without using the synced data!
+    }
+    else
+    {
+        monitorIni.LoadFile(sDataFilePath);
+        CSimpleIni::TNamesDepend mitems;
+        monitorIni.GetAllSections(mitems);
+        for (const auto& mitem : mitems)
+        {
+            CString sSection = mitem;
+            CString Name = monitorIni.GetValue(mitem, L"Name", L"");
+            if (!Name.IsEmpty())
+            {
+                iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
+                CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
+                CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
+
+                newval = monitorIni.GetValue(mitem, L"interval", L"5");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".interval", newval);
+
+                newval = monitorIni.GetValue(mitem, L"minminutesinterval", L"0");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".minminutesinterval", L"0");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".minminutesinterval", newval);
+
+                newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"username", L"")).get();
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".username", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".username", newval);
+
+                newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"password", L"")).get();
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".password", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".password", newval);
+
+                newval = monitorIni.GetValue(mitem, L"MsgRegex", L"");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".MsgRegex", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".MsgRegex", newval);
+
+                newval = monitorIni.GetValue(mitem, L"ignoreauthors", L"");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ignoreauthors", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".ignoreauthors", newval);
+
+                newval = monitorIni.GetValue(mitem, L"parentTreePath", L"");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newval);
+            }
+            else if (sSection.CompareNoCase(L"global") == 0)
+            {
+                CString newval = monitorIni.GetValue(mitem, L"PlaySound", L"1");
+                CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".PlaySound", L"1");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".PlaySound", newval);
+
+                newval = monitorIni.GetValue(mitem, L"ShowNotifications", L"1");
+                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ShowNotifications", L"1");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_monitor", sSection + L".ShowNotifications", newval);
+            }
+        }
+    }
+
 
     if (bHaveChanges)
     {
@@ -355,7 +464,9 @@ bool SyncCommand::Execute()
             WriteFile(hFile, encrypted.c_str(), DWORD(encrypted.size()), &written, NULL);
         }
 
-        return true;
+        bRet = true;
     }
-    return false;
+
+
+    return bRet;
 }
