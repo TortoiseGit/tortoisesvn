@@ -992,15 +992,11 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         pMsgView->SetRedraw(FALSE);
         OnOutOfScope(pMsgView->SetRedraw(TRUE); pMsgView->Invalidate());
 
-        // the rich edit control doesn't count the CR char!
-        // to be exact: CRLF is treated as one char.
-
         SMarkerInfo info;
         if (m_bSingleRevision)
         {
             info.sText = CUnicodeUtils::GetUnicode
                             (pLogEntry->GetMessage().c_str());
-            info.sText.Remove(L'\r');
         }
         else
         {
@@ -1008,6 +1004,11 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
             m_currentChangedPathList = GetChangedPathsAndMessageSketchFromSelectedRevisions(info.sText,
                                                                                     m_currentChangedArray);
         }
+
+        // the rich edit control doesn't count the CR char!
+        // to be exact: CRLF is treated as one char.
+        info.sText.Remove(L'\r');
+
         info.text = info.sText;
 
         async::CFuture<BOOL> regexRunner ( &info
