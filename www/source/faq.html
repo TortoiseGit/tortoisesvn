@@ -62,7 +62,6 @@
                         <li><a href="#noauthor">Why is there no 'author' shown in the logs when I commit changes via svn+ssh?</a></li>
                         <li><a href="#detectmodification">Why does TortoiseSVN not recognize that a file has been modified?</a></li>
                         <li><a href="#commitremoved">When I remove a file it vanishes, how do I commit it?</a></li>
-                        <li><a href="#garbleddate">I get garbage text shown instead of dates, or a checkout/update even crashes!</a></li>
                         <li><a href="#powerdesk">The explorer crashes on every right-click on a folder with PowerDesk installed.</a></li>
                         <li><a href="#samba">Permission problems with working copies on a SAMBA share.</a></li>
                         <li><a href="#slowbrowse">Browsing very slow in explorer and file/open dialog.</a></li>
@@ -370,19 +369,11 @@
 
                         <div class="h3" id="repoonshare">
                         <h3>Can I create a local repository on a network directory?</h3>
-                        <p><strong>Do not create a Berkeley DB repository on a network share!</strong></p>
-                        <p>A BDB repository <em>cannot</em> exist on a remote filesystem such as NFS, AFS, or Windows SMB.
-                        Berkeley DB requires that the underlying filesystem implement strict POSIX locking
-                        semantics, and more importantly, the ability to map files directly into process
-                        memory. Almost no network filesystems provide these features. If you attempt to
-                        use Berkeley DB on a network share, the results are unpredictable. You may see
-                        mysterious errors right away, or it may be months before you discover that your
-                        repository database is subtly corrupted.</p>
-                        <p>You can use an FSFS repository on a network share, but only as a single user
+                        <p>You can use a repository on a network share, but only as a single user
                         as you would use a local hard drive. The next FAQ item explains why sharing a repository
                         in this way is a Bad Idea (TM). Unless you have really pressing reasons to keep your
                         repository on a network share it is generally best to avoid doing so.</p>
-                        <p>If you <em>really</em> need to access an FSFS repository on a network share you
+                        <p>If you <em>really</em> need to access a repository on a network share you
                         should do one of the following:</p>
                         <ol>
                             <li>Use drive mapping using the syntax below:
@@ -407,8 +398,7 @@
                         <div class="h3" id="reponoserver">
                         <h3>Can I keep my repository on a network share instead of setting up a server?</h3>
                         <p>If you need multiple computers to access the repository, you can in theory create
-                        an FSFS repository (<strong>but not a BDB repository</strong>) on a network share
-                        and access it using file:// protocol.
+                        a repository on a network share and access it using file:// protocol.
                         In practice this is <strong>not</strong> recommended for four very good reasons:</p>
                         <ol>
                             <li>You are giving direct write access to all users, so they could accidentally
@@ -450,7 +440,7 @@
                         <div class="h3" id="eol">
                         <h3>Can TortoiseSVN convert line breaks in text files on the fly?</h3>
                         <p>
-                        Check the subversion book about the svn:eol-style property <a title="svn:eol-style" href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">here</a>.
+                        Check the subversion book about the <em>svn:eol-style</em> property <a title="svn:eol-style" href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">here</a>.
                         If you set that property to e.g. 'native', then the file will have LF line-endings on Linux, but CRLF line-endings on Windows.
                         To see how you can set those properties with TortoiseSVN, read our docs <a title="setting properties" href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.
                         </p>
@@ -593,18 +583,6 @@
                         show you every modification as well as added or deleted files.</p>
                         </div>
 
-                        <div class="h3" id="garbleddate">
-                        <h3>I get garbage text shown instead of dates, or a checkout/update even crashes!</h3>
-                        <p>This usually happens after installing XP SP3. To fix this problem, do the following:</p>
-                        <ol>
-                            <li>Download tzedit.exe from <a href="http://support.microsoft.com/kb/914387">http://support.microsoft.com/kb/914387</a></li>
-                            <li>Start tzedit.exe</li>
-                            <li>Select your time zone from the list (Since all crash reports I got indicated they were from the "Jerusalem" time zone, I assume you'd have to select that)</li>
-                            <li>click "Edit"</li>
-                            <li>click "Ok"</li>
-                        </ol>
-                        </div>
-
                         <div class="h3" id="powerdesk">
                         <h3>The explorer crashes on every right-click on a folder with PowerDesk installed.</h3>
                         <p>This is a bug in PowerDesk. You have to install a patch from their website to fix
@@ -682,6 +660,7 @@ force security mode = 0600</pre>
                         <p>We have this policy to prevent getting new bugs into the stable branch. After all, it's called the <em>stable</em> branch.</p>
                         <p>Your requested feature/reported bug, even though it is fixed/implemented on trunk was not merged back to
                         the stable branch due to this policy. That's why you don't see the change in the latest release.</p>
+                        <p>You can use a nightly build if you feel adventerous though: <a href="http://nightlybuilds.tortoisesvn.net/latest/">http://nightlybuilds.tortoisesvn.net/latest/</a></p>
                         </div>
 
                         <div class="h3" id="eclipse">
