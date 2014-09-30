@@ -73,7 +73,7 @@
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
                         <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
                         <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
-                        <li><a href="#useserf">How do I make GSSAPI authentication work?</a></li>
+                        <li><a href="#debug">Where are the debug symbols?</a></li>
                     </ul>
 
                     <h3>How can I...</h3>
@@ -725,22 +725,15 @@ force security mode = 0600</pre>
                         </p>
                         </div>
 
-                        <div class="h3" id="useserf">
-                        <h3>How do I make GSSAPI authentication work?</h3>
-                        <p>The 'neon' http library, which is the default for a TortoiseSVN installation,
-                        has problems with GSSAPI, but the 'serf' library should work. TSVN is linked with
-                        both of those DAV libraries, you can configure which one to use in the subversion
-                        server file. Go to TSVN->Settings->Network->Subversion server file->Edit.</p>
-                        <ol>
-                            <li>In TortoiseSVN->Settings->Network->Subversion server file, click on the edit button.</li>
-                            <li>At the bottom of the file change the [global] section by editing the http-library
-                            entry (or adding it if it is missing)
-                            <pre>
-[global]
-http-library = serf</pre>
-                            </li>
-                        </ol>
-                        Note that this change will affect all Subversion clients on your PC.
+                        <div class="h3" id="debug">
+                        <h3>Where are the debug symbols?</h3>
+                        <p>All debug symbols, both for the official releases and the
+                        nightly builds are hosted on <a href="https://drdump.com">DrDump.com</a></p>
+                        <p>To access the debug symbols, configure your debugger to use the
+                        symbol server at <em>http://www.crash-server.com:8080/public/tsvn/71040F62-F78A-4953-B5B3-5C148349FED7/symsrv</em></p>
+                        <p>To figure out how to use a debug symbol server, have
+                        look at this <a href="https://support.microsoft.com/kb/311503">article</a>.
+                        </p>
                         </div>
 
                     </div>
