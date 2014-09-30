@@ -134,7 +134,7 @@
                             普通用户并没有权限做到这一点（特别是在打开UAC的Vista上）。</li>
                             <li>可以非常简单的通过GPO分发MSI给同一个域上的不同用户或主机。所有的其他安装方式都需要系统管理员先进行‘打包’操作，而MSI自己已经做好了这一切。</li>
                             <li>MSI 是一个安装 Windows 应用程序的标准和推荐的方法。它现在更是从Microsoft取得 "Vista认证"。</li>
-                            <li><a href="http://wix.sourceforge.net">WiX</a> 是一个非常强大的创建MSI文件的开源软件工具，这也是我们正在使用的。</li>
+                            <li><a href="http://wixtoolset.org/">WiX</a> 是一个非常强大的创建MSI文件的开源软件工具，这也是我们正在使用的。</li>
                             <li>MSI 非常小心的处理安装模块的引用计数以避免所谓的 <a href="http://en.wikipedia.org/wiki/DLL_hell">dll hell</a> 。</li>
                             <li>我们不得不通过安装包注册包括shell扩展的TortoiseSVN。一个简单的exe文件根本不可能做到这一点。</li>
                         </ul>
