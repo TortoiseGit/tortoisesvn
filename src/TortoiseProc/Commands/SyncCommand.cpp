@@ -336,109 +336,158 @@ bool SyncCommand::Execute()
             reg = CString(iniFile.GetValue(L"registry_string", k, L""));
         }
     }
-    // sync project monitor settings
-    CString sDataFilePath = CPathUtils::GetAppDataDirectory();
-    sDataFilePath += L"\\MonitoringData.ini";
-    CSimpleIni monitorIni;
-    if (bCloudIsNewer)
     {
-        CSimpleIni origMonitorIni;
-        origMonitorIni.LoadFile(sDataFilePath);
-
-        CSimpleIni::TNamesDepend keys;
-        iniFile.GetAllKeys(L"ini_monitor", keys);
-        for (const auto& k : keys)
+        // sync project monitor settings
+        CString sDataFilePath = CPathUtils::GetAppDataDirectory();
+        sDataFilePath += L"\\MonitoringData.ini";
+        CSimpleIni monitorIni;
+        if (bCloudIsNewer)
         {
-            CString sKey = k;
-            CString sSection = sKey.Left(sKey.Find('.'));
-            sKey = sKey.Mid(sKey.Find('.') + 1);
-            if (sKey.CompareNoCase(L"name") == 0)
+            CSimpleIni origMonitorIni;
+            origMonitorIni.LoadFile(sDataFilePath);
+
+            CSimpleIni::TNamesDepend keys;
+            iniFile.GetAllKeys(L"ini_monitor", keys);
+            for (const auto& k : keys)
             {
-                // make sure the non-synced values are still used
-                monitorIni.SetValue(sSection, L"lastchecked", origMonitorIni.GetValue(sSection, L"lastchecked", L"0"));
-                monitorIni.SetValue(sSection, L"lastcheckedrobots", origMonitorIni.GetValue(sSection, L"lastcheckedrobots", L"0"));
-                monitorIni.SetValue(sSection, L"lastHEAD", origMonitorIni.GetValue(sSection, L"lastHEAD", L"0"));
-                monitorIni.SetValue(sSection, L"UnreadItems", origMonitorIni.GetValue(sSection, L"UnreadItems", L"0"));
-                monitorIni.SetValue(sSection, L"unreadFirst", origMonitorIni.GetValue(sSection, L"unreadFirst", L"0"));
+                CString sKey = k;
+                CString sSection = sKey.Left(sKey.Find('.'));
+                sKey = sKey.Mid(sKey.Find('.') + 1);
+                if (sKey.CompareNoCase(L"name") == 0)
+                {
+                    // make sure the non-synced values are still used
+                    monitorIni.SetValue(sSection, L"lastchecked", origMonitorIni.GetValue(sSection, L"lastchecked", L"0"));
+                    monitorIni.SetValue(sSection, L"lastcheckedrobots", origMonitorIni.GetValue(sSection, L"lastcheckedrobots", L"0"));
+                    monitorIni.SetValue(sSection, L"lastHEAD", origMonitorIni.GetValue(sSection, L"lastHEAD", L"0"));
+                    monitorIni.SetValue(sSection, L"UnreadItems", origMonitorIni.GetValue(sSection, L"UnreadItems", L"0"));
+                    monitorIni.SetValue(sSection, L"unreadFirst", origMonitorIni.GetValue(sSection, L"unreadFirst", L"0"));
+                }
+                CString sValue = CString(iniFile.GetValue(L"ini_monitor", k, L""));
+                if ((sKey.Compare(L"username") == 0) || (sKey.Compare(L"password") == 0))
+                {
+                    sValue = CStringUtils::Encrypt(sValue);
+                }
+                monitorIni.SetValue(sSection, sKey, sValue);
             }
-            CString sValue = CString(iniFile.GetValue(L"ini_monitor", k, L""));
-            if ((sKey.Compare(L"username") == 0) || (sKey.Compare(L"password") == 0))
-            {
-                sValue = CStringUtils::Encrypt(sValue);
-            }
-            monitorIni.SetValue(sSection, sKey, sValue);
+            FILE * pFile = NULL;
+            _tfopen_s(&pFile, sDataFilePath, L"wb");
+            monitorIni.SaveFile(pFile);
+            fclose(pFile);
+            // TODO: now send a message to a possible running monitor to force it
+            // to reload the ini file. Otherwise it would overwrite the ini
+            // file without using the synced data!
         }
-        FILE * pFile = NULL;
-        _tfopen_s(&pFile, sDataFilePath, L"wb");
-        monitorIni.SaveFile(pFile);
-        fclose(pFile);
-        // TODO: now send a message to a possible running monitor to force it
-        // to reload the ini file. Otherwise it would overwrite the ini
-        // file without using the synced data!
-    }
-    else
-    {
-        monitorIni.LoadFile(sDataFilePath);
-        CSimpleIni::TNamesDepend mitems;
-        monitorIni.GetAllSections(mitems);
-        for (const auto& mitem : mitems)
+        else
         {
-            CString sSection = mitem;
-            CString Name = monitorIni.GetValue(mitem, L"Name", L"");
-            if (!Name.IsEmpty())
+            monitorIni.LoadFile(sDataFilePath);
+            CSimpleIni::TNamesDepend mitems;
+            monitorIni.GetAllSections(mitems);
+            for (const auto& mitem : mitems)
             {
-                iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
-                CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
-                CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
+                CString sSection = mitem;
+                CString Name = monitorIni.GetValue(mitem, L"Name", L"");
+                if (!Name.IsEmpty())
+                {
+                    iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
+                    CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
+                    CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
 
-                newval = monitorIni.GetValue(mitem, L"interval", L"5");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".interval", newval);
+                    newval = monitorIni.GetValue(mitem, L"interval", L"5");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".interval", newval);
 
-                newval = monitorIni.GetValue(mitem, L"minminutesinterval", L"0");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".minminutesinterval", L"0");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".minminutesinterval", newval);
+                    newval = monitorIni.GetValue(mitem, L"minminutesinterval", L"0");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".minminutesinterval", L"0");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".minminutesinterval", newval);
 
-                newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"username", L"")).get();
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".username", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".username", newval);
+                    newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"username", L"")).get();
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".username", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".username", newval);
 
-                newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"password", L"")).get();
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".password", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".password", newval);
+                    newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"password", L"")).get();
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".password", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".password", newval);
 
-                newval = monitorIni.GetValue(mitem, L"MsgRegex", L"");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".MsgRegex", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".MsgRegex", newval);
+                    newval = monitorIni.GetValue(mitem, L"MsgRegex", L"");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".MsgRegex", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".MsgRegex", newval);
 
-                newval = monitorIni.GetValue(mitem, L"ignoreauthors", L"");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ignoreauthors", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".ignoreauthors", newval);
+                    newval = monitorIni.GetValue(mitem, L"ignoreauthors", L"");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ignoreauthors", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".ignoreauthors", newval);
 
-                newval = monitorIni.GetValue(mitem, L"parentTreePath", L"");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newval);
+                    newval = monitorIni.GetValue(mitem, L"parentTreePath", L"");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newval);
+                }
+                else if (sSection.CompareNoCase(L"global") == 0)
+                {
+                    CString newval = monitorIni.GetValue(mitem, L"PlaySound", L"1");
+                    CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".PlaySound", L"1");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".PlaySound", newval);
+
+                    newval = monitorIni.GetValue(mitem, L"ShowNotifications", L"1");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ShowNotifications", L"1");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".ShowNotifications", newval);
+                }
             }
-            else if (sSection.CompareNoCase(L"global") == 0)
-            {
-                CString newval = monitorIni.GetValue(mitem, L"PlaySound", L"1");
-                CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".PlaySound", L"1");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".PlaySound", newval);
+        }
+    }
 
-                newval = monitorIni.GetValue(mitem, L"ShowNotifications", L"1");
-                oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ShowNotifications", L"1");
+    {
+        // sync TortoiseMerge regex filters
+        CString sDataFilePath = CPathUtils::GetAppDataDirectory();
+        sDataFilePath += L"\\regexfilters.ini";
+        CSimpleIni regexIni;
+        if (bCloudIsNewer)
+        {
+            CSimpleIni origRegexIni;
+            origRegexIni.LoadFile(sDataFilePath);
+
+            CSimpleIni::TNamesDepend keys;
+            iniFile.GetAllKeys(L"ini_tmergeregex", keys);
+            for (const auto& k : keys)
+            {
+                CString sKey = k;
+                CString sSection = sKey.Left(sKey.Find('.'));
+                sKey = sKey.Mid(sKey.Find('.') + 1);
+                CString sValue = CString(iniFile.GetValue(L"ini_tmergeregex", k, L""));
+                regexIni.SetValue(sSection, sKey, sValue);
+            }
+            FILE * pFile = NULL;
+            _tfopen_s(&pFile, sDataFilePath, L"wb");
+            regexIni.SaveFile(pFile);
+            fclose(pFile);
+        }
+        else
+        {
+            regexIni.LoadFile(sDataFilePath);
+            CSimpleIni::TNamesDepend mitems;
+            regexIni.GetAllSections(mitems);
+            for (const auto& mitem : mitems)
+            {
+                CString sSection = mitem;
+
+                CString newval = regexIni.GetValue(mitem, L"regex", L"");
+                CString oldval = iniFile.GetValue(L"ini_tmergeregex", sSection + L".regex", L"");
                 bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_monitor", sSection + L".ShowNotifications", newval);
+                iniFile.SetValue(L"ini_tmergeregex", sSection + L".regex", newval);
+
+                newval = regexIni.GetValue(mitem, L"replace", L"5");
+                oldval = iniFile.GetValue(L"ini_tmergeregex", sSection + L".replace", L"0");
+                bHaveChanges |= newval != oldval;
+                iniFile.SetValue(L"ini_tmergeregex", sSection + L".replace", newval);
             }
         }
     }
