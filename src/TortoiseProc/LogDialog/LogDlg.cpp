@@ -8417,7 +8417,19 @@ void CLogDlg::MonitorThread()
             OnOutOfScope(DeleteFile(sFile.GetWinPath()));
             std::string in;
             std::unique_ptr<CCallback> callback(new CCallback);
-            callback->SetAuthData(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
+            if (callback == nullptr)
+                continue;
+            {
+                std::wstring sU;
+                std::wstring sP;
+                auto pU = CStringUtils::Decrypt(item.username).get();
+                if (pU)
+                    sU = pU;
+                auto pP = CStringUtils::Decrypt(item.password).get();
+                if (pP)
+                    sP = pP;
+                callback->SetAuthData(sU, sP);
+            }
             if (m_bCancelled)
                 continue;
             if ((!sDomainRobotsURL.empty()) && (URLDownloadToFile(NULL, sDomainRobotsURL.c_str(), sFile.GetWinPath(), 0, callback.get()) == S_OK))
