@@ -489,17 +489,17 @@ void CStringUtils::PipesToNulls(TCHAR* buffer)
 std::unique_ptr<char[]> CStringUtils::Decrypt(const char * text)
 {
     DWORD dwLen = 0;
-    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL) == FALSE)
         return NULL;
 
     std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
-    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL)==FALSE)
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL) == FALSE)
         return NULL;
 
     DATA_BLOB blobin;
     blobin.cbData = dwLen;
     blobin.pbData = strIn.get();
-    LPWSTR descr;
+    LPWSTR descr = nullptr;
     DATA_BLOB blobout = {0};
     if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
         return NULL;
@@ -516,17 +516,17 @@ std::unique_ptr<char[]> CStringUtils::Decrypt(const char * text)
 std::unique_ptr<wchar_t[]> CStringUtils::Decrypt(const wchar_t * text)
 {
     DWORD dwLen = 0;
-    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
+    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL) == FALSE)
         return NULL;
 
     std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
-    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL)==FALSE)
+    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL) == FALSE)
         return NULL;
 
     DATA_BLOB blobin;
     blobin.cbData = dwLen;
     blobin.pbData = strIn.get();
-    LPWSTR descr;
+    LPWSTR descr = nullptr;
     DATA_BLOB blobout = {0};
     if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
         return NULL;
@@ -551,10 +551,10 @@ CStringA CStringUtils::Encrypt( const char * text )
     if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
         return result;
     DWORD dwLen = 0;
-    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen)==FALSE)
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, NULL, &dwLen) == FALSE)
         return result;
     std::unique_ptr<char[]> strOut(new char[dwLen + 1]);
-    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen)==FALSE)
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
         return result;
     LocalFree(blobout.pbData);
 
@@ -574,10 +574,10 @@ CStringW CStringUtils::Encrypt( const wchar_t * text )
     if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
         return result;
     DWORD dwLen = 0;
-    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen)==FALSE)
+    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, NULL, &dwLen) == FALSE)
         return result;
     std::unique_ptr<wchar_t[]> strOut(new wchar_t[dwLen + 1]);
-    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen)==FALSE)
+    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
         return result;
     LocalFree(blobout.pbData);
 
