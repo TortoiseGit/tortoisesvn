@@ -52,7 +52,7 @@ bool MonitorCommand::Execute()
         HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
         if (hWnd)
         {
-            UINT TSVN_COMMITMONITOR_SHOWDLGMSG = RegisterWindowMessage(_T("TSVNCommitMonitor_ShowDlgMsg"));
+            UINT TSVN_COMMITMONITOR_SHOWDLGMSG = RegisterWindowMessage(L"TSVNCommitMonitor_ShowDlgMsg");
             PostMessage(hWnd, TSVN_COMMITMONITOR_SHOWDLGMSG, 0, 0); //open the window of the already running app
             SetForegroundWindow(hWnd);                              //set the window to front
         }
