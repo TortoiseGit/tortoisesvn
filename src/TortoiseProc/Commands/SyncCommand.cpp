@@ -373,9 +373,16 @@ bool SyncCommand::Execute()
             _tfopen_s(&pFile, sDataFilePath, L"wb");
             monitorIni.SaveFile(pFile);
             fclose(pFile);
-            // TODO: now send a message to a possible running monitor to force it
+
+            // now send a message to a possible running monitor to force it
             // to reload the ini file. Otherwise it would overwrite the ini
             // file without using the synced data!
+            HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+            if (hWnd)
+            {
+                UINT TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(L"TSVNCommitMonitor_ReloadIni");
+                PostMessage(hWnd, TSVN_COMMITMONITOR_RELOADINI, 0, 0);
+            }
         }
         else
         {
