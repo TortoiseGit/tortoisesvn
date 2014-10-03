@@ -25,7 +25,10 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
+#include "AppUtils.h"
 
+#define TSVN_SYNC_VERSION       1
+#define TSVN_SYNC_VERSION_STR   L"1"
 
 // registry entries
 std::vector<CString> regUseArray = {
@@ -45,6 +48,7 @@ std::vector<CString> regBlockArray = {
     L"*debug*",
     L"syncpath",
     L"syncpw",
+    L"synccounter",
     L"checknewerweek",
     L"currentversion",
     L"diff",
@@ -74,6 +78,7 @@ bool SyncCommand::Execute()
     bool bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
+    CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
 
     if (syncPath.IsEmpty())
     {
@@ -101,13 +106,6 @@ bool SyncCommand::Execute()
         CAutoFile hFile = CreateFile(syncPath.GetWinPathString() + L"\\tsvnsync.ini", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile.IsValid())
         {
-            // compare the file times
-            FILETIME ftCreate, ftAccess, ftWrite;
-            if (GetFileTime(hFile, &ftCreate, &ftAccess, &ftWrite))
-            {
-                if (CompareFileTime(&filetime, &ftWrite) < 0)
-                    bCloudIsNewer = true;
-            }
             // load the file
             LARGE_INTEGER fsize = { 0 };
             if (GetFileSizeEx(hFile, &fsize))
@@ -124,8 +122,34 @@ bool SyncCommand::Execute()
                     {
                         std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
                         std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
-                        // pass the decrypted data to the ini file
-                        iniFile.LoadFile(decrypted.c_str(), decrypted.size());
+                        if (decrypted.size() >= 3)
+                        {
+                            if (decrypted.substr(0, 3) == "***")
+                            {
+                                decrypted = decrypted.substr(3);
+                                // pass the decrypted data to the ini file
+                                iniFile.LoadFile(decrypted.c_str(), decrypted.size());
+                                int inicount = _wtoi(iniFile.GetValue(L"sync", L"synccounter", L""));
+                                if (inicount != 0)
+                                {
+                                    if (int(DWORD(regCount)) < inicount)
+                                    {
+                                        bCloudIsNewer = true;
+                                        regCount = inicount;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // password does not match or it couldn't be read from
+                        // the registry!
+                        // 
+                        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+                        CString sCmd = L" /command:settings /page:20";
+                        CAppUtils::RunTortoiseProc(sCmd);
+                        return false;
                     }
                 }
             }
@@ -502,9 +526,18 @@ bool SyncCommand::Execute()
 
     if (bHaveChanges)
     {
+        iniFile.SetValue(L"sync", L"version", TSVN_SYNC_VERSION_STR);
+        DWORD count = regCount;
+        ++count;
+        regCount = count;
+        CString tmp;
+        tmp.Format(L"%d", count);
+        iniFile.SetValue(L"sync", L"synccounter", tmp);
+
         // save the ini file
         std::string iniData;
         iniFile.SaveString(iniData);
+        iniData = "***" + iniData;
         // encrypt the string
 
         CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
