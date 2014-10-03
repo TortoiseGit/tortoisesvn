@@ -100,4 +100,22 @@ protected:
         }
         return pwndDlgItem->EnableWindow(bEnable);
     }
+    /**
+    * Display a balloon with close button, anchored at a given edit control on this dialog.
+    */
+    void ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING)
+    {
+        CString text(MAKEINTRESOURCE(nIdText));
+        CString title(MAKEINTRESOURCE(nIdTitle));
+        ShowEditBalloon(nIdControl, text, title, nIcon);
+    }
+    void ShowEditBalloon(UINT nIdControl, const CString& text, const CString& title, int nIcon = TTI_WARNING)
+    {
+        EDITBALLOONTIP bt;
+        bt.cbStruct = sizeof(bt);
+        bt.pszText = text;
+        bt.pszTitle = title;
+        bt.ttiIcon = nIcon;
+        SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+    }
 };
