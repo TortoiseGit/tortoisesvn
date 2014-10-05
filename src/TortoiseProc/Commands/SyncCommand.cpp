@@ -156,6 +156,11 @@ bool SyncCommand::Execute()
         }
     }
 
+    if (parser.HasKey(L"load"))
+        bCloudIsNewer = true;
+    if (parser.HasKey(L"save"))
+        bCloudIsNewer = false;
+
     bool bHaveChanges = false;
     CString sValue;
 
@@ -545,7 +550,7 @@ bool SyncCommand::Execute()
         std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
 
         std::string encrypted = CStringUtils::Encrypt(iniData, passworda);
-
+        CPathUtils::MakeSureDirectoryPathExists(syncPath.GetWinPathString());
         CAutoFile hFile = CreateFile(syncPath.GetWinPathString() + L"\\tsvnsync.ini", GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile.IsValid())
         {
