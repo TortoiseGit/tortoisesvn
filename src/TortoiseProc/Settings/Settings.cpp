@@ -60,6 +60,7 @@ void CSettings::AddPropPages()
     m_pBugTraqPage = new CSetBugTraq();
     m_pTBlamePage = new CSettingsTBlame();
     m_pAdvanced = new CSettingsAdvanced();
+    m_pSyncPage = new CSettingsSync();
 
     SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
     SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
@@ -82,6 +83,7 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pBugTraqPage, m_pBugTraqPage->GetIconID());
     SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
     SetPageIcon(m_pAdvanced, m_pAdvanced->GetIconID());
+    SetPageIcon(m_pSyncPage, m_pSyncPage->GetIconID());
 
     // don't change the order here, since the
     // page number can be passed on the command line!
@@ -105,6 +107,7 @@ void CSettings::AddPropPages()
     AddPage(m_pHooksPage);
     AddPage(m_pBugTraqPage);
     AddPage(m_pTBlamePage);
+    AddPage(m_pSyncPage);
     AddPage(m_pAdvanced);
 }
 
@@ -130,6 +133,7 @@ void CSettings::RemovePropPages()
     delete m_pHooksPage;
     delete m_pBugTraqPage;
     delete m_pTBlamePage;
+    delete m_pSyncPage;
     delete m_pAdvanced;
 }
 
@@ -155,6 +159,7 @@ void CSettings::HandleRestart()
     restart |= m_pHooksPage->GetRestart();
     restart |= m_pBugTraqPage->GetRestart();
     restart |= m_pTBlamePage->GetRestart();
+    restart |= m_pSyncPage->GetRestart();
     restart |= m_pAdvanced->GetRestart();
     if (restart & ISettingsPropPage::Restart_System)
     {

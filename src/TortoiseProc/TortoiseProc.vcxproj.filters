@@ -1088,6 +1088,9 @@
     <ClCompile Include="Commands\SyncCommand.cpp">
       <Filter>Commands\Sync</Filter>
     </ClCompile>
+    <ClCompile Include="Settings\SettingsSync.cpp">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2077,6 +2080,9 @@
     <ClInclude Include="Commands\SyncCommand.h">
       <Filter>Commands\Sync</Filter>
     </ClInclude>
+    <ClInclude Include="Settings\SettingsSync.h">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2513,6 +2519,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Resources\monitor_markallasread.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\sync.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -428,6 +428,7 @@
     <ClCompile Include="Settings\SettingsPropPage.cpp" />
     <ClCompile Include="Settings\SettingsRevGraphColors.cpp" />
     <ClCompile Include="Settings\SettingsRevisionGraph.cpp" />
+    <ClCompile Include="Settings\SettingsSync.cpp" />
     <ClCompile Include="Settings\SettingsTBlame.cpp" />
     <ClCompile Include="Settings\ToolAssocDlg.cpp" />
     <ClCompile Include="SimplePrompt.cpp" />
@@ -761,6 +762,7 @@
     <ClInclude Include="Settings\SettingsPropPage.h" />
     <ClInclude Include="Settings\SettingsRevGraphColors.h" />
     <ClInclude Include="Settings\SettingsRevisionGraph.h" />
+    <ClInclude Include="Settings\SettingsSync.h" />
     <ClInclude Include="Settings\SettingsTBlame.h" />
     <ClInclude Include="Settings\ToolAssocDlg.h" />
     <ClInclude Include="SimplePrompt.h" />
@@ -956,6 +958,7 @@
     <Image Include="..\Resources\monitor_markallasread.ico" />
     <Image Include="..\Resources\monitor_options.ico" />
     <Image Include="..\Resources\monitor_remove.ico" />
+    <Image Include="..\Resources\sync.ico" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="..\compatibility.manifest" />
