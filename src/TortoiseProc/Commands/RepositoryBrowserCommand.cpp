@@ -104,12 +104,16 @@ bool RepositoryBrowserCommand::Execute()
         dlg.SetStandaloneMode(false);
     }
     dlg.m_path = cmdLinePath;
-    dlg.DoModal();
+    auto dlgret = dlg.DoModal();
     if (parser.HasVal(L"outfile"))
     {
-        CString sText = dlg.GetPath();
-        sText += L"\n";
-        sText += dlg.GetRevision().ToString();
+        CString sText;
+        if (dlgret == IDOK)
+        {
+            sText = dlg.GetPath();
+            sText += L"\n";
+            sText += dlg.GetRevision().ToString();
+        }
         CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), (LPCTSTR)sText, true);
     }
     return true;
