@@ -197,6 +197,7 @@ class ScintillaWin :
 	CLIPFORMAT cfColumnSelect;
 	CLIPFORMAT cfBorlandIDEBlockType;
 	CLIPFORMAT cfLineSelect;
+	CLIPFORMAT cfVSLineTag;
 
 	HRESULT hrOle;
 	DropSource ds;
@@ -204,6 +205,8 @@ class ScintillaWin :
 	DropTarget dt;
 
 	static HINSTANCE hInstance;
+	static ATOM scintillaClassAtom;
+	static ATOM callClassAtom;
 
 #if defined(USE_D2D)
 	ID2D1HwndRenderTarget *pRenderTarget;
@@ -261,7 +264,6 @@ class ScintillaWin :
 	virtual void SetCtrlID(int identifier);
 	virtual int GetCtrlID();
 	virtual void NotifyParent(SCNotification scn);
-	virtual void NotifyParent(SCNotification * scn);
 	virtual void NotifyDoubleClick(Point pt, int modifiers);
 	virtual CaseFolder *CaseFolderForEncoding();
 	virtual std::string CaseMapString(const std::string &s, int caseMapping);
@@ -336,6 +338,8 @@ private:
 };
 
 HINSTANCE ScintillaWin::hInstance = 0;
+ATOM ScintillaWin::scintillaClassAtom = 0;
+ATOM ScintillaWin::callClassAtom = 0;
 
 ScintillaWin::ScintillaWin(HWND hwnd) {
 
@@ -363,7 +367,8 @@ ScintillaWin::ScintillaWin(HWND hwnd) {
 	// Likewise for line-copy (copies a full line when no text is selected)
 	cfLineSelect = static_cast<CLIPFORMAT>(
 		::RegisterClipboardFormat(TEXT("MSDEVLineSelect")));
-
+	cfVSLineTag = static_cast<CLIPFORMAT>(
+		::RegisterClipboardFormat(TEXT("VisualStudioEditorOperationsLineCutCopyClipboardTag")));
 	hrOle = E_FAIL;
 
 	wMain = hwnd;
@@ -452,7 +457,8 @@ void ScintillaWin::EnsureRenderTarget() {
 		D2D1_HWND_RENDER_TARGET_PROPERTIES dhrtp;
 		dhrtp.hwnd = hw;
 		dhrtp.pixelSize = size;
-		dhrtp.presentOptions = D2D1_PRESENT_OPTIONS_NONE;
+		dhrtp.presentOptions = (technology == SC_TECHNOLOGY_DIRECTWRITERETAIN) ?
+			D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS : D2D1_PRESENT_OPTIONS_NONE;
 
 		D2D1_RENDER_TARGET_PROPERTIES drtp;
 		drtp.type = D2D1_RENDER_TARGET_TYPE_DEFAULT;
@@ -1397,9 +1403,11 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 			return keysAlwaysUnicode;
 
 		case SCI_SETTECHNOLOGY:
-			if ((wParam == SC_TECHNOLOGY_DEFAULT) || (wParam == SC_TECHNOLOGY_DIRECTWRITE)) {
+			if ((wParam == SC_TECHNOLOGY_DEFAULT) || 
+				(wParam == SC_TECHNOLOGY_DIRECTWRITERETAIN) ||
+				(wParam == SC_TECHNOLOGY_DIRECTWRITE)) {
 				if (technology != static_cast<int>(wParam)) {
-					if (static_cast<int>(wParam) == SC_TECHNOLOGY_DIRECTWRITE) {
+					if (static_cast<int>(wParam) > SC_TECHNOLOGY_DEFAULT) {
 #if defined(USE_D2D)
 						if (!LoadD2D())
 							// Failed to load Direct2D or DirectWrite so no effect
@@ -1654,13 +1662,6 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
 }
 
-void ScintillaWin::NotifyParent(SCNotification * scn) {
-	scn->nmhdr.hwndFrom = MainHWND();
-	scn->nmhdr.idFrom = GetCtrlID();
-	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
-		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
-}
-
 void ScintillaWin::NotifyDoubleClick(Point pt, int modifiers) {
 	//Platform::DebugPrintf("ScintillaWin Double click 0\n");
 	ScintillaBase::NotifyDoubleClick(pt, modifiers);
@@ -1888,7 +1889,8 @@ void ScintillaWin::Paste() {
 	if (!::OpenClipboard(MainHWND()))
 		return;
 	UndoGroup ug(pdoc);
-	const bool isLine = SelectionEmpty() && (::IsClipboardFormatAvailable(cfLineSelect) != 0);
+	const bool isLine = SelectionEmpty() && 
+		(::IsClipboardFormatAvailable(cfLineSelect) || ::IsClipboardFormatAvailable(cfVSLineTag));
 	ClearSelection(multiPasteMode == SC_MULTIPASTE_EACH);
 	bool isRectangular = (::IsClipboardFormatAvailable(cfColumnSelect) != 0);
 
@@ -2455,6 +2457,7 @@ void ScintillaWin::CopyToClipboard(const SelectionText &selectedText) {
 
 	if (selectedText.lineCopy) {
 		::SetClipboardData(cfLineSelect, 0);
+		::SetClipboardData(cfVSLineTag, 0);
 	}
 
 	::CloseClipboard();
@@ -2823,7 +2826,8 @@ bool ScintillaWin::Register(HINSTANCE hInstance_) {
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = L"Scintilla";
 		wndclass.hIconSm = 0;
-		result = ::RegisterClassExW(&wndclass) != 0;
+		scintillaClassAtom = ::RegisterClassExW(&wndclass);
+		result = 0 != scintillaClassAtom;
 	} else {
 
 		// Register Scintilla as a normal character window
@@ -2840,7 +2844,8 @@ bool ScintillaWin::Register(HINSTANCE hInstance_) {
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = scintillaClassName;
 		wndclass.hIconSm = 0;
-		result = ::RegisterClassEx(&wndclass) != 0;
+		scintillaClassAtom = ::RegisterClassEx(&wndclass);
+		result = 0 != scintillaClassAtom;
 	}
 
 	if (result) {
@@ -2859,16 +2864,27 @@ bool ScintillaWin::Register(HINSTANCE hInstance_) {
 		wndclassc.lpszClassName = callClassName;
 		wndclassc.hIconSm = 0;
 
-		result = ::RegisterClassEx(&wndclassc) != 0;
+		callClassAtom = ::RegisterClassEx(&wndclassc);
+		result = 0 != callClassAtom;
 	}
 
 	return result;
 }
 
 bool ScintillaWin::Unregister() {
-	bool result = ::UnregisterClass(scintillaClassName, hInstance) != 0;
-	if (::UnregisterClass(callClassName, hInstance) == 0)
-		result = false;
+	bool result = true;
+	if (0 != scintillaClassAtom) {
+		if (::UnregisterClass(MAKEINTATOM(scintillaClassAtom), hInstance) == 0) {
+			result = false;
+		}
+		scintillaClassAtom = 0;
+	}
+	if (0 != callClassAtom) {
+		if (::UnregisterClass(MAKEINTATOM(callClassAtom), hInstance) == 0) {
+			result = false;
+		}
+		callClassAtom = 0;
+	}
 	return result;
 }
 
@@ -2947,7 +2963,8 @@ sptr_t PASCAL ScintillaWin::CTWndProc(
 						D2D1_HWND_RENDER_TARGET_PROPERTIES dhrtp;
 						dhrtp.hwnd = hWnd;
 						dhrtp.pixelSize = D2D1::SizeU(rc.right - rc.left, rc.bottom - rc.top);
-						dhrtp.presentOptions = D2D1_PRESENT_OPTIONS_NONE;
+						dhrtp.presentOptions = (sciThis->technology == SC_TECHNOLOGY_DIRECTWRITERETAIN) ?
+							D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS : D2D1_PRESENT_OPTIONS_NONE;
 
 						D2D1_RENDER_TARGET_PROPERTIES drtp;
 						drtp.type = D2D1_RENDER_TARGET_TYPE_DEFAULT;

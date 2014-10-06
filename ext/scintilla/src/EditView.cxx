@@ -46,7 +46,6 @@
 #include "EditModel.h"
 #include "MarginView.h"
 #include "EditView.h"
-#include "Editor.h"
 
 #ifdef SCI_NAMESPACE
 using namespace Scintilla;
@@ -186,7 +185,6 @@ EditView::EditView() {
 	pixmapIndentGuideHighlight = 0;
 	llc.SetLevel(LineLayoutCache::llcCaret);
 	posCache.SetSize(0x400);
-	editor = NULL;
 }
 
 EditView::~EditView() {
@@ -217,11 +215,11 @@ void EditView::ClearAllTabstops() {
 	ldTabstops = 0;
 }
 
-int EditView::NextTabstopPos(int line, int x, int tabWidth) const {
-	int next = GetNextTabstop(line, x);
+XYPOSITION EditView::NextTabstopPos(int line, XYPOSITION x, XYPOSITION tabWidth) const {
+	int next = GetNextTabstop(line, static_cast<int>(x + 2));
 	if (next > 0)
-		return next;
-	return ((((x + 2) / tabWidth) + 1) * tabWidth);
+		return static_cast<XYPOSITION>(next);
+	return (static_cast<int>((x + 2) / tabWidth) + 1) * tabWidth;
 }
 
 bool EditView::ClearTabstops(int line) {
@@ -454,9 +452,8 @@ void EditView::LayoutLine(const EditModel &model, int line, Surface *surface, co
 					XYPOSITION representationWidth = vstyle.controlCharWidth;
 					if (ll->chars[ts.start] == '\t') {
 						// Tab is a special case of representation, taking a variable amount of space
-						const int x = static_cast<int>(ll->positions[ts.start]);
-						const int tabWidth = static_cast<int>(vstyle.tabWidth);
-						representationWidth = static_cast<XYPOSITION>(NextTabstopPos(line, x, tabWidth) - ll->positions[ts.start]);
+						const XYPOSITION x = ll->positions[ts.start];
+						representationWidth = NextTabstopPos(line, x, vstyle.tabWidth) - ll->positions[ts.start];
 					} else {
 						if (representationWidth <= 0.0) {
 							XYPOSITION positionsRepr[256];	// Should expand when needed
@@ -1626,18 +1623,7 @@ void EditView::DrawLine(Surface *surface, const EditModel &model, const ViewStyl
 	}
 
 	// See if something overrides the line background color.
-	ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
-	SCNotification scn = { 0 };
-	scn.nmhdr.code = SCN_GETBKCOLOR;
-	scn.line = line;
-	scn.lParam = -1;
-	if (editor)
-		((Editor*)editor)->NotifyParent(&scn);
-	if (scn.lParam != -1)
-	{
-		background.Set(scn.lParam);
-		background.isSet = true;
-	}
+	const ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
 
 	const int posLineStart = model.pdoc->LineStart(line);
 

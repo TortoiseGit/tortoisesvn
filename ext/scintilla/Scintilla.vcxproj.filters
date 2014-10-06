@@ -423,6 +423,9 @@
     <ClCompile Include="src\EditView.cxx">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="lexers\LexBibTeX.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ILexer.h">
