@@ -49,6 +49,7 @@ std::vector<CString> regBlockArray = {
     L"syncpath",
     L"syncpw",
     L"synccounter",
+    L"synclast",
     L"checknewerweek",
     L"currentversion",
     L"diff",

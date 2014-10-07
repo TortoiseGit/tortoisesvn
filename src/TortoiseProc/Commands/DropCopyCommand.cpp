@@ -57,7 +57,8 @@ bool DropCopyCommand::Execute()
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     UINT msgRet = IDNO;
-    for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+    INT_PTR msgRetNonversioned = 0;
+    for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         const CTSVNPath& sourcePath = pathList[nPath];
 
@@ -134,6 +135,51 @@ bool DropCopyCommand::Execute()
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
                 return FALSE;       //get out of here
+            }
+        }
+        else if (svn.GetSVNError() && svn.GetSVNError()->apr_err == SVN_ERR_WC_PATH_NOT_FOUND)
+        {
+            INT_PTR ret = 0;
+            if (msgRetNonversioned == 0)
+            {
+                CString sReplace;
+                sReplace.Format(IDS_PROC_MOVEUNVERSIONED_TASK1, fullDropPath.GetWinPath());
+                CTaskDialog taskdlg(sReplace,
+                                    CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK2)),
+                                    L"TortoiseSVN",
+                                    TDCBF_CANCEL_BUTTON,
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                taskdlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK3)));
+                taskdlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK4)));
+                taskdlg.AddCommandControl(103, CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK5)));
+                taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK6)));
+                taskdlg.SetVerificationCheckbox(false);
+                taskdlg.SetDefaultCommandControl(103);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                ret = taskdlg.DoModal(GetExplorerHWND());
+                if (taskdlg.GetVerificationCheckboxState())
+                    msgRetNonversioned = ret;
+            }
+            else
+            {
+                ret = msgRetNonversioned;
+            }
+            switch (ret)
+            {
+                case 101: // copy
+                    CopyFile(pathList[nPath].GetWinPath(), fullDropPath.GetWinPath(), FALSE);
+                    break;
+                case 102: // copy and add
+                    CopyFile(pathList[nPath].GetWinPath(), fullDropPath.GetWinPath(), FALSE);
+                    if (!svn.Add(CTSVNPathList(fullDropPath), NULL, svn_depth_infinity, true, false, false, false))
+                    {
+                        svn.ShowErrorDialog(GetExplorerHWND(), fullDropPath);
+                        return FALSE;       //get out of here
+                    }
+                    break;
+                case 103: // skip
+                default:
+                    break;
             }
         }
         else
