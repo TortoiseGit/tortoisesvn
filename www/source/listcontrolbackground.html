@@ -2,7 +2,7 @@
     "title": "List control background images",
     "metaDescription": "<meta name=\"description\" content=\"how to get background images to work with list controls\">",
     "metaKeywords": "<meta name=\"keywords\" content=\"list control, background images\">",
-    "headHTML": "<link rel=\"stylesheet\" href=\"css/prettify.min.css\">\n<script src=\"js/prettify/prettify.js\"></script>"
+    "headHTML": "<link rel=\"stylesheet\" href=\"/css/prettify.min.css\">\n<script src=\"/js/prettify/prettify.js\"></script>"
 })
 <body onload="prettyPrint()">
 <div class="wrapper">
@@ -28,7 +28,7 @@
                     wanted to show such a watermark image in our main dialogs
                     file list.</p>
 
-                    <img class="img-centered" src="img/explorer-watermark.png" alt="the watermark in Windows explorer">
+                    <img class="img-centered" src="/img/explorer-watermark.png" alt="the watermark in Windows explorer">
 
                     <p>The obvious step to get this done would be the
                     <a href="http://msdn2.microsoft.com/en-gb/library/z16576bw(vs.80).aspx">SetBkImage</a>
@@ -77,7 +77,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     the image position in the scroll event handler. Obviously,
                     I was on the wrong path here.</p>
 
-                    <img class="img-centered" src="img/first-try.png" alt="SetBkImage the obvious way">
+                    <img class="img-centered" src="/img/first-try.png" alt="SetBkImage the obvious way">
 
                     <p>Next I tried to draw the image directly in the
                     <a href="http://msdn2.microsoft.com/en-us/library/ms670610.aspx">NM_CUSTOMDRAW</a>
@@ -92,7 +92,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
                     <a href="http://msdn2.microsoft.com/en-us/library/ms672574.aspx">CDRF_NOTIFYPOSTERASE</a>
                     isn't used in the list control.</p>
 
-                    <img class="img-centered" src="img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler">
+                    <img class="img-centered" src="/img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler">
 
                     <p>But there must be a way, because Microsoft does it with
                     the explorer, assuming of course they don't use some
@@ -289,7 +289,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     selected, and the first column was not transparent and
                     was also painting over the watermark.</p>
 
-                    <img class="img-centered" src="img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set">
+                    <img class="img-centered" src="/img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set">
 
                     <p>As it turned out, this was due to the fact that I set
                     the <code>LVS_EX_FULLROWSELECT</code> style for the control.
@@ -299,9 +299,9 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     <p>And now (drumroll please): the screenshots of the add
                     and commit dialog:</p>
                     <div class="centered">
-                    <img src="img/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark">
+                    <img src="/img/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark">
                     <br/>
-                    <img src="img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark">
+                    <img src="/img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark">
                     </div>
                     <p>And in case someone knows how to use the
                     <code>LVBKIF_FLAG_ALPHABLEND</code> flag, please let me know!</p>
