@@ -447,6 +447,7 @@ BOOL CTortoiseProcApp::InitInstance()
     }
 
     CheckForNewerVersion();
+    Sync();
 
     // to avoid that SASL will look for and load its plugin dlls all around the
     // system, we set the path here.
@@ -637,4 +638,22 @@ void CTortoiseProcApp::CheckForNewerVersion()
     GetModuleFileName(NULL, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck");
+}
+
+void CTortoiseProcApp::Sync()
+{
+    time_t now;
+    time(&now);
+    if (now == 0)
+        return;
+
+    CRegQWORD lastSync = CRegQWORD(L"Software\\TortoiseSVN\\SyncLast", (QWORD)-1);
+#define SYNC_INTERVAL (60*60*4)     // 4 hours
+
+    if ((now - (QWORD)lastSync) > SYNC_INTERVAL)
+    {
+        CString sCmd = L" /command:sync";
+        CAppUtils::RunTortoiseProc(sCmd);
+        lastSync = now;
+    }
 }
