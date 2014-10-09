@@ -1873,6 +1873,17 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
             hWndFocus = ::GetParent(hWndFocus);
         if (hWndFocus && ((hWndFocus == m_RepoTree.GetSafeHwnd())||(hWndFocus == m_RepoList.GetSafeHwnd())))
         {
+            if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_ESCAPE) && (hWndFocus == m_RepoTree.GetSafeHwnd()))
+            {
+                // ending editing on the tree control does not seem to work properly:
+                // while editing ends when the escape key is pressed, the key message
+                // is passed on which then also cancels the whole repobrowser dialog.
+                // To prevent this, end editing here directly and prevent the escape key message
+                // from being passed on.
+                m_RepoTree.EndEditLabelNow(true);
+                return TRUE;
+            }
+
             // Do a direct translation.
             if (!::IsDialogMessage(m_hWnd, pMsg) &&
                 !::TranslateAccelerator(m_hWnd, m_hAccel, pMsg))
