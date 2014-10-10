@@ -2972,6 +2972,9 @@ void SVN::SetAuthInfo(const CString& username, const CString& password)
         {
             svn_auth_set_parameter(m_pctx->auth_baton,
                                    SVN_AUTH_PARAM_DEFAULT_USERNAME, apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username)));
+        }
+        if (!password.IsEmpty())
+        {
             svn_auth_set_parameter(m_pctx->auth_baton,
                                    SVN_AUTH_PARAM_DEFAULT_PASSWORD, apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password)));
         }
