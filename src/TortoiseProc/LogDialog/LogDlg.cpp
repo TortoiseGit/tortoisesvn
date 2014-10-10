@@ -8277,9 +8277,9 @@ void CLogDlg::MonitorThread()
     _time64(&currenttime);
 
     CAutoReadLock locker(m_monitorguard);
-    SVN svn(true);
     for (auto& item : m_monitorItemListForThread)
     {
+        SVN svn(true);
         if (m_bCancelled)
             break;
         if (item.WCPathOrUrl.IsEmpty())
