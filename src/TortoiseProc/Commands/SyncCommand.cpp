@@ -71,6 +71,7 @@ std::vector<CString> regBlockArray = {
     L"mergewcurl",
     L"scintilladirect2d",
     L"udiffpagesetup*",
+    L"monitorfirststart",
 };
 
 

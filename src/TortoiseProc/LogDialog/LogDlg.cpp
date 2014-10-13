@@ -7755,6 +7755,14 @@ void CLogDlg::InitMonitorProjTree()
     m_bPlaySound = _wtoi(m_monitoringFile.GetValue(L"global", L"PlaySound", L"1")) != 0;
     m_bShowNotification = _wtoi(m_monitoringFile.GetValue(L"global", L"ShowNotifications", L"1")) != 0;
 
+    CRegDWORD regFirstStart(L"Software\\TortoiseSVN\\MonitorFirstStart", 0);
+    if (DWORD(regFirstStart) == 0)
+    {
+        CRegString regStart(L"Software\\Microsoft\\Windows\\CurrentVersion\\Run\\TortoiseSVN Monitor");
+        regStart = CPathUtils::GetAppPath() + L" /tray";
+        regFirstStart = 1;
+    }
+
     RefreshMonitorProjTree();
 }
 
