@@ -40,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
+"PO-Revision-Date: 2014-10-07 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -2720,6 +2720,12 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr "Annuler\nLe fichier cible est laissé tel quel"
+
+#. Resource IDs: (621)
+msgid ""
+"Cancel\n"
+"You can enter another password and try again"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid ""
@@ -5972,6 +5978,10 @@ msgstr "Insérer le presse papiers\nColler"
 msgid "Insert message at:"
 msgstr "Entrer le commentaire à :"
 
+#. Resource IDs: (1660)
+msgid "Insert title at the bottom, after the message"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Mémoire insuffisante pour exécuter l'opération."
@@ -6246,6 +6256,10 @@ msgstr "&Chemin local:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Charger les images"
+
+#. Resource IDs: (1663)
+msgid "Load Settings from file"
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -7351,6 +7365,12 @@ msgid ""
 "Replace the target folder."
 msgstr "Remplacer\nRemplace le dossier cible."
 
+#. Resource IDs: (621)
+msgid ""
+"Overwrite\n"
+"The settings are overwritten"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7390,6 +7410,10 @@ msgstr "Paramètres"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Paramètres :"
+
+#. Resource IDs: (621)
+msgid "Password is wrong"
+msgstr ""
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7455,6 +7479,10 @@ msgstr "Chemin trouvé qui correspond mieux au patch."
 #. Resource IDs: (65535)
 msgid "Path or URL:"
 msgstr "Chemin ou URL:"
+
+#. Resource IDs: (65535)
+msgid "Path:"
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8851,6 +8879,10 @@ msgstr "Sauvegarder les modifications."
 msgid "Save revision &to..."
 msgstr "Enregis&trer la révision sous..."
 
+#. Resource IDs: (1664)
+msgid "Save settings to file"
+msgstr ""
+
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
@@ -9918,6 +9950,14 @@ msgstr "Revenu"
 msgid "Switches the comparison left<->right"
 msgstr "Change la comparaison gauche<->droite"
 
+#. Resource IDs: (368)
+msgid "Sync"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Sync setup"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "System &sounds"
 msgstr "&Sons systèmes"
@@ -10279,6 +10319,16 @@ msgid ""
 "You must only specify one of them."
 msgstr "Les paramètres '/path' et '/pathfile' s'excluent mutuellement.\nVous ne devez en définir qu'un des deux."
 
+#. Resource IDs: (621)
+msgid ""
+"The password is wrong.\n"
+"Please enter the correct password in the settings dialog."
+msgstr ""
+
+#. Resource IDs: (621)
+msgid "The passwords don't match"
+msgstr ""
+
 #. Resource IDs: (64)
 #, c-format
 msgid ""
@@ -10342,6 +10392,12 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Le fichier sélectionné semble contenir un ou plusieurs marquages de conflit à l'intérieur.\nÊtes-vous sûr de marquer le fichier comme résolu ?"
+
+#. Resource IDs: (621)
+msgid ""
+"The settings file can not be decrypted with the specified password!\n"
+"Do you want to overwrite the sync file?"
+msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."

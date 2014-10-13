@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
+"PO-Revision-Date: 2014-10-07 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -2706,6 +2706,12 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr "Batal\nBerkas yang dituju dibiarkan seperti adanya"
+
+#. Resource IDs: (621)
+msgid ""
+"Cancel\n"
+"You can enter another password and try again"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid ""
@@ -5958,6 +5964,10 @@ msgstr "Sisipkan isi Clipboard\nPaste"
 msgid "Insert message at:"
 msgstr "Sisipkan pesan pada:"
 
+#. Resource IDs: (1660)
+msgid "Insert title at the bottom, after the message"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Memori tidak cukup untuk melakukan operasi."
@@ -6232,6 +6242,10 @@ msgstr "&Path lokal"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Ambil Gambar"
+
+#. Resource IDs: (1663)
+msgid "Load Settings from file"
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -7337,6 +7351,12 @@ msgid ""
 "Replace the target folder."
 msgstr "Menimpa\nMengganti folder yang dituju."
 
+#. Resource IDs: (621)
+msgid ""
+"Overwrite\n"
+"The settings are overwritten"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7376,6 +7396,10 @@ msgstr "Parameter-parameter"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Parameter:"
+
+#. Resource IDs: (621)
+msgid "Password is wrong"
+msgstr ""
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7440,6 +7464,10 @@ msgstr "Path menemukan adanya persamaan pada patch yang lebih baik."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Path:"
 msgstr ""
 
 #. Resource IDs: (116)
@@ -8837,6 +8865,10 @@ msgstr "Simpan modifikasi"
 msgid "Save revision &to..."
 msgstr "Simpan revisi &ke..."
 
+#. Resource IDs: (1664)
+msgid "Save settings to file"
+msgstr ""
+
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
@@ -9904,6 +9936,14 @@ msgstr "Ditukar"
 msgid "Switches the comparison left<->right"
 msgstr "Tukar perbandingan kiri<->kanan"
 
+#. Resource IDs: (368)
+msgid "Sync"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Sync setup"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "System &sounds"
 msgstr "&Suara sistem"
@@ -10265,6 +10305,16 @@ msgid ""
 "You must only specify one of them."
 msgstr "Parameter-parameter '/path' dan '/pathfile' hanya dapat digunakan salah satu. Anda harus menentukan salah satu dari mereka."
 
+#. Resource IDs: (621)
+msgid ""
+"The password is wrong.\n"
+"Please enter the correct password in the settings dialog."
+msgstr ""
+
+#. Resource IDs: (621)
+msgid "The passwords don't match"
+msgstr ""
+
 #. Resource IDs: (64)
 #, c-format
 msgid ""
@@ -10328,6 +10378,12 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Berkas yang dipilih nampaknya masih mempunyai satu atau lebih tanda konflik didalamnya,\nAnda yakin ingin menandai sudah diselesaikan?"
+
+#. Resource IDs: (621)
+msgid ""
+"The settings file can not be decrypted with the specified password!\n"
+"Do you want to overwrite the sync file?"
+msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."

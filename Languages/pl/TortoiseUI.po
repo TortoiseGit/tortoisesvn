@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-12 06:31+0000\n"
+"PO-Revision-Date: 2014-10-07 22:16+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -2705,6 +2705,12 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr "Anuluj\nPlik docelowy pozostanie niezmieniony"
+
+#. Resource IDs: (621)
+msgid ""
+"Cancel\n"
+"You can enter another password and try again"
+msgstr "Anuluj\nMożesz wpisać inne hasło i spróbować jeszcze raz"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5957,6 +5963,10 @@ msgstr "Wstaw zawartość schowka\nWklej"
 msgid "Insert message at:"
 msgstr "Wstaw wiadomość w:"
 
+#. Resource IDs: (1660)
+msgid "Insert title at the bottom, after the message"
+msgstr "Wstaw tytuł u dołu, po komunikacie"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Za mało pamięci do wykonania operacji."
@@ -6231,6 +6241,10 @@ msgstr "Ś&cieżka lokalna:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Załaduj obrazy"
+
+#. Resource IDs: (1663)
+msgid "Load Settings from file"
+msgstr "Wczytaj ustawienia z pliku"
 
 #. Resource IDs: (315)
 msgid ""
@@ -7336,6 +7350,12 @@ msgid ""
 "Replace the target folder."
 msgstr "Nadpisz\nZastąp folder docelowy."
 
+#. Resource IDs: (621)
+msgid ""
+"Overwrite\n"
+"The settings are overwritten"
+msgstr "Nadpisz\nUstawienia zostaną nadpisane"
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7375,6 +7395,10 @@ msgstr "Parametry"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Parametry:"
+
+#. Resource IDs: (621)
+msgid "Password is wrong"
+msgstr "Hasło jest niepoprawne"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7440,6 +7464,10 @@ msgstr "Znaleziono ścieżkę, która lepiej pasuje do tej ścieżki."
 #. Resource IDs: (65535)
 msgid "Path or URL:"
 msgstr "Ścieżka lub URL:"
+
+#. Resource IDs: (65535)
+msgid "Path:"
+msgstr "Ścieżka:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8836,6 +8864,10 @@ msgstr "Zapisz zmiany."
 msgid "Save revision &to..."
 msgstr "Zapisz wersję &w..."
 
+#. Resource IDs: (1664)
+msgid "Save settings to file"
+msgstr "Zapisz ustawienia do pliku"
+
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
@@ -9903,6 +9935,14 @@ msgstr "Przełączono"
 msgid "Switches the comparison left<->right"
 msgstr "Przełącza porównanie Lewy<->Prawy"
 
+#. Resource IDs: (368)
+msgid "Sync"
+msgstr "Synch"
+
+#. Resource IDs: (65535)
+msgid "Sync setup"
+msgstr "Ustawienia synch"
+
 #. Resource IDs: (65535)
 msgid "System &sounds"
 msgstr "&Dźwięki systemowe"
@@ -10264,6 +10304,16 @@ msgid ""
 "You must only specify one of them."
 msgstr "Parametry '/path' i '/pathfile' wzajemnie się wykluczają.\nMusisz użyć tylko jednego z nich."
 
+#. Resource IDs: (621)
+msgid ""
+"The password is wrong.\n"
+"Please enter the correct password in the settings dialog."
+msgstr "Hasło jest niepoprawne.\nNależy wpisać poprawne hasło w oknie ustawień."
+
+#. Resource IDs: (621)
+msgid "The passwords don't match"
+msgstr "Hasła nie są zgodne"
+
 #. Resource IDs: (64)
 #, c-format
 msgid ""
@@ -10327,6 +10377,12 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Wybrany plik prawdopodobnie wciąż zawiera wewnątrz markery konfliktu.\nCzy na pewno chcesz oznaczyć ten plik jako plik z rozwiązanym konfliktem?"
+
+#. Resource IDs: (621)
+msgid ""
+"The settings file can not be decrypted with the specified password!\n"
+"Do you want to overwrite the sync file?"
+msgstr "Mlik ustawień nie może zostać odszyfrowany wskazanym hasłem!\nCzy chcesz nadpisać mlik synch?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."

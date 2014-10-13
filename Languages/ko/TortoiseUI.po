@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
+"PO-Revision-Date: 2014-10-07 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -2702,6 +2702,12 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr "취소\n대상 파일은 그대로 남아 있습니다."
+
+#. Resource IDs: (621)
+msgid ""
+"Cancel\n"
+"You can enter another password and try again"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid ""
@@ -5954,6 +5960,10 @@ msgstr "클립보드 내용을 붙임\n붙여넣기"
 msgid "Insert message at:"
 msgstr "다음에 메시지 삽입:"
 
+#. Resource IDs: (1660)
+msgid "Insert title at the bottom, after the message"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "명령을 수행하기에 메모리가 충분하지 않습니다."
@@ -6228,6 +6238,10 @@ msgstr "지역경로(&C):"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "이미지 불러오기"
+
+#. Resource IDs: (1663)
+msgid "Load Settings from file"
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -7333,6 +7347,12 @@ msgid ""
 "Replace the target folder."
 msgstr "덮어쓰기\n대상 폴더를 교체합니다."
 
+#. Resource IDs: (621)
+msgid ""
+"Overwrite\n"
+"The settings are overwritten"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7372,6 +7392,10 @@ msgstr "파라메터들"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "파라메터들:"
+
+#. Resource IDs: (621)
+msgid "Password is wrong"
+msgstr ""
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7436,6 +7460,10 @@ msgstr "패치와 더 잘 맞는 경로를 찾았습니다."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Path:"
 msgstr ""
 
 #. Resource IDs: (116)
@@ -8833,6 +8861,10 @@ msgstr "수정사항 저장"
 msgid "Save revision &to..."
 msgstr "이 리비전을 저장(&T)..."
 
+#. Resource IDs: (1664)
+msgid "Save settings to file"
+msgstr ""
+
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
@@ -9900,6 +9932,14 @@ msgstr "전환됨"
 msgid "Switches the comparison left<->right"
 msgstr "비교창의 좌<->우를 전환합니다"
 
+#. Resource IDs: (368)
+msgid "Sync"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Sync setup"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "System &sounds"
 msgstr "시스템 소리(&S)"
@@ -10261,6 +10301,16 @@ msgid ""
 "You must only specify one of them."
 msgstr "파라미터 '/path' 와 '/pathfile' 는 동시에 사용할 수 없습니다.\n둘 중 하나만 사용하세요."
 
+#. Resource IDs: (621)
+msgid ""
+"The password is wrong.\n"
+"Please enter the correct password in the settings dialog."
+msgstr ""
+
+#. Resource IDs: (621)
+msgid "The passwords don't match"
+msgstr ""
+
 #. Resource IDs: (64)
 #, c-format
 msgid ""
@@ -10324,6 +10374,12 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "선택된 파일에 아직도 충돌 표시가 있습니다.\n강제로 해결되었다는 표시를 하겠습니까?"
+
+#. Resource IDs: (621)
+msgid ""
+"The settings file can not be decrypted with the specified password!\n"
+"Do you want to overwrite the sync file?"
+msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."

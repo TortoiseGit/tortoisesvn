@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-11 09:47+0000\n"
+"PO-Revision-Date: 2014-10-07 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -2697,6 +2697,12 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr "Hủy bỏ\nTập tin đích được để nguyên dạng"
+
+#. Resource IDs: (621)
+msgid ""
+"Cancel\n"
+"You can enter another password and try again"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid ""
@@ -5949,6 +5955,10 @@ msgstr "Chèn nội dung vào Clipboard\nDán"
 msgid "Insert message at:"
 msgstr "Chèn thông điệp tại:"
 
+#. Resource IDs: (1660)
+msgid "Insert title at the bottom, after the message"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Không đủ bộ nhớ để thực hiện thao tác."
@@ -6223,6 +6233,10 @@ msgstr "Đường &amp;dẫn địa phương:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Tải các ảnh"
+
+#. Resource IDs: (1663)
+msgid "Load Settings from file"
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -7328,6 +7342,12 @@ msgid ""
 "Replace the target folder."
 msgstr "Ghi đè\nThay thế thư mục đích."
 
+#. Resource IDs: (621)
+msgid ""
+"Overwrite\n"
+"The settings are overwritten"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7367,6 +7387,10 @@ msgstr "Tham số"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Các tham số:"
+
+#. Resource IDs: (621)
+msgid "Password is wrong"
+msgstr ""
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7431,6 +7455,10 @@ msgstr "Đường dẫn được tìm thấy khớp đường dẫn tốt hơn."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Path:"
 msgstr ""
 
 #. Resource IDs: (116)
@@ -8828,6 +8856,10 @@ msgstr "Lưu các thay đổi."
 msgid "Save revision &to..."
 msgstr "Lưu chỉnh sửa &vào..."
 
+#. Resource IDs: (1664)
+msgid "Save settings to file"
+msgstr ""
+
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
@@ -9895,6 +9927,14 @@ msgstr "Đã chuyển"
 msgid "Switches the comparison left<->right"
 msgstr "Chuyển cách so sánh trái <-> phải"
 
+#. Resource IDs: (368)
+msgid "Sync"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Sync setup"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "System &sounds"
 msgstr "&Âm thanh của hệ thống"
@@ -10256,6 +10296,16 @@ msgid ""
 "You must only specify one of them."
 msgstr "Các tham số '/path' và '/pathfile' loại trừ lẫn nhau.\nBạn phải chỉ rõ ra một trong chúng."
 
+#. Resource IDs: (621)
+msgid ""
+"The password is wrong.\n"
+"Please enter the correct password in the settings dialog."
+msgstr ""
+
+#. Resource IDs: (621)
+msgid "The passwords don't match"
+msgstr ""
+
 #. Resource IDs: (64)
 #, c-format
 msgid ""
@@ -10319,6 +10369,12 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr "Đường dẫn được lựa chọn có vẻ vẫn còn một hay nhiều đánh dấu mâu thuẫn trong đó.\nBạn có chắc là muốn đánh dấu tập tin đã được giải quyết?"
+
+#. Resource IDs: (621)
+msgid ""
+"The settings file can not be decrypted with the specified password!\n"
+"Do you want to overwrite the sync file?"
+msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
