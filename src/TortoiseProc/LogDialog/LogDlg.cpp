@@ -7781,7 +7781,7 @@ void CLogDlg::RefreshMonitorProjTree()
         {
             MonitorItem * pMonitorItem = new MonitorItem(Name);
             pMonitorItem->WCPathOrUrl = m_monitoringFile.GetValue(mitem, L"WCPathOrUrl", L"");
-            pMonitorItem->interval = _wtoi(m_monitoringFile.GetValue(mitem, L"interval", L"5"));
+            pMonitorItem->interval = _wtoi(m_monitoringFile.GetValue(mitem, L"interval", L"30"));
             pMonitorItem->minminutesinterval = _wtoi(m_monitoringFile.GetValue(mitem, L"minminutesinterval", L"0"));
             pMonitorItem->lastchecked = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastchecked", L"0"));
             pMonitorItem->lastcheckedrobots = _wtoi64(m_monitoringFile.GetValue(mitem, L"lastcheckedrobots", L"0"));

@@ -32,7 +32,7 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     , m_sPathOrURL(_T(""))
     , m_sUsername(_T(""))
     , m_sPassword(_T(""))
-    , m_monitorInterval(5)
+    , m_monitorInterval(30)
     , m_sIgnoreUsers(_T(""))
     , m_sIgnoreRegex(_T(""))
 {
