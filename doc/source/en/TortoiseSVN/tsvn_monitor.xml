@@ -44,7 +44,10 @@
       The fields <literal>Username</literal> and <literal>Password</literal>
       should only be filled in if the repository does not provide anonymous
       read access, and only if the authentication is not stored by Subversion
-      itself.
+      itself. If you're accessing the monitored repository with TortoiseSVN
+      or other svn clients and you've stored the authentication already,
+      you should leave this empty: you won't have to edit those projects
+      manually if the password changes.
     </para>
     <para>
       The <literal>Monitor interval in minutes</literal> specifies the minutes
