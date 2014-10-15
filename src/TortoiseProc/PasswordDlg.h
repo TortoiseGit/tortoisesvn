@@ -17,48 +17,29 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "SettingsPropPage.h"
-#include "registry.h"
-#include "../../TortoiseBlame/BlameIndexColors.h"
+#include "StandAloneDlg.h"
 
+// CPasswordDlg dialog
 
-/**
- * \ingroup TortoiseProc
- * Settings page to configure Sync
- */
-class CSettingsSync : public ISettingsPropPage
+class CPasswordDlg : public CStandAloneDialog
 {
-    DECLARE_DYNAMIC(CSettingsSync)
+    DECLARE_DYNAMIC(CPasswordDlg)
 
 public:
-    CSettingsSync();
-    virtual ~CSettingsSync();
+    CPasswordDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CPasswordDlg();
 
-    UINT GetIconID() override {return IDI_SYNC;}
+    CString m_sPW1;
+    CString m_sPW2;
+    bool m_bForSave;
 
 // Dialog Data
-    enum { IDD = IDD_SETTINGSSYNC };
+    enum { IDD = IDD_PASSWORD };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
-    virtual BOOL OnKillActive();
-
-    BOOL ValidateInput();
-
-    afx_msg void OnBnClickedSyncbrowse();
-    afx_msg void OnEnChange();
-    afx_msg void OnBnClickedLoad();
-    afx_msg void OnBnClickedSave();
-    afx_msg void OnBnClickedLoadfile();
-    afx_msg void OnBnClickedSavefile();
+    virtual void OnOK();
 
     DECLARE_MESSAGE_MAP()
-private:
-    CString         m_sPW1;
-    CString         m_sPW2;
-    CString         m_sSyncPath;
-    CRegString      m_regSyncPath;
-    CRegString      m_regSyncPW;
 };

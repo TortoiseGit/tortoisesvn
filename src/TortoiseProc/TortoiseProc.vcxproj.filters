@@ -1091,6 +1091,9 @@
     <ClCompile Include="Settings\SettingsSync.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="PasswordDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2082,6 +2085,9 @@
     </ClInclude>
     <ClInclude Include="Settings\SettingsSync.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordDlg.h">
+      <Filter>Utility Dialogs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

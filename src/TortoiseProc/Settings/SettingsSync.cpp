@@ -60,6 +60,8 @@ BEGIN_MESSAGE_MAP(CSettingsSync, ISettingsPropPage)
     ON_EN_CHANGE(IDC_SYNCPW2, &CSettingsSync::OnEnChange)
     ON_BN_CLICKED(IDC_LOAD, &CSettingsSync::OnBnClickedLoad)
     ON_BN_CLICKED(IDC_SAVE, &CSettingsSync::OnBnClickedSave)
+    ON_BN_CLICKED(IDC_LOADFILE, &CSettingsSync::OnBnClickedLoadfile)
+    ON_BN_CLICKED(IDC_SAVEFILE, &CSettingsSync::OnBnClickedSavefile)
 END_MESSAGE_MAP()
 
 
@@ -205,6 +207,7 @@ BOOL CSettingsSync::OnKillActive()
 
 void CSettingsSync::OnBnClickedLoad()
 {
+    ValidateInput();
     CString sCmd = L" /command:sync /load";
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -212,6 +215,21 @@ void CSettingsSync::OnBnClickedLoad()
 
 void CSettingsSync::OnBnClickedSave()
 {
+    ValidateInput();
     CString sCmd = L" /command:sync /save";
+    CAppUtils::RunTortoiseProc(sCmd);
+}
+
+
+void CSettingsSync::OnBnClickedLoadfile()
+{
+    CString sCmd = L" /command:sync /load /askforpath";
+    CAppUtils::RunTortoiseProc(sCmd);
+}
+
+
+void CSettingsSync::OnBnClickedSavefile()
+{
+    CString sCmd = L" /command:sync /save /askforpath";
     CAppUtils::RunTortoiseProc(sCmd);
 }

@@ -26,6 +26,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
+#include "PasswordDlg.h"
 
 #define TSVN_SYNC_VERSION       1
 #define TSVN_SYNC_VERSION_STR   L"1"
@@ -81,12 +82,25 @@ bool SyncCommand::Execute()
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
     CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
-
-    if (syncPath.IsEmpty())
+    if (syncPath.IsEmpty() && !parser.HasKey(L"askforpath"))
     {
-        // show the settings dialog so the user can enter a sync path
-        //return false;
+        return false;
     }
+    syncPath.AppendPathString(L"tsvnsync.ini");
+
+    if (parser.HasKey(L"askforpath"))
+    {
+        // ask for the path first, then for the password
+        // this is used for a manual import/export
+        CString path;
+        bool bGotPath = !!CAppUtils::FileOpenSave(path, NULL, IDS_SYNC_SETTINGSFILE, IDS_COMMONFILEFILTER,
+                                                  !!parser.HasKey(L"load"), L"", NULL);
+        if (bGotPath)
+            syncPath = CTSVNPath(path);
+        else
+            return false;
+    }
+
 
     CSimpleIni iniFile;
     iniFile.SetMultiLine(true);
@@ -96,16 +110,11 @@ bool SyncCommand::Execute()
     FILETIME filetime = { 0 };
     RegQueryInfoKey(hMainKey, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, &filetime);
 
-    //{
-    //    CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-    //    auto encrypted = CStringUtils::Encrypt(L"testpassword");
-    //    regPW = encrypted;
-    //}
-
     bool bCloudIsNewer = false;
+    if (!parser.HasKey(L"save"))
     {
         // open the file in read mode
-        CAutoFile hFile = CreateFile(syncPath.GetWinPathString() + L"\\tsvnsync.ini", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+        CAutoFile hFile = CreateFile(syncPath.GetWinPathString(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile.IsValid())
         {
             // load the file
@@ -119,39 +128,68 @@ bool SyncCommand::Execute()
                     // decrypt the file contents
                     std::string encrypted = std::string(filebuf.get(), bytesread);
                     CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-                    auto password = CStringUtils::Decrypt(CString(regPW));
-                    if (password.get())
+                    CString password;
+                    if (parser.HasKey(L"askforpath") && parser.HasKey(L"load"))
                     {
-                        std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
-                        std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
-                        if (decrypted.size() >= 3)
+                        INT_PTR dlgret = 0;
+                        bool bPasswordMatches = true;
+                        do
                         {
-                            if (decrypted.substr(0, 3) == "***")
+                            bPasswordMatches = true;
+                            CPasswordDlg passDlg;
+                            passDlg.m_bForSave = !!parser.HasKey(L"save");
+                            dlgret = passDlg.DoModal();
+                            password = passDlg.m_sPW1;
+                            if ((dlgret == IDOK) && (parser.HasKey(L"load")))
                             {
-                                decrypted = decrypted.substr(3);
-                                // pass the decrypted data to the ini file
-                                iniFile.LoadFile(decrypted.c_str(), decrypted.size());
-                                int inicount = _wtoi(iniFile.GetValue(L"sync", L"synccounter", L""));
-                                if (inicount != 0)
+                                std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+                                std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
+                                if ((decrypted.size() < 3) || (decrypted.substr(0, 3) != "***"))
                                 {
-                                    if (int(DWORD(regCount)) < inicount)
-                                    {
-                                        bCloudIsNewer = true;
-                                        regCount = inicount;
-                                    }
+                                    bPasswordMatches = false;
                                 }
                             }
-                        }
+                        } while ((dlgret == IDOK) && !bPasswordMatches);
+                        if (dlgret != IDOK)
+                            return false;
                     }
                     else
                     {
-                        // password does not match or it couldn't be read from
-                        // the registry!
-                        // 
-                        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
-                        CString sCmd = L" /command:settings /page:20";
-                        CAppUtils::RunTortoiseProc(sCmd);
-                        return false;
+                        auto passwordbuf = CStringUtils::Decrypt(CString(regPW));
+                        if (passwordbuf.get())
+                        {
+                            password = passwordbuf.get();
+                        }
+                        else
+                        {
+                            // password does not match or it couldn't be read from
+                            // the registry!
+                            // 
+                            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+                            CString sCmd = L" /command:settings /page:20";
+                            CAppUtils::RunTortoiseProc(sCmd);
+                            return false;
+                        }
+                    }
+                    std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+                    std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
+                    if (decrypted.size() >= 3)
+                    {
+                        if (decrypted.substr(0, 3) == "***")
+                        {
+                            decrypted = decrypted.substr(3);
+                            // pass the decrypted data to the ini file
+                            iniFile.LoadFile(decrypted.c_str(), decrypted.size());
+                            int inicount = _wtoi(iniFile.GetValue(L"sync", L"synccounter", L""));
+                            if (inicount != 0)
+                            {
+                                if (int(DWORD(regCount)) < inicount)
+                                {
+                                    bCloudIsNewer = true;
+                                    regCount = inicount;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -547,13 +585,29 @@ bool SyncCommand::Execute()
         iniData = "***" + iniData;
         // encrypt the string
 
-        CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-        auto password = CStringUtils::Decrypt(CString(regPW));
-        std::string passworda = CUnicodeUtils::StdGetUTF8(password.get());
+        CString password;
+        if (parser.HasKey(L"askforpath"))
+        {
+            CPasswordDlg passDlg;
+            passDlg.m_bForSave = true;
+            if (passDlg.DoModal() != IDOK)
+                return false;
+            password = passDlg.m_sPW1;
+        }
+        else
+        {
+            CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
+            auto passwordbuf = CStringUtils::Decrypt(CString(regPW));
+            if (passwordbuf.get())
+            {
+                password = passwordbuf.get();
+            }
+        }
+        std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
 
         std::string encrypted = CStringUtils::Encrypt(iniData, passworda);
-        CPathUtils::MakeSureDirectoryPathExists(syncPath.GetWinPathString());
-        CAutoFile hFile = CreateFile(syncPath.GetWinPathString() + L"\\tsvnsync.ini", GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        CPathUtils::MakeSureDirectoryPathExists(syncPath.GetContainingDirectory().GetWinPathString());
+        CAutoFile hFile = CreateFile(syncPath.GetWinPathString(), GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile.IsValid())
         {
             DWORD written = 0;
