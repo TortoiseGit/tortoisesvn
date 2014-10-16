@@ -41,6 +41,7 @@ bool DropExternalCommand::Execute()
         if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)
         {
             sExternalsValue = props.GetItemValue(i);
+            break;
         }
     }
 
@@ -86,7 +87,10 @@ bool DropExternalCommand::Execute()
                     sExtValue = L"^" + sExternalUrl.Mid(sTargetRepoRootUrl.GetLength()) + L" " + pathList[i].GetFileOrDirectoryName();
                 }
                 if (!sExternalsValue.empty())
-                    sExternalsValue += "\n";
+                {
+                    if (sExternalsValue[sExternalsValue.size() - 1] != '\n')
+                        sExternalsValue += "\n";
+                }
                 sExternalsValue += CUnicodeUtils::StdGetUTF8((LPCWSTR)sExtValue);
                 bSuccess = true;
             }
