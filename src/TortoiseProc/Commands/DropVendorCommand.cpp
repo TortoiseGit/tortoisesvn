@@ -24,6 +24,7 @@
 #include "SVNAdminDir.h"
 #include "ProgressDlg.h"
 #include "FormatMessageWrapper.h"
+#include "SmartHandle.h"
 
 bool DropVendorCommand::Execute()
 {
@@ -162,7 +163,15 @@ bool DropVendorCommand::Execute()
         // first move the file to the recycle bin so it's possible to retrieve it later
         // again in case removing it was done accidentally
         CTSVNPath delpath = CTSVNPath(droppath + L"\\" + it->first);
+        bool isDir = delpath.IsDirectory();
         delpath.Delete(true);
+        // create the deleted file or directory again to avoid svn throwing an error
+        if (isDir)
+            CreateDirectory(delpath.GetWinPath(), NULL);
+        else
+        {
+            CAutoFile hFile = CreateFile(delpath.GetWinPath(), GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        }
         if (!svn.Remove(CTSVNPathList(delpath), true, false))
         {
             svn.ShowErrorDialog(GetExplorerHWND());
