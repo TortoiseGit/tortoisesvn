@@ -109,6 +109,7 @@ BOOL CCleanupDlg::OnInitDialog()
     AdjustControlSize(IDC_VACUUM);
 
     m_bCleanup = true;
+    m_bBreakLocks = true;
     m_bExternals = m_regExternals;
     m_bRefreshShell= m_regRefreshShell;
     m_bFixTimestamps = m_regFixTimestamps;
