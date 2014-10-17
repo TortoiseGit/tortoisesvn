@@ -881,7 +881,10 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                     if (props.GetCommitRev() == SVN_INVALID_REVNUM)
                                         m_revision = LONG(m_revision)+1;
                                     else
-                                        m_revision = props.GetCommitRev();
+                                    {
+                                        if (props.GetCommitRev() != 0)
+                                            m_revision = props.GetCommitRev();
+                                    }
                                 }
                             }
                         }
