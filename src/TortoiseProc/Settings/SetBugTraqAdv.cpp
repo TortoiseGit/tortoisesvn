@@ -150,7 +150,8 @@ void CSetBugTraqAdv::OnOK()
     VARIANT_BOOL valid;
     ATL::CComBSTR parameters;
     parameters.Attach(m_sParameters.AllocSysString());
-    if (FAILED(hr = pProvider->ValidateParameters(GetSafeHwnd(), parameters, &valid)))
+    hr = pProvider->ValidateParameters(GetSafeHwnd(), parameters, &valid);
+    if (FAILED(hr))
     {
         ShowEditBalloon(IDC_BUGTRAQPARAMETERS, IDS_ERR_PROVIDER_VALIDATE_FAILED, IDS_ERR_ERROR, TTI_ERROR);
         return;
