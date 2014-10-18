@@ -316,7 +316,7 @@ bool SyncCommand::Execute()
                                             else
                                             {
                                                 bHaveChanges = true;
-                                                sValue.Format(L"%ld", value);
+                                                sValue.Format(L"%lu", value);
                                                 iniFile.SetValue(L"registry_dword", sIniKeyName, sValue);
                                             }
                                         }
@@ -576,7 +576,7 @@ bool SyncCommand::Execute()
         ++count;
         regCount = count;
         CString tmp;
-        tmp.Format(L"%d", count);
+        tmp.Format(L"%lu", count);
         iniFile.SetValue(L"sync", L"synccounter", tmp);
 
         // save the ini file
