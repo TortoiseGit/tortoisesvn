@@ -38,8 +38,8 @@ title nant -buildfile:../default.build clean ipv6 Subversion
 nant -buildfile:../default.build clean ipv6 Subversion
 
 rem the actual coverity command
-title "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
-"%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
+title "%COVDIR%\bin\cov-build.exe" --no-parallel-translate --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
+"%COVDIR%\bin\cov-build.exe" --no-parallel-translate --dir "cov-int" nant -buildfile:../default.build ipv6 TortoiseSVN
 "%COVDIR%\bin\cov-build.exe" --dir "cov-int" nant -buildfile:../default.build Overlays
 
 
