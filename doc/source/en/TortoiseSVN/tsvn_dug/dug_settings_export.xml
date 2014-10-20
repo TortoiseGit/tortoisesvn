@@ -3,14 +3,22 @@
 <sect2 id="tsvn-dug-settings-export">
   <title>Exporting TSVN Settings</title>
   <para>
-    If you want to export all your client settings to use on another computer
-    you can do so using the Windows registry editor <filename>regedt32.exe</filename>.
-    Go to the registry key <literal>HKCU\Software\TortoiseSVN</literal> and export it
-    to a reg file. On the other computer, just import that file again (usually, a
-    double click on the reg file will do that).
+    <figure id="tsvn-dug-settings-dia-export">
+      <title>The Settings Dialog, Sync Page</title>
+      <graphic fileref="../images/SettingsSync.png"/>
+    </figure>
+    You can sync all TortoiseSVN settings to and from an encrypted file.
+    The file is encrpyted with the password you enter so you don't have to
+    worry if you store that file on a cloud folder like OneDrive, GDrive,
+    DropBox, ...
   </para>
   <para>
-    Remember to save Subversion's general settings, which you can find in the Subversion
-    configuration file <literal>%APPDATA%\Subversion\config</literal>.
+    When a path and password is specified, TortoiseSVN will sync all settings
+    automatically and keep them in sync.
+  </para>
+  <para>
+    You can also export/import an encrypted files with all the settings manually.
+    When you do that, you're asked for the path of the file and the password
+    to encrypt/decrypt the settings file.
   </para>
 </sect2>
