@@ -4041,7 +4041,7 @@ void CSVNProgressDlg::MergeAfterCommit()
             }
         }
         CSVNProgressDlg dlg(this);
-        dlg.SetOptions(ProgOptIgnoreAncestry|ProgOptForce|ProgOptAllowMixedRev);
+        dlg.SetOptions(ProgOptForce|ProgOptAllowMixedRev);
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
         dlg.SetUrl(url);
