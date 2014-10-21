@@ -193,45 +193,22 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                     break;
                 }
             }
-            if (bAllUrls && (m_svnPaths.GetCount() > 1) && !commonDir.IsEmpty())
+            for (int i = 0; i < m_svnPaths.GetCount(); ++i)
             {
-                // if all paths are in the same directory, we can fetch the info recursively
-                // from the parent folder to save a lot of time.
-                const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(commonDir, m_pegRev, m_revision, svn_depth_files);
-                while (infodata)
+                if (m_svnPaths[i].IsUrl())
                 {
-                    // check if the returned item is one in our list
-                    for (int i=0; i<m_svnPaths.GetCount(); ++i)
+                    const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_infinity);
+                    while (infodata)
                     {
-                        if (m_svnPaths[i].IsAncestorOf(CTSVNPath(infodata->url)))
-                        {
-                            SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
-                            m_allPaths.push_back(id);
-                            break;
-                        }
-                    }
-                    infodata = svnInfo.GetNextFileInfo();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < m_svnPaths.GetCount(); ++i)
-                {
-                    if (m_svnPaths[i].IsUrl())
-                    {
-                        const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_files);
-                        while (infodata)
-                        {
-                            SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
-                            m_allPaths.push_back(id);
-                            infodata = svnInfo.GetNextFileInfo();
-                        }
-                    }
-                    else
-                    {
-                        SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], SVNInfoData()};
+                        SVNDataObject::SVNObjectInfoData id = { m_svnPaths[i], *infodata };
                         m_allPaths.push_back(id);
+                        infodata = svnInfo.GetNextFileInfo();
                     }
+                }
+                else
+                {
+                    SVNDataObject::SVNObjectInfoData id = { m_svnPaths[i], SVNInfoData() };
+                    m_allPaths.push_back(id);
                 }
             }
         }
