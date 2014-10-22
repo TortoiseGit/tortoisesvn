@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "Command.h"
-
+#include "SimpleIni.h"
 
 /**
  * \ingroup TortoiseProc
@@ -32,8 +32,11 @@ public:
      */
     virtual bool            Execute() override;
 
-    virtual bool            CheckPaths() override { return true; }
 
+    virtual bool            CheckPaths() override { return true; }
+private:
+    bool                    HandleRegistryKey(const CString& regname, CSimpleIni& iniFile, bool bCloudIsNewer);
+    bool                    FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWND hwndOwner);
 };
 
 
