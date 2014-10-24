@@ -1094,6 +1094,9 @@
     <ClCompile Include="PasswordDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="Settings\SettingsTUDiff.cpp">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2089,6 +2092,9 @@
     <ClInclude Include="PasswordDlg.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
+    <ClInclude Include="Settings\SettingsTUDiff.h">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2528,6 +2534,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Resources\sync.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\TortoiseUDiff\TortoiseUDiff.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

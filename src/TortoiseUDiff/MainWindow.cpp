@@ -23,6 +23,8 @@
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
 #include "SysInfo.h"
+#include "UDiffColors.h"
+#include "registry.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -250,7 +252,7 @@ LRESULT CMainWindow::DoCommand(int id)
         break;
     case ID_FILE_SETTINGS:
         {
-            tstring svnCmd = L" /command:settings /page:19";
+            tstring svnCmd = L" /command:settings /page:20";
             RunCommand(svnCmd);
         }
         break;
@@ -574,12 +576,9 @@ bool CMainWindow::Initialize()
 
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
-        // Reusing TortoiseBlame's setting which already have an user friendly
-        // pane in TortoiseSVN's Settings dialog, while there is no such
-        // pane for TortoiseUDiff.
-        CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10),
-        CUnicodeUtils::StdGetUTF8(CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New")).c_str());
-    SendEditor(SCI_SETTABWIDTH, 4);
+        CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10),
+        CUnicodeUtils::StdGetUTF8(CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New")).c_str());
+    SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);
     LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
     SendEditor(SCI_SETMARGINWIDTHN, 0, pix);
@@ -671,13 +670,26 @@ void CMainWindow::SetupWindow(bool bUTF8)
     SendEditor(SCI_SETSTYLEBITS, 5, 0);
 
     //SetAStyle(SCE_DIFF_DEFAULT, RGB(0, 0, 0));
-    SetAStyle(SCE_DIFF_COMMAND, RGB(0x0A, 0x24, 0x36));
-    SetAStyle(SCE_DIFF_POSITION, RGB(0xFF, 0, 0));
-    SetAStyle(SCE_DIFF_HEADER, RGB(0x80, 0, 0), RGB(0xFF, 0xFF, 0x80));
-    SetAStyle(SCE_DIFF_COMMENT, RGB(0, 0x80, 0));
+    SetAStyle(SCE_DIFF_COMMAND,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommandColor", UDIFF_COLORFORECOMMAND),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommandColor", UDIFF_COLORBACKCOMMAND));
+    SetAStyle(SCE_DIFF_POSITION,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForePositionColor", UDIFF_COLORFOREPOSITION),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackPositionColor", UDIFF_COLORBACKPOSITION));
+    SetAStyle(SCE_DIFF_HEADER,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeHeaderColor", UDIFF_COLORFOREHEADER),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackHeaderColor", UDIFF_COLORBACKHEADER));
+    SetAStyle(SCE_DIFF_COMMENT,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommentColor", UDIFF_COLORFORECOMMENT),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommentColor", UDIFF_COLORBACKCOMMENT));
     SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
-    SetAStyle(SCE_DIFF_DELETED, ::GetSysColor(COLOR_WINDOWTEXT), RGB(0xFF, 0x80, 0x80));
-    SetAStyle(SCE_DIFF_ADDED, ::GetSysColor(COLOR_WINDOWTEXT), RGB(0x80, 0xFF, 0x80));
+
+    SetAStyle(SCE_DIFF_ADDED,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeAddedColor", UDIFF_COLORFOREADDED),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackAddedColor", UDIFF_COLORBACKADDED));
+    SetAStyle(SCE_DIFF_DELETED,
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeRemovedColor", UDIFF_COLORFOREREMOVED),
+              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackRemovedColor", UDIFF_COLORBACKREMOVED));
 
     SendEditor(SCI_SETLEXER, SCLEX_DIFF);
     SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");

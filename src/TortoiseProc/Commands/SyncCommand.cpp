@@ -185,7 +185,7 @@ bool SyncCommand::Execute()
                             // the registry!
                             // 
                             TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
-                            CString sCmd = L" /command:settings /page:20";
+                            CString sCmd = L" /command:settings /page:21";
                             CAppUtils::RunTortoiseProc(sCmd);
                             return false;
                         }

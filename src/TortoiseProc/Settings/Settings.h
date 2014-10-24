@@ -42,6 +42,7 @@
 #include "SettingsAdvanced.h"
 #include "SettingsDialogs3.h"
 #include "SettingsSync.h"
+#include "SettingsTUDiff.h"
 
 #include "AeroGlass.h"
 #include "AeroControls.h"
@@ -93,6 +94,7 @@ private:
     CSettingsAdvanced *             m_pAdvanced;
     SettingsDialogs3 *              m_pDialogs3Page;
     CSettingsSync *                 m_pSyncPage;
+    CSettingsUDiff *                m_pUDiffPage;
 
     HICON                           m_hIcon;
     CDwmApiImpl                     m_Dwm;
