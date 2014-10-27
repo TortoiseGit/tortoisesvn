@@ -9090,6 +9090,7 @@ msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from t
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Colors"
 msgstr ""
 
@@ -9102,6 +9103,7 @@ msgid "You can specify different colours to use for the locator bar. The default
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Font"
 msgstr ""
 
@@ -9110,11 +9112,60 @@ msgid "You can select the font used to display the text, and the point size to u
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Tabs"
 msgstr ""
 
 #. (para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
+msgstr ""
+
+#. (title)
+msgid "TortoiseUDiff Settings"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, TortoiseUDiff Page"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> The settings used by TortoiseUDiff are controlled from the main context menu, not directly with TortoiseUDiff itself."
+msgstr ""
+
+#. (para)
+msgid "The default colors used by TortoiseUDiff are usually ok, but you can configure them here."
+msgstr ""
+
+#. (para)
+msgid "You can select the font used to display the text, and the point size to use."
+msgstr ""
+
+#. (para)
+msgid "Defines how many spaces to use for expansion when a tab character is found in the file diff."
+msgstr ""
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Sync Page"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> You can sync all TortoiseSVN settings to and from an encrypted file. The file is encrpyted with the password you enter so you don't have to worry if you store that file on a cloud folder like OneDrive, GDrive, DropBox, ..."
+msgstr ""
+
+#. (para)
+msgid "When a path and password is specified, TortoiseSVN will sync all settings automatically and keep them in sync."
+msgstr ""
+
+#. (para)
+msgid "You can also export/import an encrypted files with all the settings manually. When you do that, you're asked for the path of the file and the password to encrypt/decrypt the settings file."
+msgstr ""
+
+#. (para)
+msgid "When exporting the settings manually, you can also optionally include all local settings which are not included in a normal export or in a sync. Local settings are settings which include local paths which usually vary between computers. These local settings include the configured diff and merge tools and hook scripts."
 msgstr ""
 
 #. (title)
@@ -9343,18 +9394,6 @@ msgid "TortoiseSVN checks whether there's a new version available about once a w
 msgstr ""
 
 #. (title)
-msgid "Exporting TSVN Settings"
-msgstr ""
-
-#. (para)
-msgid "If you want to export all your client settings to use on another computer you can do so using the Windows registry editor <filename>regedt32.exe</filename>. Go to the registry key <literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. On the other computer, just import that file again (usually, a double click on the reg file will do that)."
-msgstr ""
-
-#. (para)
-msgid "Remember to save Subversion's general settings, which you can find in the Subversion configuration file <literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr ""
-
-#. (title)
 msgid "Final Step"
 msgstr ""
 
@@ -9411,7 +9450,7 @@ msgid "If the box for <literal>Path or Url</literal> is left empty, then a folde
 msgstr ""
 
 #. (para)
-msgid "The fields <literal>Username</literal> and <literal>Password</literal> should only be filled in if the repository does not provide anonymous read access, and only if the authentication is not stored by Subversion itself."
+msgid "The fields <literal>Username</literal> and <literal>Password</literal> should only be filled in if the repository does not provide anonymous read access, and only if the authentication is not stored by Subversion itself. If you're accessing the monitored repository with TortoiseSVN or other svn clients and you've stored the authentication already, you should leave this empty: you won't have to edit those projects manually if the password changes."
 msgstr ""
 
 #. (para)
