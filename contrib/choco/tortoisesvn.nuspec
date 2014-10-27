@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>tortoisesvn</id>
+    <title>TortoiseSVN</title>
+    <version>$MajorVersion$.$MinorVersion$.$MicroVersion$</version>
+    <authors>Stefan Kueng</authors>
+    <owners>Stefan Kueng</owners>
+    <summary>TortoiseSVN is an easy-to-use SCM / source control software for Microsoft Windows and possibly the best standalone Apache™ Subversion®client there is. Please install with chocolatey (http://nuget.org/List/Packages/chocolatey). This will install TortoiseSVN on your system!</summary>
+    <description>TortoiseSVN is an easy-to-use SCM / source control software for Microsoft Windows and possibly the best standalone Apache™ Subversion®client there is. Please install with chocolatey (http://nuget.org/List/Packages/chocolatey). This will install TortoiseSVN on your system!</description>
+    <projectUrl>http://tortoisesvn.net</projectUrl>
+    <tags>tortoisesvn svn subversion chocolatey admin</tags>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <iconUrl>https://tortoisesvn.googlecode.com/svn/trunk/doc/logo/sf-logo.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

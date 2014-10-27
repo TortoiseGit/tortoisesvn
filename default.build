@@ -566,6 +566,44 @@ Make sure to also check the [changelog of Subversion](http://svn.apache.org/repo
     </script>
   </target>
 
+  <target name="chocolatey" depends="env, VersionInfo">
+    <loadfile file="contrib\choco\tortoisesvn.nuspec" property="nuspecfile">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+          <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+          <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+          <token key="WCREV" value="${environment::get-variable('WCREV')}" />
+          <token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
+          <token key="SVNMajorVersion" value="${environment::get-variable('SVNMajorVersion')}" />
+          <token key="SVNMinorVersion" value="${environment::get-variable('SVNMinorVersion')}" />
+          <token key="SVNMicroVersion" value="${environment::get-variable('SVNMicroversion')}" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="contrib\choco\package\tortoisesvn.nuspec" message="${nuspecfile}" />
+    <loadfile file="contrib\choco\chocolateyInstall.ps1" property="cinstfile">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+          <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+          <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+          <token key="WCREV" value="${environment::get-variable('WCREV')}" />
+          <token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
+          <token key="SVNMajorVersion" value="${environment::get-variable('SVNMajorVersion')}" />
+          <token key="SVNMinorVersion" value="${environment::get-variable('SVNMinorVersion')}" />
+          <token key="SVNMicroVersion" value="${environment::get-variable('SVNMicroversion')}" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="contrib\choco\package\tools\chocolateyInstall.ps1" message="${cinstfile}" />
+    <echo>
+      now start an admin console in choco\package and then run
+      choco pack
+      to upload the package, run
+      cpush TortoiseSVN-x.x.x.nupkg
+    </echo>
+  </target>
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->

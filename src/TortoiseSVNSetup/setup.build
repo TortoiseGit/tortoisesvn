@@ -19,7 +19,8 @@
     </loadfile>
     <echo file="VersionNumberInclude.wxi" message="${versionwixfile}" />
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-    <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-1.8.x-dev" />
+    <property name="svnverstring" value="${environment::get-variable('SVNMajorVersion')}.${environment::get-variable('SVNMinorVersion')}.${environment::get-variable('SVNMicroVersion')}" />
+    <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-${svnverstring}" />
   </target>
 
   <target name="setup" depends="versioninfo">
