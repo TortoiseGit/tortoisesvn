@@ -21,4 +21,11 @@
     When you do that, you're asked for the path of the file and the password
     to encrypt/decrypt the settings file.
   </para>
+  <para>
+    When exporting the settings manually, you can also optionally include
+    all local settings which are not included in a normal export or in a
+    sync. Local settings are settings which include local paths which usually
+    vary between computers. These local settings include the configured
+    diff and merge tools and hook scripts.
+  </para>
 </sect2>
