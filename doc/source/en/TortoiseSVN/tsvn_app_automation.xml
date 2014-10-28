@@ -681,6 +681,43 @@ Don't touch these lines:
                 </para>
               </entry>
             </row>
+            <row>
+              <entry condition="pot">:sync</entry>
+              <entry>
+                <para>
+                  Exports/imports settings, either depending on whether the current settings
+                  or the exported settings are newer, or as specified.
+                </para>
+                <para>
+                  If a path is passed with <option>/path</option>, then the path is used
+                  to store or read the settings from.
+                </para>
+                <para>
+                  The parameter <option>/askforpath</option> will show a file open/save dialog
+                  for the user to chose the export/import path.
+                </para>
+                <para>
+                  If neither <option>/load</option> nor <option>/save</option> is specified,
+                  then TortoiseSVN determines whether to export or import the settings
+                  by looking at which ones are more recent. If the export file is more recent
+                  than the current settings, then the settings are loaded from the file. If the
+                  current settings are more recent, then the settings are exported to the
+                  settings file.
+                </para>
+                <para>
+                  If <option>/load</option> is specified, the settings are imported from the
+                  settings file.
+                </para>
+                <para>
+                  If <option>/save</option> is specified, the current settings are exported
+                  to the settings file.
+                </para>
+                <para>
+                  The parameter <option>/local</option> forces a settings export
+                  to include local settings, i.e. settings that refer to local paths.
+                </para>
+              </entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
