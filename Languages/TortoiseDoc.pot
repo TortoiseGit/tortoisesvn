@@ -11329,6 +11329,10 @@ msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>
 msgstr ""
 
 #. (para)
+msgid "There's a special command that does not require the parameter <option>/command:abcd</option> but instead starts if nothing is specified on the command line: the project monitor. If <option>/tray</option> is specified, the project monitor starts hidden and only adds its icon to the system tray."
+msgstr ""
+
+#. (para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
 msgstr ""
 
@@ -11906,6 +11910,34 @@ msgstr ""
 
 #. (para)
 msgid "To open the properties dialog directly for a specific property, pass the property name as <option>/property:name</option>."
+msgstr ""
+
+#. (para)
+msgid "Exports/imports settings, either depending on whether the current settings or the exported settings are newer, or as specified."
+msgstr ""
+
+#. (para)
+msgid "If a path is passed with <option>/path</option>, then the path is used to store or read the settings from."
+msgstr ""
+
+#. (para)
+msgid "The parameter <option>/askforpath</option> will show a file open/save dialog for the user to chose the export/import path."
+msgstr ""
+
+#. (para)
+msgid "If neither <option>/load</option> nor <option>/save</option> is specified, then TortoiseSVN determines whether to export or import the settings by looking at which ones are more recent. If the export file is more recent than the current settings, then the settings are loaded from the file. If the current settings are more recent, then the settings are exported to the settings file."
+msgstr ""
+
+#. (para)
+msgid "If <option>/load</option> is specified, the settings are imported from the settings file."
+msgstr ""
+
+#. (para)
+msgid "If <option>/save</option> is specified, the current settings are exported to the settings file."
+msgstr ""
+
+#. (para)
+msgid "The parameter <option>/local</option> forces a settings export to include local settings, i.e. settings that refer to local paths."
 msgstr ""
 
 #. (para)
