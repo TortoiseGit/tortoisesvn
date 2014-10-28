@@ -97,6 +97,8 @@ bool SyncCommand::Execute()
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
     CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
+    if (!cmdLinePath.IsEmpty())
+        syncPath = cmdLinePath;
     if (syncPath.IsEmpty() && !parser.HasKey(L"askforpath"))
     {
         return false;
