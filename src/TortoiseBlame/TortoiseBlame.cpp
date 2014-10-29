@@ -1361,7 +1361,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
                 ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)wcslen(buf), 0);
                 Left += m_authorWidth;
             }
-            if ((ShowPath)&&(m_mergedPaths.size()))
+            if (ShowPath && !m_mergedPaths.empty())
             {
                 rc.right = rc.left + Left + m_pathWidth;
                 swprintf_s(buf, L"%-60s            ", m_mergedPaths[i].c_str());
