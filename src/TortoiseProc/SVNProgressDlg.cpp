@@ -4244,7 +4244,7 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         CAppUtils::StartExtDiff(
             tempfile, data->path, revname, wcname, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
             CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0,
-            data->path.GetUIFileOrDirectoryName());
+            data->path.GetUIFileOrDirectoryName(), L"");
     }
 }
 

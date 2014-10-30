@@ -39,15 +39,21 @@
 #include "SVNExternals.h"
 #include "CmdLineParser.h"
 
-bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
+
+bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype, SVNRev rev /*= SVNRev::REV_WC*/)
 {
-    SVNProperties props(file, SVNRev::REV_WC, false, false);
-    for (int i = 0; i < props.GetCount(); ++i)
+    // only fetch the mime-type for local paths, or for urls if a mime-type specific diff tool
+    // is configured.
+    if (!file.IsUrl() || CAppUtils::HasMimeTool())
     {
-        if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)
+        SVNProperties props(file, file.IsUrl() ? rev : SVNRev::REV_WC, false, false);
+        for (int i = 0; i < props.GetCount(); ++i)
         {
-            mimetype = props.GetItemValue(i).c_str();
-            return true;
+            if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE) == 0)
+            {
+                mimetype = props.GetItemValue(i).c_str();
+                return true;
+            }
         }
     }
     return false;
@@ -74,13 +80,16 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
             com = mergetool;
         }
     }
-    if (GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
+    if (HasMimeTool())
     {
-        // is there a mime type specific merge tool?
-        CRegString mergetool(L"Software\\TortoiseSVN\\MergeTools\\" + mimetype);
-        if (CString(mergetool) != "")
+        if (GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
         {
-            com = mergetool;
+            // is there a mime type specific merge tool?
+            CRegString mergetool(L"Software\\TortoiseSVN\\MergeTools\\" + mimetype);
+            if (CString(mergetool) != "")
+            {
+                com = mergetool;
+            }
         }
     }
     // is there a filename specific merge tool?
@@ -306,7 +315,7 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
     return TRUE;
 }
 
-CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
+CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, const CString& mimetype)
 {
     CString difftool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + file2.GetFilename().MakeLower());
     if (!difftool.IsEmpty())
@@ -315,13 +324,16 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
     if (!difftool.IsEmpty())
         return difftool;
 
-    // Is there a mime type specific diff tool?
-    CString mimetype;
-    if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
+    if (HasMimeTool())
     {
-        CString mimetool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + mimetype);
-        if (!mimetool.IsEmpty())
-            return mimetool;
+        // Is there a mime type specific diff tool?
+        CString mt = mimetype;
+        if (!mt.IsEmpty() || GetMimeType(file1, mt) || GetMimeType(file2, mt))
+        {
+            CString mimetool = CRegString(L"Software\\TortoiseSVN\\DiffTools\\" + mt);
+            if (!mimetool.IsEmpty())
+                return mimetool;
+        }
     }
 
     // Is there an extension specific diff tool?
@@ -355,7 +367,7 @@ bool CAppUtils::StartExtDiff(
     const CTSVNPath& file1, const CTSVNPath& file2,
     const CString& sName1, const CString& sName2, const DiffFlags& flags, int line, const CString& sName)
 {
-    return StartExtDiff(file1, file2, sName1, sName2, CTSVNPath(), CTSVNPath(), SVNRev(), SVNRev(), SVNRev(), flags, line, sName);
+    return StartExtDiff(file1, file2, sName1, sName2, CTSVNPath(), CTSVNPath(), SVNRev(), SVNRev(), SVNRev(), flags, line, sName, L"");
 }
 
 bool CAppUtils::StartExtDiff(
@@ -363,14 +375,14 @@ bool CAppUtils::StartExtDiff(
     const CString& sName1, const CString& sName2,
     const CTSVNPath& url1, const CTSVNPath& url2,
     const SVNRev& rev1, const SVNRev& rev2,
-    const SVNRev& pegRev, const DiffFlags& flags, int line, const CString& sName)
+    const SVNRev& pegRev, const DiffFlags& flags, int line, const CString& sName, const CString& mimetype)
 {
     CString viewer;
 
     CRegDWORD blamediff(L"Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge", FALSE);
     if (!flags.bBlame || !(DWORD)blamediff)
     {
-        viewer = PickDiffTool(file1, file2);
+        viewer = PickDiffTool(file1, file2, mimetype);
         // If registry entry for a diff program is commented out, use TortoiseMerge.
         bool bCommentedOut = viewer.Left(1) == L"#";
         if (flags.bAlternativeTool)
@@ -1293,5 +1305,24 @@ void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
     taskdlg.SetCommonButtons(TDCBF_OK_BUTTON);
     taskdlg.SetMainIcon(TD_ERROR_ICON);
     taskdlg.DoModal(hWnd);
+}
+
+bool CAppUtils::HasMimeTool()
+{
+    CRegistryKey diffList(L"Software\\TortoiseSVN\\DiffTools");
+    CStringList diffvalues;
+    diffList.getValues(diffvalues);
+    bool hasMimeTool = false;
+    POSITION pos;
+    for (pos = diffvalues.GetHeadPosition(); pos != NULL;)
+    {
+        auto s = diffvalues.GetNext(pos);
+        if (s.Find('/') >= 0)
+        {
+            hasMimeTool = true;
+            break;
+        }
+    }
+    return hasMimeTool;
 }
 

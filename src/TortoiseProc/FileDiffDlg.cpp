@@ -364,8 +364,11 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame, boo
     CAppUtils::DiffFlags flags;
     flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     flags.Blame(blame);
+    CString mimetype;
+    if (!blame)
+        CAppUtils::GetMimeType(url1, mimetype, m_rev1);
     CAppUtils::StartExtDiff(
-        tempfile, tempfile2, rev1name, rev2name, url1, url2, m_rev1, m_rev2, m_bDoPegDiff ? m_peg : SVNRev(), flags, 0, L"");
+        tempfile, tempfile2, rev1name, rev2name, url1, url2, m_rev1, m_rev2, m_bDoPegDiff ? m_peg : SVNRev(), flags, 0, L"", mimetype);
 }
 
 void CFileDiffDlg::DiffProps(int selIndex)

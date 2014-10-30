@@ -93,7 +93,7 @@ public:
         const CTSVNPath& url1, const CTSVNPath& url2,
         const SVNRev& rev1, const SVNRev& rev2,
         const SVNRev& pegRev, const DiffFlags& flags,
-        int line, const CString& sName);
+        int line, const CString& sName, const CString& mimetype);
 
     /**
      * Starts the external diff application for properties
@@ -189,9 +189,11 @@ public:
 
     static void ReportFailedHook(HWND hWnd, const CString& sError);
 
+    static bool HasMimeTool();
+    static bool GetMimeType(const CTSVNPath& file, CString& mimetype, SVNRev rev = SVNRev::REV_WC);
 private:
-    static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
-    static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
+    static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, const CString& mimetype);
+
     static void SetCharFormat(CWnd* window, DWORD mask, DWORD effects );
     CAppUtils(void);
     ~CAppUtils(void);
