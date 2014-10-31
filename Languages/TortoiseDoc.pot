@@ -11384,72 +11384,40 @@ msgstr ""
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr ""
 
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-msgid "/path"
+#. (para)
+msgid "<option>/startrev:xxx</option>,"
 msgstr ""
 
-#. (option)
-#. (option)
-msgid "/startrev:xxx"
+#. (para)
+msgid "<option>/endrev:xxx</option>,"
 msgstr ""
 
-#. (option)
-#. (option)
-msgid "/endrev:xxx"
+#. (para)
+msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
 msgstr ""
 
-#. (option)
-msgid "/strict"
+#. (para)
+msgid "<option>/merge</option> enables the 'include merged revisions' checkbox,"
 msgstr ""
 
-#. (option)
-msgid "/merge"
+#. (para)
+msgid "<option>/datemin:\"{datestring}\"</option> sets the start date of the filter, and"
 msgstr ""
 
-#. (option)
-msgid "/findstring:\"filterstring\""
+#. (para)
+msgid "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. The date format is the same as used for svn date revisions."
 msgstr ""
 
-#. (option)
-msgid "/findtext"
+#. (para)
+msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
 msgstr ""
 
-#. (option)
-msgid "/findregex"
+#. (para)
+msgid "<option>/findtext</option> forces the filter to use text, not regex, or"
 msgstr ""
 
-#. (option)
-msgid "/findtype:X"
+#. (para)
+msgid "<option>/findregex</option> forces the filter to use regex, not simple text search, and"
 msgstr ""
 
 #. (para)
@@ -11492,12 +11460,97 @@ msgstr ""
 msgid "<option>/findtype:256</option> filter by date range"
 msgstr ""
 
-#. (option)
-msgid "/outfile:path\\to\\file"
+#. (para)
+msgid "<option>/findtype:X</option> with X being a number between 0 and 511. The numbers are the sum of the following options: <placeholder-1/>"
 msgstr ""
 
-#. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 0 and 511. The numbers are the sum of the following options: <placeholder-10/> If <placeholder-11/> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
+#. (para)
+msgid "If <option>/outfile:path\\to\\file</option> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
+msgstr ""
+
+#. (para)
+msgid "Opens the log dialog. The <option>/path</option> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17}"
+msgstr ""
+
+#. (para)
+msgid "{15:30}"
+msgstr ""
+
+#. (para)
+msgid "{15:30:00.200000}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30\"}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30 +0230\"}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30Z}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30-04:00}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530Z}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530-0500}"
+msgstr ""
+
+#. (para)
+msgid "An svn date revision can be in one of the following formats: <placeholder-1/>"
+msgstr ""
+
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+msgid "/path"
 msgstr ""
 
 #. (option)
@@ -11757,6 +11810,14 @@ msgstr ""
 
 #. (option)
 msgid "/ignoreprops"
+msgstr ""
+
+#. (option)
+msgid "/startrev:xxx"
+msgstr ""
+
+#. (option)
+msgid "/endrev:xxx"
 msgstr ""
 
 #. (option)
