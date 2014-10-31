@@ -141,7 +141,7 @@ public:
         BOOL bSaveStrict = TRUE,
         int limit = (int)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs",
         100));
-    void SetFilter(const CString& findstr, LONG findtype, bool findregex);
+    void SetFilter(const CString& findstr, LONG findtype, bool findregex, const CString& sDateFrom, const CString& sDateTo);
     void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
     void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
     bool IsThreadRunning() {return !netScheduler.WaitForEmptyQueueOrTimeout(0);}
@@ -484,6 +484,8 @@ private:
     CDateTimeCtrl       m_DateTo;
     __time64_t          m_tFrom;
     __time64_t          m_tTo;
+    __time64_t          m_TimeFromSetFromCmdLine;
+    __time64_t          m_TimeToSetFromCmdLine;
     int                 m_limit;
     int                 m_nSortColumn;
     bool                m_bAscending;

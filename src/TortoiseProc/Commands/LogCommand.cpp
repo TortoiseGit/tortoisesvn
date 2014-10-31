@@ -70,11 +70,17 @@ bool LogCommand::Execute()
         findRegex = false;
     if (parser.HasKey(L"findregex"))
         findRegex = true;
+    CString sFilterDateFrom;
+    CString sFilterDateTo;
+    if (parser.HasVal(L"datemin"))
+        sFilterDateFrom = parser.GetVal(L"datemin");
+    if (parser.HasVal(L"datemax"))
+        sFilterDateTo = parser.GetVal(L"datemax");
 
     CLogDlg dlg;
     theApp.m_pMainWnd = &dlg;
     dlg.SetParams(cmdLinePath, pegrev, revstart, revend, bStrict, TRUE, limit);
-    dlg.SetFilter(findStr, findType, findRegex);
+    dlg.SetFilter(findStr, findType, findRegex, sFilterDateFrom, sFilterDateTo);
     dlg.SetIncludeMerge(!!parser.HasKey(L"merge"));
     val = parser.GetVal(L"propspath");
     if (!val.IsEmpty())

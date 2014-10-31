@@ -215,6 +215,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_temprev(0)
     , m_tFrom(0)
     , m_tTo(0)
+    , m_TimeFromSetFromCmdLine(0)
+    , m_TimeToSetFromCmdLine(0)
     , m_bVisualStudioRunningAtStart(false)
     , m_bEnsureSelection(false)
     , m_bMonitoringMode(false)
@@ -390,12 +392,30 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
         UpdateData(FALSE);
 }
 
-void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
+void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex, const CString& sDateFrom, const CString& sDateTo)
 {
     m_sFilterText = findstr;
     if (findtype)
         m_SelectedFilters = findtype;
     m_bFilterWithRegex = findregex;
+    if (!sDateFrom.IsEmpty())
+    {
+        SVNRev rDate(sDateFrom);
+        if (rDate.IsValid())
+        {
+            // / 1000000L to convert svn time to windows time
+            m_TimeFromSetFromCmdLine = rDate.GetDate() / 1000000L;
+        }
+    }
+    if (!sDateTo.IsEmpty())
+    {
+        SVNRev rDate(sDateTo);
+        if (rDate.IsValid())
+        {
+            // / 1000000L to convert svn time to windows time
+            m_TimeToSetFromCmdLine = rDate.GetDate() / 1000000L;
+        }
+    }
 }
 
 
@@ -1833,6 +1853,18 @@ void CLogDlg::LogThread()
     m_DateTo.SetRange(&m_timFrom, &m_timTo);
     m_DateFrom.SetTime(&m_timFrom);
     m_DateTo.SetTime(&m_timTo);
+    if (m_TimeFromSetFromCmdLine)
+    {
+        m_timFrom = m_TimeFromSetFromCmdLine;
+        m_DateFrom.SetTime(&m_timFrom);
+        m_tFrom = m_TimeFromSetFromCmdLine;
+    }
+    if (m_TimeToSetFromCmdLine)
+    {
+        m_timTo = m_TimeToSetFromCmdLine;
+        m_DateTo.SetTime(&m_timTo);
+        m_tTo = m_TimeToSetFromCmdLine;
+    }
 
     DialogEnableWindow(IDC_GETALL, TRUE);
 
