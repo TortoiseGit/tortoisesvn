@@ -36,7 +36,10 @@ bool CEditorConfigWrapper::Load(CString filename)
 
     int count = editorconfig_handle_get_name_value_count(eh);
     if (count == 0)
+    {
+        editorconfig_handle_destroy(eh);
         return false;
+    }
     for (int i = 0; i < count; ++i)
     {
         const char* name, *value;
