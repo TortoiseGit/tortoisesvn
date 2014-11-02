@@ -713,19 +713,22 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
                     std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength]);
 
                     std::unique_ptr<BYTE[]> strIn(new BYTE[s.size() + 1]);
-                    if (CStringUtils::FromHexString(s, strIn.get()))
+                    if (buffer && strIn)
                     {
-                        // copy encrypted password to temporary buffer
-                        memcpy(buffer.get(), strIn.get(), s.size());
-                        dwLength = DWORD(s.size() / 2);
-                        CryptDecrypt(hKey, 0, true, 0, (BYTE *)buffer.get(), &dwLength);
-                        decryptstring = std::string((char*)buffer.get(), dwLength);
-                        if (!decryptstring.empty() && (decryptstring[0] == '*'))
+                        if (CStringUtils::FromHexString(s, strIn.get()))
                         {
-                            decryptstring = decryptstring.substr(1);
+                            // copy encrypted password to temporary buffer
+                            memcpy(buffer.get(), strIn.get(), s.size());
+                            dwLength = DWORD(s.size() / 2);
+                            CryptDecrypt(hKey, 0, true, 0, (BYTE *)buffer.get(), &dwLength);
+                            decryptstring = std::string((char*)buffer.get(), dwLength);
+                            if (!decryptstring.empty() && (decryptstring[0] == '*'))
+                            {
+                                decryptstring = decryptstring.substr(1);
+                            }
+                            else
+                                decryptstring.clear();
                         }
-                        else
-                            decryptstring.clear();
                     }
                     CryptDestroyKey(hKey);  // Release provider handle.
                 }
