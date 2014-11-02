@@ -147,7 +147,9 @@ bool SyncCommand::Execute()
                 if (ReadFile(hFile, filebuf.get(), DWORD(fsize.QuadPart), &bytesread, NULL))
                 {
                     // decrypt the file contents
-                    std::string encrypted = std::string(filebuf.get(), bytesread);
+                    std::string encrypted;
+                    if (bytesread > 0)
+                        encrypted = std::string(filebuf.get(), bytesread);
                     CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
                     CString password;
                     if (parser.HasKey(L"askforpath") && parser.HasKey(L"load"))
