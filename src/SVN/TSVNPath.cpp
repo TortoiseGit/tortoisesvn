@@ -88,7 +88,9 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
     m_fileSize(0),
     m_customData(NULL),
     m_bIsSpecialDirectoryKnown(false),
-    m_bIsSpecialDirectory(false)
+    m_bIsSpecialDirectory(false),
+    m_bIsAttributesKnown(false),
+    m_attributes(0)
 {
     SetFromUnknown(sUnknownPath);
 }
