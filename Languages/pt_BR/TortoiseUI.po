@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -3449,6 +3449,12 @@ msgstr "Ferramenta de Cópia\nCopiar"
 msgid "Copy URL to clipboard"
 msgstr "Copiar URL para a área de transferência"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Copiar e renomear"
@@ -3492,6 +3498,12 @@ msgstr "Copiar para a cópia de trabalho..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Copiar: Novo nome para %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -4004,8 +4016,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Visualizador de Diferenças::Ferramenta de Combinação"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Arquivo de comparação:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4014,6 +4042,14 @@ msgstr "Diferenças mais tarde"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Opções de comparação"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4125,6 +4161,10 @@ msgstr "Fazer para todos os itens selecionados"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Faça isso para todos os diretórios não versionados"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4675,6 +4715,10 @@ msgstr "Exportar"
 msgid "Export &directory:"
 msgstr "Exportar &diretório:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5100,6 +5144,10 @@ msgstr "Forçar"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Forçar remoção"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5848,6 +5896,10 @@ msgstr "Importar %ld itens"
 msgid "Import &message"
 msgstr "Importar &mensagem"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importa um conjunto de propriedades salvo anteriormente de um arquivo"
@@ -5872,6 +5924,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importar pasta %1!s!\r\npara %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5910,6 +5966,10 @@ msgstr "Incluir e&xternos"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Incluir arquivos ignorados"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6167,6 +6227,10 @@ msgstr "Deixar com conflito:"
 msgid "Leave only marked changes"
 msgstr "Deixar apenas alterações marcadas"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Visão da Esquerda:"
@@ -6419,6 +6483,10 @@ msgstr "Gerenciar propriedades do Subversion"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Gancho de Pré-Submissão Manual"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6769,6 +6837,12 @@ msgstr "Mover item para baixo"
 msgid "Move Item Up"
 msgstr "Mover item para cima"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Mover e renomear"
@@ -6810,6 +6884,12 @@ msgstr "Mover/Renomear"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Mover: Novo nome para %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7399,6 +7479,10 @@ msgstr "Parâmetros"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Parâmetros:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9061,6 +9145,10 @@ msgstr "Selecionar arquivo de correção..."
 msgid "Select revision range"
 msgstr "Selecionar intervalo de revisões"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Selecionar revisão inicial"
@@ -9528,6 +9616,12 @@ msgstr "Tamanho do arquivo de cache no disco"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "Tamanho do cache se não fosse compactado"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10054,6 +10148,11 @@ msgstr "O mecanismo de comparação abortou devido a um erro:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "O arquivo %s não existe!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10842,6 +10941,10 @@ msgstr "TortoiseSVN é uma extensão de shell.\nIsso significa que ele é integr
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN não mostrará as seguintes sobreposições: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12200,6 +12303,10 @@ msgstr "não existe descrição para esse comando"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "sem controle de versão"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

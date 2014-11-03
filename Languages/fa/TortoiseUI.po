@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -3440,6 +3440,12 @@ msgstr "ابزار کپی برداری\nکپی برداری"
 msgid "Copy URL to clipboard"
 msgstr "کپی‌کردن URL به کلیپ بورد"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "کپی و تغییر نام"
@@ -3483,6 +3489,12 @@ msgstr "به نسخه کاری کپی کنید..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "کپی: نام جدید برای %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3995,8 +4007,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "نمایش‌دهندهٔ تفاوت::ابزار ادغام"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "فایل Diff:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4005,6 +4033,14 @@ msgstr ""
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "تنظیمات Diff"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4116,6 +4152,10 @@ msgstr "برای همه انتخابها انجام بده"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "این را برای تمامی پوشه های فاقد نسخه انتخاب شده را انجام بده"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4666,6 +4706,10 @@ msgstr "صادر کردن"
 msgid "Export &directory:"
 msgstr "&دایرکتوری جهت صدور:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5091,6 +5135,10 @@ msgstr "با اجبار"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "حذف اجباری"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5839,6 +5887,10 @@ msgstr "وارد کردن %ld اقلام"
 msgid "Import &message"
 msgstr "وارد کردن &پیغام"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Import a previously saved set of properties from a file"
@@ -5863,6 +5915,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "وارد کردن پوشه %1!s!\nبه %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5901,6 +5957,10 @@ msgstr "شامل ا&کسترنالها"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "در نظر گرفتن فایلهای نادیده گرفته شده"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6158,6 +6218,10 @@ msgstr "دارای تضاد باقی بمانند:"
 msgid "Leave only marked changes"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "نمای چپ:"
@@ -6409,6 +6473,10 @@ msgstr "مدیریت خصوصیتهای Subversion"
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
 msgstr ""
 
 #. Resource IDs: (214)
@@ -6760,6 +6828,12 @@ msgstr "انتقال قلم به پائین"
 msgid "Move Item Up"
 msgstr "انتقال قلم به بالا"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "جابجا کردن و تغییر نام"
@@ -6801,6 +6875,12 @@ msgstr "انتقال/تغییر نام"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "انتقال: نام جدید برای %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7390,6 +7470,10 @@ msgstr "پارامترها"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "پارامترها:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9052,6 +9136,10 @@ msgstr "انتخاب فایل وصله..."
 msgid "Select revision range"
 msgstr "انتخاب محدوده اصلاحیه ها"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "اصلاحیه شروع را انتخاب کنید"
@@ -9519,6 +9607,12 @@ msgstr "اندازه ی فایل کش بر روی دیسک"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "اندازه ی کش در صورتی که فشرده نشده باشد"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10045,6 +10139,11 @@ msgstr "موتور مقایسه بدلیل بروز خطا ناموفق بود:\
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "فایل %s وجود ندارد!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10832,6 +10931,10 @@ msgstr "TortoiseSVN is a shell extension.\nThat means it is integrated into the 
 #. Resource IDs: (200)
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
 msgstr ""
 
 #. Resource IDs: (1162)
@@ -12191,6 +12294,10 @@ msgstr "هیچ توصیفی برای دستور موجود نمیباشد "
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "فاقد-نسخه"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

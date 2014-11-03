@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-17 10:03+0000\n"
+"PO-Revision-Date: 2014-11-01 10:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -14531,6 +14531,7 @@ msgid ""
 msgstr "<placeholder-1/> TortoiseBlame 使用的配置被主上下文菜单控制，不是被 TortoiseBlame 自己直接控制。"
 
 #. (term)
+#. (term)
 msgid "Colors"
 msgstr "颜色"
 
@@ -14550,6 +14551,7 @@ msgid ""
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Font"
 msgstr "字体"
 
@@ -14561,6 +14563,7 @@ msgid ""
 msgstr "你可以选择显示文本的字体和大小。它同时对文件内容，在左窗格显示的作者和版本信息等生效。"
 
 #. (term)
+#. (term)
 msgid "Tabs"
 msgstr "制表"
 
@@ -14569,6 +14572,75 @@ msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file content."
 msgstr "定义在文件中出现的制表字符用多少空格扩展。"
+
+#. (title)
+msgid "TortoiseUDiff Settings"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, TortoiseUDiff Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
+"main context menu, not directly with TortoiseUDiff itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"The default colors used by TortoiseUDiff are usually ok, but you can "
+"configure them here."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can select the font used to display the text, and the point size to use."
+msgstr ""
+
+#. (para)
+msgid ""
+"Defines how many spaces to use for expansion when a tab character is found "
+"in the file diff."
+msgstr ""
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr "正在导出TSVN设置"
+
+#. (title)
+msgid "The Settings Dialog, Sync Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
+"encrypted file. The file is encrpyted with the password you enter so you "
+"don't have to worry if you store that file on a cloud folder like OneDrive, "
+"GDrive, DropBox, ..."
+msgstr ""
+
+#. (para)
+msgid ""
+"When a path and password is specified, TortoiseSVN will sync all settings "
+"automatically and keep them in sync."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also export/import an encrypted files with all the settings "
+"manually. When you do that, you're asked for the path of the file and the "
+"password to encrypt/decrypt the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"When exporting the settings manually, you can also optionally include all "
+"local settings which are not included in a normal export or in a sync. Local"
+" settings are settings which include local paths which usually vary between "
+"computers. These local settings include the configured diff and merge tools "
+"and hook scripts."
+msgstr ""
 
 #. (title)
 msgid "Advanced Settings"
@@ -14981,27 +15053,6 @@ msgid ""
 msgstr "不管是否有新版本可用,TortoiseSVN默认每周检查一次更新.如果不希望TortoiseSVN做此检查,设置参数值为<literal>false</literal>."
 
 #. (title)
-msgid "Exporting TSVN Settings"
-msgstr "正在导出TSVN设置"
-
-#. (para)
-msgid ""
-"If you want to export all your client settings to use on another computer "
-"you can do so using the Windows registry editor "
-"<filename>regedt32.exe</filename>. Go to the registry key "
-"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
-"On the other computer, just import that file again (usually, a double click "
-"on the reg file will do that)."
-msgstr ""
-
-#. (para)
-msgid ""
-"Remember to save Subversion's general settings, which you can find in the "
-"Subversion configuration file "
-"<literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr ""
-
-#. (title)
 msgid "Final Step"
 msgstr "最后步骤"
 
@@ -15082,7 +15133,11 @@ msgstr ""
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
-"access, and only if the authentication is not stored by Subversion itself."
+"access, and only if the authentication is not stored by Subversion itself. "
+"If you're accessing the monitored repository with TortoiseSVN or other svn "
+"clients and you've stored the authentication already, you should leave this "
+"empty: you won't have to edit those projects manually if the password "
+"changes."
 msgstr ""
 
 #. (para)
@@ -17529,6 +17584,15 @@ msgstr "TortoiseSVN的GUI程序叫做<literal>TortoiseProc.exe</literal>。所�
 
 #. (para)
 msgid ""
+"There's a special command that does not require the parameter "
+"<option>/command:abcd</option> but instead starts if nothing is specified on"
+" the command line: the project monitor. If <option>/tray</option> is "
+"specified, the project monitor starts hidden and only adds its icon to the "
+"system tray."
+msgstr ""
+
+#. (para)
+msgid ""
 "Since some of the commands can take a list of target paths (e.g. committing "
 "several specific files) the <option>/path</option> parameter can take "
 "several paths, separated by a <literal>*</literal> character."
@@ -17610,72 +17674,48 @@ msgstr "命令"
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr "显示关于对话框。如果没有给命令也会显示。"
 
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-msgid "/path"
-msgstr "/path"
+#. (para)
+msgid "<option>/startrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/startrev:xxx"
-msgstr "/startrev:xxx"
+#. (para)
+msgid "<option>/endrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/endrev:xxx"
-msgstr "/endrev:xxx"
+#. (para)
+msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/strict"
-msgstr "/strict"
+#. (para)
+msgid ""
+"<option>/merge</option> enables the 'include merged revisions' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/merge"
-msgstr "/merge"
+#. (para)
+msgid ""
+"<option>/datemin:\"{datestring}\"</option> sets the start date of the "
+"filter, and"
+msgstr ""
 
-#. (option)
-msgid "/findstring:\"filterstring\""
-msgstr "/findstring:\"filterstring\""
+#. (para)
+msgid ""
+"<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
+"The date format is the same as used for svn date revisions."
+msgstr ""
 
-#. (option)
-msgid "/findtext"
-msgstr "/findtext"
+#. (para)
+msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
+msgstr ""
 
-#. (option)
-msgid "/findregex"
-msgstr "/findregex"
+#. (para)
+msgid ""
+"<option>/findtext</option> forces the filter to use text, not regex, or"
+msgstr ""
 
-#. (option)
-msgid "/findtype:X"
+#. (para)
+msgid ""
+"<option>/findregex</option> forces the filter to use regex, not simple text "
+"search, and"
 msgstr ""
 
 #. (para)
@@ -17718,25 +17758,109 @@ msgstr ""
 msgid "<option>/findtype:256</option> filter by date range"
 msgstr ""
 
-#. (option)
-msgid "/outfile:path\\to\\file"
+#. (para)
+msgid ""
+"<option>/findtype:X</option> with X being a number between 0 and 511. The "
+"numbers are the sum of the following options: <placeholder-1/>"
 msgstr ""
 
-#. (entry)
+#. (para)
 msgid ""
-"Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
-"which the log should be shown. Additional options can be set: "
-"<placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-"
-"copy' checkbox, <placeholder-5/> enables the 'include merged revisions' "
-"checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
-" the filter to use text, not regex, or <placeholder-8/> forces the filter to"
-" use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 0 and 511. The numbers are the sum of the following options: "
-"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
-"are written to that file when the log dialog is closed. The revisions are "
-"written in the same format as is used to specify revisions in the merge "
-"dialog."
+"If <option>/outfile:path\\to\\file</option> is specified, the selected "
+"revisions are written to that file when the log dialog is closed. The "
+"revisions are written in the same format as is used to specify revisions in "
+"the merge dialog."
 msgstr ""
+
+#. (para)
+msgid ""
+"Opens the log dialog. The <option>/path</option> specifies the file or "
+"folder for which the log should be shown. Additional options can be set: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17}"
+msgstr ""
+
+#. (para)
+msgid "{15:30}"
+msgstr ""
+
+#. (para)
+msgid "{15:30:00.200000}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30\"}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30 +0230\"}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30Z}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30-04:00}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530Z}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530-0500}"
+msgstr ""
+
+#. (para)
+msgid ""
+"An svn date revision can be in one of the following formats: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+msgid "/path"
+msgstr "/path"
 
 #. (option)
 #. (option)
@@ -18075,6 +18199,14 @@ msgid "/ignoreprops"
 msgstr ""
 
 #. (option)
+msgid "/startrev:xxx"
+msgstr "/startrev:xxx"
+
+#. (option)
+msgid "/endrev:xxx"
+msgstr "/endrev:xxx"
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr ""
 
@@ -18312,6 +18444,52 @@ msgstr ""
 msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
+msgstr ""
+
+#. (para)
+msgid ""
+"Exports/imports settings, either depending on whether the current settings "
+"or the exported settings are newer, or as specified."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a path is passed with <option>/path</option>, then the path is used to "
+"store or read the settings from."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/askforpath</option> will show a file open/save dialog"
+" for the user to chose the export/import path."
+msgstr ""
+
+#. (para)
+msgid ""
+"If neither <option>/load</option> nor <option>/save</option> is specified, "
+"then TortoiseSVN determines whether to export or import the settings by "
+"looking at which ones are more recent. If the export file is more recent "
+"than the current settings, then the settings are loaded from the file. If "
+"the current settings are more recent, then the settings are exported to the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/load</option> is specified, the settings are imported from the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/save</option> is specified, the current settings are exported to"
+" the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/local</option> forces a settings export to include "
+"local settings, i.e. settings that refer to local paths."
 msgstr ""
 
 #. (para)

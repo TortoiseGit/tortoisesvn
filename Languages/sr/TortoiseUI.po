@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-20 17:10+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3439,6 +3439,12 @@ msgstr "Алат чишћења\nОчисти"
 msgid "Copy URL to clipboard"
 msgstr "Копирај УРЛ у клипборд"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Копирај и преименуј"
@@ -3482,6 +3488,12 @@ msgstr "Копирај у радну копију..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Копија: Ново име за %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3994,8 +4006,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Диф прегледач::алат стапања"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Дифф фајл:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4004,6 +4032,14 @@ msgstr "Диф касноје"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Дифф опције"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4115,6 +4151,10 @@ msgstr "Урадите ово за све изабране ставке"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Уради ово за све изабране неверзионисане фолдере"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4665,6 +4705,10 @@ msgstr "Извези"
 msgid "Export &directory:"
 msgstr "Фолдер за &извоз:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5090,6 +5134,10 @@ msgstr "Форсира"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Присила одбацивања"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5838,6 +5886,10 @@ msgstr "Увези %ld ставака"
 msgid "Import &message"
 msgstr "Увези &поруку"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Увози претходно спремљену групу особина из фајлови"
@@ -5862,6 +5914,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Увози фолдер %1!s!\r\nу %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5900,6 +5956,10 @@ msgstr "Укључите е&кстернале"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Укључи занемарене фајлови"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6157,6 +6217,10 @@ msgstr "Остави у сукобу:"
 msgid "Leave only marked changes"
 msgstr "Остави само маркиране измене"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Леви поглед:"
@@ -6409,6 +6473,10 @@ msgstr "Управљање особинама Субверзије"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Ручне Пре-уреуивања закачаљка"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6759,6 +6827,12 @@ msgstr "Премести Ставку Доле"
 msgid "Move Item Up"
 msgstr "Премести Ставку Горе"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Премести и преименуј"
@@ -6800,6 +6874,12 @@ msgstr "Премести/Преименуј"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Премештање: ново име за %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7389,6 +7469,10 @@ msgstr "Параметри:"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Параметри:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9051,6 +9135,10 @@ msgstr "Изабери фајл закрпе..."
 msgid "Select revision range"
 msgstr "Одаберите распон ревизија"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Одаберите почетну ревизију"
@@ -9518,6 +9606,12 @@ msgstr "Величина кеш на диску"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "Величина кеша (без сажимања)"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10044,6 +10138,11 @@ msgstr "Рад механизма за израду разлика је заус
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "фајл %s не постоји!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10832,6 +10931,10 @@ msgstr "ТортоисеСВЊе проширење програмске шко�
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "ТортоисеСВН неће приказати следеће прекриваче: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12190,6 +12293,10 @@ msgstr "опис ове наредбе није доступан"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "без верзије"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

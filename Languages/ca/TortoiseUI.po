@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-13 13:00+0000\n"
-"Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3441,6 +3441,12 @@ msgstr "Eina de Còpia\nCòpia"
 msgid "Copy URL to clipboard"
 msgstr "Copia URL al porta-retalls"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Copia i canvia el nom"
@@ -3484,6 +3490,12 @@ msgstr "Copia a la còpia de treball..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Còpia: Nou nom per %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3996,8 +4008,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Visualitzador de diferències::Eina de Fusió"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Fitxer Diff:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4006,6 +4034,14 @@ msgstr "Compara més endavant"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Opcions Diff"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4117,6 +4153,10 @@ msgstr "Fes això per tots els elements seleccionats"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Fes això per totes les carpetes sense versionar seleccionades"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4667,6 +4707,10 @@ msgstr "Exporta"
 msgid "Export &directory:"
 msgstr "Exporta &directori:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5092,6 +5136,10 @@ msgstr "Força"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Força l'eliminació"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5840,6 +5888,10 @@ msgstr "Importa %ld elements"
 msgid "Import &message"
 msgstr "Importa &missatge"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importa un conjunt de propietats desat prèviament a un fitxer"
@@ -5864,6 +5916,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importa carpeta %1!s!\na %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5902,6 +5958,10 @@ msgstr "Inclou e&xterns"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Inclou fitxers ignorats"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6159,6 +6219,10 @@ msgstr "Deixeu en conflicte:"
 msgid "Leave only marked changes"
 msgstr "Deixa només els canvis marcats"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Visualització esquerra: "
@@ -6411,6 +6475,10 @@ msgstr "Administra propietats del Subversion"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Hook Pre-Entrega manual"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6761,6 +6829,12 @@ msgstr "Mou Element Avall"
 msgid "Move Item Up"
 msgstr "Mou Element Amunt"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Mou i canvia el nom"
@@ -6802,6 +6876,12 @@ msgstr "Mou/Canvia el nom"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Moure: Nom nou per a %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7391,6 +7471,10 @@ msgstr "Paràmetres"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Paràmetres:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9053,6 +9137,10 @@ msgstr "Selecciona fitxer de pedaç..."
 msgid "Select revision range"
 msgstr "Selecciona rang de la revisió"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Selecciona inici de la revisió"
@@ -9520,6 +9608,12 @@ msgstr "Mida del fitxer de cache al disc"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "Mida del cache sense comprimir"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10046,6 +10140,11 @@ msgstr "L'eina de diferències s'ha aturat degut a un error:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "El fitxer %s no existeix!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10834,6 +10933,10 @@ msgstr "TortoiseSVN és una extensió shell.\nAixò vol dir que està integrat d
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN no mostrarà les següents superposicions: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12192,6 +12295,10 @@ msgstr "no hi ha descripció disponible per aquesta ordre"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "sense versionar"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-25 08:26+0000\n"
+"PO-Revision-Date: 2014-10-29 18:06+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -3452,6 +3452,12 @@ msgstr "コピーツール\nコピー"
 msgid "Copy URL to clipboard"
 msgstr "URLをクリップボードにコピー"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr "コピーして追加\nファイルが宛先にコピーされ、バージョン管理に追加されます。"
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "コピーして名前を変更"
@@ -3495,6 +3501,12 @@ msgstr "作業コピーへコピー..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "コピー: %s の新しい名前"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr "コピー\nファイルが宛先にコピーされますが、バージョン管理しないままにします。"
 
 #. Resource IDs: (80)
 #, c-format
@@ -4007,8 +4019,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "差分ビューアー::マージツール"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr "追加された行の差分を表示"
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr "コマンドの差分を表示"
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr "コメントの差分を表示"
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "差分ファイル:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr "ヘッダの差分を表示"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4017,6 +4045,14 @@ msgstr "差分元として選択"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "差分設定"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr "位置の差分を表示"
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr "削除された行の差分を表示"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4128,6 +4164,10 @@ msgstr "選択された項目すべてにこれを行う"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "選択されたすべてのバージョン管理外のフォルダーにこれを行う"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr "バージョン管理外の項目すべてにこれを行う"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4678,6 +4718,10 @@ msgstr "エクスポート"
 msgid "Export &directory:"
 msgstr "エクスポート先ディレクトリ(&D):"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr "エクスポートファイル (*.tsex)|*.tsex|すべてのファイル (*.*)|*.*||"
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5103,6 +5147,10 @@ msgstr "強制実行"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "強制的に削除"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr "フォアグラウンド"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5851,6 +5899,10 @@ msgstr "%ld件の項目をインポート"
 msgid "Import &message"
 msgstr "インポートメッセージ(&M)"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr "インポート設定をファイルから読み込む..."
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "ファイルに保存されているプロパティをインポートする"
@@ -5875,6 +5927,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "フォルダー %1!s! を\r\n%2!s! にインポート"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr "インポート設定をファイルへ..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -5913,6 +5969,10 @@ msgstr "外部参照を含める(&X)"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "無視ファイルを含める"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr "ローカル設定を含む"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6170,6 +6230,10 @@ msgstr "競合の保持:"
 msgid "Leave only marked changes"
 msgstr "変更とされたもののみを残す"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr "フォルダー項目を作成するために「パスまたはURL」ボックスを空白にする"
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "左ビュー: "
@@ -6422,6 +6486,10 @@ msgstr "Subversion のプロパティを管理する"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "手動Pre-Commitフック"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr "手作業でインポート/エクスポート"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6772,6 +6840,12 @@ msgstr "項目を下へ移動"
 msgid "Move Item Up"
 msgstr "項目を上へ移動"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr "移動して追加\nファイルが宛先に移動され、バージョン管理に追加されます。"
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "移動して名前を変更"
@@ -6813,6 +6887,12 @@ msgstr "移動/名前変更"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "移動: %s の新しい名前"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr "移動\nファイルが宛先に移動されますが、バージョン管理しないままにします。"
 
 #. Resource IDs: (106)
 msgid ""
@@ -7402,6 +7482,10 @@ msgstr "パラメーター"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "パラメーター:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr "パスワード"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9064,6 +9148,10 @@ msgstr "パッチファイルを選択 ..."
 msgid "Select revision range"
 msgstr "リビジョンの範囲を選択"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr "設定ファイルを選択"
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "開始リビジョンを選択"
@@ -9531,6 +9619,12 @@ msgstr "ディスク上のキャッシュファイルのサイズ"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "圧縮されていない場合はキャッシュのサイズ"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr "スキップ\nファイルはそのまま残します。"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10057,6 +10151,11 @@ msgstr "次のエラーにより、差分ツールは中止されました:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "ファイル %s は存在していません。"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr "ファイル%sはバージョン管理されていません。どうしますか？"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10845,6 +10944,10 @@ msgstr "TortoiseSVN はシェル拡張です。\nつまり、エクスプロー�
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVNは %s のオーバーレイを表示できません。"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12203,6 +12306,10 @@ msgstr "このコマンドへのすべての記述は無効です"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "バージョン管理外"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr "バージョン管理外の項目"
 
 #. Resource IDs: (10)
 msgid "normal"

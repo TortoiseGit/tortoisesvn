@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-10-29 08:40+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2702,7 +2702,7 @@ msgstr "Zrušit\nCílový soubor je tak jak byl"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Zrušit\nMůžete zadat jiné heslo a zkusit to znovu"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3394,7 +3394,7 @@ msgstr "Zkopírováno z: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (18)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Zkopíruje URL všech zvolených položek do schránky"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3436,6 +3436,12 @@ msgstr "Kopírovací Nástroj\nKopírování"
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
 msgstr "Kopírovat URL do schránky"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr "Zkopírovat a přidat\nSoubor je zkopírován do cíle a přidán pod správu verzí."
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3480,6 +3486,12 @@ msgstr "Kopírovat do pracovní kopie..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Kopírovat: Nové jméno pro %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr "Zkopírovat\nSoubor je zkopírován do cíle a ponechán bez verze."
 
 #. Resource IDs: (80)
 #, c-format
@@ -3992,8 +4004,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Prohlížeč rozdílů::Nástroj sloučení"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr "Porovnat přidané řádky"
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr "Porovnat příkaz"
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr "Porovnat komentář"
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Soubor porovnání:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr "Porovnat hlavičku"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4002,6 +4030,14 @@ msgstr "Porovnat později"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Nastavení srovnávání"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr "Porovnat pozici"
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr "Porovnat odstraněné řádky"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4113,6 +4149,10 @@ msgstr "Toto provést pro všechny vybrané položky"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Toto udělat pro všechny vybrané adresáře bez verze"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr "Toto provést pro všechny položky bez verze"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4663,6 +4703,10 @@ msgstr "Exportovat"
 msgid "Export &directory:"
 msgstr "A&dresář pro export:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr "Soubory exportu (*.tsex)|*.tsex|Všechny soubory (*.*)|*.*||"
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4762,7 +4806,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Nelze zkopírovat soubor '%s' do '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -5088,6 +5132,10 @@ msgstr "Vnutit"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Vynutit odstranění"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr "Popředí"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5836,6 +5884,10 @@ msgstr "Importovat %ld položek"
 msgid "Import &message"
 msgstr "Zpráva &importu"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr "Importovat nastavení ze souboru..."
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importovat dříve uloženou sadu vlastností ze souboru"
@@ -5860,6 +5912,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importovat adresář %1!s!\ndo %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr "Importovat nastavení do souboru..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -5898,6 +5954,10 @@ msgstr "Zahrnout e&xterní"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Zahrnout ignorované soubory"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr "Zahrnout místní nastavení"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -5957,7 +6017,7 @@ msgstr "Vložit zprávu na:"
 
 #. Resource IDs: (1660)
 msgid "Insert title at the bottom, after the message"
-msgstr ""
+msgstr "Vložit název ve spodní části, za zprávou"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6155,6 +6215,10 @@ msgstr "Ponechat v konfliktu:"
 msgid "Leave only marked changes"
 msgstr "Ponechat pouze označené změny"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr "Ponechejte rámeček \"Cesta nebo URL\" prázdné pro vytvoření položky složky"
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Levý pohled: "
@@ -6236,7 +6300,7 @@ msgstr "Načíst obrázky"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Načíst nastavení ze souboru"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6394,7 +6458,7 @@ msgstr "DLL knihovna mail systému je neplatná."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Hlavní kontextová nabídka"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6407,6 +6471,10 @@ msgstr "Spravovat vlastnosti Subversion"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Ruční hák před odevzdáním"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr "Ruční import/export"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6466,7 +6534,7 @@ msgstr "Označit soubor jako vyřešený v Subversion\nOznačit jako vyřešený
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr ""
+msgstr "Označí konflikt jako vyřešený.\nPoznámka: toto konflikt nevyřeším pouze ho tak označí!"
 
 #. Resource IDs: (596)
 msgid ""
@@ -6586,7 +6654,7 @@ msgstr "Sloučené revize {revrange} z {mergeurl}:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Sloučí všechny chybějící revize z kmene zpět do pracovní kopie Větve funkcí pomocí informací o sledování sloučení."
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -6757,6 +6825,12 @@ msgstr "Přesunout Položku Dolů"
 msgid "Move Item Up"
 msgstr "Přesunout Položku Nahoru"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr "Přesunout a přidat\nSoubor je přesunut do cíle a přidán pod správu verzí."
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Přesunout a přejmenovat"
@@ -6798,6 +6872,12 @@ msgstr "Přesunout/Přejmenovat"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Přesunout: Nové jméno pro %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr "Přesunout\nSoubor je přesunut do cíle a ponechán bez verze."
 
 #. Resource IDs: (106)
 msgid ""
@@ -7346,7 +7426,7 @@ msgstr "Přepsat\nNahradit cílový adresář."
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Přepsat\nNastavení jsou přepsána"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7388,9 +7468,13 @@ msgstr "Parametry"
 msgid "Parameters:"
 msgstr "Parametry:"
 
+#. Resource IDs: (370)
+msgid "Password"
+msgstr "Heslo"
+
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Nesprávné heslo"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7459,7 +7543,7 @@ msgstr "Cesta nebo URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Cesta:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8858,7 +8942,7 @@ msgstr "&Uložit revizi do..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Uložit nastavení soubory"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9048,6 +9132,10 @@ msgstr "Zvolte záplatu ..."
 #. Resource IDs: (279)
 msgid "Select revision range"
 msgstr "Zvolte rozsah revizí"
+
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr "Vyberte soubor s nastavením"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9517,6 +9605,12 @@ msgstr "Velikost souboru úschovy na disku"
 msgid "Size of the cache if it were not compressed"
 msgstr "Velikost úschovy bez komprese"
 
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr "Přeskočit\nSoubor je ponechán tak jak byl."
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Vynecháno"
@@ -9693,7 +9787,7 @@ msgstr "Spustí prohlížeč rozdílů porovnávající současně zvolený soub
 
 #. Resource IDs: (65)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Spustí nástroj sloučení kde můžete vyřešit konflikt vlastností."
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
@@ -9929,11 +10023,11 @@ msgstr "Přepnout porovnávání levá<->pravá"
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "Synchronizace"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Nastavení synchronizace"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10043,6 +10137,11 @@ msgstr "Nástroj na zjišťování rozdílů byl ukončen kvůli chybě:\n%s"
 msgid "The file %s does not exist!"
 msgstr "Soubor %s neexistuje"
 
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr "Soubor %s je bez verze. Jak chcete pokračovat?"
+
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
@@ -10130,7 +10229,7 @@ msgstr "Poskytovatel sledovače problémů nemohl ověřit řetězec parametru"
 msgid ""
 "The item '%s' has property conflicts:\r\n"
 "%s"
-msgstr ""
+msgstr "Položka '%s' má konflikt vlastností:\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10300,11 +10399,11 @@ msgstr "Parametry  '/path' a '/pathfile' se vzájemně vylučují.\nMůžete nas
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Nesprávné heslo.\nZadejte prosím správné heslo v dialogovém okně nastavení."
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "Hesla se neshodují"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10374,7 +10473,7 @@ msgstr "Vypadá to, že vybraný soubor stále má jedno nebo více označení k
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "Soubor nastavení nemůže být rozšifrován pomocí zadaného hesla!\nChcete přepsat soubor synchronizace?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10831,6 +10930,10 @@ msgstr "TortoiseSVN je rozšíření rozhraní.\nTo znamená, že je integrovan�
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN nezobrazí následující překrytí: %s"
 
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr "TortoiseUDiff"
+
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
 msgstr "Celkem analyzovaných odevzdání:"
@@ -10982,7 +11085,7 @@ msgstr "Odznačit"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Nezaškrtnuté položky jsou zobrazeny v podnabídce, zaškrtnuté jsou mstěny do hlavní kontextové nabídky."
 
 #. Resource IDs: (156)
 msgid "Undo"
@@ -11411,7 +11514,7 @@ msgstr "Jméno uživatele:"
 
 #. Resource IDs: (65535)
 msgid "Users to ignore:"
-msgstr ""
+msgstr "Ignorovaní uživatelé:"
 
 #. Resource IDs: (313)
 msgid ""
@@ -12188,6 +12291,10 @@ msgstr "k tomuto příkazu není k dispozici nápověda"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "bez verze"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr "položka bez verze"
 
 #. Resource IDs: (10)
 msgid "normal"

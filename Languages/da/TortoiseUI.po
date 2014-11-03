@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -3439,6 +3439,12 @@ msgstr "Kopieringsværktøj\nKopiér"
 msgid "Copy URL to clipboard"
 msgstr "Kopier URL til udklipsholder"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Kopier og omdøb"
@@ -3482,6 +3488,12 @@ msgstr "Kopier til arbejdskopi..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Kopier: Nyt navn til %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3994,8 +4006,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Forskelsviser::Fletteværktøj"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Sammenligningsfil:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4004,6 +4032,14 @@ msgstr "Sammenlign senere"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Indstillinger for sammenligning"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4115,6 +4151,10 @@ msgstr "Gør dette for alle valgte elementer"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Gør dette for alle valgte uversionerede foldere"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4665,6 +4705,10 @@ msgstr "Eksporter"
 msgid "Export &directory:"
 msgstr "Eksporter &mappe:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5090,6 +5134,10 @@ msgstr "Tving"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Gennemtving fjernelse"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5838,6 +5886,10 @@ msgstr "Importer %ld emner"
 msgid "Import &message"
 msgstr "&Logbesked for import"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importer et tidligere gemt sæt af indstillinger fra en fil"
@@ -5862,6 +5914,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importer mappe %1!s!\r\ntil %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5900,6 +5956,10 @@ msgstr "Indkluder e&ksterne"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Inkluder ignorerede filer"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6157,6 +6217,10 @@ msgstr "Efterlad konflikt:"
 msgid "Leave only marked changes"
 msgstr "Bevar kun markerede ændringer"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Venstre visning: "
@@ -6409,6 +6473,10 @@ msgstr "Rediger Subversion-egenskaber"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Manuelt Før-Arkivering-Tilkobling"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6759,6 +6827,12 @@ msgstr "Flyt Emne Ned"
 msgid "Move Item Up"
 msgstr "Flyt Emne Op"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Flyt og omdøb"
@@ -6800,6 +6874,12 @@ msgstr "Flyt/Omdøb"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Flyt: Nyt navn til %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7389,6 +7469,10 @@ msgstr "Parametre"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Parametre:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9051,6 +9135,10 @@ msgstr "Vælg rettelsesfil..."
 msgid "Select revision range"
 msgstr "Vælg revisions-interval"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Vælg start-revision"
@@ -9518,6 +9606,12 @@ msgstr "Størrelse af cachefilen på harddisken"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "Størrelse af cachen if den ikke var komprimeret"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10044,6 +10138,11 @@ msgstr "Sammenligningsprocessen blev afbrudt med en fejl:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "Filen %s eksisterer ikke!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10832,6 +10931,10 @@ msgstr "TortoiseSVN er en såkaldt shell-udvidelse.\nDet betyder, at den er inte
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN viser ikke følgende overlejringer: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12190,6 +12293,10 @@ msgstr "der findes ingen beskrivelse af denne kommando"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "ikke-versioneret"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

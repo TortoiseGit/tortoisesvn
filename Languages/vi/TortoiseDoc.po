@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-17 10:03+0000\n"
+"PO-Revision-Date: 2014-11-01 10:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -14514,6 +14514,7 @@ msgid ""
 msgstr "<placeholder-1/> Các thiết lập được sử dụng bởi TortoiseBlame được điều khiển từ trình đơn ngữ cảnh chính, chứ không phải trực tiếp với bản thân TortoiseBlame."
 
 #. (term)
+#. (term)
 msgid "Colors"
 msgstr "Màu sắc"
 
@@ -14533,6 +14534,7 @@ msgid ""
 msgstr "Bạn có thể chỉ định các màu sắc khác nhau để sử dụng cho thanh định vị. Mặc định là sử dụng sự tương phản mạnh mẽ trên thanh định vị trong khi vẫn giữ màu nền sáng cho cửa sổ chính để bạn vẫn có thể đọc các văn bản."
 
 #. (term)
+#. (term)
 msgid "Font"
 msgstr "Phông Chữ"
 
@@ -14544,6 +14546,7 @@ msgid ""
 msgstr "Bạn có thể chọn phông chữ được sử dụng để hiển thị văn bản, và kích thước điểm để sử dụng. Điều này áp dụng cho cả hai nội dung tập tin, và tác giả và thông tin sửa đổi được hiển thị trong khung bên trái."
 
 #. (term)
+#. (term)
 msgid "Tabs"
 msgstr "Các tab"
 
@@ -14552,6 +14555,75 @@ msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file content."
 msgstr "Xác định bao nhiêu không gian để sử dụng cho việc mở rộng khi một ký tự tab được tìm thấy trong nội dung tập tin."
+
+#. (title)
+msgid "TortoiseUDiff Settings"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, TortoiseUDiff Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
+"main context menu, not directly with TortoiseUDiff itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"The default colors used by TortoiseUDiff are usually ok, but you can "
+"configure them here."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can select the font used to display the text, and the point size to use."
+msgstr ""
+
+#. (para)
+msgid ""
+"Defines how many spaces to use for expansion when a tab character is found "
+"in the file diff."
+msgstr ""
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr "Các Thiết Lập Xuất Khẩu TSVN"
+
+#. (title)
+msgid "The Settings Dialog, Sync Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
+"encrypted file. The file is encrpyted with the password you enter so you "
+"don't have to worry if you store that file on a cloud folder like OneDrive, "
+"GDrive, DropBox, ..."
+msgstr ""
+
+#. (para)
+msgid ""
+"When a path and password is specified, TortoiseSVN will sync all settings "
+"automatically and keep them in sync."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also export/import an encrypted files with all the settings "
+"manually. When you do that, you're asked for the path of the file and the "
+"password to encrypt/decrypt the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"When exporting the settings manually, you can also optionally include all "
+"local settings which are not included in a normal export or in a sync. Local"
+" settings are settings which include local paths which usually vary between "
+"computers. These local settings include the configured diff and merge tools "
+"and hook scripts."
+msgstr ""
 
 #. (title)
 msgid "Advanced Settings"
@@ -14964,27 +15036,6 @@ msgid ""
 msgstr "TortoiseSVN kiểm tra xem liệu có một phiên bản mới có sẵn khoảng mỗi tuần một lần. Nếu bạn không muốn TortoiseSVN làm việc kiểm tra, thiết lập giá trị này thành <literal> sai </literal> ."
 
 #. (title)
-msgid "Exporting TSVN Settings"
-msgstr "Các Thiết Lập Xuất Khẩu TSVN"
-
-#. (para)
-msgid ""
-"If you want to export all your client settings to use on another computer "
-"you can do so using the Windows registry editor "
-"<filename>regedt32.exe</filename>. Go to the registry key "
-"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
-"On the other computer, just import that file again (usually, a double click "
-"on the reg file will do that)."
-msgstr "Nếu bạn muốn xuất khẩu tất cả các thiết lập máy khách của bạn để sử dụng trên một máy tính khác, bạn có thể làm như vậy bằng cách sử dụng trình biên tập Windows registry <filename> regedt32.exe </filename> . Đi tới khóa registry <literal> HKCU\\Software\\TortoiseSVN </literal> và xuất khẩu nó vào một tập tin reg. Trên các máy tính khác, chỉ cần nhập khẩu tập tin đó một lần nữa (thông thường, kích đúp vào tập tin reg sẽ làm điều đó)."
-
-#. (para)
-msgid ""
-"Remember to save Subversion's general settings, which you can find in the "
-"Subversion configuration file "
-"<literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr "Luôn nhớ lưu các thiết lập thông thường của Subversion, mà bạn có thể tìm trong tập tin cấu hình Subversion <literal>%APPDATA%\\Subversion\\config</literal>."
-
-#. (title)
 msgid "Final Step"
 msgstr "Bước Cuối cùng"
 
@@ -15065,7 +15116,11 @@ msgstr ""
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
-"access, and only if the authentication is not stored by Subversion itself."
+"access, and only if the authentication is not stored by Subversion itself. "
+"If you're accessing the monitored repository with TortoiseSVN or other svn "
+"clients and you've stored the authentication already, you should leave this "
+"empty: you won't have to edit those projects manually if the password "
+"changes."
 msgstr ""
 
 #. (para)
@@ -17512,6 +17567,15 @@ msgstr "Chương trình TortoiseSVN giao diện đồ họa được gọi là <
 
 #. (para)
 msgid ""
+"There's a special command that does not require the parameter "
+"<option>/command:abcd</option> but instead starts if nothing is specified on"
+" the command line: the project monitor. If <option>/tray</option> is "
+"specified, the project monitor starts hidden and only adds its icon to the "
+"system tray."
+msgstr ""
+
+#. (para)
+msgid ""
 "Since some of the commands can take a list of target paths (e.g. committing "
 "several specific files) the <option>/path</option> parameter can take "
 "several paths, separated by a <literal>*</literal> character."
@@ -17593,73 +17657,49 @@ msgstr "Lệnh"
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr "Hiển thị hộp thoại nói về. Cái này cũng được hiển thị nếu lệnh không được đưa ra."
 
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-msgid "/path"
-msgstr "/path"
+#. (para)
+msgid "<option>/startrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/startrev:xxx"
-msgstr "/startrev:xxx"
+#. (para)
+msgid "<option>/endrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/endrev:xxx"
-msgstr "/endrev:xxx"
+#. (para)
+msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/strict"
-msgstr "/strict"
+#. (para)
+msgid ""
+"<option>/merge</option> enables the 'include merged revisions' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/merge"
-msgstr "/merge"
+#. (para)
+msgid ""
+"<option>/datemin:\"{datestring}\"</option> sets the start date of the "
+"filter, and"
+msgstr ""
 
-#. (option)
-msgid "/findstring:\"filterstring\""
-msgstr "/findstring:\"filterstring\""
+#. (para)
+msgid ""
+"<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
+"The date format is the same as used for svn date revisions."
+msgstr ""
 
-#. (option)
-msgid "/findtext"
-msgstr "/findtext"
+#. (para)
+msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
+msgstr ""
 
-#. (option)
-msgid "/findregex"
-msgstr "/findregex"
+#. (para)
+msgid ""
+"<option>/findtext</option> forces the filter to use text, not regex, or"
+msgstr ""
 
-#. (option)
-msgid "/findtype:X"
-msgstr "/findtype:X"
+#. (para)
+msgid ""
+"<option>/findregex</option> forces the filter to use regex, not simple text "
+"search, and"
+msgstr ""
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17701,25 +17741,109 @@ msgstr "<option>/findtype:128</option> lọc bằng ngày tháng"
 msgid "<option>/findtype:256</option> filter by date range"
 msgstr "<option> /findtype:256 </option> lọc theo ID lỗi"
 
-#. (option)
-msgid "/outfile:path\\to\\file"
-msgstr "/outfile:path\\to\\file"
-
-#. (entry)
+#. (para)
 msgid ""
-"Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
-"which the log should be shown. Additional options can be set: "
-"<placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-"
-"copy' checkbox, <placeholder-5/> enables the 'include merged revisions' "
-"checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
-" the filter to use text, not regex, or <placeholder-8/> forces the filter to"
-" use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 0 and 511. The numbers are the sum of the following options: "
-"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
-"are written to that file when the log dialog is closed. The revisions are "
-"written in the same format as is used to specify revisions in the merge "
-"dialog."
-msgstr "Mở hộp thoại tường trình. Các <placeholder-1/> xác định tập tin hoặc thư mục mà tường trình được hiển thị. Các tùy chọn bổ sung có thể được thiết lập: <placeholder-2/> , <placeholder-3/> , <placeholder-4/> cho phép hộp kiểm 'dừng lại-tại-sao chép \", <placeholder-5/> cho phép hộp kiểm 'bao gồm các phiên bản sáp nhập', <placeholder-6/> điền vào bộ lọc văn bản, <placeholder-7/> buộc bộ lọc sử dụng văn bản, không regex, hoặc <placeholder-8/> buộc bộ lọc sử dụng regex, không phải tìm kiếm văn bản đơn giản, và <placeholder-9/> với X là một số giữa 0 và 511. Những con số này là tổng của các tùy chọn sau đây: <placeholder-10/> Nếu <placeholder-11/> được quy định, các bản sửa đổi được lựa chọn được ghi vào tập tin đó khi hộp thoại tường trình được đóng lại. Các bản sửa đổi được viết bằng định dạng tương tự như được sử dụng để xác định các sửa đổi trong hộp thoại hợp nhất."
+"<option>/findtype:X</option> with X being a number between 0 and 511. The "
+"numbers are the sum of the following options: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/outfile:path\\to\\file</option> is specified, the selected "
+"revisions are written to that file when the log dialog is closed. The "
+"revisions are written in the same format as is used to specify revisions in "
+"the merge dialog."
+msgstr ""
+
+#. (para)
+msgid ""
+"Opens the log dialog. The <option>/path</option> specifies the file or "
+"folder for which the log should be shown. Additional options can be set: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17}"
+msgstr ""
+
+#. (para)
+msgid "{15:30}"
+msgstr ""
+
+#. (para)
+msgid "{15:30:00.200000}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30\"}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30 +0230\"}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30Z}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30-04:00}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530Z}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530-0500}"
+msgstr ""
+
+#. (para)
+msgid ""
+"An svn date revision can be in one of the following formats: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+msgid "/path"
+msgstr "/path"
 
 #. (option)
 #. (option)
@@ -18058,6 +18182,14 @@ msgid "/ignoreprops"
 msgstr ""
 
 #. (option)
+msgid "/startrev:xxx"
+msgstr "/startrev:xxx"
+
+#. (option)
+msgid "/endrev:xxx"
+msgstr "/endrev:xxx"
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/pegrevision:xxx"
 
@@ -18296,6 +18428,52 @@ msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
 msgstr "Để mở hộp thoại thuộc tính trực tiếp cho một thuộc tính cụ thể, truyền vào tên thuộc tính dưới dạng <option>/property:name</option>."
+
+#. (para)
+msgid ""
+"Exports/imports settings, either depending on whether the current settings "
+"or the exported settings are newer, or as specified."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a path is passed with <option>/path</option>, then the path is used to "
+"store or read the settings from."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/askforpath</option> will show a file open/save dialog"
+" for the user to chose the export/import path."
+msgstr ""
+
+#. (para)
+msgid ""
+"If neither <option>/load</option> nor <option>/save</option> is specified, "
+"then TortoiseSVN determines whether to export or import the settings by "
+"looking at which ones are more recent. If the export file is more recent "
+"than the current settings, then the settings are loaded from the file. If "
+"the current settings are more recent, then the settings are exported to the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/load</option> is specified, the settings are imported from the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/save</option> is specified, the current settings are exported to"
+" the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/local</option> forces a settings export to include "
+"local settings, i.e. settings that refer to local paths."
+msgstr ""
 
 #. (para)
 msgid ""

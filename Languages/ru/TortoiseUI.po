@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1722,7 +1722,7 @@ msgstr "<новая группа изменений>"
 
 #. Resource IDs: (64)
 msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr ""
+msgstr "=Отметить сейчас=Добавить проект=Правка=Удалить=Пометить всё как прочитанное=Опции=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -2714,7 +2714,7 @@ msgstr "Отменить\nЦелевой файл остался как был"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Отменить\nВы можете ввести другой пароль и попробовать снова"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3406,7 +3406,7 @@ msgstr "Скопировано из: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (18)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Копирует URL всех выделенных элементов в буфер обмена"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3448,6 +3448,12 @@ msgstr "Инструмент копирования\nКопия"
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
 msgstr "Скопировать URL в буфер обмена"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3492,6 +3498,12 @@ msgstr "Копировать в рабочую копию..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Копирование: Новое имя для %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -4004,8 +4016,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "Просмотр различий::Инструмент для слияния"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Файл различий:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4014,6 +4042,14 @@ msgstr "Сравнить позже"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Параметры сравнения"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4125,6 +4161,10 @@ msgstr "Сделать это для всех выбранных элемент�
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Сделать это для всех выбранных неверсированных папок"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4675,6 +4715,10 @@ msgstr "Экспорт"
 msgid "Export &directory:"
 msgstr "Папка &экспорта:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4774,7 +4818,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Ошибка при копировании файла '%s' в '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -5100,6 +5144,10 @@ msgstr "Принудительно"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "Принудительное удаление"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5848,6 +5896,10 @@ msgstr "Импорт %ld элементов"
 msgid "Import &message"
 msgstr "&Сообщение импорта"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Импортирует ранее сохранённый набор свойств из файла"
@@ -5872,6 +5924,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Импорт папки %1!s!\r\nв %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5910,6 +5966,10 @@ msgstr "В&ключая внешние"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "Включить игнорируемые файлы"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -5969,7 +6029,7 @@ msgstr "Вставить сообщение:"
 
 #. Resource IDs: (1660)
 msgid "Insert title at the bottom, after the message"
-msgstr ""
+msgstr "Вставлять заголовок снизу, после сообщения"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6167,6 +6227,10 @@ msgstr "Оставить конфликт:"
 msgid "Leave only marked changes"
 msgstr "Оставить только отмеченные изменения"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Вид слева:"
@@ -6248,7 +6312,7 @@ msgstr "Загрузить изображения"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Загрузить настройки из файла"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6406,7 +6470,7 @@ msgstr "Не подходящий DLL почтовой системы."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Основное контекстное меню"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6419,6 +6483,10 @@ msgstr "Управление свойствами Subversion "
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "Ручная ловушка перед-фиксацией"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6478,7 +6546,7 @@ msgstr "Отмечает файл как улаженный в Subversion\nОт�
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr ""
+msgstr "Помечает конфликт как улаженный.\nВажно: это не исправляет конфликт на самом деле, а просто помечает как улаженный."
 
 #. Resource IDs: (596)
 msgid ""
@@ -6598,7 +6666,7 @@ msgstr "Объединённые ревизии {revrange} из {mergeurl}:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Объединяет все недостающие ревизии из основной ветки в рабочую копию нужной ветки, используя информацию о слияниях"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -6769,6 +6837,12 @@ msgstr "Переместить элемент вниз"
 msgid "Move Item Up"
 msgstr "Переместить элемент вверх"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Перемещение с переименованием"
@@ -6810,6 +6884,12 @@ msgstr "Перемещение/Переименование"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Перемещение: Новое имя для %s"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7358,7 +7438,7 @@ msgstr "Перезаписать\nЗаменить целевую папку."
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Перезаписать\nНастройки перезаписаны"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7400,9 +7480,13 @@ msgstr "Параметры"
 msgid "Parameters:"
 msgstr "Параметры:"
 
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
+
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Пароль неверен"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7471,7 +7555,7 @@ msgstr "Путь или URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Путь:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8870,7 +8954,7 @@ msgstr "Сохранить ревизию &в..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Сохранить настройки в файл"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9060,6 +9144,10 @@ msgstr "Выбрать файл заплатки..."
 #. Resource IDs: (279)
 msgid "Select revision range"
 msgstr "Выберите ряд ревизий"
+
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9286,7 +9374,7 @@ msgstr "Показывать диалог блокировки перед бло
 
 #. Resource IDs: (65)
 msgid "Show Monitor Dialog"
-msgstr ""
+msgstr "Показать диалог монитора"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
@@ -9529,6 +9617,12 @@ msgstr "Размер файла кэша на диске"
 msgid "Size of the cache if it were not compressed"
 msgstr "Размер несжатого кэша"
 
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Пропущено"
@@ -9691,7 +9785,7 @@ msgstr "Запустить редактор реестра"
 
 #. Resource IDs: (1562)
 msgid "Start with &Windows"
-msgstr ""
+msgstr "Запустить в Windows"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -9705,7 +9799,7 @@ msgstr "Начать сравнение с текущим выделенным �
 
 #. Resource IDs: (65)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Запускает инструмент для слияния, где вы сможете уладить конфликты свойств"
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
@@ -9941,11 +10035,11 @@ msgstr "Меняет направление сравнения: левое <-> �
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "Синхронизация"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Настройки синхронизации"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10054,6 +10148,11 @@ msgstr "Механизм различий прекратил работу из-�
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "Файл %s не существует!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10312,11 +10411,11 @@ msgstr "Параметры '/path' и '/pathfile' являются взаимо�
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Пароль неверен.\nПожалуйста, введите верный пароль в диалоге настроек."
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "Пароли не совпадают"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10386,7 +10485,7 @@ msgstr "Похоже, в выбранном файле остались конф
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "Файл настроек не может быть расшифрован с помощью указанного пароля !\nВы хотите перезаписать файл настроек ?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10791,25 +10890,25 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\r\nSubversion %d.%d.%d, %s\r\n
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Commit Monitor Options"
-msgstr ""
+msgstr "Опции монитора фиксации TortoiseSVN "
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "Монитор фиксации TortoiseSVN \n%d новых фиксаций в %d проекте"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Commit Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "Монитор фиксации TortoiseSVN \n%d новых фиксаций в %d проектах"
 
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "Монитор проекта TortoiseSVN "
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10842,6 +10941,10 @@ msgstr "TortoiseSVN - это расширение оболочки.\nЭто зн
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN не покажет следующие оверлеи: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -10994,7 +11097,7 @@ msgstr "Разотметить"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Неотмеченные элементы отображаются в подменю, отмеченные -- в основном контекстном меню"
 
 #. Resource IDs: (156)
 msgid "Undo"
@@ -12200,6 +12303,10 @@ msgstr "нет описания для этой команды"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "неверсирован"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

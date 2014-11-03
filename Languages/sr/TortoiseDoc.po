@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-09-22 11:11+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2014-11-01 10:02+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14518,6 +14518,7 @@ msgid ""
 msgstr "<placeholder-1/> Подешавања коришћена са ТортоисеБламе су контролисани из главног контекст менија, не директно са самим ТортоисеБламе."
 
 #. (term)
+#. (term)
 msgid "Colors"
 msgstr "Боје"
 
@@ -14537,6 +14538,7 @@ msgid ""
 msgstr "Можете одредити различите боје за коришћење са локатор пултом. Подразумевано је користити јак контраст на локатор пулту док држите светло позадине главног прозора тако да се још увек чита текст."
 
 #. (term)
+#. (term)
 msgid "Font"
 msgstr "Писмо"
 
@@ -14548,6 +14550,7 @@ msgid ""
 msgstr "Можете изабрати писмо које се користи да се прикаже текст, и његову величину. Ово се примењује на садржај фајла, и ауторе и ревизионе информације приказане у левом панелу."
 
 #. (term)
+#. (term)
 msgid "Tabs"
 msgstr "Табови"
 
@@ -14556,6 +14559,75 @@ msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file content."
 msgstr "Дефинише колико размака користити за експанзију када се таб карактер наже у садржају фајла."
+
+#. (title)
+msgid "TortoiseUDiff Settings"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, TortoiseUDiff Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
+"main context menu, not directly with TortoiseUDiff itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"The default colors used by TortoiseUDiff are usually ok, but you can "
+"configure them here."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can select the font used to display the text, and the point size to use."
+msgstr ""
+
+#. (para)
+msgid ""
+"Defines how many spaces to use for expansion when a tab character is found "
+"in the file diff."
+msgstr ""
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr "Извоз ТСВН подешавања"
+
+#. (title)
+msgid "The Settings Dialog, Sync Page"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
+"encrypted file. The file is encrpyted with the password you enter so you "
+"don't have to worry if you store that file on a cloud folder like OneDrive, "
+"GDrive, DropBox, ..."
+msgstr ""
+
+#. (para)
+msgid ""
+"When a path and password is specified, TortoiseSVN will sync all settings "
+"automatically and keep them in sync."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also export/import an encrypted files with all the settings "
+"manually. When you do that, you're asked for the path of the file and the "
+"password to encrypt/decrypt the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"When exporting the settings manually, you can also optionally include all "
+"local settings which are not included in a normal export or in a sync. Local"
+" settings are settings which include local paths which usually vary between "
+"computers. These local settings include the configured diff and merge tools "
+"and hook scripts."
+msgstr ""
 
 #. (title)
 msgid "Advanced Settings"
@@ -14968,27 +15040,6 @@ msgid ""
 msgstr "ТортоисеСВН проверава да ли постоји доступна нова верзија једанпут недељно.Ако не желите да ТортоисеСВН врши ову проверу подесите ову вредност на <literal>лаж</literal>."
 
 #. (title)
-msgid "Exporting TSVN Settings"
-msgstr "Извоз ТСВН подешавања"
-
-#. (para)
-msgid ""
-"If you want to export all your client settings to use on another computer "
-"you can do so using the Windows registry editor "
-"<filename>regedt32.exe</filename>. Go to the registry key "
-"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
-"On the other computer, just import that file again (usually, a double click "
-"on the reg file will do that)."
-msgstr "Ако желите да извезете цео садржај подешавања за коришћење на другом рачунару то можете урадити коришћењем Виндоус уређивач регистра <filename>regedt32.exe</filename>. Идите на кључ регистра <literal>HKCU\\Software\\TortoiseSVN</literal> и извезите га у рег фајл. На другом рачунару, само увезите фајл поново (обично, двоструки клик на рег фајл уради то)."
-
-#. (para)
-msgid ""
-"Remember to save Subversion's general settings, which you can find in the "
-"Subversion configuration file "
-"<literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr "Сетите се да сачувате Субверзионо опште подешавање, које ћете наћи у Субверзионом конфигурационом фајлу <literal>%APPDATA%\\Subversion\\config</literal>."
-
-#. (title)
 msgid "Final Step"
 msgstr "Финални корак"
 
@@ -15069,8 +15120,12 @@ msgstr "Ако је бокс за <literal>Путања или Урл</literal> 
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
-"access, and only if the authentication is not stored by Subversion itself."
-msgstr "Поља <literal>Корисничко име</literal> и <literal>Лозинка</literal> морају бити уписана само ако спремиште не омогућава анониман приступ за читање и само ако аутентикација није уписана од саме Субверзије."
+"access, and only if the authentication is not stored by Subversion itself. "
+"If you're accessing the monitored repository with TortoiseSVN or other svn "
+"clients and you've stored the authentication already, you should leave this "
+"empty: you won't have to edit those projects manually if the password "
+"changes."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17516,6 +17571,15 @@ msgstr "ТортоисеСВН ГУИ програм се зове  <literal>Tor
 
 #. (para)
 msgid ""
+"There's a special command that does not require the parameter "
+"<option>/command:abcd</option> but instead starts if nothing is specified on"
+" the command line: the project monitor. If <option>/tray</option> is "
+"specified, the project monitor starts hidden and only adds its icon to the "
+"system tray."
+msgstr ""
+
+#. (para)
+msgid ""
 "Since some of the commands can take a list of target paths (e.g. committing "
 "several specific files) the <option>/path</option> parameter can take "
 "several paths, separated by a <literal>*</literal> character."
@@ -17597,73 +17661,49 @@ msgstr "Команда"
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr "Приказује дијалог са описом програма. Овај дијалог је такође приказан ако команда није дата."
 
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-msgid "/path"
-msgstr "/путања"
+#. (para)
+msgid "<option>/startrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/startrev:xxx"
-msgstr "/стартрев:xxx"
+#. (para)
+msgid "<option>/endrev:xxx</option>,"
+msgstr ""
 
-#. (option)
-#. (option)
-msgid "/endrev:xxx"
-msgstr "/ендрев:xxx"
+#. (para)
+msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/strict"
-msgstr "/стрицт"
+#. (para)
+msgid ""
+"<option>/merge</option> enables the 'include merged revisions' checkbox,"
+msgstr ""
 
-#. (option)
-msgid "/merge"
-msgstr "/стопи"
+#. (para)
+msgid ""
+"<option>/datemin:\"{datestring}\"</option> sets the start date of the "
+"filter, and"
+msgstr ""
 
-#. (option)
-msgid "/findstring:\"filterstring\""
-msgstr "/findstring:\"filterstring\""
+#. (para)
+msgid ""
+"<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
+"The date format is the same as used for svn date revisions."
+msgstr ""
 
-#. (option)
-msgid "/findtext"
-msgstr "/findtext"
+#. (para)
+msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
+msgstr ""
 
-#. (option)
-msgid "/findregex"
-msgstr "/findregex"
+#. (para)
+msgid ""
+"<option>/findtext</option> forces the filter to use text, not regex, or"
+msgstr ""
 
-#. (option)
-msgid "/findtype:X"
-msgstr "/findtype:X"
+#. (para)
+msgid ""
+"<option>/findregex</option> forces the filter to use regex, not simple text "
+"search, and"
+msgstr ""
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17705,25 +17745,109 @@ msgstr "<option>/findtype:128</option> филтер по датуму"
 msgid "<option>/findtype:256</option> filter by date range"
 msgstr "<option>/findtype:256</option> филтер по опсегу датума"
 
-#. (option)
-msgid "/outfile:path\\to\\file"
-msgstr "/outfile:path\\to\\file"
-
-#. (entry)
+#. (para)
 msgid ""
-"Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
-"which the log should be shown. Additional options can be set: "
-"<placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-"
-"copy' checkbox, <placeholder-5/> enables the 'include merged revisions' "
-"checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
-" the filter to use text, not regex, or <placeholder-8/> forces the filter to"
-" use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 0 and 511. The numbers are the sum of the following options: "
-"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
-"are written to that file when the log dialog is closed. The revisions are "
-"written in the same format as is used to specify revisions in the merge "
-"dialog."
-msgstr "Отворите дневник дијалогом.  <placeholder-1/> специфицира фајл или фолдер за које ће дневник бити приказан. Додатне опције се могу подесити:  <placeholder-2/>, <placeholder-3/>, <placeholder-4/> омогућавају 'стоп-на-копи'  чекбокс, <placeholder-5/> омогућава 'укључује стопљене ревизије'чекбокс, <placeholder-6/> фајлове у филтер тексту,  <placeholder-7/> форсира филтер да користи текст, а не регекс, или <placeholder-8/> форсира филтер да користи регекс, не једноставно претраживање текста, и <placeholder-9/> са Х као број између 0 и 511. Бројеви су збир следећих опција: <placeholder-10/> Ако <placeholder-11/> је специфицирате, изабране ревизије су написане у тај фајл док је дијалог дневника затворен. Ревизије су написане у истом формату као што је коришћено да се специфицирају ревизије у дијалогу стапања. "
+"<option>/findtype:X</option> with X being a number between 0 and 511. The "
+"numbers are the sum of the following options: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/outfile:path\\to\\file</option> is specified, the selected "
+"revisions are written to that file when the log dialog is closed. The "
+"revisions are written in the same format as is used to specify revisions in "
+"the merge dialog."
+msgstr ""
+
+#. (para)
+msgid ""
+"Opens the log dialog. The <option>/path</option> specifies the file or "
+"folder for which the log should be shown. Additional options can be set: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17}"
+msgstr ""
+
+#. (para)
+msgid "{15:30}"
+msgstr ""
+
+#. (para)
+msgid "{15:30:00.200000}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30\"}"
+msgstr ""
+
+#. (para)
+msgid "{\"2006-02-17 15:30 +0230\"}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30Z}"
+msgstr ""
+
+#. (para)
+msgid "{2006-02-17T15:30-04:00}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530Z}"
+msgstr ""
+
+#. (para)
+msgid "{20060217T1530-0500}"
+msgstr ""
+
+#. (para)
+msgid ""
+"An svn date revision can be in one of the following formats: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+msgid "/path"
+msgstr "/путања"
 
 #. (option)
 #. (option)
@@ -18062,6 +18186,14 @@ msgid "/ignoreprops"
 msgstr "/ignoreprops"
 
 #. (option)
+msgid "/startrev:xxx"
+msgstr "/стартрев:xxx"
+
+#. (option)
+msgid "/endrev:xxx"
+msgstr "/ендрев:xxx"
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/pegrevision:xxx"
 
@@ -18300,6 +18432,52 @@ msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
 msgstr "Да се отвори дијалог особина за одређену особину провуците име особине као <option>/property:name</option>."
+
+#. (para)
+msgid ""
+"Exports/imports settings, either depending on whether the current settings "
+"or the exported settings are newer, or as specified."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a path is passed with <option>/path</option>, then the path is used to "
+"store or read the settings from."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/askforpath</option> will show a file open/save dialog"
+" for the user to chose the export/import path."
+msgstr ""
+
+#. (para)
+msgid ""
+"If neither <option>/load</option> nor <option>/save</option> is specified, "
+"then TortoiseSVN determines whether to export or import the settings by "
+"looking at which ones are more recent. If the export file is more recent "
+"than the current settings, then the settings are loaded from the file. If "
+"the current settings are more recent, then the settings are exported to the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/load</option> is specified, the settings are imported from the "
+"settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/save</option> is specified, the current settings are exported to"
+" the settings file."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameter <option>/local</option> forces a settings export to include "
+"local settings, i.e. settings that refer to local paths."
+msgstr ""
 
 #. (para)
 msgid ""

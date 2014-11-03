@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-05 19:20+0000\n"
+"PO-Revision-Date: 2014-11-03 00:10+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -14515,6 +14515,7 @@ msgid ""
 msgstr "<placeholder-1/> TortoiseBlamen käyttämiä asetuksia muutetaan pääkontekstivalikosta, ei suoraan TortoiseBlamesta itsestään."
 
 #. (term)
+#. (term)
 msgid "Colors"
 msgstr "Värit"
 
@@ -14534,6 +14535,7 @@ msgid ""
 msgstr "Voit määritellä sijaintipalkin värit. Oletusarvoisesti sijaintipalkki käyttää voimakasta kontrastia pitäen pääikkunan värit vaalempina ja helppolukuisampina."
 
 #. (term)
+#. (term)
 msgid "Font"
 msgstr "Kirjasin"
 
@@ -14545,6 +14547,7 @@ msgid ""
 msgstr "Voit valita tekstin kirjasimen ja kirjasinkoon. Asetusta käytetään sekä tiedoston sisältöön sekä vasemmassa paneelissa näytettävään tekijä- ja versiotietoon."
 
 #. (term)
+#. (term)
 msgid "Tabs"
 msgstr "Tabulaattorit"
 
@@ -14553,6 +14556,75 @@ msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file content."
 msgstr "Määrittää, kuinka monella välilyönnillä tabulaattorimerkki korvataan, kun sellainen löytyy tiedostosta."
+
+#. (title)
+msgid "TortoiseUDiff Settings"
+msgstr "TortoiseUDiff-asetukset"
+
+#. (title)
+msgid "The Settings Dialog, TortoiseUDiff Page"
+msgstr "Asetusikkuna, TortoiseUDiff-sivu"
+
+#. (para)
+msgid ""
+"<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
+"main context menu, not directly with TortoiseUDiff itself."
+msgstr "<placeholder-1/> TortoiseUDiff-ohjelman asetukset muutetaan pääkontekstivalikosta,  ei suoraan itse ohjelmasta."
+
+#. (para)
+msgid ""
+"The default colors used by TortoiseUDiff are usually ok, but you can "
+"configure them here."
+msgstr "TortoiseUDiff-ohjelman oletusvärit ovat yleensä ok, muta voit muuttaa niitä täällä."
+
+#. (para)
+msgid ""
+"You can select the font used to display the text, and the point size to use."
+msgstr "Voit valita tekstin näyttämiseen käytetyn kirjasimen ja pistekoon."
+
+#. (para)
+msgid ""
+"Defines how many spaces to use for expansion when a tab character is found "
+"in the file diff."
+msgstr "Määrittää, kuinka moneksi välilyönniksi TAB-merkki laajennetaan tiedostovertailussa."
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr "TSVN-asetusten vienti"
+
+#. (title)
+msgid "The Settings Dialog, Sync Page"
+msgstr "Asetusikkuna, synkronointisivu"
+
+#. (para)
+msgid ""
+"<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
+"encrypted file. The file is encrpyted with the password you enter so you "
+"don't have to worry if you store that file on a cloud folder like OneDrive, "
+"GDrive, DropBox, ..."
+msgstr "<placeholder-1/> Voit synkronoida kaikki TortoiseSVN-asetukset salattuun tiedostoon. Tiedosto salataan antamallasi salasanalla, joten sen voi huoletta tallettaa esimerkiksi OneDrive, GDrive tai DropBox -pilvipalveluihin."
+
+#. (para)
+msgid ""
+"When a path and password is specified, TortoiseSVN will sync all settings "
+"automatically and keep them in sync."
+msgstr "Kun polku ja salasana annetaan, TortoiseSVN synkronoi kaikki asetukset automaattisesti ja pitää ne jatkossa synkronoituina."
+
+#. (para)
+msgid ""
+"You can also export/import an encrypted files with all the settings "
+"manually. When you do that, you're asked for the path of the file and the "
+"password to encrypt/decrypt the settings file."
+msgstr "Voit myös viedä/tuoda salattuja asetustiedostoja käsin. Tällöin asetustiedoston sijaintipolku ja salasana kysytään."
+
+#. (para)
+msgid ""
+"When exporting the settings manually, you can also optionally include all "
+"local settings which are not included in a normal export or in a sync. Local"
+" settings are settings which include local paths which usually vary between "
+"computers. These local settings include the configured diff and merge tools "
+"and hook scripts."
+msgstr "Kun viet asetukset käsin, voit myös halutessasi sisällyttää mukaan paikalliset asetukset, jotka eivät kuulu normaalin viennin tai synkronoinnin piiriin. Paikalliset asetukset sisältävät työasemakohtaisia polkuja, kuten esimerkiksi vertailu- ja yhdistämikomentojen sekä komentojonojen sijaintipaikat."
 
 #. (title)
 msgid "Advanced Settings"
@@ -14965,27 +15037,6 @@ msgid ""
 msgstr "TortoiseSVN tarkistaa kerran viikossa, onko ohjelmasta olemassa uutta versiota. Mikäli haluat estää tarkistuksen, aseta arvoksi <literal>false</literal>."
 
 #. (title)
-msgid "Exporting TSVN Settings"
-msgstr "TSVN-asetusten vienti"
-
-#. (para)
-msgid ""
-"If you want to export all your client settings to use on another computer "
-"you can do so using the Windows registry editor "
-"<filename>regedt32.exe</filename>. Go to the registry key "
-"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
-"On the other computer, just import that file again (usually, a double click "
-"on the reg file will do that)."
-msgstr "Jos haluat viedä kaikki asetuksesi toiseen tietokoneeseen, voit tehdä sen Windowsin rekisterieditorilla <filename>regedt32.exe</filename>. Siirry rekisteriavaimeen <literal>HKCU\\Software\\TortoiseSVN</literal> ja vie se .reg-tiedostoon. Kaksoisnapsauta tiedostoa toisessa tietokoneessa tuodaksesi asetukset sinne."
-
-#. (para)
-msgid ""
-"Remember to save Subversion's general settings, which you can find in the "
-"Subversion configuration file "
-"<literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr "Muista tallentaa Subversion-asetukset, jotka löytyvät Subversion-konfigurointitiedostosta <literal>%APPDATA%\\Subversion\\config</literal>."
-
-#. (title)
 msgid "Final Step"
 msgstr "Lopuksi"
 
@@ -15066,8 +15117,12 @@ msgstr "Mikäli kenttä <literal>Polku tai paikannin</literal> on tyhjä, lisät
 msgid ""
 "The fields <literal>Username</literal> and <literal>Password</literal> "
 "should only be filled in if the repository does not provide anonymous read "
-"access, and only if the authentication is not stored by Subversion itself."
-msgstr "Kenttiä <literal>Käyttäjä</literal> ja <literal>Salasana</literal> tulee käyttää vain, jos arkisto ei tarjoa anonyymiä lukuoikeutta ja Subversion itse ei tallenna todennustietoja."
+"access, and only if the authentication is not stored by Subversion itself. "
+"If you're accessing the monitored repository with TortoiseSVN or other svn "
+"clients and you've stored the authentication already, you should leave this "
+"empty: you won't have to edit those projects manually if the password "
+"changes."
+msgstr "Kenttiä <literal>Käyttäjä</literal> ja <literal>Salasana</literal> tulee käyttää vain, jos arkisto ei tarjoa anonyymiä lukuoikeutta ja Subversion itse ei tallenna todennustietoja. Jos käytät seuraamaasi arkistoa TortoiseSVN-ohjelmalla tai muilla svn-asiakasohjelmlla, ja olet jo tallentanut todennustiedot, jätä kentät tyhjiksi: tällöin et joudu muokkaamaan projekteja käsin salasanan muuttuessa."
 
 #. (para)
 msgid ""
@@ -17513,6 +17568,15 @@ msgstr "TortoiseSVN:n käyttöliittymän nimi on <literal>TortoiseProc.exe</lite
 
 #. (para)
 msgid ""
+"There's a special command that does not require the parameter "
+"<option>/command:abcd</option> but instead starts if nothing is specified on"
+" the command line: the project monitor. If <option>/tray</option> is "
+"specified, the project monitor starts hidden and only adds its icon to the "
+"system tray."
+msgstr "Jos valitsin <option>/command:abcd</option> jätetään antamatta, käynnistyy projektiseurain. Mikäli valitsin <option>/tray</option> annetaan, projektiseurain käynnistyy piilotettuna ilmoitusalueelle."
+
+#. (para)
+msgid ""
 "Since some of the commands can take a list of target paths (e.g. committing "
 "several specific files) the <option>/path</option> parameter can take "
 "several paths, separated by a <literal>*</literal> character."
@@ -17594,73 +17658,49 @@ msgstr "Komento"
 msgid "Shows the about dialog. This is also shown if no command is given."
 msgstr "Näyttää Tietoja-ikkunan. Tämä aukeaa myös, jos komentoa ei anneta."
 
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-#. (option)
-msgid "/path"
-msgstr "/path"
+#. (para)
+msgid "<option>/startrev:xxx</option>,"
+msgstr "<option>/startrev:xxx</option>,"
 
-#. (option)
-#. (option)
-msgid "/startrev:xxx"
-msgstr "/startrev:xxx"
+#. (para)
+msgid "<option>/endrev:xxx</option>,"
+msgstr "<option>/endrev:xxx</option>,"
 
-#. (option)
-#. (option)
-msgid "/endrev:xxx"
-msgstr "/endrev:xxx"
+#. (para)
+msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
+msgstr "<option>/strict</option> kytkee 'pysäytä kopion kohdalla' -valinnan,"
 
-#. (option)
-msgid "/strict"
-msgstr "/strict"
+#. (para)
+msgid ""
+"<option>/merge</option> enables the 'include merged revisions' checkbox,"
+msgstr "<option>/merge</option> kytkee 'sisällytä yhdistetyt versiot' -valinnan,"
 
-#. (option)
-msgid "/merge"
-msgstr "/merge"
+#. (para)
+msgid ""
+"<option>/datemin:\"{datestring}\"</option> sets the start date of the "
+"filter, and"
+msgstr "<option>/datemin:\"{datestring}\"</option> asettaa suodattimen aloituspäiväyksen, ja"
 
-#. (option)
-msgid "/findstring:\"filterstring\""
-msgstr "/findstring:\"suodatusmerkkijono\""
+#. (para)
+msgid ""
+"<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
+"The date format is the same as used for svn date revisions."
+msgstr "<option>/datemax:\"{datestring}\"</option> asettaa suodattimen lopetuspäiväyksen. Päiväyksen muoto on sama kuin svn-päiväyksissä käytetty."
 
-#. (option)
-msgid "/findtext"
-msgstr "/findtext"
+#. (para)
+msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
+msgstr "<option>/findstring:\"filterstring\"</option> täyttää suodatustekstin,"
 
-#. (option)
-msgid "/findregex"
-msgstr "/findregex"
+#. (para)
+msgid ""
+"<option>/findtext</option> forces the filter to use text, not regex, or"
+msgstr "<option>/findtext</option> pakottaa suodattimen käyttämään tekstiä säännöllisten lausekkeiden sijaan, tai"
 
-#. (option)
-msgid "/findtype:X"
-msgstr "/findtype:X"
+#. (para)
+msgid ""
+"<option>/findregex</option> forces the filter to use regex, not simple text "
+"search, and"
+msgstr "<option>/findregex</option> pakottaa suodattimen käyttämään säännöllisiä lausekkeita tekstin sijaan, ja"
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17702,25 +17742,109 @@ msgstr "<option>/findtype:128</option> suodata päiväyksistä"
 msgid "<option>/findtype:256</option> filter by date range"
 msgstr "<option>/findtype:256</option> suodata päivämääräväliltä"
 
-#. (option)
-msgid "/outfile:path\\to\\file"
-msgstr "/outfile:polku\\tiedostoon"
-
-#. (entry)
+#. (para)
 msgid ""
-"Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
-"which the log should be shown. Additional options can be set: "
-"<placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-"
-"copy' checkbox, <placeholder-5/> enables the 'include merged revisions' "
-"checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
-" the filter to use text, not regex, or <placeholder-8/> forces the filter to"
-" use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 0 and 511. The numbers are the sum of the following options: "
-"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
-"are written to that file when the log dialog is closed. The revisions are "
-"written in the same format as is used to specify revisions in the merge "
-"dialog."
-msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa muita valitsimia: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> valitsee 'pysäytä kopiointiin'-asetuksen, <placeholder-5/> valitsee 'sisällytä yhdistetyt versiot'-asetuksen, <placeholder-6/> asettaa suodatustekstin, <placeholder-7/> suodattaa käyttämällä tekstiä säännöllisen lausekkeen sijaan, tai <placeholder-8/> suodattaa käyttämällä säännöllistä lauseketta, ja <placeholder-9/>, missä X on luku väliltä 0-511. Numerot ovat summa seuraavista vaihtoehdoista: <placeholder-10/> Jos <placeholder-11/> on määritelty, valitut versiot kirjoitetaan annettuun tiedostoon, kun loki-ikkuna suljetaan. Versiot kirjoitetaan samassa muodossa, jota käytetään annettaessa versiot yhdistämisikkunassa."
+"<option>/findtype:X</option> with X being a number between 0 and 511. The "
+"numbers are the sum of the following options: <placeholder-1/>"
+msgstr "<option>/findtype:X</option>, missä X on numero väliltä 0-511. Numerot ovat seuraavien vaihtoehtojen summa: <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If <option>/outfile:path\\to\\file</option> is specified, the selected "
+"revisions are written to that file when the log dialog is closed. The "
+"revisions are written in the same format as is used to specify revisions in "
+"the merge dialog."
+msgstr "Jos valitsin <option>/outfile:polku\\tiedostoon</option> on annettu, valitut versiot kirjoitetaan annettuun tiedostoon, kun loki-ikkuna suljetaan. Versiot kirjoitetaan yhdistämisikkunan versioiden kuvaamiseen käyttämässä muodossa."
+
+#. (para)
+msgid ""
+"Opens the log dialog. The <option>/path</option> specifies the file or "
+"folder for which the log should be shown. Additional options can be set: "
+"<placeholder-1/>"
+msgstr "Avaa loki-ikkunan. Valitsin <option>/path</option>  määrittelee tiedoston tai kansion, jolle loki näytetään. Käytettävissä on myös muita valitsimia: <placeholder-1/>"
+
+#. (para)
+msgid "{2006-02-17}"
+msgstr "{2006-02-17}"
+
+#. (para)
+msgid "{15:30}"
+msgstr "{15:30}"
+
+#. (para)
+msgid "{15:30:00.200000}"
+msgstr "{15:30:00.200000}"
+
+#. (para)
+msgid "{\"2006-02-17 15:30\"}"
+msgstr "{\"2006-02-17 15:30\"}"
+
+#. (para)
+msgid "{\"2006-02-17 15:30 +0230\"}"
+msgstr "{\"2006-02-17 15:30 +0230\"}"
+
+#. (para)
+msgid "{2006-02-17T15:30}"
+msgstr "{2006-02-17T15:30}"
+
+#. (para)
+msgid "{2006-02-17T15:30Z}"
+msgstr "{2006-02-17T15:30Z}"
+
+#. (para)
+msgid "{2006-02-17T15:30-04:00}"
+msgstr "{2006-02-17T15:30-04:00}"
+
+#. (para)
+msgid "{20060217T1530}"
+msgstr "{20060217T1530}"
+
+#. (para)
+msgid "{20060217T1530Z}"
+msgstr "{20060217T1530Z}"
+
+#. (para)
+msgid "{20060217T1530-0500}"
+msgstr "{20060217T1530-0500}"
+
+#. (para)
+msgid ""
+"An svn date revision can be in one of the following formats: "
+"<placeholder-1/>"
+msgstr "SVN-päiväysversio voi olla jokin seuraavista: <placeholder-1/>"
+
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+#. (option)
+msgid "/path"
+msgstr "/path"
 
 #. (option)
 #. (option)
@@ -18059,6 +18183,14 @@ msgid "/ignoreprops"
 msgstr "/ignoreprops"
 
 #. (option)
+msgid "/startrev:xxx"
+msgstr "/startrev:xxx"
+
+#. (option)
+msgid "/endrev:xxx"
+msgstr "/endrev:xxx"
+
+#. (option)
 msgid "/pegrevision:xxx"
 msgstr "/pegrevision:xxx"
 
@@ -18297,6 +18429,52 @@ msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
 msgstr "Avataksesi ominaisuusikkunan suoraan halutulle ominaisuudelle, välitä sen nimi muodossa <option>/property:name</option>."
+
+#. (para)
+msgid ""
+"Exports/imports settings, either depending on whether the current settings "
+"or the exported settings are newer, or as specified."
+msgstr "Vie/tuo asetukset riippuen siitä, ovatko nykyiset vai viedyt asetukset tuoreempia, tai määritellysti."
+
+#. (para)
+msgid ""
+"If a path is passed with <option>/path</option>, then the path is used to "
+"store or read the settings from."
+msgstr "Jos polku annetaan valitsimella <option>/path</option>, sitä käytetään asetusten tallettamiseen tai lukemiseen."
+
+#. (para)
+msgid ""
+"The parameter <option>/askforpath</option> will show a file open/save dialog"
+" for the user to chose the export/import path."
+msgstr "Valitsin <option>/askforpath</option> näyttää käyttäjälle avaa/talleta -ikkunan vienti/tuontipolun valitsemiseksi. "
+
+#. (para)
+msgid ""
+"If neither <option>/load</option> nor <option>/save</option> is specified, "
+"then TortoiseSVN determines whether to export or import the settings by "
+"looking at which ones are more recent. If the export file is more recent "
+"than the current settings, then the settings are loaded from the file. If "
+"the current settings are more recent, then the settings are exported to the "
+"settings file."
+msgstr "Jos kumpaakaan valitsimista <option>/load</option> tai <option>/save</option> ei anneta, TortoiseSVN päättelee valitsimen päiväyksen perusteella. Mikäli viety tiedosto on uudempi kuin nykyiset asetukset, ne noudetaan tiedostosta. Mikäli taas nykyiset asetukset ovat tuoreempia, ne viedään tiedostoon."
+
+#. (para)
+msgid ""
+"If <option>/load</option> is specified, the settings are imported from the "
+"settings file."
+msgstr "Valitsin <option>/load</option> tuo asetukset annetusta asetustiedostosta."
+
+#. (para)
+msgid ""
+"If <option>/save</option> is specified, the current settings are exported to"
+" the settings file."
+msgstr "Valitsin <option>/save</option> tallettaa nykyiset asetukset annettuun tiedostoon."
+
+#. (para)
+msgid ""
+"The parameter <option>/local</option> forces a settings export to include "
+"local settings, i.e. settings that refer to local paths."
+msgstr "Valitsin <option>/local</option> sisällyttää vietyihin asetuksiin paikalliset asetukset, jotka sisältävät esimerkiksi työasemakohtaisia hakemistopolkuja."
 
 #. (para)
 msgid ""

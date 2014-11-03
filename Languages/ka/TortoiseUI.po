@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -3436,6 +3436,12 @@ msgstr "კოპირების სამარჯვი\nკოპირე
 msgid "Copy URL to clipboard"
 msgstr "URL-ს ბუფერში კოპირება"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "კოპირება და გადარქმევა"
@@ -3479,6 +3485,12 @@ msgstr "კოპირება სამუშაო ასლში..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "კოპირება: %s - ახალი სახელი"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3991,8 +4003,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "შედარების ჩვენება::შერწყმის სამარჯვი"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "შედარების ფაილი:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4001,6 +4029,14 @@ msgstr ""
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "შედარების პარამეტრები"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4112,6 +4148,10 @@ msgstr "ამის გაკეთება ყველა შერჩეუ
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "ამის გაკეთება ყველა შერჩეული არავერსიული დასტისთვის"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4662,6 +4702,10 @@ msgstr "ექსპორტი"
 msgid "Export &directory:"
 msgstr "&დასტის ექსპორტი:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5087,6 +5131,10 @@ msgstr "იძულება"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "იძულებითი ამოღება"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5835,6 +5883,10 @@ msgstr "%ld ელემენტის იმპორტი"
 msgid "Import &message"
 msgstr "&შეტყობინების იმპორტი"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "ადრე შენახული პარამეტრების ნაკრების ფაილიდან იმპორტი"
@@ -5859,6 +5911,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "ფაილის იმპორტი: %1!s!\r\nაქ %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5897,6 +5953,10 @@ msgstr "გ&არე ელემენტების ჩათვლით"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "გამოტოვებული ფაილების ჩათვლით"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6154,6 +6214,10 @@ msgstr "კონფლიქტის დატოვება:"
 msgid "Leave only marked changes"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "მარცხენა ხედი:"
@@ -6405,6 +6469,10 @@ msgstr "ქვევერსიის პარამეტრების მ�
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
 msgstr ""
 
 #. Resource IDs: (214)
@@ -6756,6 +6824,12 @@ msgstr "ელემენტის ქვემოთ ჩატანა"
 msgid "Move Item Up"
 msgstr "ელემენტის ზემოთ ატანა"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "გადატანა და გადარქმევა"
@@ -6797,6 +6871,12 @@ msgstr "გადატანა/გადარქმევა"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "გადატანა: %s - ახალი სახელი"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7386,6 +7466,10 @@ msgstr "პარამეტრები"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "პარამეტრები:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9048,6 +9132,10 @@ msgstr "ბებკის ფაილის შერჩევა"
 msgid "Select revision range"
 msgstr "ვერსიების რანგის არჩევა"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "საწყისი ვერსიის არჩევა."
@@ -9515,6 +9603,12 @@ msgstr "ბუფერის ფაილის ზომა დისკზე
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "შეუკუმშავი ბუფერის ზომა"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10041,6 +10135,11 @@ msgstr "შედარების ძრავმა მუშაობა შ
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "ფაილი %s არ არსებობს!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10828,6 +10927,10 @@ msgstr "TortoiseSVN - გარსის გაფართოება.\nიგ
 #. Resource IDs: (200)
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
 msgstr ""
 
 #. Resource IDs: (1162)
@@ -12187,6 +12290,10 @@ msgstr "ამ ბრძანების აღწერა არ არს�
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "არავერსიული"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

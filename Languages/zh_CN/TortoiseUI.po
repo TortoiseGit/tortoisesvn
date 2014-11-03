@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -3456,6 +3456,12 @@ msgstr "复制工具\n复制"
 msgid "Copy URL to clipboard"
 msgstr "复制 URL"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "复制和改名"
@@ -3499,6 +3505,12 @@ msgstr "复制至工作副本..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "复制:  %s 的新名称"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -4011,8 +4023,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr "差异查看/合并工具"
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "补丁文件: "
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4021,6 +4049,14 @@ msgstr "稍候比较"
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "差异选项"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4132,6 +4168,10 @@ msgstr "应用到所有已选项目"
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "将此操作应用到所有选中未收版本控制的文件夹上"
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
+msgstr ""
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4682,6 +4722,10 @@ msgstr "导出"
 msgid "Export &directory:"
 msgstr "导出目录(&D): "
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5107,6 +5151,10 @@ msgstr "强制"
 #. Resource IDs: (147)
 msgid "Force removal"
 msgstr "强制删除"
+
+#. Resource IDs: (65535)
+msgid "Foreground"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5855,6 +5903,10 @@ msgstr "导入 %ld 个文件"
 msgid "Import &message"
 msgstr "导入信息(&M)"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "从文件导入以前保存的属性集合"
@@ -5879,6 +5931,10 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "导入文件夹 %1!s!\r\n到 %2!s!"
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5917,6 +5973,10 @@ msgstr "包含外部定义(&X)"
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "包括忽略的文件"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6174,6 +6234,10 @@ msgstr "剩下冲突: "
 msgid "Leave only marked changes"
 msgstr "仅留下标记的更改"
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "左侧查看: "
@@ -6426,6 +6490,10 @@ msgstr "管理 Subversion 属性"
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
 msgstr "手动提交前钩子"
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
+msgstr ""
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6776,6 +6844,12 @@ msgstr "下移项目"
 msgid "Move Item Up"
 msgstr "上移项目"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "移动和改名"
@@ -6817,6 +6891,12 @@ msgstr "移动/改名"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "移动: %s  的新名称"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7406,6 +7486,10 @@ msgstr "参数"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "参数:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9068,6 +9152,10 @@ msgstr "选择补丁文件..."
 msgid "Select revision range"
 msgstr "选择版本范围"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "选择开始版本"
@@ -9535,6 +9623,12 @@ msgstr "磁盘缓存文件的大小"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "没有压缩时缓存的大小"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10061,6 +10155,11 @@ msgstr "差异比较引擎终止，错误信息:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "文件 %s 不存在！"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10849,6 +10948,10 @@ msgstr "TortoiseSVN 是一个 Windows 外壳扩展，\n这意味着该程序是�
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr "TortoiseSVN 将不会显示以下图标重载: %s"
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12207,6 +12310,10 @@ msgstr "此命令尚无描述"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "无版本控制"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-07 09:38+0000\n"
+"PO-Revision-Date: 2014-10-28 09:38+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/tortoisesvn/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -3437,6 +3437,12 @@ msgstr "Másolási eszköz\nMásolás"
 msgid "Copy URL to clipboard"
 msgstr "URL másolása a vágólapra"
 
+#. Resource IDs: (149)
+msgid ""
+"Copy and add\n"
+"The file is copied to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Copy and rename"
 msgstr "Másolás és átnevezés"
@@ -3480,6 +3486,12 @@ msgstr "Másolás a munkapéldányba..."
 #, c-format
 msgid "Copy: New name for %s"
 msgstr "Másolás: %s új neve"
+
+#. Resource IDs: (149)
+msgid ""
+"Copy\n"
+"The file is copied to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (80)
 #, c-format
@@ -3992,8 +4004,24 @@ msgid "Diff Viewer::Merge Tool"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "Diff added lines"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff command"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff comment"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Diff fájl:"
+
+#. Resource IDs: (65535)
+msgid "Diff header"
+msgstr ""
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4002,6 +4030,14 @@ msgstr ""
 #. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Diff beállítások"
+
+#. Resource IDs: (65535)
+msgid "Diff position"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Diff removed lines"
+msgstr ""
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4112,6 +4148,10 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
+msgstr ""
+
+#. Resource IDs: (149)
+msgid "Do this for all unversioned items"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -4663,6 +4703,10 @@ msgstr "Exportálás"
 msgid "Export &directory:"
 msgstr "Exportálás i&de:"
 
+#. Resource IDs: (157)
+msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5087,6 +5131,10 @@ msgstr "Kényszerítés"
 
 #. Resource IDs: (147)
 msgid "Force removal"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Foreground"
 msgstr ""
 
 #. Resource IDs: (1064)
@@ -5836,6 +5884,10 @@ msgstr "%ld elem importálása"
 msgid "Import &message"
 msgstr "Importálási &megjegyzés"
 
+#. Resource IDs: (1665)
+msgid "Import Settings from file..."
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Előzőleg elmentett tulajdonságok importálása fájlból"
@@ -5859,6 +5911,10 @@ msgstr "Fájl importálása ide:\r\n%s"
 msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
+msgstr ""
+
+#. Resource IDs: (1667)
+msgid "Import settings to file..."
 msgstr ""
 
 #. Resource IDs: (613)
@@ -5898,6 +5954,10 @@ msgstr ""
 #. Resource IDs: (1266)
 msgid "Include ignored files"
 msgstr "A kizárt fájlokat is beleértve"
+
+#. Resource IDs: (621)
+msgid "Include local settings"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6155,6 +6215,10 @@ msgstr "Ellentmodás meghagyása:"
 msgid "Leave only marked changes"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Leave the box \"Path or URL\" empty to create a folder item"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "Left View: "
 msgstr "Bal oldali nézet:"
@@ -6406,6 +6470,10 @@ msgstr "Subversion tulajdonságok változtatása"
 
 #. Resource IDs: (570)
 msgid "Manual Pre-Commit Hook"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Manual import/export"
 msgstr ""
 
 #. Resource IDs: (214)
@@ -6757,6 +6825,12 @@ msgstr "Elem lefelé mozgatása"
 msgid "Move Item Up"
 msgstr "Elem felfelé mozgatása"
 
+#. Resource IDs: (149)
+msgid ""
+"Move and add\n"
+"The file is moved to the destination and added to version control."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Move and rename"
 msgstr "Áthelyezés és átnevezés"
@@ -6798,6 +6872,12 @@ msgstr "Áthelyezés/átnevezés"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Áthelyezés: %s új neve"
+
+#. Resource IDs: (149)
+msgid ""
+"Move\n"
+"The file is moved to the destination and left unversioned."
+msgstr ""
 
 #. Resource IDs: (106)
 msgid ""
@@ -7387,6 +7467,10 @@ msgstr "Paraméterek"
 #. Resource IDs: (1477)
 msgid "Parameters:"
 msgstr "Paraméterek:"
+
+#. Resource IDs: (370)
+msgid "Password"
+msgstr ""
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9049,6 +9133,10 @@ msgstr ""
 msgid "Select revision range"
 msgstr "Válassz intervalumot"
 
+#. Resource IDs: (621)
+msgid "Select settings file"
+msgstr ""
+
 #. Resource IDs: (279)
 msgid "Select start revision"
 msgstr "Válaszd ki a kezdő verziót"
@@ -9516,6 +9604,12 @@ msgstr "A gyorsítótár mérete a lemezen"
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
 msgstr "A gyorsítótár mérete, ha nem lenne tömörítve"
+
+#. Resource IDs: (149)
+msgid ""
+"Skip\n"
+"The file is left where it is."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10042,6 +10136,11 @@ msgstr "A diffelés leállt egy hiba miatt:\n%s"
 #, c-format
 msgid "The file %s does not exist!"
 msgstr "%s fájl nem létezik!"
+
+#. Resource IDs: (149)
+#, c-format
+msgid "The file %s is not versioned. How do you want to proceed?"
+msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
@@ -10829,6 +10928,10 @@ msgstr "TortoiseSVN egy beépülő modul.\nEz azt jelenti, hogy a Windows Intéz
 #. Resource IDs: (200)
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
+
+#. Resource IDs: (371)
+msgid "TortoiseUDiff"
 msgstr ""
 
 #. Resource IDs: (1162)
@@ -12188,6 +12291,10 @@ msgstr "ennek a parancsnak nincs leírása"
 #. Resource IDs: (10)
 msgid "non-versioned"
 msgstr "nem verziókezelt"
+
+#. Resource IDs: (149)
+msgid "non-versioned item"
+msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"
