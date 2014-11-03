@@ -2042,13 +2042,14 @@ void CRepositoryBrowser::OnInlineedit()
 {
     if (m_bSparseCheckoutMode)
         return;
-    POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-    if (pos == NULL)
-        return;
-    int selIndex = m_RepoList.GetNextSelectedItem(pos);
     ++m_blockEvents;
-    if (selIndex >= 0)
+    OnOutOfScope(--m_blockEvents);
+    if (GetFocus() == &m_RepoList)
     {
+        POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+        if (pos == NULL)
+            return;
+        int selIndex = m_RepoList.GetNextSelectedItem(pos);
         CAutoReadLock locker(m_guard);
         CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
         if (!pItem->is_external)
@@ -2069,7 +2070,6 @@ void CRepositoryBrowser::OnInlineedit()
                 m_RepoTree.EditLabel(hTreeItem);
         }
     }
-    --m_blockEvents;
 }
 
 void CRepositoryBrowser::OnRefresh()
