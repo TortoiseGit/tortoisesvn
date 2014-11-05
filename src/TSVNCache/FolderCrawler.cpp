@@ -120,7 +120,6 @@ void CFolderCrawler::WorkerThread()
     for(;;)
     {
         bool bRecursive = !!(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE);
-        SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
         DWORD waitResult = WaitForMultipleObjects(_countof(hWaitHandles), hWaitHandles, FALSE, INFINITE);
 
         // exit event/working loop if the first event (m_hTerminationEvent)
@@ -138,7 +137,9 @@ void CFolderCrawler::WorkerThread()
         // the shell is still asking for items
         //
         bool bFirstRunAfterWakeup = true;
-        for(;;)
+        SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
+        OnOutOfScope(SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END));
+        for (;;)
         {
             if (!m_bRun)
                 break;
@@ -200,7 +201,7 @@ void CFolderCrawler::WorkerThread()
                 if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
                     continue;
                 // check if the changed path is inside an .svn folder
-                if ((workingPath.IsDirectory()&&(SVNHelper::IsVersioned(workingPath, true)))||workingPath.IsAdminDir())
+                if ((workingPath.IsDirectory() && (SVNHelper::IsVersioned(workingPath, true))) || workingPath.IsAdminDir())
                 {
                     // we don't crawl for paths changed in a tmp folder inside an .svn folder.
                     // Because we also get notifications for those even if we just ask for the status!
@@ -329,7 +330,6 @@ void CFolderCrawler::WorkerThread()
             }
             if (m_foldersToUpdate.size())
             {
-                SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
                 {
                     AutoLocker lock(m_critSec);
 

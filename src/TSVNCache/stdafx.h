@@ -45,6 +45,7 @@ using namespace ATL;
 #pragma warning(pop)
 
 #include "DebugOutput.h"
+#include "OnOutOfScope.h"
 
 typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 
