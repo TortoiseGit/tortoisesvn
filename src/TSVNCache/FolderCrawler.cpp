@@ -72,7 +72,7 @@ void CFolderCrawler::Initialise()
     m_bRun = true;
     unsigned int threadId = 0;
     m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
-    SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_IDLE);
+    SetThreadPriority(m_hThread, THREAD_PRIORITY_BELOW_NORMAL);
 }
 
 void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
