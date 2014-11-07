@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "AppUtils.h"
 #include "TempFile.h"
+#include "SVNProperties.h"
 
 IMPLEMENT_DYNAMIC(CConflictResolveDlg, CResizableStandAloneDialog)
 
@@ -195,13 +196,56 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-    m_choice =  m_pConflictDescription->is_binary ? svn_wc_conflict_choose_mine_full : svn_wc_conflict_choose_mine_conflict;
+    bool bUseFull = !!m_pConflictDescription->is_binary;
+    bool diffallowed = ((m_pConflictDescription->merged_file && m_pConflictDescription->base_abspath)
+                        || (!m_pConflictDescription->base_abspath && m_pConflictDescription->my_abspath && m_pConflictDescription->their_abspath));
+    bUseFull = bUseFull || !diffallowed;
+    if (!bUseFull && m_pConflictDescription->local_abspath)
+    {
+        // try to get the mime-type property
+        // note:
+        // the is_binary member of the conflict description struct is currently
+        // always 'false' for merge conflicts. The svn library does not
+        // try to find out whether the text conflict is actually from a binary
+        // or a text file but passes 'false' unconditionally. So we try to
+        // find out for real whether the file is binary or not by reading
+        // the svn:mime-type property.
+        // If the svn lib ever changes that, we can remove this part of the code.
+        SVNProperties props(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath)), SVNRev::REV_WC, false, false);
+        for (int i = 0; i < props.GetCount(); ++i)
+        {
+            if (props.GetItemName(i).compare("svn:mime-type") == 0)
+            {
+                if (props.GetItemValue(i).find("text") == std::string::npos)
+                    bUseFull = true;
+            }
+        }
+    }
+    m_choice =  bUseFull ? svn_wc_conflict_choose_mine_full : svn_wc_conflict_choose_mine_conflict;
     EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-    m_choice =  m_pConflictDescription->is_binary ? svn_wc_conflict_choose_theirs_full : svn_wc_conflict_choose_theirs_conflict;
+    bool bUseFull = !!m_pConflictDescription->is_binary;
+    bool diffallowed = ((m_pConflictDescription->merged_file && m_pConflictDescription->base_abspath)
+                        || (!m_pConflictDescription->base_abspath && m_pConflictDescription->my_abspath && m_pConflictDescription->their_abspath));
+    bUseFull = bUseFull || !diffallowed;
+    if (!bUseFull && m_pConflictDescription->local_abspath)
+    {
+        // try to get the mime-type property
+        // Note: see above
+        SVNProperties props(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath)), SVNRev::REV_WC, false, false);
+        for (int i = 0; i < props.GetCount(); ++i)
+        {
+            if (props.GetItemName(i).compare("svn:mime-type") == 0)
+            {
+                if (props.GetItemValue(i).find("text") == std::string::npos)
+                    bUseFull = true;
+            }
+        }
+    }
+    m_choice = bUseFull ? svn_wc_conflict_choose_theirs_full : svn_wc_conflict_choose_theirs_conflict;
     EndDialog(IDOK);
 }
 
