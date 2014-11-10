@@ -12,7 +12,7 @@
 # Translators:
 # Alexander Shchekaturov <shcham@gmail.com>, 2013
 # Arkady Shapkin <arkadiy_s@inbox.ru>, 2011
-# Arkady Shapkin <arkadiy_s@inbox.ru>, 2014
+# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011,2014
 # _deniska <denis_levin@mail.ru>, 2011,2013
 # _deniska <denis_levin@mail.ru>, 2013
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
@@ -24,13 +24,14 @@
 # Alexander Shchekaturov <shcham@gmail.com>, 2013
 # Дмитрий Сытьков <sytkov@gmail.com>, 2011
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012-2014
+# Дмитрий Сытьков <sytkov@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-10-28 09:38+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-11-07 19:26+0000\n"
+"Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3453,7 +3454,7 @@ msgstr "Скопировать URL в буфер обмена"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Копировать и добавить\nФайл скопирован в место назначения и добавлен под управление версиями."
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3503,7 +3504,7 @@ msgstr "Копирование: Новое имя для %s"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Копировать\nФайл скопирован в место назначения и оставлен неверсионируемым."
 
 #. Resource IDs: (80)
 #, c-format
@@ -4017,15 +4018,15 @@ msgstr "Просмотр различий::Инструмент для слия�
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Добавленные строки"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Команда"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Комментарий"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4033,7 +4034,7 @@ msgstr "Файл различий:"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Заголовок"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4045,11 +4046,11 @@ msgstr "Параметры сравнения"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Позиция"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Удаленные строки"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4164,7 +4165,7 @@ msgstr "Сделать это для всех выбранных неверси�
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Сделать это для всех неверсионируемых элементов"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4717,7 +4718,7 @@ msgstr "Папка &экспорта:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Экспортировать файлы (*.tsex)|*.tsex|Все файлы (*.*)|*.*||"
 
 #. Resource IDs: (345)
 msgid ""
@@ -5147,7 +5148,7 @@ msgstr "Принудительное удаление"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Шрифт"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5898,7 +5899,7 @@ msgstr "&Сообщение импорта"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Импортировать настройки из файла..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5927,7 +5928,7 @@ msgstr "Импорт папки %1!s!\r\nв %2!s!"
 
 #. Resource IDs: (1667)
 msgid "Import settings to file..."
-msgstr ""
+msgstr "Экспортировать настройки в файл..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -5969,7 +5970,7 @@ msgstr "Включить игнорируемые файлы"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "Добавить локальные настройки"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6229,7 +6230,7 @@ msgstr "Оставить только отмеченные изменения"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Для создания папки оставьте поле \"Путь или URL\" пустым"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6486,7 +6487,7 @@ msgstr "Ручная ловушка перед-фиксацией"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Ручной импорт/экспорт"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6841,7 +6842,7 @@ msgstr "Переместить элемент вверх"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Переместить и добавить\nФайл перемещен в место назначения и добавлен под управление версий."
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6889,7 +6890,7 @@ msgstr "Перемещение: Новое имя для %s"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "Переместить\nФайл перемещен в место назначения и оставлен неверсионируемым."
 
 #. Resource IDs: (106)
 msgid ""
@@ -7150,10 +7151,6 @@ msgstr "Заметьте, если вы решите восстановить а
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Примечание: папка содержит неверсированные элементы"
-
-#. Resource IDs: (65535)
-msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr "Примечание: настройки шрифта распространяются также и на TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
@@ -7454,7 +7451,7 @@ msgstr "Перезаписать\nЦелевой файл заменен."
 
 #. Resource IDs: (65535)
 msgid "POPUP"
-msgstr ""
+msgstr "POPUP"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7482,7 +7479,7 @@ msgstr "Параметры:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -8120,7 +8117,7 @@ msgstr "Фильтры регулярных выражений"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
-msgstr ""
+msgstr "Регулярное выражение для поиска сообщения:"
 
 #. Resource IDs: (65535)
 msgid "Regex:"
@@ -9147,7 +9144,7 @@ msgstr "Выберите ряд ревизий"
 
 #. Resource IDs: (621)
 msgid "Select settings file"
-msgstr ""
+msgstr "Выберите файл настроек"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9621,7 +9618,7 @@ msgstr "Размер несжатого кэша"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Пропустить\nФайл оставлен на прежнем месте."
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10152,7 +10149,7 @@ msgstr "Файл %s не существует!"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "Файл %s неверсионируемый. Хотите продолжить?"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10944,7 +10941,7 @@ msgstr "TortoiseSVN не покажет следующие оверлеи: %s"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12306,7 +12303,7 @@ msgstr "неверсирован"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "неверсионируемый элемент"
 
 #. Resource IDs: (10)
 msgid "normal"

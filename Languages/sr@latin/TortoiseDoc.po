@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-01 10:02+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-11-03 21:34+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14562,34 +14562,34 @@ msgstr "Definiše koliko razmaka koristiti za ekspanziju kada se tab karakter na
 
 #. (title)
 msgid "TortoiseUDiff Settings"
-msgstr ""
+msgstr "TortoiseUDiff podešavanje"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseUDiff Page"
-msgstr ""
+msgstr "Dijalog podešavanja, TortoiseUDiff strana"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
 "main context menu, not directly with TortoiseUDiff itself."
-msgstr ""
+msgstr "<placeholder-1/> Podešavanje koje koristi TortoiseUDiff kontroliše se iz kontekst menija, ne direktno samim TortoiseUDiff."
 
 #. (para)
 msgid ""
 "The default colors used by TortoiseUDiff are usually ok, but you can "
 "configure them here."
-msgstr ""
+msgstr "Uobičajene boje koje su korišćene u TortoiseUDiff su obično u redu, ali ih možete konfigurisati ovde."
 
 #. (para)
 msgid ""
 "You can select the font used to display the text, and the point size to use."
-msgstr ""
+msgstr "Možete izabrati font koji se koristi za prikazivanje teksta, i veličinu tačke za korišćenje."
 
 #. (para)
 msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file diff."
-msgstr ""
+msgstr "Određuje koliko razmaka koristiti za ekspanziju kada se naiđe na tab karakter u diff fajlu."
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -14597,7 +14597,7 @@ msgstr "Izvoz TSVN podešavanja"
 
 #. (title)
 msgid "The Settings Dialog, Sync Page"
-msgstr ""
+msgstr "Dijalog podešavanja, sinhro strana"
 
 #. (para)
 msgid ""
@@ -14605,20 +14605,20 @@ msgid ""
 "encrypted file. The file is encrpyted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
-msgstr ""
+msgstr "<placeholder-1/> Možete sinhronizovati sva TortoiseSVN podešavanja ka i od šifrovanog fajla. Fajl je šifrovan lozinkom koju unesete tako da ne treba da brinete ako smestite taj fajl oblak folder kao OneDrive, GDrive, DropBoks,..."
 
 #. (para)
 msgid ""
 "When a path and password is specified, TortoiseSVN will sync all settings "
 "automatically and keep them in sync."
-msgstr ""
+msgstr "Kada je putanja i lozinka određena TortoiseSVN će sinhronizovati podešavanje automatski i držati ga sinhrono. "
 
 #. (para)
 msgid ""
 "You can also export/import an encrypted files with all the settings "
 "manually. When you do that, you're asked for the path of the file and the "
 "password to encrypt/decrypt the settings file."
-msgstr ""
+msgstr "Možete takođe iavesti/uvesti šifrovane fajlove sa svim podešavanjima ručno. Kada to uradite pitaće vas za putanju i lozinku za šifrovaenje/dešifrovanje fajla podešavanja."
 
 #. (para)
 msgid ""
@@ -14627,7 +14627,7 @@ msgid ""
 " settings are settings which include local paths which usually vary between "
 "computers. These local settings include the configured diff and merge tools "
 "and hook scripts."
-msgstr ""
+msgstr "Kada izvezete podešavanje ručno možete takođe opciono uključiti lokalno podešavanje koje nije uključeno u normalnom izvozu u sihronom. Lokalna podešavanja koja uključuju lokalne putanje koje obično variraju među kompjuterima. Ova lokalna podešavanja uključuju kofigurisani alat za diff i stapanje i zakačive skripte."
 
 #. (title)
 msgid "Advanced Settings"
@@ -15125,7 +15125,7 @@ msgid ""
 "clients and you've stored the authentication already, you should leave this "
 "empty: you won't have to edit those projects manually if the password "
 "changes."
-msgstr ""
+msgstr "Samo polja <literal>Ime korisnika</literal> i <literal>Lozinka</literal> treba da budu popunjena ako spremište ne omogućava anonimni pristup čitanju i samo ako autentifikacija nije zapamćena samom Subverzijom. Ako pristupite nadgledanom spremištu pomoću TortoiseSVN ili drugim svn klijentima i već ste zapamtili autentifikaciju, morate ovo ostaviti praznim: ne možete urediti projekat ručno ako se lozinka promeni.  "
 
 #. (para)
 msgid ""
@@ -17576,7 +17576,7 @@ msgid ""
 " the command line: the project monitor. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "Postoji specijalna komanda koja ne zahteva parametar <option>/command:abcd</option> ali umesto toga pokreće monitor projekta, ako ništa nije specificirano u komandnoj liniji. Ako je <option>/tray</option> specificirana monitor projekta pokreće skrivene i samo dodate ikone u sistem trej."
 
 #. (para)
 msgid ""
@@ -17663,47 +17663,47 @@ msgstr "Prikazuje dijalog sa opisom programa. Ovaj dijalog je takođe prikazan a
 
 #. (para)
 msgid "<option>/startrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/startrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
-msgstr ""
+msgstr "<option>/strict</option> omogućava 'stop kopiranja' čekboks,"
 
 #. (para)
 msgid ""
 "<option>/merge</option> enables the 'include merged revisions' checkbox,"
-msgstr ""
+msgstr "<option>/merge</option> omogućava  'uključi stopljene revizije' čekboks,"
 
 #. (para)
 msgid ""
 "<option>/datemin:\"{datestring}\"</option> sets the start date of the "
 "filter, and"
-msgstr ""
+msgstr "<option>/datemin:\"{datestring}\"</option> postavlja početni datum filtra, i"
 
 #. (para)
 msgid ""
 "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
 "The date format is the same as used for svn date revisions."
-msgstr ""
+msgstr "<option>/datemax:\"{datestring}\"</option> postavlja krajnji datum filtra. Format datuma je isti kao korišćen za svn datum revizije."
 
 #. (para)
 msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
-msgstr ""
+msgstr "<option>/findstring:\"filterstring\"</option> popunjava filter tekst,"
 
 #. (para)
 msgid ""
 "<option>/findtext</option> forces the filter to use text, not regex, or"
-msgstr ""
+msgstr "<option>/findtext</option> forsira filter da koristi tekst, ne regeks, ili"
 
 #. (para)
 msgid ""
 "<option>/findregex</option> forces the filter to use regex, not simple text "
 "search, and"
-msgstr ""
+msgstr "<option>/findregex</option> forsira filter da koristi regeks, ne jednostavno pretraživanje teksta, i"
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17749,7 +17749,7 @@ msgstr "<option>/findtype:256</option> filter po opsegu datuma"
 msgid ""
 "<option>/findtype:X</option> with X being a number between 0 and 511. The "
 "numbers are the sum of the following options: <placeholder-1/>"
-msgstr ""
+msgstr "<option>/findtype:X</option> sa Xkoje je broj između 0 i 511. Brojevi su suma sledećih opcija: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -17757,64 +17757,64 @@ msgid ""
 "revisions are written to that file when the log dialog is closed. The "
 "revisions are written in the same format as is used to specify revisions in "
 "the merge dialog."
-msgstr ""
+msgstr "Ako je  <option>/outfile:path\\to\\file</option> specificirano, izabrane revizije su zapisane u taj fajl kada se dijalog zatvori. Revizije su upisane u istom formatu kao što je korišćeno da se specificiraju revizije u dijalogu stapanja."
 
 #. (para)
 msgid ""
 "Opens the log dialog. The <option>/path</option> specifies the file or "
 "folder for which the log should be shown. Additional options can be set: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Otvara dijalog dnevnika. <option>/path</option> : <placeholder-1/> specificira fajl ili folder za koji je dnevnik prikazan. Dodatne opcije se mogu podesiti: <placeholder-1/>"
 
 #. (para)
 msgid "{2006-02-17}"
-msgstr ""
+msgstr "{2006-02-17}"
 
 #. (para)
 msgid "{15:30}"
-msgstr ""
+msgstr "{15:30}"
 
 #. (para)
 msgid "{15:30:00.200000}"
-msgstr ""
+msgstr "{15:30:00.200000}"
 
 #. (para)
 msgid "{\"2006-02-17 15:30\"}"
-msgstr ""
+msgstr "{\"2006-02-17 15:30\"}"
 
 #. (para)
 msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr ""
+msgstr "{\"2006-02-17 15:30 +0230\"}"
 
 #. (para)
 msgid "{2006-02-17T15:30}"
-msgstr ""
+msgstr "{2006-02-17T15:30}"
 
 #. (para)
 msgid "{2006-02-17T15:30Z}"
-msgstr ""
+msgstr "{2006-02-17T15:30Z}"
 
 #. (para)
 msgid "{2006-02-17T15:30-04:00}"
-msgstr ""
+msgstr "{2006-02-17T15:30-04:00}"
 
 #. (para)
 msgid "{20060217T1530}"
-msgstr ""
+msgstr "{20060217T1530}"
 
 #. (para)
 msgid "{20060217T1530Z}"
-msgstr ""
+msgstr "{20060217T1530Z}"
 
 #. (para)
 msgid "{20060217T1530-0500}"
-msgstr ""
+msgstr "{20060217T1530-0500}"
 
 #. (para)
 msgid ""
 "An svn date revision can be in one of the following formats: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Svn datum revizije može biti jedan od sledećih formata: <placeholder-1/>"
 
 #. (option)
 #. (option)
@@ -18437,19 +18437,19 @@ msgstr "Da se otvori dijalog osobina za određenu osobinu provucite ime osobine 
 msgid ""
 "Exports/imports settings, either depending on whether the current settings "
 "or the exported settings are newer, or as specified."
-msgstr ""
+msgstr "Izvoz/uvoz podešavanja, ili zavise da li su tekuća podešavanja ili izvezena podešavanja novija, ili kao specificirana."
 
 #. (para)
 msgid ""
 "If a path is passed with <option>/path</option>, then the path is used to "
 "store or read the settings from."
-msgstr ""
+msgstr "Ako je putanja prosleđena sa <option>/path</option>, onda je putanja korišćena da zapamti ili pročita otud."
 
 #. (para)
 msgid ""
 "The parameter <option>/askforpath</option> will show a file open/save dialog"
 " for the user to chose the export/import path."
-msgstr ""
+msgstr "Parametar <option>/askforpath</option> će prikazati fajl otvori/sačuvaj dijalog korisniku da izabere izvoz/uvoz putanju."
 
 #. (para)
 msgid ""
@@ -18459,25 +18459,25 @@ msgid ""
 "than the current settings, then the settings are loaded from the file. If "
 "the current settings are more recent, then the settings are exported to the "
 "settings file."
-msgstr ""
+msgstr "Ako nije ni <option>/load</option> ni <option>/save</option> specificirano onda TortoiseSVN određuje da li izvesti ili uvesti podešavanja posmatranjem koji je skoriji. Ako je izvozni fajl skoriji od tekućih podešavanja, onda se podešavanja unose iz fajla. Ako su tekuća podešavanja skorija od izvoznih podešavanja onda se podešavanja izvoze u fajl podešavanja."
 
 #. (para)
 msgid ""
 "If <option>/load</option> is specified, the settings are imported from the "
 "settings file."
-msgstr ""
+msgstr "Ako je <option>/load</option>  specificirana podešavanja se uvoze iz fajla podešavanja."
 
 #. (para)
 msgid ""
 "If <option>/save</option> is specified, the current settings are exported to"
 " the settings file."
-msgstr ""
+msgstr "Ako je <option>/save</option> specificirana tekuća podešavanja su izvezena u fajl podešavanja."
 
 #. (para)
 msgid ""
 "The parameter <option>/local</option> forces a settings export to include "
 "local settings, i.e. settings that refer to local paths."
-msgstr ""
+msgstr "Parametar <option>/local</option>  forsira izvoz podešavanja da uključe lokalna podešavanja, tj. podešavanja koja se odnose na lokalne putanje."
 
 #. (para)
 msgid ""
