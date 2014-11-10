@@ -567,6 +567,7 @@ private:
     bool                m_bPlaySound;
     bool                m_bShowNotification;
     CString             m_sMonitorMsgRegex;
+    bool                m_bSystemShutDown;
     std::vector<std::string> m_MonitorAuthorsToIgnore;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");

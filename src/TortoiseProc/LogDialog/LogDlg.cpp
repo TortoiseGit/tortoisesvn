@@ -232,6 +232,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_revUnread(0)
     , m_bPlaySound(true)
     , m_bShowNotification(true)
+    , m_bSystemShutDown(false)
 {
     SecureZeroMemory(&m_SystemTray,sizeof(m_SystemTray));
     m_bFilterWithRegex =
@@ -1445,7 +1446,7 @@ void CLogDlg::OnClose()
         if (threadsStillRunning)
             return;
     }
-    if (m_bMonitoringMode)
+    if (m_bMonitoringMode && !m_bSystemShutDown)
     {
         SaveMonitorProjects(true);
         ShowWindow(SW_HIDE);
@@ -9084,6 +9085,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
 BOOL CLogDlg::OnQueryEndSession()
 {
     SaveMonitorProjects(true);
+    m_bSystemShutDown = true;
     if (!__super::OnQueryEndSession())
         return FALSE;
 
