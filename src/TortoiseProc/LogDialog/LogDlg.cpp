@@ -82,7 +82,6 @@ const UINT CLogDlg::WM_TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(_T("
 
 #define OVERLAY_MODIFIED        1
 
-
 class MonitorAlertWnd : public CMFCDesktopAlertWnd
 {
 public:
@@ -8028,11 +8027,17 @@ void CLogDlg::OnMonitorCheckNow()
 void CLogDlg::OnMonitorMarkAllAsRead()
 {
     // mark all entries as unread
+    bool bShift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
         pItem->UnreadItems = 0;
         pItem->unreadFirst = 0;
+        if (bShift)
+        {
+            pItem->authfailed = false;
+            pItem->lastErrorMsg.Empty();
+        }
         m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
         return false;
     });
@@ -9121,4 +9126,23 @@ void CLogDlg::MonitorShowDlg()
         m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
+}
+
+BOOL CLogDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+{
+    static CString sMarkAllAsReadTooltip(MAKEINTRESOURCE(IDS_MONITOR_MARKASREADTT));
+
+    LPNMHDR lpnmhdr = ((LPNMHDR)lParam);
+    if ((lpnmhdr->code == TBN_GETINFOTIP) && (lpnmhdr->hwndFrom == m_hwndToolbar))
+    {
+        LPNMTBGETINFOTIP lptbgit = (LPNMTBGETINFOTIP)lParam;
+        switch (lptbgit->iItem)
+        {
+            case ID_MISC_MARKALLASREAD:
+                lptbgit->pszText = const_cast<wchar_t*>((LPCWSTR)sMarkAllAsReadTooltip);
+                break;
+        }
+    }
+
+    return __super::OnNotify(wParam, lParam, pResult);
 }
