@@ -7,6 +7,11 @@
 #define IDP_OLE_INIT_FAILED             101
 #define IDS_TITLE_REJECTEDHUNKS         101
 #define IDS_CONFIGUREREGEXES            102
+#define IDS_ASKFORSAVE_MARKEDBLOCKS     103
+#define IDS_WARNMARKEDBLOCKS            104
+#define IDS_MARKEDBLOCKSSAVEINCLUDE     105
+#define IDS_MARKEDBLOCKSSAVEEXCLUDE     106
+#define IDS_MARKEDBLCOKSSAVEIGNORE      107
 #define IDD_SETMAINPAGE                 107
 #define IDD_OPENDLG                     130
 #define IDD_DIFFLOCATOR                 131
