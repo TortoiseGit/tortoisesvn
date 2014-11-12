@@ -8624,11 +8624,19 @@ void CLogDlg::OnMonitorThreadFinished()
                 }
                 pItem->lastchecked = item.lastchecked;
                 pItem->lastcheckedrobots = item.lastcheckedrobots;
-                pItem->lastHEAD = item.lastHEAD;
-                pItem->UnreadItems = item.UnreadItems;
-                pItem->unreadFirst = item.unreadFirst;
-                pItem->authfailed = item.authfailed;
-                pItem->lastErrorMsg = item.lastErrorMsg;
+                if (pItem->lastHEAD != item.lastHEAD)
+                {
+                    // to avoid overwriting a "mark as read" operation,
+                    // only overwrite these values if the last found
+                    // HEAD revision has changed: in that case there would be new
+                    // unread items anyway and overwriting the "mark all as read"
+                    // is almost expected.
+                    pItem->lastHEAD = item.lastHEAD;
+                    pItem->UnreadItems = item.UnreadItems;
+                    pItem->unreadFirst = item.unreadFirst;
+                    pItem->authfailed = item.authfailed;
+                    pItem->lastErrorMsg = item.lastErrorMsg;
+                }
                 pItem->minminutesinterval = item.minminutesinterval;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
