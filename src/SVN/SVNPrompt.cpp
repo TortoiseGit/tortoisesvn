@@ -295,6 +295,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
                 (*cred_p)->may_save = FALSE;
+                (*cred_p)->accepted_failures = failures;
                 svn->m_bPromptShown = true;
             }
         }
@@ -315,6 +316,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
                 (*cred_p)->may_save = FALSE;
+                (*cred_p)->accepted_failures = failures;
                 svn->m_bPromptShown = true;
             }
         }
