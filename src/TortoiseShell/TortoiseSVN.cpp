@@ -151,19 +151,22 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 
     if (state != FileStateInvalid)
     {
-        apr_initialize();
-        svn_dso_initialize2();
-        g_SVNAdminDir.Init();
-        g_cAprInit++;
+        if (apr_initialize() == APR_SUCCESS)
+        {
+            svn_dso_initialize2();
+            g_SVNAdminDir.Init();
+            g_cAprInit++;
 
-        CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
-        if (pcf == NULL)
-            return E_OUTOFMEMORY;
-        // refcount currently set to 0
-        const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
-        if(FAILED(hr))
-            delete pcf;
-        return hr;
+            CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
+            if (pcf == NULL)
+                return E_OUTOFMEMORY;
+            // refcount currently set to 0
+            const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
+            if (FAILED(hr))
+                delete pcf;
+            return hr;
+        }
+        return E_OUTOFMEMORY;
     }
 
     return CLASS_E_CLASSNOTAVAILABLE;
