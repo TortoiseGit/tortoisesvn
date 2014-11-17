@@ -14,6 +14,7 @@
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
+# Manuela Silva <manuela.silva@sky.com>, 2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2013-2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
 # Sandro Amaral <sandro123iv@gmail.com>, 2011
@@ -22,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-03 09:38+0000\n"
+"PO-Revision-Date: 2014-11-13 09:36+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -1224,7 +1225,7 @@ msgstr "&Alterar nome"
 
 #. Resource IDs: (1511)
 msgid "&Replace"
-msgstr ""
+msgstr "&Substituir"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1320,7 +1321,7 @@ msgstr "&Mostrar Menus para:"
 
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
-msgstr ""
+msgstr "&Mostrar Monitor"
 
 #. Resource IDs: (1529)
 msgid "&Show popup notifications"
@@ -3865,7 +3866,7 @@ msgstr "Remover ficheiros e pastas &não-versionadas"
 
 #. Resource IDs: (65)
 msgid "Delete Project"
-msgstr ""
+msgstr "Apagar Projeto"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4171,7 +4172,7 @@ msgstr "Deseja realmente remover a barra de ferramentas '%s'?"
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
+msgstr "Deseja apagar o projeto monitorizado '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4712,6 +4713,10 @@ msgstr "Exportar &directório:"
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr ""
 
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5140,7 +5145,7 @@ msgstr "Força a remoção"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Primeiro plano"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5918,10 +5923,6 @@ msgid ""
 "to %2!s!"
 msgstr "Importar pasta %1!s!\r\npara %2!s!"
 
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr ""
-
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1"
@@ -6484,6 +6485,12 @@ msgstr ""
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Demasiados itens seleccionados para o dif."
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"

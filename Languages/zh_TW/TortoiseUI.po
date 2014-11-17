@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-03 09:38+0000\n"
+"PO-Revision-Date: 2014-11-13 09:37+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -4714,6 +4714,10 @@ msgstr "匯出目錄(&D):"
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr "匯出檔 (*.tsex)|*.tsex|所有檔案 (*.*)|*.*||"
 
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5920,10 +5924,6 @@ msgid ""
 "to %2!s!"
 msgstr "匯入目錄 %1!s! \n 至 %2!s!"
 
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr "匯出設定至檔案..."
-
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1"
@@ -6486,6 +6486,12 @@ msgstr "手動匯入/匯出"
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "選擇了多個要顯示差異的項目"
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-03 09:38+0000\n"
+"PO-Revision-Date: 2014-11-13 09:37+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -2707,7 +2707,7 @@ msgstr "Avbryt\nMålfilen forblir uendret"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Avbryt\nDu kan skrive et annet passord og prøve igjen"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3446,7 +3446,7 @@ msgstr "Kopiér URL til utklippstavlen"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Kopier og legg til\nFilen kopieres til målstien og legges til versjonskontroll"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3496,7 +3496,7 @@ msgstr "Kopiér: Nytt navn for %s"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Kopier\nFilen kopieres til målstien og forblir ikke-versjonert"
 
 #. Resource IDs: (80)
 #, c-format
@@ -4010,15 +4010,15 @@ msgstr "Diff-viser::Fletteverktøy"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Diff nye linjer"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Diff-kommando"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Diff-kommentar"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4026,7 +4026,7 @@ msgstr "Forskjells-fil:"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Diff-hode"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4038,11 +4038,11 @@ msgstr "Forskjellsopsjoner"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Diff-posisjon"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Diff fjernede linjer"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4157,11 +4157,11 @@ msgstr "Gjør dette for alle valgte ikke-versjonerte mapper"
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Gjør dette for alle ikke-versjonerte elementer"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr "Gjør dette for alle uversjonerte/modifiserte elementer"
+msgstr "Gjør dette for alle ikke-versjonerte/modifiserte elementer"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4710,6 +4710,10 @@ msgstr "Eksport&katalog:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr "Eksportfiler (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
 msgstr ""
 
 #. Resource IDs: (345)
@@ -5140,7 +5144,7 @@ msgstr "Tving sletting"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Forgrunn"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5891,7 +5895,7 @@ msgstr "Importer &melding"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importer innstillinger fra fil..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5917,10 +5921,6 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importer mappe %1!s!\r\ntil %2!s!"
-
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -5962,7 +5962,7 @@ msgstr "Inkluder ignorerte filer"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "Inkluder lokale innstillinger"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6022,7 +6022,7 @@ msgstr "Sett inn melding på:"
 
 #. Resource IDs: (1660)
 msgid "Insert title at the bottom, after the message"
-msgstr ""
+msgstr "Skriv tittelen på bunnen, etter meldingen"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6222,7 +6222,7 @@ msgstr "Bevar kun merkede endringer"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "La boksen \"Sti eller URL\" stå tom for a lage et mappeelement"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6305,7 +6305,7 @@ msgstr "Last Bilder"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Hent innstillinger fra fil"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6479,11 +6479,17 @@ msgstr "Manuell Påhaking Før Innsending"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Manuell import/eksport"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Mange elementer er valgt for diff-visning"
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6834,7 +6840,7 @@ msgstr "Flytt Element Opp"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Flytt og legg til\nFilen flyttes til målstien og legges til versjonskontroll"
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6882,7 +6888,7 @@ msgstr "Flytt: Nytt navn for %s"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "Flytt\nFilen flyttes til målstien og forblir ikke-versjonert"
 
 #. Resource IDs: (106)
 msgid ""
@@ -7427,7 +7433,7 @@ msgstr "Overskriv\nErstatter målmappen."
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Overskriv\nInnstillingene blir overskrevet"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7471,11 +7477,11 @@ msgstr "Parametre:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Passordet er galt"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7544,7 +7550,7 @@ msgstr "Sti eller URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Sti:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8943,7 +8949,7 @@ msgstr "Lagre revisjon &til..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Lagre innstillinger til fil"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9136,7 +9142,7 @@ msgstr "Velg revisjonsintervall"
 
 #. Resource IDs: (621)
 msgid "Select settings file"
-msgstr ""
+msgstr "Velg innstillingsfil"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9610,7 +9616,7 @@ msgstr "Mellomlagerets størrelse hvis det ikke var komprimert"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Hopp over\nFilen forblir der den er."
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10024,11 +10030,11 @@ msgstr "Bytter sammenligningen venstre<->høyre"
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "Synkronisering"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Synkroniseringsoppsett"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10141,7 +10147,7 @@ msgstr "Filen %s eksisterer ikke!"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "Filen %s er ikke versjonert. Hva vil du gjøre?"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10400,11 +10406,11 @@ msgstr "Parametrene '/path' og '/pathfile' kan ikke gis samtidig.\nDu må oppgi 
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Passordet er galt.\nVennligst skriv inn det korrekte passordet i innstillingsdialogen."
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "Passordene er ikke like"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10474,7 +10480,7 @@ msgstr "Det ser ut til at den valgte filen fortsatt har konfliktmerke(r)\nEr du 
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "Innstillingsfilen kan ikke dekrypteres med det oppgitte passordet!\nVil du overskrive fillen?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10933,7 +10939,7 @@ msgstr "TortoiseSVN vil ikke vise følgende ikonlag: %s"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12295,7 +12301,7 @@ msgstr "ikke-versjonert"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "ikke-versjonert element"
 
 #. Resource IDs: (10)
 msgid "normal"

@@ -11,6 +11,7 @@
 # Authors:
 # Translators:
 # Huseyin <hyagli@hotmail.com>, 2013
+# ibrahim YENER <jdavide222@hotmail.com>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Muhammet Kara <muhammetk@gmail.com>, 2011-2012,2014
 # Vural Göze <vuralgoze@gmail.com>, 2011
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-03 09:38+0000\n"
+"PO-Revision-Date: 2014-11-13 10:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -143,21 +144,21 @@ msgstr "%1!s!\\%2!s!- Dışa aktar (%3!d!)"
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
-msgstr ""
+msgstr "%1!s!↩\nSürüm %2!s!, Yazar %3!s!, Tarih %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
-msgstr ""
+msgstr "%1!s!↩\nSürüm %2!s!, Yazar %3!s!, Boyut %4!s!, Tarih %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr ""
+msgstr "%1!s!↩\n%2!d! dosya ve %3!d! klasör gösteriliyor, %4!d! toplam"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -192,7 +193,7 @@ msgstr "%I64d kBayt transfer edildi"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d projeler güncellendi:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -4711,6 +4712,10 @@ msgstr "Dışa aktarma &klasörü:"
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr ""
 
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5917,10 +5922,6 @@ msgid ""
 "to %2!s!"
 msgstr "%1!s! klasörünü\r\n%2!s! a içe aktar"
 
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr ""
-
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1"
@@ -6483,6 +6484,12 @@ msgstr ""
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Farkı göstermek için birden fazla öğe seçildi"
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"

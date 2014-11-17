@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-03 09:38+0000\n"
+"PO-Revision-Date: 2014-11-13 09:37+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -4707,6 +4707,10 @@ msgstr "A&dresář pro export:"
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr "Soubory exportu (*.tsex)|*.tsex|Všechny soubory (*.*)|*.*||"
 
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
+msgstr ""
+
 #. Resource IDs: (345)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -5913,10 +5917,6 @@ msgid ""
 "to %2!s!"
 msgstr "Importovat adresář %1!s!\ndo %2!s!"
 
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr "Importovat nastavení do souboru..."
-
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1"
@@ -6479,6 +6479,12 @@ msgstr "Ruční import/export"
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Vybráno velké množství položek pro porovnání"
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"

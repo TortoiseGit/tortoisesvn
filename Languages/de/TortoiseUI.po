@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-10 08:11+0000\n"
+"PO-Revision-Date: 2014-11-13 09:37+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1378,7 +1378,7 @@ msgstr "&Symbolansicht"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
-msgstr "&Tabgröße:"
+msgstr "&Tabulatorbreite:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
@@ -4016,15 +4016,15 @@ msgstr "Vergleichsprogramm::Zusammenführen"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Hinzugefügte Zeilen"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Befehl"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Kommentar"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4032,7 +4032,7 @@ msgstr "Diffdatei:"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Überschrift"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4044,11 +4044,11 @@ msgstr "Einstellungen"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Position"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Gelöschte Zeilen"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4716,6 +4716,10 @@ msgstr "Export&verzeichnis:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr "Exportdateien (*.tsex)|*.tsex|Alle Dateien (*.*)|*.*||"
+
+#. Resource IDs: (1667)
+msgid "Export settings to file..."
 msgstr ""
 
 #. Resource IDs: (345)
@@ -5897,7 +5901,7 @@ msgstr "Import &Meldung"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importiere Einstellungen aus Datei..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5923,10 +5927,6 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr "Importiere Ordner %1!s!\r\nnach %2!s!"
-
-#. Resource IDs: (1667)
-msgid "Import settings to file..."
-msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -6490,6 +6490,12 @@ msgstr "Manueller import/export"
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
 msgstr "Viele Elemente zum Vergleichen gewählt"
+
+#. Resource IDs: (65)
+msgid ""
+"Mark all projects as read\n"
+"Hold down the shift key to also clear all fetch errors."
+msgstr ""
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -10060,7 +10066,7 @@ msgstr "Tab Platzhalter"
 
 #. Resource IDs: (65535)
 msgid "Tab size:"
-msgstr "Tab Größe:"
+msgstr "Tabulatorbreite:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
