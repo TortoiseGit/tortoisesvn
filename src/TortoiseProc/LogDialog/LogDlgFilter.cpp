@@ -181,8 +181,15 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
             ; it != patterns.end()
             ; ++it)
         {
-            if (!regex_search(text, text + size, *it, std::tr1::regex_constants::match_any))
+            try
+            {
+                if (!regex_search(text, text + size, *it, std::tr1::regex_constants::match_any))
+                    return false;
+            }
+            catch (std::exception&e)
+            {
                 return false;
+            }
         }
     }
 
