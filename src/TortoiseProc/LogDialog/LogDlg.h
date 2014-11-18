@@ -405,6 +405,10 @@ private:
 
     // MonitoringMode
     void InitMonitoringMode();
+
+    void RegisterSnarl();
+    void UnRegisterSnarl();
+
     bool CreateToolbar();
     void DoSizeV3(int delta);
     void InitMonitorProjTree();

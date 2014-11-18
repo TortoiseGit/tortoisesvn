@@ -1097,6 +1097,9 @@
     <ClCompile Include="Settings\SettingsTUDiff.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\ext\snarl\SnarlInterface.cpp">
+      <Filter>Utils\3rd Party</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">

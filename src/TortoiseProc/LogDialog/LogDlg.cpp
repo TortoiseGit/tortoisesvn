@@ -61,6 +61,7 @@
 #include "MonitorProjectDlg.h"
 #include "MonitorOptionsDlg.h"
 #include "Callback.h"
+#include "..\..\ext\snarl\SnarlInterface.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>
@@ -79,8 +80,15 @@ const UINT CLogDlg::WM_TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(_T("
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
 #define WM_TSVN_MONITOR_NOTIFY_CLICK    (WM_APP + 3)
 #define WM_TSVN_MONITOR_TREEDROP        (WM_APP + 4)
+#define WM_TSVN_MONITOR_SNARLREPLY      (WM_APP + 5)
 
 #define OVERLAY_MODIFIED        1
+
+auto g_snarlInterface = Snarl::V42::SnarlInterface();
+UINT g_SnarlGlobalMsg = 0;
+
+#define SNARL_APP_ID L"TSVN/ProjectMonitor"
+#define SNARL_CLASS_ID L"TSVN/ProjectMonitorNotification"
 
 class MonitorAlertWnd : public CMFCDesktopAlertWnd
 {
@@ -317,6 +325,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
     ON_MESSAGE(WM_TSVN_MONITOR_TREEDROP, OnTreeDrop)
+    ON_MESSAGE(WM_TSVN_MONITOR_SNARLREPLY, OnMonitorNotifyClick)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -3090,6 +3099,19 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
         int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
         if (ret)
             return TRUE;
+    }
+    if (g_SnarlGlobalMsg && (pMsg->message == g_SnarlGlobalMsg))
+    {
+        if (pMsg->wParam == Snarl::V42::SnarlEnums::SnarlLaunched)
+        {
+            RegisterSnarl();
+        }
+        else if (pMsg->wParam == Snarl::V42::SnarlEnums::SnarlQuit)
+        {
+            UnRegisterSnarl();
+        }
+
+        return 1;
     }
 
     m_tooltips.RelayEvent(pMsg);
@@ -7780,6 +7802,8 @@ void CLogDlg::InitMonitoringMode()
     CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
     m_limit = (int)(DWORD)reg;
 
+    RegisterSnarl();
+
     SetTimer(MONITOR_TIMER, 200, NULL);
 }
 
@@ -8295,23 +8319,32 @@ void CLogDlg::MonitorPopupTimer()
     {
         if (m_bShowNotification)
         {
-            MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
+            if (Snarl::V42::SnarlInterface::IsSnarlRunning())
+            {
+                g_snarlInterface.Notify(SNARL_CLASS_ID
+                                        , m_sMonitorNotificationTitle
+                                        , m_sMonitorNotificationText);
+            }
+            else
+            {
+                MonitorAlertWnd * pPopup = new MonitorAlertWnd(GetSafeHwnd());
 
-            pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::FADE);
-            pPopup->SetAnimationSpeed(40);
-            pPopup->SetTransparency(200);
-            pPopup->SetSmallCaption(TRUE);
-            pPopup->SetAutoCloseTime(5000);
+                pPopup->SetAnimationType(CMFCPopupMenu::ANIMATION_TYPE::FADE);
+                pPopup->SetAnimationSpeed(40);
+                pPopup->SetTransparency(200);
+                pPopup->SetSmallCaption(TRUE);
+                pPopup->SetAutoCloseTime(5000);
 
-            // Create indirect:
-            CMFCDesktopAlertWndInfo params;
+                // Create indirect:
+                CMFCDesktopAlertWndInfo params;
 
-            params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
-                                              IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-            params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
-            params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
-            params.m_nURLCmdID = 101;
-            pPopup->Create(this, params);
+                params.m_hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME),
+                                                  IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+                params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
+                params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
+                params.m_nURLCmdID = 101;
+                pPopup->Create(this, params);
+            }
         }
 
         if (m_bPlaySound)
@@ -8697,6 +8730,7 @@ void CLogDlg::ShutDownMonitoring()
     m_projTree.DeleteAllItems();
 
     Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
+    UnRegisterSnarl();
 }
 
 
@@ -9176,4 +9210,29 @@ BOOL CLogDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
     }
 
     return __super::OnNotify(wParam, lParam, pResult);
+}
+
+void CLogDlg::RegisterSnarl()
+{
+    g_SnarlGlobalMsg = Snarl::V42::SnarlInterface::Broadcast();
+    if (Snarl::V42::SnarlInterface::IsSnarlRunning())
+    {
+        TCHAR com[MAX_PATH + 100] = { 0 };
+        GetModuleFileName(NULL, com, MAX_PATH);
+
+        CString sIconPath = com;
+        sIconPath += L",-1";
+        g_snarlInterface.Register(SNARL_APP_ID, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)), sIconPath, 0, GetSafeHwnd(), WM_TSVN_MONITOR_SNARLREPLY, Snarl::V42::SnarlEnums::AppFlagNone);
+        g_snarlInterface.AddClass(SNARL_CLASS_ID, L"Commit Notification");
+    }
+}
+
+void CLogDlg::UnRegisterSnarl()
+{
+    if (Snarl::V42::SnarlInterface::IsSnarlRunning())
+    {
+        g_snarlInterface.RemoveClass(SNARL_CLASS_ID);
+        g_snarlInterface.Unregister(SNARL_APP_ID);
+    }
+    g_SnarlGlobalMsg = 0;
 }
