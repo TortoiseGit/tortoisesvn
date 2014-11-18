@@ -114,6 +114,8 @@ public:
     CString                     sMsgRegex;
     std::wregex                 msgregex;
     std::vector<std::string>    authorstoignore;
+    CString                     root;
+    CString                     uuid;
 };
 
 typedef std::function<bool(HTREEITEM)> MonitorItemHandler;

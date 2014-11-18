@@ -1584,7 +1584,8 @@ void CLogDlg::LogThread()
     BOOL succeeded = true;
     if (LogCache::CSettings::GetEnabled())
     {
-        m_sUUID = GetLogCachePool()->GetRepositoryInfo().GetRepositoryUUID (m_path);
+        if (!m_bMonitoringMode || m_sUUID.IsEmpty())
+            m_sUUID = GetLogCachePool()->GetRepositoryInfo().GetRepositoryUUID (m_path);
         if (m_sUUID.IsEmpty())
             succeeded = false;
     }
@@ -1592,7 +1593,7 @@ void CLogDlg::LogThread()
     // get the repository root url, because the changed-files-list has the
     // paths shown there relative to the repository root.
     CTSVNPath rootpath;
-    if (succeeded)
+    if (succeeded && (!m_bMonitoringMode || m_sRepositoryRoot.IsEmpty()))
     {
         // e.g. when we show the "next 100", we already have proper
         // start and end revs.
@@ -1625,7 +1626,8 @@ void CLogDlg::LogThread()
         }
     }
 
-    m_sRepositoryRoot = rootpath.GetSVNPathString();
+    if (!m_bMonitoringMode || m_sRepositoryRoot.IsEmpty())
+        m_sRepositoryRoot = rootpath.GetSVNPathString();
     m_sURL = m_path.GetSVNPathString();
 
     // if the log dialog is started from a working copy, we need to turn that
@@ -7833,6 +7835,8 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->username = m_monitoringFile.GetValue(mitem, L"username", L"");
             pMonitorItem->password = m_monitoringFile.GetValue(mitem, L"password", L"");
             pMonitorItem->unreadFirst = _wtol(m_monitoringFile.GetValue(mitem, L"unreadFirst", L"0"));
+            pMonitorItem->uuid = m_monitoringFile.GetValue(mitem, L"uuid", L"");
+            pMonitorItem->root = m_monitoringFile.GetValue(mitem, L"root", L"");
             pMonitorItem->sMsgRegex = m_monitoringFile.GetValue(mitem, L"MsgRegex", L"");
             try
             {
@@ -8216,6 +8220,8 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         m_monitoringFile.SetValue(sSection, L"username", pItem->username);
         m_monitoringFile.SetValue(sSection, L"password", pItem->password);
         m_monitoringFile.SetValue(sSection, L"MsgRegex", pItem->sMsgRegex);
+        m_monitoringFile.SetValue(sSection, L"uuid", pItem->uuid);
+        m_monitoringFile.SetValue(sSection, L"root", pItem->root);
         sTmp.Empty();
         for (const auto& s : pItem->authorstoignore)
         {
@@ -8361,7 +8367,8 @@ void CLogDlg::MonitorThread()
                     continue;
                 if ((svn.GetSVNError() == nullptr) && (item.lastHEAD >= 0))
                 {
-                    CString sRoot = svn.GetRepositoryRoot(WCPathOrUrl);
+                    CString sUUID;
+                    CString sRoot = svn.GetRepositoryRootAndUUID(WCPathOrUrl, true, sUUID);
                     CString sUrl = svn.GetURLFromPath(WCPathOrUrl);
                     CString relUrl = sUrl.Mid(sRoot.GetLength());
                     CCachedLogInfo* cache = cachedData->GetCache();
@@ -8414,6 +8421,8 @@ void CLogDlg::MonitorThread()
                     if (item.unreadFirst == 0)
                         item.unreadFirst = item.lastHEAD;
                     item.lastHEAD = head;
+                    item.root = sRoot;
+                    item.uuid = sUUID;
                 }
                 else
                 {
@@ -8636,6 +8645,8 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->unreadFirst = item.unreadFirst;
                     pItem->authfailed = item.authfailed;
                     pItem->lastErrorMsg = item.lastErrorMsg;
+                    pItem->root = item.root;
+                    pItem->uuid = item.uuid;
                 }
                 pItem->minminutesinterval = item.minminutesinterval;
 
@@ -8937,6 +8948,8 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_ProjectProperties = ProjectProperties();
         m_MonitorAuthorsToIgnore = pItem->authorstoignore;
         m_sMonitorMsgRegex = pItem->sMsgRegex;
+        m_sUUID = pItem->uuid;
+        m_sRepositoryRoot = pItem->root;
         ReadProjectPropertiesAndBugTraqInfo();
         ConfigureColumnsForLogListControl();
 
