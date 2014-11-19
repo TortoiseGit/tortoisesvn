@@ -428,7 +428,13 @@ BOOL CRepositoryBrowser::OnInitDialog()
     DWORD xPos = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider");
     bDragMode = true;
     if (!m_bSparseCheckoutMode)
-        HandleDividerMove(CPoint(xPos+20, 10), false);
+    {
+        // 11 dialog units: 7 units left border of the tree control, 4 units between
+        // the tree and the list control
+        CRect drc(0, 0, 11, 11);
+        MapDialogRect(&drc);
+        HandleDividerMove(CPoint(xPos + drc.right, 10), false);
+    }
     else
     {
         // have the tree control use the whole space of the dialog
