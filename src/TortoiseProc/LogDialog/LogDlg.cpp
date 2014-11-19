@@ -9131,7 +9131,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
     switch (cmd)
     {
         case ID_LOGDLG_MONITOR_ADDPROJECT:
-            OnMonitorEditProject();
+            OnMonitorAddProject();
             break;
         case ID_LOGDLG_MONITOR_EDIT:
             OnMonitorEditProject();
