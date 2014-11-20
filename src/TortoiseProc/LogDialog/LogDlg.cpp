@@ -325,7 +325,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_MESSAGE(WM_TSVN_MONITOR_TASKBARCALLBACK, OnTaskbarCallBack)
     ON_MESSAGE(WM_TSVN_MONITOR_NOTIFY_CLICK, OnMonitorNotifyClick)
     ON_MESSAGE(WM_TSVN_MONITOR_TREEDROP, OnTreeDrop)
-    ON_MESSAGE(WM_TSVN_MONITOR_SNARLREPLY, OnMonitorNotifyClick)
+    ON_MESSAGE(WM_TSVN_MONITOR_SNARLREPLY, OnMonitorNotifySnarlReply)
     ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
     ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
@@ -9028,6 +9028,13 @@ LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
+LRESULT CLogDlg::OnMonitorNotifySnarlReply(WPARAM wParam, LPARAM /*lParam*/)
+{
+    int eventCode = wParam & 0xffff;
+    if (eventCode == Snarl::V42::SnarlEnums::CallbackClosed)
+        MonitorShowDlg();
+    return 0;
+}
 
 void CLogDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 {
