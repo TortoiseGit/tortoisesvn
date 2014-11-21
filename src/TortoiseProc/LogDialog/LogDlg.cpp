@@ -89,6 +89,8 @@ UINT g_SnarlGlobalMsg = 0;
 
 #define SNARL_APP_ID L"TSVN/ProjectMonitor"
 #define SNARL_CLASS_ID L"TSVN/ProjectMonitorNotification"
+#define SNARL_NOTIFY_CLICK_EVENT 1000
+#define SNARL_NOTIFY_CLICK_EVENT_STR L"@1000"
 
 class MonitorAlertWnd : public CMFCDesktopAlertWnd
 {
@@ -8321,9 +8323,10 @@ void CLogDlg::MonitorPopupTimer()
         {
             if (Snarl::V42::SnarlInterface::IsSnarlRunning())
             {
-                g_snarlInterface.Notify(SNARL_CLASS_ID
-                                        , m_sMonitorNotificationTitle
-                                        , m_sMonitorNotificationText);
+                auto token = g_snarlInterface.Notify(SNARL_CLASS_ID
+                                                     , m_sMonitorNotificationTitle
+                                                     , m_sMonitorNotificationText);
+                g_snarlInterface.AddAction(token, CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK)), SNARL_NOTIFY_CLICK_EVENT_STR);
             }
             else
             {
@@ -9031,7 +9034,8 @@ LRESULT CLogDlg::OnMonitorNotifyClick(WPARAM /*wParam*/, LPARAM /*lParam*/)
 LRESULT CLogDlg::OnMonitorNotifySnarlReply(WPARAM wParam, LPARAM /*lParam*/)
 {
     int eventCode = wParam & 0xffff;
-    if (eventCode == Snarl::V42::SnarlEnums::CallbackClosed)
+    int data = (wParam & 0xffffffff) >> 16; // "Convert" to 32 bit, to shut up 64bit warning
+    if ((eventCode == Snarl::V42::SnarlEnums::NotifyAction) && (data == SNARL_NOTIFY_CLICK_EVENT))
         MonitorShowDlg();
     return 0;
 }
