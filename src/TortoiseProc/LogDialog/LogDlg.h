@@ -221,6 +221,7 @@ protected:
     afx_msg void OnMonitorRemoveProject();
     afx_msg void OnMonitorOptions();
     afx_msg void OnMonitorMarkAllAsRead();
+    afx_msg void OnMonitorUpdateAll();
     afx_msg void OnMonitorThreadFinished();
     afx_msg void OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnGetdispinfoProjtree(NMHDR *pNMHDR, LRESULT *pResult);
@@ -415,6 +416,7 @@ private:
     void InitMonitorProjTree();
     void RefreshMonitorProjTree();
     void MonitorEditProject(MonitorItem * pProject);
+
     HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem, const CString& sParentPath = CString());
     HTREEITEM FindMonitorParent(const CString& parentTreePath);
     HTREEITEM FindMonitorItem(const CString& wcpathorurl);

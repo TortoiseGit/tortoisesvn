@@ -375,6 +375,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_MONITOR_EDIT, &CLogDlg::OnMonitorEditProject)
     ON_COMMAND(ID_LOGDLG_MONITOR_REMOVE, &CLogDlg::OnMonitorRemoveProject)
     ON_COMMAND(ID_MISC_MARKALLASREAD, &CLogDlg::OnMonitorMarkAllAsRead)
+    ON_COMMAND(ID_MISC_UPDATE, &CLogDlg::OnMonitorUpdateAll)
     ON_COMMAND(ID_MISC_OPTIONS, &CLogDlg::OnMonitorOptions)
     ON_COMMAND(ID_LOGDLG_MONITOR_THREADFINISHED, &CLogDlg::OnMonitorThreadFinished)
     ON_NOTIFY(TVN_SELCHANGED, IDC_PROJTREE, &CLogDlg::OnTvnSelchangedProjtree)
@@ -7622,7 +7623,7 @@ bool CLogDlg::CreateToolbar()
 
     ::SendMessage(m_hwndToolbar, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-#define MONITORMODE_TOOLBARBUTTONCOUNT  9
+#define MONITORMODE_TOOLBARBUTTONCOUNT  10
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
     m_hToolbarImages = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4);
@@ -7680,6 +7681,14 @@ bool CLogDlg::CreateToolbar()
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_MARKALLASREAD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
     tbb[index].idCommand = ID_MISC_MARKALLASREAD;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_UPDATE), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].idCommand = ID_MISC_UPDATE;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
     tbb[index].dwData = 0;
@@ -7845,6 +7854,7 @@ void CLogDlg::RefreshMonitorProjTree()
     m_projTree.DeleteAllItems();
     int itemcount = 0;
     bool hasUnreadItems = false;
+    bool bHasWorkingCopies = false;
     for (const auto& mitem : mitems)
     {
         CString Name = m_monitoringFile.GetValue(mitem, L"Name", L"");
@@ -7878,6 +7888,8 @@ void CLogDlg::RefreshMonitorProjTree()
             ++itemcount;
             if (pMonitorItem->UnreadItems)
                 hasUnreadItems = true;
+            if (!CTSVNPath(pMonitorItem->WCPathOrUrl).IsUrl())
+                bHasWorkingCopies = true;
         }
     }
     if (itemcount == 0)
@@ -7916,7 +7928,7 @@ void CLogDlg::RefreshMonitorProjTree()
         m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
-
+    ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(bHasWorkingCopies, 0));
 }
 
 int CLogDlg::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam3*/)
@@ -8207,6 +8219,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
 
         SaveMonitorProjects(false);
         RefreshMonitorProjTree();
+        return;
     }
 }
 
@@ -9207,6 +9220,7 @@ void CLogDlg::MonitorShowDlg()
 BOOL CLogDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
     static CString sMarkAllAsReadTooltip(MAKEINTRESOURCE(IDS_MONITOR_MARKASREADTT));
+    static CString sUpdateAllTooltip(MAKEINTRESOURCE(IDS_MONITOR_UPDATEALLTT));
 
     LPNMHDR lpnmhdr = ((LPNMHDR)lParam);
     if ((lpnmhdr->code == TBN_GETINFOTIP) && (lpnmhdr->hwndFrom == m_hwndToolbar))
@@ -9216,6 +9230,9 @@ BOOL CLogDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
         {
             case ID_MISC_MARKALLASREAD:
                 lptbgit->pszText = const_cast<wchar_t*>((LPCWSTR)sMarkAllAsReadTooltip);
+                break;
+            case ID_MISC_UPDATE:
+                lptbgit->pszText = const_cast<wchar_t*>((LPCWSTR)sUpdateAllTooltip);
                 break;
         }
     }
@@ -9247,3 +9264,28 @@ void CLogDlg::UnRegisterSnarl()
     }
     g_SnarlGlobalMsg = 0;
 }
+
+void CLogDlg::OnMonitorUpdateAll()
+{
+    // find all working copy paths, write them to a temp file
+    CTSVNPathList pathlist;
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        CTSVNPath path(pItem->WCPathOrUrl);
+        if (!path.IsUrl())
+        {
+            pathlist.AddPath(path);
+        }
+        return false;
+    });
+    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false);
+    if (pathlist.WriteToFile(tempfile.GetWinPathString()))
+    {
+        CString sCmd;
+        sCmd.Format(L"/command:update /pathfile:\"%s\" /deletepathfile",
+                    (LPCTSTR)tempfile.GetWinPath());
+        CAppUtils::RunTortoiseProc(sCmd);
+    }
+}
+
