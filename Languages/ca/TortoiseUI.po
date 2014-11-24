@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-13 09:37+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-11-23 19:51+0000\n"
+"Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1726,7 +1726,7 @@ msgstr "Una llista de propietats definides pel usuari per fitxers per mostrar al
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "Una llista de propietats definides pel usuari percarpetes per mostrar al quadre desplegable"
+msgstr "Una llista de propietats, definides per l'usuari, de carpetes, que es mostren al quadre desplegable"
 
 #. Resource IDs: (201)
 msgid ""
@@ -3445,7 +3445,7 @@ msgstr "Copia URL al porta-retalls"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Copiar i afegir\nEl fitxer es copia a la destinació i s'afegeix al control de versions."
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3495,7 +3495,7 @@ msgstr "Còpia: Nou nom per %s"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Copiar\nEl fitxer es copia a la destinació però es manté sense versionar."
 
 #. Resource IDs: (80)
 #, c-format
@@ -3997,7 +3997,7 @@ msgstr "Compara"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr "Opcions Diff"
+msgstr "Opcions de comparació"
 
 #. Resource IDs: (192)
 msgid "Diff Viewer"
@@ -4009,15 +4009,15 @@ msgstr "Visualitzador de diferències::Eina de Fusió"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Línies afegides al comparador"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Ordre del comparador"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Comentari del comparador"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4025,7 +4025,7 @@ msgstr "Fitxer Diff:"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Capçalera del comparador"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4033,15 +4033,15 @@ msgstr "Compara més endavant"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
-msgstr "Opcions Diff"
+msgstr "Opcions del comparador"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Posició del comparador"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Línies suprimides del comparador"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4156,7 +4156,7 @@ msgstr "Fes això per totes les carpetes sense versionar seleccionades"
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Fes això per tots els elements sense versionar"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4709,11 +4709,11 @@ msgstr "Exporta &directori:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Exporta fitxers (*.tsex)|*.tsex|Tots els fitxers (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Exporta la configuració al fitxer..."
 
 #. Resource IDs: (345)
 msgid ""
@@ -5143,7 +5143,7 @@ msgstr "Força l'eliminació"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Primer pla"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5894,7 +5894,7 @@ msgstr "Importa &missatge"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importa la Configuració des del fitxer..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5961,7 +5961,7 @@ msgstr "Inclou fitxers ignorats"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "Inclou la configuració local"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6221,7 +6221,7 @@ msgstr "Deixa només els canvis marcats"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Deixa el quadre de text \"Camí o URL\" buit, per crear un element de carpeta"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6478,7 +6478,7 @@ msgstr "Hook Pre-Entrega manual"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Importació/exportació manual"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6488,7 +6488,7 @@ msgstr "Molts elements seleccionats per mostrar diferències"
 msgid ""
 "Mark all projects as read\n"
 "Hold down the shift key to also clear all fetch errors."
-msgstr ""
+msgstr "Marca tots els projectes com a llegits\nMantén premuda la tecla de Majúscules per esborrar alhora tots els errors de cerca."
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6839,7 +6839,7 @@ msgstr "Mou Element Amunt"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Moure i afegir\nEl fitxer es mou a la destinació i s'afegeix al control de versions."
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6887,7 +6887,7 @@ msgstr "Moure: Nom nou per a %s"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "Moure\nEl fitxer es mou a la destinació però es manté sense versionar."
 
 #. Resource IDs: (106)
 msgid ""
@@ -7476,7 +7476,7 @@ msgstr "Paràmetres:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
@@ -9141,7 +9141,7 @@ msgstr "Selecciona rang de la revisió"
 
 #. Resource IDs: (621)
 msgid "Select settings file"
-msgstr ""
+msgstr "Selecciona el fitxer de configuració"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9615,7 +9615,7 @@ msgstr "Mida del cache sense comprimir"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Ignorar\nEl fitxer es queda on és ara."
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10146,7 +10146,7 @@ msgstr "El fitxer %s no existeix!"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "El fitxer %s està sense versionar. De quina manera vols seguir?"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10938,7 +10938,7 @@ msgstr "TortoiseSVN no mostrarà les següents superposicions: %s"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -12300,7 +12300,7 @@ msgstr "sense versionar"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "element sense versionar"
 
 #. Resource IDs: (10)
 msgid "normal"

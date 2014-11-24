@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-10 06:16+0000\n"
+"PO-Revision-Date: 2014-11-22 06:00+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -17576,7 +17576,7 @@ msgid ""
 " the command line: the project monitor. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "プロジェクトモニターは、コマンドラインで何も指定しない場合は<option>/command:abcd</option>を必要としませんが、その代わりに起動します。<option>/tray</option>が指定されると、プロジェクトモニターは非表示で起動し、システムトレイ上のアイコンだけが追加されます。"
 
 #. (para)
 msgid ""
@@ -17757,14 +17757,14 @@ msgid ""
 "revisions are written to that file when the log dialog is closed. The "
 "revisions are written in the same format as is used to specify revisions in "
 "the merge dialog."
-msgstr ""
+msgstr "<option>/outfile:path\\to\\file</option> が指定された場合、ログダイアログが閉じられたときに、選択されたリビジョンがファイルに書き出されます。リビジョンはマージダイアログと同じ書式で書き出されます。"
 
 #. (para)
 msgid ""
 "Opens the log dialog. The <option>/path</option> specifies the file or "
 "folder for which the log should be shown. Additional options can be set: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "ログダイアログを開きます。<option>/path</option>でログを表示するファイルやフォルダーを指定します。その他のオプションは次の通りです。<placeholder-1/>"
 
 #. (para)
 msgid "{2006-02-17}"
@@ -17814,7 +17814,7 @@ msgstr "{20060217T1530-0500}"
 msgid ""
 "An svn date revision can be in one of the following formats: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "SVNの日付のリビジョンは次の書式のうちの一つが使用できます。<placeholder-1/>"
 
 #. (option)
 #. (option)
