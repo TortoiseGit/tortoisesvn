@@ -186,7 +186,7 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
                 if (!regex_search(text, text + size, *it, std::tr1::regex_constants::match_any))
                     return false;
             }
-            catch (std::exception&e)
+            catch (std::exception& /*e*/)
             {
                 return false;
             }
