@@ -77,5 +77,84 @@
       new commits in brackets at the right. A click on a project marks
       it automatically as read.
     </para>
+    <sect2 id="tsvn-commitmonitor-maindialog-buttons">
+      <title>Main operations</title>
+      <para>
+        The toolbar at the top of the dialog allows to configure
+        and operate the project monitor.
+      </para>
+      <para>
+        <variablelist>
+          <varlistentry>
+            <term>Check Now</term>
+            <listitem>
+              <para>
+                While each monitored project is checked according to the
+                interval that's set up, clicking this button will force
+                a check of all projects immediately. Note that if there
+                are updates, the notification won't show up until all
+                projects have been checked.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Add Project</term>
+            <listitem>
+              <para>
+                Opens a new dialog to set up a new project for monitoring.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Edit</term>
+            <listitem>
+              <para>
+                Opens the configuration dialog for the selected project.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Remove</term>
+            <listitem>
+              <para>
+                Removes the selected project after a confirmation dialog
+                is shown.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mark all as read</term>
+            <listitem>
+              <para>
+                Marks all revisions in all projects as read. Note that if
+                you select a project with unread revisions, those revisions
+                are automatically marked as read when you select another
+                project.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Update all</term>
+            <listitem>
+              <para>
+                Runs an <command>Update</command> on all monitored working
+                copies. Projects that are monitored via an url are not
+                updated, only those that are set up with a working copy
+                path.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Options</term>
+            <listitem>
+              <para>
+                Shows a dialog to configure the behavior of the project
+                monitor.
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </para>
+    </sect2>
   </sect1>
 </chapter>
