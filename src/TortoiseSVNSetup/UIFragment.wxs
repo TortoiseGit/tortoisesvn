@@ -30,7 +30,6 @@
       <Property Id="ButtonText_Yes"><![CDATA[&Yes]]></Property>
 
       <!-- UI Variables ................................................................ -->
-      <Property Id="IAgree">No</Property>
       <Property Id="InstallMode">Complete</Property>
       <Property Id="Setup">Setup</Property>
       <Property Id="Progress1">Installing</Property>
@@ -447,8 +446,7 @@
           <Publish Event="SpawnWaitDialog" Value="WaitForCostingPopup">CostingComplete = 1</Publish>
           <Publish Event="NewDialog" Value="CustomizeDlg">"Yes"</Publish>
           <Publish Property="InstallMode" Value="Custom">1</Publish>
-          <Condition Action="disable"><![CDATA[IAgree <> "Yes"]]></Condition>
-          <Condition Action="enable">IAgree = "Yes"</Condition>
+          <Condition Action="enable">1</Condition>
         </Control>
         <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
           <Publish Event="NewDialog" Value="WelcomeDlg">1</Publish>
@@ -457,10 +455,9 @@
           <Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
         </Control>
 
-        <Control Id="AgreementText" Type="ScrollableText" X="5" Y="60" Width="360" Height="120" Sunken="yes" TabSkip="no">
+        <Control Id="AgreementText" Type="ScrollableText" X="5" Y="60" Width="360" Height="160" Sunken="yes" TabSkip="no">
           <Text SourceFile="include\TSVN_eula.rtf" />
         </Control>
-        <Control Id="Buttons" Type="RadioButtonGroup" X="10" Y="187" Width="330" Height="40" Property="IAgree" />
 
         <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
         <Control Id="Title" Type="Text" X="155" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" RightAligned="yes">
@@ -472,11 +469,6 @@
         </Control>
         <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
       </Dialog>
-
-      <RadioButtonGroup Property="IAgree">
-        <RadioButton Text="{\DlgFont8}I &amp;accept the terms in the License Agreement" Value="Yes" X="5" Y="0" Width="250" Height="15" />
-        <RadioButton Text="{\DlgFont8}I &amp;do not accept the terms in the License Agreement" Value="No" X="5" Y="20" Width="250" Height="15" />
-      </RadioButtonGroup>
 
 
       <Dialog Id="MaintenanceTypeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
