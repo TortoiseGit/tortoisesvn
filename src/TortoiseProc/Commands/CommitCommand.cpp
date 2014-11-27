@@ -103,14 +103,16 @@ bool CommitCommand::Execute()
     CTSVNPathList updatelist = pathList;
     CTSVNPathList origPathList = pathList;
     std::map<CString, std::tuple<CString, CString>> restorepaths;
+    CString sBugID;
+    if (parser.HasKey(L"bugid"))
+    {
+        sBugID = parser.GetVal(L"bugid");
+    }
     while (bRepeat)
     {
         bRepeat = false;
         CCommitDlg dlg;
-        if (parser.HasKey(L"bugid"))
-        {
-            dlg.m_sBugID = parser.GetVal(L"bugid");
-        }
+        dlg.m_sBugID = sBugID;
         dlg.m_ProjectProperties = props;
         dlg.m_sLogMessage = sLogMsg;
         dlg.m_pathList = pathList;
@@ -133,6 +135,7 @@ bool CommitCommand::Execute()
             pathList = dlg.m_updatedPathList;
             updatelist = dlg.m_updatedPathList;
             sLogMsg = dlg.m_sLogMessage;
+            sBugID = dlg.m_sBugID;
             bSelectFilesForCommit = true;
             CSVNProgressDlg progDlg;
             InitProgressDialog (dlg, progDlg);

@@ -18,6 +18,8 @@ Version 1.8.9
        expressions crashes. (Stefan)
 - BUG: Issue #674: illegal temp file name when
        diffing from server root. (Stefan)
+- BUG: Issue #675: bug-id field not set correctly
+       for a restarted commit. (Stefan)
 
 Version 1.8.8
 - BUG: Issue #640: Restore after commit - Unchecked
