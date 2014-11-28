@@ -752,6 +752,10 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     {
     case (VK_ESCAPE):
         {
+            // escape key is already handled in PreTranslateMessage to prevent
+            // it from getting to the main dialog. This code here is only
+            // in case it does not automatically go to the parent, which
+            // it sometimes does not.
             if ((Call(SCI_AUTOCACTIVE)==0)&&(Call(SCI_CALLTIPACTIVE)==0))
                 ::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
         }
@@ -766,6 +770,26 @@ BOOL CSciEdit::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
+            case VK_ESCAPE:
+            {
+                // this shouldn't be necessary: Scintilla should
+                // consume the escape key itself and prevent it
+                // from being sent to the parent, but it sometimes
+                // still sends it. So this is to make sure the escape
+                // keypress is not ever sent to the parent dialog
+                // if a tool- or calltip is active.
+                if (Call(SCI_AUTOCACTIVE))
+                {
+                    Call(SCI_AUTOCCANCEL);
+                    return TRUE;
+                }
+                if (Call(SCI_CALLTIPACTIVE))
+                {
+                    Call(SCI_CALLTIPCANCEL);
+                    return TRUE;
+                }
+            }
+            break;
         case VK_SPACE:
             {
                 if (GetKeyState(VK_CONTROL) & 0x8000)

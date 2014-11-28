@@ -22,6 +22,8 @@ Version 1.8.9
        for a restarted commit. (Stefan)
 - BUG: Issue #676: file diff dialog sorts
        case-sensitive. (Stefan)
+- BUG: Issue #677: Escape must not close dialog if
+       an autocompletion is in progress. (Stefan)
 
 Version 1.8.8
 - BUG: Issue #640: Restore after commit - Unchecked
