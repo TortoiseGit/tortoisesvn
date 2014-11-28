@@ -135,6 +135,7 @@ struct icompare
 {
     bool operator() (const std::wstring& lhs, const std::wstring& rhs) const
     {
+        // no logical comparison here: we need this sorted strictly
         return _wcsicmp(lhs.c_str(), rhs.c_str()) < 0;
     }
 };

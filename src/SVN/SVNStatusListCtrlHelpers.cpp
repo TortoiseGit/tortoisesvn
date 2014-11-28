@@ -936,6 +936,9 @@ CSVNStatusListCtrl::CSorter::CSorter ( ColumnManager* columnManager
                                       , sortedColumn (sortedColumn)
                                       , ascending (ascending)
 {
+    s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
+    if (s_bSortLogical)
+        s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
 }
 
 bool CSVNStatusListCtrl::CSorter::operator()
@@ -995,7 +998,10 @@ bool CSVNStatusListCtrl::CSorter::operator()
         {
             if (result == 0)
             {
-                result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->last_commit_author, entry2->last_commit_author);
+                else
+                    result = StrCmpI(entry1->last_commit_author, entry2->last_commit_author);
             }
         }
     case 13:
@@ -1009,21 +1015,30 @@ bool CSVNStatusListCtrl::CSorter::operator()
         {
             if (result == 0)
             {
-                result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->lock_comment, entry2->lock_comment);
+                else
+                    result = StrCmpI(entry1->lock_comment, entry2->lock_comment);
             }
         }
     case 11:
         {
             if (result == 0)
             {
-                result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->lock_owner, entry2->lock_owner);
+                else
+                    result = StrCmpI(entry1->lock_owner, entry2->lock_owner);
             }
         }
     case 10:
         {
             if (result == 0)
             {
-                result = entry1->url.CompareNoCase(entry2->url);
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->url, entry2->url);
+                else
+                    result = StrCmpI(entry1->url, entry2->url);
             }
         }
     case 9:
@@ -1079,7 +1094,10 @@ bool CSVNStatusListCtrl::CSorter::operator()
         {
             if (result == 0)
             {
-                result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->path.GetFileExtension(), entry2->path.GetFileExtension());
+                else
+                    result = StrCmpI(entry1->path.GetFileExtension(), entry2->path.GetFileExtension());
             }
         }
     case 1:
@@ -1088,14 +1106,20 @@ bool CSVNStatusListCtrl::CSorter::operator()
             // sorting be done by path
             if ((result == 0)&&(sortedColumn == 1))
             {
-                result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->path.GetFileOrDirectoryName(), entry2->path.GetFileOrDirectoryName());
+                else
+                    result = StrCmpI(entry1->path.GetFileOrDirectoryName(), entry2->path.GetFileOrDirectoryName());
             }
         }
     case 0:     // path column
         {
             if (result == 0)
             {
-                result = CTSVNPath::Compare(entry1->path, entry2->path);
+                if (s_bSortLogical)
+                    result = StrCmpLogicalW(entry1->path.GetWinPath(), entry2->path.GetWinPath());
+                else
+                    result = StrCmpI(entry1->path.GetWinPath(), entry2->path.GetWinPath());
             }
         }
     default:

@@ -598,6 +598,7 @@ public:
         CSVNStatusListCtrl * control;
         int sortedColumn;
         bool ascending;
+        bool s_bSortLogical;
     };
 
     /**
