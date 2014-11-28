@@ -613,6 +613,10 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
             words.push_back(wordHigher.Mid(pos+1));
     }
 
+    // note: the m_autolist is case-sensitive because
+    // its contents are also used to mark words in it
+    // as correctly spelled. If it would be case-insensitive,
+    // case spelling mistakes would not show up as misspelled.
     std::set<CString> wordset;
     for (const auto& w : words)
     {
