@@ -8091,6 +8091,7 @@ void CLogDlg::OnMonitorMarkAllAsRead()
         LRESULT result = 0;
         MonitorShowProject(hItem, &result);
     }
+    SaveMonitorProjects(false);
 }
 
 void CLogDlg::OnMonitorAddProject()
