@@ -1303,7 +1303,8 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
             for (std::tr1::sregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
             {
                 // clear the styles up to the match position
-                Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
+                if (it->position(0) - pos >= 0)
+                    Call(SCI_SETSTYLING, it->position(0) - pos, STYLE_DEFAULT);
                 pos = (LONG)it->position(0);
 
                 const std::tr1::smatch match = *it;
@@ -1312,7 +1313,8 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
                 if (match.size() >= 2)
                 {
                     ATLTRACE("matched id : %s\n", std::string(match[1]).c_str());
-                    Call(SCI_SETSTYLING, match[1].first-s.begin()-pos, STYLE_ISSUEBOLD);
+                    if (match[1].first - s.begin() - pos >= 0)
+                        Call(SCI_SETSTYLING, match[1].first - s.begin() - pos, STYLE_ISSUEBOLD);
                     Call(SCI_SETSTYLING, std::string(match[1]).size(), STYLE_ISSUEBOLDITALIC);
                     pos = (LONG)(match[1].second-s.begin());
                 }
