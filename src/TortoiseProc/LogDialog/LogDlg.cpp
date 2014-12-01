@@ -8911,6 +8911,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_MonitorAuthorsToIgnore.clear();
         m_sMonitorMsgRegex.Empty();
         m_path.Reset();
+        OnClickedCancelFilter(0, 0);
 
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
@@ -8934,7 +8935,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_logEntries.ClearAll();
         m_MonitorAuthorsToIgnore.clear();
         m_sMonitorMsgRegex.Empty();
-
+        OnClickedCancelFilter(0, 0);
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
         if (pItem->WCPathOrUrl.IsEmpty())
             return;
@@ -9205,7 +9206,7 @@ void CLogDlg::MonitorShowDlg()
     // remove selection, show empty log list
     m_projTree.SelectItem(NULL);
     MonitorShowProject(NULL, nullptr);
-    m_cFilter.SetWindowText(L"");
+    OnClickedCancelFilter(0, 0);
     ShowWindow(SW_SHOW);
     SetForegroundWindow();
     m_SystemTray.hIcon = m_hMonitorIconNormal;
