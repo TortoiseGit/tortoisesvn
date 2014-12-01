@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 10:21+0000\n"
+"PO-Revision-Date: 2014-12-01 10:07+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -14569,34 +14569,34 @@ msgstr "Legt fest, wie viele Leerzeichen für einen Tabulator eingesetzt werden 
 
 #. (title)
 msgid "TortoiseUDiff Settings"
-msgstr ""
+msgstr "TortoiseUDiff Einstellungen"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseUDiff Page"
-msgstr ""
+msgstr "Der Einstellungsdialog, TortoiseUDiff"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
 "main context menu, not directly with TortoiseUDiff itself."
-msgstr ""
+msgstr "<placeholder-1/> Die Einstellungen von TortoiseUDiff werden im TortoiseSVN Einstellungsdialog vorgenommen, nicht in TortoiseUDiff selbst."
 
 #. (para)
 msgid ""
 "The default colors used by TortoiseUDiff are usually ok, but you can "
 "configure them here."
-msgstr ""
+msgstr "Die Standardfarben von TortoiseUDiff sind normalerweise ok, Sie können Sie aber auch selbst anpassen."
 
 #. (para)
 msgid ""
 "You can select the font used to display the text, and the point size to use."
-msgstr ""
+msgstr "Sie können die die zu verwendende Schriftart und -größe festlegen."
 
 #. (para)
 msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file diff."
-msgstr ""
+msgstr "Legt fest, wie viele Leerzeichen für einen Tabulator eingesetzt werden sollen."
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -14604,7 +14604,7 @@ msgstr "Exportieren von TSVN-Einstellungen"
 
 #. (title)
 msgid "The Settings Dialog, Sync Page"
-msgstr ""
+msgstr "Der Einstellungsdialog, Synchronisation"
 
 #. (para)
 msgid ""
@@ -14612,20 +14612,20 @@ msgid ""
 "encrypted file. The file is encrpyted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
-msgstr ""
+msgstr "<placeholder-1/> Sie können alle TortoiseSVN Einstellungen mit einer verschlüsselten Datei synchronisieren. Die Datei wird mit dem von Ihnen angegebenen Passwort verschlüsselt, so dass Sie sich keine Sorgen machen müssen, wenn Sie diese Datei in einem Cloudspeicher wie OneDrive, GDrive, Dropbox oder ähnlichen speichern ..."
 
 #. (para)
 msgid ""
 "When a path and password is specified, TortoiseSVN will sync all settings "
 "automatically and keep them in sync."
-msgstr ""
+msgstr "Wenn ein Pfad und ein Passwort angegeben sind, wird TortoiseSVN alle Einstellungen automatisch speichern und synchron halten."
 
 #. (para)
 msgid ""
 "You can also export/import an encrypted files with all the settings "
 "manually. When you do that, you're asked for the path of the file and the "
 "password to encrypt/decrypt the settings file."
-msgstr ""
+msgstr "Sie können auch verschlüsselte Dateien mit allen Einstellungen manuell importieren/exportieren. Wenn Sie das tun, werden Sie nach dem Pfad der Datei und dem Passwort zum ver-/entschlüsseln gefragt."
 
 #. (para)
 msgid ""
@@ -14634,7 +14634,7 @@ msgid ""
 " settings are settings which include local paths which usually vary between "
 "computers. These local settings include the configured diff and merge tools "
 "and hook scripts."
-msgstr ""
+msgstr "Wenn Sie die Einstellungen manuell exportieren, können Sie optional die lokalen Einstellungen mit einschließen, die normalerweise bei Export oder Synchronisation nicht mit dabei sind. Lokale Einstellungen sind Einstellungen, die lokale Pfade enthalten, die sich normalerweise zwischen Computern unterscheiden. Diese lokalen Einstellungen enthalten die konfigurierten Vergleichsprogramme sowie die Aktionsskripte."
 
 #. (title)
 msgid "Advanced Settings"
@@ -17746,20 +17746,20 @@ msgstr "Öffnet den <guilabel>Über TortoiseSVN</guilabel>-Dialog. Dies ist das 
 
 #. (para)
 msgid "<option>/startrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/startrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
-msgstr ""
+msgstr "<option>/strict</option> aktiviert die  Option \"beim Kopieren anhalten\","
 
 #. (para)
 msgid ""
 "<option>/merge</option> enables the 'include merged revisions' checkbox,"
-msgstr ""
+msgstr "<option>/merge</option> aktiviert die Option \"Versionen vom Zusammenführen einschließen\","
 
 #. (para)
 msgid ""
