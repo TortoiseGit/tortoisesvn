@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-01 10:02+0000\n"
+"PO-Revision-Date: 2014-11-26 10:21+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -15184,6 +15184,82 @@ msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
+msgstr ""
+
+#. (title)
+msgid "Main operations"
+msgstr ""
+
+#. (para)
+msgid ""
+"The toolbar at the top of the dialog allows to configure and operate the "
+"project monitor."
+msgstr ""
+
+#. (term)
+msgid "Check Now"
+msgstr ""
+
+#. (para)
+msgid ""
+"While each monitored project is checked according to the interval that's set"
+" up, clicking this button will force a check of all projects immediately. "
+"Note that if there are updates, the notification won't show up until all "
+"projects have been checked."
+msgstr ""
+
+#. (term)
+msgid "Add Project"
+msgstr ""
+
+#. (para)
+msgid "Opens a new dialog to set up a new project for monitoring."
+msgstr ""
+
+#. (term)
+msgid "Edit"
+msgstr "Editar"
+
+#. (para)
+msgid "Opens the configuration dialog for the selected project."
+msgstr ""
+
+#. (term)
+msgid "Remove"
+msgstr "Eliminar"
+
+#. (para)
+msgid "Removes the selected project after a confirmation dialog is shown."
+msgstr ""
+
+#. (term)
+msgid "Mark all as read"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks all revisions in all projects as read. Note that if you select a "
+"project with unread revisions, those revisions are automatically marked as "
+"read when you select another project."
+msgstr ""
+
+#. (term)
+msgid "Update all"
+msgstr ""
+
+#. (para)
+msgid ""
+"Runs an <command>Update</command> on all monitored working copies. Projects "
+"that are monitored via an url are not updated, only those that are set up "
+"with a working copy path."
+msgstr ""
+
+#. (term)
+msgid "Options"
+msgstr "Opciones"
+
+#. (para)
+msgid "Shows a dialog to configure the behavior of the project monitor."
 msgstr ""
 
 #. (title)

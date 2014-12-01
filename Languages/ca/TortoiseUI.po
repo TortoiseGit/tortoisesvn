@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-23 19:51+0000\n"
+"PO-Revision-Date: 2014-11-26 19:31+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -1713,8 +1713,10 @@ msgid "<new changelist>"
 msgstr "<nova llista de canvis>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr "=&Comprovar Ara=&Afegir Projecte=E&ditar=Sup&rimir=&Marca tots com llegits=&Opcions=="
+msgid ""
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
+"all=&Options=="
+msgstr "=&Comprovar Ara=&Afegir Projecte=E&ditar=&Suprimir=&Marcar tot com llegit=Ac&tualitzar tot=&Opcions=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1894,6 +1896,10 @@ msgstr "Afegir element\nAixò provocarà problemes a Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Afegeix nous fitxers automàticament a l'SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder..."
+msgstr "Afegeix projecte o carpeta..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -6530,6 +6536,10 @@ msgstr "Marca els fitxers que manquen com a suprimits"
 msgid "Mark this change"
 msgstr "Marca aquest canvi"
 
+#. Resource IDs: (7)
+msgid "Marked Blocks"
+msgstr "Blocs marcats"
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "Marcadors"
@@ -8911,6 +8921,24 @@ msgid ""
 "Both Files are saved"
 msgstr "Desar tot\nEs desen tots dos fitxers"
 
+#. Resource IDs: (7)
+msgid ""
+"Save and exclude\n"
+"Your changes are saved and the original content is used"
+msgstr "Desar i excloure\nEls teus canvis es desen i s'utilitza el contingut original"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and ignore marked blocks\n"
+"Only your manual edits are saved, marked blocks are left as they are"
+msgstr "Desar i ignorar els blocs marcats\nNomés es desen els teus canvis manuals, els blocs marcats es deixen tal com estan"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and include\n"
+"Your changes are saved and the marked blocks are included"
+msgstr "Desar i incloure\nEls teus canvis es desen i s'inclouen els blocs marcats"
+
 #. Resource IDs: (156)
 msgid "Save as"
 msgstr "Anomena i desa"
@@ -11255,6 +11283,10 @@ msgstr "Actualitzar\nActualitza a la revisió HEAD"
 msgid "Updated"
 msgstr "Actualitzat"
 
+#. Resource IDs: (66)
+msgid "Updates all monitored working copies"
+msgstr "Actualitza totes les còpies de treball supervisades"
+
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
 msgstr "Actualitza la còpia de treball a una revisió específica"
@@ -11757,6 +11789,10 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr "Has deixat anar més d'un fitxer o carpeta per afegir al repositori.\nNo és possible fer-ho en un sol pas. TortoiseSVN afegirà cada fitxer/carpeta\nindividualment, creant una nova revisió per cada element afegit."
+
+#. Resource IDs: (7)
+msgid "You have marked changed blocks. How should those blocks be saved?"
+msgstr "Has marcat blocs modificats. Com caldria desar aquests blocs?"
 
 #. Resource IDs: (16)
 msgid ""

@@ -36,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-13 09:36+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-11-26 13:11+0000\n"
+"Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1728,8 +1728,10 @@ msgid "<new changelist>"
 msgstr "(新修改列表)"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr "=立即检查(&N)=添加项目(&A)=编辑(&d)=移除(&R)=全部标记为已读(&M)=选项(&O)=="
+msgid ""
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
+"all=&Options=="
+msgstr "=立即检查(&N)=添加项目(&A)=编辑(&d)=移除(&R)=全部标记为已读(&M)=全部更新(&U)=选项(&O)=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1909,6 +1911,10 @@ msgstr "增加项目\n在 Windows 会导致问题。"
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "自动增加新文件到版本库"
+
+#. Resource IDs: (66)
+msgid "Add project or folder..."
+msgstr "添加项目或文件夹..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -2721,7 +2727,7 @@ msgstr "取消\n目标文件保持原样"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "取消\n您可以输入另一个密码并重试"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3460,7 +3466,7 @@ msgstr "复制 URL"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "复制并添加\n该文件被复制到目标并添加到版本控制。"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3510,7 +3516,7 @@ msgstr "复制:  %s 的新名称"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "复制\n该文件被复制到目标并不被纳入版本控制。"
 
 #. Resource IDs: (80)
 #, c-format
@@ -4024,15 +4030,15 @@ msgstr "差异查看/合并工具"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "比较添加的行"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "比较命令"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "比较备注"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4040,7 +4046,7 @@ msgstr "补丁文件: "
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "比较头"
 
 #. Resource IDs: (17)
 msgid "Diff later"
@@ -4052,11 +4058,11 @@ msgstr "差异选项"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "比较位置"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "比较移除的行"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4171,7 +4177,7 @@ msgstr "将此操作应用到所有选中未收版本控制的文件夹上"
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "对所有未版本控制的项目进行"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4724,11 +4730,11 @@ msgstr "导出目录(&D): "
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "导出文件 (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "导出设置到文件..."
 
 #. Resource IDs: (345)
 msgid ""
@@ -5158,7 +5164,7 @@ msgstr "强制删除"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "前景"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5909,7 +5915,7 @@ msgstr "导入信息(&M)"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "从文件导入设置..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5976,7 +5982,7 @@ msgstr "包括忽略的文件"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "包括本地设置"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6036,7 +6042,7 @@ msgstr "插入日志信息到: "
 
 #. Resource IDs: (1660)
 msgid "Insert title at the bottom, after the message"
-msgstr ""
+msgstr "在底部、消息后面插入标题"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6236,7 +6242,7 @@ msgstr "仅留下标记的更改"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "保留“路径或 URL”框为空以创建一个文件夹项"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6319,7 +6325,7 @@ msgstr "载入图片"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "从文件载入设置"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6493,7 +6499,7 @@ msgstr "手动提交前钩子"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "手动导入/导出"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6503,7 +6509,7 @@ msgstr "已选定多项来显示差异"
 msgid ""
 "Mark all projects as read\n"
 "Hold down the shift key to also clear all fetch errors."
-msgstr ""
+msgstr "标记所有项目为已读\n按住 Shift 键同时清除所有获取错误。"
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6544,6 +6550,10 @@ msgstr "将不存在的文件标记为已删除"
 #. Resource IDs: (252)
 msgid "Mark this change"
 msgstr "标记此更改"
+
+#. Resource IDs: (7)
+msgid "Marked Blocks"
+msgstr "已标记的块"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6854,7 +6864,7 @@ msgstr "上移项目"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "移动并添加\n该文件将移动到目标并添加到版本控制。"
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6902,7 +6912,7 @@ msgstr "移动: %s  的新名称"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "移动\n该文件将移动到目标并不被版本控制。"
 
 #. Resource IDs: (106)
 msgid ""
@@ -7447,7 +7457,7 @@ msgstr "覆盖\n替换目标文件夹"
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "覆盖\n设置将被覆盖"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7491,11 +7501,11 @@ msgstr "参数:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "密码错误"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7564,7 +7574,7 @@ msgstr "路径或 URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "路径："
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8926,6 +8936,24 @@ msgid ""
 "Both Files are saved"
 msgstr "保存所有\n两侧文件都将保存"
 
+#. Resource IDs: (7)
+msgid ""
+"Save and exclude\n"
+"Your changes are saved and the original content is used"
+msgstr "保存并排除\n您的更改将保存并使用原内容"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and ignore marked blocks\n"
+"Only your manual edits are saved, marked blocks are left as they are"
+msgstr "保存并忽略已标记的块\n仅有您手动的编辑被保存，标记的块保持原样"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and include\n"
+"Your changes are saved and the marked blocks are included"
+msgstr "保存并包括\n您的更改被保存，并且标记的块被纳入"
+
 #. Resource IDs: (156)
 msgid "Save as"
 msgstr "另存为"
@@ -8963,7 +8991,7 @@ msgstr "保存版本至(&T)..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "保存设置到文件"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9156,7 +9184,7 @@ msgstr "选择版本范围"
 
 #. Resource IDs: (621)
 msgid "Select settings file"
-msgstr ""
+msgstr "选择设置文件"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9630,7 +9658,7 @@ msgstr "没有压缩时缓存的大小"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "跳过\n该文件留在那里。"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10044,11 +10072,11 @@ msgstr "左右切换比较"
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "同步"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "同步设置"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10161,7 +10189,7 @@ msgstr "文件 %s 不存在！"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "文件 %s 未被版本控制。您想怎么处理它？"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10420,11 +10448,11 @@ msgstr "参数“/path”和“/pathfile”互斥。\n你只能指定其中的�
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "密码错误。\n请在设置对话框中输入正确的密码。"
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "密码不匹配"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10494,7 +10522,7 @@ msgstr "选择的文件尚有一个以上的冲突标记。\n你确定要将其�
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "该设置文件无法使用给定的密码解密！\n您想覆盖同步文件吗？"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10953,7 +10981,7 @@ msgstr "TortoiseSVN 将不会显示以下图标重载: %s"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11269,6 +11297,10 @@ msgstr "更新\n更新到 HEAD 版本"
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "更新"
+
+#. Resource IDs: (66)
+msgid "Updates all monitored working copies"
+msgstr "更新所有被监控的工作副本"
 
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
@@ -11772,6 +11804,10 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr "你拖动了多个文件或文件夹以增加到仓库中。\n在一个操作步骤中无法实现该操作，所以 TortoiseSVN 将单独增加每一个文件/文件夹，\n并为每一个新增加的文件/文件夹创建一个新的版本号。"
+
+#. Resource IDs: (7)
+msgid "You have marked changed blocks. How should those blocks be saved?"
+msgstr "您已经标记被更改的块。这些块该如何保存？"
 
 #. Resource IDs: (16)
 msgid ""
@@ -12315,7 +12351,7 @@ msgstr "无版本控制"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "非版本控制的项"
 
 #. Resource IDs: (10)
 msgid "normal"

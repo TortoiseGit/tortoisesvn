@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-01 17:00+0000\n"
+"PO-Revision-Date: 2014-11-28 19:00+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -15161,6 +15161,82 @@ msgid ""
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
 msgstr "Projekty mające aktualizacje wyświetlane są pogrubioną czcionką, z liczbą zatwierdzeń w nawiasach z prawej. kliknięcie na projekcie oznacza go automatycznie jako przeczytany."
+
+#. (title)
+msgid "Main operations"
+msgstr "Operacje podstawowe"
+
+#. (para)
+msgid ""
+"The toolbar at the top of the dialog allows to configure and operate the "
+"project monitor."
+msgstr "Oasek zadań u góry okna pozwala na skonfigurowanie i obsługę monitora projektu."
+
+#. (term)
+msgid "Check Now"
+msgstr "Sprawdź Teraz"
+
+#. (para)
+msgid ""
+"While each monitored project is checked according to the interval that's set"
+" up, clicking this button will force a check of all projects immediately. "
+"Note that if there are updates, the notification won't show up until all "
+"projects have been checked."
+msgstr "Podczas każdy monitorowany projekt jest sprawdzany zgodnie z ustalonym interwałem, kliknięcie w ten przycisk wymusi natychmiastowe sprawdzenie wszystkich projektów. Zauważcie, że jeśli znajdują się tam aktualizacje, powiadomienia nie ukażą się dopóki wszystkie projekty nie zostaną sprawdzone."
+
+#. (term)
+msgid "Add Project"
+msgstr "Dodaj Projekt"
+
+#. (para)
+msgid "Opens a new dialog to set up a new project for monitoring."
+msgstr "Otwiera nowe okno by skonfigurować monitorowanie nowego projektu."
+
+#. (term)
+msgid "Edit"
+msgstr "Edytuj"
+
+#. (para)
+msgid "Opens the configuration dialog for the selected project."
+msgstr "Otwiera okno konfiguracji wybranego projektu."
+
+#. (term)
+msgid "Remove"
+msgstr "Usuń"
+
+#. (para)
+msgid "Removes the selected project after a confirmation dialog is shown."
+msgstr "Osowa wybrany projekt po wyświetleniu dialogu z potwierdzeniem decyzji."
+
+#. (term)
+msgid "Mark all as read"
+msgstr "Zaznacz wszystko jako przeczytane"
+
+#. (para)
+msgid ""
+"Marks all revisions in all projects as read. Note that if you select a "
+"project with unread revisions, those revisions are automatically marked as "
+"read when you select another project."
+msgstr "Zaznacza wszystkie wersje we wszystkich projektach jako przeczytane. Zauważcie, że jeśli wybierze się projekt z nieprzeczytanymi wersjami, wersje te zostaną automatycznie zaznaczone jako przeczytane przy wybieraniu nowego projektu."
+
+#. (term)
+msgid "Update all"
+msgstr "Aktualizuj wszystko"
+
+#. (para)
+msgid ""
+"Runs an <command>Update</command> on all monitored working copies. Projects "
+"that are monitored via an url are not updated, only those that are set up "
+"with a working copy path."
+msgstr "Uruchamia polecenie <command>Aktualizuj</command> na wszystkich monitorowanych kopiach roboczych. Nie są aktualizowane projekty monitorowane przez adres url , a tylko odnotowane przez ścieżkę do kopii roboczej."
+
+#. (term)
+msgid "Options"
+msgstr "Opcje"
+
+#. (para)
+msgid "Shows a dialog to configure the behavior of the project monitor."
+msgstr "Pokazuje okno konfiguracji zachowania monitora projektów."
 
 #. (title)
 msgid "The SubWCRev Program"

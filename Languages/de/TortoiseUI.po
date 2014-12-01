@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-21 09:01+0000\n"
+"PO-Revision-Date: 2014-11-27 15:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1720,8 +1720,10 @@ msgid "<new changelist>"
 msgstr "<neue Änderungsliste>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr "=Jetzt &prüfen=Projekt &hinzufügen=&Bearbeiten=&Entfernen=Alles als gelesen &markieren=&Optionen=="
+msgid ""
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
+"all=&Options=="
+msgstr "=Jetzt &prüfen=Projekt &hinzufügen=&Bearbeiten=&Entfernen=Alles als gelesen &markieren=&Alle aktualisieren=&Optionen=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1901,6 +1903,10 @@ msgstr "Element hinzufügen\nDies wird unter Windows zu Problemen führen."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Neue Dateien automatisch zu SVN hinzufügen"
+
+#. Resource IDs: (66)
+msgid "Add project or folder..."
+msgstr "Projekt oder Ordner hinzufügen..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -6537,6 +6543,10 @@ msgstr "Fehlende Dateien als entfernt markieren"
 msgid "Mark this change"
 msgstr "Diese Änderung markieren"
 
+#. Resource IDs: (7)
+msgid "Marked Blocks"
+msgstr "Markierte Blöcke"
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "Markierungen"
@@ -8918,6 +8928,24 @@ msgid ""
 "Both Files are saved"
 msgstr "Beide speichern\nAlle beiden Dateien werden gespeichert"
 
+#. Resource IDs: (7)
+msgid ""
+"Save and exclude\n"
+"Your changes are saved and the original content is used"
+msgstr "Speichern und ausschließen\nIhre Änderungen werden gespeichert und der Orginialinhalt wird verwendet"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and ignore marked blocks\n"
+"Only your manual edits are saved, marked blocks are left as they are"
+msgstr "Speicher und markierte Blöcke ignorieren\nNur Ihre manuellen Änderungen werden gespeichert, markierte Blöcke bleiben unverändert"
+
+#. Resource IDs: (7)
+msgid ""
+"Save and include\n"
+"Your changes are saved and the marked blocks are included"
+msgstr "Speichern und einschließen\nIhre Änderungen werden gespeichert und die markierten Blöcke werden eingeschlossen"
+
 #. Resource IDs: (156)
 msgid "Save as"
 msgstr "Speichern unter …"
@@ -11262,6 +11290,10 @@ msgstr "Aktualisieren\nAktualisiere zur HEAD Revision"
 msgid "Updated"
 msgstr "Aktualisiert"
 
+#. Resource IDs: (66)
+msgid "Updates all monitored working copies"
+msgstr "Aktualisiert alle überwachten Arbeitskopien"
+
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
 msgstr "Aktualisiert die Arbeitskopie auf die angegebene Revision"
@@ -11764,6 +11796,10 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr "Sie haben mehr als eine Datei/Ordner abgelegt, um sie zum Projektarchiv hinzuzufügen.\nEs ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\njedes Element einzeln hinzufügen und dafür jeweils eine Revision anlegen."
+
+#. Resource IDs: (7)
+msgid "You have marked changed blocks. How should those blocks be saved?"
+msgstr "Sie haben geänderte Blöcke markiert. Wie sollen diese gespeichert werden?"
 
 #. Resource IDs: (16)
 msgid ""

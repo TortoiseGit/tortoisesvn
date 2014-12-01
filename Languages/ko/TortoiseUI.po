@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-13 09:36+0000\n"
+"PO-Revision-Date: 2014-11-26 10:21+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -1714,7 +1714,9 @@ msgid "<new changelist>"
 msgstr "<새로운 변경 리스트>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
+msgid ""
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
+"all=&Options=="
 msgstr ""
 
 #. Resource IDs: (32814)
@@ -1895,6 +1897,10 @@ msgstr "아이템 추가\n이것은 윈도우에서 문제를 일으킬 것입�
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "새로운 파일들을 자동으로 SVN에 추가합니다."
+
+#. Resource IDs: (66)
+msgid "Add project or folder..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -6531,6 +6537,10 @@ msgstr "누락된 파일 삭제로 표시"
 msgid "Mark this change"
 msgstr ""
 
+#. Resource IDs: (7)
+msgid "Marked Blocks"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "마커"
@@ -8912,6 +8922,24 @@ msgid ""
 "Both Files are saved"
 msgstr "모두 저장하기\n양쪽 파일 모두를 저장합니다"
 
+#. Resource IDs: (7)
+msgid ""
+"Save and exclude\n"
+"Your changes are saved and the original content is used"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid ""
+"Save and ignore marked blocks\n"
+"Only your manual edits are saved, marked blocks are left as they are"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid ""
+"Save and include\n"
+"Your changes are saved and the marked blocks are included"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Save as"
 msgstr "다른 이름으로 저장하기"
@@ -11256,6 +11284,10 @@ msgstr ""
 msgid "Updated"
 msgstr "업데이트됨"
 
+#. Resource IDs: (66)
+msgid "Updates all monitored working copies"
+msgstr ""
+
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
 msgstr "작업 사본을 특정 리비전으로 업데이트"
@@ -11758,6 +11790,10 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr "저장소에 추가하기 위해 하나 이상의 파일이나 폴터가 삭제되었습니다. 한번에 모든 것을 처리할 수 없기 때문에 TortoiseSVN은 파일/폴더를 개별적으로 추가하고 추가된 항목마다 새로운 버전을 만듭니다."
+
+#. Resource IDs: (7)
+msgid "You have marked changed blocks. How should those blocks be saved?"
+msgstr ""
 
 #. Resource IDs: (16)
 msgid ""

@@ -30,7 +30,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-13 09:37+0000\n"
+"PO-Revision-Date: 2014-11-26 10:21+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1722,8 +1722,10 @@ msgid "<new changelist>"
 msgstr "<новая группа изменений>"
 
 #. Resource IDs: (64)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Options=="
-msgstr "=Отметить сейчас=Добавить проект=Правка=Удалить=Пометить всё как прочитанное=Опции=="
+msgid ""
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
+"all=&Options=="
+msgstr ""
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1903,6 +1905,10 @@ msgstr "Добавить элемент\nЭто приведет к пробле
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Добавлять новые файлы автоматически в SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder..."
+msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
@@ -6539,6 +6545,10 @@ msgstr "Отметить отсутствующие файлы как удалё
 msgid "Mark this change"
 msgstr "Пометить это изменение"
 
+#. Resource IDs: (7)
+msgid "Marked Blocks"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "Выделение цветом"
@@ -8920,6 +8930,24 @@ msgid ""
 "Both Files are saved"
 msgstr "Сохранить всё\nОба файла сохранены"
 
+#. Resource IDs: (7)
+msgid ""
+"Save and exclude\n"
+"Your changes are saved and the original content is used"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid ""
+"Save and ignore marked blocks\n"
+"Only your manual edits are saved, marked blocks are left as they are"
+msgstr ""
+
+#. Resource IDs: (7)
+msgid ""
+"Save and include\n"
+"Your changes are saved and the marked blocks are included"
+msgstr ""
+
 #. Resource IDs: (156)
 msgid "Save as"
 msgstr "Сохранить как"
@@ -11264,6 +11292,10 @@ msgstr "Обновить\nОбновить до последней ревизи�
 msgid "Updated"
 msgstr "Обновлено"
 
+#. Resource IDs: (66)
+msgid "Updates all monitored working copies"
+msgstr ""
+
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
 msgstr "Обновляет рабочую копию до указанной ревизии"
@@ -11766,6 +11798,10 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr "Вы собираетесь добавить более одного файла или папки в хранилище.\nЭто невозможно сделать за один шаг, поэтому TortoiseSVN будет добавлять каждый файл/папку\nиндивидуально, создавая новую ревизию для каждого добавленного объекта."
+
+#. Resource IDs: (7)
+msgid "You have marked changed blocks. How should those blocks be saved?"
+msgstr ""
 
 #. Resource IDs: (16)
 msgid ""

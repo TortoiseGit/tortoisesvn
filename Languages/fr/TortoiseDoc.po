@@ -20,14 +20,15 @@
 # gobes <gobes2@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Philippe <kissifrot@gmail.com>, 2014
 # lkppo, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-01 10:02+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-11-27 20:10+0000\n"
+"Last-Translator: Philippe <kissifrot@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -602,7 +603,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN fonctionne sous Windows Vista ou ultérieur et est disponible aussi bien en 32-bit qu'en 64-bit. Le programme d'installation pour la version 64-bit de Windows comprend également les extensions 32-bit. Ce qui veux dire que vous n'avez pas besoin d'installer la version 32-bit en plus pour avoir le menu contextuel de TortoiseSVN et les icônes de recouvrements dans les applications 32-bit."
 
 #. (para)
 msgid ""
@@ -610,7 +611,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Le support pour Windows 98, Windows ME et Windows NT4 a été arrêté à la version 1.2.0, le support pour Windows 2000 et XP jusqu'au SP2 a été arrêté à la version 1.7.0.  Le support pour Windows XP SP3 a été arrêté à la version 1.9.0. Vous pouvez encore téléchargé et installer des versions ultérieures au besoin."
 
 #. (title)
 msgid "Installation"
@@ -653,7 +654,7 @@ msgstr "Concepts de base"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Avant de se mettre au travail avec de vrais fichiers, il est important d'avoir une vue d'ensemble de la façon dont Subversion fonctionne et des termes qui sont utilisés."
 
 #. (term)
 #. (title)
@@ -15165,6 +15166,82 @@ msgid ""
 "Projects that have updates are shown in bold, with the number of new commits"
 " in brackets at the right. A click on a project marks it automatically as "
 "read."
+msgstr ""
+
+#. (title)
+msgid "Main operations"
+msgstr ""
+
+#. (para)
+msgid ""
+"The toolbar at the top of the dialog allows to configure and operate the "
+"project monitor."
+msgstr ""
+
+#. (term)
+msgid "Check Now"
+msgstr ""
+
+#. (para)
+msgid ""
+"While each monitored project is checked according to the interval that's set"
+" up, clicking this button will force a check of all projects immediately. "
+"Note that if there are updates, the notification won't show up until all "
+"projects have been checked."
+msgstr ""
+
+#. (term)
+msgid "Add Project"
+msgstr ""
+
+#. (para)
+msgid "Opens a new dialog to set up a new project for monitoring."
+msgstr ""
+
+#. (term)
+msgid "Edit"
+msgstr "Editer"
+
+#. (para)
+msgid "Opens the configuration dialog for the selected project."
+msgstr ""
+
+#. (term)
+msgid "Remove"
+msgstr "Supprimer"
+
+#. (para)
+msgid "Removes the selected project after a confirmation dialog is shown."
+msgstr ""
+
+#. (term)
+msgid "Mark all as read"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks all revisions in all projects as read. Note that if you select a "
+"project with unread revisions, those revisions are automatically marked as "
+"read when you select another project."
+msgstr ""
+
+#. (term)
+msgid "Update all"
+msgstr ""
+
+#. (para)
+msgid ""
+"Runs an <command>Update</command> on all monitored working copies. Projects "
+"that are monitored via an url are not updated, only those that are set up "
+"with a working copy path."
+msgstr ""
+
+#. (term)
+msgid "Options"
+msgstr "Options"
+
+#. (para)
+msgid "Shows a dialog to configure the behavior of the project monitor."
 msgstr ""
 
 #. (title)
