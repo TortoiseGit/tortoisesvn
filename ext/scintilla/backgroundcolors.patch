@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 25924)
+--- include/Scintilla.h	(Revision 26085)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -1029,6 +1029,7 @@
+@@ -1036,6 +1036,7 @@
  #define SCN_HOTSPOTRELEASECLICK 2027
  #define SCN_FOCUSIN 2028
  #define SCN_FOCUSOUT 2029
@@ -12,9 +12,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 25924)
+--- src/Editor.cxx	(Revision 26085)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -99,6 +99,7 @@
+@@ -100,6 +100,7 @@
  }
  
  Editor::Editor() {
@@ -24,9 +24,9 @@ Index: src/Editor.cxx
  	stylesValid = false;
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 25924)
+--- src/Editor.h	(Revision 26085)
 +++ src/Editor.h	(Arbeitskopie)
-@@ -559,6 +559,7 @@
+@@ -560,6 +560,7 @@
  	static sptr_t BytesResult(sptr_t lParam, const unsigned char *val, size_t len);
  
  public:
@@ -36,9 +36,9 @@ Index: src/Editor.h
  	// Public so scintilla_send_message can use it.
 Index: src/EditView.cxx
 ===================================================================
---- src/EditView.cxx	(Revision 25924)
+--- src/EditView.cxx	(Revision 26085)
 +++ src/EditView.cxx	(Arbeitskopie)
-@@ -46,6 +46,7 @@
+@@ -47,6 +47,7 @@
  #include "EditModel.h"
  #include "MarginView.h"
  #include "EditView.h"
@@ -46,15 +46,15 @@ Index: src/EditView.cxx
  
  #ifdef SCI_NAMESPACE
  using namespace Scintilla;
-@@ -185,6 +186,7 @@
- 	pixmapIndentGuideHighlight = 0;
- 	llc.SetLevel(LineLayoutCache::llcCaret);
- 	posCache.SetSize(0x400);
+@@ -189,6 +190,7 @@
+ 	tabArrowHeight = 4;
+ 	customDrawTabArrow = NULL;
+ 	customDrawWrapMarker = NULL;
 +	editor = NULL;
  }
  
  EditView::~EditView() {
-@@ -1623,7 +1625,18 @@
+@@ -1640,7 +1642,18 @@
  	}
  
  	// See if something overrides the line background color.
@@ -76,9 +76,9 @@ Index: src/EditView.cxx
  
 Index: src/EditView.h
 ===================================================================
---- src/EditView.h	(Revision 25924)
+--- src/EditView.h	(Revision 26085)
 +++ src/EditView.h	(Arbeitskopie)
-@@ -74,6 +74,7 @@
+@@ -76,6 +76,7 @@
  	Surface *pixmapLine;
  	Surface *pixmapIndentGuide;
  	Surface *pixmapIndentGuideHighlight;
@@ -88,9 +88,9 @@ Index: src/EditView.h
  	PositionCache posCache;
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 25924)
+--- win32/ScintillaWin.cxx	(Revision 26085)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
-@@ -264,6 +264,7 @@
+@@ -265,6 +265,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -98,7 +98,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, int modifiers);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1662,6 +1663,13 @@
+@@ -1703,6 +1704,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
