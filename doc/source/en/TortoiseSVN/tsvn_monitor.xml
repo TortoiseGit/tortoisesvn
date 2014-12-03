@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
-<chapter id="tsvn-monitor">
-  <title>Commit Monitor</title>
+<chapter id="tsvn-projectmonitor">
+  <title>Project Monitor</title>
   <simplesect>
     <indexterm>
       <primary>commit monitor</primary>
+    </indexterm>
+    <indexterm>
+      <primary>project monitor</primary>
     </indexterm>
     <indexterm>
       <primary>remote commits</primary>
@@ -13,23 +16,23 @@
       <primary>monitoring projects</primary>
     </indexterm>
     <para>
-      The commit monitor is a helpful tool that monitors repositories and
+      The project monitor is a helpful tool that monitors repositories and
       notifies you in case there are new commits.
     </para>
   </simplesect>
   <!-- ================================================================= -->
   <!-- ======================== SECTION 1 ============================== -->
   <!-- ================================================================= -->
-  <sect1 id="tsvn-commitmonitor-addprojects">
+  <sect1 id="tsvn-projectmonitor-addprojects">
     <title>Adding projects to monitor</title>
     <para>
-      If you first start the commit monitor, the tree view on the left side
+      If you first start the project monitor, the tree view on the left side
       is empty. To add projects, click on the button at the top of the dialog
       named <guibutton>Add Project</guibutton>.
     </para>
     <para>
-      <figure id="tsvn-commitmonitor-addprojects-dia-1">
-        <title>The edit project dialog of the commit monitor</title>
+      <figure id="tsvn-projectmonitor-addprojects-dia-1">
+        <title>The edit project dialog of the project monitor</title>
         <graphic fileref="images/monitor-editproject.png"/>
       </figure>
       To add a project for monitoring, fill in the required information.
@@ -57,14 +60,14 @@
   <!-- ================================================================= -->
   <!-- ======================== SECTION 2 ============================== -->
   <!-- ================================================================= -->
-  <sect1 id="tsvn-commitmonitor-maindialog">
+  <sect1 id="tsvn-projectmonitor-maindialog">
     <title>Monitor dialog</title>
     <para>
-      <figure id="tsvn-commitmonitor-maindialog-dia-1">
-        <title>The main dialog of the commit monitor</title>
+      <figure id="tsvn-projectmonitor-maindialog-dia-1">
+        <title>The main dialog of the project monitor</title>
         <graphic fileref="images/monitor.png"/>
       </figure>
-      The commit monitor shows all monitored projects on the left in a tree
+      The project monitor shows all monitored projects on the left in a tree
       view. The projects can be moved around, for example one project can be moved
       below another project, making it a child/subproject.
     </para>
@@ -77,7 +80,7 @@
       new commits in brackets at the right. A click on a project marks
       it automatically as read.
     </para>
-    <sect2 id="tsvn-commitmonitor-maindialog-buttons">
+    <sect2 id="tsvn-projectmonitor-maindialog-buttons">
       <title>Main operations</title>
       <para>
         The toolbar at the top of the dialog allows to configure
