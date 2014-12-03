@@ -1,14 +1,14 @@
-# 
+#
 # Translation of the TortoiseSVN manuals
 # Copyright (C) 2004-2012 the TortoiseSVN team
-# 
+#
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-# 
+#
 # Authors:
 msgid ""
 msgstr ""
@@ -9410,11 +9410,15 @@ msgid "While working on TortoiseSVN we love to listen to music. And since we spe
 msgstr ""
 
 #. (title)
-msgid "Commit Monitor"
+msgid "Project Monitor"
 msgstr ""
 
 #. (primary)
 msgid "commit monitor"
+msgstr ""
+
+#. (primary)
+msgid "project monitor"
 msgstr ""
 
 #. (primary)
@@ -9426,7 +9430,23 @@ msgid "monitoring projects"
 msgstr ""
 
 #. (para)
-msgid "The commit monitor is a helpful tool that monitors repositories and notifies you in case there are new commits."
+msgid "The project monitor is a helpful tool that monitors repositories and notifies you in case there are new commits."
+msgstr ""
+
+#. (para)
+msgid "The projects can be monitored via a working copy path or directly via their repository URLs."
+msgstr ""
+
+#. (para)
+msgid "The project monitor scans each project in a configurable interval, and every time new commits are detected a notification popup is shown. Also the icon that is added to the system tray changes to indicate that there are new commits."
+msgstr ""
+
+#. (title)
+msgid "Snarl"
+msgstr ""
+
+#. (para)
+msgid "If <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is installed and active, then the project monitor automatically uses Snarl to show the notifications about newly detected commits."
 msgstr ""
 
 #. (title)
@@ -9434,11 +9454,11 @@ msgid "Adding projects to monitor"
 msgstr ""
 
 #. (para)
-msgid "If you first start the commit monitor, the tree view on the left side is empty. To add projects, click on the button at the top of the dialog named <guibutton>Add Project</guibutton>."
+msgid "If you first start the project monitor, the tree view on the left side is empty. To add projects, click on the button at the top of the dialog named <guibutton>Add Project</guibutton>."
 msgstr ""
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
+msgid "The edit project dialog of the project monitor"
 msgstr ""
 
 #. (para)
@@ -9454,7 +9474,19 @@ msgid "The fields <literal>Username</literal> and <literal>Password</literal> sh
 msgstr ""
 
 #. (para)
-msgid "The <literal>Monitor interval in minutes</literal> specifies the minutes to wait in between checks."
+msgid "The <literal>Monitor interval in minutes</literal> specifies the minutes to wait in between checks. The smallest interval is one minute."
+msgstr ""
+
+#. (title)
+msgid "check interval"
+msgstr ""
+
+#. (para)
+msgid "If there are a lot of users monitoring the same repository and the bandwith on the server is limited, a repository admin can set the minimum for check intervals using an <filename>svnrobots.txt</filename> file. A detailed explanation on how this works can be found on the CommitMonitor website:"
+msgstr ""
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
 msgstr ""
 
 #. (title)
@@ -9462,11 +9494,11 @@ msgid "Monitor dialog"
 msgstr ""
 
 #. (title)
-msgid "The main dialog of the commit monitor"
+msgid "The main dialog of the project monitor"
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> The commit monitor shows all monitored projects on the left in a tree view. The projects can be moved around, for example one project can be moved below another project, making it a child/subproject."
+msgid "<placeholder-1/> The project monitor shows all monitored projects on the left in a tree view. The projects can be moved around, for example one project can be moved below another project, making it a child/subproject."
 msgstr ""
 
 #. (para)
