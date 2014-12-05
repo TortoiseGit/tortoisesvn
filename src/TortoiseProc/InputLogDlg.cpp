@@ -25,7 +25,7 @@
 #include "AppUtils.h"
 #include "BstrSafeVector.h"
 #include "COMError.h"
-
+#include "Hooks.h"
 
 // CInputLogDlg dialog
 
@@ -283,6 +283,34 @@ void CInputLogDlg::OnOK()
                             return;
                         }
                     }
+                }
+            }
+
+            CTSVNPathList checkedItems;
+            checkedItems.AddPath(m_rootpath);
+            DWORD exitcode = 0;
+            CString error;
+            CHooks::Instance().SetProjectProperties(m_rootpath, *m_pProjectProperties);
+            if (CHooks::Instance().CheckCommit(m_hWnd, checkedItems, m_sLogMsg, exitcode, error))
+            {
+                if (exitcode)
+                {
+                    CString sErrorMsg;
+                    sErrorMsg.Format(IDS_HOOK_ERRORMSG, (LPCWSTR)error);
+
+                    CTaskDialog taskdlg(sErrorMsg,
+                                        CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+                    taskdlg.SetDefaultCommandControl(1);
+                    taskdlg.SetMainIcon(TD_ERROR_ICON);
+                    bool retry = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+
+                    if (retry)
+                        return;
                 }
             }
         }
