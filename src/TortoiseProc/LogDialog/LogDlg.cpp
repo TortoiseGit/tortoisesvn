@@ -9167,9 +9167,12 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_UPDATE:
         {
-            CString sCmd;
-            sCmd.Format(L"/command:update /path:\"%s\"", (LPCTSTR)pItem->WCPathOrUrl);
-            CAppUtils::RunTortoiseProc(sCmd);
+            if (pItem)
+            {
+                CString sCmd;
+                sCmd.Format(L"/command:update /path:\"%s\"", (LPCTSTR)pItem->WCPathOrUrl);
+                CAppUtils::RunTortoiseProc(sCmd);
+            }
         }
             break;
         default:
