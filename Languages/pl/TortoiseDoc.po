@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-28 19:00+0000\n"
+"PO-Revision-Date: 2014-12-08 08:15+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -15068,12 +15068,16 @@ msgid ""
 msgstr "Podczas pracy nad TortoiseSVN lubimy słuchać muzyki. A ponieważ spędzajmy wiele godzin na projektem, potrzebujemy <emphasis>wiele</emphasis> muzyki. Dlatego stworzyliśmy kilka list życzeń z naszymi ulubionymi płytami CD i DVD: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Prosimy również spojrzeć na listę osób, które przyczyniły się do projektu, wysyłając poprawki lub tłumaczenia."
 
 #. (title)
-msgid "Commit Monitor"
-msgstr "Monitor Zatwierdzeń"
+msgid "Project Monitor"
+msgstr "Monitor Projektu"
 
 #. (primary)
 msgid "commit monitor"
 msgstr "monitor zatwierdzeń"
+
+#. (primary)
+msgid "project monitor"
+msgstr "monitor projektu"
 
 #. (primary)
 msgid "remote commits"
@@ -15085,9 +15089,35 @@ msgstr "monitorowane projekty"
 
 #. (para)
 msgid ""
-"The commit monitor is a helpful tool that monitors repositories and notifies"
-" you in case there are new commits."
-msgstr "Monitor zatwierdzeń jest pomocnym narzędziem śledzącym repozytoria i powiadamiającym was w przypadku nowych zatwierdzeń."
+"The project monitor is a helpful tool that monitors repositories and "
+"notifies you in case there are new commits."
+msgstr "Monitor projektu jest pomocnym narzędziem sprawdzającym regularnie repozytoria i informującym że wystąpiły tam nowe zatwierdzenia."
+
+#. (para)
+msgid ""
+"The projects can be monitored via a working copy path or directly via their "
+"repository URLs."
+msgstr "Projekty mogą być monitorowane przez ścieżkę kopii roboczej lub bezpośrednio przez adresy URL ich repozytoriów."
+
+#. (para)
+msgid ""
+"The project monitor scans each project in a configurable interval, and every"
+" time new commits are detected a notification popup is shown. Also the icon "
+"that is added to the system tray changes to indicate that there are new "
+"commits."
+msgstr "Monitor projektu skanuje każdy projekt co konfigurowanly okres czasu i za każdym razem, gdy zostaną znalezione nowe zatwierdzenia, pokazywane jest wyskakujące okno powiadomienia. Również ikona, która dodawana jest w zasobniku systemowym, zmienia się by wskazać, że są nowe zatwierdzenia."
+
+#. (title)
+msgid "Snarl"
+msgstr "Snarl"
+
+#. (para)
+msgid ""
+"If <ulink "
+"url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
+"installed and active, then the project monitor automatically uses Snarl to "
+"show the notifications about newly detected commits."
+msgstr "Gdy zainstalowano i aktywowano <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink>, monitor projektu automatycznie wykorzystuje Snarl do wyświetlania powiadomień o świeżo wyszukanych zatwierdzeniach."
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15095,14 +15125,14 @@ msgstr "Dodawanie projektów do monitora"
 
 #. (para)
 msgid ""
-"If you first start the commit monitor, the tree view on the left side is "
+"If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr "Gdy uruchamiacie po raz pierwszy monitor zatwierdzeń, widok drzewa po lewej stronie jest pusty. By dodać projekt, należy wcisnąć przycisk u góry okna dialogowego <guibutton>Dodaj Projekt</guibutton>."
+msgstr "Gdy pierwszy raz uruchamiacie monitor projektu, widok drzewa po lewej stronie jest pusty. By dodać projekt, kliknijcie przycisk <guibutton>Dodaj Projekt</guibutton> u góry okienka."
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
-msgstr "Okno edycji projektu monitora zatwierdzeń"
+msgid "The edit project dialog of the project monitor"
+msgstr "Okno edycji projektu monitora projektu"
 
 #. (para)
 msgid ""
@@ -15131,23 +15161,39 @@ msgstr "Pola <literal>Nazwa użytkownika</literal> i <literal>Hasło</literal> p
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
-"wait in between checks."
-msgstr "<literal>Interwał monitorowania w minutach</literal> określa liczbę minut oczekiwania pomiędzy sprawdzeniami."
+"wait in between checks. The smallest interval is one minute."
+msgstr "<literal>Interwał monitorowania w minutach</literal> określa liczbę minut oczekiwania na kolejne sprawdzenie. Najmniejszy przedział czasowy to jedna minuta."
+
+#. (title)
+msgid "check interval"
+msgstr "interwał sprawdzenia"
+
+#. (para)
+msgid ""
+"If there are a lot of users monitoring the same repository and the bandwith "
+"on the server is limited, a repository admin can set the minimum for check "
+"intervals using an <filename>svnrobots.txt</filename> file. A detailed "
+"explanation on how this works can be found on the CommitMonitor website:"
+msgstr "Jesli wiele osób monitoruje to samo repozytorium a przepustowość procesora jest ograniczona, administrator repozytorium może ustawić minimalny interwał sprawdzenia używając pliku <filename>svnrobots.txt</filename>. Szczegółowe wyjaśnienie jak to działa można znaleźć na stronie CommitMonitor:"
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+msgstr "http://stefanstools.sourceforge.net/svnrobots.html"
 
 #. (title)
 msgid "Monitor dialog"
 msgstr "Okno monitora"
 
 #. (title)
-msgid "The main dialog of the commit monitor"
-msgstr "Główne okno monitora zatwierdzeń"
+msgid "The main dialog of the project monitor"
+msgstr "Okno podstawowe monitora projektu"
 
 #. (para)
 msgid ""
-"<placeholder-1/> The commit monitor shows all monitored projects on the left"
-" in a tree view. The projects can be moved around, for example one project "
-"can be moved below another project, making it a child/subproject."
-msgstr "<placeholder-1/> Monitor zatwierdzeń pokazuje wszystkie śledzone projekty na lewym widoku drzewa. Projekty mogą być dowolnie przenoszone, na przykład projekt może zostać przeniesiony pod inny projekt stając się jego dzieckiem/podprojektem."
+"<placeholder-1/> The project monitor shows all monitored projects on the "
+"left in a tree view. The projects can be moved around, for example one "
+"project can be moved below another project, making it a child/subproject."
+msgstr "<placeholder-1/> Monitor projektu wyświetla wszystkie monitorowane projekty z lewej strony w widoku drzewa. Projekty mogą być przenoszone względem siebie, na przykład jeden projekt może zostać przeniesiony poniżej innego projektu, stając się jego potomkiem/podprojektem."
 
 #. (para)
 msgid ""
@@ -17844,54 +17890,8 @@ msgid ""
 msgstr "Otwiera okno dziennika. <option>/path</option> wskazuje plik lub folder dla którefo ma zostać wyświetlony dziennik. Mogą zostać ustawione dodatkowe opcje: <placeholder-1/>"
 
 #. (para)
-msgid "{2006-02-17}"
-msgstr "{2006-02-17}"
-
-#. (para)
-msgid "{15:30}"
-msgstr "{15:30}"
-
-#. (para)
-msgid "{15:30:00.200000}"
-msgstr "{15:30:00.200000}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30\"}"
-msgstr "{\"2006-02-17 15:30\"}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr "{\"2006-02-17 15:30 +0230\"}"
-
-#. (para)
-msgid "{2006-02-17T15:30}"
-msgstr "{2006-02-17T15:30}"
-
-#. (para)
-msgid "{2006-02-17T15:30Z}"
-msgstr "{2006-02-17T15:30Z}"
-
-#. (para)
-msgid "{2006-02-17T15:30-04:00}"
-msgstr "{2006-02-17T15:30-04:00}"
-
-#. (para)
-msgid "{20060217T1530}"
-msgstr "{20060217T1530}"
-
-#. (para)
-msgid "{20060217T1530Z}"
-msgstr "{20060217T1530Z}"
-
-#. (para)
-msgid "{20060217T1530-0500}"
-msgstr "{20060217T1530-0500}"
-
-#. (para)
-msgid ""
-"An svn date revision can be in one of the following formats: "
-"<placeholder-1/>"
-msgstr "Data wersji svn może być w jednym z następujących formatów: <placeholder-1/>"
+msgid "An svn date revision can be in one of the following formats:"
+msgstr "Data wersji svn może mieć jeden z poniższych formatów:"
 
 #. (option)
 #. (option)

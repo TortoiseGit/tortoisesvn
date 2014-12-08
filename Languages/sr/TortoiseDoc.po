@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 10:21+0000\n"
+"PO-Revision-Date: 2014-12-04 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -15067,12 +15067,16 @@ msgid ""
 msgstr "Док радимо на ТортоисеСВН волимо да слушамо музику. Трошећи много сати на пројекту користимо <emphasis>много</emphasis> музике. Зато смо направили листу жеља са нашим омиљеним ЦДима и ДВДима: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Молимо да погледате и листу људи који учествују у пројекту слањем закрпа или превода."
 
 #. (title)
-msgid "Commit Monitor"
-msgstr "Монитор урезивања"
+msgid "Project Monitor"
+msgstr ""
 
 #. (primary)
 msgid "commit monitor"
 msgstr "монитор урезивања"
+
+#. (primary)
+msgid "project monitor"
+msgstr ""
 
 #. (primary)
 msgid "remote commits"
@@ -15084,9 +15088,35 @@ msgstr "надгледање пројекта"
 
 #. (para)
 msgid ""
-"The commit monitor is a helpful tool that monitors repositories and notifies"
-" you in case there are new commits."
-msgstr "Монитор урезивања је помоћни алат који надгледа спремишта и нотира вам у случају да има нових урезивања."
+"The project monitor is a helpful tool that monitors repositories and "
+"notifies you in case there are new commits."
+msgstr ""
+
+#. (para)
+msgid ""
+"The projects can be monitored via a working copy path or directly via their "
+"repository URLs."
+msgstr ""
+
+#. (para)
+msgid ""
+"The project monitor scans each project in a configurable interval, and every"
+" time new commits are detected a notification popup is shown. Also the icon "
+"that is added to the system tray changes to indicate that there are new "
+"commits."
+msgstr ""
+
+#. (title)
+msgid "Snarl"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <ulink "
+"url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
+"installed and active, then the project monitor automatically uses Snarl to "
+"show the notifications about newly detected commits."
+msgstr ""
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15094,14 +15124,14 @@ msgstr "Додавање пројекта у монитор"
 
 #. (para)
 msgid ""
-"If you first start the commit monitor, the tree view on the left side is "
+"If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr "Ако најпре покренете монитор урезивања, троструки преглед с леве стране је празан. Да додате пројекте кликните на дугме на врху дијалога означено као <guibutton>Додај пројекат</guibutton>."
+msgstr ""
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
-msgstr "Дијалог уређења пројекта монитора урезивања "
+msgid "The edit project dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15130,23 +15160,39 @@ msgstr "Само поља <literal>Име корисника</literal> и <liter
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
-"wait in between checks."
-msgstr "<literal>Монитор интервал у минутама</literal> одређује минуте за чекање између провера."
+"wait in between checks. The smallest interval is one minute."
+msgstr ""
+
+#. (title)
+msgid "check interval"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there are a lot of users monitoring the same repository and the bandwith "
+"on the server is limited, a repository admin can set the minimum for check "
+"intervals using an <filename>svnrobots.txt</filename> file. A detailed "
+"explanation on how this works can be found on the CommitMonitor website:"
+msgstr ""
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+msgstr ""
 
 #. (title)
 msgid "Monitor dialog"
 msgstr "Монитор дијалог"
 
 #. (title)
-msgid "The main dialog of the commit monitor"
-msgstr "Главни дијалог монитора урезивања"
+msgid "The main dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
-"<placeholder-1/> The commit monitor shows all monitored projects on the left"
-" in a tree view. The projects can be moved around, for example one project "
-"can be moved below another project, making it a child/subproject."
-msgstr "<placeholder-1/> Монитор урезивања приказује све посматране пројекте у левом троструком прегледу. Пројекти могу бити померени, на пример један пројекта може бити померен испод другог пројекта чинћи га потомачки/подпројекат."
+"<placeholder-1/> The project monitor shows all monitored projects on the "
+"left in a tree view. The projects can be moved around, for example one "
+"project can be moved below another project, making it a child/subproject."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15163,17 +15209,17 @@ msgstr "Пројекти који су усклађени приказани с�
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "Главне операције"
 
 #. (para)
 msgid ""
 "The toolbar at the top of the dialog allows to configure and operate the "
 "project monitor."
-msgstr ""
+msgstr "Алат панел на врху дијалога омогућава да се конфигурише и извршава пројектни монитор."
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "Кликни сада"
 
 #. (para)
 msgid ""
@@ -15181,15 +15227,15 @@ msgid ""
 " up, clicking this button will force a check of all projects immediately. "
 "Note that if there are updates, the notification won't show up until all "
 "projects have been checked."
-msgstr ""
+msgstr "Док се сваки посматрани пројекат проверава сагласно интервалу који је подешен, кликтањем на ово дугме форсираће проверу свих пројеката тренутно. Приметимо да ако има усклађивања означавање неће бити приказано све док се пројекат не провери."
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Додај пројекат"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
-msgstr ""
+msgstr "Отвара нови дијалог да се подеси нови пројекат за надгледање."
 
 #. (term)
 msgid "Edit"
@@ -15197,7 +15243,7 @@ msgstr "Уреди"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
-msgstr ""
+msgstr "Отвара конфигурациони дијалог за изабрани пројекат."
 
 #. (term)
 msgid "Remove"
@@ -15205,29 +15251,29 @@ msgstr "Уклони"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "Уклоните изабрани пројекат после потврђивања приказаног дијалога."
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "Означи све за читање"
 
 #. (para)
 msgid ""
 "Marks all revisions in all projects as read. Note that if you select a "
 "project with unread revisions, those revisions are automatically marked as "
 "read when you select another project."
-msgstr ""
+msgstr "Означи све ревизије у свим пројектима за читање. Приметимо да ако изаберете пројекат са ревизијом која није за читање, ове ревизије су аутоматски означене за читање када изаберете други пројекат."
 
 #. (term)
 msgid "Update all"
-msgstr ""
+msgstr "Ускладите све"
 
 #. (para)
 msgid ""
 "Runs an <command>Update</command> on all monitored working copies. Projects "
 "that are monitored via an url are not updated, only those that are set up "
 "with a working copy path."
-msgstr ""
+msgstr "Извршите <command>Усклади</command> на свим посматраним радним копијама. Пројекти који се надгледају преко урл нису усклађени, само они који су усклађени са путањом радне копије."
 
 #. (term)
 msgid "Options"
@@ -15235,7 +15281,7 @@ msgstr "Опције"
 
 #. (para)
 msgid "Shows a dialog to configure the behavior of the project monitor."
-msgstr ""
+msgstr "Приказује дијалог за конфигурацију понашања надгледања пројекта."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -17843,54 +17889,8 @@ msgid ""
 msgstr "Отвара дијалог дневника. <option>/path</option> : <placeholder-1/> специфицира фајл или фолдер за који је дневник приказан. Додатне опције се могу подесити: <placeholder-1/>"
 
 #. (para)
-msgid "{2006-02-17}"
-msgstr "{2006-02-17}"
-
-#. (para)
-msgid "{15:30}"
-msgstr "{15:30}"
-
-#. (para)
-msgid "{15:30:00.200000}"
-msgstr "{15:30:00.200000}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30\"}"
-msgstr "{\"2006-02-17 15:30\"}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr "{\"2006-02-17 15:30 +0230\"}"
-
-#. (para)
-msgid "{2006-02-17T15:30}"
-msgstr "{2006-02-17T15:30}"
-
-#. (para)
-msgid "{2006-02-17T15:30Z}"
-msgstr "{2006-02-17T15:30Z}"
-
-#. (para)
-msgid "{2006-02-17T15:30-04:00}"
-msgstr "{2006-02-17T15:30-04:00}"
-
-#. (para)
-msgid "{20060217T1530}"
-msgstr "{20060217T1530}"
-
-#. (para)
-msgid "{20060217T1530Z}"
-msgstr "{20060217T1530Z}"
-
-#. (para)
-msgid "{20060217T1530-0500}"
-msgstr "{20060217T1530-0500}"
-
-#. (para)
-msgid ""
-"An svn date revision can be in one of the following formats: "
-"<placeholder-1/>"
-msgstr "Свн датум ревизије може бити један од следећих формата: <placeholder-1/>"
+msgid "An svn date revision can be in one of the following formats:"
+msgstr ""
 
 #. (option)
 #. (option)

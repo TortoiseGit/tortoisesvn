@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 10:21+0000\n"
+"PO-Revision-Date: 2014-12-04 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -15067,12 +15067,16 @@ msgid ""
 msgstr "TortoiseSVNで作業している間、私たちは音楽を聴くのが大好きです。我々はプロジェクトに多くの時間を費やしているため、<emphasis>多くの</emphasis>音楽が必要です。そこで、私たちの好きな音楽のCDやDVDのウィッシュリストを、 <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> で公開しています。また、パッチや翻訳を提供してプロジェクトに貢献している人のリストもご覧ください。"
 
 #. (title)
-msgid "Commit Monitor"
-msgstr "コミットモニター"
+msgid "Project Monitor"
+msgstr ""
 
 #. (primary)
 msgid "commit monitor"
 msgstr "コミットモニター"
+
+#. (primary)
+msgid "project monitor"
+msgstr ""
 
 #. (primary)
 msgid "remote commits"
@@ -15084,9 +15088,35 @@ msgstr "モニター中のプロジェクト"
 
 #. (para)
 msgid ""
-"The commit monitor is a helpful tool that monitors repositories and notifies"
-" you in case there are new commits."
-msgstr "コミットモニターは、リポジトリを監視して新しいコミットがあった時に通知する便利なツールです。"
+"The project monitor is a helpful tool that monitors repositories and "
+"notifies you in case there are new commits."
+msgstr ""
+
+#. (para)
+msgid ""
+"The projects can be monitored via a working copy path or directly via their "
+"repository URLs."
+msgstr ""
+
+#. (para)
+msgid ""
+"The project monitor scans each project in a configurable interval, and every"
+" time new commits are detected a notification popup is shown. Also the icon "
+"that is added to the system tray changes to indicate that there are new "
+"commits."
+msgstr ""
+
+#. (title)
+msgid "Snarl"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <ulink "
+"url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
+"installed and active, then the project monitor automatically uses Snarl to "
+"show the notifications about newly detected commits."
+msgstr ""
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15094,14 +15124,14 @@ msgstr "プロジェクトをモニターに追加"
 
 #. (para)
 msgid ""
-"If you first start the commit monitor, the tree view on the left side is "
+"If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr "コミットモニターを始めて使用するとき、左側のツリービューは空です。プロジェクトを追加するには、ダイアログの上にある<guibutton>プロジェクトを追加</guibutton>と書かれたボタンをクリックしてください。"
+msgstr ""
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
-msgstr "コミットモニターのプロジェクトの編集ダイアログ"
+msgid "The edit project dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15130,23 +15160,39 @@ msgstr "<literal>ユーザー名</literal>と<literal>パスワード</literal>�
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
-"wait in between checks."
-msgstr " <literal>監視間隔（分）</literal> は監視する間の待ち時間を指定します。"
+"wait in between checks. The smallest interval is one minute."
+msgstr ""
+
+#. (title)
+msgid "check interval"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there are a lot of users monitoring the same repository and the bandwith "
+"on the server is limited, a repository admin can set the minimum for check "
+"intervals using an <filename>svnrobots.txt</filename> file. A detailed "
+"explanation on how this works can be found on the CommitMonitor website:"
+msgstr ""
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+msgstr ""
 
 #. (title)
 msgid "Monitor dialog"
 msgstr "モニターダイアログ"
 
 #. (title)
-msgid "The main dialog of the commit monitor"
-msgstr "コミットダイアログのメインダイアログ"
+msgid "The main dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
-"<placeholder-1/> The commit monitor shows all monitored projects on the left"
-" in a tree view. The projects can be moved around, for example one project "
-"can be moved below another project, making it a child/subproject."
-msgstr "<placeholder-1/> コミットモニターは監視中のプロジェクトを左のツリービューに表示します。プロジェクトは移動することが可能で、例えばあるプロジェクトを他のプロジェクトの下位に移動して、子プロジェクトや下位プロジェクトにすることができます。"
+"<placeholder-1/> The project monitor shows all monitored projects on the "
+"left in a tree view. The projects can be moved around, for example one "
+"project can be moved below another project, making it a child/subproject."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17843,54 +17889,8 @@ msgid ""
 msgstr "ログダイアログを開きます。<option>/path</option>でログを表示するファイルやフォルダーを指定します。その他のオプションは次の通りです。<placeholder-1/>"
 
 #. (para)
-msgid "{2006-02-17}"
-msgstr "{2006-02-17}"
-
-#. (para)
-msgid "{15:30}"
-msgstr "{15:30}"
-
-#. (para)
-msgid "{15:30:00.200000}"
-msgstr "{15:30:00.200000}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30\"}"
-msgstr "{\"2006-02-17 15:30\"}"
-
-#. (para)
-msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr "{\"2006-02-17 15:30 +0230\"}"
-
-#. (para)
-msgid "{2006-02-17T15:30}"
-msgstr "{2006-02-17T15:30}"
-
-#. (para)
-msgid "{2006-02-17T15:30Z}"
-msgstr "{2006-02-17T15:30Z}"
-
-#. (para)
-msgid "{2006-02-17T15:30-04:00}"
-msgstr "{2006-02-17T15:30-04:00}"
-
-#. (para)
-msgid "{20060217T1530}"
-msgstr "{20060217T1530}"
-
-#. (para)
-msgid "{20060217T1530Z}"
-msgstr "{20060217T1530Z}"
-
-#. (para)
-msgid "{20060217T1530-0500}"
-msgstr "{20060217T1530-0500}"
-
-#. (para)
-msgid ""
-"An svn date revision can be in one of the following formats: "
-"<placeholder-1/>"
-msgstr "SVNの日付のリビジョンは次の書式のうちの一つが使用できます。<placeholder-1/>"
+msgid "An svn date revision can be in one of the following formats:"
+msgstr ""
 
 #. (option)
 #. (option)

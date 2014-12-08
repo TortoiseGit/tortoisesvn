@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-01 10:07+0000\n"
+"PO-Revision-Date: 2014-12-04 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -15074,12 +15074,16 @@ msgid ""
 msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder <emphasis>neue</emphasis> Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet, von denen aus Sie uns Musik-CD's und auch mal eine DVD schenken können: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink>. Bitte werfen Sie auch einen Blick auf die Liste der Personen, die das Projekt z.B. durch Übersetzungen unterstützt haben."
 
 #. (title)
-msgid "Commit Monitor"
-msgstr "Projektmonitor"
+msgid "Project Monitor"
+msgstr ""
 
 #. (primary)
 msgid "commit monitor"
 msgstr "Projektmonitor"
+
+#. (primary)
+msgid "project monitor"
+msgstr ""
 
 #. (primary)
 msgid "remote commits"
@@ -15091,9 +15095,35 @@ msgstr "Projekte beobachten"
 
 #. (para)
 msgid ""
-"The commit monitor is a helpful tool that monitors repositories and notifies"
-" you in case there are new commits."
-msgstr "Der Projektmonitor ist ein nützliches Werkzeug, das Projekarchive beobachtet und Sie benachrichtigt, falls es neue Übertragungen gibt."
+"The project monitor is a helpful tool that monitors repositories and "
+"notifies you in case there are new commits."
+msgstr ""
+
+#. (para)
+msgid ""
+"The projects can be monitored via a working copy path or directly via their "
+"repository URLs."
+msgstr ""
+
+#. (para)
+msgid ""
+"The project monitor scans each project in a configurable interval, and every"
+" time new commits are detected a notification popup is shown. Also the icon "
+"that is added to the system tray changes to indicate that there are new "
+"commits."
+msgstr ""
+
+#. (title)
+msgid "Snarl"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <ulink "
+"url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
+"installed and active, then the project monitor automatically uses Snarl to "
+"show the notifications about newly detected commits."
+msgstr ""
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15101,14 +15131,14 @@ msgstr "Projekte zum Monitor hinzufügen"
 
 #. (para)
 msgid ""
-"If you first start the commit monitor, the tree view on the left side is "
+"If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr "Wenn Sie den Projektmonitor das erste Mal starten, ist die Baumansicht auf der linken Seite leer. Ein neues Projekte fügen Sie mit der Schaltfläche zum <guibutton>Projekt hinzufügen</guibutton> Monitor hinzu."
+msgstr ""
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
-msgstr "Der Dialog zum Bearbeiten der Projekte"
+msgid "The edit project dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15137,23 +15167,39 @@ msgstr ""
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
-"wait in between checks."
-msgstr "Das <literal>Überwachungsintervall in Minuten</literal> legt die Zeit zwischen zwei Überprüfungen fest."
+"wait in between checks. The smallest interval is one minute."
+msgstr ""
+
+#. (title)
+msgid "check interval"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there are a lot of users monitoring the same repository and the bandwith "
+"on the server is limited, a repository admin can set the minimum for check "
+"intervals using an <filename>svnrobots.txt</filename> file. A detailed "
+"explanation on how this works can be found on the CommitMonitor website:"
+msgstr ""
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+msgstr ""
 
 #. (title)
 msgid "Monitor dialog"
 msgstr "Monitordialog"
 
 #. (title)
-msgid "The main dialog of the commit monitor"
-msgstr "Der Hauptdialog des Projektmonitors"
+msgid "The main dialog of the project monitor"
+msgstr ""
 
 #. (para)
 msgid ""
-"<placeholder-1/> The commit monitor shows all monitored projects on the left"
-" in a tree view. The projects can be moved around, for example one project "
-"can be moved below another project, making it a child/subproject."
-msgstr "<placeholder-1/> Der Projektmonitor stellt alle überwachten Projekte in einer Baumansicht am linken Rand dar. Die Projekte können im Baum verschoben werden, so kann zum Beispiel ein Projekt zu einem Unterprojekt eines anderen gemacht werden."
+"<placeholder-1/> The project monitor shows all monitored projects on the "
+"left in a tree view. The projects can be moved around, for example one "
+"project can be moved below another project, making it a child/subproject."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15170,17 +15216,17 @@ msgstr "Projekte mit Aktualisierungen werden fett angezeigt, mit der Anzahl der 
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "Hauptaktionen"
 
 #. (para)
 msgid ""
 "The toolbar at the top of the dialog allows to configure and operate the "
 "project monitor."
-msgstr ""
+msgstr "Mit der Werkzeugleiste am oberen Rand richten Sie den Projektmonitor ein und bedienen ihne"
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "Jetzt prüfen"
 
 #. (para)
 msgid ""
@@ -15188,15 +15234,15 @@ msgid ""
 " up, clicking this button will force a check of all projects immediately. "
 "Note that if there are updates, the notification won't show up until all "
 "projects have been checked."
-msgstr ""
+msgstr "Während jedes Projekt entsprechend dem für es eingestellten Intervalls beobachtet wird, erzwingt diese Schaltfläche eine sofortige Aktualisierung für alle Projekte. Falls es Benachrichtigungen gibt, werden diese erst angezeigt, nachdem alle Projekte geprüft wurden."
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Projekt hinzufügen"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
-msgstr ""
+msgstr "Öffnet einen Dialog mit dem Sie ein neues Projekt zur Beobachtungsliste hinzufügen können."
 
 #. (term)
 msgid "Edit"
@@ -15204,7 +15250,7 @@ msgstr "Bearbeiten"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
-msgstr ""
+msgstr "Öffnet den Einstellungsdialog für das gewählte Projekt."
 
 #. (term)
 msgid "Remove"
@@ -15212,29 +15258,29 @@ msgstr "Entfernen"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "Entfernt das gewählte Projekt, nachdem eine Bestätigung angezeigt wurde."
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "Markiert alle als gelesen"
 
 #. (para)
 msgid ""
 "Marks all revisions in all projects as read. Note that if you select a "
 "project with unread revisions, those revisions are automatically marked as "
 "read when you select another project."
-msgstr ""
+msgstr "Markiert alle Revisionen in allen Projekten als gelesen. Wenn Sie von einem Projekt mit ungelesenen Revisionen zu einem anderen Projekt wechseln, werden diese Revisionen automatisch als gelesen markiert."
 
 #. (term)
 msgid "Update all"
-msgstr ""
+msgstr "Alle aktualisieren"
 
 #. (para)
 msgid ""
 "Runs an <command>Update</command> on all monitored working copies. Projects "
 "that are monitored via an url are not updated, only those that are set up "
 "with a working copy path."
-msgstr ""
+msgstr "Führt den Befehl <command>Aktualisieren</command> für alle beobachteten Projekte aus. Projekte, die per URL beobachtet werden, werden nicht aktualisiert, nur solche, die mit einer Arbeitskopie als Pfad eingerichtet wurden."
 
 #. (term)
 msgid "Options"
@@ -15242,7 +15288,7 @@ msgstr "Einstellungen"
 
 #. (para)
 msgid "Shows a dialog to configure the behavior of the project monitor."
-msgstr ""
+msgstr "Öffnet einen Dialog mit dem das Verhalten des Projektmonitors eingestellt werden kann."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -17765,28 +17811,28 @@ msgstr "<option>/merge</option> aktiviert die Option \"Versionen vom Zusammenfü
 msgid ""
 "<option>/datemin:\"{datestring}\"</option> sets the start date of the "
 "filter, and"
-msgstr ""
+msgstr "<option>/datemin:\"{Datumsangabe}\"</option> setzt das Startdatum des Filters und"
 
 #. (para)
 msgid ""
 "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
 "The date format is the same as used for svn date revisions."
-msgstr ""
+msgstr "<option>/datemax:\"{Datumsangabe}\"</option> setzt das Enddatum des Filters. Das Datumsformat ist das gleiche wie für SVN Datumsangaben."
 
 #. (para)
 msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
-msgstr ""
+msgstr "<option>/findstring:\"Filtertext\"</option> füllt den Filtertext aus,"
 
 #. (para)
 msgid ""
 "<option>/findtext</option> forces the filter to use text, not regex, or"
-msgstr ""
+msgstr "<option>/findtext</option> erzwingt einfache Textsuche anstelle RegEx oder"
 
 #. (para)
 msgid ""
 "<option>/findregex</option> forces the filter to use regex, not simple text "
 "search, and"
-msgstr ""
+msgstr "<option>/findregex</option> erzwingt die Filterung nach RegEx anstelle einfacher Textsuche und"
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17832,7 +17878,7 @@ msgstr "<option>/findtype:256</option> Filtere nach Datumsbereich"
 msgid ""
 "<option>/findtype:X</option> with X being a number between 0 and 511. The "
 "numbers are the sum of the following options: <placeholder-1/>"
-msgstr ""
+msgstr "<option>/findtype:X</option>, wobei X eine Zahl zwischen 0 und 511 ist. Der Wert ist die Summe der folgenden Optionen: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -17840,64 +17886,18 @@ msgid ""
 "revisions are written to that file when the log dialog is closed. The "
 "revisions are written in the same format as is used to specify revisions in "
 "the merge dialog."
-msgstr ""
+msgstr "Wenn die Option <option>/outfile:Pfad\\zu\\Datei</option> spezifiziert ist, werden die gewählten Revisionen in diese Datei geschrieben, sobald der Log-Dialog geschlossen wird. Die Revisionen werden in dem gleichen Format herausgeschrieben, wie es zur Angabe von Revisionen im Zusammenführen-Dialog Verwendung findet."
 
 #. (para)
 msgid ""
 "Opens the log dialog. The <option>/path</option> specifies the file or "
 "folder for which the log should be shown. Additional options can be set: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Öffnet den Log-Dialog. Die Option <option>/path</option> legt die Datei oder den Ordner fest, für den der Log-Dialog angezeigt werden soll. Weitere Optionen können mit <placeholder-1> definiert werden."
 
 #. (para)
-msgid "{2006-02-17}"
-msgstr ""
-
-#. (para)
-msgid "{15:30}"
-msgstr ""
-
-#. (para)
-msgid "{15:30:00.200000}"
-msgstr ""
-
-#. (para)
-msgid "{\"2006-02-17 15:30\"}"
-msgstr ""
-
-#. (para)
-msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30Z}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30-04:00}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530Z}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530-0500}"
-msgstr ""
-
-#. (para)
-msgid ""
-"An svn date revision can be in one of the following formats: "
-"<placeholder-1/>"
-msgstr ""
+msgid "An svn date revision can be in one of the following formats:"
+msgstr "Eine SVN Datumsangabe kann in den folgenden Formaten erfolgen:"
 
 #. (option)
 #. (option)

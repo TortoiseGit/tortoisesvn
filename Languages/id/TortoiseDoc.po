@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 10:21+0000\n"
+"PO-Revision-Date: 2014-12-04 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -15066,11 +15066,15 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "Commit Monitor"
+msgid "Project Monitor"
 msgstr ""
 
 #. (primary)
 msgid "commit monitor"
+msgstr ""
+
+#. (primary)
+msgid "project monitor"
 msgstr ""
 
 #. (primary)
@@ -15083,8 +15087,34 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The commit monitor is a helpful tool that monitors repositories and notifies"
-" you in case there are new commits."
+"The project monitor is a helpful tool that monitors repositories and "
+"notifies you in case there are new commits."
+msgstr ""
+
+#. (para)
+msgid ""
+"The projects can be monitored via a working copy path or directly via their "
+"repository URLs."
+msgstr ""
+
+#. (para)
+msgid ""
+"The project monitor scans each project in a configurable interval, and every"
+" time new commits are detected a notification popup is shown. Also the icon "
+"that is added to the system tray changes to indicate that there are new "
+"commits."
+msgstr ""
+
+#. (title)
+msgid "Snarl"
+msgstr ""
+
+#. (para)
+msgid ""
+"If <ulink "
+"url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
+"installed and active, then the project monitor automatically uses Snarl to "
+"show the notifications about newly detected commits."
 msgstr ""
 
 #. (title)
@@ -15093,13 +15123,13 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you first start the commit monitor, the tree view on the left side is "
+"If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
 msgstr ""
 
 #. (title)
-msgid "The edit project dialog of the commit monitor"
+msgid "The edit project dialog of the project monitor"
 msgstr ""
 
 #. (para)
@@ -15129,7 +15159,23 @@ msgstr ""
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
-"wait in between checks."
+"wait in between checks. The smallest interval is one minute."
+msgstr ""
+
+#. (title)
+msgid "check interval"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there are a lot of users monitoring the same repository and the bandwith "
+"on the server is limited, a repository admin can set the minimum for check "
+"intervals using an <filename>svnrobots.txt</filename> file. A detailed "
+"explanation on how this works can be found on the CommitMonitor website:"
+msgstr ""
+
+#. (citetitle)
+msgid "http://stefanstools.sourceforge.net/svnrobots.html"
 msgstr ""
 
 #. (title)
@@ -15137,14 +15183,14 @@ msgid "Monitor dialog"
 msgstr ""
 
 #. (title)
-msgid "The main dialog of the commit monitor"
+msgid "The main dialog of the project monitor"
 msgstr ""
 
 #. (para)
 msgid ""
-"<placeholder-1/> The commit monitor shows all monitored projects on the left"
-" in a tree view. The projects can be moved around, for example one project "
-"can be moved below another project, making it a child/subproject."
+"<placeholder-1/> The project monitor shows all monitored projects on the "
+"left in a tree view. The projects can be moved around, for example one "
+"project can be moved below another project, making it a child/subproject."
 msgstr ""
 
 #. (para)
@@ -17842,53 +17888,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "{2006-02-17}"
-msgstr ""
-
-#. (para)
-msgid "{15:30}"
-msgstr ""
-
-#. (para)
-msgid "{15:30:00.200000}"
-msgstr ""
-
-#. (para)
-msgid "{\"2006-02-17 15:30\"}"
-msgstr ""
-
-#. (para)
-msgid "{\"2006-02-17 15:30 +0230\"}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30Z}"
-msgstr ""
-
-#. (para)
-msgid "{2006-02-17T15:30-04:00}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530Z}"
-msgstr ""
-
-#. (para)
-msgid "{20060217T1530-0500}"
-msgstr ""
-
-#. (para)
-msgid ""
-"An svn date revision can be in one of the following formats: "
-"<placeholder-1/>"
+msgid "An svn date revision can be in one of the following formats:"
 msgstr ""
 
 #. (option)
