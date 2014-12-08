@@ -8971,10 +8971,16 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
                 m_projTree.SelectItem(NULL);
                 if (pResult)
                     *pResult = 1;   // prevent default processing
+                // restart the timer
+                SetTimer(MONITOR_TIMER, 60 * 1000, NULL);
                 return;
             }
         }
         m_bCancelled = false;
+
+        // while the user is looking at the logs, delay the monitoring
+        // thread from starting too soon again
+        SetTimer(MONITOR_TIMER, 60 * 1000, NULL);
 
         svn_revnum_t head = pItem->lastHEAD;
         if (head == 0)
