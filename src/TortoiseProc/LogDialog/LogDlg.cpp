@@ -8054,7 +8054,6 @@ void CLogDlg::OnMonitorCheckNow()
     pMsgView->SetWindowText(L"");
     m_logEntries.ClearAll();
     GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-
     // mark all entries as 'never checked before'
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
@@ -8316,6 +8315,7 @@ void CLogDlg::MonitorTimer()
 
     if (!m_monitorItemListForThread.empty())
     {
+        m_bCancelled = false;
         InterlockedExchange(&m_bMonitorThreadRunning, TRUE);
         new async::CAsyncCall(this, &CLogDlg::MonitorThread, &netScheduler);
     }
@@ -8915,8 +8915,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
 
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
-        m_bCancelled = true;
-
         return;
     }
     MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
@@ -8946,7 +8944,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
             FillLogMessageCtrl(false);
             m_path.Reset();
             GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-            m_bCancelled = true;
             return;
         }
         // to avoid the log cache from being accessed from two threads
