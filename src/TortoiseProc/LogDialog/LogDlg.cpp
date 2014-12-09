@@ -8045,6 +8045,11 @@ HTREEITEM CLogDlg::FindMonitorItem(const CString& wcpathorurl)
 
 void CLogDlg::OnMonitorCheckNow()
 {
+    if (m_bLogThreadRunning || m_bMonitorThreadRunning || netScheduler.GetRunningThreadCount())
+    {
+        SetDlgItemText(IDC_LOGINFO, CString(MAKEINTRESOURCE(IDS_MONITOR_THREADRUNNING)));
+        return;
+    }
     // clear the log view
     m_ChangedFileListCtrl.SetItemCountEx(0);
     m_ChangedFileListCtrl.Invalidate();
