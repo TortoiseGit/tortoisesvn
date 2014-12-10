@@ -139,6 +139,13 @@
         <include name="doc\doc.build" />
       </buildfiles>
     </nant>
+    <if test="${devrelease != '-dev'}">
+      <move todir="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Documentation">
+        <fileset basedir="doc\output">
+          <include name="*.pdf" />
+        </fileset>
+      </move>
+    </if>
   </target>
 
   <target name="docpot" depends="VSNET,env">
@@ -268,9 +275,16 @@
         <include name="Languages\LanguagePack.build" />
       </buildfiles>
     </nant>
+    <if test="${devrelease != '-dev'}">
+      <move todir="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Language Packs">
+        <fileset basedir="bin">
+          <include name="LanguagePack*.msi" />
+        </fileset>
+      </move>
+    </if>
   </target>
 
-  <target name="msi" depends="env">
+  <target name="msi" depends="env,VersionInfo">
     <description>
       Builds the msi installer from already built binaries.
     </description>
@@ -283,6 +297,18 @@
         <include name="src\TortoiseSVNSetup\setup.build" />
       </buildfiles>
     </nant>
+    <if test="${devrelease != '-dev'}">
+      <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+      <property name="svnverstring" value="${environment::get-variable('SVNMajorVersion')}.${environment::get-variable('SVNMinorVersion')}.${environment::get-variable('SVNMicroVersion')}" />
+      <if test="${ipv6 == ''}">
+        <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-${svnverstring}" />
+        <move file="bin\${msifilename}.msi" tofile="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application\${msifilename}.msi" />
+      </if>
+      <if test="${ipv6 != ''}">
+        <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-ipv6-svn-${svnverstring}" />
+        <move file="bin\${msifilename}.msi" tofile="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application\ipv6\${msifilename}.msi" />
+      </if>
+    </if>
   </target>
 
   <target name="tabspace" depends="env">
@@ -514,7 +540,7 @@
     </if>
   </target>
 
-  <target name="changelog" depends="VSNET,env">
+  <target name="changelog" depends="VSNET,env,VersionInfo">
     <description>
       Creates an md file (markdown) from the changelog file
     </description>
@@ -564,6 +590,9 @@ Make sure to also check the [changelog of Subversion](http://svn.apache.org/repo
         <import namespace="System.Xml.XPath" />
       </imports>
     </script>
+    <if test="${devrelease != '-dev'}">
+      <copy file="bin\README.md" tofile="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\README.md" />
+    </if>
   </target>
 
   <target name="chocolatey" depends="env, VersionInfo">
