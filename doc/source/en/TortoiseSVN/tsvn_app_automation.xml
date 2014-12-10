@@ -39,10 +39,9 @@
     </para>
     <para>
       There's a special command that does not require the parameter <option>/command:abcd</option>
-      but instead starts if nothing is specified on the command line: the project
-      monitor. If <option>/tray</option>
-      is specified, the project monitor starts hidden and only adds its icon
-      to the system tray.
+      but, if nothing is specified on the command line, starts the project monitor instead.
+      If <option>/tray</option> is specified, the project monitor starts hidden and only 
+      adds its icon to the system tray.
     </para>
     <para>
       Since some of the commands can take a list of target paths (e.g. committing
