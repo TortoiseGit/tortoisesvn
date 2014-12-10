@@ -436,7 +436,7 @@ All user/site specific configuration is stored in doc.build.user.
 
   <target name="pdf" description="Create PDF documentation">
 
-    <property name="file.target" value="output/${app}-${docverstring}-${lang.target}.pdf" />
+    <property name="file.target" value="output/${app}-${docverstring}.${environment::get-variable('MicroVersion')}-${lang.target}.pdf" />
     <call target="uptodate" />
 
     <if test="${not file.target.uptodate}">
