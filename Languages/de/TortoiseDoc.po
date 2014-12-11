@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-04 09:59+0000\n"
+"PO-Revision-Date: 2014-12-11 07:52+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -15075,7 +15075,7 @@ msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne 
 
 #. (title)
 msgid "Project Monitor"
-msgstr ""
+msgstr "Projektmonitor"
 
 #. (primary)
 msgid "commit monitor"
@@ -15083,7 +15083,7 @@ msgstr "Projektmonitor"
 
 #. (primary)
 msgid "project monitor"
-msgstr ""
+msgstr "Projektmonitor"
 
 #. (primary)
 msgid "remote commits"
@@ -15097,13 +15097,13 @@ msgstr "Projekte beobachten"
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr ""
+msgstr "Der Projektmonitor ist ein nützliches Werkzeug, das Projekarchive beobachtet und Sie benachrichtigt, falls es neue Übertragungen gibt."
 
 #. (para)
 msgid ""
 "The projects can be monitored via a working copy path or directly via their "
 "repository URLs."
-msgstr ""
+msgstr "Die Projektarchive können entweder über den Pfad ihrer Arbeitskopie oder direkt über ihre URL beobachtet werden."
 
 #. (para)
 msgid ""
@@ -15111,11 +15111,11 @@ msgid ""
 " time new commits are detected a notification popup is shown. Also the icon "
 "that is added to the system tray changes to indicate that there are new "
 "commits."
-msgstr ""
+msgstr "Der Projektmonitor prüft jedes Projekt in einem einstellbaren Intervall auf Änderungen und zeigt, sobald solche erkannt werden, eine Benachrichtigung an. Außerdem wird ein Hinweissymbol im Windows Benachrichtigungsbereich angezeigt."
 
 #. (title)
 msgid "Snarl"
-msgstr ""
+msgstr "Snarl"
 
 #. (para)
 msgid ""
@@ -15123,7 +15123,7 @@ msgid ""
 "url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Wenn <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> installiert und aktiv ist, verwendet der Projektmonitor automatisch Snarl, um die Benachrichtigungen über neue Änderungen anzuzeigen."
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15134,11 +15134,11 @@ msgid ""
 "If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Wenn Sie den Projektmonitor das erste Mal starten, ist die Baumansicht auf der linken Seite leer. Ein neues Projekte fügen Sie mit der Schaltfläche zum <guibutton>Projekt hinzufügen</guibutton> Monitor hinzu."
 
 #. (title)
 msgid "The edit project dialog of the project monitor"
-msgstr ""
+msgstr "Der Dialog zum Bearbeiten der Projekte"
 
 #. (para)
 msgid ""
@@ -15162,29 +15162,25 @@ msgid ""
 "clients and you've stored the authentication already, you should leave this "
 "empty: you won't have to edit those projects manually if the password "
 "changes."
-msgstr ""
+msgstr "Die Felder <literal>Benutzername</literal> und <literal>Passwort</literal> sollten nur ausgefüllt werden, wenn das Projektarchiv keinen anonymen Lesezugriff erlaubt und nur, wenn die Anmeldedaten nicht bereits von Subversion selbst gespeichert wurden. Wenn Sie auf das Projektarchiv mit TortoiseSVN oder anderen SVN Clients zugreifen und die Anmeldedaten bereits gespeichert haben, sollten Sie diese Felder leer lassen. Sie müssen die Projekte dann nicht manuell anpassen, wenn sich zum Beispiel das Passwort ändert."
 
 #. (para)
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks. The smallest interval is one minute."
-msgstr ""
+msgstr "Das <literal>Überwachungsintervall in Minuten</literal> legt die Zeit zwischen zwei Überprüfungen fest. Das kleinste Intervall ist eine Minute."
 
 #. (title)
 msgid "check interval"
-msgstr ""
+msgstr "Überwachungsintervall begrenzen"
 
 #. (para)
 msgid ""
-"If there are a lot of users monitoring the same repository and the bandwith "
-"on the server is limited, a repository admin can set the minimum for check "
+"If there are a lot of users monitoring the same repository and the bandwidth"
+" on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
-"explanation on how this works can be found on the CommitMonitor website:"
-msgstr ""
-
-#. (citetitle)
-msgid "http://stefanstools.sourceforge.net/svnrobots.html"
-msgstr ""
+"explanation on how this works can be found on the project monitor website:"
+msgstr "Wenn viele Anwender ein Projektarchiv überwachen und die Bandbreite des Servers begrenzt ist, kann der Administrator eine Mindestgröße für die Überwachungsintervalle mittels einer <filename>svnrobots.txt</filename> Datei vorgeben. Eine detaillierte Erklärung wie dies funktioniert, finden Sie auf der Webseite des Projektmonitors:"
 
 #. (title)
 msgid "Monitor dialog"
@@ -15192,14 +15188,14 @@ msgstr "Monitordialog"
 
 #. (title)
 msgid "The main dialog of the project monitor"
-msgstr ""
+msgstr "Der Hauptdialog des Projektmonitors"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The project monitor shows all monitored projects on the "
 "left in a tree view. The projects can be moved around, for example one "
 "project can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Der Projektmonitor stellt alle überwachten Projekte in einer Baumansicht am linken Rand dar. Die Projekte können im Baum verschoben werden, so kann zum Beispiel ein Projekt zu einem Unterprojekt eines anderen gemacht werden."
 
 #. (para)
 msgid ""
@@ -17701,11 +17697,11 @@ msgstr "Das TortoiseSVN GUI Programm heißt <literal>TortoiseProc.exe</literal>.
 #. (para)
 msgid ""
 "There's a special command that does not require the parameter "
-"<option>/command:abcd</option> but instead starts if nothing is specified on"
-" the command line: the project monitor. If <option>/tray</option> is "
+"<option>/command:abcd</option> but, if nothing is specified on the command "
+"line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "Es gibt einen besonderen Befehl, der den Parameter <option>/command:abcd</option> nicht benötigt, sondern, wenn nichts auf der Befehlszeile übergeben wird, stattdessen den Projektmonitor startet. Mit der Option <option>/tray</option> startet der Projektmonitor verborgen als Symbol im Windows Benachrichtigungsbereich."
 
 #. (para)
 msgid ""
@@ -18520,19 +18516,19 @@ msgstr "Um den Dialog direkt für eine bestimmte Eigenschaft zu öffnen, überge
 msgid ""
 "Exports/imports settings, either depending on whether the current settings "
 "or the exported settings are newer, or as specified."
-msgstr ""
+msgstr "Exportiert oder importiert die Einstellungen wie angegeben oder abhängig davon, ob die aktuellen oder die exportierten Einstellungen neuer sind."
 
 #. (para)
 msgid ""
 "If a path is passed with <option>/path</option>, then the path is used to "
 "store or read the settings from."
-msgstr ""
+msgstr "Wenn mittels <option>/path</option> ein Pfad übergeben wird, wird dieser verwendet, um dort die Einstellungen zu lesen oder zu speichern."
 
 #. (para)
 msgid ""
 "The parameter <option>/askforpath</option> will show a file open/save dialog"
 " for the user to chose the export/import path."
-msgstr ""
+msgstr "Der Parameter <option>/askforpath</option> zeigt einen Datei öffnen/-speichern Dialog an, in dem der Anwender den Pfad auswählen kann."
 
 #. (para)
 msgid ""
@@ -18542,25 +18538,25 @@ msgid ""
 "than the current settings, then the settings are loaded from the file. If "
 "the current settings are more recent, then the settings are exported to the "
 "settings file."
-msgstr ""
+msgstr "Wenn weder die Option <option>/load</option> noch <option>/save</option> angegeben wird, bestimmt TortoiseSVN, ob die Einstellungen exportiert oder importiert werden sollen, anhand des Dateidatums. Wenn die exportierte Datei neuer ist, als die aktuellen Einstellungen, wird importiert, ansonsten exportiert."
 
 #. (para)
 msgid ""
 "If <option>/load</option> is specified, the settings are imported from the "
 "settings file."
-msgstr ""
+msgstr "Mit der Option <option>/load</option> werden die Einstellungen importiert."
 
 #. (para)
 msgid ""
 "If <option>/save</option> is specified, the current settings are exported to"
 " the settings file."
-msgstr ""
+msgstr "Mit der Option <option>/save</option> werden die Einstellungen exportiert."
 
 #. (para)
 msgid ""
 "The parameter <option>/local</option> forces a settings export to include "
 "local settings, i.e. settings that refer to local paths."
-msgstr ""
+msgstr "Der Parameter <option>/local</option> erzwingt, dass lokale Einstellungen, z.B. lokale Pfadnamen, im Export enthalten sind."
 
 #. (para)
 msgid ""
