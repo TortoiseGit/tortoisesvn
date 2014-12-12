@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-04 09:59+0000\n"
+"PO-Revision-Date: 2014-12-10 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -15065,7 +15065,7 @@ msgstr "TortoiseSVN:n kehittämisen lomassa kuuntelemme mieluusti musiikkia. Ja 
 
 #. (title)
 msgid "Project Monitor"
-msgstr ""
+msgstr "Projektiseurain"
 
 #. (primary)
 msgid "commit monitor"
@@ -15073,7 +15073,7 @@ msgstr "toimitusseurain"
 
 #. (primary)
 msgid "project monitor"
-msgstr ""
+msgstr "projektiseurain"
 
 #. (primary)
 msgid "remote commits"
@@ -15087,13 +15087,13 @@ msgstr "projektien seuranta"
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr ""
+msgstr "Projektiseurain on työkalu. joka tarkkailee arkistoja ja ilmoittaa niissä tapahtuneista uusista toimituksista."
 
 #. (para)
 msgid ""
 "The projects can be monitored via a working copy path or directly via their "
 "repository URLs."
-msgstr ""
+msgstr "Projekteja voidaan asettaa seurantaan työkopiopolun tai suoraan arkistopaikantimen avulla."
 
 #. (para)
 msgid ""
@@ -15101,11 +15101,11 @@ msgid ""
 " time new commits are detected a notification popup is shown. Also the icon "
 "that is added to the system tray changes to indicate that there are new "
 "commits."
-msgstr ""
+msgstr "Projektiseurain käy läpi kunkin projektin ennalta määritellyin väliajoin ja ilmoittaa aina, kun uusia toimituksia havaitaan. Ilmoitusalueen kuvake päivittyy myös ilmoittamaan uusista toimituksista."
 
 #. (title)
 msgid "Snarl"
-msgstr ""
+msgstr "Snarl"
 
 #. (para)
 msgid ""
@@ -15113,7 +15113,7 @@ msgid ""
 "url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Mikäli <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> on asennettu ja aktiivinen, projektiseurain käyttää automaattisesti sitä näyttämään ilmoitukset uusista toimituksista."
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15124,11 +15124,11 @@ msgid ""
 "If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Kun projektiseurain käynnistetään ensimmäistä kertaa, vasemmalla oleva puunäkymä on tyhjä. Napsauta ikkunan yläosassa olevaa <guibutton>Lisää projekti</guibutton> -painiketta lisätäksesi projekteja seurantaan."
 
 #. (title)
 msgid "The edit project dialog of the project monitor"
-msgstr ""
+msgstr "Projektiseuraimen projektinmuokkausikkuna"
 
 #. (para)
 msgid ""
@@ -15158,22 +15158,18 @@ msgstr "Kenttiä <literal>Käyttäjä</literal> ja <literal>Salasana</literal> t
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks. The smallest interval is one minute."
-msgstr ""
+msgstr "Asetus <literal>Tarkistusväli minuuteissa</literal> määrittää, kuinka usein tarkistus tehdään. Pienin väli on yksi minuutti."
 
 #. (title)
 msgid "check interval"
-msgstr ""
+msgstr "tarkistusväli"
 
 #. (para)
 msgid ""
-"If there are a lot of users monitoring the same repository and the bandwith "
-"on the server is limited, a repository admin can set the minimum for check "
+"If there are a lot of users monitoring the same repository and the bandwidth"
+" on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
-"explanation on how this works can be found on the CommitMonitor website:"
-msgstr ""
-
-#. (citetitle)
-msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+"explanation on how this works can be found on the project monitor website:"
 msgstr ""
 
 #. (title)
@@ -15182,14 +15178,14 @@ msgstr "Seurantaikkuna"
 
 #. (title)
 msgid "The main dialog of the project monitor"
-msgstr ""
+msgstr "Projektiseuraimen pääikkuna"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The project monitor shows all monitored projects on the "
 "left in a tree view. The projects can be moved around, for example one "
 "project can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Projektiseurain näyttää kaikki seuratut projektit vasemmalla olevassa puunäkymässä. Projekteja voidaan siirtää puussa vapaasti, vaikkapa toisen projektin aliprojektiksi."
 
 #. (para)
 msgid ""
@@ -15206,17 +15202,17 @@ msgstr "Projektit, joissa on päivityksia, näytetään lihavoituina; uusien toi
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "Päätoiminnot"
 
 #. (para)
 msgid ""
 "The toolbar at the top of the dialog allows to configure and operate the "
 "project monitor."
-msgstr ""
+msgstr "Projektiseurainta käytetään ikkunan yläosassa olevan työkalurivin avulla."
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "Tarkista nyt"
 
 #. (para)
 msgid ""
@@ -15224,15 +15220,15 @@ msgid ""
 " up, clicking this button will force a check of all projects immediately. "
 "Note that if there are updates, the notification won't show up until all "
 "projects have been checked."
-msgstr ""
+msgstr "Tällä painikkeella kaikkien seurattujen projektien tila tarkistetaan välittömästi riippumatta niille asetetusta tarkistusvälistä. Huomaa, että mahdolliset ilmoitukset näytetään vasta, kun kaikki projektit on tarkistettu."
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Lisää projekti"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
-msgstr ""
+msgstr "Avaa ikkunan uuden projektin lisäämikseksi seurantaan."
 
 #. (term)
 msgid "Edit"
@@ -15240,7 +15236,7 @@ msgstr "Muokkaa"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
-msgstr ""
+msgstr "Avaa asetusikkunan valitulle projektille."
 
 #. (term)
 msgid "Remove"
@@ -15248,29 +15244,29 @@ msgstr "Poista"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "Poistaa valitun projektin seurannasta lisävahvistuksen jälkeen."
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "Merkitse kaikki luetuksi"
 
 #. (para)
 msgid ""
 "Marks all revisions in all projects as read. Note that if you select a "
 "project with unread revisions, those revisions are automatically marked as "
 "read when you select another project."
-msgstr ""
+msgstr "Merkitsee kaikkien seurattujen projektien kaikki versiot luetuiksi. Huomaa, että valitun projektin lukemattomat versiot merkitään automaattisesti luetuiksi, kun valitset toisen projektin."
 
 #. (term)
 msgid "Update all"
-msgstr ""
+msgstr "Päivitä kaikki"
 
 #. (para)
 msgid ""
 "Runs an <command>Update</command> on all monitored working copies. Projects "
 "that are monitored via an url are not updated, only those that are set up "
 "with a working copy path."
-msgstr ""
+msgstr "Suorittaa  <command>Päivitä</command> -komennon kaikille seuratuille projekteille. Pelkän paikantimen välityksellä seurattuja projekteja ei päivitetä, vaan projektilla on oltava paikallinen työkopio."
 
 #. (term)
 msgid "Options"
@@ -15278,7 +15274,7 @@ msgstr "Asetukset"
 
 #. (para)
 msgid "Shows a dialog to configure the behavior of the project monitor."
-msgstr ""
+msgstr "Avaa ikkunan, jossa projektiseuraimen asetuksia voi säätää."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -17691,11 +17687,11 @@ msgstr "TortoiseSVN:n käyttöliittymän nimi on <literal>TortoiseProc.exe</lite
 #. (para)
 msgid ""
 "There's a special command that does not require the parameter "
-"<option>/command:abcd</option> but instead starts if nothing is specified on"
-" the command line: the project monitor. If <option>/tray</option> is "
+"<option>/command:abcd</option> but, if nothing is specified on the command "
+"line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr "Jos valitsin <option>/command:abcd</option> jätetään antamatta, käynnistyy projektiseurain. Mikäli valitsin <option>/tray</option> annetaan, projektiseurain käynnistyy piilotettuna ilmoitusalueelle."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17887,7 +17883,7 @@ msgstr "Avaa loki-ikkunan. Valitsin <option>/path</option>  määrittelee tiedos
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr ""
+msgstr "SVN-päiväysversio voi olla jossain seuraavista muodoista:"
 
 #. (option)
 #. (option)

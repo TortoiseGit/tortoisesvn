@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-04 09:59+0000\n"
+"PO-Revision-Date: 2014-12-10 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -15182,14 +15182,10 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If there are a lot of users monitoring the same repository and the bandwith "
-"on the server is limited, a repository admin can set the minimum for check "
+"If there are a lot of users monitoring the same repository and the bandwidth"
+" on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
-"explanation on how this works can be found on the CommitMonitor website:"
-msgstr ""
-
-#. (citetitle)
-msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+"explanation on how this works can be found on the project monitor website:"
 msgstr ""
 
 #. (title)
@@ -17707,8 +17703,8 @@ msgstr ""
 #. (para)
 msgid ""
 "There's a special command that does not require the parameter "
-"<option>/command:abcd</option> but instead starts if nothing is specified on"
-" the command line: the project monitor. If <option>/tray</option> is "
+"<option>/command:abcd</option> but, if nothing is specified on the command "
+"line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
 msgstr ""

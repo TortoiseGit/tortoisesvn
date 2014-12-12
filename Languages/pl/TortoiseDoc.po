@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-08 08:15+0000\n"
+"PO-Revision-Date: 2014-12-10 23:10+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -15170,15 +15170,11 @@ msgstr "interwał sprawdzenia"
 
 #. (para)
 msgid ""
-"If there are a lot of users monitoring the same repository and the bandwith "
-"on the server is limited, a repository admin can set the minimum for check "
+"If there are a lot of users monitoring the same repository and the bandwidth"
+" on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
-"explanation on how this works can be found on the CommitMonitor website:"
-msgstr "Jesli wiele osób monitoruje to samo repozytorium a przepustowość procesora jest ograniczona, administrator repozytorium może ustawić minimalny interwał sprawdzenia używając pliku <filename>svnrobots.txt</filename>. Szczegółowe wyjaśnienie jak to działa można znaleźć na stronie CommitMonitor:"
-
-#. (citetitle)
-msgid "http://stefanstools.sourceforge.net/svnrobots.html"
-msgstr "http://stefanstools.sourceforge.net/svnrobots.html"
+"explanation on how this works can be found on the project monitor website:"
+msgstr "IJesli wiele osób monitoruje to samo repozytorium a przepustowość procesora jest ograniczona, administrator repozytorium może ustawić minimalny interwał sprawdzenia używając pliku <filename>svnrobots.txt</filename>. Szczegółowe wyjaśnienie jak to działa można znaleźć na stronie monitora projektu:"
 
 #. (title)
 msgid "Monitor dialog"
@@ -17695,11 +17691,11 @@ msgstr "Program GUI TortoiseSVN nosi nazwę <literal>TortoiseProc.exe</literal>.
 #. (para)
 msgid ""
 "There's a special command that does not require the parameter "
-"<option>/command:abcd</option> but instead starts if nothing is specified on"
-" the command line: the project monitor. If <option>/tray</option> is "
+"<option>/command:abcd</option> but, if nothing is specified on the command "
+"line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr "Jest specjalne polecenie nie wymagające parametru <option>/command:abcd</option> jest za to uruchamiane jeśli nie wskazano nic w linii poleceń: monitor projektu. Jeżeli podano opcję <option>/tray</option>, monitor projektu uruchamiany jest ukryty i dodaje tylko ikonę w zasobniku systemowym."
+msgstr "Jest specjalne polecenie nie wymagające parametru <option>/command:abcd</option>, gdy jednak nie wskazano nic w linii poleceń, jest uruchamiany monitor projektu. Jeżeli podano opcję <option>/tray</option>, monitor projektu uruchamiany jest ukryty i dodaje tylko ikonę w zasobniku systemowym."
 
 #. (para)
 msgid ""

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-04 09:59+0000\n"
+"PO-Revision-Date: 2014-12-10 09:59+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -15068,7 +15068,7 @@ msgstr "Док радимо на ТортоисеСВН волимо да слу
 
 #. (title)
 msgid "Project Monitor"
-msgstr ""
+msgstr "Пројект монитор"
 
 #. (primary)
 msgid "commit monitor"
@@ -15076,7 +15076,7 @@ msgstr "монитор урезивања"
 
 #. (primary)
 msgid "project monitor"
-msgstr ""
+msgstr "пројект монитор"
 
 #. (primary)
 msgid "remote commits"
@@ -15090,13 +15090,13 @@ msgstr "надгледање пројекта"
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr ""
+msgstr "Пројект монитор је помоћни алат за надгледање спремишта и назначава вам да имате ново урезивање."
 
 #. (para)
 msgid ""
 "The projects can be monitored via a working copy path or directly via their "
 "repository URLs."
-msgstr ""
+msgstr "Пројекат се може надгледати преко путање радне копије или директно преко УРЛа спремишта."
 
 #. (para)
 msgid ""
@@ -15104,11 +15104,11 @@ msgid ""
 " time new commits are detected a notification popup is shown. Also the icon "
 "that is added to the system tray changes to indicate that there are new "
 "commits."
-msgstr ""
+msgstr "Пројектни монитор скенира сваки пројекат у конфигурном интервалу и сваки пут када се детектују нова урезивања нотификациони прозор искаче. Такође се мењају иконе које индицирају да постоји ново урезивање."
 
 #. (title)
 msgid "Snarl"
-msgstr ""
+msgstr "Снарл"
 
 #. (para)
 msgid ""
@@ -15116,7 +15116,7 @@ msgid ""
 "url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Ако је <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Снарл</citetitle></ulink> инсталиран и активан пројектни монитор аутоматски користи Снарл да прикаже означавање о нова детектована урезивања. "
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15127,11 +15127,11 @@ msgid ""
 "If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Ако најпре покренете пројектни монитор троструки преглед са леве стране је празан. Да додате пројекат кликните на дугме на врху дијалога названо <guibutton>Додај пројекат</guibutton>."
 
 #. (title)
 msgid "The edit project dialog of the project monitor"
-msgstr ""
+msgstr "Уређивач  пројект дијалога пројект монитора "
 
 #. (para)
 msgid ""
@@ -15161,22 +15161,18 @@ msgstr "Само поља <literal>Име корисника</literal> и <liter
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks. The smallest interval is one minute."
-msgstr ""
+msgstr "<literal>Интервал монитора у минутима</literal> специфицира минуте чекања између провера."
 
 #. (title)
 msgid "check interval"
-msgstr ""
+msgstr "интервал провере"
 
 #. (para)
 msgid ""
-"If there are a lot of users monitoring the same repository and the bandwith "
-"on the server is limited, a repository admin can set the minimum for check "
+"If there are a lot of users monitoring the same repository and the bandwidth"
+" on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
-"explanation on how this works can be found on the CommitMonitor website:"
-msgstr ""
-
-#. (citetitle)
-msgid "http://stefanstools.sourceforge.net/svnrobots.html"
+"explanation on how this works can be found on the project monitor website:"
 msgstr ""
 
 #. (title)
@@ -15185,14 +15181,14 @@ msgstr "Монитор дијалог"
 
 #. (title)
 msgid "The main dialog of the project monitor"
-msgstr ""
+msgstr "Главни дијалог пројект монитора"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The project monitor shows all monitored projects on the "
 "left in a tree view. The projects can be moved around, for example one "
 "project can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Пројект монитор приказује све надгледане пројекте лево на троструком прегледу. Пројекат се може померати около, на пример један пројекат се може померити испод другог пројекта начинвши га потомак/подпројекат."
 
 #. (para)
 msgid ""
@@ -17694,11 +17690,11 @@ msgstr "ТортоисеСВН ГУИ програм се зове  <literal>Tor
 #. (para)
 msgid ""
 "There's a special command that does not require the parameter "
-"<option>/command:abcd</option> but instead starts if nothing is specified on"
-" the command line: the project monitor. If <option>/tray</option> is "
+"<option>/command:abcd</option> but, if nothing is specified on the command "
+"line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr "Постоји специјална команда која не захтева параметар <option>/command:abcd</option> али уместо тога покреће монитор пројекта, ако ништа није специфицирано у командној линији. Ако је <option>/tray</option> специфицирана монитор пројекта покреће скривене и само додате иконе у систем треј."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17890,7 +17886,7 @@ msgstr "Отвара дијалог дневника. <option>/path</option> : <
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr ""
+msgstr "Свн датум ревизије може бити у једном од следећих формата:"
 
 #. (option)
 #. (option)
