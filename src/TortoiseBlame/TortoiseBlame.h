@@ -92,7 +92,9 @@ public:
     void DrawLocatorBar(HDC hDC);
     void StartSearch();
     void StartSearchSel();
+    void StartSearchSelReverse();
     void DoSearchNext();
+    void DoSearchPrev();
     void CopySelectedLogToClipboard();
     void CopySelectedRevToClipboard();
     void BlamePreviousRevision();

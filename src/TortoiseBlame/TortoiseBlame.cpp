@@ -657,13 +657,27 @@ void TortoiseBlame::StartSearchSel()
     if (selTextLen == 0)
         return;
 
-    std::unique_ptr<char[]> seltextbuffer(new char[selTextLen+1]);
+    std::unique_ptr<char[]> seltextbuffer(new char[selTextLen + 1]);
     SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer.get());
     if (seltextbuffer[0] == 0)
         return;
-    wcsncpy_s(m_szFindWhat, _countof(m_szFindWhat), CUnicodeUtils::StdGetUnicode(seltextbuffer.get()).c_str(), _countof(m_szFindWhat)-1);
+    wcsncpy_s(m_szFindWhat, _countof(m_szFindWhat), CUnicodeUtils::StdGetUnicode(seltextbuffer.get()).c_str(), _countof(m_szFindWhat) - 1);
+    m_fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD | FR_DOWN;
+    DoSearch(m_szFindWhat, m_fr.Flags);
+}
+
+void TortoiseBlame::StartSearchSelReverse()
+{
+    int selTextLen = (int)SendEditor(SCI_GETSELTEXT);
+    if (selTextLen == 0)
+        return;
+
+    std::unique_ptr<char[]> seltextbuffer(new char[selTextLen + 1]);
+    SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer.get());
+    if (seltextbuffer[0] == 0)
+        return;
+    wcsncpy_s(m_szFindWhat, _countof(m_szFindWhat), CUnicodeUtils::StdGetUnicode(seltextbuffer.get()).c_str(), _countof(m_szFindWhat) - 1);
     m_fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD;
-    m_fr.Flags |= FR_MATCHCASE;
     DoSearch(m_szFindWhat, m_fr.Flags);
 }
 
@@ -680,7 +694,7 @@ void TortoiseBlame::StartSearch()
     m_fr.hwndOwner = wMain;
     m_fr.lpstrFindWhat = m_szFindWhat;
     m_fr.wFindWhatLen = 80;
-    m_fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD;
+    m_fr.Flags = FR_HIDEWHOLEWORD | FR_DOWN;
     m_fr.Flags |= bCase ? FR_MATCHCASE : 0;
 
     currentDialog = FindText(&m_fr);
@@ -688,8 +702,17 @@ void TortoiseBlame::StartSearch()
 
 void TortoiseBlame::DoSearchNext()
 {
-    if (wcslen(m_szFindWhat)==0)
+    m_fr.Flags |= FR_DOWN;
+    if (wcslen(m_szFindWhat) == 0)
         return StartSearchSel();
+    DoSearch(m_szFindWhat, m_fr.Flags);
+}
+
+void TortoiseBlame::DoSearchPrev()
+{
+    m_fr.Flags &= ~FR_DOWN;
+    if (wcslen(m_szFindWhat) == 0)
+        return StartSearchSelReverse();
     DoSearch(m_szFindWhat, m_fr.Flags);
 }
 
@@ -700,7 +723,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     int line = (int)SendEditor(SCI_LINEFROMPOSITION, pos);
     bool bFound = false;
     bool bCaseSensitive = !!(flags & FR_MATCHCASE);
-
+    bool bSearchDown = !!(flags & FR_DOWN);
     wcscpy_s(szWhat, what);
 
     if(!bCaseSensitive)
@@ -714,7 +737,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     int textSelEnd = 0;
     TCHAR buf[20] = { 0 };
     int i=0;
-    for (i=line; (i<(int)m_authors.size())&&(!bFound); ++i)
+    for (i = line; (bSearchDown ? (i < (int)m_authors.size()) : (i >= 0)) && (!bFound); bSearchDown ? ++i : --i)
     {
         const int bufsize = (int)SendEditor(SCI_GETLINE, i);
         std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
@@ -742,7 +765,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     }
     if (!bFound)
     {
-        for (i=0; (i<line)&&(!bFound); ++i)
+        for (bSearchDown ? i = 0 : i = (int)m_authors.size() -1; (bSearchDown ? (i < line) : (i > line)) && (!bFound); bSearchDown ? ++i : --i)
         {
             const int bufsize = (int)SendEditor(SCI_GETLINE, i);
             std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
@@ -1091,8 +1114,14 @@ void TortoiseBlame::Command(int id)
     case ID_EDIT_FINDSEL:
         StartSearchSel();
         break;
+    case ID_EDIT_FINDSELREVERSE:
+        StartSearchSelReverse();
+        break;
     case ID_EDIT_FINDNEXT:
         DoSearchNext();
+        break;
+    case ID_EDIT_FINDPREV:
+        DoSearchPrev();
         break;
     case ID_COPYTOCLIPBOARD:
         CopySelectedLogToClipboard();
