@@ -1,3 +1,34 @@
+Version 1.8.9
+- BUG: Issue #661: memory leak committing multiple
+       working copies. (Stefan)
+- BUG: Issue #662: drawing bug in progress dialog. (Stefan)
+- BUG: issue #665: inherited properties give
+       unexpected results. (Stefan)
+- BUG: Issue #667: Detect if repository browser
+       was cancelled. (Stefan)
+- BUG: Issue #669: Repobrowser closes when escape is
+       pressed to cancel an edit. (Stefan)
+- BUG: Issue #671: Crash editing properties from the
+       repository browser. (Stefan)
+- BUG: Issue #672: merging from progress dialog does
+       not record merge info. (Stefan)
+- BUG: renaming in the repobrowser tree view with F2
+       did not work. (Stefan)
+- BUG: Issue #673: filtering out regular
+       expressions crashes. (Stefan)
+- BUG: Issue #674: illegal temp file name when
+       diffing from server root. (Stefan)
+- BUG: Issue #675: bug-id field not set correctly
+       for a restarted commit. (Stefan)
+- BUG: Issue #676: file diff dialog sorts
+       case-sensitive. (Stefan)
+- BUG: Issue #677: Escape must not close dialog if
+       an autocompletion is in progress. (Stefan)
+- BUG: Issue #679: "Get Lock" on file external
+       shows empty dialog. (Stefan)
+- BUG: Issue #680: Settings: Page title and selection in index
+       not updated when using PageUp/PageDown. (Stefan)
+
 Version 1.8.8
 - BUG: Issue #640: Restore after commit - Unchecked
        files are not restored upon commit. (Stefan)
