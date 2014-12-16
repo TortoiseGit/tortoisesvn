@@ -712,6 +712,116 @@ const CString& ProjectProperties::GetLogRevRegex() const
     return sLOG_REVISIONREGEX;
 }
 
+void ProjectProperties::SaveToIni(CSimpleIni& inifile, const CString& section, const CString& prefix /*= L"pp"*/)
+{
+    assert(inifile.IsMultiLine());
+    inifile.SetValue(section, prefix + L"sLabel", sLabel);
+    inifile.SetValue(section, prefix + L"sMessage", sMessage);
+    inifile.SetValue(section, prefix + L"bNumber", bNumber ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"sUrl", sUrl);
+    inifile.SetValue(section, prefix + L"bWarnIfNoIssue", bWarnIfNoIssue ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"bAppend", bAppend ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"sProviderParams", sProviderParams);
+    inifile.SetValue(section, prefix + L"nLogWidthMarker", std::to_wstring(nLogWidthMarker).c_str());
+    inifile.SetValue(section, prefix + L"nMinLogSize", std::to_wstring(nMinLogSize).c_str());
+    inifile.SetValue(section, prefix + L"nMinLockMsgSize", std::to_wstring(nMinLockMsgSize).c_str());
+    inifile.SetValue(section, prefix + L"bFileListInEnglish", bFileListInEnglish ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"lProjectLanguage", std::to_wstring(lProjectLanguage).c_str());
+    inifile.SetValue(section, prefix + L"sFPPath", sFPPath);
+    inifile.SetValue(section, prefix + L"sDPPath", sDPPath);
+    inifile.SetValue(section, prefix + L"sWebViewerRev", sWebViewerRev);
+    inifile.SetValue(section, prefix + L"sWebViewerPathRev", sWebViewerPathRev);
+    inifile.SetValue(section, prefix + L"sLogSummaryRe", sLogSummaryRe);
+    inifile.SetValue(section, prefix + L"sStartCommitHook", sStartCommitHook);
+    inifile.SetValue(section, prefix + L"sCheckCommitHook", sCheckCommitHook);
+    inifile.SetValue(section, prefix + L"sPreCommitHook", sPreCommitHook);
+    inifile.SetValue(section, prefix + L"sManualPreCommitHook", sManualPreCommitHook);
+    inifile.SetValue(section, prefix + L"sPostCommitHook", sPostCommitHook);
+    inifile.SetValue(section, prefix + L"sStartUpdateHook", sStartUpdateHook);
+    inifile.SetValue(section, prefix + L"sPreUpdateHook", sPreUpdateHook);
+    inifile.SetValue(section, prefix + L"sPostUpdateHook", sPostUpdateHook);
+    inifile.SetValue(section, prefix + L"sPreConnectHook", sPreConnectHook);
+    inifile.SetValue(section, prefix + L"sRepositoryRootUrl", sRepositoryRootUrl);
+    inifile.SetValue(section, prefix + L"sRepositoryPathUrl", sRepositoryPathUrl);
+    inifile.SetValue(section, prefix + L"sMergeLogTemplateTitle", sMergeLogTemplateTitle);
+    inifile.SetValue(section, prefix + L"sMergeLogTemplateReverseTitle", sMergeLogTemplateReverseTitle);
+    inifile.SetValue(section, prefix + L"sMergeLogTemplateMsg", sMergeLogTemplateMsg);
+    inifile.SetValue(section, prefix + L"bMergeLogTemplateMsgTitleBottom", bMergeLogTemplateMsgTitleBottom ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"sAutoProps", sAutoProps);
+    inifile.SetValue(section, prefix + L"sProviderUuid", sProviderUuid);
+    inifile.SetValue(section, prefix + L"sProviderUuid64", sProviderUuid64);
+    inifile.SetValue(section, prefix + L"sCheckRe", sCheckRe);
+    inifile.SetValue(section, prefix + L"sBugIDRe", sBugIDRe);
+    inifile.SetValue(section, prefix + L"sLogTemplate", sLogTemplate);
+    inifile.SetValue(section, prefix + L"sLogTemplateCommit", sLogTemplateCommit);
+    inifile.SetValue(section, prefix + L"sLogTemplateBranch", sLogTemplateBranch);
+    inifile.SetValue(section, prefix + L"sLogTemplateImport", sLogTemplateImport);
+    inifile.SetValue(section, prefix + L"sLogTemplateDelete", sLogTemplateDelete);
+    inifile.SetValue(section, prefix + L"sLogTemplateMove", sLogTemplateMove);
+    inifile.SetValue(section, prefix + L"sLogTemplateMkDir", sLogTemplateMkDir);
+    inifile.SetValue(section, prefix + L"sLogTemplatePropset", sLogTemplatePropset);
+    inifile.SetValue(section, prefix + L"sLogTemplateLock", sLogTemplateLock);
+    inifile.SetValue(section, prefix + L"sLogRevRegex", sLogRevRegex);
+    inifile.SetValue(section, prefix + L"nBugIdPos", std::to_wstring(nBugIdPos).c_str());
+    inifile.SetValue(section, prefix + L"m_bFound", m_bFound ? L"1" : L"0");
+    inifile.SetValue(section, prefix + L"m_bPropsRead", m_bPropsRead ? L"1" : L"0");
+}
+
+void ProjectProperties::LoadFromIni(CSimpleIni& inifile, const CString& section, const CString& prefix /*= L"pp"*/)
+{
+    assert(inifile.IsMultiLine());
+    sLabel = inifile.GetValue(section, prefix + L"sLabel", L"");
+    sMessage = inifile.GetValue(section, prefix + L"sMessage", L"");
+    bNumber = _wtoi(inifile.GetValue(section, prefix + L"bNumber", L"1"));
+    sUrl = inifile.GetValue(section, prefix + L"sUrl", L"");
+    bWarnIfNoIssue = _wtoi(inifile.GetValue(section, prefix + L"bWarnIfNoIssue", L"0"));
+    bAppend = _wtoi(inifile.GetValue(section, prefix + L"bAppend", L"1"));
+    sProviderParams = inifile.GetValue(section, prefix + L"sProviderParams", L"");
+    nLogWidthMarker = _wtoi(inifile.GetValue(section, prefix + L"nLogWidthMarker", L"0"));
+    nMinLogSize = _wtoi(inifile.GetValue(section, prefix + L"nMinLogSize", L"0"));
+    nMinLockMsgSize = _wtoi(inifile.GetValue(section, prefix + L"nMinLockMsgSize", L"0"));
+    bFileListInEnglish = _wtoi(inifile.GetValue(section, prefix + L"bFileListInEnglish", L"1"));
+    lProjectLanguage = _wtoi(inifile.GetValue(section, prefix + L"lProjectLanguage", L"0"));
+    sFPPath = inifile.GetValue(section, prefix + L"sFPPath", L"");
+    sDPPath = inifile.GetValue(section, prefix + L"sDPPath", L"");
+    sWebViewerRev = inifile.GetValue(section, prefix + L"sWebViewerRev", L"");
+    sWebViewerPathRev = inifile.GetValue(section, prefix + L"sWebViewerPathRev", L"");
+    sLogSummaryRe = inifile.GetValue(section, prefix + L"sLogSummaryRe", L"");
+    sStartCommitHook = inifile.GetValue(section, prefix + L"sStartCommitHook", L"");
+    sCheckCommitHook = inifile.GetValue(section, prefix + L"sCheckCommitHook", L"");
+    sPreCommitHook = inifile.GetValue(section, prefix + L"sPreCommitHook", L"");
+    sManualPreCommitHook = inifile.GetValue(section, prefix + L"sManualPreCommitHook", L"");
+    sPostCommitHook = inifile.GetValue(section, prefix + L"sPostCommitHook", L"");
+    sStartUpdateHook = inifile.GetValue(section, prefix + L"sStartUpdateHook", L"");
+    sPreUpdateHook = inifile.GetValue(section, prefix + L"sPreUpdateHook", L"");
+    sPostUpdateHook = inifile.GetValue(section, prefix + L"sPostUpdateHook", L"");
+    sPreConnectHook = inifile.GetValue(section, prefix + L"sPreConnectHook", L"");
+    sRepositoryRootUrl = inifile.GetValue(section, prefix + L"sRepositoryRootUrl", L"");
+    sRepositoryPathUrl = inifile.GetValue(section, prefix + L"sRepositoryPathUrl", L"");
+    sMergeLogTemplateTitle = inifile.GetValue(section, prefix + L"sMergeLogTemplateTitle", L"");
+    sMergeLogTemplateReverseTitle = inifile.GetValue(section, prefix + L"sMergeLogTemplateReverseTitle", L"");
+    sMergeLogTemplateMsg = inifile.GetValue(section, prefix + L"sMergeLogTemplateMsg", L"");
+    bMergeLogTemplateMsgTitleBottom = _wtoi(inifile.GetValue(section, prefix + L"bMergeLogTemplateMsgTitleBottom", L"0"));
+    sAutoProps = inifile.GetValue(section, prefix + L"sAutoProps", L"");
+    sProviderUuid = inifile.GetValue(section, prefix + L"sProviderUuid", L"");
+    sProviderUuid64 = inifile.GetValue(section, prefix + L"sProviderUuid64", L"");
+    sCheckRe = inifile.GetValue(section, prefix + L"sCheckRe", L"");
+    sBugIDRe = inifile.GetValue(section, prefix + L"sBugIDRe", L"");
+    sLogTemplate = inifile.GetValue(section, prefix + L"sLogTemplate", L"");
+    sLogTemplateCommit = inifile.GetValue(section, prefix + L"sLogTemplateCommit", L"");
+    sLogTemplateBranch = inifile.GetValue(section, prefix + L"sLogTemplateBranch", L"");
+    sLogTemplateImport = inifile.GetValue(section, prefix + L"sLogTemplateImport", L"");
+    sLogTemplateDelete = inifile.GetValue(section, prefix + L"sLogTemplateDelete", L"");
+    sLogTemplateMove = inifile.GetValue(section, prefix + L"sLogTemplateMove", L"");
+    sLogTemplateMkDir = inifile.GetValue(section, prefix + L"sLogTemplateMkDir", L"");
+    sLogTemplatePropset = inifile.GetValue(section, prefix + L"sLogTemplatePropset", L"");
+    sLogTemplateLock = inifile.GetValue(section, prefix + L"sLogTemplateLock", L"");
+    sLogRevRegex = inifile.GetValue(section, prefix + L"sLogRevRegex", LOG_REVISIONREGEX);
+    nBugIdPos = _wtoi(inifile.GetValue(section, prefix + L"nBugIdPos", L"-1"));
+    m_bFound = _wtoi(inifile.GetValue(section, prefix + L"m_bFound", L"0")) != 0;
+    m_bPropsRead = _wtoi(inifile.GetValue(section, prefix + L"m_bPropsRead", L"0")) != 0;
+}
+
 #ifdef DEBUG
 static class PropTest
 {

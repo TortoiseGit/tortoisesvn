@@ -21,6 +21,7 @@
 #include <string>
 #include <regex>
 #include "TSVNPath.h"
+#include "SimpleIni.h"
 
 
 // when adding new properties, don't forget to change the
@@ -184,6 +185,9 @@ public:
     /** used to extract the bug ID from the string matched by sCheckRe */
     const CString& GetBugIDRe() const {return sBugIDRe;}
     void SetBugIDRe(const CString& s) {sBugIDRe = s;regExNeedUpdate=true;AutoUpdateRegex();}
+
+    void SaveToIni(CSimpleIni& inifile, const CString& section, const CString& prefix = L"pp_");
+    void LoadFromIni(CSimpleIni& inifile, const CString& section, const CString& prefix = L"pp_");
 
 #ifdef _WIN64
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
