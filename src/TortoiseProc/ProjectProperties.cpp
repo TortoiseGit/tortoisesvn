@@ -79,14 +79,17 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     regExNeedUpdate = true;
     m_bPropsRead = true;
 
-    if (!path.IsDirectory())
-        path = path.GetContainingDirectory();
+    if (!path.IsUrl())
+    {
+        if (!path.IsDirectory())
+            path = path.GetContainingDirectory();
 
-    while (!SVNHelper::IsVersioned(path, false) && !path.IsEmpty())
-        path = path.GetContainingDirectory();
+        while (!SVNHelper::IsVersioned(path, false) && !path.IsEmpty())
+            path = path.GetContainingDirectory();
+    }
 
     SVN svn;
-    SVNProperties props(path, SVNRev::REV_WC, false, true);
+    SVNProperties props(path, path.IsUrl() ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, true);
     for (int i=0; i<props.GetCount(); ++i)
     {
         std::string sPropName = props.GetItemName(i);
