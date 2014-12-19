@@ -7822,6 +7822,7 @@ void CLogDlg::InitMonitorProjTree()
 {
     CString sDataFilePath = CPathUtils::GetAppDataDirectory();
     sDataFilePath += L"\\MonitoringData.ini";
+    m_monitoringFile.SetMultiLine();
     m_monitoringFile.LoadFile(sDataFilePath);
 
     m_bPlaySound = _wtoi(m_monitoringFile.GetValue(L"global", L"PlaySound", L"1")) != 0;
@@ -7874,6 +7875,7 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->uuid = m_monitoringFile.GetValue(mitem, L"uuid", L"");
             pMonitorItem->root = m_monitoringFile.GetValue(mitem, L"root", L"");
             pMonitorItem->sMsgRegex = m_monitoringFile.GetValue(mitem, L"MsgRegex", L"");
+            pMonitorItem->projectproperties.LoadFromIni(m_monitoringFile, mitem);
             try
             {
                 pMonitorItem->msgregex = std::wregex(pMonitorItem->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
@@ -8231,6 +8233,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
 void CLogDlg::SaveMonitorProjects( bool todisk )
 {
     m_monitoringFile.Reset();
+    m_monitoringFile.SetMultiLine();
     int count = 0;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
@@ -8266,6 +8269,7 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         m_monitoringFile.SetValue(sSection, L"MsgRegex", pItem->sMsgRegex);
         m_monitoringFile.SetValue(sSection, L"uuid", pItem->uuid);
         m_monitoringFile.SetValue(sSection, L"root", pItem->root);
+        pItem->projectproperties.SaveToIni(m_monitoringFile, sSection);
         sTmp.Empty();
         for (const auto& s : pItem->authorstoignore)
         {
@@ -8396,13 +8400,14 @@ void CLogDlg::MonitorThread()
             continue;
         if (item.authfailed)
             continue;   // if authentication failed before, don't try again
+        CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
         if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
         {
             CString sCheckInfo;
             sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
             SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
-            svn_revnum_t head = svn.GetHEADRevision(CTSVNPath(item.WCPathOrUrl), false);
+            svn_revnum_t head = svn.GetHEADRevision(WCPathOrUrl, false);
             if (m_bCancelled)
                 continue;
             if (item.lastHEAD < 0)
@@ -8411,12 +8416,11 @@ void CLogDlg::MonitorThread()
             {
                 // new head revision: fetch the log
                 std::unique_ptr<const CCacheLogQuery> cachedData;
-                CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
                 {
                     CAutoWriteLock pathlock(m_monitorpathguard);
                     m_pathCurrentlyChecked = item.WCPathOrUrl;
                 }
-                cachedData = svn.ReceiveLog(CTSVNPathList(CTSVNPath(WCPathOrUrl)), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
+                cachedData = svn.ReceiveLog(CTSVNPathList(WCPathOrUrl), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
                 // Err will also be set if the user cancelled.
                 if (m_bCancelled)
                     continue;
@@ -8519,13 +8523,28 @@ void CLogDlg::MonitorThread()
             }
             SetDlgItemText(IDC_LOGINFO, L"");
         }
-        if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24 * 2)) < currenttime))
+        if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24)) < currenttime))
         {
-            std::wstring sRobotsURL = svn.GetURLFromPath(CTSVNPath(item.WCPathOrUrl));
+            if (m_bCancelled)
+                continue;
+            // try to read the project properties
+            if (!item.projectproperties.ReadProps(WCPathOrUrl))
+            {
+                if (WCPathOrUrl.IsUrl() && (WCPathOrUrl.GetSVNPathString().Find(L"trunk") < 0))
+                {
+                    CTSVNPath trunkpath = WCPathOrUrl;
+                    trunkpath.AppendPathString(L"trunk");
+                    item.projectproperties.ReadProps(trunkpath);
+                }
+            }
+
+            if (m_bCancelled)
+                continue;
+            std::wstring sRobotsURL = svn.GetURLFromPath(WCPathOrUrl);
             sRobotsURL += _T("/svnrobots.txt");
             std::wstring sRootRobotsURL;
             std::wstring sDomainRobotsURL = sRobotsURL.substr(0, sRobotsURL.find('/', sRobotsURL.find(':') + 3)) + _T("/svnrobots.txt");
-            sRootRobotsURL = svn.GetRepositoryRoot(CTSVNPath(item.WCPathOrUrl));
+            sRootRobotsURL = svn.GetRepositoryRoot(WCPathOrUrl);
             if (!sRootRobotsURL.empty())
                 sRootRobotsURL += _T("/svnrobots.txt");
             CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
@@ -8702,6 +8721,7 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->lastErrorMsg = item.lastErrorMsg;
                     pItem->root = item.root;
                     pItem->uuid = item.uuid;
+                    pItem->projectproperties = item.projectproperties;
                 }
                 pItem->minminutesinterval = item.minminutesinterval;
 
@@ -9005,12 +9025,16 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_bSaveStrict = false;
         m_revUnread = pItem->unreadFirst;
         m_hasWC = !m_path.IsUrl();
-        m_ProjectProperties = ProjectProperties();
+        m_ProjectProperties = pItem->projectproperties;
         m_MonitorAuthorsToIgnore = pItem->authorstoignore;
         m_sMonitorMsgRegex = pItem->sMsgRegex;
         m_sUUID = pItem->uuid;
         m_sRepositoryRoot = pItem->root;
-        ReadProjectPropertiesAndBugTraqInfo();
+
+        // the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
+        if ((!m_ProjectProperties.sUrl.IsEmpty()) || (!m_ProjectProperties.GetCheckRe().IsEmpty()))
+            m_bShowBugtraqColumn = true;
+
         ConfigureColumnsForLogListControl();
 
         m_wcRev = SVNRev();

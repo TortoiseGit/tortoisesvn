@@ -116,6 +116,7 @@ public:
     std::vector<std::string>    authorstoignore;
     CString                     root;
     CString                     uuid;
+    ProjectProperties           projectproperties;
 };
 
 typedef std::function<bool(HTREEITEM)> MonitorItemHandler;
