@@ -544,6 +544,8 @@ void CStatGraphDlg::GatherData()
     m_commitsPerUnitAndAuthor.clear();
     m_filechangesPerUnitAndAuthor.clear();
     m_commitsPerAuthor.clear();
+    m_unitNames.clear();
+    m_PercentageOfAuthorship.clear();
 
     int interval = 0;
     __time64_t d = (__time64_t)m_parDates->GetAt(0);
