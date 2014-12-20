@@ -108,6 +108,7 @@
               <File Id="F__TSVNCache" Name="TSVNCache.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
               <File Id="F__TSVNAutolist" Name="autolist.txt" DiskId="1" Source="include\autolist.txt" />
               <File Id="F__websiteurl" Name="Website.url" Source="include\Website.url" DiskId="1" />
+              <File Id="F__tsvntilexml" Name="TortoiseProc.VisualElementsManifest.xml" Source="include\TortoiseProc.VisualElementsManifest.xml" DiskId="1" />
 
               <File Id="F__SubWCRev" Name="SubWCRev.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <File Id="F__SubWCRevCOM" Name="SubWCRevCOM.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRevCOM.exe" />
@@ -1015,6 +1016,7 @@
 
             <Component Id="C__TortoiseMerge" Guid="$(var.GuidTortoiseMerge)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseMerge" Name="TortoiseMerge.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseMerge.exe" KeyPath="yes" />
+              <File Id="F__tmergetilexml" Name="TortoiseMerge.VisualElementsManifest.xml" Source="include\TortoiseMerge.VisualElementsManifest.xml" DiskId="1" />
             </Component>
 
             <Component Id="C__TortoiseMergeShortcuts" Guid="$(var.GuidTortoiseMergeShortcuts)" Win64="$(var.Win64YesNo)">
@@ -1030,6 +1032,7 @@
 
             <Component Id="C__TortoiseIDiff" Guid="$(var.GuidTortoiseIDiff)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseIDiff" Name="TortoiseIDiff.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseIDiff.exe" KeyPath="yes" />
+              <File Id="F__tidifftilexml" Name="TortoiseIDiff.VisualElementsManifest.xml" Source="include\TortoiseIDiff.VisualElementsManifest.xml" DiskId="1" />
             </Component>
 
             <Component Id="C__TortoiseIDiffShortcuts" Guid="$(var.GuidTortoiseIDiffShortcuts)" Win64="$(var.Win64YesNo)">
