@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 10:21+0000\n"
+"PO-Revision-Date: 2014-12-20 09:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -10918,27 +10918,27 @@ msgid ""
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
-#. Resource IDs: (366)
-msgid "TortoiseSVN Commit Monitor Options"
-msgstr "Opções do Monitor de Commit do TortoiseSVN"
-
-#. Resource IDs: (65)
-#, c-format
-msgid ""
-"TortoiseSVN Commit Monitor\r\n"
-"%d new commit in %d project"
-msgstr "Monitor de Commit TortoiseSVN\r\n%d novo commit no projeto %d"
-
-#. Resource IDs: (65)
-#, c-format
-msgid ""
-"TortoiseSVN Commit Monitor\r\n"
-"%d new commits in %d projects"
-msgstr "Monitor de Commit TortoiseSVN\r\n%d novos commits no projeto %d"
-
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
 msgstr "Monitor de Projeto TortoiseSVN"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Project Monitor Options"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Project Monitor\r\n"
+"%d new commit in %d project"
+msgstr ""
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Project Monitor\r\n"
+"%d new commits in %d projects"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11264,6 +11264,10 @@ msgstr "Profundidade de Atualização"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Atualizar Cópia de trabalho para a revisão"
+
+#. Resource IDs: (66)
+msgid "Update check is currently running!"
+msgstr ""
 
 #. Resource IDs: (291)
 msgid "Update externals"

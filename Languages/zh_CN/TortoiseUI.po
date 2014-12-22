@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-11-26 13:11+0000\n"
+"PO-Revision-Date: 2014-12-20 14:41+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -10925,27 +10925,27 @@ msgid ""
 "SQLite %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s%s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s\nSQLite %s"
 
-#. Resource IDs: (366)
-msgid "TortoiseSVN Commit Monitor Options"
-msgstr "TortoiseSVN 提交监视器选项"
-
-#. Resource IDs: (65)
-#, c-format
-msgid ""
-"TortoiseSVN Commit Monitor\r\n"
-"%d new commit in %d project"
-msgstr "TortoiseSVN 提交监视器\n%d 个新提交在 %d 项目中"
-
-#. Resource IDs: (65)
-#, c-format
-msgid ""
-"TortoiseSVN Commit Monitor\r\n"
-"%d new commits in %d projects"
-msgstr "TortoiseSVN 提交监视器\n%d 个新提交在 %d 项目中"
-
 #. Resource IDs: (64)
 msgid "TortoiseSVN Project Monitor"
 msgstr "TortoiseSVN 项目监视器"
+
+#. Resource IDs: (366)
+msgid "TortoiseSVN Project Monitor Options"
+msgstr "TortoiseSVN 项目监视器选项"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Project Monitor\r\n"
+"%d new commit in %d project"
+msgstr "TortoiseSVN 项目监视器\n%d 个新提交在 %d 项目中"
+
+#. Resource IDs: (65)
+#, c-format
+msgid ""
+"TortoiseSVN Project Monitor\r\n"
+"%d new commits in %d projects"
+msgstr "TortoiseSVN 项目监视器\n%d 个新提交在 %d 项目中"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11271,6 +11271,10 @@ msgstr "更新深度"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "更新工作副本至版本"
+
+#. Resource IDs: (66)
+msgid "Update check is currently running!"
+msgstr "更新检查正在运行中！"
 
 #. Resource IDs: (291)
 msgid "Update externals"
