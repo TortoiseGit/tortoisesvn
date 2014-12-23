@@ -1,0 +1,154 @@
+﻿@@include("_includes/header.html", {
+    "title": "Release notes for 1.9",
+    "metaDescription": "<meta name=\"description\" content=\"TortoiseSVN release notes, version 1.9\">",
+    "metaKeywords": "<meta name=\"keywords\" content=\"release notes\">"
+})
+<body>
+<div class="wrapper">
+    @@include("_includes/menu.html")
+    @@include("_includes/sidebar.html")
+    <div class="page clearfix">
+        <div class="content">
+
+            <div class="post" id="news">
+                <h2>What's New in TortoiseSVN 1.9</h2>
+
+                <ul>
+                  <li><a href="#requirements"
+                      >Requirements</a></li>
+                  <li><a href="#projectmonitor"
+                      >Project Monitor</a></li>
+                  <li><a href="#sync"
+                      >Sync/Export/Import settings</a></li>
+                  <li><a href="#shellmenu"
+                      >Explorer menu in status dialogs</a></li>
+                  <li><a href="#subwcrevignore"
+                      >Ignore option for SubWCRev</a></li>
+                  <li><a href="#imgconflicts"
+                      >Conflict resolving for images</a></li>
+                  <li><a href="#repobookmarks"
+                      >Bookmarks in the repository browser</a></li>
+                </ul>
+
+                <p>TortoiseSVN 1.9 is a superset of all previous TortoiseSVN releases,
+                and is considered the current stable and "best" release. Anything in
+                earlier versions is also in 1.9, but 1.9 contains features and
+                bugfixes not present in any earlier release.</p>
+
+                <p>This page describes only major changes. For a complete list
+                of changes, you can check our
+                <a href="https://code.google.com/p/tortoisesvn/source/list">commit logs</a>
+                and the <a href="https://code.google.com/p/tortoisesvn/issues/list?can=1&amp;q=label%3AMilestone-1.9.0">list of issues</a> for 1.9</p>
+
+                <p>Don't forget to check out all the changes in the Subversion
+                library that also is now at version 1.9: all those changes
+                are of course in TortoiseSVN as well. See the full list
+                of changes in the <a href="http://subversion.apache.org/docs/release-notes/1.9.html">Subversion 1.9 release notes</a>.</p>
+            </div> <!-- news -->
+
+            <div class="post" id="requirements">
+                <h2>Requirements</h2>
+
+                <p>TortoiseSVN 1.9 and later requires at least Windows Vista
+                or later. It won't run on Windows XP anymore.</p>
+                <p>If you're still need to use Windows XP, you have to keep
+                using TortoiseSVN 1.8.</p>
+            </div> <!-- requirements -->
+
+            <div class="post" id="projectmonitor">
+                <h2>Project Monitor</h2>
+
+                <p>
+                  The project monitor is a helpful tool that monitors repositories and
+                  notifies you in case there are new commits.
+                  If you already know the
+                  <a href="http://stefanstools.sourceforge.net/CommitMonitor.html">Commit Monitor</a>,
+                  then you're immediately familiar with the project monitor. The
+                  project monitor is however more powerful since it can use the
+                  full features of TortoiseSVN.
+                </p>
+                <p>
+                  The projects can be monitored via a working copy path or directly via
+                  their repository URLs.
+                </p>
+                <p>
+                  The project monitor scans each project in a configurable interval, and
+                  every time new commits are detected a notification popup is shown.
+                  Also the icon that is added to the system tray changes to indicate that
+                  there are new commits.
+                </p>
+                <a href="/img/ProjectMonitor.png" class="fancybox" data-fancybox-group="gallery" title="Project Monitor">
+                    <img src="/img/ProjectMonitor-small.png" alt="Project Monitor" width="240" height="180">
+                </a>
+            </div> <!-- projectmonitor -->
+
+            <div class="post" id="sync">
+                <h2>Sync/Export/Import settings</h2>
+
+                <p>All settings that are configurable in the settings dialog
+                can be synchronized to a specific file, or manually exported/imported.
+                This allows to set up new workstations much easier and quicker.</p>
+                <p>If the specified path for the sync feature is on a cloud drive
+                like Onedrive/GDrive/Dropbx/..., then changes made to settings
+                are automatically synchronized to all other workstations
+                that use the same cloud drive and have set their sync paths
+                accordingly.</p>
+                <p>More information about which settings and which data is
+                synchronized can be found in the <a href="/docs/nightly/TortoiseSVN_en/tsvn-dug-settings.html#tsvn-dug-settings-export">documentation</a>.</p>
+            </div> <!-- sync -->
+
+            <div class="post" id="shellmenu">
+                <h2>Explorer menu in status dialogs</h2>
+
+                <p>All dialogs that show status information like the commit
+                dialog, check-for-modifications dialog, revert dialog, ... now
+                have an entry in the context menu named <code>Shell</code>.
+                This entry expands to the same context menu the Windows
+                explorer shows for that path. This avoids having to go back
+                and forth between TortoiseSVN and the Windows explorer to
+                do certain tasks.</p>
+            </div> <!-- shellmenu -->
+
+            <div class="post" id="subwcrevignore">
+                <h2>Ignore option for SubWCRev</h2>
+                <p>SubWCRev, the command line tool to gather information about a working
+                copy, has now an option to ignore files or whole paths. The ignored
+                paths/patterns need to be written to a text file named <code>.subwcrevignore</code>
+                in the working copy.</p>
+                <p>A more detailed description of this new feature can be found
+                in the <a href="/docs/release/TortoiseSVN_en/tsvn-subwcrev.html#tsvn-subwcrev-cli">documentation</a>.</p>
+            </div> <!-- subwcrevignore -->
+
+            <div class="post" id="imgconflicts">
+                <h2>Conflict resolving for images</h2>
+                <p>The image diff tool TortoiseIDiff can now help resolving
+                conflicts of images as well. In a conflict situation, it will
+                show all three images that take part in a conflict, and lets
+                you chose which one to keep/use.</p>
+                <a href="/img/ImageConflictResolve.png" class="fancybox" data-fancybox-group="gallery" title="Conflict resolving for images">
+                    <img src="/img/ImageConflictResolve-small.png" alt="Conflict resolving for images" width="364" height="187">
+                </a>
+            </div> <!-- imgconflicts -->
+
+            <div class="post" id="repobookmarks">
+                <h2>Bookmarks in the repository browser</h2>
+                <p>The repository browser can not show a list of
+                bookmarked repository URLs. This allows to faster browse
+                often used repositories, without having to first enter
+                the URL manually or find the corresponding working copy.</p>
+                <a href="/img/RepoBookmarks.png" class="fancybox" data-fancybox-group="gallery" title="Bookmarks in the repository browser">
+                    <img src="/img/RepoBookmarks-small.png" alt="Bookmarks in the repository browser" width="364" height="187">
+                </a>
+            </div> <!-- repobookmarks -->
+
+
+            <!--
+                * TMerge enhancements: search, easier toggle of ovl/ins, encoding combos in statusbar, ignore changes in comments
+                * check-commit hook script, used to check the log message and reject it if necessary
+                * copy-to-clipboard: new options
+                * create externals by right-dragging
+                * filter/search the recent commit messages
+            -->
+        </div> <!-- .content -->
+
+    @@include("_includes/footer-js.html")
