@@ -40,22 +40,6 @@
       <title>File Conflict</title>
       <graphic fileref="images/mergeprinciple.png"/>
     </figure>
-    <para>
-      A conflict can also occur if you try to apply an outdated patch file.
-      In such cases, without TortoiseMerge, you would either have to ask
-      the person you got that patch file from for a current version or try
-      to apply that patch file manually.
-    </para>
-    <para>
-      But now with TortoiseMerge this isn't necessary anymore -
-      at least not if you're working with a version control system like
-      Subversion. TortoiseMerge parses the patch file for the
-      revision/version the patch was created for and automatically tries
-      to fetch that specific version from your source-control.
-      Then it applies the patch and lets you review both your changes
-      to the file, and theirs. Then you can decide which changes
-      you want to keep.
-    </para>
   </sect1>
   <!-- ================================================================= -->
   <!-- ======================== SECTION 2 ============================== -->
@@ -98,6 +82,12 @@
       Since TortoiseSVN already uses the Subversion library, which has a
       nice diffing engine built in, it was just natural to use this
       library instead of the GNU diff.
+    </para>
+    <para>
+      Subversion 1.7 introduced the <emphasis>svn patch</emphasis> command
+      which allows to apply a patch file to a working copy. TortoiseMerge
+      uses now the same functions as the Subversion command to avoid different
+      behaviors between the two.
     </para>
   </sect1>
 </chapter>
