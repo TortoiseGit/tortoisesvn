@@ -21,7 +21,8 @@
     <important>
       <para>
         Please note that the command line client that comes with
-        TortoiseSVN does not support the older Berkeley Database (BDB) format.
+        TortoiseSVN and TortoiseSVN itself do not support the older
+        Berkeley Database (BDB) format.
       </para>
     </important>
   </para>
@@ -134,7 +135,7 @@ svnadmin create --fs-type fsfs MyNewRepository
         <literal>https://</literal> protocols.
       </para>
       <para>
-        Of course we also recommend that you don't use <literal>file://</literal>
+        We also recommend that you don't use <literal>file://</literal>
         access at all, apart from local testing purposes. Using a server is
         more secure and more reliable for all but single-developer use.
       </para>
@@ -168,17 +169,6 @@ svnadmin create --fs-type fsfs MyNewRepository
       This form is still supported, but not recommended.
     </para>
   </sect2>
-  <warning>
-    <para>
-      Do not create or access a Berkeley DB repository on a network share.
-      It <emphasis>cannot</emphasis> exist on a remote file system.
-      Not even if you have the network drive mapped to a drive letter.
-      If you attempt to use Berkeley DB on a network share,
-      the results are unpredictable - you may see mysterious errors
-      right away, or it may be months before you discover that your
-      repository database is subtly corrupted.
-    </para>
-  </warning>
   <sect2 id="tsvn-repository-local-share">
     <title>Accessing a Repository on a Network Share</title>
     <indexterm>
@@ -189,24 +179,40 @@ svnadmin create --fs-type fsfs MyNewRepository
       share and have multiple users access it using <literal>file://</literal>
       protocol, this is most definitely <emphasis>not</emphasis>
       recommended. In fact we would <emphasis>strongly</emphasis>
-      discourage it, and do not support such use.
+      discourage it, and do not support such use for various reasons:
     </para>
-    <para>
-      Firstly you are giving every user direct write access to the
-      repository, so any user could accidentally delete the entire repository
-      or make it unusable in some other way.
-    </para>
-    <para>
-      Secondly not all network file sharing protocols support the locking
-      that Subversion requires, so you may find your repository gets corrupted.
-      It may not happen straight away, but one day two users will try to access
-      the repository at the same time.
-    </para>
-    <para>
-      Thirdly the file permissions have to be set just so. You may just about
-      get away with it on a native Windows share, but SAMBA is particularly
-      difficult.
-    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Firstly you are giving every user direct write access to the
+          repository, so any user could accidentally delete the entire repository
+          or make it unusable in some other way.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Secondly not all network file sharing protocols support the locking
+          that Subversion requires, so you may find your repository gets corrupted.
+          It may not happen straight away, but one day two users will try to access
+          the repository at the same time.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Thirdly the file permissions have to be set just so. You may just about
+          get away with it on a native Windows share, but SAMBA is particularly
+          difficult.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          If one person installs a newer version of the client which
+          upgrades the repository format, then everyone else will be
+          unable to access the repository until they also upgrade to the
+          new client version.
+        </para>
+      </listitem>
+    </itemizedlist>
     <para>
       <literal>file://</literal> access is intended for local, single-user
       access only, particularly testing and debugging. When you want to share

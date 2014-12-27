@@ -502,21 +502,38 @@ file:///X|/path/to/repos
         (non-URL) form of a path on Windows uses backslashes.
       </para>
       <para>
-        You can safely access a FSFS repository via a network share,
-        but you <emphasis>cannot</emphasis> access a BDB repository
-        in this way.
+        You can access a FSFS repository via a network share, but this
+        is <emphasis>not</emphasis> recommended for various reasons:
       </para>
-      <warning>
-        <para>
-          Do not create or access a Berkeley DB repository on a network share.
-          It <emphasis>cannot</emphasis> exist on a remote filesystem.
-          Not even if you have the network drive mapped to a drive letter.
-          If you attempt to use Berkeley DB on a network share,
-          the results are unpredictable - you may see mysterious errors
-          right away, or it may be months before you discover that your
-          repository database is subtly corrupted.
-        </para>
-      </warning>
+      <itemizedlist>
+        <listitem>
+          <para>
+            You are giving direct write access to all users, so they could
+            accidentally delete or corrupt the repository file system.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Not all network file sharing protocols support the locking that
+            Subversion requires. One day you will find your repository
+            has been subtly <emphasis>corrupted</emphasis>.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            You have to set the access permissions in just the right way.
+            SAMBA is particularly difficult in this respect.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            If one person installs a newer version of the client which
+            upgrades the repository format, then everyone else will be
+            unable to access the repository until they also upgrade to the
+            new client version.
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect2>
     <sect2 id="tsvn-basics-svn-revisions">
       <title>Revisions</title>
