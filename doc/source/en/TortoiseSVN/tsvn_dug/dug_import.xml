@@ -203,18 +203,18 @@ C:\Projects\Widget\images
     </para>
     <para>
       As an example, you can have a look at TortoiseSVN's build script. It
-      calls a file named <filename>TortoiseVars.bat</filename> which
+      calls a file named <filename>default.build.user</filename> which
       doesn't exist in the repository. Only the file
-      <filename>TortoiseVars.tmpl</filename>.
-      <filename>TortoiseVars.tmpl</filename> is the template file which
+      <filename>default.build.user.tmpl</filename>.
+      <filename>default.build.user.tmpl</filename> is the template file which
       every developer has to create a copy from and rename that file
-      to <filename>TortoiseVars.bat</filename>. Inside that file, we added
+      to <filename>default.build.user</filename>. Inside that file, we added
       comments so that the users will see which lines they have to edit
       and change according to their local setup to get it working.
     </para>
     <para>
       So as not to disturb the users, we also added the file
-      <filename>TortoiseVars.bat</filename> to the ignore list of its
+      <filename>default.build.user</filename> to the ignore list of its
       parent folder, i.e. we've set the Subversion property
       <literal>svn:ignore</literal> to include that filename.
       That way it won't show up as unversioned on every commit.
