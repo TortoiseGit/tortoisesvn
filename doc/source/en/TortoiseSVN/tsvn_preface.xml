@@ -267,6 +267,15 @@
         and a logo for TortoiseSVN. He now takes care of the website
         and manages the many translations.
       </para>
+      <para>
+        With time, other version control systems all got their own Tortoise
+        client which caused a problem with the icon overlays in Explorer:
+        the number of such overlays is limited and even one Tortoise client
+        can easily exceed that limit. That's when Stefan Küng implemented
+        the TortoiseOverlays component which allows all Tortoise clients
+        to use the same icon overlays. Now all open source Tortoise clients
+        and even some non-Tortoise clients use that shared component.
+      </para>
     </sect2>
     <sect2 id="tsvn-preface-acknowledgements">
       <title>Acknowledgments</title>
@@ -381,7 +390,6 @@
       a local repository, which is useful for testing Subversion and TortoiseSVN
       using a single PC. It also explains a bit about repository administration
       which is also relevant to repositories located on a server.
-      There is also a section here on how to setup a server if you need one.
     </para>
     <para>
       The <xref linkend="tsvn-dug"/> is the most important section as
