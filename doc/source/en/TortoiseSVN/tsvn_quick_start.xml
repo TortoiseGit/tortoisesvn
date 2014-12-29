@@ -41,7 +41,8 @@
       </para>
       <important>
         <para>
-          You need Administrator privileges to install TortoiseSVN.
+          You need Administrator privileges to install TortoiseSVN. The installer
+          will ask you for Administrator credentials if necessary.
         </para>
       </important>
       <para>
@@ -205,7 +206,7 @@
           <guimenu>TortoiseSVN</guimenu>
           <guimenuitem>Checkout...</guimenuitem>
         </menuchoice>.
-        Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/trunk/Widget1</filename>
+        Then enter the URL to checkout, in this case <filename>file:///c:/svn_repos/trunk/Widget1</filename>
         and click on <guibutton>OK</guibutton>. Our development folder is then populated
         with files from the repository.
       </para>
@@ -231,7 +232,7 @@
     <sect2 id="tsvn-qs-changes">
       <title>Making Changes</title>
       <para>
-        Time to get to work. In the <filename>Widget1-Dev</filename> we start editing
+        Time to get to work. In the <filename>Widget1-Dev</filename> folder we start editing
         files - let's say we make changes to <filename>Widget1.c</filename> and
         <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files
         have now changed to red, indicating that changes have been made locally.
@@ -295,7 +296,9 @@
       <para>
         One of the most useful features of TortoiseSVN is the Log dialog.
         This shows you a list of all the commits you made to a file or
-        folder, and shows those detailed commit messages that you entered ;-)
+        folder, and shows those detailed commit messages that you entered
+        (you <emphasis>did</emphasis> enter a commit message as suggested?
+        If not, now you see why this is important).
         <figure id="tsvn-qs-log-image">
           <title>The Log Dialog</title>
           <graphic fileref="images/LogMessages.png"/>
