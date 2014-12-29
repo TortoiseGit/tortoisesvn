@@ -129,7 +129,9 @@
           <term>Ctrl-C</term>
           <listitem>
             <para>
-              ... Copy the selected text.
+              Copy the selected text. In case no text is selected but
+              e.g. a list entry or a message box, then the content of
+              that list entry or the message box is copied to the clipboard.
             </para>
           </listitem>
         </varlistentry>
@@ -180,18 +182,14 @@
       </itemizedlist>
     </para>
     <para>
-      If you want to clear the authentication cache for all
-      servers, you can do so from the <guilabel>Saved Data</guilabel> page
-      of TortoiseSVN's settings dialog. That button will clear all cached
-      authentication data from the Subversion <filename>auth</filename>
-      directories, as well as any authentication
-      data stored in the registry by earlier versions of TortoiseSVN.
+      If you want to clear the authentication cache, you can do so from the
+      <guilabel>Saved Data</guilabel> page
+      of TortoiseSVN's settings dialog. The button <guibutton>Clear all</guibutton>
+      will clear the cached authentication data for all repositories.
+      The button <guibutton>Clear...</guibutton> however will show a dialog
+      where you can chose which cached authentication data should be
+      deleted.
       Refer to <xref linkend="tsvn-dug-settings-saved-data"/>.
-    </para>
-    <para>
-      If you want to clear authentication for one realm only then you will
-      have to dig into those directories, find the file which contains the
-      information you want to clear and delete the file.
     </para>
     <para>
       Some people like to have the authentication data deleted when they
