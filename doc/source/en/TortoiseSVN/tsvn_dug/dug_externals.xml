@@ -210,6 +210,20 @@
         <citetitle>corresponding chapter</citetitle>
       </ulink> in the Subversion book.
     </para>
+    <important>
+      <para>
+        If you specify the target folder for the external as a subfolder
+        like in the examples above, make sure that <emphasis>all</emphasis>
+        folders in between are versioned as well. So for the examples above,
+        the folder <filename>common</filename> should be versioned!
+      </para>
+      <para>
+        While the external will work in most situations properly if folders
+        in between are not versioned, there are some operations that won't
+        work as you expect. And the status overlay icons in explorer will
+        also not show the correct status.
+      </para>
+    </important>
     <para>
       If you need more information how TortoiseSVN
       handles Properties read <xref linkend="tsvn-dug-propertypage"/>.
