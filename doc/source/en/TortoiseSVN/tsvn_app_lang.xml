@@ -97,13 +97,12 @@
           </para>
         </listitem>
       </itemizedlist>
-      Then just copy them to the <filename>bin</filename> sub-folder of
-      the TortoiseSVN installation folder. Normally this will be
-      <filename>C:\Program Files\TortoiseSVN\bin</filename>.
-      If you don't want to litter the <filename>bin</filename> sub-folder,
-      you can instead place your spell checker files in
-      <filename>C:\Program Files\TortoiseSVN\Languages</filename>. If that folder isn't
-      there, you have to create it first.
+      Then just copy them into the <filename>%APPDATA%\TortoiseSVN\dic</filename> folder.
+      If that folder isn't there, you have to create it first.
+      TortoiseSVN will also search the <filename>Languages</filename> sub-folder of
+      the TortoiseSVN installation folder (normally this will be <filename>C:\Program Files\TortoiseSVN\Languages</filename>);
+      this is the place where the language packs put their files.
+      However, the %APPDATA%-folder doesn't require administrator privileges and, thus, has higher priority.
       The next time you start TortoiseSVN, the spell checker will be available.
     </para>
     <para>
