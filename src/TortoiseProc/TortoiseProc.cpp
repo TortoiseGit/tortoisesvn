@@ -522,6 +522,12 @@ void CTortoiseProcApp::CheckUpgrade()
         // upgrade to 1.7.1: force recreation of all diff scripts.
         CAppUtils::SetupDiffScripts(true, CString());
     }
+    if (lVersion <= 0x01081100)
+    {
+        srand((unsigned)time(0));
+        CRegDWORD checkNewerWeekDay = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeekDay"), 0);
+        checkNewerWeekDay = rand() % 7;
+    }
     CAppUtils::SetupDiffScripts(false, CString());
 
     // set the current version so we don't come here again until the next update!
@@ -621,7 +627,7 @@ void CTortoiseProcApp::CheckForNewerVersion()
     // we don't calculate the real 'week of the year' here
     // because just to decide if we should check for an update
     // that's not needed.
-    int week = ptm.tm_yday / 7;
+    int week = (ptm.tm_yday + CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeekDay"), 0)) / 7;
 
     CRegDWORD oldweek = CRegDWORD(L"Software\\TortoiseSVN\\CheckNewerWeek", (DWORD)-1);
     if (((DWORD)oldweek) == -1)
