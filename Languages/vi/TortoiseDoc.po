@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-10 09:59+0000\n"
+"PO-Revision-Date: 2014-12-30 09:57+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -337,6 +337,17 @@ msgid ""
 " of the website and manages the many translations."
 msgstr "Lúc Subversion trở nên ổn định hơn, nó thu hút nhiều người dùng hơn và nhiều người cũng bắt đầu sử dụng TortoiseSVN làm trình khách Subversion của họ. Các cơ sở người dùng phát triển nhanh chóng (và vẫn đang phát triển mỗi ngày). Đó là khi Lübbe Onken đề nghị giúp đỡ với một số biểu tượng đẹp và lô gô cho TortoiseSVN. Hiện tại ông chăm lo trang web và quản lý nhiều bản dịch."
 
+#. (para)
+msgid ""
+"With time, other version control systems all got their own Tortoise client "
+"which caused a problem with the icon overlays in Explorer: the number of "
+"such overlays is limited and even one Tortoise client can easily exceed that"
+" limit. That's when Stefan Küng implemented the TortoiseOverlays component "
+"which allows all Tortoise clients to use the same icon overlays. Now all "
+"open source Tortoise clients and even some non-Tortoise clients use that "
+"shared component."
+msgstr ""
+
 #. (title)
 msgid "Acknowledgments"
 msgstr "Lời cảm ơn"
@@ -460,9 +471,8 @@ msgid ""
 "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a "
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
-"which is also relevant to repositories located on a server. There is also a "
-"section here on how to setup a server if you need one."
-msgstr "Chương về <xref linkend=\"tsvn-repository\"/> giải thích làm thế nào để thiết lập một kho lưu trữ địa phương, đó là hữu ích để thử nghiệm Subversion và TortoiseSVN bằng cách sử dụng một máy tính duy nhất. Nó cũng giải thích một chút về quản lý kho lưu trữ cũng có liên quan đến kho nằm trên một máy chủ. Ngoài ra còn có một phần ở đây trên làm thế nào để thiết lập một máy chủ nếu bạn cần một cái."
+"which is also relevant to repositories located on a server."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -619,8 +629,10 @@ msgid ""
 msgstr "TortoiseSVN đi kèm với một bộ cài đặt dễ sử dụng. Kích đúp vào tập tin cài đặt và làm theo hướng dẫn. Bộ cài đặt sẽ lo liệu phần còn lại. Đừng quên khởi động lại sau khi cài đặt."
 
 #. (para)
-msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr "Bạn cần quyền quản trị để cài đặt TortoiseSVN."
+msgid ""
+"You need Administrator privileges to install TortoiseSVN. The installer will"
+" ask you for Administrator credentials if necessary."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -801,11 +813,11 @@ msgid ""
 "<filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then "
 "right click on it and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
-" Enter the URL to checkout, in this case "
+" Then enter the URL to checkout, in this case "
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr "Bây giờ chúng ta có một dự án trong kho của chúng ta, chúng ta cần tạo ra một bản sao hoạt động để sử dụng cho công việc ngày-sang-ngày. Lưu ý rằng các hành vi nhập khẩu một thư mục không tự động chuyển thư mục đó vào một bản sao làm việc. Thuật ngữ Subversion để tạo ra một bản sao làm việc tươi mới là <literal> Kiểm xuất </literal> . Chúng tôi sẽ kiểm xuất thư mục Widget1 của kho lưu trữ của chúng ta vào một thư mục phát triển trên máy tính được gọi là <filename> C:\\Projects\\Widget1-Dev </filename> . Tạo thư mục đó, sau đó nhấp chuột phải vào nó và chọn <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Kiểm xuất ... </guimenuitem></menuchoice> . Nhập URL để kiểm xuất, trong trường hợp này <filename> file:///c:/svn_repos/trunk/Widget1 </filename> và nhấp vào <guibutton> OK </guibutton> . Thư mục phát triển của chúng ta sau đó được lấp đầy với các tập tin từ kho."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -831,12 +843,12 @@ msgstr "Thực hiện Thay đổi"
 
 #. (para)
 msgid ""
-"Time to get to work. In the <filename>Widget1-Dev</filename> we start "
-"editing files - let's say we make changes to <filename>Widget1.c</filename> "
-"and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these "
-"files have now changed to red, indicating that changes have been made "
+"Time to get to work. In the <filename>Widget1-Dev</filename> folder we start"
+" editing files - let's say we make changes to <filename>Widget1.c</filename>"
+" and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
+" files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr "Thời gian để làm việc. Trong <filename> Widget1-dev </filename> chúng tôi bắt đầu chỉnh sửa các tập tin - chúng ta hãy nói rằng chúng ta thay đổi <filename> Widget1.c </filename> và <filename> Readme.txt </filename> . Lưu ý rằng các lớp phủ biểu tượng trên những tập tin này đã thay đổi thành màu đỏ, cho thấy rằng những thay đổi đã được thực hiện tại địa phương."
+msgstr ""
 
 #. (title)
 msgid "File Difference Viewer"
@@ -900,9 +912,11 @@ msgstr "Hộp thoại Tường Trình"
 msgid ""
 "One of the most useful features of TortoiseSVN is the Log dialog. This shows"
 " you a list of all the commits you made to a file or folder, and shows those"
-" detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
-"cheated a little here and used a screenshot from the TortoiseSVN repository."
-msgstr "Một trong những tính năng hữu ích nhất của TortoiseSVN là hộp thoại Tường Trình. Điều này cho thấy bạn một danh sách của tất cả các cam kết bạn đã thực hiện một tập tin hoặc thư mục, và hiển thị những thông báo cam kết chi tiết mà bạn đã nhập ;-) <placeholder-1/> OK, do đó, tôi lừa một chút ở đây và sử dụng một ảnh chụp màn hình từ kho lưu trữ TortoiseSVN."
+" detailed commit messages that you entered (you <emphasis>did</emphasis> "
+"enter a commit message as suggested? If not, now you see why this is "
+"important). <placeholder-1/> OK, so I cheated a little here and used a "
+"screenshot from the TortoiseSVN repository."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1488,19 +1502,36 @@ msgstr "Lưu ý rằng một URL sử dụng dấu gạch chéo bình thường 
 
 #. (para)
 msgid ""
-"You can safely access a FSFS repository via a network share, but you "
-"<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "Bạn có thể truy cập vào một kho lưu trữ FSFS thông qua một mạng chia sẻ, nhưng bạn <emphasis>không thể</emphasis> truy cập vào một kho lưu trữ BDB theo cách này."
+"You can access a FSFS repository via a network share, but this is "
+"<emphasis>not</emphasis> recommended for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Bạn không tạo ra hoặc truy cập vào một kho lưu trữ Berkeley DB trên một mạng chia sẻ. Nó <emphasis> không thể </emphasis> tồn tại trên một hệ thống tập tin từ xa. Không, ngay cả khi bạn có ổ đĩa mạng được ánh xạ một ký tự ổ đĩa. Nếu bạn cố gắng để sử dụng Berkeley DB trên một mạng chia sẻ, kết quả là không thể đoán trước - bạn có thể nhìn thấy các lỗi bí ẩn ngay lập tức, hoặc nó có thể là vài tháng trước khi bạn khám phá ra rằng cơ sở dữ liệu kho của bạn một bị hỏng cách tinh vi."
+"You are giving direct write access to all users, so they could accidentally "
+"delete or corrupt the repository file system."
+msgstr ""
+
+#. (para)
+msgid ""
+"Not all network file sharing protocols support the locking that Subversion "
+"requires. One day you will find your repository has been subtly "
+"<emphasis>corrupted</emphasis>."
+msgstr ""
+
+#. (para)
+msgid ""
+"You have to set the access permissions in just the right way. SAMBA is "
+"particularly difficult in this respect."
+msgstr ""
+
+#. (para)
+#. (para)
+msgid ""
+"If one person installs a newer version of the client which upgrades the "
+"repository format, then everyone else will be unable to access the "
+"repository until they also upgrade to the new client version."
+msgstr ""
 
 #. (title)
 msgid "Revisions"
@@ -1761,8 +1792,8 @@ msgstr "tạo ra kho lưu trữ"
 
 #. (para)
 msgid ""
-"Please note that the command line client that comes with TortoiseSVN does "
-"not support the older Berkeley Database (BDB) format."
+"Please note that the command line client that comes with TortoiseSVN and "
+"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
 msgstr ""
 
 #. (para)
@@ -1877,10 +1908,10 @@ msgstr "TortoiseSVN hiện không hỗ trợ <literal>file://</literal> truy c�
 
 #. (para)
 msgid ""
-"Of course we also recommend that you don't use <literal>file://</literal> "
-"access at all, apart from local testing purposes. Using a server is more "
-"secure and more reliable for all but single-developer use."
-msgstr "Tất nhiên chúng tôi cũng khuyên bạn không sử dụng truy cập <literal>file://</literal> chút nào, ngoài mục đích thử nghiệm địa phương. Sử dụng một máy chủ an toàn hơn và đáng tin cậy hơn cho tất cả các sử dụng trừ dùng cho một nhà phát triển duy nhất ."
+"We also recommend that you don't use <literal>file://</literal> access at "
+"all, apart from local testing purposes. Using a server is more secure and "
+"more reliable for all but single-developer use."
+msgstr ""
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1917,16 +1948,6 @@ msgid ""
 "This form is still supported, but not recommended."
 msgstr "Trước SVN 1.2, đường dẫn UNC đã được đưa ra trong các hình thức mơ hồ hơn <systemitem class=\"url\"> file:///\\ServerName/path/to/Repos </systemitem> . Hình thức này vẫn còn được hỗ trợ, nhưng không khuyến khích."
 
-#. (para)
-msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote file system. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Bạn không tạo ra hoặc truy cập vào một Berkeley DB kho lưu trữ trên một mạng chia sẻ. Nó <emphasis> không thể </emphasis> tồn tại trên một hệ thống tập tin từ xa. Không, ngay cả khi bạn có ổ đĩa mạng được ánh xạ một ký tự ổ đĩa. Nếu bạn cố gắng để sử dụng Berkeley DB trên một mạng chia sẻ, kết quả là không thể đoán trước - bạn có thể nhìn thấy các lỗi bí ẩn ngay lập tức, hoặc nó có thể là vài tháng trước khi bạn khám phá ra rằng cơ sở dữ liệu kho của bạn bị hỏng một cách tinh vi."
-
 #. (title)
 msgid "Accessing a Repository on a Network Share"
 msgstr "Truy cập vào một kho lưu trữ trên một mạng chia sẻ"
@@ -1941,8 +1962,8 @@ msgid ""
 "share and have multiple users access it using <literal>file://</literal> "
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
-"support such use."
-msgstr "Mặc dù theo lý thuyết có thể đặt một kho lưu trữ FSFS trên một mạng chia sẻ và có nhiều người dùng truy cập nó bằng cách sử giao thức <literal>file://</literal>, điều này là chắc chắn <emphasis> không </emphasis> được khuyến khích. Trong thực tế, chúng tôi sẽ ngăn cản nó <emphasis> mạnh mẽ </emphasis>, và không hỗ trợ việc sử dụng đó."
+"support such use for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2612,8 +2633,11 @@ msgid "Ctrl-C"
 msgstr "Ctrl-C"
 
 #. (para)
-msgid "... Copy the selected text."
-msgstr "... Sao chép văn bản đã chọn."
+msgid ""
+"Copy the selected text. In case no text is selected but e.g. a list entry or"
+" a message box, then the content of that list entry or the message box is "
+"copied to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2667,20 +2691,14 @@ msgstr "Nếu các kho lưu trữ mà bạn đang cố gắng truy cập có m�
 
 #. (para)
 msgid ""
-"If you want to clear the authentication cache for all servers, you can do so"
-" from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings "
-"dialog. That button will clear all cached authentication data from the "
-"Subversion <filename>auth</filename> directories, as well as any "
-"authentication data stored in the registry by earlier versions of "
-"TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "Nếu bạn muốn xóa bộ nhớ cache xác thực cho tất cả các máy chủ, bạn có thể làm như vậy ở trang <guilabel> Lưu dữ liệu </guilabel> của hộp thoại thiết lập TortoiseSVN. Nút bấm đó sẽ dọn dẹp tất cả các dữ liệu xác thực được lưu trữ từ  thư mục <filename>auth</filename> của Subversion, cũng như bất kỳ dữ liệu xác thực được lưu trữ trong registry các phiên bản trước của TortoiseSVN. Tham khảo <xref linkend=\"tsvn-dug-settings-saved-data\"/> ."
-
-#. (para)
-msgid ""
-"If you want to clear authentication for one realm only then you will have to"
-" dig into those directories, find the file which contains the information "
-"you want to clear and delete the file."
-msgstr "Nếu bạn muốn dọn dẹp xác thực cho một lĩnh vực chỉ thì bạn sẽ phải thâm nhập vào những thư mục, tìm tập tin trong đó có các thông tin mà bạn muốn xóa và xóa các tập tin."
+"If you want to clear the authentication cache, you can do so from the "
+"<guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. The "
+"button <guibutton>Clear all</guibutton> will clear the cached authentication"
+" data for all repositories. The button <guibutton>Clear...</guibutton> "
+"however will show a dialog where you can chose which cached authentication "
+"data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
+"data\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2910,23 +2928,23 @@ msgstr "Trong trường hợp này, chúng tôi đề nghị sử dụng các t�
 #. (para)
 msgid ""
 "As an example, you can have a look at TortoiseSVN's build script. It calls a"
-" file named <filename>TortoiseVars.bat</filename> which doesn't exist in the"
-" repository. Only the file <filename>TortoiseVars.tmpl</filename>. "
-"<filename>TortoiseVars.tmpl</filename> is the template file which every "
-"developer has to create a copy from and rename that file to "
-"<filename>TortoiseVars.bat</filename>. Inside that file, we added comments "
-"so that the users will see which lines they have to edit and change "
+" file named <filename>default.build.user</filename> which doesn't exist in "
+"the repository. Only the file <filename>default.build.user.tmpl</filename>. "
+"<filename>default.build.user.tmpl</filename> is the template file which "
+"every developer has to create a copy from and rename that file to "
+"<filename>default.build.user</filename>. Inside that file, we added comments"
+" so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr "Ví dụ, bạn có thể có một nhìn vào kịch bản xây dựng của TortoiseSVN. Nó gọi một tập tin có tên <filename> TortoiseVars.bat </filename> không tồn tại trong kho. Chỉ có tập tin <filename> TortoiseVars.tmpl </filename> . <filename> TortoiseVars.tmpl </filename> là tập tin mẫu mà mỗi nhà phát triển đã tạo ra một bản sao từ và đổi tên file đó để <filename> TortoiseVars.bat </filename> . Bên trong tập tin đó, chúng tôi đã thêm ý kiến ​​để người sử dụng sẽ thấy những dòng họ có chỉnh sửa và thay đổi theo để thiết lập địa phương của họ để có được nó làm việc."
+msgstr ""
 
 #. (para)
 msgid ""
 "So as not to disturb the users, we also added the file "
-"<filename>TortoiseVars.bat</filename> to the ignore list of its parent "
+"<filename>default.build.user</filename> to the ignore list of its parent "
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr "Vì vậy, không làm phiền người sử dụng, chúng tôi cũng thêm vào các tập tin <filename> TortoiseVars.bat </filename> vào danh sách bỏ qua của thư mục mẹ của nó, tức là chúng ta đã thiết lập thuộc tính Subversion <literal> svn:ignore </literal> để bao gồm tên tập tin đó. Bằng cách đó nó sẽ không hiển thị như là không được phiên bản trên tất cả các cam kết."
+msgstr ""
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -4572,46 +4590,6 @@ msgid ""
 msgstr "<placeholder-1/> Đôi khi bạn muốn có thêm thông tin chi tiết về một tập tin / thư mục hơn là với lớp phủ biểu tượng. Bạn có thể nhận được tất cả các thông tin Subversion cung cấp trong hộp thoại thám hiểm thuộc tính. Chỉ cần chọn các tập tin hoặc thư mục và chọn <menuchoice><guimenu> Trình đơn Cửa sổ</guimenu><guimenuitem> thuộc tính </guimenuitem></menuchoice> trong trình đơn ngữ cảnh (lưu ý: đây là các thuộc tính trình đơn bình thường mà trình thám hiểm cung cấp, không phải là một trong các trình đơn phụ của TortoiseSVN). Trong hộp thoại thuộc tính TortoiseSVN thêm một trang thuộc tính mới cho các tập tin / thư mục do Subversion kiểm soát, nơi bạn có thể nhìn thấy tất cả các thông tin có liên quan về các tập tin / thư mục được lựa chọn."
 
 #. (title)
-msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr "Cột TortoiseSVN Trong Windows Explorer"
-
-#. (primary)
-msgid "Explorer Columns"
-msgstr "Cột Explorer"
-
-#. (para)
-msgid ""
-"The same information which is available from the icon overlays (and much "
-"more) can be displayed as additional columns in Windows Explorer's Details "
-"View."
-msgstr "Cùng một thông tin có sẵn từ các lớp phủ biểu tượng (và nhiều hơn nữa) có thể được hiển thị như cột bổ sung trong phần xem chi tiết của Windows Explorer."
-
-#. (para)
-msgid ""
-"Simply right click on one of the headings of a column, choose "
-"<guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog"
-" will appear where you can specify the columns and their order, which is "
-"displayed in the <quote>Detailed View</quote>. Scroll down until the entries"
-" starting with SVN come into view. Check the ones you would like to have "
-"displayed and close the dialog by pressing <guibutton>OK</guibutton>. The "
-"columns will be appended to the right of those currently displayed. You can "
-"reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Đơn giản chỉ cần kích chuột phải vào một trong các tiêu đề của một cột, chọn <guimenuitem> Nhiều hơn nữa ... </guimenuitem> từ trình đơn ngữ cảnh được hiển thị. Một hộp thoại sẽ xuất hiện nơi bạn có thể chỉ định các cột và thứ tự của chúng, được hiển thị trong <quote> Xem chi tiết </quote> . Di chuyển xuống cho đến khi các mục bắt đầu với SVN có thể xem được. Kiểm tra những cái bạn muốn hiển thị và đóng hộp thoại bằng cách nhấn <guibutton> OK </guibutton> . Các cột sẽ được nối thêm vào bên phải của những mục đang hiển thị. Bạn có thể sắp xếp lại chúng bằng cách kéo và thả, hoặc thay đổi kích thước, để chúng phù hợp với nhu cầu của bạn."
-
-#. (para)
-msgid ""
-"The additional columns in the Windows Explorer are not available on Vista, "
-"since Microsoft decided to not allow such columns for "
-"<emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr "Các cột bổ sung trong Windows Explorer không có sẵn trên Vista, kể từ khi Microsoft quyết định không cho phép các cột như vậy cho <emphasis> tất cả </emphasis> tập tin nữa nhưng chỉ trừ các loại tập tin nhất định."
-
-#. (para)
-msgid ""
-"If you want the current layout to be displayed in all your working copies, "
-"you may want to make this the default view."
-msgstr "Nếu bạn muốn bố trí hiện tại được hiển thị trong tất cả các bản sao làm việc của bạn, bạn có thể muốn nó làm giao diện mặc định."
-
-#. (title)
 msgid "Local and Remote Status"
 msgstr "Trạng thái địa phương và từ xa"
 
@@ -5908,8 +5886,9 @@ msgid ""
 "Since TortoiseSVN keeps a cache of all the log information, edits made for "
 "author and log messages will only show up on your local installation. Other "
 "users using TortoiseSVN will still see the cached (old) authors and log "
-"messages until they refresh the log cache."
-msgstr "Kể từ khi TortoiseSVN giữ một bộ nhớ cache của tất cả các thông tin tường trình, biên tập thực hiện cho tác giả và thông điệp tường trình sẽ chỉ hiển thị trên bản cài đặt địa phương của bạn. Người sử dụng khác sử dụng TortoiseSVN vẫn sẽ thấy tác giả (cũ) và tin nhắn tường trình lưu trữ trong cache cho đến khi họ làm mới bộ nhớ cache tường trình."
+"messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
+"dug-showlog-refresh\"/>"
+msgstr ""
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8843,6 +8822,22 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify the target folder for the external as a subfolder like in the"
+" examples above, make sure that <emphasis>all</emphasis> folders in between "
+"are versioned as well. So for the examples above, the folder "
+"<filename>common</filename> should be versioned!"
+msgstr ""
+
+#. (para)
+msgid ""
+"While the external will work in most situations properly if folders in "
+"between are not versioned, there are some operations that won't work as you "
+"expect. And the status overlay icons in explorer will also not show the "
+"correct status."
 msgstr ""
 
 #. (para)
@@ -20129,24 +20124,6 @@ msgstr "Sơ đồ dưới đây cho bạn thấy các mối quan hệ giữa cá
 msgid "File Conflict"
 msgstr "Xung đột Tập tin"
 
-#. (para)
-msgid ""
-"A conflict can also occur if you try to apply an outdated patch file. In "
-"such cases, without TortoiseMerge, you would either have to ask the person "
-"you got that patch file from for a current version or try to apply that "
-"patch file manually."
-msgstr "Một cuộc xung đột cũng có thể xảy ra nếu bạn cố gắng áp dụng một tập tin vá lỗi thời. Trong trường hợp này, mà không có TortoiseMerge, bạn có thể sẽ phải yêu cầu người đó lấy cho bạn tập tin bản vá từ một phiên bản hiện tại hoặc cố gắng áp dụng tập tin vá lỗi bằng tay."
-
-#. (para)
-msgid ""
-"But now with TortoiseMerge this isn't necessary anymore - at least not if "
-"you're working with a version control system like Subversion. TortoiseMerge "
-"parses the patch file for the revision/version the patch was created for and"
-" automatically tries to fetch that specific version from your source-"
-"control. Then it applies the patch and lets you review both your changes to "
-"the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Nhưng bây giờ có TortoiseMerge này là không cần thiết nữa - ít nhất là không nếu bạn đang làm việc với một hệ thống kiểm soát phiên bản như Subversion. TortoiseMerge phân tích các tập tin vá lỗi cho bản sửa đổi/phiên bản mà bản vá đã được tạo ra và tự động cố gắng để lấy phiên bản cụ thể từ kiểm soát nguồn của bạn. Sau đó, nó áp dụng bản vá lỗi và cho phép bạn xem lại thay đổi vào cả hai tập tin, và của họ. Sau đó, bạn có thể quyết định những thay đổi nào mà bạn muốn giữ lại."
-
 #. (title)
 msgid "TortoiseMerge's History"
 msgstr "Lịch sử của TortoiseMerge"
@@ -20189,6 +20166,14 @@ msgstr "Kể từ khi TortoiseSVN đã sử dụng thư viện Subversion, trong
 
 #. (para)
 msgid ""
+"Subversion 1.7 introduced the <emphasis>svn patch</emphasis> command which "
+"allows to apply a patch file to a working copy. TortoiseMerge uses now the "
+"same functions as the Subversion command to avoid different behaviors "
+"between the two."
+msgstr ""
+
+#. (para)
+msgid ""
 "Viewing the difference between two files and merging changes into one of "
 "them, or removing unwanted changes."
 msgstr "Xem sự khác biệt giữa hai tập tin và sáp nhập các thay đổi vào một trong số chúng, hoặc loại bỏ các thay đổi không mong muốn."
@@ -20200,8 +20185,8 @@ msgid ""
 msgstr "Chỉnh sửa xung đột giữa các thay đổi địa phương và những thay đổi trong kho Subversion sau một cập nhật."
 
 #. (para)
-msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr "Áp dụng các tập tin vá lỗi. Đây là lý do TortoiseMerge được tạo ra:)"
+msgid "Applying patch files and reviewing them."
+msgstr ""
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20468,13 +20453,52 @@ msgstr "Nếu bạn nhấp chuột vào lề trái, hoặc nếu bạn nhấp ba
 msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. You can change line-ending style and encoding by double-"
-"clicking the corresponding column of that view. A dialog box will be "
-"displayed. The left side of the status bar is used to display hints when you"
-" hover the mouse over a control."
+"and the number of unresolved conflicts remaining."
+msgstr ""
+
+#. (term)
+msgid "Encoding"
+msgstr ""
+
+#. (para)
+msgid ""
+"The encoding specifies how the characters in the views are loaded/saved and "
+"shown. The most common encoding in English is ASCII (which means the local "
+"encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
+"UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
+msgstr ""
+
+#. (term)
+msgid "Line Endings"
+msgstr ""
+
+#. (para)
+msgid ""
+"The most common line endings on Windows is CRLF, but you can change the line"
+" endings to whatever you like. Note that if you change the line endings, "
+"then <emphasis>all</emphasis> line endings in the whole file will change, "
+"even if when loaded the line endings were not all the same."
+msgstr ""
+
+#. (para)
+msgid ""
+"The option at the top of the combo box menu indicates whether tabs or spaces"
+" are inserted when you press the tab key. The <emphasis>smart tab "
+"char</emphasis> option if enabled uses an algorithm to determine whether one"
+" or the other is best used."
+msgstr ""
+
+#. (para)
+msgid ""
+"The tab size specifies how many space chars are inserted when editing and "
+"pressing the tab char, or how many chars the next word is indented when a "
+"tab char is encountered."
+msgstr ""
+
+#. (para)
+msgid ""
+"The status bar also contains combo box controls which indicate how the files"
+" are handled and treated: <placeholder-1/>"
 msgstr ""
 
 #. (title)
@@ -20658,14 +20682,6 @@ msgid ""
 " file itself and the path to the folder where the patch file should be "
 "applied."
 msgstr "Nếu bạn muốn áp dụng một tập tin vá lỗi, bạn phải thiết lập cả hai đường dẫn đến bản thân tập tin vá lỗi riêng và đường dẫn đến thư mục mà tập tin vá lỗi nên được áp dụng."
-
-#. (para)
-msgid ""
-"Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are "
-"supported. And only files which were generated from a Subversion working "
-"copy. Other formats like patch files generated by CVS are currently not "
-"supported!"
-msgstr "Hiện nay, chỉ có các tập tin vá lỗi trong <emphasis> Định Dạng Khác Biệt Thống nhất </emphasis> được hỗ trợ. Và chỉ có các tập tin được tạo ra từ một bản sao làm việc Subversion. Các định dạng khác như các tập tin bản vá được tạo ra bởi CVS hiện không được hỗ trợ!"
 
 #. (title)
 msgid "Main Settings Page"
@@ -21069,6 +21085,13 @@ msgid ""
 "file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Tên của tập tin cơ sở. Điều này được thể hiện trong tiêu đề màn xem thay vì đường dẫn tập tin. Đối với tìm khác biệt ba cách nó được hiển thị trong một tooltip cho tiêu đề xem."
 
+#. (entry)
+#. (entry)
+#. (entry)
+#. (entry)
+msgid "The name to use for editorconfig templates."
+msgstr ""
+
 #. (emphasis)
 msgid "theirs"
 msgstr "của họ"
@@ -21135,6 +21158,18 @@ msgid ""
 "then TortoiseMerge will try to find the path itself to match the paths in "
 "the patch file, but that can take <placeholder-1/>."
 msgstr "Đường dẫn nơi một miếng vá được áp dụng. Nếu bạn không thiết lập đường dẫn này, thì TortoiseMerge sẽ cố gắng tìm đường dẫn riêng của mình để phù hợp với đường dẫn trong tập tin vá lỗi, nhưng điều đó có thể mất <placeholder-1/> ."
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting, "
+"even if the user does not modify the files."
+msgstr ""
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting if"
+" there are conflicts found, even if the user does not modify the files."
+msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."

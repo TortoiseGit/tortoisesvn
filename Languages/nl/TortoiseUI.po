@@ -18,14 +18,15 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Maarten Hilferink <mhilferink@objectvision.nl>, 2011
 # Paul <paul@piak.nl>, 2011
+# Sander Boele <sboele@hotmail.com>, 2014
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-20 09:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2014-12-30 14:11+0000\n"
+"Last-Translator: Sander Boele <sboele@hotmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,7 +196,7 @@ msgstr "%I64d kBytes verstuurd"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d projecten hebben updates:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -233,7 +234,7 @@ msgstr "%s (recursief)"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Merged file"
-msgstr ""
+msgstr "%s : Samengevoegd bestand"
 
 #. Resource IDs: (151)
 #, c-format
@@ -263,7 +264,7 @@ msgstr "%s, maar de map bestaat al lokaal en zonder versiebeheer."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, maar de map is lokaal niet aanwezig (verwijderd of verplaatst?)"
 
 #. Resource IDs: (609)
 #, c-format
@@ -288,12 +289,12 @@ msgstr "%s, maar de map was lokaal verwijderd, verplaatst of hernoemd."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, maar de map is verplaatst"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, maar de map is hierheen verplaatst"
 
 #. Resource IDs: (609)
 #, c-format
@@ -313,7 +314,7 @@ msgstr "%s, maar het bestand bestaat al lokaal en zonder versiebeheer."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, maar het bestand is lokaal niet aanwezig (verwijderd of verplaatst?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -338,12 +339,12 @@ msgstr "%s, maar het bestand was lokaal verwijderd, verplaatst of hernoemd."
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, maar het bestand is verplaatst"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, maar het bestand is hierheen verplaatst"
 
 #. Resource IDs: (609)
 #, c-format
@@ -409,7 +410,7 @@ msgstr "&Over TortoiseMerge..."
 
 #. Resource IDs: (610)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "&Accepteer status huidige werkkopie (markeer als opgelost)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -425,7 +426,7 @@ msgstr "&Toevoegen >>"
 
 #. Resource IDs: (1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "&Voeg filter toe"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -453,7 +454,7 @@ msgstr "Eigenschap &recursief toepassen"
 
 #. Resource IDs: (610)
 msgid "&Apply the update to the move destination"
-msgstr ""
+msgstr " &Pas de update toe op de verhuislocatie"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -521,7 +522,7 @@ msgstr "&Takken"
 
 #. Resource IDs: (1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "&Verbreek vergrendeling"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -577,7 +578,7 @@ msgstr "&Schonen..."
 
 #. Resource IDs: (1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "&Leeg wijzigingenlijst"
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -673,7 +674,7 @@ msgstr "&Verwijderen (lokaal behouden)"
 
 #. Resource IDs: (1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "&Verwijder Filter"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -687,7 +688,7 @@ msgstr "Verwij&deren"
 msgid ""
 "&Delete\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Verwijderen\nHet project is verwijderd. Mochten er onderliggende projecten zijn, dan zijn deze ook verwijderd. "
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -723,7 +724,7 @@ msgstr "Wijzig&en"
 
 #. Resource IDs: (1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Bewerk Filter"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -735,7 +736,7 @@ msgstr "&Bewerk conflicten"
 
 #. Resource IDs: (65)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Bewerk project"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -803,7 +804,7 @@ msgstr "&Pas afbeeldingen in venster"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "&Tijdstempel repareren"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -875,7 +876,7 @@ msgstr "&Verbergen"
 
 #. Resource IDs: (1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "&Verberg genegeerde items"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1130,7 +1131,7 @@ msgstr "&Opties"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Overig"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1158,7 +1159,7 @@ msgstr "&Platformafhankelijk (native)"
 
 #. Resource IDs: (1654)
 msgid "&Play sound on notification"
-msgstr ""
+msgstr "&Speel geluid af bij notificatie"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1218,7 +1219,7 @@ msgstr "&Verwijderen"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
-msgstr ""
+msgstr "&Verwijder project"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1226,7 +1227,7 @@ msgstr "&Hernoemen"
 
 #. Resource IDs: (1511)
 msgid "&Replace"
-msgstr ""
+msgstr "&Verplaats"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1322,11 +1323,11 @@ msgstr "&Toon menu's voor:"
 
 #. Resource IDs: (32872)
 msgid "&Show Monitor"
-msgstr ""
+msgstr "&Scherm tonen"
 
 #. Resource IDs: (1529)
 msgid "&Show popup notifications"
-msgstr ""
+msgstr "&Toon popup meldingen"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1358,7 +1359,7 @@ msgstr "&Stoppen bij kopie/hernoemd bestand"
 
 #. Resource IDs: (65535)
 msgid "&Subversion username"
-msgstr ""
+msgstr "&Subversion gebruikersnaam"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1535,7 +1536,7 @@ msgstr "&bestandenlijst instellingen"
 #. Resource IDs: (65)
 #, c-format
 msgid "'%s' : %ld new commits"
-msgstr ""
+msgstr "'%s' : %ld nieuwe vastleggingen"
 
 #. Resource IDs: (84)
 #, c-format
@@ -1564,11 +1565,11 @@ msgstr "(binaire waarde)"
 
 #. Resource IDs: (438)
 msgid "(content and properties)"
-msgstr ""
+msgstr "(inhoud en eigenschappen)"
 
 #. Resource IDs: (438)
 msgid "(content only)"
-msgstr ""
+msgstr "(alleen inhoud)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
@@ -1902,7 +1903,7 @@ msgstr "Voeg nieuwe bestanden automatisch toe in SVN"
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
-msgstr ""
+msgstr "Voeg project of folder toe..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -1915,7 +1916,7 @@ msgstr "Voeg toe aan &negeerlijst"
 
 #. Resource IDs: (102)
 msgid "Add to Bookmarks"
-msgstr ""
+msgstr "Toevoegen aan Favorieten"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
@@ -2053,7 +2054,7 @@ msgstr "Al uw wijzigingen gaan verloren! Wilt u echt werkbalk '%s' herstellen?"
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr ""
+msgstr "Bewerken toestaan voor deze view\nBewerken toestaan"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2143,15 +2144,15 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "Een ander proces blokkeert de database van de werklocatie, of het onderliggende besturingssysteem ondersteunt geen bestandsvergrendeling; als de werklocatie op een netwerk bestandssysteem staat, controleer dan of deze bestandsvergrendeling ingeschakeld heeft.  "
 
 #. Resource IDs: (251)
 msgid "Append right block"
-msgstr ""
+msgstr "Voeg blok rechts toe"
 
 #. Resource IDs: (251)
 msgid "Append this block to left"
-msgstr ""
+msgstr "Voeg dit blok links toe"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2387,7 +2388,7 @@ msgstr "Alpha mixen"
 
 #. Resource IDs: (156)
 msgid "Blocks"
-msgstr ""
+msgstr "Blokken"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2601,7 +2602,7 @@ msgstr "Annuleer\nHet onderdeel niet oplossen."
 msgid ""
 "Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "Annuleren\nToon geen verschillen."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2661,13 +2662,13 @@ msgstr "Annuleer\nLos eerst de conflicten op."
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "Annuleren\nBehoud de huidige bestanden"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "Annuleren\nBehoud de huidige instellingen"
 
 #. Resource IDs: (226)
 msgid ""
@@ -2715,7 +2716,7 @@ msgstr "Annuleer\nHet doelbestand blijft intact"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Annuleren\nU kunt een nieuw wachtwoord opgeven en het opnieuw proberen"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2904,7 +2905,7 @@ msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
 #. Resource IDs: (65)
 #, c-format
 msgid "Checking project '%s' for updates..."
-msgstr ""
+msgstr "Project '%s' controleren op updates..."
 
 #. Resource IDs: (77, 133, 65535)
 msgid "Checkout"
@@ -3678,7 +3679,7 @@ msgstr ""
 #. Resource IDs: (94)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Optellen: %u overeenkomsten."
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
@@ -3873,7 +3874,7 @@ msgstr "Verwijder mappen en bestanden &zonder versiebeheer"
 
 #. Resource IDs: (65)
 msgid "Delete Project"
-msgstr ""
+msgstr "Project verwijderen"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4291,7 +4292,7 @@ msgstr "Niet uitvoeren\nVoer het script niet uit"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr ""
+msgstr "Niet opslaan,\nSluit de views zonder de wijzigingen op te slaan"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4354,7 +4355,7 @@ msgstr "E&xporteer..."
 
 #. Resource IDs: (303)
 msgid "EOL"
-msgstr ""
+msgstr "EOL"
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -4485,7 +4486,7 @@ msgstr "Activeert spellingscontrole alleen als\ntsvn:projectlanguage een waarde 
 
 #. Resource IDs: (300, 301)
 msgid "Encoding"
-msgstr ""
+msgstr "Codering"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4718,11 +4719,11 @@ msgstr "Export&map:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Exporteer bestanden (*.tsex)|*.tsex|Alle bestanden (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Exporteer de instellingen naar bestand..."
 
 #. Resource IDs: (345)
 msgid ""
@@ -4823,7 +4824,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Het kopiëren van bestand '%s' naar '%s' is mislukt.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -4907,7 +4908,7 @@ msgstr "Bestand"
 
 #. Resource IDs: (252)
 msgid "File Encoding"
-msgstr ""
+msgstr "Bestand Codering"
 
 #. Resource IDs: (90)
 msgid "File already exists"
@@ -5079,7 +5080,7 @@ msgstr "Zoek de opgegeven tekst\nZoeken"
 #. Resource IDs: (95)
 #, c-format
 msgid "Find: Can't find the text \"%s\""
-msgstr ""
+msgstr "Zoeken: Tekst \"%s\" niet gevonden"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5152,7 +5153,7 @@ msgstr "Forceer verwijderen"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Voorgrond"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5176,7 +5177,7 @@ msgstr "Volledig scherm"
 
 #. Resource IDs: (113)
 msgid "Full data"
-msgstr ""
+msgstr "Volledige data"
 
 #. Resource IDs: (116)
 msgid "Full revision data without changed paths"
@@ -10601,7 +10602,7 @@ msgstr "Er zijn momenteel %d overlay handlers geïnstalleerd naast die van Torto
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "Er zijn meer bewerkbare views.\nWelke view wilt u opslaan?"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."

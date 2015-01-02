@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-10 09:59+0000\n"
+"PO-Revision-Date: 2014-12-30 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -338,6 +338,17 @@ msgid ""
 " of the website and manages the many translations."
 msgstr "Jak se Subversion stával stabilnějším, přitahoval více a více uživatelů, kteří také začali používat TortoiseSVN jako jejich klienta Subversion. Uživatelská základna rychle rostla (a stále roste každý den). V tu dobu Lubbe Onken nabídl svoji pomoc a vytvořil překrásné ikony a logo pro TortoiseSVN. V současnosti se stará o webové stránky a správu překladů."
 
+#. (para)
+msgid ""
+"With time, other version control systems all got their own Tortoise client "
+"which caused a problem with the icon overlays in Explorer: the number of "
+"such overlays is limited and even one Tortoise client can easily exceed that"
+" limit. That's when Stefan Küng implemented the TortoiseOverlays component "
+"which allows all Tortoise clients to use the same icon overlays. Now all "
+"open source Tortoise clients and even some non-Tortoise clients use that "
+"shared component."
+msgstr ""
+
 #. (title)
 msgid "Acknowledgments"
 msgstr "Poděkování"
@@ -461,9 +472,8 @@ msgid ""
 "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a "
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
-"which is also relevant to repositories located on a server. There is also a "
-"section here on how to setup a server if you need one."
-msgstr "V kapitole o <xref linkend=\"tsvn-repository\"/> je vysvětleno, jak nastavit místní úložiště, které je užitečné pro testování Subversion a TortoiseSVN pomocí jediného PC. Také vysvětluje něco o správě úložiště, která je rovněž relevantní pro úložiště umístěné na serveru. K dispozici je zde také sekce jak nastavit server, pokud ho budete potřebovat."
+"which is also relevant to repositories located on a server."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -620,8 +630,10 @@ msgid ""
 msgstr "TortoiseSVN přichází se snadno použitelným instalátorem. Dvakrát klikněte na instalační soubor a postupujte podle pokynů. Instalátor se postará o zbytek. Nezapomeňte po instalaci restartovat."
 
 #. (para)
-msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr "K instalaci TortoiseSVN musíte mít správcovská oprávnění."
+msgid ""
+"You need Administrator privileges to install TortoiseSVN. The installer will"
+" ask you for Administrator credentials if necessary."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -802,11 +814,11 @@ msgid ""
 "<filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then "
 "right click on it and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
-" Enter the URL to checkout, in this case "
+" Then enter the URL to checkout, in this case "
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr "Nyní, když máme projekt v našem úložišti, musíme vytvořit pracovní kopii pro každodenní práci. Všimněte si, že importováním adresáře automaticky neznamená, že tento adresář je pracovní kopie. Termín pro vytvoření nové pracovní kopie Subversion je <literal>Získat</literal>. Chceme získat složku z našeho úložiště do vývojového adresáře na PC nazvaný <filename>C:\\Projekty\\Widget1-Dev</filename>. Vytvořte tento adresář, klepněte na něj pravým tlačítkem myši a zvolte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Získat</guimenuitem></menuchoice> . Zadejte URL pro získání, v tomto případě <filename>file:///c:/svn_repos/trunk/Widget1</filename> a klikněte na <guibutton>OK</guibutton>. Náš vývojový adresář je pak naplněn soubory z úložiště."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -832,12 +844,12 @@ msgstr "Provedení změn"
 
 #. (para)
 msgid ""
-"Time to get to work. In the <filename>Widget1-Dev</filename> we start "
-"editing files - let's say we make changes to <filename>Widget1.c</filename> "
-"and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these "
-"files have now changed to red, indicating that changes have been made "
+"Time to get to work. In the <filename>Widget1-Dev</filename> folder we start"
+" editing files - let's say we make changes to <filename>Widget1.c</filename>"
+" and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
+" files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr "Čas pustit se do práce. V adresáři <filename>Widget1-Dev</filename> začneme upravovat soubory - řekněme, že provedeme změny v <filename>Widget1.c</filename> a <filename>ReadMe.txt</filename>. Všimněte si, že překryv ikon v těchto souborech se nyní změnila na červenou, což naznačuje, že byly lokálně provedeny změny."
+msgstr ""
 
 #. (title)
 msgid "File Difference Viewer"
@@ -901,9 +913,11 @@ msgstr "Dialogové okno Záznamů"
 msgid ""
 "One of the most useful features of TortoiseSVN is the Log dialog. This shows"
 " you a list of all the commits you made to a file or folder, and shows those"
-" detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
-"cheated a little here and used a screenshot from the TortoiseSVN repository."
-msgstr "Jedna z nejvíce užitečných funkcí TortoiseSVN je dialogové okno Záznamů. Zde můžete vidět seznam všech odevzdání, které jste provedli v souboru nebo v adresáři a také ukazuje podrobné zprávy o odevzdáních, které jste zadali ;-) <placeholder-1/> Dobrá, tak tady jsem trochu podváděl a použil screenshot z úložiště TortoiseSVN."
+" detailed commit messages that you entered (you <emphasis>did</emphasis> "
+"enter a commit message as suggested? If not, now you see why this is "
+"important). <placeholder-1/> OK, so I cheated a little here and used a "
+"screenshot from the TortoiseSVN repository."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1489,19 +1503,36 @@ msgstr "Všimněte si, že URL používá obyčejná lomítka, i když nativní 
 
 #. (para)
 msgid ""
-"You can safely access a FSFS repository via a network share, but you "
-"<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "Můžete bezpečně vstupovat do FSFS úložiště přes sdílenou sít, ale stejným způsobem <emphasis>nemůžete</emphasis> vstupovat do BDB úložiště."
+"You can access a FSFS repository via a network share, but this is "
+"<emphasis>not</emphasis> recommended for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Nevytvářejte ani nevstupujte do Berkeley DB úložiště přes sdílenou síť. Úložiště <emphasis> nemůže </emphasis> existovat ve vzdáleném systému souborů. Ani když máte mapovanou síťovou jednotku na písmeno jednotky. Pokud se pokusíte použít Berkeley DB v sdílené síti, výsledky jsou nepředvídatelné - divné chyby se můžou objevt ihned, nebo to také může trvat měsíce, než zjistíte, že Vaše databáze úložiště je nepatrně poškozená."
+"You are giving direct write access to all users, so they could accidentally "
+"delete or corrupt the repository file system."
+msgstr ""
+
+#. (para)
+msgid ""
+"Not all network file sharing protocols support the locking that Subversion "
+"requires. One day you will find your repository has been subtly "
+"<emphasis>corrupted</emphasis>."
+msgstr ""
+
+#. (para)
+msgid ""
+"You have to set the access permissions in just the right way. SAMBA is "
+"particularly difficult in this respect."
+msgstr ""
+
+#. (para)
+#. (para)
+msgid ""
+"If one person installs a newer version of the client which upgrades the "
+"repository format, then everyone else will be unable to access the "
+"repository until they also upgrade to the new client version."
+msgstr ""
 
 #. (title)
 msgid "Revisions"
@@ -1762,9 +1793,9 @@ msgstr "vytvořit úložiště"
 
 #. (para)
 msgid ""
-"Please note that the command line client that comes with TortoiseSVN does "
-"not support the older Berkeley Database (BDB) format."
-msgstr "Nezapomeňte prosím, že klient příkazového řádku, který je součástí TortoiseSVN, nepodporuje starší formát Databáze Berkeley (BDB)."
+"Please note that the command line client that comes with TortoiseSVN and "
+"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1878,10 +1909,10 @@ msgstr "Kvůli těmto problémům s kompatibilitou TortoiseSVN nepodporuje pří
 
 #. (para)
 msgid ""
-"Of course we also recommend that you don't use <literal>file://</literal> "
-"access at all, apart from local testing purposes. Using a server is more "
-"secure and more reliable for all but single-developer use."
-msgstr "Samozřejmě také vůbec nedoporučujeme používat pro přístup <literal>file://</literal>, kromě pro lokální účely testování. Použití serveru je mnohem bezpečnější a spolehlivější pro všechny, až na práci jednoho vývojáře."
+"We also recommend that you don't use <literal>file://</literal> access at "
+"all, apart from local testing purposes. Using a server is more secure and "
+"more reliable for all but single-developer use."
+msgstr ""
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1918,16 +1949,6 @@ msgid ""
 "This form is still supported, but not recommended."
 msgstr "Před SVN 1.2, musely být UNC cesty uvedeny v nepřehledné podobě <systemitem class=\"url\">file:///ile://\\JmenoServeru/cesta/do/uloziste/</systemitem>. Tato forma je stále podporována, ale nedoporučuje se."
 
-#. (para)
-msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote file system. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Nevytvářejte ani nevstupujte do Berkeley DB úložiště ve sdílené síti. <emphasis>Nemůže</emphasis> existovat ve vzdáleném systému souborů, ani když máte síťovou jednotku mapovanou na písmeno jednotky. Pokud se pokusíte použít Berkeley DB ve sdílené síti, výsledky jsou nepředvídatelné - zvláštní chyby se mohou objevit ihned, nebo to může trvat měsíce předtím, než zjistíte, že vaše databáze úložiště je lehce poškozená."
-
 #. (title)
 msgid "Accessing a Repository on a Network Share"
 msgstr "Přístup k úložišti na síťovém disku"
@@ -1942,8 +1963,8 @@ msgid ""
 "share and have multiple users access it using <literal>file://</literal> "
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
-"support such use."
-msgstr "I když je teoreticky možné mít FSFS úložiště v sdílené síti a více uživatelů by k němu přistupovalo pomocí protokolu <literal>file://</literal>, toto rozhodně <emphasis>není</emphasis> doporučeno. Ve skutečnosti <emphasis>silně</emphasis> odrazujeme a takové použití nepodporujeme."
+"support such use for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2613,8 +2634,11 @@ msgid "Ctrl-C"
 msgstr "Ctrl-C"
 
 #. (para)
-msgid "... Copy the selected text."
-msgstr "... Zkopírujte vybraný text."
+msgid ""
+"Copy the selected text. In case no text is selected but e.g. a list entry or"
+" a message box, then the content of that list entry or the message box is "
+"copied to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2668,20 +2692,14 @@ msgstr "Pokud je úložiště, do kterého se pokoušíte vstoupit chráněno he
 
 #. (para)
 msgid ""
-"If you want to clear the authentication cache for all servers, you can do so"
-" from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings "
-"dialog. That button will clear all cached authentication data from the "
-"Subversion <filename>auth</filename> directories, as well as any "
-"authentication data stored in the registry by earlier versions of "
-"TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "Pokud chcete vymazat uchovaná ověření na Všech serverech, můžete tak učinit ze stránky dialogového okna <guilabel>Uložená data</guilabel> v nastavení TortoiseSVN. Toto tlačítko vymaže všechny uložené údaje ověření z <filename>auth</filename> adresáře Subversion i všechna ověřovací data uložená v registrech z předchozích verzí TortoiseSVN. Viz <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-
-#. (para)
-msgid ""
-"If you want to clear authentication for one realm only then you will have to"
-" dig into those directories, find the file which contains the information "
-"you want to clear and delete the file."
-msgstr "Pokud chcete vymazat ověření pouze pro jednu sféru, pak budete muset vstoupit do těchto adresářů, najít soubor, který obsahuje informace, které chcete vymazat a smazat ho."
+"If you want to clear the authentication cache, you can do so from the "
+"<guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. The "
+"button <guibutton>Clear all</guibutton> will clear the cached authentication"
+" data for all repositories. The button <guibutton>Clear...</guibutton> "
+"however will show a dialog where you can chose which cached authentication "
+"data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
+"data\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2911,23 +2929,23 @@ msgstr "V těchto případech doporučujeme použít <emphasis>šablonový</emph
 #. (para)
 msgid ""
 "As an example, you can have a look at TortoiseSVN's build script. It calls a"
-" file named <filename>TortoiseVars.bat</filename> which doesn't exist in the"
-" repository. Only the file <filename>TortoiseVars.tmpl</filename>. "
-"<filename>TortoiseVars.tmpl</filename> is the template file which every "
-"developer has to create a copy from and rename that file to "
-"<filename>TortoiseVars.bat</filename>. Inside that file, we added comments "
-"so that the users will see which lines they have to edit and change "
+" file named <filename>default.build.user</filename> which doesn't exist in "
+"the repository. Only the file <filename>default.build.user.tmpl</filename>. "
+"<filename>default.build.user.tmpl</filename> is the template file which "
+"every developer has to create a copy from and rename that file to "
+"<filename>default.build.user</filename>. Inside that file, we added comments"
+" so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr "Jako příklad se můžete podívat na sestavovací skript TortoiseSVN. Volá souboru jménem <filename>TortoiseVars.bat</filename>, který v úložišti neexistuje. Pouze soubor <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> je šablonový soubor a každý vývojář si musí vytvořit kopii tohoto souboru a přejmenovat ho na <filename>TortoiseVars.bat</filename>. Uvnitř tohoto souboru jsme přidali komentáře, takže uživatelé mohou vidět, které řádky budou muset upravit a měnit v závislosti na jejich místním nastavení, aby všechno fungovalo."
+msgstr ""
 
 #. (para)
 msgid ""
 "So as not to disturb the users, we also added the file "
-"<filename>TortoiseVars.bat</filename> to the ignore list of its parent "
+"<filename>default.build.user</filename> to the ignore list of its parent "
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr "Aby toto uživatele nerušilo, jsme také přidali soubor <filename>TortoiseVars.bat</filename> do seznamu k ignorování v jeho nadřazené složce, tedy jsme nastavili Subversion vlastnost <literal>svn:ignore</literal>, aby zahrnovala tento název souboru. Takto se v každém odevzdání neukáže jako bez verze."
+msgstr ""
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -4573,46 +4591,6 @@ msgid ""
 msgstr "<placeholder-1/> Někdy budete chtít podrobnější informace o souboru/adresáři, než jen překryvem ikon. Můžete získat všechny informace, které Subversion nabízí v dialogovém okně vlastnosti v Průzkumníku. Stačí vybrat soubor nebo adresář a vyberte v kontextovém menu možnost <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Vlastnosti</guimenuitem></menuchoice> (poznámka: toto je normální menu položky vlastnosti, který Průzkumník nabízí a ne ten v podmenu TortoiseSVN!). V dialogovém okně Vlastnosti přidal TortoiseSVN novou stránku vlastností pro soubory/adresáře pod kontrolou Subversion. Zde vidíte všechny důležité informace o vybraném souboru/adresáři."
 
 #. (title)
-msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr "Sloupce TortoiseSVN v Průzkumníku Windows"
-
-#. (primary)
-msgid "Explorer Columns"
-msgstr "Sloupce Průzkumníka"
-
-#. (para)
-msgid ""
-"The same information which is available from the icon overlays (and much "
-"more) can be displayed as additional columns in Windows Explorer's Details "
-"View."
-msgstr "Stejné informace, které jsou k dispozici v překryvech ikon (a ještě mnohem víc), mohou být zobrazeny jako další sloupce v okně podrobností Průzkumníka Windows."
-
-#. (para)
-msgid ""
-"Simply right click on one of the headings of a column, choose "
-"<guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog"
-" will appear where you can specify the columns and their order, which is "
-"displayed in the <quote>Detailed View</quote>. Scroll down until the entries"
-" starting with SVN come into view. Check the ones you would like to have "
-"displayed and close the dialog by pressing <guibutton>OK</guibutton>. The "
-"columns will be appended to the right of those currently displayed. You can "
-"reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Jednoduše klikněte pravým tlačítkem myši na jeden ze záhlaví sloupce, zvolte <guimenuitem> Více...</guimenuitem> ze zobrazeného kontextového menu. Objeví se dialogové okno, kde můžete zadat sloupce a jejich pořadí, který je zobrazen v <quote>Detailním zobrazení</quote>. Přejděte dolů, dokud se položky začínající SVN nezobrazí. Zaškrtněte ty, které byste chtěli mít zobrazeny a zavřete dialogové okno stisknutím <guibutton>OK</guibutton>. Sloupce budou připojen napravo od momentálně zobrazených. Můžete změnit jejich pořadí přetažením, nebo měnit jejich velikost, aby odpovídali vašim potřebám."
-
-#. (para)
-msgid ""
-"The additional columns in the Windows Explorer are not available on Vista, "
-"since Microsoft decided to not allow such columns for "
-"<emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr "Další sloupce v Průzkumníku Windows nejsou ve Windows Vista k dispozici, protože Microsoft rozhodl, nepovolovat takové sloupce pro <emphasis>všechny</emphasis> soubory ale jen pro konkrétní typy souborů."
-
-#. (para)
-msgid ""
-"If you want the current layout to be displayed in all your working copies, "
-"you may want to make this the default view."
-msgstr "Pokud chcete, aby stávající uspořádání, které je zobrazeno bylo ve všech Vašich pracovních kopií, můžete zobrazení nastavit jako výchozí zobrazení."
-
-#. (title)
 msgid "Local and Remote Status"
 msgstr "Místní a Vzdálený Stav"
 
@@ -5909,8 +5887,9 @@ msgid ""
 "Since TortoiseSVN keeps a cache of all the log information, edits made for "
 "author and log messages will only show up on your local installation. Other "
 "users using TortoiseSVN will still see the cached (old) authors and log "
-"messages until they refresh the log cache."
-msgstr "Vzhledem k tomu, že TortoiseSVN si udržuje všechny informace ze záznamu, úpravy prováděné v autorovi a zprávě záznamu se zobrazí pouze ve Vaší instalaci. Ostatní uživatelé používající TortoiseSVN stále budou vidět uchované (staré) autory a zprávy záznamu, dokud neaktualizují úschovu záznamu."
+"messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
+"dug-showlog-refresh\"/>"
+msgstr ""
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8845,6 +8824,22 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr "V případě potřeby můžete v URL zadat zavěšenou a operativní revizi. Abyste se dozvěděli více o zavěšených a operativních revizích, prohlédněte si prosím <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>odpovídající kapitolu</citetitle></ulink> v knize Subversion."
+
+#. (para)
+msgid ""
+"If you specify the target folder for the external as a subfolder like in the"
+" examples above, make sure that <emphasis>all</emphasis> folders in between "
+"are versioned as well. So for the examples above, the folder "
+"<filename>common</filename> should be versioned!"
+msgstr ""
+
+#. (para)
+msgid ""
+"While the external will work in most situations properly if folders in "
+"between are not versioned, there are some operations that won't work as you "
+"expect. And the status overlay icons in explorer will also not show the "
+"correct status."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20130,24 +20125,6 @@ msgstr "Následující graf zobrazuje vztah mezi soubory zapojené do konfliktu:
 msgid "File Conflict"
 msgstr "Konflikt souboru"
 
-#. (para)
-msgid ""
-"A conflict can also occur if you try to apply an outdated patch file. In "
-"such cases, without TortoiseMerge, you would either have to ask the person "
-"you got that patch file from for a current version or try to apply that "
-"patch file manually."
-msgstr "Konflikt také může nastat, pokud se pokusíte použít zastaralý záplatový soubor. V takových případech, bez TortoiseMerge, byste museli buď požádat osobu, od které jste dostali tento záplatový soubor, o aktuální verzi, nebo zkusili uplatnit záplatový soubor ručně."
-
-#. (para)
-msgid ""
-"But now with TortoiseMerge this isn't necessary anymore - at least not if "
-"you're working with a version control system like Subversion. TortoiseMerge "
-"parses the patch file for the revision/version the patch was created for and"
-" automatically tries to fetch that specific version from your source-"
-"control. Then it applies the patch and lets you review both your changes to "
-"the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Ale nyní s TortoiseMerge to už není nutné - alespoň ne, pokud pracujete se systémem pro správu verzí, jako je Subversion. TortoiseMerge záplatový soubor rozebere na revizi/verzi, pro kterou byl vytvořen a automaticky se pokusí načíst konkrétní verzi ze systému pro správu verzí. Pak použije záplatu a umožňí Vám prozkoumat jak Vaše změny v souboru, tak jejich. Pak se můžete rozhodnout, které změny chcete zachovat."
-
 #. (title)
 msgid "TortoiseMerge's History"
 msgstr "Historie TortoiseMerge"
@@ -20190,6 +20167,14 @@ msgstr "Vzhledem k tomu, že TortoiseSVN již používá knihovnu Subversion, kt
 
 #. (para)
 msgid ""
+"Subversion 1.7 introduced the <emphasis>svn patch</emphasis> command which "
+"allows to apply a patch file to a working copy. TortoiseMerge uses now the "
+"same functions as the Subversion command to avoid different behaviors "
+"between the two."
+msgstr ""
+
+#. (para)
+msgid ""
 "Viewing the difference between two files and merging changes into one of "
 "them, or removing unwanted changes."
 msgstr "Zobrazení rozdílu mezi dvěma soubory a slučování změn do jednoho z nich, nebo odstraňování nežádoucích změn."
@@ -20201,8 +20186,8 @@ msgid ""
 msgstr "Úprava konfliktů mezi místními změnami a změnami v úložišti Subversion po aktualizaci."
 
 #. (para)
-msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr "Uplatnění záplatových souborů. To je důvod, proč byl TortoiseMerge vytvořen:)"
+msgid "Applying patch files and reviewing them."
+msgstr ""
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20469,14 +20454,53 @@ msgstr "Pokud kliknete na tlačítko v levém okraji, nebo pokud třikrát klikn
 msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. You can change line-ending style and encoding by double-"
-"clicking the corresponding column of that view. A dialog box will be "
-"displayed. The left side of the status bar is used to display hints when you"
-" hover the mouse over a control."
-msgstr "Pod spodním oknem je stavový řádek. Ukazuje počet přidaných a odstraněných řádků v <literal>Jejich</literal> a <literal>Mém</literal> a počet zbývajících nevyřešených konfliktů. Můžete také vidět, který styl konců řádků je použit, jaké kódování TortoiseMerge předpokládá (ASCII, UTF-8, atd.) a zda je označení pořadí bajtů (BOM) přítomno v souborech UTF-8. Změna stylu konců řádků a kódování může být změněno dvojklikem na odpovídající sloupce v tomto zobrazení. Zobrazí se dialogové okno. Levá strana stavového řádku se používá pro zobrazení popisu, když myší najedete nad kontrolu."
+"and the number of unresolved conflicts remaining."
+msgstr ""
+
+#. (term)
+msgid "Encoding"
+msgstr "Kódování"
+
+#. (para)
+msgid ""
+"The encoding specifies how the characters in the views are loaded/saved and "
+"shown. The most common encoding in English is ASCII (which means the local "
+"encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
+"UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
+msgstr ""
+
+#. (term)
+msgid "Line Endings"
+msgstr ""
+
+#. (para)
+msgid ""
+"The most common line endings on Windows is CRLF, but you can change the line"
+" endings to whatever you like. Note that if you change the line endings, "
+"then <emphasis>all</emphasis> line endings in the whole file will change, "
+"even if when loaded the line endings were not all the same."
+msgstr ""
+
+#. (para)
+msgid ""
+"The option at the top of the combo box menu indicates whether tabs or spaces"
+" are inserted when you press the tab key. The <emphasis>smart tab "
+"char</emphasis> option if enabled uses an algorithm to determine whether one"
+" or the other is best used."
+msgstr ""
+
+#. (para)
+msgid ""
+"The tab size specifies how many space chars are inserted when editing and "
+"pressing the tab char, or how many chars the next word is indented when a "
+"tab char is encountered."
+msgstr ""
+
+#. (para)
+msgid ""
+"The status bar also contains combo box controls which indicate how the files"
+" are handled and treated: <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -20659,14 +20683,6 @@ msgid ""
 " file itself and the path to the folder where the patch file should be "
 "applied."
 msgstr "Pokud chcete použít záplatový soubor, musíte nastavit i cestu k samotnému souboru a cestu k adresáři, kde by měl být použit."
-
-#. (para)
-msgid ""
-"Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are "
-"supported. And only files which were generated from a Subversion working "
-"copy. Other formats like patch files generated by CVS are currently not "
-"supported!"
-msgstr "V současné době jsou záplatové soubory podporovány pouze ve <emphasis>Formátu Sjednoceného Rozdílu</emphasis>. A pouze ty, které byly vytvořeny z pracovní kopie Subversion. Jiné formáty, jako je záplatový soubor vytvořený CVS, nejsou momentálně podporovány!"
 
 #. (title)
 msgid "Main Settings Page"
@@ -21070,6 +21086,13 @@ msgid ""
 "file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Název původního souboru. Je zobrazen v zobrazení názvu namísto cesty k souboru. V trojím porovnávání je uveden v popisku zobrazení názvu."
 
+#. (entry)
+#. (entry)
+#. (entry)
+#. (entry)
+msgid "The name to use for editorconfig templates."
+msgstr ""
+
 #. (emphasis)
 msgid "theirs"
 msgstr "jejich"
@@ -21136,6 +21159,18 @@ msgid ""
 "then TortoiseMerge will try to find the path itself to match the paths in "
 "the patch file, but that can take <placeholder-1/>."
 msgstr "Cesta, kde by záplata měla být použita. Pokud nechcete nastavit tuto cestu, pak se TortoiseMerge bude snažit najít cestu samo, aby se shodovala s cestou v záplatovém souboru, ale to může trvat <placeholder-1/>."
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting, "
+"even if the user does not modify the files."
+msgstr ""
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting if"
+" there are conflicts found, even if the user does not modify the files."
+msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."

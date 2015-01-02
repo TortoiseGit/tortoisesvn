@@ -13,14 +13,14 @@
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2014
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2015
 # Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-26 04:42+0000\n"
+"PO-Revision-Date: 2015-01-02 06:20+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -340,6 +340,17 @@ msgid ""
 " of the website and manages the many translations."
 msgstr "Subversionが安定するにつれて、SubversionクライアントとしてTortoiseSVNを使用するユーザーが増加していきました。ユーザー層は急速に拡大しました（そして日々拡大しています）。Lübbe OnkenはTortoiseSVNのロゴとアイコンをデザインしました。また彼は、ウェブサイトと翻訳の管理をしています。"
 
+#. (para)
+msgid ""
+"With time, other version control systems all got their own Tortoise client "
+"which caused a problem with the icon overlays in Explorer: the number of "
+"such overlays is limited and even one Tortoise client can easily exceed that"
+" limit. That's when Stefan Küng implemented the TortoiseOverlays component "
+"which allows all Tortoise clients to use the same icon overlays. Now all "
+"open source Tortoise clients and even some non-Tortoise clients use that "
+"shared component."
+msgstr ""
+
 #. (title)
 msgid "Acknowledgments"
 msgstr "謝辞"
@@ -463,9 +474,8 @@ msgid ""
 "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a "
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
-"which is also relevant to repositories located on a server. There is also a "
-"section here on how to setup a server if you need one."
-msgstr "<xref linkend=\"tsvn-repository\"/>では、単独のPCでSubversionやTortoiseSVNを試すのに便利なように、ローカルリポジトリのセットアップ方法を説明しています。また、リポジトリ管理についても若干の説明をしています。サーバー上のリポジトリを使用する場合も関係します。また、必要な場合にサーバーをセットアップする方法もこの章で説明しています。"
+"which is also relevant to repositories located on a server."
+msgstr "<xref linkend=\"tsvn-repository\"/> では、単独のPCで Subversion や TortoiseSVN を試すのに便利なように、ローカルリポジトリのセットアップ方法を説明しています。また、リポジトリ管理についても若干の説明をしています。サーバー上のリポジトリを使用する場合も関係します。"
 
 #. (para)
 msgid ""
@@ -622,8 +632,10 @@ msgid ""
 msgstr "TortoiseSVNはインストーラーを使用すると簡単にインストールできます。インストーラーのファイルをダブルクリックし、画面の指示に従ってください。後はインストーラーが面倒を見てくれます。最後にPCを再起動するのをお忘れなく。"
 
 #. (para)
-msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr "TortoiseSVNをインストールするには、管理者権限が必要です。"
+msgid ""
+"You need Administrator privileges to install TortoiseSVN. The installer will"
+" ask you for Administrator credentials if necessary."
+msgstr "TortoiseSVNをインストールするには、Administrator権限が必要です。インストーラーは必要な場合、Administrator権限を確認してきます。"
 
 #. (para)
 msgid ""
@@ -804,11 +816,11 @@ msgid ""
 "<filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then "
 "right click on it and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
-" Enter the URL to checkout, in this case "
+" Then enter the URL to checkout, in this case "
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr "これでプロジェクトがリポジトリに登録されましたので、次に日常の作業に使用する作業コピーを作成します。フォルダーをインポートしたとき、フォルダーが自動的に作業コピーになる訳ではないので注意してください。 Subversion では、新しい作業コピーを作ることを <literal>チェックアウト</literal> といいます。リポジトリの Widget1 フォルダーを、PC上の開発用フォルダー <filename>C:\\Projects\\Widget1-Dev</filename> にチェックアウトしてみましょう。フォルダーを作成し、次にそれを右クリックして、 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>チェックアウト... </guimenuitem></menuchoice> を選択します。チェックアウト元のURLを、 <filename>file:///c:/svn_repos/trunk/Widget1</filename> のような形式で入力し、 <guibutton>OK</guibutton> をクリックします。これで開発用フォルダーに、リポジトリからファイルが読み込まれます。"
+msgstr "これでプロジェクトがリポジトリに登録されましたので、次に日常の作業に使用する作業コピーを作成します。フォルダーをインポートしたとき、フォルダーが自動的に作業コピーになる訳ではないので注意してください。Subversionでは、新しい作業コピーを作ることを<literal>チェックアウト</literal>といいます。リポジトリのWidget1フォルダーを、PC上の開発用フォルダー<filename>C:\\Projects\\Widget1-Dev</filename>にチェックアウトしてみましょう。フォルダーを作成し、次にそれを右クリックして、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>チェックアウト... </guimenuitem></menuchoice>を選択します。それからチェックアウト元のURLを、<filename>file:///c:/svn_repos/trunk/Widget1</filename>のような形式で入力し、<guibutton>OK</guibutton>をクリックします。これで開発用フォルダーに、リポジトリからファイルが読み込まれます。"
 
 #. (para)
 #. (para)
@@ -834,12 +846,12 @@ msgstr "ファイルの変更"
 
 #. (para)
 msgid ""
-"Time to get to work. In the <filename>Widget1-Dev</filename> we start "
-"editing files - let's say we make changes to <filename>Widget1.c</filename> "
-"and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these "
-"files have now changed to red, indicating that changes have been made "
+"Time to get to work. In the <filename>Widget1-Dev</filename> folder we start"
+" editing files - let's say we make changes to <filename>Widget1.c</filename>"
+" and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
+" files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr "さて、 <filename>Widget1-Dev</filename> の中にある、 <filename>Widget1.c</filename> と <filename>ReadMe.txt</filename> の２つのファイルについて、内容を変更してみましょう。これらのファイルは、アイコンのオーバーレイが赤に変わるはずです。これは、作業コピーがローカルで変更されたことを示しています。"
+msgstr "さて、 filename>Widget1-Dev</filename>フォルダーの中にある、<filename>Widget1.c</filename>と<filename>ReadMe.txt</filename>の2つのファイルについて、内容を変更してみましょう。これらのファイルは、アイコンのオーバーレイが赤に変わるはずです。これは、作業コピーが手元で変更されたことを示しています。"
 
 #. (title)
 msgid "File Difference Viewer"
@@ -903,9 +915,11 @@ msgstr "ログダイアログ"
 msgid ""
 "One of the most useful features of TortoiseSVN is the Log dialog. This shows"
 " you a list of all the commits you made to a file or folder, and shows those"
-" detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
-"cheated a little here and used a screenshot from the TortoiseSVN repository."
-msgstr "TortoiseSVN で最もよく使われる機能のひとつが、ログダイアログです。ここでは、コミットされたファイルやフォルダーの一覧と、あなたがコミット時に入力した詳細なメッセージが表示されます。 <placeholder-1/> ここではちょっと手抜きして、 TortoiseSVN のリポジトリのスクリーンショットを使います。"
+" detailed commit messages that you entered (you <emphasis>did</emphasis> "
+"enter a commit message as suggested? If not, now you see why this is "
+"important). <placeholder-1/> OK, so I cheated a little here and used a "
+"screenshot from the TortoiseSVN repository."
+msgstr "TortoiseSVNで最も便利な機能のひとつがログダイアログです。ここで、コミットされたファイルやフォルダの一覧と、コミット時に入力された詳細なメッセージを見ることができます。（勧めに応じてコミットメッセージを入力<emphasis>しましたか</emphasis>？入力していないなら、なぜ重要なのかが分かりますね）<placeholder-1/>はい、ここでは少しずるをしてTortoiseSVNリポジトリからのスクリーンショットを使いました。"
 
 #. (para)
 msgid ""
@@ -1491,19 +1505,36 @@ msgstr "Windows の（URL以外の）パスの形式ではバックスラッシ�
 
 #. (para)
 msgid ""
-"You can safely access a FSFS repository via a network share, but you "
-"<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "ネットワークフォルダー上でも FSFS リポジトリには安全にアクセスできますが、 BDB リポジトリにはこの方法ではアクセス <emphasis>できません</emphasis> 。"
+"You can access a FSFS repository via a network share, but this is "
+"<emphasis>not</emphasis> recommended for various reasons:"
+msgstr "ネットワークフォルダー上でもFSFSリポジトリにはアクセスできますが、これはさまざまな理由によりお勧めでき<emphasis>ません</emphasis>。"
 
 #. (para)
 msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Berkeley DB リポジトリは、ネットワークフォルダー上で作成したりアクセスしたりしないでください。これはリモートファイルシステム上に存在 <emphasis>できません</emphasis> 。ネットワークドライブにドライブ文字を割り当ててもダメです。ネットワークフォルダー上で Berkeley DB を使用した場合、結果が予想できません。すぐに不可思議なエラーに遭遇するかもしれませんし、数ヶ月後にリポジトリデータベースが破損されるかもしれません。"
+"You are giving direct write access to all users, so they could accidentally "
+"delete or corrupt the repository file system."
+msgstr "すべてのユーザーに直接書き込む権限を与えてしまうので、誰かが誤ってリポジトリファイルシステムを削除したり破壊したりしてしまうことがあります。"
+
+#. (para)
+msgid ""
+"Not all network file sharing protocols support the locking that Subversion "
+"requires. One day you will find your repository has been subtly "
+"<emphasis>corrupted</emphasis>."
+msgstr "すべてのネットワークファイル共有プロトコルが、 Subversion が要求するロック機能をサポートしているわけではありません。いつか、リポジトリが潜在的に<emphasis>壊れて</emphasis>しまうかもしれません。"
+
+#. (para)
+msgid ""
+"You have to set the access permissions in just the right way. SAMBA is "
+"particularly difficult in this respect."
+msgstr "アクセス権を正しく設定する必要があります。Sambaはこの要求には難しい部分があります。"
+
+#. (para)
+#. (para)
+msgid ""
+"If one person installs a newer version of the client which upgrades the "
+"repository format, then everyone else will be unable to access the "
+"repository until they also upgrade to the new client version."
+msgstr "誰かが新しいバージョンのクライアントをインストールしてリポジトリのフォーマットをアップグレードすると、全員が新しいバージョンのクライアントにアップグレードするまで、リポジトリにアクセスできなくなります。"
 
 #. (title)
 msgid "Revisions"
@@ -1764,9 +1795,9 @@ msgstr "リポジトリ作成"
 
 #. (para)
 msgid ""
-"Please note that the command line client that comes with TortoiseSVN does "
-"not support the older Berkeley Database (BDB) format."
-msgstr "TortoiseSVNに付属のコマンドラインクライアントは、古いBarkeley Database（BDB）フォーマットをサポートしませんのでご注意ください。"
+"Please note that the command line client that comes with TortoiseSVN and "
+"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
+msgstr "TortoiseSVNに付属のコマンドラインクライアントとTortoiseSVN自体は、古いBarkeley Database（BDB）フォーマットをサポートしませんのでご注意ください。"
 
 #. (para)
 msgid ""
@@ -1880,10 +1911,10 @@ msgstr "この互換性問題のため、 TortoiseSVN は、BDB リポジトリ�
 
 #. (para)
 msgid ""
-"Of course we also recommend that you don't use <literal>file://</literal> "
-"access at all, apart from local testing purposes. Using a server is more "
-"secure and more reliable for all but single-developer use."
-msgstr "もちろん、ローカルのテスト用途でない限り、 <literal>file://</literal> アクセスは使用しないこともお勧めします。サーバーを使用した方が、一人で開発する場合を除いて、全てにおいてより安全でより信頼性が高くなります。"
+"We also recommend that you don't use <literal>file://</literal> access at "
+"all, apart from local testing purposes. Using a server is more secure and "
+"more reliable for all but single-developer use."
+msgstr "ローカルのテスト用途でない限り、 <literal>file://</literal> アクセスは使用しないこともお勧めします。サーバーを使用した方が、一人で開発する場合を除いて、全てにおいてより安全でより信頼性が高くなります。"
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1920,16 +1951,6 @@ msgid ""
 "This form is still supported, but not recommended."
 msgstr "SVN 1.2 以前では、UNC パスは <systemitem class=\"url\">file:///\\\\ServerName/path/to/repos</systemitem> というもっと曖昧な形でした。この形もまだサポートしていますが、お勧めしません。"
 
-#. (para)
-msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote file system. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Berkeley DB リポジトリは、ネットワークフォルダー上で作成したりアクセスしたりしないでください。これはリモートファイルシステム上に存在 <emphasis>できません</emphasis> 。ネットワークドライブにドライブ文字を割り当ててもダメです。ネットワークフォルダー上で Berkeley DB を使用した場合、結果が予想できません。すぐに不可思議なエラーに遭遇するかもしれませんし、数ヶ月後にリポジトリデータベースが破損されるかもしれません。"
-
 #. (title)
 msgid "Accessing a Repository on a Network Share"
 msgstr "ネットワークフォルダー上のリポジトリへのアクセス"
@@ -1944,8 +1965,8 @@ msgid ""
 "share and have multiple users access it using <literal>file://</literal> "
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
-"support such use."
-msgstr "原理上、 FSFS リポジトリはネットワークフォルダー上に配置でき、 <literal>file://</literal> プロトコルを用いて複数のユーザーからアクセスできますが、これは絶対にお勧め <emphasis>しません</emphasis> 。実際のところ、このような使い方を私たちは思いとどまってほしいと <emphasis>強く</emphasis> 思いますし、サポートもしません。"
+"support such use for various reasons:"
+msgstr "原理上、FSFSリポジトリはネットワークフォルダー上に配置でき、<literal>file://</literal>プロトコルを用いて複数のユーザーからアクセスできますが、これは絶対にお勧め <emphasis>しません</emphasis> 。実際のところ、このような使い方を私たちは思いとどまってほしいと<emphasis>強く</emphasis>思いますし、様々な理由からサポートもしません。"
 
 #. (para)
 msgid ""
@@ -2615,8 +2636,11 @@ msgid "Ctrl-C"
 msgstr "Ctrl+C"
 
 #. (para)
-msgid "... Copy the selected text."
-msgstr "...で選択した文字列をコピーします。"
+msgid ""
+"Copy the selected text. In case no text is selected but e.g. a list entry or"
+" a message box, then the content of that list entry or the message box is "
+"copied to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2670,20 +2694,14 @@ msgstr "アクセスしようとしているリポジトリがパスワードで
 
 #. (para)
 msgid ""
-"If you want to clear the authentication cache for all servers, you can do so"
-" from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings "
-"dialog. That button will clear all cached authentication data from the "
-"Subversion <filename>auth</filename> directories, as well as any "
-"authentication data stored in the registry by earlier versions of "
-"TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "すべてのサーバーの認証情報を消去するには、TortoiseSVN の設定ダイアログの <guilabel>保存されたデータ</guilabel> ページから行えます。このボタンで、以前のバージョンでレジストリに格納した認証情報と一緒に、 Subversion の <filename>auth</filename> ディレクトリからキャッシュされた認証データを消去します。 <xref linkend=\"tsvn-dug-settings-saved-data\"/> を参照してください。"
-
-#. (para)
-msgid ""
-"If you want to clear authentication for one realm only then you will have to"
-" dig into those directories, find the file which contains the information "
-"you want to clear and delete the file."
-msgstr "もし特定のサイトの認証情報を消去するには、これらのディレクトリを探して消去したい情報を含むファイルを見つけ、そのファイルを削除してください。"
+"If you want to clear the authentication cache, you can do so from the "
+"<guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. The "
+"button <guibutton>Clear all</guibutton> will clear the cached authentication"
+" data for all repositories. The button <guibutton>Clear...</guibutton> "
+"however will show a dialog where you can chose which cached authentication "
+"data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
+"data\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2913,23 +2931,23 @@ msgstr "このような場合、<emphasis>テンプレート</emphasis>ファイ
 #. (para)
 msgid ""
 "As an example, you can have a look at TortoiseSVN's build script. It calls a"
-" file named <filename>TortoiseVars.bat</filename> which doesn't exist in the"
-" repository. Only the file <filename>TortoiseVars.tmpl</filename>. "
-"<filename>TortoiseVars.tmpl</filename> is the template file which every "
-"developer has to create a copy from and rename that file to "
-"<filename>TortoiseVars.bat</filename>. Inside that file, we added comments "
-"so that the users will see which lines they have to edit and change "
+" file named <filename>default.build.user</filename> which doesn't exist in "
+"the repository. Only the file <filename>default.build.user.tmpl</filename>. "
+"<filename>default.build.user.tmpl</filename> is the template file which "
+"every developer has to create a copy from and rename that file to "
+"<filename>default.build.user</filename>. Inside that file, we added comments"
+" so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr "たとえば、TortoiseSVN の構築スクリプトを参照してください。このファイルの名前は <filename>TortoiseVars.bat</filename> ですが、リポジトリにはありません。<filename>TortoiseVars.tmpl</filename> ファイルがあるだけです。<filename>TortoiseVars.tmpl</filename> はテンプレートファイルで、開発者ごとにコピーを作成し、 <filename>TortoiseVars.bat</filename> と名前を変更するようになっています。このファイルの中には、ユーザーがどの行を編集・変更すればいいか判るように、セットアップのしかたをコメントとして追加しています。"
+msgstr "たとえば、TortoiseSVN の構築スクリプトを参照してください。このファイルの名前は <filename>default.build.user</filename> ですが、リポジトリにはありません。<filename>default.build.user.tmpl</filename> ファイルがあるだけです。<filename>default.build.user.tmpl</filename> はテンプレートファイルで、開発者ごとにコピーを作成し、 <filename>default.build.user</filename> と名前を変更するようになっています。このファイルの中には、ユーザーがどの行を編集・変更すればいいか判るように、セットアップのしかたをコメントとして追加しています。"
 
 #. (para)
 msgid ""
 "So as not to disturb the users, we also added the file "
-"<filename>TortoiseVars.bat</filename> to the ignore list of its parent "
+"<filename>default.build.user</filename> to the ignore list of its parent "
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr "ユーザーが不安にならないように、 <filename>TortoiseVars.bat</filename> を親フォルダーの無視リストに追加してあります。つまり、 Subversion の <literal>svn:ignore</literal> プロパティをそのファイルにセットしています。これにより（バージョン管理外のファイルのように）コミットごとに表示されることがなくなります。"
+msgstr "ユーザーが不安にならないように、<filename>default.build.user</filename>を親フォルダーの無視リストに追加してあります。つまり、Subversionの<literal>svn:ignore</literal>プロパティをそのファイルに設定しています。これにより（バージョン管理外のファイルのように）コミットごとに表示されることがなくなります。"
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -4575,46 +4593,6 @@ msgid ""
 msgstr "<placeholder-1/> オーバーレイアイコンより詳しい、ファイルやディレクトリに関する詳細情報を確認したい場合、エクスプローラーのプロパティダイアログから、 Subversion が提供するすべての情報を確認することができます。ファイルやディレクトリを選択し、コンテキストメニューの <menuchoice><guimenu>Windows メニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を選択するだけです（TortoiseSVN のサブメニュー内のものではなく、エクスプローラーのプロパティであることに注意してください）。 Subversion の管理下のファイルやフォルダーでプロパティを表示すると、 TortoiseSVN 独自のプロパティページが表示されます。ここで、選択したファイルやフォルダーに関するすべての情報を見ることができます。"
 
 #. (title)
-msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr "Windows エクスプローラーの TortoiseSVN 列"
-
-#. (primary)
-msgid "Explorer Columns"
-msgstr "エクスプローラーの列"
-
-#. (para)
-msgid ""
-"The same information which is available from the icon overlays (and much "
-"more) can be displayed as additional columns in Windows Explorer's Details "
-"View."
-msgstr "Windows エクスプローラーの詳細ビューに、アイコンオーバーレイと同様（またそれ以上）の情報を表示する列を表示することができます。"
-
-#. (para)
-msgid ""
-"Simply right click on one of the headings of a column, choose "
-"<guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog"
-" will appear where you can specify the columns and their order, which is "
-"displayed in the <quote>Detailed View</quote>. Scroll down until the entries"
-" starting with SVN come into view. Check the ones you would like to have "
-"displayed and close the dialog by pressing <guibutton>OK</guibutton>. The "
-"columns will be appended to the right of those currently displayed. You can "
-"reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "列の見出しを右クリックして出てくるコンテキストメニューで、 <guimenuitem>その他...</guimenuitem> を選択してください。<quote>詳細表示</quote>の列とその順番を設定するダイアログが表示されます。 SVN で始まる項目が出てくるまでスクロールしてください。表示したい項目にチェックをつけ、 <guibutton>OK</guibutton> を押してダイアログを閉じてください。元々表示していた項目の右に列が追加されているはずです。お好みで、ドラッグ＆ドロップで順番を変えたり大きさを変えたりしてください。"
-
-#. (para)
-msgid ""
-"The additional columns in the Windows Explorer are not available on Vista, "
-"since Microsoft decided to not allow such columns for "
-"<emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr "Vista では、 Windows エクスプローラーに列を追加することができません。特定のファイル形式ではなく <emphasis>全ての</emphasis> ファイルにそのような列を追加することを Microsoft が許さなくなったためです。"
-
-#. (para)
-msgid ""
-"If you want the current layout to be displayed in all your working copies, "
-"you may want to make this the default view."
-msgstr "このレイアウトを作業コピー全体に適用するなら、これをデフォルトビューにするといいでしょう。"
-
-#. (title)
 msgid "Local and Remote Status"
 msgstr "ローカルとリモートの状態"
 
@@ -5911,8 +5889,9 @@ msgid ""
 "Since TortoiseSVN keeps a cache of all the log information, edits made for "
 "author and log messages will only show up on your local installation. Other "
 "users using TortoiseSVN will still see the cached (old) authors and log "
-"messages until they refresh the log cache."
-msgstr "TortoiseSVN はすべてのログ情報のキャッシュを保持しているため、変更を行った作者やログメッセージはローカル環境でのみ表示されます。ログキャッシュが更新されるまでの間、他のユーザーには、キャッシュされた（古い）作者やログメッセージが表示されます。"
+"messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
+"dug-showlog-refresh\"/>"
+msgstr "TortoiseSVN はすべてのログ情報のキャッシュを保持しているため、変更を行った作者やログメッセージはローカル環境でのみ表示されます。ログキャッシュが更新されるまでの間、他のユーザーには、キャッシュされた（古い）作者やログメッセージが表示されます。<xref linkend=\"tsvn-dug-showlog-refresh\"/>を参照してください"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8847,6 +8826,22 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr "必要に応じて、URLに対してペグリビジョンや操作対象リビジョンを設定することができます。ペグリビジョンや操作対象リビジョンについて詳しいことは、 Subversion book の <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding chapter</citetitle></ulink> をご覧ください。"
+
+#. (para)
+msgid ""
+"If you specify the target folder for the external as a subfolder like in the"
+" examples above, make sure that <emphasis>all</emphasis> folders in between "
+"are versioned as well. So for the examples above, the folder "
+"<filename>common</filename> should be versioned!"
+msgstr ""
+
+#. (para)
+msgid ""
+"While the external will work in most situations properly if folders in "
+"between are not versioned, there are some operations that won't work as you "
+"expect. And the status overlay icons in explorer will also not show the "
+"correct status."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15127,11 +15122,11 @@ msgid ""
 "If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "プロジェクトモニターを初めて使用するとき、左側のツリービューは空です。プロジェクトを追加するには、ダイアログの上にある<guibutton>プロジェクトを追加</guibutton>と書かれたボタンをクリックしてください。"
 
 #. (title)
 msgid "The edit project dialog of the project monitor"
-msgstr ""
+msgstr "プロジェクトモニターのプロジェクトの編集ダイアログ"
 
 #. (para)
 msgid ""
@@ -20132,24 +20127,6 @@ msgstr "競合時のファイルの関係を、以下の図に示します。"
 msgid "File Conflict"
 msgstr "ファイルの競合"
 
-#. (para)
-msgid ""
-"A conflict can also occur if you try to apply an outdated patch file. In "
-"such cases, without TortoiseMerge, you would either have to ask the person "
-"you got that patch file from for a current version or try to apply that "
-"patch file manually."
-msgstr "古くなってしまったパッチファイルを適用しようとしたときにも、競合が発生します。この場合 TortoiseMerge を使用しなければ、現在のバージョンに対するパッチファイルがないか人に尋ねたり、パッチファイルを手作業で適用してみたりする必要があるでしょう。"
-
-#. (para)
-msgid ""
-"But now with TortoiseMerge this isn't necessary anymore - at least not if "
-"you're working with a version control system like Subversion. TortoiseMerge "
-"parses the patch file for the revision/version the patch was created for and"
-" automatically tries to fetch that specific version from your source-"
-"control. Then it applies the patch and lets you review both your changes to "
-"the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "しかし TortoiseMerge を使えば、もうこのようなことは必要ありません（少なくとも Subversion のようなバージョン管理システムを使用していないのであれば）。 TortoiseMerge はパッチを作成したリビジョン・バージョンを解析し、バージョン管理システムから特定のバージョンを自動的に取得します。その後パッチを適用し、自分の行った変更と他人の行った変更の両方を確認できるようにします。これにより、変更点を保持するかどうか決めることができます。"
-
 #. (title)
 msgid "TortoiseMerge's History"
 msgstr "TortoiseMergeの歴史"
@@ -20192,6 +20169,14 @@ msgstr "TortoiseSVN は既にすばらしい差分エンジンを内蔵した Su
 
 #. (para)
 msgid ""
+"Subversion 1.7 introduced the <emphasis>svn patch</emphasis> command which "
+"allows to apply a patch file to a working copy. TortoiseMerge uses now the "
+"same functions as the Subversion command to avoid different behaviors "
+"between the two."
+msgstr ""
+
+#. (para)
+msgid ""
 "Viewing the difference between two files and merging changes into one of "
 "them, or removing unwanted changes."
 msgstr "２つのファイルの差分を表示し、変更点をマージしたり、不要な変更を削除したりすることができます。"
@@ -20203,8 +20188,8 @@ msgid ""
 msgstr "ローカルな変更と、更新で取得した Subversion のリポジトリにある変更との競合の編集を行うことができます。"
 
 #. (para)
-msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr "パッチファイルを適用することができます。これが TortoiseMerge を作成した理由だったりします :)"
+msgid "Applying patch files and reviewing them."
+msgstr ""
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20471,14 +20456,53 @@ msgstr "左マージンをクリックしたり、行をトリプルクリック
 msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. You can change line-ending style and encoding by double-"
-"clicking the corresponding column of that view. A dialog box will be "
-"displayed. The left side of the status bar is used to display hints when you"
-" hover the mouse over a control."
-msgstr "下部ウィンドウの下にはステータスバーがあります。 <literal>Theirs</literal> と <literal>Mine</literal> の追加・削除行数や、解決されていない競合数が表示されます。また、使用されている改行文字や、 TortoiseMerge が検出した文字エンコード（ASCII、 UTF-8、 など）、 UTF-8 のファイルのバイトオーダマーク（BOM）の有無も表示されます。改行文字や文字エンコードは、この表示の該当する列をダブルクリックすることで変更することができます。ダイアログボックスが表示されます。ステータスバーの左側には、マウスでコントロールを指した時にヒントが表示されます。"
+"and the number of unresolved conflicts remaining."
+msgstr ""
+
+#. (term)
+msgid "Encoding"
+msgstr "エンコーディング"
+
+#. (para)
+msgid ""
+"The encoding specifies how the characters in the views are loaded/saved and "
+"shown. The most common encoding in English is ASCII (which means the local "
+"encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
+"UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
+msgstr ""
+
+#. (term)
+msgid "Line Endings"
+msgstr ""
+
+#. (para)
+msgid ""
+"The most common line endings on Windows is CRLF, but you can change the line"
+" endings to whatever you like. Note that if you change the line endings, "
+"then <emphasis>all</emphasis> line endings in the whole file will change, "
+"even if when loaded the line endings were not all the same."
+msgstr ""
+
+#. (para)
+msgid ""
+"The option at the top of the combo box menu indicates whether tabs or spaces"
+" are inserted when you press the tab key. The <emphasis>smart tab "
+"char</emphasis> option if enabled uses an algorithm to determine whether one"
+" or the other is best used."
+msgstr ""
+
+#. (para)
+msgid ""
+"The tab size specifies how many space chars are inserted when editing and "
+"pressing the tab char, or how many chars the next word is indented when a "
+"tab char is encountered."
+msgstr ""
+
+#. (para)
+msgid ""
+"The status bar also contains combo box controls which indicate how the files"
+" are handled and treated: <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -20661,14 +20685,6 @@ msgid ""
 " file itself and the path to the folder where the patch file should be "
 "applied."
 msgstr "パッチファイルを適用する場合、パッチファイルそのもののパスと、パッチファイルを適用するフォルダーのパスの両方を、設定しなければなりません。"
-
-#. (para)
-msgid ""
-"Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are "
-"supported. And only files which were generated from a Subversion working "
-"copy. Other formats like patch files generated by CVS are currently not "
-"supported!"
-msgstr "現在は、 <emphasis>Unified 差分フォーマット</emphasis> しかサポートしていません。さらに、Subversion の作業コピーで作成されたファイルのみです。CVS で作成されたパッチファイルのような他の形式は、現在サポートしていません。"
 
 #. (title)
 msgid "Main Settings Page"
@@ -21072,6 +21088,13 @@ msgid ""
 "file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "base ファイルの名前です。ファイルパスの代わりに、画面のタイトルに表示されます。3方向差分では、画面のタイトル部のツールチップに表示されます。"
 
+#. (entry)
+#. (entry)
+#. (entry)
+#. (entry)
+msgid "The name to use for editorconfig templates."
+msgstr ""
+
 #. (emphasis)
 msgid "theirs"
 msgstr "theirs"
@@ -21138,6 +21161,18 @@ msgid ""
 "then TortoiseMerge will try to find the path itself to match the paths in "
 "the patch file, but that can take <placeholder-1/>."
 msgstr "適用するパッチファイルのパスです。このパスを設定しない場合、 TortoiseMerge はパッチファイルのあるパスと一致するパスから探そうとしますが、これには <placeholder-1/> がかかります。"
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting, "
+"even if the user does not modify the files."
+msgstr ""
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting if"
+" there are conflicts found, even if the user does not modify the files."
+msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."

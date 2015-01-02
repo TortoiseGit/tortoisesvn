@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-15 18:10+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2014-12-30 10:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,6 +340,17 @@ msgid ""
 " of the website and manages the many translations."
 msgstr "Што је Субверзија постајала стабилнија привлачила је све више корисника који су почели да користе ТортоисеСВН као Субверзиони клијент. Корисничка основа расте брзо (и још увек расте сваки дан). То је од кад је Лубе Онкен  понудио да помогне са лепим иконама и логом за ТортоисеСВН. Он води бригу о вебсајту и управља са много превода."
 
+#. (para)
+msgid ""
+"With time, other version control systems all got their own Tortoise client "
+"which caused a problem with the icon overlays in Explorer: the number of "
+"such overlays is limited and even one Tortoise client can easily exceed that"
+" limit. That's when Stefan Küng implemented the TortoiseOverlays component "
+"which allows all Tortoise clients to use the same icon overlays. Now all "
+"open source Tortoise clients and even some non-Tortoise clients use that "
+"shared component."
+msgstr ""
+
 #. (title)
 msgid "Acknowledgments"
 msgstr "Захвалности"
@@ -463,9 +474,8 @@ msgid ""
 "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a "
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
-"which is also relevant to repositories located on a server. There is also a "
-"section here on how to setup a server if you need one."
-msgstr "Поглавље <xref linkend=\"tsvn-repository\"/> објашњава како подесити локално спремиште, које је корисно за тестирање Субверзије и ТортоисеСВН користећи један ПЦ. Оно такође објашњава нешто мало о администрирању спремишта што је релевантно за спремишта лоцирана на серверу.Постоји овде и део како да подесите сервер ако вам је потребан."
+"which is also relevant to repositories located on a server."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -622,8 +632,10 @@ msgid ""
 msgstr "ТортоисеСВН долази са инсталатором који је лак за употребу. Двоструко кликните на инсталатор фајл  и пратите инструкције. Инсталатор ће бринути о осталом. Немојте заборавити да ребутујете систем после инсталације."
 
 #. (para)
-msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr "Потребне су вам Администраторске привелегије да инсталирате ТортоисеСВН."
+msgid ""
+"You need Administrator privileges to install TortoiseSVN. The installer will"
+" ask you for Administrator credentials if necessary."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -804,11 +816,11 @@ msgid ""
 "<filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then "
 "right click on it and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
-" Enter the URL to checkout, in this case "
+" Then enter the URL to checkout, in this case "
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr "Сада имамо пројекат у нашем спремишту, потребно нам је да креирамо радну копију за коришћење у свакодневном раду. Приметимо да чин увоза фолдера не пребацује тај фолдер у радну копију. Субверзиони термин за креирање свеже радне копије је <literal>Преузимање</literal>.  Намеравамо да преузмемо Widget1 фолдер нашег спремишта у развојни фолдер на ПЦ званом <filename>C:\\Projects\\Widget1-Dev</filename>. Креирајте тај фолдер, затим десни клик на њега и изаберите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Преузимање...</guimenuitem></menuchoice>. Унесите УРЛ преузимања, у овом случају  <filename>file:///c:/svn_repos/trunk/Widget1</filename> и кликните на <guibutton>OK</guibutton>.  Наш развојни фолдер је попуњен фајловима из тог спремишта."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -834,12 +846,12 @@ msgstr "Израда измена"
 
 #. (para)
 msgid ""
-"Time to get to work. In the <filename>Widget1-Dev</filename> we start "
-"editing files - let's say we make changes to <filename>Widget1.c</filename> "
-"and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these "
-"files have now changed to red, indicating that changes have been made "
+"Time to get to work. In the <filename>Widget1-Dev</filename> folder we start"
+" editing files - let's say we make changes to <filename>Widget1.c</filename>"
+" and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
+" files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr "Време да се уради посао. У <filename>Widget1-Dev</filename> почињемода уређујемофајлове - рецимо мењамо <filename>Widget1.c</filename> и <filename>ReadMe.txt</filename>. Приметимо да су се прекривачи икона на овим фајловима променили у црвено, индицирајући да су локалне измене урађене."
+msgstr ""
 
 #. (title)
 msgid "File Difference Viewer"
@@ -903,9 +915,11 @@ msgstr "Дијалог дневника"
 msgid ""
 "One of the most useful features of TortoiseSVN is the Log dialog. This shows"
 " you a list of all the commits you made to a file or folder, and shows those"
-" detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
-"cheated a little here and used a screenshot from the TortoiseSVN repository."
-msgstr "Један од најкориснијих особина ТортоисеСВН је дијалог дневника. Он приказује листу свих урезивања које сте урадили за фајл или фолдер, и приказује детаљне поруке урезивања које сте унели ;-) <placeholder-1/> ОК, овде сам вас мало обмануо и користио слику екрана из ТортоисеСВН спремишта."
+" detailed commit messages that you entered (you <emphasis>did</emphasis> "
+"enter a commit message as suggested? If not, now you see why this is "
+"important). <placeholder-1/> OK, so I cheated a little here and used a "
+"screenshot from the TortoiseSVN repository."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1491,19 +1505,36 @@ msgstr "Приметимо да УРЛ користи обичне косе цр
 
 #. (para)
 msgid ""
-"You can safely access a FSFS repository via a network share, but you "
-"<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr "Можете безбедно приступити ФСФС спремишту преко мрежне поделе, али ви <emphasis>не можете</emphasis> приступити БДБ спремишту на овај начин."
+"You can access a FSFS repository via a network share, but this is "
+"<emphasis>not</emphasis> recommended for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Не креирајте Беркли ДБ спремиште на мрежном дељеном простору. То <emphasis>не може</emphasis> постојати на удаљеном фајлсистему. Чак ни ако имате мрежни драјв означен словом драјва. Ако покушате да користите Беркли ДБ на мрежној подели резултати су непредвидљиви - можете видети мистериозне грешке или ће проћи месеци док не установите да ваша база података  спремишта са пуно грешака."
+"You are giving direct write access to all users, so they could accidentally "
+"delete or corrupt the repository file system."
+msgstr ""
+
+#. (para)
+msgid ""
+"Not all network file sharing protocols support the locking that Subversion "
+"requires. One day you will find your repository has been subtly "
+"<emphasis>corrupted</emphasis>."
+msgstr ""
+
+#. (para)
+msgid ""
+"You have to set the access permissions in just the right way. SAMBA is "
+"particularly difficult in this respect."
+msgstr ""
+
+#. (para)
+#. (para)
+msgid ""
+"If one person installs a newer version of the client which upgrades the "
+"repository format, then everyone else will be unable to access the "
+"repository until they also upgrade to the new client version."
+msgstr ""
 
 #. (title)
 msgid "Revisions"
@@ -1764,9 +1795,9 @@ msgstr "креирај спремиште"
 
 #. (para)
 msgid ""
-"Please note that the command line client that comes with TortoiseSVN does "
-"not support the older Berkeley Database (BDB) format."
-msgstr "Молим приметите да клијент командне линије који долази са ТортоисеСВН не подржава стару Беркли база података (ДБД) формат. "
+"Please note that the command line client that comes with TortoiseSVN and "
+"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1880,10 +1911,10 @@ msgstr "Будуће верзије ТортоисеСВН неће подржа
 
 #. (para)
 msgid ""
-"Of course we also recommend that you don't use <literal>file://</literal> "
-"access at all, apart from local testing purposes. Using a server is more "
-"secure and more reliable for all but single-developer use."
-msgstr "Свакако такође препоруујемо да не користите <literal>file://</literal> пристуо уопште, чак ни из локалних потреба тестирања. Коришћење сервера је много сигурније и много поузданије за све осим у коришћењу појединачног-програмера."
+"We also recommend that you don't use <literal>file://</literal> access at "
+"all, apart from local testing purposes. Using a server is more secure and "
+"more reliable for all but single-developer use."
+msgstr ""
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1920,16 +1951,6 @@ msgid ""
 "This form is still supported, but not recommended."
 msgstr "Пре СВН 1.2, УНЦ путање су биле дате у чуднијем облику <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>.  Овај облик се још подржава, али се не препоручује."
 
-#. (para)
-msgid ""
-"Do not create or access a Berkeley DB repository on a network share. It "
-"<emphasis>cannot</emphasis> exist on a remote file system. Not even if you "
-"have the network drive mapped to a drive letter. If you attempt to use "
-"Berkeley DB on a network share, the results are unpredictable - you may see "
-"mysterious errors right away, or it may be months before you discover that "
-"your repository database is subtly corrupted."
-msgstr "Не треба креирати или приступати Беркли ДБ спремишту на мрежни дељени простор. То <emphasis>не може</emphasis> постојати на удаљеном фајл систему. Нити чак ако имате мрежни драјв мапиран словом драјва. Ако покушате да користите Беркли ДБ на мрежној измени, резултат је непредвидљив - можете видети мистериозне грешке тренутно, или могу проћи месеци пре него откријете да је ваша база података спремишта незнатно покварена."
-
 #. (title)
 msgid "Accessing a Repository on a Network Share"
 msgstr "Приступање спремишту на мрежном дељеном простору"
@@ -1944,8 +1965,8 @@ msgid ""
 "share and have multiple users access it using <literal>file://</literal> "
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
-"support such use."
-msgstr "Такође је познато у теорији да је могуће ставити ФСФС спремиште на мрежном дељеном простору и имати вишеструки кориснички приступ користећи <literal>file://</literal> протокол, ово се дефинитивно <emphasis>не</emphasis> препоручује. У ствари можемо <emphasis>чврсто</emphasis> обесхрабрити то, и не подржати такво коришћење."
+"support such use for various reasons:"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2615,8 +2636,11 @@ msgid "Ctrl-C"
 msgstr "Цтрл-Ц"
 
 #. (para)
-msgid "... Copy the selected text."
-msgstr "... Копира изабрани текст."
+msgid ""
+"Copy the selected text. In case no text is selected but e.g. a list entry or"
+" a message box, then the content of that list entry or the message box is "
+"copied to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2670,20 +2694,14 @@ msgstr "Ако је спремиште коме покушавате да при
 
 #. (para)
 msgid ""
-"If you want to clear the authentication cache for all servers, you can do so"
-" from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings "
-"dialog. That button will clear all cached authentication data from the "
-"Subversion <filename>auth</filename> directories, as well as any "
-"authentication data stored in the registry by earlier versions of "
-"TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "Ако желите да обришете аутентикациони кеш за све сервере, можете то урадити од <guilabel>Запамћени подаци</guilabel>  стране ТортоисеСВН дијалога подешавања.То дугме ће очистити све аутентикационе кеширане податке из Субверзионог <filename>аутх</filename>  фолдера, као и било који аутентикациони податак смештен у регистру од ранијих верзија ТортоисеСВН. Упоредите са <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-
-#. (para)
-msgid ""
-"If you want to clear authentication for one realm only then you will have to"
-" dig into those directories, find the file which contains the information "
-"you want to clear and delete the file."
-msgstr "Ако желите да обришете аутентикацију за један опсег само тада ћете га посадити у овај фолдер, нађите фајл који садржи информације које хоћете да обришете и обришите фајл."
+"If you want to clear the authentication cache, you can do so from the "
+"<guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. The "
+"button <guibutton>Clear all</guibutton> will clear the cached authentication"
+" data for all repositories. The button <guibutton>Clear...</guibutton> "
+"however will show a dialog where you can chose which cached authentication "
+"data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
+"data\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2913,23 +2931,23 @@ msgstr "У таквим случајевима сугерирамо да се к
 #. (para)
 msgid ""
 "As an example, you can have a look at TortoiseSVN's build script. It calls a"
-" file named <filename>TortoiseVars.bat</filename> which doesn't exist in the"
-" repository. Only the file <filename>TortoiseVars.tmpl</filename>. "
-"<filename>TortoiseVars.tmpl</filename> is the template file which every "
-"developer has to create a copy from and rename that file to "
-"<filename>TortoiseVars.bat</filename>. Inside that file, we added comments "
-"so that the users will see which lines they have to edit and change "
+" file named <filename>default.build.user</filename> which doesn't exist in "
+"the repository. Only the file <filename>default.build.user.tmpl</filename>. "
+"<filename>default.build.user.tmpl</filename> is the template file which "
+"every developer has to create a copy from and rename that file to "
+"<filename>default.build.user</filename>. Inside that file, we added comments"
+" so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr "Као пример можете погледати ТортоисеСВН скрипт за изградњу. Он позива фајл који се зове <filename>ТортоисеВарс.бат</filename> који не постоји у спремишту. Само фајл <filename>ТортоисеВарс.тмпл</filename>. <filename>ТортоисеВарс.тмпл</filename> је шаблон фајл који сваки програмер има да копира и преименује тај фајл у <filename>ТортоисеВарс.бат</filename>. Унутар тог фајла додајемо коментаре тако да  корисник може да види које линије треба да уреди и измени према свом локалном подешавању да би то радило."
+msgstr ""
 
 #. (para)
 msgid ""
 "So as not to disturb the users, we also added the file "
-"<filename>TortoiseVars.bat</filename> to the ignore list of its parent "
+"<filename>default.build.user</filename> to the ignore list of its parent "
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr "Да не би узнемиравали кориснике такође додамо фајл <filename>ТортоисеВарс.бат</filename> листи  занемарених предачког фолдера, тј. ми смо подесили Субверзиону особину <literal>свн:занемари</literal> да укључи то име фајла. На тај начин он се неће показати неверзионисаним код сваког урезивања."
+msgstr ""
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -4575,46 +4593,6 @@ msgid ""
 msgstr "<placeholder-1/> Понекад желите да имате детаљније информације о фајл/фолдер него што је прекривна икона. Можете добити све информације које Субверзија даје у дијалогу особина претраживача. Само изаберите фајл или фолдер и изаберите <menuchoice><guimenu>Виндоуз Мени</guimenu><guimenuitem>Особине</guimenuitem></menuchoice> у контекст менију (примедба: то је нормалан мени особина улаз који даје претраживач, није део ТортоисеСВН субменија!). У дијалогу особина ТортоисеСВН додаје нову страну особина за фајлове/фолдере под Субверзијином контролом, где можете видети релевантне информације о изабраном фајлу/фолдеру."
 
 #. (title)
-msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr "ТортоисеСВН колумне у виндоуз експлореру"
-
-#. (primary)
-msgid "Explorer Columns"
-msgstr "Експлорер колумне"
-
-#. (para)
-msgid ""
-"The same information which is available from the icon overlays (and much "
-"more) can be displayed as additional columns in Windows Explorer's Details "
-"View."
-msgstr "Исте информације су доступне од икона прекривача (и много више) може бити приказано као додатна колона у Windows Explorer-овом Детаљном Погледу."
-
-#. (para)
-msgid ""
-"Simply right click on one of the headings of a column, choose "
-"<guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog"
-" will appear where you can specify the columns and their order, which is "
-"displayed in the <quote>Detailed View</quote>. Scroll down until the entries"
-" starting with SVN come into view. Check the ones you would like to have "
-"displayed and close the dialog by pressing <guibutton>OK</guibutton>. The "
-"columns will be appended to the right of those currently displayed. You can "
-"reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Једноставни десни клик на једно од наслова колона, изаберите <guimenuitem>Више...</guimenuitem> из приказаног контекст менија. Дијалог ће се појавити где специфицирате колону и њен ред који је приказан у <quote>Детаљни Поглед</quote>. Премотај до улаза са СВН  које дође под око. Провери то што сте желели приказати и затворите дијалог притиском на <guibutton>OK</guibutton>.Колоне ће се додати десно од оне која је приказана тренутно. Можете преуредити их вучењем и бацањем, или променом њихове величине, тако да то попуњава ваше потребе."
-
-#. (para)
-msgid ""
-"The additional columns in the Windows Explorer are not available on Vista, "
-"since Microsoft decided to not allow such columns for "
-"<emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr "Додатне колоне у Windows Explorerнису доступне у Vista, како је Microsoft одлучио да не дозволи такве колоне за <emphasis>све</emphasis> фајлове само за специфичне типове фајлова."
-
-#. (para)
-msgid ""
-"If you want the current layout to be displayed in all your working copies, "
-"you may want to make this the default view."
-msgstr "Ако желите текући изглед да буде приказан у вашој радној копији, можете учинити то подразумеваним преледом."
-
-#. (title)
 msgid "Local and Remote Status"
 msgstr "Локални и даљински статус"
 
@@ -5911,8 +5889,9 @@ msgid ""
 "Since TortoiseSVN keeps a cache of all the log information, edits made for "
 "author and log messages will only show up on your local installation. Other "
 "users using TortoiseSVN will still see the cached (old) authors and log "
-"messages until they refresh the log cache."
-msgstr "Како ТортоисеСВН чува кеш свих информација дневника, уређење које се уради за ауторе и поруке дневника ће се приказати само од локалне инсталације. Остали корисници који користе ТортоисеСВН видеће само кеширане (старе) ауторе и поруке дневника све док се не освежи кеш дневника. "
+"messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
+"dug-showlog-refresh\"/>"
+msgstr ""
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8847,6 +8826,22 @@ msgid ""
 "bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
 msgstr "Такође можете специфицирати пег и оперативну ревизију за УРЛ ако се тржи. Да научите више о пег и оперативним ревизијама, молил прочитајте <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.advanced.pegrevs.html\"><citetitle>одговарајућа поглавља</citetitle></ulink> у Субверзионој књизи."
+
+#. (para)
+msgid ""
+"If you specify the target folder for the external as a subfolder like in the"
+" examples above, make sure that <emphasis>all</emphasis> folders in between "
+"are versioned as well. So for the examples above, the folder "
+"<filename>common</filename> should be versioned!"
+msgstr ""
+
+#. (para)
+msgid ""
+"While the external will work in most situations properly if folders in "
+"between are not versioned, there are some operations that won't work as you "
+"expect. And the status overlay icons in explorer will also not show the "
+"correct status."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20132,24 +20127,6 @@ msgstr "Следећи дијаграм приказује везе између
 msgid "File Conflict"
 msgstr "Фајл конфликт"
 
-#. (para)
-msgid ""
-"A conflict can also occur if you try to apply an outdated patch file. In "
-"such cases, without TortoiseMerge, you would either have to ask the person "
-"you got that patch file from for a current version or try to apply that "
-"patch file manually."
-msgstr " Конфликт се такође може јавити ако покушате применити застарели фајл закрпе. У таквим случајевима, без ТортоисеМерге, ви сте имали да питате особу која вам је дала фајл закрпу за текућу верзију или да покушате применити ту закрпу ручно. "
-
-#. (para)
-msgid ""
-"But now with TortoiseMerge this isn't necessary anymore - at least not if "
-"you're working with a version control system like Subversion. TortoiseMerge "
-"parses the patch file for the revision/version the patch was created for and"
-" automatically tries to fetch that specific version from your source-"
-"control. Then it applies the patch and lets you review both your changes to "
-"the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Али сада са ТортоисеМерге ово више није неопходно - ни најмање ако радите са системом контроле верзија као што је Субверзија. ТортоисеМерге анализира фајл закрпе за ревизија/верзија закрпе креиране и аутоматски покушава да нађе специјалну верзију из ваше сорс-контроле. Затим се примењује на закрпе и омогућава вам да прегледате обоје, ваше измене фајла и од других. Затим можете одлучити које измене желите да задржите."
-
 #. (title)
 msgid "TortoiseMerge's History"
 msgstr "ТортоисеМерге историја"
@@ -20192,6 +20169,14 @@ msgstr "Како ТортоисеСВН већ користи Субверзио
 
 #. (para)
 msgid ""
+"Subversion 1.7 introduced the <emphasis>svn patch</emphasis> command which "
+"allows to apply a patch file to a working copy. TortoiseMerge uses now the "
+"same functions as the Subversion command to avoid different behaviors "
+"between the two."
+msgstr ""
+
+#. (para)
+msgid ""
 "Viewing the difference between two files and merging changes into one of "
 "them, or removing unwanted changes."
 msgstr "Гледање разлике између два фајла и спајање измена у један од њих, или избацивањем нежељених измена."
@@ -20203,8 +20188,8 @@ msgid ""
 msgstr "Уређење конфликата између локалних измена и измена у Субверзионом спремишту пратећи обнављање."
 
 #. (para)
-msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr "Примена фајлова закрпа. Ово је разлог зашто је ТортоисеМерге креиран :)"
+msgid "Applying patch files and reviewing them."
+msgstr ""
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20471,14 +20456,53 @@ msgstr "Ако кликнете на леву маргину, или ако тр
 msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
-"and the number of unresolved conflicts remaining. You can also see which "
-"line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by"
-" TortoiseMerge, and whether there is a byte-order-mark (BOM) present in "
-"UTF-8 files. You can change line-ending style and encoding by double-"
-"clicking the corresponding column of that view. A dialog box will be "
-"displayed. The left side of the status bar is used to display hints when you"
-" hover the mouse over a control."
-msgstr "Испод дна прозора је статусна линија. Ту је приказан број линија додат или обрисан у <literal>Њихов</literal> и <literal>Мој</literal>, и број нерешених конфликта који су преостали. Можете такође видети који стил завршавања линија се користи, које кодирање (АСЦИИ, УТФ-8, итд) је предвиђено са ТортоисеМерге, и  да ли бајт-ордер-марк (БОМ) присутан у УТФ-8 фајловима. Можете заменити стил краја линије и кодирање двоструким кликом на одговарајућу колону прегледа. Дијалог бокс ће се приказати. Лева страна статусне траке се користи да прикаже савет док летите мишем преко контроле."
+"and the number of unresolved conflicts remaining."
+msgstr ""
+
+#. (term)
+msgid "Encoding"
+msgstr "Кодирање"
+
+#. (para)
+msgid ""
+"The encoding specifies how the characters in the views are loaded/saved and "
+"shown. The most common encoding in English is ASCII (which means the local "
+"encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
+"UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
+msgstr ""
+
+#. (term)
+msgid "Line Endings"
+msgstr ""
+
+#. (para)
+msgid ""
+"The most common line endings on Windows is CRLF, but you can change the line"
+" endings to whatever you like. Note that if you change the line endings, "
+"then <emphasis>all</emphasis> line endings in the whole file will change, "
+"even if when loaded the line endings were not all the same."
+msgstr ""
+
+#. (para)
+msgid ""
+"The option at the top of the combo box menu indicates whether tabs or spaces"
+" are inserted when you press the tab key. The <emphasis>smart tab "
+"char</emphasis> option if enabled uses an algorithm to determine whether one"
+" or the other is best used."
+msgstr ""
+
+#. (para)
+msgid ""
+"The tab size specifies how many space chars are inserted when editing and "
+"pressing the tab char, or how many chars the next word is indented when a "
+"tab char is encountered."
+msgstr ""
+
+#. (para)
+msgid ""
+"The status bar also contains combo box controls which indicate how the files"
+" are handled and treated: <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
@@ -20661,14 +20685,6 @@ msgid ""
 " file itself and the path to the folder where the patch file should be "
 "applied."
 msgstr "Ако желите да примените фајл закрпу имате да подесите обе путање до самог фајла закрпе и путању до фолдера где фајл закрпе ће бити употребљен."
-
-#. (para)
-msgid ""
-"Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are "
-"supported. And only files which were generated from a Subversion working "
-"copy. Other formats like patch files generated by CVS are currently not "
-"supported!"
-msgstr "Тренутно, само фајлови закрпе у<emphasis>Уједињен Дифф Формат</emphasis> је подржан. И само фајлови који су генерисани из Субверзионе радне копије. Остали формати као фајлови закрпе генерисани са ЦВС тренутно нису подржани."
 
 #. (title)
 msgid "Main Settings Page"
@@ -21072,6 +21088,13 @@ msgid ""
 "file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Име основног фајла. Ово је приказано у наслову прегледа уместо путања фајла. За три начина дифф приказано је у алатном панелу за преглед наслова."
 
+#. (entry)
+#. (entry)
+#. (entry)
+#. (entry)
+msgid "The name to use for editorconfig templates."
+msgstr ""
+
 #. (emphasis)
 msgid "theirs"
 msgstr "њихов"
@@ -21138,6 +21161,18 @@ msgid ""
 "then TortoiseMerge will try to find the path itself to match the paths in "
 "the patch file, but that can take <placeholder-1/>."
 msgstr "Путања где ће закрпа бити примењена. Ако не подесите ову путању тада ће ТортоисеМерге покушати да нађе путању сам тражећи путање у фајлу закрпе, али то може узети <placeholder-1/>."
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting, "
+"even if the user does not modify the files."
+msgstr ""
+
+#. (entry)
+msgid ""
+"If specified, forces TortoiseMerge to ask to save the file before exiting if"
+" there are conflicts found, even if the user does not modify the files."
+msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
