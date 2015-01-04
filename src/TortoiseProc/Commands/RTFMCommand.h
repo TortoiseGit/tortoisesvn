@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007, 2010-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,8 @@ public:
             CoTaskMemFree(pszPath);
             ShellExecute(0, L"explore", path, NULL, NULL, SW_SHOWNORMAL);
         }
-        ShellExecute(0, L"explore", L"", NULL, NULL, SW_SHOWNORMAL);
+        else
+            ShellExecute(0, L"explore", L"", NULL, NULL, SW_SHOWNORMAL);
 
         return true;
     }
