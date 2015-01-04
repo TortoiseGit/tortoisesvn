@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2027,8 +2027,8 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
             space = 0;
             break;
         default:
-            space = layout & menuItem.menuID ? 0 : 6;
-            if (layout & (menuItem.menuID))
+            space = (layout & menuItem.menuID) ? 0 : 6;
+            if (layout & menuItem.menuID)
             {
                 wcscpy_s(textbuf, L"SVN ");
                 wcscat_s(textbuf, stringtablebuffer);

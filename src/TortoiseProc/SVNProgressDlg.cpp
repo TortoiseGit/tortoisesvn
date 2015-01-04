@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2522,7 +2522,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
             (LPCTSTR)urls[i].GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
             (LPCTSTR)SVNStatus::GetDepthString(m_depth),
-            m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
+            (m_options & ProgOptIgnoreExternals) ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
         ReportCmd(sCmdInfo);
 
         CBlockCacheForPath cacheBlock (checkoutdir.GetWinPath());
@@ -2605,7 +2605,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
             sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
                 (LPCTSTR)url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
                 (LPCTSTR)SVNStatus::GetDepthString(m_depth),
-                m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
+                (m_options & ProgOptIgnoreExternals) ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
             ReportCmd(sCmdInfo);
         }
 
@@ -3070,9 +3070,9 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_IMPORT,
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
-        m_options & ProgOptIncludeIgnored ? (LPCTSTR)(L", " + sIgnoredIncluded) : L"");
+        (m_options & ProgOptIncludeIgnored) ? (LPCTSTR)(L", " + sIgnoredIncluded) : L"");
     ReportCmd(sCmdInfo);
-    if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, (m_options & ProgOptUseAutoprops) != 0, m_options & ProgOptIncludeIgnored ? true : false, false, m_revProps))
+    if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, (m_options & ProgOptUseAutoprops) != 0, (m_options & ProgOptIncludeIgnored) ? true : false, false, m_revProps))
     {
         ReportSVNError();
         return false;
@@ -3188,9 +3188,9 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)m_revisionArray.ToListString(),
             (LPCTSTR)sReportUrl,
             m_targetPathList[0].GetWinPath(),
-            m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            m_options & ProgOptDryRun ? ((LPCTSTR)L", " + sDryRun) : L"",
-            m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
+            (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+            (m_options & ProgOptDryRun) ? ((LPCTSTR)L", " + sDryRun) : L"",
+            (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         SVNRev firstRevOfRange;
@@ -3229,9 +3229,9 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
             (LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
             m_targetPathList[0].GetWinPath(),
-            m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            m_options & ProgOptDryRun ? ((LPCTSTR)L", " + sDryRun) : L"",
-            m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
+            (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+            (m_options & ProgOptDryRun) ? ((LPCTSTR)L", " + sDryRun) : L"",
+            (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0],
@@ -3283,8 +3283,8 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEALL,
         (LPCTSTR)suggestedSources[0].GetSVNPathString(),
         m_targetPathList[0].GetWinPath(),
-        m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-        m_options & ProgOptForce ? ((LPCTSTR)L", " + sForce) : L"");
+        (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+        (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
     ReportCmd(sCmdInfo);
 
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);

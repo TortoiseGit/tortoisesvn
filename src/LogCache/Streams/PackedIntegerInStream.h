@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ protected:
     int GetValue() throw()
     {
         DWORD v = CPackedDWORDInStreamBase::GetValue();
-        return v & 1
+        return (v & 1)
             ? -(int)(v / 2)
             : (int)(v / 2);
     }

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2014 - TortoiseSVN
+// Copyright (C) 2004-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3302,7 +3302,7 @@ void CMainFrame::OnTabMode(CBaseView *view, int cmd)
     if (cmd == TABMODE_NONE || cmd == TABMODE_USESPACES)
         view->SetTabMode((nTabMode & (~TABMODE_USESPACES)) | (cmd & TABMODE_USESPACES));
     else if (cmd == TABMODE_SMARTINDENT) // Toggle
-        view->SetTabMode((nTabMode & (~TABMODE_SMARTINDENT)) | (nTabMode & TABMODE_SMARTINDENT ? 0 : TABMODE_SMARTINDENT));
+        view->SetTabMode((nTabMode & (~TABMODE_SMARTINDENT)) | ((nTabMode & TABMODE_SMARTINDENT) ? 0 : TABMODE_SMARTINDENT));
     else if (cmd == TABSIZEBUTTON1)
         view->SetTabSize(1);
     else if (cmd == TABSIZEBUTTON2)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -4095,7 +4095,7 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
     CPoint point;
     CString temp;
     point = CPoint(rect->left, rect->bottom);
-#define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_SelectedFilters & x ? MF_CHECKED : MF_UNCHECKED))
+#define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | ((m_SelectedFilters & x) ? MF_CHECKED : MF_UNCHECKED))
     CMenu popup;
     if (popup.CreatePopupMenu())
     {

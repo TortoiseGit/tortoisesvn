@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -936,7 +936,7 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
     }
     else
     {
-        int orientation = GetKeyState(VK_SHIFT)&0x8000 ? SB_HORZ : SB_VERT;
+        int orientation = (GetKeyState(VK_SHIFT) & 0x8000) ? SB_HORZ : SB_VERT;
         int pos = GetScrollPos(orientation);
         pos -= (zDelta);
         SetScrollPos(orientation, pos);
@@ -950,7 +950,7 @@ void CRevisionGraphWnd::OnMouseHWheel(UINT nFlags, short zDelta, CPoint pt)
     if (IsUpdateJobRunning())
         return __super::OnMouseHWheel(nFlags, zDelta, pt);
 
-    int orientation = GetKeyState(VK_SHIFT)&0x8000 ? SB_VERT : SB_HORZ;
+    int orientation = (GetKeyState(VK_SHIFT) & 0x8000) ? SB_VERT : SB_HORZ;
     int pos = GetScrollPos(orientation);
     pos -= (zDelta);
     SetScrollPos(orientation, pos);
@@ -1492,7 +1492,7 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
             if (m_OverviewPosRect.PtInRect(pt))
             {
                 resourceHandle = AfxGetResourceHandle();
-                cursorID = GetKeyState(VK_LBUTTON) & 0x8000
+                cursorID = (GetKeyState(VK_LBUTTON) & 0x8000)
                          ? MAKEINTRESOURCE(IDC_PANCURDOWN)
                          : MAKEINTRESOURCE(IDC_PANCUR);
             }
