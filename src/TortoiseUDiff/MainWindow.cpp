@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -575,9 +575,18 @@ bool CMainWindow::Initialize()
     m_directPointer = SendMessage(m_hWndEdit, SCI_GETDIRECTPOINTER, 0, 0);
 
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
+    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
+    bool enabled2d = false;
+    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+        enabled2d = true;
+    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New");
+    std::string fontName;
+    if (enabled2d)
+        fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
+    else
+        fontName = (LPCSTR)CStringA(fontNameW.c_str());
     SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
-        CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10),
-        CUnicodeUtils::StdGetUTF8(CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New")).c_str());
+        CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);
     LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
@@ -590,8 +599,7 @@ bool CMainWindow::Initialize()
     SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
     SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
-    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
-    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    if (enabled2d)
     {
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);

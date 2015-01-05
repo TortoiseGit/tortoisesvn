@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -584,9 +584,23 @@ void TortoiseBlame::InitialiseEditor()
 {
     m_directFunction = SendMessage(wEditor, SCI_GETDIRECTFUNCTION, 0, 0);
     m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
+    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
+    bool enabled2d = false;
+    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+        enabled2d = true;
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
-    SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10),
-        (CUnicodeUtils::StdGetUTF8((tstring)(CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New")))).c_str());
+    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
+    std::string fontName;
+    if (enabled2d)
+        fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
+    else
+    {
+        int ansi_len = ::WideCharToMultiByte(CP_ACP, NULL, fontNameW.c_str(), -1, NULL, 0, NULL, NULL);
+        std::unique_ptr<char[]> buffer(new char[ansi_len]);
+        ::WideCharToMultiByte(CP_ACP, NULL, fontNameW.c_str(), -1, buffer.get(), ansi_len, NULL, NULL);
+        fontName = buffer.get();
+    }
+    SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10), fontName.c_str());
     //SetAStyle(STYLE_MARK, black, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_INDICSETSTYLE, STYLE_MARK, INDIC_ROUNDBOX);
     SendEditor(SCI_INDICSETFORE, STYLE_MARK, darkBlue);
@@ -607,8 +621,7 @@ void TortoiseBlame::InitialiseEditor()
     SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
     SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
-    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
-    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    if (enabled2d)
     {
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
         SendEditor(SCI_SETBUFFEREDDRAW, 0);
