@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-01 15:11+0000\n"
+"PO-Revision-Date: 2015-01-02 23:00+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -350,7 +350,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Z czasem wszystkie te systemy kontroli wersji mając własne klienty Tortoise powodowały problemy z nakładkami ikon w Eksploratorze: liczba takich nakładek jest ograniczona i nawet jeden klient Tortoise może z łatwością przekroczyć to ograniczenie. To wtedy Stefan Küng zaimplementował komponent TortoiseOverlays pozwalający wszystkim klientom Tortoise używać tych samych nakładek ikon. Teraz wszystkie otwartoźródłowe klienty Tortoise a nawet niektóre klienty nie-Tortoise używają tego współdzielonego komponentu."
 
 #. (title)
 msgid "Acknowledgments"
@@ -821,7 +821,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Teraz gdy już mamy projekt w naszym repozytorium, potrzebujemy utworzyć kopię roboczą do codziennej pracy. Zauważcie, że sam import folderu nie zmienił go automatycznie w kopię roboczą. Terminem używanym przez Subversion dla utworzenia świeżej kopii roboczej jest <literal>Pobranie</literal>. Przejdźmy do pobrania folderu Widget1 z naszego repozytorium do folderu rozwojowego na PCcie, który nazwiemy <filename>C:\\Projects\\Widget1-Dev</filename>. Utwórzcie ten folder, po czym kliknijcie prawym przyciskiem myszy i wybierzcie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pobierz...</guimenuitem></menuchoice>. Następnie wpiszcie adres URL do pobrania, w tym przypadku <filename>file:///c:/svn_repos/trunk/Widget1</filename> i wciśnijcie <guibutton>OK</guibutton>. Nasz folder rozwojowy zostaje wtedy zapełniony plikami z repozytorium."
 
 #. (para)
 #. (para)
@@ -852,7 +852,7 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "Czas zabrać się do pracy. W <filename>Widget1-Dev</filename> zaczynamy edycję plików - powiedzmy, że wprowadzimy zmiany w <filename>Widget1.c</filename> i <filename>ReadMe.txt</filename>. Zauważmy, że nakładki ikon dla tych plików zmieniły się teraz na czerwone wskazując, że zmiany zostały wprowadzone lokalnie."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -920,7 +920,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Jedną z najbardziej przydatnych funkcji TortoiseSVN jest okno dziennika. Pokazuje ono listę wszystkich zatwierdzeń dokonanych na pliku lub folderze oraz wyświetla szczegółowe wiadomości odnośnie zatwierdzeń, które wprowadziliście (<emphasis>wpisaliście</emphasis> komunikat zatwierdzenia zgodnie z sugestiami? Jeśli nie, teraz widzicie dlaczego to takie ważne). <placeholder-1/> OK, oszukałem tu trochę i pokazałem zrzut ekranu z repozytorium TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1915,7 +1915,7 @@ msgid ""
 "We also recommend that you don't use <literal>file://</literal> access at "
 "all, apart from local testing purposes. Using a server is more secure and "
 "more reliable for all but single-developer use."
-msgstr ""
+msgstr "Oczywiście nie polecamy również w ogóle używania dostępu przez <literal>file://</literal> za wyjątkiem lokalnego testowania. Korzystanie z serwera jest bardziej bezpieczne i niezawodne jeśli nie korzysta z niego jeden deweloper."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1967,7 +1967,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "Choć teoretycznie jest możliwe umieszczenie repozytorium FSFS na udziale sieciowym i dostęp wielu użytkowników za pomocą protokołu <literal>file://</literal>, jest to zdecydowanie <emphasis>nie</emphasis> zalecane. W rzeczywistości <emphasis>mocno</emphasis> odradzamy i nie wspieramy takiego jego wykorzystania z różnych powodów:"
 
 #. (para)
 msgid ""
@@ -2641,7 +2641,7 @@ msgid ""
 "Copy the selected text. In case no text is selected but e.g. a list entry or"
 " a message box, then the content of that list entry or the message box is "
 "copied to the clipboard."
-msgstr ""
+msgstr "Kopiuje zaznaczony tekst. W przypadku gdy zaznaczono nie tekst, ale np. wpis na liście lub okno komunikatu, zawartość tej pozycji listy lub okna wiadomości jest kopiowana do schowka."
 
 #. (para)
 msgid ""
@@ -2702,7 +2702,7 @@ msgid ""
 "however will show a dialog where you can chose which cached authentication "
 "data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
 "data\"/>."
-msgstr ""
+msgstr "Jeśli chcecie wyczyścić pamięć podręczną uwierzytelniania, możecie to zrobić przez stronę <guilabel>Zapisane dane</guilabel> w oknie ustawień TortoiseSVN. Przycisk <guibutton>Czyść wszystko</guibutton> umożliwia usunięcie wszystkich danych w pamięci podręcznej uwierzytelniania z wszystkich repozytorium.  Za to przycisk <guibutton>Czyść...</guibutton> wyświetli okno, gdzie można będzie wskazać, które buforowane dane uwierzytelnienia powinny zostać usunięte. Zapoznajcie się z <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid ""
@@ -2939,7 +2939,7 @@ msgid ""
 "<filename>default.build.user</filename>. Inside that file, we added comments"
 " so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr ""
+msgstr "Jako przykład można spojrzeć na skrypt wbudowany w TortoiseSVN. Wywołuje on plik o nazwie <filename>default.build.user</filename>, który nie istnieje w repozytorium. Za to jest tam plik <filename>default.build.user.tmpl</filename>. <filename>default.build.user.tmpl</filename> jest plikiem szablonu, z którego każdy programista musi utworzyć kopię i zmienić jej nazwę na <filename>default.build.user</filename>. Wewnątrz tego pliku dodaliśmy komentarze wskazujące użytkownikom, które linie mają edytować i zmienić w zależności od lokalnej konfiguracji, aby móc go poprawnie stosować."
 
 #. (para)
 msgid ""
@@ -2948,7 +2948,7 @@ msgid ""
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr ""
+msgstr "Jednocześnie, aby nie przeszkadzać użytkownikom, dodaliśmy także plik <filename>default.build.user</filename> do listy ignorowanych w jego folderze nadrzędnym, czyli mamy ustawić atrybut Subversion <literal>svn:ignore</literal> aby włączyć ten plik. W ten sposób nie będzie się pojawiać jako niewersjonowany przy każdym zatwierdzeniu."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -5892,7 +5892,7 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
 "dug-showlog-refresh\"/>"
-msgstr ""
+msgstr "Ponieważ TortoiseSVN trzyma bufor wszystkich informacji dziennika, zmiany w odniesieniu do autora i opisu zmiany pojawiają się tylko na lokalnej instalacji. Inni użytkownicy za pomocą TortoiseSVN nadal będą widzieli w zbuforowane (stare) zapisy autorów i opisów zmian do czasu odświeżenia bufora dziennika. Sprawdźcie w <xref linkend=\"tsvn-dug-showlog-refresh\"/>"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8834,7 +8834,7 @@ msgid ""
 " examples above, make sure that <emphasis>all</emphasis> folders in between "
 "are versioned as well. So for the examples above, the folder "
 "<filename>common</filename> should be versioned!"
-msgstr ""
+msgstr "Gdy wskażecie jako folder docelowy folder podrzędny jak w przykładach powyżej, upewnijcie się, że <emphasis>wszystkie</emphasis> foldery pośrednie są również wersjonowane. Zatem w przykładach powyżej folder <filename>common</filename> powinien być pod kontrolą wersji!"
 
 #. (para)
 msgid ""
@@ -8842,7 +8842,7 @@ msgid ""
 "between are not versioned, there are some operations that won't work as you "
 "expect. And the status overlay icons in explorer will also not show the "
 "correct status."
-msgstr ""
+msgstr "O ile zewnętrzne będą zachowywać się poprawnie w większości sytuacji gdy foldery pomiędzy nimi nie są wersjonowane, mogą wystąpić operacje, które nie będą działać zgodnie z oczekiwaniami. A ikony nakładek statusu w eksploratorze również nie będą pokazywać poprawnego stanu."
 
 #. (para)
 msgid ""
