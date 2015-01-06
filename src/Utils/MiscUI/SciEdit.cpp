@@ -876,6 +876,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         bool bCanRedo = !!Call(SCI_CANREDO);
         bool bHasSelection = (selend-selstart > 0);
         bool bCanPaste = !!Call(SCI_CANPASTE);
+        bool bIsReadOnly = !!Call(SCI_GETREADONLY);
         UINT uEnabledMenu = MF_STRING | MF_ENABLED;
         UINT uDisabledMenu = MF_STRING | MF_GRAYED;
 
@@ -898,7 +899,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         int nCorrections = 1;
         bool bSpellAdded = false;
         // check if the word under the cursor is spelled wrong
-        if ((pChecker)&&(!worda.IsEmpty()))
+        if (!bIsReadOnly && (pChecker) && (!worda.IsEmpty()))
         {
             char ** wlst = NULL;
             // get the spell suggestions
@@ -924,7 +925,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
         // also allow the user to add the word to the custom dictionary so
         // it won't show up as misspelled anymore
-        if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.find(sWord) == m_autolist.end())&&(!pChecker->spell(worda)))&&
+        if (!bIsReadOnly && (sWord.GetLength() < PDICT_MAX_WORD_LENGTH) && ((pChecker) && (m_autolist.find(sWord) == m_autolist.end()) && (!pChecker->spell(worda))) &&
             (!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
         {
             sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
@@ -942,7 +943,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         popup.AppendMenu(MF_SEPARATOR);
 
         sMenuItemText.LoadString(IDS_SCIEDIT_CUT);
-        popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_CUT, sMenuItemText);
+        popup.AppendMenu(!bIsReadOnly && bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_CUT, sMenuItemText);
         sMenuItemText.LoadString(IDS_SCIEDIT_COPY);
         popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_COPY, sMenuItemText);
         sMenuItemText.LoadString(IDS_SCIEDIT_PASTE);
