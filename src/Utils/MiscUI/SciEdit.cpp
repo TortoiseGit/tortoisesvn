@@ -237,10 +237,10 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 #if THESAURUS
     if (pThesaur==NULL)
     {
-        if ((PathFileExists(sFolderAppData + _T("th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolderAppData + _T("th_") + sFile + _T("_v2.dat"))))
+        if ((PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
+            (PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat"))))
         {
-            pThesaur = new MyThes(CStringA(sFolderAppData + sFile + _T("_v2.idx")), CStringA(sFolderAppData + sFile + _T("_v2.dat")));
+            pThesaur = new MyThes(CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat")));
         }
         else if ((PathFileExists(sFolder + L"th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolder + L"th_" + sFile + L"_v2.dat")))
