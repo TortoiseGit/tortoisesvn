@@ -3008,12 +3008,6 @@ void CLogDlg::EditLogMessage( size_t index )
                 pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8
                     ( (LPCTSTR)dlg.m_sInputText));
 
-                CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
-                pMsgView->SetWindowText(L" ");
-                pMsgView->SetWindowText(dlg.m_sInputText);
-                m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
-                m_LogList.Invalidate();
-
                 // update the log cache
                 LogCache::CCachedLogInfo* toUpdate
                     = GetLogCache (CTSVNPath (m_sRepositoryRoot));
@@ -3037,6 +3031,8 @@ void CLogDlg::EditLogMessage( size_t index )
                         // can't save the file right now
                     }
                 }
+                FillLogMessageCtrl();
+                m_LogList.Invalidate();
             }
         }
     }
