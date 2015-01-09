@@ -12,14 +12,14 @@
 # Translators:
 # Jiri Sedlak <jiri_sedlak@users.sourceforge.net>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2014
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-01-08 22:06+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -473,7 +473,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "V kapitole o <xref linkend=\"tsvn-repository\"/> je vysvětleno, jak nastavit místní úložiště, které je užitečné pro testování Subversion a TortoiseSVN pomocí jediného PC. Také vysvětluje něco o správě úložiště, která je rovněž relevantní pro úložiště umístěné na serveru."
 
 #. (para)
 msgid ""
@@ -818,7 +818,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Nyní, když máme projekt v našem úložišti, musíme vytvořit pracovní kopii pro každodenní práci. Všimněte si, že importováním adresáře automaticky neznamená, že tento adresář je pracovní kopie. Termín pro vytvoření nové pracovní kopie Subversion je <literal>Získat</literal>. Chceme získat složku z našeho úložiště do vývojového adresáře na PC nazvaný <filename>C:\\Projekty\\Widget1-Dev</filename>. Vytvořte tento adresář, klepněte na něj pravým tlačítkem myši a zvolte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Získat</guimenuitem></menuchoice>. Pak zadejte URL pro získání, v tomto případě <filename>file:///c:/svn_repos/trunk/Widget1</filename> a klikněte na <guibutton>OK</guibutton>. Náš vývojový adresář je pak naplněn soubory z úložiště."
 
 #. (para)
 #. (para)
@@ -849,7 +849,7 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "Čas pustit se do práce. V adresáři <filename>Widget1-Dev</filename> začneme upravovat soubory - řekněme, že provedeme změny v <filename>Widget1.c</filename> a <filename>ReadMe.txt</filename>. Všimněte si, že překryv ikon v těchto souborech se nyní změnila na červenou, což naznačuje, že byly lokálně provedeny změny."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -917,7 +917,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Jedna z nejvíce užitečných funkcí TortoiseSVN je dialogové okno Záznamů. Zde můžete vidět seznam všech odevzdání, které jste provedli v souboru nebo v adresáři a také ukazuje podrobné zprávy o odevzdáních, které jste zadali (<emphasis>napsali</emphasis> jste zprávu odevzdání jak jsme Vám doporučovali? Pokud ne, pak teď víte proč je to důležité). <placeholder-1/> Dobrá, tak tady jsem trochu podváděl a použil snímek obrazovky z úložiště TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1505,26 +1505,26 @@ msgstr "Všimněte si, že URL používá obyčejná lomítka, i když nativní 
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "Do FSFS úložiště můžete vstupovat přes sdílenou sít, ale toto <emphasis>není</emphasis> z různých důvodů doporučeno:"
 
 #. (para)
 msgid ""
 "You are giving direct write access to all users, so they could accidentally "
 "delete or corrupt the repository file system."
-msgstr ""
+msgstr "Každému uživateli dáváte přímý přístup k zápisu do úložiště, takže jakýkoliv uživatel může omylem vymazat celé úložiště nebo nějakým jiným způsobem ho poškodit."
 
 #. (para)
 msgid ""
 "Not all network file sharing protocols support the locking that Subversion "
 "requires. One day you will find your repository has been subtly "
 "<emphasis>corrupted</emphasis>."
-msgstr ""
+msgstr "Ne všechny síťové protokoly pro sdílení souborů podporují zamykání, které Subversion potřebuje. Jednoho dne můžete zjistit, že vše úložiště bylo nenápadně <emphasis>poškozeno</emphasis>."
 
 #. (para)
 msgid ""
 "You have to set the access permissions in just the right way. SAMBA is "
 "particularly difficult in this respect."
-msgstr ""
+msgstr "Oprávnění přístupu musíte nastavit hned. SAMBA je v tomto ohledu zvláště nepříjemná."
 
 #. (para)
 #. (para)
@@ -1795,7 +1795,7 @@ msgstr "vytvořit úložiště"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN and "
 "TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Nezapomeňte prosím, že klient příkazového řádku, který je součástí TortoiseSVN, a samo TortoiseSVN nepodporují starší formát Databáze Berkeley (BDB)."
 
 #. (para)
 msgid ""
@@ -1912,7 +1912,7 @@ msgid ""
 "We also recommend that you don't use <literal>file://</literal> access at "
 "all, apart from local testing purposes. Using a server is more secure and "
 "more reliable for all but single-developer use."
-msgstr ""
+msgstr "Dále také nedoporučujeme používat pro přístup <literal>file://</literal>, kromě pro lokální účely testování. Použití serveru je mnohem bezpečnější a spolehlivější pro všechny, až na práci jednoho vývojáře."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1964,7 +1964,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "I když je teoreticky možné mít FSFS úložiště v sdílené síti a více uživatelů by k němu přistupovalo pomocí protokolu <literal>file://</literal>, toto rozhodně <emphasis>není</emphasis> doporučeno. Ve skutečnosti <emphasis>silně</emphasis> odrazujeme a takové použití z různých důvodů nepodporujeme:"
 
 #. (para)
 msgid ""
@@ -2638,7 +2638,7 @@ msgid ""
 "Copy the selected text. In case no text is selected but e.g. a list entry or"
 " a message box, then the content of that list entry or the message box is "
 "copied to the clipboard."
-msgstr ""
+msgstr "Zkopírujte zvolený text. V případě že žádný text není vybrán, ale místo toho např. položka seznam u nebo textový rámeček, pak je jejich obsah zkopírován do schránky."
 
 #. (para)
 msgid ""
@@ -2699,7 +2699,7 @@ msgid ""
 "however will show a dialog where you can chose which cached authentication "
 "data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
 "data\"/>."
-msgstr ""
+msgstr "Pokud chcete vymazat uchovaná ověření, můžete tak učinit ze stránky dialogového okna <guilabel>Uložená data</guilabel> v nastavení TortoiseSVN. Tlačítko <guibutton>Vyčistit vše</guibutton> vymaže všechny uložené údaje ověření všech úložišť. Na druhou stranu tlačítko <guibutton>Vyčistit...</guibutton> zobrazí dialogové okno, kde můžete zvolit která uložená data chcete smazat. Viz <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid ""
@@ -2936,7 +2936,7 @@ msgid ""
 "<filename>default.build.user</filename>. Inside that file, we added comments"
 " so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr ""
+msgstr "Jako příklad se můžete podívat na sestavovací skript TortoiseSVN. Volá souboru jménem <filename>default.build.user</filename>, který v úložišti neexistuje. Pouze soubor <filename>default.build.user.tmpl</filename>. <filename>default.build.user.tmpl</filename> je šablonový soubor a každý vývojář si musí vytvořit kopii tohoto souboru a přejmenovat ho na <filename>default.build.user</filename>. Uvnitř tohoto souboru jsme přidali komentáře, takže uživatelé mohou vidět, které řádky budou muset upravit a měnit v závislosti na jejich místním nastavení, aby všechno fungovalo."
 
 #. (para)
 msgid ""
@@ -2945,7 +2945,7 @@ msgid ""
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr ""
+msgstr "Aby toto uživatele nerušilo, přidali jsme také soubor <filename>default.build.user</filename> do seznamu k ignorování v jeho nadřazené složce, tedy jsme nastavili Subversion vlastnost <literal>svn:ignore</literal>, aby zahrnovala tento název souboru. Takto se v každém odevzdání neukáže jako bez verze."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -5889,7 +5889,7 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
 "dug-showlog-refresh\"/>"
-msgstr ""
+msgstr "Vzhledem k tomu, že TortoiseSVN si udržuje všechny informace ze záznamu, úpravy prováděné v autorovi a zprávě záznamu se zobrazí pouze ve Vaší instalaci. Ostatní uživatelé používající TortoiseSVN stále budou vidět uchované (staré) autory a zprávy záznamu, dokud neaktualizují úschovu záznamu. Prohlédněte si <xref linkend=\"tsvn-dug-showlog-refresh\"/>"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -14559,7 +14559,7 @@ msgstr "Nastavení TortoiseUDiff"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseUDiff Page"
-msgstr ""
+msgstr "Dialogové okno nastavení, Stránka TortoiseUDiff"
 
 #. (para)
 msgid ""
@@ -15061,7 +15061,7 @@ msgstr "Při práci na TortoiseSVN rádi posloucháme hudbu. A protože trávím
 
 #. (title)
 msgid "Project Monitor"
-msgstr ""
+msgstr "Monitor projektů"
 
 #. (primary)
 msgid "commit monitor"
@@ -15069,7 +15069,7 @@ msgstr "monitor odevzdání"
 
 #. (primary)
 msgid "project monitor"
-msgstr ""
+msgstr "monitor projektů"
 
 #. (primary)
 msgid "remote commits"
