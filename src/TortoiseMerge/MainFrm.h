@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014 - TortoiseSVN
+// Copyright (C) 2006-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,6 +119,8 @@ protected:
     afx_msg void    OnViewShowfilelist();
     afx_msg void    OnEditUndo();
     afx_msg void    OnUpdateEditUndo(CCmdUI *pCmdUI);
+    afx_msg void    OnEditRedo();
+    afx_msg void    OnUpdateEditRedo(CCmdUI *pCmdUI);
     afx_msg void    OnEditEnable();
     afx_msg void    OnUpdateEditEnable(CCmdUI *pCmdUI);
     afx_msg void    OnViewInlinediffword();

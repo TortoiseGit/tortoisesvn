@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2009-2014 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,18 +70,22 @@ public:
     static CUndo& GetInstance();
 
     bool Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
+    bool Redo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
     void AddState(const allviewstate& allstate, POINT pt);
-    bool CanUndo() const {return !m_viewstates.empty();}
+    bool CanUndo() const { return !m_viewstates.empty(); }
+    bool CanRedo() const { return !m_redoviewstates.empty(); }
 
     bool IsGrouping() const { return m_groups.size() % 2 == 1; }
-    void BeginGrouping() { if (m_groupCount==0) m_groups.push_back(m_caretpoints.size()); m_groupCount++; }
+    bool IsRedoGrouping() const { return m_redogroups.size() % 2 == 1; }
+    void BeginGrouping() { if (m_groupCount == 0) m_groups.push_back(m_caretpoints.size()); m_groupCount++; }
     void EndGrouping(){ m_groupCount--; if (m_groupCount==0) m_groups.push_back(m_caretpoints.size()); }
     void Clear();
     void MarkAllAsOriginalState() { MarkAsOriginalState(true, true, true); }
     void MarkAsOriginalState(bool Left, bool Right, bool Bottom);
 protected:
-    void Undo(const viewstate& state, CBaseView * pView, const POINT& pt);
+    viewstate Do(const viewstate& state, CBaseView * pView, const POINT& pt);
     void UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
+    void RedoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
     std::list<allviewstate> m_viewstates;
     std::list<POINT> m_caretpoints;
     std::list< std::list<int>::size_type > m_groups;
@@ -89,6 +93,11 @@ protected:
     size_t m_originalstateRight;
     size_t m_originalstateBottom;
     int m_groupCount;
+
+    std::list<allviewstate> m_redoviewstates;
+    std::list<POINT> m_redocaretpoints;
+    std::list< std::list<int>::size_type > m_redogroups;
+
 private:
     CUndo();
     ~CUndo();
