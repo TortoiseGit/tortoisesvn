@@ -8701,8 +8701,6 @@ void CLogDlg::OnMonitorThreadFinished()
                     }
                     ++changedprojects;
                 }
-                pItem->lastchecked = item.lastchecked;
-                pItem->lastcheckedrobots = item.lastcheckedrobots;
                 if (pItem->lastHEAD != item.lastHEAD)
                 {
                     // to avoid overwriting a "mark as read" operation,
@@ -8717,8 +8715,13 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->lastErrorMsg = item.lastErrorMsg;
                     pItem->root = item.root;
                     pItem->uuid = item.uuid;
+                }
+                if (pItem->lastcheckedrobots != item.lastcheckedrobots)
+                {
                     pItem->projectproperties = item.projectproperties;
                 }
+                pItem->lastchecked = item.lastchecked;
+                pItem->lastcheckedrobots = item.lastcheckedrobots;
                 pItem->minminutesinterval = item.minminutesinterval;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
