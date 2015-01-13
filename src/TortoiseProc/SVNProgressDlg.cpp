@@ -3299,7 +3299,7 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!PegMerge(suggestedSources[0], revarray,
         SVNRev::REV_HEAD,
-        m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
+        m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE, !!(m_options & ProgOptRecordOnly)))
     {
         GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
         ReportSVNError();
