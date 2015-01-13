@@ -154,6 +154,28 @@
       for information on how to edit the Subversion configuration file.
     </para>
     <tip>
+      <title>Warning when committing to a tag</title>
+      <para>
+        Usually, commits are done to the trunk or a branch, but not to tags.
+        After all, a tag is considered fixed and should not change.
+      </para>
+      <para>
+        If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation
+        dialog first to ensure whether this is really what is intended. Because
+        most of the time such a commit is done by accident.
+      </para>
+      <para>
+        However, this check only works if the repository layout is one of the
+        recommended ones, meaning it uses the names <filename>trunk</filename>,
+        <filename>branches</filename> and <filename>tags</filename> to mark
+        the three main areas. In case the setup is different, the detection
+        of what is a tag/branch/trunk (also known as
+        <literal>classification patterns</literal> can be configured in the
+        settings dialog:
+        <xref linkend="tsvn-dug-settings-revgraph"/>
+      </para>
+    </tip>
+    <tip>
       <title>Drag and Drop</title>
       <para>
         You can drag files into the commit dialog from elsewhere, so

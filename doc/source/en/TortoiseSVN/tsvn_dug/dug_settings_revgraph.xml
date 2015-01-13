@@ -31,6 +31,13 @@
           multiple patterns. Do not include any extra white space
           as it will be included in the matching specification.
         </para>
+        <important>
+          <title>Commit tag detection</title>
+          <para>
+            Please note that these patterns are also used to detect commits
+            to a tag, not just for the revision graph.
+          </para>
+        </important>
       </listitem>
     </varlistentry>
     <varlistentry>
