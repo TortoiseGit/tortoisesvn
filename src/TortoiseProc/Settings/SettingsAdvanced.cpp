@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2014 - TortoiseSVN
+// Copyright (C) 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -117,10 +117,6 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
 
-    settings[i].sName   = L"LogFindCopyFrom";
-    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
-    settings[i++].def.b = false;
-
     settings[i].sName   = L"LogMultiRevFormat";
     settings[i].type    = CSettingsAdvanced::SettingTypeString;
     settings[i++].def.s = L"r%1!ld!\n%2!s!\n---------------------\n";
@@ -181,7 +177,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 39 so far...
+    // 38 so far...
     ASSERT(i < _countof(settings));
 }
 
