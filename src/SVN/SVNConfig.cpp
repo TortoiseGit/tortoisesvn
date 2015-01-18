@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,6 +40,7 @@ SVNConfig::SVNConfig(void)
     m_critSec.Init();
     parentpool = svn_pool_create(NULL);
     pool = svn_pool_create (parentpool);
+    wcignorespool = svn_pool_create(pool);
 
     Err = svn_config_ensure(NULL, pool);
     if (Err == nullptr)
@@ -63,9 +64,11 @@ BOOL SVNConfig::GetDefaultIgnores()
 {
     if (config == nullptr)
         return FALSE;
+
+    svn_pool_clear(wcignorespool);
     svn_error_t * err;
     patterns = nullptr;
-    err = svn_wc_get_default_ignores (&patterns, config, pool);
+    err = svn_wc_get_default_ignores(&patterns, config, wcignorespool);
     if (err)
     {
         svn_error_clear(err);
@@ -79,15 +82,17 @@ BOOL SVNConfig::GetWCIgnores(const CTSVNPath& path)
 {
     if (config == nullptr)
         return FALSE;
+
+    svn_pool_clear(wcignorespool);
     patterns = nullptr;
     svn_wc_context_t * pctx = NULL;
-    svn_error_t * err = svn_wc_context_create(&pctx, NULL, pool, pool);
+    svn_error_t * err = svn_wc_context_create(&pctx, NULL, wcignorespool, wcignorespool);
     if (err)
     {
         svn_error_clear(err);
         return FALSE;
     }
-    err = svn_wc_get_ignores2(&patterns, pctx, path.GetSVNApiPath(pool), config, pool, pool);
+    err = svn_wc_get_ignores2(&patterns, pctx, path.GetSVNApiPath(wcignorespool), config, wcignorespool, wcignorespool);
     if (err)
     {
         svn_error_clear(err);
@@ -101,7 +106,7 @@ BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 {
     if (patterns == nullptr)
         return FALSE;
-    return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
+    return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, wcignorespool);
 }
 
 BOOL SVNConfig::KeepLocks()
