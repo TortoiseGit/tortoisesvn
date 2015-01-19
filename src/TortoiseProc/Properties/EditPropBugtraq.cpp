@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
     CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_BOTTOMRADIO);
     CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_NUMERICRADIO);
 
-    for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
+    for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         if (it->second.isinherited)
             continue;
@@ -245,7 +245,7 @@ void CEditPropBugtraq::OnOK()
     std::string propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqUrl);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_URL] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_URL, pVal));
 
     // bugtraq:warnifnoissue
     if (m_bWarnIfNoIssue)
@@ -253,19 +253,19 @@ void CEditPropBugtraq::OnOK()
     else
         pVal.value = "";
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_WARNIFNOISSUE] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_WARNIFNOISSUE, pVal));
 
     // bugtraq:message
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqMessage);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_MESSAGE] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_MESSAGE, pVal));
 
     // bugtraq:label
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqLabel);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_LABEL] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_LABEL, pVal));
 
     // bugtraq:number
     int checked = GetCheckedRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO);
@@ -274,7 +274,7 @@ void CEditPropBugtraq::OnOK()
     else
         pVal.value.clear();
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_NUMBER] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_NUMBER, pVal));
 
     // bugtraq:append
     checked = GetCheckedRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO);
@@ -283,7 +283,7 @@ void CEditPropBugtraq::OnOK()
     else
         pVal.value.clear();
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_APPEND] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_APPEND, pVal));
 
     // bugtraq:logregex
     CString sLogRegex = m_sBugtraqRegex2 + L"\n" + m_sBugtraqRegex1;
@@ -296,25 +296,25 @@ void CEditPropBugtraq::OnOK()
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRegex);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_LOGREGEX] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_LOGREGEX, pVal));
 
     // bugtraq:providerparams
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderParams);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_PROVIDERPARAMS] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_PROVIDERPARAMS, pVal));
 
     // bugtraq:provideruuid
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_PROVIDERUUID] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_PROVIDERUUID, pVal));
 
     // bugtraq:provideruuid64
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID64);
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[BUGTRAQPROPNAME_PROVIDERUUID64] = pVal;
+    newProps.insert(std::make_pair(BUGTRAQPROPNAME_PROVIDERUUID64, pVal));
 
     m_bChanged = true;
 

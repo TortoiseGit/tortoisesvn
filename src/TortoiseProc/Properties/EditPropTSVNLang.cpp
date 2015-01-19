@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,7 +71,7 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     m_langCombo.SetItemData(index, 0);
 
     DWORD projLang = 0;
-    for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
+    for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         if (it->second.isinherited)
             continue;
@@ -117,11 +117,11 @@ void CEditPropTSVNLang::OnOK()
     sprintf_s(numBuf, "%Id", m_langCombo.GetItemData(m_langCombo.GetCurSel()));
     pVal.value = numBuf;
     pVal.remove = (m_langCombo.GetItemData(m_langCombo.GetCurSel()) == 0);
-    newProps[PROJECTPROPNAME_PROJECTLANGUAGE] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_PROJECTLANGUAGE, pVal));
 
     pVal.value = m_bKeepEnglish ? "" : "false";
     pVal.remove = !!m_bKeepEnglish;
-    newProps[PROJECTPROPNAME_LOGFILELISTLANG] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_LOGFILELISTLANG, pVal));
 
     m_bChanged = true;
     m_properties = newProps;

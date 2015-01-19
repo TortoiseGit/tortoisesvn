@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -114,6 +114,7 @@ svn_error_t*    SVNReadProperties::Refresh()
     if ((svnPath == 0)||(svnPath[0] == 0))
         return NULL;
     m_props = NULL;
+    m_inheritedProperties.clear();
     if (m_bRevProps)
     {
         svn_revnum_t rev_set;
@@ -201,7 +202,6 @@ SVNReadProperties::SVNReadProperties(bool bRevProps, bool includeInherited)
 #endif
     , m_propCount(0)
     , m_props(NULL)
-    , m_inheritedprops(NULL)
     , m_bCancelled(nullptr)
 {
     Construct();
@@ -467,8 +467,6 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
             if (inherited_props)
             {
                 // properties further down the tree override the properties from above
-                pThis->m_inheritedprops = apr_array_make (pool, 1, sizeof(svn_prop_inherited_item_t*));
-                pThis->m_inheritedProperties.clear();
                 for (int i = 0; i < inherited_props->nelts; i++)
                 {
                     svn_prop_inherited_item_t * iitem = (APR_ARRAY_IDX (inherited_props, i, svn_prop_inherited_item_t*));
@@ -481,7 +479,7 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
 
                     // just in case someone needs the properties from above even though the same
                     // property is set further below, we store all props in a custom array.
-                    std::map<std::string,std::string> propmap;
+                    std::multimap<std::string,std::string> propmap;
                     for (apr_hash_index_t * hi = apr_hash_first(pool, iitem->prop_hash); hi; hi = apr_hash_next(hi))
                     {
                         const void *key;
@@ -489,7 +487,7 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
                         apr_hash_this(hi, &key, NULL, &val);
                         svn_string_t * propval = (svn_string_t *)val;
                         const char * pname_utf8 = (char *)key;
-                        propmap[pname_utf8] = std::string(propval->data, propval->len);
+                        propmap.insert(std::make_pair(pname_utf8, std::string(propval->data, propval->len)));
                     }
                     pThis->m_inheritedProperties.push_back(std::make_tuple(iitem->path_or_url, propmap));
                 }

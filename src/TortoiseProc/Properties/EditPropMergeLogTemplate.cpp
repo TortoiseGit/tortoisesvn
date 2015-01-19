@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012-2014 - TortoiseSVN
+// Copyright (C) 2012-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -136,25 +136,25 @@ void CEditPropMergeLogTemplate::OnOK()
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[PROJECTPROPNAME_MERGELOGTEMPLATETITLE] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATETITLE, pVal));
 
     GetDlgItemText(IDC_TITLEREVERSE, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE, pVal));
 
     GetDlgItemText(IDC_MSG, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps[PROJECTPROPNAME_MERGELOGTEMPLATEMSG] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATEMSG, pVal));
 
     pVal.value = IsDlgButtonChecked(IDC_TITLEBOTTOM) ? "yes" : "";
     pVal.remove = (pVal.value.empty());
-    newProps[PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM] = pVal;
+    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM, pVal));
 
     m_bChanged = true;
     m_properties = newProps;

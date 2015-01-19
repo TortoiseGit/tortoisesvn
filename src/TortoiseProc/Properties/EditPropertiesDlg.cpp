@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -315,7 +315,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
 
             async::CCriticalSectionLock lock (m_mutex);
 
-            IT it = m_properties.find(prop_str);
+            auto it = m_properties.find(prop_str);
             if (it != m_properties.end())
             {
                 it->second.count++;
@@ -343,19 +343,17 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
         // if there's only one path, read the inherited properties as well
         SVNProperties propsinh (m_pathlist[0], m_revision, m_bRevProps, true);
         auto inheritedprops = propsinh.GetInheritedProperties();
-        for (int p=0; p<propsinh.GetCount(); ++p)
+        for (auto itup : inheritedprops)
         {
-            std::string prop_str = propsinh.GetItemName(p);
-            std::string prop_value = propsinh.GetItemValue(p);
-
-            async::CCriticalSectionLock lock (m_mutex);
-
-            IT it = m_properties.find(prop_str);
-            if (it == m_properties.end())
+            auto propmap = std::get<1>(itup);
+            for (auto inp : propmap)
             {
-                // only add inherited properties if they're not already set
-                // on this very path
-                it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
+                std::string prop_str = inp.first;
+                std::string prop_value = inp.second;
+
+                async::CCriticalSectionLock lock(m_mutex);
+
+                auto it = m_properties.insert(std::make_pair(prop_str, PropValue()));
                 tstring value = CUnicodeUtils::StdGetUnicode(prop_value);
                 it->second.value = prop_value;
                 CString stemp = value.c_str();
@@ -367,21 +365,9 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
                 it->second.isinherited = true;
                 if (SVNProperties::IsBinary(prop_value))
                     it->second.isbinary = true;
-                for (auto itup : inheritedprops)
-                {
-                    auto propmap = std::get<1>(itup);
-                    for (auto inp : propmap)
-                    {
-                        if (inp.first == it->first)
-                        {
-                            it->second.inheritedfrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
-                            break;
-                        }
-                    }
-                }
+                it->second.inheritedfrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
             }
         }
-
     }
 }
 
@@ -409,29 +395,27 @@ UINT CEditPropertiesDlg::PropsThread()
     int index=0;
     m_propList.SetRedraw(FALSE);
     async::CCriticalSectionLock lock(m_mutex);
-    for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
+    for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
         m_propList.SetItemText(index, 2, it->second.inheritedfrom.c_str());
+        m_propList.SetItemData(index, (LPARAM)&it->second);
 
         if (it->second.isbinary)
         {
             m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
-            m_propList.SetItemData(index, FALSE);
         }
         else if (it->second.count != m_pathlist.GetCount())
         {
             // if the property values are the same for all paths they're set
             // but they're not set for *all* paths, then we show the entry grayed out
             m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
-            m_propList.SetItemData(index, FALSE);
         }
         else if (it->second.allthesamevalue)
         {
             // if the property values are the same for all paths,
             // we show the value
             m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
-            m_propList.SetItemData(index, it->second.isinherited ? FALSE : TRUE);
         }
         else
         {
@@ -439,7 +423,6 @@ UINT CEditPropertiesDlg::PropsThread()
             // then we show "values are different" instead of the value
             CString sTemp(MAKEINTRESOURCE(IDS_EDITPROPS_DIFFERENTPROPVALUES));
             m_propList.SetItemText(index, 1, sTemp);
-            m_propList.SetItemData(index, FALSE);
         }
         if (index == 0)
         {
@@ -506,8 +489,29 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
             return;
 
         COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-        if (m_propList.GetItemData (static_cast<int>(pLVCD->nmcd.dwItemSpec))==FALSE)
+        PropValue * pProp = (PropValue*)m_propList.GetItemData(static_cast<int>(pLVCD->nmcd.dwItemSpec));
+
+        if (pProp->isbinary)
+        {
             crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+        else if (pProp->count != m_pathlist.GetCount())
+        {
+            // if the property values are the same for all paths they're set
+            // but they're not set for *all* paths, then we show the entry grayed out
+            crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+        else if (pProp->allthesamevalue)
+        {
+            if (pProp->isinherited)
+                crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+        else
+        {
+            // if the property values aren't the same for all paths
+            crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+
         // Store the color back in the NMLVCUSTOMDRAW struct.
         pLVCD->clrText = crText;
     }
@@ -713,10 +717,11 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         dlg = GetPropDialog(bDefault, sName);
         dlg->SetProperties(m_properties);
-        PropValue& prop = m_properties[sName];
+        PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
+
         dlg->SetPropertyName(sName);
-        if (prop.allthesamevalue && !prop.isinherited)
-            dlg->SetPropertyValue(prop.value);
+        if (prop->allthesamevalue && !prop->isinherited)
+            dlg->SetPropertyValue(prop->value);
         dlg->SetPathList(m_pathlist);
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
     }
@@ -730,10 +735,10 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         if (m_properties.find(sName) != m_properties.end())
         {
             // the property already exists: switch to "edit" instead of "add"
-            PropValue& prop = m_properties[sName];
+            PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
             dlg->SetPropertyName(sName);
-            if (prop.allthesamevalue && !prop.isinherited)
-                dlg->SetPropertyValue(prop.value);
+            if (prop->allthesamevalue && !prop->isinherited)
+                dlg->SetPropertyValue(prop->value);
         }
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
     }
@@ -790,7 +795,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                         props.SetProgressDlg(&prog);
                         if (dlg->HasMultipleProperties())
                         {
-                            for (IT propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
+                            for (auto propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
                             {
                                 if (dlg->IsFolderOnlyProperty())
                                     props.AddFolderPropName(propsit->first);
@@ -1052,8 +1057,8 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     {
         async::CCriticalSectionLock lock(m_mutex);
         sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
-        PropValue& prop = m_properties[sName];
-        if (prop.allthesamevalue)
+        PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
+        if (prop->allthesamevalue)
         {
             CString savePath;
             if (!CAppUtils::FileOpenSave(savePath, NULL, IDS_REPOBROWSE_SAVEAS, 0, false, CString(), m_hWnd))
@@ -1063,7 +1068,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             errno_t err = 0;
             if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, L"wbS"))==0)
             {
-                fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
+                fwrite(prop->value.c_str(), sizeof(char), prop->value.size(), stream);
                 fclose(stream);
             }
             else
@@ -1109,14 +1114,14 @@ void CEditPropertiesDlg::OnBnClickedExport()
             int index = m_propList.GetNextSelectedItem(pos);
             sName = m_propList.GetItemText(index, 0);
             async::CCriticalSectionLock lock(m_mutex);
-            PropValue& prop = m_properties[CUnicodeUtils::StdGetUTF8((LPCTSTR)sName)];
-            sValue = prop.value.c_str();
+            PropValue * prop = (PropValue*)m_propList.GetItemData(index);
+            sValue = prop->value.c_str();
             len = sName.GetLength()*sizeof(TCHAR);
             fwrite(&len, sizeof(int), 1, stream);                                   // length of property name in bytes
             fwrite(sName, sizeof(TCHAR), sName.GetLength(), stream);                // property name
-            len = static_cast<int>(prop.value.size());
+            len = static_cast<int>(prop->value.size());
             fwrite(&len, sizeof(int), 1, stream);                                   // length of property value in bytes
-            fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);    // property value
+            fwrite(prop->value.c_str(), sizeof(char), prop->value.size(), stream);    // property value
         }
         fclose(stream);
     }
