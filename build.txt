@@ -20,7 +20,9 @@ You need to perform most steps only once.
 \subsection Requirements1 First, you need to install the compiler package.
 
 -# You need VS2013 to allow building of the full TortoiseSVN package.
-   This is the recommended option, but it is not free :-(
+   If you don't have Visual Studio yet, you can download and install
+   the community edition for free. Make sure to leave the checkbox for
+   "Microsoft Foundation library" checked in the first installer dialog.
    If you want to build the msi make sure the "Tools for Redistributing
    Applications" are installed.
 
