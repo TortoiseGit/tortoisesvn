@@ -10,11 +10,11 @@
 # 
 # Authors:
 # Translators:
-# Manuela Silva <manuela.silva@sky.com>, 2014
+# alfalb_mansil, 2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
-# Manuela Silva <manuela.silva@sky.com>, 2014
+# alfalb_mansil, 2014-2015
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2013-2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
 # Sandro Amaral <sandro123iv@gmail.com>, 2011
@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-01-13 14:01+0000\n"
+"Last-Translator: alfalb_mansil\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,7 +194,7 @@ msgstr "%I64d kBytes transferidos"
 #. Resource IDs: (64)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "Foram atualizados %d projetos:"
 
 #. Resource IDs: (8)
 #, c-format
@@ -312,7 +312,7 @@ msgstr "%s, mas o ficheiro já existe localmente sem versão."
 #. Resource IDs: (611)
 #, c-format
 msgid "%s, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%s, mas o ficheiro está em falta localmente (apagado ou movido?)."
 
 #. Resource IDs: (609)
 #, c-format
@@ -686,7 +686,7 @@ msgstr "&Remover..."
 msgid ""
 "&Delete\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Apagar\nO projeto foi removido. Se o projeto continha subprojetos, esses também foram removidos."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -874,7 +874,7 @@ msgstr "&Ocultar"
 
 #. Resource IDs: (1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "&Ocultar itens ignorados"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
@@ -1157,7 +1157,7 @@ msgstr "Dependente da &plataforma (nativa)"
 
 #. Resource IDs: (1654)
 msgid "&Play sound on notification"
-msgstr ""
+msgstr "&Reproduzir som com a notificação"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1325,7 +1325,7 @@ msgstr "&Mostrar Monitor"
 
 #. Resource IDs: (1529)
 msgid "&Show popup notifications"
-msgstr ""
+msgstr "&Mostrar janela de notificações"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1718,7 +1718,7 @@ msgstr "<nova lista de alterações>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
 "all=&Options=="
-msgstr ""
+msgstr "=&Verificar Agora=&Adicionar Projeto=E&ditar=& Remover =&Marcar tudo como lido=&Atualizar tudo=&Opções=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1901,7 +1901,7 @@ msgstr "Adicionar novos ficheiros automaticamente ao SVN"
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
-msgstr ""
+msgstr "Adicionar projeto ou pasta..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -2386,7 +2386,7 @@ msgstr "Misturar alfa"
 
 #. Resource IDs: (156)
 msgid "Blocks"
-msgstr ""
+msgstr "Blocos"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2714,7 +2714,7 @@ msgstr "Cancela\nO ficheiro destino será deixado como está"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Cancelar\nPode inserir oura palavra-passe e tentar de novo"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3008,7 +3008,7 @@ msgstr "Apagar%1!ld! mensagens de registo armazenadas para %2!ld! cópias de tra
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr "Apaga %1!ld! pares nome de utilizador/palavra-passe, %2!ld! certificados SSL e %3!ld! nomes de utilizador"
+msgstr "Limpa %1!ld! pares de nome de utilizador/palavra-passe, %2!ld! certificados SSL e %3!ld! nomes de utilizador"
 
 #. Resource IDs: (198)
 #, c-format
@@ -4373,7 +4373,7 @@ msgstr "Editar Externo"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "Editar Projeto para monitorizar"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -4466,7 +4466,7 @@ msgstr ""
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr ""
+msgstr "Ativar o arrastar menu de contexto"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4717,11 +4717,11 @@ msgstr "Exportar &directório:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Ficheiros de Exportar (*.tsex)|*.tsex|Todos os Ficheiros (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Exportar as preferências para ficheiro..."
 
 #. Resource IDs: (345)
 msgid ""
@@ -4822,7 +4822,7 @@ msgid ""
 "Failed to copy the file '%s' to '%s'.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Não foi possível copiar o ficheiro '%s' para '%s'.\n\n%s"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -5902,7 +5902,7 @@ msgstr "Importar &mensagem"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importar as Preferências a partir do ficheiro..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5969,7 +5969,7 @@ msgstr "Incluir arquivos ignorados"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "Incluir as preferências locais"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6225,11 +6225,11 @@ msgstr "Deixar com conflito:"
 
 #. Resource IDs: (252)
 msgid "Leave only marked changes"
-msgstr ""
+msgstr "Deixar apenas as alterações marcadas"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Deixe a caixa \"Caminho ou URL\" em branco para criar o item de pasta"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6312,7 +6312,7 @@ msgstr "Carregar Imagens"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Carregar as Preferências  a partir do ficheiro"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6470,7 +6470,7 @@ msgstr "A DLL do sistema de correio electrónico é inválida."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Menu de Contexto Principal"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6486,7 +6486,7 @@ msgstr "Gancho manual de Pre-Commit"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Importar/Exportar Manual"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6504,7 +6504,7 @@ msgstr "Marcar como &resolvido (movimento tornar-se-á cópia)"
 
 #. Resource IDs: (1400)
 msgid "Mark as Resolved"
-msgstr ""
+msgstr "Marcar como Resolvido"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6540,7 +6540,7 @@ msgstr "Marcar esta alteração"
 
 #. Resource IDs: (7)
 msgid "Marked Blocks"
-msgstr ""
+msgstr "Blocos Marcados"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6562,7 +6562,7 @@ msgstr ""
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Marca as revisões como integradas sem as ter de facto integrado.\r\nIsto impede a futura integração das revisões."
+msgstr "Marca as revisões como integradas, sem as ter de facto integrado.\nIsto bloqueia a futura integração das revisões."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -7304,7 +7304,7 @@ msgstr "Um ou mais arquivos estão em estado de conflito."
 
 #. Resource IDs: (64)
 msgid "One project has updates:"
-msgstr ""
+msgstr "Um projeto tem atualizações:"
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
@@ -7444,7 +7444,7 @@ msgstr "Substituir\nSubstitui a pasta destino."
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Substituir\nAs preferências foram substituídas"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7460,7 +7460,7 @@ msgstr "Substituir\nO ficheiro destino será substituido."
 
 #. Resource IDs: (65535)
 msgid "POPUP"
-msgstr ""
+msgstr "JANELA"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -7488,11 +7488,11 @@ msgstr "Parâmetros:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Palavra-passe:"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "A palavra-passe está errada"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7557,11 +7557,11 @@ msgstr "Encontrado caminho que coincide melhor com a correcção."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
-msgstr ""
+msgstr "Caminho ou URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Caminho:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7708,11 +7708,11 @@ msgstr "Preferir &repositório"
 
 #. Resource IDs: (251)
 msgid "Prepend right block"
-msgstr "Prepend bloco direito"
+msgstr "Acrescentar no início o bloco direito"
 
 #. Resource IDs: (251)
 msgid "Prepend this block to left"
-msgstr "Prepend este bloco à esquerda"
+msgstr "Acrescentar no início este bloco à esquerda"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -8933,7 +8933,7 @@ msgstr ""
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr ""
+msgstr "Guardar e ignorar os blocos\nSó são guardadas as edições do seu manual, os blocos marcados são deixados como estão"
 
 #. Resource IDs: (7)
 msgid ""
@@ -9809,7 +9809,7 @@ msgstr "Iniciar editor do registo"
 
 #. Resource IDs: (1562)
 msgid "Start with &Windows"
-msgstr ""
+msgstr "Iniciar com o &Windows"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
@@ -10059,11 +10059,11 @@ msgstr "Troca a comparação esquerda<->direita"
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "Sincronizar"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Configurar Sincronização"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10435,11 +10435,11 @@ msgstr "Os parâmetros '/path' e '/pathfile' são mutuamente exclusivos.\nDeve e
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "A palavra-passe está errada.\nPor favor, insira a palavra-passe correta na janela de preferências."
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "As palavras-passe não coincidem"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10509,7 +10509,7 @@ msgstr "O arquivo seleccionado parece ainda conter uma ou mais marcas de conflit
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "O ficheiro das preferências não pode ser descodificado com a palavra-passe indicada!\nDeseja substituir a sincronização de ficheiro?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -12258,7 +12258,7 @@ msgstr "última actualização:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr "Deixar utilizador e palavra-passe vazia se o repositório permite acesso anónimo, ou se a autenticação já está armazenada"
+msgstr "Deixar o nome de utilizador e a palavra-passe em branco se o repositório permitir o acesso anónimo, ou se a autenticação já está armazenada"
 
 #. Resource IDs: (11, 195)
 msgid "locked"

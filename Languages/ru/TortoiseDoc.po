@@ -19,14 +19,15 @@
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
 # rlagutin <rlagutin@tradingview.com>, 2014
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
+# Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
 # Вячеслав Третьяков <tret2003@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-01-15 21:21+0000\n"
+"Last-Translator: Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -640,7 +641,7 @@ msgstr "TortoiseSVN поставляется в виде простого в и�
 msgid ""
 "You need Administrator privileges to install TortoiseSVN. The installer will"
 " ask you for Administrator credentials if necessary."
-msgstr ""
+msgstr "Вам необходимы привилегии администратора для установки TortoiseSVN. Установщик запросит данные администратора при необходимости."
 
 #. (para)
 msgid ""
@@ -1518,7 +1519,7 @@ msgstr ""
 msgid ""
 "You are giving direct write access to all users, so they could accidentally "
 "delete or corrupt the repository file system."
-msgstr ""
+msgstr "Вы даете прямой доступ на запись всем пользователям, таким образом они могут случайно удалить или повредить файловую систему репозитория."
 
 #. (para)
 msgid ""
@@ -3397,6 +3398,34 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to "
 "edit the Subversion configuration file."
 msgstr "По умолчанию, при фиксации изменений все удерживаемые вами блокировки файлов снимаются после успешного завершения операции. Если вы желаете оставить эти блокировки, убедитесь, что флажок <guilabel>Сохранить блокировки</guilabel> отмечен. Значение, используемое по умолчанию для этого флажка, берётся из параметра <literal>no_unlock</literal> конфигурационного файла Subversion. Прочтите <xref linkend=\"tsvn-dug-settings-main\"/>, чтобы узнать, как редактировать конфигурационный файл Subversion."
+
+#. (title)
+msgid "Warning when committing to a tag"
+msgstr ""
+
+#. (para)
+msgid ""
+"Usually, commits are done to the trunk or a branch, but not to tags. After "
+"all, a tag is considered fixed and should not change."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
+"dialog first to ensure whether this is really what is intended. Because most"
+" of the time such a commit is done by accident."
+msgstr ""
+
+#. (para)
+msgid ""
+"However, this check only works if the repository layout is one of the "
+"recommended ones, meaning it uses the names <filename>trunk</filename>, "
+"<filename>branches</filename> and <filename>tags</filename> to mark the "
+"three main areas. In case the setup is different, the detection of what is a"
+" tag/branch/trunk (also known as <literal>classification patterns</literal> "
+"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
+"revgraph\"/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12969,6 +12998,16 @@ msgid ""
 " white space as it will be included in the matching specification."
 msgstr "Укажите шаблоны, используемые для выделения путей, в соответствующих полях ввода. Шаблоны распознаются независимо от регистра, но вы должны ввести их в нижнем регистре. Подстановочные символы <literal>*</literal> и <literal>?</literal> работают как обычно, и вы можете использовать <literal>;</literal> для разделения нескольких шаблонов. Не вводите дополнительные пробельные символы, поскольку они также будут включены в шаблон при сопоставлении."
 
+#. (title)
+msgid "Commit tag detection"
+msgstr ""
+
+#. (para)
+msgid ""
+"Please note that these patterns are also used to detect commits to a tag, "
+"not just for the revision graph."
+msgstr ""
+
 #. (term)
 msgid "Modify Colors"
 msgstr "Изменение цвета"
@@ -14562,7 +14601,7 @@ msgstr "Определяет, сколько пробелов использов
 
 #. (title)
 msgid "TortoiseUDiff Settings"
-msgstr ""
+msgstr "Настройки TortoiseUDiff"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseUDiff Page"
@@ -15108,7 +15147,7 @@ msgstr ""
 
 #. (title)
 msgid "Snarl"
-msgstr ""
+msgstr "Snarl"
 
 #. (para)
 msgid ""
@@ -15227,7 +15266,7 @@ msgstr ""
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Добавить проект"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
@@ -15251,7 +15290,7 @@ msgstr ""
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "Пометить все как прочитанное"
 
 #. (para)
 msgid ""
@@ -15262,7 +15301,7 @@ msgstr ""
 
 #. (term)
 msgid "Update all"
-msgstr ""
+msgstr "Обновить все"
 
 #. (para)
 msgid ""
@@ -15478,7 +15517,7 @@ msgstr "Если указан этот параметр, SubWCRev будет в�
 
 #. (filename)
 msgid ".subwcrevignore"
-msgstr ""
+msgstr ".subwcrevignore"
 
 #. (entry)
 msgid ""
@@ -17781,11 +17820,11 @@ msgstr "Показывает диалог 'О программе'. Он же о�
 
 #. (para)
 msgid "<option>/startrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/startrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
@@ -18201,7 +18240,7 @@ msgstr "Открывает диалог 'Слить все'. Параметр <p
 
 #. (literal)
 msgid "^"
-msgstr ""
+msgstr "^"
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
@@ -18217,7 +18256,7 @@ msgstr "Создавать промежуточные папки"
 
 #. (option)
 msgid "/makeparents"
-msgstr ""
+msgstr "/makeparents"
 
 #. (entry)
 msgid ""
@@ -19618,15 +19657,16 @@ msgstr "en_US.dic"
 msgid ""
 "Once you have got the dictionary files, you probably need to rename them so "
 "that the filenames only have the locale chars in it. Example: "
-"<placeholder-1/> Then just copy them to the <filename>bin</filename> sub-"
-"folder of the TortoiseSVN installation folder. Normally this will be "
-"<filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want "
-"to litter the <filename>bin</filename> sub-folder, you can instead place "
-"your spell checker files in <filename>C:\\Program "
-"Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you "
-"have to create it first. The next time you start TortoiseSVN, the spell "
-"checker will be available."
-msgstr "После того, как у вас будут файлы словарей, возможно, вам понадобиться переименовать их так, чтобы имя файла содержало только символы, обозначающие язык и локализацию. Например: <placeholder-1/> Затем скопируйте их в подпапку <filename>bin</filename> установочной папки TortoiseSVN. Обычно это <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. Если вы не желаете загромождать подпапку <filename>bin</filename>, вы можете поместить эти файлы в папку <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Если эта папка отсутствует, необходимо сначала её создать. Когда вы в следующий раз запустите TortoiseSVN, будет доступна проверка правописания."
+"<placeholder-1/> Then just copy them into the "
+"<filename>%APPDATA%\\TortoiseSVN\\dic</filename> folder. If that folder "
+"isn't there, you have to create it first. TortoiseSVN will also search the "
+"<filename>Languages</filename> sub-folder of the TortoiseSVN installation "
+"folder (normally this will be <filename>C:\\Program "
+"Files\\TortoiseSVN\\Languages</filename>); this is the place where the "
+"language packs put their files. However, the %APPDATA%-folder doesn't "
+"require administrator privileges and, thus, has higher priority. The next "
+"time you start TortoiseSVN, the spell checker will be available."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20478,7 +20518,7 @@ msgstr ""
 
 #. (term)
 msgid "Line Endings"
-msgstr ""
+msgstr "Концы строк"
 
 #. (para)
 msgid ""

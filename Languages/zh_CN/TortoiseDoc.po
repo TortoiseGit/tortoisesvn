@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:10+0000\n"
+"PO-Revision-Date: 2015-01-15 09:57+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -3405,6 +3405,34 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to "
 "edit the Subversion configuration file."
 msgstr "缺省情况下，当你成功提交修改后，你在这些文件上持有的锁会被自动释放。如果你需要保留锁，请确认选中检查框<guilabel>保留锁</guilabel>。此检查框的缺省状态从 Subversion 配置文件的 <literal>no_unlock</literal> 选项获取。参考 <xref linkend=\"tsvn-dug-settings-main\"/> 以获得更多关于编辑 Subversion 配置文件的信息。"
+
+#. (title)
+msgid "Warning when committing to a tag"
+msgstr ""
+
+#. (para)
+msgid ""
+"Usually, commits are done to the trunk or a branch, but not to tags. After "
+"all, a tag is considered fixed and should not change."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
+"dialog first to ensure whether this is really what is intended. Because most"
+" of the time such a commit is done by accident."
+msgstr ""
+
+#. (para)
+msgid ""
+"However, this check only works if the repository layout is one of the "
+"recommended ones, meaning it uses the names <filename>trunk</filename>, "
+"<filename>branches</filename> and <filename>tags</filename> to mark the "
+"three main areas. In case the setup is different, the detection of what is a"
+" tag/branch/trunk (also known as <literal>classification patterns</literal> "
+"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
+"revgraph\"/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12977,6 +13005,16 @@ msgid ""
 " white space as it will be included in the matching specification."
 msgstr "在所提供的三个框中指定用来识别这些路径的模式。模式不会区分大小写，但您必须以小写来指定它们。通配符  <literal>*</literal> 和 <literal>?</literal> 将照常工作，并且可以使用 <literal>;</literal> 来分隔多个模式。不要包括任何额外的空格，因为它将包含在匹配规范中。"
 
+#. (title)
+msgid "Commit tag detection"
+msgstr ""
+
+#. (para)
+msgid ""
+"Please note that these patterns are also used to detect commits to a tag, "
+"not just for the revision graph."
+msgstr ""
+
 #. (term)
 msgid "Modify Colors"
 msgstr "修改颜色"
@@ -19626,15 +19664,16 @@ msgstr "en_US.dic"
 msgid ""
 "Once you have got the dictionary files, you probably need to rename them so "
 "that the filenames only have the locale chars in it. Example: "
-"<placeholder-1/> Then just copy them to the <filename>bin</filename> sub-"
-"folder of the TortoiseSVN installation folder. Normally this will be "
-"<filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want "
-"to litter the <filename>bin</filename> sub-folder, you can instead place "
-"your spell checker files in <filename>C:\\Program "
-"Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you "
-"have to create it first. The next time you start TortoiseSVN, the spell "
-"checker will be available."
-msgstr "一旦你得到了词典文件，你可能需要重命名文件，这样文件名只包含位置信息，例如: <placeholder-1/>然后把它们复制到TortoiseSVN 安装目录的 <filename>bin</filename> 子目录，通常情况下，可能是在 <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>。如果你不希望弄乱<filename>bin</filename>子目录，你可以将拼写检查文件放置在<filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>，如果那个目录不存在，你可以自己创建，当你下次启动TortoiseSVN 时，就可以使用拼写检查器。"
+"<placeholder-1/> Then just copy them into the "
+"<filename>%APPDATA%\\TortoiseSVN\\dic</filename> folder. If that folder "
+"isn't there, you have to create it first. TortoiseSVN will also search the "
+"<filename>Languages</filename> sub-folder of the TortoiseSVN installation "
+"folder (normally this will be <filename>C:\\Program "
+"Files\\TortoiseSVN\\Languages</filename>); this is the place where the "
+"language packs put their files. However, the %APPDATA%-folder doesn't "
+"require administrator privileges and, thus, has higher priority. The next "
+"time you start TortoiseSVN, the spell checker will be available."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 14:11+0000\n"
+"PO-Revision-Date: 2015-01-15 09:57+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -3394,6 +3394,34 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to "
 "edit the Subversion configuration file."
 msgstr "Als je een vastlegging opstart, wordt standaard alle blokkades die jij gezet hebt op bestanden verwijderd nadat de vastlegging succesvol is afgerond. Als je deze blokkades wilt behouden, zorg er dan voor dat het <guilabel>Blokkades behouden</guilabel> selectievak is aangekruist. De standaard status van deze optie wordt gelezen uit de <literal>no_unlock</literal> optie in het Subversion configuratiebestand. Lees <xref linkend=\"tsvn-dug-settings-main\"/> voor informatie over hoe je het configuratiebestand kunt aanpassen."
+
+#. (title)
+msgid "Warning when committing to a tag"
+msgstr ""
+
+#. (para)
+msgid ""
+"Usually, commits are done to the trunk or a branch, but not to tags. After "
+"all, a tag is considered fixed and should not change."
+msgstr ""
+
+#. (para)
+msgid ""
+"If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
+"dialog first to ensure whether this is really what is intended. Because most"
+" of the time such a commit is done by accident."
+msgstr ""
+
+#. (para)
+msgid ""
+"However, this check only works if the repository layout is one of the "
+"recommended ones, meaning it uses the names <filename>trunk</filename>, "
+"<filename>branches</filename> and <filename>tags</filename> to mark the "
+"three main areas. In case the setup is different, the detection of what is a"
+" tag/branch/trunk (also known as <literal>classification patterns</literal> "
+"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
+"revgraph\"/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12966,6 +12994,16 @@ msgid ""
 " white space as it will be included in the matching specification."
 msgstr "Specificeer de patronen om deze paden te herkennen in de drie gegeven velden. De patronen zullen worden niet hoofdlettergevoelig worden vergeleken, maar u dient ze in kleine letters in te geven. Jokertekens <literal>*</literal> en <literal>?</literal> werken als gewoonlijk en u kunt <literal>;</literal> gebruiken om meerdere patronen van elkaar te scheiden. Voeg geen extra witruimte in omdat dit wordt meegenomen in de vergelijkingsspecificatie."
 
+#. (title)
+msgid "Commit tag detection"
+msgstr ""
+
+#. (para)
+msgid ""
+"Please note that these patterns are also used to detect commits to a tag, "
+"not just for the revision graph."
+msgstr ""
+
 #. (term)
 msgid "Modify Colors"
 msgstr "Bewerk Kleuren"
@@ -19615,15 +19653,16 @@ msgstr "en_US.dic"
 msgid ""
 "Once you have got the dictionary files, you probably need to rename them so "
 "that the filenames only have the locale chars in it. Example: "
-"<placeholder-1/> Then just copy them to the <filename>bin</filename> sub-"
-"folder of the TortoiseSVN installation folder. Normally this will be "
-"<filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want "
-"to litter the <filename>bin</filename> sub-folder, you can instead place "
-"your spell checker files in <filename>C:\\Program "
-"Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you "
-"have to create it first. The next time you start TortoiseSVN, the spell "
-"checker will be available."
-msgstr "Als je de woordenboekbestanden hebt, moet je ze waarschijnlijk hernoemen zodat de bestandsnaam alleen lokale karakters bevat. Bijvoorbeeld: <placeholder-1/> Daarna kopiëer je ze naar de <filename>bin</filename> submap van de TortoiseSVN installatiemap. Normaliter is dit <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. Als je de <filename>bin</filename> submap niet wilt vervuilen, dan kun je in plaats daarvan de spellingscheckerbestanden in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename> plaatsen. Als die map niet bestaat, moet je hem eerst aanmaken. De volgende keer dat je TortoiseSVN start, zal de spellingschecker beschikbaar zijn."
+"<placeholder-1/> Then just copy them into the "
+"<filename>%APPDATA%\\TortoiseSVN\\dic</filename> folder. If that folder "
+"isn't there, you have to create it first. TortoiseSVN will also search the "
+"<filename>Languages</filename> sub-folder of the TortoiseSVN installation "
+"folder (normally this will be <filename>C:\\Program "
+"Files\\TortoiseSVN\\Languages</filename>); this is the place where the "
+"language packs put their files. However, the %APPDATA%-folder doesn't "
+"require administrator privileges and, thus, has higher priority. The next "
+"time you start TortoiseSVN, the spell checker will be available."
+msgstr ""
 
 #. (para)
 msgid ""

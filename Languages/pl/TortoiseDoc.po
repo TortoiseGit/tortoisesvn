@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-02 23:00+0000\n"
+"PO-Revision-Date: 2015-01-15 18:55+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -3393,6 +3393,34 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to "
 "edit the Subversion configuration file."
 msgstr "Domyślnie, kiedy zatwierdzacie zmiany, wszystkie blokady,założone na pliki są automatycznie zwalniane gdy zatwierdzenie się powiedzie. Jeśli chcecie zachować te blokady, upewnijcie się, że pole wyboru <guilabel>Trzymaj blokady</guilabel> jest zaznaczone. Domyślny stan tego pola wyboru jest pobierany z opcji <literal>no_unlock</literal> w pliku konfiguracyjnym Subversion. Czytajcie <xref linkend=\"tsvn-dug-settings-main\"/> by zyskać informacje na temat, jak edytować plik konfiguracyjny Subversion."
+
+#. (title)
+msgid "Warning when committing to a tag"
+msgstr "Ostrzeżenie podczas zatwierdzenia do etykiety"
+
+#. (para)
+msgid ""
+"Usually, commits are done to the trunk or a branch, but not to tags. After "
+"all, a tag is considered fixed and should not change."
+msgstr "Zwykle zatwierdzenia wykonywane są do linii głównej lub gałęzi, nie zaś do etykiet. Ostatecznie etykieta jest uważana za stan poprawnie zdefiniowany i nie powinna się zmieniać."
+
+#. (para)
+msgid ""
+"If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
+"dialog first to ensure whether this is really what is intended. Because most"
+" of the time such a commit is done by accident."
+msgstr "Gdy następuje próba zatwierdzenia na URL etykiety, TortoiseSVN wyświetla okno dialogowe z prośbą o potwierdzenie, by zapewnić że jest to zamierzone działanie. To zaś dlatego, że takie zatwierdzenie jest wykonywane przez przypadek."
+
+#. (para)
+msgid ""
+"However, this check only works if the repository layout is one of the "
+"recommended ones, meaning it uses the names <filename>trunk</filename>, "
+"<filename>branches</filename> and <filename>tags</filename> to mark the "
+"three main areas. In case the setup is different, the detection of what is a"
+" tag/branch/trunk (also known as <literal>classification patterns</literal> "
+"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
+"revgraph\"/>"
+msgstr "Jednak takie sprawdzenie działa tylko wtedy, gdy układ repozytorium jest jednym z sugerowanych, to jest używane są w nim nazwy <filename>trunk</filename>, <filename>branches</filename> i <filename>tags</filename> by wskazać podstawowe trzy obszary. W przypadku innej konfiguracji, wykrywanie co jest etykietą/gałęzią/linią główną (zwane również <literal>wzorcami klasyfikacji</literal> może być skonfigurowane w oknie ustawień: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
 msgid ""
@@ -12965,6 +12993,16 @@ msgid ""
 " white space as it will be included in the matching specification."
 msgstr "Wzorce stosowane do rozpoznania tych ścieżek należy podać w trzech polach. Wzorce zostaną dopasowane bez rozróżnienia wielkości znaków, ale należy wpisać je małymi literami. Symbole wieloznaczne <literal>*</literal> i <literal>?</literal> będą działać w zwykły sposób, można także użyć <literal>;</literal>, aby oddzielić kolejne wzorce. Nie należy wprowadzać żadnych dodatkowych spacji, jako że zostaną one uwzględnione w specyfikacji dopasowania."
 
+#. (title)
+msgid "Commit tag detection"
+msgstr "Wykrywanie zatwierdzenia do etykiety"
+
+#. (para)
+msgid ""
+"Please note that these patterns are also used to detect commits to a tag, "
+"not just for the revision graph."
+msgstr "Należy zauważyć, że wzorce te są również używane do wykrywanie zatwierdzeń na etykietach, nie tylko na grafie wersji."
+
 #. (term)
 msgid "Modify Colors"
 msgstr "Modyfikacja kolorów"
@@ -19614,15 +19652,16 @@ msgstr "en_US.dic"
 msgid ""
 "Once you have got the dictionary files, you probably need to rename them so "
 "that the filenames only have the locale chars in it. Example: "
-"<placeholder-1/> Then just copy them to the <filename>bin</filename> sub-"
-"folder of the TortoiseSVN installation folder. Normally this will be "
-"<filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want "
-"to litter the <filename>bin</filename> sub-folder, you can instead place "
-"your spell checker files in <filename>C:\\Program "
-"Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you "
-"have to create it first. The next time you start TortoiseSVN, the spell "
-"checker will be available."
-msgstr "Gdy macie już pliki słownika, to prawdopodobnie trzeba zmienić ich nazwę, tak aby nazwy plików zawierały tylko znaki lokalizacji. Przykład: <placeholder-1/> Po czym po prostu skopiujcie je do podfolderu <filename>bin</filename> w folderze instalacji TortoiseSVN. Normalnie będzie to <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. Jeśli nie chcecie zaśmiecać podfolderu <filename>bin</filename>, można zamiast tego umieścić pliki sprawdzania pisowni w <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Jeśli folder nie istnieje, należy utworzyć go w pierwszej kolejności. Przy następnym uruchomieniu TortoiseSVN, sprawdzanie pisowni będzie dostępne."
+"<placeholder-1/> Then just copy them into the "
+"<filename>%APPDATA%\\TortoiseSVN\\dic</filename> folder. If that folder "
+"isn't there, you have to create it first. TortoiseSVN will also search the "
+"<filename>Languages</filename> sub-folder of the TortoiseSVN installation "
+"folder (normally this will be <filename>C:\\Program "
+"Files\\TortoiseSVN\\Languages</filename>); this is the place where the "
+"language packs put their files. However, the %APPDATA%-folder doesn't "
+"require administrator privileges and, thus, has higher priority. The next "
+"time you start TortoiseSVN, the spell checker will be available."
+msgstr "Gdy już macie pliki słowników, być może potrzebujecie zmienić ich nazwy by zawierały one tylko znaki lokalizacji. Przykład: <placeholder-1/> Następnie po prostu skopiujcie je do folderu <filename>%APPDATA%\\TortoiseSVN\\dic</filename>. Jeśli tego folderu tam nie ma, musicie go utworzyć. TortoiseSVN będzie również przeszukiwać podfolder <filename>Languages</filename> folderu instalacji TortoiseSVN (zwykle będzie to <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>); jest to miejsce, gdzie trafiają pliki z pakietów językowych. Jednak, folder %APPDATA% nie wymaga uprawnień administratora, a przez to ma wyższy priorytet. Po uruchomieniu następnym razem TortoiseSVN, moduł sprawdzania pisowni będzie dostępny."
 
 #. (para)
 msgid ""
