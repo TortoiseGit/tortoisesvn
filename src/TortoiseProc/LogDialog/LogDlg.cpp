@@ -7778,8 +7778,45 @@ void CLogDlg::InitMonitorProjTree()
     CString sDataFilePath = CPathUtils::GetAppDataDirectory();
     sDataFilePath += L"\\MonitoringData.ini";
     m_monitoringFile.SetMultiLine();
-    m_monitoringFile.LoadFile(sDataFilePath);
+    if (PathFileExists(sDataFilePath))
+    {
+        int retrycount = 5;
+        SI_Error err = SI_OK;
+        CSimpleIni::TNamesDepend mitems;
+        do
+        {
+            err = m_monitoringFile.LoadFile(sDataFilePath);
+            if (err == SI_FILE)
+            {
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                Sleep(500);
+            }
+            else
+                m_monitoringFile.GetAllSections(mitems);
+        } while ((err == SI_FILE) && retrycount--);
 
+        if ((err == SI_FILE) || mitems.empty())
+        {
+            // try again with the backup file
+            sDataFilePath = CPathUtils::GetAppDataDirectory() + L"\\MonitoringData_backup.ini";
+            if (PathFileExists(sDataFilePath))
+            {
+                retrycount = 5;
+                err = SI_OK;
+                do
+                {
+                    err = m_monitoringFile.LoadFile(sDataFilePath);
+                    if (err == SI_FILE)
+                    {
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        Sleep(500);
+                    }
+                } while ((err == SI_FILE) && retrycount--);
+            }
+            if (err == SI_FILE)
+                TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_MONITORINILOAD), NULL, TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+        }
+    }
     m_bPlaySound = _wtoi(m_monitoringFile.GetValue(L"global", L"PlaySound", L"1")) != 0;
     m_bShowNotification = _wtoi(m_monitoringFile.GetValue(L"global", L"ShowNotifications", L"1")) != 0;
 
@@ -7796,6 +7833,8 @@ void CLogDlg::InitMonitorProjTree()
 
 void CLogDlg::RefreshMonitorProjTree()
 {
+    static bool firstcall = true;
+
     CSimpleIni::TNamesDepend mitems;
     m_monitoringFile.GetAllSections(mitems);
     m_projTree.SetRedraw(FALSE);
@@ -7872,7 +7911,15 @@ void CLogDlg::RefreshMonitorProjTree()
 
             m_projTree.SortChildrenCB(&tvs);
         }
-
+        if (firstcall)
+        {
+            // successfully loaded the ini file, and it contains
+            // at least one project: assume the ini file is not
+            // corrupt.
+            // Create a backup of the (assumed good) ini file now
+            CString sAppDataDir = CPathUtils::GetAppDataDirectory();
+            CopyFile(sAppDataDir + L"\\MonitoringData.ini", sAppDataDir + L"\\MonitoringData_backup.ini", FALSE);
+        }
     }
     m_projTree.SetRedraw(TRUE);
 
@@ -7886,6 +7933,7 @@ void CLogDlg::RefreshMonitorProjTree()
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
     ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(bHasWorkingCopies, 0));
+    firstcall = false;
 }
 
 int CLogDlg::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam3*/)
@@ -8242,10 +8290,33 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
     {
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
         sDataFilePath += L"\\MonitoringData.ini";
+        CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
         FILE * pFile = NULL;
-        _tfopen_s(&pFile, sDataFilePath, L"wb");
-        m_monitoringFile.SaveFile(pFile);
-        fclose(pFile);
+        errno_t err = 0;
+        int retrycount = 5;
+        do 
+        {
+            err = _tfopen_s(&pFile, sTempfile, L"wb");
+            if ((err == 0) && pFile)
+            {
+                m_monitoringFile.SaveFile(pFile);
+                err = fclose(pFile);
+            }
+            if (err)
+            {
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s, retrycount %d\n", (LPCWSTR)sTempfile, retrycount);
+                Sleep(500);
+            }
+        } while (err && retrycount--);
+        if (err == 0)
+        {
+            if (!CopyFile(sTempfile, sDataFilePath, FALSE))
+            {
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", (LPCWSTR)sTempfile, (LPCWSTR)sDataFilePath, GetLastError());
+            }
+        }
+        else
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s - saving failed\n", (LPCWSTR)sTempfile);
     }
 }
 
@@ -8464,11 +8535,12 @@ void CLogDlg::MonitorThread()
                     if ((SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
                         (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
                         (Err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN)||
-                        (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+                        (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION)||
+                        (Err->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
                     {
                         item.authfailed = true;
-                        item.lastErrorMsg = svn.GetLastErrorMessage();
                     }
+                    item.lastErrorMsg = svn.GetLastErrorMessage();
                 }
             }
             item.lastchecked = currenttime;
