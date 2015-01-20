@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@
 #include "AppUtils.h"
 #include "PasswordDlg.h"
 #include "SelectFileFilter.h"
+#include "TempFile.h"
 
 #define TSVN_SYNC_VERSION       1
 #define TSVN_SYNC_VERSION_STR   L"1"
@@ -213,9 +214,20 @@ bool SyncCommand::Execute()
                                 }
                             }
                         }
+                        else
+                        {
+                            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error decrypting, password may be wrong\n");
+                            return false;
+                        }
                     }
                 }
             }
+        }
+        else
+        {
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error opening file %s, Error %u\n", syncPath.GetWinPath(), GetLastError());
+            if (GetLastError() != ERROR_FILE_NOT_FOUND)
+                return false;
         }
     }
 
@@ -313,25 +325,64 @@ bool SyncCommand::Execute()
                 monitorIni.SetValue(sSection, sKey, sValue);
             }
             FILE * pFile = NULL;
-            _tfopen_s(&pFile, sDataFilePath, L"wb");
-            monitorIni.SaveFile(pFile);
-            fclose(pFile);
-
-            // now send a message to a possible running monitor to force it
-            // to reload the ini file. Otherwise it would overwrite the ini
-            // file without using the synced data!
-            HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
-            if (hWnd)
+            errno_t err = 0;
+            int retrycount = 5;
+            CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
+            do
             {
-                UINT TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(L"TSVNCommitMonitor_ReloadIni");
-                PostMessage(hWnd, TSVN_COMMITMONITOR_RELOADINI, 0, 0);
+                err = _tfopen_s(&pFile, sTempfile, L"wb");
+                if ((err == 0) && pFile)
+                {
+                    monitorIni.SaveFile(pFile);
+                    err = fclose(pFile);
+                }
+                if (err)
+                {
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s, retrycount %d\n", (LPCWSTR)sTempfile, retrycount);
+                    Sleep(500);
+                }
+            } while (err && retrycount--);
+            if (err == 0)
+            {
+                if (!CopyFile(sTempfile, sDataFilePath, FALSE))
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error %u\n", (LPCWSTR)sTempfile, (LPCWSTR)sDataFilePath, GetLastError());
+                else
+                {
+                    // now send a message to a possible running monitor to force it
+                    // to reload the ini file. Otherwise it would overwrite the ini
+                    // file without using the synced data!
+                    HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+                    if (hWnd)
+                    {
+                        UINT TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(L"TSVNCommitMonitor_ReloadIni");
+                        PostMessage(hWnd, TSVN_COMMITMONITOR_RELOADINI, 0, 0);
+                    }
+                }
             }
         }
         else
         {
-            monitorIni.LoadFile(sDataFilePath);
             CSimpleIni::TNamesDepend mitems;
-            monitorIni.GetAllSections(mitems);
+            if (PathFileExists(sDataFilePath))
+            {
+                int retrycount = 5;
+                SI_Error err = SI_OK;
+                do
+                {
+                    err = monitorIni.LoadFile(sDataFilePath);
+                    if (err == SI_FILE)
+                    {
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        Sleep(500);
+                    }
+                } while ((err == SI_FILE) && retrycount--);
+
+                if (err == SI_FILE)
+                {
+                    return false;
+                }
+            }
+
             for (const auto& mitem : mitems)
             {
                 CString sSection = mitem;
@@ -397,13 +448,33 @@ bool SyncCommand::Execute()
 
     {
         // sync TortoiseMerge regex filters
+        CSimpleIni regexIni;
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
         sDataFilePath += L"\\regexfilters.ini";
-        CSimpleIni regexIni;
+
         if (bCloudIsNewer)
         {
             CSimpleIni origRegexIni;
-            origRegexIni.LoadFile(sDataFilePath);
+
+            if (PathFileExists(sDataFilePath))
+            {
+                int retrycount = 5;
+                SI_Error err = SI_OK;
+                do
+                {
+                    err = origRegexIni.LoadFile(sDataFilePath);
+                    if (err == SI_FILE)
+                    {
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        Sleep(500);
+                    }
+                } while ((err == SI_FILE) && retrycount--);
+
+                if (err == SI_FILE)
+                {
+                    return false;
+                }
+            }
 
             CSimpleIni::TNamesDepend keys;
             iniFile.GetAllKeys(L"ini_tmergeregex", keys);
@@ -416,13 +487,51 @@ bool SyncCommand::Execute()
                 regexIni.SetValue(sSection, sKey, sValue);
             }
             FILE * pFile = NULL;
-            _tfopen_s(&pFile, sDataFilePath, L"wb");
-            regexIni.SaveFile(pFile);
-            fclose(pFile);
+            errno_t err = 0;
+            int retrycount = 5;
+            CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
+            do
+            {
+                err = _tfopen_s(&pFile, sTempfile, L"wb");
+                if ((err == 0) && pFile)
+                {
+                    regexIni.SaveFile(pFile);
+                    err = fclose(pFile);
+                }
+                if (err)
+                {
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s, retrycount %d\n", (LPCWSTR)sTempfile, retrycount);
+                    Sleep(500);
+                }
+            } while (err && retrycount--);
+            if (err == 0)
+            {
+                if (!CopyFile(sTempfile, sDataFilePath, FALSE))
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", (LPCWSTR)sTempfile, (LPCWSTR)sDataFilePath, GetLastError());
+            }
         }
         else
         {
-            regexIni.LoadFile(sDataFilePath);
+            if (PathFileExists(sDataFilePath))
+            {
+                int retrycount = 5;
+                SI_Error err = SI_OK;
+                do
+                {
+                    err = regexIni.LoadFile(sDataFilePath);
+                    if (err == SI_FILE)
+                    {
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        Sleep(500);
+                    }
+                } while ((err == SI_FILE) && retrycount--);
+
+                if (err == SI_FILE)
+                {
+                    return false;
+                }
+            }
+
             CSimpleIni::TNamesDepend mitems;
             regexIni.GetAllSections(mitems);
             for (const auto& mitem : mitems)
@@ -481,14 +590,30 @@ bool SyncCommand::Execute()
 
         std::string encrypted = CStringUtils::Encrypt(iniData, passworda);
         CPathUtils::MakeSureDirectoryPathExists(syncPath.GetContainingDirectory().GetWinPathString());
-        CAutoFile hFile = CreateFile(syncPath.GetWinPathString(), GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
+        CAutoFile hFile = CreateFile(sTempfile, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile.IsValid())
         {
             DWORD written = 0;
-            WriteFile(hFile, encrypted.c_str(), DWORD(encrypted.size()), &written, NULL);
+            if (WriteFile(hFile, encrypted.c_str(), DWORD(encrypted.size()), &written, NULL))
+            {
+                if (hFile.CloseHandle())
+                {
+                    if (!CopyFile(sTempfile, syncPath.GetWinPath(), FALSE))
+                    {
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", (LPCWSTR)sTempfile, syncPath.GetWinPath(), GetLastError());
+                    }
+                    else
+                        bRet = true;
+                }
+                else
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error closing file %s, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
+            }
+            else
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error writing to file %s, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
         }
-
-        bRet = true;
+        else
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error creating file %s for writing, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
     }
 
 
