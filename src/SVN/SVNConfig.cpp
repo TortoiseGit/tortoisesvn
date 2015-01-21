@@ -121,6 +121,18 @@ BOOL SVNConfig::KeepLocks()
     return no_unlock;
 }
 
+BOOL SVNConfig::ConfigGetBool(const char * section, const char * option, bool defbool)
+{
+    if (config == nullptr)
+        return defbool;
+    svn_boolean_t val = defbool;
+    svn_config_t * opt = (svn_config_t *)apr_hash_get(config, SVN_CONFIG_CATEGORY_CONFIG,
+                                                      APR_HASH_KEY_STRING);
+    if (opt)
+        svn_error_clear(svn_config_get_bool(opt, &val, section, option, defbool));
+    return val;
+}
+
 bool SVNConfig::SetUpSSH()
 {
     bool bRet = false;
