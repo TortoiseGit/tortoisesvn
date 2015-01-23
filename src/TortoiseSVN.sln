@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C654C2E8-557C-4C63-A9D1-E52A38D5509E}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,6 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "binaries", "binaries", "{87
 		..\ext\build\crashserver.build = ..\ext\build\crashserver.build
 		..\ext\build\default.build = ..\ext\build\default.build
 		..\default.build = ..\default.build
+		..\ext\build\editorconfig.build = ..\ext\build\editorconfig.build
 		SubWCRev\ExampleNAntTask.build = SubWCRev\ExampleNAntTask.build
 		..\ext\build\gssapi.build = ..\ext\build\gssapi.build
 		..\ext\build\libintl.build = ..\ext\build\libintl.build
