@@ -1,14 +1,14 @@
-#
+# 
 # Translation of the TortoiseSVN manuals
 # Copyright (C) 2004-2012 the TortoiseSVN team
-#
+# 
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
 msgid ""
 msgstr ""
@@ -2156,7 +2156,7 @@ msgid "If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation d
 msgstr ""
 
 #. (para)
-msgid "However, this check only works if the repository layout is one of the recommended ones, meaning it uses the names <filename>trunk</filename>, <filename>branches</filename> and <filename>tags</filename> to mark the three main areas. In case the setup is different, the detection of what is a tag/branch/trunk (also known as <literal>classification patterns</literal> can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
+msgid "However, this check only works if the repository layout is one of the recommended ones, meaning it uses the names <filename>trunk</filename>, <filename>branches</filename> and <filename>tags</filename> to mark the three main areas. In case the setup is different, the detection of what is a tag/branch/trunk (also known as <literal>classification patterns</literal>), can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr ""
 
 #. (para)
@@ -9332,14 +9332,6 @@ msgstr ""
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
-msgstr ""
-
-#. (para)
-msgid "When the log dialog is started from the merge wizard, already merged revisions are shown in gray, but revisions beyond the point where the branch was created are also shown. These revisions are shown in black because those can't be merged."
-msgstr ""
-
-#. (para)
-msgid "If this option is set to <literal>true</literal> then TortoiseSVN tries to find the revision where the branch was created from and hide all the revisions that are beyond that revision. Since this can take quite a while, this option is disabled by default. Also this option doesn't work with some SVN servers (e.g., Google Code Hosting, see <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue #5471</citetitle></ulink>)."
 msgstr ""
 
 #. (para)
