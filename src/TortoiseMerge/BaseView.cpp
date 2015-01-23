@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -829,13 +829,12 @@ int CBaseView::GetScreenLines()
 {
     if (m_nScreenLines == -1)
     {
-        SCROLLBARINFO sbi;
-        sbi.cbSize = sizeof(sbi);
+        SCROLLBARINFO sbi = { sizeof(sbi) };
+        if (!GetScrollBarInfo(OBJID_HSCROLL, &sbi) || (sbi.rgstate[0] & STATE_SYSTEM_UNAVAILABLE))
+            return -1; // we can not determine state of scrollbar (yet)
         int scrollBarHeight = 0;
-        if (GetScrollBarInfo(OBJID_HSCROLL, &sbi))
+        if (!(sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE))
             scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
-        if ((sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE)||(sbi.rgstate[0] & STATE_SYSTEM_UNAVAILABLE))
-            scrollBarHeight = 0;
         CRect rect;
         GetClientRect(&rect);
         m_nScreenLines = (rect.Height() - HEADERHEIGHT - scrollBarHeight) / GetLineHeight();
@@ -6227,7 +6226,7 @@ void CBaseView::ConvertTabToSpaces()
 }
 
 /**
-    there are two possible version
+    there are two possible versions
      - convert spaces to tabs only in front of text (implemented)
      - convert all spaces to tabs
 */
