@@ -54,6 +54,8 @@ std::vector<CString> regUseLocalArray = {
     L"TortoiseSVN\\DiffTools\\*",
     L"TortoiseSVN\\MergeTools\\*",
     L"TortoiseSVN\\StatusColumns\\*",
+    L"Tigris.org\\Subversion\\Config\\**",
+    L"Tigris.org\\Subversion\\Servers\\**",
 };
 
 std::vector<CString> regBlockArray = {
