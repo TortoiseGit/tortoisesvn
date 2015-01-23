@@ -126,7 +126,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY))
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
 {
-    m_arData.reserve(10000);
     m_bHideExternalInfo = !!CRegStdDWORD(L"Software\\TortoiseSVN\\HideExternalInfo", TRUE);
     m_columnbuf[0] = 0;
 
@@ -134,9 +133,9 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 
 CSVNProgressDlg::~CSVNProgressDlg()
 {
-    for (size_t i=0; i<m_arData.size(); i++)
+    for (auto data : m_arData)
     {
-        delete m_arData[i];
+        delete data;
     }
     delete m_pThread;
     if (m_boldFont)
@@ -1020,9 +1019,8 @@ CString CSVNProgressDlg::BuildInfoString()
     int skipped = 0;
     int replaced = 0;
 
-    for (size_t i=0; i<m_arData.size(); ++i)
+    for (const auto& dat : m_arData)
     {
-        const NotificationData * dat = m_arData[i];
         switch (dat->action)
         {
         case svn_wc_notify_add:
@@ -1135,8 +1133,9 @@ void CSVNProgressDlg::ResizeColumns()
 
             for (int index = 0; index<count; ++index)
             {
+                auto data = m_arData[index];
                 HFONT hFont = NULL;
-                if (m_arData[index]->bBold)
+                if (data->bBold)
                 {
                     hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
@@ -1149,16 +1148,16 @@ void CSVNProgressDlg::ResizeColumns()
                 switch (col)
                 {
                 case 0:
-                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->sActionColumnText) + SEPANDMARG;
+                    linewidth = m_ProgList.GetStringWidth(data->sActionColumnText) + SEPANDMARG;
                     break;
                 case 1:
-                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + SEPANDMARG;
+                    linewidth = m_ProgList.GetStringWidth(data->sPathColumnText) + SEPANDMARG;
                     break;
                 case 2:
-                    linewidth = m_ProgList.GetStringWidth(m_arData[index]->mime_type) + SEPANDMARG;
+                    linewidth = m_ProgList.GetStringWidth(data->mime_type) + SEPANDMARG;
                     break;
                 }
-                if (m_arData[index]->bBold)
+                if (data->bBold)
                 {
                     // restore the system font
                     m_ProgList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
@@ -1490,9 +1489,8 @@ UINT CSVNProgressDlg::ProgressThread()
     if (logfile.Open())
     {
         logfile.AddTimeLine();
-        for (size_t i=0; i<m_arData.size(); i++)
+        for (const auto& data : m_arData)
         {
-            NotificationData * data = m_arData[i];
             temp.Format(L"%-20s : %s", (LPCTSTR)data->sActionColumnText, (LPCTSTR)data->sPathColumnText);
             logfile.AddLine(temp);
         }
@@ -1971,13 +1969,12 @@ void CSVNProgressDlg::Sort()
 
     // We need to sort the blocks which lie between the auxiliary entries
     // This is so that any aux data stays where it was
-    NotificationDataVect::iterator actionBlockBegin;
-    NotificationDataVect::iterator actionBlockEnd = m_arData.begin();   // We start searching from here
+    auto actionBlockEnd = m_arData.begin();   // We start searching from here
 
     for(;;)
     {
         // Search to the start of the non-aux entry in the next block
-        actionBlockBegin = std::find_if(actionBlockEnd, m_arData.end(), std::not1(std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux)));
+        auto actionBlockBegin = std::find_if(actionBlockEnd, m_arData.end(), std::not1(std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux)));
         if(actionBlockBegin == m_arData.end())
         {
             // There are no more actions
@@ -3979,12 +3976,11 @@ void CSVNProgressDlg::ResetVars()
     m_ProgList.DeleteAllItems();
     m_ProgList.SetItemCountEx (0);
 
-    for (size_t i=0; i<m_arData.size(); i++)
+    for (auto data : m_arData)
     {
-        delete m_arData[i];
+        delete data;
     }
     m_arData.clear();
-    m_arData.reserve(10000);
 
     m_ProgList.SetRedraw(TRUE);
 

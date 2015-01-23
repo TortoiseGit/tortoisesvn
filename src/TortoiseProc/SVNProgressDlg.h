@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -323,11 +323,11 @@ private:
 private:
     typedef std::map<CStringA, svn_revnum_t> StringRevMap;
     typedef std::map<CString, svn_revnum_t> StringWRevMap;
-    typedef std::vector<NotificationData *> NotificationDataVect;
+    typedef std::deque<NotificationData *> NotificationDataDeck;
 
 
     CString                 m_mergedfile;
-    NotificationDataVect    m_arData;
+    NotificationDataDeck    m_arData;
 
     CWinThread*             m_pThread;
     volatile LONG           m_bThreadRunning;
