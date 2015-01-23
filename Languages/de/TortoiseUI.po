@@ -17,7 +17,8 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2014
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
@@ -28,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:10+0000\n"
+"PO-Revision-Date: 2015-01-23 07:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -4847,6 +4848,10 @@ msgstr "Konnte Hilfe nicht starten."
 msgid "Failed to launch server application."
 msgstr "Fehler beim Start der Server Applikation."
 
+#. Resource IDs: (66)
+msgid "Failed to load the configuration file for the project monitor!"
+msgstr "Die Konfigurationsdatei für den Projektmonitor konnte nicht geladen werden!"
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr "Konnte Dokument nicht öffnen."
@@ -5652,6 +5657,10 @@ msgstr "ID:57637:V C +V"
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57644; ''
+msgid "ID:57644:V C +Y"
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -8093,6 +8102,10 @@ msgstr "Papierkorb"
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Weiterleiten an URL"
+
+#. Resource IDs: (156)
+msgid "Redo"
+msgstr "Wiederholen"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -11394,7 +11407,7 @@ msgstr "Nutze die URL der &Arbeitskopie als \"Von:\" URL"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr "Standard Diff aus der &Zwischenablage nehmen"
+msgstr "Standard-Diff aus der &Zwischenablage nehmen"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -11569,12 +11582,20 @@ msgstr "Zu ignorierende Anwender:"
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
+"/basename:<name to show on the view title>\n"
 "/theirs:<path to their file>\n"
+"/theirsname:<name to show on the view title>\n"
 "/mine:<path to your file>\n"
+"/minename:<name to show on the view title>\n"
 "/merged:<path to resulting merged file>\n"
+"/mergedname:<name to show on the view title>\n"
 "/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
-msgstr "Kommandozeilenoptionen:\n/base:<Originaldatei, ohne Änderungen>\n/theirs:<Datei mit den Änderungen der anderen>\n/mine:<Datei mit Ihren eigenen Änderungen>\n/merged:<Ergebnisdatei>\n/diff:<Patchdatei>\n/patchpath:<Verzeichnis, das gepatcht werden soll>"
+"/patchpath:<path to folder>\n"
+"/saverequired\n"
+"/saverequiredonconflicts\n"
+"/oneway <forces the one-way view>\n"
+"/line:<line number to jump to>"
+msgstr "Gültige Kommandozeilenparameter sind:\n/base:<Pfad zur Basisdatei>\n/basename:<Anzeigename für die Titelzeile>\n/theirs:<Pfad zur zu integrierenden Datei>\n/theirsname:<Anzeigename für die Titelzeile>\n/mine:<Pfad zu Ihrer Datei>\n/minename:<Anzeigename für die Titelzeile>\n/merged:<Pfad zur Ergebnisdatei>\n/mergedname:<Anzeigename für die Titelzeile>\n/diff:<Pfad zur Standard-Diffdatei>\n/patchpath:<Pfad zum Ordner>\n/saverequired\n/saverequiredonconflicts\n/oneway <Erzwingt die Einfenstersicht>\n/line:<Zeilennummer in die gesprungen werden soll>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:11+0000\n"
+"PO-Revision-Date: 2015-01-22 09:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -4839,6 +4839,10 @@ msgstr "Nu s-a putut lansa ajutorul."
 msgid "Failed to launch server application."
 msgstr "Nu s-a putut lansa aplicaţia din server."
 
+#. Resource IDs: (66)
+msgid "Failed to load the configuration file for the project monitor!"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr "Documentul nu a putut fi deschis."
@@ -5644,6 +5648,10 @@ msgstr "ID:57637:V C +V"
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57644; ''
+msgid "ID:57644:V C +Y"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -8085,6 +8093,10 @@ msgstr "Coşul de gunoi"
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Redirecționare la url"
+
+#. Resource IDs: (156)
+msgid "Redo"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -11561,12 +11573,20 @@ msgstr ""
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
+"/basename:<name to show on the view title>\n"
 "/theirs:<path to their file>\n"
+"/theirsname:<name to show on the view title>\n"
 "/mine:<path to your file>\n"
+"/minename:<name to show on the view title>\n"
 "/merged:<path to resulting merged file>\n"
+"/mergedname:<name to show on the view title>\n"
 "/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
-msgstr "Opţiunile valide în linia de comandă sunt:\n/base:<calea fişierului de bază>\n/theirs:<calea fişierului lor>\n/mine:<calea fişierului dumneavoastră>\n/merged:<calea fişierului ca resultatul îmbinării>\n/diff:<calea fişierului de diferenţiere unificată>\n/patchpath:<calea dosarului cu petice>"
+"/patchpath:<path to folder>\n"
+"/saverequired\n"
+"/saverequiredonconflicts\n"
+"/oneway <forces the one-way view>\n"
+"/line:<line number to jump to>"
+msgstr ""
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

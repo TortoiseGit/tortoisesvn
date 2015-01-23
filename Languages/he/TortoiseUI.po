@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-20 09:34+0000\n"
+"PO-Revision-Date: 2015-01-22 09:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/tortoisesvn/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -4836,6 +4836,10 @@ msgstr ""
 msgid "Failed to launch server application."
 msgstr ""
 
+#. Resource IDs: (66)
+msgid "Failed to load the configuration file for the project monitor!"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr ""
@@ -5640,6 +5644,10 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:57644; ''
+msgid "ID:57644:V C +Y"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
@@ -8081,6 +8089,10 @@ msgstr "סל המחזור"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Redo"
 msgstr ""
 
 #. Resource IDs: (3603)
@@ -11558,11 +11570,19 @@ msgstr ""
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
+"/basename:<name to show on the view title>\n"
 "/theirs:<path to their file>\n"
+"/theirsname:<name to show on the view title>\n"
 "/mine:<path to your file>\n"
+"/minename:<name to show on the view title>\n"
 "/merged:<path to resulting merged file>\n"
+"/mergedname:<name to show on the view title>\n"
 "/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
+"/patchpath:<path to folder>\n"
+"/saverequired\n"
+"/saverequiredonconflicts\n"
+"/oneway <forces the one-way view>\n"
+"/line:<line number to jump to>"
 msgstr ""
 
 #. Resource IDs: (84)

@@ -12,7 +12,7 @@
 # Translators:
 # Adrià Vilanova Martínez <jocdeladria@gmail.com>, 2012
 # el_libre como el chaval <el.libre@gmail.com>, 2011
-# Joan Monguillot <jmonguillot@gmail.com>, 2013-2014
+# Joan Monguillot <jmonguillot@gmail.com>, 2013-2015
 # el_libre como el chaval <el.libre@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
 # Haommin <tfs.msimangu@gmail.com>, 2014
@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2014-12-30 10:11+0000\n"
+"PO-Revision-Date: 2015-01-22 23:51+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -2156,7 +2156,7 @@ msgstr "Menús d'Estructura de l'Aplicació: "
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
-msgstr "Associa un fitxer de comparació unificat a la còpia de treball"
+msgstr "Associa un fitxer de diferències unificat a la còpia de treball"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -3746,7 +3746,7 @@ msgstr "Crea una base de dades del repositori al lloc actual"
 
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Crea un fitxer diff unificat amb tots els canvis que has fet"
+msgstr "Crea un fitxer de diferències unificat amb tots els canvis que has fet"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -4840,6 +4840,10 @@ msgstr "No ha pogut iniciar ajuda."
 msgid "Failed to launch server application."
 msgstr "No s'ha pogut obrir aplicació del servidor."
 
+#. Resource IDs: (66)
+msgid "Failed to load the configuration file for the project monitor!"
+msgstr "No s'ha pogut carregar el fitxer de configuració pel monitor de projectes!"
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr "No ha pogut obrir document."
@@ -5645,6 +5649,10 @@ msgstr "ID:57637:V C +V"
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
+
+#. Accelerator Entry for Menu ID:57644; ''
+msgid "ID:57644:V C +Y"
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -8086,6 +8094,10 @@ msgstr "Paperera"
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Redirigint a url"
+
+#. Resource IDs: (156)
+msgid "Redo"
+msgstr "Torna a fer"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -11562,12 +11574,20 @@ msgstr "Usuaris per ignorar:"
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
+"/basename:<name to show on the view title>\n"
 "/theirs:<path to their file>\n"
+"/theirsname:<name to show on the view title>\n"
 "/mine:<path to your file>\n"
+"/minename:<name to show on the view title>\n"
 "/merged:<path to resulting merged file>\n"
+"/mergedname:<name to show on the view title>\n"
 "/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
-msgstr "Les ordres vàlides són:\n/base:<camí del fitxer base>\n/theirs:<camí del seu fitxer>\n/mine:<camí del meu fitxer>\n/merged:<camí del fitxer fusionat resultant>\n/diff:<camí del fitxer diff unificat>\n/patchpath:<camí de la carpeta>"
+"/patchpath:<path to folder>\n"
+"/saverequired\n"
+"/saverequiredonconflicts\n"
+"/oneway <forces the one-way view>\n"
+"/line:<line number to jump to>"
+msgstr "Opcions vàlides de la línia d'ordres:\n/base:<camí del fitxer base>\n/basename:<nom a mostrar en el títol de la vista>\n/theirs:<camí del seu fitxer>\n/theirsname:<nom a mostrar en el títol de la vista>\n/mine:<camí del teu fitxer>\n/minename:<nom a mostrar en el títol de la vista>\n/merged:<camí del fitxer resultant de la fusió>\n/mergedname:<nom a mostrar en el títol de la vista>\n/diff:<camí del fitxer de diferències unificat>\n/patchpath:<camí de la carpeta>\n/saverequired\n/saverequiredonconflicts\n/oneway <força la vista en un sentit>\n/line:<número de línia on saltar>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
