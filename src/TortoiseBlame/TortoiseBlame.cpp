@@ -590,16 +590,7 @@ void TortoiseBlame::InitialiseEditor()
         enabled2d = true;
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
-    std::string fontName;
-    if (enabled2d)
-        fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
-    else
-    {
-        int ansi_len = ::WideCharToMultiByte(CP_ACP, NULL, fontNameW.c_str(), -1, NULL, 0, NULL, NULL);
-        std::unique_ptr<char[]> buffer(new char[ansi_len]);
-        ::WideCharToMultiByte(CP_ACP, NULL, fontNameW.c_str(), -1, buffer.get(), ansi_len, NULL, NULL);
-        fontName = buffer.get();
-    }
+    std::string fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
     SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10), fontName.c_str());
     //SetAStyle(STYLE_MARK, black, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_INDICSETSTYLE, STYLE_MARK, INDIC_ROUNDBOX);

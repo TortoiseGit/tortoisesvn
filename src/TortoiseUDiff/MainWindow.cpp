@@ -581,10 +581,7 @@ bool CMainWindow::Initialize()
         enabled2d = true;
     std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New");
     std::string fontName;
-    if (enabled2d)
-        fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
-    else
-        fontName = (LPCSTR)CStringA(fontNameW.c_str());
+    fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
     SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
         CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
