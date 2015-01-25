@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Merge script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2014 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2015 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -17,7 +17,7 @@
 //
 
 var objArgs, num, sTheirDoc, sMyDoc, sBaseDoc, sMergedDoc,
-    objScript, word, baseDoc, myDoc, theirDoc, WSHShell;
+    objScript, word, baseDoc, myDoc, WSHShell;
 
 // ----- constants -----
 //var vbCritical = 0x10;
@@ -97,19 +97,16 @@ else
 {
     //2010 - handle slightly differently as the basic merge isn't that good
     //note this is designed specifically for svn 3 way merges, during the commit conflict resolution process
-    theirDoc = baseDoc;
     baseDoc = word.Documents.Open(sBaseDoc);
     myDoc = word.Documents.Open(sMyDoc);
 
-    baseDoc.Activate(); //required otherwise it compares the wrong docs !!!
+    baseDoc.Activate(); // required otherwise it compares the wrong docs !!!
     baseDoc.Compare(sTheirDoc, "theirs", wdCompareTargetSelected, true, true);
 
-    baseDoc.Activate(); //required otherwise it compares the wrong docs !!!
+    baseDoc.Activate(); // required otherwise it compares the wrong docs !!!
     baseDoc.Compare(sMyDoc, "mine", wdCompareTargetSelected, true, true);
 
-    //theirDoc.Save();
-    //myDoc.Save();
-    myDoc.Activate(); //required? just in case
+    myDoc.Activate(); // required? just in case
     myDoc.Merge(sTheirDoc, wdMergeTargetCurrent);
 }
 

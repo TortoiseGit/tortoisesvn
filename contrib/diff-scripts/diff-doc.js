@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2014 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2015 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -71,7 +71,7 @@ try
         var f = objScript.GetFile(sBaseDoc);
         if (f.attributes & 1)
         {
-            f.attributes = f.attributes - 1;
+            f.attributes -= 1;
         }
     }
 }
@@ -93,7 +93,7 @@ catch (e)
     if ((objFile.Attributes & 1) === 1)
     {
         // reset the readonly attribute
-        objFile.Attributes = objFile.Attributes & ~1;
+        objFile.Attributes &= ~1;
     }
     //Create the DesktopSet
     var objDesktop = OO.createInstance("com.sun.star.frame.Desktop");
