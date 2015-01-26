@@ -578,6 +578,7 @@ private:
     svn_revnum_t        m_revUnread;
     bool                m_bPlaySound;
     bool                m_bShowNotification;
+    int                 m_defaultMonitorInterval;
     CString             m_sMonitorMsgRegex;
     bool                m_bSystemShutDown;
     std::vector<std::string> m_MonitorAuthorsToIgnore;

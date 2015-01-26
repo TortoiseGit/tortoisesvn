@@ -241,6 +241,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_revUnread(0)
     , m_bPlaySound(true)
     , m_bShowNotification(true)
+    , m_defaultMonitorInterval(30)
     , m_bSystemShutDown(false)
     , m_pTreeDropTarget(NULL)
 
@@ -7837,6 +7838,7 @@ void CLogDlg::InitMonitorProjTree()
     }
     m_bPlaySound = _wtoi(m_monitoringFile.GetValue(L"global", L"PlaySound", L"1")) != 0;
     m_bShowNotification = _wtoi(m_monitoringFile.GetValue(L"global", L"ShowNotifications", L"1")) != 0;
+    m_defaultMonitorInterval = _wtoi(m_monitoringFile.GetValue(L"global", L"DefaultCheckInterval", L"30"));
 
     CRegDWORD regFirstStart(L"Software\\TortoiseSVN\\MonitorFirstStart", 0);
     if (DWORD(regFirstStart) == 0)
@@ -8183,9 +8185,11 @@ void CLogDlg::OnMonitorOptions()
     CMonitorOptionsDlg dlg(this);
     dlg.m_bPlaySound = m_bPlaySound;
     dlg.m_bShowNotification = m_bShowNotification;
+    dlg.m_defaultInterval = m_defaultMonitorInterval;
     dlg.DoModal();
     m_bPlaySound = !!dlg.m_bPlaySound;
     m_bShowNotification = !!dlg.m_bShowNotification;
+    m_defaultMonitorInterval = dlg.m_defaultInterval;
 
     SaveMonitorProjects(false);
 }
@@ -8193,6 +8197,7 @@ void CLogDlg::OnMonitorOptions()
 void CLogDlg::MonitorEditProject(MonitorItem * pProject)
 {
     CMonitorProjectDlg dlg(this);
+    dlg.m_monitorInterval = m_defaultMonitorInterval;
     if (pProject)
     {
         dlg.m_sName = pProject->Name;
@@ -8256,6 +8261,7 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
     m_monitoringFile.Reset();
     m_monitoringFile.SetMultiLine();
     int count = 0;
+    CString sTmp;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
@@ -8267,7 +8273,6 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         {
             sParentPath = GetTreePath(hParent);
         }
-        CString sTmp;
         m_monitoringFile.SetValue(sSection, L"Name", pItem->Name);
         m_monitoringFile.SetValue(sSection, L"parentTreePath", sParentPath);
         m_monitoringFile.SetValue(sSection, L"WCPathOrUrl", pItem->WCPathOrUrl);
@@ -8304,6 +8309,10 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
 
     m_monitoringFile.SetValue(L"global", L"PlaySound", m_bPlaySound ? L"1" : L"0");
     m_monitoringFile.SetValue(L"global", L"ShowNotifications", m_bShowNotification ? L"1" : L"0");
+    sTmp.Format(L"%d", m_defaultMonitorInterval);
+    m_monitoringFile.SetValue(L"global", L"DefaultCheckInterval", sTmp);
+
+    
     if (todisk)
     {
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
@@ -9385,6 +9394,7 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
             auto pItem = new MonitorItem();
             pItem->Name = path.GetFileOrDirectoryName();
             pItem->WCPathOrUrl = path.IsUrl() ? path.GetSVNPathString() : path.GetWinPathString();
+            pItem->interval = m_defaultMonitorInterval;
             InsertMonitorItem(pItem, parent);
             bAdded = true;
         }

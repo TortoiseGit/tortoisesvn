@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@ CMonitorOptionsDlg::CMonitorOptionsDlg(CWnd* pParent /*=NULL*/)
     , m_bStartWithWindows(FALSE)
     , m_bShowNotification(FALSE)
     , m_bPlaySound(FALSE)
+    , m_defaultInterval(30)
 {
 
 }
@@ -47,6 +48,8 @@ void CMonitorOptionsDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_CHECK1, m_bStartWithWindows);
     DDX_Check(pDX, IDC_SHOWNOTIFICATION, m_bShowNotification);
     DDX_Check(pDX, IDC_PLAYSOUND, m_bPlaySound);
+    DDX_Text(pDX, IDC_INTERVAL, m_defaultInterval);
+    DDV_MinMaxInt(pDX, m_defaultInterval, 1, INT_MAX);
 }
 
 
