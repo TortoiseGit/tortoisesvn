@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012,2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012,2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "LogDlgDataModel.h"
 #include "LogCacheGlobals.h"
 #include "QuickHashSet.h"
+#include "DragDropImpl.h"
 
 class CLogDlg;
 
@@ -173,3 +174,24 @@ class CLogWndHourglass
 
 };
 
+class CMonitorTreeTarget : public CIDropTarget
+{
+public:
+    CMonitorTreeTarget(CLogDlg * pLogDlg);
+
+    void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl);
+
+    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt) override;
+    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    virtual HRESULT STDMETHODCALLTYPE DragLeave(void) override;
+
+protected:
+    CLogDlg *               m_pLogDlg;
+    ULONGLONG               m_ullHoverStartTicks;
+    HTREEITEM               hLastItem;
+
+    bool                    m_bFiles;
+    CString                 sNoDrop;
+    CString                 sImportDrop;
+};

@@ -134,6 +134,7 @@ class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValida
     DECLARE_DYNAMIC(CLogDlg)
 
     friend class CStoreSelection;
+    friend class CMonitorTreeTarget;
 
 public:
     CLogDlg(CWnd* pParent = NULL);   // standard constructor
@@ -433,6 +434,7 @@ private:
     void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
     static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
     void MonitorShowDlg();
+    void OnDrop(const CTSVNPathList& pathList, const CString& parent);
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -579,6 +581,7 @@ private:
     CString             m_sMonitorMsgRegex;
     bool                m_bSystemShutDown;
     std::vector<std::string> m_MonitorAuthorsToIgnore;
+    CMonitorTreeTarget * m_pTreeDropTarget;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(L"TORTOISESVN_REVSELECTED_MSG");
 static UINT WM_REVLIST = RegisterWindowMessage(L"TORTOISESVN_REVLIST_MSG");

@@ -61,6 +61,7 @@
 #include "MonitorProjectDlg.h"
 #include "MonitorOptionsDlg.h"
 #include "Callback.h"
+#include "SVNDataObject.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
@@ -241,6 +242,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bPlaySound(true)
     , m_bShowNotification(true)
     , m_bSystemShutDown(false)
+    , m_pTreeDropTarget(NULL)
+
 {
     SecureZeroMemory(&m_SystemTray,sizeof(m_SystemTray));
     m_bFilterWithRegex =
@@ -7762,6 +7765,21 @@ void CLogDlg::InitMonitoringMode()
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
 
+    // set up drop support
+    m_pTreeDropTarget = new CMonitorTreeTarget(this);
+    RegisterDragDrop(m_projTree.GetSafeHwnd(), m_pTreeDropTarget);
+    // create the supported formats:
+    FORMATETC ftetc = { 0 };
+    ftetc.cfFormat = CF_SVNURL;
+    ftetc.dwAspect = DVASPECT_CONTENT;
+    ftetc.lindex = -1;
+    ftetc.tymed = TYMED_HGLOBAL;
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
+    ftetc.cfFormat = CF_HDROP;
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
+    ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
+
     // fill the project tree
     InitMonitorProjTree();
     AssumeCacheEnabled(true);
@@ -9353,6 +9371,28 @@ void CLogDlg::OnMonitorUpdateAll()
         sCmd.Format(L"/command:update /pathfile:\"%s\" /deletepathfile",
                     (LPCTSTR)tempfile.GetWinPath());
         CAppUtils::RunTortoiseProc(sCmd);
+    }
+}
+
+void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
+{
+    bool bAdded = false;
+    for (int i = 0; i < pathList.GetCount(); ++i)
+    {
+        auto path = pathList[i];
+        if (path.IsUrl() || SVNHelper::IsVersioned(path, false))
+        {
+            auto pItem = new MonitorItem();
+            pItem->Name = path.GetFileOrDirectoryName();
+            pItem->WCPathOrUrl = path.IsUrl() ? path.GetSVNPathString() : path.GetWinPathString();
+            InsertMonitorItem(pItem, parent);
+            bAdded = true;
+        }
+    }
+    if (bAdded)
+    {
+        SaveMonitorProjects(true);
+        RefreshMonitorProjTree();
     }
 }
 
