@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 07:51+0000\n"
+"PO-Revision-Date: 2015-01-26 09:53+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -3424,9 +3424,9 @@ msgid ""
 "recommended ones, meaning it uses the names <filename>trunk</filename>, "
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
-" tag/branch/trunk (also known as <literal>classification patterns</literal> "
-"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
-"revgraph\"/>"
+" tag/branch/trunk (also known as <literal>classification "
+"patterns</literal>), can be configured in the settings dialog: <xref linkend"
+"=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Diese Prüfung funktioniert jedoch nur, wenn das Layout des Projektarchivs dem empfohlenen Standard entspricht und die Namen <filename>trunk</filename>, <filename>branches</filename> und <filename>tags</filename> verwendet, um die drei Hauptbereiche zu kennzeichnen. Falls Ihre Konfiguration nicht dem Standard entspricht, können Sie die Erkennung, was als Stamm/Zweig/Marke erkannt wird (auch <literal>Klassifizierungsmuster</literal> genannt), im Einstellungsdialog anpassen: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -13002,13 +13002,13 @@ msgstr "Geben Sie die Muster zur Klassifizierung der Pfade in den drei Eingabefe
 
 #. (title)
 msgid "Commit tag detection"
-msgstr ""
+msgstr "Erkennung von Markeierungen beim Übertragen"
 
 #. (para)
 msgid ""
 "Please note that these patterns are also used to detect commits to a tag, "
 "not just for the revision graph."
-msgstr ""
+msgstr "Bitte beachten Sie, dass diese Muster zum Erkennen von Markierungen sowohl im Revisionsgraphen als auch beim Übertragen verwendet werden."
 
 #. (term)
 msgid "Modify Colors"
@@ -14937,25 +14937,6 @@ msgid ""
 "revision...</literal> dialog or set this value to <literal>true</literal> "
 "again."
 msgstr "Standardmäßig aktualisiert TortoiseSVN seine Arbeitskopien inklusive der externen Verweise. Das vermeidet Probleme mit inkonsistenten Arbeitskopien. Wenn Sie viele externe Verweise definiert haben, kann die Aktualisierunge eine gewisse Zeit in Anspruch nehmen. Setzen Sie diesen Wert auf <literal>false</literal>, damit TortoiseSVN die externen Verweise standardmäßig nicht aktualisiert. Um diese zu aktualisieren, rufen Sie entweder die Funktion <literal>Aktualisiere zu Revision ...</literal> auf oder setzen Sie den Wert wieder auf <literal>true</literal>."
-
-#. (para)
-msgid ""
-"When the log dialog is started from the merge wizard, already merged "
-"revisions are shown in gray, but revisions beyond the point where the branch"
-" was created are also shown. These revisions are shown in black because "
-"those can't be merged."
-msgstr "Wenn der Log-Dialog aus dem Zusammenführen-Assistenten heraus gestartet wird, werden bereits zusammengeführte Revisionen in grau angezeigt. Revisionen die vor dem Punkt liegen, an dem der Zweig angelegt wurde, sind ebenfalls sichtbar. Diese Revisionen werden schwarz angezeigt, da sie nicht zusammengeführt werden können."
-
-#. (para)
-msgid ""
-"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
-"find the revision where the branch was created from and hide all the "
-"revisions that are beyond that revision. Since this can take quite a while, "
-"this option is disabled by default. Also this option doesn't work with some "
-"SVN servers (e.g., Google Code Hosting, see <ulink "
-"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
-" #5471</citetitle></ulink>)."
-msgstr "Wenn diese Option auf <literal>True</literal> gesetzt wird, versucht TortoiseSVN die Revision zu finden, in welcher der Zweig angelegt wurde und alle Revisionen davor zu verbergen. Da dies eine Weile in Anspruch nehmen kann, ist die Option standardmäßig abgeschaltet. Außerdem funktioniert sie nicht bei jedem SVN Server (z.B. Google Code Hosting, siehe <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>Issue #5471</citetitle></ulink>)."
 
 #. (para)
 msgid ""
@@ -19668,7 +19649,7 @@ msgid ""
 "language packs put their files. However, the %APPDATA%-folder doesn't "
 "require administrator privileges and, thus, has higher priority. The next "
 "time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "Sobald Sie die Wörterbücher haben, müssen Sie sie wahrscheinlich umbenennen, so dass die Dateinamen dem Kürzel für die Landessprache entsprechen. Beispiel: <placeholder-1/>. Danach kopieren Sie sie einfach in den Ordner <filename>%APPDATA%\\TortoiseSVN\\dic</filename>. Wenn dieser Ordner nicht existiert, müssen Sie ihn zuerst anlegen. TortoiseSVN wird auch im <filename>Languages</filename> Unterordner des TortoiseSVN Installationsordners suchen (normalerweise <filename>C:\\Programme\\TortoiseSVN\\Languages</filename>. Dies ist der Ordner, in dem die Dateien der Sprachpakete installiert werden. Dafür benötigt die Installation in den %APPDATA% Ordner keine Adminstratorrechte und erhält deswegen Vorrang. Beim nächsten Start von TortoiseSVN steht Ihnen dann die Rechtschreibprüfung zur Verfügung."
 
 #. (para)
 msgid ""

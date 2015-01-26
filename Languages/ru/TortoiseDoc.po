@@ -20,14 +20,14 @@
 # rlagutin <rlagutin@tradingview.com>, 2014
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
-# Вячеслав Третьяков <tret2003@gmail.com>, 2013
+# Вячеслав Третьяков <tret2003@gmail.com>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-15 21:21+0000\n"
-"Last-Translator: Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>\n"
+"PO-Revision-Date: 2015-01-23 10:52+0000\n"
+"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3422,9 +3422,9 @@ msgid ""
 "recommended ones, meaning it uses the names <filename>trunk</filename>, "
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
-" tag/branch/trunk (also known as <literal>classification patterns</literal> "
-"can be configured in the settings dialog: <xref linkend=\"tsvn-dug-settings-"
-"revgraph\"/>"
+" tag/branch/trunk (also known as <literal>classification "
+"patterns</literal>), can be configured in the settings dialog: <xref linkend"
+"=\"tsvn-dug-settings-revgraph\"/>"
 msgstr ""
 
 #. (para)
@@ -14938,25 +14938,6 @@ msgstr "По умолчанию, TortoiseSVN всегда выполняет о�
 
 #. (para)
 msgid ""
-"When the log dialog is started from the merge wizard, already merged "
-"revisions are shown in gray, but revisions beyond the point where the branch"
-" was created are also shown. These revisions are shown in black because "
-"those can't be merged."
-msgstr "Когда диалог журнала запущен из помощника слияния, то уже слитые ревизии отображаются серым цветом, но также показаны ревизии перед моментом когда ветка была создана. Эти ревизии отображаются чёрным цветом, потому что не могут быть слиты."
-
-#. (para)
-msgid ""
-"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
-"find the revision where the branch was created from and hide all the "
-"revisions that are beyond that revision. Since this can take quite a while, "
-"this option is disabled by default. Also this option doesn't work with some "
-"SVN servers (e.g., Google Code Hosting, see <ulink "
-"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
-" #5471</citetitle></ulink>)."
-msgstr "Если эта настройка установлена в <literal>true</literal>, то TortoiseSVN пытается найти ревизию, в которой была создана ветка и скрыть все ревизии за ней. Так как это может занять некоторое время, то по умолчанию эта настройка отключена."
-
-#. (para)
-msgid ""
 "A format string for the log messages when multiple revisions are selected in"
 " the log dialog."
 msgstr "Строка формата для сообщений журнала при множественном выборе ревизий в диалоге журнала."
@@ -17925,7 +17906,7 @@ msgstr ""
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr ""
+msgstr "Дата svn ревизии может быть в одном из следующих форматов:"
 
 #. (option)
 #. (option)
