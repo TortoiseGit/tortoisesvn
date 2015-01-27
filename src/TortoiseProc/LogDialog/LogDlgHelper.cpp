@@ -201,7 +201,6 @@ CLogWndHourglass::~CLogWndHourglass()
 CMonitorTreeTarget::CMonitorTreeTarget(CLogDlg * pLogDlg)
     : CIDropTarget(pLogDlg->m_projTree.GetSafeHwnd())
     , m_pLogDlg(pLogDlg)
-    , m_bFiles(false)
     , m_ullHoverStartTicks(0)
     , hLastItem(NULL)
 {
@@ -211,7 +210,8 @@ CMonitorTreeTarget::CMonitorTreeTarget(CLogDlg * pLogDlg)
 
 void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL /*pt*/, const CString& targetUrl)
 {
-    if (pFmtEtc->cfFormat == CF_UNICODETEXT && medium.tymed == TYMED_HGLOBAL)
+    if (((pFmtEtc->cfFormat == CF_UNICODETEXT) || (pFmtEtc->cfFormat == CF_INETURL) || (pFmtEtc->cfFormat == CF_SHELLURL))
+        && medium.tymed == TYMED_HGLOBAL)
     {
         TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
         CString urls;
@@ -295,15 +295,6 @@ bool CMonitorTreeTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pd
 HRESULT CMonitorTreeTarget::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
 {
     HRESULT hr = CIDropTarget::DragEnter(pDataObj, grfKeyState, pt, pdwEffect);
-    FORMATETC ftetc = { 0 };
-    ftetc.dwAspect = DVASPECT_CONTENT;
-    ftetc.lindex = -1;
-    ftetc.tymed = TYMED_HGLOBAL;
-    ftetc.cfFormat = CF_HDROP;
-    if (pDataObj->QueryGetData(&ftetc) == S_OK)
-        m_bFiles = true;
-    else
-        m_bFiles = false;
     m_ullHoverStartTicks = 0;
     hLastItem = NULL;
     SetDropDescription(DROPIMAGE_COPY, NULL, NULL);

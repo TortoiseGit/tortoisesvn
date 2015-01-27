@@ -191,7 +191,6 @@ protected:
     ULONGLONG               m_ullHoverStartTicks;
     HTREEITEM               hLastItem;
 
-    bool                    m_bFiles;
     CString                 sNoDrop;
     CString                 sImportDrop;
 };

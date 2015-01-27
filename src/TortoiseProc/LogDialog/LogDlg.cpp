@@ -7778,8 +7778,15 @@ void CLogDlg::InitMonitoringMode()
     m_pTreeDropTarget->AddSuportedFormat(ftetc);
     ftetc.cfFormat = CF_HDROP;
     m_pTreeDropTarget->AddSuportedFormat(ftetc);
+    ftetc.cfFormat = CF_UNICODETEXT;
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
     ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
     m_pTreeDropTarget->AddSuportedFormat(ftetc);
+    ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_SHELLURL);
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
+    ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_INETURL);
+    m_pTreeDropTarget->AddSuportedFormat(ftetc);
+
 
     // fill the project tree
     InitMonitorProjTree();
@@ -9392,7 +9399,10 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
         if (path.IsUrl() || SVNHelper::IsVersioned(path, false))
         {
             auto pItem = new MonitorItem();
-            pItem->Name = path.GetFileOrDirectoryName();
+            if (path.IsUrl())
+                pItem->Name = CAppUtils::GetProjectNameFromURL(path.GetSVNPathString());
+            else
+                pItem->Name = path.GetFileOrDirectoryName();
             pItem->WCPathOrUrl = path.IsUrl() ? path.GetSVNPathString() : path.GetWinPathString();
             pItem->interval = m_defaultMonitorInterval;
             InsertMonitorItem(pItem, parent);
