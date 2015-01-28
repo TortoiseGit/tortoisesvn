@@ -9400,7 +9400,11 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
         {
             CString name;
             if (path.IsUrl())
+            {
                 name = CAppUtils::GetProjectNameFromURL(path.GetSVNPathString());
+                if (name.IsEmpty())
+                    name = path.GetFileOrDirectoryName();
+            }
             else
                 name = path.GetFileOrDirectoryName();
 
