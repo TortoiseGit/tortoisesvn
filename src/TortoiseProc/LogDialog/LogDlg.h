@@ -417,7 +417,7 @@ private:
     void DoSizeV3(int delta);
     void InitMonitorProjTree();
     void RefreshMonitorProjTree();
-    void MonitorEditProject(MonitorItem * pProject);
+    void MonitorEditProject(MonitorItem * pProject, const CString& sParentPath = CString());
 
     HTREEITEM InsertMonitorItem(MonitorItem * pMonitorItem, const CString& sParentPath = CString());
     HTREEITEM FindMonitorParent(const CString& parentTreePath);

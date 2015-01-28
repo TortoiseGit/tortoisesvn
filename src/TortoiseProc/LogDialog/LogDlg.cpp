@@ -8201,7 +8201,7 @@ void CLogDlg::OnMonitorOptions()
     SaveMonitorProjects(false);
 }
 
-void CLogDlg::MonitorEditProject(MonitorItem * pProject)
+void CLogDlg::MonitorEditProject(MonitorItem * pProject, const CString& sParentPath)
 {
     CMonitorProjectDlg dlg(this);
     dlg.m_monitorInterval = m_defaultMonitorInterval;
@@ -8254,7 +8254,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject)
         // updated that object
         if (pProject == nullptr)
         {
-            InsertMonitorItem(pEditProject);
+            InsertMonitorItem(pEditProject, sParentPath);
         }
 
         SaveMonitorProjects(false);
@@ -9240,6 +9240,9 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         // entry is selected, now show the popup menu
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_EDIT, IDS_LOG_POPUP_MONITOREDIT, IDI_MONITOR_EDIT);
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_REMOVE, IDS_LOG_POPUP_MONITORREMOVE, IDI_MONITOR_REMOVE);
+        popup.AppendMenu(MF_SEPARATOR, NULL);
+        popup.AppendMenuIcon(ID_LOGDLG_MONITOR_ADDSUBPROJECT, IDS_LOG_POPUP_MONITORADDSUB, IDI_MONITOR_ADD);
+
         if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl))
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -9253,7 +9256,10 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
     switch (cmd)
     {
         case ID_LOGDLG_MONITOR_ADDPROJECT:
-            OnMonitorAddProject();
+            MonitorEditProject(nullptr);
+            break;
+        case ID_LOGDLG_MONITOR_ADDSUBPROJECT:
+            MonitorEditProject(nullptr, GetTreePath(hItem));
             break;
         case ID_LOGDLG_MONITOR_EDIT:
             OnMonitorEditProject();
