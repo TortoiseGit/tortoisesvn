@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1027,8 +1027,11 @@ CString CAppUtils::GetProjectNameFromURL(CString url)
         (name.CompareNoCase(L"tags")==0) ||
         (name.CompareNoCase(L"trunk")==0))&&(!url.IsEmpty()))
     {
-        name = url.Mid(url.ReverseFind('/')+1);
-        url = url.Left(url.ReverseFind('/'));
+        auto rfound = url.ReverseFind('/');
+        if (rfound < 0)
+            break;
+        name = url.Mid(rfound+1);
+        url = url.Left(rfound);
     }
     if ((name.Compare(L"svn") == 0)||(name.Compare(L"svnroot") == 0))
     {
