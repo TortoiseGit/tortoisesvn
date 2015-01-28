@@ -9398,11 +9398,17 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
         auto path = pathList[i];
         if (path.IsUrl() || SVNHelper::IsVersioned(path, false))
         {
-            auto pItem = new MonitorItem();
+            CString name;
             if (path.IsUrl())
-                pItem->Name = CAppUtils::GetProjectNameFromURL(path.GetSVNPathString());
+                name = CAppUtils::GetProjectNameFromURL(path.GetSVNPathString());
             else
-                pItem->Name = path.GetFileOrDirectoryName();
+                name = path.GetFileOrDirectoryName();
+
+            if (name.IsEmpty())
+                continue;
+
+            auto pItem = new MonitorItem();
+            pItem->Name = name;
             pItem->WCPathOrUrl = path.IsUrl() ? path.GetSVNPathString() : path.GetWinPathString();
             pItem->interval = m_defaultMonitorInterval;
             InsertMonitorItem(pItem, parent);
