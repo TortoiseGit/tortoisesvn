@@ -3011,6 +3011,13 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
                              (pMsg->wParam == L'C' || pMsg->wParam == VK_INSERT) &&
                              (wndFocus == GetDlgItem(IDC_MSGVIEW) || wndFocus == GetDlgItem(IDC_SEARCHEDIT)) &&
                              GetKeyState(VK_CONTROL) & 0x8000);
+    if (m_bMonitoringMode)
+    {
+        // Skip the 'Delete' key if the filter box is not empty
+        bSkipAccelerator = bSkipAccelerator || (pMsg->message == WM_KEYDOWN &&
+                                                (pMsg->wParam == VK_DELETE) &&
+                                                (GetDlgItem(IDC_SEARCHEDIT)->GetWindowTextLength() > 0));
+    }
     if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_RETURN)
     {
         if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
@@ -8148,6 +8155,8 @@ void CLogDlg::OnMonitorEditProject()
 
 void CLogDlg::OnMonitorRemoveProject()
 {
+    if (!m_bMonitoringMode)
+        return;
     HTREEITEM hSelItem = m_projTree.GetSelectedItem();
     if (hSelItem)
     {
