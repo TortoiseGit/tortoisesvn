@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2014 - TortoiseSVN
+// Copyright (C) 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,8 @@
 #pragma warning(push)
 #include "svn_config.h"
 #include "svn_auth.h"
+#include "svn_x509.h"
+#include "svn_base64.h"
 #pragma warning(pop)
 #include "resource.h"
 #include "SVNAuthData.h"
@@ -79,42 +81,59 @@ svn_error_t * SVNAuthData::cleanup_callback(svn_boolean_t *delete_cred, void *cl
         const char * key = (const char*)vkey;
         svn_string_t *value = (svn_string_t *)val;
         if (strcmp(key, SVN_CONFIG_AUTHN_PASSWORD_KEY) == 0)
-            continue;
+        {
+            CStringA data(value->data, (int)value->len);
+            authinfodata.password = CUnicodeUtils::GetUnicode(data);
+        }
         else if (strcmp(key, SVN_CONFIG_AUTHN_PASSPHRASE_KEY) == 0)
-            continue;
+        {
+            CStringA data(value->data, (int)value->len);
+            authinfodata.passphrase = CUnicodeUtils::GetUnicode(data);
+        }
         else if (strcmp(key, SVN_CONFIG_AUTHN_PASSTYPE_KEY) == 0)
-            continue;
+        {
+            CStringA data(value->data, (int)value->len);
+            authinfodata.passtype = CUnicodeUtils::GetUnicode(data);
+        }
         else if (strcmp(key, SVN_CONFIG_AUTHN_USERNAME_KEY) == 0)
         {
             CStringA data(value->data, (int)value->len);
             authinfodata.username = CUnicodeUtils::GetUnicode(data);
         }
         else if (strcmp(key, SVN_CONFIG_AUTHN_ASCII_CERT_KEY) == 0)
-            continue; // don't show data which is not human-readable
-        else if (strcmp(key, SVN_CONFIG_AUTHN_HOSTNAME_KEY) == 0)
         {
-            CStringA data(value->data, (int)value->len);
-            authinfodata.hostname = CUnicodeUtils::GetUnicode(data);
-        }
-        else if (strcmp(key, SVN_CONFIG_AUTHN_VALID_FROM_KEY) == 0)
-        {
-            CStringA data(value->data, (int)value->len);
-            authinfodata.validfrom = CUnicodeUtils::GetUnicode(data);
-        }
-        else if (strcmp(key, SVN_CONFIG_AUTHN_VALID_UNTIL_KEY) == 0)
-        {
-            CStringA data(value->data, (int)value->len);
-            authinfodata.validuntil = CUnicodeUtils::GetUnicode(data);
-        }
-        else if (strcmp(key, SVN_CONFIG_AUTHN_ISSUER_DN_KEY) == 0)
-        {
-            CStringA data(value->data, (int)value->len);
-            authinfodata.issuer = CUnicodeUtils::GetUnicode(data);
-        }
-        else if (strcmp(key, SVN_CONFIG_AUTHN_FINGERPRINT_KEY) == 0)
-        {
-            CStringA data(value->data, (int)value->len);
-            authinfodata.fingerprint = CUnicodeUtils::GetUnicode(data);
+            const svn_string_t * der_cert = nullptr;
+            svn_x509_certinfo_t * certinfo = nullptr;
+            const apr_array_header_t * hostnames = nullptr;
+            svn_error_t *err;
+
+            /* Convert header-less PEM to DER by undoing base64 encoding. */
+            der_cert = svn_base64_decode_string(value, scratch_pool);
+
+            err = svn_x509_parse_cert(&certinfo, der_cert->data, der_cert->len,
+                                      scratch_pool, scratch_pool);
+            if (err)
+                continue;
+            authinfodata.subject = svn_x509_certinfo_get_subject(certinfo, scratch_pool);
+            authinfodata.validfrom = svn_time_to_human_cstring(svn_x509_certinfo_get_valid_from(certinfo), scratch_pool);
+            authinfodata.validuntil = svn_time_to_human_cstring(svn_x509_certinfo_get_valid_to(certinfo), scratch_pool);
+            authinfodata.issuer = svn_x509_certinfo_get_issuer(certinfo, scratch_pool);
+            authinfodata.fingerprint = svn_checksum_to_cstring_display(svn_x509_certinfo_get_digest(certinfo), scratch_pool);
+
+            hostnames = svn_x509_certinfo_get_hostnames(certinfo);
+            if (hostnames && !apr_is_empty_array(hostnames))
+            {
+                int i;
+                svn_stringbuf_t *buf = svn_stringbuf_create_empty(scratch_pool);
+                for (i = 0; i < hostnames->nelts; ++i)
+                {
+                    const char *hostname = APR_ARRAY_IDX(hostnames, i, const char*);
+                    if (i > 0)
+                        svn_stringbuf_appendbytes(buf, ", ", 2);
+                    svn_stringbuf_appendbytes(buf, hostname, strlen(hostname));
+                }
+                authinfodata.hostname = buf->data;
+            }
         }
         else if (strcmp(key, SVN_CONFIG_AUTHN_FAILURES_KEY) == 0)
         {
