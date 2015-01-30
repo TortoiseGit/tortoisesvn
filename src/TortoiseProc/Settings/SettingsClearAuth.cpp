@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2014 - TortoiseSVN
+// Copyright (C) 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,38 @@
 #include "SettingsClearAuth.h"
 #include "SVNAuthData.h"
 #include "AppUtils.h"
+#include "UnicodeUtils.h"
+#include "SVNHelpers.h"
+
+#pragma warning(push)
+#include "svn_base64.h"
+#pragma warning(pop)
+
 #include <afxdialogex.h>
+
+#include <Wincrypt.h>
+
+static const WCHAR description[] = L"auth_svn.simple.wincrypt";
+const svn_string_t * decrypt_data(const svn_string_t *crypted, apr_pool_t *pool)
+{
+    crypted = svn_base64_decode_string(crypted, pool);
+
+    DATA_BLOB blobin;
+    DATA_BLOB blobout;
+    LPWSTR descr;
+    const svn_string_t *orig = NULL;
+
+    blobin.cbData = (DWORD)crypted->len;
+    blobin.pbData = (BYTE *)crypted->data;
+    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout))
+    {
+        if (0 == lstrcmpW(descr, description))
+            orig = svn_string_ncreate((const char *)blobout.pbData, blobout.cbData, pool);
+        LocalFree(blobout.pbData);
+        LocalFree(descr);
+    }
+    return orig;
+}
 
 
 // CSettingsClearAuth dialog
@@ -31,6 +62,7 @@ IMPLEMENT_DYNAMIC(CSettingsClearAuth, CResizableStandAloneDialog)
 
 CSettingsClearAuth::CSettingsClearAuth(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSettingsClearAuth::IDD, pParent)
+    , m_bShowPasswords(false)
 {
 
 }
@@ -47,6 +79,7 @@ void CSettingsClearAuth::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSettingsClearAuth, CResizableStandAloneDialog)
+    ON_NOTIFY(NM_DBLCLK, IDC_AUTHDATALIST, &CSettingsClearAuth::OnNMDblclkAuthdatalist)
 END_MESSAGE_MAP()
 
 
@@ -125,6 +158,11 @@ void CSettingsClearAuth::FillAuthListControl()
     m_cAuthList.InsertColumn(1, temp);
     temp.LoadString(IDS_SETTINGSCLEAR_COL3);
     m_cAuthList.InsertColumn(2, temp);
+    if (m_bShowPasswords)
+    {
+        temp.LoadString(IDS_SETTINGSCLEAR_COL4);
+        m_cAuthList.InsertColumn(3, temp);
+    }
 
     SVNAuthData authData;
     auto authList = authData.GetAuthList();
@@ -134,6 +172,23 @@ void CSettingsClearAuth::FillAuthListControl()
         m_cAuthList.InsertItem (iItem,    std::get<0>(it));
         m_cAuthList.SetItemText(iItem, 1, std::get<1>(it));
         m_cAuthList.SetItemText(iItem, 2, std::get<2>(it).username);
+        if (m_bShowPasswords)
+        {
+            SVNPool pool;
+            CStringA pwa = CUnicodeUtils::GetUTF8(std::get<2>(it).password);
+            if (pwa.IsEmpty())
+                pwa = CUnicodeUtils::GetUTF8(std::get<2>(it).passphrase);
+            svn_string_t svns;
+            svns.data = pwa;
+            svns.len = pwa.GetLength();
+            auto dd = decrypt_data(&svns, pool);
+            if (dd)
+            {
+                CStringA pw(dd->data, (int)dd->len);
+                CString colString = CUnicodeUtils::GetUnicode(pw);
+                m_cAuthList.SetItemText(iItem, 3, colString);
+            }
+        }
         ++iItem;
     }
 
@@ -160,4 +215,15 @@ void CSettingsClearAuth::FillAuthListControl()
     }
 
     m_cAuthList.SetRedraw(true);
+}
+
+
+void CSettingsClearAuth::OnNMDblclkAuthdatalist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+    *pResult = 0;
+    if ((GetKeyState(VK_CONTROL) & 0x8000) && (GetKeyState(VK_SHIFT) & 0x8000))
+    {
+        m_bShowPasswords = true;
+        FillAuthListControl();
+    }
 }

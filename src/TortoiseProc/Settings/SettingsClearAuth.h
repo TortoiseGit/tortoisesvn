@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,5 +44,8 @@ private:
     void FillAuthListControl();
 
 private:
-    CListCtrl m_cAuthList;
+    CListCtrl   m_cAuthList;
+    bool        m_bShowPasswords;
+public:
+    afx_msg void OnNMDblclkAuthdatalist(NMHDR *pNMHDR, LRESULT *pResult);
 };
