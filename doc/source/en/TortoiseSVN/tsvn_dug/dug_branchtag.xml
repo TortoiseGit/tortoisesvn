@@ -173,6 +173,14 @@ http://svn.collab.net/repos/ProjectName/tags/Release_1.10
       So it's always a good idea to set the externals to an explicit revision
       when creating a tag.
     </para>
+    <important>
+      <title>externals within externals</title>
+      <para>
+        If a project that is included as an external has itself included externals,
+        then those will not be tagged! Only externals that are direct children can
+        be tagged.
+      </para>
+    </important>
     <para>
       If externals are set to an explicit revision when creating a branch or
       tag, TortoiseSVN automatically changes the <literal>svn:externals</literal>
