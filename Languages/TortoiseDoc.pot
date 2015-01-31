@@ -1,14 +1,14 @@
-# 
+#
 # Translation of the TortoiseSVN manuals
 # Copyright (C) 2004-2012 the TortoiseSVN team
-# 
+#
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-# 
+#
 # Authors:
 msgid ""
 msgstr ""
@@ -5731,6 +5731,14 @@ msgstr ""
 
 #. (para)
 msgid "If you want to make sure that the new tag always is in a consistent state, check all the externals to have their revisions fixed to their current working copy revision. If you don't check the externals and those externals point to a HEAD revision which might change in the future, checking out the new tag will check out that HEAD revision of the external and your tag might not compile anymore. So it's always a good idea to set the externals to an explicit revision when creating a tag."
+msgstr ""
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid "If a project that is included as an external has itself included externals, then those will not be tagged! Only externals that are direct children can be tagged."
 msgstr ""
 
 #. (para)
