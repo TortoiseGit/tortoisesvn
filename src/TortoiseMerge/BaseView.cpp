@@ -829,12 +829,17 @@ int CBaseView::GetScreenLines()
 {
     if (m_nScreenLines == -1)
     {
-        SCROLLBARINFO sbi = { sizeof(sbi) };
-        if (!GetScrollBarInfo(OBJID_HSCROLL, &sbi) || (sbi.rgstate[0] & STATE_SYSTEM_UNAVAILABLE))
-            return -1; // we can not determine state of scrollbar (yet)
         int scrollBarHeight = 0;
-        if (!(sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE))
-            scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
+        SCROLLBARINFO sbi = { sizeof(sbi) };
+        if (GetScrollBarInfo(OBJID_HSCROLL, &sbi))
+        {
+            // only use the scroll bar size if the info is correct and the scrollbar is visible
+            // if anything isn't proper, assume the scrollbar has a size of zero
+            // and calculate the screen lines without it.
+            if (!(sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE) && !(sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE))
+                scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
+        }
+
         CRect rect;
         GetClientRect(&rect);
         m_nScreenLines = (rect.Height() - HEADERHEIGHT - scrollBarHeight) / GetLineHeight();
@@ -853,7 +858,7 @@ int CBaseView::GetAllMinScreenLines() const
         nLines = std::min<int>(nLines, m_pwndRight->GetScreenLines());
     if (IsBottomViewGood())
         nLines = std::min<int>(nLines, m_pwndBottom->GetScreenLines());
-    return (nLines==INT_MAX) ? 0 : nLines;
+    return (nLines == INT_MAX) || (nLines < 0) ? 0 : nLines;
 }
 
 int CBaseView::GetAllLineCount() const
