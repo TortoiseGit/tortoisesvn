@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -675,12 +675,6 @@ msgstr "არავერსიული ელემენტების &წ
 msgid "&Delete..."
 msgstr "&წაშლა..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&შედარება"
@@ -1210,6 +1204,12 @@ msgstr "&ამოშლა"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1891,6 +1891,10 @@ msgstr "ელემენტის დამატება\nეს პრო�
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "ახალი ფაილების თვითდამატება"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3843,6 +3847,10 @@ msgstr "პროგრამის ნაგულისხმები მე�
 msgid "Default directory structure successfully created!"
 msgstr "დასტების ნაგულისხმები სტრუქტურა შეიქმნა!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "ნაგულისხმებია გეზი:"
@@ -3862,10 +3870,6 @@ msgstr "&გამოტოვებული ფაილებისა და
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "&არავერსიული ფაილებისა და დასტების წაშლა"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr ""
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4168,11 +4172,6 @@ msgstr "ამის გაკეთება ყველა არავერ
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "ნამდვილად გსურთ '%s' პულტის წაშლა?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4216,6 +4215,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "გსურთ პარამეტრების ცვლილებების დოკუმენტების განახლება?\nყურადღება: თქვენ დაკარგავთ ყველა შეტანილ ცვლილებას!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7495,6 +7499,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "პაროლი."
@@ -8257,6 +8265,10 @@ msgstr "%s - ამოღება"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

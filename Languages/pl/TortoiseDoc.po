@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -3420,7 +3420,7 @@ msgid ""
 " tag/branch/trunk (also known as <literal>classification "
 "patterns</literal>), can be configured in the settings dialog: <xref linkend"
 "=\"tsvn-dug-settings-revgraph\"/>"
-msgstr ""
+msgstr "Jednak takie sprawdzenie działa tylko wtedy, gdy układ repozytorium jest jednym z sugerowanych, to jest używane są w nim nazwy <filename>trunk</filename>, <filename>branches</filename> i <filename>tags</filename> by wskazać podstawowe trzy obszary. W przypadku innej konfiguracji, wykrywanie co jest etykietą/gałęzią/linią główną (zwane również <literal>wzorcami klasyfikacji</literal>), może być skonfigurowane w oknie ustawień: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
 msgid ""
@@ -9107,6 +9107,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "Jeśli chcecie upewnić się, że nowa etykieta zawsze jest w stanie spójnym, sprawdźcie czy wszystkie zewnętrzne mają ustalone wersje takie jak wersja w ich własnej kopii roboczej. Jeśli nie sprawdzicie zewnętrznych i te zewnętrzne wskazują na wersję HEAD, która może się zmienić w przyszłości, podczas pobierania nowej etykiety nastąpi pobranie wersji HEAD zewnętrznych i etykieta może się już nie skompilować. Więc to jest zawsze dobry pomysł, aby ustawić zewnętrzne na ustaloną wersję podczas tworzenia etykiety."
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -681,12 +681,6 @@ msgstr "버전관리 대상이 아닌 아이템들 삭제(&D)..."
 msgid "&Delete..."
 msgstr "삭제(&D)..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "비교(&D)"
@@ -1216,6 +1210,12 @@ msgstr "삭제(&R)"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1897,6 +1897,10 @@ msgstr "아이템 추가\n이것은 윈도우에서 문제를 일으킬 것입�
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "새로운 파일들을 자동으로 SVN에 추가합니다."
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3849,6 +3853,10 @@ msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 �
 msgid "Default directory structure successfully created!"
 msgstr "기본 디렉토리 구조가 성공적으로 생성되었습니다!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "기본 경로:"
@@ -3868,10 +3876,6 @@ msgstr "무시하는 파일이나 폴더를 삭제(&I)"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "버전관리 외부 파일이나 폴더를 삭제(&U)"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr ""
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4174,11 +4178,6 @@ msgstr "모든 버전관리되지않는/수정된 아이템에 대해서 수행�
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "'%s' 도구 막대를 정말로 삭제하시겠습니까?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4222,6 +4221,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "다시 읽어들이시겠습니까?\n주의: 바뀐 설정 내용이 모두 사라집니다."
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7501,6 +7505,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "암호:"
@@ -8263,6 +8271,10 @@ msgstr "%s 삭제"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

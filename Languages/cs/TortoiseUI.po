@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -676,12 +676,6 @@ msgstr "&Smazat položky bez verze..."
 msgid "&Delete..."
 msgstr "&Smazat..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Smazat\nProjekt je odstraněn. Pokud má podprojekty, ty jsou také smazány."
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Porovnat"
@@ -1212,6 +1206,12 @@ msgstr "Odst&ranit"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Odstranit projekt"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1892,6 +1892,10 @@ msgstr "Přidat položku\nToto povede k problémům ve Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Přidat nové soubory do SVN automaticky"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3844,6 +3848,10 @@ msgstr "Výchozí menu aplikace. Je zobrazeno pokud není otevřen žádný doku
 msgid "Default directory structure successfully created!"
 msgstr "Výchozí struktura adresáře úspěšně vytvořena!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Výchozí cesta:"
@@ -3863,10 +3871,6 @@ msgstr "&Smazat ignorované soubory a adresáře"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "&Odstranit soubory a adresáře bez verze"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Smazat projekt"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4169,11 +4173,6 @@ msgstr "Toto provést pro všechny upravené položky/položky bez verze"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Opravdu chcete smazat nástrojovou lištu '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "Opravdu chcete smazat sledovaný projekt '%s'?"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4217,6 +4216,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Chcete znovu nahrát dokumenty pro zohlednění změn v nastavení?\nPoznámka: ztratíte veškeré provedené změny!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -4838,7 +4842,7 @@ msgstr "Spuštění serverové aplikace selhalo."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Nelze načíst soubor s nastavením pro monitor projektů!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5648,7 +5652,7 @@ msgstr "ID:57603:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7496,6 +7500,10 @@ msgstr "Heslo"
 msgid "Password is wrong"
 msgstr "Nesprávné heslo"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Heslo:"
@@ -8093,7 +8101,7 @@ msgstr "Přesměrovávám na url"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "Znovu"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8259,6 +8267,10 @@ msgstr "Odstranit %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Odstranit záložku"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -8933,19 +8945,19 @@ msgstr "Uložit vše\nOba soubory jsou uloženy"
 msgid ""
 "Save and exclude\n"
 "Your changes are saved and the original content is used"
-msgstr ""
+msgstr "Uložit a vyloučit\nJe použit původní obsah a vaše změny jsou uloženy."
 
 #. Resource IDs: (7)
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr ""
+msgstr "Uložit a ignorovat označené bloky\nPouze vaše ruční úpravy jsou uloženy, označené bloky jsou ponechány tak jak jsou"
 
 #. Resource IDs: (7)
 msgid ""
 "Save and include\n"
 "Your changes are saved and the marked blocks are included"
-msgstr ""
+msgstr "Uložit a zahrnout\nVaše změny jsou uloženy a označené bloky jsou zahrnuty"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -11583,7 +11595,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Platné volby příkazové řádky jsou:\n/base:<cesta k základnímu souboru>\n/basename:<název umístěný do záhlaví zobrazení>\n/theirs:<cesta k jejich souboru>\n/theirsname:<název umístěný do záhlaví zobrazení>\n/mine:<cesta k mému souboru>\n/minename:<název umístěný do záhlaví zobrazení>\n/merged:<cesta do výsledného sloučeného souboru>\n/mergedname:<název umístěný do záhlaví zobrazení>\n/diff:<cesta k sjednocenému rozdílu>\n/patchpath:<cesta do adresáře>\n/saverequired\n/saverequiredonconflicts\n/oneway <vynutí jednopanelové zobrazení>\n/line:<číslo řádku k zobrazení>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

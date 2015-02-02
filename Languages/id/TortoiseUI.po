@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -685,12 +685,6 @@ msgstr "&Hapus item-item tidak berversi..."
 msgid "&Delete..."
 msgstr "&Hapus..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Diff"
@@ -1220,6 +1214,12 @@ msgstr "&Hapus"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1901,6 +1901,10 @@ msgstr "Tambah item\nHal ini bisa menyebabkan masalah pada Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Menambahkan berkas baru secara otomatis ke SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3853,6 +3857,10 @@ msgstr "Menu aplikasi bawaan. Tampak jika tidak ada dokumen yang terbuka."
 msgid "Default directory structure successfully created!"
 msgstr "Struktur default directory sukses dibuat!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Path bawaan:"
@@ -3872,10 +3880,6 @@ msgstr "&Hapus berkas dan folder terabaikan"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "&Hapus berkas dan folder tidak berversi"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr ""
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4178,11 +4182,6 @@ msgstr "Lakukan hal yang sama pada semua item-item non-versi/dimodifikasi"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Anda benar-benar ingin menghapus bilah alat '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4226,6 +4225,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Anda ingin mengambil ulang dokumen untuk merujuk perubahan seting?\nCatatan: anda akan kehilangan semua perubahan yang anda buat!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7505,6 +7509,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Kata sandi:"
@@ -8267,6 +8275,10 @@ msgstr "Copot %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

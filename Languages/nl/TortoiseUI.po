@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -684,12 +684,6 @@ msgstr "&Verwijder objecten zonder versiebeheer..."
 msgid "&Delete..."
 msgstr "Verwij&deren"
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Verwijderen\nHet project is verwijderd. Mochten er onderliggende projecten zijn, dan zijn deze ook verwijderd. "
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Verschil"
@@ -1220,6 +1214,12 @@ msgstr "&Verwijderen"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Verwijder project"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1900,6 +1900,10 @@ msgstr "Object toevoegen\nDit zal problemen onder Windows geven."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Voeg nieuwe bestanden automatisch toe in SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3852,6 +3856,10 @@ msgstr "Standaardmenu. Verschijnt indien geen documenten geopend zijn."
 msgid "Default directory structure successfully created!"
 msgstr "Standaard mapstructuur succesvol aangemaakt!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Standaard pad:"
@@ -3871,10 +3879,6 @@ msgstr "Verwijder &genegeerde mappen en bestanden"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Verwijder mappen en bestanden &zonder versiebeheer"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Project verwijderen"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4177,11 +4181,6 @@ msgstr "Doe dit voor alle onderdelen zonder versiebeheer of met wijzigingen"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Wilt u de werkbalk '%s' echt verwijderen?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4225,6 +4224,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Wilt u de bestanden herladen om de gewijzigde instellingen te gebruiken?\nLet op: alle gemaakte wijzigingen gaan verloren!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7504,6 +7508,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Wachtwoord:"
@@ -8266,6 +8274,10 @@ msgstr "Verwijder %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

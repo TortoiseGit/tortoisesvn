@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -9104,6 +9104,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "Pokud se chcete ujistit, že nová značka je vždy v soudržném stavu, zkontrolujte všechny externí, aby jejich revize byly zafixované na jejich aktuální revizi pracovní kopie. Pokud nezkontrolujete externí a ty externí odkazují na HEAD revizi, která by se mohla v budoucnu změnit, získávání nové značky získá tuto externí HEAD revizi a Vaše značka už se nemusí kompilovat. Takže je vždycky dobrý nápad při vytváření značky nastavit externí na jednoznačnou revizi."
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""

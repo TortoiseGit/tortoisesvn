@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -3395,20 +3395,20 @@ msgstr "Подразумевано је да када се урезују изм
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "Упозоренје кад уреѕује у знак"
 
 #. (para)
 msgid ""
 "Usually, commits are done to the trunk or a branch, but not to tags. After "
 "all, a tag is considered fixed and should not change."
-msgstr ""
+msgstr "Уобичајено, урезивање је урађено у дебло или грану, али не у знак. После свега знак се сматра фиксираним и не треба се мењати."
 
 #. (para)
 msgid ""
 "If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
 "dialog first to ensure whether this is really what is intended. Because most"
 " of the time such a commit is done by accident."
-msgstr ""
+msgstr "Ако се урезивање покуша у знак УРЛ, ТортоисеСВН најпре приказује дијалог потврђивања да осигура да ли се то заиста жели. Зато што се у већини случајева таква урезицања дешавају грешком."
 
 #. (para)
 msgid ""
@@ -3419,7 +3419,7 @@ msgid ""
 " tag/branch/trunk (also known as <literal>classification "
 "patterns</literal>), can be configured in the settings dialog: <xref linkend"
 "=\"tsvn-dug-settings-revgraph\"/>"
-msgstr ""
+msgstr "Међутим, ова провера ради само ако је смештај спремишта  у једном од препоручених опција, значи да користи имена <filename>дебло</filename>, <filename>гране</filename> и <filename>знаци</filename>  да означи три главне површине. У случају да је сетап различит, детекција шта је знак/грана/дебло (такође познато као <literal>класификација модела</literal>), може бити конфигурисасан у дијалогу подешавања: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
 msgid ""
@@ -9107,6 +9107,17 @@ msgid ""
 "explicit revision when creating a tag."
 msgstr "Ако желите да будете сигурни да је нова ознака у конзистентном стању проверите све екстернале да имају своје ревизије фиксиране у  текућој ревизији радне копије.  Ако не проверите екстернале и екстернале ГЛАВНЕ ревизије који се могу мењати у будућности, провером нових ознака провериће ГЛАВНУ ревизију екстернала и ваша ознака можда се неће уопште покупити. Тако да је добра идеја да се укључе екстернали експлицитне ревизије када се креира ознака."
 
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
+
 #. (para)
 msgid ""
 "If externals are set to an explicit revision when creating a branch or tag, "
@@ -12994,13 +13005,13 @@ msgstr "Специфира моделе коришћене да препозна
 
 #. (title)
 msgid "Commit tag detection"
-msgstr ""
+msgstr "Детекција урезивања знака"
 
 #. (para)
 msgid ""
 "Please note that these patterns are also used to detect commits to a tag, "
 "not just for the revision graph."
-msgstr ""
+msgstr "Молим приметимо да овај шаблон је такође коришћен да се детектује урезивање у знак, не само за ревизиони граф."
 
 #. (term)
 msgid "Modify Colors"
@@ -19641,7 +19652,7 @@ msgid ""
 "language packs put their files. However, the %APPDATA%-folder doesn't "
 "require administrator privileges and, thus, has higher priority. The next "
 "time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "Једном кад узмете фајлове речника, вероватн вам треба да их преименујете тако да та имена фајлова имају локалне карактере у себи. Пример: <placeholder-1/> Онда само их копирајте у <filename>%APPDATA%\\TortoiseSVN\\dic</filename> фолдер Ако тај фолдер није тамо, морате га најпре креирати. ТортоисеСВН ће тако тражити <filename>Languages</filename> субфолдер у ТортоисеСВН инсталацији (нормално то ће бити у <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>); ово је место где језици смештају своје фајлове. Међутим, %APPDATA%- фолдер не захтева административне привелегије и, према томе, има висок приоритет. Следећи пут када покренете ТортоисеСВН провера спеловања ће бити доступан. "
 
 #. (para)
 msgid ""

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/tortoisesvn/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -9101,6 +9101,17 @@ msgid ""
 "new tag will check out that HEAD revision of the external and your tag might"
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
+msgstr ""
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
 msgstr ""
 
 #. (para)

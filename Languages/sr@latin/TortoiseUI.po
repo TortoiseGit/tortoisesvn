@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -678,12 +678,6 @@ msgstr "&Briše neverzionisane stavke..."
 msgid "&Delete..."
 msgstr "&Obriši..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Obriši\nProjekat je uklonjen. Ako ima pod-projekte, oni su takođe uklonjeni."
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Razlike"
@@ -1214,6 +1208,12 @@ msgstr "&Ukloni"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Ukloni projekat"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1894,6 +1894,10 @@ msgstr "Dodaj stavku\nOvo će dovesti do problema u Vindousu."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Dodaj nove fajlove automatski u SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3846,6 +3850,10 @@ msgstr "Uobičajeni meni aplikacije. Pojavljuje se kad nije otvoren nijedan doku
 msgid "Default directory structure successfully created!"
 msgstr "Podrazumevana struktura foldera zadovoljavajuće kreirana!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Uobičajna putanja:"
@@ -3865,10 +3873,6 @@ msgstr "Briš&ite zanemarene fajlove i foldere"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Brišite &neverzionisane fajlove i foldere"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Obriši projekat"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4171,11 +4175,6 @@ msgstr "Uradite ovo za sve neverzionisane/izmenjene stavke"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Želite li zaista obrisati alatni panel '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "Da li želite da obriše posmatrani projekat '%s'?"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4219,6 +4218,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Želite li iznova učitati dokumente kako bi odražavali promene podešavanja?\nNapomena: sve učinjene izmene biće izgubljene!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -4840,7 +4844,7 @@ msgstr "Neuspešno izvršavanje operacije servera."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Greška pri unosu konfiguracionog fajla za monitor projekta!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5650,7 +5654,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7498,6 +7502,10 @@ msgstr "Lozinka"
 msgid "Password is wrong"
 msgstr "Lozinka je loša"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Lozinka:"
@@ -8095,7 +8103,7 @@ msgstr "Preusmeravanje ka url"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "Ponovi"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8261,6 +8269,10 @@ msgstr "Ukloni %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Ukloni zabeleške."
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -11585,7 +11597,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Valjane opcije komandne linije su:\n/base:<putanje za osnovne fajlove>\n/basename:<ime za prikazivanje na  naslovu pregleda>\n/theirs:<putovanja za njihov fajl>\n/theirsname:<ime da se prikaže u titlu pregleda>\n/mine:<putanja za vaš fajl>\n/minename:<ime za prikazivanje u naslovu pregleda>\n/merged:<putanja za rezultantni stopljeni fajl>\n/mergedname:<name to show on the view title>\n/diff:<putanja za ujedinjeni  fajl>\n/patchpath:<putanja do foldera>\n/saverequired\n/saverequiredonconflicts\n/oneway <osigurava jednostruki pregled>\n/line:<broj linije na koju se skače>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

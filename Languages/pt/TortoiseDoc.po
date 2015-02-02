@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -9111,6 +9111,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "Se queres ter a certeza que a nova etiqueta está sempre num estado consistente, assinala todos os externos para que tenham as suas revisões actualizadas para a revisão corrente da sua cópia de trabalho. Se não assinalares os externos e esses mesmos externos apontarem para a revisão HEAD, que poderá ser alterada no futuro, efectuar o checkout da nova etiqueta irá implicar o checkout da revisão HEAD do externo e a tua etiqueta poderá não mais compilar. Pelo que é sempre uma boa ideia colocar os externos para uma revisão explícita quando da criação da etiqueta."
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""

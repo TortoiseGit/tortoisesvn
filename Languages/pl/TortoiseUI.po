@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Begina Felicysym <>, 2011
-# Begina Felicysym <begina.felicysym@wp.eu>, 2011-2014
+# Begina Felicysym <begina.felicysym@wp.eu>, 2011-2015
 # Jarosław Pękala <jaroslaw.pekala@gmail.com>, 2013
 # jotpeg <janekpg@gazeta.pl>, 2013
 # kkotowicz <kkotowicz@gmail.com>, 2011
@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -684,12 +684,6 @@ msgstr "&Usuń niewersjonowane elementy..."
 msgid "&Delete..."
 msgstr "&Usuń..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Usuń\nProjekt został usunięty. Jeżeli miał podprojekty, zostały one również usunięte."
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Porównaj"
@@ -1220,6 +1214,12 @@ msgstr "&Usuń"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Usuń projekt"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1900,6 +1900,10 @@ msgstr "Dodaj element\nDoprowadzi to do problemów w Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Dodaj automatycznie nowe pliki do SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3852,6 +3856,10 @@ msgstr "Domyślne menu aplikacji. Pojawia się, kiedy nie ma otwartych dokument�
 msgid "Default directory structure successfully created!"
 msgstr "Domyślna struktura folderu została pomyślnie utworzona!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Domyślna ścieżka:"
@@ -3871,10 +3879,6 @@ msgstr "Usuń &ignorowane pliki i katalogi"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Usuń &niewersjonowane pliki i katalogi"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Usuń Projekt"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4177,11 +4181,6 @@ msgstr "Wykonaj dla wszystkich niewersjonowanych/zmienionych elementów"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Czy na pewno chcesz usunąć pasek narzędzi '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "Czy chcesz usunąć monitorowany projekt '%s'?"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4225,6 +4224,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Czy chcesz przeładować dokumenty tak, by były widoczne zmiany w ustawieniach?\nUwaga: Spowoduje to utratę wszystkich dokonanych zmian!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -4846,7 +4850,7 @@ msgstr "Nie udało się uruchomić aplikacji serwera."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Nie udało się wczytać pliku konfiguracyjnego dla monitora projektów!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5656,7 +5660,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7504,6 +7508,10 @@ msgstr "Hasło"
 msgid "Password is wrong"
 msgstr "Hasło jest niepoprawne"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Hasło:"
@@ -8101,7 +8109,7 @@ msgstr "Przekierowanie do URL"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "Ponów"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8267,6 +8275,10 @@ msgstr "Usuń %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Usuń Zakładkę"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -11591,7 +11603,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Poprawnymi opcjami linii poleceń są:\n/base:<ścieżka do pliku bazowego>\n/basename:<nazwa do wyświetlenia w tytule widoku>\n/theirs:<ścieżka do ich pliku>\n/theirsname:<nazwa do wyświetlenia w tytule widoku>\n/mine:<ścieżka do mojego pliku>\n/minename:<nazwa do wyświetlenia w tytule widoku>\n/merged:<ścieżka do wynikowego pliku scalenia>\n/mergedname:<nazwa do wyświetlenia w tytule widoku>\n/diff:<ścieżka do zunifikowanego pliku różnic>\n/patchpath:<ścieżka do folderu>\n/saverequired\n/saverequiredonconflicts\n/oneway <wymusza widok jednodrożny>\n/line:<numer linii, do której przejść>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 23:51+0000\n"
+"PO-Revision-Date: 2015-02-01 10:01+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -680,12 +680,6 @@ msgstr "&Suprimeix elements sense versionar..."
 msgid "&Delete..."
 msgstr "&Suprimeix..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Suprimir\nS'elimina el projecte. Si té subprojectes, també s'eliminen."
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Compara"
@@ -1216,6 +1210,12 @@ msgstr "&Suprimeix"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Suprimeix projecte"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "&Suprimir\nEl projecte es suprimeix. Si té subprojectes, també s'eliminen."
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1896,6 +1896,10 @@ msgstr "Afegir element\nAixò provocarà problemes a Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Afegeix nous fitxers automàticament a l'SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr "Afegeix projecte o carpeta aquí..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3848,6 +3852,10 @@ msgstr "Mení d'aplicació per defecte. Apareix quan no hi han documents oberts.
 msgid "Default directory structure successfully created!"
 msgstr "Estructura de directoris per defecte creada satisfactòriament!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr "Interval de supervisió per defecte en minuts :"
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Camí per defecte:"
@@ -3867,10 +3875,6 @@ msgstr "Suprimeix &fitxers i carpetes ignorats"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Suprimeix &fitxers i carpetes sense versionar"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Suprimeix el Projecte"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4173,11 +4177,6 @@ msgstr "Fes això per tots els elements sense versionar o modificats"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Realment voleu esborrar la barra d'eines '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "Vols suprimir el projecte supervisat '%s'?"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4221,6 +4220,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Vols recarregar els documents per reflectir els canvis en la configuració?\nNota: Perdràs tots els canvis que hagis fet!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr "Vols suprimir el projecte supervisat '%s'?"
 
 #. Resource IDs: (588)
 #, c-format
@@ -7500,6 +7504,10 @@ msgstr "Contrasenya"
 msgid "Password is wrong"
 msgstr "La contrasenya és incorrecta"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr "Contrasenya/frase"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Contrasenya"
@@ -8264,6 +8272,10 @@ msgstr "Suprimeix %s"
 msgid "Remove Bookmark"
 msgstr "Elimina Favorit"
 
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr "Suprimir Projecte"
+
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Treu les Dades d'Autenticació Desades"
@@ -8321,7 +8333,7 @@ msgstr "Suprimir\nTreu la propietat només d'aquest element."
 
 #. Resource IDs: (65535)
 msgid "Removed"
-msgstr "Tret"
+msgstr "Suprimit"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"

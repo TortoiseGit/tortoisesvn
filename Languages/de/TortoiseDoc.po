@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-26 09:53+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -9114,6 +9114,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "Wenn Sie sicherstellen möchten, dass die neue Marke sich immer in einem konsistenten Zustand befindet, sorgen Sie dafür, dass die Revisionen aller Externals auf die aktuelle Revision der Arbeitskopie festgelegt werden. Sollten Sie das nicht tun und die Externals zeigen auf eine HEAD Revision, die sich in der Zukunft ändern könnte, so wird beim Auschecken der neuen Marke, die HEAD Revision des Externals ausgecheckt und Ihre Marke lässt sich unter Umständen nicht mehr übersetzen. Es ist also immer eine gute Idee, die Externals beim Anlegen einer Marke auf eine explizite Revision zu setzen."
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""

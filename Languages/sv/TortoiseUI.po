@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -684,12 +684,6 @@ msgstr "Ta bort icke versionshantera&de objekt..."
 msgid "&Delete..."
 msgstr "&Ta bort..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Jämför"
@@ -1219,6 +1213,12 @@ msgstr "&Ta bort"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1900,6 +1900,10 @@ msgstr "Lägg till fil\nDetta kommer att leda till problem i Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Lägg till nya objekt till källkodskontrollen automatiskt"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3852,6 +3856,10 @@ msgstr "Standard programmeny. Visas när inga dokument är öppna. "
 msgid "Default directory structure successfully created!"
 msgstr "Standard katalogstruktur skapat utan problem!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Förvald sökväg:"
@@ -3871,10 +3879,6 @@ msgstr ""
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr ""
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Radera projekt"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4177,11 +4181,6 @@ msgstr "Gör detta för alla ej versionshanterade/modifierade objekt"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Vill du verkligen ta bort verktygsraden '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4225,6 +4224,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Vill du ladda om filerna för att se de ändrade inställningarna?\nOBS! Ändringar som inte sparats kommer att gå förlorade!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7504,6 +7508,10 @@ msgstr "Lösenord:"
 msgid "Password is wrong"
 msgstr "Lösenordet är felaktigt"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Lösenord:"
@@ -8266,6 +8274,10 @@ msgstr "Ta bort %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -675,12 +675,6 @@ msgstr "&Избриши ги неверзионираните ставки..."
 msgid "&Delete..."
 msgstr "&Избриши..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Разлики"
@@ -1210,6 +1204,12 @@ msgstr "&Отстрани"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1891,6 +1891,10 @@ msgstr ""
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Додади нови датотеки автоматски во SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3843,6 +3847,10 @@ msgstr "Основно апликациско мени. Се појавува к
 msgid "Default directory structure successfully created!"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Стандардна патека:"
@@ -3861,10 +3869,6 @@ msgstr ""
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
-
-#. Resource IDs: (65)
-msgid "Delete Project"
 msgstr ""
 
 #. Resource IDs: (199)
@@ -4168,11 +4172,6 @@ msgstr ""
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Дали навистина сакате да го избришете алатникот '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4216,6 +4215,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Дали сакате повторно да ги вчитате документите за да се освежат измените?\nЗабелешка: ќе ги изгубите сите направени измени!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7495,6 +7499,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Лозинка:"
@@ -8257,6 +8265,10 @@ msgstr "Отстрани %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

@@ -32,8 +32,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-02-01 14:30+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -691,12 +691,6 @@ msgstr "バージョン管理外の項目を削除(&D)..."
 msgid "&Delete..."
 msgstr "削除(&D)..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "削除(&D)\nプロジェクトは削除されます。もしサブプロジェクトがあれば、同様に削除されます。"
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "差分を表示(&D)"
@@ -1227,6 +1221,12 @@ msgstr "削除(&R)"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "プロジェクトを削除(&R)"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "削除(&D)\nプロジェクトは削除されます。もしサブプロジェクトがあれば、同様に削除されます。"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1907,6 +1907,10 @@ msgstr "項目を追加\nWindows上では問題が発生します。"
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "新しいファイルを自動でSVNに追加する"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr "ここにプロジェクトやフォルダーを追加..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3859,6 +3863,10 @@ msgstr "デフォルトのアプリケーションメニュー。ドキュメン
 msgid "Default directory structure successfully created!"
 msgstr "デフォルトのディレクトリ構造の作成に成功しました。"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr "モニター間隔の既定値（分）:"
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "デフォルトパス:"
@@ -3878,10 +3886,6 @@ msgstr "無視するファイルやフォルダーを削除(&I)"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "バージョン管理外のファイルやフォルダーを削除(&U)"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "プロジェクトの削除"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4184,11 +4188,6 @@ msgstr "バージョン管理外もしくは変更された項目すべてにこ
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "本当にこのツールバー「%s」を削除してもよろしいですか？"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "モニターしているプロジェクト「%s」を削除しますか？"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4232,6 +4231,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "設定の変更を反映させるために、ドキュメントの再読み込みを行いますか？\n注意: 行ったすべての変更が失われます。"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr "モニターしているプロジェクト「%s」を削除しますか？"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4853,7 +4857,7 @@ msgstr "サーバーアプリケーションの実行に失敗しました。"
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "プロジェクトモニターの構成ファイルの読み込みに失敗しました！"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5663,7 +5667,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7511,6 +7515,10 @@ msgstr "パスワード"
 msgid "Password is wrong"
 msgstr "パスワードが誤っています"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr "パスワード/フレーズ"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "パスワード:"
@@ -8108,7 +8116,7 @@ msgstr "URLにリダイレクト中"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "やり直し"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8274,6 +8282,10 @@ msgstr "%s を削除"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "ブックマークを削除"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr "プロジェクトを削除"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -11598,7 +11610,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "有効なコマンドラインオプション:\n/base:<BASEファイルへのパス>\n/basename:<ビューのタイトルに表示される名前>\n/theirs:<theirファイルへのパス>\n/theirsname:<ビューのタイトルに表示される名前>\n/mine:<mineファイルへのパス>\n/minename:<ビューのタイトルに表示される名前>\n/merged:<結果のマージ済みファイルへのパス>\n/mergedname:<ビューのタイトルに表示される名前>\n/diff:<Unified差分ファイルへのパス>\n/patchpath:<フォルダーへのパス>\n/saverequired\n/saverequiredonconflicts\n/oneway <強制的に1枚表示>\n/line:<ジャンプ先の行番号>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"

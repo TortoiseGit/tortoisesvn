@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -678,12 +678,6 @@ msgstr "&Poista versioimattomat kohteet..."
 msgid "&Delete..."
 msgstr "&Poista..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "&Poista\nProjekti poistetaan. Mahdolliset aliprojektit poistetaan myös."
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Vertaa"
@@ -1214,6 +1208,12 @@ msgstr "&Poista"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Poista projekti"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1894,6 +1894,10 @@ msgstr "Lisää tiedosto\nTästä seuraa ongelmia Windows-ympäristössä."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Lisää uudet tiedostot automaattisesti versionhallintaan"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3846,6 +3850,10 @@ msgstr "Oletusarvoinen sovellusvalikko. Näytetään kun dokumentteja ei ole ava
 msgid "Default directory structure successfully created!"
 msgstr "Oletuskansiorakenne luotu!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Oletuskansio:"
@@ -3865,10 +3873,6 @@ msgstr "Poista &ohitetut tiedostot ja kansiot"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Poista &versioimattomat tiedostot ja kansiot"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Poista projekti"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4171,11 +4175,6 @@ msgstr "Tee tämä kaikille versioimattomille/muutetuille tiedostoille"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Haluatko todella poistaa valintapalkin '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "Haluatko poistaa seuratun projektin '%s'?"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4219,6 +4218,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Haluatko avata tiedostot uudelleen, jotta asetusmuutokset tulevat voimaan?\nHuomaa: menetät kaikki tekemäsi muutokset!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7498,6 +7502,10 @@ msgstr "Salasana"
 msgid "Password is wrong"
 msgstr "Salasana on väärin"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Salasana:"
@@ -8261,6 +8269,10 @@ msgstr "Poista %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Poista kirjanmerkki"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

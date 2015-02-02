@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 11:31+0000\n"
+"PO-Revision-Date: 2015-02-01 12:41+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -695,12 +695,6 @@ msgstr "删除非版本控制的条目(&D) ..."
 msgid "&Delete..."
 msgstr "删除(&D) ..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr "删除(&D)\n该项目已移除。子项目也已经一并移除（如果它有）。"
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "比较差异(&D)"
@@ -1231,6 +1225,12 @@ msgstr "删除(&R)"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "移除项目(&R)"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr "移除(&R)\n此项目将被移除。如果它有子项目，那些也将被移除。"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1911,6 +1911,10 @@ msgstr "增加项目\n在 Windows 会导致问题。"
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "自动增加新文件到版本库"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr "在这里添加项目或文件夹..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3863,6 +3867,10 @@ msgstr "默认应用程序菜单。在没有打开文档的时候显示。"
 msgid "Default directory structure successfully created!"
 msgstr "预设目录结构已创建！"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr "定义监视器间隔（分钟）："
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "默认路径: "
@@ -3882,10 +3890,6 @@ msgstr "删除已忽略的文件和文件夹(&I)"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "删除无版本控制的文件和文件夹(&U)"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "删除项目"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4188,11 +4192,6 @@ msgstr "应用到所有无版本控制/已修改的项目"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "你真的要删除工具栏“%s”吗？"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr "您想删除监视的项目 '%s' 吗？"
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4236,6 +4235,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "确定要重新加载文件以反映设置变更吗?\n注意: 所有变更将不会保存！"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr "您想删除已监控的项目“%s”吗？"
 
 #. Resource IDs: (588)
 #, c-format
@@ -7515,6 +7519,10 @@ msgstr "密码"
 msgid "Password is wrong"
 msgstr "密码错误"
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr "密码/短语"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "密码: "
@@ -8278,6 +8286,10 @@ msgstr "删除 %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "移除书签"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr "移除项目"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

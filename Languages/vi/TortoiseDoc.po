@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
+"PO-Revision-Date: 2015-02-01 09:55+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -9103,6 +9103,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "Nếu bạn muốn chắc chắn rằng thẻ mới luôn luôn trong trạng thái thống nhất, kiểm tra tất cả các phần bên ngoài để có các bản chỉnh sửa của chúng cố định vào sửa đổi của bản sao làm việc hiện tại của chúng. Nếu bạn không kiểm tra phần bên ngoài và những phần bên ngoài đó chỉ tới một phiên bản CHÍNH mà có thể thay đổi trong tương lai, kiểm xuất thẻ mới sẽ kiểm xuất sửa đổi CHÍNH của phần bên ngoài và thẻ của bạn có thể không biên dịch nữa. Vì vậy, nó luôn luôn là một ý tưởng tốt để đặt các phần bên ngoài tới một bản sửa đổi rõ ràng khi tạo ra một thẻ."
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -679,12 +679,6 @@ msgstr "Ş&terge elementele neversionate..."
 msgid "&Delete..."
 msgstr "Ş&terge..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Diferenţiază"
@@ -1215,6 +1209,12 @@ msgstr "&Elimină"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "&Elimină proiect"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1895,6 +1895,10 @@ msgstr "Adaugă element\nAceastă acţiune generează probleme în Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Adaugă automat fişiere noi la SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3847,6 +3851,10 @@ msgstr "Meniu implicit de aplicaţie. Apare când nu sunt documente deschise."
 msgid "Default directory structure successfully created!"
 msgstr "S-a creat sctructura implicită de dosare,"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Calea implicită"
@@ -3866,10 +3874,6 @@ msgstr "Șterge fișierele și dosarele &ignorate"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Șterge fișierele și dosarele &neversionate"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr "Șterge proiect"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4172,11 +4176,6 @@ msgstr "Face același lucru pentru toate elementele neversionate/modificate"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Chiar doriţi să ştergeţi bara de unelte '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4220,6 +4219,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Doriţi să reîncărcaţi documentele pentru a reflecta modificările preferinţelor?\nNotiţă: veţi pierde toate modificările pe care le-aţi făcut!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7499,6 +7503,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Parola:"
@@ -8261,6 +8269,10 @@ msgstr "Elimină %s"
 
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid "Remove Project"
 msgstr ""
 
 #. Resource IDs: (348)

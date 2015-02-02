@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -682,12 +682,6 @@ msgstr "&Versiyonlanmamış elemanları sil..."
 msgid "&Delete..."
 msgstr "&Sil..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Karşılaştırma"
@@ -1218,6 +1212,12 @@ msgstr "&Kaldır"
 #. Resource IDs: (65)
 msgid "&Remove project"
 msgstr "Projeyi &kaldır"
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1898,6 +1898,10 @@ msgstr "Öğe ekle\nBu işlem Windows'ta sorunlara yol açacak."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Yeni dosyaları SVNe otomatik olarak ekle"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3850,6 +3854,10 @@ msgstr "Varsayılan uygulama menüsü. Hiçbir belge açık değilken görünür
 msgid "Default directory structure successfully created!"
 msgstr "Varsayılan dizin yapısı başarıyla oluşturuldu!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Varsayılan dizin:"
@@ -3869,10 +3877,6 @@ msgstr "Yok sayılan dosya ve klasörler&i sil"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "&Versiyonlanmamış dosya ve klasörleri sil"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr ""
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4175,11 +4179,6 @@ msgstr "Bunu tüm versiyonlanmamış/değiştirilmemiş öğeler için yap"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "'%s' araç çubuğunu gerçekten silmek istiyor musunuz?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4223,6 +4222,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Yapılan ayar değişikliklerini görmek için tüm dokümanları tekrar yüklemek istiyor musunuz?\nNot: Kayıt etmediyseniz yaptığınız değişiklikler silinir!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7502,6 +7506,10 @@ msgstr "Şifre"
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Şifre:"
@@ -8265,6 +8273,10 @@ msgstr "%s 'ı kaldır"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Yer İmini Kaldır"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"

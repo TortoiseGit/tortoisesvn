@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-23 09:55+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-02-01 15:31+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2640,7 +2640,7 @@ msgid ""
 "Copy the selected text. In case no text is selected but e.g. a list entry or"
 " a message box, then the content of that list entry or the message box is "
 "copied to the clipboard."
-msgstr ""
+msgstr "選択中の文字列をコピーします。文字列が選択されていない時も、たとえばリストの項目やメッセージボックスの場合は、リスト項目の中身やメッセージボックスがクリップボードにコピーされます。"
 
 #. (para)
 msgid ""
@@ -2701,7 +2701,7 @@ msgid ""
 "however will show a dialog where you can chose which cached authentication "
 "data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
 "data\"/>."
-msgstr ""
+msgstr "認証情報のキャッシュをクリアするには、TortoiseSVNの設定ダイアログの <guilabel>保存されたデータ</guilabel>ページから行えます。<guibutton>すべて消去</guibutton>ボタンで、すべてのリポジトリのキャッシュされた認証データを消去します。<guibutton>消去...</guibutton>ボタンではキャッシュされた認証データのうちどれを消去するかを選択するダイアログが表示されます。<xref linkend=\"tsvn-dug-settings-saved-data\"/> を参照してください。"
 
 #. (para)
 msgid ""
@@ -3395,13 +3395,13 @@ msgstr "デフォルトでは変更をコミットすると、コミット完了
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "タグへコミットする時に警告する"
 
 #. (para)
 msgid ""
 "Usually, commits are done to the trunk or a branch, but not to tags. After "
 "all, a tag is considered fixed and should not change."
-msgstr ""
+msgstr "ふつう、コミットはトランクやブランチに対して行いますが、タグに対しては行いません。すなわち、タグは固定されているものだと考えられており、変更するべきではありません。"
 
 #. (para)
 msgid ""
@@ -9106,6 +9106,17 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr "新しいタグを常に一貫した状態にするためには、すべての外部項目の持つリビジョンが、現在の作業コピーのリビジョンで固定されていることを確認する必要があります。外部項目を確認せずにいると、将来 HEAD リビジョンが更新されたときに、新しいタグをチェックアウトすると、外部項目はその時点での HEAD リビジョンが取得されてしまい、コンパイルに失敗する可能性があります。そのため、タグを作成するときには、常に外部項目に明示的なリビジョン番号を設定することをお勧めします。"
+
+#. (title)
+msgid "externals within externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a project that is included as an external has itself included externals, "
+"then those will not be tagged! Only externals that are direct children can "
+"be tagged."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15175,11 +15186,11 @@ msgstr "<literal>ユーザー名</literal>と<literal>パスワード</literal>�
 msgid ""
 "The <literal>Monitor interval in minutes</literal> specifies the minutes to "
 "wait in between checks. The smallest interval is one minute."
-msgstr ""
+msgstr " <literal>監視間隔（分）</literal> は監視する間の待ち時間を指定します。最小間隔は1分です。"
 
 #. (title)
 msgid "check interval"
-msgstr ""
+msgstr "チェック間隔"
 
 #. (para)
 msgid ""
@@ -15195,14 +15206,14 @@ msgstr "モニターダイアログ"
 
 #. (title)
 msgid "The main dialog of the project monitor"
-msgstr ""
+msgstr "プロジェクトモニターのメインダイアログ"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The project monitor shows all monitored projects on the "
 "left in a tree view. The projects can be moved around, for example one "
 "project can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> プロジェクトモニターは監視中のプロジェクトを左のツリービューに表示します。プロジェクトは移動することが可能で、例えばあるプロジェクトを他のプロジェクトの下位に移動して、子プロジェクトや下位プロジェクトにすることができます。"
 
 #. (para)
 msgid ""
@@ -20493,7 +20504,7 @@ msgstr ""
 
 #. (term)
 msgid "Line Endings"
-msgstr ""
+msgstr "改行コード"
 
 #. (para)
 msgid ""

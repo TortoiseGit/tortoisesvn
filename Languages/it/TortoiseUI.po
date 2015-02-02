@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-01-22 09:32+0000\n"
+"PO-Revision-Date: 2015-02-01 09:31+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -684,12 +684,6 @@ msgstr "&Elimina elementi senza versione..."
 msgid "&Delete..."
 msgstr "Eli&mina..."
 
-#. Resource IDs: (65)
-msgid ""
-"&Delete\n"
-"The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
-
 #. Resource IDs: (12)
 msgid "&Diff"
 msgstr "&Confronta"
@@ -1219,6 +1213,12 @@ msgstr "&Elimina"
 
 #. Resource IDs: (65)
 msgid "&Remove project"
+msgstr ""
+
+#. Resource IDs: (65)
+msgid ""
+"&Remove\n"
+"The project is removed. If it has sub-projects, those are removed as well."
 msgstr ""
 
 #. Resource IDs: (101)
@@ -1900,6 +1900,10 @@ msgstr "Aggiungi elemento\nCiò comporterà problemi in Windows."
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Aggiungi automaticamente nuovi file a SVN"
+
+#. Resource IDs: (66)
+msgid "Add project or folder here..."
+msgstr ""
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3852,6 +3856,10 @@ msgstr "Menu predefinito dell'applicazione. Appare quando i documenti sono apert
 msgid "Default directory structure successfully created!"
 msgstr "Struttura predefinito della cartella creata corretamente!"
 
+#. Resource IDs: (65535)
+msgid "Default monitor interval in minutes:"
+msgstr ""
+
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Percorso predefinito"
@@ -3871,10 +3879,6 @@ msgstr "Elimina file e cartelle &ignorate"
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
 msgstr "Elimina file e cartelle senza &versione"
-
-#. Resource IDs: (65)
-msgid "Delete Project"
-msgstr ""
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4177,11 +4181,6 @@ msgstr "Esegui per tutti gli elementi senza versione/modificati"
 msgid "Do you really want to delete the toolbar '%s'?"
 msgstr "Eliminare la barra '%s'?"
 
-#. Resource IDs: (65)
-#, c-format
-msgid "Do you want to delete the monitored project '%s'?"
-msgstr ""
-
 #. Resource IDs: (92)
 #, c-format
 msgid "Do you want to drop the vendor branch into the working copy \"%s\"?"
@@ -4225,6 +4224,11 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr "Ricaricare il documento per adattarlo ai cambiamenti di impostazione?\nNota: così facendo tutti i cambiamenti apportati verranno persi!"
+
+#. Resource IDs: (65)
+#, c-format
+msgid "Do you want to remove the monitored project '%s'?"
+msgstr ""
 
 #. Resource IDs: (588)
 #, c-format
@@ -7504,6 +7508,10 @@ msgstr ""
 msgid "Password is wrong"
 msgstr ""
 
+#. Resource IDs: (349)
+msgid "Password/phrase"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Password:"
@@ -8267,6 +8275,10 @@ msgstr "Elimina %s"
 #. Resource IDs: (102)
 msgid "Remove Bookmark"
 msgstr "Rimuovi Preferito"
+
+#. Resource IDs: (65)
+msgid "Remove Project"
+msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
