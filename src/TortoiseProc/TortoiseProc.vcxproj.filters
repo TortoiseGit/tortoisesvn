@@ -911,9 +911,6 @@
     <ClCompile Include="SimplePrompt.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="SVNProgressDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="URLDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
@@ -1099,6 +1096,9 @@
     </ClCompile>
     <ClCompile Include="..\..\ext\snarl\SnarlInterface.cpp">
       <Filter>Utils\3rd Party</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNProgressDlg.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1879,9 +1879,6 @@
     <ClInclude Include="SimplePrompt.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="SVNProgressDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="URLDlg.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
@@ -2097,6 +2094,9 @@
     </ClInclude>
     <ClInclude Include="Settings\SettingsTUDiff.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNProgressDlg.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
