@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -166,7 +166,7 @@ BOOL CSettingsSync::ValidateInput()
                                 {
                                     if (int(DWORD(regCount)) < inicount)
                                     {
-                                        CString sCmd = L" /command:sync /load";
+                                        CString sCmd = L" /command:sync /load" + GetHWndParam();
                                         CAppUtils::RunTortoiseProc(sCmd);
                                     }
                                 }
@@ -208,7 +208,7 @@ BOOL CSettingsSync::OnKillActive()
 void CSettingsSync::OnBnClickedLoad()
 {
     ValidateInput();
-    CString sCmd = L" /command:sync /load";
+    CString sCmd = L" /command:sync /load" + GetHWndParam();
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
@@ -216,20 +216,27 @@ void CSettingsSync::OnBnClickedLoad()
 void CSettingsSync::OnBnClickedSave()
 {
     ValidateInput();
-    CString sCmd = L" /command:sync /save";
+    CString sCmd = L" /command:sync /save" + GetHWndParam();
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
 
 void CSettingsSync::OnBnClickedLoadfile()
 {
-    CString sCmd = L" /command:sync /load /askforpath";
+    CString sCmd = L" /command:sync /load /askforpath" + GetHWndParam();
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
 
 void CSettingsSync::OnBnClickedSavefile()
 {
-    CString sCmd = L" /command:sync /save /askforpath";
+    CString sCmd = L" /command:sync /save /askforpath" + GetHWndParam();
     CAppUtils::RunTortoiseProc(sCmd);
+}
+
+CString CSettingsSync::GetHWndParam() const
+{
+    CString sCmd;
+    sCmd.Format(L" /hwnd:%p", (void*)GetSafeHwnd());
+    return sCmd;
 }

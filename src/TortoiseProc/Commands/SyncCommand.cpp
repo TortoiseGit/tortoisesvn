@@ -163,7 +163,7 @@ bool SyncCommand::Execute()
                         do
                         {
                             bPasswordMatches = true;
-                            CPasswordDlg passDlg;
+                            CPasswordDlg passDlg(CWnd::FromHandle(GetExplorerHWND()));
                             passDlg.m_bForSave = !!parser.HasKey(L"save");
                             dlgret = passDlg.DoModal();
                             password = passDlg.m_sPW1;
@@ -597,7 +597,7 @@ bool SyncCommand::Execute()
         CString password;
         if (parser.HasKey(L"askforpath"))
         {
-            CPasswordDlg passDlg;
+            CPasswordDlg passDlg(CWnd::FromHandle(GetExplorerHWND()));
             passDlg.m_bForSave = true;
             if (passDlg.DoModal() != IDOK)
                 return false;
