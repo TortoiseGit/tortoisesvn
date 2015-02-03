@@ -29,6 +29,7 @@
 #include "PasswordDlg.h"
 #include "SelectFileFilter.h"
 #include "TempFile.h"
+#include "ProjectProperties.h"
 
 #define TSVN_SYNC_VERSION       1
 #define TSVN_SYNC_VERSION_STR   L"1"
@@ -298,9 +299,11 @@ bool SyncCommand::Execute()
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
         sDataFilePath += L"\\MonitoringData.ini";
         CSimpleIni monitorIni;
+        monitorIni.SetMultiLine(true);
         if (bCloudIsNewer)
         {
             CSimpleIni origMonitorIni;
+            origMonitorIni.SetMultiLine(true);
             origMonitorIni.LoadFile(sDataFilePath);
 
             CSimpleIni::TNamesDepend keys;
@@ -437,6 +440,20 @@ bool SyncCommand::Execute()
                     oldval = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
                     bHaveChanges |= newval != oldval;
                     iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newval);
+
+                    newval = monitorIni.GetValue(mitem, L"uuid", L"");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".uuid", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".uuid", newval);
+
+                    newval = monitorIni.GetValue(mitem, L"root", L"");
+                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".root", L"");
+                    bHaveChanges |= newval != oldval;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".root", newval);
+
+                    ProjectProperties ProjProps;
+                    ProjProps.LoadFromIni(monitorIni, sSection);
+                    ProjProps.SaveToIni(iniFile, L"ini_monitor", sSection + L".pp_");
                 }
                 else if (sSection.CompareNoCase(L"global") == 0)
                 {
@@ -457,6 +474,7 @@ bool SyncCommand::Execute()
     {
         // sync TortoiseMerge regex filters
         CSimpleIni regexIni;
+        regexIni.SetMultiLine(true);
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
         sDataFilePath += L"\\regexfilters.ini";
 
