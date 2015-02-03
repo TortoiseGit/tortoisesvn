@@ -318,6 +318,7 @@ bool SyncCommand::Execute()
                     monitorIni.SetValue(sSection, L"lastHEAD", origMonitorIni.GetValue(sSection, L"lastHEAD", L"0"));
                     monitorIni.SetValue(sSection, L"UnreadItems", origMonitorIni.GetValue(sSection, L"UnreadItems", L"0"));
                     monitorIni.SetValue(sSection, L"unreadFirst", origMonitorIni.GetValue(sSection, L"unreadFirst", L"0"));
+                    monitorIni.SetValue(sSection, L"WCPathOrUrl", origMonitorIni.GetValue(sSection, L"WCPathOrUrl", L""));
                 }
                 CString sValue = CString(iniFile.GetValue(L"ini_monitor", k, L""));
                 if ((sKey.Compare(L"username") == 0) || (sKey.Compare(L"password") == 0))
@@ -383,6 +384,7 @@ bool SyncCommand::Execute()
                 {
                     return false;
                 }
+                monitorIni.GetAllSections(mitems);
             }
 
             for (const auto& mitem : mitems)
@@ -391,11 +393,15 @@ bool SyncCommand::Execute()
                 CString Name = monitorIni.GetValue(mitem, L"Name", L"");
                 if (!Name.IsEmpty())
                 {
-                    iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
                     CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
+                    iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
                     CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
                     bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
+                    // only save monitored working copies if local settings are included, or
+                    // if the monitored path is an url.
+                    // Don't save paths to working copies for non-local stores
+                    if (bWithLocals || newval.IsEmpty() || !PathIsDirectory(newval))
+                        iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
 
                     newval = monitorIni.GetValue(mitem, L"interval", L"5");
                     oldval = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
