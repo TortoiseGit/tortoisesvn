@@ -159,7 +159,8 @@ enum LogDlgContextMenuCommands
     ID_DIFF_MULTIPLE,
     ID_DIFF_MULTIPLE_CONTENTONLY,
     ID_OPENLOCAL_MULTIPLE,
-    ID_CODE_COLLABORATOR
+    ID_CODE_COLLABORATOR,
+    ID_EXPLORE
 };
 
 enum LogDlgShowBtnCommands
@@ -9256,6 +9257,12 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
+            popup.AppendMenuIcon(ID_EXPLORE, IDS_STATUSLIST_CONTEXT_EXPLORE, IDI_EXPLORER);
+        }
+        else if (::PathIsURL(pItem->WCPathOrUrl))
+        {
+            popup.AppendMenu(MF_SEPARATOR, NULL);
+            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL);
         }
     }
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
@@ -9285,6 +9292,19 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
                 CAppUtils::RunTortoiseProc(sCmd);
             }
         }
+        break;
+        case ID_EXPLORE:
+        {
+            PCIDLIST_ABSOLUTE __unaligned pidl = ILCreateFromPath((LPCTSTR)pItem->WCPathOrUrl);
+            if (pidl)
+            {
+                SHOpenFolderAndSelectItems(pidl, 0, 0, 0);
+                CoTaskMemFree((LPVOID)pidl);
+            }
+        }
+        break;
+        case ID_VIEWPATHREV:
+            ShellExecute(this->m_hWnd, L"open", pItem->WCPathOrUrl, NULL, NULL, SW_SHOWDEFAULT);
             break;
         default:
             break;
