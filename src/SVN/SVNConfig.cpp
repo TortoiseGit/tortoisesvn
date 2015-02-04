@@ -93,6 +93,7 @@ BOOL SVNConfig::GetWCIgnores(const CTSVNPath& path)
         return FALSE;
     }
     err = svn_wc_get_ignores2(&patterns, pctx, path.GetSVNApiPath(wcignorespool), config, wcignorespool, wcignorespool);
+    svn_wc_context_destroy(pctx);
     if (err)
     {
         svn_error_clear(err);
