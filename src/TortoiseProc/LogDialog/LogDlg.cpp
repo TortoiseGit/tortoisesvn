@@ -9257,7 +9257,8 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
-            popup.AppendMenuIcon(ID_EXPLORE, IDS_STATUSLIST_CONTEXT_EXPLORE, IDI_EXPLORER);
+            popup.AppendMenuIcon(ID_EXPLORE, IDS_LOG_POPUP_EXPLORE, IDI_EXPLORER);
+            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL);
         }
         else if (::PathIsURL(pItem->WCPathOrUrl))
         {
@@ -9304,8 +9305,11 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         }
         break;
         case ID_VIEWPATHREV:
+        {
+            CString url = GetURLFromPath(CTSVNPath(pItem->WCPathOrUrl));
             ShellExecute(this->m_hWnd, L"open", pItem->WCPathOrUrl, NULL, NULL, SW_SHOWDEFAULT);
-            break;
+        }
+        break;
         default:
             break;
     } // switch (cmd)
