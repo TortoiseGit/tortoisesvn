@@ -1010,8 +1010,8 @@
               Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
               <Shortcut Id="S__TortoiseRepoBrowser" Directory="D_TortoisePrgMenu" Name="TortoiseSVN Repository Browser" Advertise="no"
               Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Repository Browser" Arguments="/command:repobrowser" Show="normal" />
-              <Shortcut Id="S__TortoiseMonitor" Directory="D_TortoisePrgMenu" Name="TortoiseSVN Commit Monitor" Advertise="no"
-              Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Commit Monitor" Arguments="/command:monitor" Show="normal" />
+              <Shortcut Id="S__TortoiseMonitor" Directory="D_TortoisePrgMenu" Name="TortoiseSVN Project Monitor" Advertise="no"
+              Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Project Monitor" Arguments="/command:monitor" Show="normal" />
             </Component>
 
             <Component Id="C__TortoiseMerge" Guid="$(var.GuidTortoiseMerge)" Win64="$(var.Win64YesNo)">
