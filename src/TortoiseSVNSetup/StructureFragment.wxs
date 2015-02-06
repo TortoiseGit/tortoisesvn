@@ -1124,7 +1124,7 @@
           </Directory>
 
           <Directory Id='$(var.cf)' Name='Common'>
-            <Directory Id='TortoioseOverlays' Name='TortoiseOverlays'>
+            <Directory Id='TortoiseOverlays' Name='TortoiseOverlays'>
               <Directory Id="D__icons" Name="icons" >
 
                 <Directory Id="D__iconscvsclassic" Name="CVSClassic" >
