@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2014
+# Kari Granö <kari.grano@gmail.com>, 2011-2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-01 09:55+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-02-03 23:20+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -472,7 +472,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Luku <xref linkend=\"tsvn-repository\"/> kuvaa, miten luodaan paikallinen arkisto, jolla on näppärää testata Subversion- ja TortoiseSVN-ohjelmia omalla työasemalla. Se kuvaa myös hieman arkiston hallinnointia, ja on siltä osin hyödyksi myös palvelimella sijaitsevien arkistojen käsittelyssä."
 
 #. (para)
 msgid ""
@@ -632,7 +632,7 @@ msgstr "TortoiseSVN sisältää helppokäyttöisen asennusohjelman. Kaksoisnapsa
 msgid ""
 "You need Administrator privileges to install TortoiseSVN. The installer will"
 " ask you for Administrator credentials if necessary."
-msgstr ""
+msgstr "TortoiseSVN-asennukseen tarvitaan pääkäyttäjän oikeudet. Asennusohjelma pyytää tarvittaessa oikeudet."
 
 #. (para)
 msgid ""
@@ -817,7 +817,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Nyt, kun arkistossa on projekti, tarvitaan siitä työkopio, jota käytetään päivittäisessä työssä.  Huomaa, että kansion tuonti arkistoon ei automaattisesti tee siitä työkopiota. Subversion-termi uuden työkopion luomiseksi on <literal>Hae työkopio</literal> (engl. checkout). Hae arkiston Widget1-kansiosta työkopio hakemistoon <filename>C:\\Projects\\Widget1-Dev</filename> seuraavasti: Luo kansio, napsauta sitä hiiren oikealla näppäimellä ja anna komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Hae työkopio...</guimenuitem></menuchoice>. Anna sitten haettava paikannin, tässä tapauksessa <filename>file:///c:/svn_repos/trunk/Widget1</filename> ja napsauta <guibutton>OK</guibutton>. Arkiston tiedostot lisätään uuteen kansioon."
 
 #. (para)
 #. (para)
@@ -848,7 +848,7 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "On aika alkaa töihin. Oletetaan, että muutamme kansion <filename>Widget1-Dev</filename> tiedostoja <filename>Widget1.c</filename> ja <filename>ReadMe.txt</filename>. Huomaa, että tiedostojen kuvakepäällykset muuttavat punaisiksi. Tämä kertoo, että niissä on paikallisia muutoksia."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -916,7 +916,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Yksi hyödyllisimmistä TortoiseSVN-toiminnoista on loki-ikkuna. Se näyttää luettelon toimituksista, joita olet tehnyt tiedostolle tai kansiolle, sekä näyttää niille antamasi yksityiskohtaiset lokiviestit (Annoithan toimitusviestin?  Mikäli et, huomaat nyt miksi se on tärkeää.) <placeholder-1/> (tässä on laiskuussyistä käytetty TortoiseSVN-arkiston loki-ikkunaa)."
 
 #. (para)
 msgid ""

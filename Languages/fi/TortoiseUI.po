@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2014
+# Kari Granö <kari.grano@gmail.com>, 2011-2015
 # Kari Granö <kari.grano@gmail.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-01 09:31+0000\n"
+"PO-Revision-Date: 2015-02-06 09:30+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -1213,7 +1213,7 @@ msgstr "&Poista projekti"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Poista\nProjekti poistetaan. Mahdolliset aliprojektit poistetaan myös."
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1897,7 +1897,7 @@ msgstr "Lisää uudet tiedostot automaattisesti versionhallintaan"
 
 #. Resource IDs: (66)
 msgid "Add project or folder here..."
-msgstr ""
+msgstr "Lisää projekti tai kansio tänne..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3852,7 +3852,7 @@ msgstr "Oletuskansiorakenne luotu!"
 
 #. Resource IDs: (65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "Oletusseurantaväli minuuteissa:"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4222,7 +4222,7 @@ msgstr "Haluatko avata tiedostot uudelleen, jotta asetusmuutokset tulevat voimaa
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to remove the monitored project '%s'?"
-msgstr ""
+msgstr "Haluatko poistaa seuratun projektin '%s'?"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4844,7 +4844,7 @@ msgstr "Palvelinsovelluksen käynnistys epäonnistui."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Projektiseuraimen ohjaustiedoston lukeminen epäonnistui!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5654,7 +5654,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7382,9 +7382,17 @@ msgstr "Avaa useita &paikallisia..."
 msgid "Open parent folder"
 msgstr "Avaa yläkansio"
 
+#. Resource IDs: (116)
+msgid "Open repository &Url"
+msgstr ""
+
 #. Resource IDs: (113)
 msgid "Open with..."
 msgstr "Avaa ohjelmalla..."
+
+#. Resource IDs: (66)
+msgid "Open working copy in &explorer"
+msgstr ""
 
 #. Resource IDs: (3605)
 msgid ""
@@ -7504,7 +7512,7 @@ msgstr "Salasana on väärin"
 
 #. Resource IDs: (349)
 msgid "Password/phrase"
-msgstr ""
+msgstr "Salasana/fraasi"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -8103,7 +8111,7 @@ msgstr "Siirrytään paikantimeen"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "Tee uudelleen"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8272,7 +8280,7 @@ msgstr "Poista kirjanmerkki"
 
 #. Resource IDs: (65)
 msgid "Remove Project"
-msgstr ""
+msgstr "Poista projekti"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -11597,7 +11605,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Komentoriviparametrit:\n/base:<polku kantatiedostoon>\n/basename:<otsikkorivillä näytettävä nimi>\n/theirs:<polku heidän tiedostoonsa>\n/theirsname:<otsikkorivillä näytettävä nimi>\n/mine:<polku sinun tiedostoosi>\n/minename:<otsikkorivillä näytettävä nimi>\n/merged:<polku yhdistämisen tulostiedostoon>\n/mergedname:<otsikkorivillä näytettävä nimi>\n/diff:<polku unified diff -tiedostoon>\n/patchpath:<polku paikkakansioon>\n/saverequired\n/saverequiredonconflicts\n/oneway <pakottaa yksisuuntaisen näkymän>\n/line:<rivinumero, jolle siirrytään>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
