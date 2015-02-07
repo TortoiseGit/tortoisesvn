@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,9 +22,9 @@
 #include "registry.h"
 #include "AppUtils.h"
 
-IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CBlameDlg, CStateStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-    : CStandAloneDialog(CBlameDlg::IDD, pParent)
+    : CStateStandAloneDialog(CBlameDlg::IDD, pParent)
     , StartRev(1)
     , EndRev(0)
     , m_sStartRev(L"1")
@@ -45,7 +45,7 @@ CBlameDlg::~CBlameDlg()
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CStandAloneDialog::DoDataExchange(pDX);
+    CStateStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
     DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
     DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
@@ -54,7 +54,7 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CBlameDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CBlameDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_EN_CHANGE(IDC_REVISION_END, &CBlameDlg::OnEnChangeRevisionEnd)
 END_MESSAGE_MAP()
@@ -63,7 +63,7 @@ END_MESSAGE_MAP()
 
 BOOL CBlameDlg::OnInitDialog()
 {
-    CStandAloneDialog::OnInitDialog();
+    CStateStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DIFFGROUP);
@@ -98,6 +98,8 @@ BOOL CBlameDlg::OnInitDialog()
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
+    EnableSaveRestore(L"BlameDlg");
+
     return TRUE;
 }
 
@@ -146,7 +148,7 @@ void CBlameDlg::OnOK()
 
     UpdateData(FALSE);
 
-    CStandAloneDialog::OnOK();
+    CStateStandAloneDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()

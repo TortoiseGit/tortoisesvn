@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
  * Show the blame dialog where the user can select the revision to blame
  * and whether to use TortoiseBlame or the default text editor to view the blame.
  */
-class CBlameDlg : public CStandAloneDialog
+class CBlameDlg : public CStateStandAloneDialog
 {
     DECLARE_DYNAMIC(CBlameDlg)
 

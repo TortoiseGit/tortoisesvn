@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2014 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 
 // CCleanupDlg dialog
 
-class CCleanupDlg : public CStandAloneDialog
+class CCleanupDlg : public CStateStandAloneDialog
 {
     DECLARE_DYNAMIC(CCleanupDlg)
 

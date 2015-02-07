@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,9 +24,9 @@
 #include "AppUtils.h"
 #include "RepositoryBrowser.h"
 
-IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CUpdateDlg, CStateStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
-    : CStandAloneDialog(CUpdateDlg::IDD, pParent)
+    : CStateStandAloneDialog(CUpdateDlg::IDD, pParent)
     , Revision(L"HEAD")
     , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_bStickyDepth(TRUE)
@@ -42,7 +42,7 @@ CUpdateDlg::~CUpdateDlg()
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CStandAloneDialog::DoDataExchange(pDX);
+    CStateStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_REVNUM, m_sRevision);
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
     DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
@@ -50,7 +50,7 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CUpdateDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDC_LOG, OnBnClickedShowLog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
     ON_EN_CHANGE(IDC_REVNUM, &CUpdateDlg::OnEnChangeRevnum)
@@ -60,7 +60,7 @@ END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
-    CStandAloneDialog::OnInitDialog();
+    CStateStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_GROUPMISC);
@@ -90,6 +90,9 @@ BOOL CUpdateDlg::OnInitDialog()
     GetDlgItem(IDC_REVNUM)->SetFocus();
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
+
+    EnableSaveRestore(L"UpdateDlg");
+
     return FALSE;
 }
 
@@ -101,7 +104,7 @@ void CUpdateDlg::OnCancel()
         return;
     }
 
-    CStandAloneDialog::OnCancel();
+    CStateStandAloneDialog::OnCancel();
 }
 
 void CUpdateDlg::OnOK()
@@ -161,7 +164,7 @@ void CUpdateDlg::OnOK()
     CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
     regNoExt = m_bNoExternals;
 
-    CStandAloneDialog::OnOK();
+    CStateStandAloneDialog::OnOK();
 }
 
 void CUpdateDlg::OnBnClickedShowLog()

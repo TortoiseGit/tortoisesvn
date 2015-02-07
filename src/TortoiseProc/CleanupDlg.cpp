@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,10 +25,10 @@
 
 // CCleanupDlg dialog
 
-IMPLEMENT_DYNAMIC(CCleanupDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCleanupDlg, CStateStandAloneDialog)
 
 CCleanupDlg::CCleanupDlg(CWnd* pParent /*=NULL*/)
-    : CStandAloneDialog(CCleanupDlg::IDD, pParent)
+    : CStateStandAloneDialog(CCleanupDlg::IDD, pParent)
     , m_bCleanup(FALSE)
     , m_bRevert(FALSE)
     , m_bDelUnversioned(FALSE)
@@ -51,7 +51,7 @@ CCleanupDlg::~CCleanupDlg()
 
 void CCleanupDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CStandAloneDialog::DoDataExchange(pDX);
+    CStateStandAloneDialog::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_CLEANUP, m_bCleanup);
     DDX_Check(pDX, IDC_REVERT, m_bRevert);
     DDX_Check(pDX, IDC_DELETEUNVERSIONED, m_bDelUnversioned);
@@ -64,7 +64,7 @@ void CCleanupDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCleanupDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCleanupDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CCleanupDlg::OnBnClickedHelp)
     ON_BN_CLICKED(IDC_CLEANUP, &CCleanupDlg::OnBnClicked)
     ON_BN_CLICKED(IDC_REVERT, &CCleanupDlg::OnBnClicked)
@@ -83,7 +83,7 @@ END_MESSAGE_MAP()
 
 BOOL CCleanupDlg::OnInitDialog()
 {
-    CStandAloneDialog::OnInitDialog();
+    CStateStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(0);
@@ -119,13 +119,17 @@ BOOL CCleanupDlg::OnInitDialog()
 
     m_tooltips.Create(this);
 
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
+    EnableSaveRestore(L"CleanupDlg");
+
     return TRUE;
 }
 
 BOOL CCleanupDlg::PreTranslateMessage(MSG* pMsg)
 {
     m_tooltips.RelayEvent(pMsg);
-    return CStandAloneDialog::PreTranslateMessage(pMsg);
+    return CStateStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCleanupDlg::EnableOKButton()
