@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -462,14 +462,14 @@ private:
 class CStateDialog : public CDialog, public CResizableWndState
 {
 public:
-    CStateDialog()
-        : m_bEnableSaveRestore(false)
+    CStateDialog() : CDialog()
+        , m_bEnableSaveRestore(false)
         , m_bRectOnly(false){}
-    CStateDialog(UINT /*nIDTemplate*/, CWnd* /*pParentWnd = NULL*/)
-        : m_bEnableSaveRestore(false)
+    CStateDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL) : CDialog(nIDTemplate, pParentWnd)
+        , m_bEnableSaveRestore(false)
         , m_bRectOnly(false){}
-    CStateDialog(LPCTSTR /*lpszTemplateName*/, CWnd* /*pParentWnd = NULL*/)
-        : m_bEnableSaveRestore(false)
+    CStateDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL) : CDialog(lpszTemplateName, pParentWnd)
+        , m_bEnableSaveRestore(false)
         , m_bRectOnly(false){}
     virtual ~CStateDialog(){};
 

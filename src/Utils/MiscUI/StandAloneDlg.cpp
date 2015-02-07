@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -201,4 +201,5 @@ bool CResizableStandAloneDialog::OnEnterPressed()
 }
 
 BEGIN_MESSAGE_MAP(CStateDialog, CDialog)
+    ON_WM_DESTROY()
 END_MESSAGE_MAP()
