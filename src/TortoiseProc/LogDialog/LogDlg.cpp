@@ -1886,6 +1886,9 @@ void CLogDlg::LogThread()
         SetDlgItemText(IDC_LOGCANCEL, temp);
     }
     RefreshCursor();
+
+    if (m_bMonitoringMode)
+        SVNReInit();
     // make sure the filter is applied (if any) now, after we refreshed/fetched
     // the log messages
     PostMessage(WM_TIMER, LOGFILTER_TIMER);
@@ -8829,6 +8832,8 @@ void CLogDlg::OnMonitorThreadFinished()
     }
     else
         SaveMonitorProjects(false);
+
+    SVNReInit();
 }
 
 void CLogDlg::ShutDownMonitoring()
