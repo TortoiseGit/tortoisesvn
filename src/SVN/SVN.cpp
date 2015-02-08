@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -114,15 +114,26 @@ SVN::SVN(bool suppressUI)
     , m_bAssumeCacheEnabled(false)
 {
     parentpool = svn_pool_create(NULL);
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), parentpool));
-
     pool = svn_pool_create (parentpool);
+
+    SVNInit();
+}
+
+void SVN::SVNReInit()
+{
+    svn_pool_clear(pool);
+    SVNInit();
+}
+
+void SVN::SVNInit()
+{
     svn_ra_initialize(pool);
 
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), pool));
     if (m_pctx->config == nullptr)
     {
-        svn_pool_destroy (pool);
-        svn_pool_destroy (parentpool);
+        svn_pool_destroy(pool);
+        svn_pool_destroy(parentpool);
         exit(-1);
     }
 
@@ -2701,7 +2712,7 @@ LogCache::CLogCachePool* SVN::GetLogCachePool()
 void SVN::ResetLogCachePool()
 {
     // this should be called by the ~SVN only but we make sure that
-    // (illegal) concurrent access won't see zombi objects.
+    // (illegal) concurrent access won't see zombie objects.
 
     async::CCriticalSectionLock lock (GetLogCachePoolMutex());
     if (logCachePool.get() != NULL)

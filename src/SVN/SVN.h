@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -958,6 +958,15 @@ public:
     void SuppressUI(bool bSuppress) { m_prompt.SuppressUI(bSuppress); }
     bool IsSuppressedUI() { return m_prompt.IsSilent(); }
     void SetAuthInfo(const CString& username, const CString& password);
+
+    /**
+     * Reinitializes the client context structure m_pctx.
+     * This is required to get rid of file locks on wc.db files because
+     * svn uses the pool used to create the client context to open the SQLite
+     * database files. And those files are only closed when the pool is cleared!
+     */
+    void SVNReInit();
+
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
@@ -981,6 +990,7 @@ protected:
 
     void                 CallPreConnectHookIfUrl(const CTSVNPathList& pathList, const CTSVNPath& path = CTSVNPath());
     void                 Prepare();
+    void                 SVNInit();
 
     void cancel();
     static svn_error_t* cancel(void *baton);
