@@ -639,6 +639,8 @@ bool CStringUtils::FromHexString(const std::string& src, BYTE* pDest)
         if ((*it < '0') || (*it > 'f'))
             return false;
         int d = DecLookup[*it] << 4;
+        // no bounds check necessary, since the 'if (src.size %2)' above
+        // ensures that we have always one item more available
         ++it;
         d |= DecLookup[*it];
         *pDest++ = (BYTE)d;
