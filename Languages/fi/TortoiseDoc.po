@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-03 23:20+0000\n"
+"PO-Revision-Date: 2015-02-08 14:11+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -346,7 +346,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Ajan myötä muihin versionhallintajärjestelmiin toteutettiin niitä tukeva Tortoise-asiakas, mistä seurasi ongelma Resurssienhallinnan kuvakepäällysten kanssa: päällysten lukumäärä on rajallinen, joten se ylittyy helposti. Tästä syystä Stefan Küng toteutti TortoiseOverlays-komponentin, jonka avulla kaikki Tortoise-asiakkaat voivat käyttää samoja kuvakepäällyksiä. Tätä nykyä kaikki avoimen lähdekoodin Tortoise-asiakkaat ja jopa jotkut muut ohjelmat käyttävät jaettuja kuvakkeita."
 
 #. (title)
 msgid "Acknowledgments"
@@ -1504,26 +1504,26 @@ msgstr "Huomaa, että paikannin käyttää tavallisia kauttaviivoja, vaikka Wind
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "Voit kytkeytyä FSFS-tekniikalla toteutettuun arkistoon verkkojaon kautta, mutta tätä <emphasis>ei</emphasis> suositella useista eri syistä:"
 
 #. (para)
 msgid ""
 "You are giving direct write access to all users, so they could accidentally "
 "delete or corrupt the repository file system."
-msgstr ""
+msgstr "Annat kaikille käyttäjille suoran kirjoitusoikeuden, joten he voivat vahingossa tuhota tai muutoin tehdä arkiston tiedostojärjestelmän käyttökelvottomaksi."
 
 #. (para)
 msgid ""
 "Not all network file sharing protocols support the locking that Subversion "
 "requires. One day you will find your repository has been subtly "
 "<emphasis>corrupted</emphasis>."
-msgstr ""
+msgstr "Kaikki verkkojakojen yhteyskäytännöt eivät tue Subversionin tarvitsemaa lukitustapaa. Jonain päivänä huomaat, että arkistosi on huomaamatta <emphasis>korruptoitunut</emphasis>."
 
 #. (para)
 msgid ""
 "You have to set the access permissions in just the right way. SAMBA is "
 "particularly difficult in this respect."
-msgstr ""
+msgstr "Pääsyoikeudet on asetettava juuri oikealla tavalla. SAMBA on erityisen vaikea tässä suhteessa."
 
 #. (para)
 #. (para)
@@ -1531,7 +1531,7 @@ msgid ""
 "If one person installs a newer version of the client which upgrades the "
 "repository format, then everyone else will be unable to access the "
 "repository until they also upgrade to the new client version."
-msgstr ""
+msgstr "Jos joku käyttäjistä asentaa uuden asiakasversion, joka päivittää arkistorakenteen, muut käyttäjät eivät kykene enää kytkeytymään arkistoon ilman asialasversion päivitystä."
 
 #. (title)
 msgid "Revisions"
@@ -1794,7 +1794,7 @@ msgstr "luo arkisto"
 msgid ""
 "Please note that the command line client that comes with TortoiseSVN and "
 "TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
+msgstr "Huomaa, että TortoiseSVN-asennuksen mukana tuleva komentorivisovellus ei tue vanhempaa Berkeley-tietokantamuotoa (BDB)."
 
 #. (para)
 msgid ""
@@ -1911,7 +1911,7 @@ msgid ""
 "We also recommend that you don't use <literal>file://</literal> access at "
 "all, apart from local testing purposes. Using a server is more secure and "
 "more reliable for all but single-developer use."
-msgstr ""
+msgstr "Suosittelemme myös, ettet käytä <literal>file://</literal> -yhteyskäytäntöä ollenkaan, pois lukien paikalliset testaustarpeet. Palvelimen käyttö on turvallisempaa ja luotettavampaa kaikkeen paitsi yksittäisen kehittäjän käyttöön."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1963,7 +1963,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "Vaikka on teoriassa mahdollista sijoittaa FSFS-arkisto verkkojaolle ja sallia sen yhtäaikainen käyttö <literal>file://</literal> -yhteyskäytännöllä, tätä tapaa <emphasis>ei suositella</emphasis> eikä tueta useista eri syistä:"
 
 #. (para)
 msgid ""
@@ -2637,7 +2637,7 @@ msgid ""
 "Copy the selected text. In case no text is selected but e.g. a list entry or"
 " a message box, then the content of that list entry or the message box is "
 "copied to the clipboard."
-msgstr ""
+msgstr "Kopioi valittu teksti. Mikäli valintaa ei ole, aktiivisen listavalinnan tai viesti-ikkunan sisältö kopioidaan leikepöydälle."
 
 #. (para)
 msgid ""
@@ -2698,7 +2698,7 @@ msgid ""
 "however will show a dialog where you can chose which cached authentication "
 "data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
 "data\"/>."
-msgstr ""
+msgstr "Mikäli haluat tyhjentää talletetut tunnistetiedot, voit tehdä sen TortoiseSVN:n asetusikkunan <guilabel>Tallennetut tiedot</guilabel> -sivulla. Painike  <guibutton>Tyhjennä kaikki</guibutton> poistaa talletetut tunnistetiedot kaikista arkistoista. Painike  <guibutton>Tyhjennä...</guibutton> puolestaan avaa ikkunan, josta voit valita poistettavat yksittäiset tunnistetiedot. Katso myös <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid ""
@@ -2935,7 +2935,7 @@ msgid ""
 "<filename>default.build.user</filename>. Inside that file, we added comments"
 " so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr ""
+msgstr "Voit esimerkiksi vilkaista TortoiseSVN:n käännöskomentojonoa. Se kutsuu tiedostoa nimeltä <filename>default.build.user</filename>, jota ei ole arkistossa. Arkistossa on vain tiedosto <filename>default.build.user.tmpl</filename>, joka on pohja, josta kehittäjän on tehtävä kopio nimellä <filename>default.build.user</filename>. Tiedosto sisältää kommentteja, joista selviää, mitä rivejä pitää muuttaa paikallisia asetuksia vastaaviksi, jotta käännös toimisi."
 
 #. (para)
 msgid ""
@@ -2944,7 +2944,7 @@ msgid ""
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr ""
+msgstr "Lopuksi lisäsimme vielä tiedoston <filename>default.build.user</filename> isähakemistonsa ohituslistaan, ts. sisällytimme sen Subversion-ominaisuuteen <literal>svn:ignore</literal>. Siten se ei turhaan näy toimitusikkunassa."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -3392,20 +3392,20 @@ msgstr "Oletusarvoisesti kaikki tiedostolukot vapautuvat onnistuneen toimituksen
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "Varoitus toimitettaessa merkittyyn versioon"
 
 #. (para)
 msgid ""
 "Usually, commits are done to the trunk or a branch, but not to tags. After "
 "all, a tag is considered fixed and should not change."
-msgstr ""
+msgstr "Toimitukset tehdään tavallisesti päähaaraan tai sivuhaaraan, ei merkittyyn versioon. Merkitty versio on yleensä kiinnitetty eikä sen tulisi muuttua."
 
 #. (para)
 msgid ""
 "If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
 "dialog first to ensure whether this is really what is intended. Because most"
 " of the time such a commit is done by accident."
-msgstr ""
+msgstr "Mikäli toimitusta kohdistuu merkittyyn versioon, TortoiseSVN pyytää erillisen vahvistuksen. Tämä siitä syystä, että useimmiten kyseessä on vahinko."
 
 #. (para)
 msgid ""
@@ -3416,7 +3416,7 @@ msgid ""
 " tag/branch/trunk (also known as <literal>classification "
 "patterns</literal>), can be configured in the settings dialog: <xref linkend"
 "=\"tsvn-dug-settings-revgraph\"/>"
-msgstr ""
+msgstr "Tämä tarkistus toimii vain, mikäli arkiston rakenne vastaa suositusta, ts. se käyttää nimiä  <filename>trunk</filename>, <filename>branches</filename> ja  <filename>tags</filename> erottaakseen kolme pääaluetta. Mikäli rakenne on erilainen, päähaaran, sivuhaarojen ja merkittyjen versioiden rakenne (ns.  <literal>luokittelusäännöt</literal>) voidaan määritellä asetusikkunassa:  <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
 msgid ""
@@ -5916,7 +5916,7 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
 "dug-showlog-refresh\"/>"
-msgstr ""
+msgstr "Koska TortoiseSVN säilöö lokitiedot välimuistiin, lokiviestien ja tekijöiden muutokset näkyvät vain paikallisessa tietokoneessa. Muut TortoiseSVN-käyttäjät näkevät muutokset vasta, kun he päivittävät oman lokivälimuistinsa.  Ks. <xref linkend=\"tsvn-dug-showlog-refresh\"/>"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8858,7 +8858,7 @@ msgid ""
 " examples above, make sure that <emphasis>all</emphasis> folders in between "
 "are versioned as well. So for the examples above, the folder "
 "<filename>common</filename> should be versioned!"
-msgstr ""
+msgstr "Mikäli määrität ulkoisen viitteen kohdehakemiston alikansioksi kuten yllä olevissa esimerkeissä, varmista, että <emphasis>kaikki</emphasis> välillä olevat kansiot on myös versioitu. Edellä siis kansion <filename>common</filename> tulee olla versioitu!"
 
 #. (para)
 msgid ""
@@ -8866,7 +8866,7 @@ msgid ""
 "between are not versioned, there are some operations that won't work as you "
 "expect. And the status overlay icons in explorer will also not show the "
 "correct status."
-msgstr ""
+msgstr "Joskin ulkoinen viite toimii useimmiten oikein, vaikka kaikki yläkansiot eivat olisi versioituja, jotkut komennot eivät toimi odotetusti. Resurssienhallinnan kuvakepäällykset eivät myöskään näytä oikeata tilaa."
 
 #. (para)
 msgid ""
@@ -9106,14 +9106,14 @@ msgstr "Jos haluat varmistaa, että uusi merkitty versio on aina yksikäsitteine
 
 #. (title)
 msgid "externals within externals"
-msgstr ""
+msgstr "Ulkoisten viitteiden sisältämät ulkoiset viitteet"
 
 #. (para)
 msgid ""
 "If a project that is included as an external has itself included externals, "
 "then those will not be tagged! Only externals that are direct children can "
 "be tagged."
-msgstr ""
+msgstr "Mikäli ulkoisena viitteenä sisällytetty projekti itse sisältää ulkoisia viitteitä, niitä ei merkitä! Vain välittöminä lapsia olevat ulkoiset viitteet voidaan merkitä."
 
 #. (para)
 msgid ""
@@ -13002,13 +13002,13 @@ msgstr "Määritä polkujen erottamiseksi käytetyt hahmot kolmeen syöttökentt
 
 #. (title)
 msgid "Commit tag detection"
-msgstr ""
+msgstr "Merkittyyn versioon toimituksen tunnistus"
 
 #. (para)
 msgid ""
 "Please note that these patterns are also used to detect commits to a tag, "
 "not just for the revision graph."
-msgstr ""
+msgstr "Huomaa, että näitä sääntöjä ei käytetä pelkästään versiograafiin, vaan myös havaitsemaan merkittyyn versioon tehtävät toimitukset."
 
 #. (term)
 msgid "Modify Colors"
@@ -19649,7 +19649,7 @@ msgid ""
 "language packs put their files. However, the %APPDATA%-folder doesn't "
 "require administrator privileges and, thus, has higher priority. The next "
 "time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "Kun olet saanut sanastotiedostot, joudut luultavasti nimeämään ne uudelleen siten, että tiedostonimissä on vain kielialuetunnus. Esimerkki: <placeholder-1/> Lopuksi vain kopioit tiedostot hakemistoon <filename>%APPDATA%\\TortoiseSVN\\dic</filename>. Jos hakemistoa ei ole, sinun on luotava se ensin. TortoiseSVN etsii myös asennushakemiston kansion <filename>Languages</filename> sisällön (tavallisesti paikassa <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>). Kieliasennuspaketit asentuvat tänne. %APPDATA%-kansioon kirjoitus ei kuitenkaan vaadi pääkäyttäjän oikeuksia ja on siten etusijalla. Kun TortoiseSVN seuraavan kerran käynnistyy, oikeinkirjoituksen tarkistus on saatavilla."
 
 #. (para)
 msgid ""
@@ -20201,7 +20201,7 @@ msgid ""
 "allows to apply a patch file to a working copy. TortoiseMerge uses now the "
 "same functions as the Subversion command to avoid different behaviors "
 "between the two."
-msgstr ""
+msgstr "Subversion 1.7 sisälsi uuden <emphasis>svn patch</emphasis> -komennon, jonka avulla työkopioon voi yhdistää paikkatiedoston. TortoiseMerge käyttää nyt samaa alla olevaa toiminnallisuutta välttääkseen toiminnalliset erot."
 
 #. (para)
 msgid ""
@@ -20217,7 +20217,7 @@ msgstr "Päivityksestä johtuvien, paikallisten ja Subversion-arkistossa olevien
 
 #. (para)
 msgid "Applying patch files and reviewing them."
-msgstr ""
+msgstr "Paikkatiedostojen katselmointi ja käyttö"
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20485,7 +20485,7 @@ msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
 "and the number of unresolved conflicts remaining."
-msgstr ""
+msgstr "Alimmaisen ikkunan alapuolella on tilarivi, joka näyttää lisättyjen ja poistettujen rivien lukumäärän <literal>Heidän</literal> ja <literal>Minun</literal> -ikkunoissa.  Tilarivillä näkyy myös jäljellä olevien, ratkomattomien ristiriitojen lukumäärä."
 
 #. (term)
 msgid "Encoding"
@@ -20497,11 +20497,11 @@ msgid ""
 "shown. The most common encoding in English is ASCII (which means the local "
 "encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
 "UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
-msgstr ""
+msgstr "Koodaus määrittää, miten näyttöjen teksti näytetään, talletetaan ja luetaan.  Tavallisin koodaus englanninkieliselle tekstille on ASCII (7-bittinen merkistö, josta on useita 8-bittisiä muunnelmia, esim. ISO Latin-1), mutta voit vaihtaa sen johonkin Unicode-koodaukseen, jolloin merkistö laajenee.  Tuettuja Unicode-koodauksia on useita; UTF8, UTF16LE, UTF16BE, UTF32LE ja UTF32BE. Talletettujen Unicode-tiedostojen alkuun voidaan koodauksen tunnistamiseksi haluttaessa lisätä ns. tavujärjestysmerkki BOM (engl. byte order mark)."
 
 #. (term)
 msgid "Line Endings"
-msgstr ""
+msgstr "Rivinlopetukset"
 
 #. (para)
 msgid ""
@@ -20509,7 +20509,7 @@ msgid ""
 " endings to whatever you like. Note that if you change the line endings, "
 "then <emphasis>all</emphasis> line endings in the whole file will change, "
 "even if when loaded the line endings were not all the same."
-msgstr ""
+msgstr "Yleisin rivinlopetustapa Windows-ympäristössä on merkkipari CRLF, mutta voit muuttaa sen haluamaksesi. Huomaa, että kun vaihdat rivinlopetustapaa,  <emphasis>kaikki</emphasis> tiedoston rivinlopetukset muuttuvat, vaikka ne eivät alun perin olisi olleetkaan keskenään samanlaisia."
 
 #. (para)
 msgid ""
@@ -20517,20 +20517,20 @@ msgid ""
 " are inserted when you press the tab key. The <emphasis>smart tab "
 "char</emphasis> option if enabled uses an algorithm to determine whether one"
 " or the other is best used."
-msgstr ""
+msgstr "Pudotusvalikon alussa oleva valinta määrittää, laajennetaanko TAB-näppäimen painallus tabulointimerkeiksi vai välilyönneiksi. Valinta <emphasis>älykäs tabulointimerkki</emphasis>  tutkii, kumpaa tapaa on parempi käyttää jossain tietyssä yhteydessä."
 
 #. (para)
 msgid ""
 "The tab size specifies how many space chars are inserted when editing and "
 "pressing the tab char, or how many chars the next word is indented when a "
 "tab char is encountered."
-msgstr ""
+msgstr "Tabulaattorin koko määrittää, montako välilyöntiä lisätään, kun muokkauksen yhteydessä painetaan TAB-näppäintä, tai miten syvää sisennystä käytetään näytettäessä tabulointimerkki."
 
 #. (para)
 msgid ""
 "The status bar also contains combo box controls which indicate how the files"
 " are handled and treated: <placeholder-1/>"
-msgstr ""
+msgstr "Tilarivi sisältää myös pudotusvalikon, joka määrittää, miten tiedostoja käsitellään: <placeholder-1/>"
 
 #. (title)
 msgid "Line Status Icons"
@@ -21121,7 +21121,7 @@ msgstr "Kantatiedoston nimi. Tämä näytetään näytön otsikossa tiedostopolu
 #. (entry)
 #. (entry)
 msgid "The name to use for editorconfig templates."
-msgstr ""
+msgstr "Tekstieditorin kaavaimille käytetty nimi."
 
 #. (emphasis)
 msgid "theirs"
@@ -21194,13 +21194,13 @@ msgstr "Polku, johon paikka tulisi käyttää.  Jos et aseta tätä, TortoiseMer
 msgid ""
 "If specified, forces TortoiseMerge to ask to save the file before exiting, "
 "even if the user does not modify the files."
-msgstr ""
+msgstr "Mikäli määritelty, pakottaa TortoiseMergen tarjoamaan tiedoston talletusta ennen lopetusta, vaikkei siihen olisi tehty muutoksia."
 
 #. (entry)
 msgid ""
 "If specified, forces TortoiseMerge to ask to save the file before exiting if"
 " there are conflicts found, even if the user does not modify the files."
-msgstr ""
+msgstr "Mikäli määritelty, pakottaa TortoiseMergen tarjoamaan ristiriitoja sisältävälle tiedostolle talletusta ennen lopetusta, vaikkei siihen olisi tehty muutoksia."
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."

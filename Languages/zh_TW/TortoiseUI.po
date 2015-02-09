@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-06 09:30+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-02-07 12:01+0000\n"
+"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1218,7 +1218,7 @@ msgstr "移除專案(&R)"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "刪除(&R)\n專案已刪除. 專案中如果有子專案也已被一併刪除."
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1902,7 +1902,7 @@ msgstr "自動加入新檔案至 SVN"
 
 #. Resource IDs: (66)
 msgid "Add project or folder here..."
-msgstr ""
+msgstr "在此新增專案或目錄..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -3857,7 +3857,7 @@ msgstr "成功建立了預設的目錄結構!"
 
 #. Resource IDs: (65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "預設監控時間間隔(分鐘):"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4227,7 +4227,7 @@ msgstr "是否確定要重新載入文件以反映設定變更?\n注意: 所有�
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to remove the monitored project '%s'?"
-msgstr ""
+msgstr "確定要刪除監控中的專案 '%s' 嗎?"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4849,7 +4849,7 @@ msgstr "無法啟動伺服器."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "無法載入專案監控的設定!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5659,7 +5659,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -7389,7 +7389,7 @@ msgstr "開啟上層目錄"
 
 #. Resource IDs: (116)
 msgid "Open repository &Url"
-msgstr ""
+msgstr "開啟檔案庫 &URL"
 
 #. Resource IDs: (113)
 msgid "Open with..."
@@ -7397,7 +7397,7 @@ msgstr "以程式開啟..."
 
 #. Resource IDs: (66)
 msgid "Open working copy in &explorer"
-msgstr ""
+msgstr "在檔案總管中開啟工作複本(&E)"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -7517,7 +7517,7 @@ msgstr "密碼錯誤"
 
 #. Resource IDs: (349)
 msgid "Password/phrase"
-msgstr ""
+msgstr "密碼/密語"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -8116,7 +8116,7 @@ msgstr "正在導向至 URL"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "取消復原"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8285,7 +8285,7 @@ msgstr "刪除書籤"
 
 #. Resource IDs: (65)
 msgid "Remove Project"
-msgstr ""
+msgstr "移除專案"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -11610,7 +11610,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "以下是有效的命令列參數:\n/base:<基準檔路徑>\n/basename:<基準檔顯示名稱>\n/theirs:<遠端檔路徑>\n/theirsname:<遠端檔顯示名稱>\n/mine:<本地端檔案路徑>\n/minename:<本地端檔案顯示名稱>\n/merged:<合併後存檔路徑>\n/mergedname:<合併後檔案顯示名稱>\n/diff:<差異檔路徑>\n/patchpath:<資料夾路徑>\n/saverequired\n/saverequiredonconflicts\n/oneway <強制使用單一格式顯示>\n/line:<跳躍至行號>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
