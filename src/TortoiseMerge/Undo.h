@@ -27,8 +27,13 @@ class CBaseView;
  * \ingroup TortoiseMerge
  * this struct holds all the information of a single change in TortoiseMerge.
  */
-typedef struct viewstate
+class viewstate
 {
+public:
+    viewstate()
+        : modifies(false)
+    {}
+
     std::map<int, CString>  difflines;
     std::map<int, DWORD>    linestates;
     std::map<int, DWORD>    linelines;
@@ -43,7 +48,7 @@ typedef struct viewstate
     void    AddViewLineFromView(CBaseView *pView, int nViewLine, bool bAddEmptyLine);
     void    Clear();
     bool    IsEmpty() const { return difflines.empty() && linestates.empty() && linelines.empty() && linesEOL.empty() && markedlines.empty() && addedlines.empty() && removedlines.empty() && replacedlines.empty(); }
-} viewstate;
+};
 
 /**
  * \ingroup TortoiseMerge
