@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014 - TortoiseSVN
+// Copyright (C) 2006-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,6 +118,8 @@ void CDiffData::TieMovedBlocks(int from, int to, apr_off_t length)
     for(int i=0; i<length; i++, to++, from++)
     {
         int fromIndex = m_YourBaseLeft.FindLineNumber(from);
+        if (fromIndex < 0)
+            return;
         int toIndex = m_YourBaseRight.FindLineNumber(to);
         m_YourBaseLeft.SetMovedIndex(fromIndex, toIndex, true);
         m_YourBaseRight.SetMovedIndex(toIndex, fromIndex, false);
