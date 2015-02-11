@@ -55,6 +55,9 @@ public:
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> GetAuthList();
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> DeleteAuthList(const std::vector<std::tuple<CString, CString, SVNAuthDataInfo>>& delList);
 
+    static const svn_string_t * SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
+    static const svn_string_t * SVNAuthData::encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
+
 protected:
     apr_pool_t *                m_pool;         ///< the memory pool
     SVNPrompt                   m_prompt;       ///< auth_baton setup helper

@@ -30,6 +30,9 @@
 #include "SVNConfig.h"
 #include "SVNHelpers.h"
 
+#include <Wincrypt.h>
+
+
 SVNAuthData::SVNAuthData()
 : SVNBase()
 , m_prompt(false)
@@ -53,6 +56,49 @@ SVNAuthData::~SVNAuthData(void)
     svn_error_clear(Err);
     svn_pool_destroy(m_pool);                  // free the allocated memory
 }
+
+static const WCHAR description[] = L"auth_svn.simple.wincrypt";
+const svn_string_t * SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_pool_t *pool)
+{
+    crypted = svn_base64_decode_string(crypted, pool);
+
+    DATA_BLOB blobin;
+    DATA_BLOB blobout;
+    LPWSTR descr;
+    const svn_string_t * orig = NULL;
+
+    blobin.cbData = (DWORD)crypted->len;
+    blobin.pbData = (BYTE *)crypted->data;
+    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout))
+    {
+        if (0 == lstrcmpW(descr, description))
+            orig = svn_string_ncreate((const char *)blobout.pbData, blobout.cbData, pool);
+        LocalFree(blobout.pbData);
+        LocalFree(descr);
+    }
+    return orig;
+}
+
+const svn_string_t * SVNAuthData::encrypt_data(const svn_string_t *orig, apr_pool_t *pool)
+{
+    DATA_BLOB blobin;
+    DATA_BLOB blobout;
+    const svn_string_t * crypted = NULL;
+
+    blobin.cbData = (DWORD)orig->len;
+    blobin.pbData = (BYTE *)orig->data;
+    if (CryptProtectData(&blobin, description, NULL, NULL, NULL,
+        CRYPTPROTECT_UI_FORBIDDEN, &blobout))
+    {
+        const svn_string_t * crypt = svn_string_ncreate((const char *)blobout.pbData,
+                                     blobout.cbData, pool);
+        if (crypt)
+            crypted = svn_base64_encode_string2(crypt, false, pool);
+        LocalFree(blobout.pbData);
+    }
+    return crypted;
+}
+
 
 svn_error_t * SVNAuthData::cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
                                             const char *cred_kind, const char *realmstring,
