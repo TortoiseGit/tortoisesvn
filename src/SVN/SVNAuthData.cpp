@@ -23,10 +23,12 @@
 #include "svn_auth.h"
 #include "svn_x509.h"
 #include "svn_base64.h"
+#include "svn_hash.h"
 #pragma warning(pop)
 #include "resource.h"
 #include "SVNAuthData.h"
 #include "UnicodeUtils.h"
+#include "StringUtils.h"
 #include "SVNConfig.h"
 #include "SVNHelpers.h"
 
@@ -267,4 +269,133 @@ std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> SVNAuthData::DeleteAu
     SVNPool subpool(m_pool);
     Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
     return GetAuthList();
+}
+
+svn_error_t * SVNAuthData::auth_callback(svn_boolean_t * /*delete_cred*/, void *auth_baton,
+                                            const char *cred_kind, const char *realmstring,
+                                            apr_hash_t * /*hash*/, apr_pool_t * /*scratch_pool*/)
+{
+    std::vector<std::tuple<std::string, std::string>> * authdata = (std::vector<std::tuple<std::string, std::string>>*)auth_baton;
+
+    authdata->push_back(std::make_tuple(std::string(cred_kind), std::string(realmstring)));
+
+    return SVN_NO_ERROR;
+}
+
+bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& password)
+{
+    std::vector<std::tuple<std::string, std::string>> authdata;
+    SVNPool subpool(m_pool);
+    Err = svn_config_walk_auth_data(g_pConfigDir, auth_callback, &authdata, subpool);
+
+    CString tp = targetpath;
+    tp.Replace('\\', '/');
+    std::string targetpathA = CUnicodeUtils::StdGetUTF8((LPCWSTR)tp);
+    std::string passwordA = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+    for (const auto& ad : authdata)
+    {
+        apr_hash_t * hash = nullptr;
+        Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), NULL, subpool);
+        if (Err)
+        {
+            svn_error_clear(Err);
+            return false;
+        }
+
+        const svn_string_t * pw = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY);
+        if (pw)
+        {
+            auto p = decrypt_data(pw, subpool);
+            if (p == nullptr)
+                continue;
+            auto crypt = CStringUtils::Encrypt(std::string(p->data), passwordA);
+            if (crypt.empty())
+                continue;
+            svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY, svn_string_create(crypt.c_str(), subpool));
+        }
+
+        const svn_string_t * ps = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY);
+        if (ps)
+        {
+            auto p = decrypt_data(pw, subpool);
+            if (p == nullptr)
+                continue;
+            auto crypt = CStringUtils::Encrypt(std::string(p->data), passwordA);
+            if (crypt.empty())
+                continue;
+            svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY, svn_string_create(crypt.c_str(), subpool));
+        }
+
+        Err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
+        if (Err)
+        {
+            svn_error_clear(Err);
+            return false;
+        }
+    }
+    return true;
+}
+
+bool SVNAuthData::ImportAuthData(const CString& importpath, const CString& password, bool overwrite /*= false*/)
+{
+    CString ip = importpath;
+    ip.Replace('\\', '/');
+    std::string importpathA = CUnicodeUtils::StdGetUTF8((LPCWSTR)ip);
+    std::vector<std::tuple<std::string, std::string>> authdata;
+    SVNPool subpool(m_pool);
+
+    Err = svn_config_walk_auth_data(importpathA.c_str(), auth_callback, &authdata, subpool);
+
+    std::string passwordA = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+    for (const auto& ad : authdata)
+    {
+        apr_hash_t * hash = nullptr;
+        Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), importpathA.c_str(), subpool);
+        if (Err)
+        {
+            svn_error_clear(Err);
+            return false;
+        }
+
+        if (!overwrite)
+        {
+            apr_hash_t * hash = nullptr;
+            Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
+            if ((Err != nullptr) || (hash != nullptr))
+            {
+                svn_error_clear(Err);
+                continue;
+            }
+
+            svn_error_clear(Err);
+        }
+
+        const svn_string_t * pw = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY);
+        if (pw)
+        {
+            auto decrypt = CStringUtils::Decrypt(std::string(pw->data), passwordA);
+            auto p = encrypt_data(svn_string_create(decrypt.c_str(), subpool), subpool);
+            if (p == nullptr)
+                continue;
+            svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY, p);
+        }
+
+        const svn_string_t * ps = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY);
+        if (ps)
+        {
+            auto decrypt = CStringUtils::Decrypt(std::string(ps->data), passwordA);
+            auto p = encrypt_data(svn_string_create(decrypt.c_str(), subpool), subpool);
+            if (p == nullptr)
+                continue;
+            svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY, p);
+        }
+
+        Err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
+        if (Err)
+        {
+            svn_error_clear(Err);
+            return false;
+        }
+    }
+    return true;
 }

@@ -55,6 +55,9 @@ public:
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> GetAuthList();
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> DeleteAuthList(const std::vector<std::tuple<CString, CString, SVNAuthDataInfo>>& delList);
 
+    bool ExportAuthData(const CString& targetpath, const CString& password);
+    bool ImportAuthData(const CString& importpath, const CString& password, bool overwrite = false);
+
     static const svn_string_t * SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
     static const svn_string_t * SVNAuthData::encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
 
@@ -63,6 +66,9 @@ protected:
     SVNPrompt                   m_prompt;       ///< auth_baton setup helper
 
     static svn_error_t * cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
+                                          const char *cred_kind, const char *realmstring,
+                                          apr_hash_t *hash, apr_pool_t *scratch_pool);
+    static svn_error_t * auth_callback(svn_boolean_t *delete_cred, void *auth_baton,
                                           const char *cred_kind, const char *realmstring,
                                           apr_hash_t *hash, apr_pool_t *scratch_pool);
 };
