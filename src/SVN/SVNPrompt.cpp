@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -321,8 +321,14 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             }
         }
     }
-    if (svn->m_bSuppressed)
+    else
+    {
+        // if the UI is suppressed, accept invalid certs but do not save that choice
+        *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc(pool, sizeof(**cred_p));
+        (*cred_p)->may_save = FALSE;
+        (*cred_p)->accepted_failures = failures;
         svn->m_bPromptShown = true;
+    }
 
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
@@ -340,94 +346,97 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
     BOOL bOpenRet = FALSE;
     bool may_save = false;
 
-    HRESULT hr;
-    // Create a new common save file dialog
-    CComPtr<IFileOpenDialog> pfd = NULL;
-    hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
-    if (SUCCEEDED(hr))
+    if (!svn->m_bSuppressed)
     {
-        // Set the dialog options
-        DWORD dwOptions;
-        if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
-        {
-            hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
-        }
-
-        // Set a title
+        HRESULT hr;
+        // Create a new common open file dialog
+        CComPtr<IFileOpenDialog> pfd = NULL;
+        hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
         if (SUCCEEDED(hr))
         {
-            CString temp;
-            temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
-            CStringUtils::RemoveAccelerators(temp);
-            pfd->SetTitle(temp);
-        }
-        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+            // Set the dialog options
+            DWORD dwOptions;
+            if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
+            {
+                hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+            }
 
-        hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+            // Set a title
+            if (SUCCEEDED(hr))
+            {
+                CString temp;
+                temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+                CStringUtils::RemoveAccelerators(temp);
+                pfd->SetTitle(temp);
+            }
+            CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
 
-        CComPtr<IFileDialogCustomize> pfdCustomize;
-        hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
-        if (SUCCEEDED(hr))
-        {
-            pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SSL_SAVE_CERTPATH)), FALSE);
-        }
+            hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
 
-        // Show the save file dialog
-        if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
-        {
             CComPtr<IFileDialogCustomize> pfdCustomize;
             hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
             if (SUCCEEDED(hr))
             {
-                BOOL bChecked = FALSE;
-                pfdCustomize->GetCheckButtonState(101, &bChecked);
-                may_save = (bChecked!=0);
+                pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SSL_SAVE_CERTPATH)), FALSE);
             }
 
-            // Get the selection from the user
-            CComPtr<IShellItem> psiResult = NULL;
-            hr = pfd->GetResult(&psiResult);
-            if (SUCCEEDED(hr))
+            // Show the save file dialog
+            if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
             {
-                PWSTR pszPath = NULL;
-                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                CComPtr<IFileDialogCustomize> pfdCustomize;
+                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
                 if (SUCCEEDED(hr))
                 {
-                    filename = CString(pszPath);
-                    bOpenRet = TRUE;
+                    BOOL bChecked = FALSE;
+                    pfdCustomize->GetCheckButtonState(101, &bChecked);
+                    may_save = (bChecked != 0);
+                }
+
+                // Get the selection from the user
+                CComPtr<IShellItem> psiResult = NULL;
+                hr = pfd->GetResult(&psiResult);
+                if (SUCCEEDED(hr))
+                {
+                    PWSTR pszPath = NULL;
+                    hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                    if (SUCCEEDED(hr))
+                    {
+                        filename = CString(pszPath);
+                        bOpenRet = TRUE;
+                    }
                 }
             }
         }
-    }
-    else
-    {
-        OPENFILENAME ofn = {0};             // common dialog box structure
-        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
-        // Initialize OPENFILENAME
-        ofn.lStructSize = sizeof(OPENFILENAME);
-        ofn.hwndOwner = svn->m_hParentWnd;
-        ofn.lpstrFile = szFile;
-        ofn.nMaxFile = _countof(szFile);
-        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
-        ofn.lpstrFilter = fileFilter;
-        ofn.nFilterIndex = 1;
-        ofn.lpstrFileTitle = NULL;
-        ofn.nMaxFileTitle = 0;
-        ofn.lpstrInitialDir = NULL;
-        CString temp;
-        temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
-        CStringUtils::RemoveAccelerators(temp);
-        ofn.lpstrTitle = temp;
-        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
-        ofn.lpfnHook = SVNPrompt::OFNHookProc;
-
-        // Display the Open dialog box.
-        svn->m_server.Empty();
-        bOpenRet = GetOpenFileName(&ofn);
-        if (bOpenRet)
+        else
         {
-            filename = CString(ofn.lpstrFile);
-            may_save = ((ofn.Flags & OFN_READONLY)!=0);
+            OPENFILENAME ofn = { 0 };             // common dialog box structure
+            TCHAR szFile[MAX_PATH] = { 0 };       // buffer for file name
+            // Initialize OPENFILENAME
+            ofn.lStructSize = sizeof(OPENFILENAME);
+            ofn.hwndOwner = svn->m_hParentWnd;
+            ofn.lpstrFile = szFile;
+            ofn.nMaxFile = _countof(szFile);
+            CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+            ofn.lpstrFilter = fileFilter;
+            ofn.nFilterIndex = 1;
+            ofn.lpstrFileTitle = NULL;
+            ofn.nMaxFileTitle = 0;
+            ofn.lpstrInitialDir = NULL;
+            CString temp;
+            temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+            CStringUtils::RemoveAccelerators(temp);
+            ofn.lpstrTitle = temp;
+            ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
+            ofn.lpfnHook = SVNPrompt::OFNHookProc;
+
+            // Display the Open dialog box.
+            svn->m_server.Empty();
+            bOpenRet = GetOpenFileName(&ofn);
+            if (bOpenRet)
+            {
+                filename = CString(ofn.lpstrFile);
+                may_save = ((ofn.Flags & OFN_READONLY) != 0);
+            }
         }
     }
     if (!svn->m_bSuppressed && (bOpenRet==TRUE))
@@ -519,7 +528,7 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 svn_error_t* SVNPrompt::svn_auth_plaintext_prompt(svn_boolean_t *may_save_plaintext, const char * /*realmstring*/, void * /*baton*/, apr_pool_t * /*pool*/)
 {
     // we allow saving plaintext passwords without asking the user. The reason is simple:
-    // TSVN requires at least Win2k, which means the password is always stored encrypted because
+    // TSVN requires at least Vista, which means the password is always stored encrypted because
     // the corresponding APIs are available.
     // If for some unknown reason it wouldn't be possible to save the passwords encrypted,
     // most users wouldn't know what to do anyway so asking them would just confuse them.
@@ -530,7 +539,7 @@ svn_error_t* SVNPrompt::svn_auth_plaintext_prompt(svn_boolean_t *may_save_plaint
 svn_error_t* SVNPrompt::svn_auth_plaintext_passphrase_prompt(svn_boolean_t *may_save_plaintext, const char * /*realmstring*/, void * /*baton*/, apr_pool_t * /*pool*/)
 {
     // we allow saving plaintext passwords without asking the user. The reason is simple:
-    // TSVN requires at least Win2k, which means the password is always stored encrypted because
+    // TSVN requires at least Vista, which means the password is always stored encrypted because
     // the corresponding APIs are available.
     // If for some unknown reason it wouldn't be possible to save the passwords encrypted,
     // most users wouldn't know what to do anyway so asking them would just confuse them.
