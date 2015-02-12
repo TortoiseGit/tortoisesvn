@@ -282,7 +282,7 @@ svn_error_t * SVNAuthData::auth_callback(svn_boolean_t * /*delete_cred*/, void *
     return SVN_NO_ERROR;
 }
 
-bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& password)
+bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& password, bool overwrite /*= false*/)
 {
     std::vector<std::tuple<std::string, std::string>> authdata;
     SVNPool subpool(m_pool);
@@ -300,6 +300,19 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
         {
             svn_error_clear(Err);
             return false;
+        }
+
+        if (!overwrite)
+        {
+            apr_hash_t * hash = nullptr;
+            Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
+            if ((Err != nullptr) || (hash != nullptr))
+            {
+                svn_error_clear(Err);
+                continue;
+            }
+
+            svn_error_clear(Err);
         }
 
         const svn_string_t * pw = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY);
