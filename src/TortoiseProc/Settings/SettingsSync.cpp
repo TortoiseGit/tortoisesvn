@@ -37,6 +37,8 @@ CSettingsSync::CSettingsSync()
     , m_sSyncPath(_T(""))
     , m_regSyncPW(L"Software\\TortoiseSVN\\SyncPW")
     , m_regSyncPath(L"Software\\TortoiseSVN\\SyncPath")
+    , m_bSyncAuth(FALSE)
+    , m_regSyncAuth(L"Software\\TortoiseSVN\\SyncAuth")
 {
 }
 
@@ -50,6 +52,7 @@ void CSettingsSync::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_SYNCPW1, m_sPW1);
     DDX_Text(pDX, IDC_SYNCPW2, m_sPW2);
     DDX_Text(pDX, IDC_SYNCPATH, m_sSyncPath);
+    DDX_Check(pDX, IDC_SYNCAUTH, m_bSyncAuth);
 }
 
 
@@ -62,6 +65,7 @@ BEGIN_MESSAGE_MAP(CSettingsSync, ISettingsPropPage)
     ON_BN_CLICKED(IDC_SAVE, &CSettingsSync::OnBnClickedSave)
     ON_BN_CLICKED(IDC_LOADFILE, &CSettingsSync::OnBnClickedLoadfile)
     ON_BN_CLICKED(IDC_SAVEFILE, &CSettingsSync::OnBnClickedSavefile)
+    ON_BN_CLICKED(IDC_SYNCAUTH, &CSettingsSync::OnBnClickedSyncauth)
 END_MESSAGE_MAP()
 
 
@@ -75,6 +79,8 @@ BOOL CSettingsSync::OnInitDialog()
     auto pw = CStringUtils::Decrypt((LPCWSTR)CString(m_regSyncPW));
     m_sPW1 = pw.get();
     m_sPW2 = m_sPW1;
+
+    m_bSyncAuth = m_regSyncAuth;
 
     UpdateData(FALSE);
 
@@ -91,6 +97,7 @@ BOOL CSettingsSync::OnApply()
     auto pw = CStringUtils::Encrypt(m_sPW1);
     Store(pw, m_regSyncPW);
     Store(m_sSyncPath, m_regSyncPath);
+    Store(m_bSyncAuth, m_regSyncAuth);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
@@ -239,4 +246,10 @@ CString CSettingsSync::GetHWndParam() const
     CString sCmd;
     sCmd.Format(L" /hwnd:%p", (void*)GetSafeHwnd());
     return sCmd;
+}
+
+
+void CSettingsSync::OnBnClickedSyncauth()
+{
+    SetModified(TRUE);
 }

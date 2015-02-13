@@ -53,6 +53,7 @@ protected:
     afx_msg void OnBnClickedSave();
     afx_msg void OnBnClickedLoadfile();
     afx_msg void OnBnClickedSavefile();
+    afx_msg void OnBnClickedSyncauth();
 
     DECLARE_MESSAGE_MAP()
 
@@ -64,4 +65,6 @@ private:
     CString         m_sSyncPath;
     CRegString      m_regSyncPath;
     CRegString      m_regSyncPW;
+    CRegDWORD       m_regSyncAuth;
+    BOOL            m_bSyncAuth;
 };

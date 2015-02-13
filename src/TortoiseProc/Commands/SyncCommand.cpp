@@ -30,6 +30,7 @@
 #include "SelectFileFilter.h"
 #include "TempFile.h"
 #include "ProjectProperties.h"
+#include "SVNAuthData.h"
 
 #define TSVN_SYNC_VERSION       1
 #define TSVN_SYNC_VERSION_STR   L"1"
@@ -100,7 +101,10 @@ bool SyncCommand::Execute()
     bool bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
+    CTSVNPath syncFolder = syncPath;
     CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
+    CRegDWORD regSyncAuth(L"Software\\TortoiseSVN\\SyncAuth");
+    bool bSyncAuth = DWORD(regSyncAuth) != 0;
     if (!cmdLinePath.IsEmpty())
         syncPath = cmdLinePath;
     if (syncPath.IsEmpty() && !parser.HasKey(L"askforpath"))
@@ -129,6 +133,7 @@ bool SyncCommand::Execute()
 
     CSimpleIni iniFile;
     iniFile.SetMultiLine(true);
+    SVNAuthData authData;
 
     CAutoRegKey hMainKey;
     RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", 0, KEY_READ, hMainKey.GetPointer());
@@ -216,6 +221,10 @@ bool SyncCommand::Execute()
                                     regCount = inicount;
                                 }
                             }
+
+                            // load the auth data, but do not overwrite already stored auth data!
+                            if (bSyncAuth)
+                                authData.ImportAuthData(syncFolder.GetWinPathString(), password);
                         }
                         else
                         {
@@ -399,7 +408,7 @@ bool SyncCommand::Execute()
                     CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
                     iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
                     CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
-                    bHaveChanges |= newval != oldval;
+                    bHaveChanges |= ((newval != oldval) && (!oldval.IsEmpty()));
                     // only save monitored working copies if local settings are included, or
                     // if the monitored path is an url.
                     // Don't save paths to working copies for non-local stores
@@ -612,6 +621,7 @@ bool SyncCommand::Execute()
                 password = passwordbuf.get();
             }
         }
+
         std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
 
         std::string encrypted = CStringUtils::Encrypt(iniData, passworda);
@@ -640,6 +650,17 @@ bool SyncCommand::Execute()
         }
         else
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error creating file %s for writing, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
+
+        if (bSyncAuth)
+        {
+            // now save all auth data
+            CPathUtils::MakeSureDirectoryPathExists(syncFolder.GetWinPathString() + L"\\auth");
+            CPathUtils::MakeSureDirectoryPathExists(syncFolder.GetWinPathString() + L"\\auth\\svn.simple");
+            CPathUtils::MakeSureDirectoryPathExists(syncFolder.GetWinPathString() + L"\\auth\\svn.ssl.client-passphrase");
+            CPathUtils::MakeSureDirectoryPathExists(syncFolder.GetWinPathString() + L"\\auth\\svn.ssl.server");
+            CPathUtils::MakeSureDirectoryPathExists(syncFolder.GetWinPathString() + L"\\auth\\svn.username");
+            authData.ExportAuthData(syncFolder.GetWinPathString(), password);
+        }
     }
 
 
