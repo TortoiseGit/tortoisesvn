@@ -1189,7 +1189,7 @@ static int capi_get_provname(CAPI_CTX * ctx, LPSTR * pname, DWORD * ptype,
         return 0;
     }
     if (sizeof(TCHAR) != sizeof(char))
-        name = alloca(len * sizeof(WCHAR));
+        name = alloca(len);
     else
         name = OPENSSL_malloc(len);
     if (!CryptEnumProviders(idx, NULL, 0, ptype, name, &len)) {
