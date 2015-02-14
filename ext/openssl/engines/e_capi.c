@@ -1540,7 +1540,7 @@ static CAPI_KEY *capi_get_key(CAPI_CTX * ctx, const TCHAR *contname,
     if (ctx->store_flags & CERT_SYSTEM_STORE_LOCAL_MACHINE)
         dwFlags = CRYPT_MACHINE_KEYSET;
     // first try enhanced version
-    if(!CryptAcquireContext(&key->hprov, contname, MS_ENH_RSA_AES_PROV_A, PROV_RSA_AES, dwFlags))
+    if(!CryptAcquireContext(&key->hprov, contname, MS_ENH_RSA_AES_PROV, PROV_RSA_AES, dwFlags))
     {
         if (!CryptAcquireContext(&key->hprov, contname, provname, ptype, dwFlags)) {
             CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_CRYPTACQUIRECONTEXT_ERROR);
