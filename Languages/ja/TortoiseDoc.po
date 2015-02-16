@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-01 15:31+0000\n"
+"PO-Revision-Date: 2015-02-16 06:10+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -3408,7 +3408,7 @@ msgid ""
 "If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
 "dialog first to ensure whether this is really what is intended. Because most"
 " of the time such a commit is done by accident."
-msgstr ""
+msgstr "コミットがタグURLに関連付けられた場合、TortoiseSVNは最初に実際に何が行われるのかを確認するダイアログを表示します。多くの場合、そのようなコミットは間違いで行われるからです。"
 
 #. (para)
 msgid ""
@@ -9109,14 +9109,14 @@ msgstr "新しいタグを常に一貫した状態にするためには、すべ
 
 #. (title)
 msgid "externals within externals"
-msgstr ""
+msgstr "外部参照中の外部参照"
 
 #. (para)
 msgid ""
 "If a project that is included as an external has itself included externals, "
 "then those will not be tagged! Only externals that are direct children can "
 "be tagged."
-msgstr ""
+msgstr "プロジェクトが外部参照自信を含む外部参照を含む場合、タグ付けされません。直接の子の外部参照だけがタグ付けされます。"
 
 #. (para)
 msgid ""
@@ -13005,7 +13005,7 @@ msgstr "三つの矩形で表すパスを、認識するため使用するパタ
 
 #. (title)
 msgid "Commit tag detection"
-msgstr ""
+msgstr "コミットタグの検出"
 
 #. (para)
 msgid ""
@@ -15240,7 +15240,7 @@ msgstr ""
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "今すぐチェック"
 
 #. (para)
 msgid ""
