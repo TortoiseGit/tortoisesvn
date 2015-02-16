@@ -1064,7 +1064,7 @@
               <File Id="F__CLIsvnserve" Name="svnserve.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnserve.exe" />
               <File Id="F__CLIsvnsync" Name="svnsync.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnsync.exe" />
               <File Id="F__CLIsvnversion" Name="svnversion.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnversion.exe" />
-              <File Id="F__CLIsvnbench" Name="svn-bench.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svn-bench.exe" />
+              <File Id="F__CLIsvnbench" Name="svnbench.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnbench.exe" />
             </Component>
 
             <Component Id="C__CLIREG" Guid="$(var.GuidCLIREG)" Win64="$(var.Win64YesNo)" Permanent="yes">
