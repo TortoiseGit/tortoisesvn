@@ -835,10 +835,8 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
     m_ExtList.InsertColumn(0, temp);
     temp.LoadString(IDS_STATUSLIST_COLURL);
     m_ExtList.InsertColumn(1, temp);
-    temp.LoadString(IDS_STATUSLIST_COLREVISION);
-    m_ExtList.InsertColumn(2, temp, LVCFMT_RIGHT);
     temp.LoadString(IDS_COPYEXTLIST_COLTAGGED);
-    m_ExtList.InsertColumn(3, temp, LVCFMT_RIGHT);
+    m_ExtList.InsertColumn(2, temp, LVCFMT_RIGHT);
     m_ExtList.SetItemCountEx((int)m_externals.size());
 
     CRect rect;
@@ -847,7 +845,6 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
     m_ExtList.SetColumnWidth(0, cx);
     m_ExtList.SetColumnWidth(1, cx);
     m_ExtList.SetColumnWidth(2, 80);
-    m_ExtList.SetColumnWidth(3, 80);
 
     m_ExtList.SetRedraw(true);
     DialogEnableWindow(IDC_EXTERNALSLIST, true);
@@ -999,12 +996,7 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                         }
                     }
                     break;
-                case 2: // revision
-                    m_columnbuf[0] = 0;
-                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
-                        swprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
-                    break;
-                case 3: // tagged
+                case 2: // tagged
                     m_columnbuf[0] = 0;
                     if (ext.origrevision.kind == svn_opt_revision_number)
                         swprintf_s(m_columnbuf, L"%ld", ext.origrevision.value.number);

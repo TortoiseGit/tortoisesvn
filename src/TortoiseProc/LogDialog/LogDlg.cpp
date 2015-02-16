@@ -5666,17 +5666,11 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             // should we show a progress dialog here? Copies are done really fast
             // and without much network traffic.
-            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, copyrev, logmsg, bMakeParents, bMakeParents))
+            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, copyrev, logmsg, bMakeParents, bMakeParents, false, exts.NeedsTagging(), exts))
                 ShowErrorDialog(m_hWnd);
             else
             {
-                if (!exts.TagExternals(true, CString(MAKEINTRESOURCE(IDS_COPY_COMMITMSG)),
-                    m_commitRev, CTSVNPath(pCmi->PathURL), url))
-                {
-                    ShowErrorDialog(m_hWnd, CTSVNPath(), exts.GetLastErrorString());
-                }
-                else
-                    TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_LOG_COPY_SUCCESS), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
+                TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_LOG_COPY_SUCCESS), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
             }
         };
         new async::CAsyncCall(f, &netScheduler);

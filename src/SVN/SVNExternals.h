@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,19 +83,20 @@ public:
      * \param tagurl
      */
     bool TagExternals(bool bRemote, const CString& message = CString(), svn_revnum_t headrev = -1, const CTSVNPath& origurl = CTSVNPath(), const CTSVNPath& tagurl = CTSVNPath());
-    /// Restores all svn:external properties
-    bool RestoreExternals();
-    /// returns the original svn:externals value, without modifications
-    std::string GetOriginalValue(const CTSVNPath& path) { return m_originals[path]; }
     /// returns the svn:externals value for the specified \c path
     std::string GetValue(const CTSVNPath& path) const;
     /// return the error string of the last failed operation
     CString GetLastErrorString() { return m_sError; }
 
+    /// return a hash with all the externals that are used for tagging to be used in svn_client_copy7
+    apr_hash_t * GetHash(bool bLocal, apr_pool_t * pool);
+
+    /// returns true if any of the externals are marked to be tagged
+    bool NeedsTagging() const;
+
     /// returns the full url of a (possible) relative external url
     static CString GetFullExternalUrl(const CString& extUrl, const CString& root, const CString& dirUrl);
 
 private:
-    std::map<CTSVNPath, std::string>    m_originals;
     CString                             m_sError;
 };

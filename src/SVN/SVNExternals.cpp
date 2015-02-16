@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2014 - TortoiseSVN
+// Copyright (C) 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -252,7 +252,6 @@ SVNExternals::~SVNExternals()
 
 bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool fetchrev, svn_revnum_t headrev)
 {
-    m_originals[path] = extvalue;
     SVN svn;
     CString pathurl = svn.GetURLFromPath(path);
     CStringA dirurl = CUnicodeUtils::GetUTF8(pathurl);
@@ -465,17 +464,6 @@ std::string SVNExternals::GetValue(const CTSVNPath& path) const
     return ret;
 }
 
-bool SVNExternals::RestoreExternals()
-{
-    for (std::map<CTSVNPath, std::string>::iterator it = m_originals.begin(); it != m_originals.end(); ++it)
-    {
-        SVNProperties props(it->first, SVNRev::REV_WC, false, false);
-        props.Add(SVN_PROP_EXTERNALS, it->second);
-    }
-
-    return true;
-}
-
 CString SVNExternals::GetFullExternalUrl( const CString& extUrl, const CString& root, const CString& dirUrl )
 {
     CStringA extUrlA = CUnicodeUtils::GetUTF8(extUrl);
@@ -494,4 +482,58 @@ CString SVNExternals::GetFullExternalUrl( const CString& extUrl, const CString& 
         svn_error_clear(error);
 
     return url;
+}
+
+apr_hash_t * SVNExternals::GetHash(bool bLocal, apr_pool_t * pool)
+{
+    apr_hash_t * externals_to_pin = nullptr;
+    if (!empty())
+    {
+        if (NeedsTagging())
+        {
+            externals_to_pin = apr_hash_make(pool);
+
+            for (const auto& ext : *this)
+            {
+                const char * key = nullptr;
+                if (bLocal)
+                    key = apr_pstrdup(pool, ext.path.GetSVNApiPath(pool));
+                else
+                    key = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.pathurl));
+                apr_array_header_t * extitemsarray = (apr_array_header_t *)apr_hash_get(externals_to_pin, key, APR_HASH_KEY_STRING);
+                if (extitemsarray == nullptr)
+                {
+                    extitemsarray = apr_array_make(pool, 0, sizeof(svn_wc_external_item2_t *));
+                }
+                if (ext.adjust)
+                {
+
+                    svn_wc_external_item2_t * item = nullptr;
+                    svn_wc_external_item2_create(&item, pool);
+                    item->peg_revision = ext.pegrevision;
+                    item->revision = ext.origrevision;
+                    item->target_dir = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.targetDir));
+                    item->url = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.url));
+                    APR_ARRAY_PUSH(extitemsarray, svn_wc_external_item2_t *) = item;
+                }
+                apr_hash_set(externals_to_pin, key, APR_HASH_KEY_STRING, (const void*)extitemsarray);
+            }
+        }
+    }
+
+    return externals_to_pin;
+}
+
+bool SVNExternals::NeedsTagging() const
+{
+    bool bHasExtsToPin = false;
+    for (const auto& ext : *this)
+    {
+        if (ext.adjust)
+        {
+            bHasExtsToPin = true;
+            break;
+        }
+    }
+    return bHasExtsToPin;
 }

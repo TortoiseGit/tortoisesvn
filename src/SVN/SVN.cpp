@@ -466,7 +466,8 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg, bool copy_as_child,
-               bool make_parents, bool ignoreExternals, const RevPropHash& revProps)
+               bool make_parents, bool ignoreExternals, bool pin_externals, SVNExternals externalsToTag,
+               const RevPropHash& revProps)
 {
     SVNPool subpool(pool);
 
@@ -475,14 +476,22 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     m_pctx->log_msg_baton3 = logMessage(logmsg);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
+    apr_hash_t * externals_to_pin = nullptr;
+    if (!externalsToTag.empty())
+    {
+        externals_to_pin = externalsToTag.GetHash(revision.IsWorking() || revision.IsBase(), subpool);
+    }
+
     CallPreConnectHookIfUrl(srcPathList, destPath);
 
     SVNTRACE(
-        Err = svn_client_copy6 (MakeCopyArray(srcPathList, revision, pegrev),
+        Err = svn_client_copy7 (MakeCopyArray(srcPathList, revision, pegrev),
                                 destPath.GetSVNApiPath(subpool),
                                 copy_as_child,
                                 make_parents,
                                 ignoreExternals,
+                                pin_externals,
+                                externals_to_pin,
                                 revPropHash,
                                 commitcallback2,
                                 this,

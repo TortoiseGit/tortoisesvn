@@ -25,6 +25,7 @@
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 #include "SVNGlobal.h"
+#include "SVNExternals.h"
 #include "ProjectProperties.h"
 
 #include "ILogReceiver.h"
@@ -291,6 +292,7 @@ public:
     bool Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
         const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg = CString(),
         bool copy_as_child = false, bool make_parents = false, bool ignoreExternals = false,
+        bool pin_externals = false, SVNExternals externalsToTag = SVNExternals(),
         const RevPropHash& revProps = RevPropHash());
     /**
      * Move srcPath to destPath.

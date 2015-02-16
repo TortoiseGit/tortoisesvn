@@ -2917,13 +2917,6 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
     SetBackgroundImage(IDI_COPY_BKG);
 
-    if (m_Revision.IsWorking())
-    {
-        // adjust the svn:externals property before we do
-        // the actual copy
-        m_externals.TagExternals(false);
-    }
-
     DWORD exitcode = 0;
     CString error;
     CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
@@ -2947,7 +2940,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     bool makeparents = (m_options & ProgOptMakeParents)!=0;
     // when creating intermediate folders with "make parents", always use "copy_as_child"
-    if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, makeparents, makeparents, (m_options & ProgOptIgnoreExternals) != 0, m_revProps))
+    if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, makeparents, makeparents, (m_options & ProgOptIgnoreExternals) != 0, m_externals.NeedsTagging(), m_externals, m_revProps))
     {
         ReportSVNError();
         return false;
@@ -2955,23 +2948,6 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     if (!PostCommitErr.IsEmpty())
     {
         ReportError(PostCommitErr);
-    }
-    if (m_Revision.IsWorking())
-    {
-        // restore the svn:externals property
-        m_externals.RestoreExternals();
-    }
-    else if (m_Revision.IsNumber() || m_Revision.IsDate() || m_Revision.IsHead())
-    {
-        if (m_externals.size())
-        {
-            sCmdInfo.LoadString(IDS_PROGRS_CMD_TAGEXTERNALS);
-            ReportCmd(sCmdInfo);
-            if (!m_externals.TagExternals(true, CString(MAKEINTRESOURCE(IDS_COPY_COMMITMSG)), GetCommitRevision(), m_targetPathList[0], CTSVNPath(m_url)))
-            {
-                ReportError(m_externals.GetLastErrorString());
-            }
-        }
     }
 
     if (m_options & ProgOptSwitchAfterCopy)

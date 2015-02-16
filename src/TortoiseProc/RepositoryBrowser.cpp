@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2938,9 +2938,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
             BOOL bRet = FALSE;
             if (dwEffect == DROPEFFECT_COPY)
                 if (pathlist.GetCount() == 1)
-                    bRet = Copy(pathlist, CTSVNPath(target.GetSVNPathString() + L"/" + targetName), srcRev, srcRev, sLogMsg, false, false, false, input.m_revProps);
+                    bRet = Copy(pathlist, CTSVNPath(target.GetSVNPathString() + L"/" + targetName), srcRev, srcRev, sLogMsg, false, false, false, false, SVNExternals(), input.m_revProps);
                 else
-                    bRet = Copy(pathlist, target, srcRev, srcRev, sLogMsg, true, false, false, input.m_revProps);
+                    bRet = Copy(pathlist, target, srcRev, srcRev, sLogMsg, true, false, false, false, SVNExternals(), input.m_revProps);
             else
                 if (pathlist.GetCount() == 1)
                     bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + L"/" + targetName), sLogMsg, false, false, false, false, input.m_revProps);
@@ -4025,7 +4025,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             break;
                         InvalidateDataParents (selection);
 
-                        bool bRet = Copy(selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, sLogMsg, true, true, false, input.m_revProps);
+                        bool bRet = Copy(selection.GetURLsEscaped(0), CTSVNPath(dlg.m_name), revision, revision, sLogMsg, true, true, false, false, SVNExternals(), input.m_revProps);
                         RunPostCommit(selection.GetURLsEscaped(0), svn_depth_unknown, m_commitRev, sLogMsg);
                         if (!bRet || !PostCommitErr.IsEmpty())
                         {
