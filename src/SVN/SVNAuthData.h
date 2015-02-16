@@ -58,8 +58,8 @@ public:
     bool ExportAuthData(const CString& targetpath, const CString& password, bool overwrite = false);
     bool ImportAuthData(const CString& importpath, const CString& password, bool overwrite = false);
 
-    static const svn_string_t * SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
-    static const svn_string_t * SVNAuthData::encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
+    static const svn_string_t * decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
+    static const svn_string_t * encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
 
 protected:
     apr_pool_t *                m_pool;         ///< the memory pool
