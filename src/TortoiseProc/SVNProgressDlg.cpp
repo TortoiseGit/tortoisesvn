@@ -3530,7 +3530,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
     CBlockCacheForPath cacheBlock (m_targetPathList.GetCommonRoot().GetWinPath());
-    if (!Revert(m_targetPathList, CStringArray(), (m_options & ProgOptRecursive) != 0, (m_options & ProgOptClearChangeLists) != 0))
+    if (!Revert(m_targetPathList, CStringArray(), (m_options & ProgOptRecursive) != 0, (m_options & ProgOptClearChangeLists) != 0, false))
     {
         ReportSVNError();
         return false;

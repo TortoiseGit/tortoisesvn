@@ -288,7 +288,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     return true;
 }
 
-bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, bool recurse, bool clearchangelists)
+bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, bool recurse, bool clearchangelists, bool metadataonly)
 {
     TRACE("Reverting list of %d files\n", pathlist.GetCount());
     SVNPool subpool(pool);
@@ -301,6 +301,7 @@ bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists,
             recurse ? svn_depth_infinity : svn_depth_empty,
             clists,
             clearchangelists,
+            metadataonly,
             m_pctx,
             subpool) ,
         NULL

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2991,7 +2991,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         rec.EndTime(count);
     }
 
-    if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive, false))
+    if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive, false, false))
     {
         svn.ShowErrorDialog(m_hWnd, targetList[0]);
         return;
@@ -6187,8 +6187,8 @@ void CSVNStatusListCtrl::OnRepairMove()
     if (entry2->status == svn_wc_status_added)
     {
         // the target file was already added: revert it first
-        svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false, true);
-        svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false, true);
+        svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false, true, false);
+        svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false, true, false);
     }
 
 
