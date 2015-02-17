@@ -3,10 +3,8 @@
  * \section introduction Introduction
  * TortoiseSVN is a windows shell integration for the Subversion
  * source versioning system. Subversion is the successor
- * of the famous CVS. See http://subversion.tigris.org for
+ * of the famous CVS. See http://subversion.apache.org/ for
  * more information on Subversion.
- *
- * TortoiseSVN was inspired by the similar program TortoiseCVS.
  *
  * With TortoiseSVN you can use Subversion directly from the
  * Windows Explorer. The Subversion status of your project
@@ -15,8 +13,7 @@
  * (right-click).
  *
  * \section Requirements Requirements
- * TortoiseSVN runs under Win2k and later.
- * You also need at least Internet Explorer Version 5 or higher.
+ * TortoiseSVN runs under Vista and later.
  *
  * \section Installation Installation
  * TortoiseSVN comes with an installer. Just run the installer and follow
@@ -50,49 +47,10 @@
  * \page licensesvn Subversion license
  * <H1>Subversion License</H1>
  * ================================================================
- * Copyright (c) 2004 CollabNet.  All rights reserved.
+ * Subversion is licensed under the Apache license, Version 2.0.
+ * You can find the full license on the Apache website:
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- *
- * 1. Redistributions of source code must retain the above copyright
- * notice, this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright
- * notice, this list of conditions and the following disclaimer in the
- * documentation and/or other materials provided with the distribution.
- *
- * 3. The end-user documentation included with the redistribution, if
- * any, must include the following acknowledgment: "This product includes
- * software developed by CollabNet (http://www.Collab.Net/)."
- * Alternately, this acknowledgment may appear in the software itself, if
- * and wherever such third-party acknowledgments normally appear.
- *
- * 4. The hosted project names must not be used to endorse or promote
- * products derived from this software without prior written
- * permission. For written permission, please contact info@collab.net.
- *
- * 5. Products derived from this software may not use the "Tigris" name
- * nor may "Tigris" appear in their names without prior written
- * permission of CollabNet.
- *
- * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL COLLABNET OR ITS CONTRIBUTORS BE LIABLE FOR ANY
- * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
- * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * ====================================================================
- *
- * This software consists of voluntary contributions made by many
- * individuals on behalf of CollabNet.
  */
 
 
