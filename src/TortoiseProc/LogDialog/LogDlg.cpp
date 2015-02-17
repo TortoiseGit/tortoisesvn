@@ -5162,13 +5162,6 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
             if (m_hasWC)
             {
                 popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
-                // TODO:
-                // TortoiseMerge could be improved to take a /blame switch
-                // and then not 'cat' the files from a unified diff but
-                // blame then.
-                // But until that's implemented, the context menu entry for
-                // this feature is commented out.
-                //popup.AppendMenu(ID_BLAMECOMPARE, IDS_LOG_POPUP_BLAMECOMPARE, IDI_BLAME);
             }
             popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
             popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, IDS_LOG_POPUP_COMPAREWITHPREVIOUS, IDI_DIFF);
@@ -6661,7 +6654,6 @@ void CLogDlg::OpenSelectedFilesInVisualStudio(std::vector<size_t>& changedlogpat
     }
 }
 
-// TODO: remove duplicated code line ~5752
 CString CLogDlg::GetWcPathFromUrl(CString url)
 {
     CString wcPath;

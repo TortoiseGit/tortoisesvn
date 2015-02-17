@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -132,9 +132,8 @@ bool SVNAdminDir::IsWCRoot(const CString& path) const
 
 bool SVNAdminDir::IsWCRoot(const CString& path, bool bDir) const
 {
-    // TODO
     // for now, the svn admin dir is always located at the wc root.
-    // once that changes (maybe in svn 1.8?) we have to change
+    // once that changes (maybe in svn 1.10?) we have to change
     // this function
 
     // Note: we don't use svn_wc_is_wc_root2() here because
