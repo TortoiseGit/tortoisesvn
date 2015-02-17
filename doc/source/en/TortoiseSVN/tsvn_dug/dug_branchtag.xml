@@ -159,19 +159,48 @@ http://svn.collab.net/repos/ProjectName/tags/Release_1.10
       If your working copy has other projects included with
       <literal>svn:externals</literal> properties, those externals will
       be listed at the bottom of the branch/tag dialog. For each external,
-      the target path, the source URL and the revision is shown. The revision
-      of the external is determined from the working copy, which means it
-      shows the revision that external actually points to.
+      the target path and the source URL is shown.
     </para>
     <para>
       If you want to make sure that the new tag always is in a consistent
-      state, check all the externals to have their revisions fixed to
-      their current working copy revision. If you don't check the externals
+      state, check all the externals to have their revisions pinned.
+      If you don't check the externals
       and those externals point to a HEAD revision which might change
       in the future, checking out the new tag will check out that HEAD
       revision of the external and your tag might not compile anymore.
       So it's always a good idea to set the externals to an explicit revision
       when creating a tag.
+    </para>
+    <para>
+      The externals are automatically pinned to either the current HEAD revision
+      or the working copy BASE revision, depending on the source of the branch/tag:
+      <table id="tsvn-dug-branch-1-table">
+        <title>Pinned Revision</title>
+        <tgroup cols="2">
+          <colspec colnum="1"/>
+          <colspec colnum="2"/>
+          <thead>
+            <row>
+              <entry>Copy Source</entry>
+              <entry>Pinned Revision</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>HEAD revision in the repository</entry>
+              <entry>external's repos HEAD revision</entry>
+            </row>
+            <row>
+              <entry>Specific revision in repository</entry>
+              <entry>external's repos HEAD revision</entry>
+            </row>
+            <row>
+              <entry>Working copy</entry>
+              <entry>external's WC BASE revision</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </para>
     <important>
       <title>externals within externals</title>
@@ -181,16 +210,6 @@ http://svn.collab.net/repos/ProjectName/tags/Release_1.10
         be tagged.
       </para>
     </important>
-    <para>
-      If externals are set to an explicit revision when creating a branch or
-      tag, TortoiseSVN automatically changes the <literal>svn:externals</literal>
-      property. When the branch/tag is created from HEAD or a specific revision
-      in the repository, TortoiseSVN first creates the branch/tag, then adjusts
-      the properties. This will create additional commits for each property.
-      When the branch/tag is created from the working copy, the properties
-      are modified first, then the branch/tag is created and then the properties
-      are changed back to their original value.
-    </para>
     <para>
       Press <guibutton>OK</guibutton> to commit the new copy to the
       repository. Don't forget to supply a log message. Note that the
