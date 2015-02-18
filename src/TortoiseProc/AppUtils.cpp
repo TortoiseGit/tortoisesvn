@@ -33,7 +33,6 @@
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 #include "DirFileEnum.h"
-#include "SysInfo.h"
 #include "SelectFileFilter.h"
 #include "SmartHandle.h"
 #include "SVNExternals.h"

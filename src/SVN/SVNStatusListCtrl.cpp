@@ -47,7 +47,6 @@
 #include "AddDlg.h"
 #include "Properties/EditPropertiesDlg.h"
 #include "CreateChangelistDlg.h"
-#include "SysInfo.h"
 #include "ProgressDlg.h"
 #include "StringUtils.h"
 #include "SVNTrace.h"

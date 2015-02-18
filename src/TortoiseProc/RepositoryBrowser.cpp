@@ -45,7 +45,6 @@
 #include "SVNDataObject.h"
 #include "SVNLogHelper.h"
 #include "IconMenu.h"
-#include "SysInfo.h"
 #include <Shlwapi.h>
 #include "RepositoryBrowserSelection.h"
 #include "Commands/EditFileCommand.h"

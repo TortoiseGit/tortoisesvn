@@ -46,7 +46,6 @@
 #include "RepositoryInfo.h"
 #include "Properties/EditPropertiesDlg.h"
 #include "LogCacheSettings.h"
-#include "SysInfo.h"
 #include "SysImageList.h"
 #include "svn_props.h"
 #include "AsyncCall.h"
