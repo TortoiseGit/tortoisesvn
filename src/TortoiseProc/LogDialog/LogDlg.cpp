@@ -9248,12 +9248,12 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
             popup.AppendMenuIcon(ID_EXPLORE, IDS_LOG_POPUP_EXPLORE, IDI_EXPLORER);
-            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL);
+            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);
         }
         else if (::PathIsURL(pItem->WCPathOrUrl))
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
-            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL);
+            popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);
         }
     }
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY |
