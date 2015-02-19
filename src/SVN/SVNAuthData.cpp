@@ -268,6 +268,12 @@ std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> SVNAuthData::DeleteAu
     auto cleanup_baton = std::make_tuple(&authList, delList);
     SVNPool subpool(m_pool);
     Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
+    CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
+    CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
+    if (!syncPath.IsEmpty() && syncPath.Exists())
+    {
+        svn_error_clear(svn_config_walk_auth_data(syncPath.GetSVNApiPath(subpool), cleanup_callback, &cleanup_baton, subpool));
+    }
     return GetAuthList();
 }
 
