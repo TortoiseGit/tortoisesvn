@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,7 @@ public:
         , svnparentpathroot(false)
         , bookmark(false)
         , unversioned(false)
+        , dummy(false)
     {
     }
 
@@ -70,6 +71,7 @@ public:
     svn_node_kind_t kind;
     bool            svnparentpathroot;
     bool            bookmark;
+    bool            dummy;
 };
 
 
@@ -156,6 +158,8 @@ protected:
     afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnCaptureChanged(CWnd *pWnd);
+    afx_msg void OnTvnItemChangingRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMSetCursorRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg LRESULT OnAuthCancelled(WPARAM wParam, LPARAM lParam);
 
     afx_msg void OnUrlFocus();

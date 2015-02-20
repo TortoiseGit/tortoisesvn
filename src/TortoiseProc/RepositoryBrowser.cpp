@@ -297,6 +297,8 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_COMMAND(ID_URL_HISTORY_BACK, &CRepositoryBrowser::OnUrlHistoryBack)
     ON_COMMAND(ID_URL_HISTORY_FORWARD, &CRepositoryBrowser::OnUrlHistoryForward)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOTREE, &CRepositoryBrowser::OnNMCustomdrawRepotree)
+    ON_NOTIFY(TVN_ITEMCHANGING, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangingRepotree)
+    ON_NOTIFY(NM_SETCURSOR, IDC_REPOTREE, &CRepositoryBrowser::OnNMSetCursorRepotree)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -1486,7 +1488,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                 CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
                 if (pTreeItem == nullptr)
                     node = NULL;
-                else if (pTreeItem->bookmark)
+                else if (pTreeItem->bookmark || pTreeItem->dummy)
                     node = NULL;
             }
             if (node == NULL)
@@ -2071,7 +2073,7 @@ void CRepositoryBrowser::OnInlineedit()
         if (hTreeItem != m_RepoTree.GetRootItem())
         {
             CTreeItem* pItem = (CTreeItem*)m_RepoTree.GetItemData (hTreeItem);
-            if (!pItem->is_external && !pItem->bookmark)
+            if (!pItem->is_external && !pItem->bookmark && !pItem->dummy)
                 m_RepoTree.EditLabel(hTreeItem);
         }
     }
@@ -2138,7 +2140,7 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
         if (hSelItem)
         {
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelItem);
-            if (pTreeItem)
+            if (pTreeItem && !pTreeItem->dummy)
             {
                 if (pTreeItem->bookmark)
                 {
@@ -2185,6 +2187,8 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
     if (pTreeItem == NULL)
         return;
     if (pTreeItem->bookmark)
+        return;
+    if (pTreeItem->dummy)
         return;
 
     if (pNMTreeView->action == TVE_COLLAPSE)
@@ -2761,7 +2765,7 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
     CRepositoryBrowserSelection selection;
     LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     CTreeItem * pItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
-    if (pItem && pItem->bookmark)
+    if (pItem && (pItem->bookmark || pItem->dummy))
         return;
 
     selection.Add (pItem);
@@ -3207,6 +3211,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             hChosenTreeItem = hItem;
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
             bSVNParentPathUrl = pTreeItem->svnparentpathroot;
+            if (pTreeItem->dummy)
+                return;
             if (pTreeItem->bookmark)
             {
                 bIsBookmark = true;
@@ -4399,7 +4405,7 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node)
     {
         CAutoReadLock locker(m_guard);
         CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-        if (pItem->bookmark)
+        if (pItem->bookmark || pItem->dummy)
             return;
         r = pItem->repository.revision;
     }
@@ -4415,7 +4421,7 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
         if (node != NULL)
         {
             pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-            if (pItem->bookmark)
+            if (pItem->bookmark || pItem->dummy)
                 return;
             url = pItem->url;
         }
@@ -4888,6 +4894,39 @@ void CRepositoryBrowser::OnNMCustomdrawRepotree(NMHDR *pNMHDR, LRESULT *pResult)
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pTVCD->clrText = GetSysColor(COLOR_GRAYTEXT);
         }
+        if (pItem && pItem->dummy)
+        {
+            // don't draw empty items, they're used for spacing
+            *pResult = CDRF_DOERASE | CDRF_SKIPDEFAULT;
+        }
+    }
+}
+
+void CRepositoryBrowser::OnTvnItemChangingRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMTVITEMCHANGE *pNMTVItemChange = reinterpret_cast<NMTVITEMCHANGE *>(pNMHDR);
+    *pResult = 0;
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData((HTREEITEM)pNMTVItemChange->hItem);
+    if (pItem && pItem->dummy)
+        *pResult = 1;
+}
+
+void CRepositoryBrowser::OnNMSetCursorRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    *pResult = 0;
+    POINT pt;
+    GetCursorPos(&pt);
+    m_RepoTree.ScreenToClient(&pt);
+    UINT flags = TVHT_ONITEM | TVHT_ONITEMINDENT | TVHT_ONITEMRIGHT | TVHT_ONITEMBUTTON | TVHT_TOLEFT | TVHT_TORIGHT;
+    HTREEITEM hItem = m_RepoTree.HitTest(pt, &flags);
+    if (hItem)
+    {
+        CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
+        if (pItem && pItem->dummy)
+        {
+            SetCursor(LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));
+            *pResult = 1;
+        }
     }
 }
 
@@ -5186,6 +5225,13 @@ void CRepositoryBrowser::RefreshBookmarks()
         if (m_bSparseCheckoutMode)
             return;
         // the tree view is empty, just fill in the repository root
+        HTREEITEM hDummy = m_RepoTree.InsertItem(L"", 0, 0, TVI_ROOT, TVI_LAST);
+        //m_RepoTree.SetItemStateEx(hDummy, TVIS_EX_DISABLED);
+        auto pDummy = new CTreeItem();
+        pDummy->dummy = true;
+        pDummy->kind = svn_node_dir;
+        m_RepoTree.SetItemData(hDummy, (DWORD_PTR)pDummy);
+
         CTreeItem * pTreeItem = new CTreeItem();
         pTreeItem->kind = svn_node_dir;
         pTreeItem->bookmark = true;
@@ -5260,5 +5306,6 @@ void CRepositoryBrowser::SaveBookmarks()
         file.Close();
     }
 }
+
 
 
