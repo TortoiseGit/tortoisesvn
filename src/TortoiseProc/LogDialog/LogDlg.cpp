@@ -8764,7 +8764,7 @@ void CLogDlg::OnMonitorThreadFinished()
                     }
                     ++changedprojects;
                 }
-                if (pItem->lastHEAD != item.lastHEAD)
+                if ((pItem->lastHEAD != item.lastHEAD) || (!item.lastErrorMsg.IsEmpty()))
                 {
                     // to avoid overwriting a "mark as read" operation,
                     // only overwrite these values if the last found
