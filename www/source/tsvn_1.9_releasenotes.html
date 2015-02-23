@@ -21,6 +21,8 @@
                     <li><a href="#subwcrevignore">Ignore option for SubWCRev</a></li>
                     <li><a href="#imgconflicts">Conflict resolving for images</a></li>
                     <li><a href="#repobookmarks">Bookmarks in the repository browser</a></li>
+                    <li><a href="#dragexternals">Add svn:externals property by right-dragging</a></li>
+                    <li><a href="#checkcommit">Check-Commit hook</a></li>
                 </ul>
 
                 <p>TortoiseSVN 1.9 is a superset of all previous TortoiseSVN releases,
@@ -134,12 +136,29 @@
                 </a>
             </div> <!-- repobookmarks -->
 
+            <div class="post" id="dragexternals">
+                <h2>Add svn:externals property by right-dragging</h2>
+                <p>Files and folders that are dragged from one working
+                copy to another with the right mouse button down can be
+                automatically added as externals to the dropped working copy.</p>
+            </div> <!-- dragexternals -->
+
+            <div class="post" id="checkcommit">
+                <h2>Check-Commit hook</h2>
+                <p>A new hook is available that is called right before
+                the commit dialog is closed. If the hook script returns an error,
+                the commit dialog is kept open so users can fix the problems
+                right there, before the commit is tried.</p>
+                <p>This is useful in case a hook script has to ensure a certain
+                format of the commit message, or scan all files that are to be committed
+                first.</p>
+                <p>Another hook is available that if set, shows a button in the commit dialog which when
+                clicked runs that hook script.</p>
+            </div> <!-- checkcommit -->
 
             <!--
                 * TMerge enhancements: search, easier toggle of ovl/ins, encoding combos in statusbar, ignore changes in comments
-                * check-commit hook script, used to check the log message and reject it if necessary
                 * copy-to-clipboard: new options
-                * create externals by right-dragging
                 * filter/search the recent commit messages
             -->
         </div> <!-- .content -->
