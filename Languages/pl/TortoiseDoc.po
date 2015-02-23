@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-02 22:02+0000\n"
+"PO-Revision-Date: 2015-02-20 21:12+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -3034,6 +3034,7 @@ msgstr "Pobranie tylko tego katalogu. Nie wypełnianie go ani plikami ani folder
 
 #. (term)
 #. (term)
+#. (entry)
 #. (listitem)
 msgid "Working copy"
 msgstr "Kopia robocza"
@@ -9038,6 +9039,7 @@ msgid ""
 msgstr "Należy zauważyć, opcja ta jest domyślnie wyłączona by uniknąć literówek. Na przykład, jeśli wpisano docelowy URL <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> zamiast <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>, wystąpi błąd przy wyłączonej opcji, natomiast przy opcji zaznaczonej zostanie automatycznie utworzony folder <literal>Tags</literal>, i skończy się to na istnieniu dwóch folderów <literal>Tags</literal> i <literal>tags</literal>."
 
 #. (term)
+#. (entry)
 #. (listitem)
 msgid "HEAD revision in the repository"
 msgstr "Wersja HEAD w repozytorium"
@@ -9091,22 +9093,50 @@ msgstr "Jeśli chcecie, aby kopia robocza była przełączona do nowo utworzonej
 msgid ""
 "If your working copy has other projects included with "
 "<literal>svn:externals</literal> properties, those externals will be listed "
-"at the bottom of the branch/tag dialog. For each external, the target path, "
-"the source URL and the revision is shown. The revision of the external is "
-"determined from the working copy, which means it shows the revision that "
-"external actually points to."
-msgstr "Jeśli kopia robocza posiada inne projekty ujęte w atrybutach <literal>svn:externals</literal>, te zewnętrzne będą wypisane na dole okna dialogowego gałęzi/etykiety. Dla każdego zewnętrznego pokazana jest, ścieżka docelowa, URL źródła i wersja. Wersję zewnętrznego określa się na podstawie kopii roboczej, co oznacza, że ​​pokazuje na wersję, na którą rzeczywiście wskazuje zewnętrzne."
+"at the bottom of the branch/tag dialog. For each external, the target path "
+"and the source URL is shown."
+msgstr "Jeśli kopia robocza posiada inne projekty ujęte w atrybutach <literal>svn:externals</literal>, te zewnętrzne będą wypisane na dole okna dialogowego gałęzi/etykiety. Dla każdego zewnętrznego pokazana jest ścieżka docelowa i URL źródła."
 
 #. (para)
 msgid ""
 "If you want to make sure that the new tag always is in a consistent state, "
-"check all the externals to have their revisions fixed to their current "
-"working copy revision. If you don't check the externals and those externals "
-"point to a HEAD revision which might change in the future, checking out the "
-"new tag will check out that HEAD revision of the external and your tag might"
-" not compile anymore. So it's always a good idea to set the externals to an "
-"explicit revision when creating a tag."
-msgstr "Jeśli chcecie upewnić się, że nowa etykieta zawsze jest w stanie spójnym, sprawdźcie czy wszystkie zewnętrzne mają ustalone wersje takie jak wersja w ich własnej kopii roboczej. Jeśli nie sprawdzicie zewnętrznych i te zewnętrzne wskazują na wersję HEAD, która może się zmienić w przyszłości, podczas pobierania nowej etykiety nastąpi pobranie wersji HEAD zewnętrznych i etykieta może się już nie skompilować. Więc to jest zawsze dobry pomysł, aby ustawić zewnętrzne na ustaloną wersję podczas tworzenia etykiety."
+"check all the externals to have their revisions pinned. If you don't check "
+"the externals and those externals point to a HEAD revision which might "
+"change in the future, checking out the new tag will check out that HEAD "
+"revision of the external and your tag might not compile anymore. So it's "
+"always a good idea to set the externals to an explicit revision when "
+"creating a tag."
+msgstr "Jeśli chcecie upewnić się, że nowa etykieta zawsze jest w stanie spójnym, sprawdźcie czy wszystkie zewnętrzne mają przypięte. Jeśli nie sprawdzicie zewnętrznych i te zewnętrzne wskazują na wersję HEAD, która może się zmienić w przyszłości, podczas pobierania nowej etykiety nastąpi pobranie wersji HEAD zewnętrznych i etykieta może się już nie skompilować. Więc to jest zawsze dobry pomysł, aby ustawić zewnętrzne na ustaloną wersję podczas tworzenia etykiety."
+
+#. (title)
+#. (entry)
+msgid "Pinned Revision"
+msgstr "Przypięta Wersja"
+
+#. (entry)
+msgid "Copy Source"
+msgstr "Źródło Kopii"
+
+#. (entry)
+#. (entry)
+msgid "external's repos HEAD revision"
+msgstr "wersja HEAD repozytorium zewnętrznego"
+
+#. (entry)
+#. (listitem)
+msgid "Specific revision in repository"
+msgstr "Określona wersja w repozytorium"
+
+#. (entry)
+msgid "external's WC BASE revision"
+msgstr "wersja BASE kopii roboczej zewnętrznego"
+
+#. (para)
+msgid ""
+"The externals are automatically pinned to either the current HEAD revision "
+"or the working copy BASE revision, depending on the source of the "
+"branch/tag: <placeholder-1/>"
+msgstr "Zewnętrzne są zawsze przypinane do ich bieżącej wersji HEAD lub wersji BASE kopii roboczej, zależnie od źródła gałęzi/etykiety: <placeholder-1/>"
 
 #. (title)
 msgid "externals within externals"
@@ -9118,18 +9148,6 @@ msgid ""
 "then those will not be tagged! Only externals that are direct children can "
 "be tagged."
 msgstr "Jeśli projekt zawarty jako zewnętrzny sam również zawierał zewnętrzne, to one nie zostaną zaetykietowane! Tylko zewnętrzne które są bezpośrednim potomkiem mogą być etykietowane."
-
-#. (para)
-msgid ""
-"If externals are set to an explicit revision when creating a branch or tag, "
-"TortoiseSVN automatically changes the <literal>svn:externals</literal> "
-"property. When the branch/tag is created from HEAD or a specific revision in"
-" the repository, TortoiseSVN first creates the branch/tag, then adjusts the "
-"properties. This will create additional commits for each property. When the "
-"branch/tag is created from the working copy, the properties are modified "
-"first, then the branch/tag is created and then the properties are changed "
-"back to their original value."
-msgstr "Jeśli zewnętrzne są ustawione na ustaloną wersję przy tworzeniu gałęzi lub etykiety, TortoiseSVN automatycznie zmienia atrybut <literal>svn:externals</literal>. Kiedy gałąź/etykieta jest stworzona z wersji HEAD lub określonej wersji w repozytorium, TortoiseSVN najpierw tworzy gałąź/etykietę, a następnie dostosowuje atrybuty. Tworzy to dodatkowe zatwierdzenie dla każdego atrybutu. Kiedy gałąź/etykieta jest stworzona z kopii roboczej, atrybuty są modyfikowane, po czym jest tworzona gałąź/etykieta, a następnie atrybuty zmieniają się z powrotem do ich pierwotnej wartości."
 
 #. (para)
 msgid ""
@@ -19189,10 +19207,6 @@ msgid ""
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
 msgstr "\nsvn copy -m \"KomunDziennika\" URL URL\nlub\nsvn copy -m \"KomunDziennika\" URL@wer URL@wer\nlub\nsvn copy -m \"KomunDziennika\" SCIEZKA URL\n      "
-
-#. (listitem)
-msgid "Specific revision in repository"
-msgstr "Określona wersja w repozytorium"
 
 #. (para)
 msgid ""

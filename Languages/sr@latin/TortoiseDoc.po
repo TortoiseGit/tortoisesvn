@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-02 19:52+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2015-02-18 09:59+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3033,6 +3033,7 @@ msgstr "Preuzimanje samo foldera. Ne naseljavti ga fajlovima ili potomačkim ime
 
 #. (term)
 #. (term)
+#. (entry)
 #. (listitem)
 msgid "Working copy"
 msgstr "Radna kopija"
@@ -9037,6 +9038,7 @@ msgid ""
 msgstr "Primetimo da je ova opcija onemogućena uobičajeno da bi se izbegle greške pri kucanju. Na primer, ako otkucate ciljni URL kao  <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> umesto <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>, dobićete grešku sa onemogućenom opcijom, ali ako je opcija omogućena folder <literal>Tags</literal> će biti automatski kreiran i završiće se folderom <literal>Tags</literal> i folderom <literal>tags</literal>."
 
 #. (term)
+#. (entry)
 #. (listitem)
 msgid "HEAD revision in the repository"
 msgstr "GLAVNA revizija u spremištu"
@@ -9090,22 +9092,50 @@ msgstr "Ako želite vašu radnu kopiju da prebacite na novo kreiranu granu autom
 msgid ""
 "If your working copy has other projects included with "
 "<literal>svn:externals</literal> properties, those externals will be listed "
-"at the bottom of the branch/tag dialog. For each external, the target path, "
-"the source URL and the revision is shown. The revision of the external is "
-"determined from the working copy, which means it shows the revision that "
-"external actually points to."
-msgstr "Ako vaša radna kopija ima druge projekte uključene sa <literal>svn:externals</literal>  osobinama, ovi eksternali će biti izlistani na dnu grana/oznaka dijaloga. Za svaki eksternal, ciljanu putanju, izvorni URL i revizija su prikazani. Revizija eksternala je određena iz radne kopije što znači da prikazuje reviziju eksternala na koji se trenutno pokazuje."
+"at the bottom of the branch/tag dialog. For each external, the target path "
+"and the source URL is shown."
+msgstr ""
 
 #. (para)
 msgid ""
 "If you want to make sure that the new tag always is in a consistent state, "
-"check all the externals to have their revisions fixed to their current "
-"working copy revision. If you don't check the externals and those externals "
-"point to a HEAD revision which might change in the future, checking out the "
-"new tag will check out that HEAD revision of the external and your tag might"
-" not compile anymore. So it's always a good idea to set the externals to an "
-"explicit revision when creating a tag."
-msgstr "Ako želite da budete sigurni da je nova oznaka u konzistentnom stanju proverite sve eksternale da imaju svoje revizije fiksirane u  tekućoj reviziji radne kopije.  Ako ne proverite eksternale i eksternale GLAVNE revizije koji se mogu menjati u budućnosti, proverom novih oznaka proveriće GLAVNU reviziju eksternala i vaša oznaka možda se neće uopšte pokupiti. Tako da je dobra ideja da se uključe eksternali eksplicitne revizije kada se kreira oznaka."
+"check all the externals to have their revisions pinned. If you don't check "
+"the externals and those externals point to a HEAD revision which might "
+"change in the future, checking out the new tag will check out that HEAD "
+"revision of the external and your tag might not compile anymore. So it's "
+"always a good idea to set the externals to an explicit revision when "
+"creating a tag."
+msgstr ""
+
+#. (title)
+#. (entry)
+msgid "Pinned Revision"
+msgstr ""
+
+#. (entry)
+msgid "Copy Source"
+msgstr ""
+
+#. (entry)
+#. (entry)
+msgid "external's repos HEAD revision"
+msgstr ""
+
+#. (entry)
+#. (listitem)
+msgid "Specific revision in repository"
+msgstr "Određena revizija u spremištu"
+
+#. (entry)
+msgid "external's WC BASE revision"
+msgstr ""
+
+#. (para)
+msgid ""
+"The externals are automatically pinned to either the current HEAD revision "
+"or the working copy BASE revision, depending on the source of the "
+"branch/tag: <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "externals within externals"
@@ -9117,18 +9147,6 @@ msgid ""
 "then those will not be tagged! Only externals that are direct children can "
 "be tagged."
 msgstr "Ako je projekta uključen kao eksternal koji ima svoj uključen eksternal onda to neće biti označeno! Samo eksternali koji su direktni potomci mogu biti označeni."
-
-#. (para)
-msgid ""
-"If externals are set to an explicit revision when creating a branch or tag, "
-"TortoiseSVN automatically changes the <literal>svn:externals</literal> "
-"property. When the branch/tag is created from HEAD or a specific revision in"
-" the repository, TortoiseSVN first creates the branch/tag, then adjusts the "
-"properties. This will create additional commits for each property. When the "
-"branch/tag is created from the working copy, the properties are modified "
-"first, then the branch/tag is created and then the properties are changed "
-"back to their original value."
-msgstr "Ako su eksternali uključeni za eksplicitnu reviziju kada se kreira grana ili oznaka, TortoiseSVN automatski menja <literal>svn:externals</literal> osobine. Kada je grana/oznaka iz GLAVNE revizije ili specificirane revizije u spremištu, TortoiseSVN najpre kreira granu/znak, zatim podešava osobine. Ovo će kreirati dodatno urezivanje za svaku osobinu. Kada je grana/oznaka kreirana iz radne kopije, najpre se menjaju osobine, zatim se kreira grana/oznaka i onda se izmene osobina vraćaju na originalne vrednosti.  "
 
 #. (para)
 msgid ""
@@ -19188,10 +19206,6 @@ msgid ""
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
 msgstr "\nsvn copy -m \"LogMessage\" URL URL\nor\nsvn copy -m \"LogMessage\" URL@rev URL@rev\nor\nsvn copy -m \"LogMessage\" PATH URL\n      "
-
-#. (listitem)
-msgid "Specific revision in repository"
-msgstr "Određena revizija u spremištu"
 
 #. (para)
 msgid ""
