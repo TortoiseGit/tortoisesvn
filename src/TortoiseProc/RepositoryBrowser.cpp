@@ -552,7 +552,7 @@ void CRepositoryBrowser::InitRepo()
 
     // (try to) fetch the HEAD revision
 
-    svn_revnum_t headRevision = GetHEADRevision (CTSVNPath (m_InitialUrl));
+    svn_revnum_t headRevision = GetHEADRevision (CTSVNPath (m_InitialUrl), false);
 
     // let's see whether the URL was a directory
 
