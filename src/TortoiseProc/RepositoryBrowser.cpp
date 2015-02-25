@@ -4911,7 +4911,7 @@ void CRepositoryBrowser::OnTvnItemChangingRepotree(NMHDR *pNMHDR, LRESULT *pResu
         *pResult = 1;
 }
 
-void CRepositoryBrowser::OnNMSetCursorRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+void CRepositoryBrowser::OnNMSetCursorRepotree(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     *pResult = 0;
     POINT pt;
