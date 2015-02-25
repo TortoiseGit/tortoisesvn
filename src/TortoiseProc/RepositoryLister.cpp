@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2014 - TortoiseSVN
+// Copyright (C) 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -335,8 +335,6 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                 CTSVNPath url;
                 url.SetFromSVN (absoluteURL);
-                externalRepository.root
-                    = svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
                 if (HasBeenTerminated())
                     break;
                 SVNInfo info;
@@ -344,6 +342,8 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 if (HasBeenTerminated())
                     break;
 
+                if (pInfoData)
+                    externalRepository.root = pInfoData->reposRoot;
                 externalRepository.revision = external->revision;
                 externalRepository.peg_revision = external->peg_revision;
 
