@@ -1146,7 +1146,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     bool urlHasDifferentRoot
         =    root.IsEmpty()
           || root.Compare (url.Left (root.GetLength()))
-          || ((url.GetAt (root.GetLength()) != '/') && (url.GetLength()!=root.GetLength()));
+          || ((url.GetAt(root.GetLength()) != '/') && ((url.GetLength() > root.GetLength()) && (url.GetAt(root.GetLength()) != '/')));
 
     CString partUrl = url;
     if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot)
