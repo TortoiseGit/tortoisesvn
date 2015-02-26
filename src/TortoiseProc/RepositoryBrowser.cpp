@@ -749,8 +749,6 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
     ChangeToUrl (m_InitialUrl, m_repository.revision, true);
     RefreshBookmarks();
 
-    m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
-
     m_bInitDone = TRUE;
     return 0;
 }
@@ -1162,6 +1160,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
         m_InitialUrl = url;
         m_repository.revision = rev;
         // if the revision changed, then invalidate everything
+        m_bFetchChildren = false;
         ClearUI();
         InitRepo();
         RefreshBookmarks();
@@ -1191,6 +1190,8 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 
     if (!m_RepoList.HasText())
         ShowText(L" ", true);
+
+    m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
 
     RefreshNode(hItem);
     m_RepoTree.Expand(hItem, TVE_EXPAND);
