@@ -9243,14 +9243,14 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         popup.AppendMenu(MF_SEPARATOR, NULL);
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_ADDSUBPROJECT, IDS_LOG_POPUP_MONITORADDSUB, IDI_MONITOR_ADD);
 
-        if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl))
+        if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty())
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
             popup.AppendMenuIcon(ID_EXPLORE, IDS_LOG_POPUP_EXPLORE, IDI_EXPLORER);
             popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);
         }
-        else if (::PathIsURL(pItem->WCPathOrUrl))
+        else if (::PathIsURL(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty())
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);
