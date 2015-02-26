@@ -266,7 +266,7 @@ const std::deque<CItem>& CRepositoryLister::CListQuery::GetSubPathExternals()
     return subPathExternals;
 }
 
-// true, if this query has been run silently and some error occured
+// true, if this query has been run silently and some error occurred
 
 bool CRepositoryLister::CListQuery::ShouldBeRerun()
 {
@@ -577,7 +577,7 @@ void CRepositoryLister::Cancel()
 {
     async::CCriticalSectionLock lock (mutex);
 
-    // move all unfinsiehd queries to the dumpster
+    // move all unfinished queries to the dumpster
 
     for ( TQueries::iterator iter = queries.begin(); iter != queries.end(); )
     {
