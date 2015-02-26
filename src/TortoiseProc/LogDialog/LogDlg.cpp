@@ -9297,6 +9297,11 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         case ID_VIEWPATHREV:
         {
             CString url = GetURLFromPath(CTSVNPath(pItem->WCPathOrUrl));
+            if (url.IsEmpty())
+            {
+                ShowErrorDialog(GetSafeHwnd());
+                break;
+            }
             ShellExecute(this->m_hWnd, L"open", pItem->WCPathOrUrl, NULL, NULL, SW_SHOWDEFAULT);
         }
         break;
