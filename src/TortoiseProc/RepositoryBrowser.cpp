@@ -2896,7 +2896,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                                     CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK2)),
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -3033,7 +3033,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                                 CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -4728,7 +4728,7 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
                         CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)),
                         L"TortoiseSVN",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -5147,7 +5147,7 @@ bool CRepositoryBrowser::RunStartCommit( const CTSVNPathList& pathlist, CString&
                                 CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);
@@ -5174,7 +5174,7 @@ bool CRepositoryBrowser::RunPreCommit( const CTSVNPathList& pathlist, svn_depth_
                                 CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);

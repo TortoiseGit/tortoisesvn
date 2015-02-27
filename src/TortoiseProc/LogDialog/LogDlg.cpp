@@ -5582,7 +5582,7 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
                                     L"TortoiseSVN",
                                     0,
                                     TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
-                                    TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -6528,7 +6528,7 @@ bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
                         L"TortoiseSVN",
                         0,
                         TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
-                        TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -7055,7 +7055,7 @@ bool CLogDlg::CheckMultipleDiffs( UINT selCount )
                             CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -8159,7 +8159,7 @@ void CLogDlg::OnMonitorRemoveProject()
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
-                                TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);

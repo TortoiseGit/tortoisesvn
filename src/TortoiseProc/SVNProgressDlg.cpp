@@ -2758,7 +2758,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                             CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -2886,7 +2886,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                                         CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2)),
                                         L"TortoiseSVN",
                                         0,
-                                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)));
                     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)));
                     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -3084,7 +3084,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
                             CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -3464,7 +3464,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                             CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK3)));
         taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -4002,7 +4002,7 @@ void CSVNProgressDlg::MergeAfterCommit()
                                     CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);

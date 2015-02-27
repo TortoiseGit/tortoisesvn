@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -189,7 +189,7 @@ void CSettingsLogCaches::OnBnClickedDelete()
                         CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)),
                         L"TortoiseSVN",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);

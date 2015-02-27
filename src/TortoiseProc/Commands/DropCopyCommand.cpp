@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,7 +103,7 @@ bool DropCopyCommand::Execute()
                                         CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
                                         L"TortoiseSVN",
                                         0,
-                                        TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                        TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
                     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
                     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -148,7 +148,7 @@ bool DropCopyCommand::Execute()
                                     CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK2)),
                                     L"TortoiseSVN",
                                     TDCBF_CANCEL_BUTTON,
-                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK3)));
                 taskdlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK4)));
                 taskdlg.AddCommandControl(103, CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK5)));

@@ -2683,7 +2683,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                                 CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -2920,7 +2920,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                             CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -6069,7 +6069,7 @@ void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
                         CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
                         L"TortoiseSVN",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -6496,7 +6496,7 @@ bool CSVNStatusListCtrl::CheckMultipleDiffs()
                             CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);

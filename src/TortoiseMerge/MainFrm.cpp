@@ -847,7 +847,7 @@ bool CMainFrame::LoadViews(int line)
                                     CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)),
                                     L"TortoiseMerge",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 CString task3;
                 WCHAR t3[MAX_PATH] = { 0 };
                 CString cp = betterpatchpath.Left(MAX_PATH - 1);
@@ -1434,7 +1434,7 @@ void CMainFrame::OnFileSave()
                                 CString(MAKEINTRESOURCE(IDS_SAVE)),
                                 CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
                 sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
@@ -1530,7 +1530,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                             sSubTitle,
                             sAppName,
                             0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(10, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEINCLUDE)));
         taskdlg.AddCommandControl(11, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEEXCLUDE)));
         taskdlg.AddCommandControl(12, CString(MAKEINTRESOURCE(IDS_MARKEDBLCOKSSAVEIGNORE)));
@@ -1582,7 +1582,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                             CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)),
                             CString(MAKEINTRESOURCE(IDS_APPNAME)),
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -1634,7 +1634,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                                     CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK2)),
                                     CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                     0,
-                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -1673,7 +1673,7 @@ void CMainFrame::OnFileSaveAs()
         CString(MAKEINTRESOURCE(IDS_ASKFORSAVEAS)),
         CString(MAKEINTRESOURCE(IDS_APPNAME)),
         0,
-        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     // default can be last view (target) as was in 1.7 or actual (where is cursor) as is in most text editor
     if (IsViewGood(m_pwndLeftView))
     {
@@ -2409,7 +2409,7 @@ int CMainFrame::CheckForReload()
                         CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)),
                         L"TortoiseMerge",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     CString sTask3;
     if (HasUnsavedEdits())
         sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK3);
@@ -2520,7 +2520,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 sSubTitle,
                                 sAppName,
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
                 sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
@@ -2572,7 +2572,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 sSubTitle,
                                 sAppName,
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTask3;
             if (m_Data.m_mergedFile.InUse())
                 sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
@@ -2607,7 +2607,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                             sSubTitle,
                             sAppName,
                             0,
-                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         CString sTask3;
         if (m_Data.m_mergedFile.InUse())
             sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
@@ -2856,7 +2856,7 @@ bool CMainFrame::HasConflictsWontKeep()
                         CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)),
                         L"TortoiseMerge",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);

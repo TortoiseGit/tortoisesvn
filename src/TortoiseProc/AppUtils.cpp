@@ -1280,7 +1280,7 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
                         CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
                         L"TortoiseSVN",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -1303,7 +1303,7 @@ void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
                         CString(MAKEINTRESOURCE(IDS_COMMITDLG_CHECKCOMMIT_TASK1)),
                         L"TortoiseSVN",
                         0,
-                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
     taskdlg.SetCommonButtons(TDCBF_OK_BUTTON);
     taskdlg.SetMainIcon(TD_ERROR_ICON);
     taskdlg.DoModal(hWnd);

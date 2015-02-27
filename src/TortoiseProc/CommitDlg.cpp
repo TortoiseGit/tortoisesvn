@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -172,7 +172,7 @@ void CCommitDlg::OnOK()
                             CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -199,7 +199,7 @@ void CCommitDlg::OnOK()
                                     CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)),
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                    TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -427,7 +427,7 @@ void CCommitDlg::OnOK()
                             CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK2)),
                             L"TortoiseSVN",
                             0,
-                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                            TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
@@ -528,7 +528,7 @@ void CCommitDlg::OnOK()
                                 CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);

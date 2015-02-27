@@ -187,7 +187,7 @@ BOOL CSettingsSync::ValidateInput()
                                                     CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK2)),
                                                     L"TortoiseSVN",
                                                     0,
-                                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW);
+                                                    TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK3)));
                                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK4)));
                                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
