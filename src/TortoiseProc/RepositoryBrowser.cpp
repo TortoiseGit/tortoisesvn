@@ -1409,31 +1409,65 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
         }
     }
 
-    // add parent sub-tree externals
-
-    CString relPath;
-    for (
-        ; node && pTreeItem->error.IsEmpty()
-        ; node = m_RepoTree.GetParentItem (node))
+    int childfoldercount = 0;
+    for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
     {
-        CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-        if (parentItem == NULL)
-            continue;
-        if (parentItem->svnparentpathroot)
-            continue;
-        parentItem->error = m_lister.AddSubTreeExternals ( parentItem->url
-                                                         , parentItem->is_external
-                                                              ? parentItem->repository.peg_revision
-                                                              : SVNRev()
-                                                         , parentItem->repository
-                                                         , relPath
-                                                         , children);
-        if (!parentItem->error.IsEmpty() && parentItem->unversioned)
+        const CItem& item = pTreeItem->children[i];
+        if ((item.kind == svn_node_dir) && (!item.absolutepath.IsEmpty()))
         {
-            parentItem->error.Empty();
-            parentItem->has_child_folders = true;
+            pTreeItem->has_child_folders = true;
+            ++childfoldercount;
+            if (m_bFetchChildren)
+            {
+                m_lister.Enqueue(item.absolutepath
+                                 , item.is_external ? item.repository.peg_revision : SVNRev()
+                                 , item.repository
+                                 , true
+                                 , item.has_props && !m_bSparseCheckoutMode && m_bShowExternals);
+                if (childfoldercount > 30)
+                    break;
+            }
         }
-        relPath = parentItem->unescapedname + '/' + relPath;
+    }
+    if ((pTreeItem->has_child_folders) || (m_bSparseCheckoutMode))
+        AutoInsert(node, pTreeItem->children);
+    // if there are no child folders, remove the '+' in front of the node
+    {
+        TVITEM tvitem = { 0 };
+        tvitem.hItem = node;
+        tvitem.mask = TVIF_CHILDREN;
+        tvitem.cChildren = pTreeItem->has_child_folders || (m_bSparseCheckoutMode && pTreeItem->children.size()) ? 1 : 0;
+        m_RepoTree.SetItem(&tvitem);
+    }
+
+
+    // add parent sub-tree externals
+    if (m_bShowExternals)
+    {
+        CString relPath;
+        for (
+            ; node && pTreeItem->error.IsEmpty()
+            ; node = m_RepoTree.GetParentItem(node))
+        {
+            CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData(node);
+            if (parentItem == NULL)
+                continue;
+            if (parentItem->svnparentpathroot)
+                continue;
+            parentItem->error = m_lister.AddSubTreeExternals(parentItem->url
+                                                             , parentItem->is_external
+                                                             ? parentItem->repository.peg_revision
+                                                             : SVNRev()
+                                                             , parentItem->repository
+                                                             , relPath
+                                                             , children);
+            if (!parentItem->error.IsEmpty() && parentItem->unversioned)
+            {
+                parentItem->error.Empty();
+                parentItem->has_child_folders = true;
+            }
+            relPath = parentItem->unescapedname + '/' + relPath;
+        }
     }
 
     // done
@@ -1594,13 +1628,13 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
             CAutoReadLock locker(m_guard);
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
             if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
-                m_lister.Enqueue ( pTreeItem->url
-                                 , pTreeItem->is_external
-                                 ? pTreeItem->repository.peg_revision
-                                 : SVNRev()
+            {
+                m_lister.Enqueue(pTreeItem->url
+                                 , pTreeItem->is_external ? pTreeItem->repository.peg_revision : SVNRev()
                                  , pTreeItem->repository
                                  , true
                                  , !m_bSparseCheckoutMode && m_bShowExternals);
+            }
         }
     }
     while (currentPath != path);
@@ -1796,22 +1830,23 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
     FetchChildren (node);
 
     // update node status and add sub-nodes for all sub-dirs
-
+    int childfoldercount = 0;
     for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
     {
         const CItem& item = pTreeItem->children[i];
         if ((item.kind == svn_node_dir)&&(!item.absolutepath.IsEmpty()))
         {
             pTreeItem->has_child_folders = true;
-            if (m_bFetchChildren && (pTreeItem->children.size() < 30))
+            if (m_bFetchChildren)
             {
-                m_lister.Enqueue ( item.absolutepath
-                                 , item.is_external
-                                 ? item.repository.peg_revision
-                                 : SVNRev()
+                ++childfoldercount;
+                m_lister.Enqueue(item.absolutepath
+                                 , item.is_external ? item.repository.peg_revision : SVNRev()
                                  , item.repository
                                  , true
-                                 , item.has_props);
+                                 , item.has_props && !m_bSparseCheckoutMode && m_bShowExternals);
+                if (childfoldercount > 30)
+                    break;
             }
         }
     }
@@ -2159,7 +2194,7 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
                     {
                         CAutoWriteLock locker(m_guard);
                         m_RepoList.DeleteAllItems();
-                        RefreshNode(hSelItem);
+                        FetchChildren(hSelItem);
                     }
 
                     FillList(pTreeItem);
@@ -2199,7 +2234,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
         // of the node, we suppress the collapsing but fetch the info instead
         if (!pTreeItem->children_fetched)
         {
-            RefreshNode(pNMTreeView->itemNew.hItem);
+            FetchChildren(pNMTreeView->itemNew.hItem);
             *pResult = 1;
             return;
         }
@@ -2211,7 +2246,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 
     if (!pTreeItem->children_fetched)
     {
-        RefreshNode(pNMTreeView->itemNew.hItem);
+        FetchChildren(pNMTreeView->itemNew.hItem);
     }
     else
     {
