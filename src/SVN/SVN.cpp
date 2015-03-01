@@ -490,6 +490,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                                 copy_as_child,
                                 make_parents,
                                 ignoreExternals,
+                                false,  // metadata only
                                 pin_externals,
                                 externals_to_pin,
                                 revPropHash,
