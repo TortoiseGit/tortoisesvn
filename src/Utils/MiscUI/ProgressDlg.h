@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -170,6 +170,11 @@ public:
      * data again.
      */
     bool EnsureValid();
+
+    /**
+     * returns the HWND of the progress dialog
+     */
+    HWND GetHwnd() const { return m_hWndProgDlg; }
 
 private:
     static LRESULT fnSubclass(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
