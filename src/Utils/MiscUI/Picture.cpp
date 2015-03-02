@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,7 +113,7 @@ tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
     if (bAbbrev)
         StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
-        swprintf_s(buf, L"%ld Bytes", m_nSize);
+        swprintf_s(buf, L"%lu Bytes", m_nSize);
 
     return tstring(buf);
 }
