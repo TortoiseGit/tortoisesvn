@@ -150,6 +150,13 @@ module.exports = function(grunt) {
             html: '<%= dirs.dest %>/**/*.html'
         },
 
+        sitemap: {
+            dist: {
+                pattern: ['<%= dirs.dest %>/**/*.html', '!<%= dirs.dest %>/**/google*.html'],
+                siteRoot: './dist'
+            }
+        },
+
         connect: {
             options: {
                 hostname: 'localhost',
@@ -168,8 +175,14 @@ module.exports = function(grunt) {
             options: {
                 livereload: '<%= connect.options.livereload %>'
             },
+            dev: {
             files: ['<%= dirs.src %>/**', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
-            tasks: 'dev'
+                tasks: 'dev'
+            },
+            build: {
+            files: ['<%= dirs.src %>/**', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
+                tasks: 'build'
+            }
         },
 
         clean: {
@@ -219,13 +232,15 @@ module.exports = function(grunt) {
         'useminPrepare',
         'concat',
         'filerev',
-        'usemin'
+        'usemin',
+        'sitemap'
     ]);
 
     grunt.registerTask('build', [
         'clean',
         'copy',
         'includereplace',
+        'sitemap',
         'useminPrepare',
         'concat',
         //'uncss',
@@ -243,10 +258,16 @@ module.exports = function(grunt) {
         'validation'
     ]);
 
+    grunt.registerTask('server', [
+        'build',
+        'connect',
+        'watch:build'
+    ]);
+
     grunt.registerTask('default', [
         'dev',
         'connect',
-        'watch'
+        'watch:dev'
     ]);
 
 };
