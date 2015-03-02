@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-22 11:31+0000\n"
+"PO-Revision-Date: 2015-03-01 02:10+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -8869,7 +8869,7 @@ msgid ""
 " examples above, make sure that <emphasis>all</emphasis> folders in between "
 "are versioned as well. So for the examples above, the folder "
 "<filename>common</filename> should be versioned!"
-msgstr ""
+msgstr "Если вы укажете папку назначения для внешних включений как подпапку, как в приведённых выше примерах, убедитесь, что <emphasis>все</emphasis> папки межу ними также версионируемые. Так для вышеприведённых примеров папка <filename>common</filename> должна быть версионируемой!"
 
 #. (para)
 msgid ""
@@ -8877,7 +8877,7 @@ msgid ""
 "between are not versioned, there are some operations that won't work as you "
 "expect. And the status overlay icons in explorer will also not show the "
 "correct status."
-msgstr ""
+msgstr "Несмотря на то, что внешние включения будут работать правильно в большинстве случаев, если папки между ними неверсируемые, всё же есть несколько операций, которые не будут работать как вы ожидаете. И статус оверлейных значков также не будет отображаться корректно."
 
 #. (para)
 msgid ""
@@ -9009,7 +9009,7 @@ msgid ""
 "      </screen> you might now use something like <screen>\n"
 "http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "      </screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
-msgstr ""
+msgstr "По умолчанию, целевым URL для нового ответвления будет URL источника, базового для вашей рабочей копии. Вы должны изменить этот URL так, чтобы он указывал новый путь вашего ответвления/метки. Так, вместо <screen>\nhttp://svn.collab.net/repos/ProjectName/trunk\n      </screen> вы можете использовать что-то вроде<screen>\nhttp://svn.collab.net/repos/ProjectName/tags/Release_1.10\n      </screen> Если вы не помните соглашений о наименовании, использованных в последний раз, нажмите кнопку справа - откроется обозреватель хранилища, и вы сможете посмотреть существующую структуру хранилища."
 
 #. (title)
 msgid "intermediate folders"
@@ -9101,7 +9101,7 @@ msgid ""
 "<literal>svn:externals</literal> properties, those externals will be listed "
 "at the bottom of the branch/tag dialog. For each external, the target path "
 "and the source URL is shown."
-msgstr ""
+msgstr "Если ваша рабочая копия содержит другие проекты добавленные через свойство <literal>svn:externals</literal>, то такие внешние проекты будут перечислены внизу диалога ветки/метки. Для каждого внешнего проекта отображается путь назначения и исходный адрес URL."
 
 #. (para)
 msgid ""
@@ -9112,21 +9112,21 @@ msgid ""
 "revision of the external and your tag might not compile anymore. So it's "
 "always a good idea to set the externals to an explicit revision when "
 "creating a tag."
-msgstr ""
+msgstr "Если вы хотите убедиться, что новая метка всегда в согласованном состоянии, то проверьте чтобы все ревизии внешних ссылок были закреплены. Если вы этого не сделаете, и такие ссылки будут указывать на ревизию HEAD, что в будущем может изменится, то извлечение новой метки извлечет ревизию HEAD внешнего проекта и ваша метка может больше не скомпилироваться. Так что явно устанавливать ревизию для внешних проектов при создании метки — это хорошая идея."
 
 #. (title)
 #. (entry)
 msgid "Pinned Revision"
-msgstr ""
+msgstr "Закреплённая ревизия"
 
 #. (entry)
 msgid "Copy Source"
-msgstr ""
+msgstr "Источник копии"
 
 #. (entry)
 #. (entry)
 msgid "external's repos HEAD revision"
-msgstr ""
+msgstr "ревизия HEAD внешнего хранилища"
 
 #. (entry)
 #. (listitem)
@@ -9135,18 +9135,18 @@ msgstr "Указанной ревизии в хранилище"
 
 #. (entry)
 msgid "external's WC BASE revision"
-msgstr ""
+msgstr "ревизия BASE внешней рабочей копии"
 
 #. (para)
 msgid ""
 "The externals are automatically pinned to either the current HEAD revision "
 "or the working copy BASE revision, depending on the source of the "
 "branch/tag: <placeholder-1/>"
-msgstr ""
+msgstr "Внешние включения автоматически закрепляются на текущей ревизии HEAD или ревизии BASE рабочей копии в зависимости от источника ветки/метки: <placeholder-1/>"
 
 #. (title)
 msgid "externals within externals"
-msgstr ""
+msgstr "внешние внутри внешних"
 
 #. (para)
 msgid ""
@@ -9372,7 +9372,7 @@ msgid ""
 "What you are asking Subversion to do is this: <quote> Calculate the changes "
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
 "and apply those changes to my working copy (of trunk or branch B). </quote>"
-msgstr ""
+msgstr "Получается, что в этой ситуации вы предписываете Subversion выполнить следующее: <quote> Вычисли изменения, необходимые, чтобы [ОТ] ревизии 1 ответвления А перейти [ДО] ревизии 7 ответвления А, и примени эти изменения к моей рабочей копии (относящейся к стволу или ответвлению Б). </quote>"
 
 #. (para)
 msgid ""
@@ -9392,7 +9392,7 @@ msgid ""
 "the head revision of the trunk [TO] the head revision of the branch, and "
 "apply those changes to my working copy (of the trunk). </quote> The net "
 "result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Это более общий случай метода воссоединения. Вы предписываете Subversion выполнить следующее: <quote> Вычисли изменения, необходимые, чтобы [ОТ] ведущей ревизии ствола перейти [ДО] ведущей ревизии ответвления, и примени эти изменения к моей рабочей копии (относящейся к стволу). </quote> В конечном итоге ствол будет выглядеть точно так же, как и ответвление."
 
 #. (para)
 msgid ""
@@ -9707,7 +9707,7 @@ msgid ""
 "points in the repository, and applying those differences to your working "
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
-msgstr ""
+msgstr "Диалог выполнения слияния показывает каждый этап слияния, с указанием вовлечённых диапазонов ревизий. При этом в диапазоне может быть показано на одну ревизию больше, чем вы могли бы ожидать. Например, если вы указали произвести слияние ревизии 123, в диалоге выполнения будет написано <quote> Слияние с ревизиями с 122 по 123 </quote>. Для понимания этого вам нужно помнить, что слияние тесно связано с различиями. Процесс слияния работает путём создания списка различий между двумя точками в хранилище с последующим применением этих различий к вашей рабочей копии. Диалог выполнения просто показывает начальные и конечные точки для получения различий."
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -9886,7 +9886,7 @@ msgid ""
 "local version as it was in your working copy prior to the merge, or "
 "<emphasis>Prefer repository</emphasis> to select the incoming file from the "
 "merge source in the repository."
-msgstr ""
+msgstr "Если ваше слияние содержит двоичные файлы, то слияние конфликтов для них невозможно в построчном режиме. Конфликт в двоичном файле всегда относится ко всему файлу вцелом. Воспользуйтесь <emphasis>Локальные</emphasis> чтобы выбрать локальную версию какой она была в вашей рабочей копии до слияния, или <emphasis>Из хранилища</emphasis> чтобы выбрать входящий файл из источника слияния в хранилище."
 
 #. (para)
 msgid ""
@@ -10566,7 +10566,7 @@ msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Once the blame process has finished the "
 "result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "После того, как вы нажмёте <guibutton>ОК</guibutton>, TortoiseSVN начнёт извлекать данные для создания файла авторства. После того, как процесс получения информации об авторстве завершится, результат записывается во временный файл и вы можете его просмотреть."
 
 #. (title)
 msgid "TortoiseBlame"
@@ -12329,7 +12329,7 @@ msgid ""
 "Selects your user interface language. Of course, you have to install the "
 "corresponding language pack first to get another UI language than the "
 "default English one."
-msgstr ""
+msgstr "Выбирает язык пользовательского интерфейса. Конечно, вы должны сначала установить соответствующий языковой пакет, чтобы получить в интерфейсе язык отличный от английского."
 
 #. (term)
 msgid "Check for updates"
@@ -12523,7 +12523,7 @@ msgid ""
 "versioned folder. And you can get the entries back for unversioned folders "
 "by holding the <keycap>Shift</keycap> key down while showing the context "
 "menu."
-msgstr ""
+msgstr "Большую часть времени вам не понадобится контекстное меню TortoiseSVN, в отличии от папок, которые находятся по управлением Subversion. Для неверсированных папок контекстное меню нужно вам если вы хотите извлечь рабочую копию. Если вы включите настройку <literal> Скрыть меню для неверсированных путей </literal>, то TortoiseSVN не будет добавлять пункты в контекстное меню для неверсированных папок. Но пункты добавляются для всех элементов и путей в версированной папке. И вы можете вернуть пункты для неверсированных папок нажав и удерживая клавишу <keycap>Shift</keycap> при показе контекстного меню."
 
 #. (para)
 msgid ""
@@ -13384,7 +13384,7 @@ msgid ""
 "Include:\n"
 "C:\\develop\n"
 "    </screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
-msgstr ""
+msgstr "Здесь вам поможет пример: <screen>\nИсключить:\nC:\nC:\\develop\\?\nC:\\develop\\tsvn\\obj\nC:\\develop\\tsvn\\bin\n\nВключить:\nC:\\develop\n    </screen> Эти настройки отключают оверлейные значки для диска C:, кроме <literal>c:\\develop</literal>. Все проекты ниже этой директории будут отображать оверлейные значки, исключая саму папку <literal>c:\\develop</literal, которая игнорируется отдельно. Папки с бинарными файлами вперемешку также исключаются."
 
 #. (para)
 msgid ""
@@ -13406,7 +13406,7 @@ msgid ""
 "It is often convenient to use a <literal>SUBST</literal> drive to access your working copies, e.g. using the command <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "      </screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
-msgstr ""
+msgstr "Довольно часто удобно использовать созданный при помощи <literal>SUBST</literal> диск для доступа к вашим рабочим копиям, например, применяя команду<screen>\nsubst T: C:\\TortoiseSVN\\trunk\\doc\n      </screen> Однако, это может привести к тому, что пометки не будут обновляться, поскольку <literal>TSVNCache</literal> будет получать одно оповещение при изменении файла, и обычно это исходный путь. Это означает, что пометки по <literal>subst</literal>-пути могут никогда не обновиться."
 
 #. (para)
 msgid ""
@@ -13512,7 +13512,7 @@ msgid ""
 "You must specify the full path to the executable. For TortoisePlink.exe this is the standard TortoiseSVN bin directory. Use the <guibutton>Browse</guibutton> button to help locate it. Note that if the path contains spaces, you must enclose it in quotes, e.g. <screen>\n"
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "    </screen>"
-msgstr ""
+msgstr "Вы должны указать полный путь к выполняемому файлу. Для TortoisePlink.exe это стандартная папка <filename>bin</filename> TortoiseSVN. Воспользуйтесь кнопкой <guibutton>Обзор...</guibutton>, чтобы его найти. Обратите внимание: если путь содержит пробелы, вы должны заключить его в кавычки, например,  <screen>\n\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n    </screen>"
 
 #. (para)
 msgid ""
@@ -13547,7 +13547,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "В заключение, настройка SSH на сервере и клиентах является нетривиальным процессом, выходящим за рамки этой документации. Однако, вы можете найти инструкции в ЧаВо (FAQ) TortoiseSVN в разделе <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
@@ -13686,7 +13686,7 @@ msgid ""
 "      </screen> or with DiffMerge: <screen>\n"
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "      </screen>"
-msgstr ""
+msgstr "Например, с ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n                                    --right_display_name:%yname\n      </screen> или с KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n      </screen> или с WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n      </screen> или с Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n                       %base %mine\n      </screen> или с UltraCompare: <screen>\nC:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n      </screen> или с DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n      </screen>"
 
 #. (para)
 msgid ""
@@ -13805,7 +13805,7 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
 "      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "      </screen>"
-msgstr ""
+msgstr "Например, с Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n      </screen> или с KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n                      --L1 %bname --L2 %yname --L3 %tname\n      </screen> или с Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n                       /title3:%yname %theirs %base %mine %merged /a2\n      </screen> или с WinMerge (2.8 or later): <screen>\nC:\\Path-To\\WinMerge.exe %merged\n      </screen> или с DiffMerge: <screen>\nC:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n      -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n      </screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -14506,7 +14506,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "    </screen>"
-msgstr ""
+msgstr "При отладке скриптов ловушек вы можете продублировать ход процесса на консоль или добавить паузу, чтобы пристановить закрытие окна после выполнения скрипта. По причине того, что ввод-вывод перенаправлен, это не будет работать как обычно. Однако, вы можете перенаправить явно ввод и вывод на устройство CON чтобы обойти это. Например, <screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n    </screen>"
 
 #. (para)
 msgid ""
@@ -14652,13 +14652,13 @@ msgstr ""
 #. (para)
 msgid ""
 "You can select the font used to display the text, and the point size to use."
-msgstr ""
+msgstr "Вы можете выбрать начертание и размер шрифта, используемого для отображения текста."
 
 #. (para)
 msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file diff."
-msgstr ""
+msgstr "Определяет, сколько пробелов использовать для замены символов табуляции, обнаруженных в файле различий."
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -14789,7 +14789,7 @@ msgid ""
 "XP. Vista and later doesn't support that feature any more. However some "
 "third-party explorer replacements do support those even on Windows versions "
 "later than XP."
-msgstr ""
+msgstr "Дополнительные колонки, которые TortoiseSVN добавляет к подробному виду в обозревателе Windows, обычно активны только в рабочей копии. Если вы хотите, чтобы это было доступно везде, а не только в рабочей копии, то установите значение <literal>true</literal>. Имейте в виду, что дополнительные колонки появляются только в Windows XP. В Vista и более поздних версиях ОС эта функция больше не поддерживается. Однако некоторые заменители проводника от других производителей поддерживают такое даже для версий Windows после XP."
 
 #. (para)
 msgid ""
@@ -17764,7 +17764,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "Вы также можете указать файл, содержащий список путей, разделенных переносами строк. Файл должен быть в формате UTF-16, без маркера <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>. Если вы передаете такой файл, то используйте <option>/pathfile</option> вместо <option>/path</option>. Чтобы TortoiseProc удалял этот файл после завершения команды, вы можете передать параметр <option>/deletepathfile</option>. Если вы не передаёте параметр <option>/deletepathfile</option>, то вы должны удалить файл самостоятельно или он останется."
 
 #. (para)
 msgid ""
@@ -19063,7 +19063,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr ""
+msgstr "Что TortoiseSVN при этом делает: <screen>\nsvn info URL_рабочей_копии\nsvn log -v URL\n        </screen> где URL - это <emphasis>корень</emphasis> хранилища, и затем анализирует возвращённые данные."
 
 #. (title)
 msgid "Repo Browser"
@@ -19596,7 +19596,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "Пользовательский интерфейс TortoiseSVN переведён на множество различных языков, так что вы можете скачать нужный вам пакет локализации. Вы можете найти пакеты локализации на нашей <ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>странице статусов переводов</citetitle></ulink>. И если нужного вам пакета локализации нет, то почему бы вам не присоединиться к команде и предложить свой перевод ;-)"
 
 #. (para)
 msgid ""
@@ -19611,7 +19611,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"http://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Документация также была переведена на несколько языков. Вы можете загрузить переведенную документацию со <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>страницы поддержки</citetitle></ulink> на нашем сайте."
 
 #. (title)
 msgid "Spellchecker"
@@ -20509,7 +20509,7 @@ msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
 "and the number of unresolved conflicts remaining."
-msgstr ""
+msgstr "Внизу окна расположена строка состояния. В ней отображается количество добавленных и удаленных строк в <literal>Их</literal> и <literal>Моих</literal> и количество оставшихся неулаженных конфликтов."
 
 #. (term)
 msgid "Encoding"
@@ -20632,7 +20632,7 @@ msgid ""
 "lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
 "Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
 "from the left file are added to the right file."
-msgstr ""
+msgstr "Если вы в режиме просмотра с двумя панелями, то вы можете только редактировать файл на правой панели (<literal>Мой</literal>). Для применения изменений сделанных в левом файле (<literal>Их</literal>), сделайте <action>правый щелчок</action> на измененных строках и выберите <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Использовать 'их' текстовый блок</guimenuitem></menuchoice>. После этого изменения из левого файла добавляются в правый файл."
 
 #. (para)
 msgid ""
@@ -20670,7 +20670,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr ""
+msgstr "Если вы в режиме просмотра с тремя панелями (иногда называемый <emphasis>вид слияния</emphasis>), то вы можете редактировать только файл в нижней части (<literal>Слито</literal>). Как в двухпанельном режиме, вы можете сделать <action>правый щелчок</action> на конфликтующих строках и выбрать <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Использовать 'их' текстовый блок</guimenuitem></menuchoice> или <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Использовать 'мой' текстовый блок</guimenuitem></menuchoice>. В дополнение, если хотите <emphasis>оба</emphasis> блока, то можете выбрать <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Использовать 'мой' текстовый блок перед 'их'</guimenuitem></menuchoice> или <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Использовать 'их' текстовый блок перед 'моим'</guimenuitem></menuchoice>. В соответствии с выбранными вами командами изменения будут в результирующем <literal>Слито</literal> файле."
 
 #. (para)
 msgid ""
@@ -21109,7 +21109,7 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "      </screen>"
-msgstr ""
+msgstr "Большинство параметров требуют дополнительной информации, вроде пути или какой-то другой строки. В этом случае, добавьте к параметру ':'  и после этого укажите строку/путь. Пример: <screen>\n/base:\"c:\\folder\\my base file.txt\"\n      </screen>"
 
 #. (title)
 msgid "List of available command line options"
@@ -21292,4 +21292,4 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr ""
+msgstr "Можно также указать в командной строке просто имена файлов для совместимости с другими программами сравнения. Формат командной строки для этой упрощённой формы выглядит следующим образом: <screen>\nTortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n      </screen> Если указаны два файла, они сравниваются друг с другом. Если указано три файла, то первый используется как базовый, а остальные два сравниваются с ним трёхсторонним сравнением."
