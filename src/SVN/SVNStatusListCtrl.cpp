@@ -2470,23 +2470,27 @@ bool CSVNStatusListCtrl::BuildStatistics(bool repairCaseRenames)
                     // We've confirmed that there *is* a matching file
                     // Find its exact location
                     itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
-                    // adjust the case of the filename
-                    if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING|MOVEFILE_COPY_ALLOWED))
+                    // if the item is deleted, don't adjust the case: it may be a case-rename already!
+                    if ((*itMatchingItem)->status != svn_wc_status_deleted)
                     {
-                        // We successfully adjusted the case in the filename. But there is now a file with status 'missing'
-                        // in the array, because that's the status of the file before we adjusted the case.
-                        // We have to refetch the status of that file.
-                        // Since fetching the status of single files/directories is very expensive and there can be
-                        // multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
-                        bRefetchStatus = true;
-                        DeleteItem(i);
-                        m_arStatusArray.erase(m_arStatusArray.begin()+i);
-                        delete entry;
-                        i--;
-                        m_nUnversioned--;
-                        // now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
-                        // list again.
-                        itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
+                        // adjust the case of the filename
+                        if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_COPY_ALLOWED))
+                        {
+                            // We successfully adjusted the case in the filename. But there is now a file with status 'missing'
+                            // in the array, because that's the status of the file before we adjusted the case.
+                            // We have to refetch the status of that file.
+                            // Since fetching the status of single files/directories is very expensive and there can be
+                            // multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
+                            bRefetchStatus = true;
+                            DeleteItem(i);
+                            m_arStatusArray.erase(m_arStatusArray.begin() + i);
+                            delete entry;
+                            i--;
+                            m_nUnversioned--;
+                            // now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
+                            // list again.
+                            itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
+                        }
                     }
                 }
             }
