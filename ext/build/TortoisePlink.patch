@@ -1,0 +1,2306 @@
+Index: windows/TPlink/LoginDialog.cpp
+===================================================================
+--- windows/TPlink/LoginDialog.cpp	(nonexistent)
++++ windows/TPlink/LoginDialog.cpp	(working copy)
+@@ -0,0 +1,142 @@
++// TortoiseSVN - a Windows shell extension for easy version control
++
++// Copyright (C) 2003, 2013-2014 - TortoiseSVN
++
++// This program is free software; you can redistribute it and/or
++// modify it under the terms of the GNU General Public License
++// as published by the Free Software Foundation; either version 2
++// of the License, or (at your option) any later version.
++
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++
++#include "LoginDialog.h"
++#include "TortoisePlinkRes.h"
++#include <string>
++
++HINSTANCE g_hmodThisDll;
++HWND g_hwndMain;
++
++class LoginDialog
++{
++public:
++   LoginDialog(const std::string& prompt);
++
++   static bool DoLoginDialog(std::string& password, const std::string& prompt);
++
++private:
++   bool myOK;
++   HWND _hdlg;
++
++   std::string  myPassword;
++   std::string  myPrompt;
++
++   void CreateModule(void);
++   void RetrieveValues();
++
++   std::string GetPassword();
++
++   friend BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
++};
++
++
++BOOL DoLoginDialog(char* password, int maxlen, const char* prompt)
++{
++   g_hmodThisDll = GetModuleHandle(0);
++   g_hwndMain = GetParentHwnd();
++   std::string passwordstr;
++   BOOL res = LoginDialog::DoLoginDialog(passwordstr, prompt);
++   if (res)
++      strncpy(password, passwordstr.c_str(), maxlen);
++   return res;
++}
++
++
++BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
++{
++   if (uMsg == WM_INITDIALOG)
++   {
++      LoginDialog* pDlg = (LoginDialog*) lParam;
++      pDlg->_hdlg = hwndDlg;
++      SetWindowLongPtr(hwndDlg, GWLP_USERDATA, lParam);
++      // Set prompt text
++      SendDlgItemMessage(hwndDlg, IDC_LOGIN_PROMPT, WM_SETTEXT,
++                         pDlg->myPrompt.length(), (LPARAM) pDlg->myPrompt.c_str());
++      // Make sure edit control has the focus
++      //SendDlgItemMessage(hwndDlg, IDC_LOGIN_PASSWORD, WM_SETFOCUS, 0, 0);
++      if (GetDlgCtrlID((HWND) wParam) != IDC_LOGIN_PASSWORD)
++      {
++         SetFocus(GetDlgItem(hwndDlg, IDC_LOGIN_PASSWORD));
++         return FALSE;
++      }
++      return TRUE;
++   }
++   else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDCANCEL && HIWORD(wParam) == BN_CLICKED)
++   {
++      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
++      pDlg->myOK = false;
++      EndDialog(hwndDlg, IDCANCEL);
++      return 1;
++   }
++   else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDOK && HIWORD(wParam) == BN_CLICKED)
++   {
++      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
++      pDlg->myOK = true;
++      pDlg->RetrieveValues();
++      EndDialog(hwndDlg, IDOK);
++      return 1;
++   }
++   return 0;
++}
++
++LoginDialog::LoginDialog(const std::string& prompt)
++{
++   myPrompt = prompt;
++}
++
++void LoginDialog::CreateModule(void)
++{
++   DialogBoxParam(g_hmodThisDll, MAKEINTRESOURCE(IDD_LOGIN), g_hwndMain,
++                  (DLGPROC)(LoginDialogProc), (LPARAM)this);
++}
++
++
++bool LoginDialog::DoLoginDialog(std::string& password, const std::string& prompt)
++{
++   LoginDialog *pDlg = new LoginDialog(prompt);
++
++   pDlg->CreateModule();
++
++   bool ret = pDlg->myOK;
++   password = pDlg->myPassword;
++
++   delete pDlg;
++
++   return ret;
++}
++
++
++std::string LoginDialog::GetPassword()
++{
++   char szTxt[256];
++   SendDlgItemMessage(_hdlg, IDC_LOGIN_PASSWORD, WM_GETTEXT, sizeof(szTxt), (LPARAM)szTxt);
++   std::string strText = szTxt;
++   return strText;
++}
++
++void LoginDialog::RetrieveValues()
++{
++   myPassword = GetPassword();
++}
++
++
++HWND GetParentHwnd()
++{
++    return GetDesktopWindow();
++}
+
+Property changes on: windows/TPlink/LoginDialog.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/LoginDialog.h
+===================================================================
+--- windows/TPlink/LoginDialog.h	(nonexistent)
++++ windows/TPlink/LoginDialog.h	(working copy)
+@@ -0,0 +1,32 @@
++// TortoiseSVN - a Windows shell extension for easy version control
++
++// Copyright (C) 2003, 2013-2014 - TortoiseSVN
++
++// This program is free software; you can redistribute it and/or
++// modify it under the terms of the GNU General Public License
++// as published by the Free Software Foundation; either version 2
++// of the License, or (at your option) any later version.
++
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++
++#pragma once
++#include <windows.h>
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++BOOL DoLoginDialog(char* password, int maxlen, const char* prompt);
++
++HWND GetParentHwnd();
++
++#ifdef __cplusplus
++}
++#endif
++
+
+Property changes on: windows/TPlink/LoginDialog.h
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/PUTTY.ICO
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = image/x-icon
+Index: windows/TPlink/PUTTY.ICO
+===================================================================
+--- windows/TPlink/PUTTY.ICO	(nonexistent)
++++ windows/TPlink/PUTTY.ICO	(working copy)
+
+Property changes on: windows/TPlink/PUTTY.ICO
+___________________________________________________________________
+Added: svn:mime-type
+## -0,0 +1 ##
++image/x-icon
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.c
+===================================================================
+--- windows/TPlink/TortoisePlink.c	(nonexistent)
++++ windows/TPlink/TortoisePlink.c	(working copy)
+@@ -0,0 +1,8 @@
++#include <stdio.h>
++#include <stdarg.h>
++#include <stdlib.h>
++
++int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
++{
++    main(__argc,__argv);
++}
+
+Property changes on: windows/TPlink/TortoisePlink.c
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.rc
+===================================================================
+--- windows/TPlink/TortoisePlink.rc	(nonexistent)
++++ windows/TPlink/TortoisePlink.rc	(working copy)
+@@ -0,0 +1,123 @@
++// Microsoft Visual C++ generated resource script.
++//
++#include "TortoisePlinkRes.h"
++
++#define APSTUDIO_READONLY_SYMBOLS
++/////////////////////////////////////////////////////////////////////////////
++//
++// Generated from the TEXTINCLUDE 2 resource.
++//
++#include "afxres.h"
++
++/////////////////////////////////////////////////////////////////////////////
++#undef APSTUDIO_READONLY_SYMBOLS
++
++/////////////////////////////////////////////////////////////////////////////
++// German (Switzerland) resources
++
++#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
++#ifdef _WIN32
++LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
++#pragma code_page(1252)
++#endif //_WIN32
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Icon
++//
++
++// Icon with lowest ID value placed first to ensure application icon
++// remains consistent on all systems.
++200                     ICON                    "putty.ico"
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Dialog
++//
++
++IDD_LOGIN DIALOG  0, 0, 200, 70
++STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
++CAPTION "TortoisePlink"
++FONT 8, "MS Sans Serif"
++BEGIN
++    DEFPUSHBUTTON   "OK",IDOK,40,50,50,14
++    PUSHBUTTON      "Cancel",IDCANCEL,100,50,50,14
++    LTEXT           "Password",IDC_LOGIN_PROMPT,7,7,190,8
++    EDITTEXT        IDC_LOGIN_PASSWORD,7,26,185,14,ES_PASSWORD | ES_AUTOHSCROLL
++END
++
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Version
++//
++
++VS_VERSION_INFO VERSIONINFO
++ FILEVERSION 0,63,0,9999
++ PRODUCTVERSION 0,63,0,9999
++ FILEFLAGSMASK 0x3fL
++#ifdef _DEBUG
++ FILEFLAGS 0x1L
++#else
++ FILEFLAGS 0x0L
++#endif
++ FILEOS 0x40004L
++ FILETYPE 0x1L
++ FILESUBTYPE 0x0L
++BEGIN
++    BLOCK "StringFileInfo"
++    BEGIN
++        BLOCK "080904b0"
++        BEGIN
++            VALUE "Comments", "Adapted from PuTTY plink (http://www.chiark.greenend.org.uk/~sgtatham/putty/)"
++            VALUE "CompanyName", "http://tortoisesvn.net"
++            VALUE "FileDescription", "TortoisePlink"
++            VALUE "FileVersion", "Release 0.63"
++            VALUE "InternalName", "TortoisePlink"
++            VALUE "LegalCopyright", "Copyright � 2003-2013"
++            VALUE "OriginalFilename", "TortoisePlink.exe"
++            VALUE "ProductName", "TortoiseSVN TortoisePlink"
++            VALUE "ProductVersion", "Release 0.63"
++        END
++    END
++    BLOCK "VarFileInfo"
++    BEGIN
++        VALUE "Translation", 0x809, 1200
++    END
++END
++
++
++#ifdef APSTUDIO_INVOKED
++/////////////////////////////////////////////////////////////////////////////
++//
++// TEXTINCLUDE
++//
++
++1 TEXTINCLUDE 
++BEGIN
++    "resource.\0"
++END
++
++
++3 TEXTINCLUDE 
++BEGIN
++    "\r\0"
++END
++
++#endif    // APSTUDIO_INVOKED
++
++#endif    // German (Switzerland) resources
++/////////////////////////////////////////////////////////////////////////////
++
++
++
++#ifndef APSTUDIO_INVOKED
++/////////////////////////////////////////////////////////////////////////////
++//
++// Generated from the TEXTINCLUDE 3 resource.
++//
++
++
++/////////////////////////////////////////////////////////////////////////////
++#endif    // not APSTUDIO_INVOKED
++
+
+Property changes on: windows/TPlink/TortoisePlink.rc
+___________________________________________________________________
+Added: svn:mime-type
+## -0,0 +1 ##
++text/plain;encoding=UTF-16LE
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.vcxproj
+===================================================================
+--- windows/TPlink/TortoisePlink.vcxproj	(nonexistent)
++++ windows/TPlink/TortoisePlink.vcxproj	(working copy)
+@@ -0,0 +1,229 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="Debug|Win32">
++      <Configuration>Debug</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|Win32">
++      <Configuration>Release</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++  </ItemGroup>
++  <PropertyGroup Label="Globals">
++    <ProjectGuid>{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}</ProjectGuid>
++    <RootNamespace>plink</RootNamespace>
++  </PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
++  <ImportGroup Label="ExtensionSettings">
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <PropertyGroup Label="UserMacros" />
++  <PropertyGroup>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\bin\$(Configuration)\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\bin\$(Configuration)\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
++  </PropertyGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++      <SDLCheck>false</SDLCheck>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++      <SDLCheck>false</SDLCheck>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemGroup>
++    <ClCompile Include="..\..\be_all_s.c" />
++    <ClCompile Include="..\..\callback.c" />
++    <ClCompile Include="..\..\cmdline.c" />
++    <ClCompile Include="..\..\conf.c" />
++    <ClCompile Include="..\..\cproxy.c" />
++    <ClCompile Include="..\..\errsock.c" />
++    <ClCompile Include="..\..\ldisc.c" />
++    <ClCompile Include="..\..\logging.c" />
++    <ClCompile Include="..\..\misc.c" />
++    <ClCompile Include="..\..\noterm.c" />
++    <ClCompile Include="..\..\pgssapi.c" />
++    <ClCompile Include="..\..\pinger.c" />
++    <ClCompile Include="..\..\portfwd.c" />
++    <ClCompile Include="..\..\proxy.c" />
++    <ClCompile Include="..\..\raw.c" />
++    <ClCompile Include="..\..\rlogin.c" />
++    <ClCompile Include="..\..\settings.c" />
++    <ClCompile Include="..\..\ssh.c">
++      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
++      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ProgramDatabase</DebugInformationFormat>
++    </ClCompile>
++    <ClCompile Include="..\..\sshaes.c" />
++    <ClCompile Include="..\..\ssharcf.c" />
++    <ClCompile Include="..\..\sshblowf.c" />
++    <ClCompile Include="..\..\sshbn.c" />
++    <ClCompile Include="..\..\sshcrc.c" />
++    <ClCompile Include="..\..\sshcrcda.c" />
++    <ClCompile Include="..\..\sshdes.c" />
++    <ClCompile Include="..\..\sshdh.c" />
++    <ClCompile Include="..\..\sshdss.c" />
++    <ClCompile Include="..\..\sshdssg.c" />
++    <ClCompile Include="..\..\sshgssc.c" />
++    <ClCompile Include="..\..\sshmd5.c" />
++    <ClCompile Include="..\..\sshprime.c" />
++    <ClCompile Include="..\..\sshpubk.c" />
++    <ClCompile Include="..\..\sshrand.c" />
++    <ClCompile Include="..\..\sshrsa.c" />
++    <ClCompile Include="..\..\sshrsag.c" />
++    <ClCompile Include="..\..\sshsh256.c" />
++    <ClCompile Include="..\..\sshsh512.c" />
++    <ClCompile Include="..\..\sshsha.c" />
++    <ClCompile Include="..\..\sshshare.c" />
++    <ClCompile Include="..\..\sshzlib.c" />
++    <ClCompile Include="..\..\telnet.c" />
++    <ClCompile Include="..\..\timing.c" />
++    <ClCompile Include="..\..\tree234.c" />
++    <ClCompile Include="..\..\version.c" />
++    <ClCompile Include="..\..\wildcard.c" />
++    <ClCompile Include="..\wincons.c" />
++    <ClCompile Include="..\windefs.c" />
++    <ClCompile Include="..\wingss.c" />
++    <ClCompile Include="..\winhandl.c" />
++    <ClCompile Include="..\winhsock.c" />
++    <ClCompile Include="..\winjump.c" />
++    <ClCompile Include="..\winmisc.c" />
++    <ClCompile Include="..\winnet.c" />
++    <ClCompile Include="..\winnoise.c" />
++    <ClCompile Include="..\winnpc.c" />
++    <ClCompile Include="..\winnps.c" />
++    <ClCompile Include="..\winpgntc.c" />
++    <ClCompile Include="..\winplink.c" />
++    <ClCompile Include="..\winproxy.c" />
++    <ClCompile Include="..\winsecur.c" />
++    <ClCompile Include="..\winser.c" />
++    <ClCompile Include="..\winshare.c" />
++    <ClCompile Include="..\winstore.c" />
++    <ClCompile Include="..\wintime.c" />
++    <ClCompile Include="..\..\x11fwd.c" />
++    <ClCompile Include="..\winx11.c" />
++    <ClCompile Include="LoginDialog.cpp" />
++    <ClCompile Include="TortoisePlink.c" />
++  </ItemGroup>
++  <ItemGroup>
++    <ClInclude Include="..\..\int64.h" />
++    <ClInclude Include="..\..\ldisc.h" />
++    <ClInclude Include="..\..\misc.h" />
++    <ClInclude Include="..\..\network.h" />
++    <ClInclude Include="..\..\pgssapi.h" />
++    <ClInclude Include="..\..\proxy.h" />
++    <ClInclude Include="..\..\putty.h" />
++    <ClInclude Include="..\..\puttymem.h" />
++    <ClInclude Include="..\..\puttyps.h" />
++    <ClInclude Include="..\..\sshgss.h" />
++    <ClInclude Include="..\..\sshgssc.h" />
++    <ClInclude Include="..\..\ssh.h" />
++    <ClInclude Include="..\..\storage.h" />
++    <ClInclude Include="..\..\terminal.h" />
++    <ClInclude Include="..\..\tree234.h" />
++    <ClInclude Include="..\winhelp.h" />
++    <ClInclude Include="..\winstuff.h" />
++    <ClInclude Include="LoginDialog.h" />
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="PUTTY.ICO" />
++  </ItemGroup>
++  <ItemGroup>
++    <ResourceCompile Include="TortoisePlink.rc" />
++  </ItemGroup>
++  <ItemGroup>
++    <Manifest Include="..\..\..\..\src\compatibility.manifest" />
++  </ItemGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
++  <ImportGroup Label="ExtensionTargets">
++  </ImportGroup>
++</Project>
+\ No newline at end of file
+Index: windows/TPlink/TortoisePlink.vcxproj.filters
+===================================================================
+--- windows/TPlink/TortoisePlink.vcxproj.filters	(nonexistent)
++++ windows/TPlink/TortoisePlink.vcxproj.filters	(working copy)
+@@ -0,0 +1,294 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <ItemGroup>
++    <Filter Include="Source Files">
++      <UniqueIdentifier>{5db5b075-c5aa-4c51-b376-3ca6e7017387}</UniqueIdentifier>
++      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
++    </Filter>
++    <Filter Include="Header Files">
++      <UniqueIdentifier>{59b0e6ef-55e5-433d-8e31-0cf2a58fb42f}</UniqueIdentifier>
++      <Extensions>h;hpp;hxx;hm;inl</Extensions>
++    </Filter>
++    <Filter Include="Resource Files">
++      <UniqueIdentifier>{217dd818-c345-440d-b0da-f060ce302206}</UniqueIdentifier>
++      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
++    </Filter>
++  </ItemGroup>
++  <ItemGroup>
++    <ClCompile Include="..\..\be_all_s.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\cmdline.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\cproxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ldisc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\logging.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\misc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\pinger.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\portfwd.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\proxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\raw.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\rlogin.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\settings.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ssh.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshaes.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ssharcf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshblowf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshbn.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshcrc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshcrcda.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdes.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdh.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdss.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshmd5.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshpubk.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrand.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrsa.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsh256.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsh512.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsha.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshzlib.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\telnet.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\timing.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\tree234.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\version.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\wildcard.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\x11fwd.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\pgssapi.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshgssc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshprime.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdssg.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrsag.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\conf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wincons.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\windefs.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wingss.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winhandl.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winjump.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winmisc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnet.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnoise.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winpgntc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winplink.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winproxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winser.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winstore.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wintime.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winx11.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshshare.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winshare.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\noterm.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winsecur.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\callback.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\errsock.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winhsock.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnpc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnps.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="TortoisePlink.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="LoginDialog.cpp">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++  </ItemGroup>
++  <ItemGroup>
++    <ClInclude Include="..\..\int64.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\ldisc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\misc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\network.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\proxy.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\putty.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\puttymem.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\puttyps.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\ssh.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\storage.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\terminal.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\tree234.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\pgssapi.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\sshgss.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\sshgssc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\winhelp.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\winstuff.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="LoginDialog.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="PUTTY.ICO">
++      <Filter>Resource Files</Filter>
++    </None>
++  </ItemGroup>
++  <ItemGroup>
++    <ResourceCompile Include="TortoisePlink.rc">
++      <Filter>Source Files</Filter>
++    </ResourceCompile>
++  </ItemGroup>
++  <ItemGroup>
++    <Manifest Include="..\..\..\..\src\compatibility.manifest">
++      <Filter>Resource Files</Filter>
++    </Manifest>
++  </ItemGroup>
++</Project>
+\ No newline at end of file
+Index: windows/TPlink/TortoisePlinkRes.h
+===================================================================
+--- windows/TPlink/TortoisePlinkRes.h	(nonexistent)
++++ windows/TPlink/TortoisePlinkRes.h	(working copy)
+@@ -0,0 +1,3 @@
++#define IDD_LOGIN                       101
++#define IDC_LOGIN_PASSWORD              1000
++#define IDC_LOGIN_PROMPT                1001
+
+Property changes on: windows/TPlink/TortoisePlinkRes.h
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/LoginDialog.cpp
+===================================================================
+--- windows/TPlink/LoginDialog.cpp	(nonexistent)
++++ windows/TPlink/LoginDialog.cpp	(working copy)
+@@ -0,0 +1,142 @@
++// TortoiseSVN - a Windows shell extension for easy version control
++
++// Copyright (C) 2003, 2013-2014 - TortoiseSVN
++
++// This program is free software; you can redistribute it and/or
++// modify it under the terms of the GNU General Public License
++// as published by the Free Software Foundation; either version 2
++// of the License, or (at your option) any later version.
++
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++
++#include "LoginDialog.h"
++#include "TortoisePlinkRes.h"
++#include <string>
++
++HINSTANCE g_hmodThisDll;
++HWND g_hwndMain;
++
++class LoginDialog
++{
++public:
++   LoginDialog(const std::string& prompt);
++
++   static bool DoLoginDialog(std::string& password, const std::string& prompt);
++
++private:
++   bool myOK;
++   HWND _hdlg;
++
++   std::string  myPassword;
++   std::string  myPrompt;
++
++   void CreateModule(void);
++   void RetrieveValues();
++
++   std::string GetPassword();
++
++   friend BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
++};
++
++
++BOOL DoLoginDialog(char* password, int maxlen, const char* prompt)
++{
++   g_hmodThisDll = GetModuleHandle(0);
++   g_hwndMain = GetParentHwnd();
++   std::string passwordstr;
++   BOOL res = LoginDialog::DoLoginDialog(passwordstr, prompt);
++   if (res)
++      strncpy(password, passwordstr.c_str(), maxlen);
++   return res;
++}
++
++
++BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
++{
++   if (uMsg == WM_INITDIALOG)
++   {
++      LoginDialog* pDlg = (LoginDialog*) lParam;
++      pDlg->_hdlg = hwndDlg;
++      SetWindowLongPtr(hwndDlg, GWLP_USERDATA, lParam);
++      // Set prompt text
++      SendDlgItemMessage(hwndDlg, IDC_LOGIN_PROMPT, WM_SETTEXT,
++                         pDlg->myPrompt.length(), (LPARAM) pDlg->myPrompt.c_str());
++      // Make sure edit control has the focus
++      //SendDlgItemMessage(hwndDlg, IDC_LOGIN_PASSWORD, WM_SETFOCUS, 0, 0);
++      if (GetDlgCtrlID((HWND) wParam) != IDC_LOGIN_PASSWORD)
++      {
++         SetFocus(GetDlgItem(hwndDlg, IDC_LOGIN_PASSWORD));
++         return FALSE;
++      }
++      return TRUE;
++   }
++   else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDCANCEL && HIWORD(wParam) == BN_CLICKED)
++   {
++      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
++      pDlg->myOK = false;
++      EndDialog(hwndDlg, IDCANCEL);
++      return 1;
++   }
++   else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDOK && HIWORD(wParam) == BN_CLICKED)
++   {
++      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
++      pDlg->myOK = true;
++      pDlg->RetrieveValues();
++      EndDialog(hwndDlg, IDOK);
++      return 1;
++   }
++   return 0;
++}
++
++LoginDialog::LoginDialog(const std::string& prompt)
++{
++   myPrompt = prompt;
++}
++
++void LoginDialog::CreateModule(void)
++{
++   DialogBoxParam(g_hmodThisDll, MAKEINTRESOURCE(IDD_LOGIN), g_hwndMain,
++                  (DLGPROC)(LoginDialogProc), (LPARAM)this);
++}
++
++
++bool LoginDialog::DoLoginDialog(std::string& password, const std::string& prompt)
++{
++   LoginDialog *pDlg = new LoginDialog(prompt);
++
++   pDlg->CreateModule();
++
++   bool ret = pDlg->myOK;
++   password = pDlg->myPassword;
++
++   delete pDlg;
++
++   return ret;
++}
++
++
++std::string LoginDialog::GetPassword()
++{
++   char szTxt[256];
++   SendDlgItemMessage(_hdlg, IDC_LOGIN_PASSWORD, WM_GETTEXT, sizeof(szTxt), (LPARAM)szTxt);
++   std::string strText = szTxt;
++   return strText;
++}
++
++void LoginDialog::RetrieveValues()
++{
++   myPassword = GetPassword();
++}
++
++
++HWND GetParentHwnd()
++{
++    return GetDesktopWindow();
++}
+
+Property changes on: windows/TPlink/LoginDialog.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/LoginDialog.h
+===================================================================
+--- windows/TPlink/LoginDialog.h	(nonexistent)
++++ windows/TPlink/LoginDialog.h	(working copy)
+@@ -0,0 +1,32 @@
++// TortoiseSVN - a Windows shell extension for easy version control
++
++// Copyright (C) 2003, 2013-2014 - TortoiseSVN
++
++// This program is free software; you can redistribute it and/or
++// modify it under the terms of the GNU General Public License
++// as published by the Free Software Foundation; either version 2
++// of the License, or (at your option) any later version.
++
++// This program is distributed in the hope that it will be useful,
++// but WITHOUT ANY WARRANTY; without even the implied warranty of
++// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++// GNU General Public License for more details.
++
++// You should have received a copy of the GNU General Public License
++// along with this program; if not, write to the Free Software
++// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++
++#pragma once
++#include <windows.h>
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++BOOL DoLoginDialog(char* password, int maxlen, const char* prompt);
++
++HWND GetParentHwnd();
++
++#ifdef __cplusplus
++}
++#endif
++
+
+Property changes on: windows/TPlink/LoginDialog.h
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/PUTTY.ICO
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = image/x-icon
+Index: windows/TPlink/PUTTY.ICO
+===================================================================
+--- windows/TPlink/PUTTY.ICO	(nonexistent)
++++ windows/TPlink/PUTTY.ICO	(working copy)
+
+Property changes on: windows/TPlink/PUTTY.ICO
+___________________________________________________________________
+Added: svn:mime-type
+## -0,0 +1 ##
++image/x-icon
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.c
+===================================================================
+--- windows/TPlink/TortoisePlink.c	(nonexistent)
++++ windows/TPlink/TortoisePlink.c	(working copy)
+@@ -0,0 +1,8 @@
++#include <stdio.h>
++#include <stdarg.h>
++#include <stdlib.h>
++
++int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
++{
++    main(__argc,__argv);
++}
+
+Property changes on: windows/TPlink/TortoisePlink.c
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.rc
+===================================================================
+--- windows/TPlink/TortoisePlink.rc	(nonexistent)
++++ windows/TPlink/TortoisePlink.rc	(working copy)
+@@ -0,0 +1,123 @@
++// Microsoft Visual C++ generated resource script.
++//
++#include "TortoisePlinkRes.h"
++
++#define APSTUDIO_READONLY_SYMBOLS
++/////////////////////////////////////////////////////////////////////////////
++//
++// Generated from the TEXTINCLUDE 2 resource.
++//
++#include "afxres.h"
++
++/////////////////////////////////////////////////////////////////////////////
++#undef APSTUDIO_READONLY_SYMBOLS
++
++/////////////////////////////////////////////////////////////////////////////
++// German (Switzerland) resources
++
++#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
++#ifdef _WIN32
++LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
++#pragma code_page(1252)
++#endif //_WIN32
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Icon
++//
++
++// Icon with lowest ID value placed first to ensure application icon
++// remains consistent on all systems.
++200                     ICON                    "putty.ico"
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Dialog
++//
++
++IDD_LOGIN DIALOG  0, 0, 200, 70
++STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
++CAPTION "TortoisePlink"
++FONT 8, "MS Sans Serif"
++BEGIN
++    DEFPUSHBUTTON   "OK",IDOK,40,50,50,14
++    PUSHBUTTON      "Cancel",IDCANCEL,100,50,50,14
++    LTEXT           "Password",IDC_LOGIN_PROMPT,7,7,190,8
++    EDITTEXT        IDC_LOGIN_PASSWORD,7,26,185,14,ES_PASSWORD | ES_AUTOHSCROLL
++END
++
++
++/////////////////////////////////////////////////////////////////////////////
++//
++// Version
++//
++
++VS_VERSION_INFO VERSIONINFO
++ FILEVERSION 0,63,0,9999
++ PRODUCTVERSION 0,63,0,9999
++ FILEFLAGSMASK 0x3fL
++#ifdef _DEBUG
++ FILEFLAGS 0x1L
++#else
++ FILEFLAGS 0x0L
++#endif
++ FILEOS 0x40004L
++ FILETYPE 0x1L
++ FILESUBTYPE 0x0L
++BEGIN
++    BLOCK "StringFileInfo"
++    BEGIN
++        BLOCK "080904b0"
++        BEGIN
++            VALUE "Comments", "Adapted from PuTTY plink (http://www.chiark.greenend.org.uk/~sgtatham/putty/)"
++            VALUE "CompanyName", "http://tortoisesvn.net"
++            VALUE "FileDescription", "TortoisePlink"
++            VALUE "FileVersion", "Release 0.63"
++            VALUE "InternalName", "TortoisePlink"
++            VALUE "LegalCopyright", "Copyright � 2003-2013"
++            VALUE "OriginalFilename", "TortoisePlink.exe"
++            VALUE "ProductName", "TortoiseSVN TortoisePlink"
++            VALUE "ProductVersion", "Release 0.63"
++        END
++    END
++    BLOCK "VarFileInfo"
++    BEGIN
++        VALUE "Translation", 0x809, 1200
++    END
++END
++
++
++#ifdef APSTUDIO_INVOKED
++/////////////////////////////////////////////////////////////////////////////
++//
++// TEXTINCLUDE
++//
++
++1 TEXTINCLUDE 
++BEGIN
++    "resource.\0"
++END
++
++
++3 TEXTINCLUDE 
++BEGIN
++    "\r\0"
++END
++
++#endif    // APSTUDIO_INVOKED
++
++#endif    // German (Switzerland) resources
++/////////////////////////////////////////////////////////////////////////////
++
++
++
++#ifndef APSTUDIO_INVOKED
++/////////////////////////////////////////////////////////////////////////////
++//
++// Generated from the TEXTINCLUDE 3 resource.
++//
++
++
++/////////////////////////////////////////////////////////////////////////////
++#endif    // not APSTUDIO_INVOKED
++
+
+Property changes on: windows/TPlink/TortoisePlink.rc
+___________________________________________________________________
+Added: svn:mime-type
+## -0,0 +1 ##
++text/plain;encoding=UTF-16LE
+\ No newline at end of property
+Index: windows/TPlink/TortoisePlink.vcxproj
+===================================================================
+--- windows/TPlink/TortoisePlink.vcxproj	(nonexistent)
++++ windows/TPlink/TortoisePlink.vcxproj	(working copy)
+@@ -0,0 +1,229 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="Debug|Win32">
++      <Configuration>Debug</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|Win32">
++      <Configuration>Release</Configuration>
++      <Platform>Win32</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++  </ItemGroup>
++  <PropertyGroup Label="Globals">
++    <ProjectGuid>{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}</ProjectGuid>
++    <RootNamespace>plink</RootNamespace>
++  </PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <CharacterSet>MultiByte</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
++  <ImportGroup Label="ExtensionSettings">
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
++  </ImportGroup>
++  <PropertyGroup Label="UserMacros" />
++  <PropertyGroup>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\bin\$(Configuration)\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\bin\$(Configuration)\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
++    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
++    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
++  </PropertyGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++      <SDLCheck>false</SDLCheck>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <WarningLevel>TurnOffAllWarnings</WarningLevel>
++      <PrecompiledHeader>NotUsing</PrecompiledHeader>
++      <SDLCheck>false</SDLCheck>
++    </ClCompile>
++    <Link>
++      <AdditionalDependencies>comctl32.lib;imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemGroup>
++    <ClCompile Include="..\..\be_all_s.c" />
++    <ClCompile Include="..\..\callback.c" />
++    <ClCompile Include="..\..\cmdline.c" />
++    <ClCompile Include="..\..\conf.c" />
++    <ClCompile Include="..\..\cproxy.c" />
++    <ClCompile Include="..\..\errsock.c" />
++    <ClCompile Include="..\..\ldisc.c" />
++    <ClCompile Include="..\..\logging.c" />
++    <ClCompile Include="..\..\misc.c" />
++    <ClCompile Include="..\..\noterm.c" />
++    <ClCompile Include="..\..\pgssapi.c" />
++    <ClCompile Include="..\..\pinger.c" />
++    <ClCompile Include="..\..\portfwd.c" />
++    <ClCompile Include="..\..\proxy.c" />
++    <ClCompile Include="..\..\raw.c" />
++    <ClCompile Include="..\..\rlogin.c" />
++    <ClCompile Include="..\..\settings.c" />
++    <ClCompile Include="..\..\ssh.c">
++      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
++      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ProgramDatabase</DebugInformationFormat>
++    </ClCompile>
++    <ClCompile Include="..\..\sshaes.c" />
++    <ClCompile Include="..\..\ssharcf.c" />
++    <ClCompile Include="..\..\sshblowf.c" />
++    <ClCompile Include="..\..\sshbn.c" />
++    <ClCompile Include="..\..\sshcrc.c" />
++    <ClCompile Include="..\..\sshcrcda.c" />
++    <ClCompile Include="..\..\sshdes.c" />
++    <ClCompile Include="..\..\sshdh.c" />
++    <ClCompile Include="..\..\sshdss.c" />
++    <ClCompile Include="..\..\sshdssg.c" />
++    <ClCompile Include="..\..\sshgssc.c" />
++    <ClCompile Include="..\..\sshmd5.c" />
++    <ClCompile Include="..\..\sshprime.c" />
++    <ClCompile Include="..\..\sshpubk.c" />
++    <ClCompile Include="..\..\sshrand.c" />
++    <ClCompile Include="..\..\sshrsa.c" />
++    <ClCompile Include="..\..\sshrsag.c" />
++    <ClCompile Include="..\..\sshsh256.c" />
++    <ClCompile Include="..\..\sshsh512.c" />
++    <ClCompile Include="..\..\sshsha.c" />
++    <ClCompile Include="..\..\sshshare.c" />
++    <ClCompile Include="..\..\sshzlib.c" />
++    <ClCompile Include="..\..\telnet.c" />
++    <ClCompile Include="..\..\timing.c" />
++    <ClCompile Include="..\..\tree234.c" />
++    <ClCompile Include="..\..\version.c" />
++    <ClCompile Include="..\..\wildcard.c" />
++    <ClCompile Include="..\wincons.c" />
++    <ClCompile Include="..\windefs.c" />
++    <ClCompile Include="..\wingss.c" />
++    <ClCompile Include="..\winhandl.c" />
++    <ClCompile Include="..\winhsock.c" />
++    <ClCompile Include="..\winjump.c" />
++    <ClCompile Include="..\winmisc.c" />
++    <ClCompile Include="..\winnet.c" />
++    <ClCompile Include="..\winnoise.c" />
++    <ClCompile Include="..\winnpc.c" />
++    <ClCompile Include="..\winnps.c" />
++    <ClCompile Include="..\winpgntc.c" />
++    <ClCompile Include="..\winplink.c" />
++    <ClCompile Include="..\winproxy.c" />
++    <ClCompile Include="..\winsecur.c" />
++    <ClCompile Include="..\winser.c" />
++    <ClCompile Include="..\winshare.c" />
++    <ClCompile Include="..\winstore.c" />
++    <ClCompile Include="..\wintime.c" />
++    <ClCompile Include="..\..\x11fwd.c" />
++    <ClCompile Include="..\winx11.c" />
++    <ClCompile Include="LoginDialog.cpp" />
++    <ClCompile Include="TortoisePlink.c" />
++  </ItemGroup>
++  <ItemGroup>
++    <ClInclude Include="..\..\int64.h" />
++    <ClInclude Include="..\..\ldisc.h" />
++    <ClInclude Include="..\..\misc.h" />
++    <ClInclude Include="..\..\network.h" />
++    <ClInclude Include="..\..\pgssapi.h" />
++    <ClInclude Include="..\..\proxy.h" />
++    <ClInclude Include="..\..\putty.h" />
++    <ClInclude Include="..\..\puttymem.h" />
++    <ClInclude Include="..\..\puttyps.h" />
++    <ClInclude Include="..\..\sshgss.h" />
++    <ClInclude Include="..\..\sshgssc.h" />
++    <ClInclude Include="..\..\ssh.h" />
++    <ClInclude Include="..\..\storage.h" />
++    <ClInclude Include="..\..\terminal.h" />
++    <ClInclude Include="..\..\tree234.h" />
++    <ClInclude Include="..\winhelp.h" />
++    <ClInclude Include="..\winstuff.h" />
++    <ClInclude Include="LoginDialog.h" />
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="PUTTY.ICO" />
++  </ItemGroup>
++  <ItemGroup>
++    <ResourceCompile Include="TortoisePlink.rc" />
++  </ItemGroup>
++  <ItemGroup>
++    <Manifest Include="..\..\..\..\src\compatibility.manifest" />
++  </ItemGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
++  <ImportGroup Label="ExtensionTargets">
++  </ImportGroup>
++</Project>
+\ No newline at end of file
+Index: windows/TPlink/TortoisePlink.vcxproj.filters
+===================================================================
+--- windows/TPlink/TortoisePlink.vcxproj.filters	(nonexistent)
++++ windows/TPlink/TortoisePlink.vcxproj.filters	(working copy)
+@@ -0,0 +1,294 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <ItemGroup>
++    <Filter Include="Source Files">
++      <UniqueIdentifier>{5db5b075-c5aa-4c51-b376-3ca6e7017387}</UniqueIdentifier>
++      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
++    </Filter>
++    <Filter Include="Header Files">
++      <UniqueIdentifier>{59b0e6ef-55e5-433d-8e31-0cf2a58fb42f}</UniqueIdentifier>
++      <Extensions>h;hpp;hxx;hm;inl</Extensions>
++    </Filter>
++    <Filter Include="Resource Files">
++      <UniqueIdentifier>{217dd818-c345-440d-b0da-f060ce302206}</UniqueIdentifier>
++      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
++    </Filter>
++  </ItemGroup>
++  <ItemGroup>
++    <ClCompile Include="..\..\be_all_s.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\cmdline.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\cproxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ldisc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\logging.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\misc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\pinger.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\portfwd.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\proxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\raw.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\rlogin.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\settings.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ssh.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshaes.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\ssharcf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshblowf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshbn.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshcrc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshcrcda.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdes.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdh.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdss.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshmd5.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshpubk.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrand.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrsa.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsh256.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsh512.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshsha.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshzlib.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\telnet.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\timing.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\tree234.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\version.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\wildcard.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\x11fwd.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\pgssapi.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshgssc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshprime.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshdssg.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshrsag.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\conf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wincons.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\windefs.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wingss.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winhandl.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winjump.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winmisc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnet.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnoise.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winpgntc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winplink.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winproxy.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winser.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winstore.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\wintime.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winx11.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\sshshare.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winshare.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\noterm.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winsecur.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\callback.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\..\errsock.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winhsock.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnpc.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="..\winnps.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="TortoisePlink.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++    <ClCompile Include="LoginDialog.cpp">
++      <Filter>Source Files</Filter>
++    </ClCompile>
++  </ItemGroup>
++  <ItemGroup>
++    <ClInclude Include="..\..\int64.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\ldisc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\misc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\network.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\proxy.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\putty.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\puttymem.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\puttyps.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\ssh.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\storage.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\terminal.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\tree234.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\pgssapi.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\sshgss.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\..\sshgssc.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\winhelp.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="..\winstuff.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++    <ClInclude Include="LoginDialog.h">
++      <Filter>Header Files</Filter>
++    </ClInclude>
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="PUTTY.ICO">
++      <Filter>Resource Files</Filter>
++    </None>
++  </ItemGroup>
++  <ItemGroup>
++    <ResourceCompile Include="TortoisePlink.rc">
++      <Filter>Source Files</Filter>
++    </ResourceCompile>
++  </ItemGroup>
++  <ItemGroup>
++    <Manifest Include="..\..\..\..\src\compatibility.manifest">
++      <Filter>Resource Files</Filter>
++    </Manifest>
++  </ItemGroup>
++</Project>
+\ No newline at end of file
+Index: windows/TPlink/TortoisePlinkRes.h
+===================================================================
+--- windows/TPlink/TortoisePlinkRes.h	(nonexistent)
++++ windows/TPlink/TortoisePlinkRes.h	(working copy)
+@@ -0,0 +1,3 @@
++#define IDD_LOGIN                       101
++#define IDC_LOGIN_PASSWORD              1000
++#define IDC_LOGIN_PROMPT                1001
+
+Property changes on: windows/TPlink/TortoisePlinkRes.h
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: windows/wincons.c
+===================================================================
+--- windows/wincons.c	(revision 26333)
++++ windows/wincons.c	(working copy)
+@@ -11,6 +11,8 @@
+ #include "storage.h"
+ #include "ssh.h"
+ 
++#include "LoginDialog.h"
++
+ int console_batch_mode = FALSE;
+ 
+ static void *console_logctx = NULL;
+@@ -105,6 +107,7 @@
+     static const char abandoned[] = "Connection abandoned.\n";
+ 
+     char line[32];
++	static const char mbtitle[] = "%s Security Alert";
+ 
+     /*
+      * Verify the key against the registry.
+@@ -115,37 +118,48 @@
+ 	return 1;
+ 
+     if (ret == 2) {		       /* key was different */
+-	if (console_batch_mode) {
+-	    fprintf(stderr, wrongmsg_batch, keytype, fingerprint);
+-            return 0;
++	int mbret;
++	char *message, *title;
++
++	message = dupprintf(wrongmsg, keytype, fingerprint, appname);
++	title = dupprintf(mbtitle, appname);
++
++	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
++	sfree(message);
++	sfree(title);
++	if (mbret == IDYES) {
++		store_host_key(host, port, keytype, keystr);
++		return 1;
+ 	}
+-	fprintf(stderr, wrongmsg, keytype, fingerprint);
+-	fflush(stderr);
+-    }
++	else if (mbret == IDNO) 
++	{
++		return 1;
++	}
++	else
++		return 0;
++	}
+     if (ret == 1) {		       /* key was absent */
+-	if (console_batch_mode) {
+-	    fprintf(stderr, absentmsg_batch, keytype, fingerprint);
+-            return 0;
++	int mbret;
++	char *message, *title;
++	message = dupprintf(absentmsg, keytype, fingerprint, appname);
++	title = dupprintf(mbtitle, appname);
++	mbret = MessageBox(GetParentHwnd(), message, title,
++		MB_ICONWARNING | MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
++	sfree(message);
++	sfree(title);
++	if (mbret == IDYES)
++	{
++		store_host_key(host, port, keytype, keystr);
++		return 1;
+ 	}
+-	fprintf(stderr, absentmsg, keytype, fingerprint);
+-	fflush(stderr);
++	else if (mbret == IDNO)
++	{
++		return 1;
++	}
++	else
++		return 0;
+     }
+-
+-    hin = GetStdHandle(STD_INPUT_HANDLE);
+-    GetConsoleMode(hin, &savemode);
+-    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+-			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+-    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+-    SetConsoleMode(hin, savemode);
+-
+-    if (line[0] != '\0' && line[0] != '\r' && line[0] != '\n') {
+-	if (line[0] == 'y' || line[0] == 'Y')
+-	    store_host_key(host, port, keytype, keystr);
+-        return 1;
+-    } else {
+-	fprintf(stderr, abandoned);
+-        return 0;
+-    }
++	return 1;
+ }
+ 
+ void update_specials_menu(void *frontend)
+@@ -159,9 +173,6 @@
+ int askalg(void *frontend, const char *algtype, const char *algname,
+ 	   void (*callback)(void *ctx, int result), void *ctx)
+ {
+-    HANDLE hin;
+-    DWORD savemode, i;
+-
+     static const char msg[] =
+ 	"The first %s supported by the server is\n"
+ 	"%s, which is below the configured warning threshold.\n"
+@@ -172,29 +183,21 @@
+ 	"Connection abandoned.\n";
+     static const char abandoned[] = "Connection abandoned.\n";
+ 
+-    char line[32];
++	static const char mbtitle[] = "%s Security Alert";
+ 
+-    if (console_batch_mode) {
+-	fprintf(stderr, msg_batch, algtype, algname);
+-	return 0;
+-    }
++	int mbret;
++	char *message, *title;
+ 
+-    fprintf(stderr, msg, algtype, algname);
+-    fflush(stderr);
++	message = dupprintf(msg, algtype, algname);
++	title = dupprintf(mbtitle, appname);
+ 
+-    hin = GetStdHandle(STD_INPUT_HANDLE);
+-    GetConsoleMode(hin, &savemode);
+-    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+-			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+-    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+-    SetConsoleMode(hin, savemode);
+-
+-    if (line[0] == 'y' || line[0] == 'Y') {
+-	return 1;
+-    } else {
+-	fprintf(stderr, abandoned);
+-	return 0;
+-    }
++	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNO);
++	sfree(message);
++	sfree(title);
++	if (mbret == IDYES)
++		return 1;
++	else
++		return 0;
+ }
+ 
+ /*
+@@ -318,102 +321,15 @@
+             prompt_set_result(p->prompts[i], "");
+     }
+ 
+-    /*
+-     * The prompts_t might contain a message to be displayed but no
+-     * actual prompt. More usually, though, it will contain
+-     * questions that the user needs to answer, in which case we
+-     * need to ensure that we're able to get the answers.
+-     */
+-    if (p->n_prompts) {
+-	if (console_batch_mode)
+-	    return 0;
+-	hin = GetStdHandle(STD_INPUT_HANDLE);
+-	if (hin == INVALID_HANDLE_VALUE) {
+-	    fprintf(stderr, "Cannot get standard input handle\n");
+-	    cleanup_exit(1);
+-	}
+-    }
++    if (console_batch_mode)
++	return 0;
+ 
+-    /*
+-     * And if we have anything to print, we need standard output.
+-     */
+-    if ((p->name_reqd && p->name) || p->instruction || p->n_prompts) {
+-	hout = GetStdHandle(STD_OUTPUT_HANDLE);
+-	if (hout == INVALID_HANDLE_VALUE) {
+-	    fprintf(stderr, "Cannot get standard output handle\n");
+-	    cleanup_exit(1);
+-	}
+-    }
+-
+-    /*
+-     * Preamble.
+-     */
+-    /* We only print the `name' caption if we have to... */
+-    if (p->name_reqd && p->name) {
+-	size_t l = strlen(p->name);
+-	console_data_untrusted(hout, p->name, l);
+-	if (p->name[l-1] != '\n')
+-	    console_data_untrusted(hout, "\n", 1);
+-    }
+-    /* ...but we always print any `instruction'. */
+-    if (p->instruction) {
+-	size_t l = strlen(p->instruction);
+-	console_data_untrusted(hout, p->instruction, l);
+-	if (p->instruction[l-1] != '\n')
+-	    console_data_untrusted(hout, "\n", 1);
+-    }
+-
+     for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
+ 
+-	DWORD savemode, newmode;
+-        int len;
+ 	prompt_t *pr = p->prompts[curr_prompt];
+-
+-	GetConsoleMode(hin, &savemode);
+-	newmode = savemode | ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT;
+-	if (!pr->echo)
+-	    newmode &= ~ENABLE_ECHO_INPUT;
+-	else
+-	    newmode |= ENABLE_ECHO_INPUT;
+-	SetConsoleMode(hin, newmode);
+-
+-	console_data_untrusted(hout, pr->prompt, strlen(pr->prompt));
+-
+-        len = 0;
+-        while (1) {
+-            DWORD ret = 0;
+-            BOOL r;
+-
+-            prompt_ensure_result_size(pr, len * 5 / 4 + 512);
+-
+-            r = ReadFile(hin, pr->result + len, pr->resultsize - len - 1,
+-                         &ret, NULL);
+-
+-            if (!r || ret == 0) {
+-                len = -1;
+-                break;
+-            }
+-            len += ret;
+-            if (pr->result[len - 1] == '\n') {
+-                len--;
+-                if (pr->result[len - 1] == '\r')
+-                    len--;
+-                break;
+-            }
+-        }
+-
+-	SetConsoleMode(hin, savemode);
+-
+-	if (!pr->echo) {
+-	    DWORD dummy;
+-	    WriteFile(hout, "\r\n", 2, &dummy, NULL);
+-	}
+-
+-        if (len < 0) {
+-            return 0;                  /* failure due to read error */
+-        }
+-
+-	pr->result[len] = '\0';
++	if (!DoLoginDialog(pr->result, pr->resultsize-1, pr->prompt))
++	return 0;
++    
+     }
+ 
+     return 1; /* success */
+Index: windows/wingss.c
+===================================================================
+--- windows/wingss.c	(revision 26333)
++++ windows/wingss.c	(working copy)
+@@ -93,7 +93,11 @@
+ 	    ret = RegQueryValueEx(regkey, "InstallDir", NULL,
+ 				  &type, buffer, &size);
+ 	    if (ret == ERROR_SUCCESS && type == REG_SZ) {
+-		strcat(buffer, "\\bin\\gssapi32.dll");
++#ifdef _WIN64
++		strcat(buffer, "\\bin\\gssapi64.dll");
++#else
++        strcat(buffer, "\\bin\\gssapi32.dll");
++#endif
+ 		module = LoadLibrary(buffer);
+ 	    }
+ 	    sfree(buffer);
+Index: windows/winplink.c
+===================================================================
+--- windows/winplink.c	(revision 26333)
++++ windows/winplink.c	(working copy)
+@@ -24,11 +24,14 @@
+ void fatalbox(char *p, ...)
+ {
+     va_list ap;
+-    fprintf(stderr, "FATAL ERROR: ");
++    char *stuff, morestuff[100];
++    
+     va_start(ap, p);
+-    vfprintf(stderr, p, ap);
++    stuff = dupvprintf(p, ap);
+     va_end(ap);
+-    fputc('\n', stderr);
++    sprintf(morestuff, "%.70s Fatal Error", appname);
++    MessageBox(GetParentHwnd(), stuff, morestuff, MB_ICONERROR | MB_OK);
++    sfree(stuff);
+     if (logctx) {
+         log_free(logctx);
+         logctx = NULL;
+@@ -38,11 +41,15 @@
+ void modalfatalbox(char *p, ...)
+ {
+     va_list ap;
+-    fprintf(stderr, "FATAL ERROR: ");
++    char *stuff, morestuff[100];
++    
+     va_start(ap, p);
+-    vfprintf(stderr, p, ap);
++    stuff = dupvprintf(p, ap);
+     va_end(ap);
+-    fputc('\n', stderr);
++    sprintf(morestuff, "%.70s Fatal Error", appname);
++    MessageBox(GetParentHwnd(), stuff, morestuff,
++        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
++    sfree(stuff);
+     if (logctx) {
+         log_free(logctx);
+         logctx = NULL;
+@@ -52,20 +59,32 @@
+ void nonfatal(char *p, ...)
+ {
+     va_list ap;
+-    fprintf(stderr, "ERROR: ");
++    char *stuff, morestuff[100];
++
+     va_start(ap, p);
+-    vfprintf(stderr, p, ap);
++    stuff = dupvprintf(p, ap);
+     va_end(ap);
+-    fputc('\n', stderr);
++    sprintf(morestuff, "%.70s Fatal Error", appname);
++    MessageBox(GetParentHwnd(), stuff, morestuff,
++        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
++    sfree(stuff);
++    if (logctx) {
++        log_free(logctx);
++        logctx = NULL;
++    }
+ }
+ void connection_fatal(void *frontend, char *p, ...)
+ {
+     va_list ap;
+-    fprintf(stderr, "FATAL ERROR: ");
++    char *stuff, morestuff[100];
++    
+     va_start(ap, p);
+-    vfprintf(stderr, p, ap);
++    stuff = dupvprintf(p, ap);
+     va_end(ap);
+-    fputc('\n', stderr);
++    sprintf(morestuff, "%.70s Fatal Error", appname);
++    MessageBox(GetParentHwnd(), stuff, morestuff,
++        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
++    sfree(stuff);
+     if (logctx) {
+         log_free(logctx);
+         logctx = NULL;
+@@ -75,11 +94,14 @@
+ void cmdline_error(char *p, ...)
+ {
+     va_list ap;
+-    fprintf(stderr, "plink: ");
++    char *stuff, morestuff[100];
++    
+     va_start(ap, p);
+-    vfprintf(stderr, p, ap);
++    stuff = dupvprintf(p, ap);
+     va_end(ap);
+-    fputc('\n', stderr);
++    sprintf(morestuff, "%.70s Command Line Error", appname);
++    MessageBox(GetParentHwnd(), stuff, morestuff, MB_ICONERROR | MB_OK);
++    sfree(stuff);
+     exit(1);
+ }
+ 
+@@ -172,52 +194,56 @@
+  */
+ static void usage(void)
+ {
+-    printf("Plink: command-line connection utility\n");
+-    printf("%s\n", ver);
+-    printf("Usage: plink [options] [user@]host [command]\n");
+-    printf("       (\"host\" can also be a PuTTY saved session name)\n");
+-    printf("Options:\n");
+-    printf("  -V        print version information and exit\n");
+-    printf("  -pgpfp    print PGP key fingerprints and exit\n");
+-    printf("  -v        show verbose messages\n");
+-    printf("  -load sessname  Load settings from saved session\n");
+-    printf("  -ssh -telnet -rlogin -raw -serial\n");
+-    printf("            force use of a particular protocol\n");
+-    printf("  -P port   connect to specified port\n");
+-    printf("  -l user   connect with specified username\n");
+-    printf("  -batch    disable all interactive prompts\n");
+-    printf("  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
+-    printf("            Specify the serial configuration (serial only)\n");
+-    printf("The following options only apply to SSH connections:\n");
+-    printf("  -pw passw login with specified password\n");
+-    printf("  -D [listen-IP:]listen-port\n");
+-    printf("            Dynamic SOCKS-based port forwarding\n");
+-    printf("  -L [listen-IP:]listen-port:host:port\n");
+-    printf("            Forward local port to remote address\n");
+-    printf("  -R [listen-IP:]listen-port:host:port\n");
+-    printf("            Forward remote port to local address\n");
+-    printf("  -X -x     enable / disable X11 forwarding\n");
+-    printf("  -A -a     enable / disable agent forwarding\n");
+-    printf("  -t -T     enable / disable pty allocation\n");
+-    printf("  -1 -2     force use of particular protocol version\n");
+-    printf("  -4 -6     force use of IPv4 or IPv6\n");
+-    printf("  -C        enable compression\n");
+-    printf("  -i key    private key file for user authentication\n");
+-    printf("  -noagent  disable use of Pageant\n");
+-    printf("  -agent    enable use of Pageant\n");
+-    printf("  -hostkey aa:bb:cc:...\n");
+-    printf("            manually specify a host key (may be repeated)\n");
+-    printf("  -m file   read remote command(s) from file\n");
+-    printf("  -s        remote command is an SSH subsystem (SSH-2 only)\n");
+-    printf("  -N        don't start a shell/command (SSH-2 only)\n");
+-    printf("  -nc host:port\n");
+-    printf("            open tunnel in place of session (SSH-2 only)\n");
++    char buf[10000];
++    int j = 0;
++
++    j += sprintf(buf+j, "Plink: command-line connection utility\n");
++    j += sprintf(buf+j, "%s\n", ver);
++    j += sprintf(buf+j, "Usage: plink [options] [user@]host [command]\n");
++    j += sprintf(buf+j, "       (\"host\" can also be a PuTTY saved session name)\n");
++    j += sprintf(buf+j, "Options:\n");
++    j += sprintf(buf+j, "  -V        print version information and exit\n");
++    j += sprintf(buf+j, "  -pgpfp    print PGP key fingerprints and exit\n");
++    j += sprintf(buf+j, "  -v        show verbose messages\n");
++    j += sprintf(buf+j, "  -load sessname  Load settings from saved session\n");
++    j += sprintf(buf+j, "  -ssh -telnet -rlogin -raw -serial\n");
++    j += sprintf(buf+j, "            force use of a particular protocol\n");
++    j += sprintf(buf+j, "  -P port   connect to specified port\n");
++    j += sprintf(buf+j, "  -l user   connect with specified username\n");
++    j += sprintf(buf+j, "  -batch    disable all interactive prompts\n");
++    j += sprintf(buf+j, "  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
++    j += sprintf(buf+j, "            Specify the serial configuration (serial only)\n");
++    j += sprintf(buf+j, "The following options only apply to SSH connections:\n");
++    j += sprintf(buf+j, "  -pw passw login with specified password\n");
++    j += sprintf(buf+j, "  -D [listen-IP:]listen-port\n");
++    j += sprintf(buf+j, "            Dynamic SOCKS-based port forwarding\n");
++    j += sprintf(buf+j, "  -L [listen-IP:]listen-port:host:port\n");
++    j += sprintf(buf+j, "            Forward local port to remote address\n");
++    j += sprintf(buf+j, "  -R [listen-IP:]listen-port:host:port\n");
++    j += sprintf(buf+j, "            Forward remote port to local address\n");
++    j += sprintf(buf+j, "  -X -x     enable / disable X11 forwarding\n");
++    j += sprintf(buf+j, "  -A -a     enable / disable agent forwarding\n");
++    j += sprintf(buf+j, "  -t -T     enable / disable pty allocation\n");
++    j += sprintf(buf+j, "  -1 -2     force use of particular protocol version\n");
++    j += sprintf(buf+j, "  -4 -6     force use of IPv4 or IPv6\n");
++    j += sprintf(buf+j, "  -C        enable compression\n");
++    j += sprintf(buf+j, "  -i key    private key file for user authentication\n");
++    j += sprintf(buf+j, "  -noagent  disable use of Pageant\n");
++    j += sprintf(buf+j, "  -agent    enable use of Pageant\n");
++    j += sprintf(buf+j, "  -hostkey aa:bb:cc:...\n");
++    j += sprintf(buf+j, "            manually specify a host key (may be repeated)\n");
++    j += sprintf(buf+j, "  -m file   read remote command(s) from file\n");
++    j += sprintf(buf+j, "  -s        remote command is an SSH subsystem (SSH-2 only)\n");
++    j += sprintf(buf+j, "  -N        don't start a shell/command (SSH-2 only)\n");
++    j += sprintf(buf+j, "  -nc host:port\n");
++    j += sprintf(buf+j, "            open tunnel in place of session (SSH-2 only)\n");
++    MessageBox(NULL, buf, "TortoisePlink", MB_ICONINFORMATION);
+     exit(1);
+ }
+ 
+ static void version(void)
+ {
+-    printf("plink: %s\n", ver);
++    printf("TortoisePlink: %s\n", ver);
+     exit(1);
+ }
+ 
