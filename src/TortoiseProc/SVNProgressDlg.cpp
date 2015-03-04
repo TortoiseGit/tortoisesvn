@@ -210,6 +210,8 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
             {
                 CTSVNPath treeConflictPath;
                 treeConflictPath.SetFromSVN(description->merged_file);
+                if (treeConflictPath.IsEmpty())
+                    treeConflictPath.SetFromSVN(description->local_abspath);
 
                 CTreeConflictEditorDlg dlg;
                 dlg.SetInteractive();
