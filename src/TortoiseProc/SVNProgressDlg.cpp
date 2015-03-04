@@ -3712,7 +3712,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         // find the HEAD revision number and update specifically to that.
         if (m_Revision.IsHead() && !multipleUUIDs)
         {
-            m_Revision = GetHEADRevision(m_targetPathList[0]);
+            // don't use the cache to fetch the HEAD here, we need the current HEAD
+            m_Revision = GetHEADRevision(m_targetPathList[0], false);
         }
     }
     if (wcroots.size() <= 1)
