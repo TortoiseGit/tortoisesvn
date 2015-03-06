@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -241,45 +241,45 @@ void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
 
     // if this the same revision and path as the WC?
 
-    if (   (node->GetRevision() == wcRevs.front().first)
-        && (node->GetPath().GetBasePath().Intersects (wcRevs.front().second)))
+    for (auto revit = wcRevs.begin(); revit != wcRevs.end(); ++revit)
     {
-        node->AddClassification (CNodeClassification::IS_WORKINGCOPY);
-        wcRevs.erase (wcRevs.begin());
+        if ((node->GetRevision() == revit->first)
+            && (node->GetPath().GetBasePath().Intersects(revit->second)))
+        {
+            node->AddClassification(CNodeClassification::IS_WORKINGCOPY);
+            wcRevs.erase(revit);
+            break;
+        }
     }
 
     // maybe, we need to insert more nodes
 
-    while (!wcRevs.empty())
+    for (auto revit = wcRevs.begin(); revit != wcRevs.end(); ++revit)
     {
-        revision_t wcRev = wcRevs.front().first;
-        const CDictionaryBasedPath& path = wcRevs.front().second;
+        revision_t wcRev = revit->first;
+        const CDictionaryBasedPath& path = revit->second;
 
         // maybe, we have to insert the WC node first?
         // (the sub-tree may not have been modified in that revision)
-
         if (// between this ...
-               (node->GetRevision() < wcRev)
+            (node->GetRevision() < wcRev)
             // ... and the next node (if there is one) ...
-            && (   (node->GetNext() == NULL)
-                || (node->GetNext()->GetRevision() > wcRev))
+            && ((node->GetNext() == NULL)
+            || (node->GetNext()->GetRevision() > wcRev))
             // ... on the right path ...
-            && node->GetPath().GetBasePath().Intersects (path)
+            && node->GetPath().GetBasePath().Intersects(path)
             // ... and not deleted, yet
-            && !node->GetClassification().Is (CNodeClassification::IS_DELETED))
+            && !node->GetClassification().Is(CNodeClassification::IS_DELETED))
         {
             // WC rev lies behind this node and before the next one
 
-            graph.Add ( node->GetPath()
+            graph.Add(node->GetPath()
                       , wcRev
                       , CNodeClassification::IS_WORKINGCOPY
                       , node);
 
-            wcRevs.erase (wcRevs.begin());
-        }
-        else
-        {
-            return;
+            wcRevs.erase(revit);
+            break;
         }
     }
 }
