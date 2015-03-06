@@ -176,14 +176,10 @@ public:
      */
     HWND GetHwnd() const { return m_hWndProgDlg; }
 
-private:
-    static LRESULT fnSubclass(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
-
 protected:
     ATL::CComPtr<IProgressDialog> m_pIDlg;
     bool                m_isVisible;
     DWORD               m_dwDlgFlags;
     HWND                m_hWndProgDlg;
     HWND                m_hWndParent;
-    WNDPROC             m_OrigProc;
 };
