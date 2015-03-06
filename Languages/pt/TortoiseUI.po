@@ -16,6 +16,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Luis Xavier Baena Mourão <luisxbm@gmail.com>, 2015
 # alfalb_mansil, 2014-2015
+# Michel Apt <michel.apt1@gmail.com>, 2015
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2013-2014
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
 # Sandro Amaral <sandro123iv@gmail.com>, 2011
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-19 09:41+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-03-05 22:12+0000\n"
+"Last-Translator: Michel Apt <michel.apt1@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,12 +74,12 @@ msgstr "%1 continha um objecto inesperado."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 contém um caminho incorrecto."
+msgstr "%1 contém um caminho incorreto."
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 contém um schemaincorrecto."
+msgstr "%1 contém um esquema incorreto."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -93,13 +94,13 @@ msgstr "%1 não foi encontrado."
 #. Resource IDs: (169)
 #, c-format
 msgid "%1!d! files selected, %2!d! files total"
-msgstr "%1!d! ficheiros seleccionados, %2!d! total de ficheiros"
+msgstr "%1!d! arquivos selecionados, %2!d! total de arquivos"
 
 #. Resource IDs: (246)
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "%1!d! autor(es) mais activo(s) com pelo menos %2!d! de submissões cada um (%3!d! %%)"
+msgstr "%1!d! autor(es) mais ativos com pelo menos %2!d! commits cada um (%3!d! %%)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -109,7 +110,7 @@ msgstr "%1!ld! minuto(s) e %2!ld! segundo(s)"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr "%1!s! (fora-de-linha)"
+msgstr "%1!s! (offline)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -167,7 +168,7 @@ msgstr "%1!s!\nA mostrar ficheiros %2!d! e pastas %3!d!, %4!d! items total"
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr "%1: %2\nContinuar a executar o script?"
+msgstr "%1: %2\nContinuar executando o script?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -1218,7 +1219,7 @@ msgstr "&Remover projecto"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Remove\nO projeto é removido. Se há subprojetos, estes são removidos também."
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1902,7 +1903,7 @@ msgstr "Adicionar novos ficheiros automaticamente ao SVN"
 
 #. Resource IDs: (66)
 msgid "Add project or folder here..."
-msgstr ""
+msgstr "Adicionar projeto ou pasta aqui..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
@@ -2707,7 +2708,7 @@ msgstr "Cancela\nOs itens não são movidos."
 msgid ""
 "Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "Cancel\nA revisão marcada do externo é deixada como está."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2731,7 +2732,7 @@ msgstr "Cancela\nTerás de adicionar a pasta manualmente."
 msgid ""
 "Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "Cancel\nVocê deve executar um update manual para obter os externos"
 
 #. Resource IDs: (100)
 msgid ""
@@ -2791,7 +2792,7 @@ msgstr "Altera o estilo da aplicação\nAlterar estilo"
 msgid ""
 "Change the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "Modificar a revisão marcada\nA propriedade svn:external da pasta raiz é modificada de acordo."
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -3374,7 +3375,7 @@ msgstr "Menus de Atalho:"
 
 #. Resource IDs: (65535)
 msgid "Context lines for patches"
-msgstr ""
+msgstr "Linhas de contexto para patches"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
@@ -3407,7 +3408,7 @@ msgstr "Copiado de: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (18)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Copia para a área de transferência as URLs de todos os itens selecionados"
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
@@ -3434,7 +3435,7 @@ msgstr "Copiar %1!s!\r\npara %2!s!"
 
 #. Resource IDs: (32797)
 msgid "Copy &revision number to clipboard"
-msgstr ""
+msgstr "Copia o número da revisão para a área de transferência"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3454,7 +3455,7 @@ msgstr "Copiar URL para a área de transferência"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Copiar e adicionar\nO arquivo é copiado para o destino e adicionado ao controle de versão"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3504,7 +3505,7 @@ msgstr "Copiar: Novo nome para %s"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Copy\nO arquivo é copiado para o destino, mas não é versionado."
 
 #. Resource IDs: (80)
 #, c-format
@@ -4165,7 +4166,7 @@ msgstr "Faz isto para todas as pastas não versionadas e seleccionadas"
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Faça isso para todos os itens não versionados"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4223,7 +4224,7 @@ msgstr "Queres recarregar os documentos para que reflictam as alterações das p
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to remove the monitored project '%s'?"
-msgstr ""
+msgstr "Você deseja remover o projeto monitorado '%s'?"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4255,7 +4256,7 @@ msgstr "Desejas reverter todas as alterações em\n%s\nque foram feitas nesta re
 #, c-format
 msgid ""
 "Do you want to update the folder \"%s\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "Você deseja atualizar a pasta \"%s\" para trazer os svn:externals utilizados?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4845,7 +4846,7 @@ msgstr "Falha ao lançar aplicação servidora."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Falha ao tentar carregar o arquivo de configuração para o monitor do projeto!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -4872,7 +4873,7 @@ msgstr "Falha!"
 
 #. Resource IDs: (266)
 msgid "Failed: target required"
-msgstr ""
+msgstr "Falha: destino requerido"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"

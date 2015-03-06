@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-18 09:59+0000\n"
+"PO-Revision-Date: 2015-03-05 07:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -9102,7 +9102,7 @@ msgid ""
 "<literal>svn:externals</literal> properties, those externals will be listed "
 "at the bottom of the branch/tag dialog. For each external, the target path "
 "and the source URL is shown."
-msgstr ""
+msgstr "Falls Ihre Arbeitskopie weitere, mittels <literal>svn:externals</literal> eingebundene Projekte enthält, werden diese am Ende des Dialogs aufgelistet. Für jedes externe Ziel wird der Pfad und die Quell-URL angezeigt."
 
 #. (para)
 msgid ""
@@ -9113,21 +9113,21 @@ msgid ""
 "revision of the external and your tag might not compile anymore. So it's "
 "always a good idea to set the externals to an explicit revision when "
 "creating a tag."
-msgstr ""
+msgstr "Wenn Sie sicherstellen möchten, dass die neue Marke sich immer in einem konsistenten Zustand befindet, sorgen Sie dafür, dass die Revisionen aller Externals fixiert werden. Sollten Sie das nicht tun und die Externals zeigen auf eine HEAD Revision, die sich ja in der Zukunft ändern könnte, so wird beim Auschecken der neuen Marke, die HEAD Revision des Externals ausgecheckt und Ihre Marke lässt sich unter Umständen nicht mehr übersetzen. Es ist also immer eine gute Idee, die Externals beim Anlegen einer Marke auf eine fixe Revision zu setzen."
 
 #. (title)
 #. (entry)
 msgid "Pinned Revision"
-msgstr ""
+msgstr "Fixe Revision"
 
 #. (entry)
 msgid "Copy Source"
-msgstr ""
+msgstr "Quelle der Kopie"
 
 #. (entry)
 #. (entry)
 msgid "external's repos HEAD revision"
-msgstr ""
+msgstr "die HEAD Revision des externen Projektarchivs"
 
 #. (entry)
 #. (listitem)
@@ -9136,14 +9136,14 @@ msgstr "Revisionsnummer im Projektarchiv"
 
 #. (entry)
 msgid "external's WC BASE revision"
-msgstr ""
+msgstr "die BASE Revision der externen Arbeitskopie"
 
 #. (para)
 msgid ""
 "The externals are automatically pinned to either the current HEAD revision "
 "or the working copy BASE revision, depending on the source of the "
 "branch/tag: <placeholder-1/>"
-msgstr ""
+msgstr "Die Externals werden, abhängig von der Quelle der Markierung, entweder automatisch an der aktuelle HEAD Revision des Projektarchivs oder die BASE Revision der Arbeitskopie fixiert: <placeholder-1/>"
 
 #. (title)
 msgid "externals within externals"
