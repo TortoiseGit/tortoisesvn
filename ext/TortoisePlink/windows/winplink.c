@@ -197,9 +197,9 @@ static void usage(void)
     char buf[10000];
     int j = 0;
 
-    j += sprintf(buf+j, "Plink: command-line connection utility\n");
+    j += sprintf(buf+j, "TortoisePlink: command-line connection utility (based on PuTTY Plink)\n");
     j += sprintf(buf+j, "%s\n", ver);
-    j += sprintf(buf+j, "Usage: plink [options] [user@]host [command]\n");
+    j += sprintf(buf+j, "Usage: tortoiseplink [options] [user@]host [command]\n");
     j += sprintf(buf+j, "       (\"host\" can also be a PuTTY saved session name)\n");
     j += sprintf(buf+j, "Options:\n");
     j += sprintf(buf+j, "  -V        print version information and exit\n");
@@ -210,7 +210,6 @@ static void usage(void)
     j += sprintf(buf+j, "            force use of a particular protocol\n");
     j += sprintf(buf+j, "  -P port   connect to specified port\n");
     j += sprintf(buf+j, "  -l user   connect with specified username\n");
-    j += sprintf(buf+j, "  -batch    disable all interactive prompts\n");
     j += sprintf(buf+j, "  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
     j += sprintf(buf+j, "            Specify the serial configuration (serial only)\n");
     j += sprintf(buf+j, "The following options only apply to SSH connections:\n");
@@ -347,24 +346,11 @@ int main(int argc, char **argv)
     conf = conf_new();
     do_defaults(NULL, conf);
     loaded_session = FALSE;
-    default_protocol = conf_get_int(conf, CONF_protocol);
-    default_port = conf_get_int(conf, CONF_port);
     errors = 0;
-    {
-	/*
-	 * Override the default protocol if PLINK_PROTOCOL is set.
-	 */
-	char *p = getenv("PLINK_PROTOCOL");
-	if (p) {
-	    const Backend *b = backend_from_name(p);
-	    if (b) {
-		default_protocol = b->protocol;
-		default_port = b->default_port;
-		conf_set_int(conf, CONF_protocol, default_protocol);
-		conf_set_int(conf, CONF_port, default_port);
-	    }
-	}
-    }
+    conf_set_int(conf, CONF_protocol, default_protocol);
+    conf_set_int(conf, CONF_port, default_port);
+    conf_set_int(conf, CONF_agentfwd, 0);
+    conf_set_int(conf, CONF_x11_forward, 0);
     while (--argc) {
 	char *p = *++argv;
 	if (*p == '-') {
@@ -372,14 +358,14 @@ int main(int argc, char **argv)
 					    1, conf);
 	    if (ret == -2) {
 		fprintf(stderr,
-			"plink: option \"%s\" requires an argument\n", p);
+			"tortoiseplink: option \"%s\" requires an argument\n", p);
 		errors = 1;
 	    } else if (ret == 2) {
 		--argc, ++argv;
 	    } else if (ret == 1) {
 		continue;
 	    } else if (!strcmp(p, "-batch")) {
-		console_batch_mode = 1;
+			// ignore and do not print an error message
 	    } else if (!strcmp(p, "-s")) {
 		/* Save status to write to conf later. */
 		use_subsystem = 1;
@@ -391,7 +377,7 @@ int main(int argc, char **argv)
                 pgp_fingerprints();
                 exit(1);
 	    } else {
-		fprintf(stderr, "plink: unknown option \"%s\"\n", p);
+		fprintf(stderr, "tortoiseplink: unknown option \"%s\"\n", p);
 		errors = 1;
 	    }
 	} else if (*p) {
