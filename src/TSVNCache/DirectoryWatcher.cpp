@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008, 2011-2012, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -346,8 +346,7 @@ void CDirectoryWatcher::WorkerThread()
                         break;
                     }
 
-                    CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
-                    hDir.Detach();  // the new CDirWatchInfo object owns the handle now
+                    CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir.Detach(), watchedPath);// the new CDirWatchInfo object owns the handle now
                     pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 
 

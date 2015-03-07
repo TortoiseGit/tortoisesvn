@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007-2012, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -233,8 +233,7 @@ void CPathWatcher::WorkerThread()
                         break;
                     }
 
-                    std::unique_ptr<CDirWatchInfo> pDirInfo (new CDirWatchInfo(hDir, watchedPaths[i]));
-                    hDir.Detach();  // the new CDirWatchInfo object owns the handle now
+                    std::unique_ptr<CDirWatchInfo> pDirInfo (new CDirWatchInfo(hDir.Detach(), watchedPaths[i]));// the new CDirWatchInfo object owns the handle now
                     m_hCompPort = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, (ULONG_PTR)pDirInfo.get(), 0);
                     if (m_hCompPort == NULL)
                     {
