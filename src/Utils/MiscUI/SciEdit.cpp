@@ -806,6 +806,8 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 textrange.chrg.cpMin = lpSCN->position;
                 textrange.chrg.cpMax = lpSCN->position;
                 DWORD style = GetStyleAt(lpSCN->position);
+                if (style == 0)
+                    break;
                 while (GetStyleAt(textrange.chrg.cpMin - 1) == style)
                     --textrange.chrg.cpMin;
                 while (GetStyleAt(textrange.chrg.cpMax + 1) == style)
