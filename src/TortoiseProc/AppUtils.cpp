@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2015 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -762,9 +763,29 @@ CAppUtils::FindURLMatches(const CString& msg)
         }
         else
         {
-            if ((starturl >= 0) && IsUrl(msg.Mid(starturl, i - starturl)))
+            if (starturl >= 0)
             {
-                CHARRANGE range = { starturl, i };
+                bool strip = true;
+                if (msg[starturl] == '<' && i < len) // try to detect and do not strip URLs put within <>
+                {
+                    while (starturl <= i && msg[starturl] == '<') // strip leading '<'
+                        ++starturl;
+                    strip = false;
+                    i = starturl;
+                    while (i < len && msg[i] != '\r' && msg[i] != '\n' && msg[i] != '>') // find first '>' or new line after resetting i to start position
+                        ++i;
+                }
+                if (!IsUrl(msg.Mid(starturl, i - starturl)))
+                {
+                    starturl = -1;
+                    continue;
+                }
+
+                int skipTrailing = 0;
+                while (strip && i - skipTrailing - 1 > starturl && (msg[i - skipTrailing - 1] == '.' || msg[i - skipTrailing - 1] == '-' || msg[i - skipTrailing - 1] == '?' || msg[i - skipTrailing - 1] == ';' || msg[i - skipTrailing - 1] == ':' || msg[i - skipTrailing - 1] == '>' || msg[i - skipTrailing - 1] == '<'))
+                    ++skipTrailing;
+
+                CHARRANGE range = { starturl, i - skipTrailing };
                 result.push_back(range);
             }
             starturl = -1;
