@@ -39,7 +39,6 @@ CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
     , m_sProviderUUID(L"")
     , m_sProviderUUID64(L"")
     , m_sProviderParams(L"")
-    , m_height(0)
 {
 
 }
@@ -68,7 +67,6 @@ void CEditPropBugtraq::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CEditPropBugtraq, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropBugtraq::OnBnClickedHelp)
-    ON_WM_SIZING()
     ON_BN_CLICKED(IDC_TESTREGEX, &CEditPropBugtraq::OnBnClickedTestregex)
 END_MESSAGE_MAP()
 
@@ -79,6 +77,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    BlockResize(DIALOG_BLOCKVERTICAL);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
@@ -160,10 +159,6 @@ BOOL CEditPropBugtraq::OnInitDialog()
     AdjustControlSize(IDC_TOPRADIO);
     AdjustControlSize(IDC_BOTTOMRADIO);
     AdjustControlSize(IDC_PROPRECURSIVE);
-
-    RECT rect;
-    GetWindowRect(&rect);
-    m_height = rect.bottom - rect.top;
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || m_bRemote ? SW_HIDE : SW_SHOW);
@@ -321,25 +316,6 @@ void CEditPropBugtraq::OnOK()
     m_properties = newProps;
 
     CResizableStandAloneDialog::OnOK();
-}
-
-void CEditPropBugtraq::OnSizing(UINT fwSide, LPRECT pRect)
-{
-    // don't allow the dialog to be changed in height
-    switch (fwSide)
-    {
-    case WMSZ_BOTTOM:
-    case WMSZ_BOTTOMLEFT:
-    case WMSZ_BOTTOMRIGHT:
-        pRect->bottom = pRect->top + m_height;
-        break;
-    case WMSZ_TOP:
-    case WMSZ_TOPLEFT:
-    case WMSZ_TOPRIGHT:
-        pRect->top = pRect->bottom - m_height;
-        break;
-    }
-    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
 
 void CEditPropBugtraq::OnBnClickedHelp()

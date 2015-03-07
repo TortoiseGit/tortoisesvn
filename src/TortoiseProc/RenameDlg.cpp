@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,6 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
-    ON_WM_SIZING()
     ON_EN_SETFOCUS(IDC_NAME, &CRenameDlg::OnEnSetfocusName)
 END_MESSAGE_MAP()
 
@@ -55,6 +54,7 @@ BOOL CRenameDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    BlockResize(DIALOG_BLOCKVERTICAL);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);
@@ -132,27 +132,6 @@ void CRenameDlg::OnOK()
         return;
     }
     CResizableDialog::OnOK();
-}
-
-void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-    // don't allow the dialog to be changed in height
-    CRect rcWindowRect;
-    GetWindowRect(&rcWindowRect);
-    switch (fwSide)
-    {
-    case WMSZ_BOTTOM:
-    case WMSZ_BOTTOMLEFT:
-    case WMSZ_BOTTOMRIGHT:
-        pRect->bottom = pRect->top + rcWindowRect.Height();
-        break;
-    case WMSZ_TOP:
-    case WMSZ_TOPLEFT:
-    case WMSZ_TOPRIGHT:
-        pRect->top = pRect->bottom - rcWindowRect.Height();
-        break;
-    }
-    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
 
 void CRenameDlg::OnCancel()

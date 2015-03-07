@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,6 @@
 IMPLEMENT_DYNAMIC(CURLDlg, CResizableStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CURLDlg::IDD, pParent)
-    , m_height(0)
 {
 }
 
@@ -42,7 +41,6 @@ void CURLDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CURLDlg, CResizableStandAloneDialog)
-    ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 
@@ -50,6 +48,7 @@ BOOL CURLDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    BlockResize(DIALOG_BLOCKVERTICAL);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);
@@ -59,9 +58,6 @@ BOOL CURLDlg::OnInitDialog()
 
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_URLCOMBO);
 
-    RECT rect;
-    GetWindowRect(&rect);
-    m_height = rect.bottom - rect.top;
     AddAnchor(IDC_LABEL, TOP_LEFT);
     AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -94,21 +90,3 @@ void CURLDlg::OnOK()
 }
 
 
-void CURLDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-    // don't allow the dialog to be changed in height
-    switch (fwSide)
-    {
-    case WMSZ_BOTTOM:
-    case WMSZ_BOTTOMLEFT:
-    case WMSZ_BOTTOMRIGHT:
-        pRect->bottom = pRect->top + m_height;
-        break;
-    case WMSZ_TOP:
-    case WMSZ_TOPLEFT:
-    case WMSZ_TOPRIGHT:
-        pRect->top = pRect->bottom - m_height;
-        break;
-    }
-    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
-}

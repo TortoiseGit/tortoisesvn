@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,6 @@ CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
     , m_sToUrl(L"")
     , m_sFromUrl(L"")
     , m_bIncludeExternals(FALSE)
-    , m_height(0)
 {
 }
 
@@ -46,13 +45,13 @@ void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-    ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    BlockResize(DIALOG_BLOCKVERTICAL);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_INCLUDEEXTERNALS);
@@ -61,10 +60,6 @@ BOOL CRelocateDlg::OnInitDialog()
     m_URLCombo.SetURLHistory(true, true);
     m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
     m_URLCombo.SetCurSel(0);
-
-    RECT rect;
-    GetWindowRect(&rect);
-    m_height = rect.bottom - rect.top;
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -102,21 +97,3 @@ void CRelocateDlg::OnBnClickedHelp()
     OnHelp();
 }
 
-void CRelocateDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-    // don't allow the dialog to be changed in height
-    switch (fwSide)
-    {
-    case WMSZ_BOTTOM:
-    case WMSZ_BOTTOMLEFT:
-    case WMSZ_BOTTOMRIGHT:
-        pRect->bottom = pRect->top + m_height;
-        break;
-    case WMSZ_TOP:
-    case WMSZ_TOPLEFT:
-    case WMSZ_TOPRIGHT:
-        pRect->top = pRect->bottom - m_height;
-        break;
-    }
-    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
-}

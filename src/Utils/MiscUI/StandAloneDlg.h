@@ -26,6 +26,9 @@
 #include "TaskbarUUID.h"
 #pragma comment(lib, "htmlhelp.lib")
 
+#define DIALOG_BLOCKHORIZONTAL 1
+#define DIALOG_BLOCKVERTICAL 2
+
 /**
  * \ingroup TortoiseProc
  *
@@ -50,6 +53,10 @@ protected:
         m_bkgndIconWidth = 0;
         m_bkgndIconHeight = 0;
         m_hBkgndIcon = 0;
+        m_nResizeBlock = 0;
+        m_height = 0;
+        m_width = 0;
+
         SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
     }
     ~CStandAloneDialogTmpl()
@@ -67,7 +74,33 @@ protected:
         SetIcon(m_hIcon, TRUE);         // Set big icon
         SetIcon(m_hIcon, FALSE);        // Set small icon
 
+        RECT rect;
+        GetWindowRect(&rect);
+        m_height = rect.bottom - rect.top;
+        m_width = rect.right - rect.left;
+
         return FALSE;
+    }
+
+    virtual BOOL PreTranslateMessage(MSG* pMsg)
+    {
+        if (pMsg->message == WM_KEYDOWN)
+        {
+            int nVirtKey = (int)pMsg->wParam;
+
+            if (nVirtKey == 'A' && (GetKeyState(VK_CONTROL) & 0x8000))
+            {
+                wchar_t buffer[129];
+                ::GetClassName(pMsg->hwnd, buffer, 128);
+
+                if (_wcsnicmp(buffer, L"EDIT", 128) == 0)
+                {
+                    ::PostMessage(pMsg->hwnd, EM_SETSEL, 0, -1);
+                    return TRUE;
+                }
+            }
+        }
+        return BaseType::PreTranslateMessage(pMsg);
     }
 
     afx_msg void OnPaint()
@@ -401,13 +434,19 @@ protected:
         HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(idi), IMAGE_ICON, width, height, LR_DEFAULTCOLOR);
         SetBackgroundIcon(hIcon, width, height);
     }
-
+    void BlockResize(int block)
+    {
+        m_nResizeBlock = block;
+    }
 
 protected:
     CDwmApiImpl     m_Dwm;
     MARGINS         m_margins;
     CRegDWORD       m_regEnableDWMFrame;
     AeroControlBase m_aeroControls;
+    int             m_nResizeBlock;
+    long            m_width;
+    long            m_height;
 
     DECLARE_MESSAGE_MAP()
 private:

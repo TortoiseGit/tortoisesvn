@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -400,15 +400,6 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
         case VK_RETURN:
             if (OnEnterPressed())
                 return TRUE;
-            break;
-        case 'A':
-        case 'a':
-            if (GetKeyState(VK_CONTROL)&0x8000)
-            {
-                // select the whole text
-                SendDlgItemMessage(IDC_PROPVALUE, EM_SETSEL, 0, -1);
-                return TRUE;
-            }
             break;
         default:
             break;

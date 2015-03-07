@@ -68,6 +68,40 @@ void CResizableStandAloneDialog::OnSizing(UINT fwSide, LPRECT pRect)
 {
     m_bVertical = m_bVertical && (fwSide == WMSZ_LEFT || fwSide == WMSZ_RIGHT);
     m_bHorizontal = m_bHorizontal && (fwSide == WMSZ_TOP || fwSide == WMSZ_BOTTOM);
+    if (m_nResizeBlock & DIALOG_BLOCKVERTICAL)
+    {
+        // don't allow the dialog to be changed in height
+        switch (fwSide)
+        {
+            case WMSZ_BOTTOM:
+            case WMSZ_BOTTOMLEFT:
+            case WMSZ_BOTTOMRIGHT:
+                pRect->bottom = pRect->top + m_height;
+                break;
+            case WMSZ_TOP:
+            case WMSZ_TOPLEFT:
+            case WMSZ_TOPRIGHT:
+                pRect->top = pRect->bottom - m_height;
+                break;
+        }
+    }
+    if (m_nResizeBlock & DIALOG_BLOCKHORIZONTAL)
+    {
+        // don't allow the dialog to be changed in width
+        switch (fwSide)
+        {
+            case WMSZ_RIGHT:
+            case WMSZ_TOPRIGHT:
+            case WMSZ_BOTTOMRIGHT:
+                pRect->right = pRect->left + m_width;
+                break;
+            case WMSZ_LEFT:
+            case WMSZ_TOPLEFT:
+            case WMSZ_BOTTOMLEFT:
+                pRect->left = pRect->right - m_width;
+                break;
+        }
+    }
     CStandAloneDialogTmpl<CResizableDialog>::OnSizing(fwSide, pRect);
 }
 
