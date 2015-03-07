@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,10 @@
 #include "PersonalDictionary.h"
 #include <regex>
 
+#define AUTOCOMPLETE_SPELLING       0
+#define AUTOCOMPLETE_FILENAME       1
+#define AUTOCOMPLETE_PROGRAMCODE    2
+#define AUTOCOMPLETE_SNIPPET        3
 
 //forward declaration
 class CSciEdit;
@@ -55,6 +59,7 @@ public:
      * it should return \a false
      */
     virtual bool        HandleMenuItemClick(int cmd, CSciEdit * pSciEdit);
+    virtual void        HandleSnippet(int type, const CString &text, CSciEdit *pSciEdit);
 };
 
 /**
@@ -75,6 +80,8 @@ public:
      */
     void        Init(const ProjectProperties& props);
     void        Init(LONG lLanguage = 0);
+    void        SetIcon(const std::map<int, UINT> &icons);
+
     /**
      * Execute a scintilla command, e.g. SCI_GETLINE.
      */
@@ -101,7 +108,7 @@ public:
     /**
      * Adds a list of words for use in auto completion.
      */
-    void        SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator = ';');
+    void        SetAutoCompletionList(std::map<CString, int>&& list, TCHAR separator = ';', TCHAR typeSeparator = '?');
     /**
      * Returns the word located under the cursor.
      */
@@ -122,8 +129,9 @@ private:
     Hunspell *  pChecker;
     MyThes *    pThesaur;
     UINT        m_spellcodepage;
-    std::set<CString> m_autolist;
+    std::map<CString, int> m_autolist;
     TCHAR       m_separator;
+    TCHAR       m_typeSeparator;
     CStringA    m_sCommand;
     CStringA    m_sBugID;
     CString     m_sUrl;

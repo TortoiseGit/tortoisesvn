@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,7 @@ public:
     // CSciEditContextMenuInterface
     virtual void        InsertMenuItems(CMenu& mPopup, int& nCmd) override;
     virtual bool        HandleMenuItemClick(int cmd, CSciEdit * pSciEdit) override;
+    virtual void        HandleSnippet(int type, const CString &text, CSciEdit *pSciEdit);
 
 private:
     static UINT StatusThreadEntry(LPVOID pVoid);
@@ -115,12 +116,13 @@ protected:
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnSize(UINT nType, int cx, int cy);
     void Refresh();
-    void GetAutocompletionList();
-    void ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt);
+    void GetAutocompletionList(std::map<CString, int>& autolist);
+    void ScanFile(std::map<CString, int>& autolist, const CString& sFilePath, const CString& sRegex, const CString& sExt);
     void DoSize(int delta);
     void SetSplitterRange();
     void SaveSplitterPos();
     void ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex);
+    void ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet);
     void UpdateCheckLinks();
     void VersionCheck();
 
@@ -148,7 +150,7 @@ public:
     std::map<CString, std::tuple<CString, CString>> m_restorepaths;
 private:
     CWinThread*         m_pThread;
-    std::set<CString>   m_autolist;
+    std::map<CString, CString>  m_snippet;
     CSVNStatusListCtrl  m_ListCtrl;
     BOOL                m_bShowUnversioned;
     BOOL                m_bShowExternals;

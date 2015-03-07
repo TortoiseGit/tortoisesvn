@@ -30,6 +30,7 @@
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
 bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return false;}
+void CSciEditContextMenuInterface::HandleSnippet(int, const CString &, CSciEdit *) { return; }
 
 
 #define STYLE_ISSUEBOLD         11
@@ -76,6 +77,7 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_bDoStyle(false)
     , m_spellcodepage(0)
     , m_separator(' ')
+    , m_typeSeparator('?')
     , m_nAutoCompleteMinChars(3)
 {
     m_hModule = ::LoadLibrary(L"SciLexer.DLL");
@@ -88,6 +90,74 @@ CSciEdit::~CSciEdit(void)
         ::FreeLibrary(m_hModule);
     delete pChecker;
     delete pThesaur;
+}
+
+static LPBYTE Icon2Image(HICON hIcon)
+{
+    if (hIcon == nullptr)
+        return nullptr;
+
+    ICONINFO iconInfo;
+    if (!GetIconInfo(hIcon, &iconInfo))
+        return nullptr;
+
+    BITMAP bm;
+    if (!GetObject(iconInfo.hbmColor, sizeof(BITMAP), &bm))
+        return nullptr;
+
+    int width = bm.bmWidth;
+    int height = bm.bmHeight;
+    int bytesPerScanLine = (width * 3 + 3) & 0xFFFFFFFC;
+    int size = bytesPerScanLine * height;
+    BITMAPINFO infoheader;
+    infoheader.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    infoheader.bmiHeader.biWidth = width;
+    infoheader.bmiHeader.biHeight = height;
+    infoheader.bmiHeader.biPlanes = 1;
+    infoheader.bmiHeader.biBitCount = 24;
+    infoheader.bmiHeader.biCompression = BI_RGB;
+    infoheader.bmiHeader.biSizeImage = size;
+
+    std::unique_ptr<BYTE> ptrb(new BYTE[(size * 2 + height * width * 4)]);
+    LPBYTE pixelsIconRGB = ptrb.get();
+    LPBYTE alphaPixels = pixelsIconRGB + size;
+    HDC hDC = CreateCompatibleDC(nullptr);
+    HBITMAP hBmpOld = (HBITMAP)SelectObject(hDC, (HGDIOBJ)iconInfo.hbmColor);
+    if (!GetDIBits(hDC, iconInfo.hbmColor, 0, height, (LPVOID)pixelsIconRGB, &infoheader, DIB_RGB_COLORS))
+    {
+        DeleteDC(hDC);
+        return nullptr;
+    }
+
+    SelectObject(hDC, hBmpOld);
+    if (!GetDIBits(hDC, iconInfo.hbmMask, 0,height, (LPVOID)alphaPixels, &infoheader, DIB_RGB_COLORS))
+    {
+        DeleteDC(hDC);
+        return nullptr;
+    }
+
+    DeleteDC(hDC);
+    UINT* imagePixels = new UINT[height * width];
+    int lsSrc = width * 3;
+    int vsDest = height - 1;
+    for (int y = 0; y < height; y++)
+    {
+        int linePosSrc = (vsDest - y) * lsSrc;
+        int linePosDest = y * width;
+        for (int x = 0; x < width; x++)
+        {
+            int currentDestPos = linePosDest + x;
+            int currentSrcPos = linePosSrc + x * 3;
+            imagePixels[currentDestPos] = (((UINT)(
+                (
+                    ((pixelsIconRGB[currentSrcPos + 2]  /*Red*/)
+                    | (pixelsIconRGB[currentSrcPos + 1] << 8 /*Green*/)) 
+                    | pixelsIconRGB[currentSrcPos] << 16 /*Blue*/
+                )
+                | ((alphaPixels[currentSrcPos] ? 0 : 0xff) << 24))) & 0xffffffff);
+        }
+    }
+    return (LPBYTE)imagePixels;
 }
 
 void CSciEdit::Init(LONG lLanguage)
@@ -174,6 +244,8 @@ void CSciEdit::Init(const ProjectProperties& props)
     m_sBugID = CStringA(CUnicodeUtils::GetUTF8(props.GetBugIDRe()));
     m_sUrl = CStringA(CUnicodeUtils::GetUTF8(props.sUrl));
 
+    Call(SCI_SETMOUSEDWELLTIME, 333);
+
     if (props.nLogWidthMarker)
     {
         Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
@@ -184,6 +256,19 @@ void CSciEdit::Init(const ProjectProperties& props)
     {
         Call(SCI_SETEDGEMODE, EDGE_NONE);
         Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+    }
+}
+
+void CSciEdit::SetIcon(const std::map<int, UINT> &icons)
+{
+    Call(SCI_RGBAIMAGESETWIDTH, 16);
+    Call(SCI_RGBAIMAGESETHEIGHT, 16);
+    for (auto icon : icons)
+    {
+        auto hIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(icon.second), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+        std::unique_ptr<BYTE> bytes(Icon2Image(hIcon));
+        DestroyIcon(hIcon);
+        Call(SCI_REGISTERRGBAIMAGE, icon.first, (LPARAM)bytes.get());
     }
 }
 
@@ -203,8 +288,8 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
     sFile += buf;
     if (pChecker==NULL)
     {
-        if ((PathFileExists(sFolderAppData + _T("dic\\") + sFile + _T(".aff"))) &&
-            (PathFileExists(sFolderAppData + _T("dic\\") + sFile + _T(".dic"))))
+        if ((PathFileExists(sFolderAppData + L"dic\\" + sFile + L".aff")) &&
+            (PathFileExists(sFolderAppData + L"dic\\" + sFile + L".dic")))
         {
             pChecker = new Hunspell(CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".dic")));
         }
@@ -405,16 +490,14 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
     Call(SCI_SETHOTSPOTACTIVEUNDERLINE, (LPARAM)TRUE);
 }
 
-void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator)
+void CSciEdit::SetAutoCompletionList(std::map<CString, int>&& list, TCHAR separator, TCHAR typeSeparator)
 {
     //copy the auto completion list.
 
-    //SK: instead of creating a copy of that list, we could accept a pointer
-    //to the list and use that instead. But then the caller would have to make
-    //sure that the list persists over the lifetime of the control!
     m_autolist.clear();
-    m_autolist = list;
+    m_autolist = std::move(list);
     m_separator = separator;
+    m_typeSeparator = typeSeparator;
 }
 
 BOOL CSciEdit::IsMisspelled(const CString& sWord)
@@ -568,7 +651,7 @@ void CSciEdit::SuggestSpellingAlternatives()
         CString suggestions;
         for (int i=0; i < ns; i++)
         {
-            suggestions += GetWordFromSpellCkecker(wlst[i]) + m_separator;
+            suggestions.AppendFormat(L"%s%c%d%c", CString(wlst[i]), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
             free(wlst[i]);
         }
         free(wlst);
@@ -576,6 +659,7 @@ void CSciEdit::SuggestSpellingAlternatives()
         if (suggestions.IsEmpty())
             return;
         Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
+        Call(SCI_AUTOCSETTYPESEPARATOR, (WPARAM)m_typeSeparator);
         Call(SCI_AUTOCSETDROPRESTOFWORD, 1);
         Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)StringForControl(suggestions));
         return;
@@ -630,18 +714,18 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
     // its contents are also used to mark words in it
     // as correctly spelled. If it would be case-insensitive,
     // case spelling mistakes would not show up as misspelled.
-    std::set<CString> wordset;
+    std::map<CString, int> wordset;
     for (const auto& w : words)
     {
-        for (std::set<CString>::const_iterator lowerit = m_autolist.lower_bound(w);
+        for (auto lowerit = m_autolist.lower_bound(w);
             lowerit != m_autolist.end(); ++lowerit)
         {
-            int compare = w.CompareNoCase(lowerit->Left(w.GetLength()));
+            int compare = w.CompareNoCase(lowerit->first.Left(w.GetLength()));
             if (compare>0)
                 continue;
             else if (compare == 0)
             {
-                wordset.insert(*lowerit);
+                wordset.insert(std::make_pair(lowerit->first, lowerit->second));
             }
             else
             {
@@ -651,13 +735,14 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
     }
 
     for (const auto& w : wordset)
-        sAutoCompleteList += w + m_separator;
+        sAutoCompleteList.AppendFormat(L"%s%c%d%c", w.first, m_typeSeparator, w.second, m_separator);
 
     sAutoCompleteList.TrimRight(m_separator);
     if (sAutoCompleteList.IsEmpty())
         return;
 
     Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
+    Call(SCI_AUTOCSETTYPESEPARATOR, (WPARAM)m_typeSeparator);
     Call(SCI_AUTOCSHOW, word.GetLength(), (LPARAM)(LPCSTR)StringForControl(sAutoCompleteList));
 }
 
@@ -684,6 +769,20 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 return TRUE;
             }
             break;
+        case SCN_AUTOCSELECTION:
+            {
+                CString text = StringFromControl(lpSCN->text);
+                if (m_autolist[text] == AUTOCOMPLETE_SNIPPET)
+                {
+                    Call(SCI_AUTOCCANCEL);
+                    for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
+                    {
+                        CSciEditContextMenuInterface * pHandler = m_arContextHandlers.GetAt(handlerindex);
+                        pHandler->HandleSnippet(m_autolist[text], text, this);
+                    }
+                }
+                return TRUE;
+            }
         case SCN_STYLENEEDED:
             {
                 int startstylepos = (int)Call(SCI_GETENDSTYLED);
@@ -697,8 +796,11 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 return TRUE;
             }
             break;
+        case SCN_DWELLSTART:
         case SCN_HOTSPOTCLICK:
             {
+                if (lpSCN->position < 0)
+                    break;
                 TEXTRANGEA textrange;
                 textrange.chrg.cpMin = lpSCN->position;
                 textrange.chrg.cpMax = lpSCN->position;
@@ -750,9 +852,17 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                         }
                     }
                 }
-                if (!url.IsEmpty())
+                if ((lpnmhdr->code == SCN_HOTSPOTCLICK) && (!url.IsEmpty()))
                     ShellExecute(GetParent()->GetSafeHwnd(), L"open", url, NULL, NULL, SW_SHOWDEFAULT);
+                else
+                {
+                    CStringA sTextA = StringForControl(url);
+                    Call(SCI_CALLTIPSHOW, lpSCN->position + 3, (LPARAM)(LPCSTR)sTextA);
+                }
             }
+            break;
+        case SCN_DWELLEND:
+            Call(SCI_CALLTIPCANCEL);
             break;
         }
     }
@@ -955,7 +1065,8 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         sMenuItemText.LoadString(IDS_SCIEDIT_SPLITLINES);
         popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_LINESSPLIT, sMenuItemText);
 
-        popup.AppendMenu(MF_SEPARATOR);
+        if (m_arContextHandlers.GetCount() > 0)
+            popup.AppendMenu(MF_SEPARATOR);
 
         int nCustoms = nCorrections;
         // now add any custom context menus

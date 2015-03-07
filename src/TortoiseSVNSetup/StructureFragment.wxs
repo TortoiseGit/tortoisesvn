@@ -107,6 +107,7 @@
               <File Id="F__TortoisePlink" Name="TortoisePlink.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
               <File Id="F__TSVNCache" Name="TSVNCache.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
               <File Id="F__TSVNAutolist" Name="autolist.txt" DiskId="1" Source="include\autolist.txt" />
+              <File Id="F__TSVNSnippet" Name="snippet.txt" DiskId="1" Source="include\snippet.txt" />
               <File Id="F__websiteurl" Name="Website.url" Source="include\Website.url" DiskId="1" />
               <File Id="F__tsvntilexml" Name="TortoiseProc.VisualElementsManifest.xml" Source="include\TortoiseProc.VisualElementsManifest.xml" DiskId="1" />
 

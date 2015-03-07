@@ -709,16 +709,16 @@ UINT CCommitDlg::StatusThread()
     CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
     CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
-    m_autolist.clear();
     // we don't have to block the commit dialog while we fetch the
     // auto completion list.
     m_pathwatcher.ClearChangedPaths();
     InterlockedExchange(&m_bBlock, FALSE);
     UpdateOKButton();
+    std::map<CString, int> autolist;
     if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\Autocompletion", TRUE)==TRUE)
     {
         m_ListCtrl.BusyCursor(true);
-        GetAutocompletionList();
+        GetAutocompletionList(autolist);
         m_ListCtrl.BusyCursor(false);
     }
     if (m_bRunThread)
@@ -734,7 +734,7 @@ UINT CCommitDlg::StatusThread()
 
         UpdateCheckLinks();
         // we have the list, now signal the main thread about it
-        SendMessage(WM_AUTOLISTREADY);  // only send the message if the thread wasn't told to quit!
+        SendMessage(WM_AUTOLISTREADY, 0, (LPARAM)&autolist);  // only send the message if the thread wasn't told to quit!
     }
     InterlockedExchange(&m_bRunThread, FALSE);
     InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -967,9 +967,10 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
     return 0;
 }
 
-LRESULT CCommitDlg::OnAutoListReady(WPARAM, LPARAM)
+LRESULT CCommitDlg::OnAutoListReady(WPARAM, LPARAM lParam)
 {
-    m_cLogMessage.SetAutoCompletionList(m_autolist, '*');
+    std::map<CString, int> * autolist = (std::map<CString, int>*)lParam;
+    m_cLogMessage.SetAutoCompletionList(std::move(*autolist), '*');
     return 0;
 }
 
@@ -1006,7 +1007,37 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
     }
 }
 
-void CCommitDlg::GetAutocompletionList()
+void CCommitDlg::ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet)
+{
+    CString strLine;
+    try
+    {
+        CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
+        while (m_bRunThread && file.ReadString(strLine))
+        {
+            if (strLine.IsEmpty())
+                continue;
+            if (strLine.Left(1) == _T('#')) // comment char
+                continue;
+            int eqpos = strLine.Find('=');
+            CString key = strLine.Left(eqpos);
+            CString value = strLine.Mid(eqpos + 1);
+            value.Replace(_T("\\\t"), _T("\t"));
+            value.Replace(_T("\\\r"), _T("\r"));
+            value.Replace(_T("\\\n"), _T("\n"));
+            value.Replace(_T("\\\\"), _T("\\"));
+            mapSnippet[key] = value;
+        }
+        file.Close();
+    }
+    catch (CFileException* pE)
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading snippet file\n");
+        pE->Delete();
+    }
+}
+
+void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 {
     // the auto completion list is made of strings from each selected files.
     // the strings used are extracted from the files with regexes found
@@ -1017,7 +1048,7 @@ void CCommitDlg::GetAutocompletionList()
     // .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
     // .cpp = (?<=[^\s]::)\b\w+\b
 
-    m_autolist.clear();
+    autolist.clear();
     std::map<CString, CString> mapRegex;
     CString sRegexFile = CPathUtils::GetAppDirectory();
     CRegDWORD regtimeout = CRegDWORD(L"Software\\TortoiseSVN\\AutocompleteParseTimeout", 5);
@@ -1033,6 +1064,17 @@ void CCommitDlg::GetAutocompletionList()
     sRegexFile += L"\\autolist.txt";
     if (PathFileExists(sRegexFile))
         ParseRegexFile(sRegexFile, mapRegex);
+
+    m_snippet.clear();
+    CString sSnippetFile = CPathUtils::GetAppDirectory();
+    sSnippetFile += _T("snippet.txt");
+    ParseSnippetFile(sSnippetFile, m_snippet);
+    sSnippetFile = CPathUtils::GetAppDataDirectory();
+    sSnippetFile += _T("snippet.txt");
+    if (PathFileExists(sSnippetFile))
+        ParseSnippetFile(sSnippetFile, m_snippet);
+    for (auto snip : m_snippet)
+        autolist.insert(std::make_pair(snip.first, AUTOCOMPLETE_SNIPPET));
 
     ULONGLONG starttime = GetTickCount64();
 
@@ -1057,7 +1099,7 @@ void CCommitDlg::GetAutocompletionList()
 
         // add the path parts to the auto completion list too
         CString sPartPath = entry->GetRelativeSVNPath(false);
-        m_autolist.insert(sPartPath);
+        autolist.insert(std::make_pair(sPartPath, AUTOCOMPLETE_FILENAME));
 
         int pos = 0;
         int lastPos = 0;
@@ -1065,7 +1107,7 @@ void CCommitDlg::GetAutocompletionList()
         {
             pos++;
             lastPos = pos;
-            m_autolist.insert(sPartPath.Mid(pos));
+            autolist.insert(std::make_pair(sPartPath.Mid(pos), AUTOCOMPLETE_FILENAME));
         }
 
         // Last inserted entry is a file name.
@@ -1074,7 +1116,7 @@ void CCommitDlg::GetAutocompletionList()
         {
             int dotPos = sPartPath.ReverseFind('.');
             if ((dotPos >= 0) && (dotPos > lastPos))
-                m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
+                autolist.insert(std::make_pair(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME));
         }
     }
     for (int i = 0; i < nListItems && m_bRunThread; ++i)
@@ -1097,7 +1139,7 @@ void CCommitDlg::GetAutocompletionList()
         if (rdata.IsEmpty())
             continue;
 
-        ScanFile(entry->GetPath().GetWinPathString(), rdata, sExt);
+        ScanFile(autolist, entry->GetPath().GetWinPathString(), rdata, sExt);
         if ((entry->status != svn_wc_status_unversioned) &&
             (entry->status != svn_wc_status_none) &&
             (entry->status != svn_wc_status_ignored) &&
@@ -1106,13 +1148,13 @@ void CCommitDlg::GetAutocompletionList()
         {
             CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
             if (!basePath.IsEmpty())
-                ScanFile(basePath.GetWinPathString(), rdata, sExt);
+                ScanFile(autolist, basePath.GetWinPathString(), rdata, sExt);
         }
     }
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Auto completion list loaded in %d msec\n", GetTickCount64() - starttime);
 }
 
-void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt)
+void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFilePath, const CString& sRegex, const CString& sExt)
 {
     static std::map<CString, std::tr1::wregex> regexmap;
 
@@ -1175,7 +1217,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
             {
                 if (match[i].second-match[i].first)
                 {
-                    m_autolist.insert(std::wstring(match[i]).c_str());
+                    autolist.insert(std::make_pair(std::wstring(match[i]).c_str(), AUTOCOMPLETE_PROGRAMCODE));
                 }
             }
         }
@@ -1223,6 +1265,16 @@ bool CCommitDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
         return true;
     }
     return false;
+}
+
+void CCommitDlg::HandleSnippet(int type, const CString &text, CSciEdit *pSciEdit)
+{
+    if (type == AUTOCOMPLETE_SNIPPET)
+    {
+        CString target = m_snippet[text];
+        pSciEdit->GetWordUnderCursor(true);
+        pSciEdit->InsertText(target, false);
+    }
 }
 
 void CCommitDlg::OnTimer(UINT_PTR nIDEvent)
@@ -1692,6 +1744,12 @@ void CCommitDlg::InitializeLogMessageControl()
     m_cLogMessage.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName",
         L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
     m_cLogMessage.RegisterContextMenuHandler(this);
+    std::map<int, UINT> icons;
+    icons[AUTOCOMPLETE_SPELLING] = IDI_SPELL;
+    icons[AUTOCOMPLETE_FILENAME] = IDI_FILE;
+    icons[AUTOCOMPLETE_PROGRAMCODE] = IDI_CODE;
+    icons[AUTOCOMPLETE_SNIPPET] = IDI_SNIPPET;
+    m_cLogMessage.SetIcon(icons);
 }
 
 void CCommitDlg::SetControlAccessibilityProperties()
@@ -1997,3 +2055,4 @@ void CCommitDlg::OnBnClickedRunhook()
         m_tooltips.ShowBalloon(IDC_RUNHOOK, IDS_COMMITDLG_HOOKSUCCESSFUL_TT, IDS_WARN_NOTE, TTI_INFO);
     }
 }
+
