@@ -24,11 +24,17 @@
 #include "ProjectProperties.h"
 #include "PersonalDictionary.h"
 #include <regex>
+#include <spellcheck.h>
 
 #define AUTOCOMPLETE_SPELLING       0
 #define AUTOCOMPLETE_FILENAME       1
 #define AUTOCOMPLETE_PROGRAMCODE    2
 #define AUTOCOMPLETE_SNIPPET        3
+
+_COM_SMARTPTR_TYPEDEF(ISpellCheckerFactory, __uuidof(ISpellCheckerFactory));
+_COM_SMARTPTR_TYPEDEF(ISpellChecker, __uuidof(ISpellChecker));
+_COM_SMARTPTR_TYPEDEF(IEnumSpellingError, __uuidof(IEnumSpellingError));
+_COM_SMARTPTR_TYPEDEF(ISpellingError, __uuidof(ISpellingError));
 
 //forward declaration
 class CSciEdit;
@@ -140,6 +146,8 @@ private:
     CPersonalDictionary m_personalDict;
     bool        m_bDoStyle;
     int         m_nAutoCompleteMinChars;
+    ISpellCheckerFactoryPtr     m_spellCheckerFactory;
+    ISpellCheckerPtr            m_SpellChecker;
     static bool IsValidURLChar(unsigned char ch);
 protected:
     virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
