@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-03-05 22:12+0000\n"
+"PO-Revision-Date: 2015-03-07 22:11+0000\n"
 "Last-Translator: Michel Apt <michel.apt1@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -9853,11 +9853,11 @@ msgstr "Arrancar o visualizador de diffs com o ficheiro actualmente selecionado 
 
 #. Resource IDs: (65)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Inicializa a ferramenta de combinação, onde você pode solucionar o conflito de propriedade"
 
 #. Resource IDs: (65)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Inicializa a caixa de diálogo de propriedade, onde você pode manualmente editar a propriedade."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9912,7 +9912,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Armazena o caminho do arquivo a ser usado por um diff em um posterior clique com o botão direito. Mantenha pressionada a tecla CTRL para remover o último caminho salvo."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -10097,7 +10097,7 @@ msgstr "Configurar Sincronização"
 
 #. Resource IDs: (1529)
 msgid "Sync stored auth data"
-msgstr ""
+msgstr "Sincronizar dados de autenticação armazenados"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10210,7 +10210,7 @@ msgstr "O arquivo %s não existe!"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "O arquivo %s não é versionado. O que você quer fazer?"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10239,7 +10239,7 @@ msgstr "O arquivo demasiado grande para ser aberto."
 msgid ""
 "The file or directory \"%s\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "O arquivo ou diretório \"%s\" já existe no local indicado! Você deve primeiro removê-lo antes de poder adicionar algo externo ali com o mesmo nome."
 
 #. Resource IDs: (80)
 #, c-format
@@ -10267,7 +10267,7 @@ msgstr "A pasta\n%s\njá existe!"
 
 #. Resource IDs: (170)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "O script de ligação foi executado com sucesso"
 
 #. Resource IDs: (83)
 #, c-format
@@ -10299,7 +10299,7 @@ msgstr "O fornecedor do controlador de problemas não conseguiu validar a cadeia
 msgid ""
 "The item '%s' has property conflicts:\r\n"
 "%s"
-msgstr ""
+msgstr "O item '%s' tem conflitos de propriedade:\n%s"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10821,7 +10821,7 @@ msgstr "Dica"
 
 #. Resource IDs: (65)
 msgid "To add projects to be monitored, click the \"Add\" button above"
-msgstr ""
+msgstr "Para adicionar projetos a serem monitorados, clique no botão \"Adicionar\" acima"
 
 #. Resource IDs: (224)
 msgid ""
@@ -10952,7 +10952,7 @@ msgstr "Monitor de Projecto TortoiseSVN"
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "Opções do Monitor de Projeto TortoiseSVN"
 
 #. Resource IDs: (65)
 #, c-format
@@ -11002,7 +11002,7 @@ msgstr "O TortoiseSVN não mostrará as seguintes sobreposições: %s"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11155,7 +11155,7 @@ msgstr "Desmarcar"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Itens não marcados são mostrados no submenu; itens checados aparecem no menu de contexto principal"
 
 #. Resource IDs: (156)
 msgid "Undo"
@@ -11200,7 +11200,7 @@ msgstr "Comparação unifica&da das revisões HEAD (mais recentes)"
 
 #. Resource IDs: (18)
 msgid "Unified Diff"
-msgstr ""
+msgstr "Diff unificado"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11295,7 +11295,7 @@ msgstr "Actualizar WC para revisão"
 
 #. Resource IDs: (66)
 msgid "Update check is currently running!"
-msgstr ""
+msgstr "Checagem de atualização em andamento!"
 
 #. Resource IDs: (291)
 msgid "Update externals"
@@ -11325,7 +11325,7 @@ msgstr "Actualizado"
 
 #. Resource IDs: (66)
 msgid "Updates all monitored working copies"
-msgstr ""
+msgstr "Atualiza todas as cópias funcionais monitoradas"
 
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
@@ -11592,7 +11592,7 @@ msgstr "Nome de utilizador:"
 
 #. Resource IDs: (65535)
 msgid "Users to ignore:"
-msgstr ""
+msgstr "Usuários a serem ignorados:"
 
 #. Resource IDs: (313)
 msgid ""
@@ -11611,7 +11611,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Opções válidas de linha de comando são:\n/base:<caminho para o arquivo base>\n/basename:<nome a ser mostrado no título>\n/theirs:<caminho para o arquivo externo>\n/theirsname:<nome a ser mostrado no título>\n/mine:<caminho para o seu arquivo>\n/minename:<nome a ser mostrado no título>\n/merged:<caminho para o arquivo combinado>\n/mergedname:<nome a ser mostrado no título>\n/diff:<caminho para o arquivo diff unificado>\n/patchpath:<caminho para a pasta>\n/saverequired\n/saverequiredonconflicts\n/oneway<força a visão única>\n/line:<número da linha para a qual se quer ir>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
@@ -11728,7 +11728,7 @@ msgstr "Quando não for possível ligar ao servidor do repositório,\no TSVN pod
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Quando habilitado, os itens de menu de contexto mover/copiar do TortoiseSVN estarão disponíveis quando arquivos/pastas forem arrastados"
 
 #. Resource IDs: (197)
 msgid ""
@@ -11840,7 +11840,7 @@ msgstr "Largaste mais que um ficheiro ou pasta para adicionar ao repositório.\n
 
 #. Resource IDs: (7)
 msgid "You have marked changed blocks. How should those blocks be saved?"
-msgstr ""
+msgstr "Você marcou blocos modificados. Como eles devem ser salvos?"
 
 #. Resource IDs: (16)
 msgid ""
@@ -12270,7 +12270,7 @@ msgstr "herdado de"
 
 #. Resource IDs: (583)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "Inexistente (será que ele está faltando ou foi movido?)."
 
 #. Resource IDs: (583)
 msgid "it is already deleted."
@@ -12384,7 +12384,7 @@ msgstr "sem controlo de versões"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "item não versionado"
 
 #. Resource IDs: (10)
 msgid "normal"

@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-03-01 02:10+0000\n"
+"PO-Revision-Date: 2015-03-08 13:01+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -17166,7 +17166,7 @@ msgid ""
 "        </screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
 "#include \"X:\\superio\\superio.h\"\n"
 "        </screen>"
-msgstr ""
+msgstr "Если ваши проекты разбросаны в несвязанных местах, то вы можете вариант этого, который заключается в следующем, разместите общий код в одном месте и используйте подстановку буквы диска для маппирования, чтобы можно быть прописать явно в ваших проектах. Например, извлеките общий код в <filename>D:\\Documents\\Framework</filename> или <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename>, затем используйте <screen>\nSUBST X: \"D:\\Documents\\framework\"\n        </screen> чтобы создать маппирование диска, используемого в вашем исходном коде. После этого вы можете использовать абсолютные местоположения. <screen>\n#include \"X:\\superio\\superio.h\"\n        </screen>"
 
 #. (para)
 msgid ""
@@ -17337,7 +17337,7 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "12 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
-msgstr ""
+msgstr "TortoiseSVN должен быть установлен от <emphasis>Имени системы</emphasis> и не от<emphasis>Имени пользователя</emphasis>. Это связано с тем что TortoiseSVN необходимы CRT и MFC DLL файлы, которые могут быть установлены <emphasis> на компьютер </emphasis> и не <emphasis>на пользователя</emphasis>. Если вам действительно необходимо установить TortoiseSVN on a per user basis, тогда вы должны сперва установить MFC и CRT пакет версии 12 от Microsoft на каждом компьютере, на котором будете устанавливать TortoiseSVN на пользователя."
 
 #. (para)
 msgid ""
@@ -17392,7 +17392,7 @@ msgid ""
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n"
 "      </screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
-msgstr ""
+msgstr "Версии TortoiseSVN 1.4.0 и позже позволяют вам перенаправить проверку обновления на интранет-сервер. Вы можете установить в ключе реестра <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (строковое значение) адрес URL, указывающий на файл в вашем интранет. Этот текстовый файл должен быть следующего формата: <screen>\n1.9.1.6000\nНовая версия TortoiseSVN доступна для скачивания!\nhttp://192.168.2.1/downloads/TortoiseSVN-1.9.1.6000-svn-1.9.1.msi\n      </screen> Первая строка в этом файле — версия. Вы должны быть уверены, что версия соответствует версии в пакете инсталляции TortoiseSVN. Вторая строка — это пользовательский текст, показывающийся в диалоге фиксации. Вы можете написать там всё что угодно. Только помните, что место в диалоге фиксации ограничено. Слишком длинные сообщения будут обрезаны! Третья строка — это адрес URL нового пакета инсталляции. Этот адрес URL открывается когда пользователь щелкает на метке пользовательского сообщения в диалоге фиксации. Вы также можете просто направить пользователе на вебстраницу вместо прямой ссылки на файл MSI. Адрес URL открывается в браузере по умолчанию, так что если вы укажете вебстраницу, она будет показана пользователю. Если вы укажете пакет MSI, то браузер спросит пользователя куда локально сохранить MSI пакет."
 
 #. (title)
 msgid ""
@@ -17683,7 +17683,7 @@ msgid ""
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
 "      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "Например: для отключения пунктов меню <quote>Перебазировать</quote>, <quote>Удалить неверсированные элементы</quote> и <quote>Настройки</quote>, сложите значения, назначенные этим пунктам следующим образом: <screen>\n0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n      </screen> Значение младшего <literal>DWORD</literal> (<literal>0x80080000</literal>) должно быть записано в <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, значение старшего <literal>DWORD</literal> (<literal>0x20000000</literal>) - в <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -17744,7 +17744,7 @@ msgid ""
 "line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "Есть специальная команда, которая не требует параметр <option>/command:abcd</option> но, если в командной строке ничего не задано, то вместо этого запускается монитор проекта. Если задан параметр <option>/tray</option>, то монитор проекта запускается в скрытом режиме и только добавляет свой значок в область на панели задач."
 
 #. (para)
 msgid ""
@@ -17839,39 +17839,39 @@ msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
-msgstr ""
+msgstr "<option>/strict</option> включает флажок 'остановиться на копировании',"
 
 #. (para)
 msgid ""
 "<option>/merge</option> enables the 'include merged revisions' checkbox,"
-msgstr ""
+msgstr "<option>/merge</option> включает флажок 'включая слитые ревизии',"
 
 #. (para)
 msgid ""
 "<option>/datemin:\"{datestring}\"</option> sets the start date of the "
 "filter, and"
-msgstr ""
+msgstr "<option>/datemin:\"{datestring}\"</option> устанавливает начальную дату фильтра и"
 
 #. (para)
 msgid ""
 "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
 "The date format is the same as used for svn date revisions."
-msgstr ""
+msgstr "<option>/datemax:\"{datestring}\"</option> устанавливает конечную дату фильтра. Формат даты тот же, которые используется в датах ревизий svn."
 
 #. (para)
 msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
-msgstr ""
+msgstr "<option>/findstring:\"filterstring\"</option> заполняет текст фильтра,"
 
 #. (para)
 msgid ""
 "<option>/findtext</option> forces the filter to use text, not regex, or"
-msgstr ""
+msgstr "<option>/findtext</option> фильтр будет использовать текст, а не регулярное выражение, или"
 
 #. (para)
 msgid ""
 "<option>/findregex</option> forces the filter to use regex, not simple text "
 "search, and"
-msgstr ""
+msgstr "<option>/findregex</option> фильтр будет использовать регулярное выражение, а не простой текстовый поиск, и"
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17917,7 +17917,7 @@ msgstr "<option>/findtype:256</option> фильтр по диапазону да
 msgid ""
 "<option>/findtype:X</option> with X being a number between 0 and 511. The "
 "numbers are the sum of the following options: <placeholder-1/>"
-msgstr ""
+msgstr "<option>/findtype:X</option> где X - число от 0 до 511. Числа - сумма следующих параметров: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -17925,14 +17925,14 @@ msgid ""
 "revisions are written to that file when the log dialog is closed. The "
 "revisions are written in the same format as is used to specify revisions in "
 "the merge dialog."
-msgstr ""
+msgstr "Если задан <option>/outfile:path\\to\\file</option>, то выбранные ревизии записываются в этот файл при закрытии диалога журнала. Ревизии записываются в том же формате, который используется при указании ревизии в диалоге слияния."
 
 #. (para)
 msgid ""
 "Opens the log dialog. The <option>/path</option> specifies the file or "
 "folder for which the log should be shown. Additional options can be set: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Открывает диалог журнала. Параметр <option>/path</option> задает файл или папку, для которой должен быть показан журнал. Могут быть указаны дополнительные параметры: <placeholder-1/>"
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
