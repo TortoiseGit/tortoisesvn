@@ -369,6 +369,15 @@
       <literal>TortoiseProc.exe /command:autotexttest</literal>.
     </para>
     <para>
+      The log message window also includes commit message snippet facility.
+      The snippets supplied with TortoiseSVN are held in the TortoiseSVN
+      installation <filename>bin</filename> folder. You can also define your own
+      snippets and store them in <filename>%APPDATA%\TortoiseSVN\snippet.txt</filename>.
+      <literal>#</literal> is the comment character. Newlines can be inserted
+      by escaping them like this: <literal>\n</literal> and <literal>\r</literal>.
+      To insert a backslash, escape it like this: <literal>\\</literal>.
+    </para>
+    <para>
       You can re-use previously entered log messages. Just click on
       <guibutton>Recent messages</guibutton> to view a list of the last few
       messages you entered for this working copy. The number of stored messages
