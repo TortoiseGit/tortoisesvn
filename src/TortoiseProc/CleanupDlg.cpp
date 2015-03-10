@@ -117,19 +117,11 @@ BOOL CCleanupDlg::OnInitDialog()
     UpdateData(FALSE);
     EnableOKButton();
 
-    m_tooltips.Create(this);
-
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"CleanupDlg");
 
     return TRUE;
-}
-
-BOOL CCleanupDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return CStateStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCleanupDlg::EnableOKButton()

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
-#include "Tooltip.h"
 
 // CEditPropConflictDlg dialog
 
@@ -43,7 +42,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     DECLARE_MESSAGE_MAP()
 
@@ -61,6 +59,4 @@ private:
     std::string     m_value_working;
     std::string     m_value_incomingold;
     std::string     m_value_incomingnew;
-
-    CToolTips       m_tooltips;
 };

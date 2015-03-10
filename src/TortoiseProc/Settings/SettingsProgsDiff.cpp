@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -108,19 +108,12 @@ BOOL CSettingsProgsDiff::OnInitDialog()
 
     SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
     m_tooltips.AddTool(IDC_DONTCONVERT, IDS_SETTINGS_CONVERTBASE_TT);
     m_tooltips.AddTool(IDC_DIFFVIEWER, IDS_SETTINGS_DIFFVIEWER_TT);
 
     UpdateData(FALSE);
     return TRUE;
-}
-
-BOOL CSettingsProgsDiff::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 BOOL CSettingsProgsDiff::OnApply()

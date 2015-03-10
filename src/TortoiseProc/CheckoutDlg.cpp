@@ -183,7 +183,6 @@ BOOL CCheckoutDlg::OnInitDialog()
         CAppUtils::AddClipboardUrlToWindow(m_URLCombo.GetSafeHwnd());
     }
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
     m_tooltips.AddTool(IDC_INDEPENDENTWCS, IDS_CHECKOUT_TT_MULTIWC);
 
@@ -478,12 +477,6 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
         UpdateData(FALSE);
         DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
     }
-}
-
-BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()

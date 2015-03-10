@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "Colors.h"
-#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -43,7 +42,6 @@ protected:
     afx_msg void OnBnClickedColor();
     afx_msg void OnBnClickedRestore();
     virtual BOOL OnApply();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     DECLARE_MESSAGE_MAP()
 private:
@@ -82,7 +80,4 @@ private:
     BYTE m_sStripeAlpha2;
 
     CColors         m_Colors;
-
-    CToolTips       m_tooltips;
-public:
 };

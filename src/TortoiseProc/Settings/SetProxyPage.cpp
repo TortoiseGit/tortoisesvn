@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,6 @@ BOOL CSetProxyPage::OnInitDialog()
 {
     ISettingsPropPage::OnInitDialog();
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_SERVERADDRESS, IDS_SETTINGS_PROXYSERVER_TT);
     m_tooltips.AddTool(IDC_EXCEPTIONS, IDS_SETTINGS_PROXYEXCEPTIONS_TT);
 
@@ -168,12 +167,6 @@ void CSetProxyPage::EnableGroup(BOOL b)
     DialogEnableWindow(IDC_PROXYLABEL4, b);
     DialogEnableWindow(IDC_PROXYLABEL5, b);
     DialogEnableWindow(IDC_PROXYLABEL6, b);
-}
-
-BOOL CSetProxyPage::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 void CSetProxyPage::OnChange()

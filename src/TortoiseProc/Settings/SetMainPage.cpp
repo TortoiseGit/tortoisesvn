@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,6 @@ BOOL CSetMainPage::OnInitDialog()
     temp = m_regLastCommitTime;
     m_bLastCommitTime = (temp.CompareNoCase(L"yes")==0);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_TEMPEXTENSIONSLABEL, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
@@ -146,12 +145,6 @@ BOOL CSetMainPage::OnInitDialog()
 
     UpdateData(FALSE);
     return TRUE;
-}
-
-BOOL CSetMainPage::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 void CSetMainPage::OnModified()

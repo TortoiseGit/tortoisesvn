@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2014 - TortoiseSVN
+// Copyright (C) 2007-2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -58,6 +59,7 @@ public:
 protected:
 
     SettingsRestart m_restart;
+    CToolTips       m_tooltips;
 
     /**
      * Utility method:
@@ -118,4 +120,16 @@ protected:
         bt.ttiIcon = nIcon;
         SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
     }
+    virtual BOOL OnInitDialog()
+    {
+        CPropertyPage::OnInitDialog();
+        m_tooltips.Create(this);
+        return FALSE;
+    }
+    virtual BOOL PreTranslateMessage(MSG* pMsg)
+    {
+        m_tooltips.RelayEvent(pMsg, this);
+        return CPropertyPage::PreTranslateMessage(pMsg);
+    }
+
 };

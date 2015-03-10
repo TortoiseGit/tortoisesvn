@@ -25,7 +25,6 @@
 #include "TSVNPath.h"
 #include "SVNRev.h"
 #include "SVN.h"
-#include "Tooltip.h"
 #include "PathEdit.h"
 #include "SVNExternals.h"
 #include "HintCtrl.h"
@@ -111,7 +110,6 @@ private:
     CString         m_wcURL;
     CButton         m_butBrowse;
     CRegHistory     m_History;
-    CToolTips       m_tooltips;
     CPathEdit       m_FromUrl;
     CPathEdit       m_DestUrl;
     CHintCtrl<CListCtrl> m_ExtList;

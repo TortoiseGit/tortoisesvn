@@ -141,7 +141,6 @@ BOOL CFileDiffDlg::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
     CString temp;
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_SWITCHLEFTRIGHT, IDS_FILEDIFF_SWITCHLEFTRIGHT_TT);
 
     m_cFileList.SetRedraw(false);
@@ -1046,7 +1045,6 @@ void CFileDiffDlg::SetURLLabels()
 
 BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

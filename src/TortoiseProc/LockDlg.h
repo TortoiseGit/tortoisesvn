@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2013 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,6 @@
 #include "ProjectProperties.h"
 #include "RegHistory.h"
 #include "registry.h"
-#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -73,7 +72,6 @@ private:
     CSciEdit            m_cEdit;
     ProjectProperties * m_ProjectProperties;
     bool                m_bCancelled;
-    CToolTips           m_tooltips;
     CButton             m_SelectAll;
     CRegHistory         m_History;
 };

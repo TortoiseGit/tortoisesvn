@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,11 +25,11 @@
 
 // CLogCacheStatisticsDlg-Dialogfeld
 
-IMPLEMENT_DYNAMIC(CLogCacheStatisticsDlg, CDialog)
+IMPLEMENT_DYNAMIC(CLogCacheStatisticsDlg, CStandAloneDialog)
 
 CLogCacheStatisticsDlg::CLogCacheStatisticsDlg
     ( const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd)
-    : CDialog(CLogCacheStatisticsDlg::IDD, pParentWnd)
+    : CStandAloneDialog(CLogCacheStatisticsDlg::IDD, pParentWnd)
 {
     sizeRAM = ToString (data.ramSize / 1024);
     sizeDisk = ToString (data.fileSize / 1024);
@@ -80,7 +80,7 @@ CLogCacheStatisticsDlg::~CLogCacheStatisticsDlg()
 
 void CLogCacheStatisticsDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_SIZERAM, sizeRAM);
     DDX_Text(pDX, IDC_SIZEDISK, sizeDisk);
     DDX_Text(pDX, IDC_CONNECTIONSTATE, connectionState);
@@ -109,7 +109,7 @@ void CLogCacheStatisticsDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CLogCacheStatisticsDlg, CDialog)
+BEGIN_MESSAGE_MAP(CLogCacheStatisticsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
 CString CLogCacheStatisticsDlg::DateToString (__time64_t time)
@@ -135,9 +135,7 @@ CString CLogCacheStatisticsDlg::ToString (__int64 value)
 }
 BOOL CLogCacheStatisticsDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
-
-    m_tooltips.Create(this);
+    CStandAloneDialog::OnInitDialog();
 
     m_tooltips.AddTool(IDC_SIZERAM, IDS_SETTINGS_LOGCACHESTATS_RAM);
     m_tooltips.AddTool(IDC_SIZEDISK, IDS_SETTINGS_LOGCACHESTATS_DISK);
@@ -169,8 +167,3 @@ BOOL CLogCacheStatisticsDlg::OnInitDialog()
     return TRUE;
 }
 
-BOOL CLogCacheStatisticsDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return CDialog::PreTranslateMessage(pMsg);
-}

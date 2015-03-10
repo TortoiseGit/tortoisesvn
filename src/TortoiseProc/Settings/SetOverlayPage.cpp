@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -136,7 +136,6 @@ BOOL CSetOverlayPage::OnInitDialog()
     }
     DialogEnableWindow(IDC_UNVERSIONEDASMODIFIED, m_dwCacheType == 1);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
     m_tooltips.AddTool(IDC_EXCLUDEPATHSLABEL, IDS_SETTINGS_EXCLUDELIST_TT);
     m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);
@@ -152,12 +151,6 @@ BOOL CSetOverlayPage::OnInitDialog()
     UpdateData(FALSE);
 
     return TRUE;
-}
-
-BOOL CSetOverlayPage::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 void CSetOverlayPage::OnChange()

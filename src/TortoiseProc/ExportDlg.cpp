@@ -140,7 +140,6 @@ BOOL CExportDlg::OnInitDialog()
     }
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
     m_tooltips.AddTool(IDC_EOLCOMBO, IDS_EXPORT_TT_EOL);
 
@@ -342,12 +341,6 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
         UpdateData(FALSE);
         DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
     }
-}
-
-BOOL CExportDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CExportDlg::OnEnChangeCheckoutdirectory()

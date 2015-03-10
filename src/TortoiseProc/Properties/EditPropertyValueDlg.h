@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
-#include "Tooltip.h"
 
 #define MAX_TT_LENGTH           10000
 
@@ -56,7 +55,6 @@ protected:
     void CheckRecursive();
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
 protected:
-    CToolTips   m_tooltips;
     CComboBox   m_PropNames;
     CFont       m_valueFont;
     CString     m_sPropValue;

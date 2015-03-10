@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,7 +96,6 @@ BOOL CChangedDlg::OnInitDialog()
 
     GetWindowText(m_sTitle);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_CHECKREPO, IDS_REPOSTATUS_TT_REPOCHECK);
 
     m_regAddBeforeCommit = CRegDWORD(L"Software\\TortoiseSVN\\AddBeforeCommit", TRUE);
@@ -334,7 +333,6 @@ LRESULT CChangedDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 
 BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

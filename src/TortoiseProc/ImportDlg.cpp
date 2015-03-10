@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,7 +80,6 @@ BOOL CImportDlg::OnInitDialog()
 
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
     m_History.Load(L"Software\\TortoiseSVN\\History\\commit", L"logmsgs");
@@ -152,7 +151,6 @@ void CImportDlg::OnBnClickedBrowse()
 
 BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

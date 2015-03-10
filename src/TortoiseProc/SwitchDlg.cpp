@@ -120,7 +120,6 @@ BOOL CSwitchDlg::OnInitDialog()
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
     m_depthCombo.SetCurSel(0);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_STICKYDEPTH, IDS_SWITCH_STICKYDEPTH_TT);
 
     UpdateData(FALSE);
@@ -303,9 +302,3 @@ void CSwitchDlg::OnCbnEditchangeUrlcombo()
     SetDlgItemText(IDC_DESTURL, CTSVNPath(CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString())).GetUIPathString());
 }
 
-BOOL CSwitchDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
-}

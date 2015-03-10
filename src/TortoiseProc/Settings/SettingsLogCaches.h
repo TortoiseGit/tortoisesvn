@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011-2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "Tooltip.h"
 #include "registry.h"
 #include "ILogReceiver.h"
 
@@ -65,8 +64,6 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 private:
-    CToolTips       m_tooltips;
-
     CListCtrl       m_cRepositoryList;
 
     /// current repository list

@@ -149,7 +149,6 @@ BOOL CEditPropBugtraq::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_TESTREGEX, IDS_EDITPROPS_TESTREGEX_TT);
     UpdateData(false);
 
@@ -335,12 +334,5 @@ void CEditPropBugtraq::OnBnClickedTestregex()
         m_sBugtraqRegex2 = dlg.m_sBugtraqRegex2;
         UpdateData(FALSE);
     }
-}
-
-BOOL CEditPropBugtraq::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-
-    return __super::PreTranslateMessage(pMsg);
 }
 

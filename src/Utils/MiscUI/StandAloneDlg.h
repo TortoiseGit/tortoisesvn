@@ -24,6 +24,8 @@
 #include "AeroControls.h"
 #include "CreateProcessHelper.h"
 #include "TaskbarUUID.h"
+#include "Tooltip.h"
+
 #pragma comment(lib, "htmlhelp.lib")
 
 #define DIALOG_BLOCKHORIZONTAL 1
@@ -78,12 +80,15 @@ protected:
         GetWindowRect(&rect);
         m_height = rect.bottom - rect.top;
         m_width = rect.right - rect.left;
+        EnableToolTips();
+        m_tooltips.Create(this);
 
         return FALSE;
     }
 
     virtual BOOL PreTranslateMessage(MSG* pMsg)
     {
+        m_tooltips.RelayEvent(pMsg, this);
         if (pMsg->message == WM_KEYDOWN)
         {
             int nVirtKey = (int)pMsg->wParam;
@@ -444,6 +449,7 @@ protected:
     MARGINS         m_margins;
     CRegDWORD       m_regEnableDWMFrame;
     AeroControlBase m_aeroControls;
+    CToolTips       m_tooltips;
     int             m_nResizeBlock;
     long            m_width;
     long            m_height;

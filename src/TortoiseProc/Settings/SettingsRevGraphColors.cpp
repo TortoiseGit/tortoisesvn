@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -140,7 +140,6 @@ BOOL CSettingsRevisionGraphColors::OnInitDialog()
 
     // tooltips
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_STRIPEALPHA1, IDS_SETTINGS_REVGRAPH_OPACITY);
     m_tooltips.AddTool(IDC_STRIPEALPHA2, IDS_SETTINGS_REVGRAPH_OPACITY);
 
@@ -248,8 +247,3 @@ void CSettingsRevisionGraphColors::OnBnClickedColor()
     SetModified();
 }
 
-BOOL CSettingsRevisionGraphColors::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
-}

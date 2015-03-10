@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include "Tooltip.h"
 
 
 // CCleanupDlg dialog
@@ -48,7 +47,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClicked();
@@ -58,7 +56,6 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    CToolTips           m_tooltips;
     CRegDWORD           m_regRefreshShell;
     CRegDWORD           m_regExternals;
     CRegDWORD           m_regFixTimestamps;

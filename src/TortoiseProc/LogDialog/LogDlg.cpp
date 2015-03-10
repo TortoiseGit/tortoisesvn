@@ -763,7 +763,6 @@ void CLogDlg::ReadProjectPropertiesAndBugTraqInfo()
 void CLogDlg::SetupToolTips()
 {
     EnableToolTips();
-    m_tooltips.Create(this);
     CheckRegexpTooltip();
 }
 
@@ -3086,7 +3085,6 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
         return 1;
     }
 
-    m_tooltips.RelayEvent(pMsg);
     return __super::PreTranslateMessage(pMsg);
 }
 

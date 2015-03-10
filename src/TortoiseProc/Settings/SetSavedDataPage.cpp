@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -169,7 +169,6 @@ BOOL CSetSavedDataPage::OnInitDialog()
 
     EnableToolTips();
 
-    m_tooltips.Create(this);
     CString sTT;
     sTT.FormatMessage(IDS_SETTINGS_SAVEDDATA_LOGHIST_TT, nLogHistMsg, nLogHistWC);
     m_tooltips.AddTool(IDC_LOGHISTORY, sTT);
@@ -196,12 +195,6 @@ BOOL CSetSavedDataPage::OnInitDialog()
     m_tooltips.AddTool(IDC_HOOKCLEAR, sTT);
 
     return TRUE;
-}
-
-BOOL CSetSavedDataPage::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 BEGIN_MESSAGE_MAP(CSetSavedDataPage, ISettingsPropPage)

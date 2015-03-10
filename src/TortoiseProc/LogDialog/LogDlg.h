@@ -30,7 +30,6 @@
 #include "FilterEdit.h"
 #include "LogDlgFilter.h"
 #include "SVNRev.h"
-#include "Tooltip.h"
 #include "SubTooltipListCtrl.h"
 #include "HintCtrl.h"
 #include "JobScheduler.h"
@@ -514,8 +513,6 @@ private:
     CString             m_sLogInfo;
     std::set<svn_revnum_t> m_mergedRevs;
     CString             m_sMultiLogFormat;
-
-    CToolTips           m_tooltips;
 
     CTime               m_timFrom;
     CTime               m_timTo;

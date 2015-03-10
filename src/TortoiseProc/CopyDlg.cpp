@@ -129,7 +129,6 @@ BOOL CCopyDlg::OnInitDialog()
 
     SetRevision(m_CopyRev);
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
     if (SVN::PathIsURL(path))
@@ -699,8 +698,6 @@ void CCopyDlg::OnCancel()
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
-
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

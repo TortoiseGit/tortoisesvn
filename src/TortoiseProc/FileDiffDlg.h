@@ -26,7 +26,6 @@
 #include "HintCtrl.h"
 #include "Colors.h"
 #include "FilterEdit.h"
-#include "Tooltip.h"
 #include "JobScheduler.h"
 
 
@@ -103,8 +102,6 @@ private:
     void                GetSelectedPaths(CTSVNPathList& urls1, CTSVNPathList& urls2);
 
     virtual BOOL        Cancel() override {return m_bCancelled;}
-
-    CToolTips           m_tooltips;
 
     CButton             m_cRev1Btn;
     CButton             m_cRev2Btn;

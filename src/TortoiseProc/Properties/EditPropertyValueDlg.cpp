@@ -174,8 +174,6 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 
     GetDlgItem(IDC_PROPNAMECOMBO)->EnableToolTips();
 
-    m_tooltips.Create(this);
-
     UpdateData(FALSE);
     CheckRecursive();
     m_bChanged = false;
@@ -406,7 +404,6 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
         }
     }
 
-    m_tooltips.RelayEvent(pMsg);
     return __super::PreTranslateMessage(pMsg);
 }
 

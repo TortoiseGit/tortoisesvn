@@ -101,8 +101,6 @@ BOOL CSettingsLogCaches::OnInitDialog()
 
     // tooltips
 
-    m_tooltips.Create(this);
-
     m_tooltips.AddTool(IDC_REPOSITORYLIST, IDS_SETTINGS_LOGCACHE_CACHELIST);
 
     m_tooltips.AddTool(IDC_CACHEDETAILS, IDS_SETTINGS_LOGCACHE_DETAILS);
@@ -115,8 +113,6 @@ BOOL CSettingsLogCaches::OnInitDialog()
 
 BOOL CSettingsLogCaches::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
-
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

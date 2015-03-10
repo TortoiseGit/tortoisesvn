@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "Tooltip.h"
 #include "registry.h"
 #include <afxwin.h>
 
@@ -55,11 +54,9 @@ protected:
     afx_msg void OnModified();
 
     virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual BOOL OnApply();
     void DeleteViaShell(LPCTSTR path, UINT progressText);
 private:
-    CToolTips       m_tooltips;
     CButton         m_btnUrlHistClear;
     CButton         m_btnLogHistClear;
     CButton         m_btnResizableHistClear;

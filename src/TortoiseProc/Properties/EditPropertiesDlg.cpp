@@ -244,7 +244,6 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     m_btnEdit.m_bRightArrow = TRUE;
     m_btnEdit.m_bDefaultClick = TRUE;
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_IMPORT, IDS_PROP_TT_IMPORT);
     m_tooltips.AddTool(IDC_EXPORT,  IDS_PROP_TT_EXPORT);
     m_tooltips.AddTool(IDC_SAVEPROP,  IDS_PROP_TT_SAVE);
@@ -1015,8 +1014,6 @@ void CEditPropertiesDlg::OnCancel()
 
 BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 {
-    m_tooltips.RelayEvent(pMsg);
-
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

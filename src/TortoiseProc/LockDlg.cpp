@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,8 +95,6 @@ BOOL CLockDlg::OnInitDialog()
 
     CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
-
-    m_tooltips.Create(this);
 
     m_SelectAll.SetCheck(BST_INDETERMINATE);
 
@@ -206,9 +204,6 @@ UINT CLockDlg::StatusThread()
 
 BOOL CLockDlg::PreTranslateMessage(MSG* pMsg)
 {
-    if (!m_bBlock)
-        m_tooltips.RelayEvent(pMsg);
-
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)

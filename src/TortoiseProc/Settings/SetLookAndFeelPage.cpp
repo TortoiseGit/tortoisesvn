@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,6 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 {
     ISettingsPropPage::OnInitDialog();
 
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
     m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
     m_tooltips.AddTool(IDC_HIDEMENUS, IDS_SETTINGS_HIDEMENUS_TT);
@@ -155,12 +154,6 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     UpdateData(FALSE);
 
     return TRUE;
-}
-
-BOOL CSetLookAndFeelPage::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 BOOL CSetLookAndFeelPage::OnApply()

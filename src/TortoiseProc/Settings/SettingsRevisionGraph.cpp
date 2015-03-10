@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2011, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,8 +90,6 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
 
     // tooltips
 
-    m_tooltips.Create(this);
-
     CString patternInfo;
     patternInfo.LoadString (IDS_SETTINGS_PATTERN_INFO);
 
@@ -112,8 +110,3 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
     return TRUE;
 }
 
-BOOL CSettingsRevisionGraph::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return ISettingsPropPage::PreTranslateMessage(pMsg);
-}

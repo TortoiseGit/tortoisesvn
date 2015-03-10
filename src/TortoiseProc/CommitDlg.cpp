@@ -799,8 +799,6 @@ void CCommitDlg::OnCancel()
 
 BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 {
-    if (!m_bBlock)
-        m_tooltips.RelayEvent(pMsg, this);
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)
@@ -1770,7 +1768,6 @@ void CCommitDlg::SetControlAccessibilityProperties()
 
 void CCommitDlg::SetupToolTips()
 {
-    m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_COMMITDLG_EXTERNALS);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 }

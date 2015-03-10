@@ -21,7 +21,6 @@
 #include "HistoryCombo.h"
 #include "SVNRev.h"
 #include "PathEdit.h"
-#include "Tooltip.h"
 
 /// forward declarations
 
@@ -51,7 +50,6 @@ protected:
     virtual BOOL OnInitDialog();
     virtual void OnOK();
     virtual void OnCancel();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnBnClickedBrowse();
     afx_msg void OnBnClickedHelp();
     afx_msg void OnEnChangeRevisionNum();
@@ -73,7 +71,6 @@ protected:
     CPathEdit       m_SwitchPath;
     CPathEdit       m_DestUrl;
     CPathEdit       m_SrcUrl;
-    CToolTips       m_tooltips;
 
 public:
     CString         m_path;

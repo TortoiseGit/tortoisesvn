@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 
 #include "SettingsPropPage.h"
-#include "Tooltip.h"
 #include "registry.h"
 
 /**
@@ -43,7 +42,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnChange();
     virtual BOOL OnApply();
 
@@ -72,7 +70,6 @@ private:
     CRegDWORD       m_regUnversionedAsModified;
     CRegDWORD       m_regIgnoreOnCommitIgnored;
     CRegDWORD       m_regShowExcludedAsNormal;
-    CToolTips       m_tooltips;
     CRegString      m_regExcludePaths;
     CString         m_sExcludePaths;
     CRegString      m_regIncludePaths;

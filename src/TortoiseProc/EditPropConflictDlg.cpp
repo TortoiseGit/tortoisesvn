@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014 - TortoiseSVN
+// Copyright (C) 2008-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,6 @@ BOOL CEditPropConflictDlg::OnInitDialog()
     SetDlgItemText(IDC_PROPINFO, sInfo);
 
     EnableToolTips();
-    m_tooltips.Create(this);
 
     m_tooltips.AddTool(IDC_STARTMERGEEDITOR, IDS_EDITPROPCONFLICT_TT_STARTEDITOR);
     m_tooltips.AddTool(IDC_RESOLVED, IDS_EDITPROPCONFLICT_TT_RESOLVED);
@@ -193,10 +192,3 @@ void CEditPropConflictDlg::OnBnClickedResolved()
     EndDialog(IDC_RESOLVETHEIRS);
 }
 
-
-BOOL CEditPropConflictDlg::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
-}

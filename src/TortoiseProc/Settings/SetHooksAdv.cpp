@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,6 @@ BOOL CSetHooksAdv::OnInitDialog()
     m_bWait = cmd.bWait;
     m_bHide = !cmd.bShow;
     m_bEnforce = cmd.bEnforce;
-    m_tooltips.Create(this);
     UpdateData(FALSE);
 
     AddAnchor(IDC_HOOKTYPELABEL, TOP_LEFT, TOP_RIGHT);
@@ -188,8 +187,4 @@ void CSetHooksAdv::OnBnClickedHelp()
 {
     OnHelp();
 }
-BOOL CSetHooksAdv::PreTranslateMessage(MSG* pMsg)
-{
-    m_tooltips.RelayEvent(pMsg);
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
-}
+
