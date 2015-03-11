@@ -2955,21 +2955,49 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     if (m_options & ProgOptSwitchAfterCopy)
     {
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
-            m_targetPathList[0].GetWinPath(),
-            (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
+                               m_targetPathList[0].GetWinPath(),
+                               (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
         ReportCmd(sCmdInfo);
-        if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
+        int retrycounter = 0;
+        do 
         {
-            if (m_ProgList.GetItemCount()>1)
+            // in case there's a write-through proxy in place, the new branch/tag
+            // might not be ready yet on the local server. In that case we get
+            // an SVN_ERR_FS_NOT_FOUND error (path does not exist).
+            // If we get that error, we retry the switch a few times, hoping the svnsync
+            // post-commit hook on the main server catches up.
+            if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
             {
-                ReportSVNError();
-                return false;
+                if (PostCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
+                {
+                    CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_SWITCHNOTREADY));
+                    ReportNotification(sMsg);
+                    Sleep(1000);
+                    continue;
+                }
+                if (m_ProgList.GetItemCount() > 1)
+                {
+                    ReportSVNError();
+                    return false;
+                }
+                else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
+                {
+                    if (PostCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
+                    {
+                        CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_SWITCHNOTREADY));
+                        ReportNotification(sMsg);
+                        Sleep(1000);
+                        continue;
+                    }
+                    ReportSVNError();
+                    return false;
+                }
             }
-            else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
-            {
-                ReportSVNError();
-                return false;
-            }
+        } while (PostCommitErr.IsEmpty() && (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND) && (retrycounter++ < 5));
+        if (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
+        {
+            ReportSVNError();
+            return false;
         }
     }
     else
