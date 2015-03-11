@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2014 - TortoiseSVN
+// Copyright (C) 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -314,7 +314,9 @@ void CEditPropExternals::OnBnClickedFindhead()
     DWORD count = 0;
     DWORD total = (DWORD)m_externals.size()*4;
     SVN svn;
+    svn.SetPromptParentWindow(m_hWnd);
     SVNInfo svnInfo;
+    svnInfo.SetPromptParentWindow(m_hWnd);
     for (auto it = m_externals.begin(); it != m_externals.end(); ++it)
     {
         progDlg.SetProgress(count++, total);
@@ -408,7 +410,9 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         case CMD_FETCH_AND_ADJUST:
             {
                 SVN svn;
+                svn.SetPromptParentWindow(m_hWnd);
                 SVNInfo svnInfo;
+                svnInfo.SetPromptParentWindow(m_hWnd);
                 std::map<CString, svn_revnum_t> headrevs;
                 CProgressDlg progDlg;
                 progDlg.ShowModal(m_hWnd, TRUE);
