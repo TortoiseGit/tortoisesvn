@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,6 +158,11 @@ public:
     /// convenience methods
 
     static bool IsFile (const CTSVNPath& path, const SVNRev& revision);
+
+    /**
+    * Set the parent window of an authentication prompt dialog
+    */
+    void SetPromptParentWindow(HWND hWnd);
 
     friend class SVN;   // So that SVN can get to our m_err
 protected:
