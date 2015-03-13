@@ -8099,6 +8099,7 @@ void CLogDlg::OnMonitorCheckNow()
 void CLogDlg::OnMonitorMarkAllAsRead()
 {
     // mark all entries as unread
+    HTREEITEM hItem = m_projTree.GetSelectedItem();
     bool bShift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
@@ -8111,10 +8112,10 @@ void CLogDlg::OnMonitorMarkAllAsRead()
             pItem->lastErrorMsg.Empty();
         }
         m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+        m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         return false;
     });
 
-    HTREEITEM hItem = m_projTree.GetSelectedItem();
     if (hItem)
     {
         // re-select the item so all revisions are marked as read as well
@@ -8122,6 +8123,7 @@ void CLogDlg::OnMonitorMarkAllAsRead()
         MonitorShowProject(hItem, &result);
     }
     SaveMonitorProjects(false);
+    m_projTree.Invalidate();
 }
 
 void CLogDlg::OnMonitorAddProject()
