@@ -1,7 +1,5 @@
 // MyGraph.h
 
-#if !defined(MYGRAPHH__9DB68B4D_3C7C_47E2_9F72_EEDA5D2CDBB0__INCLUDED_)
-#define MYGRAPHH__9DB68B4D_3C7C_47E2_9F72_EEDA5D2CDBB0__INCLUDED_
 #pragma once
 
 
@@ -43,9 +41,9 @@ private:
 
 // Data.
 private:
-    CString         m_sLabel;                                       // Series label.
-    CDWordArray     m_dwaValues;                                    // Values array.
-    CArray<CRgn*,CRgn*>     m_oaRegions;                                    // Tooltip regions.
+    CString             m_sLabel;                                       // Series label.
+    CDWordArray         m_dwaValues;                                    // Values array.
+    CArray<CRgn*,CRgn*> m_oaRegions;                                    // Tooltip regions.
 };
 
 
@@ -104,11 +102,11 @@ private:
     INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 
     CPoint  WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
-                    double radius) const;
+                                double radius) const;
 
     static UINT         SpinTheMessageLoop(bool bNoDrawing = false,
-                                bool bOnlyDrawing = false,
-                                UINT uiMsgAllowed = WM_NULL);
+                                           bool bOnlyDrawing = false,
+                                           UINT uiMsgAllowed = WM_NULL);
 
     static void         RGBtoHLS(COLORREF crRGB, WORD& wH, WORD& wL, WORD& wS);
     static COLORREF     HLStoRGB(WORD wH, WORD wL, WORD wS);
@@ -149,8 +147,3 @@ private:
     GraphType       m_eGraphType;
     bool            m_bStackedGraph;
 };
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(MYGRAPHH__9DB68B4D_3C7C_47E2_9F72_EEDA5D2CDBB0__INCLUDED_)
