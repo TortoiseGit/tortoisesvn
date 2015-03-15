@@ -61,6 +61,7 @@
 #include "MonitorOptionsDlg.h"
 #include "Callback.h"
 #include "SVNDataObject.h"
+#include "RenameDlg.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
@@ -2866,15 +2867,16 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     CString sOldValue = value;
     value.Replace(L"\n", L"\r\n");
 
-    CInputDlg dlg(this);
-    dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
-    dlg.m_sInputText = value;
-    dlg.m_sTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
+    CRenameDlg dlg(this);
+    dlg.m_label.LoadString(IDS_LOG_AUTHOR);
+    dlg.m_name = value;
+    dlg.m_windowtitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
+    dlg.SetAutoComplete(false);
     if (dlg.DoModal() == IDOK)
     {
-        if(sOldValue.Compare(dlg.m_sInputText))
+        if (sOldValue.Compare(dlg.m_name))
         {
-            dlg.m_sInputText.Remove(L'\r');
+            dlg.m_name.Remove(L'\r');
 
             LogCache::CCachedLogInfo* toUpdate
                 = GetLogCache (CTSVNPath (m_sRepositoryRoot));
@@ -2887,14 +2889,14 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
             progDlg.ShowModeless(m_hWnd);
             for (DWORD i=0; (i<logs.size()) && (!progDlg.HasUserCancelled()); ++i)
             {
-                if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url),
+                if (!RevPropertySet(name, dlg.m_name, sOldValue, CTSVNPath(url),
                                                 logs[i]->GetRevision()))
                 {
                     progDlg.Stop();
                     ShowErrorDialog(m_hWnd);
                     break;
                 }
-                logs[i]->SetAuthor (CUnicodeUtils::StdGetUTF8 ((LPCTSTR)dlg.m_sInputText));
+                logs[i]->SetAuthor(CUnicodeUtils::StdGetUTF8((LPCTSTR)dlg.m_name));
                 m_LogList.Invalidate();
 
                 // update the log cache
