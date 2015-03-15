@@ -35,6 +35,7 @@ public:
     void SetInputValidator(IInputValidator * validator) { m_pInputValidator = validator; }
     void SetRenameRequired(bool renameRequired) { m_renameRequired = renameRequired; }
     void SetFileSystemAutoComplete() { m_bFSAutoComplete = true; }
+    void SetAutoComplete(bool bAutoComplete) { m_bAutoComplete = bAutoComplete; }
     enum { IDD = IDD_RENAME };
 
 protected:
@@ -57,6 +58,7 @@ private:
     bool                m_bBalloonVisible;
     bool                m_renameRequired;
     bool                m_bFSAutoComplete;
+    bool                m_bAutoComplete;
     CString             m_originalName;
     IInputValidator *   m_pInputValidator;
 };

@@ -32,6 +32,7 @@ CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     , m_pInputValidator(NULL)
     , m_bBalloonVisible(false)
     , m_bFSAutoComplete(false)
+    , m_bAutoComplete(true)
 {
 }
 
@@ -59,20 +60,23 @@ BOOL CRenameDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);
 
-    if (m_bFSAutoComplete)
+    if (m_bAutoComplete)
     {
-        DWORD len = GetCurrentDirectory(0, NULL);
-        if (len)
+        if (m_bFSAutoComplete)
         {
-            std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
-            if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
+            DWORD len = GetCurrentDirectory(0, NULL);
+            if (len)
             {
-                CAppUtils::EnableAutoComplete(GetDlgItem(IDC_NAME)->GetSafeHwnd(), originalCurrentDirectory.get(), AUTOCOMPLETELISTOPTIONS(ACLO_CURRENTDIR | ACLO_FILESYSONLY), AUTOCOMPLETEOPTIONS(ACO_AUTOSUGGEST | ACO_USETAB));
+                std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
+                if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
+                {
+                    CAppUtils::EnableAutoComplete(GetDlgItem(IDC_NAME)->GetSafeHwnd(), originalCurrentDirectory.get(), AUTOCOMPLETELISTOPTIONS(ACLO_CURRENTDIR | ACLO_FILESYSONLY), AUTOCOMPLETEOPTIONS(ACO_AUTOSUGGEST | ACO_USETAB));
+                }
             }
         }
+        else
+            SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
     }
-    else
-        SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
 
     if (!m_windowtitle.IsEmpty())
         this->SetWindowText(m_windowtitle);
