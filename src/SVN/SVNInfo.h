@@ -162,7 +162,9 @@ public:
     /**
     * Set the parent window of an authentication prompt dialog
     */
+#ifdef _MFC_VER
     void SetPromptParentWindow(HWND hWnd);
+#endif
 
     friend class SVN;   // So that SVN can get to our m_err
 protected:

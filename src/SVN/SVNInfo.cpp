@@ -309,8 +309,9 @@ bool SVNInfo::IsFile (const CTSVNPath& path, const SVNRev& revision)
     return (infoData != NULL) && (infoData->kind == svn_node_file);
 }
 
+#ifdef _MFC_VER
 void SVNInfo::SetPromptParentWindow(HWND hWnd)
 {
     m_prompt.SetParentWindow(hWnd);
 }
-
+#endif
