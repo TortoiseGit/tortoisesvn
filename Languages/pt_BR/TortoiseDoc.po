@@ -20,6 +20,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Marcelo Boeira <marceloboeira@live.com>, 2013
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
+# Michel Apt <michel.apt1@gmail.com>, 2015
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
 # Rafael Heise <rmheise@gmail.com>, 2011-2012,2014
 # Raphael Mendonça, 2014
@@ -33,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-18 09:59+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-03-12 17:21+0000\n"
+"Last-Translator: Michel Apt <michel.apt1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -112,7 +113,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr ""
+msgstr "O TortoiseSVN é um cliente open-source gratuito para a plataforma Windows voltado para o sistema de controle de versão <firstterm>Apache™ Subversion®</firstterm>. Ou seja, o TortoiseSVN administra arquivos e diretórios no decorrer do tempo. Os arquivos são armazenados em um <firstterm>repositório</firstterm> central. O repositório parece-se muito com um servidor de arquivos comum, exceto pelo fato que ele consegue se lembrar de toda e qualquer alteração já feita em algum momento nos seus arquivos e diretórios. Isso permite a você recuperar versões antigas de seus arquivos e examinar o histórico de como, quando e por quem seus dados foram modificados. Esse é o motivo pelo qual muitas pessoas pensam no Subversion, e em sistemas de controle de versão em geral, como uma espécie de <quote>máquina do tempo</quote>. "
 
 #. (para)
 msgid ""
@@ -362,7 +363,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Com o tempo, outros sistemas de controle de versão ganharam seus próprios clientes do Tortoise, o que passou a causar um problema com a sobreposição de ícones (icon overlays) no Windows Explorer: o número de sobreposições é limitado e mesmo um único cliente do Tortoise pode facilmente exceder esse limite. É quando Stefan Küng implementou o componente TortoiseOverlays, que permite a todos os clientes Tortoise usarem as mesmas sobreposições de ícones. Agora, todos os clientes open-source do Tortoise e mesmo alguns não-Tortoise usam esse componente compartilhado."
 
 #. (title)
 msgid "Acknowledgments"
@@ -488,7 +489,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "O capítulo <xref linkend=\"tsvn-repository\"/>  explica como configurar um repositório local, útil para testar o Subversion e o TortoiseSVN usando um único PC. Ele também explica um pouco sobre administração de repositório, assunto relevante também para repositórios localizados em um servidor."
 
 #. (para)
 msgid ""
@@ -619,7 +620,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "O TortoiseSVN está disponível para Windows Vista ou superior, nas versões 32 e 64 bits. O instalador da versão 64-bit para Windows também inclui os arquivos necessários para a versão 32 bits. Isso significa que não é preciso instalar esta versão separadamente para poder utilizá-la nas aplicações de 32 bits."
 
 #. (para)
 msgid ""
@@ -627,7 +628,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "O suporte para Windows 98, Windows ME e Windows NT4 foi descontinuado na versão 1.2.0, ao passo que o suporte para Windows 2000 e XP até o SP2 acabou na versão 1.7.0. O suporte para Windows XP com o SP3 terminou na versão 1.9.0. Entretanto, você ainda pode baixar e instalar essas versões mais antigas caso necessite delas."
 
 #. (title)
 msgid "Installation"
@@ -648,7 +649,7 @@ msgstr "TortoiseSVN vem com um instalador fácil de usar. Clique duas vezes no a
 msgid ""
 "You need Administrator privileges to install TortoiseSVN. The installer will"
 " ask you for Administrator credentials if necessary."
-msgstr ""
+msgstr "Você necessita de privilégios de Administrador para instalar o TortoiseSVN. O arquivo de instalação pedirá as credenciais de Administrador se necessário."
 
 #. (para)
 msgid ""
@@ -662,7 +663,7 @@ msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr ""
+msgstr "Se você tiver qualquer problema durante ou após a instalação do TortoiseSVN, por favor acesse nosso FAQ disponível em  <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -672,7 +673,7 @@ msgstr "Conceitos Básicos"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Antes de nos ocuparmos em trabalhar com arquivos reais, é importante uma visão geral de como o Subversion trabalha e os termos em que ele é usado."
 
 #. (term)
 #. (title)
@@ -765,7 +766,7 @@ msgid ""
 "the folder, ready for you to use. We will also create the default internal "
 "folder structure by clicking the <guibutton>Create folder "
 "structure</guibutton> button."
-msgstr ""
+msgstr "Primeiro, crie um diretório novo vazio no seu computador. Pode ser em qualquer lugar e ter qualquer nome, mas neste tutorial nós o chamaremos <filename>C:\\svn_repos</filename>. Agora, clique com o botão direito na pasta criada e, no menu de contexto, escolha <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar um repositório aqui...</guimenuitem></menuchoice>. O repositório é então criado dentro da pasta, pronto para ser usado. Também criaremos a estrutura interna padrão de pastas clicando no botão <guibutton>Criar estrutura de pasta</guibutton>"
 
 #. (para)
 msgid ""
@@ -3639,6 +3640,17 @@ msgid ""
 "command prompt using the command <literal>TortoiseProc.exe "
 "/command:autotexttest</literal>."
 msgstr "Conseguir a regex certa pode ser confuso, mas para ajudar você a criar uma expressão que funcione, há uma janela de testes que permite que você entre uma expressão e então digite nomes de arquivo para testar. Inicie ela da janela de comando usando o comando  <literal>TortoiseProc.exe /command:autotexttest</literal>."
+
+#. (para)
+msgid ""
+"The log message window also includes commit message snippet facility. The "
+"snippets supplied with TortoiseSVN are held in the TortoiseSVN installation "
+"<filename>bin</filename> folder. You can also define your own snippets and "
+"store them in <filename>%APPDATA%\\TortoiseSVN\\snippet.txt</filename>. "
+"<literal>#</literal> is the comment character. Newlines can be inserted by "
+"escaping them like this: <literal>\\n</literal> and <literal>\\r</literal>. "
+"To insert a backslash, escape it like this: <literal>\\\\</literal>."
+msgstr ""
 
 #. (para)
 msgid ""

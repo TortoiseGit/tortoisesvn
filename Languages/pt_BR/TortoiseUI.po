@@ -21,6 +21,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Matheus Macabu <mkbu95@gmail.com>, 2013
+# Michel Apt <michel.apt1@gmail.com>, 2015
 # Rafael Heise <rmheise@gmail.com>, 2011-2014
 # Ricardo Souza <srrcdmk@gmail.com>, 2012
 # Rodrigo Monte <rodrigo.monte86@gmail.com>, 2014
@@ -29,8 +30,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-19 09:41+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-03-13 19:00+0000\n"
+"Last-Translator: Michel Apt <michel.apt1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1223,7 +1224,7 @@ msgstr "&Remover projeto"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Remover\nO projeto é removido. Se ele contém subprojetos, estes serão removidos também."
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1724,7 +1725,7 @@ msgstr "<nova lista de alterações>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
 "all=&Options=="
-msgstr ""
+msgstr "=&Checar agora=&Adicionar Projeto=&Editar=&Remover=&Marcar todos como lido=&Atualizar todos=&Opções=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -1907,11 +1908,11 @@ msgstr "Adicionar novos arquivos automaticamente ao SVN"
 
 #. Resource IDs: (66)
 msgid "Add project or folder here..."
-msgstr ""
+msgstr "Adicionar um projeto ou pasta aqui..."
 
 #. Resource IDs: (66)
 msgid "Add project or folder..."
-msgstr ""
+msgstr "Adicionar projeto ou pasta..."
 
 #. Resource IDs: (613)
 #, c-format
@@ -2724,7 +2725,7 @@ msgstr "Cancelar\nO arquivo destino foi deixado como é"
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Cancelar\nVocê pode digitar outra senha e tentar novamente"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3459,7 +3460,7 @@ msgstr "Copiar URL para a área de transferência"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Copiar e adicionar\nO arquivo é copiado para o destino e adicionado ao controle de versão."
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3509,7 +3510,7 @@ msgstr "Copiar: Novo nome para %s"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Copiar\nO arquivo é copiado para o destino e deixado não versionado."
 
 #. Resource IDs: (80)
 #, c-format
@@ -3858,7 +3859,7 @@ msgstr "Estrutura de diretório padrão criada com sucesso!"
 
 #. Resource IDs: (65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "Intervalo padrão do monitor em minutos:"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4023,7 +4024,7 @@ msgstr "Visualizador de Diferenças::Ferramenta de Combinação"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Linhas diferentes adicionadas"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
@@ -4055,7 +4056,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Linhas diferentes removidas"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -4170,7 +4171,7 @@ msgstr "Faça isso para todos os diretórios não versionados"
 
 #. Resource IDs: (149)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Faça isso para todos os itens não versionados"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4228,7 +4229,7 @@ msgstr "Você deseja recarregar os documentos para refletir as configurações a
 #. Resource IDs: (65)
 #, c-format
 msgid "Do you want to remove the monitored project '%s'?"
-msgstr ""
+msgstr "Você quer remover o projeto monitorado '%s'?"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4723,11 +4724,11 @@ msgstr "Exportar &diretório:"
 
 #. Resource IDs: (157)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Exportar arquivos (*.tsex)|*.tsex|Todos os arquivos (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Exportar configurações para arquivo..."
 
 #. Resource IDs: (345)
 msgid ""
@@ -4850,7 +4851,7 @@ msgstr "Falha ao lançar aplicação servidora."
 
 #. Resource IDs: (66)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Falha ao carregar o arquivo de configuração para o monitor de projeto!"
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -5916,7 +5917,7 @@ msgstr "Importar &mensagem"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importar configurações a partir de um arquivo..."
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -5983,7 +5984,7 @@ msgstr "Incluir arquivos ignorados"
 
 #. Resource IDs: (621)
 msgid "Include local settings"
-msgstr ""
+msgstr "Incluir configurações locais"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6043,7 +6044,7 @@ msgstr "Inserir mensagem em:"
 
 #. Resource IDs: (1660)
 msgid "Insert title at the bottom, after the message"
-msgstr ""
+msgstr "Inserir um título ao final, após a mensagem"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6243,7 +6244,7 @@ msgstr "Deixar apenas alterações marcadas"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Deixe a caixa \"Caminho ou URL\" vazia para criar uma pasta"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -6326,7 +6327,7 @@ msgstr "Carregar Imagens"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Carregar configurações a partir de um arquivo"
 
 #. Resource IDs: (315)
 msgid ""
@@ -6500,7 +6501,7 @@ msgstr "Gancho de Pré-Submissão Manual"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Importar/exportar manualmente"
 
 #. Resource IDs: (214)
 msgid "Many items selected to show diff"
@@ -6510,7 +6511,7 @@ msgstr "Muitos itens selecionados para mostrar a diferença"
 msgid ""
 "Mark all projects as read\n"
 "Hold down the shift key to also clear all fetch errors."
-msgstr ""
+msgstr "Marcar todos os projetos como lidos\nPressione a tecla SHIFT para também limpar todos os erros de carregamento."
 
 #. Resource IDs: (611)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6554,7 +6555,7 @@ msgstr "Marcar esta alteração"
 
 #. Resource IDs: (7)
 msgid "Marked Blocks"
-msgstr ""
+msgstr "Blocos marcados"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6865,7 +6866,7 @@ msgstr "Mover item para cima"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Mover e adicionar\nO arquivo é movido para o local de destino e adicionado ao controle de versão."
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -6913,7 +6914,7 @@ msgstr "Mover: Novo nome para %s"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "Mover\nO arquivo é movido para o local de destino e deixado não versionado."
 
 #. Resource IDs: (106)
 msgid ""
@@ -7390,7 +7391,7 @@ msgstr "Abrir pasta pai"
 
 #. Resource IDs: (116)
 msgid "Open repository &Url"
-msgstr ""
+msgstr "Abrir repositório &Url"
 
 #. Resource IDs: (113)
 msgid "Open with..."
@@ -7398,7 +7399,7 @@ msgstr "Abrir com..."
 
 #. Resource IDs: (66)
 msgid "Open working copy in &explorer"
-msgstr ""
+msgstr "Abrir cópia de trabalho em &explorer"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -7466,7 +7467,7 @@ msgstr "Sobreescrever\nSubstituir o diretório especificado."
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Sobrescrever\nAs configurações são sobrescritas"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7510,15 +7511,15 @@ msgstr "Parâmetros:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
 #. Resource IDs: (621)
 msgid "Password is wrong"
-msgstr ""
+msgstr "A senha está incorreta"
 
 #. Resource IDs: (349)
 msgid "Password/phrase"
-msgstr ""
+msgstr "Senha/frase"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -7587,7 +7588,7 @@ msgstr "Caminho ou URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Caminho:"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8117,7 +8118,7 @@ msgstr "Redirecionando para a URL"
 
 #. Resource IDs: (156)
 msgid "Redo"
-msgstr ""
+msgstr "Refazer"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8286,7 +8287,7 @@ msgstr "Remover marcador"
 
 #. Resource IDs: (65)
 msgid "Remove Project"
-msgstr ""
+msgstr "Remover projeto"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
@@ -8961,19 +8962,19 @@ msgstr "Salvar tudo\nAmbos os arquivos foram salvos"
 msgid ""
 "Save and exclude\n"
 "Your changes are saved and the original content is used"
-msgstr ""
+msgstr "Salvar e excluir\nSuas alterações são salvas, e o conteúdo original é utilizado"
 
 #. Resource IDs: (7)
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr ""
+msgstr "Salvar e ignorar os blocos marcados\nApenas suas edições manuais são salvas; os blocos marcados são deixados como eles estão."
 
 #. Resource IDs: (7)
 msgid ""
 "Save and include\n"
 "Your changes are saved and the marked blocks are included"
-msgstr ""
+msgstr "Salvar e incluir\nSuas mudanças são salvas e os blocos marcados são incluídos"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -9012,7 +9013,7 @@ msgstr "Salvar revisão &em..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Salvar configurações em arquivo"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9205,7 +9206,7 @@ msgstr "Selecionar intervalo de revisões"
 
 #. Resource IDs: (621)
 msgid "Select settings file"
-msgstr ""
+msgstr "Selecionar o arquivo de configurações"
 
 #. Resource IDs: (279)
 msgid "Select start revision"
@@ -9679,7 +9680,7 @@ msgstr "Tamanho do cache se não fosse compactado"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Ignorar\nO arquivo é deixado onde está."
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -10093,15 +10094,15 @@ msgstr "Alternar comparação esquerda<->direita"
 
 #. Resource IDs: (368)
 msgid "Sync"
-msgstr ""
+msgstr "Sincronizar"
 
 #. Resource IDs: (65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Sincronizar configuração"
 
 #. Resource IDs: (1529)
 msgid "Sync stored auth data"
-msgstr ""
+msgstr "Sincronizar dados de autenticação armazenados"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10214,7 +10215,7 @@ msgstr "O arquivo %s não existe!"
 #. Resource IDs: (149)
 #, c-format
 msgid "The file %s is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "O arquivo %s não é versionado. O que você deseja fazer?"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10473,11 +10474,11 @@ msgstr "Os parâmetros '/path' e '/pathfile' são mutuamente exclusivos.\nVocê 
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Senha incorreta.\nPor favor, digite a senha correta na caixa de diálogo de configurações."
 
 #. Resource IDs: (621)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "As senhas não batem"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10547,7 +10548,7 @@ msgstr "O arquivo selecionado parece ainda conter uma ou mais marcas de conflito
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "O arquivo de configurações não pode ser descriptografado a partir da senha fornecida!\nVocê quer sobrescrever o arquivo de sincronização?"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10956,21 +10957,21 @@ msgstr "Monitor de Projeto TortoiseSVN"
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "Opções do Monitor de Projeto do TortoiseSVN"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "Monitor de Projeto do TortoiseSVN\n%d nova submissão no projeto %d"
 
 #. Resource IDs: (65)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "Monitor de Projeto do TortoiseSVN\n%d novas submissões em %d projetos"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11299,7 +11300,7 @@ msgstr "Atualizar Cópia de trabalho para a revisão"
 
 #. Resource IDs: (66)
 msgid "Update check is currently running!"
-msgstr ""
+msgstr "Checagem de atualização sendo executada!"
 
 #. Resource IDs: (291)
 msgid "Update externals"
@@ -11329,7 +11330,7 @@ msgstr "Atualizado"
 
 #. Resource IDs: (66)
 msgid "Updates all monitored working copies"
-msgstr ""
+msgstr "Atualiza todas as cópias de trabalho monitoradas"
 
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
@@ -11615,7 +11616,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Opções válidas de linha de comando são:\n/base:<path to base file>\n/basename:<name to show on the view title>\n/theirs:<path to their file>\n/theirsname:<name to show on the view title>\n/mine:<path to your file>\n/minename:<name to show on the view title>\n/merged:<path to resulting merged file>\n/mergedname:<name to show on the view title>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>\n/saverequired\n/saverequiredonconflicts\n/oneway\n/line:"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
@@ -11844,7 +11845,7 @@ msgstr "Você arrastou mais que um arquivo ou diretório para adicionar ao repos
 
 #. Resource IDs: (7)
 msgid "You have marked changed blocks. How should those blocks be saved?"
-msgstr ""
+msgstr "Você marcou blocos modificados. Como eles devem ser salvos?"
 
 #. Resource IDs: (16)
 msgid ""
@@ -12388,7 +12389,7 @@ msgstr "sem controle de versão"
 
 #. Resource IDs: (149)
 msgid "non-versioned item"
-msgstr ""
+msgstr "item não versionado"
 
 #. Resource IDs: (10)
 msgid "normal"
