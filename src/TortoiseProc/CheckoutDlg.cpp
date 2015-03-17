@@ -437,8 +437,11 @@ void CCheckoutDlg::OnOK()
     CRegString lastCheckoutPath(L"Software\\TortoiseSVN\\History\\lastCheckoutPath");
     lastCheckoutPath = m_strCheckoutDirectory.Left(m_strCheckoutDirectory.ReverseFind('\\'));
 
-    CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
-    regNoExt = m_bNoExternals;
+    if (m_depth == svn_depth_infinity)
+    {
+        CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
+        regNoExt = m_bNoExternals;
+    }
 
     CResizableStandAloneDialog::OnOK();
 }
