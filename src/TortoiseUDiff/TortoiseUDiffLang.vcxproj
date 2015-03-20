@@ -19,28 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BC5A5F3B-E41A-4C56-B16F-263D2C6D6475}</ProjectGuid>
+    <ProjectGuid>{76733C4D-E899-4913-B3A2-A80DAFE19233}</ProjectGuid>
     <RootNamespace>TortoiseUDiff</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
@@ -78,57 +78,37 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\scintilla\include;..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <NoEntryPoint>true</NoEntryPoint>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\scintilla\include;..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <NoEntryPoint>true</NoEntryPoint>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\scintilla\include;..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <NoEntryPoint>true</NoEntryPoint>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\scintilla\include;..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <NoEntryPoint>true</NoEntryPoint>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Utils\CmdLineParser.cpp" />
-    <ClCompile Include="..\Utils\LangDll.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
-    <ClCompile Include="..\Utils\Registry.cpp" />
-    <ClCompile Include="..\Utils\StringUtils.cpp" />
-    <ClCompile Include="..\Utils\SysInfo.cpp" />
-    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
-    <ClCompile Include="FindBar.cpp" />
-    <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="TortoiseUDiff.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Utils\CmdLineParser.h" />
-    <ClInclude Include="..\Utils\CreateProcessHelper.h" />
-    <ClInclude Include="..\Utils\LangDll.h" />
-    <ClInclude Include="..\Utils\MiscUI\BaseDialog.h" />
-    <ClInclude Include="..\Utils\MiscUI\BaseWindow.h" />
     <ClInclude Include="..\Utils\MiscUI\ResString.h" />
-    <ClInclude Include="..\Utils\registry.h" />
-    <ClInclude Include="..\Utils\StringUtils.h" />
-    <ClInclude Include="..\Utils\SysInfo.h" />
-    <ClInclude Include="..\Utils\TaskbarUUID.h" />
-    <ClInclude Include="..\Utils\UnicodeUtils.h" />
-    <ClInclude Include="FindBar.h" />
-    <ClInclude Include="MainWindow.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TortoiseUDiff.h" />
-    <ClInclude Include="UDiffColors.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\cancel-normal.ico" />

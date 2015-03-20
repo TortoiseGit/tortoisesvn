@@ -257,6 +257,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tsvn_repository", "tsvn_rep
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoisePlink", "..\ext\TortoisePlink\windows\TPlink\TortoisePlink.vcxproj", "{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseUDiffLang", "TortoiseUDiff\TortoiseUDiffLang.vcxproj", "{76733C4D-E899-4913-B3A2-A80DAFE19233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -505,6 +507,14 @@ Global
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}.Release|Win32.Build.0 = Release|Win32
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}.Release|x64.ActiveCfg = Release|x64
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20}.Release|x64.Build.0 = Release|x64
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Debug|Win32.ActiveCfg = Debug|Win32
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Debug|Win32.Build.0 = Debug|Win32
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Debug|x64.ActiveCfg = Debug|x64
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Debug|x64.Build.0 = Debug|x64
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Release|Win32.ActiveCfg = Release|Win32
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Release|Win32.Build.0 = Release|Win32
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Release|x64.ActiveCfg = Release|x64
+		{76733C4D-E899-4913-B3A2-A80DAFE19233}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -549,5 +559,6 @@ Global
 		{A45EDE46-65C0-40D5-AFDE-91BE226783EC} = {5B73D72B-C0BE-461C-B9A5-E15236F2600D}
 		{751141D4-4B89-4B3C-AE5A-3E57DF23516B} = {5B73D72B-C0BE-461C-B9A5-E15236F2600D}
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{76733C4D-E899-4913-B3A2-A80DAFE19233} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 	EndGlobalSection
 EndGlobal

@@ -10,7 +10,7 @@ if not exist ..\bin\release\bin\ResText.exe (
 
 ..\bin\release\bin\ResText.exe extract ..\bin\release\bin\TortoiseProcLang.dll^
  ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll^
- ..\bin\release\bin\TortoiseBlameLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot
+ ..\bin\release\bin\TortoiseUDiffLang.dll ..\bin\release\bin\TortoiseBlameLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot
 
 rem leave the next two lines commented. The msgremove tool changes the
 rem sequence "\r\n" to "r\n" - removing the backslash before the r!!!

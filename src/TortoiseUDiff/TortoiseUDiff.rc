@@ -101,7 +101,7 @@ END
 // Dialog
 //
 
-IDD_FINDBAR DIALOGEX 0, 0, 246, 21
+IDD_FINDBAR DIALOGEX 0, 0, 359, 21
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
@@ -110,8 +110,24 @@ BEGIN
     EDITTEXT        IDC_FINDTEXT,40,2,55,14,ES_AUTOHSCROLL
     PUSHBUTTON      "< &Previous",IDC_FINDPREV,100,2,58,14
     PUSHBUTTON      "&Next >",IDC_FINDNEXT,160,2,58,14
-    CONTROL         "Mat&ch case",IDC_MATCHCASECHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,222,4,52,10
+    CONTROL         "Mat&ch case",IDC_MATCHCASECHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,222,4,131,10
 END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_FINDBAR, DIALOG
+    BEGIN
+        RIGHTMARGIN, 246
+    END
+END
+#endif    // APSTUDIO_INVOKED
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -126,6 +142,7 @@ BEGIN
     IDS_PATCHFILEFILTER     "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
     IDS_OPENPATCH           "Open patch file"
     IDS_SAVEPATCH           "Save patch file"
+    IDS_PIPETITLE           "diff from pipe"
     IDC_TORTOISEUDIFF       "TORTOISEUDIFF"
 END
 

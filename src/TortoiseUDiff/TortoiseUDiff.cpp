@@ -21,6 +21,7 @@
 #include "MainWindow.h"
 #include "CmdLineParser.h"
 #include "TaskbarUUID.h"
+#include "LangDll.h"
 #include "../Utils/CrashReport.h"
 
 #include <commctrl.h>
@@ -28,6 +29,9 @@
 
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
+HINSTANCE hInst;                                // current instance
+HINSTANCE hResource;                            // the resource dll
 
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -42,13 +46,21 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     CCrashReportTSVN crasher(L"TortoiseUDiff " _T(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
+    CRegStdDWORD loc = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
+    long langId = loc;
+    CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+
+    CLangDll langDLL;
+    hResource = langDLL.Init(L"TortoiseUDiff", langId);
+    if (hResource == NULL)
+        hResource = hInstance;
+
     CCmdLineParser parser(lpCmdLine);
 
     if (parser.HasKey(L"?") || parser.HasKey(L"help"))
     {
-        TCHAR buf[1024] = { 0 };
-        LoadString(hInstance, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
-        MessageBox(NULL, buf, L"TortoiseUDiff", MB_ICONINFORMATION);
+        ResString rHelp(hResource, IDS_COMMANDLINEHELP);
+        MessageBox(NULL, rHelp, L"TortoiseUDiff", MB_ICONINFORMATION);
         return 0;
     }
 
@@ -63,14 +75,17 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (hSciLexerDll == NULL)
         return FALSE;
 
-    CMainWindow mainWindow(hInstance);
+    CMainWindow mainWindow(hResource);
     mainWindow.SetRegistryPath(L"Software\\TortoiseSVN\\UDiffViewerWindowPos");
     if (parser.HasVal(L"title"))
         mainWindow.SetTitle(parser.GetVal(L"title"));
     else if (parser.HasVal(L"patchfile"))
         mainWindow.SetTitle(parser.GetVal(L"patchfile"));
     else
-        mainWindow.SetTitle(L"diff from pipe");
+    {
+        ResString rPipeTitle(hResource, IDS_PIPETITLE);
+        mainWindow.SetTitle(rPipeTitle);
+    }
 
     if (!mainWindow.RegisterAndCreateWindow())
     {
@@ -105,7 +120,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     ::ShowWindow(mainWindow.GetHWNDEdit(), SW_SHOW);
     ::SetFocus(mainWindow.GetHWNDEdit());
 
-    hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TORTOISEUDIFF));
+    hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDC_TORTOISEUDIFF));
 
     // Main message loop:
     while (GetMessage(&msg, NULL, 0, 0))

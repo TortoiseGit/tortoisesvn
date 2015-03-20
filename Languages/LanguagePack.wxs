@@ -64,6 +64,7 @@
               <File Id='MERGDLL' Name='TortoiseMerge$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseMerge$COUNTRYID$.dll' Vital='yes'></File>
               <File Id='BLAMDLL' Name='TortoiseBlame$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseBlame$COUNTRYID$.dll' Vital='yes'></File>
               <File Id='IDIFDLL' Name='TortoiseIDiff$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseIDiff$COUNTRYID$.dll' Vital='yes'></File>
+              <File Id='UDIFDLL' Name='TortoiseUDiff$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseUDiff$COUNTRYID$.dll' Vital='yes'></File>
 
             </Component>
             <?if $(env.TSVNMoFile) = "$COUNTRYCODE$" ?>
