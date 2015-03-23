@@ -9047,6 +9047,9 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         // take several seconds!
         if (m_bMonitorThreadRunning)
         {
+            SetDlgItemText(IDC_LOGINFO, CString(MAKEINTRESOURCE(IDS_LOG_MONITOR_BUSY)));
+            GetDlgItem(IDC_LOGINFO)->UpdateWindow();
+
             m_bCancelled = true;
             bool threadsStillRunning
                 = !netScheduler.WaitForEmptyQueueOrTimeout(5000)
