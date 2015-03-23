@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -346,6 +346,8 @@ BOOL CTortoiseProcApp::InitInstance()
         // This was a path to a temporary file - it's got no meaning now, and
         // anybody who uses it again is in for a problem...
         cmdLinePath.Reset();
+        if (pathList.GetCount())
+            cmdLinePath = pathList[0];
     }
     else
     {
@@ -394,28 +396,28 @@ BOOL CTortoiseProcApp::InitInstance()
         int asterisk = sPathArgument.Find('*');
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
-        if (g_sGroupingUUID.IsEmpty() && !cmdLinePath.IsEmpty())
+    }
+    if (g_sGroupingUUID.IsEmpty() && !cmdLinePath.IsEmpty())
+    {
+        // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
+        // passed to us. In that case we have to fetch the uuid (or try to) here,
+        // otherwise the grouping wouldn't work.
+        CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
+        switch (DWORD(groupSetting))
         {
-            // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
-            // passed to us. In that case we have to fetch the uuid (or try to) here,
-            // otherwise the grouping wouldn't work.
-            CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
-            switch (DWORD(groupSetting))
-            {
             case 1:
             case 2:
-                {
-                    SVN svn;
-                    g_sGroupingUUID = svn.GetUUIDFromPath(cmdLinePath);
-                }
-                break;
+            {
+                SVN svn;
+                g_sGroupingUUID = svn.GetUUIDFromPath(cmdLinePath);
+            }
+            break;
             case 3:
             case 4:
-                {
-                    SVN svn;
-                    CString wcroot = svn.GetWCRootFromPath(cmdLinePath).GetWinPathString();
-                    g_sGroupingUUID = svn.GetChecksumString(svn_checksum_md5, wcroot);
-                }
+            {
+                SVN svn;
+                CString wcroot = svn.GetWCRootFromPath(cmdLinePath).GetWinPathString();
+                g_sGroupingUUID = svn.GetChecksumString(svn_checksum_md5, wcroot);
             }
         }
     }
