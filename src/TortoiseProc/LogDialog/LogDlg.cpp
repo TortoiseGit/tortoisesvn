@@ -9214,7 +9214,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         point = rect.CenterPoint();
     }
 
-    UINT uFlags;
+    UINT uFlags = 0;
     CPoint ptTree = point;
     m_projTree.ScreenToClient(&ptTree);
     HTREEITEM hItem = m_projTree.HitTest(ptTree, &uFlags);
