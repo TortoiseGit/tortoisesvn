@@ -748,7 +748,7 @@ void CSciEdit::SuggestSpellingAlternatives()
 
                 if (S_OK == hr)
                 {
-                    suggestions.AppendFormat(L"%s%c%d%c", CString(string), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
+                    suggestions.AppendFormat(L"%s%c%d%c", (LPCWSTR)CString(string), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
                     CoTaskMemFree(string);
                 }
             }
@@ -762,7 +762,7 @@ void CSciEdit::SuggestSpellingAlternatives()
         {
             for (int i = 0; i < ns; i++)
             {
-                suggestions.AppendFormat(L"%s%c%d%c", CString(wlst[i]), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
+                suggestions.AppendFormat(L"%s%c%d%c", (LPCWSTR)CString(wlst[i]), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
                 free(wlst[i]);
             }
         }
@@ -847,7 +847,7 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
     }
 
     for (const auto& w : wordset)
-        sAutoCompleteList.AppendFormat(L"%s%c%d%c", w.first, m_typeSeparator, w.second, m_separator);
+        sAutoCompleteList.AppendFormat(L"%s%c%d%c", (LPCWSTR)w.first, m_typeSeparator, w.second, m_separator);
 
     sAutoCompleteList.TrimRight(m_separator);
     if (sAutoCompleteList.IsEmpty())
