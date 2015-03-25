@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 26224)
+--- include/Scintilla.h	(revision 26405)
 +++ include/Scintilla.h	(working copy)
-@@ -1036,6 +1036,7 @@
+@@ -1050,6 +1050,7 @@
  #define SCN_HOTSPOTRELEASECLICK 2027
  #define SCN_FOCUSIN 2028
  #define SCN_FOCUSOUT 2029
@@ -12,7 +12,7 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 26224)
+--- src/Editor.cxx	(revision 26405)
 +++ src/Editor.cxx	(working copy)
 @@ -100,6 +100,7 @@
  }
@@ -24,9 +24,9 @@ Index: src/Editor.cxx
  	stylesValid = false;
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 26224)
+--- src/Editor.h	(revision 26405)
 +++ src/Editor.h	(working copy)
-@@ -561,6 +561,7 @@
+@@ -563,6 +563,7 @@
  	static sptr_t BytesResult(sptr_t lParam, const unsigned char *val, size_t len);
  
  public:
@@ -36,7 +36,7 @@ Index: src/Editor.h
  	// Public so scintilla_send_message can use it.
 Index: src/EditView.cxx
 ===================================================================
---- src/EditView.cxx	(revision 26224)
+--- src/EditView.cxx	(revision 26405)
 +++ src/EditView.cxx	(working copy)
 @@ -47,6 +47,7 @@
  #include "EditModel.h"
@@ -54,7 +54,7 @@ Index: src/EditView.cxx
  }
  
  EditView::~EditView() {
-@@ -1640,7 +1642,18 @@
+@@ -1668,7 +1670,18 @@
  	}
  
  	// See if something overrides the line background color.
@@ -76,7 +76,7 @@ Index: src/EditView.cxx
  
 Index: src/EditView.h
 ===================================================================
---- src/EditView.h	(revision 26224)
+--- src/EditView.h	(revision 26405)
 +++ src/EditView.h	(working copy)
 @@ -76,6 +76,7 @@
  	Surface *pixmapLine;
@@ -88,9 +88,9 @@ Index: src/EditView.h
  	PositionCache posCache;
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 26224)
+--- win32/ScintillaWin.cxx	(revision 26405)
 +++ win32/ScintillaWin.cxx	(working copy)
-@@ -275,6 +275,7 @@
+@@ -281,6 +281,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -98,7 +98,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, int modifiers);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1800,6 +1801,13 @@
+@@ -1929,6 +1930,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
