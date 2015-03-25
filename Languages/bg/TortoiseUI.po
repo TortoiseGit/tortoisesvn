@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Dimitar Tsonev <dimitar.tsonev@gmail.com>, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # petkovmt <petkovmt@gmail.com>, 2011
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-02-19 09:41+0000\n"
+"PO-Revision-Date: 2015-03-24 09:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/tortoisesvn/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -7015,6 +7016,10 @@ msgstr "Ново &име:"
 msgid "New Menu"
 msgstr "Ново меню"
 
+#. Resource IDs: (78)
+msgid "New branch/tag is not ready yet, retrying switch..."
+msgstr ""
+
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
 msgstr ""
@@ -8891,7 +8896,7 @@ msgstr "Примерен текст:"
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "Съхраняване"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8965,7 +8970,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "Съхраняване като"
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9000,7 +9005,7 @@ msgstr "Запис на &ревизия в..."
 
 #. Resource IDs: (1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Съхраняване на настройките във файл"
 
 #. Resource IDs: (3601)
 msgid ""
@@ -9089,7 +9094,7 @@ msgstr "Търсенето се провали на %1"
 
 #. Resource IDs: (8)
 msgid "Select"
-msgstr ""
+msgstr "Избиране"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -9715,7 +9720,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Нещо се обърка"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10809,7 +10814,7 @@ msgstr "Изчаквания"
 
 #. Resource IDs: (65535)
 msgid "Tip"
-msgstr ""
+msgstr "Съвет"
 
 #. Resource IDs: (65)
 msgid "To add projects to be monitored, click the \"Add\" button above"
@@ -11055,7 +11060,7 @@ msgstr "Донастройване на TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -11576,7 +11581,7 @@ msgstr "Отменено от потребителя"
 
 #. Resource IDs: (349)
 msgid "Username"
-msgstr ""
+msgstr "Потребителско име"
 
 #. Resource IDs: (69)
 msgid "Username:"
@@ -11652,11 +11657,11 @@ msgstr "Посетете нашия сайт"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2005"
-msgstr ""
+msgstr "Visual Studio 2005"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2008"
-msgstr ""
+msgstr "Visual Studio 2008"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11684,6 +11689,10 @@ msgstr "Изчакване"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Изчакване на края на изпълнението на скрипта"
+
+#. Resource IDs: (66)
+msgid "Waiting for monitoring thread to finish..."
+msgstr ""
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
@@ -11752,15 +11761,15 @@ msgstr "Прозорци"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 2000"
-msgstr ""
+msgstr "Windows 2000"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 7"
-msgstr ""
+msgstr "Windows 7"
 
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
-msgstr ""
+msgstr "Windows XP"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -12817,7 +12826,7 @@ msgstr "седмица"
 
 #. Resource IDs: (247)
 msgid "weeks"
-msgstr ""
+msgstr "седмици"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
@@ -12833,7 +12842,7 @@ msgstr "година"
 
 #. Resource IDs: (248)
 msgid "years"
-msgstr ""
+msgstr "години"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
 msgid "yes"
