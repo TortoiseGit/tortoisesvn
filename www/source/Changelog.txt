@@ -1,3 +1,14 @@
+Version 1.8.11
+- BUG: Issue #682: Statistics graph for "Commits by author"
+       error when "Authors case sensitive" is toggled. (Stefan)
+- BUG: Issue #685: Memory leak showing status. (Stefan)
+- BUG: Autocorrect case-renames if already done manually. (Stefan)
+- BUG: Focus lost in File diff dialog. (Stefan)
+- BUG: Cached HEAD revision when doing updates. (Stefan)
+- BUG: empty path shown in tree conflict resolver dialog. (Stefan)
+- BUG: working copy revision not shown in revision graph. (Stefan)
+- BUG: Focus problems when diffing. (Stefan)
+
 Version 1.8.10
 - BUG: Fails to run on Windows XP. (Stefan)
 
