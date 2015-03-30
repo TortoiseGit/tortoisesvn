@@ -1457,25 +1457,28 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlChangelistChanged(WPARAM count, LPARAM)
 
 LRESULT CCommitDlg::OnCheck(WPARAM wnd, LPARAM)
 {
-    HWND hwnd = (HWND)wnd;
-    if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWEVERYTHING, true);
-    else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
-        m_ListCtrl.Check(0, true);
-    else if (hwnd == GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWUNVERSIONED, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWVERSIONED, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWADDED|SVNSLC_SHOWADDEDHISTORY, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWREPLACED, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWFILES, false);
-    else if (hwnd == GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd())
-        m_ListCtrl.Check(SVNSLC_SHOWFOLDERS, false);
+    if (!m_bBlock)
+    {
+        HWND hwnd = (HWND)wnd;
+        if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWEVERYTHING, true);
+        else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
+            m_ListCtrl.Check(0, true);
+        else if (hwnd == GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWUNVERSIONED, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWVERSIONED, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWADDED | SVNSLC_SHOWADDEDHISTORY, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWREMOVED | SVNSLC_SHOWMISSING, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWMODIFIED | SVNSLC_SHOWREPLACED, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWFILES, false);
+        else if (hwnd == GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd())
+            m_ListCtrl.Check(SVNSLC_SHOWFOLDERS, false);
+    }
 
     return 0;
 }
