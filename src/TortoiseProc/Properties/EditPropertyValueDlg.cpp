@@ -248,14 +248,16 @@ void CEditPropertyValueDlg::OnCancel()
 void CEditPropertyValueDlg::OnOK()
 {
     UpdateData();
-    if (!m_bIsBinary)
+    m_PropNames.GetWindowText(m_sPropName);
+    m_PropName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropName);
+    svn_boolean_t is_svn_prop = svn_prop_needs_translation(m_PropName.c_str());
+
+    if (!m_bIsBinary || is_svn_prop)
     {
         m_sPropValue.Replace(L"\r\n", L"\n");
         m_sPropValue.Replace(L"\n\n", L"\n");
         m_PropValue = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropValue);
     }
-    m_PropNames.GetWindowText(m_sPropName);
-    m_PropName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropName);
     CDialog::OnOK();
 }
 
