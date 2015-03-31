@@ -568,7 +568,7 @@
                         </ul>
                         <p>Subversion determines whether a file has changed with the following approach:</p>
                         <ol>
-                            <li>has the 'last modification' date  and/or the file size changed?</li>
+                            <li>has the 'last modification' date and/or the file size changed?</li>
                             <li>if not: file is not modified</li>
                             <li>if yes: compare file content with the BASE file</li>
                             <li>stop at the first byte that differs, mark the file as modified</li>
@@ -784,7 +784,7 @@ force security mode = 0600</pre>
 
                         <div class="h3" id="subwcrev">
                         <h3>... get the project revision number into my project?</h3>
-                        <p>If you want the revision number in your program version number,  you need an
+                        <p>If you want the revision number in your program version number, you need an
                         additional tool to do that. You can find the tool <cite>SubWCRev.exe</cite> on
                         the download page on our website or in your TortoiseSVN Folder under <cite>bin</cite>.</p>
                         <p>This tool traverses your whole working copy for the most recent revision.
@@ -1029,8 +1029,8 @@ Folder/File2 : revision 2</pre>
                         <h3>403 Forbidden</h3>
                         <p>PROPFIND request failed: 403 Forbidden</p>
                         <p>It's probably because you've entered the parent path of your repository
-                        instead of the actual repository path.  Try appending the name of the repository
-                        you wish to access to the URL.  You also need to append the URL with a
+                        instead of the actual repository path. Try appending the name of the repository
+                        you wish to access to the URL. You also need to append the URL with a
                         trailing '/' slash, after the repository name.</p>
                         <p>For more information about the actual error, seek out the Apache error log.</p>
                         </div>
@@ -1041,9 +1041,9 @@ Folder/File2 : revision 2</pre>
                         <p>This message comes in different flavours. You might be seeing this error when:</p>
                         <ul>
                             <li><strong>PROPFIND Request Failed</strong>
-                            You tried to browse the parent path of a repository instead of the repository itself using an older version of TortoiseSVN.  Try appending the name of the repository you wish to access, or upgrade TortoiseSVN to 1.2.3 or newer.</li>
+                            You tried to browse the parent path of a repository instead of the repository itself using an older version of TortoiseSVN. Try appending the name of the repository you wish to access, or upgrade TortoiseSVN to 1.2.3 or newer.</li>
                             <li><strong>PROPFIND Request Failed</strong>
-                            You forgot to append a '/' slash to the end of the URL you entered.  Older versions of TSVN require that there be a '/' after the repository name.  If you forget this, TSVN will strip the repository name from the URL and therefore try to access the parent directory.</li>
+                            You forgot to append a '/' slash to the end of the URL you entered. Older versions of TSVN require that there be a '/' after the repository name. If you forget this, TSVN will strip the repository name from the URL and therefore try to access the parent directory.</li>
                             <li><strong>PROPFIND Request Failed</strong>
                             You try to access the repository through a proxy which does not allow DAV requests. Usually you can browse your repository with your webbrowser just fine, only if you use a svn client you get this error. You have to configure your proxy/firewall server to let DAV requests through. Or try using https instead of http: most proxies can't analyze encrypted network packets and therefore can't block DAV requests anymore.
                             <br/>

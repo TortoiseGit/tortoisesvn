@@ -58,15 +58,15 @@
                 <h3>File Locking (<em>also requires updated server</em>)</h3>
 
                 <p>"Locking" is a long-requested feature, often known in other systems
-                as "reserved checkouts".  While Subversion is still primarily a <a
+                as "reserved checkouts". While Subversion is still primarily a <a
                 href="http://svnbook.red-bean.com/en/1.1/ch02s02.html#svn-ch-2-sect-2.3">copy-modify-merge</a>
                 system focused on parallel development, there is widespread
                 acknowledgement that not all files are easily mergeable &mdash;
                 binary files in particular, such as artwork, compressed files,
                 proprietary binary formats, or any other non-line-based data.</p>
 
-                <p>The goal of the new locking feature is twofold.  First, provide a
-                means to force serialized write-access to a file.  Second, provide a
+                <p>The goal of the new locking feature is twofold. First, provide a
+                means to force serialized write-access to a file. Second, provide a
                 communication mechanism to prevent users from wasting time on
                 unmergable changes.</p>
 
@@ -82,11 +82,11 @@
 
                 <p>The second goal &mdash; preventing a user from wasting time on an
                 unmergable change &mdash; is accomplished via a new property,
-                <code>svn:needs-lock</code>.  Users (or administrators) are encouraged to
-                set this property on any file that is unmergeable.  When present, this
+                <code>svn:needs-lock</code>. Users (or administrators) are encouraged to
+                set this property on any file that is unmergeable. When present, this
                 property causes the file to be read-only <em>unless</em> the working
                 copy holds a lock-token for the file, in which case the file is
-                read-write.  TortoiseSVN uses a new status overlay to indicate when
+                read-write. TortoiseSVN uses a new status overlay to indicate when
                 a file is in the read-only state, which warns you that you need to
                 acquire a lock before editing.</p>
 

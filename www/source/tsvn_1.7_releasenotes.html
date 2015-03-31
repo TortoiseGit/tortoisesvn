@@ -58,12 +58,12 @@
                 centralization of working copy metadata storage into a single location.
                 Instead of a <code>.svn</code> directory in every directory in the working
                 copy, Subversion 1.7 working copies have just one <code>.svn</code>
-                directory&mdash;in the root of the working copy.  This directory includes
+                directory &mdash; in the root of the working copy. This directory includes
                 (among other things) an SQLite-backed database which contains all of the
                 metadata Subversion needs for that working copy.</p>
 
                 <p>Even though the data is stored in a structured format, the relationships
-                between the data are complex.  We highly discourage external tools from
+                between the data are complex. We highly discourage external tools from
                 modifying the data held in this database, as such modification is likely to
                 result in working copy corruption.</p>
                 </div> <!-- single-db -->
@@ -329,11 +329,11 @@
 
                 <h3>Client Server Compatibility</h3>
                 <p>Older clients and servers interoperate transparently with 1.7
-                servers and clients.  That is to say, you can use a 1.7 client with
+                servers and clients. That is to say, you can use a 1.7 client with
                 an older server, and you can use a 1.7 server with older clients.
                 However, some of the new 1.7 features may
                 not be available unless both client and server are the latest
-                version.  There are also cases where a new feature will work
+                version. There are also cases where a new feature will work
                 but will run less efficiently if the client is new and the
                 server old.</p>
 
