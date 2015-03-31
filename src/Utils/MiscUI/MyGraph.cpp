@@ -5,6 +5,8 @@
 #include "BufferDC.h"
 
 #include <cmath>
+#define _USE_MATH_DEFINES
+#include <math.h>   // for M_PI
 #include <memory>
 
 #ifdef _DEBUG
@@ -49,7 +51,9 @@ static char THIS_FILE[] = __FILE__;
 #define LEGEND_DIVISOR                           8          // Scale font to graph height.
 #define Y_AXIS_LABEL_DIVISOR                     6          // Scale font to graph height.
 
-const double PI = 3.1415926535897932384626433832795;
+#ifndef M_PI
+const double M_PI = 3.1415926535897932384626433832795;
+#endif
 
 /////////////////////////////////////////////////////////////////////////////
 // MyGraphSeries
@@ -1577,7 +1581,7 @@ CPoint MyGraph::WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
 
     CPoint pt;
 
-    double radians = degrees / 360.0 * PI * 2.0;
+    double radians = degrees / 360.0 * M_PI * 2.0;
 
     pt.x = (int) (radius * cos(radians));
     pt.x = ptCenter.x - pt.x;
@@ -1656,9 +1660,9 @@ CPoint MyGraph::WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
 // Convert HLS to RGB.
 /* static */ COLORREF MyGraph::HLStoRGB(WORD wH, WORD wL, WORD wS)
 {
-    _ASSERTE(0 <= wH  &&  240 >= wH  &&  "Illegal hue value");
-    _ASSERTE(0 <= wL  &&  240 >= wL  &&  "Illegal lum value");
-    _ASSERTE(0 <= wS  &&  240 >= wS  &&  "Illegal sat value");
+    _ASSERTE(0 <= wH && 240 >= wH && "Illegal hue value");
+    _ASSERTE(0 <= wL && 240 >= wL && "Illegal lum value");
+    _ASSERTE(0 <= wS && 240 >= wS && "Illegal sat value");
 
     WORD wR(0);
     WORD wG(0);
