@@ -49,9 +49,9 @@ bool DropVendorCommand::Execute()
     svn_client_status_t * status = st.GetFirstFileStatus(droptsvnpath, path, false, svn_depth_infinity, true, true);
     if (status)
     {
-        while (((status = st.GetNextFileStatus(path))!=NULL) && (!progress.HasUserCancelled()))
+        while ((status = st.GetNextFileStatus(path)) != NULL && !progress.HasUserCancelled())
         {
-            if (status && (status->node_status == svn_wc_status_deleted))
+            if (status->node_status == svn_wc_status_deleted)
             {
                 if (PathFileExists(path.GetWinPath()))
                 {
