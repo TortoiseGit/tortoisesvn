@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -219,7 +219,7 @@ void CSetOverlayHandlers::OnBnClickedRegedt()
         // HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
         // so when we start regedit, it will show that key on start
         CRegString regLastKey(L"Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Regedit\\LastKey");
-        regLastKey = L"Computer\\HKEY_Local_Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers";
+        regLastKey = L"HKEY_Local_Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers";
 
         SHELLEXECUTEINFO si = { sizeof(SHELLEXECUTEINFO) };
         si.hwnd = GetSafeHwnd();
