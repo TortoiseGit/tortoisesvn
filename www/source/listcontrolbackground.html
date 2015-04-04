@@ -2,7 +2,7 @@
     "title": "List control background images",
     "metaDescription": "<meta name=\"description\" content=\"how to get background images to work with list controls\">",
     "metaKeywords": "<meta name=\"keywords\" content=\"list control, background images\">",
-    "headHTML": "<link rel=\"stylesheet\" href=\"/css/prettify.min.css\">\n<script src=\"/js/prettify/prettify.js\"></script>"
+    "headHtml": "<link rel=\"stylesheet\" href=\"/css/prettify.min.css\">"
 })
 <body onload="prettyPrint()">
 <div class="wrapper">
@@ -309,4 +309,6 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
             </div>
         </div> <!-- .content -->
 
-    @@include("_includes/footer.html")
+@@include("_includes/footer.html", {
+    "bottomHtml": "<script src=\"/js/prettify/prettify.js\"></script>"
+})

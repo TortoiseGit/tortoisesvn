@@ -27,7 +27,8 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     globals: {
-                        headHTML: '',
+                        bottomHtml: '',
+                        headHtml: '',
                         metaDescription: '',
                         metaKeywords: '',
                         DATE: '<%= grunt.template.today("dddd, mmmm dS, yyyy, HH:MM:ss Z") %>',
@@ -109,6 +110,7 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     collapseWhitespace: true,
+                    minifyCSS: true,
                     minifyJS: true,
                     removeAttributeQuotes: true,
                     removeComments: true
