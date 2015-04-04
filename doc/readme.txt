@@ -17,7 +17,7 @@ tools\xsl\      - the docbook xsl files from sourceforge
 tools\          - xsl processor, hhc.exe...
 
 You can download all the required tools as a 7zip package from our website:
-http://code.google.com/p/tortoisesvn/downloads/list
+https://sourceforge.net/projects/tortoisesvn/files/build%20tools/
 
 The file is Tools-1.x.7z
 

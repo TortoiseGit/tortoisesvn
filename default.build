@@ -534,7 +534,7 @@
     </if>
 
     <if test="${not directory::exists('Tools') or not file::exists('Tools/ver-1.8.0')}">
-      <get src="https://tortoisesvn.googlecode.com/files/Tools-1.8.0.zip" dest="tools.zip" />
+      <get src="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip" dest="tools.zip" />
       <unzip zipfile="tools.zip" />
       <touch file="Tools\ver-1.8.0" />
     </if>
