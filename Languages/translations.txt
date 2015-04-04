@@ -22,10 +22,10 @@ Getting started
 If you want to implement a new language for TortoiseSVN do the following.
 
 1) Use TortoiseSVN (or any other SubVersion client) to check out:
-   http://tortoisesvn.googlecode.com/svn/trunk/Languages/
+   https://svn.code.sf.net/p/tortoisesvn/code/trunk/Languages/
    (You will get more than one file)
    or point your browser to:
-   http://code.google.com/p/tortoisesvn/source/browse/trunk/Languages
+   https://svn.code.sf.net/p/tortoisesvn/code/trunk/Languages
    right-click on Tortoise.pot and save this file to your local harddisk.
    Tortoise.pot is the portable object template (hence .pot) for the
    translation.
@@ -72,7 +72,7 @@ If you want to implement a new language for TortoiseSVN do the following.
    begin with UTF-8 BOMs (Byte Order Marks)
 
 6) Send your Tortoise_xx.po to the mailing list (translators@tortoisesvn.tigris.org).
-   or, if you have a Google Code account (http://code.google.com/), request
+   or, if you have a Sourceforge account (http://sourceforge.net), request
    commit access to the project via the translators mailing list, you may
    commit your translations directory to the TortoiseSVN repository.
 
@@ -127,7 +127,7 @@ them, you need four things:
 - The "raw" language resource dlls for your version of TortoiseSVN. Please ask on
   the developers list. We'll gladly provide you with the necessary files.
 - The pot file for your version of TortoiseSVN e.g:
-  http://tortoisesvn.googlecode.com/svn/tags/version_1.0.8/...
+  https://svn.code.sf.net/p/tortoisesvn/code/tags/version_1.0.8/...
 - Any po file for your language. Either pick one from tags or the latest
   po file from trunk
 - The ResText utility that is used to insert the data from the po file

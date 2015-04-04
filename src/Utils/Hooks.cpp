@@ -705,7 +705,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 fullUrl = temp.Mid(urlstart, urlend-urlstart);
                 fullUrl.Replace('\\', '/');
                 // now we have the full url of the script, e.g.
-                // https://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts/client-side/checkyear.js
+                // https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                 CString sLocalPathUrl = rootUrl;
                 CString sLocalPath = rootPath;
@@ -763,7 +763,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                     fullUrl = temp.Mid(urlstart, urlend-urlstart);
                     fullUrl.Replace('\\', '/');
                     // now we have the full url of the script, e.g.
-                    // https://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts/client-side/checkyear.js
+                    // https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                     CString sLocalPathUrl = rootUrl;
                     sLocalPath = rootPath;

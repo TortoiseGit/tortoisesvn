@@ -555,7 +555,7 @@
             string content = reader.ReadToEnd();
             reader.Close();
 
-            string header = @"![TortoiseSVN logo](https://tortoisesvn.googlecode.com/svn/trunk/www/source/img/tortoisesvn_logo_hor468x64.png)
+            string header = @"![TortoiseSVN logo](https://svn.code.sf.net/p/tortoisesvn/code/trunk/www/source/img/tortoisesvn_logo_hor468x64.png)
 
 Make sure to also check the [changelog of Subversion](http://svn.apache.org/repos/asf/subversion/trunk/CHANGES).
 
@@ -567,7 +567,7 @@ Make sure to also check the [changelog of Subversion](http://svn.apache.org/repo
             // format version titles as headings
             content = Regex.Replace( content, "(Version [^\\r\\n]*)", "### $0 ###" );
             // convert issues to links
-            content = Regex.Replace( content, "Issue #?(\\d+)", "Issue #[$1](http://code.google.com/p/tortoisesvn/issues/detail?id=$1)" );
+            content = Regex.Replace( content, "Issue #?(\\d+)", "Issue #[$1](https://sourceforge.net/p/tortoisesvn/tickets/$17)" );
             // convert my name to links
             content = Regex.Replace( content, "\\(Stefan\\)", "[(Stefan)](http://tortoisesvn.net/stefan_kueng.html)" );
             // convert the link to the release notes to markdown links
