@@ -70,7 +70,7 @@
                         <li><a href="#incompleteupdate">When I update a working copy, new files are not added!</a></li>
                         <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
-                        <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
+                        <li><a href="#iesecurity">Security warnings when uploading files in Internet Explorer</a></li>
                         <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
                         <li><a href="#debug">Where are the debug symbols?</a></li>
                     </ul>
@@ -154,7 +154,7 @@
                             <li>It's easy to adjust an existing msi for your special needs if you like. There are tools with which you can edit an msi manually. You can't do that with an exe installer.</li>
                             <li>It runs with SYSTEM privileges, not just as e.g. Administrator. That's important because TortoiseSVN is a shell extension which requires us to create and modify registry keys which aren't accessible to user accounts (this is especially important on Vista with UAC enabled).</li>
                             <li>It's easy to distribute an msi to multiple computers/users in a domain via GPO's. All other installers would require a domain admin to first 'wrap' that installer inside an msi to do that.</li>
-                            <li>msi is the standard and recommended way of installing windows applications. It's even <strong>required</strong> now to get the "Certified for Vista" logo from Microsoft.</li>
+                            <li>msi is the standard and recommended way of installing Windows applications. It's even <strong>required</strong> now to get the "Certified for Vista" logo from Microsoft.</li>
                             <li>There's a great open source tool for creating msi files: <a href="http://wixtoolset.org/">WiX</a> which we use.</li>
                             <li>msi takes care of reference counting of installed modules which prevents the so called <a href="http://en.wikipedia.org/wiki/DLL_hell">dll hell</a>.</li>
                             <li>an installer is required since we have to <strong>register</strong> TortoiseSVN with the shell. A simple exe for you to run wouldn't work.</li>
@@ -167,7 +167,7 @@
                         <ul>
                             <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> This means you are trying to install the 64-bit version of TortoiseSVN on a normal 32-bit operating system. You need to download and use the correct msi file for your OS. For normal 32-bit OS, make sure the msi file does not have an <em>x64</em> in it.</li>
                             <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em>Then the user SYSTEM doesn't have read/execution rights in the folder where the installer msi is located. Either move the msi file to another location or give the user SYSTEM read and execution rights.</li>
-                            <li><em>&quot;The windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
+                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
                             <li><em>&quot;The system can not open the device of file specified&quot;</em>, followed usually by <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. This can happen if:
                             <ul>
                                 <li>The installation does not have access to the Temp directory or if the default Temp directory of the machine is not clean or does not have enough space to run the setup.</li>
@@ -234,7 +234,7 @@
                         <div class="h3" id="ovlnotshowing">
                         <h3>Why don't the icon overlays appear?</h3>
                         <ul>
-                            <li>You rebooted your PC of course after the installation? If you haven't please do so now. TortoiseSVN is a windows Explorer Shell extension and will be loaded together with Explorer.</li>
+                            <li>You rebooted your PC of course after the installation? If you haven't please do so now. TortoiseSVN is a Windows Explorer Shell extension and will be loaded together with Explorer.</li>
                             <li>Go to the settings of TSVN and activate the icon overlays for at least the fixed drives. The installer does this automatically for the <em>current</em> user (can't do it for other users...) but since you are using TSVN as a different user than you installed it you need to set this manually.</li>
                         </ul>
                         </div>
@@ -673,11 +673,11 @@ force security mode = 0600</pre>
                         </div>
 
                         <div class="h3" id="iesecurity">
-                        <h3>Security warnings when uploading files in IE</h3>
+                        <h3>Security warnings when uploading files in Internet Explorer</h3>
                         <p>When you select files to upload using a web form in Internet Explorer,
                         you may get security warnings saying that a program is trying to open web content,
                         identifying TortoiseSVN as the culprit.</p>
-                        <p>Don't panic! This is a (mis) feature of the IE security model. Since
+                        <p>Don't panic! This is a (mis) feature of the Internet Explorer security model. Since
                         TortoiseSVN is a shell extension it loads automatically whenever a file-open
                         dialog is created, in order to provide the icon overlays and context menus.</p>
                         There are two ways to stop the warnings:
@@ -776,8 +776,8 @@ force security mode = 0600</pre>
 
                         <div class="h3" id="exportlog">
                         <h3>... export the log out to a text file?</h3>
-                        <p>Use the log dialog. Select all the entries you want and press Ctrl-C. Then
-                        use Ctrl-V (or paste) in your favourite text editor.</p>
+                        <p>Use the log dialog. Select all the entries you want and press <kbd>Ctrl+C</kbd>. Then
+                        use <kbd>Ctrl+V<kbd> (or paste) in your favourite text editor.</p>
                         <p>If you want to process the log messages automatically or you need them in
                         xml format, you can use the command line client for that.</p>
                         </div>
@@ -1068,7 +1068,7 @@ Folder/File2 : revision 2</pre>
                             <li>cp /etc/bashrc .bashrc</li>
                             <li>nano .bashrc</li>
                             <li>put a # before the line "mesg y" (which comments it out)</li>
-                            <li>Ctrl+X to exit, press Y when prompted to save.</li>
+                            <li><kbd>Ctrl+X</kbd> to exit, press <kbd>Y</kbd> when prompted to save.</li>
                         </ul>
                         </div>
 

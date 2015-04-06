@@ -146,7 +146,7 @@
                         <ul>
                             <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> 这是说你试图将64位的TortoiseSVN安装到32位的操作系统上。你需要下载和使用正确的MSI文件。对于32位的操作系统，请确定MSI文件名里没有<em>x64</em>。</li>
                             <li><em>&quot;The installer was interrupted beforeTortoiseSVNcould be installed. You need to restart the installer to try again&quot;</em>然后用户在 MSI 文件的位置就丢掉正确的读和运行的权限。也不能把 MSI 文件移动到其他的地方或者给用户SYSTEM 读和运行的权限</li>
-                            <li><em>&quot;The windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
+                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 Windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
                             <li><em>&quot;The system can not open the device of file specified&quot;</em>, 紧接着通常是 <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. 出现这种错误信息需要:
                                 <ul>
                                     <li>安装程序没有权限访问临时文件夹，或者系统设定的临时文件夹没有清理，或者说没有足够的空间来完成安装。</li>
@@ -443,7 +443,7 @@
 
                         <div class="h3" id="exportlog">
                         <h3>……将日志导出为文本文件？</h3>
-                        <p>使用日志窗口。只需选定你要的条目，按 Ctrl-C，再 Ctrl-V 粘贴到文本编辑器。</p>
+                        <p>使用日志窗口。只需选定你要的条目，按 <kbd>Ctrl+C</kbd>，再 <kbd>Ctrl+V</kbd> 粘贴到文本编辑器。</p>
                         <p>若是需要自动化处理日志信息或者想要XML格式的，你可以使用命令行客户端。</p>
                         </div>
 

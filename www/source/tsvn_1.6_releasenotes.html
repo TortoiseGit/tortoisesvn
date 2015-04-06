@@ -91,8 +91,8 @@
                 <div class="h3" id="bdb-file">
                 <h3>file:/// access to BDB repositories</h3>
                 <p>TortoiseSVN 1.6 no longer supports access to BDB repositories via the
-                file:/// url. This doesn't affect accessing BDB repositories over svn:// or http:// though.</p>
-                <p>If you have a BDB repository that you still access via the file:/// url, you
+                <code>file:///</code> url. This doesn't affect accessing BDB repositories over <code>svn://</code> or <code>http://</code> though.</p>
+                <p>If you have a BDB repository that you still access via the <code>file:///</code> url, you
                 have to convert the repository to the FSFS format with the
                 <a href="http://svnbook.red-bean.com/en/1.5/svn.ref.svnadmin.html">svnadmin</a> tool
                 which is available in the <a href="http://subversion.apache.org/getting.html#windows">SVN command line client</a>.</p>
@@ -172,7 +172,7 @@
                 Of course, those are not all the enhancements/changes that were done for this 1.6
                 release. You can get a more detailed list of changes from the
                 <a href="https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/tags/version_1.6.0/src/Changelog.txt">changelog</a>
-                or by showing the svn log on our repository.
+                or by showing the SVN log on our repository.
                 </p>
                 </div> <!-- misc -->
             </div> <!-- new features -->
@@ -184,9 +184,9 @@
                     <h3>File externals</h3>
                     <p>Subversion 1.6 now supports single file externals as well as folder externals.
                     However, there are some significant issues you should be aware of before using them.</p>
-                    <p>A file external is created by adding a value to the svn:externals property of
+                    <p>A file external is created by adding a value to the <code>svn:externals</code> property of
                     a folder. However, once such a file external has been added it cannot be removed
-                    from the working copy, even if you delete the svn:externals property. The only
+                    from the working copy, even if you delete the <code>svn:externals</code> property. The only
                     way to remove the file from your working copy is to make a fresh checkout.
                     See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3351">Subversion issue #3351</a></p>
                     <p>It is currently not possible to add a binary file as an external.
