@@ -430,9 +430,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
     bDragMode = true;
     if (!m_bSparseCheckoutMode)
     {
-        // 11 dialog units: 7 units left border of the tree control, 4 units between
+        // 10 dialog units: 6 units left border of the tree control, 4 units between
         // the tree and the list control
-        CRect drc(0, 0, 11, 11);
+        CRect drc(0, 0, 10, 10);
         MapDialogRect(&drc);
         HandleDividerMove(CPoint(xPos + drc.right, 10), false);
     }
@@ -4776,9 +4776,10 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
 void CRepositoryBrowser::SaveDividerPosition()
 {
     RECT rc;
-    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+    // use GetWindowRect instead of GetClientRect to account for possible scrollbars.
+    GetDlgItem(IDC_REPOTREE)->GetWindowRect(&rc);
     CRegDWORD xPos(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider");
-    xPos = rc.right-rc.left;
+    xPos = (rc.right - rc.left) - (2 * GetSystemMetrics(SM_CXBORDER));
 }
 
 int CRepositoryBrowser::SortStrCmp( PCWSTR str1, PCWSTR str2 )
