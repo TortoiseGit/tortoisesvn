@@ -139,10 +139,10 @@
 
                         <div class="h3" id="msidisabled">
                         <h3>MSI installation is disabled on my machine. Is there a .exe installer?</h3>
-                        <p>An exe installation file wouldn't help. If msi installation is really disabled
+                        <p>An exe installation file wouldn't help. If MSI installation is really disabled
                         on your machine, then you don't have ADMIN privileges either. And you would need
                         those to install TortoiseSVN (shell extensions require ADMIN rights to install).
-                        But first make sure that msi installation is really disabled - that can only be
+                        But first make sure that MSI installation is really disabled - that can only be
                         if your domain administrator disabled it.</p>
                         </div>
 
@@ -150,13 +150,13 @@
                         <h3>Why are you using MSI instead of an exe or no installer at all?</h3>
                         <p>There are several reasons why we use MSI as our installer instead of something else:</p>
                         <ul>
-                            <li>It's open. Everybody can see what we're doing by using msi tools like Orca.</li>
-                            <li>It's easy to adjust an existing msi for your special needs if you like. There are tools with which you can edit an msi manually. You can't do that with an exe installer.</li>
+                            <li>It's open. Everybody can see what we're doing by using MSI tools like Orca.</li>
+                            <li>It's easy to adjust an existing MSI for your special needs if you like. There are tools with which you can edit an MSI manually. You can't do that with an exe installer.</li>
                             <li>It runs with SYSTEM privileges, not just as e.g. Administrator. That's important because TortoiseSVN is a shell extension which requires us to create and modify registry keys which aren't accessible to user accounts (this is especially important on Vista with UAC enabled).</li>
-                            <li>It's easy to distribute an msi to multiple computers/users in a domain via GPO's. All other installers would require a domain admin to first 'wrap' that installer inside an msi to do that.</li>
-                            <li>msi is the standard and recommended way of installing Windows applications. It's even <strong>required</strong> now to get the "Certified for Vista" logo from Microsoft.</li>
-                            <li>There's a great open source tool for creating msi files: <a href="http://wixtoolset.org/">WiX</a> which we use.</li>
-                            <li>msi takes care of reference counting of installed modules which prevents the so called <a href="http://en.wikipedia.org/wiki/DLL_hell">dll hell</a>.</li>
+                            <li>It's easy to distribute an MSI to multiple computers/users in a domain via GPO's. All other installers would require a domain admin to first 'wrap' that installer inside an MSI to do that.</li>
+                            <li>MSI is the standard and recommended way of installing Windows applications. It's even <strong>required</strong> now to get the "Certified for Vista" logo from Microsoft.</li>
+                            <li>There's a great open source tool for creating MSI files: <a href="http://wixtoolset.org/">WiX</a> which we use.</li>
+                            <li>MSI takes care of reference counting of installed modules which prevents the so called <a href="http://en.wikipedia.org/wiki/DLL_hell">dll hell</a>.</li>
                             <li>an installer is required since we have to <strong>register</strong> TortoiseSVN with the shell. A simple exe for you to run wouldn't work.</li>
                         </ul>
                         </div>
@@ -165,17 +165,17 @@
                         <h3>The installer aborts with an error message</h3>
                         <p>There are several reasons why the installation cannot succeed:</p>
                         <ul>
-                            <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> This means you are trying to install the 64-bit version of TortoiseSVN on a normal 32-bit operating system. You need to download and use the correct msi file for your OS. For normal 32-bit OS, make sure the msi file does not have an <em>x64</em> in it.</li>
-                            <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em>Then the user SYSTEM doesn't have read/execution rights in the folder where the installer msi is located. Either move the msi file to another location or give the user SYSTEM read and execution rights.</li>
-                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
+                            <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> This means you are trying to install the 64-bit version of TortoiseSVN on a normal 32-bit operating system. You need to download and use the correct MSI file for your OS. For normal 32-bit OS, make sure the MSI file does not have an <em>x64</em> in it.</li>
+                            <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em>Then the user SYSTEM doesn't have read/execution rights in the folder where the installer MSI is located. Either move the MSI file to another location or give the user SYSTEM read and execution rights.</li>
+                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the MSI is stored isn't encrypted or compressed)</li>
                             <li><em>&quot;The system can not open the device of file specified&quot;</em>, followed usually by <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. This can happen if:
                             <ul>
                                 <li>The installation does not have access to the Temp directory or if the default Temp directory of the machine is not clean or does not have enough space to run the setup.</li>
                                 <li>The installation is being run over a terminal Server via a mapped network drive.</li>
                                 <li>The installation is unable to create or write to the Installer directory in a Windows NT system environment.</li>
-                                <li>The temp folder and/or the msi file is encrypted/compressed</li>
+                                <li>The temp folder and/or the MSI file is encrypted/compressed</li>
                             </ul>
-                                To solve this problem, clear the temp folder, move the installer msi file to your local harddrive where the user SYSTEM has full access rights. The following knowledge base articles may help:
+                                To solve this problem, clear the temp folder, move the installer MSI file to your local harddrive where the user SYSTEM has full access rights. The following knowledge base articles may help:
                             <ul>
                                 <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;220780">220780</a> OFF2000: Setup Error 2755 with Earlier Office Version Installed</li>
                                 <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;217714">217714</a> OFF2000: Setup Appears to Stop Responding, Followed by Internal Error 2336 or 2755</li>
@@ -184,7 +184,7 @@
                                 <li><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;318080">318080</a> "The system cannot open the device or file specified" error message occurs when you try to install the .NET Framework</li>
                             </ul>
                             </li>
-                            <li><em>&quot;This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.</em> You need at least <a href="http://support.microsoft.com/kb/893803/">version 3 of the msi installer</a>.</li>
+                            <li><em>&quot;This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.</em> You need at least <a href="http://support.microsoft.com/kb/893803/">version 3 of the MSI installer</a>.</li>
                         </ul>
                         </div>
 
@@ -283,18 +283,18 @@
                         are two status fetchings for the same working copy at the same time.</p>
                         <p>There is an easy way to solve this: just exclude the original path from
                         showing overlays (settings->icon overlays->exclude paths).</p>
-                        <p>For example, if you have mapped \\station\folder\wc to g: then put "\\station\folder\wc*" as the exclude pattern.</p>
+                        <p>For example, if you have mapped <code>\\station\folder\wc</code> to <code>g:</code> then put <code>\\station\folder\wc*</code> as the exclude pattern.</p>
                         <p>Another way to make the overlays work is to set the "Status cache" setting from "Default" to "Shell".</p>
                         </div>
 
                         <div class="h3" id="ovlwrong">
                         <h3>Why are the overlays showing the wrong status?</h3>
                         <p>Sometimes you find that the overlays don't reflect the real status of files
-                        and/or folders. Usually, hitting the F5 key is enough to make the overlays appear
+                        and/or folders. Usually, hitting the <kbd>F5</kbd> key is enough to make the overlays appear
                         correctly (you might have to wait a few seconds until the cache has fetched the
                         status again).</p>
                         <p>The treeview on the left side of the explorer is a whole other story. It won't
-                        update the overlays, no matter how many times you hit the F5 key. That's a problem
+                        update the overlays, no matter how many times you hit the <kbd>F5</kbd> key. That's a problem
                         with the explorer and outside of TortoiseSVN's reach.</p>
                         <p>A short explanation: The treeview always shows the whole explorer tree,
                         including network drives and other namespace extensions. Since these can be very
@@ -766,7 +766,7 @@ force security mode = 0600</pre>
 
                         <div class="h3" id="removerepo">
                         <h3>... completely remove a repository from my computer?</h3>
-                        <p>Aehemm: select the folder and hit 'delete' (the key on your keyboard may be labelled only 'del').</p>
+                        <p>Aehemm: select the folder and hit <kbd>Delete</kbd> (the key on your keyboard may be labelled only <kbd>Del</kbd>).</p>
                         <p>Seriously, there are no hidden files or settings. The repository is completely
                         contained in one folder tree.</p>
                         <p>The same applies to working copies. If you send a working copy to the recycle
@@ -846,7 +846,7 @@ force security mode = 0600</pre>
 
                         <div class="h3" id="silentinstall">
                         <h3>... install TortoiseSVN silently/automatically?</h3>
-                        <p>Just start the msi installer like this:</p>
+                        <p>Just start the MSI installer like this:</p>
                         <code>msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"</code>
                         </div>
                     </div>

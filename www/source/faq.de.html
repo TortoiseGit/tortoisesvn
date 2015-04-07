@@ -135,7 +135,7 @@
                         <div class="h3" id="msidisabled">
                         <h3>MSI Installationen sind auf dem Rechner deaktiviert. Gibt es einen .exe Installer?</h3>
                         <p>Ein .exe Installer würde in diesem Fall nicht helfen.
-                        Wenn msi wirklich deaktiviert ist, dann sind auch
+                        Wenn MSI wirklich deaktiviert ist, dann sind auch
                         Administratorrechte nicht vorhanden und TortoiseSVN kann
                         dann nicht installiert werden (Shell-Erweiterungen
                         erforden zwingend Admin-Rechte zur Installation).</p>
@@ -161,8 +161,8 @@
                         <p>Es gibt mehrere Gründe warum eine Installation nicht erfolgreich durchläuft:</p>
                         <ul>
                             <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> Dies bedeutet dass die 64-bit Version von TortoiseSVN auf einem 32-bit Betriebssystem installiert wird. Für ein 32-bit Betriebssystem muss die 32-bit Version von TortoiseSVN installiert werden. Der 32-bit Installer von TortoiseSVN hat nicht ein 'x64' im Dateinamen!</li>
-                            <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em> Der Account SYSTEM hat keine Lese/Ausführrechte für den Ordner, wo der msi Installer liegt. Entweder verschieben Sie die msi Datei an einen anderen Ort und versuchen Sie die Installation erneut, oder fügen Sie den Account SYSTEM mit Lese- und Ausführrechten dem Ordner hinzu.</li>
-                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> Dies kann vorkommen wenn Windows im abgesicherten Modus ausgeführt wird oder der Installer-Service selbst nicht korrekt installiert ist. Für diesen Fehler lesen Sie den Microsoft Knowledgebase Artikel: <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a>. Kurz: Der Ordner wo die msi-Datei liegt darf nicht komprimiert oder verschlüsselt sein.</li>
+                            <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em> Der Account SYSTEM hat keine Lese/Ausführrechte für den Ordner, wo der MSI Installer liegt. Entweder verschieben Sie die MSI Datei an einen anderen Ort und versuchen Sie die Installation erneut, oder fügen Sie den Account SYSTEM mit Lese- und Ausführrechten dem Ordner hinzu.</li>
+                            <li><em>&quot;The Windows installer service could not be accessed&quot;</em> Dies kann vorkommen wenn Windows im abgesicherten Modus ausgeführt wird oder der Installer-Service selbst nicht korrekt installiert ist. Für diesen Fehler lesen Sie den Microsoft Knowledgebase Artikel: <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a>. Kurz: Der Ordner wo die MSI-Datei liegt darf nicht komprimiert oder verschlüsselt sein.</li>
                             <li><em>&quot;The system can not open the device of file specified&quot;</em>, normalerweise gefolgt von <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. Dies kann auftreten wenn:
                             <ul>
                                 <li>Die Installation hat keinen Zugriff auf das Temp-Verzeichnis oder wenn das Standard Temp-Verzeichnis des Computers nicht genug Platz hat.</li>

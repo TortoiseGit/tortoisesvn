@@ -1,7 +1,7 @@
 @@include("_includes/header.html", {
     "title": "Problems with upgrading",
     "metaDescription": "<meta name=\"description\" content=\"problems when upgrading TortoiseSVN from older versions\">",
-    "metaKeywords": "<meta name=\"keywords\" content=\"upgrade, msi, wix\">"
+    "metaKeywords": "<meta name=\"keywords\" content=\"upgrade, MSI, WiX\">"
 })
 <body>
 <div class="wrapper">
@@ -32,7 +32,7 @@
 
                     <p>Now the technical details:</p>
                     <p>TortoiseSVN uses <a href="http://wixtoolset.org/">WiX</a>
-                    to create the msi installer. MSI has a built in mechanism
+                    to create the MSI installer. MSI has a built in mechanism
                     for upgrading packages. In TortoiseSVN, we always use
                     the <a href="http://msdn.microsoft.com/en-us/library/aa370579%28VS.85%29.aspx">major upgrade</a>.</p>
 
@@ -51,15 +51,15 @@
                     make sure that even when upgrading, nothing old and unused
                     is left lying around.</p>
 
-                    <p>When upgrading, msi doesn't just upgrade unconditionally
+                    <p>When upgrading, MSI doesn't just upgrade unconditionally
                     but first checks whether a component actually needs upgrading.
-                    To help msi check whether an upgrade is necessary, each component
+                    To help MSI check whether an upgrade is necessary, each component
                     has a <a href="http://robmensching.com/blog/posts/2003/10/4/Windows-Installer-Components-Introduction">keypath</a>.
                     A keypath is usually a file or a registry key. In case of a
-                    file, msi uses the file's version info and/or the filedate
+                    file, MSI uses the file's version info and/or the filedate
                     to determine whether to upgrade or not and whether the
                     component is already installed or not. If the keypath points
-                    to a registry key, msi can only determine whether the
+                    to a registry key, MSI can only determine whether the
                     component is already installed or not, since a registry key
                     has no version info and no date.</p>
 
@@ -71,33 +71,33 @@
                     keypath of that component is a registry key.</p>
                     <p>Now here's what happened when you upgraded to version 1.6.8:</p>
                     <ol>
-                        <li>msi starts</li>
+                        <li>MSI starts</li>
                         <li>it detects the older version and all old components,
                         also whether a component needs updating or not. </li>
-                        <li>msi installs the new version. All components that
+                        <li>MSI installs the new version. All components that
                         need upgrading are upgraded/installed. And here's the
                         problem: components that have a registry key as the
                         keypath are not upgraded if that keypath already exists!</li>
                         <li>After the installation of the new components is done,
-                        msi removes all old components. Of course, the
+                        MSI removes all old components. Of course, the
                         components that were upgraded are not removed since
                         they are now newer than the one it has to remove.</li>
                     </ol>
                     <p>As you can see, the problem with version 1.6.8 was in
                     step 3. The old component was left in place in the upgrade.
-                    Doing a repair install forces msi to reinstall all components
+                    Doing a repair install forces MSI to reinstall all components
                     in step 3, so that fixed the problem.</p>
-                    <p>So I thought to fix the problem in our msi, scheduling
+                    <p>So I thought to fix the problem in our MSI, scheduling
                     the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
                     action after the InstallValidate action was all that's
                     needed. Which leads to the following install steps in
                     version 1.6.9:</p>
                     <ol>
-                        <li>msi starts</li>
+                        <li>MSI starts</li>
                         <li>it detects the older version and all old components,
                         also whether a component needs updating or not. </li>
-                        <li>msi removes all components of the previous version</li>
-                        <li>msi installs the new version. All components are
+                        <li>MSI removes all components of the previous version</li>
+                        <li>MSI installs the new version. All components are
                         installed since the older components were just removed.
                         So even components that have a registry key as the
                         keypath get properly upgraded.</li>
@@ -122,7 +122,7 @@
 
                     <p>So that's what I did now: I moved all registry entries
                     to components that have a file as the keypath, and a file
-                    that has version info. That way, msi detects the version
+                    that has version info. That way, MSI detects the version
                     and always installs the new version. And of course I've
                     rescheduled the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
                     action to run after the InstallFinalize action to avoid the
@@ -140,7 +140,7 @@
                     entries as were installed in step 3, they're gone now.</p>
                     <p>To sum up: the problems we have were due to my mistake
                     of using registry keys as keypaths for components. There's
-                    no way to fix this in msi so that upgrades from older
+                    no way to fix this in MSI so that upgrades from older
                     versions (which had this mistake built in) work. But it
                     will work again properly for upgrades with versions that
                     don't have that mistake anymore. That means once you have
