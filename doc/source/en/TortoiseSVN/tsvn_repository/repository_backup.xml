@@ -17,20 +17,16 @@
     repository folder onto the backup medium. However, you have
     to be absolutely sure that no process is accessing the data.
     In this context, access means <emphasis>any</emphasis>
-    access at all. A BDB repository is written to even when
-    the operation only appears to require reading, such as getting
-    status. If your repository is accessed at all during the copy,
+    access at all. If your repository is accessed at all during the copy,
     (web browser left open, WebSVN, etc.) the backup will be worthless.
   </para>
   <para>
     The recommended method is to run
     <screen>
-svnadmin hotcopy path/to/repository path/to/backup --clean-logs
+svnadmin hotcopy path/to/repository path/to/backup
     </screen>
     to create a copy of your repository in a safe manner. Then backup
-    the copy. The <literal>--clean-logs</literal> option is not
-    required, but removes any redundant log files when you backup
-    a BDB repository, which may save some space.
+    the copy.
   </para>
   <para>
     The <literal>svnadmin</literal> tool is installed automatically
