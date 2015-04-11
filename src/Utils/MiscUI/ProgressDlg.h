@@ -182,4 +182,5 @@ protected:
     DWORD               m_dwDlgFlags;
     HWND                m_hWndProgDlg;
     HWND                m_hWndParent;
+    HWND                m_hWndFocus;
 };
