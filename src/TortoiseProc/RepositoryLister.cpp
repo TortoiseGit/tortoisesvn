@@ -41,11 +41,11 @@ CRegDWORD fetchingLocksEnabled(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", T
 CRepositoryLister::CQuery::CQuery
     ( const CTSVNPath& path
     , const SVNRev& pegRevision
-    , bool complete
+    , apr_uint32_t dirent
     , const SRepositoryInfo& repository)
     : path (path)
     , pegRevision (pegRevision)
-    , complete (complete)
+    , dirent (dirent)
     , repository (repository)
 {
 }
@@ -101,7 +101,6 @@ BOOL CRepositoryLister::CListQuery::ReportList
     , svn_node_kind_t kind
     , svn_filesize_t size
     , bool has_props
-    , bool complete
     , svn_revnum_t created_rev
     , apr_time_t time
     , const CString& author
@@ -136,7 +135,6 @@ BOOL CRepositoryLister::CListQuery::ReportList
         , kind
         , size
         , has_props
-        , complete
         , created_rev
         , time
         , author
@@ -171,8 +169,8 @@ void CRepositoryLister::CListQuery::InternalExecute()
                , GetRevision()
                , GetPegRevision()
                , svn_depth_immediates
-               , complete && fetchLocks     // only fetch locks if we also fetch all list properties
-               , complete
+               , fetchLocks
+               , dirent
                , false))
     {
         // something went wrong or query was cancelled
@@ -234,11 +232,11 @@ CRepositoryLister::CListQuery::CListQuery
     ( const CTSVNPath& path
     , const SVNRev& pegRevision
     , const SRepositoryInfo& repository
-    , bool complete
+    , apr_uint32_t dirent
     , bool includeExternals
     , bool runSilently
     , async::CJobScheduler* scheduler)
-    : CQuery (path, pegRevision, complete, repository)
+    : CQuery (path, pegRevision, dirent, repository)
     , SVN (runSilently)
     , externalsQuery
         (includeExternals
@@ -362,7 +360,6 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                       // actually, we don't know for sure whether the target
                       // URL has props but its the safe default to say 'yes'
                     , true
-                    , true
                       // explicit revision, HEAD or DATE
                     , external->revision.kind == svn_opt_revision_number
                         ? external->revision.value.number
@@ -467,7 +464,7 @@ void CRepositoryLister::Enqueue
     ( const CString& url
     , const SVNRev& pegRev
     , const SRepositoryInfo& repository
-    , bool complete
+    , apr_uint32_t dirent
     , bool includeExternals
     , bool runSilently)
 {
@@ -565,7 +562,7 @@ void CRepositoryLister::Enqueue
     queries[key] = new CListQuery ( escapedURL
                                     , pegRev
                                     , repository
-                                    , complete
+                                    , dirent
                                     , includeExternals
                                     , runSilently
                                     , &scheduler);
@@ -703,12 +700,12 @@ CRepositoryLister::CListQuery* CRepositoryLister::FindQuery
     ( const CString& url
     , const SVNRev& pegRev
     , const SRepositoryInfo& repository
-    , bool complete
+    , apr_uint32_t dirent
     , bool includeExternals)
 {
     // ensure there is a suitable query
 
-    Enqueue (url, pegRev, repository, complete, includeExternals, false);
+    Enqueue (url, pegRev, repository, dirent, includeExternals, false);
 
     // return that query
 
@@ -720,7 +717,7 @@ CString CRepositoryLister::GetList
     ( const CString& url
     , const SVNRev& pegRev
     , const SRepositoryInfo& repository
-    , bool complete
+    , apr_uint32_t dirent
     , bool includeExternals
     , std::deque<CItem>& items
     , CString& redirUrl)
@@ -729,7 +726,7 @@ CString CRepositoryLister::GetList
 
     // find that query
 
-    CListQuery* query = FindQuery (url, pegRev, repository, complete, includeExternals);
+    CListQuery* query = FindQuery (url, pegRev, repository, dirent, includeExternals);
     if (query == NULL)
     {
         // something went very wrong.

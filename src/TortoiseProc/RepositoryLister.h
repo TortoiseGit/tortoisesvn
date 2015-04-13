@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2014 - TortoiseSVN
+// Copyright (C) 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,7 +66,6 @@ public:
         : kind(svn_node_none)
         , size(0)
         , has_props(false)
-        , complete(false)
         , is_external(false)
         , external_position(-1)
         , created_rev(SVN_IGNORED_REVNUM)
@@ -83,7 +82,6 @@ public:
         , svn_node_kind_t kind
         , svn_filesize_t size
         , bool has_props
-        , bool complete
         , svn_revnum_t created_rev
         , apr_time_t time
         , const CString& author
@@ -101,7 +99,6 @@ public:
         , kind (kind)
         , size (size)
         , has_props (has_props)
-        , complete (complete)
         , is_external (!external_rel_path.IsEmpty())
         , external_position (is_external ? Levels (external_rel_path) : -1)
         , created_rev (created_rev)
@@ -133,7 +130,6 @@ public:
     svn_filesize_t      size;
     bool                has_props;
     bool                is_external;
-    bool                complete;
     bool                unversioned;
 
     /// number of levels up the local path hierarchy to find the external spec.
@@ -171,7 +167,7 @@ private:
         /// qeuery parameters
 
         CTSVNPath path;
-        bool complete;
+        apr_uint32_t dirent;
         SVNRev pegRevision;
 
         /// additional qeuery parameters
@@ -205,7 +201,7 @@ private:
 
         CQuery ( const CTSVNPath& path
                , const SVNRev& pegRevision
-               , bool complete
+               , apr_uint32_t dirent
                , const SRepositoryInfo& repository);
 
         /// parameter access
@@ -276,7 +272,7 @@ private:
         /// callback from the SVN::List() method which stores all the information
 
         virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
-            svn_filesize_t size, bool has_props, bool complete, svn_revnum_t created_rev,
+            svn_filesize_t size, bool has_props, svn_revnum_t created_rev,
             apr_time_t time, const CString& author, const CString& locktoken,
             const CString& lockowner, const CString& lockcomment,
             bool is_dav_comment, apr_time_t lock_creationdate,
@@ -304,7 +300,7 @@ private:
         CListQuery ( const CTSVNPath& path
                    , const SVNRev& pegRevision
                    , const SRepositoryInfo& repository
-                   , bool complete
+                   , apr_uint32_t dirent
                    , bool includeExternals
                    , bool runSilently
                    , async::CJobScheduler* scheduler);
@@ -390,7 +386,7 @@ private:
         ( const CString& url
         , const SVNRev& pegRev
         , const SRepositoryInfo& repository
-        , bool complete
+        , apr_uint32_t dirent
         , bool includeExternals);
 
     /// copy copying supported
@@ -419,7 +415,7 @@ public:
     void Enqueue ( const CString& url
                  , const SVNRev& pegRev
                  , const SRepositoryInfo& repository
-                 , bool complete
+                 , apr_uint32_t dirent
                  , bool includeExternals
                  , bool runSilently = true);
 
@@ -466,7 +462,7 @@ public:
     CString GetList ( const CString& url
                     , const SVNRev& pegRev
                     , const SRepositoryInfo& repository
-                    , bool complete
+                    , apr_uint32_t dirent
                     , bool includeExternals
                     , std::deque<CItem>& items
                     , CString& redirUrl);

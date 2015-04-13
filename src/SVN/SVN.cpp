@@ -105,7 +105,6 @@ SVN::SVN(bool suppressUI)
     , m_commitRev(-1)
     , m_prompt(suppressUI)
     , m_pbCancel(nullptr)
-    , m_bListComplete(false)
     , m_progressWndIsCProgress(false)
     , progress_averagehelper(0)
     , progress_lastTicks(0)
@@ -187,7 +186,7 @@ BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision
                         const CStringA& log_msg, const CStringA& merged_log_msg) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
-                     svn_filesize_t size, bool has_props, bool complete,
+                     svn_filesize_t size, bool has_props,
                      svn_revnum_t created_rev, apr_time_t time,
                      const CString& author, const CString& locktoken,
                      const CString& lockowner, const CString& lockcomment,
@@ -1709,7 +1708,6 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
                                   dirent->kind,
                                   dirent->size,
                                   !!dirent->has_props,
-                                  svn->m_bListComplete,
                                   dirent->created_rev,
                                   dirent->time,
                                   CUnicodeUtils::GetUnicode(dirent->last_author),
@@ -1978,20 +1976,20 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
     return ret;
 }
 
-bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete, bool includeExternals)
+bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, apr_uint32_t dirents, bool includeExternals)
 {
     SVNPool subpool(pool);
     Prepare();
 
     const char* svnPath = url.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(url));
-    m_bListComplete = complete;
+    static const apr_uint32_t direntAllExceptHasProps = (SVN_DIRENT_KIND | SVN_DIRENT_SIZE | SVN_DIRENT_CREATED_REV | SVN_DIRENT_TIME | SVN_DIRENT_LAST_AUTHOR);
     SVNTRACE (
         Err = svn_client_list3(svnPath,
                                pegrev,
                                revision,
                                depth,
-                               complete ? SVN_DIRENT_ALL : 0,
+                               dirents,
                                fetchlocks,
                                includeExternals,
                                listReceiver,

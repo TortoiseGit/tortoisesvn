@@ -91,7 +91,7 @@ public:
                             const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
     virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
     virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
-                            svn_filesize_t size, bool has_props, bool complete,
+                            svn_filesize_t size, bool has_props,
                             svn_revnum_t created_rev, apr_time_t time,
                             const CString& author,
                             const CString& locktoken, const CString& lockowner,
@@ -677,7 +677,7 @@ public:
      * If \c fetchlocks is true, include locks when reporting directory entries.
      * \return TRUE if successful
      */
-    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete, bool includeExternals);
+    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, apr_uint32_t dirents, bool includeExternals);
 
     /**
      * Relocates a working copy to a new/changes repository URL. Use this function
@@ -975,7 +975,6 @@ protected:
     SVNPrompt                   m_prompt;
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
     bool *                      m_pbCancel;
-    bool                        m_bListComplete;///< used for the List() command
     CTSVNPath                   m_redirectedUrl;///< the target url in case of a redirect
     svn_wc_conflict_kind_t      m_resolvekind;  ///< resolve kind for the conflict resolver callback
     svn_wc_conflict_choice_t    m_resolveresult;///< resolve result for the conflict resolver callback

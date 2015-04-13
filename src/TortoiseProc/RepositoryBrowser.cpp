@@ -60,6 +60,9 @@
 
 #define OVERLAY_EXTERNAL        1
 
+static const apr_uint32_t direntAllExceptHasProps = (SVN_DIRENT_KIND | SVN_DIRENT_SIZE | SVN_DIRENT_CREATED_REV | SVN_DIRENT_TIME | SVN_DIRENT_LAST_AUTHOR);
+
+
 bool CRepositoryBrowser::s_bSortLogical = true;
 
 enum RepoBrowserContextMenuCommands
@@ -566,7 +569,7 @@ void CRepositoryBrowser::InitRepo()
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, false, false, dummy, redirectedUrl);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, 0, false, dummy, redirectedUrl);
 
     if (!redirectedUrl.IsEmpty() && svn_path_is_url(CUnicodeUtils::GetUTF8(m_InitialUrl)))
         m_InitialUrl = CPathUtils::PathUnescape(redirectedUrl);
@@ -582,7 +585,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, false, false, dummy, redirectedUrl);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, 0, false, dummy, redirectedUrl);
     }
 
     // exit upon cancel
@@ -601,7 +604,7 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, pegRev, m_repository, false, !m_bSparseCheckoutMode && m_bShowExternals);
+            m_lister.Enqueue (path, pegRev, m_repository, 0, !m_bSparseCheckoutMode && m_bShowExternals);
         }
     }
 
@@ -1398,7 +1401,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                             ? pTreeItem->repository.peg_revision
                                             : SVNRev()
                                             , pTreeItem->repository
-                                            , true
+                                            , !m_bSparseCheckoutMode && m_bShowExternals ? SVN_DIRENT_ALL : direntAllExceptHasProps
                                             , !m_bSparseCheckoutMode && m_bShowExternals
                                             , children
                                             , redirectedUrl);
@@ -1422,7 +1425,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                 m_lister.Enqueue(item.absolutepath
                                  , item.is_external ? item.repository.peg_revision : SVNRev()
                                  , item.repository
-                                 , true
+                                 , !m_bSparseCheckoutMode && m_bShowExternals ? SVN_DIRENT_ALL : direntAllExceptHasProps
                                  , item.has_props && !m_bSparseCheckoutMode && m_bShowExternals);
                 if (childfoldercount > 30)
                     break;
@@ -1608,7 +1611,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                         tvitem.cChildren = 1;
                         m_RepoTree.SetItem(&tvitem);
                     }
-                    CItem manualItem(currentPath.Mid (currentPath.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, false, -1, 0, L"", L"", L"", L"", false, 0, 0, currentPath, pTreeItem->repository);
+                    CItem manualItem(currentPath.Mid (currentPath.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, -1, 0, L"", L"", L"", L"", false, 0, 0, currentPath, pTreeItem->repository);
                     node = AutoInsert (node, manualItem);
                 }
                 else
@@ -1632,7 +1635,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                 m_lister.Enqueue(pTreeItem->url
                                  , pTreeItem->is_external ? pTreeItem->repository.peg_revision : SVNRev()
                                  , pTreeItem->repository
-                                 , true
+                                 , !m_bSparseCheckoutMode && m_bShowExternals ? SVN_DIRENT_ALL : direntAllExceptHasProps
                                  , !m_bSparseCheckoutMode && m_bShowExternals);
             }
         }
@@ -1843,7 +1846,7 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
                 m_lister.Enqueue(item.absolutepath
                                  , item.is_external ? item.repository.peg_revision : SVNRev()
                                  , item.repository
-                                 , true
+                                 , !m_bSparseCheckoutMode && m_bShowExternals ? SVN_DIRENT_ALL : direntAllExceptHasProps
                                  , item.has_props && !m_bSparseCheckoutMode && m_bShowExternals);
                 if (childfoldercount > 30)
                     break;
@@ -4837,7 +4840,7 @@ void CRepositoryBrowser::SetListItemInfo( int index, const CItem * it )
     // pointer to the CItem structure
     m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
 
-    if (!it->complete || it->unversioned)
+    if (it->unversioned)
         return;
 
     // revision
@@ -4900,7 +4903,7 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
             COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
-            if (pItem && (!pItem->complete || pItem->unversioned))
+            if (pItem && pItem->unversioned)
             {
                 crText = GetSysColor(COLOR_GRAYTEXT);
             }
