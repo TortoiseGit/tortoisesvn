@@ -143,7 +143,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "File patches"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_TABSTOP,0,0,131,184
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_TABSTOP,0,0,131,184
     PUSHBUTTON      "Patch &selected item",IDC_PATCHSELECTEDBUTTON,0,189,132,14,WS_DISABLED
     PUSHBUTTON      "Patch &all items",IDC_PATCHALLBUTTON,0,206,132,14
 END
@@ -1214,6 +1214,14 @@ BEGIN
     IDS_TEXTIDENTICAL_WHITESPACE "Whitespace changes (tabs, spaces)"
     IDS_TEXTIDENTICAL_ENCODING "Encoding"
     IDS_TEXTIDENTICAL_EOL   "Newlines"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_PATH                "Path"
+    IDS_STATE               "State"
+    IDS_STATE_ERROR         "failed hunks: %d"
+    IDS_STATE_PATCHED       "patched"
 END
 
 #endif    // English (United States) resources
