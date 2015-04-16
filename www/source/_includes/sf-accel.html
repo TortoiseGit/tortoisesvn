@@ -71,15 +71,13 @@
 
         var elementList = document.querySelectorAll('.content a[href^="https://downloads.sourceforge.net/tortoisesvn/"]');
 
-        //if (elementList) {
-            Array.prototype.forEach.call(elementList, function(el) {
-                var className = 'sourceforge_accelerator_link';
-                if (el.classList) {
-                    el.classList.add(className);
-                } else {
-                  el.className += ' ' + className;
-                }
-            });
-        //}
+        Array.prototype.forEach.call(elementList, function(el) {
+            var className = 'sourceforge_accelerator_link';
+            if (el.classList) {
+                el.classList.add(className);
+            } else {
+              el.className += ' ' + className;
+            }
+        });
     }());
 </script>
