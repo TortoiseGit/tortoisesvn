@@ -96,6 +96,7 @@ bool DropCopyCommand::Execute()
             {
                 if ((msgRet != IDYESTOALL) && (msgRet != IDNOTOALL))
                 {
+                    progress.Stop();
                     // target file already exists. Ask user if he wants to replace the file
                     CString sReplace;
                     sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
@@ -113,9 +114,15 @@ bool DropCopyCommand::Execute()
                     taskdlg.SetMainIcon(TD_WARNING_ICON);
                     INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
                     if (ret == 1) // replace
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYES : IDYESTOALL;
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYESTOALL : IDYES;
                     else
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNO : IDNOTOALL;
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNOTOALL : IDNO;
+
+                    progress.EnsureValid();
+                    progress.SetTitle(IDS_PROC_COPYING);
+                    progress.SetTime(true);
+                    progress.SetProgress(count, pathList.GetCount());
+                    progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
                 }
 
                 if ((msgRet == IDYES) || (msgRet == IDYESTOALL))
@@ -126,6 +133,7 @@ bool DropCopyCommand::Execute()
                     }
                     if (!svn.Copy(CTSVNPathList(pathList[nPath]), fullDropPath, SVNRev::REV_WC, SVNRev()))
                     {
+                        progress.Stop();
                         svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                         return FALSE;       //get out of here
                     }
@@ -133,6 +141,7 @@ bool DropCopyCommand::Execute()
             }
             else
             {
+                progress.Stop();
                 svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
                 return FALSE;       //get out of here
             }
@@ -142,6 +151,8 @@ bool DropCopyCommand::Execute()
             INT_PTR ret = 0;
             if (msgRetNonversioned == 0)
             {
+                progress.Stop();
+
                 CString sReplace;
                 sReplace.Format(IDS_PROC_MOVEUNVERSIONED_TASK1, fullDropPath.GetWinPath());
                 CTaskDialog taskdlg(sReplace,
@@ -159,6 +170,12 @@ bool DropCopyCommand::Execute()
                 ret = taskdlg.DoModal(GetExplorerHWND());
                 if (taskdlg.GetVerificationCheckboxState())
                     msgRetNonversioned = ret;
+
+                progress.EnsureValid();
+                progress.SetTitle(IDS_PROC_COPYING);
+                progress.SetTime(true);
+                progress.SetProgress(count, pathList.GetCount());
+                progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
             }
             else
             {

@@ -72,6 +72,8 @@ bool DropMoveCommand::Execute()
         {
             if (destPath.Exists())
             {
+                progress.Stop();
+
                 CString name = pathList[nPath].GetFileOrDirectoryName();
                 if (!sNewName.IsEmpty())
                     name = sNewName;
@@ -86,6 +88,12 @@ bool DropMoveCommand::Execute()
                     return FALSE;
                 }
                 destPath.SetFromWin(droppath+L"\\"+dlg.m_name);
+
+                progress.EnsureValid();
+                progress.SetTitle(IDS_PROC_MOVING);
+                progress.SetTime(true);
+                progress.SetProgress(count, pathList.GetCount());
+                progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
             }
         }
         if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
@@ -94,6 +102,7 @@ bool DropMoveCommand::Execute()
             {
                 if ((msgRet != IDYESTOALL) && (msgRet != IDNOTOALL))
                 {
+                    progress.Stop();
                     // target file already exists. Ask user if he wants to replace the file
                     CString sReplace;
                     sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
@@ -111,9 +120,15 @@ bool DropMoveCommand::Execute()
                     taskdlg.SetMainIcon(TD_WARNING_ICON);
                     INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
                     if (ret == 1) // replace
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYES : IDYESTOALL;
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYESTOALL : IDYES;
                     else
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNO : IDNOTOALL;
+                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNOTOALL : IDNO;
+
+                    progress.EnsureValid();
+                    progress.SetTitle(IDS_PROC_MOVING);
+                    progress.SetTime(true);
+                    progress.SetProgress(count, pathList.GetCount());
+                    progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
                 }
 
                 if ((msgRet == IDYES) || (msgRet == IDYESTOALL))
@@ -124,6 +139,7 @@ bool DropMoveCommand::Execute()
                     }
                     if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
                     {
+                        progress.Stop();
                         svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                         return FALSE;       //get out of here
                     }
@@ -135,6 +151,8 @@ bool DropMoveCommand::Execute()
                 INT_PTR ret = 0;
                 if (msgRetNonversioned == 0)
                 {
+                    progress.Stop();
+
                     CString sReplace;
                     sReplace.Format(IDS_PROC_MOVEUNVERSIONED_TASK1, destPath.GetWinPath());
                     CTaskDialog taskdlg(sReplace,
@@ -152,6 +170,12 @@ bool DropMoveCommand::Execute()
                     ret = taskdlg.DoModal(GetExplorerHWND());
                     if (taskdlg.GetVerificationCheckboxState())
                         msgRetNonversioned = ret;
+
+                    progress.EnsureValid();
+                    progress.SetTitle(IDS_PROC_MOVING);
+                    progress.SetTime(true);
+                    progress.SetProgress(count, pathList.GetCount());
+                    progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
                 }
                 else
                 {
@@ -166,6 +190,7 @@ bool DropMoveCommand::Execute()
                         MoveFile(pathList[nPath].GetWinPath(), destPath.GetWinPath());
                         if (!svn.Add(CTSVNPathList(destPath), NULL, svn_depth_infinity, true, false, false, false))
                         {
+                            progress.Stop();
                             svn.ShowErrorDialog(GetExplorerHWND(), destPath);
                             return FALSE;       //get out of here
                         }
@@ -177,6 +202,7 @@ bool DropMoveCommand::Execute()
             }
             else
             {
+                progress.Stop();
                 svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                 return FALSE;       //get out of here
             }

@@ -105,6 +105,7 @@ bool DropVendorCommand::Execute()
             {
                 if (!CopyFile(srcPath, dstPath, FALSE))
                 {
+                    progress.Stop();
                     CFormatMessageWrapper error;
                     CString sErr;
                     sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
@@ -125,6 +126,7 @@ bool DropVendorCommand::Execute()
                         CString dstsrc = droppath + L"\\" + v->first;
                         if (!svn.Move(CTSVNPathList(CTSVNPath(dstsrc)), CTSVNPath(dstPath)))
                         {
+                            progress.Stop();
                             svn.ShowErrorDialog(GetExplorerHWND());
                             return FALSE;
                         }
@@ -132,6 +134,7 @@ bool DropVendorCommand::Execute()
                         {
                             if (!CopyFile(srcPath, dstPath, FALSE))
                             {
+                                progress.Stop();
                                 CFormatMessageWrapper error;
                                 CString sErr;
                                 sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
@@ -167,6 +170,7 @@ bool DropVendorCommand::Execute()
                 {
                     if (!CopyFile(srcPath, dstPath, FALSE))
                     {
+                        progress.Stop();
                         CFormatMessageWrapper error;
                         CString sErr;
                         sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
@@ -178,6 +182,7 @@ bool DropVendorCommand::Execute()
                     CreateDirectory(dstPath, NULL);
                 if (!svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true))
                 {
+                    progress.Stop();
                     svn.ShowErrorDialog(progress.GetHwnd());
                     return FALSE;
                 }
@@ -206,6 +211,7 @@ bool DropVendorCommand::Execute()
         }
         if (!svn.Remove(CTSVNPathList(delpath), true, false))
         {
+            progress.Stop();
             svn.ShowErrorDialog(progress.GetHwnd());
             return FALSE;
         }
