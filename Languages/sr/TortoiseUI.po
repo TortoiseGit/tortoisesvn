@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-03-24 09:32+0000\n"
+"PO-Revision-Date: 2015-04-17 08:26+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -7019,7 +7019,7 @@ msgstr "Нови мени"
 
 #. Resource IDs: (78)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "Нова грана/знак још није учитана, покушава се пребацивање..."
 
 #. Resource IDs: (95)
 msgid "New name must not be empty or the same as the original name!"
@@ -9857,6 +9857,10 @@ msgstr "Покреће алат стапања где можете решити 
 msgid "Starts the property dialog where you can edit the property manually."
 msgstr "Покреће особени дијалог где можете уредити особине ручно."
 
+#. Resource IDs: (170)
+msgid "State"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Статички"
@@ -11693,7 +11697,7 @@ msgstr "Чекај да скрипт заврши"
 
 #. Resource IDs: (66)
 msgid "Waiting for monitoring thread to finish..."
-msgstr ""
+msgstr "Чека се да се нит надгледања заврши..."
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
@@ -12226,6 +12230,11 @@ msgstr "врста краја линија"
 msgid "external"
 msgstr "спољно"
 
+#. Resource IDs: (170)
+#, c-format
+msgid "failed hunks: %d"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "Фајл спољни:"
@@ -12416,6 +12425,10 @@ msgstr "или"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "упарене речи:"
+
+#. Resource IDs: (170)
+msgid "patched"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "path elements: "

@@ -19,6 +19,7 @@
 # Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
+# Le Gall Nicolas <nicolaslegall34@gmail.com>, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Philippe <kissifrot@gmail.com>, 2014
 # ShevAbam, 2015
@@ -28,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-03-17 09:59+0000\n"
+"PO-Revision-Date: 2015-04-17 08:27+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -302,7 +303,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "Bien que la plupart des gens ne font que télécharger l'installateur, vous avez également un accès complet au code source de ce programme. Vous pouvez y accéder par ce lien <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. La version en cours de développement est située dans <filename>/trunk/</filename>, et les versions publiées sont situées dans <filename>/tags/</filename>."
+msgstr ""
 
 #. (title)
 msgid "Development"
@@ -12165,7 +12166,7 @@ msgstr "Pour la même raison, les propriétés du projet ne seront pas propagée
 msgid ""
 "This issue tracker integration is not restricted to TortoiseSVN; it can be "
 "used with any Subversion client. For more information, read the full <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue"
+"url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue"
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
@@ -12192,10 +12193,10 @@ msgid ""
 "program is beyond the scope of this manual. The interface definition and "
 "sample plugins in C# and C++/ATL can be obtained from the "
 "<literal>contrib</literal> folder in the <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-"
-"plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
-"linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A "
-"summary of the API is also given in <xref linkend=\"tsvn-"
+"url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-"
+"tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. "
+"(<xref linkend=\"tsvn-preface-source\"/> explains how to access the "
+"repository.) A summary of the API is also given in <xref linkend=\"tsvn-"
 "ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink "
 "url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>"
 " which implements the required COM interface to interact with the <ulink "
@@ -14510,7 +14511,7 @@ msgstr "Normalement vous souhaitez masquer les boîtes DOS lorsque le script s'e
 msgid ""
 "Sample client hook scripts can be found in the <literal>contrib</literal> "
 "folder in the <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-"
+"url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
@@ -15325,6 +15326,12 @@ msgid ""
 "read when you select another project."
 msgstr ""
 
+#. (para)
+msgid ""
+"If you hold down the <keycap>Shift</keycap> key when clicking the button, "
+"all error states are also cleared if there are any."
+msgstr ""
+
 #. (term)
 msgid "Update all"
 msgstr "Tout mettre à jour"
@@ -15972,7 +15979,7 @@ msgid ""
 "char *Mixed         = \"Mixed revision WC\";\n"
 "char *ExtAllFixed   = \"All externals fixed\";\n"
 "char *IsTagged      = \"Not tagged\";\n"
-"char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
+"char *URL           = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\n"
 "char *isInSVN       = \"versioned\";\n"
 "char *needslck      = \"FALSE\";\n"
 "char *islocked      = \"not locked\";\n"
@@ -16717,11 +16724,11 @@ msgstr ""
 #. (para)
 msgid ""
 "We also maintain a project <ulink "
-"url=\"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\"><citetitle>Issue"
-" Tracker</citetitle></ulink> which tells you about some of the things we "
-"have on our To-Do list, and bugs which have already been fixed. If you think"
-" you have found a bug, or want to request a new feature, check here first to"
-" see if someone else got there before you."
+"url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue "
+"Tracker</citetitle></ulink> which tells you about some of the things we have"
+" on our To-Do list, and bugs which have already been fixed. If you think you"
+" have found a bug, or want to request a new feature, check here first to see"
+" if someone else got there before you."
 msgstr ""
 
 #. (para)
@@ -18687,10 +18694,10 @@ msgstr "\n&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt; Mis
 msgid ""
 "\n"
 "&lt;a href=\"tsvncmd:command:showcompare?\n"
-"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
-"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18833,10 +18840,10 @@ msgstr "Conventions et règles de base"
 msgid ""
 "In the descriptions which follow, the URL for a repository location is shown"
 " simply as <literal>URL</literal>, and an example might be <systemitem "
-"class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The"
-" working copy path is shown simply as <literal>PATH</literal>, and an "
+"class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
+" The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "Dans les descriptions qui suivent, l'URL d'un dépôt est simplement affichée <literal>URL</literal> et un exemple pourrait être <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Le chemin de la copie de travail est simplement affiché <literal>PATH</literal>, et un exemple pourrait être <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18938,7 +18945,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n "
 
 #. (para)
 #. (para)
@@ -18963,7 +18970,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add PATH...\n "
 
 #. (para)
 msgid ""
@@ -18980,7 +18987,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n "
 
 #. (para)
 #. (para)
@@ -19002,7 +19009,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH\n "
 
 #. (para)
 msgid ""
@@ -19029,7 +19036,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\nor\nsvn log -v -r M:N [--stop-on-copy] PATH\n "
 
 #. (para)
 msgid ""
@@ -19052,7 +19059,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\nor\nsvn status -u -v PATH\n "
 
 #. (para)
 msgid ""
@@ -19078,7 +19085,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "        </screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr ""
+msgstr "Ce que fait TortoiseSVN est <screen>\nsvn info URL_de_la_CdT\nsvn log -v URL\n</screen> où l'URL est la <emphasis>racine</emphasis> du dépôt et analyse ensuite les données renvoyées."
 
 #. (title)
 msgid "Repo Browser"
@@ -19091,7 +19098,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n "
 
 #. (para)
 msgid ""
@@ -19124,7 +19131,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved CHEMIN\n "
 
 #. (screen)
 #, no-wrap
@@ -19132,7 +19139,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename CHEMIN_COURANT NOUVEAU_CHEMIN\n "
 
 #. (screen)
 #, no-wrap
@@ -19140,7 +19147,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete CHEMIN\n "
 
 #. (para)
 msgid ""
@@ -19164,7 +19171,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] CHEMIN...\n "
 
 #. (screen)
 #, no-wrap
@@ -19172,7 +19179,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup CHEMIN\n "
 
 #. (title)
 msgid "Get Lock"
@@ -19191,7 +19198,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"Commentaire du verrou\" [--force] CHEMIN...\n "
 
 #. (para)
 msgid ""
@@ -19215,7 +19222,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock CHEMIN\n "
 
 #. (screen)
 #, no-wrap
@@ -19227,7 +19234,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"Commentaire\" URL URL\n  ou\nsvn copy -m \"Commentaire\" URL@rev URL@rev\n  ou\nsvn copy -m \"Commentaire\" CHEMIN URL\n "
 
 #. (para)
 msgid ""
@@ -19243,7 +19250,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_de_la_CdT\nsvn switch [-r rev] URL CHEMIN\n "
 
 #. (screen)
 #, no-wrap
@@ -19251,7 +19258,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] URL_Depuis@revN URL_Vers@revM CHEMIN\n "
 
 #. (para)
 msgid ""
@@ -19265,7 +19272,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff URL_Depuis@revN URL_Vers@revM\n "
 
 #. (para)
 msgid ""
@@ -19279,7 +19286,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL CHEMIN_Export\n "
 
 #. (para)
 msgid ""
@@ -19312,7 +19319,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate URL_Depuis URL_Vers\n "
 
 #. (title)
 msgid "Create Repository Here"
@@ -19324,7 +19331,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n "
 
 #. (para)
 msgid ""
@@ -19338,7 +19345,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m Commentaire CHEMIN URL\n "
 
 #. (screen)
 #, no-wrap
@@ -19347,7 +19354,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v CHEMIN\nsvn log -r N:M CHEMIN\n "
 
 #. (para)
 msgid ""
@@ -19368,7 +19375,7 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn propget svn:ignore CHEMIN > FichierTemp\n{éditez le nouvel élément à ignorer dans FichierTemp}\nsvn propset svn:ignore -F FichierTemp CHEMIN\n "
 
 #. (para)
 msgid ""
@@ -19383,7 +19390,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff CHEMIN > fichier_patch\n "
 
 #. (para)
 msgid ""
@@ -20132,7 +20139,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr "TortoiseMerge est un projet Open Source. Cela signifie que vous avez un accès total au code source de ce programme. Vous pouvez y accéder avec ce lien <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. La version la plus récente (sur laquelle nous travaillons actuellement) est située dans le répertoire <filename>/trunk/</filename>, et les versions publiées sont situées dans le répertoire <filename>/tags/</filename>."
+msgstr ""
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"

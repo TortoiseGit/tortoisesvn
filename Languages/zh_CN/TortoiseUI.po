@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-03-24 13:41+0000\n"
+"PO-Revision-Date: 2015-04-17 10:54+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -9874,6 +9874,10 @@ msgstr "启动合并工具以便您解决属性冲突"
 msgid "Starts the property dialog where you can edit the property manually."
 msgstr "打开属性对话框以便您手动编辑属性。"
 
+#. Resource IDs: (170)
+msgid "State"
+msgstr "状态"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "静态"
@@ -10769,7 +10773,7 @@ msgstr "此方法适用于合并两个分支的差异到工作副本"
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (http://www.openssl.org/)"
-msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.openssl.org/)"
+msgstr "本产品包含了由 OpenSSL 项目开发的 OpenSSL Toolkit (http://www.openssl.org/)"
 
 #. Resource IDs: (1531)
 msgid ""
@@ -12243,6 +12247,11 @@ msgstr "行结束符类型"
 msgid "external"
 msgstr "外部"
 
+#. Resource IDs: (170)
+#, c-format
+msgid "failed hunks: %d"
+msgstr "块失败: %d"
+
 #. Resource IDs: (65535)
 msgid "file external:"
 msgstr "外部文件: "
@@ -12433,6 +12442,10 @@ msgstr "或"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "符号对: "
+
+#. Resource IDs: (170)
+msgid "patched"
+msgstr "已补丁"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
