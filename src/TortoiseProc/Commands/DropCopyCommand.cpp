@@ -210,6 +210,7 @@ bool DropCopyCommand::Execute()
         }
         if ((progress.IsValid())&&(progress.HasUserCancelled()))
         {
+            progress.Stop();
             TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SVN_USERCANCELLED), NULL, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
             return false;
         }
