@@ -6181,14 +6181,17 @@ void CSVNStatusListCtrl::OnRepairMove()
         return;
 
     svn_wc_status_kind status2 = entry2->status;
-    if (status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none)))
+    if (status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned) || (status1 == svn_wc_status_none) || (status1 == svn_wc_status_deleted)))
         std::swap(entry1, entry2);
     if ((status2 == svn_wc_status_deleted) && (status1 == svn_wc_status_added))
         std::swap(entry1, entry2);
 
     SVN svn;
+    CTSVNPath tempPath;
     if (entry2->status == svn_wc_status_added)
     {
+        tempPath = CTempFiles::Instance().GetTempFilePath(true);
+        CopyFile(entry2->GetPath().GetWinPath(), tempPath.GetWinPath(), FALSE);
         // the target file was already added: revert it first
         svn.Revert(CTSVNPathList(entry2->GetPath()), CStringArray(), false, true, false);
         svn.Revert(CTSVNPathList(entry1->GetPath()), CStringArray(), false, true, false);
@@ -6202,8 +6205,18 @@ void CSVNStatusListCtrl::OnRepairMove()
     entry1->GetPath().Delete(true);
     if (!MoveFileEx(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath(), MOVEFILE_REPLACE_EXISTING))
     {
-        ShowErrorMessage();
-        return;
+        // if entry2 existed before, the flag is still in the CTSVNPath object.
+        // which means if the MoveFileEx failed but the entry2 existed, it's
+        // because the file was renamed before the revert done above, and then
+        // it's not an error.
+        if (!entry2->GetPath().Exists())
+        {
+            ShowErrorMessage();
+            return;
+        }
+        // restore the saved file contents
+        if (!tempPath.IsEmpty())
+            CopyFile(tempPath.GetWinPath(), entry1->GetPath().GetWinPath(), FALSE);
     }
 
     // now make sure that the target folder is versioned
