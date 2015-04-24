@@ -81,10 +81,10 @@ BOOL CSetMainPage::OnInitDialog()
     m_sTempExtensions = m_regExtensions;
     m_dwLanguage = m_regLanguage;
     m_bUseAero = m_regUseAero;
-
-    CDwmApiImpl dwm;
-    dwm.Initialize();
-    DialogEnableWindow(IDC_AERODWM, dwm.IsDwmCompositionEnabled());
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+    BOOL bEnabled = FALSE;
+    DialogEnableWindow(IDC_AERODWM, ((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled);
 
     CString temp;
     temp = m_regLastCommitTime;

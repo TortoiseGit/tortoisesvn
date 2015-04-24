@@ -104,10 +104,12 @@ BOOL CMergeWizard::OnInitDialog()
 
     if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
     {
-        m_Dwm.Initialize();
-        if (m_Dwm.IsDwmCompositionEnabled())
+        HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+        SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+        BOOL bEnabled = FALSE;
+        if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
         {
-            m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+            DwmExtendFrameIntoClientArea(m_hWnd, &margs);
             ShowGrip(false);
         }
         m_aeroControls.SubclassOkCancelHelp(this);
@@ -212,7 +214,10 @@ BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
 {
     CResizableSheetEx::OnEraseBkgnd(pDC);
 
-    if (m_Dwm.IsDwmCompositionEnabled())
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+    BOOL bEnabled = FALSE;
+    if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
     {
         // draw the frame margins in black
         RECT rc;

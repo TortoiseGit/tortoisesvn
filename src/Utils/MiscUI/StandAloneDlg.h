@@ -20,12 +20,13 @@
 
 #include "ResizableDialog.h"
 #include "registry.h"
-#include "AeroGlass.h"
 #include "AeroControls.h"
 #include "CreateProcessHelper.h"
 #include "TaskbarUUID.h"
 #include "Tooltip.h"
 
+#include <Dwmapi.h>
+#pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "htmlhelp.lib")
 
 #define DIALOG_BLOCKHORIZONTAL 1
@@ -68,7 +69,6 @@ protected:
     }
     virtual BOOL OnInitDialog()
     {
-        m_Dwm.Initialize();
         BaseType::OnInitDialog();
 
         // Set the icon for this dialog.  The framework does this automatically
@@ -136,7 +136,7 @@ protected:
     BOOL OnEraseBkgnd(CDC*  pDC)
     {
         BOOL baseRet = BaseType::OnEraseBkgnd(pDC);
-        if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
+        if (IsDWMEnabled())
         {
             // draw the frame margins in black
             CRect rc;
@@ -173,7 +173,7 @@ protected:
 
     LRESULT OnNcHitTest(CPoint pt)
     {
-        if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
+        if (IsDWMEnabled())
         {
             CRect rc;
             GetClientRect(&rc);
@@ -269,9 +269,9 @@ protected:
             m_margins.cxRightWidth = -1;
             m_margins.cyBottomHeight = -1;
         }
-        if (m_Dwm.IsDwmCompositionEnabled())
+        if (IsDWMEnabled())
         {
-            m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+            DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
         }
     }
 
@@ -445,7 +445,6 @@ protected:
     }
 
 protected:
-    CDwmApiImpl     m_Dwm;
     MARGINS         m_margins;
     CRegDWORD       m_regEnableDWMFrame;
     AeroControlBase m_aeroControls;
@@ -486,9 +485,9 @@ private:
 
     void OnCompositionChanged()
     {
-        if (m_Dwm.IsDwmCompositionEnabled())
+        if (IsDWMEnabled())
         {
-            m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+            DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
         }
         BaseType::OnCompositionChanged();
     }
@@ -497,6 +496,14 @@ private:
     {
         SetUUIDOverlayIcon(m_hWnd);
         return 0;
+    }
+
+    bool IsDWMEnabled()
+    {
+        HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+        SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+        BOOL bEnabled = FALSE;
+        return ((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled && ((DWORD)m_regEnableDWMFrame);
     }
     HICON           m_hIcon;
     HICON           m_hBkgndIcon;

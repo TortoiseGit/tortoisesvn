@@ -29,23 +29,13 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CResizableSheetEx
 
-typedef HRESULT (__stdcall *DWM_EXTEND_FRAME_INTO_CLIENT_AREA)(HWND ,const MARGINS* );
-typedef HRESULT (__stdcall *DWM_IS_COMPOSITION_ENABLED)(BOOL *pfEnabled);
-typedef HRESULT (__stdcall *DWM_ENABLE_COMPOSITION)(UINT uCompositionAction);
-
 
 BOOL CResizableSheetEx::IsDwmCompositionEnabled(void)
 {
-    if(m_hDwmApiLib == NULL)
-    {
-        return FALSE;
-    }
-    DWM_IS_COMPOSITION_ENABLED pfnDwmIsCompositionEnabled = (DWM_IS_COMPOSITION_ENABLED)GetProcAddress(m_hDwmApiLib, "DwmIsCompositionEnabled");
-    if(!pfnDwmIsCompositionEnabled)
-        return FALSE;
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
-    HRESULT hRes = pfnDwmIsCompositionEnabled(&bEnabled);
-    return SUCCEEDED(hRes) && bEnabled;
+    return (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled);
 }
 
 
@@ -59,7 +49,6 @@ inline void CResizableSheetEx::PrivateConstruct()
     m_bLayoutDone = FALSE;
     m_bRectOnly = FALSE;
     m_nCallbackID = 0;
-    m_hDwmApiLib = AtlLoadSystemLibraryUsingFullPath(L"dwmapi.dll");
     m_bShowGrip = !IsDwmCompositionEnabled();
 }
 
@@ -99,9 +88,6 @@ CResizableSheetEx::CResizableSheetEx(LPCTSTR pszCaption, CWnd* pParentWnd,
 
 CResizableSheetEx::~CResizableSheetEx()
 {
-    if (m_hDwmApiLib)
-        FreeLibrary(m_hDwmApiLib);
-    m_hDwmApiLib = NULL;
 }
 
 BEGIN_MESSAGE_MAP(CResizableSheetEx, CPropertySheetEx)

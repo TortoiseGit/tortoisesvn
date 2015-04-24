@@ -29,30 +29,19 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CResizableDialog
 
-typedef HRESULT (__stdcall *DWM_EXTEND_FRAME_INTO_CLIENT_AREA)(HWND ,const MARGINS* );
-typedef HRESULT (__stdcall *DWM_IS_COMPOSITION_ENABLED)(BOOL *pfEnabled);
-typedef HRESULT (__stdcall *DWM_ENABLE_COMPOSITION)(UINT uCompositionAction);
-
 
 BOOL CResizableDialog::IsDwmCompositionEnabled(void)
 {
-    if(m_hDwmApiLib == NULL)
-    {
-        return FALSE;
-    }
-    DWM_IS_COMPOSITION_ENABLED pfnDwmIsCompositionEnabled = (DWM_IS_COMPOSITION_ENABLED)GetProcAddress(m_hDwmApiLib, "DwmIsCompositionEnabled");
-    if(!pfnDwmIsCompositionEnabled)
-        return FALSE;
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
-    HRESULT hRes = pfnDwmIsCompositionEnabled(&bEnabled);
-    return SUCCEEDED(hRes) && bEnabled;
+    return (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled);
 }
 
 inline void CResizableDialog::PrivateConstruct()
 {
     m_bEnableSaveRestore = FALSE;
     m_dwGripTempState = 1;
-    m_hDwmApiLib = AtlLoadSystemLibraryUsingFullPath(L"dwmapi.dll");
     m_bShowGrip = !IsDwmCompositionEnabled();
     m_bRectOnly = FALSE;
 }
@@ -76,9 +65,6 @@ CResizableDialog::CResizableDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd)
 
 CResizableDialog::~CResizableDialog()
 {
-    if (m_hDwmApiLib)
-        FreeLibrary(m_hDwmApiLib);
-    m_hDwmApiLib = NULL;
 }
 
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2014 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 
 #pragma once
-#include "AeroGlass.h"
 #include "registry.h"
 #include <map>
 #include <gdiplus.h>
@@ -41,6 +40,7 @@ private:
     LRESULT ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
     LRESULT ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
+    BOOL DetermineGlowSize(int *piSize, LPCWSTR pszClassIdList = NULL);
     void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
     void DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width) const;
     void FillRect(LPRECT prc, HDC hdcPaint, Color clr) const;
@@ -52,8 +52,6 @@ private:
     BOOL GetEditBorderColor(HWND hWnd, COLORREF *pClr);
     void GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia) const;
 
-    CDwmApiImpl                 m_dwm;
-    CUxThemeAeroImpl            m_theme;
     CRegDWORD                   m_regEnableDWMFrame;
     std::map<HWND, UINT_PTR>    subclassedControls;
     ULONG_PTR                   gdiplusToken;
