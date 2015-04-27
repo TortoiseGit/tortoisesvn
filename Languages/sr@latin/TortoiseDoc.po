@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-04-20 19:52+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,7 +294,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Mada većina ljudi skine instoler vi takođe imate pun pristup za čitanje izvornog koda ovog programa. Možete pretražiti link <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Tekuća razvojna linija smeštena je pod <filename>/trunk/</filename>, a realizovana verzija se nalazi pod <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -12161,7 +12161,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Ovaj problem tragač integrator nije ograničen na TortoiseSVN; može se koristiti sa bilo kojim Subverzioonim klijentom. Za više informacija pročitajte vezu <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> u TortoiseSVN izvornom spremištu. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -12193,7 +12193,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Svaki takav interfejs je, svakako visoko specifičan za vaš problem tragač sistem, tako mi ne možemo obezbediti ovaj deo i opisujući kako kreirati takav program je van vidokruga ovog manuala. Definicija interfejsa i plagin u C# C++/ATL može biti dobijeno iz <literal>contrib</literal> foldera u <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu.)  Ukupnost API takođe je dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>. Drugi (radni) primer plagin u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>  koji primenjuje potreban COM interfejs da interaguje sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragačem."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -14505,7 +14505,7 @@ msgid ""
 "url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
-msgstr ""
+msgstr "Jednostavni klijent zakačivi skript može se naći u <literal>contrib</literal>  folder u <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu.)"
 
 #. (para)
 msgid ""
@@ -15321,7 +15321,7 @@ msgstr "Označi sve revizije u svim projektima za čitanje. Primetimo da ako iza
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "Ako držite <keycap>Shift</keycap> taster dok kliknete dugme sva pogrešna stanja su takođe obrisana ako neko postoji."
 
 #. (term)
 msgid "Update all"
@@ -15986,7 +15986,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Unversioned   = \"no unversioned items\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16720,7 +16720,7 @@ msgid ""
 " on our To-Do list, and bugs which have already been fixed. If you think you"
 " have found a bug, or want to request a new feature, check here first to see"
 " if someone else got there before you."
-msgstr ""
+msgstr "Mi takođe održavamo projekat <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue Tracker</citetitle></ulink> koji vam kažu o nekim stvarima koje imamo na To-Do listi, i bagovi koji su već fiksirani. Ako mislite da ste našli bag ili želite da zahtevate novu osobinu proverite najpre da vidite da li je još neko našao isti pre vas."
 
 #. (para)
 msgid ""
@@ -18688,7 +18688,7 @@ msgid ""
 "url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -18834,7 +18834,7 @@ msgid ""
 "class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
 " The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "U opisu koji sledi URL za lokaciju spremišta prikazano je kao  <literal>URL</literal>, i primer može biti <systemitem class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>. Putanja radne kopije prikazana je jednostavno kao  <literal>PATH</literal>, i primer može biti <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid ""
@@ -20130,7 +20130,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge je projekat otvorenog koda. To znači da imate pun pristup čitanju izvornog koda programa. Možete ga pretraživati  na ovom linku <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Najskorija verzija (gde mi trenutno radimo) locirana je na <filename>/trunk/</filename>, a izvršna verzija je locirana na <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"

@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-04-20 19:42+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,7 +294,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Мада већина људи скине инстолер ви такође имате пун приступ за читање изворног кода овог програма. Можете претражити линк <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Текућа развојна линија смештена је под <filename>/trunk/</filename>, а реализована верзија се налази под <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -12161,7 +12161,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Овај проблем трагач интегратор није ограничен на ТортоисеСВН; може се користити са било којим Субверзиооним клијентом. За више информација прочитајте везу <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> у ТортоисеСВН изворном спремишту. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -12193,7 +12193,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Сваки такав интерфејс је, свакако високо специфичан за ваш проблем трагач систем, тако ми не можемо обезбедити овај део и описујући како креирати такав програм је ван видокруга овог мануала. Дефиниција интерфејса и плагин у Ц# Ц++/АТЛ може бити добијено из <literal>contrib</literal> фолдера у <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту.)  Укупност АПИ такође је дат у <xref linkend=\"tsvn-ibugtraqprovider\"/>. Други (радни) пример плагин у Ц# је <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>  који примењује потребан ЦОМ интерфејс да интерагује са <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  проблем трагачем."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -14505,7 +14505,7 @@ msgid ""
 "url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
-msgstr ""
+msgstr "Једноставни клијент закачиви скрипт може се наћи у <literal>contrib</literal>  фолдер у <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту.)"
 
 #. (para)
 msgid ""
@@ -15321,7 +15321,7 @@ msgstr "Означи све ревизије у свим пројектима з
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "Ако држите <keycap>Shift</keycap> тастер док кликнете дугме сва погрешна стања су такође обрисана ако неко постоји."
 
 #. (term)
 msgid "Update all"
@@ -15986,7 +15986,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Unversioned   = \"no unversioned items\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16720,7 +16720,7 @@ msgid ""
 " on our To-Do list, and bugs which have already been fixed. If you think you"
 " have found a bug, or want to request a new feature, check here first to see"
 " if someone else got there before you."
-msgstr ""
+msgstr "Ми такође одржавамо пројекат <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue Tracker</citetitle></ulink> који вам кажу о неким стварима које имамо на То-До листи, и багови који су већ фиксирани. Ако мислите да сте нашли баг или желите да захтевате нову особину проверите најпре да видите да ли је још неко нашао исти пре вас."
 
 #. (para)
 msgid ""
@@ -18688,7 +18688,7 @@ msgid ""
 "url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -18834,7 +18834,7 @@ msgid ""
 "class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
 " The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "У опису који следи УРЛ за локацију спремишта приказано је као  <literal>URL</literal>, и пример може бити <systemitem class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>. Путања радне копије приказана је једноставно као  <literal>PATH</literal>, и пример може бити <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid ""
@@ -20130,7 +20130,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "ТортоисеМерге је пројекат отвореног кода. То значи да имате пун приступ читању изворног кода програма. Можете га претраживати  на овом линку <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Најскорија верзија (где ми тренутно радимо) лоцирана је на <filename>/trunk/</filename>, а извршна верзија је лоцирана на <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
