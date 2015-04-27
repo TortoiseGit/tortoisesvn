@@ -76,6 +76,7 @@ const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated");
 const UINT CLogDlg::WM_TSVN_COMMITMONITOR_SHOWDLGMSG = RegisterWindowMessage(_T("TSVNCommitMonitor_ShowDlgMsg"));
 const UINT CLogDlg::WM_TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(_T("TSVNCommitMonitor_ReloadIni"));
+const UINT CLogDlg::WM_TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 #define WM_TSVN_REFRESH_SELECTION       (WM_APP + 1)
 #define WM_TSVN_MONITOR_TASKBARCALLBACK (WM_APP + 2)
@@ -389,6 +390,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_ENDLABELEDIT, IDC_PROJTREE, &CLogDlg::OnTvnEndlabeleditProjtree)
     ON_COMMAND(ID_INLINEEDIT, &CLogDlg::OnInlineedit)
     ON_WM_QUERYENDSESSION()
+    ON_REGISTERED_MESSAGE(WM_TaskBarButtonCreated, OnTaskbarButtonCreated)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
@@ -770,11 +772,6 @@ void CLogDlg::SetupToolTips()
 void CLogDlg::InitializeTaskBarListPtr()
 {
     m_pTaskbarList.Release();
-    if (m_bMonitoringMode)
-    {
-        m_pTaskbarList = nullptr;
-        return;
-    }
     if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
         m_pTaskbarList = nullptr;
 }
@@ -806,6 +803,7 @@ BOOL CLogDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
     ExtraInitialization();
+    InitializeTaskBarListPtr();
     if (!m_bMonitoringMode)
     {
         ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
@@ -815,7 +813,6 @@ BOOL CLogDlg::OnInitDialog()
     else
         InitMonitoringMode();
 
-    InitializeTaskBarListPtr();
     SetupDialogFonts();
     RestoreSavedDialogSettings();
     SetupLogMessageViewControl();
@@ -1521,7 +1518,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
     if (m_limit != 0)
     {
         m_LogProgress.SetPos ((int)(m_logEntries.size() - m_prevLogEntriesSize));
-        if (m_pTaskbarList)
+        if (!m_bMonitoringMode && m_pTaskbarList)
         {
             int l,u;
             m_LogProgress.GetRange(l, u);
@@ -1536,7 +1533,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
         {
             m_temprev = rev;
             m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
-            if (m_pTaskbarList)
+            if (!m_bMonitoringMode && m_pTaskbarList)
             {
                 int l,u;
                 m_LogProgress.GetRange(l, u);
@@ -1689,7 +1686,7 @@ void CLogDlg::LogThread()
 
     m_LogProgress.SetPos(1);
     m_prevLogEntriesSize = m_logEntries.size();
-    if (m_pTaskbarList)
+    if (!m_bMonitoringMode && m_pTaskbarList)
     {
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
     }
@@ -1806,7 +1803,7 @@ void CLogDlg::LogThread()
         temp.LoadString(IDS_LOG_CLEARERROR);
         m_LogList.ShowText(GetLastErrorMessage() + L"\n\n" + temp, true);
         FillLogMessageCtrl(false);
-        if (m_pTaskbarList)
+        if (!m_bMonitoringMode && m_pTaskbarList)
         {
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_ERROR);
         }
@@ -1863,7 +1860,7 @@ void CLogDlg::LogThread()
     else
         DialogEnableWindow(IDC_PROJTREE, TRUE);
 
-    if (m_pTaskbarList)
+    if (!m_bMonitoringMode && m_pTaskbarList)
     {
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
     }
@@ -2627,7 +2624,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
     {
         m_LogList.ClearText();
         FillLogMessageCtrl();
-        if (m_pTaskbarList)
+        if (!m_bMonitoringMode && m_pTaskbarList)
         {
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
         }
@@ -7956,6 +7953,12 @@ void CLogDlg::RefreshMonitorProjTree()
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
     ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(bHasWorkingCopies, 0));
+
+    if (m_pTaskbarList)
+    {
+        m_pTaskbarList->SetOverlayIcon(GetSafeHwnd(), hasUnreadItems ? m_hMonitorIconNewCommits : m_hMonitorIconNormal, L"");
+    }
+
     firstcall = false;
 }
 
@@ -8808,6 +8811,10 @@ void CLogDlg::OnMonitorThreadFinished()
             m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
             Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
         }
+        if (m_pTaskbarList)
+        {
+            m_pTaskbarList->SetOverlayIcon(GetSafeHwnd(), m_hMonitorIconNewCommits, L"");
+        }
     }
 
     m_projTree.Invalidate();
@@ -9460,5 +9467,13 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
         SaveMonitorProjects(true);
         RefreshMonitorProjTree();
     }
+}
+
+LRESULT CLogDlg::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    SetUUIDOverlayIcon(m_hWnd);
+    if (m_bMonitoringMode)
+        RefreshMonitorProjTree();
+    return 0;
 }
 

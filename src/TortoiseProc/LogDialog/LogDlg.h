@@ -235,6 +235,7 @@ protected:
     afx_msg void OnTvnEndlabeleditProjtree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnInlineedit();
     afx_msg BOOL OnQueryEndSession();
+    afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
 
     virtual void OnCancel();
     virtual void OnOK();
@@ -572,6 +573,7 @@ private:
     static const UINT   WM_TASKBARCREATED;
     static const UINT   WM_TSVN_COMMITMONITOR_SHOWDLGMSG;
     static const UINT   WM_TSVN_COMMITMONITOR_RELOADINI;
+    static const UINT   WM_TaskBarButtonCreated;
     svn_revnum_t        m_revUnread;
     bool                m_bPlaySound;
     bool                m_bShowNotification;
