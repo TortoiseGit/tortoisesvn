@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1023,40 +1023,40 @@ int _tmain(int argc, _TCHAR* argv[])
     if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
     {
         if (SubStat.bHexPlain)
-            _tprintf(L"Working copy contains mixed revisions %LX:%LX!\n", SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(L"Working copy contains mixed revisions %lX:%lX!\n", SubStat.MinRev, SubStat.MaxRev);
         else if (SubStat.bHexX)
             _tprintf(L"Working copy contains mixed revisions %#LX:%#LX!\n", SubStat.MinRev, SubStat.MaxRev);
         else
-            _tprintf(L"Working copy contains mixed revisions %Ld:%Ld!\n", SubStat.MinRev, SubStat.MaxRev);
+            _tprintf(L"Working copy contains mixed revisions %ld:%ld!\n", SubStat.MinRev, SubStat.MaxRev);
         return ERR_SVN_MIXED;
     }
 
     if (!bQuiet)
     {
         if (SubStat.bHexPlain)
-            _tprintf(L"Last committed at revision %LX\n", SubStat.CmtRev);
+            _tprintf(L"Last committed at revision %lX\n", SubStat.CmtRev);
         else if (SubStat.bHexX)
             _tprintf(L"Last committed at revision %#LX\n", SubStat.CmtRev);
         else
-            _tprintf(L"Last committed at revision %Ld\n", SubStat.CmtRev);
+            _tprintf(L"Last committed at revision %ld\n", SubStat.CmtRev);
 
         if (SubStat.MinRev != SubStat.MaxRev)
         {
             if (SubStat.bHexPlain)
-                _tprintf(L"Mixed revision range %LX:%LX\n", SubStat.MinRev, SubStat.MaxRev);
+                _tprintf(L"Mixed revision range %lX:%lX\n", SubStat.MinRev, SubStat.MaxRev);
             else if (SubStat.bHexX)
                 _tprintf(L"Mixed revision range %#LX:%#LX\n", SubStat.MinRev, SubStat.MaxRev);
             else
-                _tprintf(L"Mixed revision range %Ld:%Ld\n", SubStat.MinRev, SubStat.MaxRev);
+                _tprintf(L"Mixed revision range %ld:%ld\n", SubStat.MinRev, SubStat.MaxRev);
         }
         else
         {
             if (SubStat.bHexPlain)
-                _tprintf(L"Updated to revision %LX\n", SubStat.MaxRev);
+                _tprintf(L"Updated to revision %lX\n", SubStat.MaxRev);
             else if (SubStat.bHexX)
                 _tprintf(L"Updated to revision %#LX\n", SubStat.MaxRev);
             else
-                _tprintf(L"Updated to revision %Ld\n", SubStat.MaxRev);
+                _tprintf(L"Updated to revision %ld\n", SubStat.MaxRev);
         }
 
         if (SubStat.HasMods)
