@@ -231,7 +231,7 @@ void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 {
     // user clicked on the label, start the browser with our web page
     HINSTANCE result = ShellExecute(NULL, L"opennew", m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
-    if ((UINT)result <= HINSTANCE_ERROR)
+    if ((INT_PTR)result <= HINSTANCE_ERROR)
     {
         ShellExecute(NULL, L"open", m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
     }

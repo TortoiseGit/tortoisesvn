@@ -1836,7 +1836,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     else if ((!data->bAuxItem)&&(data->path.Exists())&&(!data->path.IsDirectory()))
     {
         bool bOpenWith = false;
-        int ret = (int)ShellExecute(m_hWnd, NULL, data->path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+        INT_PTR ret = (INT_PTR)ShellExecute(m_hWnd, NULL, data->path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
         if (ret <= HINSTANCE_ERROR)
             bOpenWith = true;
         if (bOpenWith)
@@ -2362,7 +2362,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
             if (!bOpenWith)
             {
-                const int ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
+                const INT_PTR ret = (INT_PTR)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
                 if ((ret <= HINSTANCE_ERROR)||bOpenWith)
                 {
                     OPENASINFO oi = { 0 };

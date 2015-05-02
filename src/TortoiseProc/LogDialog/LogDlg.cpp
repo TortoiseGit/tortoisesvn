@@ -2443,16 +2443,16 @@ int CLogDlg::OpenWorkingCopyFileWithRegisteredProgram(CString& fullPath)
     if (!PathFileExists((LPCWSTR)fullPath))
         return -1;
 
-    return (int)ShellExecute(this->m_hWnd, NULL, fullPath, NULL, NULL, SW_SHOWNORMAL);
+    return (int)(INT_PTR)ShellExecute(this->m_hWnd, NULL, fullPath, NULL, NULL, SW_SHOWNORMAL);
 }
 
 void CLogDlg::DoOpenFileWith(bool bReadOnly, bool bOpenWith, const CTSVNPath& tempfile)
 {
     if (bReadOnly)
         SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-    int ret = 0;
+    INT_PTR ret = 0;
     if (!bOpenWith)
-        ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+        ret = (INT_PTR)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
     if ((ret <= HINSTANCE_ERROR)||bOpenWith)
     {
         OPENASINFO oi = { 0 };

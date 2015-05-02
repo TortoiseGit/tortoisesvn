@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012-2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,7 +130,7 @@ void CDialog::AddToolTip(UINT ctrlID, LPTSTR text)
     tt.cbSize = sizeof(TOOLINFO);
     tt.uFlags = TTF_IDISHWND|TTF_CENTERTIP|TTF_SUBCLASS;
     tt.hwnd = GetDlgItem(*this, ctrlID);
-    tt.uId = (UINT)GetDlgItem(*this, ctrlID);
+    tt.uId = (UINT_PTR)GetDlgItem(*this, ctrlID);
     tt.lpszText = text;
 
     SendMessage (m_hToolTips, TTM_ADDTOOL, 0, (LPARAM) &tt);

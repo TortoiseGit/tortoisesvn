@@ -6466,9 +6466,9 @@ void CSVNStatusListCtrl::Open( const CTSVNPath& filepath, FileEntry * entry, boo
         }
         fp = tempfile;
     }
-    int ret = 0;
+    INT_PTR ret = 0;
     if (!bOpenWith)
-        ret = (int)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
+        ret = (INT_PTR)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
     if (ret <= HINSTANCE_ERROR)
     {
         OPENASINFO oi = { 0 };

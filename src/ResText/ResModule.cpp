@@ -285,7 +285,7 @@ BOOL CResModule::ExtractString(LPCTSTR lpszType)
         {
             std::wstring str = std::wstring(pBuf);
             RESOURCEENTRY entry = m_StringEntries[str];
-            entry.resourceIDs.insert((DWORD)lpszType);
+            entry.resourceIDs.insert((INT_PTR)lpszType);
             if (wcschr(str.c_str(), '%'))
                 entry.flag = L"#, c-format";
             m_StringEntries[str] = entry;
@@ -1201,7 +1201,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
 
         std::wstring wstr = std::wstring(pBuf);
         RESOURCEENTRY entry = m_StringEntries[wstr];
-        entry.resourceIDs.insert((DWORD)lpszType);
+        entry.resourceIDs.insert((INT_PTR)lpszType);
 
         m_StringEntries[wstr] = entry;
         delete [] pBuf;
@@ -1666,7 +1666,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
     // First control is on DWORD boundary
     while ((*wordcount)%2)
         (*wordcount)++;
-    while ((ULONG)res % 4)
+    while ((UINT_PTR)res % 4)
         res++;
 
     while (nbItems--)
@@ -1848,7 +1848,7 @@ BOOL CResModule::ExtractRibbon(LPCTSTR lpszType)
         MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
         std::wstring ret = bufw.get();
         RESOURCEENTRY entry = m_StringEntries[ret];
-        entry.resourceIDs.insert((DWORD)lpszType);
+        entry.resourceIDs.insert((INT_PTR)lpszType);
         if (wcschr(ret.c_str(), '%'))
             entry.flag = L"#, c-format";
         m_StringEntries[ret] = entry;
@@ -1867,7 +1867,7 @@ BOOL CResModule::ExtractRibbon(LPCTSTR lpszType)
         MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
         std::wstring ret = bufw.get();
         RESOURCEENTRY entry = m_StringEntries[ret];
-        entry.resourceIDs.insert((DWORD)lpszType);
+        entry.resourceIDs.insert((INT_PTR)lpszType);
         if (wcschr(ret.c_str(), '%'))
             entry.flag = L"#, c-format";
         m_StringEntries[ret] = entry;
