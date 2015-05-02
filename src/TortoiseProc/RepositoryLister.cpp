@@ -28,6 +28,7 @@
 #include "SVNHelpers.h"
 
 #include "RepositoryInfo.h"
+#include <xfunctional>
 
 /////////////////////////////////////////////////////////////////////
 // CRepositoryLister::CQuery
@@ -429,7 +430,7 @@ void CRepositoryLister::ClearDumpster()
 {
     std::for_each ( dumpster.begin()
                   , dumpster.end()
-                  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), true));
+                  , std::bind2nd (std::mem_fun (&CQuery::WaitUntilDone), true));
 
     CompactDumpster();
 }
