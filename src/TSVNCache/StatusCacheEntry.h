@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006, 2010, 2013-2014 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006, 2010, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,12 +71,12 @@ private:
     {
         svn_wc_status_kind  m_highestPriorityLocalStatus:5;
         svn_node_kind_t     m_kind:3;
-        svn_boolean_t       m_bSet:1;
+        unsigned int        m_bSet:1;
         svn_boolean_t       m_treeconflict:1;
         svn_boolean_t       m_bIgnoreOnCommit:1;
 
         // Values copied from the 'entries' structure
-        svn_boolean_t       m_bSVNEntryFieldSet:1;
+        unsigned int        m_bSVNEntryFieldSet:1;
         svn_boolean_t       m_bHasOwner:1;
         svn_boolean_t       m_needsLock:1;
     };
