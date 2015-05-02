@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ unsigned int __stdcall CommandThread(LPVOID);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 bool                bRun = true;
 NOTIFYICONDATA      niData;
-HWND                hWnd;
+HWND                hWndHidden;
 HWND                hTrayWnd;
 TCHAR               szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 int                 nCurrentCrawledpathIndex = 0;
@@ -143,9 +143,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     SecureZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
 
     // create a hidden window to receive window messages.
-    hWnd = CreateHiddenWindow(hInstance);
-    hTrayWnd = hWnd;
-    if (hWnd == NULL)
+    hWndHidden = CreateHiddenWindow(hInstance);
+    hTrayWnd = hWndHidden;
+    if (hWndHidden == NULL)
     {
         return 0;
     }
@@ -166,7 +166,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
             niData.cbSize = NOTIFYICONDATA_V1_SIZE;
 
         niData.uID = TRAY_ID;       // own tray icon ID
-        niData.hWnd  = hWnd;
+        niData.hWnd  = hWndHidden;
         niData.uFlags = NIF_ICON|NIF_MESSAGE;
 
         // load the icon
@@ -440,7 +440,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
 {
     CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": PipeThread started\n");
-    bool * bRun = (bool *)lpvParam;
+    bool * bThreadRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
     // then waits for a client to connect to it. When the client
     // connects, a thread is created to handle communications
@@ -449,7 +449,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
     BOOL fConnected;
     CAutoFile hPipe;
 
-    while (*bRun)
+    while (*bThreadRun)
     {
         hPipe = CreateNamedPipe(
             GetCachePipeName(),
@@ -467,7 +467,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
         {
             //OutputDebugStringA("TSVNCache: CreatePipe failed\n");
             //DebugOutputLastError();
-            if (*bRun)
+            if (*bThreadRun)
                 Sleep(200);
             continue; // never leave the thread!
         }
@@ -476,7 +476,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
         // the function returns a nonzero value. If the function returns
         // zero, GetLastError returns ERROR_PIPE_CONNECTED.
         fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
-        if (fConnected && (*bRun))
+        if (fConnected && (*bThreadRun))
         {
             // Create a thread for this client.
             CAutoGeneralHandle hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, (HANDLE)hPipe, 0, &dwThreadId);
@@ -489,7 +489,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
                 // since we're now closing this thread, we also have to close the whole application!
                 // otherwise the thread is dead, but the app is still running, refusing new instances
                 // but no pipe will be available anymore.
-                PostMessage(hWnd, WM_CLOSE, 0, 0);
+                PostMessage(hWndHidden, WM_CLOSE, 0, 0);
                 return 1;
             }
             // detach the handle, since we passed it to the thread
@@ -501,7 +501,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
             //OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
             //DebugOutputLastError();
             hPipe.CloseHandle();
-            if (*bRun)
+            if (*bThreadRun)
                 Sleep(200);
             continue;   // don't end the thread!
         }
@@ -514,7 +514,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
 {
     CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandWaitThread started\n");
-    bool * bRun = (bool *)lpvParam;
+    bool * bThreadRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
     // then waits for a client to connect to it. When the client
     // connects, a thread is created to handle communications
@@ -523,7 +523,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
     BOOL fConnected;
     CAutoFile hPipe;
 
-    while (*bRun)
+    while (*bThreadRun)
     {
         hPipe = CreateNamedPipe(
             GetCacheCommandPipeName(),
@@ -541,7 +541,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
         {
             //OutputDebugStringA("TSVNCache: CreatePipe failed\n");
             //DebugOutputLastError();
-            if (*bRun)
+            if (*bThreadRun)
                 Sleep(200);
             continue; // never leave the thread!
         }
@@ -550,7 +550,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
         // the function returns a nonzero value. If the function returns
         // zero, GetLastError returns ERROR_PIPE_CONNECTED.
         fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
-        if (fConnected && (*bRun))
+        if (fConnected && (*bThreadRun))
         {
             // Create a thread for this client.
             CAutoGeneralHandle hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, (HANDLE)hPipe, 0, &dwThreadId);
@@ -563,7 +563,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
                 // since we're now closing this thread, we also have to close the whole application!
                 // otherwise the thread is dead, but the app is still running, refusing new instances
                 // but no pipe will be available anymore.
-                PostMessage(hWnd, WM_CLOSE, 0, 0);
+                PostMessage(hWndHidden, WM_CLOSE, 0, 0);
                 return 1;
             }
             // detach the handle, since we passed it to the thread
@@ -575,7 +575,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
             //OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
             //DebugOutputLastError();
             hPipe.CloseHandle();
-            if (*bRun)
+            if (*bThreadRun)
                 Sleep(200);
             continue;   // don't end the thread!
         }

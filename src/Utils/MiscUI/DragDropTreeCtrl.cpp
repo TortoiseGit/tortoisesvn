@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,8 +162,8 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
         m_pImageList = NULL;
 
         // Get the HTREEITEM of the drop target and exit now if it's NULL.
-        UINT nFlags;
-        HTREEITEM hItem = HitTest(point, &nFlags);
+        UINT nHitFlags;
+        HTREEITEM hItem = HitTest(point, &nHitFlags);
         if (hItem == NULL)
             return;
 

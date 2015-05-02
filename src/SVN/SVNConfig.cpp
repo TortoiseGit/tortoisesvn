@@ -39,13 +39,13 @@ SVNConfig::SVNConfig(void)
 {
     m_critSec.Init();
     parentpool = svn_pool_create(NULL);
-    pool = svn_pool_create (parentpool);
-    wcignorespool = svn_pool_create(pool);
+    m_pool = svn_pool_create (parentpool);
+    wcignorespool = svn_pool_create(m_pool);
 
-    Err = svn_config_ensure(NULL, pool);
+    Err = svn_config_ensure(NULL, m_pool);
     if (Err == nullptr)
         // set up the configuration
-        Err = svn_config_get_config (&(config), g_pConfigDir, pool);
+        Err = svn_config_get_config (&(config), g_pConfigDir, m_pool);
 
     if (config)
         SetUpSSH();
@@ -54,7 +54,7 @@ SVNConfig::SVNConfig(void)
 SVNConfig::~SVNConfig(void)
 {
     svn_error_clear(Err);
-    svn_pool_destroy (pool);
+    svn_pool_destroy (m_pool);
     svn_pool_destroy (parentpool);
     m_critSec.Term();
     delete m_pInstance;
@@ -174,24 +174,24 @@ void SVNConfig::Refresh()
     // if it fails, use the originally loaded configuration
     // if it succeeds, use the reloaded config and clear
     // the memory of the old configuration
-    apr_pool_t * pool2 = pool;
+    apr_pool_t * pool = m_pool;
     apr_hash_t * config2 = nullptr;
     if (config)
-        pool2 = svn_pool_create (parentpool);
+        pool = svn_pool_create (parentpool);
 
     svn_error_clear(Err);
-    Err = svn_config_ensure(NULL, pool2);
+    Err = svn_config_ensure(NULL, pool);
     if (Err == nullptr)
-        Err = svn_config_get_config (&(config2), g_pConfigDir, pool2);
+        Err = svn_config_get_config (&(config2), g_pConfigDir, pool);
 
     if (config2 == nullptr)
     {
-        apr_pool_destroy(pool2);
+        apr_pool_destroy(pool);
     }
     else if (config)
     {
-        apr_pool_destroy(pool);
-        pool = pool2;
+        apr_pool_destroy(m_pool);
+        m_pool = pool;
         config = config2;
     }
     if (config)

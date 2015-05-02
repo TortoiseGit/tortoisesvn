@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,7 +162,7 @@ CCachedLogInfo::CCacheFileManager::~CCacheFileManager()
 /// (will auto-drop crashed files etc.)
 
 void CCachedLogInfo::CCacheFileManager::AutoAcquire
-    ( const TFileName& fileName
+    ( const TFileName& filename
     , int maxFailures)
 {
     assert (!OwnsFile());
@@ -170,12 +170,12 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire
     // remove existing files when they crashed before
     // (DeleteFile() will fail for open files)
 
-    std::wstring lockFileName = fileName + L".lock";
+    std::wstring lockFileName = filename + L".lock";
     if (ShouldDrop (lockFileName, maxFailures))
     {
         if (DeleteFile (lockFileName.c_str()) == TRUE)
         {
-            DeleteFile (fileName.c_str());
+            DeleteFile (filename.c_str());
             failureCount = NO_FAILURE;
         }
     }

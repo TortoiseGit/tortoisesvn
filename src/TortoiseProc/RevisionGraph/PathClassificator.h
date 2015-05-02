@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ private:
 
         /// different matching algorithms
 
-        bool WildCardMatch (const char* s, const char* pattern) const;
+        bool WildCardMatch (const char* s, const char* patt) const;
         bool StraightMatch (const char* s, size_t length) const;
 
         /// construction utility

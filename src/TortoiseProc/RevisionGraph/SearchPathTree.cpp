@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -157,14 +157,14 @@ CSearchPathTree::~CSearchPathTree()
 
 // add a node for the given path and rev. to the tree
 
-CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& path
+CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& p
                                          , revision_t startrev)
 {
     assert (startrev != NO_REVISION);
 
     // exact match (will happen on root node only)?
 
-    if (this->path == path)
+    if (this->path == p)
     {
         startRevision = startrev;
         return this;
@@ -172,15 +172,15 @@ CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& path
 
     // (partly or fully) overlap with an existing child?
 
-    CDictionaryBasedPath cachedPath = path.GetBasePath();
+    CDictionaryBasedPath cachedPath = p.GetBasePath();
     for (CSearchPathTree* child = firstChild; child != NULL; child = child->next)
     {
         CDictionaryBasedTempPath commonPath
-            = child->path.GetCommonRoot (path);
+            = child->path.GetCommonRoot (p);
 
         if (commonPath != this->path)
         {
-            if (child->path == path)
+            if (child->path == p)
             {
                 // there is already a node for the exact same path
                 // -> use it, if unused so far; append a new node otherwise
@@ -188,13 +188,13 @@ CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& path
                 if (child->startRevision == NO_REVISION)
                     child->startRevision = startrev;
                 else
-                    return new CSearchPathTree (path, startrev, this);
+                    return new CSearchPathTree (p, startrev, this);
             }
             else
             {
                 // the path is a (true) sub-node of the child
 
-                return child->Insert (path, startrev);
+                return child->Insert (p, startrev);
             }
         }
     }

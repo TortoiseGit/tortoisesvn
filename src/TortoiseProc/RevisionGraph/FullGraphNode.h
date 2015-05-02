@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,9 +54,9 @@ public:
 
         /// factory interface
 
-        CFullGraphNode* Create ( const CDictionaryBasedTempPath& path
-                               , revision_t revision
-                               , CNodeClassification classification
+        CFullGraphNode* Create ( const CDictionaryBasedTempPath& p
+                               , revision_t r
+                               , CNodeClassification classific
                                , CFullGraphNode* source);
         void Replace ( CFullGraphNode* toReplace
                      , CFullGraphNode::CCopyTarget*& toMove

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,13 +29,13 @@ CFullGraphNode::CFactory::CFactory()
 }
 
 CFullGraphNode* CFullGraphNode::CFactory::Create
-    ( const CDictionaryBasedTempPath& path
-    , revision_t revision
-    , CNodeClassification classification
+    ( const CDictionaryBasedTempPath& p
+    , revision_t r
+    , CNodeClassification classific
     , CFullGraphNode* source)
 {
     CFullGraphNode * result = static_cast<CFullGraphNode *>(nodePool.malloc());
-    new (result) CFullGraphNode (path, revision, classification, source, copyTargetFactory);
+    new (result) CFullGraphNode (p, r, classific, source, copyTargetFactory);
     return result;
 }
 

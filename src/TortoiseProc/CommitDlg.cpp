@@ -547,8 +547,8 @@ void CCommitDlg::OnOK()
                 for (int i = 0; i < errorpaths.GetCount(); ++i)
                 {
                     CTSVNPath errorpath = errorpaths[i];
-                    int nListItems = m_ListCtrl.GetItemCount();
-                    for (int j = 0; j < nListItems; j++)
+                    int nListItemsCount = m_ListCtrl.GetItemCount();
+                    for (int j = 0; j < nListItemsCount; j++)
                     {
                         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
                         if (entry->GetPath().IsEquivalentTo(errorpath))

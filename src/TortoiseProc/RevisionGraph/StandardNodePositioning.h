@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,7 +67,7 @@ public:
 
     /// link to sub-option
 
-    void SetReduceCrossLines (IRevisionGraphOption* reduceCrossLines);
+    void SetReduceCrossLines (IRevisionGraphOption* redCrossLines);
 
     /// cast @a layout pointer to the respective modification
     /// interface and write the data.

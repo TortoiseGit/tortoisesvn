@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2007, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -238,10 +238,10 @@ public:
     /// r/o data access
 
     size_t GetPathCount() const;
-    CDictionaryBasedPath GetPath (size_t index) const;
+    CDictionaryBasedPath GetPath (size_t ind) const;
 
     typedef std::vector<std::pair<revision_t, revision_t> > TRanges;
-    TRanges GetRanges (size_t index) const;
+    TRanges GetRanges (size_t ind) const;
 
     /// stream I/O
 

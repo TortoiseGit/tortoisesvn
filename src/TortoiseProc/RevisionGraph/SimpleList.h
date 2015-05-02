@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,24 +38,24 @@ public:
         {
         }
 
-        void insert (T* item, simple_list<T>*& next)
+        void insert (T* pItem, simple_list<T>*& next)
         {
             simple_list<T> * result = static_cast<simple_list<T> *>(pool.malloc());
-            new (result) simple_list<T> (item, next);
+            new (result) simple_list<T> (pItem, next);
             next = result;
         }
 
         T* remove (simple_list<T>*& node)
         {
             simple_list<T>* temp = node->_next;
-            T* item = node->item;
+            T* pItem = node->item;
 
             node->~simple_list<T>();
             pool.free (node);
 
             node = temp;
 
-            return item;
+            return pItem;
         }
     };
 

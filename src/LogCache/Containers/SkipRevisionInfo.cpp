@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,10 +119,10 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 
 void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 {
-    std::vector<SPerPathRanges*>& data = parent->data;
-    for (size_t i = data.size(); i > 0; --i)
+    std::vector<SPerPathRanges*>& data_ = parent->data;
+    for (size_t i = data_.size(); i > 0; --i)
     {
-        SPerPathRanges::TRanges& ranges = data[i-1]->ranges;
+        SPerPathRanges::TRanges& ranges = data_[i-1]->ranges;
         for (IT iter = ranges.begin(), end = ranges.end(); iter != end; )
         {
             revision_t start = iter->first;
@@ -172,9 +172,9 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 
         if (ranges.empty())
         {
-            delete data[i-1];
-            data[i-1] = data.back();
-            data.pop_back();
+            delete data_[i-1];
+            data_[i-1] = data_.back();
+            data_.pop_back();
         }
     }
 }
@@ -185,14 +185,14 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 
 void CSkipRevisionInfo::CPacker::RebuildHash()
 {
-    std::vector<SPerPathRanges*>& data = parent->data;
-    quick_hash<CSkipRevisionInfo::CHashFunction>& index = parent->index;
+    std::vector<SPerPathRanges*>& data_ = parent->data;
+    quick_hash<CSkipRevisionInfo::CHashFunction>& ind = parent->index;
 
-    index.clear();
-    index.reserve (data.size());
+    ind.clear();
+    ind.reserve (data_.size());
 
-    for (size_t i = 0, count = data.size(); i < count; ++i)
-        index.insert (data[i]->pathID, (index_t)i);
+    for (size_t i = 0, count = data_.size(); i < count; ++i)
+        ind.insert (data_[i]->pathID, (index_t)i);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -228,11 +228,11 @@ void CSkipRevisionInfo::CPacker::operator()(CSkipRevisionInfo* aParent)
 
 bool CSkipRevisionInfo::DataAvailable (revision_t revision)
 {
-    index_t index = revisions[revision];
-    if (index == NO_INDEX)
+    index_t ind = revisions[revision];
+    if (ind == NO_INDEX)
         return false;
 
-    return (  logInfo.GetPresenceFlags (index)
+    return (  logInfo.GetPresenceFlags (ind)
             & CRevisionInfoContainer::HAS_CHANGEDPATHS) != 0;
 }
 
@@ -410,16 +410,16 @@ size_t CSkipRevisionInfo::GetPathCount() const
     return data.size();
 }
 
-CDictionaryBasedPath CSkipRevisionInfo::GetPath (size_t index) const
+CDictionaryBasedPath CSkipRevisionInfo::GetPath (size_t ind) const
 {
-    return CDictionaryBasedPath (&paths, data[index]->pathID);
+    return CDictionaryBasedPath (&paths, data[ind]->pathID);
 }
 
-CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t index) const
+CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t ind) const
 {
     TRanges result;
 
-    const SPerPathRanges::TRanges& ranges = data[index]->ranges;
+    const SPerPathRanges::TRanges& ranges = data[ind]->ranges;
     result.reserve (ranges.size());
 
     for ( SPerPathRanges::TRanges::const_iterator iter = ranges.begin()

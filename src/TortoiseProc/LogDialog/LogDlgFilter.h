@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011, 2013 - TortoiseSVN
+// Copyright (C) 2009-2011, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,7 +119,7 @@ private:
 
     bool ValidateRegexp
         ( const char* regexp_str
-        , std::vector<std::tr1::regex>& patterns);
+        , std::vector<std::tr1::regex>& pattrns);
 
     // construction utility
 

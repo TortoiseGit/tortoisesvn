@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014 - TortoiseSVN
+// Copyright (C) 2008-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -456,20 +456,20 @@ void CTreeConflictEditorDlg::OnBnClickedHelp()
     OnHelp();
 }
 
-void CTreeConflictEditorDlg::SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind)
+void CTreeConflictEditorDlg::SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t nodekind)
 {
     src_left_version_url = url;
     src_left_version_path = path;
     src_left_version_rev = rev;
-    src_left_version_kind = kind;
+    src_left_version_kind = nodekind;
 }
 
-void CTreeConflictEditorDlg::SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind)
+void CTreeConflictEditorDlg::SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t nodekind)
 {
     src_right_version_url = url;
     src_right_version_path = path;
     src_right_version_rev = rev;
-    src_right_version_kind = kind;
+    src_right_version_kind = nodekind;
 }
 
 void CTreeConflictEditorDlg::SetConflictSources( const svn_wc_conflict_version_t * left, const svn_wc_conflict_version_t * right )

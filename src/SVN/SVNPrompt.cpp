@@ -383,12 +383,12 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             // Show the save file dialog
             if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
             {
-                CComPtr<IFileDialogCustomize> pfdCustomize;
-                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                CComPtr<IFileDialogCustomize> pfdCustomizeRet;
+                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomizeRet));
                 if (SUCCEEDED(hr))
                 {
                     BOOL bChecked = FALSE;
-                    pfdCustomize->GetCheckButtonState(101, &bChecked);
+                    pfdCustomizeRet->GetCheckButtonState(101, &bChecked);
                     may_save = (bChecked != 0);
                 }
 

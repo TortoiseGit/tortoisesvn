@@ -420,10 +420,10 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_PROG_FINDHEADREVS)));
                 DWORD count = 0;
                 DWORD total = m_ExtList.GetSelectedCount();
-                POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
-                while (pos)
+                POSITION p = m_ExtList.GetFirstSelectedItemPosition();
+                while (p)
                 {
-                    int index = m_ExtList.GetNextSelectedItem(pos);
+                    int index = m_ExtList.GetNextSelectedItem(p);
                     progDlg.SetProgress(count++, total);
                     if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
@@ -432,9 +432,9 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                         {
                             if (m_externals[index].root.IsEmpty())
                             {
-                                CTSVNPath p = m_externals[index].path;
-                                p.AppendPathString(m_externals[index].targetDir);
-                                m_externals[index].root = svn.GetRepositoryRoot(p);
+                                CTSVNPath path_ = m_externals[index].path;
+                                path_.AppendPathString(m_externals[index].targetDir);
+                                m_externals[index].root = svn.GetRepositoryRoot(path_);
                             }
 
                             auto hi = headrevs.find(m_externals[index].root);
@@ -457,10 +457,10 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             // intentional fall through
         case CMD_ADJUST:
             {
-                POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
-                while (pos)
+                POSITION p = m_ExtList.GetFirstSelectedItemPosition();
+                while (p)
                 {
-                    int index = m_ExtList.GetNextSelectedItem(pos);
+                    int index = m_ExtList.GetNextSelectedItem(p);
                     if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
                         if (m_externals[index].headrev != SVN_INVALID_REVNUM)

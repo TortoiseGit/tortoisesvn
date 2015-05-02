@@ -24,7 +24,7 @@
 
 #include <list>
 
-extern HWND hWnd;
+extern HWND hWndHidden;
 
 CDirectoryWatcher::CDirectoryWatcher(void)
     : m_bRunning(TRUE)
@@ -332,7 +332,7 @@ void CDirectoryWatcher::WorkerThread()
                     int numPaths = watchedPaths.GetCount();
                     size_t numWatch = watchInfoMap.size();
                     lock.Unlock();
-                    NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
+                    NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWndHidden, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
                     lock.Lock();
                     // since we released the lock to prevent a deadlock with the UI thread,
                     // it could happen that new paths were added to watch, or another thread

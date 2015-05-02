@@ -1522,7 +1522,6 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
             node = m_RepoTree.GetRootItem();
             if (node)
             {
-                CAutoReadLock locker(m_guard);
                 CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
                 if (pTreeItem == nullptr)
                     node = NULL;
@@ -1877,7 +1876,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         HTREEITEM hChild = m_RepoTree.GetChildItem(hNode);
         HTREEITEM hNext;
 
-        CAutoWriteLock locker(m_guard);
+        CAutoWriteLock writelocker(m_guard);
         while (hChild)
         {
             hNext = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
@@ -2195,7 +2194,7 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
                 {
                     if (!pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
                     {
-                        CAutoWriteLock locker(m_guard);
+                        CAutoWriteLock writelocker(m_guard);
                         m_RepoList.DeleteAllItems();
                         FetchChildren(hSelItem);
                     }

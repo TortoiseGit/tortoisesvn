@@ -144,7 +144,7 @@ public:
      * Checks if the log message \c sMessage contains a bug ID. This is done by
      * using the bugtraq:checkre property.
      */
-    BOOL HasBugID(const CString& sMessage);
+    BOOL HasBugID(const CString& sMsg);
 
     /**
      * Returns the URL pointing to the Issue in the issue tracker. The URL is
@@ -164,7 +164,7 @@ public:
      * set and there are actually some matches.
      * Otherwise, an empty string is returned.
      */
-    CString GetLogSummary(const CString& sMessage);
+    CString GetLogSummary(const CString& sMsg);
 
     /**
      * Transform the log message using \ref GetLogSummary and post-process it

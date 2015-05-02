@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,9 +34,9 @@
 
 // conversion utility
 
-CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const
+CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& p) const
 {
-    std::string utf8Path = path.GetPath();
+    std::string utf8Path = p.GetPath();
 
     // we don't need to adjust the path length as
     // the conversion will automatically stop at \0.

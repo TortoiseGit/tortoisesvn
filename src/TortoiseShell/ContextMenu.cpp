@@ -335,12 +335,12 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
                             if (stat.status->repos_relpath && stat.status->repos_root_url)
                             {
-                                size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
-                                len += 2;
-                                std::unique_ptr<char[]> url(new char[len]);
-                                strcpy_s(url.get(), len, stat.status->repos_root_url);
-                                strcat_s(url.get(), len, "/");
-                                strcat_s(url.get(), len, stat.status->repos_relpath);
+                                size_t slen = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
+                                slen += 2;
+                                std::unique_ptr<char[]> url(new char[slen]);
+                                strcpy_s(url.get(), slen, stat.status->repos_root_url);
+                                strcat_s(url.get(), slen, "/");
+                                strcat_s(url.get(), slen, stat.status->repos_relpath);
                                 urls_.push_back(CUnicodeUtils::StdGetUnicode(url.get()));
                             }
                         }

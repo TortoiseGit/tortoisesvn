@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011, 2013 - TortoiseSVN
+// Copyright (C) 2008-2011, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,8 +34,8 @@ public:
 
     void SetPath(const CTSVNPath& path) {m_path = path;}
     void SetConflictSources(const svn_wc_conflict_version_t * left, const svn_wc_conflict_version_t * right);
-    void SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
-    void SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
+    void SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t nodekind);
+    void SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t nodekind);
     void SetConflictAction(svn_wc_conflict_action_t action) {conflict_action = action;}
     void SetConflictReason(svn_wc_conflict_reason_t reason) {conflict_reason = reason;}
     void SetConflictOperation(svn_wc_operation_t operation) {conflict_operation = operation;}

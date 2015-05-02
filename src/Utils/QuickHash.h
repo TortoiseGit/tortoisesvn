@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -136,12 +136,12 @@ private:
             return hash_value % capacity();
         }
 
-        size_t next (size_t index) const
+        size_t next (size_t ind) const
         {
-            index += nextStride;
-            if (index >= capacity())
-                index -= capacity();
-            return index;
+            ind += nextStride;
+            if (ind >= capacity())
+                ind -= capacity();
+            return ind;
         }
 
         const statistics_t& get_statistics() const
@@ -354,13 +354,13 @@ public:
                     ; iter != end
                     ; ++iter)
                 {
-                    size_t bucket = iter->first;
-                    index_type* target = data + bucket;
+                    size_t nbucket = iter->first;
+                    index_type* target = data + nbucket;
 
                     while (*target != NO_INDEX)
                     {
-                        bucket = grower.next (bucket);
-                        target = data + bucket;
+                        nbucket = grower.next (nbucket);
+                        target = data + nbucket;
                         ++collisions_count;
                     }
 

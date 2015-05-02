@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -569,14 +569,14 @@ BOOL ProjectProperties::CheckBugID(const CString& sID)
     return TRUE;
 }
 
-BOOL ProjectProperties::HasBugID(const CString& sMessage)
+BOOL ProjectProperties::HasBugID(const CString& sMsg)
 {
     if (!sCheckRe.IsEmpty())
     {
         try
         {
             AutoUpdateRegex();
-            return std::tr1::regex_search((LPCTSTR)sMessage, regCheck);
+            return std::tr1::regex_search((LPCTSTR)sMsg, regCheck);
         }
         catch (std::exception) {}
     }
@@ -617,7 +617,7 @@ void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
         svn_config_set(cfg, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, "yes");
 }
 
-CString ProjectProperties::GetLogSummary(const CString& sMessage)
+CString ProjectProperties::GetLogSummary(const CString& sMsg)
 {
     CString sRet;
 
@@ -627,7 +627,7 @@ CString ProjectProperties::GetLogSummary(const CString& sMessage)
         {
             const std::tr1::wregex regSum(sLogSummaryRe);
             const std::tr1::wsregex_iterator end;
-            std::wstring s = sMessage;
+            std::wstring s = sMsg;
             for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
             {
                 const std::tr1::wsmatch match = *it;

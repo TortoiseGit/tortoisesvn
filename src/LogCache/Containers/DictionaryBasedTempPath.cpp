@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,12 +39,12 @@ CDictionaryBasedTempPath::CDictionaryBasedTempPath
     ParsePath (path, NULL, &relPathElements);
 }
 
-std::string CDictionaryBasedTempPath::operator[](size_t index) const
+std::string CDictionaryBasedTempPath::operator[](size_t ind) const
 {
     size_t parentDepth = inherited::GetDepth();
-    return index < parentDepth
-        ? ReverseAt (parentDepth - index - 1)
-        : relPathElements [index - parentDepth];
+    return ind < parentDepth
+        ? ReverseAt (parentDepth - ind - 1)
+        : relPathElements [ind - parentDepth];
 }
 
 CDictionaryBasedTempPath CDictionaryBasedTempPath::GetCommonRoot
@@ -125,7 +125,7 @@ void CDictionaryBasedTempPath::RepeatLookup()
 
     // some preparation ...
 
-    const CPathDictionary* dictionary = GetDictionary();
+    const CPathDictionary* dict = GetDictionary();
     index_t currentIndex = GetIndex();
 
     typedef std::vector<std::string>::iterator IT;
@@ -135,7 +135,7 @@ void CDictionaryBasedTempPath::RepeatLookup()
 
     for (IT iter = begin, end = relPathElements.end(); iter != end; ++iter)
     {
-        index_t nextIndex = dictionary->Find (currentIndex, iter->c_str());
+        index_t nextIndex = dict->Find (currentIndex, iter->c_str());
         if (nextIndex == NO_INDEX)
         {
             // new dictionary-based path info ends here.

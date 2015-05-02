@@ -245,7 +245,7 @@ void CFolderCrawler::WorkerThread()
                             nCurrentCrawledpathIndex = 0;
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Invalidating/refreshing folder %s\n", workingPath.GetWinPath());
                     }
-                    InvalidateRect(hWnd, NULL, FALSE);
+                    InvalidateRect(hWndHidden, NULL, FALSE);
                     {
                         CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                         // Invalidate the cache of this folder, to make sure its status is fetched again.
@@ -299,7 +299,7 @@ void CFolderCrawler::WorkerThread()
                             nCurrentCrawledpathIndex = 0;
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": updating path %s\n", workingPath.GetWinPath());
                     }
-                    InvalidateRect(hWnd, NULL, FALSE);
+                    InvalidateRect(hWndHidden, NULL, FALSE);
                     {
                         CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                         // Invalidate the cache of folders manually. The cache of files is invalidated
@@ -361,7 +361,7 @@ void CFolderCrawler::WorkerThread()
                         nCurrentCrawledpathIndex = 0;
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Crawling folder %s\n", workingPath.GetWinPath());
                 }
-                InvalidateRect(hWnd, NULL, FALSE);
+                InvalidateRect(hWndHidden, NULL, FALSE);
                 {
                     CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                     // Now, we need to visit this folder, to make sure that we know its 'most important' status

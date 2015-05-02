@@ -271,7 +271,7 @@ private:
 
         /// callback from the SVN::List() method which stores all the information
 
-        virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
+        virtual BOOL ReportList(const CString& path_, svn_node_kind_t kind,
             svn_filesize_t size, bool has_props, svn_revnum_t created_rev,
             apr_time_t time, const CString& author, const CString& locktoken,
             const CString& lockowner, const CString& lockcomment,

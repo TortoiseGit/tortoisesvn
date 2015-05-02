@@ -3594,7 +3594,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
         }
     }
 
-    m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath(pool)] = rev;
+    m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath(m_pool)] = rev;
     if ((m_RevisionEnd >= 0)&&(rev >= 0)
         &&((LONG)m_RevisionEnd > (LONG)rev))
     {
@@ -3719,7 +3719,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             SVNStatus st;
             if (st.GetStatus(targetPath, false) != (-2))
             {
-                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
+                m_UpdateStartRevMap[targetPath.GetSVNApiPath(m_pool)] = st.status->changed_rev;
                 // find out if this target is from the same repository as
                 // the ones before
                 CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
@@ -4063,7 +4063,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
 {
     CString sUUID = GetUUIDFromPath(m_targetPathList[0]);
     CString sRepositoryRoot = GetRepositoryRoot(m_targetPathList[0]);
-    CString escapedUrl = CUnicodeUtils::GetUnicode(m_url.GetSVNApiPath(pool));
+    CString escapedUrl = CUnicodeUtils::GetUnicode(m_url.GetSVNApiPath(m_pool));
     CString relUrl = escapedUrl.Mid(sRepositoryRoot.GetLength() + 1);
     relUrl = CPathUtils::PathUnescape(relUrl);
     CString sSeparator = CRegString(L"Software\\TortoiseSVN\\MergeLogSeparator", L"........");
@@ -4188,12 +4188,12 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
     if (data->basepath.IsEmpty())
         it = m_UpdateStartRevMap.begin();
     else
-        it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath(pool));
+        it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath(m_pool));
     if (it != m_UpdateStartRevMap.end())
         rev = it->second;
     else
     {
-        it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath(pool));
+        it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath(m_pool));
         if (it != m_FinishedRevMap.end())
             rev = it->second;
     }

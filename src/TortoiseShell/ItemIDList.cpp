@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009, 2011-2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2011-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -124,10 +124,10 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
         (wcsncmp(ret.c_str(), L"::{", 3)==0))
     {
         CComPtr<IShellLibrary> plib;
-        HRESULT hr = CoCreateInstance(CLSID_ShellLibrary,
-                                      NULL,
-                                      CLSCTX_INPROC_SERVER,
-                                      IID_PPV_ARGS(&plib));
+        hr = CoCreateInstance(CLSID_ShellLibrary,
+                              NULL,
+                              CLSCTX_INPROC_SERVER,
+                              IID_PPV_ARGS(&plib));
         if (SUCCEEDED(hr))
         {
             typedef HRESULT STDAPICALLTYPE SHCreateItemFromParsingNameFN(__in PCWSTR pszPath, __in_opt IBindCtx *pbc, __in REFIID riid, __deref_out void **ppv);

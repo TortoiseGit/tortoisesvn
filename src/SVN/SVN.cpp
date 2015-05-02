@@ -113,25 +113,25 @@ SVN::SVN(bool suppressUI)
     , m_bAssumeCacheEnabled(false)
 {
     parentpool = svn_pool_create(NULL);
-    pool = svn_pool_create (parentpool);
+    m_pool = svn_pool_create (parentpool);
 
     SVNInit();
 }
 
 void SVN::SVNReInit()
 {
-    svn_pool_clear(pool);
+    svn_pool_clear(m_pool);
     SVNInit();
 }
 
 void SVN::SVNInit()
 {
-    svn_ra_initialize(pool);
+    svn_ra_initialize(m_pool);
 
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), pool));
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), m_pool));
     if (m_pctx->config == nullptr)
     {
-        svn_pool_destroy(pool);
+        svn_pool_destroy(m_pool);
         svn_pool_destroy(parentpool);
         exit(-1);
     }
@@ -153,7 +153,7 @@ void SVN::SVNInit()
     m_pctx->cancel_baton = this;
     m_pctx->progress_func = progress_func;
     m_pctx->progress_baton = this;
-    m_pctx->client_name = SVNHelper::GetUserAgentString(pool);
+    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
 }
 
 SVN::~SVN(void)
@@ -217,7 +217,7 @@ bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
                    const SVNRev& revision, svn_depth_t depth, bool bIgnoreExternals,
                    bool bAllow_unver_obstructions)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
 
     CHooks::Instance().PreConnect(CTSVNPathList(moduleName));
@@ -245,7 +245,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     // svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
     // cleanups get run.  For example, after a failure do to an unforced delete on
     // a modified file, if you don't do a cleanup, the WC stays locked
-    SVNPool subPool(pool);
+    SVNPool subPool(m_pool);
     Prepare();
     m_pctx->log_msg_baton3 = logMessage(message);
 
@@ -290,7 +290,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
 bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, bool recurse, bool clearchangelists, bool metadataonly)
 {
     TRACE("Reverting list of %d files\n", pathlist.GetCount());
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
 
     Prepare();
@@ -330,7 +330,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
             if (mimetypes_file && *mimetypes_file)
             {
                 Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-                    mimetypes_file, pool);
+                    mimetypes_file, m_pool);
                 if (Err)
                     return false;
             }
@@ -347,7 +347,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
             Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
             return false;
         }
-        SVNPool subpool(pool);
+        SVNPool subpool(m_pool);
         Err = svn_client_add5 (pathList[nItem].GetSVNApiPath(subpool), depth, force, no_ignore, !bUseAutoprops, addparents, m_pctx, subpool);
         if(Err != NULL)
         {
@@ -360,7 +360,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 
 bool SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changelist, svn_depth_t depth, const CStringArray& changelists)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
 
     if (changelist.IsEmpty())
@@ -380,7 +380,7 @@ bool SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
 
 bool SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray& changelists, svn_depth_t depth)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
     apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
 
@@ -398,12 +398,12 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                  bool ignoreexternals, bool bAllow_unver_obstructions,
                  bool makeParents)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
     CHooks::Instance().PreConnect(pathList);
     SVNTRACE(
         Err = svn_client_update4(NULL,
-                                pathList.MakePathArray(pool),
+                                pathList.MakePathArray(m_pool),
                                 revision,
                                 depth,
                                 depthIsSticky,
@@ -422,7 +422,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
                          const CStringArray& changelists, bool keepchangelist, svn_depth_t depth, bool keep_locks, const RevPropHash& revProps)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
 
     Prepare();
 
@@ -436,7 +436,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
     SVNTRACE(
         Err = svn_client_commit6 (
-                                  pathlist.MakePathArray(pool),
+                                  pathlist.MakePathArray(m_pool),
                                   depth,
                                   keep_locks,
                                   keepchangelist,
@@ -468,7 +468,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                bool make_parents, bool ignoreExternals, bool pin_externals, SVNExternals externalsToTag,
                const RevPropHash& revProps)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
 
     Prepare();
 
@@ -515,7 +515,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                bool metadata_only /* = false */,
                const RevPropHash& revProps /* = RevPropHash() */ )
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
 
     Prepare();
     m_pctx->log_msg_baton3 = logMessage(message);
@@ -549,18 +549,18 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
 {
     Prepare();
     m_pctx->log_msg_baton3 = logMessage(message);
-    apr_hash_t * revPropHash = MakeRevPropHash(revProps, pool);
+    apr_hash_t * revPropHash = MakeRevPropHash(revProps, m_pool);
 
     CallPreConnectHookIfUrl(pathlist);
 
     SVNTRACE (
-        Err = svn_client_mkdir4 (pathlist.MakePathArray(pool),
+        Err = svn_client_mkdir4 (pathlist.MakePathArray(m_pool),
                                  makeParents,
                                  revPropHash,
                                  commitcallback2,
                                  this,
                                  m_pctx,
-                                 pool) ,
+                                 m_pool) ,
         NULL
     );
     ClearCAPIAuthCacheOnError();
@@ -575,7 +575,7 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
 bool SVN::CleanUp(const CTSVNPath& path, bool breaklocks, bool fixtimestamps, bool cleardavcache, bool vacuumpristines, bool includeexternals)
 {
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     const char* svnPath = path.GetSVNApiPath(subpool);
     SVNTRACE (
         Err = svn_client_cleanup2 (svnPath, breaklocks, fixtimestamps, cleardavcache, vacuumpristines, includeexternals, m_pctx, subpool),
@@ -588,7 +588,7 @@ bool SVN::CleanUp(const CTSVNPath& path, bool breaklocks, bool fixtimestamps, bo
 bool SVN::Vacuum(const CTSVNPath& path, bool unversioned, bool ignored, bool fixtimestamps, bool pristines, bool includeExternals)
 {
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     const char* svnPath = path.GetSVNApiPath(subpool);
     SVNTRACE(
         Err = svn_client_vacuum(svnPath, unversioned, ignored, fixtimestamps, pristines, includeExternals, m_pctx, subpool),
@@ -600,7 +600,7 @@ bool SVN::Vacuum(const CTSVNPath& path, bool unversioned, bool ignored, bool fix
 
 bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool recurse, bool typeonly, svn_wc_conflict_kind_t kind)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
 
     if (typeonly)
@@ -825,7 +825,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
     }
     else
     {
-        SVNPool subpool(pool);
+        SVNPool subpool(m_pool);
         const char* source = srcPath.GetSVNApiPath(subpool);
         CHooks::Instance().PreConnect(CTSVNPathList(srcPath));
         SVNTRACE (
@@ -854,7 +854,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 
 bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool depthIsSticky, bool ignore_externals, bool allow_unver_obstruction, bool ignore_ancestry)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
 
     const char* svnPath = path.GetSVNApiPath(subpool);
@@ -914,7 +914,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
         if (mimetypes_file && *mimetypes_file)
         {
             Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-                mimetypes_file, pool);
+                mimetypes_file, m_pool);
             if (Err)
                 return FALSE;
         }
@@ -922,7 +922,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
             props->InsertAutoProps(opt);
     }
 
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
@@ -958,7 +958,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
                 const CTSVNPath& localPath, bool force, svn_depth_t depth, const CString& options,
                 bool ignoreanchestry, bool dryrun, bool record_only)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t *opts;
 
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
@@ -994,7 +994,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
                    const CTSVNPath& destpath, bool force, svn_depth_t depth, const CString& options,
                    bool ignoreancestry, bool dryrun, bool record_only)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t *opts;
 
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
@@ -1027,7 +1027,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
 
 bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, const CTSVNPath& wcpath, bool dryrun, const CString& options)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t *opts;
 
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
@@ -1055,7 +1055,7 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, c
 
 bool SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t * sourceurls;
 
     Prepare();
@@ -1137,7 +1137,7 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
     apr_file_t * errfile = nullptr;
     apr_array_header_t *opts;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
@@ -1232,7 +1232,7 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
     apr_file_t * errfile;
     apr_array_header_t *opts;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
@@ -1309,7 +1309,7 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
 
 bool SVN::DiffSummarize(const CTSVNPath& path1, const SVNRev& rev1, const CTSVNPath& path2, const SVNRev& rev2, svn_depth_t depth, bool ignoreancestry)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     const char* svnPath = path1.GetSVNApiPath(localpool);
@@ -1330,7 +1330,7 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, const SVNRev& rev1, const CTSVNP
 
 bool SVN::DiffSummarizePeg(const CTSVNPath& path, const SVNRev& peg, const SVNRev& rev1, const SVNRev& rev2, svn_depth_t depth, bool ignoreancestry)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     const char* svnPath = path.GetSVNApiPath(localpool);
@@ -1365,7 +1365,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
     Prepare();
     try
     {
-        SVNPool localpool(pool);
+        SVNPool localpool(m_pool);
 
         // query used internally to contact the repository if necessary
 
@@ -1456,7 +1456,7 @@ bool SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& rev
     apr_file_t * file;
     svn_stream_t * stream;
     apr_status_t status;
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     CTSVNPath fullLocalPath(localpath);
@@ -1520,7 +1520,7 @@ bool SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
 bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, const SVNRev& peg, const CString& diffoptions, bool ignoremimetype, bool includemerge)
 {
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     apr_array_header_t *opts;
     svn_diff_file_options_t * options = svn_diff_file_options_create(subpool);
     opts = svn_cstring_split (CUnicodeUtils::GetUTF8(diffoptions), " \t\n\r", TRUE, subpool);
@@ -1669,7 +1669,7 @@ bool SVN::Lock(const CTSVNPathList& pathList, bool bStealLock, const CString& co
 
     Prepare();
     CHooks::Instance().PreConnect(pathList);
-    Err = svn_client_lock(pathList.MakePathArray(pool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, pool);
+    Err = svn_client_lock(pathList.MakePathArray(m_pool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, m_pool);
     ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
@@ -1680,7 +1680,7 @@ bool SVN::Unlock(const CTSVNPathList& pathList, bool bBreakLock)
 
     Prepare();
     CHooks::Instance().PreConnect(pathList);
-    Err = svn_client_unlock(pathList.MakePathArray(pool), bBreakLock, m_pctx, pool);
+    Err = svn_client_unlock(pathList.MakePathArray(m_pool), bBreakLock, m_pctx, m_pool);
     ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
@@ -1854,13 +1854,13 @@ void * SVN::logMessage (CString message, char * baseDirectory)
 {
     message.Remove('\r');
 
-    log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (pool, sizeof (*baton));
-    baton->message = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(message));
+    log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (m_pool, sizeof (*baton));
+    baton->message = apr_pstrdup(m_pool, (LPCSTR)CUnicodeUtils::GetUTF8(message));
     baton->base_dir = baseDirectory ? baseDirectory : "";
 
     baton->message_encoding = NULL;
     baton->tmpfile_left = NULL;
-    baton->pool = pool;
+    baton->pool = m_pool;
 
     return baton;
 }
@@ -1945,7 +1945,7 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
     if (path.IsUrl())
         return path.GetSVNPathString();
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Err = svn_client_url_from_path2 (&URL, path.GetSVNApiPath(subpool), m_pctx, subpool, subpool);
     if (Err)
         return L"";
@@ -1958,7 +1958,7 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
 {
     const char * wcroot = NULL;
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     const char* svnPath = path.GetSVNApiPath(subpool);
     if ((svnPath==nullptr) || svn_path_is_url(svnPath) || (svnPath[0]==0))
         return CTSVNPath();
@@ -1978,7 +1978,7 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
 
 bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, apr_uint32_t dirents, bool includeExternals)
 {
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     Prepare();
 
     const char* svnPath = url.GetSVNApiPath(subpool);
@@ -2005,7 +2005,7 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
 bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, bool includeexternals)
 {
     Prepare();
-    SVNPool subpool(pool);
+    SVNPool subpool(m_pool);
     CString uuid;
 
     const CString root = GetRepositoryRootAndUUID(path, false, uuid);
@@ -2034,7 +2034,7 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 bool SVN::IsRepository(const CTSVNPath& path)
 {
     Prepare();
-    SVNPool subPool(pool);
+    SVNPool subPool(m_pool);
 
     // The URL we get here is per definition properly encoded and escaped.
     const char * rootPath = svn_repos_find_root_path(path.GetSVNApiPath(subPool), subPool);
@@ -2059,7 +2059,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, C
     const char * returl = nullptr;
     const char * uuid   = nullptr;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     // empty the sUUID first
@@ -2104,7 +2104,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
     const char * urla;
     svn_revnum_t rev = -1;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     // make sure the url is canonical.
@@ -2168,7 +2168,7 @@ bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
     const char * urla;
     const char * returl;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     // make sure the url is canonical.
@@ -2269,7 +2269,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 {
     svn_ra_session_t *ra_session;
 
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     apr_hash_t * hash = apr_hash_make(localpool);
@@ -2316,7 +2316,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 
 bool SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified, bool& sparse)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     svn_wc_revision_status_t * revstatus = NULL;
@@ -2346,7 +2346,7 @@ bool SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 
 bool SVN::GetWCMinMaxRevs( const CTSVNPath& wcpath, bool committed, svn_revnum_t& minrev, svn_revnum_t& maxrev )
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     const char* svnPath = wcpath.GetSVNApiPath(localpool);
@@ -2360,7 +2360,7 @@ bool SVN::GetWCMinMaxRevs( const CTSVNPath& wcpath, bool committed, svn_revnum_t
 
 bool SVN::Upgrade(const CTSVNPath& wcpath)
 {
-    SVNPool localpool(pool);
+    SVNPool localpool(m_pool);
     Prepare();
 
     Err = svn_client_upgrade (wcpath.GetSVNApiPath(localpool), m_pctx, localpool);
@@ -2377,11 +2377,11 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
 
     CStringA sValueA = CUnicodeUtils::GetUTF8(sValue);
     sValueA.Remove('\r');
-    pval = svn_string_create(sValueA, pool);
+    pval = svn_string_create(sValueA, m_pool);
     if (!sOldValue.IsEmpty())
-        pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), pool);
+        pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), m_pool);
 
-    const char* svnPath = URL.GetSVNApiPath(pool);
+    const char* svnPath = URL.GetSVNApiPath(m_pool);
     CHooks::Instance().PreConnect(CTSVNPathList(URL));
     SVNTRACE (
         Err = svn_client_revprop_set2(CUnicodeUtils::GetUTF8(sName),
@@ -2392,7 +2392,7 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
                                         &set_rev,
                                         FALSE,
                                         m_pctx,
-                                        pool),
+                                        m_pool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
@@ -2407,10 +2407,10 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SV
     svn_revnum_t set_rev;
     Prepare();
 
-    const char* svnPath = URL.GetSVNApiPath(pool);
+    const char* svnPath = URL.GetSVNApiPath(m_pool);
     CHooks::Instance().PreConnect(CTSVNPathList(URL));
     SVNTRACE (
-        Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, svnPath, rev, &set_rev, m_pctx, pool),
+        Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, svnPath, rev, &set_rev, m_pctx, m_pool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
@@ -2755,13 +2755,13 @@ void SVN::SetPromptApp(CWinApp* pWinApp)
 
 apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev)
 {
-    apr_array_header_t * sources = apr_array_make(pool, pathList.GetCount(),
+    apr_array_header_t * sources = apr_array_make(m_pool, pathList.GetCount(),
         sizeof(svn_client_copy_source_t *));
 
     for (int nItem = 0; nItem < pathList.GetCount(); ++nItem)
     {
-        const char *target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath(pool));
-        svn_client_copy_source_t *source = (svn_client_copy_source_t*)apr_palloc(pool, sizeof(*source));
+        const char *target = apr_pstrdup (m_pool, pathList[nItem].GetSVNApiPath(m_pool));
+        svn_client_copy_source_t *source = (svn_client_copy_source_t*)apr_palloc(m_pool, sizeof(*source));
         source->path = target;
         source->revision = rev;
         source->peg_revision = pegrev;
@@ -2973,7 +2973,7 @@ CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s, apr_
 
 CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s )
 {
-    return GetChecksumString(type, s, pool);
+    return GetChecksumString(type, s, m_pool);
 }
 
 void SVN::Prepare()
@@ -2991,12 +2991,12 @@ void SVN::SetAuthInfo(const CString& username, const CString& password)
         if (!username.IsEmpty())
         {
             svn_auth_set_parameter(m_pctx->auth_baton,
-                                   SVN_AUTH_PARAM_DEFAULT_USERNAME, apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username)));
+                                   SVN_AUTH_PARAM_DEFAULT_USERNAME, apr_pstrdup(m_pool, CUnicodeUtils::GetUTF8(username)));
         }
         if (!password.IsEmpty())
         {
             svn_auth_set_parameter(m_pctx->auth_baton,
-                                   SVN_AUTH_PARAM_DEFAULT_PASSWORD, apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password)));
+                                   SVN_AUTH_PARAM_DEFAULT_PASSWORD, apr_pstrdup(m_pool, CUnicodeUtils::GetUTF8(password)));
         }
     }
 }

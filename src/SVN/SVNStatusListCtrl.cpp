@@ -676,9 +676,9 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
                                                                            , pool);
                     if (err == nullptr)
                     {
-                        for (long i=0; i < parsedExternals->nelts; ++i)
+                        for (long j=0; j < parsedExternals->nelts; ++j)
                         {
-                            svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
+                            svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, j, svn_wc_external_item2_t*);
 
                             if (e != NULL)
                             {
@@ -3554,7 +3554,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         clipSubMenu.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
                         if (selSubitem >= 0)
                         {
-                            CString temp;
                             temp.Format(IDS_STATUSLIST_CONTEXT_COPYCOL, (LPCWSTR)m_ColumnManager.GetName(selSubitem));
                             clipSubMenu.AppendMenuIcon(IDSVNLC_COPYCOL, temp, IDI_COPYCLIP);
                         }

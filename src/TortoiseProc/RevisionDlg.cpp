@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,10 +116,10 @@ void CRevisionDlg::OnEnChangeRevnum()
     }
 }
 
-void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& rev /* = SVNRev::REV_HEAD */)
+void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& r /* = SVNRev::REV_HEAD */)
 {
     m_logPath = path;
-    m_logRev = rev;
+    m_logRev = r;
 }
 
 void CRevisionDlg::OnBnClickedLog()

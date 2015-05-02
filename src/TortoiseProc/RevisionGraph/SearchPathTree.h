@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ public:
 
     /// add a node for the given path and rev. to the tree
 
-    CSearchPathTree* Insert ( const CDictionaryBasedTempPath& path
+    CSearchPathTree* Insert ( const CDictionaryBasedTempPath& p
                             , revision_t startrev);
     void Remove();
 

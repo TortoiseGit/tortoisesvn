@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2014 - TortoiseSVN
+// Copyright (C) 2009-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -290,7 +290,7 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
 
 // called to parse a (potentially incorrect) regex spec
 
-bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1::regex>& patterns)
+bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1::regex>& pattrns)
 {
     try
     {
@@ -301,7 +301,7 @@ bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1
             : std::tr1::regex_constants::ECMAScript | std::tr1::regex_constants::icase;
 
         pat = std::tr1::regex(regexp_str, type);
-        patterns.push_back(pat);
+        pattrns.push_back(pat);
         return true;
     }
     catch (std::exception) {}

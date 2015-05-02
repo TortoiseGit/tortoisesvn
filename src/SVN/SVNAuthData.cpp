@@ -310,7 +310,6 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
 
         if (!overwrite)
         {
-            apr_hash_t * hash = nullptr;
             Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
             if ((Err != nullptr) || (hash != nullptr))
             {
@@ -378,7 +377,6 @@ bool SVNAuthData::ImportAuthData(const CString& importpath, const CString& passw
 
         if (!overwrite)
         {
-            apr_hash_t * hash = nullptr;
             Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
             if ((Err != nullptr) || (hash != nullptr))
             {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2013 - TortoiseSVN
+// Copyright (C) 2007-2008, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,30 +51,30 @@ static inline bool CompareCI (char lhs, char rhs)
 }
 
 bool CPathClassificator::CWildCardPattern::WildCardMatch
-    (const char* s, const char* pattern) const
+    (const char* s, const char* patt) const
 {
     for (;;)
     {
         // consume one pattern char per loop
 
         char c = *s;
-        char p = *pattern;
+        char p = *patt;
 
-        ++pattern;
+        ++patt;
         switch (p)
         {
         case '*':
             {
                 // asterisk at the end of a pattern matches everything
 
-                if (*pattern == 0)
+                if (*patt == 0)
                     return true;
 
                 // try to find a matching position
 
                 while (c != 0)
                 {
-                    if (WildCardMatch (s, pattern))
+                    if (WildCardMatch (s, patt))
                         return true;
 
                     c = *(++s);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2014 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ public:
 
     /// mark additional size bytes of the buffer as used.
     /// (usually called after GetBuffer())
-    void AddSize (size_t size);
+    void AddSize (size_t s);
 
     /// Set total size to 0. Keep internal buffer.
     void Clear();
@@ -104,10 +104,10 @@ inline char* CStringBuffer::GetBuffer (size_t minFree)
     return buffer + size;
 }
 
-inline void CStringBuffer::AddSize (size_t size)
+inline void CStringBuffer::AddSize (size_t s)
 {
-    assert (size + this->size < capacity);
-    this->size += size;
+    assert (s + this->size < capacity);
+    this->size += s;
     buffer[this->size] = 0;
 }
 

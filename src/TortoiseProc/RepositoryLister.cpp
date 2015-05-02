@@ -98,7 +98,7 @@ bool CRepositoryLister::CQuery::Succeeded()
 // callback from the SVN::List() method which stores all the information
 
 BOOL CRepositoryLister::CListQuery::ReportList
-    ( const CString& path
+    ( const CString& path_
     , svn_node_kind_t kind
     , svn_filesize_t size
     , bool has_props
@@ -131,7 +131,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
     CString relPath = absolutepath + (abspath_has_slash ? L"" : L"/");
     CItem entry
-        ( path
+        ( path_
         , externalTarget
         , kind
         , size
@@ -145,7 +145,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
         , is_dav_comment
         , lock_creationdate
         , lock_expirationdate
-        , repository.root + relPath + path
+        , repository.root + relPath + path_
         , repository);
 
     result.push_back (entry);

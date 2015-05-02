@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006, 2013 - TortoiseSVN
+// Copyright (C) 2005-2006, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 #define MAX_CRAWLEDPATHS 15
 #define MAX_CRAWLEDPATHSLEN (MAX_PATH * 2)
 
-extern HWND             hWnd;
+extern HWND             hWndHidden;
 extern TCHAR            szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 
 extern int nCurrentCrawledpathIndex;

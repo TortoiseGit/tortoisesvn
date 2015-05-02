@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -124,7 +124,7 @@ private:
         /// call this *before* opening the file
         /// (will auto-drop crashed files etc.)
 
-        void AutoAcquire (const TFileName& fileName, int maxFailures);
+        void AutoAcquire (const TFileName& filename, int maxFailures);
 
         /// call this *after* releasing a cache file
         /// (resets the "hidden" flag and closes the handle

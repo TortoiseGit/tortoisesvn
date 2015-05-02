@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ private:
 
     // conversion utility
 
-    CString GetUIPath (const CDictionaryBasedPath& path) const;
+    CString GetUIPath (const CDictionaryBasedPath& p) const;
 
 public:
 
@@ -306,7 +306,7 @@ public:
 
     /// finalization (call this after receiving all log entries)
 
-    void Finalize ( std::unique_ptr<const CCacheLogQuery> query
+    void Finalize ( std::unique_ptr<const CCacheLogQuery> aQuery
                   , const CString& startLogPath, bool bMerge);
 
     /// access to unfiltered info

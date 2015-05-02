@@ -128,9 +128,9 @@ bool DropExternalCommand::Execute()
             {
                 DWORD exitcode = 0;
                 CString error;
-                ProjectProperties props;
-                props.ReadPropsPathList(pathList);
-                CHooks::Instance().SetProjectProperties(droptsvnpath, props);
+                ProjectProperties pprops;
+                pprops.ReadPropsPathList(pathList);
+                CHooks::Instance().SetProjectProperties(droptsvnpath, pprops);
                 if (CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitcode, error))
                 {
                     if (exitcode)
@@ -149,7 +149,7 @@ bool DropExternalCommand::Execute()
                 progDlg.SetOptions(ProgOptSkipPreChecks);
                 progDlg.SetPathList(CTSVNPathList(droptsvnpath));
                 progDlg.SetRevision(SVNRev(L"HEAD"));
-                progDlg.SetProjectProperties(props);
+                progDlg.SetProjectProperties(pprops);
                 progDlg.SetDepth(svn_depth_unknown);
                 progDlg.DoModal();
                 return !progDlg.DidErrorsOccur();

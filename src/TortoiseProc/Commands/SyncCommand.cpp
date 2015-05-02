@@ -249,7 +249,6 @@ bool SyncCommand::Execute()
         bCloudIsNewer = false;
 
     bool bHaveChanges = false;
-    CString sValue;
 
     if (bWithLocals || parser.HasKey(L"local"))
     {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011-2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -120,7 +120,7 @@ private:
 
         /// utility methods
 
-        ILogIterator* CreateIterator ( CCachedLogInfo* cache
+        ILogIterator* CreateIterator ( CCachedLogInfo* cache_
                                      , revision_t startRevision
                                      , const CDictionaryBasedTempPath& startPath) const;
     };
@@ -225,15 +225,15 @@ private:
 
         /// actually call SVN
         /// return the last revision sent to the receiver
-        revision_t FillLog ( CCachedLogInfo* cache
-                           , const CStringA& URL
-                           , CString uuid
-                           , ILogQuery* svnQuery
+        revision_t FillLog ( CCachedLogInfo* _cache
+                           , const CStringA& _URL
+                           , CString _uuid
+                           , ILogQuery* _svnQuery
                            , revision_t startRevision
                            , revision_t endRevision
                            , const CDictionaryBasedTempPath& startPath
                            , int limit
-                           , const CLogOptions& options);
+                           , const CLogOptions& _options);
     };
 
     /** utility class that receives (only) the revisions in the log

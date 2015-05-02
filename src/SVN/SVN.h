@@ -971,7 +971,7 @@ public:
 
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
-    apr_pool_t *                pool;           ///< 'root' memory pool
+    apr_pool_t *                m_pool;         ///< 'root' memory pool
     SVNPrompt                   m_prompt;
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
     bool *                      m_pbCancel;
