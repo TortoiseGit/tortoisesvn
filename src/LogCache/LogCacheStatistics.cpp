@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,8 +111,7 @@ size_t CLogCacheStatistics::GetSizeOf (const CSkipRevisionInfo& container)
         const CSkipRevisionInfo::SPerPathRanges* entry = container.data[i];
         if (entry != NULL)
         {
-            typedef CSkipRevisionInfo::SPerPathRanges::TRanges::_Tree_val T;
-            result += entry->ranges.size() * sizeof (std::_Tree_val<T>)
+            result += entry->ranges.size() * sizeof (std::_Tree_val<CSkipRevisionInfo::SPerPathRanges::TRanges>)
                     + sizeof (*entry);
         }
     }
