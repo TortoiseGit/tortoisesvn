@@ -6806,10 +6806,11 @@ void CLogDlg::ActivateVisualStudioWindow(CComPtr<EnvDTE::_DTE>& pDTE)
     HRESULT result = pDTE->get_MainWindow(&pMainWindow);
     if (FAILED(result))
         return;
-    long hwnd = 0;
-    pMainWindow->get_HWnd(&hwnd);
-    if (IsWindow((HWND)hwnd))
-        ::SetForegroundWindow((HWND)hwnd);
+    long lhwnd = 0;
+    pMainWindow->get_HWnd(&lhwnd);
+    HWND hwnd = (HWND)LongToHandle(lhwnd);
+    if (IsWindow(hwnd))
+        ::SetForegroundWindow(hwnd);
 }
 
 bool CLogDlg::VerifyContextMenuForChangedPathsAllowed(INT_PTR selIndex)
