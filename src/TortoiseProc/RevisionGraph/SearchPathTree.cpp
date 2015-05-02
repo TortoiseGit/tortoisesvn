@@ -202,7 +202,7 @@ CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& p
     // no overlap with any existing node
     // -> create a new child
 
-    return new CSearchPathTree (path, startrev, this);
+    return new CSearchPathTree (p, startrev, this);
 }
 
 void CSearchPathTree::Remove()
