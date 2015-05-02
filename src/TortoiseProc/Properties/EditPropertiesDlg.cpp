@@ -1261,12 +1261,12 @@ BOOL CEditPropertiesDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
         // only show the wait cursor over the main controls
         if (!IsCursorOverWindowBorder())
         {
-            HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+            HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
             SetCursor(hCur);
             return TRUE;
         }
     }
-    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+    HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
     SetCursor(hCur);
 
     return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);

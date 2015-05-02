@@ -5013,11 +5013,11 @@ BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
         return CListCtrl::OnSetCursor(pWnd, nHitTest, message);
     if (!m_bWaitCursor && !m_bBusy)
     {
-        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+        HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
         SetCursor(hCur);
         return CListCtrl::OnSetCursor(pWnd, nHitTest, message);
     }
-    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+    HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
     SetCursor(hCur);
     return TRUE;
 }

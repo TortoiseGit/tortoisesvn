@@ -982,11 +982,11 @@ BOOL CFileDiffDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
     if ((m_bThreadRunning == 0 && netScheduler.GetRunningThreadCount() == 0)||(IsCursorOverWindowBorder()))
     {
-        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+        HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
         SetCursor(hCur);
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
     }
-    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+    HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
     SetCursor(hCur);
     return TRUE;
 }

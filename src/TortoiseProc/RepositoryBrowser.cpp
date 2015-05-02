@@ -878,7 +878,7 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     if ((m_bThreadRunning)&&(!IsCursorOverWindowBorder()))
     {
-        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+        HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
         SetCursor(hCur);
         return TRUE;
     }
@@ -902,7 +902,7 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
                 GetDlgItem(IDC_REPOLIST)->GetWindowRect(&rect);
                 if (pt.x < rect.left)
                 {
-                    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_SIZEWE));
+                    HCURSOR hCur = LoadCursor(NULL, IDC_SIZEWE);
                     SetCursor(hCur);
                     return TRUE;
                 }
@@ -4963,7 +4963,7 @@ void CRepositoryBrowser::OnNMSetCursorRepotree(NMHDR * /*pNMHDR*/, LRESULT *pRes
         CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
         if (pItem && pItem->dummy)
         {
-            SetCursor(LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));
+            SetCursor(LoadCursor(NULL, IDC_ARROW));
             *pResult = 1;
         }
     }

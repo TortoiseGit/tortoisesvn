@@ -268,12 +268,12 @@ BOOL CCheckForUpdatesDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     if ((!m_sUpdateDownloadLink.IsEmpty())&&(pWnd)&&(pWnd == GetDlgItem(IDC_CHECKRESULT)))
     {
-        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND));
+        HCURSOR hCur = LoadCursor(NULL, IDC_HAND);
         SetCursor(hCur);
         return TRUE;
     }
 
-    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+    HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
     SetCursor(hCur);
     return CStandAloneDialogTmpl<CDialog>::OnSetCursor(pWnd, nHitTest, message);
 }

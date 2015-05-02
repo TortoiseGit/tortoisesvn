@@ -2323,7 +2323,7 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
                     {
                         if (m_pViewData->GetHideState(viewLine) == HIDESTATE_MARKER)
                         {
-                            ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND)));
+                            ::SetCursor(::LoadCursor(NULL, IDC_HAND));
                             return TRUE;
                         }
                     }
@@ -2337,11 +2337,11 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
         }
         if (m_nMouseLine >= 0)
         {
-            ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_IBEAM)));    // Set To Edit Cursor
+            ::SetCursor(::LoadCursor(NULL, IDC_IBEAM));    // Set To Edit Cursor
             return TRUE;
         }
 
-        ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));    // Set To Arrow Cursor
+        ::SetCursor(::LoadCursor(NULL, IDC_ARROW));    // Set To Arrow Cursor
         return TRUE;
     }
     return CView::OnSetCursor(pWnd, nHitTest, message);

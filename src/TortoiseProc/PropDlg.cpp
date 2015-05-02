@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -138,11 +138,11 @@ BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     if ((GetDlgItem(IDOK)->IsWindowEnabled())||(IsCursorOverWindowBorder()))
     {
-        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+        HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
         SetCursor(hCur);
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
     }
-    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+    HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
     SetCursor(hCur);
     return TRUE;
 }

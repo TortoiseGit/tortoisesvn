@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2014 - TortoiseSVN
+// Copyright (C) 2006-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -283,12 +283,12 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 {
                     if (bVertical)
                     {
-                        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_SIZENS));
+                        HCURSOR hCur = LoadCursor(NULL, IDC_SIZENS);
                         SetCursor(hCur);
                     }
                     else
                     {
-                        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_SIZEWE));
+                        HCURSOR hCur = LoadCursor(NULL, IDC_SIZEWE);
                         SetCursor(hCur);
                     }
                     return TRUE;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2014 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -292,7 +292,7 @@ BOOL CFilterEdit::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
     // if the cursor is not in the edit area, show the normal arrow cursor
     if (!m_rcEditArea.PtInRect(pntCursor))
     {
-        SetCursor(AfxGetApp()->LoadStandardCursor(MAKEINTRESOURCE(IDC_ARROW)));
+        SetCursor(AfxGetApp()->LoadStandardCursor(IDC_ARROW));
         return TRUE;
     }
 
