@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2012, 2014 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ private:
                                    apr_pool_t *pool);
 
     apr_pool_t * m_pool;
-    typedef struct PathRejects
+    struct PathRejects
     {
         CString     path;
         int         rejects;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,12 +163,12 @@ protected:
     };
 
     // helper struct for context menu entries
-    typedef struct YesNoPair
+    struct YesNoPair
     {
         DWORD               yes;
         DWORD               no;
     };
-    typedef struct MenuInfo
+    struct MenuInfo
     {
         SVNCommands         command;        ///< the command which gets executed for this menu entry
         unsigned __int64    menuID;         ///< the menu ID to recognize the entry. NULL if it shouldn't be added to the context menu automatically
