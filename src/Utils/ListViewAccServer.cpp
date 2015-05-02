@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013 - TortoiseSVN
+// Copyright (C) 2009-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,14 +58,15 @@ HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
     *pfGotProp = FALSE;
     pvarValue->vt = VT_EMPTY;
     // Extract the idChild from the identity string…
-    DWORD dwHcontrol, idObject, idChild;
-    HRESULT hr = m_pAccPropSvc->DecomposeHwndIdentityString(pIDString, dwIDStringLen, (HWND*)&dwHcontrol, &idObject, &idChild);
+    DWORD idObject, idChild;
+    HWND dwHcontrol;
+    HRESULT hr = m_pAccPropSvc->DecomposeHwndIdentityString(pIDString, dwIDStringLen, &dwHcontrol, &idObject, &idChild);
     if (hr != S_OK)
     {
         return S_OK;
     }
 
-    HWND Hwnd = (HWND)dwHcontrol;
+    HWND Hwnd = dwHcontrol;
     // Only supply help string for child elements, not the
     // listview itself…
     if (idChild == CHILDID_SELF)
