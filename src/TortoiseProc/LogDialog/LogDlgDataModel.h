@@ -165,12 +165,12 @@ private:
     struct
     {
         unsigned childStackDepth:24;
-        int checked:1;
-        int hasChildren:1;
-        int nonInheritable:1;
-        int subtractiveMerge:1;
-        int unread:1;
-        mutable int bugIDsPending:1;
+        unsigned int checked:1;
+        unsigned int hasChildren:1;
+        unsigned int nonInheritable:1;
+        unsigned int subtractiveMerge:1;
+        unsigned int unread:1;
+        mutable unsigned int bugIDsPending:1;
     };
 
     /// no copy support
