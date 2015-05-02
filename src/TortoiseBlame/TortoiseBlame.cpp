@@ -750,7 +750,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
         tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
         if (!bCaseSensitive)
         {
-            std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
+            std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::tolower);
         }
         swprintf_s(buf, L"%ld", m_revs[i]);
         if (m_authors[i].compare(sWhat)==0)
@@ -778,7 +778,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
             tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
             if (!bCaseSensitive)
             {
-                std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
+                std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::tolower);
             }
             swprintf_s(buf, L"%ld", m_revs[i]);
             if (m_authors[i].compare(sWhat)==0)
