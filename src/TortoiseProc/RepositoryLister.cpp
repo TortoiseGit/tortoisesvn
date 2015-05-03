@@ -521,8 +521,11 @@ void CRepositoryLister::Enqueue
         // return the externals queries that have not been cancelled
 
         for (size_t i = 0, count = removed.size(); i < count; ++i)
-            if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
-                scheduler.Schedule (removed[i], false);
+        {
+            auto rQuery = dynamic_cast<CQuery*>(removed[i]);
+            if (rQuery && !rQuery->HasBeenTerminated())
+                scheduler.Schedule(removed[i], false);
+        }
 
         // remove terminated queries from our lookup tables
 
