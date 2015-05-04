@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-05-02 17:11+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,7 +291,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Vaikka useimmat lataavat pelkän asennusohjelman, ohjelman täydellinen lähdekoodi on myös saatavilla.  Voit tutkia sitä osoitteessa  <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Pääkehityshaara sijaitsee hakemistossa <filename>/trunk/</filename>, julkaistut versiot puolestaan hakemistossa <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -12158,7 +12158,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Vikaseurantaa voi käyttää TortoiseSVN:n ohella kaikkien Subversion-pohjaistan ohjelmien kanssa. Katso lisätietoja TortoiseSVN-arkistosta osoitteessa <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> (<xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -12190,7 +12190,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Tällainen rajapinta on tietysti tiukasti sidoksissa käyttämääsi vikaseurantajärjestelmään, eikä sitä toimitetan TortoiseSVN:n mukana. Rajapinnan määritys sekä C#/C++ -esimerkkiohjelmia löytyy <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN -arkiston</citetitle></ulink> <literal>contrib</literal> -hakemistosta (<xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään). Rajapinnan API-yhteenveto löytyy myös osoitteesta  <xref linkend=\"tsvn-ibugtraqprovider\"/>. <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> on (toimiva) C#-kielellä toteutettu ohjelma, joka toteuttaa  <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurannan vaatiman COM-rajapinnan."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -14502,7 +14502,7 @@ msgid ""
 "url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
-msgstr ""
+msgstr "Esimerkkejä toimintokomennoista löytyy <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkiston</citetitle></ulink> <literal>contrib</literal> -hekmistosta (<xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään)."
 
 #. (para)
 msgid ""
@@ -15318,7 +15318,7 @@ msgstr "Merkitsee kaikkien seurattujen projektien kaikki versiot luetuiksi. Huom
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "Mikäli pidät <keycap>Shift</keycap>-näppäimen pohjassa painiketta napsauttaessasi, kaikki mahdolliset virhetilat nollataan."
 
 #. (term)
 msgid "Update all"
@@ -15983,7 +15983,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// SubWCRev-testitiedosto\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Unversioned   = \"no unversioned items\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16717,7 +16717,7 @@ msgid ""
 " on our To-Do list, and bugs which have already been fixed. If you think you"
 " have found a bug, or want to request a new feature, check here first to see"
 " if someone else got there before you."
-msgstr ""
+msgstr "Pidämme myös yllä <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>vikaseurantaa</citetitle></ulink>, josta löytyy tietoa korjaamattomista ja jo korjatuista vioista sekä uusista kehitysideoista.  Jos arvelet löytäneesi vian tai haluat lisätä uuden kehitysidean, tarkista ensin vikaseurannasta, onko se jo kenties mainittu siellä."
 
 #. (para)
 msgid ""
@@ -18685,7 +18685,7 @@ msgid ""
 "url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -18831,7 +18831,7 @@ msgid ""
 "class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
 " The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "Seuraavissa kuvauksissa hakemiston paikannin näytetään muodossa <literal>URL</literal>, esimerkiksi <systemitem class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>. Työkopion polku näytetään muodossa <literal>POLKU</literal>, esimerkiksi <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid ""
@@ -20127,7 +20127,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge on avoimen lähdekoodin projekti, jonka sisältöä voi tutkia osoitteessa <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Pääkehityshaara (josta seuraava versio tehdään) sijaitsee hakemistossa <filename>/trunk/</filename>.  Jo julkaistut versiot puolestaan löytyvät hakemistosta <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
