@@ -464,8 +464,11 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
             UINT uCheck = MF_BYCOMMAND;
             uCheck |= bOverlap ? MF_CHECKED : MF_UNCHECKED;
             CheckMenuItem(hMenu, ID_VIEW_OVERLAPIMAGES, uCheck);
-            uCheck |= (m_BlendType == CPicWindow::BLEND_ALPHA) ? MF_CHECKED : MF_UNCHECKED;
+            uCheck |= ((m_BlendType == CPicWindow::BLEND_ALPHA) && bOverlap) ? MF_CHECKED : MF_UNCHECKED;
             CheckMenuItem(hMenu, ID_VIEW_BLENDALPHA, uCheck);
+            UINT uEnabled = MF_BYCOMMAND;
+            uEnabled |= bOverlap ? MF_ENABLED : MF_DISABLED | MF_GRAYED;
+            EnableMenuItem(hMenu, ID_VIEW_BLENDALPHA, uEnabled);
 
             // change the state of the toolbar button
             TBBUTTONINFO tbi;
@@ -474,7 +477,7 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
             tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
             SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
 
-            tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED : 0;
+            tbi.fsState = ((m_BlendType == CPicWindow::BLEND_ALPHA) && bOverlap) ? TBSTATE_CHECKED : 0;
             if (bOverlap)
                 tbi.fsState |= TBSTATE_ENABLED;
             else
@@ -532,14 +535,17 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
 
             HMENU hMenu = GetMenu(*this);
             UINT uCheck = MF_BYCOMMAND;
-            uCheck |= (m_BlendType == CPicWindow::BLEND_ALPHA) ? MF_CHECKED : MF_UNCHECKED;
+            uCheck |= ((m_BlendType == CPicWindow::BLEND_ALPHA) && bOverlap) ? MF_CHECKED : MF_UNCHECKED;
             CheckMenuItem(hMenu, ID_VIEW_BLENDALPHA, uCheck);
+            UINT uEnabled = MF_BYCOMMAND;
+            uEnabled |= bOverlap ? MF_ENABLED : MF_DISABLED | MF_GRAYED;
+            EnableMenuItem(hMenu, ID_VIEW_BLENDALPHA, uEnabled);
 
             // change the state of the toolbar button
             TBBUTTONINFO tbi;
             tbi.cbSize = sizeof(TBBUTTONINFO);
             tbi.dwMask = TBIF_STATE;
-            tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+            tbi.fsState = ((m_BlendType == CPicWindow::BLEND_ALPHA) && bOverlap) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
             SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
             picWindow1.SetBlendAlpha(m_BlendType, picWindow1.GetBlendAlpha());
             PositionChildren();
