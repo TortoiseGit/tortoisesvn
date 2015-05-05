@@ -119,7 +119,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     UNREFERENCED_PARAMETER(externalTarget);
     // skip the parent path
 
-    if (path.IsEmpty())
+    if (path_.IsEmpty())
     {
         // terminate with an error if this was actually a file
 
