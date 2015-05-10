@@ -1543,6 +1543,12 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                         break;
                     }
                 }
+                if ((!entry->IsFolder()) && (status == svn_wc_status_added) && (dwCheck & SVNSLC_SHOWADDEDINADDED))
+                {
+                    auto parent = GetListEntry(entry->GetPath().GetContainingDirectory());
+                    if (parent && parent->checked && (SVNStatus::GetMoreImportant(parent->status, parent->remotestatus) == svn_wc_status_added))
+                        entry->checked = true;
+                }
                 if ((!entry->IsFolder()) && (status == svn_wc_status_deleted) && (dwShow & SVNSLC_SHOWREMOVEDANDPRESENT))
                 {
                     if (PathFileExists(entry->GetPath().GetWinPath()))

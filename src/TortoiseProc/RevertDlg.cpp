@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,7 +134,7 @@ UINT CRevertDlg::RevertThread()
     m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWNESTED,
                         CTSVNPathList(),
                         // do not select all files, only the ones the user has selected directly
-                        SVNSLC_SHOWDIRECTFILES|SVNSLC_SHOWADDED, true, true);
+                        SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWADDED | SVNSLC_SHOWADDEDINADDED, true, true);
 
     CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
     CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);

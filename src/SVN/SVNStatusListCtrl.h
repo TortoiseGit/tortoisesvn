@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,6 +81,7 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_SHOWFILES        0x00800000
 #define SVNSLC_SHOWFOLDERS      0x01000000
 #define SVNSLC_SHOWADDEDHISTORY 0x02000000
+#define SVNSLC_SHOWADDEDINADDED 0x04000000
 
 #define SVNSLC_SHOWEVERYTHING   0xFFFFFFFF
 
