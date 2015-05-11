@@ -238,7 +238,8 @@ bool SyncCommand::Execute()
         else
         {
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error opening file %s, Error %u\n", syncPath.GetWinPath(), GetLastError());
-            if (GetLastError() != ERROR_FILE_NOT_FOUND)
+            auto lasterr = GetLastError();
+            if ((lasterr != ERROR_FILE_NOT_FOUND) && (lasterr != ERROR_PATH_NOT_FOUND))
                 return false;
         }
     }
