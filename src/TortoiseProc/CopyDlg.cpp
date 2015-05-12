@@ -959,7 +959,7 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                     {
                         CTSVNPath p = ext.path;
                         p.AppendPathString(ext.targetDir);
-                        lstrcpyn(m_columnbuf, p.GetWinPath(), min(MAX_PATH-2, pDispInfo->item.cchTextMax));
+                        lstrcpyn(m_columnbuf, p.GetWinPath(), min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
                         int cWidth = m_ExtList.GetColumnWidth(0);
                         cWidth = max(28, cWidth-28);
                         CDC * pDC = m_ExtList.GetDC();
@@ -974,7 +974,7 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                     break;
                 case 1: // url
                     {
-                        lstrcpyn(m_columnbuf, ext.url, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
+                        lstrcpyn(m_columnbuf, ext.url, min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
                         SVNRev peg(ext.pegrevision);
                         if (peg.IsValid() && !peg.IsHead())
                         {

@@ -1723,7 +1723,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
             m_columnbuf[i] = ' ';
     }
 
-    const int maxLength = min(MAX_PATH-2-indent, pDispInfo->item.cchTextMax);
+    const int maxLength = min(MAX_PATH - 2 - indent, pDispInfo->item.cchTextMax - 1);
     switch (pDispInfo->item.iSubItem)
     {
     case 0:

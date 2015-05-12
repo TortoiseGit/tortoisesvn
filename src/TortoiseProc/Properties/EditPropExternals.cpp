@@ -245,12 +245,12 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                 {
                 case 0: // folder or file
                     {
-                        lstrcpyn(m_columnbuf, ext.targetDir, pDispInfo->item.cchTextMax);
+                        lstrcpyn(m_columnbuf, ext.targetDir, pDispInfo->item.cchTextMax - 1);
                     }
                     break;
                 case 1: // url
                     {
-                        lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax);
+                        lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax - 1);
                         int cWidth = m_ExtList.GetColumnWidth(1);
                         cWidth = max(14, cWidth-14);
                         CDC * pDC = m_ExtList.GetDC();

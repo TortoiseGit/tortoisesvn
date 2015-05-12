@@ -4255,7 +4255,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
     if (pItem->mask & LVIF_TEXT)
     {
         // By default, clear text buffer.
-        lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
+        lstrcpyn(pItem->pszText, L"", pItem->cchTextMax - 1);
 
         bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
 
@@ -4275,7 +4275,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                 size_t len = wcslen(pItem->pszText);
                 TCHAR * pBuf = pItem->pszText + len;
                 DWORD nSpaces = m_logEntries.GetMaxDepth() - pLogEntry->GetDepth();
-                while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
+                while ((pItem->cchTextMax > (int)len) && (nSpaces))
                 {
                     *pBuf = L' ';
                     pBuf++;
@@ -4287,20 +4287,20 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         case 1: //action -- dummy text, not drawn. Used to trick the auto-column resizing to not
             // go below the icons
             if (pLogEntry)
-                lstrcpyn(pItem->pszText, L"XXXXXXXXXXXXXXXX", pItem->cchTextMax);
+                lstrcpyn(pItem->pszText, L"XXXXXXXXXXXXXXXX", pItem->cchTextMax - 1);
             break;
         case 2: //author
             if (pLogEntry)
             {
                 lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetAuthor()).c_str(),
-                                pItem->cchTextMax);
+                         pItem->cchTextMax - 1);
             }
             break;
         case 3: //date
             if (pLogEntry)
             {
                 lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetDateString()).c_str(),
-                                pItem->cchTextMax);
+                         pItem->cchTextMax - 1);
             }
             break;
         case 4: //message or bug id
@@ -4309,7 +4309,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                 if (pLogEntry)
                 {
                     lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetBugIDs()).c_str(),
-                                pItem->cchTextMax);
+                             pItem->cchTextMax - 1);
                 }
                 break;
             }
@@ -4322,19 +4322,19 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                 // allowed width, add "..." as an indication.
                 const int dots_len = 3;
                 CString shortMessage = pLogEntry->GetShortMessageUTF16();
-                if (shortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
+                if (shortMessage.GetLength() > pItem->cchTextMax && pItem->cchTextMax > dots_len)
                 {
                     lstrcpyn(pItem->pszText, (LPCTSTR)shortMessage, pItem->cchTextMax - dots_len);
                     lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, L"...", dots_len + 1);
                 }
                 else
-                    lstrcpyn(pItem->pszText, (LPCTSTR)shortMessage, pItem->cchTextMax);
+                    lstrcpyn(pItem->pszText, (LPCTSTR)shortMessage, pItem->cchTextMax - 1);
             }
             else if ((itemid == m_logEntries.GetVisibleCount()) && m_bStrict && m_bStrictStopped)
             {
                 CString sTemp;
                 sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
-                lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
+                lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax - 1);
             }
             break;
         default:
@@ -4354,19 +4354,19 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
     if (m_bLogThreadRunning)
     {
         if (pItem->mask & LVIF_TEXT)
-            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
+            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax - 1);
         return;
     }
     if (m_bSingleRevision && ((size_t)pItem->iItem >= m_currentChangedArray.GetCount()))
     {
         if (pItem->mask & LVIF_TEXT)
-            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
+            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax - 1);
         return;
     }
     if (!m_bSingleRevision && (pItem->iItem >= m_currentChangedPathList.GetCount()))
     {
         if (pItem->mask & LVIF_TEXT)
-            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
+            lstrcpyn(pItem->pszText, L"", pItem->cchTextMax - 1);
         return;
     }
 
@@ -4381,7 +4381,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                      , (LPCTSTR) (m_currentChangedArray.GetCount() > 0
                            ? m_currentChangedArray[pItem->iItem].GetPath()
                            : m_currentChangedPathList[pItem->iItem].GetSVNPathString())
-                     , pItem->cchTextMax);
+                     , pItem->cchTextMax - 1);
             break;
 
         case 1: //Action
@@ -4390,7 +4390,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                            ? (LPCTSTR)CUnicodeUtils::GetUnicode
                                 (m_currentChangedArray[pItem->iItem].GetActionString().c_str())
                            : L""
-                     , pItem->cchTextMax);
+                     , pItem->cchTextMax - 1);
             break;
 
         case 2: //copyfrom path
@@ -4398,7 +4398,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                      , m_bSingleRevision && m_currentChangedArray.GetCount() > (size_t)pItem->iItem
                            ? (LPCTSTR)m_currentChangedArray[pItem->iItem].GetCopyFromPath()
                            : L""
-                     , pItem->cchTextMax);
+                     , pItem->cchTextMax - 1);
             break;
 
         case 3: //revision
@@ -4407,7 +4407,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                 revision = m_currentChangedArray[pItem->iItem].GetCopyFromRev();
 
             if (revision == 0)
-                lstrcpyn(pItem->pszText, L"", pItem->cchTextMax);
+                lstrcpyn(pItem->pszText, L"", pItem->cchTextMax - 1);
             else
                 swprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", revision);
             break;

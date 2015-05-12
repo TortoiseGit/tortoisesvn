@@ -517,7 +517,7 @@ void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
     CString path = m_path1.GetSVNPathString() + L"/" + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
     if (pGetInfoTip->cchTextMax > path.GetLength())
-            wcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
+        wcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax - 1);
 }
 
 void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -585,7 +585,7 @@ void CFileDiffDlg::OnLvnGetdispinfoFilelist(NMHDR *pNMHDR, LRESULT *pResult)
                 {
                 case 0: // path
                     {
-                        lstrcpyn(m_columnbuf, data->path.GetSVNPathString(), pDispInfo->item.cchTextMax);
+                        lstrcpyn(m_columnbuf, data->path.GetSVNPathString(), pDispInfo->item.cchTextMax - 1);
                         int cWidth = m_cFileList.GetColumnWidth(0);
                         cWidth = max(28, cWidth-28);
                         CDC * pDC = m_cFileList.GetDC();
@@ -599,7 +599,7 @@ void CFileDiffDlg::OnLvnGetdispinfoFilelist(NMHDR *pNMHDR, LRESULT *pResult)
                     }
                     break;
                 case 1: // action
-                    lstrcpyn(m_columnbuf, GetSummarizeActionText(data->kind), pDispInfo->item.cchTextMax);
+                    lstrcpyn(m_columnbuf, GetSummarizeActionText(data->kind), pDispInfo->item.cchTextMax - 1);
                     wcscat_s(m_columnbuf, L" ");
                     if ((data->kind != svn_client_diff_summarize_kind_normal)&&(!data->propchanged))
                         wcscat_s(m_columnbuf, sContentOnly);

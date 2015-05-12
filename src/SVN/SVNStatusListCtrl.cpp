@@ -4803,9 +4803,9 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
         if (maxTextLength > pathString.GetLength())
         {
             if (entry->GetRelativeSVNPath(false).Compare(pathString)!= 0)
-                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
+                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength-1);
             else if (GetStringWidth(pathString) > GetColumnWidth(itemIndex))
-                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
+                wcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength-1);
         }
     }
 }
