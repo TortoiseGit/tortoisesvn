@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -197,7 +197,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
     {
         request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
     }
-    wcsncpy_s(request.path, Path.GetWinPath(), MAX_PATH);
+    wcsncpy_s(request.path, Path.GetWinPath(), MAX_PATH - 1);
     SecureZeroMemory(&m_Overlapped, sizeof(OVERLAPPED));
     m_Overlapped.hEvent = m_hEvent;
     // Do the transaction in overlapped mode.
@@ -259,7 +259,7 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
         TSVNCacheCommand cmd;
         SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
         cmd.command = TSVNCACHECOMMAND_RELEASE;
-        wcsncpy_s(cmd.path, path.GetDirectory().GetWinPath(), MAX_PATH);
+        wcsncpy_s(cmd.path, path.GetDirectory().GetWinPath(), MAX_PATH - 1);
         BOOL fSuccess = WriteFile(
             m_hCommandPipe, // handle to pipe
             &cmd,           // buffer to write from

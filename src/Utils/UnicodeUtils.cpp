@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -206,8 +206,8 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
         return 0;
 #ifdef UNICODE
     ret = pImage->nLength;
-    if (ret > nBufferMax)
-        ret = nBufferMax;
+    if (ret >= nBufferMax)
+        ret = nBufferMax - 1;
     wcsncpy_s((wchar_t *)lpBuffer, nBufferMax, pImage->achString, ret);
     lpBuffer[ret] = 0;
 #else

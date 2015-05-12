@@ -2547,7 +2547,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
     // copy formatted string to result
 
-    wcsncpy_s (date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER);
+    wcsncpy_s(date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER - 1);
 }
 
 CString SVN::formatDate(apr_time_t date_svn)

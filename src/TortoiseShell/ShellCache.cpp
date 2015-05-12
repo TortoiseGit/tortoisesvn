@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2014 - TortoiseSVN
+// Copyright (C) 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -343,7 +343,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
             {
                 drivetypeticker = GetTickCount64();
                 TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
-                wcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
+                wcsncpy_s(pathbuf, path, _countof(pathbuf) - 1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": GetDriveType for %s, Drive %d\n", pathbuf, drivenumber);
@@ -355,7 +355,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
     else
     {
         TCHAR pathbuf[MAX_PATH + 4] = { 0 };      // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
-        wcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
+        wcsncpy_s(pathbuf, path, _countof(pathbuf) - 1);
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
         else
@@ -369,7 +369,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L"GetDriveType for %s\n", pathbuf);
                 drivetype = GetDriveType(pathbuf);
                 drivetypecache[26] = drivetype;
-                wcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH);            // MAX_PATH ok.
+                wcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH - 1);      // MAX_PATH ok.
             }
         }
     }

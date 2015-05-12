@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -642,14 +642,14 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
         return 0;
 
     ret = pImage->nLength;
-    if (pImage->nLength > nBufferMax)
+    if (pImage->nLength >= nBufferMax)
     {
         wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength-1);
         lpBuffer[nBufferMax-1] = 0;
     }
     else
     {
-        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength);
+        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength-1);
         lpBuffer[ret] = 0;
     }
     return ret;

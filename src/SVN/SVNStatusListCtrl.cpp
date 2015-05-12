@@ -4997,7 +4997,7 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
         if (pItem->mask & LVIF_TEXT)
         {
             CString text = GetCellText (pItem->iItem, pItem->iSubItem);
-            lstrcpyn(pItem->pszText, text, pItem->cchTextMax);
+            lstrcpyn(pItem->pszText, text, pItem->cchTextMax - 1);
         }
         if (pItem->mask & LVIF_IMAGE)
         {

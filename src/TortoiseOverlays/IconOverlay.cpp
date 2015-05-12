@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2009-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007, 2009-2011, 2013-2015 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -162,7 +162,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     if (icon.size() >= (size_t)cchMax)
         return E_INVALIDARG;
 
-    wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
+    wcsncpy_s(pwszIconFile, cchMax, icon.c_str(), cchMax - 1);
 
     *pIndex = 0;
     *pdwFlags = ISIOI_ICONFILE;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
         if (slashpos)
             wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), slashpos - internalpathbuf.get());
         else
-            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen);
+            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen - 1);
         CreateDirectory(buf.get(), &attribs);
         pPath = wcschr(pPath, '\\');
     } while ((pPath++)&&(wcschr(pPath, '\\')));

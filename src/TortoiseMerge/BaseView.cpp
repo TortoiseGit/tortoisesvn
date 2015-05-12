@@ -499,7 +499,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
             m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
             ReleaseDC(pDC);
         }
-        wcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New"), 32);
+        wcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New"), _countof(m_lfBaseFont.lfFaceName) - 1);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
@@ -2891,7 +2891,7 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
     else
     {
         TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-        lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
+        lstrcpyn(m_wszTip, strTipText, min(strTipText.GetLength() + 1, _countof(m_wszTip) - 1));
         pTTTW->lpszText = m_wszTip;
     }
 
