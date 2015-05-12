@@ -91,7 +91,7 @@ END_MESSAGE_MAP()
 
 BOOL CSettingsProgsDiff::OnInitDialog()
 {
-    EnableToolTips();
+    ISettingsPropPage::OnInitDialog();
 
     m_sDiffPath = m_regDiffPath;
     m_iExtDiff = IsExternal(m_sDiffPath);
