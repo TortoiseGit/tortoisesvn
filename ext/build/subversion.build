@@ -39,9 +39,8 @@
       <arg value="subversion\libsvn_subr\internal_statements.h" />
     </exec>
 
-    <if test="${configuration == 'debug'}">
-      <copy file="..\build\errorcode.inc" tofile="subversion\libsvn_subr\errorcode.inc" overwrite="true" />
-    </if>
+    <copy file="..\build\errorcode.inc" tofile="subversion\libsvn_subr\errorcode.inc" overwrite="true" />
+    <copy file="..\build\config_keys.inc" tofile="subversion\libsvn_subr\config_keys.inc" overwrite="true" />
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <copy file="subversion\svn_private_config.hw" tofile="subversion\svn_private_config.h" overwrite="true" />
