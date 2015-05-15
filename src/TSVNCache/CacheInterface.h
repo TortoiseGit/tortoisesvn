@@ -42,7 +42,7 @@ class CBlockCacheForPath
 {
 private:
 
-    WCHAR path[MAX_PATH+1];
+    WCHAR path[MAX_PATH];
 
 public:
 
@@ -57,7 +57,7 @@ public:
 struct TSVNCacheRequest
 {
     DWORD flags;
-    WCHAR path[MAX_PATH+1];
+    WCHAR path[MAX_PATH];
 };
 
 // CustomActions will use this header but does not need nor understand the SVN types ...
@@ -89,7 +89,7 @@ struct TSVNCacheResponse
 struct TSVNCacheCommand
 {
     BYTE command;               ///< the command to execute
-    WCHAR path[MAX_PATH+1];     ///< path to do the command for
+    WCHAR path[MAX_PATH];     ///< path to do the command for
 };
 
 #define     TSVNCACHECOMMAND_END        0       ///< ends the thread handling the pipe communication
