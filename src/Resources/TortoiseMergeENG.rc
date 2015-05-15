@@ -694,7 +694,7 @@ IDR_IGNORECOMMENTSTXT   CONFIG                  "ignorecomments.txt"
 STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "TortoiseMerge"
-    IDS_TITLE_REJECTEDHUNKS "Rejected patch hunks for '%s'"
+    IDS_TITLE_REJECTEDHUNKS "Rejected patch hunks for '%ls'"
     IDS_CONFIGUREREGEXES    "Configure Filter Regexes"
     IDS_ASKFORSAVE_MARKEDBLOCKS "Marked Blocks"
     IDS_WARNMARKEDBLOCKS    "You have marked changed blocks. How should those blocks be saved?"
@@ -713,7 +713,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_FIND_NOTFOUND       "Find: Can't find the text ""%s"""
+    IDS_FIND_NOTFOUND       "Find: Can't find the text ""%ls"""
     IDS_FIND_BOTTOMREACHED  "Find: First occurrence from the top found. End of document reached."
     IDS_FIND_TOPREACHED     "Find: First occurrence from the bottom found. Beginning of document reached."
     IDS_FIND_REPLACED       "Replaced %d matches"
@@ -826,17 +826,17 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_PATCH_INVALIDPATCHFILE "The file %s does not exist!"
+    IDS_ERR_PATCH_INVALIDPATCHFILE "The file %ls does not exist!"
     IDS_ERR_PATCH_FILENOTINPATCH 
-                            "The file %s was not found in the patch file!"
+                            "The file %ls was not found in the patch file!"
     IDS_ERR_PATCH_DOESNOTMATCH 
-                            "The patch seems outdated! The file line\n%1!s!\nand the patchline\n%2!s!\ndo not match!"
+                            "The patch seems outdated! The file line\n%1!ls!\nand the patchline\n%2!ls!\ndo not match!"
 END
 
 STRINGTABLE
 BEGIN
     IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND 
-                            "Could not retrieve revision %1!s! of the file %2!s!.\nPatching is not possible!"
+                            "Could not retrieve revision %1!ls! of the file %2!ls!.\nPatching is not possible!"
     IDS_ERR_MAINFRAME_FILEHASCONFLICTS 
                             "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
 END
@@ -897,7 +897,7 @@ BEGIN
     IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/basename:<name to show on the view title>\n/theirs:<path to their file>\n/theirsname:<name to show on the view title>\n/mine:<path to your file>\n/minename:<name to show on the view title>\n/merged:<path to resulting merged file>\n/mergedname:<name to show on the view title>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>\n/saverequired\n/saverequiredonconflicts\n/oneway <forces the one-way view>\n/line:<line number to jump to>"
     IDS_OPENDIFFFILETITLE   "Apply Patch..."
     IDS_GETVERSIONOFFILETITLE "Fetching file..."
-    IDS_GETVERSIONOFFILE    "Fetching revision %s of file:"
+    IDS_GETVERSIONOFFILE    "Fetching revision %ls of file:"
     IDS_WARNMODIFIEDLOOSECHANGES 
                             "There are unsaved modifications!\nDo you want to save your changes?"
     IDS_WARNMODIFIEDLOOSECHANGESOPTIONS 
@@ -906,15 +906,15 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_DIFF_DIFF       "The diffing engine aborted because of an error:\n%s"
+    IDS_ERR_DIFF_DIFF       "The diffing engine aborted because of an error:\n%ls"
     IDS_ERR_DIFF_NEWLINES   "Cannot show diff because of inconsistent newlines in the file."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_FILE_OPEN       "Could not open the file\n%s"
-    IDS_ERR_FILE_BINARY     "The file\n%s\nis not a valid text file!"
-    IDS_ERR_FILE_NOTAFILE   "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
+    IDS_ERR_FILE_OPEN       "Could not open the file\n%ls"
+    IDS_ERR_FILE_BINARY     "The file\n%ls\nis not a valid text file!"
+    IDS_ERR_FILE_NOTAFILE   "%ls\nis a directory, not a file!\nTortoiseMerge can't diff directories."
     IDS_ERR_FILE_TOOBIG     "The file is too big"
 END
 
@@ -927,8 +927,8 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ABOUTVERSION        "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
-    IDS_ABOUTVERSIONBOX     "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
+    IDS_ABOUTVERSION        "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls\r\nlibsvn_diff %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
+    IDS_ABOUTVERSIONBOX     "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls"
     IDS_SETTINGSTITLE       "Settings"
 END
 
@@ -945,7 +945,7 @@ BEGIN
     IDS_DIFF_TITLE          "File diffs"
     IDS_PATCH_SELECTED      "Patch selected files"
     IDS_PATCH_PREVIEW       "Preview patched file"
-    IDS_PATCH_ITEMTT        "%s\n%ld failed hunk(s)"
+    IDS_PATCH_ITEMTT        "%ls\n%ld failed hunk(s)"
     IDS_PATCH_COPYFROMCLIPBOARD "Open from clipboard"
 END
 
@@ -980,9 +980,9 @@ END
 STRINGTABLE
 BEGIN
     IDS_WARNBETTERPATCHPATHFOUND 
-                            "The path\n%1!s!\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n%2!s!\nmatches it better. Do you want to use the suggested path instead?"
+                            "The path\n%1!ls!\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n%2!ls!\nmatches it better. Do you want to use the suggested path instead?"
     IDS_NOTFOUNDVIEWTITLEINDICATOR "(not found)"
-    IDS_DELETEWHENEMPTY     "The file \n%s\nis empty.\nDo you want to remove the file?"
+    IDS_DELETEWHENEMPTY     "The file \n%ls\nis empty.\nDo you want to remove the file?"
     IDS_EMPTYLINETT         "(no line number)"
     IDS_WARNMODIFIEDOUTSIDELOOSECHANGES 
                             "Some file(s) have been changed outside T-Merge.\nWould you like to reload and lose your changes?"
@@ -990,14 +990,14 @@ BEGIN
     IDS_WARNBETTERPATCHPATHFOUND_TASK2 
                             "Path found that matches the patch better."
     IDS_WARNBETTERPATCHPATHFOUND_TASK3 
-                            "Use the found path.\nApply the patch to\n%s"
+                            "Use the found path.\nApply the patch to\n%ls"
     IDS_WARNBETTERPATCHPATHFOUND_TASK4 
-                            "Use the original path.\nApply the patch to\n%s"
+                            "Use the original path.\nApply the patch to\n%ls"
     IDS_DELETEWHENEMPTY_TASK2 "File is empty."
     IDS_DELETEWHENEMPTY_TASK3 "Delete\nThe file is removed."
     IDS_DELETEWHENEMPTY_TASK4 "Cancel\nKeep the empty file."
     IDS_ASKFORSAVE_TASK2    "Save modifications."
-    IDS_ASKFORSAVE_TASK3    "Save\nThe modifications are saved to\n%s"
+    IDS_ASKFORSAVE_TASK3    "Save\nThe modifications are saved to\n%ls"
 END
 
 STRINGTABLE
@@ -1062,7 +1062,7 @@ BEGIN
     IDS_PATCH_SEARCHPATHTITLE "Searching for better path to apply patch..."
     IDS_PATCH_SEARCHPATHLINE1 "scanning path:"
     IDS_PATCH_PROGTITLE     "Patching"
-    IDS_PATCH_PATHINGFILE   "Patching file '%1'"
+    IDS_PATCH_PATHINGFILE   "Patching file '%1!ls!'"
 END
 
 STRINGTABLE
@@ -1100,7 +1100,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!\n%s"
+    IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!\n%ls"
     IDS_ERR_PATCHPATHS      "Both the path to the patch file and the target path must be absolute paths!"
     IDS_ERR_ERROR           "Error"
     IDS_ERR_INVALIDREGEX    "The regular expression is invalid!\nPlease enter a valid regular expression."
@@ -1108,7 +1108,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_TEXTVIEWSTART   "Could not start text viewer!\n%s"
+    IDS_ERR_TEXTVIEWSTART   "Could not start text viewer!\n%ls"
 END
 
 STRINGTABLE
@@ -1168,11 +1168,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ASKFORSAVE_SAVELEFT "Save Left File\nThe modifications are saved to\n%s"
+    IDS_ASKFORSAVE_SAVELEFT "Save Left File\nThe modifications are saved to\n%ls"
     IDS_ASKFORSAVE_SAVELEFTAS 
                             "Save Left File as\nYou're asked where to save the left file"
     IDS_ASKFORSAVE_SAVERIGHT 
-                            "Save Right File\nThe modifications are saved to\n%s"
+                            "Save Right File\nThe modifications are saved to\n%ls"
     IDS_ASKFORSAVE_SAVERIGHTAS 
                             "Save Right File as\nYou're asked where to save the right file"
     IDS_ASKFORSAVE_SAVEALL2 "Save all\nBoth Files are saved"
@@ -1190,7 +1190,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_MARKASRESOLVED      "Do you want to mark the file\n%s\nas resolved?"
+    IDS_MARKASRESOLVED      "Do you want to mark the file\n%ls\nas resolved?"
     IDS_MARKASRESOLVED_TASK2 "File has no conflicts"
     IDS_MARKASRESOLVED_TASK3 
                             "Mark as resolved\nThe file status is changed to modified"

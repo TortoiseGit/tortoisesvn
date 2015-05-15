@@ -341,7 +341,7 @@ BEGIN
     IDS_MENUDESCREVISIONGRAPH 
                             "Shows a graphical representation of copies/tags/branches"
     IDS_DROPEXPORTCHANGEDMENU "SVN Export changed items here"
-    IDS_MENUIGNOREGLOBAL    "%s (recursively)"
+    IDS_MENUIGNOREGLOBAL    "%ls (recursively)"
     IDS_MENUUNIGNORE        "Remove from &ignore list"
     IDS_MENUDESCUNIGNORE    "Removes the file or filemask from the list of ignored items"
     IDS_SVNREPORTEDANERROR  "Subversion reported an error:"
@@ -393,7 +393,7 @@ BEGIN
     IDS_MENUDESCREMOVEKEEP  "Deletes files / folders from version control but keeps the file"
     IDS_YES                 "yes"
     IDS_NO                  "no"
-    IDS_MENUDIFFNOW         "Diff with ""%s"""
+    IDS_MENUDIFFNOW         "Diff with ""%ls"""
     IDS_MENUDESCDIFFNOW     "Starts the diff viewer with the currently selected file and the one marked before for diffing later."
     IDS_MENUUNIDIFF         "Unified Diff"
     IDS_MENUUNIDESCDIFF     "Shows a unified diff of all changes of the path and those below, including property changes."
