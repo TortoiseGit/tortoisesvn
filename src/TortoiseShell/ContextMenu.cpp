@@ -38,7 +38,7 @@ int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
     { ShellMenuCheckout,                    MENUCHECKOUT,       IDI_CHECKOUT,           IDS_MENUCHECKOUT,           IDS_MENUDESCCHECKOUT,
-        {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_checkout" },
+    { ITEMIS_FOLDER | ITEMIS_ONLYONE, ITEMIS_INSVN | ITEMIS_FOLDERINSVN }, { ITEMIS_FOLDER | ITEMIS_ONLYONE | ITEMIS_EXTENDED | ITEMIS_INSVN | ITEMIS_FOLDERINSVN, 0 }, { 0, 0 }, { 0, 0 }, L"tsvn_checkout" },
 
     { ShellMenuUpgradeWC,                       MENUUPGRADE,    IDI_CLEANUP,            IDS_MENUUPGRADE,            IDS_MENUDESCUPGRADE,
         {ITEMIS_UNSUPPORTEDFORMAT, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_upgradewc" },
