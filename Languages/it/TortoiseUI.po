@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -251,11 +251,6 @@ msgstr "%ls : base di lavoro"
 msgid "%ls : Working Copy"
 msgstr "%ls : copia di lavoro"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Ripristinato]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -363,13 +358,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld parte(i) fallita"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls in %ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -399,6 +387,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nè una cartella, non è un file!\nTortoiseMerge non può effettuare confronti di cartelle."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Ripristinato]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s in %s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1911,8 +1911,8 @@ msgstr "Aggiungi progetto o cartella..."
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "Aggiungi a %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2045,14 +2045,14 @@ msgstr "Tutte le modifiche andranno perse! Ripristinare le assegnazioni dei tast
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Tutte le modifiche andranno perse! Ripristinare il menu '%ls'?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Tutte le modifiche andranno perse! Ripristinare il menu '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Tutte le modifiche andranno perse! Ripristinare la barra '%ls'?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Tutte le modifiche andranno perse! Ripristinare la barra '%s'?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3485,8 +3485,8 @@ msgstr "Copia il testo selezionato e lo copia negli Appunti\nCopia"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Copia in %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4174,8 +4174,8 @@ msgstr "Esegui per tutti gli elementi senza versione/modificati"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Eliminare la barra '%ls'?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Eliminare la barra '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4318,8 +4318,8 @@ msgstr "Unità A: e B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "Drop impossibile su %1"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4420,9 +4420,9 @@ msgstr "Modifica commento"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Modifica le proprietà '%1!ls!' su\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4694,8 +4694,8 @@ msgstr "Espandi il se&guente ramo"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Espandi (%ls)"
+msgid "Expand (%s)"
+msgstr "Espandi (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5941,8 +5941,8 @@ msgstr "Importa cartella %1!ls!\r\nin %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Importa in %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6704,8 +6704,8 @@ msgstr "Unione delle differenze fra le URL del repository"
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr "Unisci da %1!ls!, revisione %2!ls! a %3!ls!, revisione %4!ls! in %5!ls!, %6!ls!%7!ls!%8!ls!"
 
 #. Resource IDs: (264)
@@ -6885,8 +6885,8 @@ msgstr "Sposta file speciali o cartella"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Sposta in %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7570,8 +7570,8 @@ msgstr "Applico patch"
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
-msgstr "Applico patch al file '%1'"
+msgid "Patching file '%1!ls!'"
+msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8319,9 +8319,9 @@ msgstr "Rimuovi dal controllo versioni\nTutte le cartelle .svn saranno rimosse"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Rimuovi la proprietà '%1!ls!' da\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9289,9 +9289,9 @@ msgstr "Impos&ta le date dei file alla \"ultima data di invio\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Imposta la proprietà '%1!ls!' su\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10277,7 +10277,7 @@ msgstr "La cartella\n%ls\nesiste già!"
 msgid "The hook script executed successfully"
 msgstr "Lo script collegato è stato eseguito correttamente"
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10773,14 +10773,14 @@ msgstr "Questo prodotto include software da Apache™ Subversion® (http://subve
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "Quest'applicazione è connessa all'eportazione mancante %ls nel file %ls. Questa macchina potrebbe avere una versione incompleta di %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "Quest'applicazione è connessa all'eportazione mancante %s nel file %s. Questa macchina potrebbe avere una versione incompleta di %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "Questa applicazione richiede il file %ls, ma il file non è stato trovato nel sistema."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Questa applicazione richiede il file %s, ma il file non è stato trovato nel sistema."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."

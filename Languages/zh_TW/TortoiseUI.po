@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -250,11 +250,6 @@ msgstr "%ls : 工作基礎版本"
 msgid "%ls : Working Copy"
 msgstr "%ls : 工作複本"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [已復原]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -362,13 +357,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld 組失敗的區塊"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -398,6 +386,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n是目錄而非檔案!\nTortoiseMerge 無法比對目錄差異."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [已復原]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1910,8 +1910,8 @@ msgstr "新增專案或目錄..."
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "加入至 %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2044,14 +2044,14 @@ msgstr "全部的變更都會消失! 是否確定要重置鍵盤配置?"
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "全部的變更都會消失! 是否確定要重置選單 '%ls' ?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "全部的變更都會消失! 是否確定要重置選單 '%s' ?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "全部的變更都會消失! 是否確定要重置工具列 '%ls' ?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "全部的變更都會消失! 是否確定要重置工具列 '%s' ?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3484,8 +3484,8 @@ msgstr "將選擇的區塊複製至剪貼簿\n複製"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "複製至 %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4173,8 +4173,8 @@ msgstr "對所有無版本控制/有變更的項目進行作業"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "是否確定要刪除工具列 '%ls' ?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "是否確定要刪除工具列 '%s' ?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4317,8 +4317,8 @@ msgstr "磁碟機 A: B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "%1 上不能進行拖放操作"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4419,9 +4419,9 @@ msgstr "編輯記錄訊息"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "編輯屬性 '%1!ls!' 於\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4693,8 +4693,8 @@ msgstr "擴展下列目錄樹(&F)"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "展開 (%ls)"
+msgid "Expand (%s)"
+msgstr "展開 (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5940,8 +5940,8 @@ msgstr "匯入目錄 %1!ls! \n 至 %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "匯入至 %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6703,8 +6703,8 @@ msgstr "根據檔案庫 URL 合併差異"
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr "正在合併 %1!ls!, 版本 %2!ls! ~ %3!ls!, revision %4!ls! 至 %5!ls!, %6!ls!%7!ls!%8!ls!"
 
 #. Resource IDs: (264)
@@ -6884,8 +6884,8 @@ msgstr "移動特殊檔案或目錄"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "移動至 %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7569,8 +7569,8 @@ msgstr "正在補綴"
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
-msgstr "正在補綴檔案 '%1`'"
+msgid "Patching file '%1!ls!'"
+msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8318,9 +8318,9 @@ msgstr "自版本控制移除\n已刪除所有 .svn 目錄"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "刪除屬性 '%1!ls!' 於\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9288,9 +9288,9 @@ msgstr "將檔案日期設定為\"最後一次送交的時間\"(&T)"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "設定屬性 '%1!ls!' 於\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10276,7 +10276,7 @@ msgstr "目的目錄\n%ls\n已經存在!"
 msgid "The hook script executed successfully"
 msgstr "掛勾指令檔執行成功"
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10772,14 +10772,14 @@ msgstr "這產品包含來自 Apache (TM) Subversion (R) 的軟體 (http://subve
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "找不到本程式連結的 %ls (包含於 %ls). 可能安裝了不相容版本的 %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "找不到本程式連結的 %s (包含於 %s). 可能安裝了不相容版本的 %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "系統中找不到本程式需要的 %ls."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "系統中找不到本程式需要的 %s."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."

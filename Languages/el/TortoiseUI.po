@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -244,11 +244,6 @@ msgstr "%ls : Βασική έκδοση πάνω στην οποία δουλε�
 msgid "%ls : Working Copy"
 msgstr "%ls : Βασικό αντίγραφο πάνω στο οποίο δουλεύετε"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Επανήλθαν]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -356,13 +351,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr ""
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -392,6 +380,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nείναι ένας κατάλογος και όχι ένα αρχείο!\nΤο TortoiseMerge δεν μπορεί να συγκρίνει καταλόγους."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Επανήλθαν]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1904,8 +1904,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "Προσθήκη σε %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2038,14 +2038,14 @@ msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγ
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε το μενού '%ls';"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε το μενού '%s';"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε τη γραμμή εργαλείων '%ls';"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε τη γραμμή εργαλείων '%s';"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3478,8 +3478,8 @@ msgstr "Αντιγραή της επιλογής και μεταβιβασή τ�
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Αντιγραφή στο %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4167,8 +4167,8 @@ msgstr ""
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Θέλετε πραγματικά να διαγράψετε την εργαλειοθήκη '%ls';"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Θέλετε πραγματικά να διαγράψετε την εργαλειοθήκη '%s';"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4311,8 +4311,8 @@ msgstr "Δίσκους A: και B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "Δεν είναι δυνατή η απόθεση στο %1"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4413,9 +4413,9 @@ msgstr "Επεξεργασία καταγραφικού μυνήματος"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Επεξεργασία ιδιότητας '%1!ls!' στο\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4687,8 +4687,8 @@ msgstr "Επέκταση του &παρακάτω δένδρου"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Ανάπτυξη (%ls)"
+msgid "Expand (%s)"
+msgstr "Ανάπτυξη (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5934,8 +5934,8 @@ msgstr "Εισαγωγή καταλόγου %1!ls!\r\nto %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Εισαγωγή στο %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6697,8 +6697,8 @@ msgstr "Συγχώνευση διαφορών μεταξύ διευθύνσεω�
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr ""
 
 #. Resource IDs: (264)
@@ -6878,8 +6878,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Μετακίνηση στο %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7563,7 +7563,7 @@ msgstr ""
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
+msgid "Patching file '%1!ls!'"
 msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
@@ -8312,9 +8312,9 @@ msgstr ""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Αφαίρεση ιδιότητας '%1!ls!' από\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9282,9 +9282,9 @@ msgstr ""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Καθορισμός ιδιότητας  '%1!ls!' στο\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10270,7 +10270,7 @@ msgstr "Ο φάκελος\n%ls\nυπάρχει ήδη!"
 msgid "The hook script executed successfully"
 msgstr ""
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10766,13 +10766,13 @@ msgstr ""
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
 msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
+msgid "This program requires the file %s, which was not found on this system."
 msgstr ""
 
 #. Resource IDs: (15)

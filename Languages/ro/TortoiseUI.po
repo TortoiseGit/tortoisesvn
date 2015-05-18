@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -246,11 +246,6 @@ msgstr "%ls : Baza de lucru"
 msgid "%ls : Working Copy"
 msgstr "%ls : Copia de lucru"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Recuperat]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -358,13 +353,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld hunk-uri eșuate"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -394,6 +382,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\neste un dosar şi nu un fişier!\nTortoiseMerge nu poate compara directoare."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Recuperat]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1906,8 +1906,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "Adaugă la %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2040,14 +2040,14 @@ msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi desem
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi meniul '%ls'?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi meniul '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi bara de unelte '%ls'?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Toate schimbările vor fi pierdute! Sigur doriţi să restabiliţi bara de unelte '%s'?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3480,8 +3480,8 @@ msgstr "Copiază selecţia şi o pune în clipboard\nCopiază"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Copiază la %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4169,8 +4169,8 @@ msgstr "Face același lucru pentru toate elementele neversionate/modificate"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Chiar doriţi să ştergeţi bara de unelte '%ls'?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Chiar doriţi să ştergeţi bara de unelte '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4313,8 +4313,8 @@ msgstr "Discurile A: şi B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "Adăugarea nu este posibilă pe %1"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4415,9 +4415,9 @@ msgstr "Editează mesajul din jurnal"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Editează proprietatea '%1!ls!' din\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4689,8 +4689,8 @@ msgstr "Extinde &următoarea arbore"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Extinde (%ls)"
+msgid "Expand (%s)"
+msgstr "Extinde (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5936,8 +5936,8 @@ msgstr "Importă dosarul %1!ls!\r\nîn %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Importă la %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6699,8 +6699,8 @@ msgstr "Se îmbină diferenţele între URL-uri de depozit"
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr "Se îmbină de la %1!ls!, revizia %2!ls! la %3!ls!, revizia %4!ls! în %5!ls!, %6!ls!%7!ls!%8!ls!"
 
 #. Resource IDs: (264)
@@ -6880,8 +6880,8 @@ msgstr "Mută fișier sau dosar special"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Mută la %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7565,8 +7565,8 @@ msgstr "Se peticește"
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
-msgstr "Se peticește fișierul '%1'"
+msgid "Patching file '%1!ls!'"
+msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8314,9 +8314,9 @@ msgstr "Scoate de sub control de versiune\nToate dosarele .svn sunt eliminate"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Elimină proprietatea '%1!ls!' din \r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9284,9 +9284,9 @@ msgstr "Defineşte data de fişier ca \"ora ultimei &transmiteri\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Defineşte proprietatea '%1!ls!' pentru\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10272,7 +10272,7 @@ msgstr "Dosarul\n%ls\nexistă deja!"
 msgid "The hook script executed successfully"
 msgstr ""
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10768,14 +10768,14 @@ msgstr "Aacest produs conține software din Apache™ Subversion® (http://subve
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "Acest program este legat de exportul lipsă %ls în fişierul %ls. Acest computer poate avea o versiune incompatibilă de %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "Acest program este legat de exportul lipsă %s în fişierul %s. Acest computer poate avea o versiune incompatibilă de %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "Acest program are nevoie de fişierul %ls, care nu a fost găsit pe acest sistem."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Acest program are nevoie de fişierul %s, care nu a fost găsit pe acest sistem."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."

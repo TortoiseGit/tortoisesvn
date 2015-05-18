@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # ktretyak <ktretyakgm@gmail.com>, 2013
-# Maks Lyashuk <m_lyashuk@ukr.net>, 2013
+# Max Lyashuk <m_lyashuk@ukr.net>, 2013
 # Vitaliy Katerusha <vitali_kat@hotmail.com>, 2011
 # Віктор Лелейко <victor.leleyko@gmail.com>, 2013
 msgid ""
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:48+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -245,11 +245,6 @@ msgstr "%ls : Робоча база"
 msgid "%ls : Working Copy"
 msgstr "%ls : Робоча копія"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Відновлено]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -357,13 +352,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld failed hunk(s)"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -393,6 +381,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n- це каталог, а не файл!\nTortoiseMerge не вміє шукати відмінності каталогів."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Відновлено]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1905,8 +1905,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "Додати до %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2039,14 +2039,14 @@ msgstr "Усі зміни буде втрачено! Дійсно переіні
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати меню '%ls'?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати меню '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати рядок знарядь '%ls'?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати рядок знарядь '%s'?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3479,8 +3479,8 @@ msgstr "Копіює виділене та кладе його до буфера
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Копіювати до %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4168,8 +4168,8 @@ msgstr ""
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Дійсно знищити стрічку знаряддь '%ls'?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Дійсно знищити стрічку знаряддь '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4312,8 +4312,8 @@ msgstr "Диски A: і B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "На %1 скидати неможливо"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4414,9 +4414,9 @@ msgstr "Редагувати повідомлення логу"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Редагувати властивість '%1!ls!' для\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4688,8 +4688,8 @@ msgstr "Розгорнути &вказане дерево"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Розгорнути (%ls)"
+msgid "Expand (%s)"
+msgstr "Розгорнути (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5935,8 +5935,8 @@ msgstr "Імпортувати каталог %1!ls!\r\nдо %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Імпортувати до %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6698,8 +6698,8 @@ msgstr "Зливаються відмінності між URLами схови�
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr ""
 
 #. Resource IDs: (264)
@@ -6879,8 +6879,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Перемістити до %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7564,7 +7564,7 @@ msgstr ""
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
+msgid "Patching file '%1!ls!'"
 msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
@@ -8313,9 +8313,9 @@ msgstr ""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Видалити властивість '%1!ls!' з\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9283,9 +9283,9 @@ msgstr "Встановити дати файлів на \"&час останнь
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Встановити властивість '%1!ls!' для\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10271,7 +10271,7 @@ msgstr "Каталог\n%ls\nвже існує!"
 msgid "The hook script executed successfully"
 msgstr ""
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10767,14 +10767,14 @@ msgstr "Цей продукт включає програмне забезпеч
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "Ця програма пов'язана з відсутнім експортом %ls у файлі %ls. Ця машина може мати несумісну версію %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "Ця програма пов'язана з відсутнім експортом %s у файлі %s. Ця машина може мати несумісну версію %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "Цій програмі потрібен файл %ls, який у системі відсутній."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Цій програмі потрібен файл %s, який у системі відсутній."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."

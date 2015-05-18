@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:44+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/tortoisesvn/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -244,11 +244,6 @@ msgstr "%ls : Radna osnova"
 msgid "%ls : Working Copy"
 msgstr "%ls : Radna kopija"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Vraćeno na staro]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -356,13 +351,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld neuspjelih dijelova"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -392,6 +380,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nje direktorij a ne datoteka!\nTortoiseMerge ne može uspoređivati direktorije."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Vraćeno na staro]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1904,8 +1904,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "prema %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2038,14 +2038,14 @@ msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati p
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati izbornik '%ls'?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati izbornik '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati alatnu traku '%ls'?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati alatnu traku '%s'?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3478,8 +3478,8 @@ msgstr "Kopiraj označeno i stavi u međuspremnik\nKopiraj"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Kopiranje na %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4167,8 +4167,8 @@ msgstr "Učini ovo za sve neverzionirane/izmijenjene stavke"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Želite li zaista obrisati traku '%ls'?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Želite li zaista obrisati traku '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4311,8 +4311,8 @@ msgstr "Diskovi A: i B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "Uklanjanje nije moguće za %1"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4413,9 +4413,9 @@ msgstr "Upiši poruku dnevnika"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Uredi svojstvo  '%1!ls!' na\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4687,8 +4687,8 @@ msgstr "Rasklopi &slijedeća stabla"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Izvozim %ls"
+msgid "Expand (%s)"
+msgstr "Izvozim %s"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5934,8 +5934,8 @@ msgstr "Uvoz mape %1!ls!\r\nu %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Uvezi u %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6697,8 +6697,8 @@ msgstr "Sastavljanje razlika iymedju URL repozitorija"
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr "Stapam iz %1!ls!, revizija %2!ls! u %3!ls!, revizija %4!ls! u %5!ls!, %6!ls!%7!ls!%8!ls!"
 
 #. Resource IDs: (264)
@@ -6878,8 +6878,8 @@ msgstr "Premjesti posebnu datoteku ili mapu"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Premjesti u %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7563,8 +7563,8 @@ msgstr "Krpam"
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
-msgstr "Krpam datoteku '%1'"
+msgid "Patching file '%1!ls!'"
+msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8312,9 +8312,9 @@ msgstr "Ukloni iz kontrole revizija\nSve .svn mape će biti uklonjene"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Ukloni svojstvo '%1!ls!' iz\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9282,9 +9282,9 @@ msgstr "Postavljanje datuma datoteka na \"vrijeme zadnje &pohrane\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Postavi svojstvo '%1!ls!' na\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10270,7 +10270,7 @@ msgstr "Mapa\n%ls\nveć postoji!"
 msgid "The hook script executed successfully"
 msgstr ""
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10766,14 +10766,14 @@ msgstr "Ovaj proizvod sadrži softver Apache™ Subversion® (http://subversion.
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "Ovaj program je povezan s nedostajućim izvozom %ls u datoteku %ls. Ovaj stroj možda ima nekompatibilnu verziju od %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "Ovaj program je povezan s nedostajućim izvozom %s u datoteku %s. Ovaj stroj možda ima nekompatibilnu verziju od %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "Ovaj program treba datoteku %ls koja nije nađena na ovom sustavu."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Ovaj program treba datoteku %s koja nije nađena na ovom sustavu."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."

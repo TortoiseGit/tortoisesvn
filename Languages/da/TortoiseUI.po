@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:26+0000\n"
+"PO-Revision-Date: 2015-05-18 12:45+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -245,11 +245,6 @@ msgstr "%ls : Grundrevision af arbejdskopi"
 msgid "%ls : Working Copy"
 msgstr "%ls : Arbejdskopi"
 
-#. Resource IDs: (3887)
-#, c-format
-msgid "%ls [Recovered]"
-msgstr "%ls [Genskabt]"
-
 #. Resource IDs: (609)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
@@ -357,13 +352,6 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr "%ls\n%ld fejlende stykke(r)"
 
-#. Resource IDs: (3850)
-#, c-format
-msgid ""
-"%ls\n"
-"%ls"
-msgstr "%ls\n%ls"
-
 #. Resource IDs: (147)
 #, c-format
 msgid ""
@@ -393,6 +381,18 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\ner en mappe og ikke en fil!\nTortoiseMerge kan ikke sammenligne mapper."
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Genskabt]"
+
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1905,8 +1905,8 @@ msgstr ""
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Add to %1"
-msgstr "Tilføj til %1"
+msgid "Add to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2039,14 +2039,14 @@ msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille 
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%ls'?"
-msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille menuen '%ls'?"
+"All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille menuen '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%ls'?"
-msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille værktøjslinjen '%ls'?"
+"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille værktøjslinjen '%s'?"
 
 #. Resource IDs: (2062)
 msgid ""
@@ -3479,8 +3479,8 @@ msgstr "Kopier det markerede og læg det i udklipsholderen\nKopier"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Copy to %1"
-msgstr "Kopier til %1"
+msgid "Copy to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4168,8 +4168,8 @@ msgstr "Gør dette for alle uversionerede/ændrede elementer"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "Do you really want to delete the toolbar '%ls'?"
-msgstr "Er du sikker på at du vil slette værktøjslinjen '%ls'?"
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Er du sikker på at du vil slette værktøjslinjen '%s'?"
 
 #. Resource IDs: (92)
 #, c-format
@@ -4312,8 +4312,8 @@ msgstr "Drev A: og B:"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Drop not possible on %1"
-msgstr "Ikke muligt at droppe på %1"
+msgid "Drop not possible on %1!ls!"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4414,9 +4414,9 @@ msgstr "Rediger logbesked"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%1!ls!' on\r\n"
+"Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Rediger egenskab '%1!ls!' på\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4688,8 +4688,8 @@ msgstr "E&kspander det følgende træ"
 
 #. Resource IDs: (1002)
 #, c-format
-msgid "Expand (%ls)"
-msgstr "Udvid (%ls)"
+msgid "Expand (%s)"
+msgstr "Udvid (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -5935,8 +5935,8 @@ msgstr "Importer mappe %1!ls!\r\ntil %2!ls!"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Import to %1"
-msgstr "Importertil %1"
+msgid "Import to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -6698,8 +6698,8 @@ msgstr "Fletter forskelle mellem versionsarkiv URL'er"
 #. Resource IDs: (229)
 #, c-format
 msgid ""
-"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!, "
-"%6!ls!%7!ls!%8!ls!"
+"Merging from %1!ls!, revision %2!ls! to %3!ls!, revision %4!ls! into %5!ls!,"
+" %6!ls!%7!ls!%8!ls!"
 msgstr "Fletter fra %1!ls!, revision %2!ls! til %3!ls!, revision %4!ls! ind i %5!ls!, %6!ls!%7!ls!%8!ls!"
 
 #. Resource IDs: (264)
@@ -6879,8 +6879,8 @@ msgstr "Flyt speciel fil eller mappe"
 
 #. Resource IDs: (613)
 #, c-format
-msgid "Move to %1"
-msgstr "Flyt til %1"
+msgid "Move to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7564,8 +7564,8 @@ msgstr "Retter"
 
 #. Resource IDs: (169)
 #, c-format
-msgid "Patching file '%1'"
-msgstr "Retter filen '%1'"
+msgid "Patching file '%1!ls!'"
+msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8313,9 +8313,9 @@ msgstr "Fjern fra versionskontrol\nAlle .svn foldere slettes"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%1!ls!' from\r\n"
+"Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr "Fjern egenskab  '%1!ls!' fra\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9283,9 +9283,9 @@ msgstr "Sæt filers datostempel til \"seneste arkiverings&tidspunkt\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%1!ls!' on\r\n"
+"Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr "Sæt egenskab '%1!ls!' på\r\n%2!ls!"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -10271,7 +10271,7 @@ msgstr "Mappen\n%ls\nfindes allerede!"
 msgid "The hook script executed successfully"
 msgstr "Tilkoblings-scriptet blev succesfuldt udført"
 
-#. Resource IDs: (83)
+#. Resource IDs: (83, 364)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
@@ -10767,14 +10767,14 @@ msgstr "Dette produkt indeholder software fra Apache™ Subversion® (http://sub
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
-"This program is linked to the missing export %ls in the file %ls. This machine"
-" may have an incompatible version of %ls."
-msgstr "Dette program er lænket til den manglende eksport %ls i filen %ls. Denne computer har muligvis en inkompatibel version af %ls."
+"This program is linked to the missing export %s in the file %s. This machine"
+" may have an incompatible version of %s."
+msgstr "Dette program er lænket til den manglende eksport %s i filen %s. Denne computer har muligvis en inkompatibel version af %s."
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program requires the file %ls, which was not found on this system."
-msgstr "Dette program kræver filen %ls, som ikke blev fundet på denne computer."
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Dette program kræver filen %s, som ikke blev fundet på denne computer."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."
