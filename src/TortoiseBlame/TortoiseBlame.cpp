@@ -1866,7 +1866,7 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
    InitCommonControlsEx(&iccex);
 
    /* CREATE A TOOLTIP WINDOW */
-   app.hwndTT = CreateWindowEx(WS_EX_TOPMOST,
+   app.hwndTT = CreateWindowEx(NULL,
        TOOLTIPS_CLASS,
        NULL,
        WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,
@@ -1881,7 +1881,7 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
        );
 
    SetWindowPos(app.hwndTT,
-       HWND_TOPMOST,
+       HWND_TOP,
        0,
        0,
        0,

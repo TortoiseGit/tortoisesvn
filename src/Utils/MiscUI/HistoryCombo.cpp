@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -514,7 +514,7 @@ void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
 void CHistoryCombo::CreateToolTip()
 {
     // create tooltip
-    m_hWndToolTip = ::CreateWindowEx(WS_EX_TOPMOST,
+    m_hWndToolTip = ::CreateWindowEx(NULL,
         TOOLTIPS_CLASS,
         NULL,
         TTS_NOPREFIX | TTS_ALWAYSTIP,

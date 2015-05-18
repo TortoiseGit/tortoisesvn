@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,7 +41,7 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
     if (!m_bInitCalled)
     {
         // create the tooltip window
-        if (!CreateEx(WS_EX_TOPMOST,
+        if (!CreateEx(NULL,
                      TOOLTIPS_CLASS,
                      NULL,
                      TTS_NOPREFIX | TTS_ALWAYSTIP,

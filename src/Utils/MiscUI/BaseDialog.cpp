@@ -156,7 +156,7 @@ INT_PTR CALLBACK CDialog::stDlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPAR
             NULL, pWnd->hResource,
             NULL);
 
-        SetWindowPos(pWnd->m_hToolTips, HWND_TOPMOST,0, 0, 0, 0,
+        SetWindowPos(pWnd->m_hToolTips, HWND_TOP,0, 0, 0, 0,
             SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
         SendMessage(pWnd->m_hToolTips, TTM_SETMAXTIPWIDTH, 0, 600);
         SendMessage(pWnd->m_hToolTips, TTM_ACTIVATE, TRUE, 0);
