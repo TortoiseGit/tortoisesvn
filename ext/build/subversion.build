@@ -30,6 +30,11 @@
     </exec>
     <exec program="python.exe">
       <arg value="build\transform_sql.py" />
+      <arg value="subversion\libsvn_fs_x\rep-cache-db.sql" />
+      <arg value="subversion\libsvn_fs_x\rep-cache-db.h" />
+    </exec>
+    <exec program="python.exe">
+      <arg value="build\transform_sql.py" />
       <arg value="subversion\libsvn_wc\wc-queries.sql" />
       <arg value="subversion\libsvn_wc\wc-queries.h" />
     </exec>
