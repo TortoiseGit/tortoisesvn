@@ -319,6 +319,7 @@ CLogEntryData::CLogEntryData
     , ProjectProperties* projectProperties
     , const MergeInfo* mergeInfo)
     : parent (parent)
+    , hasParent(false)
     , hasChildren (false)   // we don't read that from the "mergesFollow" flag
                             // (just to be sure that we actually have sub-nodes)
     , nonInheritable (mergeInfo && mergeInfo->nonInheritable)
@@ -339,7 +340,10 @@ CLogEntryData::CLogEntryData
     // update nesting info
 
     if (parent)
+    {
+        hasParent = true;
         parent->hasChildren = true;
+    }
 }
 
 CLogEntryData::~CLogEntryData()
@@ -825,9 +829,26 @@ CLogDataVector::FilterRange
 
     CLogDlgFilter privateFilter (*filter);
 
+    size_t parentEntry = first;
     for (size_t i = first; i < last; ++i)
+    {
         if (privateFilter(*inherited::operator[](i)))
-            result.push_back (i);
+        {
+            if (inherited::operator[](i)->HasParent() && !contains(result, parentEntry))
+            {
+                // Filter didn't match the parent, but it matched it's child,
+                // so still show the child's parent as well
+                result.push_back(parentEntry);
+            }
+
+            result.push_back(i);
+        }
+
+        if (!inherited::operator[](i)->HasParent())
+        {
+            parentEntry = i; // remember parent's position
+        }
+    }
 
     return result;
 }

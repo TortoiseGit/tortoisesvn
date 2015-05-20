@@ -166,6 +166,7 @@ private:
     {
         unsigned childStackDepth:24;
         unsigned int checked:1;
+        unsigned int hasParent:1;
         unsigned int hasChildren:1;
         unsigned int nonInheritable:1;
         unsigned int subtractiveMerge:1;
@@ -217,6 +218,7 @@ public:
 
     CLogEntryData* GetParent() {return parent;}
     const CLogEntryData* GetParent() const {return parent;}
+    bool HasParent() const { return hasParent != FALSE; }
     bool HasChildren() const {return hasChildren != FALSE;}
     bool IsNonInheritable() const {return nonInheritable != FALSE;}
     bool IsSubtractiveMerge() const {return subtractiveMerge != FALSE;}
@@ -280,6 +282,14 @@ private:
         ( const CLogDlgFilter* filter
         , size_t first
         , size_t last);
+
+    /// returns true if the result vector already contains a parent entry
+
+    template<class T>
+    bool contains(std::vector<T> const &v, T const &x)
+    {
+        return std::find(v.begin(), v.end(), x) != v.end();
+    }
 
 public:
 
