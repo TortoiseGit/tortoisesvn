@@ -644,12 +644,12 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
     ret = pImage->nLength;
     if (pImage->nLength >= nBufferMax)
     {
-        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength-1);
+        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength);
         lpBuffer[nBufferMax-1] = 0;
     }
     else
     {
-        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength-1);
+        wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength);
         lpBuffer[ret] = 0;
     }
     return ret;

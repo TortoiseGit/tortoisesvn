@@ -53,7 +53,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
         if (slashpos)
             wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), slashpos - internalpathbuf.get());
         else
-            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen - 1);
+            wcsncpy_s(buf.get(), fullLen, internalpathbuf.get(), fullLen);
         CreateDirectory(buf.get(), &attribs);
         pPath = wcschr(pPath, '\\');
     } while ((pPath++)&&(wcschr(pPath, '\\')));
