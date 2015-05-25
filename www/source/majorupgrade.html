@@ -34,10 +34,10 @@
                     <p>TortoiseSVN uses <a href="http://wixtoolset.org/">WiX</a>
                     to create the MSI installer. MSI has a built in mechanism
                     for upgrading packages. In TortoiseSVN, we always use
-                    the <a href="http://msdn.microsoft.com/en-us/library/aa370579%28VS.85%29.aspx">major upgrade</a>.</p>
+                    the <a href="https://msdn.microsoft.com/en-us/library/aa370579%28VS.85%29.aspx">major upgrade</a>.</p>
 
                     <p>Msi groups files/registry entries/settings/... which are
-                    to be installed into <a href="http://msdn.microsoft.com/en-us/library/aa368007%28VS.85%29.aspx">components</a>.
+                    to be installed into <a href="https://msdn.microsoft.com/en-us/library/aa368007%28VS.85%29.aspx">components</a>.
                     Each component then contains the files/registry entries/...
                     to install. It either installs everything that's grouped
                     into a component or nothing. Installing only part of a
@@ -46,7 +46,7 @@
                     whole component is left unchanged.</p>
 
                     <p>When upgrading, TortoiseSVN also schedules the
-                    <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    <a href="https://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
                     action right after the InstallFinalize action. This is to
                     make sure that even when upgrading, nothing old and unused
                     is left lying around.</p>
@@ -88,7 +88,7 @@
                     Doing a repair install forces MSI to reinstall all components
                     in step 3, so that fixed the problem.</p>
                     <p>So I thought to fix the problem in our MSI, scheduling
-                    the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    the <a href="https://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
                     action after the InstallValidate action was all that's
                     needed. Which leads to the following install steps in
                     version 1.6.9:</p>
@@ -104,7 +104,7 @@
                     </ol>
                     <p>So everything's fine, right? As it turned out: not so
                     much. Unfortunately there's a problem when using components
-                    that get installed in the <a href="http://msdn.microsoft.com/en-us/library/aa376307%28VS.85%29.aspx">SxS</a>
+                    that get installed in the <a href="https://msdn.microsoft.com/en-us/library/aa376307%28VS.85%29.aspx">SxS</a>
                     cache. TortoiseSVN uses the C-runtime and MFC components of
                     Visual Studio which happen to be such components, the
                     problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>
@@ -124,7 +124,7 @@
                     to components that have a file as the keypath, and a file
                     that has version info. That way, MSI detects the version
                     and always installs the new version. And of course I've
-                    rescheduled the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    rescheduled the <a href="https://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
                     action to run after the InstallFinalize action to avoid the
                     problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>.
                     So after you've installed the next version of TortoiseSVN
