@@ -8323,7 +8323,7 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
     sTmp.Format(L"%d", m_defaultMonitorInterval);
     m_monitoringFile.SetValue(L"global", L"DefaultCheckInterval", sTmp);
 
-    
+
     if (todisk)
     {
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
@@ -8332,7 +8332,7 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         FILE * pFile = NULL;
         errno_t err = 0;
         int retrycount = 5;
-        do 
+        do
         {
             err = _tfopen_s(&pFile, sTempfile, L"wb");
             if ((err == 0) && pFile)

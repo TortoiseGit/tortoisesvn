@@ -275,7 +275,7 @@ void CProgressDlg::Stop()
             // the modal messagebox is shown over the parent window.
             // This situation can even lead to the messagebox appearing *behind*
             // the parent window (race condition)
-            // 
+            //
             // So, to really ensure that the progress dialog is fully stopped
             // and destroyed, we have to attach to its UI thread and handle
             // all messages until there are no more messages: that's when

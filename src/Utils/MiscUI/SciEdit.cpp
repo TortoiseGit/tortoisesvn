@@ -154,7 +154,7 @@ static LPBYTE Icon2Image(HICON hIcon)
             imagePixels[currentDestPos] = (((UINT)(
                 (
                     ((pixelsIconRGB[currentSrcPos + 2]  /*Red*/)
-                    | (pixelsIconRGB[currentSrcPos + 1] << 8 /*Green*/)) 
+                    | (pixelsIconRGB[currentSrcPos + 1] << 8 /*Green*/))
                     | pixelsIconRGB[currentSrcPos] << 16 /*Blue*/
                 )
                 | ((alphaPixels[currentSrcPos] ? 0 : 0xff) << 24))) & 0xffffffff);

@@ -2959,7 +2959,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
                                (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
         ReportCmd(sCmdInfo);
         int retrycounter = 0;
-        do 
+        do
         {
             // in case there's a write-through proxy in place, the new branch/tag
             // might not be ready yet on the local server. In that case we get

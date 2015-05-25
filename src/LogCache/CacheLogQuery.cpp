@@ -1540,7 +1540,7 @@ void CCacheLogQuery::LogRevision ( revision_t revision
 
         CLogOptions fillOptions (options, NULL);
         CDictionaryBasedTempPath rootpath ( &cache->GetLogInfo().GetPaths()
-										   , std::string());
+                                           , std::string());
 
         FillLog ( revision
                 , 0
