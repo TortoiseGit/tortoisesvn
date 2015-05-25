@@ -423,7 +423,7 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info) const
 
     // something went wrong.
 
-    if (CSettings::GetDefaultConnectionState() == online)
+    if ((CSettings::GetDefaultConnectionState() == online) && !svn.IsSuppressedUI())
     {
         // Default behavior is "Ask the user what to do"
 
