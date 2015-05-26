@@ -403,7 +403,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
     CHooks::Instance().PreConnect(pathList);
     SVNTRACE(
         Err = svn_client_update4(NULL,
-                                pathList.MakePathArray(m_pool),
+                                pathList.MakePathArray(localpool),
                                 revision,
                                 depth,
                                 depthIsSticky,
@@ -436,7 +436,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
     SVNTRACE(
         Err = svn_client_commit6 (
-                                  pathlist.MakePathArray(m_pool),
+                                  pathlist.MakePathArray(localpool),
                                   depth,
                                   keep_locks,
                                   keepchangelist,
@@ -548,19 +548,20 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash& revProps)
 {
     Prepare();
+    SVNPool subpool(m_pool);
     m_pctx->log_msg_baton3 = logMessage(message);
-    apr_hash_t * revPropHash = MakeRevPropHash(revProps, m_pool);
+    apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
     CallPreConnectHookIfUrl(pathlist);
 
     SVNTRACE (
-        Err = svn_client_mkdir4 (pathlist.MakePathArray(m_pool),
+        Err = svn_client_mkdir4 (pathlist.MakePathArray(subpool),
                                  makeParents,
                                  revPropHash,
                                  commitcallback2,
                                  this,
                                  m_pctx,
-                                 m_pool) ,
+                                 subpool) ,
         NULL
     );
     ClearCAPIAuthCacheOnError();
@@ -1668,8 +1669,9 @@ bool SVN::Lock(const CTSVNPathList& pathList, bool bStealLock, const CString& co
     SVNTRACE_BLOCK
 
     Prepare();
+    SVNPool subpool(m_pool);
     CHooks::Instance().PreConnect(pathList);
-    Err = svn_client_lock(pathList.MakePathArray(m_pool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, m_pool);
+    Err = svn_client_lock(pathList.MakePathArray(subpool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, subpool);
     ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
@@ -1679,8 +1681,9 @@ bool SVN::Unlock(const CTSVNPathList& pathList, bool bBreakLock)
     SVNTRACE_BLOCK
 
     Prepare();
+    SVNPool subpool(m_pool);
     CHooks::Instance().PreConnect(pathList);
-    Err = svn_client_unlock(pathList.MakePathArray(m_pool), bBreakLock, m_pctx, m_pool);
+    Err = svn_client_unlock(pathList.MakePathArray(subpool), bBreakLock, m_pctx, subpool);
     ClearCAPIAuthCacheOnError();
     return (Err == NULL);
 }
@@ -2377,11 +2380,12 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
 
     CStringA sValueA = CUnicodeUtils::GetUTF8(sValue);
     sValueA.Remove('\r');
-    pval = svn_string_create(sValueA, m_pool);
+    SVNPool subpool(m_pool);
+    pval = svn_string_create(sValueA, subpool);
     if (!sOldValue.IsEmpty())
-        pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), m_pool);
+        pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), subpool);
 
-    const char* svnPath = URL.GetSVNApiPath(m_pool);
+    const char* svnPath = URL.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(URL));
     SVNTRACE (
         Err = svn_client_revprop_set2(CUnicodeUtils::GetUTF8(sName),
@@ -2392,7 +2396,7 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
                                         &set_rev,
                                         FALSE,
                                         m_pctx,
-                                        m_pool),
+                                        subpool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
@@ -2407,10 +2411,11 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SV
     svn_revnum_t set_rev;
     Prepare();
 
-    const char* svnPath = URL.GetSVNApiPath(m_pool);
+    SVNPool subpool(m_pool);
+    const char* svnPath = URL.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(URL));
     SVNTRACE (
-        Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, svnPath, rev, &set_rev, m_pctx, m_pool),
+        Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, svnPath, rev, &set_rev, m_pctx, subpool),
         svnPath
     );
     ClearCAPIAuthCacheOnError();
