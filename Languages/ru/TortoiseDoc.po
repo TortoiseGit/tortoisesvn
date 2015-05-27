@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-05-17 13:02+0000\n"
+"PO-Revision-Date: 2015-05-18 15:12+0000\n"
 "Last-Translator: Dmitry Oshkalo <dmitry.oshkalo@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -302,7 +302,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Несмотря на то, что большинство загружают лишь установочный файл, вы имеете полный доступ на чтение к исходному коду этой программы. Вы можете просмотреть его по ссылке <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Самая последняя версия, над которой мы работаем в данный момент, находится в <filename>/trunk/</filename>, ранее выпущенные версии находятся в <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -12169,7 +12169,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Интеграция с системой отслеживания ошибок не ограничена только TortoiseSVN, она может быть использована с любым клиентом Subversion. Для дополнительной информации прочтите <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> в хранилище исходного кода TortoiseSVN. (<xref linkend=\"tsvn-preface-source\"/> объясняет как получить доступ к хранилищу.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -12201,7 +12201,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Конечно, любой такой интерфейс будет очень специфичным для Вашей системы отслеживания проблем, поэтому мы не можем предоставить эту часть, и описание создания такой программы выходит за рамки данного руководства. Определение интерфейса и примеры подключаемых модулей на C# и C++/ATL Вы можете получить в папке <literal>contrib</literal> в <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> объясняет, как получить доступ к хранилищу.) Также описание API дано в <xref linkend=\"tsvn-ibugtraqprovider\"/>. Другой (рабочий) пример плагина на C# есть в <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, который реализует требуемый COM-интерфейс для взаимодействия с системой отслеживания проблем <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -14513,7 +14513,7 @@ msgid ""
 "url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
-msgstr ""
+msgstr "Примерный клиентский скрипт ловушки может быть найден в папке <literal>contrib</literal> в <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts\"><citetitle>хранилище TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> объясняет, как получить доступ к хранилищу.)"
 
 #. (para)
 msgid ""
@@ -16728,7 +16728,7 @@ msgid ""
 " on our To-Do list, and bugs which have already been fixed. If you think you"
 " have found a bug, or want to request a new feature, check here first to see"
 " if someone else got there before you."
-msgstr ""
+msgstr "Мы также поддерживаем <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue Tracker</citetitle></ulink> проекта, в котором Вы можете узнать о некоторых вещах, которые есть в нашем списке To-Do и ошибках, которые уже исправлены. Если Вы считаете, что нашли ошибку, или хотите запросить новую функциональность, сначала проверьте здесь — может, кто-то другой уже сделал это перед Вами."
 
 #. (para)
 msgid ""
@@ -18696,7 +18696,7 @@ msgid ""
 "url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -18842,7 +18842,7 @@ msgid ""
 "class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
 " The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "В последующем описании адрес расположения хранилища показывается просто как <literal>URL</literal>, и в качестве примера такого URL может служить <systemitem class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>. Путь к рабочей копии показывается просто как <literal>ПУТЬ</literal>, и примером такого пути может быть <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid ""
@@ -20138,7 +20138,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge - проект с открытым исходным кодом. Это означает, что Вы имеете полный доступ на чтение к исходному коду этой программы. Вы можете просмотреть его по ссылке <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Самая последняя версия (над которой мы работаем в данный момент) находится в <filename>/trunk/</filename>, ранее выпущенные версии находятся в <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
