@@ -2362,6 +2362,9 @@ void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
     m_EditFileCommand->SetPaths (CTSVNPathList (url), url);
     m_EditFileCommand->SetParser (parameters);
 
+    CoInitialize(NULL);
+    OnOutOfScope(CoUninitialize());
+
     if (m_EditFileCommand->Execute() && revision.IsHead())
     {
         CString dir = urlEscaped.GetContainingDirectory().GetSVNPathString();
