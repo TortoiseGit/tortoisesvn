@@ -24,6 +24,7 @@
 #include "LangDll.h"
 #include "../Utils/CrashReport.h"
 
+#include <algorithm>
 #include <commctrl.h>
 #pragma comment(lib, "comctl32.lib")
 
@@ -108,7 +109,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     else if (parser.HasVal(L"patchfile"))
         bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(L"patchfile"));
     else if (lpCmdLine[0] != 0)
-        bLoadedSuccessfully = mainWindow.LoadFile(lpCmdLine);
+    {
+        // remove double quotes
+        std::wstring path = lpCmdLine;
+        path.erase(std::remove(path.begin(), path.end(), '"'), path.end());
+        bLoadedSuccessfully = mainWindow.LoadFile(path.c_str());
+    }
 
 
     if (!bLoadedSuccessfully)
