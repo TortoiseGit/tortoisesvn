@@ -1103,14 +1103,6 @@ msgstr ""
 msgid "create repository"
 msgstr ""
 
-#. (para)
-msgid "Please note that the command line client that comes with TortoiseSVN and TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
-
-#. (para)
-msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information. <important><placeholder-1/></important>"
-msgstr ""
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr ""
@@ -1131,8 +1123,6 @@ msgstr ""
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
 msgstr ""
@@ -1167,14 +1157,6 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
 msgstr ""
 
 #. (para)
@@ -1355,14 +1337,14 @@ msgid "Whichever type of repository you use, it is vitally important that you ma
 msgstr ""
 
 #. (para)
-msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
+msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
 msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
 msgstr ""
 
 #. (para)
@@ -4712,8 +4694,12 @@ msgstr ""
 msgid "cleanup"
 msgstr ""
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
-msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
+msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy. <placeholder-1/>"
 msgstr ""
 
 #. (term)
@@ -12926,14 +12912,6 @@ msgstr ""
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
-
-#. (glossterm)
-msgid "BDB"
-msgstr ""
-
-#. (para)
-msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr ""
 
 #. (glossterm)
