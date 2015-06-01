@@ -62,6 +62,7 @@ BEGIN_MESSAGE_MAP(CResizableStandAloneDialog, CStandAloneDialogTmpl<CResizableDi
     ON_WM_MOVING()
     ON_WM_NCMBUTTONUP()
     ON_WM_NCRBUTTONUP()
+    ON_WM_NCHITTEST()
 END_MESSAGE_MAP()
 
 void CResizableStandAloneDialog::OnSizing(UINT fwSide, LPRECT pRect)
@@ -237,3 +238,42 @@ bool CResizableStandAloneDialog::OnEnterPressed()
 BEGIN_MESSAGE_MAP(CStateDialog, CDialog)
     ON_WM_DESTROY()
 END_MESSAGE_MAP()
+
+
+LRESULT CResizableStandAloneDialog::OnNcHitTest(CPoint point)
+{
+    if (m_nResizeBlock == 0)
+        return CStandAloneDialogTmpl::OnNcHitTest(point);
+
+    // when resizing is blocked in a direction, don't return
+    // a hit code that would allow that resizing.
+    // Using the OnNcHitTest handler tells Windows to
+    // not show a resizing mouse pointer if it's not possible
+    auto ht = CStandAloneDialogTmpl::OnNcHitTest(point);
+    if (m_nResizeBlock & DIALOG_BLOCKVERTICAL)
+    {
+        switch (ht)
+        {
+            case HTBOTTOMLEFT:  ht = HTLEFT;   break;
+            case HTBOTTOMRIGHT: ht = HTRIGHT;  break;
+            case HTTOPLEFT:     ht = HTLEFT;   break;
+            case HTTOPRIGHT:    ht = HTRIGHT;  break;
+            case HTTOP:         ht = HTBORDER; break;
+            case HTBOTTOM:      ht = HTBORDER; break;
+        }
+    }
+    if (m_nResizeBlock & DIALOG_BLOCKHORIZONTAL)
+    {
+        switch (ht)
+        {
+            case HTBOTTOMLEFT:  ht = HTBOTTOM; break;
+            case HTBOTTOMRIGHT: ht = HTBOTTOM; break;
+            case HTTOPLEFT:     ht = HTTOP;    break;
+            case HTTOPRIGHT:    ht = HTTOP;    break;
+            case HTLEFT:        ht = HTBORDER; break;
+            case HTRIGHT:       ht = HTBORDER; break;
+        }
+    }
+
+    return ht;
+}

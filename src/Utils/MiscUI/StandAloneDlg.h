@@ -576,6 +576,7 @@ protected:
     afx_msg void    OnMoving(UINT fwSide, LPRECT pRect);
     afx_msg void    OnNcMButtonUp(UINT nHitTest, CPoint point);
     afx_msg void    OnNcRButtonUp(UINT nHitTest, CPoint point);
+    afx_msg LRESULT OnNcHitTest(CPoint point);
     void            OnCantStartThread();
     bool            OnEnterPressed();
 
@@ -586,6 +587,7 @@ private:
     bool        m_bHorizontal;
     CRect       m_rcOrgWindowRect;
     int         m_stickySize;
+public:
 };
 
 class CStandAloneDialog : public CStandAloneDialogTmpl<CDialog>
