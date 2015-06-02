@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -264,13 +264,16 @@ CRepositoryBrowserSelection::GetURLs (size_t repositoryIndex) const
 }
 
 CTSVNPathList
-CRepositoryBrowserSelection::GetURLsEscaped (size_t repositoryIndex) const
+CRepositoryBrowserSelection::GetURLsEscaped(size_t repositoryIndex, bool bIncludeExternals) const
 {
     CTSVNPathList result;
 
     const SPathsPerRepository& info = repositories[repositoryIndex];
     for (size_t i = 0, count = info.paths.size(); i < count; ++i)
-        result.AddPath (info.paths[i].urlEscaped);
+    {
+        if (bIncludeExternals || !info.paths[i].isExternal)
+        result.AddPath(info.paths[i].urlEscaped);
+    }
 
     return result;
 }
