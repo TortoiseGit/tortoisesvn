@@ -58,6 +58,7 @@ BOOL CEditPropMergeLogTemplate::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DWM);
+    m_aeroControls.SubclassControl(this, IDC_TITLEBOTTOM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
