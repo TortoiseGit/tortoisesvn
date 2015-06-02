@@ -648,25 +648,33 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     if (!popup.CreatePopupMenu())
         return;
 
-    POSITION spos = m_cFileList.GetFirstSelectedItemPosition();
-    int sindex = m_cFileList.GetNextSelectedItem(spos);
-    FileDiff sfd = m_arFilteredList[sindex];
 
-    if (sfd.kind != svn_client_diff_summarize_kind_normal)
+    bool bHasPropChanges = false;
+    bool bHasTextChanges = false;
+    POSITION spos = m_cFileList.GetFirstSelectedItemPosition();
+    while (spos)
     {
-        if (sfd.propchanged)
+        int sindex = m_cFileList.GetNextSelectedItem(spos);
+        FileDiff sfd = m_arFilteredList[sindex];
+        bHasTextChanges = bHasTextChanges || (sfd.kind != svn_client_diff_summarize_kind_normal);
+        bHasPropChanges = bHasPropChanges || sfd.propchanged;
+    }
+
+    if (bHasTextChanges)
+    {
+        if (bHasPropChanges)
             popup.AppendMenuIcon(ID_COMPARETEXT, IDS_LOG_POPUP_COMPARETWOTEXT, IDI_DIFF);
         else
             popup.AppendMenuIcon(ID_COMPARETEXT, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
     }
-    if (sfd.propchanged)
+    if (bHasPropChanges)
     {
-        if (sfd.kind != svn_client_diff_summarize_kind_normal)
+        if (bHasTextChanges)
             popup.AppendMenuIcon(ID_COMPAREPROP, IDS_LOG_POPUP_COMPARETWOPROP, IDI_DIFF);
         else
             popup.AppendMenuIcon(ID_COMPAREPROP, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
     }
-    if ((sfd.kind != svn_client_diff_summarize_kind_normal)&&(sfd.propchanged))
+    if (bHasTextChanges && bHasPropChanges)
         popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
 
     popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
