@@ -4118,6 +4118,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                         sRevList += L", ";
                     if (!sRevListR.IsEmpty())
                         sRevListR += L", ";
+                    sRevList += SVNRev(r).ToString();
                     sRevListR += L"r" + SVNRev(r).ToString();
                 }
             }
