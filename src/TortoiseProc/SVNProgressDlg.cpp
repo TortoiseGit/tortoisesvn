@@ -4110,25 +4110,9 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                 sRevListRange += SVNRev(startRev).ToString();
             }
             else
-            {
                 sRevListRange += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
-                for (svn_revnum_t r = startRev; r <= endRev; startRev < endRev ? ++r : --r)
-                {
-                    if (!sRevList.IsEmpty())
-                        sRevList += L", ";
-                    if (!sRevListR.IsEmpty())
-                        sRevListR += L", ";
-                    sRevList += SVNRev(r).ToString();
-                    sRevListR += L"r" + SVNRev(r).ToString();
-                }
-            }
-            if (bReverse)
-            {
-                svn_revnum_t r = startRev;
-                startRev = endRev;
-                endRev = r;
-            }
-            for (svn_revnum_t rev = startRev; rev <= endRev; ++rev)
+
+            for (svn_revnum_t rev = startRev; rev <= endRev; startRev < endRev ? ++rev : --rev)
             {
                 if (logUtil.IsCached(rev))
                 {
@@ -4138,6 +4122,13 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                         pLogItem->Finalize(cache, logPath);
                         if (IsRevisionRelatedToMerge(logPath, pLogItem.get()))
                         {
+                            if (!sRevList.IsEmpty())
+                                sRevList += L", ";
+                            if (!sRevListR.IsEmpty())
+                                sRevListR += L", ";
+                            sRevList += SVNRev(rev).ToString();
+                            sRevListR += L"r" + SVNRev(rev).ToString();
+
                             CString sFormattedMsg = sFormatMsg;
                             CString sMsg = CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
                             sFormattedMsg.Replace(L"{msg}", sMsg);
