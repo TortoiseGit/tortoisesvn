@@ -4104,11 +4104,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
             if (!sRevListRange.IsEmpty())
                 sRevListRange += L", ";
             if (startRev == endRev)
-            {
-                sRevList += SVNRev(startRev).ToString();
-                sRevListR += L"r" + SVNRev(startRev).ToString();
                 sRevListRange += SVNRev(startRev).ToString();
-            }
             else
                 sRevListRange += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
 
@@ -4141,6 +4137,24 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                             sLogMessages += sFormattedMsg;
                         }
                     }
+                    else
+                    {
+                        if (!sRevList.IsEmpty())
+                            sRevList += L", ";
+                        if (!sRevListR.IsEmpty())
+                            sRevListR += L", ";
+                        sRevList += SVNRev(rev).ToString();
+                        sRevListR += L"r" + SVNRev(rev).ToString();
+                    }
+                }
+                else
+                {
+                    if (!sRevList.IsEmpty())
+                        sRevList += L", ";
+                    if (!sRevListR.IsEmpty())
+                        sRevListR += L", ";
+                    sRevList += SVNRev(rev).ToString();
+                    sRevListR += L"r" + SVNRev(rev).ToString();
                 }
             }
         }
