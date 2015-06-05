@@ -715,6 +715,9 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             while (pos)
             {
                 int index = m_cFileList.GetNextSelectedItem(pos);
+                FileDiff sfd = m_arFilteredList[index];
+                if (sfd.kind == svn_client_diff_summarize_kind_normal)
+                    continue;
 
                 auto f = [=]()
                 {
@@ -736,6 +739,9 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             while (pos)
             {
                 int index = m_cFileList.GetNextSelectedItem(pos);
+                FileDiff sfd = m_arFilteredList[index];
+                if (!sfd.propchanged)
+                    continue;
 
                 auto f = [=]()
                 {
