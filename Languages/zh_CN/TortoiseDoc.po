@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1806,26 +1806,6 @@ msgstr "创建版本库"
 msgid "create repository"
 msgstr "创建版本库"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr ""
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "使用命令行工具创建版本库"
@@ -1851,8 +1831,6 @@ msgstr "在<filename>D:\\SVN\\</filename>里创建另一个目录<filename>MyNew
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
 msgstr ""
@@ -1903,24 +1881,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "TortoiseSVN 将会在创建版本库时为其设置一个特定的文件夹图标，便于辨别本地版本库。如果使用官方的命令行客户端创建版本库则不会设置文件夹图标。"
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN 不再给你创建 BDB 版本库的选择，尽管你仍旧可以使用命令行工具创建。FSFS 版本库通常很容易维护，也让我们维护 TortoiseSVN 变得更容易，因为我们不再需要处理不同 BDB 版本之间的兼容性问题。"
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "因为兼容性问题，TortoiseSVN 不支持使用 <literal>file://</literal> 方式访问 BDB 版本库。不过通过 <literal>svn://</literal> ， <literal>http://</literal> 或 <literal>https://</literal> 协议访问位于服务器端的 BDB 格式版本库肯定是长期支持的。"
 
 #. (para)
 msgid ""
@@ -2195,17 +2155,16 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "最简单(但不推荐)的方法是复制整个版本库目录到备份介质，然而你必须绝对确定没有访问数据的进程，在这里“访问”的意思是<emphasis>任何</emphasis>访问，一个BDB版本库即使在访问看起来只需要读时也会有写操作，如果在复制时版本库被访问了(web浏览器，WebSVN等等)，备份将毫无价值。"
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
 msgstr ""
 
 #. (para)
@@ -7516,6 +7475,10 @@ msgstr "清理"
 msgid "cleanup"
 msgstr "清理"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7523,8 +7486,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "也许由于服务器问题，一个Subversion指令不能成功地完成，你的工作副本因此被滞留在一个不一致的状态。 那样的话，你需要在该目录上使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>清理</guimenuitem></menuchoice>命令。在工作副本的根目录使用它是一个好主意。"
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15708,8 +15671,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19763,16 +19726,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "这个命令只能用于文本文件，它将会标记每一行来显示版本库修订版本的最后修改的修订和作出修改的人。我们的GUI实现叫做TortoiseBlame，在你将鼠标移到修订版本号码上时，它也会显示时间和日志信息。"
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "伯克利DB(Berkeley DB)，版本库可以使用的一种经过充分测试的后台数据库实现，不能在通过网络共享的文件系统上使用，伯克利DB是 Subversion 1.2 版本以前的缺省版本库格式。"
 
 #. (glossterm)
 msgid "Branch"

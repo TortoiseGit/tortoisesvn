@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# ABE Tsunehiko, 2015
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Diego Búrigo Zacarão <diegobz@indifex.com>, 2011
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008
@@ -32,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-05-18 12:46+0000\n"
+"PO-Revision-Date: 2015-06-02 09:08+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1919,7 +1920,7 @@ msgstr "プロジェクトやフォルダーを追加..."
 #. Resource IDs: (613)
 #, c-format
 msgid "Add to %1!ls!"
-msgstr ""
+msgstr "%1!ls! に追加"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -3493,7 +3494,7 @@ msgstr "選択範囲をクリップボードにコピーする\nコピー"
 #. Resource IDs: (613)
 #, c-format
 msgid "Copy to %1!ls!"
-msgstr ""
+msgstr "%1!ls! にコピー"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -4000,10 +4001,6 @@ msgid ""
 "a device independent bitmap"
 msgstr "デバイスに依存しないビットマップ\nデバイスに依存しないビットマップ"
 
-#. Resource IDs: (334)
-msgid "Dialog"
-msgstr "ダイアログ"
-
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "ダイアログのサイズと位置"
@@ -4326,7 +4323,7 @@ msgstr "ドライブ A: と B:"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1!ls!"
-msgstr ""
+msgstr "%1!ls! にはドロップできません"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4429,7 +4426,7 @@ msgstr "ログメッセージを編集"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "%2!ls! のプロパティ\n「%1!ls!」を編集"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -5949,7 +5946,7 @@ msgstr "フォルダー %1!ls! を\r\n%2!ls! にインポート"
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1!ls!"
-msgstr ""
+msgstr "%1!ls! にインポート"
 
 #. Resource IDs: (105)
 msgid ""
@@ -6346,6 +6343,10 @@ msgstr "変更を読み込み直す\nビューは新しい内容で更新され�
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
 msgstr "ローカルフック(&H)"
+
+#. Resource IDs: (334)
+msgid "Local hook scripts"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -6893,7 +6894,7 @@ msgstr "特別なファイルもしくはディレクトリを移動する"
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1!ls!"
-msgstr ""
+msgstr "%1!ls! に移動"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7578,7 +7579,7 @@ msgstr "パッチ中"
 #. Resource IDs: (169)
 #, c-format
 msgid "Patching file '%1!ls!'"
-msgstr ""
+msgstr "'%1!ls!' にパッチ"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8328,7 +8329,7 @@ msgstr "バージョン管理から削除\nすべての .svn フォルダーが�
 msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "プロパティ「%1!S!」を\n%2!ls! から削除"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -9298,7 +9299,7 @@ msgstr "ファイルの更新日時を「最終コミット日時」に設定す
 msgid ""
 "Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "プロパティ「%1!S!」を\n%2!ls! に設定"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -12246,7 +12247,7 @@ msgstr "外部"
 #. Resource IDs: (170)
 #, c-format
 msgid "failed hunks: %d"
-msgstr ""
+msgstr "失敗: %d"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -12441,7 +12442,7 @@ msgstr "単語対: "
 
 #. Resource IDs: (170)
 msgid "patched"
-msgstr ""
+msgstr "パッチ済"
 
 #. Resource IDs: (65535)
 msgid "path elements: "

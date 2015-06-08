@@ -13,8 +13,11 @@
 # Bas <duvel3@gmail.com>, 2013
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Paul <paul@piak.nl>, 2011
 # Paul <paul@piak.nl>, 2011
+# Paul <paul@piak.nl>, 2011
+# wstalsma <wietze@wietzetalsma.nl>, 2011
 # wstalsma <wietze@wietzetalsma.nl>, 2011
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
 msgid ""
@@ -22,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -1795,26 +1798,6 @@ msgstr "Archief creatie"
 msgid "create repository"
 msgstr "repository aanmaken"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr ""
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Een archief aanmaken via de opdrachtregel applicatie."
@@ -1840,8 +1823,6 @@ msgstr "Maak nog een map aan <filename>MyNewRepository</filename> in <filename>D
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
 msgstr ""
@@ -1891,24 +1872,6 @@ msgid ""
 "TortoiseSVN will set a custom folder icon when it creates a repository so "
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
-msgstr ""
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN biedt niet langer de mogelijkheid om BDB archieven aan te maken, maar het is wel mogelijk om deze via de opdrachtprompt aan te maken. FSFS archieven zijn normaalgesproken makkelijker te beheren en het maakt het ons ook makkelijker om TortoiseSVN te onderhouden, vanwege compatibiliteitsverschillen tussen verschillende BDB versies."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
 msgstr ""
 
 #. (para)
@@ -2184,17 +2147,16 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "De meest eenvoudige (maar niet aanbevolen) methode is simpelweg een kopie te maken van de archief map op een apart medium. Echter moet je dan zeker weten dat geen enkel proces de data op <emphasis>geen enkele wijze</emphasis> dan ook gebruikt op dat moment. Een BDB archief wordt beschreven ook al lijkt het er op dat er alleen gelezen wordt, zoals bijvoorbeeld bij het opvragen van de status. Als je archief benaderd wordt tijdens het maken van een reservekopie, (web browser geopend, WebSVN, etc.) dan zal deze waardeloos zijn."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
 msgstr ""
 
 #. (para)
@@ -7505,6 +7467,10 @@ msgstr "Schonen"
 msgid "cleanup"
 msgstr "opschonen"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7512,8 +7478,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Als een commando in Subversion niet succesvol kan worden afgerond, wat mogelijk met serverproblemen te maken heeft, kan je werkkopie in een foutieve staat geraken. In dat geval dien je de contextmenu-actie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Schonen</guimenuitem></menuchoice> op de map waarin zich je werkkopie bevindt, uit te voeren. Het is aan te raden om dit op zo hoog mogelijk niveau te doen."
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15697,8 +15663,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19752,16 +19718,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Dit commando is alleen voor tekstbestanden bedoeld en analyseert elke regel, zodat het aangegeven kan worden in welke revisie van het archief welke auteur welke regel gewijzigd heeft. Onze GUI implementatie heeft TortoiseBlame en deze toont ook de vastleg datum/tijd en het logboek bericht als je je muis boven het revisienummer houdt."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. Een grondig geteste database backend voor archieven, welke niet gebruikt kan worden op netwerk schijven. Standaard voor archieven van voor versie 1.2."
 
 #. (glossterm)
 msgid "Branch"

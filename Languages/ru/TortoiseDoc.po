@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-05-18 15:12+0000\n"
-"Last-Translator: Dmitry Oshkalo <dmitry.oshkalo@gmail.com>\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1801,26 +1801,6 @@ msgstr "Создание хранилища"
 msgid "create repository"
 msgstr "создание хранилища"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Пожалуйста, обратите внимание, что клиент командной строки, который поставляется вместе с TortoiseSVN и сам TortoiseSVN не поддерживают старый формат Berkeley Database (BDB)."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Вы можете создать хранилище или в формате FSFS, или в более старом формате Berkeley Database (BDB). Формат FSFS обычно быстрее и более лёгок в администрировании, также он сейчас без проблем работает на сетевых разделяемых ресурсах и в Windows 98. Формат BDB одно время рассматривался как более стабильный - просто потому, что использовался дольше, но, поскольку FSFS используется для реальной работы вот уже несколько лет, это соображение теперь не существенно. Прочтите <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store (Выбор формата хранилища)</citetitle></ulink> в Книге о Subversion для дополнительной информации. <important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Создание хранилища при помощи клиента командной строки"
@@ -1846,11 +1826,9 @@ msgstr "Создайте другую папку <filename>MyNewRepository</file
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Откройте командную строку (или окно эмуляции DOS), перейдите в <filename>D:\\SVN\\</filename> и введите <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n          </screen> или <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n          </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1898,24 +1876,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "Когда TortoiseSVN создаст хранилище, то установит значок специальной папки, что вы могли проще определить локальные хранилища. Если вы создаете хранилище с помощью официального клиента командной строки, то этот значок папки не назначается."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN больше не предоставляет возможность создавать хранилища, использующие BDB, хотя их всё ещё возможно создать при помощи клиента командной строки. Хранилища FSFS обычно более легки в обслуживании, а также делают для нас более лёгкой поддержку и TortoiseSVN - из-за проблем с совместимостью разных версий BDB."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "TortoiseSVN не поддерживает доступ к хранилищам BDB в виде <literal>file://</literal> из-за проблем с совместимостью, хотя, конечно, поддерживает этот формат хранилищ, если доступ к ним осуществляется через протоколы <literal>svn://</literal>, <literal>http://</literal> или <literal>https://</literal>."
 
 #. (para)
 msgid ""
@@ -2190,18 +2150,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Простейший (но не рекомендуемый) путь - просто скопировать папку хранилища на резервный носитель. Однако, в этом случае вы должны быть абсолютно уверены, что ни один процесс не имел доступа к данным. В этом контексте, доступ означает вообще <emphasis>любой</emphasis> доступ. В хранилище BDB происходит запись даже тогда, когда производится операция, которая, казалось бы, требует только чтения, такая как получение статуса. Если к вашему хранилищу производился хоть какой-то доступ во время копирования (остался открытым веб-обозреватель, WebSVN, и т.д.), резервная копия будет бесполезна."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Рекомендуемый способ - это выполнить <screen>\nsvnadmin hotcopy путь/к/хранилищу путь/к/резервной/копии --clean-logs\n    </screen> для создания копии вашего хранилища безопасным способом. Затем эту копию можно резервировать. Опция <literal>--clean-logs</literal> не обязательна, но удаляет любые излишние файлы журналов, когда вы резервируете хранилище BDB, и тем самым сохраняет немного места."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7511,6 +7470,10 @@ msgstr "Очистка"
 msgid "cleanup"
 msgstr "очистка"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7518,8 +7481,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Если команда Subversion не может быть успешно завершена, возможно из-за проблем с сервером, ваша рабочая копия может остаться в несогласованном состоянии. В этом случае вам необходимо выполнить команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Очистка</guimenuitem></menuchoice> для этой папки. Хорошей идеей будет выполнить эту команду также для папки самого верхнего уровня вашей рабочей копии."
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -19758,16 +19721,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Эта команда предназначена только для текстовых файлов. Она снабжает каждую строку информацией о том, в какой ревизии хранилища строка была последний раз изменена, и об авторе, выполнившем это изменение. Наша реализация с графическим интерфейсом пользователя называется TortoiseBlame и показывает также дату/время фиксации и сообщение журнала при наведении указателя мыши на номер ревизии."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. Хорошо протестированная база данных для хранилища, которая не может быть использована на сетевых разделяемых ресурсах. В версиях до 1.2 используется для хранилищ по умолчанию."
 
 #. (glossterm)
 msgid "Branch"

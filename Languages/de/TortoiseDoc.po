@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-28 15:04+0000\n"
+"PO-Revision-Date: 2015-06-02 10:40+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1801,26 +1801,6 @@ msgstr "Projektarchiv erstellen"
 msgid "create repository"
 msgstr "Projektarchiv anlegen"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Bitte beachten Sie, dass der Kommandozeileninterpreter, der mit TortoiseSVN installiert wird und TortoiseSVN selber, das ältere Berkeley Datenbank (BDB) nicht unterstützen."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Sie können ein Projektarchiv im FSFS Format oder im älteren Berkeley Database (BDB) Format erstellen. Das FSFS Format ist generell schneller, einfacher zu administrieren und es funktioniert auch auf Netzwerkfreigaben und Windows 98 ohne Probleme. Das BDB Format wurde als stabiler erachtet, weil es bereits länger in Gebrauch war, da aber FSFS mittlerweile auch schon mehrere Jahre intensiv genutzt wird, ist dieses Argument etwas schwach. Nähere Informationen zu den verschiedenen Formaten können Sie im Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> im Subversion Buch nachlesen."
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Ein Projektarchiv mit dem Kommandozeilen-Client erstellen"
@@ -1846,11 +1826,9 @@ msgstr "Erstellen Sie einen weiteren Ordner <filename>MyNewRepository</filename>
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Starten Sie die Kommandozeile (oder DOS-Box), wechseln Sie zu <filename>D:\\SVN\\</filename> und geben Sie <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n          </screen> oder <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n          </screen>"
+msgstr "Starten Sie die Kommandozeile (oder DOS-Box), wechseln Sie nach <filename>D:\\SVN\\</filename> und geben Sie folgendes ein:\n<screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
 
 #. (para)
 msgid ""
@@ -1898,24 +1876,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "TortoiseSVN wird den Ordner mit einem benutzerdefinierten Symbol versehen, wenn es ein Projektarchiv erstellt; so können Sie lokale Projektarchive leichter erkennen. Wenn Sie ein Projektarchiv mit dem offiziellen Befehlszeilen-Client erstellen, wird dieses Ordnersymbol nicht zugewiesen."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN unterstützt das Anlegen von BDB-Projektarchiven nicht mehr. Sie können das jedoch weiterhin mit der SVN-Kommandozeile tun. FSFS-Projektarchive sind im Allgemeinen für den Anwender einfacher zu warten und machen es auch uns leichter, TortoiseSVN zu pflegen, denn es gibt Kompatibilitätsprobleme zwischen verschiedenen BDB-Versionen."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "Wegen dieser Kompatibilitätsprobleme bietet TortoiseSVN auf BDB-Projektarchive keinen Zugriff via <literal>file://</literal>,  allerdings unterstützt es dieses Format uneingeschränkt, wenn der Zugriff über einen Server durch eines der Protokolle <literal>svn://</literal>, <literal>http://</literal> oder <literal>https://</literal> geschieht."
 
 #. (para)
 msgid ""
@@ -2190,18 +2150,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Der einfachste (jedoch nicht empfohlene) Weg ein Backup zu erstellen ist die Projektarchiv-Dateien einfach auf ein Backup-Medium zu kopieren. Wenn Sie dies tun, müssen Sie absolut sicher sein, dass während des Kopiervorgangs niemand auf das Projektarchiv zugreift. Das bedeutet wirklich <emphasis>jeden</emphasis> Zugriff. Auf ein Projektarchiv wird sogar dann geschrieben, wenn die eigentliche Operation nur lesend ist wie zum Beispiel eine Statusabfrage. Wird auf das Projektarchiv während des Kopiervorgangs zugegriffen (Web-Browser offen, WebSVN, Log Anzeigen, ...) dann ist die Kopie (und damit das Backup) wertlos."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr "Der einfachste (jedoch nicht empfohlene) Weg ein Backup zu erstellen, ist die Ordner des Projektarchivs einfach auf ein Backup-Medium zu kopieren. Wenn Sie dies tun, müssen Sie absolut sicher sein, dass während des Kopiervorgangs kein Zugriff auf das Projektarchiv erfolgt. Das bedeutet wirklich <emphasis>jeden</emphasis> Zugriff. Wird auf das Projektarchiv während des Kopiervorgangs zugegriffen (Web-Browser offen, WebSVN, Log Anzeigen, ...), dann ist das Backup wertlos."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Die empfohlene Methode ist ein\n<screen>svnadmin hotcopy path/to/repository path/to/backup --clean-logs</screen>\nauszuführen, um eine Kopie des Projektarchivs zu erstellen. Dann können Sie diese Kopie sichern (z.B. auf Band). Die <literal>--clean-logs</literal> Option ist nicht notwendig, entfernt aber redundante (und damit nicht unbedingt notwendige) Log-Dateien wenn Sie die Sicherung erstellen und hilft somit Platz zu sparen."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr "Die empfohlene Methode ist, auf sichere Weise eine Kopie des Projektarchivs mit dem Befehl:\n<screen>\nsvnadmin hotcopy path/to/repository path/to/backup\n</screen> zu erstellen und anschließend die Kopie zu sichern."
 
 #. (para)
 msgid ""
@@ -7511,6 +7470,10 @@ msgstr "Bereinigen"
 msgid "cleanup"
 msgstr "Bereinigen"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr "Der Aufräumen-Dialog"
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7518,8 +7481,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Wenn ein Subversion Befehl, vielleicht durch ein Serverproblem, nicht erfolgreich abgeschlossen werden konnte, kann die Arbeitskopie in einem inkonsistenten Zustand zurückgelassen werden. In diesem Fall müssen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Arbeitskopie bereinigen</guimenuitem> </menuchoice> auf dem Ordner ausführen. Am besten tun Sie das auf dem obersten Ordner Ihrer Arbeitskopie."
+" copy. <placeholder-1/>"
+msgstr "Wenn ein Subversion Befehl, vielleicht durch ein Serverproblem, nicht erfolgreich abgeschlossen werden konnte, kann die Arbeitskopie in einem inkonsistenten Zustand zurückgelassen werden. In diesem Fall müssen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Arbeitskopie bereinigen</guimenuitem> </menuchoice> auf dem Ordner ausführen. Am besten tun Sie das auf dem obersten Ordner Ihrer Arbeitskopie. <placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15703,8 +15666,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19758,16 +19721,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. Ein bewährtes Datenbanksystem für Projektarchive. Kann nicht über Netzwerkfreigaben genutzt werden. Standard für Projektarchive von Subversion vor Version 1.2."
 
 #. (glossterm)
 msgid "Branch"

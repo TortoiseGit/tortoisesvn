@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-20 19:42+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1793,26 +1793,6 @@ msgstr "Креирање спремишта"
 msgid "create repository"
 msgstr "креирај спремиште"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Молим вас приметите да клијент командне линије који долази са ТортоисеСВН и сам ТортоисеСВН не подржавају стару Беркли базу података (БДБ) формат."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Можете направити спремиште са ФСФС позадином или са старијим Беркли база података (БДБ) форматом. ФСФС формат је уопштено бржи и лакши за администрацију, он ради на мрежном дељењу и Виндоуз 98 без проблема. БДБ формат се сматра много стабилнијим јер се користи дуже, али ФСФС се сада већ користи више година тако да јетај аргумент слаб. Прочитајте <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> у Субверзионој књизи за више информација. <important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Креирање спремишта клијентом командне линије"
@@ -1838,11 +1818,9 @@ msgstr "Креирајте други фолдер <filename>МyНеwРепос�
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Отворите командни промпт (или ДОС-Бокс), пређите у <filename>D:\\SVN\\</filename> и откуцајте <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n          </screen> or <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n          </screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1890,24 +1868,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "ТортоисеСВН ће подесити жељену икону фолдера када креира спремиште тако да можете много лакше идентификовати локално спремиште.  Ако креирате спремиште користећи официјални клијент командне линије ова икона фолдера неће бити означена."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "ТортоисеСВН више не нуди опцију да се креира БДБ спремиште, али још можете користити клијента командне линије да га креирате. ФСФС спремишта су генерално једноставнија за руковање и нама лакша да одржавамо ТортоисеСВН преко компатибилних проблема између разних БДБ верзја."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "Будуће верзије ТортоисеСВН неће подржати <literal>file://</literal> приступ БДБ спремиштима због компатибилних проблема, али ће свакако увек подржавати тај формат спремишта када се приступа преко сервера кроз <literal>svn://</literal>, <literal>http://</literal> или <literal>https://</literal> протоколе."
 
 #. (para)
 msgid ""
@@ -2182,18 +2142,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Једноставан (али непрепоручљив) начин је да се само копира фолдер спремишта на медијум осигурања. Међутим, потребно је да будете апсолутно сигурни да ни један процес не приступа подацима. У овом контексту, приступ значи <emphasis>сваки</emphasis> приступ уопште. БДБ спремиште је уписано чак и кад се операција појави да захтева читање као узимање статуса. Ако је вашем спремишту приступљено у току копирања, (веб претраживач остаје отворен, ВепСВН, итд.) осигурање ће бити безвредно. "
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Препоручив метод је да се изврши<screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n    </screen>да се направи копија вашег спремишта на безбедан начин. Затим направите сигурносну копију.  <literal>--clean-logs</literal> опција није потребна, али уклоните све редундантне фајлове дневника када правите сигурносну копију БДБ спремишта, што може да сачува известан простор."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7503,6 +7462,10 @@ msgstr "Чишћење"
 msgid "cleanup"
 msgstr "чишћење"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7510,8 +7473,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Ако Субверзиона команда не може да се заврши успешно, могуће због проблема на серверу, ваша радна копија биће остављена у неконзистентном стању. У том случају треба да користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Чишћење</guimenuitem></menuchoice> на фолдеру. То је добра идеја да се уради на вршном нивоу радне копије."
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15695,8 +15658,8 @@ msgid "strftime()"
 msgstr "стрфтиме()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WЦДАТЕ=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WЦДАТЕ=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19750,16 +19713,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Ова команда је само за текст фајлове, и она означава сваку линију да прикаже ревизију спремишта у којој је последњи пут измењена, и утора који је урадио измену. Наша ГУИ имплементација се зове ТортоисеБламе и такође приказује датум/време урезивања и дневник поруку када прелетите мишем преко ревизионог броја."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "БДБ"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Беркли ДБ. Добро тестирана база података позадина спремишта, она се не може користити на мрежној подели. Подразумевана за пре 1.2 спремижта."
 
 #. (glossterm)
 msgid "Branch"

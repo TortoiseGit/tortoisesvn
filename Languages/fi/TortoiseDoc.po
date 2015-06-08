@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-05-02 17:11+0000\n"
+"PO-Revision-Date: 2015-06-03 21:40+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -1790,26 +1790,6 @@ msgstr "Arkiston luonti"
 msgid "create repository"
 msgstr "luo arkisto"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Huomaa, että TortoiseSVN-asennuksen mukana tuleva komentorivisovellus ei tue vanhempaa Berkeley-tietokantamuotoa (BDB)."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Voit luoda arkiston FSFS-muodossa tai vanhemmassa Berkeley Database (BDB) -muodossa. FSFS on yleisesti ottaen nopeampi ja toimii verkkojakojen sekä Windows 98:n kanssa ongelmitta. BDB-muotoa pidettiin ennen  vakaampana, koska se oli ollut käytössä pidempään. Koska FSFS on nyt ollut käytössä jo useita vuosia, tämä perustelu ontuu hieman. Lue lisää Subversion-kirjan kappaleesta <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink>. <important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Arkiston luonti komentoriviltä"
@@ -1835,11 +1815,9 @@ msgstr "Luo toinen kansio <filename>MyNewRepository</filename> kansion <filename
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Avaa komentokehote (tai DOS-ikkuna), vaihda kansioon <filename>D:\\SVN\\</filename> ja kirjoita <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> tai <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
+msgstr "Avaa komentokehote (ts. DOS-ikkuna), vaihda kansioon <filename>D:\\SVN\\</filename> ja kirjoita <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
 
 #. (para)
 msgid ""
@@ -1887,24 +1865,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "TortoiseSVN käyttää omaa kuvakettaan luodessaan arkiston, joten paikalliset arkistot on helppo erottaa muista kansioista. Jos luot arkiston jollain toisella ohjelmalla (esim. komentorivi), kuvaketta ei kuitenkaan käytetä."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN ei enää sisällä valintaa BDB-arkistojen luomiseen, vaikka voit yhä käyttää komentoriviä niiden luomiseen. FSFS-arkistot ovat yleisesti ottaen helpompia ylläpitää; TortoiseSVN on myöskin helpompi ylläpitää, koska eri BDB-versioiden välinen yhteensopivuus ei ole aina ollut suoraviivaista."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "TortoiseSVN ei tue <literal>file://</literal> -yhteyskäytäntöä BDB-arkistoihin näistä yhteensopivuussyistä johtuen. Tätä arkistomuotoa tuetaan tietenkin aina, kun arkistoa käytetään palvelimen välityksellä yhteyskäytännöillä <literal>svn://</literal>, <literal>http://</literal> tai <literal>https://</literal>."
 
 #. (para)
 msgid ""
@@ -2179,18 +2139,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Yksinkertaisin (mutta ei suositeltu) tapa on vain kopioida arkistokansio varmistusmediaan. Sinun on kuitenkin oltava täysin varma, että muut prosessit eivät käytä tietoja samaan aikaan. Tässä yhteydessä käyttö tarkoittaa <emphasis>mitä tahansa</emphasis> käyttöä. BDB-arkistoon kirjoitetaan silloinkin, kun toiminto näyttäisi vaativan vain lukemista, esim. lokin haku. Jos arkistoasi käytetään kopioinnin aikana (avoin web-selain, WebSVN, jne.), varmistus on hyödytön."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr "Yksinkertaisin (mutta ei suositeltu) tapa on vain kopioida arkistokansio varmistusmediaan. Sinun on kuitenkin oltava täysin varma, että muut prosessit eivät käytä tietoja samaan aikaan. Tässä yhteydessä käyttö tarkoittaa <emphasis>mitä tahansa</emphasis> käyttöä. Jos arkistoasi käytetään kopioinnin aikana (avoin web-selain, WebSVN, jne.), varmistus on hyödytön."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Suositeltava tapa on suorittaa  komento <screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> luodaksesi kopion arkistosta turvallisesti. Tämän jälkeen varmista kopio. Valitsinta <literal>--clean-logs</literal> ei tarvita, mutta se poistaa mahdolliset tarpeettomat lokitiedostot, kun varmistat BDB-muotoista arkistoa; tämä säästää hieman tilaa."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr "Suositeltava tapa on suorittaa  komento <screen>\nsvnadmin hotcopy path/to/repository path/to/backup\n</screen> luodaksesi kopion arkistosta turvallisesti. Tämän jälkeen varmista kopio."
 
 #. (para)
 msgid ""
@@ -7500,6 +7459,10 @@ msgstr "Siivoaminen"
 msgid "cleanup"
 msgstr "siivoaminen"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr "Siivousikkuna"
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7507,8 +7470,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Mikäli jotain Subversion-komentoa ei saada päätettyä onnistuneesti (esim. johtuen palvelimen ongelmista), työkopiosi voi jäädä epäyhtenäiseen tilaan. Tällöin sinun on käytettävä komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Siivoa</guimenuitem></menuchoice>. On suositeltavaa tehdä tämä koko työkopiolle antamalla komento työkopion juurikansiosta."
+" copy. <placeholder-1/>"
+msgstr "Mikäli jotain Subversion-komentoa ei saada päätettyä onnistuneesti vaikkapa palvelinongelmien vuoksi, työkopiosi voi jäädä epäyhtenäiseen tilaan. Tällöin sinun on käytettävä komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Siivoa</guimenuitem></menuchoice>. On suositeltavaa tehdä tämä koko työkopiolle antamalla komento työkopion juurikansiosta.<placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15692,8 +15655,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19747,16 +19710,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Tämä komento on vain tekstitiedostoille; se yhdistää jokaiseen riviin tiedon siitä, missä arkistoversiossa sitä viimeksi muutettiin, ja kuka muutoksen teki. Graafisella käyttöliittymällä varustettu versiomme tästä on nimeltään TortoiseBlame; se myös näyttää toimituspäiväyksen, kellonajan ja lokiviestin, kun viet hiiren versionumeron päälle."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley-tietokanta. Koeteltu ja vakaa Subversion-arkiston toteuttamistekniikka, jota ei voi käyttää verkkojakojen kanssa. Oletustekniikka ennen Subversion-versiota 1.2."
 
 #. (glossterm)
 msgid "Branch"

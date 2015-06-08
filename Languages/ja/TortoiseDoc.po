@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# ABE Tsunehiko, 2015
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -20,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -294,7 +295,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "ほとんどの人はインストーラーだけをダウンロードしますが、このプログラムのソースコードもすべて読めるようになっています。こちらのリンクから閲覧可能です。<ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink> 現在開発中のバージョンは <filename>/trunk/</filename> に、リリース済みのバージョンは <filename>/tags/</filename> にあります。"
 
 #. (title)
 msgid "Development"
@@ -1793,26 +1794,6 @@ msgstr "リポジトリの作成"
 msgid "create repository"
 msgstr "リポジトリ作成"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "TortoiseSVNに付属のコマンドラインクライアントとTortoiseSVN自体は、古いBarkeley Database（BDB）フォーマットをサポートしませんのでご注意ください。"
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "リポジトリはFSFSバックエンドか、より古いBerkeley Database（BDB）フォーマットで作成できます。FSFSフォーマットは一般的に高速で、管理しやすく、ネットワークフォルダーやWindows 98でも問題なく動作します。BDBフォーマットは長い間テストされてきているので安定していると考えられてきましたが、FSFSにも長年の使用実績があり、その主張は弱くなってきています。詳しくはSubversion Bookの <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> をご覧ください。<important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "コマンドラインクライアントを使用したリポジトリの作成"
@@ -1838,11 +1819,9 @@ msgstr "<filename>D:\\SVN\\</filename> の中に <filename>MyNewRepository</file
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "コマンドプロンプト（またはDOSボックス）を開き、 <filename>D:\\SVN\\</filename> に移動して、 <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> もしくは <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen> と入力してください。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1890,24 +1869,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "ローカルのリポジトリを識別しやすくするために、 TortoiseSVN ではリポジトリを作成する際にカスタムフォルダーアイコンが設定されます。公式のコマンドラインクライアントを使用してリポジトリを作成した場合は、このフォルダーアイコンは設定されません。"
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN で BDB リポジトリを作成することはできません。しかし、コマンドラインクライアントを使用すれば BDB リポジトリを作成できます。一般に FSFS リポジトリの方が保守が容易ですし、 BDB にはバージョン間の互換性問題があるので、そうした方が私たちが TortoiseSVN を保守するのが楽になるのです。"
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "この互換性問題のため、 TortoiseSVN は、BDB リポジトリの <literal>file://</literal> アクセスをサポートしていません。しかし、サーバー経由でアクセスする <literal>svn://</literal>、 <literal>http://</literal>、 <literal>https://</literal>　の各プロトコルはサポートしています。ですから、 <literal>file://</literal> プロトコルでアクセスしなければならない新しいリポジトリは、 FSFS で作成することを強くお勧めします。"
 
 #. (para)
 msgid ""
@@ -2182,18 +2143,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "簡単な（しかしお勧めできない）方法は、リポジトリのフォルダーをバックアップメディアに単にコピーすることです。しかし、そのデータにアクセスするプロセスが全くないことを確認しなければなりません。ここでいうアクセスとは、 <emphasis>すべての</emphasis> アクセスです。 BDB リポジトリは、ステータスの取得のような、読み込みしか必要でない操作の時でも書き込みを行います。コピー中のリポジトリに何かアクセスがあると（Webブラウザーを開いたままにする、WebSVN、等々）、バックアップがおかしくなります。"
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "お勧めの方法は、<screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> を実行して、リポジトリのコピーを安全な方法で作成することです。それからこのコピーをバックアップしてください。 <literal>--clean-logs</literal> オプションは必須ではありませんが、 BDB リポジトリをバックアップする際に、冗長なログを削除して容量を節約します。"
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3639,7 +3599,7 @@ msgid ""
 "<literal>#</literal> is the comment character. Newlines can be inserted by "
 "escaping them like this: <literal>\\n</literal> and <literal>\\r</literal>. "
 "To insert a backslash, escape it like this: <literal>\\\\</literal>."
-msgstr ""
+msgstr "ログメッセージウィンドウにはコミットメッセージのスニペット機能もついています。ショートカットキーを押すとスニペットの一覧が表示され、一覧から入力するスニペットを選択するとテキストが挿入されます。TortoiseSVN により提供されるスニペットは TortoiseSVN をインストールしたフォルダの<filename>bin</filename>の中にあります。<filename>%APPDATA%\\TortoiseSVN\\snippet.txt</filename> を編集することで自作のスニペットを作成することもできます。<literal>#</literal> はコメントキャラクターです。<literal>\\n</literal> や <literal>\\r</literal> で改行を挿入できます。また、バックスラッシュを挿入するには <literal>\\\\</literal> のようにエスケープします。"
 
 #. (para)
 msgid ""
@@ -7503,6 +7463,10 @@ msgstr "クリーンアップ"
 msgid "cleanup"
 msgstr "クリーンアップ"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7510,8 +7474,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "サーバーの問題等で、 Subversion コマンドが正常に終了しなかった場合、作業コピーが矛盾した状態のままになってしまうことがあります。この場合、 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>クリーンアップ</guimenuitem></menuchoice> をフォルダーに対して実行する必要があります。作業コピーの最上層で行うのがいいでしょう。"
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -8876,7 +8840,7 @@ msgid ""
 " examples above, make sure that <emphasis>all</emphasis> folders in between "
 "are versioned as well. So for the examples above, the folder "
 "<filename>common</filename> should be versioned!"
-msgstr ""
+msgstr "上記の例のように外部の対象フォルダをサブフォルダとして指定する場合、必ず両者の <emphasis>全ての</emphasis> フォルダがバージョン管理されていることを確認してください。上記の例の場合、<filename>common</filename> フォルダがバージョン管理されている必要があります。"
 
 #. (para)
 msgid ""
@@ -8884,7 +8848,7 @@ msgid ""
 "between are not versioned, there are some operations that won't work as you "
 "expect. And the status overlay icons in explorer will also not show the "
 "correct status."
-msgstr ""
+msgstr "ほとんどの場合、両者がバージョン管理されていなくても動作しますが、一部の操作は期待通りに動作しないことがあります。また、エクスプローラのステータスオーバーレイアイコンが正しいステータスを表示しなくなります。"
 
 #. (para)
 msgid ""
@@ -9108,7 +9072,7 @@ msgid ""
 "<literal>svn:externals</literal> properties, those externals will be listed "
 "at the bottom of the branch/tag dialog. For each external, the target path "
 "and the source URL is shown."
-msgstr ""
+msgstr "もし作業コピーが <literal>svn:externals</literal> プロパティで別のプロジェクトを含んでいると、外部項目がブランチ/タグダイアログの下部に一覧表示されます。各外部項目とそのターゲットパス、ソースURL、リビジョンが表示されます。"
 
 #. (para)
 msgid ""
@@ -9119,7 +9083,7 @@ msgid ""
 "revision of the external and your tag might not compile anymore. So it's "
 "always a good idea to set the externals to an explicit revision when "
 "creating a tag."
-msgstr ""
+msgstr "新しいタグを常に一貫した状態にするためには、すべての外部項目の持つリビジョンが固定されていることを確認する必要があります。外部項目を確認せず、また外部項目のリビジョンが将来変更される可能性のある HEAD を指定していた場合、新しいタグをチェックアウトする際に外部項目はその時点での HEAD リビジョンが取得されてしまい、コンパイルに失敗する可能性があります。そのため、タグを作成するときには、常に外部項目に明示的なリビジョン番号を設定することをお勧めします。"
 
 #. (title)
 #. (entry)
@@ -9149,7 +9113,7 @@ msgid ""
 "The externals are automatically pinned to either the current HEAD revision "
 "or the working copy BASE revision, depending on the source of the "
 "branch/tag: <placeholder-1/>"
-msgstr ""
+msgstr "外部項目はブランチ/タグのソースに応じて自動的に現在の HEAD か作業コピーの BASE に固定されます。 <placeholder-1/>"
 
 #. (title)
 msgid "externals within externals"
@@ -12161,7 +12125,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "この課題追跡システムとの統合は、 TortoiseSVN に限定されたものではなく、どの Subversion クライアントでも共通で使用できます。詳細については、TortoiseSVN のソースリポジトリにある <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> の全文をお読みください（リポジトリへのアクセスのしかたは、<xref linkend=\"tsvn-preface-source\"/> で説明します）。"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -12193,7 +12157,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "そのようなインターフェイスはいずれも、課題追跡システムに強く依存しているので、私たちはこの部分を提供することはできませんし、そのようなプログラムの作成方法について説明することは、このマニュアルの範疇を超えてしまいます。インターフェイスの定義や、C#やC++/ATLで書かれたサンプルプラグインは、 <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink>の <literal>contrib</literal> フォルダから取得できます（リポジトリのアクセスの仕方は、 <xref linkend=\"tsvn-preface-source\"/>で説明します）。API の概要も <xref linkend=\"tsvn-ibugtraqprovider\"/> で得られます。それ以外の（動作する）サンプルプラグインとして、 C# では <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> があり、これは課題管理システム <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> と連動するために必要な COM インターフェイスを実装しています。"
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -13043,7 +13007,7 @@ msgstr "コミットタグの検出"
 msgid ""
 "Please note that these patterns are also used to detect commits to a tag, "
 "not just for the revision graph."
-msgstr ""
+msgstr "これらのパターンはリビジョングラフだけではなく、タグへのコミットの検出にも使われることに注意してください。"
 
 #. (term)
 msgid "Modify Colors"
@@ -14505,7 +14469,7 @@ msgid ""
 "url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-"
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
-msgstr ""
+msgstr "クライアントフックスクリプトのサンプルは、 <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> サイトの <literal>contrib</literal> フォルダーから入手できます（リポジトリへのアクセス方法は、 <xref linkend=\"tsvn-preface-source\"/> をご覧ください。）"
 
 #. (para)
 msgid ""
@@ -15161,7 +15125,7 @@ msgid ""
 " time new commits are detected a notification popup is shown. Also the icon "
 "that is added to the system tray changes to indicate that there are new "
 "commits."
-msgstr ""
+msgstr "プロジェクトモニターは設定された時間ごとにプロジェクトをスキャンし、新しいコミットが検出された際に通知ポップアップを表示します。また、システムトレイにアイコンを表示し、新しいコミットがあることを通知します。"
 
 #. (title)
 msgid "Snarl"
@@ -15173,7 +15137,7 @@ msgid ""
 "url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "もし <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> が実行中の場合、プロジェクトモニターは新しいコミットの検知を通知するために自動的に Snarl を利用します。"
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15230,7 +15194,7 @@ msgid ""
 " on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
 "explanation on how this works can be found on the project monitor website:"
-msgstr ""
+msgstr "もし多数のユーザーが同じリポジトリを監視しており、サーバーの帯域幅に制限がある場合、リポジトリの管理者は最短の確認の間隔を <filename>svnrobots.txt</filename> で指定することができます。詳細についてはプロジェクトモニターの Web サイトで確認してください。"
 
 #. (title)
 msgid "Monitor dialog"
@@ -15262,13 +15226,13 @@ msgstr "更新されたプロジェクトは太字で表示され、新しいコ
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "主な操作"
 
 #. (para)
 msgid ""
 "The toolbar at the top of the dialog allows to configure and operate the "
 "project monitor."
-msgstr ""
+msgstr "ダイアログ上部のツールバーからプロジェクトモニターの操作や設定が可能です。"
 
 #. (term)
 msgid "Check Now"
@@ -15280,7 +15244,7 @@ msgid ""
 " up, clicking this button will force a check of all projects immediately. "
 "Note that if there are updates, the notification won't show up until all "
 "projects have been checked."
-msgstr ""
+msgstr "設定された間隔でプロジェクトを監視している際、このボタンを押すことで直ちに全てのプロジェクトを確認します。もし更新が見つかった場合でも、全てのプロジェクトの確認が終了するまでは通知が表示されないことに注意してください。"
 
 #. (term)
 msgid "Add Project"
@@ -15288,7 +15252,7 @@ msgstr "プロジェクトを追加"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
-msgstr ""
+msgstr "監視を始めるプロジェクトを追加するダイアログを表示します。"
 
 #. (term)
 msgid "Edit"
@@ -15296,7 +15260,7 @@ msgstr "編集"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
-msgstr ""
+msgstr "選択されたプロジェクトの設定ダイアログを表示します。"
 
 #. (term)
 msgid "Remove"
@@ -15304,24 +15268,24 @@ msgstr "削除"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "確認ダイアログを表示した後、選択されたプロジェクトを削除します。"
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "すべて確認済みにする"
 
 #. (para)
 msgid ""
 "Marks all revisions in all projects as read. Note that if you select a "
 "project with unread revisions, those revisions are automatically marked as "
 "read when you select another project."
-msgstr ""
+msgstr "すべてのプロジェクトのすべてのリビジョンを確認済みにします。未確認のリビジョンを含むプロジェクトを選択後に別のプロジェクトを選択すると、自動的にすべて確認済みになることに注意してください。"
 
 #. (para)
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "<keycap>Shift</keycap> キーを押しながらボタンをクリックすると、すべてのエラー状態も併せてクリアされます。"
 
 #. (term)
 msgid "Update all"
@@ -15340,7 +15304,7 @@ msgstr "オプション"
 
 #. (para)
 msgid "Shows a dialog to configure the behavior of the project monitor."
-msgstr ""
+msgstr "プロジェクトモニターの動作を設定するダイアログを表示します。"
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -15695,8 +15659,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -15986,7 +15950,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision = \"22837\";\nchar *Revision16 = \"53\";\nchar *Revisionp100 = \"22937\";\nchar *Revisionm100 = \"22737\";\nchar *Modified = \"Modified\";\nchar *Unversioned = \"no unversioned items\";\nchar *Date = \"2012/04/26 18:47:57\";\nchar *CustDate = \"Thu, 26 April 2012\";\nchar *DateUTC = \"2012/04/26 16:47:57\";\nchar *CustDateUTC = \"Thu, 26 April 2012\";\nchar *TimeNow = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC = \"2012/04/26 18:51:17\";\nchar *RevRange = \"22836:22837\";\nchar *Mixed = \"Mixed revision WC\";\nchar *ExtAllFixed = \"All externals fixed\";\nchar *IsTagged = \"Not tagged\";\nchar *URL = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\nchar *isInSVN = \"versioned\";\nchar *needslck = \"FALSE\";\nchar *islocked = \"not locked\";\nchar *lockdateutc = \"1970/01/01 00:00:00\";\nchar *lockdate = \"1970/01/01 01:00:00\";\nchar *lockcustutc = \"Thu, 01 January 1970\";\nchar *lockcust = \"Thu, 01 January 1970\";\nchar *lockown = \"\";\nchar *lockcmt = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16720,7 +16684,7 @@ msgid ""
 " on our To-Do list, and bugs which have already been fixed. If you think you"
 " have found a bug, or want to request a new feature, check here first to see"
 " if someone else got there before you."
-msgstr ""
+msgstr "私たちは、プロジェクトの <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>課題追跡ツール</citetitle></ulink> も維持管理しています。これで私たちのTo-Doリスト上にあるものの一部や、既に修正されたバグについて説明しています。バグを発見した場合や、新しい機能を要求する場合、他の誰かがすでに報告していないかを確認するためにまずここをチェックしてください。"
 
 #. (para)
 msgid ""
@@ -17757,7 +17721,7 @@ msgid ""
 "line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "パラメーターを必要としない特殊なコマンド <option>/command:abcd</option> がありますが、もし何もコマンドラインから指定されなかった場合、代わりにプロジェクトモニターが起動します。もし <option>/tray</option> を指定すると、プロジェクトモニターを表示せず、システムトレイにアイコンが表示された状態で起動します。"
 
 #. (para)
 msgid ""
@@ -17949,7 +17913,7 @@ msgstr "ログダイアログを開きます。<option>/path</option>でログ�
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr ""
+msgstr "SVNの日付のリビジョンは次の書式のうちの一つが使用できます。"
 
 #. (option)
 #. (option)
@@ -18572,13 +18536,13 @@ msgstr "特定のプロパティのプロパティダイアログを直接開く
 msgid ""
 "Exports/imports settings, either depending on whether the current settings "
 "or the exported settings are newer, or as specified."
-msgstr ""
+msgstr "現在の設定がエクスポートした設定より新しいかどうかに応じて、設定をエクスポート/インポートします。"
 
 #. (para)
 msgid ""
 "If a path is passed with <option>/path</option>, then the path is used to "
 "store or read the settings from."
-msgstr ""
+msgstr "<option>/path</option> オプションでパスを渡すと、設定の読み書きに指定したパスが使用されます。"
 
 #. (para)
 msgid ""
@@ -19750,16 +19714,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "このコマンドはテキストファイル専用で、それぞれの行が最後に変更された時の、リポジトリのリビジョンと作者を注釈表示します。私たちの GUI の実装は TortoiseBlame と呼ばれ、リビジョン番号の上にマウスを置くと、コミット日時やログメッセージも表示します。"
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB 。実績のあるリポジトリ用データベースバックエンドですが、ネットワークフォルダー上では使用できません。1.2以前のリポジトリのデフォルトです。"
 
 #. (glossterm)
 msgid "Branch"

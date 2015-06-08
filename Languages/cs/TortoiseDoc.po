@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-05-27 15:15+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1791,26 +1791,6 @@ msgstr "Vytváření úložiště"
 msgid "create repository"
 msgstr "vytvořit úložiště"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Nezapomeňte prosím, že klient příkazového řádku, který je součástí TortoiseSVN, a samo TortoiseSVN nepodporují starší formát Databáze Berkeley (BDB)."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Můžete vytvořit úložiště s podpůrnou vrstvou FSFS nebo starším formátem databáze Berkeley (BDB). Formát FSFS je obecně rychlejší a snadnější pro správu a funguje bez problémů jak na sdílené síti, tak i na Windows 98. Formát BDB byl kdysi považován za stabilnější jen proto, že se používal déle, ale protože FSFS se nyní používá v této oblasti již několik let, tento argument je teď spíše výmluva. Pro více informací si přečtěte  <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výběr datového úložiště</citetitle></ulink><citetitle>Výběr datového úložiště </citetitle></ulink> v knize Subversion. <important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Vytvoření úložiště z příkazového řádku klienta"
@@ -1836,11 +1816,9 @@ msgstr "Vytvořte si další složku <filename>MojeNoveUloziste</filename> v <fi
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Spusťte příkazový řádek (nebo DOS), přejděte na <filename> D:\\SVN\\</filename> a napište <screen>\nsvnadmin create --fs-type bdb MojeNoveUloziste\n</screen> nebo <screen>\nsvnadmin create --fs-type fsfs MojeNoveUloziste\n</screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -1888,24 +1866,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "TortoiseSVN nastaví vlastní ikonu adresáře, při vytvoření úložiště, takže můžete určit místní úložiště snadněji. Pokud vytvoříte úložiště pomocí příkazového řádku oficiálního klienta, tato ikona není adresáři přiřazena."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN už nenabízí možnost vytvořit BDB úložiště, ale stále můžete použít příkazový řádek klienta k jejich vytvoření. FSFS úložiště jsou pro Vás zpravidla jednodušší na údržbu a také je pro nás snadnější udržovat TortoiseSVN kvůli problémům s kompatibilitou mezi různými verzemi BDB."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "Kvůli těmto problémům s kompatibilitou TortoiseSVN nepodporuje přístup přes protokol <literal>file://</literal> do BDB, i když samozřejmě bude vždy podporovat tento formát úložišť při přístupu přes server pomocí protokolů <literal>svn://</literal>, <literal>http://</literal> nebo <literal>https://</literal>."
 
 #. (para)
 msgid ""
@@ -2180,18 +2140,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Nejjednodušší způsob (ale nedoporučuje se) jak zkopírovat adresář úložiště na záložní médium. Nicméně, musíte si být naprosto jisti, že žádný proces, nepřistupuje k datům. V této souvislosti přístup znamená <emphasis>jakýkoliv</emphasis> přístup. Do BDB úložiště se zapisuje i když se zdá, že je pouze vyžadováno čtení např. získání stavu. Pokud je na Vaše úložiště vstoupeno kdykoli v průběhu kopírování, (webový prohlížeč zůstane otevřený, WebSVN, atd.), záloha bude bezcenná."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Doporučená metoda je spustit <screen>\nsvnadmin hotcopy cesta/k/úložišti cesta/k/záloze --clean-logs\n</screen> k vytvoření kopie Vašeho úložiště bezpečným způsobem. Pak zálohujte kopii. Příkaz <literal>--clean-logs</literal> není nutný, ale odstraní všechny nadbytečné záznamy souborů při zálohování BDB úložiště, které můžou ušetřit kapacitu."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7501,6 +7460,10 @@ msgstr "Vyčistit"
 msgid "cleanup"
 msgstr "vyčistit"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7508,8 +7471,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Pokud příkaz Subversion nemůže být úspěšně dokončen, třeba kvůli problémům serveru, může Vaše pracovní kopie zůstat v rozporuplném stavu. V takovém případě je třeba použít na adresář <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vyčistit</guimenuitem></menuchoice>. Je doporučeno toto provádět na nejvyšší úrovni pracovní kopie."
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -19748,16 +19711,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Tento příkaz je pouze pro textové soubory, okomentuje každý řádek pro zobrazení revize úložiště, v němž byl naposledy změněn a autora, který tuto změnu provedl. Naše GUI implementace se nazývá TortoiseBlame a také ukazuje datum, čas a zprávu odevzdání, když podržíte myš nad číslem revize."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley Databáze. Prověřený databázový backend pro úložiště, které nelze použít ve sdílené síti. Výchozí pro úložiště před verzí 1.2."
 
 #. (glossterm)
 msgid "Branch"

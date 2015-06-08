@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 08:27+0000\n"
+"PO-Revision-Date: 2015-06-02 08:39+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -1790,26 +1790,6 @@ msgstr "Tạo kho lưu trữ"
 msgid "create repository"
 msgstr "tạo ra kho lưu trữ"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr ""
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr ""
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Tạo một Repository với các dòng lệnh máy khách"
@@ -1835,8 +1815,6 @@ msgstr "Tạo một thư mục khác <filename> MyNewRepository </filename> bên
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
 msgstr ""
@@ -1887,24 +1865,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "TortoiseSVN sẽ thiết lập một biểu tượng thư mục tùy chỉnh khi nó tạo ra một kho lưu trữ để bạn có thể xác định các kho địa phương dễ dàng hơn. Nếu bạn tạo một kho lưu trữ bằng cách sử dụng dòng lệnh máy khách chính thức biểu tượng thư mục này không được phân định."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN không còn cung cấp các tùy chọn để tạo ra các kho BDB, mặc dù bạn vẫn có thể sử dụng các dòng lệnh máy khách để tạo ra chúng. Kho FSFS thường dễ dàng hơn cho bạn để duy trì, và cũng có thể làm cho nó dễ dàng hơn cho chúng ta duy trì TortoiseSVN do vấn đề tương thích giữa các phiên bản BDB khác nhau."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "TortoiseSVN hiện không hỗ trợ <literal>file://</literal> truy cập vào kho BDB do những vấn đề tương thích, mặc dù nó sẽ luôn luôn hỗ trợ định dạng kho lưu trữ này khi truy cập thông qua một máy chủ thông qua các giao thức <literal>svn://</literal> , <literal>http://</literal> hoặc <literal>https://</literal>."
 
 #. (para)
 msgid ""
@@ -2179,17 +2139,16 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "cách đơn giản nhất (nhưng không được khuyến cáo) là chỉ để sao chép các thư mục kho lưu trữ trên các phương tiện sao lưu. Tuy nhiên, bạn có thể hoàn toàn chắc chắn rằng không có quá trình truy cập dữ liệu. Trong bối cảnh này, truy cập có nghĩa là <emphasis> bất kỳ </emphasis> truy cập nào. Một kho BDB được viết ngay cả khi hoạt động chỉ yêu cầu đọc, chẳng hạn như nhận tình trạng. Nếu kho của bạn được truy cập ở tất cả các bản sao, (trình duyệt web để mở, WebSVN, vv) sao lưu sẽ vô giá trị."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr ""
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
 msgstr ""
 
 #. (para)
@@ -7500,6 +7459,10 @@ msgstr "Dọn sạch"
 msgid "cleanup"
 msgstr "dọn sạch"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr ""
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7507,8 +7470,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Nếu một lệnh Subversion không có thể hoàn thành thành công, có lẽ do vấn đề máy chủ, bản sao làm việc của bạn có thể bị bỏ lại trong một tình trạng không nhất quán. Trong trường hợp đó bạn cần phải sử dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Dọn sạch </guimenuitem></menuchoice> thư mục. Đó là một ý tưởng tốt để làm điều này ở cấp cao nhất của bản sao làm việc."
+" copy. <placeholder-1/>"
+msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15692,8 +15655,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19747,16 +19710,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Lệnh này chỉ được dành cho các tập tin văn bản, và chú giải tất cả các dòng để hiển thị sửa đổi kho lưu trữ trong lần cuối nó được thay đổi, và tác giả thực hiện thay đổi đó. Giao Diện Người Dùng Đồ Họa của chúng tôi là được gọi là TortoiseBlame và nó cũng cho thấy ngày / thời gian cam kết và thông điệp tường trình khi bạn di chuyển chuột trên số sửa đổi."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. Một cơ sở dữ liệu đằng sau được thử nghiệm kỹ cho các kho lưu trữ, không có thể được sử dụng trên mạng chia sẻ. Mặc định cho các kho trước 1.2."
 
 #. (glossterm)
 msgid "Branch"

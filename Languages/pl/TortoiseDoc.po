@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-04-17 21:51+0000\n"
+"PO-Revision-Date: 2015-06-03 22:40+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1794,26 +1794,6 @@ msgstr "Tworzenie repozytorium"
 msgid "create repository"
 msgstr "tworzenie repozytorium"
 
-#. (para)
-msgid ""
-"Please note that the command line client that comes with TortoiseSVN and "
-"TortoiseSVN itself do not support the older Berkeley Database (BDB) format."
-msgstr "Należy zauważyć, że klient linii poleceń dostarczany z TortoiseSVN i sama TortoiseSVN nie obsługuje starszego formatu Berkeley Database (BDB)."
-
-#. (para)
-msgid ""
-"You can create a repository with the FSFS backend or with the older Berkeley"
-" Database (BDB) format. The FSFS format is generally faster and easier to "
-"administer, and it works on network shares and Windows 98 without problems. "
-"The BDB format was once considered more stable simply because it has been in"
-" use for longer, but since FSFS has now been in use in the field for several"
-" years, that argument is now rather weak. Read <ulink url=\"http://svnbook"
-".red-"
-"bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
-" a Data Store</citetitle></ulink> in the Subversion book for more "
-"information. <important><placeholder-1/></important>"
-msgstr "Można stworzyć repozytorium oparte o mechanizm FSFS lub na starszym formacie bazy Berkeley Database (BDB). Format FSFS jest na ogół szybszy i łatwiejszy do administrowania i działa bez problemów na udziałach sieciowych i Windows 98. Format BDB był kiedyś uważany za bardziej stabilny tylko dlatego, że był używany przez dłuższy czas, ale ponieważ już kilka lat FSFS jest wykorzystywany w produkcji, ten argument jest raczej słaby. Więcej informacji znajdziecie w rozdziale <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Wybór magazynu danych</citetitle></ulink> księgi Subversion. <important><placeholder-1/></important>"
-
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
 msgstr "Tworzenie repozytorium przy użyciu klienta linii poleceń"
@@ -1839,11 +1819,9 @@ msgstr "Utwórzcie inny folder <filename>MyNewRepository</filename> wewnątrz <f
 #. (para)
 msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"          </screen> or <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr "Otwórzcie okno wiersza poleceń (lub DOS-Box), przejdźcie do <filename>D:\\SVN\\</filename> i wpiszcie <screen>\nsvnadmin create --fs-type bdb MyNewRepository\n</screen> lub <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
+msgstr "Otwórzcie okno wiersza poleceń (lub DOS-Box), przejdźcie do <filename>D:\\SVN\\</filename> i wpiszcie <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
 
 #. (para)
 msgid ""
@@ -1891,24 +1869,6 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr "Podczas tworzenia repozytorium TortoiseSVN ustawia niestandardową ikonę folderu, dzięki czemu można łatwo zidentyfikować lokalne repozytoria. Jeśli stworzysz repozytorium przy użyciu oficjalnego klienta linii poleceń, ikona nie zostanie przypisana do folderu."
-
-#. (para)
-msgid ""
-"TortoiseSVN no longer offers the option to create BDB repositories, although"
-" you can still use the command line client to create them. FSFS repositories"
-" are generally easier for you to maintain, and also makes it easier for us "
-"to maintain TortoiseSVN due to compatibility issues between the different "
-"BDB versions."
-msgstr "TortoiseSVN nie oferuje już możliwości tworzenia repozytoriów BDB, choć nadal można skorzystać z klienta linii poleceń do ich tworzenia. Repozytoria FSFS są ogólnie łatwiejsze do utrzymania, a także ułatwiają nam utrzymanie TortoiseSVN. Wynika to z powodu problemów z kompatybilnością pomiędzy różnymi wersjami BDB."
-
-#. (para)
-msgid ""
-"TortoiseSVN does not support <literal>file://</literal> access to BDB "
-"repositories due to these compatibility issues, although it will of course "
-"always support this repository format when accessed via a server through the"
-" <literal>svn://</literal>, <literal>http://</literal> or "
-"<literal>https://</literal> protocols."
-msgstr "TortoiseSVN nie obsługuje dostępu przez <literal>file://</literal> do repozytoriów BDB z powodu problemów z kompatybilnością, choć będzie oczywiście zawsze wspierać ten format repozytorium w dostępie za pośrednictwem serwera przy użyciu protokołów <literal>svn://</literal>, <literal>http://</literal> lub <literal>https://</literal>."
 
 #. (para)
 msgid ""
@@ -2183,18 +2143,17 @@ msgid ""
 "The simplest (but not recommended) way is just to copy the repository folder"
 " onto the backup medium. However, you have to be absolutely sure that no "
 "process is accessing the data. In this context, access means "
-"<emphasis>any</emphasis> access at all. A BDB repository is written to even "
-"when the operation only appears to require reading, such as getting status. "
-"If your repository is accessed at all during the copy, (web browser left "
-"open, WebSVN, etc.) the backup will be worthless."
-msgstr "Najprostszym (ale nie zalecanym) sposobem jest po prostu skopiowanie folderu repozytorium na nośnik kopii zapasowej. Jednak musicie mieć absolutną pewność, że żaden proces nie ma wtedy dostępu do danych. W tym kontekście, dostęp oznacza <emphasis>absolutnie każde</emphasis> połączenie. W repozytorium BDB zapis jest wykonywany nawet, gdy operacja wydaje się wymagać tylko odczytu, np. uzyskanie statusu. Jeśli łączono się z repozytorium podczas kopiowania, (pozostawiona otwarta przeglądarka internetowa, WebSVN itp.) kopia zapasowa będzie bezwartościowa."
+"<emphasis>any</emphasis> access at all. If your repository is accessed at "
+"all during the copy, (web browser left open, WebSVN, etc.) the backup will "
+"be worthless."
+msgstr "Najprostszym (ale nie zalecanym) sposobem jest po prostu skopiowanie folderu repozytorium na nośnik kopii zapasowej. Jednak musicie mieć absolutną pewność, że żaden proces nie ma wtedy dostępu do danych. W tym kontekście, dostęp oznacza <emphasis>absolutnie każde</emphasis> połączenie. Jeśli łączono się z repozytorium podczas kopiowania, (pozostawiona otwarta przeglądarka internetowa, WebSVN itp.) kopia zapasowa będzie bezwartościowa."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"    </screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
-msgstr "Zalecaną metodą jest wykonanie <screen>\nsvnadmin hotcopy path/to/repository path/to/backup --clean-logs\n</screen> by utworzyć kopię repozytorium w bezpieczny sposób. A następnie backup kopii. Opcja <literal>--clean-logs</literal> nie jest wymagana, ale usuwa powielone pliki dziennika podczas tworzenia kopii zapasowych repozytorium BDB, co może zaoszczędzić trochę miejsca."
+"svnadmin hotcopy path/to/repository path/to/backup\n"
+"    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
+msgstr "Zalecaną metodą jest wykonanie <screen> svnadmin hotcopy path/to/repository path/to/backup --clean-logs </screen> by utworzyć kopię repozytorium w bezpieczny sposób. A następnie backup kopii."
 
 #. (para)
 msgid ""
@@ -7504,6 +7463,10 @@ msgstr "Uporządkuj"
 msgid "cleanup"
 msgstr "uporządkuj"
 
+#. (title)
+msgid "The Cleanup dialog"
+msgstr "Okno Uporządkuj"
+
 #. (para)
 msgid ""
 "If a Subversion command cannot complete successfully, perhaps due to server "
@@ -7511,8 +7474,8 @@ msgid ""
 "case you need to use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
-" copy."
-msgstr "Jeżeli polecenie Subversion nie może zakończyć się pomyślnie, być może z powodu problemów z serwerem, kopia robocza może zostać pozostawiona w niespójnym stanie. W takim przypadku należy użyć <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uporządkuj</guimenuitem></menuchoice> na folderze. Jest dobrym pomysłem, aby wykonać je na najwyższym poziomie w kopii roboczej."
+" copy. <placeholder-1/>"
+msgstr "Jeżeli polecenie Subversion nie może zakończyć się pomyślnie, być może z powodu problemów z serwerem, kopia robocza może zostać pozostawiona w niespójnym stanie. W takim przypadku należy użyć <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uporządkuj</guimenuitem></menuchoice> na folderze. Jest dobrym pomysłem, aby wykonać je na najwyższym poziomie w kopii roboczej. <placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
@@ -15696,8 +15659,8 @@ msgid "strftime()"
 msgstr "strftime()"
 
 #. (literal)
-msgid "$WCDATE=%a %b %d %I:%M:%ls %p$"
-msgstr "$WCDATE=%a %b %d %I:%M:%ls %p$"
+msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -19751,16 +19714,6 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr "Polecenie to jest wykonywane tylko dla plików tekstowych, adnotuje ono każdą linię, aby pokazać wersję repozytorium, w której ostatnio była zmieniona, autora, który dokonał tej zmiany. Nasza realizacji GUI nazywana jest TortoiseBlame i pokazuje także datę/czas zatwierdzenia i opisy zmian po najechaniu myszką na numer wersji."
-
-#. (glossterm)
-msgid "BDB"
-msgstr "BDB"
-
-#. (para)
-msgid ""
-"Berkeley DB. A well tested database backend for repositories, that cannot be"
-" used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkeley DB. Dobrze przetestowana baza danych dla repozytoriów, które nie mogą być używane na udziałach sieciowych. Domyślne dla repozytoriów przed 1.2."
 
 #. (glossterm)
 msgid "Branch"
