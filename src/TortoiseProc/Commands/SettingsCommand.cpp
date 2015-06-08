@@ -26,7 +26,12 @@ bool SettingsCommand::Execute()
 {
     CSettings dlg(IDS_PROC_SETTINGS_TITLE);
     dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
-    dlg.SetTreeWidth(220);
+
+    HDC hdc = ::GetDC(nullptr);
+    int dpiX = GetDeviceCaps(hdc, LOGPIXELSX);
+    ::ReleaseDC(nullptr, hdc);
+    const int treeWidth = 220;  // need to adjust manually if text gets longer
+    dlg.SetTreeWidth(220 * dpiX / 96);
     long page = parser.GetLongVal(L"page");
     dlg.SetActivePage(page);
     dlg.DoModal();
