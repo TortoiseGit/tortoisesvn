@@ -1302,14 +1302,54 @@ void CFileDiffDlg::Filter(CString sFilterText)
 {
     sFilterText.MakeLower();
 
+    std::vector<CString> positives;
+    std::vector<CString> negatives;
+
+    int pos = 0;
+    CString temp;
+    for (;;)
+    {
+        temp = sFilterText.Tokenize(L" ", pos);
+        if (temp.IsEmpty())
+        {
+            break;
+        }
+        if (temp[0] == '-')
+            negatives.push_back(temp.Mid(1));
+        else
+            positives.push_back(temp);
+    }
+
     m_arFilteredList.clear();
     for (std::vector<FileDiff>::const_iterator it = m_arFileList.begin(); it != m_arFileList.end(); ++it)
     {
         CString sPath = it->path.GetSVNPathString();
         sPath.MakeLower();
-        if (sPath.Find(sFilterText) >= 0)
+
+        bool bUse = true;
+        for (const auto& s : negatives)
         {
-            m_arFilteredList.push_back(*it);
+            if (sPath.Find(s) >= 0)
+            {
+                bUse = false;
+                break;
+            }
+        }
+        if (bUse)
+        {
+            if (positives.empty())
+                m_arFilteredList.push_back(*it);
+            else
+            {
+                for (const auto& s : positives)
+                {
+                    if (sPath.Find(s) >= 0)
+                    {
+                        m_arFilteredList.push_back(*it);
+                        break;
+                    }
+                }
+            }
         }
     }
     m_cFileList.SetItemCount((int)m_arFilteredList.size());
