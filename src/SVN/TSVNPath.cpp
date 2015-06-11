@@ -237,6 +237,23 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     return m_sUTF8FwdslashPath;
 }
 
+bool CTSVNPath::IsCanonical() const
+{
+    SVNPool pool;
+    auto canonicalizedPath = GetSVNApiPath(pool);
+    if (IsUrl())
+        return svn_uri_is_canonical(canonicalizedPath, pool) != FALSE;
+    return svn_dirent_is_canonical(canonicalizedPath, pool) != FALSE;
+}
+
+bool CTSVNPath::IsCanonical(apr_pool_t *pool) const
+{
+    auto canonicalizedPath = GetSVNApiPath(pool);
+    if (IsUrl())
+        return svn_uri_is_canonical(canonicalizedPath, pool) != FALSE;
+    return svn_dirent_is_canonical(canonicalizedPath, pool) != FALSE;
+}
+
 const CString& CTSVNPath::GetUIPathString() const
 {
     if (m_sUIPath.IsEmpty())

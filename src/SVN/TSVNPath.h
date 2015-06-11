@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,6 +73,16 @@ public:
      * It will be in UTF8, with URLs escaped, if necessary
      */
     const char* GetSVNApiPath(apr_pool_t *pool) const;
+    /**
+     * Returns true if the path returned by GetSVNApiPath() is properly
+     * canonicalized so it won't throw an error later when passed to an
+     * svn API.
+     * Note that for this check a temporary memory pool needs to be
+     * created if no own pool is specified, which is a somewhat expensive task.
+     * Do not call this too often!
+     **/
+    bool IsCanonical() const;
+    bool IsCanonical(apr_pool_t *pool) const;
     /**
      * Returns the path for showing in an UI.
      *
