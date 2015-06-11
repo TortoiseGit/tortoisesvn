@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "RevisionDlg.h"
 #include "SVNInfo.h"
 #include "SVN.h"
+#include "SVNHelpers.h"
 #include "WaitCursorEx.h"
 
 #define IDC_URL_COMBO     10000
@@ -258,6 +259,13 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 
     if (m_pRepo)
     {
+        if (!CTSVNPath(new_url).IsCanonical())
+        {
+            CString sErr;
+            sErr.Format(IDS_ERR_INVALIDURLORPATH, (LPCWSTR)new_url);
+            ::MessageBox(GetSafeHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
+            return;
+        }
         SVNRev r = new_rev;
         m_headRev = SVNRev();
         m_pRepo->ChangeToUrl(new_url, r, bAlreadyChecked);
