@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-02 08:39+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-06-10 12:53+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1303,7 +1303,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr "Pracovní kopie také obsahuje i některé další soubory, vytvořené a udržované Subversion, na pomoc při provádění těchto příkazů. Zejména vaše pracovní kopie obsahuje podadresář <filename>.svn</filename>, také známý jako <firstterm>správcovský adresář</firstterm> pracovní kopie. Soubory ve správcovském adresáři pomáhají Subversion poznat, které soubory obsahují nezveřejněné změny a které jsou zastaralé s ohledem na práci ostatních. Před verzí 1.7 Subversion měl správcovské podadresáře <filename>.svn</filename> v každém adresáři s verzí ve vaší pracovní kopii. Subversion 1.7 má úplně jiný přístup a každá pracovní kopie má pouze jeden správcovský podadresář, která je přímý potomek kořene této pracovní kopie."
+msgstr "Pracovní kopie také obsahuje i některé další soubory, vytvořené a udržované Subversion, na pomoc při provádění těchto příkazů. Zejména vaše pracovní kopie obsahuje podadresář <filename>.svn</filename>, také známý jako <firstterm>správcovský adresář</firstterm> pracovní kopie. Soubory ve správcovském adresáři pomáhají Subversion poznat, které soubory obsahují nezveřejněné změny a které jsou zastaralé s ohledem na práci ostatních. Před verzí 1.7 Subversion měl správcovské podadresáře <filename>.svn</filename> v každém adresáři s verzí ve vaší pracovní kopii. Subversion 1.7 má úplně jiný přístup a každá pracovní kopie má pouze jeden správcovský podadresář, která je přímo podřazen kořeni této pracovní kopie."
 
 #. (para)
 msgid ""
@@ -1818,7 +1818,7 @@ msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr ""
+msgstr "Spusťte příkazový řádek (nebo DOS-Box), přejděte na <filename> D:\\SVN\\</filename> a napište <screen>\nsvnadmin create --fs-type fsfs MojeNoveUloziste\n</screen>"
 
 #. (para)
 msgid ""
@@ -2143,14 +2143,14 @@ msgid ""
 "<emphasis>any</emphasis> access at all. If your repository is accessed at "
 "all during the copy, (web browser left open, WebSVN, etc.) the backup will "
 "be worthless."
-msgstr ""
+msgstr "Nejjednodušší způsob (ale nedoporučuje se) jak zkopírovat adresář úložiště na záložní médium. Nicméně, musíte si být naprosto jisti, že žádný proces, nepřistupuje k datům. V této souvislosti přístup znamená <emphasis>jakýkoliv</emphasis> přístup. Pokud je na Vaše úložiště vstoupeno kdykoli v průběhu kopírování, (webový prohlížeč zůstane otevřený, WebSVN, atd.), záloha bude bezcenná."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
-msgstr ""
+msgstr "Doporučená metoda je spustit <screen>\nsvnadmin hotcopy cesta/k/úložišti cesta/k/záloze\n</screen> k vytvoření kopie Vašeho úložiště bezpečným způsobem. Pak zálohujte kopii."
 
 #. (para)
 msgid ""
@@ -3248,7 +3248,7 @@ msgstr "Dialogové okno odevzdání Vám ukáže každý změněný soubor, vče
 msgid ""
 "To quickly check or uncheck types of files like all versioned files or all "
 "modified files, click the link items just above the list of shown items."
-msgstr ""
+msgstr "Pro rychlé zaškrtnutí/odškrtnutí typů souborů, jako všechny soubory s verzí/nezměněné soubory, klikněte na položky odkazů umístěné hned nad seznamem zobrazených položek."
 
 #. (para)
 msgid ""
@@ -4910,7 +4910,7 @@ msgid ""
 "Note that if you use changelists, externals will no longer show up in their "
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
-msgstr ""
+msgstr "Nezapomeňte, že pokud používáte seznamy změn, externí již nebudou zobrazeny v jejich vlastních skupinách. Jakmile používáte seznamy změn, budou podle nich seřazeny soubory i složky, ne podle externích."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -7462,7 +7462,7 @@ msgstr "vyčistit"
 
 #. (title)
 msgid "The Cleanup dialog"
-msgstr ""
+msgstr "Dialogové okno Vyčištění"
 
 #. (para)
 msgid ""
@@ -7472,7 +7472,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
 " copy. <placeholder-1/>"
-msgstr ""
+msgstr "Pokud příkaz Subversion nemůže být úspěšně dokončen, třeba kvůli problémům serveru, může Vaše pracovní kopie zůstat v rozporuplném stavu. V takovém případě je třeba použít na adresář <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vyčistit</guimenuitem></menuchoice>. Je dobrý nápad toto provádět na nejvyšší úrovni v pracovní kopii. <placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
@@ -8629,7 +8629,7 @@ msgid ""
 "<literal>tsvn:mergelogtemplatereversetitle</literal>. If the property is set"
 " to <literal>yes</literal> or <literal>true</literal>, then the title string"
 " is appended at the bottom instead of the top."
-msgstr ""
+msgstr "Tato vlastnost udává umístění řetězce názvu zadaného v <literal>tsvn:mergelogtemplatetitle</literal> nebo <literal>tsvn:mergelogtemplatereversetitle</literal>. Pokdu je vlastnost nastavena na  <literal>yes</literal> nebo <literal>true</literal>, pak je řetězec názvu přidán ke spodní části, místo k vrchní."
 
 #. (para)
 msgid ""
@@ -8837,7 +8837,7 @@ msgid ""
 " examples above, make sure that <emphasis>all</emphasis> folders in between "
 "are versioned as well. So for the examples above, the folder "
 "<filename>common</filename> should be versioned!"
-msgstr ""
+msgstr "Pokud zadáte cílovou složku pro externí jako podsložku stějně jako v příkladu výše, ujistěte se, že <emphasis>všechny</emphasis> složky mezi nimi mají také verzi. Takže  případě příkladů výše, by složka <filename>common</filename> měla také mít verzi!"
 
 #. (para)
 msgid ""
@@ -8845,7 +8845,7 @@ msgid ""
 "between are not versioned, there are some operations that won't work as you "
 "expect. And the status overlay icons in explorer will also not show the "
 "correct status."
-msgstr ""
+msgstr "I přesto že v cestě k externí existuje složka bez verze, budou ve většině situací fungovat správně. Nicméně existují operace, které nebudou fungovat, jak očekáváte. A překryvné ikony stavu v Průzkumníku nebudou zobrazovat správný stav."
 
 #. (para)
 msgid ""
@@ -8873,7 +8873,7 @@ msgstr "Od Subversion verze 1.6, můžete přidat jeden soubor jako externí do 
 msgid ""
 "The path to the file external must be a direct child of the folder where you"
 " set the <literal>svn:externals</literal> property."
-msgstr "Cesta k externímu souboru musí být přímým potomkem složky, kde jste nastavili vlastnost <literal>svn:externals</literal>."
+msgstr "Cesta k externímu souboru musí být přímo podřazená složce, kde jste nastavili vlastnost <literal>svn:externals</literal>."
 
 #. (para)
 msgid ""
@@ -9069,7 +9069,7 @@ msgid ""
 "<literal>svn:externals</literal> properties, those externals will be listed "
 "at the bottom of the branch/tag dialog. For each external, the target path "
 "and the source URL is shown."
-msgstr ""
+msgstr "Pokud má Vaše pracovní kopie zahrnuty další projekty pomocí vlastnosti <literal>svn:external</literal>, budou tyto externí uvedeny vespod dialogového okna větev/značka. Pro každý externí se zobrazí cílová cesta a URL zdroje."
 
 #. (para)
 msgid ""
@@ -9080,7 +9080,7 @@ msgid ""
 "revision of the external and your tag might not compile anymore. So it's "
 "always a good idea to set the externals to an explicit revision when "
 "creating a tag."
-msgstr ""
+msgstr "Pokud se chcete ujistit, že nová značka je vždy v soudržném stavu, zkontrolujte všechny externí, jestli jejich revize jsou upevněné. Pokud nezkontrolujete externí a tyto odkazují na HEAD revizi, která by se mohla v budoucnu změnit, získávání nové značky získá tuto externí HEAD revizi a Vaše značka už se nemusí kompilovat. Takže je vždycky dobrý nápad při vytváření značky nastavit externí na jednoznačnou revizi."
 
 #. (title)
 #. (entry)
@@ -9094,7 +9094,7 @@ msgstr "Kopírování zdroje"
 #. (entry)
 #. (entry)
 msgid "external's repos HEAD revision"
-msgstr ""
+msgstr "Revize HEAD externího úložiště"
 
 #. (entry)
 #. (listitem)
@@ -9103,25 +9103,25 @@ msgstr "Určitá revize v úložišti"
 
 #. (entry)
 msgid "external's WC BASE revision"
-msgstr ""
+msgstr "Základní revize pracovní kopie externí"
 
 #. (para)
 msgid ""
 "The externals are automatically pinned to either the current HEAD revision "
 "or the working copy BASE revision, depending on the source of the "
 "branch/tag: <placeholder-1/>"
-msgstr ""
+msgstr "Externí jsou automaticky připnuty buď na jejich současnou revizi HEAD nebo na základní revizi pracovní kopie, v závislosti na zdroji větve/značky: <placeholder-1/>"
 
 #. (title)
 msgid "externals within externals"
-msgstr ""
+msgstr "externí v externích"
 
 #. (para)
 msgid ""
 "If a project that is included as an external has itself included externals, "
 "then those will not be tagged! Only externals that are direct children can "
 "be tagged."
-msgstr ""
+msgstr "Pokud projekt přidaný jako externí, má své vlastní externí, pak tyto nebudou označkovány! Pouze externí, jenž jsou přímo podřazené, mohou být označkovány."
 
 #. (para)
 msgid ""
@@ -12998,13 +12998,13 @@ msgstr "Určete vzory používané k rozpoznání těchto cest ve třech rámeč
 
 #. (title)
 msgid "Commit tag detection"
-msgstr ""
+msgstr "Zjištění odevzdání značky"
 
 #. (para)
 msgid ""
 "Please note that these patterns are also used to detect commits to a tag, "
 "not just for the revision graph."
-msgstr ""
+msgstr "Nezapomeňte prosím, že tyto vzory jsou také použity ke zjištění odevzdání do značky, nejenom pro graf revizí."
 
 #. (term)
 msgid "Modify Colors"
@@ -13283,7 +13283,7 @@ msgid ""
 " can chose to make those files not propagate their status to the parent "
 "folder. That way if only files in that changelist are modified, the parent "
 "folder still shows the unmodified overlay icon."
-msgstr ""
+msgstr "Pokud máte soubory v seznamu změn <literal>ignorovat při odevzdání</literal> , můžete zvolit, aby jejich stav nebyl šířen na nadřazenou složku. Tímto se stav nadřazené složky nezmění, pokud jsou změněny pouze soubory obsažené v seznamu změn."
 
 #. (para)
 msgid ""
@@ -14620,7 +14620,7 @@ msgstr "Výchozí barvy používané TortoiseUDiff jsou většinou postačujíc�
 #. (para)
 msgid ""
 "You can select the font used to display the text, and the point size to use."
-msgstr ""
+msgstr "Můžete vybrat typ písma použitý k zobrazení textu a jeho velikost v bodech."
 
 #. (para)
 msgid ""
@@ -14642,20 +14642,20 @@ msgid ""
 "encrypted file. The file is encrpyted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
-msgstr ""
+msgstr "<placeholder-1/> Všechna nastavení  TortoiseSVN mohou být synchronizována z/do zašifrovaného souboru. Soubor je šifrován heslem, který zadáte, a proto ho můžete bez obav uložit do cloudu ve službách jako OneDrive, GDrive, DropBox, ..."
 
 #. (para)
 msgid ""
 "When a path and password is specified, TortoiseSVN will sync all settings "
 "automatically and keep them in sync."
-msgstr ""
+msgstr "Když je zadána cesta a heslo, TortiseSVN provede automatickou synchronizaci všech nastavení a bude je takto udržovat."
 
 #. (para)
 msgid ""
 "You can also export/import an encrypted files with all the settings "
 "manually. When you do that, you're asked for the path of the file and the "
 "password to encrypt/decrypt the settings file."
-msgstr ""
+msgstr "Importovat/Exportovat zašifrovaný soubor se všemi nastaveními můžete i ručně. Pokud to takto provedete, budete požádáni o zadání cesty souboru a hesla pro rozšifrování/zašifrování souboru s nastavením."
 
 #. (para)
 msgid ""
@@ -14664,7 +14664,7 @@ msgid ""
 " settings are settings which include local paths which usually vary between "
 "computers. These local settings include the configured diff and merge tools "
 "and hook scripts."
-msgstr ""
+msgstr "Při ručním exportu nastavení můžete také zahrnout všechna místní nastavení, které se při normálním exportu/synchronizaci vynechávají. Místní nastavení jsou ta, která obsahují místní cesty, které se u jednotlivých počítačů většinou liší. Místní nastavení obsahují i nastavení nástrojů sloučení a porovnávání a hákové skripty."
 
 #. (title)
 msgid "Advanced Settings"
@@ -15108,13 +15108,13 @@ msgstr "sledování projektů"
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr ""
+msgstr "Monitor projektů je užitečný nástroj, který sleduje úložiště a v případě výskytu nových odevzdání Vám tuto skutečnost oznámí."
 
 #. (para)
 msgid ""
 "The projects can be monitored via a working copy path or directly via their "
 "repository URLs."
-msgstr ""
+msgstr "Projekty mohou být sledovány přes pracovní kopie, nebo přímo pomocí URL směřující na jejich úložiště."
 
 #. (para)
 msgid ""
@@ -15122,11 +15122,11 @@ msgid ""
 " time new commits are detected a notification popup is shown. Also the icon "
 "that is added to the system tray changes to indicate that there are new "
 "commits."
-msgstr ""
+msgstr "Monitor projektů prozkoumá každý projekt v nastavitelném intervalu a pokaždé, když jsou zjištěna nová odevzdání, bude zobrazeno oznámení. Tento fakt také udává změna ikony v systémové liště."
 
 #. (title)
 msgid "Snarl"
-msgstr ""
+msgstr "Snarl"
 
 #. (para)
 msgid ""
@@ -15134,7 +15134,7 @@ msgid ""
 "url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Pokud je <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> nainstalován a spuštěn, pak ho monitor projektů automaticky použije pro zobrazení oznámení o nově zjištěných odevzdáních."
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -15145,7 +15145,7 @@ msgid ""
 "If you first start the project monitor, the tree view on the left side is "
 "empty. To add projects, click on the button at the top of the dialog named "
 "<guibutton>Add Project</guibutton>."
-msgstr ""
+msgstr "Pokud monitor projektů spustíte poprvé, bude zobrazení stromu na levé straně prázdné. Pro přidání projektů klikněte na tlačítko v horní části dialogového okna pojmenovaného <guibutton>Přidat projekt</guibutton>."
 
 #. (title)
 msgid "The edit project dialog of the project monitor"
@@ -15156,13 +15156,13 @@ msgid ""
 "<placeholder-1/> To add a project for monitoring, fill in the required "
 "information. The name of the project is not optional and must be filled in, "
 "all other information is optional."
-msgstr ""
+msgstr "<placeholder-1/> Vyplňte požadované informace pro přidání projektu ke sledování. Název projektu je povinný a musí být zadán, ostatní jsou nepovinné."
 
 #. (para)
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
-msgstr ""
+msgstr "Pokud je rámeček <literal>Cesta nebo URL</literal> prázdný, pak je přidána složka. Toto je užitečné při seskupování sledovaných projektů."
 
 #. (para)
 msgid ""
@@ -15183,7 +15183,7 @@ msgstr "<literal>Interval sledování v minutách</literal> určuje časovou pro
 
 #. (title)
 msgid "check interval"
-msgstr ""
+msgstr "interval kontroly"
 
 #. (para)
 msgid ""
@@ -15191,7 +15191,7 @@ msgid ""
 " on the server is limited, a repository admin can set the minimum for check "
 "intervals using an <filename>svnrobots.txt</filename> file. A detailed "
 "explanation on how this works can be found on the project monitor website:"
-msgstr ""
+msgstr "Pokud mnoho uživatelů sleduje jedno úložiště a server má omezené množství přenositelných dat, může správce úložiště nastavit minimální dobu intervalu pro kontrolu pomocí souboru <filename>svnrobots.txt</filename>. Podrobné vysvětlení jak toto funguje může být nalezeno na internetové stránce monitoru projektů:"
 
 #. (title)
 msgid "Monitor dialog"
@@ -15199,14 +15199,14 @@ msgstr "Dialogové okno monitoru"
 
 #. (title)
 msgid "The main dialog of the project monitor"
-msgstr ""
+msgstr "Hlavní dialogové okno monitoru projektu"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The project monitor shows all monitored projects on the "
 "left in a tree view. The projects can be moved around, for example one "
 "project can be moved below another project, making it a child/subproject."
-msgstr ""
+msgstr "<placeholder-1/> Monitor projektů zobrazuje všechny sledované projekty v levé části ve stromu. Projekt může být přesunován, například jeden projekt může být přesunut pod jiný, což z něho učiní jeho podřazeného/podprojekt."
 
 #. (para)
 msgid ""
@@ -15223,17 +15223,17 @@ msgstr "Projekty, které mají aktualizace jsou zobrazeny tučně spolu s čísl
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "Hlavní operace"
 
 #. (para)
 msgid ""
 "The toolbar at the top of the dialog allows to configure and operate the "
 "project monitor."
-msgstr ""
+msgstr "Nástrojová lišta v horní části dialogového okna umožňuje nastavit a pracovat s monitorem projektů."
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "Zkontrolovat nyní"
 
 #. (para)
 msgid ""
@@ -15241,15 +15241,15 @@ msgid ""
 " up, clicking this button will force a check of all projects immediately. "
 "Note that if there are updates, the notification won't show up until all "
 "projects have been checked."
-msgstr ""
+msgstr "Zatímco každý sledovaný projekt je kontrolován podle nastaveného intervalu, kliknutím na toto tlačítko vynutíte okamžitou kontrolu všech projektů. Pokud se vyskytnou nějaké aktualizace, oznámení nebude zobrazeno, dokud se nezkontrolují všechny projekty."
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Přidat projekt"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
-msgstr ""
+msgstr "Otevře nové dialogové okno pro přidání nové projektu ke sledování."
 
 #. (term)
 msgid "Edit"
@@ -15257,7 +15257,7 @@ msgstr "Upravit"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
-msgstr ""
+msgstr "Otevře dialogové okno nastavení pro zvolený projekt."
 
 #. (term)
 msgid "Remove"
@@ -15265,7 +15265,7 @@ msgstr "Odstranit"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "Odstraní zvolený projekt po zobrazení potvrzovacího okna."
 
 #. (term)
 msgid "Mark all as read"
@@ -15276,13 +15276,13 @@ msgid ""
 "Marks all revisions in all projects as read. Note that if you select a "
 "project with unread revisions, those revisions are automatically marked as "
 "read when you select another project."
-msgstr ""
+msgstr "Označí všechny revize v projektu jako přečtené. Nezapomeňte, že pokud zvolíte projekt s nepřečtenými revizemi, pak budou tyto revize automaticky označeny jako přečtené, jakmile zvolíte jiný projekt."
 
 #. (para)
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "Pokud podržíte klávesu <keycap>Shift</keycap> při klikání na tlačítko, budou také vyčištěny všechny chybové stavy, pokud nějaké jsou."
 
 #. (term)
 msgid "Update all"
@@ -15293,7 +15293,7 @@ msgid ""
 "Runs an <command>Update</command> on all monitored working copies. Projects "
 "that are monitored via an url are not updated, only those that are set up "
 "with a working copy path."
-msgstr ""
+msgstr "Spustí příkaz <command>Update</command> na všech sledovaných pracovních kopiích. Projekty sledované pomocí url nejsou aktualizovány, příkaz platí pouze pro projekty se zadanou cestou pracovní kopie."
 
 #. (term)
 msgid "Options"
@@ -15301,7 +15301,7 @@ msgstr "Nastavení"
 
 #. (para)
 msgid "Shows a dialog to configure the behavior of the project monitor."
-msgstr ""
+msgstr "Zobrazí dialogové okno pro nastavení chování monitoru projektů."
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -15383,17 +15383,17 @@ msgid ""
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr ""
+msgstr "Abyste zabránili konkrétním souborů a cestám být zpracovány v SubWCRev, můžete zadat vzory pro ignorování. Vzory jsou čteny ze souboru s názvem <filename>.subwcrevignore</filename>. Soubor je čten ze zadané cesty a také z kořene pracovní kopie. Pokud soubor neexistuje, nedochází k žádnému ignorování. Soubor <filename>.subwcrevignore</filename> obsahuje mnoho vzorů, oddělených novým řádkem. Vzory jsou porovnávány s cestami  relativně ke kořeni úložiště. Například pro ignorování všech souborů ve složce <filename>doc</filename> pracovní kopie TortoiseSVN by soubor <filename>.subwcrevignore</filename> obsahoval následující řádky: <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Pro ignorování všech obrázků by vzory byly nastaveny takto: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
-msgstr ""
+msgstr "Vzory ignorování jsou citlivé na velikost písmen, tak jako Subversion."
 
 #. (para)
 msgid ""
 "To create a file with a starting dot in the Windows explorer, enter "
 "<filename>.subwcrevignore.</filename>. Note the trailing dot."
-msgstr ""
+msgstr "Pro vytvoření souboru začínajícího tečkou v Průzkumníku Windows, zadejte <filename>.subwcrevignore.</filename>. Všimněte si tečky na konci."
 
 #. (title)
 msgid "List of available command line switches"
@@ -17718,7 +17718,7 @@ msgid ""
 "line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr ""
+msgstr "Existuje zvláštní příkaz nevyžadující parametr <option>/command:abcd</option>, ale, pokud na příkazovém řádku není nic zadáno, bude místo toho spuštěn monitor projektů. Pokud je předáno <option>/tray</option>, bude monitor spuštěn na pozadí a pouze přidá svoji ikonu do systémové lišty."
 
 #. (para)
 msgid ""
@@ -17813,39 +17813,39 @@ msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
-msgstr ""
+msgstr "<option>/strict</option> povoluje zaškrtávací políčko 'Zastavit na kopírování'"
 
 #. (para)
 msgid ""
 "<option>/merge</option> enables the 'include merged revisions' checkbox,"
-msgstr ""
+msgstr "<option>/merge</option>  povoluje zaškrtávací políčko 'Zahrnout sloučené revize',"
 
 #. (para)
 msgid ""
 "<option>/datemin:\"{datestring}\"</option> sets the start date of the "
 "filter, and"
-msgstr ""
+msgstr "<option>/datemin:\"{datestring}\"</option> nastaví počáteční datum filtru a"
 
 #. (para)
 msgid ""
 "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
 "The date format is the same as used for svn date revisions."
-msgstr ""
+msgstr "<option>/datemax:\"{datestring}\"</option> nastaví koncové datum filtru. Formát data je stejný jako u dat revizí svn."
 
 #. (para)
 msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
-msgstr ""
+msgstr "<option>/findstring:\"filterstring\"</option> vyplní text k filtrování,"
 
 #. (para)
 msgid ""
 "<option>/findtext</option> forces the filter to use text, not regex, or"
-msgstr ""
+msgstr "<option>/findtext</option> donutí filtr použít text, ne regulární výraz, nebo"
 
 #. (para)
 msgid ""
 "<option>/findregex</option> forces the filter to use regex, not simple text "
 "search, and"
-msgstr ""
+msgstr "<option>/findregex</option> donutí filtr použít regulární výraz, ne hledání prostého textu a"
 
 #. (para)
 msgid "<option>/findtype:0</option> filter by everything"
@@ -17891,7 +17891,7 @@ msgstr "<option>/findtype:256</option> filtrovat podle časového období"
 msgid ""
 "<option>/findtype:X</option> with X being a number between 0 and 511. The "
 "numbers are the sum of the following options: <placeholder-1/>"
-msgstr ""
+msgstr "<option>/findtype:X</option> kde X je číslo mezi 0 a 511. Čísla jsou sumou následujících možností: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -17899,18 +17899,18 @@ msgid ""
 "revisions are written to that file when the log dialog is closed. The "
 "revisions are written in the same format as is used to specify revisions in "
 "the merge dialog."
-msgstr ""
+msgstr "Pokud <option>/Outfile:cesta\\k\\souboru</option> je nastavena, vybrané revize jsou zapsány do tohoto souboru, když je dialogové okno záznamu uzavřeno. Revize jsou vypisovány ve stejném formátu, jaký je použit v dialogovém oknu sloučení."
 
 #. (para)
 msgid ""
 "Opens the log dialog. The <option>/path</option> specifies the file or "
 "folder for which the log should be shown. Additional options can be set: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Otevře dialogové okno záznamu. Volba <option>/path</option> udává soubor nebo složku pro které bude záznam zobrazen. Lze nastavit další možnosti: <placeholder-1/>"
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr ""
+msgstr "Datum revize svn může být v následujících formátech:"
 
 #. (option)
 #. (option)
@@ -18533,19 +18533,19 @@ msgstr "Pro otevření dialogového okna vlastností přímo pro určitou vlastn
 msgid ""
 "Exports/imports settings, either depending on whether the current settings "
 "or the exported settings are newer, or as specified."
-msgstr ""
+msgstr "Exportuje/Importuje nastavení, buď na základě aktuálnosti současných, nebo exportovaných nastavení, nebo podle zadání."
 
 #. (para)
 msgid ""
 "If a path is passed with <option>/path</option>, then the path is used to "
 "store or read the settings from."
-msgstr ""
+msgstr "Pokud je s volbou <option>/path</option> předána cesta, pak je použita pro uložení, nebo načtení nastavení."
 
 #. (para)
 msgid ""
 "The parameter <option>/askforpath</option> will show a file open/save dialog"
 " for the user to chose the export/import path."
-msgstr ""
+msgstr "Parametr <option>/askforpath</option> zobrazí dialogové okno otevření/uložení souboru umožňující uživateli zvolit cestu pro export/import."
 
 #. (para)
 msgid ""
@@ -18555,25 +18555,25 @@ msgid ""
 "than the current settings, then the settings are loaded from the file. If "
 "the current settings are more recent, then the settings are exported to the "
 "settings file."
-msgstr ""
+msgstr "Pokud není zadáno <option>/load</option> ani <option>/save</option>, pak TortiseSVN rozhodne, zda se jedná o import nebo export nastavení na základě jejich novosti. Pokud exportovaný soubor je novější než současná nastavení, pak jsou ze souboru načtena. Pokud jsou novější současná nastavení, pak jsou exportována do souboru."
 
 #. (para)
 msgid ""
 "If <option>/load</option> is specified, the settings are imported from the "
 "settings file."
-msgstr ""
+msgstr "Pokud je zadána volba <option>/load</option>, je nastavení ze souboru importováno."
 
 #. (para)
 msgid ""
 "If <option>/save</option> is specified, the current settings are exported to"
 " the settings file."
-msgstr ""
+msgstr "Pokud je zadána volba <option>/save</option>, jsou současná nastavení exportována do souboru."
 
 #. (para)
 msgid ""
 "The parameter <option>/local</option> forces a settings export to include "
 "local settings, i.e. settings that refer to local paths."
-msgstr ""
+msgstr "Parametr <option>/local</option> donutí při exportu souboru zahrnout i místní nastavení, tj. nastavení odkazující na místní cesty"
 
 #. (para)
 msgid ""
@@ -18649,7 +18649,7 @@ msgid ""
 "url1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://svn.code.sf.net/p/stefanstools/code/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;porovnat&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -18736,7 +18736,7 @@ msgstr "Cesta k souboru sjednoceného rozdílu."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
-msgstr ""
+msgstr "Aktivuje režim roury. Sjednocený rozdíl je následně čten ze vstupu konzole."
 
 #. (para)
 msgid ""
@@ -18795,7 +18795,7 @@ msgid ""
 "class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>."
 " The working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "V popisech, které následují, je adresa URL pro umístění úložiště zobrazena pouze jako <literal>URL</literal> a příklad může být <systemitem class=\"url\">https://svn.code.sf.net/p/tortoisesvn/code/trunk/</systemitem>. Pracovní kopie cesta je zobrazena pouze jako <literal>CESTA</literal> a příklad může být <filename>C:\\TortoiseSVN\\kmen</filename>."
 
 #. (para)
 msgid ""
@@ -20081,7 +20081,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge je Open Source projekt. To znamená, že máte plný přístup je čtení zdrojového kódu tohoto programu. Můžete jej procházet na tomto odkazu <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Nejnovější verze (na které se v současnosti pracuje) se nachází pod <filename>/trunk/</filename> a vydané verze jsou umístěny v <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -20189,7 +20189,7 @@ msgid ""
 "allows to apply a patch file to a working copy. TortoiseMerge uses now the "
 "same functions as the Subversion command to avoid different behaviors "
 "between the two."
-msgstr ""
+msgstr "V Subversion 1.7 byl přidán příkaz <emphasis>svn patch</emphasis>, který umožňuje použít soubor se záplatou na pracovní kopii. TortoiseMerge nyní používá stejné funkce jako příkaz Subversion aby s předešlo rozdílnému chování mezi těmto příkazy."
 
 #. (para)
 msgid ""
@@ -20205,7 +20205,7 @@ msgstr "Úprava konfliktů mezi místními změnami a změnami v úložišti Sub
 
 #. (para)
 msgid "Applying patch files and reviewing them."
-msgstr ""
+msgstr "Použití souborů se záplatou a jejich přepisování."
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20473,7 +20473,7 @@ msgid ""
 "Below the bottom window is the status bar. This shows the number of lines "
 "added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, "
 "and the number of unresolved conflicts remaining."
-msgstr ""
+msgstr "Pod dolní částí okna je stavový řádek. Ta zobrazuje počet přidaných a smazaných řádků v <literal>Jejich</literal>  a <literal>Mém</literal> a počet zbývajících nevyřešených konfliktů."
 
 #. (term)
 msgid "Encoding"
@@ -20485,11 +20485,11 @@ msgid ""
 "shown. The most common encoding in English is ASCII (which means the local "
 "encoding of the OS language), but you can change this to be UTF8, UTF16LE, "
 "UTF16BE, UTF32LE and UTF32BE, both with or without a byte order mark (BOM)."
-msgstr ""
+msgstr "Kódování udává jak jsou znaky načteny/uloženy a zobrazeny. Nejběžnější kódování v Angličtině je ASCII (což znamená kódování použité v místním operačním systému), ale můžete jej změnit na UTF8, UTF16LE, UTF16BE, UTF32LE a UTF32BE, jak s tak i bez označení pořadí bajtů (BOM)."
 
 #. (term)
 msgid "Line Endings"
-msgstr ""
+msgstr "Konce řádků"
 
 #. (para)
 msgid ""
@@ -20497,7 +20497,7 @@ msgid ""
 " endings to whatever you like. Note that if you change the line endings, "
 "then <emphasis>all</emphasis> line endings in the whole file will change, "
 "even if when loaded the line endings were not all the same."
-msgstr ""
+msgstr "Nejběžnější styl konce řádků ve Windows je CRLF, ale můžete jej změnit na kterýkoliv jiný. Nezapomeňte, že při změně stylu se upraví <emphasis>všechny</emphasis> konce řádků v souboru, i když při načtení nebyly styly stejné."
 
 #. (para)
 msgid ""
@@ -20505,20 +20505,20 @@ msgid ""
 " are inserted when you press the tab key. The <emphasis>smart tab "
 "char</emphasis> option if enabled uses an algorithm to determine whether one"
 " or the other is best used."
-msgstr ""
+msgstr "Volba ve vrchní části nabídky s rozbalovacím seznamem určuje zda je při stisknutí klávesy tabulátoru vložena mezera nebo tabulátor. Volba <emphasis>Chytrý znak tabulátoru</emphasis> při povolení používá algoritmus pro zjištění, zdali je nejlepší použít mezeru nebo tabulátor."
 
 #. (para)
 msgid ""
 "The tab size specifies how many space chars are inserted when editing and "
 "pressing the tab char, or how many chars the next word is indented when a "
 "tab char is encountered."
-msgstr ""
+msgstr "Velikost tabulátoru určuje kolik znaků mezery je vloženo při úpravě a stisknutí klávesy tabulátoru, nebo o kolik znaků je slovo posunuto při zjištění znaku tabulátoru."
 
 #. (para)
 msgid ""
 "The status bar also contains combo box controls which indicate how the files"
 " are handled and treated: <placeholder-1/>"
-msgstr ""
+msgstr "Stavový řádek také obsahuje rozbalovací seznam ovládající zpracování a práce se soubory: <placeholder-1/>"
 
 #. (title)
 msgid "Line Status Icons"
@@ -21109,7 +21109,7 @@ msgstr "Název původního souboru. Je zobrazen v zobrazení názvu namísto ces
 #. (entry)
 #. (entry)
 msgid "The name to use for editorconfig templates."
-msgstr ""
+msgstr "Název použitý pro šablony editorconfig."
 
 #. (emphasis)
 msgid "theirs"
@@ -21182,13 +21182,13 @@ msgstr "Cesta, kde by záplata měla být použita. Pokud nechcete nastavit tuto
 msgid ""
 "If specified, forces TortoiseMerge to ask to save the file before exiting, "
 "even if the user does not modify the files."
-msgstr ""
+msgstr "Pokud zadáno, donutí TortoiseMerge se zeptat na uložení souboru před ukončením, i přesto že uživatel soubory nezměnil."
 
 #. (entry)
 msgid ""
 "If specified, forces TortoiseMerge to ask to save the file before exiting if"
 " there are conflicts found, even if the user does not modify the files."
-msgstr ""
+msgstr "Pokud zadáno, donutí TortoiseMerge se zeptat na uložení souboru před ukončením, pokud byly nalezeny konflikty, i přesto že uživatel soubory nezměnil."
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."

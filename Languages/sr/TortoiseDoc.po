@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-02 08:39+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-06-08 21:40+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1820,7 +1820,7 @@ msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr ""
+msgstr "Отворен  командну линију (или ДОС-бокс), замените у  <filename>D:\\SVN\\</filename> и откуцајте <screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n          </screen>"
 
 #. (para)
 msgid ""
@@ -2145,14 +2145,14 @@ msgid ""
 "<emphasis>any</emphasis> access at all. If your repository is accessed at "
 "all during the copy, (web browser left open, WebSVN, etc.) the backup will "
 "be worthless."
-msgstr ""
+msgstr "Најједноставнији (али се не препоручује) начин је да се копира фолдер спремишта у медијум за бекап. Међутим, морате бити апсолутно сигурни да ниједан процес не приступа подацима. У овом контексту приступ значи <emphasis>било који</emphasis>  приступ уопште.  Ако је вашем спремишту приступљено уопште у току копирања, (веб претраживач остаје отворен, итд.) бекап ће бити некористан. "
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
-msgstr ""
+msgstr "Препоручљиви метод је покренути <screen>\nsvnadmin hotcopy path/to/repository path/to/backup\n    </screen> да се креира копија вашег спремишта на сигуран начин. Затим направите бекап копију."
 
 #. (para)
 msgid ""
@@ -7464,7 +7464,7 @@ msgstr "чишћење"
 
 #. (title)
 msgid "The Cleanup dialog"
-msgstr ""
+msgstr "Дијалог чишћења"
 
 #. (para)
 msgid ""
@@ -7474,7 +7474,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
 " copy. <placeholder-1/>"
-msgstr ""
+msgstr "Субверзиона команда не може комплетирати задовољавајуће, можда због проблема са сервером, ваша радна копија може бити у неконзистетном стању. У том случају треба да користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Чишћење</guimenuitem></menuchoice> Добра је идеја да урадите ово на вршном нивои радне копије. <placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"

@@ -16,12 +16,14 @@
 # Crhistian <crhistian.ti@gmail.com>, 2011, 2012
 # Edson Chen <edson.chen@gmail.com>, 2011
 # Edson Chen <edson.chen@gmail.com>, 2011
+# Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Marcelo Boeira <marceloboeira@live.com>, 2013
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
 # Michel Apt <michel.apt1@gmail.com>, 2015
 # Marco Tulio Costa <mmarcottulio@gmail.com>, 2012
+# Paulo Pires <paulo.albert.pires@gmail.com>, 2015
 # Rafael Heise <rmheise@gmail.com>, 2011-2012,2014
 # Raphael Mendonça, 2014
 # Raphael Mendonça, 2014
@@ -34,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-02 08:39+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-06-12 19:56+0000\n"
+"Last-Translator: Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1509,7 +1511,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n      "
 
 #. (para)
 msgid ""
@@ -1521,7 +1523,7 @@ msgstr "Note que a URL usa barras normais embora a forma nativa (não URL) de um
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "Você pode acessar um repositorio FSFS via uma rede compartilhada, mas isso  <emphasis>não</emphasis> é recomendado por várias razões:"
 
 #. (para)
 msgid ""
@@ -1626,7 +1628,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1645,7 +1647,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1663,7 +1665,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -2001,7 +2003,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2027,7 +2029,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2044,7 +2046,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -2936,7 +2938,7 @@ msgstr "criar a cópia de trabalho"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr ""
+msgstr "checkout esparso"
 
 #. (primary)
 msgid "partial checkout"
@@ -3073,7 +3075,7 @@ msgstr ""
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "Update esparso utilizando Repo Browser"
 
 #. (para)
 msgid ""
@@ -3369,7 +3371,7 @@ msgstr "Por padrão quando você submete alterações, qualquer travamento que v
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "Advertência ao submeter a tag"
 
 #. (para)
 msgid ""
@@ -16732,11 +16734,11 @@ msgstr "Como eu faço..."
 msgid ""
 "This appendix contains solutions to problems/questions you might have when "
 "using TortoiseSVN."
-msgstr ""
+msgstr "Esse appendix contem solução para o seu problema/questão, você pode ter quando está usando o TortoiseSVN"
 
 #. (title)
 msgid "Move/copy a lot of files at once"
-msgstr ""
+msgstr "Mover/copiar vários arquivos de uma só vez"
 
 #. (primary)
 msgid "moving"
@@ -16769,7 +16771,7 @@ msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"
-msgstr ""
+msgstr "Usuario forçando  para entrar uma messagem de log"
 
 #. (primary)
 msgid "log message"
@@ -16792,7 +16794,7 @@ msgstr ""
 
 #. (title)
 msgid "Hook-script on the server"
-msgstr ""
+msgstr "Rotinas de eventos no servidor"
 
 #. (para)
 msgid ""
@@ -16988,7 +16990,7 @@ msgstr "Você reverteu as mudanças dentro de sua cópia de trabalho. Verifique 
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
-msgstr ""
+msgstr "Use <literal>svndumpfilter</literal>"
 
 #. (para)
 msgid ""
@@ -17284,7 +17286,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "group policies"
-msgstr ""
+msgstr "grupo de políticas"
 
 #. (primary)
 #. (glossterm)
@@ -17301,7 +17303,7 @@ msgstr "Controlador de domínio"
 
 #. (primary)
 msgid "deploy"
-msgstr ""
+msgstr "deploy"
 
 #. (para)
 msgid ""
@@ -17365,7 +17367,7 @@ msgstr ""
 
 #. (title)
 msgid "The commit dialog, showing the upgrade notification"
-msgstr ""
+msgstr "Dialogo do commit, mostrando a notificação atualizada"
 
 #. (para)
 msgid ""
@@ -17387,7 +17389,7 @@ msgstr ""
 #. (title)
 msgid ""
 "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
-msgstr ""
+msgstr "Alternado <literal>SVN_ASP_DOT_NET_HACK</literal> variável do ambiente"
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
@@ -17647,7 +17649,7 @@ msgstr "Diferenças mais tarde"
 
 #. (entry)
 msgid "Diff with 'filename'"
-msgstr ""
+msgstr "Comparar com 'filename'"
 
 #. (entry)
 msgid "Unified diff"
@@ -17821,11 +17823,11 @@ msgstr ""
 
 #. (para)
 msgid "<option>/startrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/startrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/strict</option> enables the 'stop-on-copy' checkbox,"
@@ -18513,7 +18515,7 @@ msgstr ""
 
 #. (entry)
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
-msgstr ""
+msgstr "destrava um ou todos os arquivos em dado diretório <placeholder-1/>."
 
 #. (entry)
 msgid ""
@@ -18633,7 +18635,7 @@ msgstr ""
 
 #. (literal)
 msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
-msgstr ""
+msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 
 #. (para)
 msgid ""
@@ -18702,7 +18704,7 @@ msgstr "Opção"
 
 #. (entry)
 msgid "Path to the file shown on the left."
-msgstr ""
+msgstr "Caminho para o arquivo mostrado a esquerda."
 
 #. (entry)
 #. (entry)
@@ -18740,7 +18742,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "Comandos TortoiseUDiff"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -18802,7 +18804,7 @@ msgstr ""
 
 #. (title)
 msgid "Conventions and Basic Rules"
-msgstr ""
+msgstr "Convenções e regras básicas"
 
 #. (para)
 msgid ""
@@ -18833,7 +18835,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n      "
 
 #. (para)
 #. (para)
@@ -18861,7 +18863,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18895,7 +18897,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n      "
 
 #. (para)
 msgid ""
@@ -18913,7 +18915,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n      "
 
 #. (para)
 #. (para)
@@ -18938,7 +18940,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add PATH...\n      "
 
 #. (para)
 msgid ""
@@ -18955,7 +18957,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n      "
 
 #. (para)
 #. (para)
@@ -18977,7 +18979,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH\n      "
 
 #. (para)
 msgid ""
@@ -19004,7 +19006,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\nor\nsvn log -v -r M:N [--stop-on-copy] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19027,7 +19029,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\nor\nsvn status -u -v PATH\n      "
 
 #. (para)
 msgid ""
@@ -19066,7 +19068,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -19099,7 +19101,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19107,7 +19109,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename CURR_PATH NEW_PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19115,7 +19117,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete PATH\n      "
 
 #. (para)
 msgid ""
@@ -19139,7 +19141,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] PATH...\n      "
 
 #. (screen)
 #, no-wrap
@@ -19147,7 +19149,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup PATH\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -19166,7 +19168,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"Mensagem de bloqueio\" [--force] PATH...\n      "
 
 #. (para)
 msgid ""
@@ -19190,7 +19192,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19218,7 +19220,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19226,7 +19228,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 
 #. (para)
 msgid ""
@@ -19240,7 +19242,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -19254,7 +19256,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n      "
 
 #. (para)
 msgid ""
@@ -19287,7 +19289,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate From_URL To_URL\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -19299,7 +19301,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n      "
 
 #. (para)
 msgid ""
@@ -19313,7 +19315,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LogMessage PATH URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -19322,7 +19324,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n      "
 
 #. (para)
 msgid ""
@@ -19358,7 +19360,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH &gt; patch-file\n      "
 
 #. (para)
 msgid ""
@@ -20221,7 +20223,7 @@ msgstr "Editando conflitos entre alterações locais e alterações no repositó
 
 #. (para)
 msgid "Applying patch files and reviewing them."
-msgstr ""
+msgstr "Aplicando arquivos de patch e revisando-os."
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -20482,7 +20484,7 @@ msgstr ""
 msgid ""
 "If you click in the left margin, or if you triple click within a line, that "
 "whole line will be selected."
-msgstr ""
+msgstr "se você clicar na margem esqurda, ou der um clique triplo na linha, toda ela será selecionada."
 
 #. (para)
 msgid ""
