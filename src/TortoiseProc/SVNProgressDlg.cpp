@@ -4108,7 +4108,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
             else
                 sRevListRange += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
 
-            for (svn_revnum_t rev = startRev; rev <= endRev; startRev < endRev ? ++rev : --rev)
+            for (svn_revnum_t rev = startRev; startRev < endRev ? rev <= endRev : rev >= endRev; startRev < endRev ? ++rev : --rev)
             {
                 if (logUtil.IsCached(rev))
                 {
