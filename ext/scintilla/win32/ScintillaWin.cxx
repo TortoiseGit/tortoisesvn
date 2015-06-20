@@ -281,7 +281,6 @@ class ScintillaWin :
 	virtual void SetCtrlID(int identifier);
 	virtual int GetCtrlID();
 	virtual void NotifyParent(SCNotification scn);
-	virtual void NotifyParent(SCNotification * scn);
 	virtual void NotifyDoubleClick(Point pt, int modifiers);
 	virtual CaseFolder *CaseFolderForEncoding();
 	virtual std::string CaseMapString(const std::string &s, int caseMapping);
@@ -412,7 +411,7 @@ ScintillaWin::~ScintillaWin() {}
 
 void ScintillaWin::Initialise() {
 	// Initialize COM.  If the app has already done this it will have
-	// no effect.  If the app hasnt, we really shouldnt ask them to call
+	// no effect.  If the app hasn't, we really shouldn't ask them to call
 	// it just so this internal feature works.
 	hrOle = ::OleInitialize(NULL);
 
@@ -1924,13 +1923,6 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	scn.nmhdr.idFrom = GetCtrlID();
 	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
-}
-
-void ScintillaWin::NotifyParent(SCNotification * scn) {
-	scn->nmhdr.hwndFrom = MainHWND();
-	scn->nmhdr.idFrom = GetCtrlID();
-	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
-		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
 }
 
 void ScintillaWin::NotifyDoubleClick(Point pt, int modifiers) {
