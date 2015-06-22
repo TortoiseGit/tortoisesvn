@@ -901,6 +901,12 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     LRESULT lastline = firstline + Call(SCI_LINESONSCREEN);
                     int firstpos = (int)Call(SCI_POSITIONFROMLINE, firstline);
                     int lastpos = (int)Call(SCI_GETLINEENDPOSITION, lastline);
+                    int pos1 = lpSCN->position;
+                    int pos2 = pos1 + lpSCN->length;
+                    // always use the bigger range
+                    firstpos = min(firstpos, pos1);
+                    lastpos = max(lastpos, pos2);
+
                     MarkEnteredBugID(firstpos, lastpos);
                     if (m_bDoStyle)
                         StyleEnteredText(firstpos, lastpos);
