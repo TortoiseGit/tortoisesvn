@@ -916,7 +916,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     StyleURLs(startpos, endpos);
                     CheckSpelling(startpos, endpos);
                     WrapLines(firstpos, lastpos);
-                    Call(SCI_COLOURISE, firstpos, lastpos);
+                    Call(SCI_COLOURISE, startpos, endpos);
                 }
             }
             break;
