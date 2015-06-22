@@ -911,8 +911,8 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     if (m_bDoStyle)
                         StyleEnteredText(firstpos, lastpos);
 
-                    int startpos = (int)Call(SCI_WORDSTARTPOSITION, lpSCN->position, true);
-                    int endpos = (int)Call(SCI_WORDENDPOSITION, lpSCN->position + lpSCN->length, true);
+                    int startpos = (int)Call(SCI_WORDSTARTPOSITION, firstpos, true);
+                    int endpos = (int)Call(SCI_WORDENDPOSITION, lastpos, true);
                     StyleURLs(startpos, endpos);
                     CheckSpelling(startpos, endpos);
                     WrapLines(firstpos, lastpos);
