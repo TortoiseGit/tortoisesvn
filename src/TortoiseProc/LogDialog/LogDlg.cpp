@@ -4543,9 +4543,10 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
             return;
         }
         CWnd * focusWnd = GetFocus();
-        bool bSetFocusToFilterControl = ((focusWnd != GetDlgItem(IDC_DATEFROM))&&
-                                            (focusWnd != GetDlgItem(IDC_DATETO))
-            && (focusWnd != GetDlgItem(IDC_LOGLIST)));
+        bool bSetFocusToFilterControl = ((focusWnd != GetDlgItem(IDC_DATEFROM)) &&
+                                         (focusWnd != GetDlgItem(IDC_DATETO)) &&
+                                         (focusWnd != GetDlgItem(IDC_LOGLIST)) &&
+                                         (!m_bMonitoringMode || !m_sFilterText.IsEmpty()));
         if (m_sFilterText.IsEmpty())
         {
             DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||
@@ -4578,6 +4579,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
         GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
         if (bSetFocusToFilterControl)
             GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+        else if (m_bMonitoringMode)
+            GetDlgItem(IDC_LOGLIST)->SetFocus();
 
         AutoRestoreSelection();
     } // if (nIDEvent == LOGFILTER_TIMER)
