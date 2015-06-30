@@ -78,6 +78,13 @@ Now you're almost ready. Only a few more steps to do:
   TortoiseSVN. Grab a cup of coffee, depending on how fast your computer is!
   TortoiseSVN build can take advantage of multi-core machines.
 
+  Note: if you set the Visual Studio tools for win32, you can not build the
+  64-bit version of TortoiseSVN. Trying to use the 'x64' nant target will
+  result in a build error.
+  To build the 64-bit version, you have to call the 64-bit Visual Studio tools.
+  And with the 64-bit tools, you can not build the 32-bit version of TortoiseSVN.
+  Basically: you need to set up the corresponding Visual Studio tools for the build.
+
 \verbatim
   > nant
 \endverbatim
