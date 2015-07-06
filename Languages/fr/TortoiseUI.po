@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Kerzzy <6greenday6@gmail.com>, 2015
 # Alexandre Paradis <paradial@hotmail.com>, 2011
 # BASLEY Nicolas <basleynicolas@hotmail.com>, 2013
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011-2015
@@ -42,8 +43,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-17 06:00+0000\n"
-"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
+"PO-Revision-Date: 2015-07-06 06:49+0000\n"
+"Last-Translator: Kerzzy <6greenday6@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3392,7 +3393,7 @@ msgstr "Menus Contextuels:"
 
 #. Resource IDs: (65535)
 msgid "Context lines for patches"
-msgstr ""
+msgstr "Lignes de contexte pour des patchs"
 
 #. Resource IDs: (16013)
 msgid "Contract docked window"
@@ -4179,7 +4180,7 @@ msgstr "Faire cela pour tous les dossiers non versionnés sélectionnés"
 
 #. Resource IDs: (2375)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Faire cela pour tous les éléments non versionnés"
 
 #. Resource IDs: (2358)
 msgid "Do this for all unversioned/modified items"
@@ -4332,7 +4333,7 @@ msgstr "Lecteurs A: et B:"
 #. Resource IDs: (9800)
 #, c-format
 msgid "Drop not possible on %1!ls!"
-msgstr ""
+msgstr "Suppression impossible sur %1!ls!"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4732,7 +4733,7 @@ msgstr "Exporter le &répertoire :"
 
 #. Resource IDs: (2506)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Exporter les fichiers (*.tsex)|*.tsex|Tous les fichiers (*.*)|*.*||"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
@@ -9309,7 +9310,7 @@ msgstr "Met les dates de fichier aux \"da&tes de dernière livraison\""
 msgid ""
 "Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Définir la propriété '%1!S!' pour %2!ls!"
 
 #. Resource IDs: (200)
 msgid "Setting properties..."
@@ -10325,7 +10326,7 @@ msgstr "Le fournisseur du système de suivi des problèmes n'a pas été capable
 msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
-msgstr ""
+msgstr "L'élément '%ls' a des propriétés conflictuelles:\n%ls"
 
 #. Resource IDs: (9716)
 #, c-format
@@ -10569,7 +10570,7 @@ msgstr "Le fichier sélectionné semble contenir un ou plusieurs marquages de co
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "Le fichier de paramètres ne peut pas être décrypté avec le mot de passe spécifié.\nVoulez-vous écraser le fichier sync ?"
 
 #. Resource IDs: (1343)
 #, c-format
@@ -10577,7 +10578,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr ""
+msgstr "Le chemin/l'URL spécifié\n%ls\nest invalide !"
 
 #. Resource IDs: (2339)
 msgid "The target already exists."
@@ -10855,7 +10856,7 @@ msgstr "Astuce"
 
 #. Resource IDs: (1027)
 msgid "To add projects to be monitored, click the \"Add\" button above"
-msgstr ""
+msgstr "Pour ajouter des projets à surveiller, cliquez sur le bouton \"Ajouer\" au-dessus."
 
 #. Resource IDs: (3580)
 msgid ""
@@ -11189,7 +11190,7 @@ msgstr "Annuler sélection"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Les éléments non cochés sont indiqués dans le sous-menu, les éléments cochés dans le menu contextuel principal."
 
 #. Resource IDs: (57643)
 msgid "Undo"
@@ -11329,7 +11330,7 @@ msgstr "Mettre à jour la CdT à la révision"
 
 #. Resource IDs: (1042)
 msgid "Update check is currently running!"
-msgstr ""
+msgstr "La vérification de mise à jour est en cours !"
 
 #. Resource IDs: (4652)
 msgid "Update externals"
@@ -11766,7 +11767,7 @@ msgstr "Quand la connexion à un serveur de dépôt est impossible,\nTSVN peut o
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Une fois activé,  les éléments du menu contextuel de TortoiseSVN déplacer/copier seront disponibles lors du glissement des fichiers/dossiers."
 
 #. Resource IDs: (3141)
 msgid ""
@@ -11878,7 +11879,7 @@ msgstr "Vous avez abandonné plus d'un fichier ou dossier à ajouter au réperto
 
 #. Resource IDs: (104)
 msgid "You have marked changed blocks. How should those blocks be saved?"
-msgstr ""
+msgstr "Vous avez marqué des blocs modifiés. Comment ces blocs doivent-ils être enregistrés ?"
 
 #. Resource IDs: (254)
 msgid ""
@@ -12265,7 +12266,7 @@ msgstr "externe"
 #. Resource IDs: (2706)
 #, c-format
 msgid "failed hunks: %d"
-msgstr ""
+msgstr "partie(s) ayant échoué: %d"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -12460,7 +12461,7 @@ msgstr "blocs de paire:"
 
 #. Resource IDs: (2707)
 msgid "patched"
-msgstr ""
+msgstr "patché"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
