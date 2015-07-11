@@ -70,9 +70,7 @@ CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
 {
     SetDllDirectory(L"");
     EnableHtmlHelp();
-    int argc = 0;
-    const char* const * argv = NULL;
-    apr_app_initialize(&argc, &argv, NULL);
+    apr_initialize();
     svn_dso_initialize2();
     SYS_IMAGE_LIST();
     CHooks::Create();
@@ -123,7 +121,9 @@ HWND FindParentWindow(HWND hWnd)
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
+#ifdef _DEBUG
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     CheckUpgrade();
