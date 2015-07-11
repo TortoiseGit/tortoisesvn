@@ -249,12 +249,15 @@ BOOL CSettings::OnEraseBkgnd(CDC* pDC)
     HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
     SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
-    if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
+    if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
     {
-        // draw the frame margins in black
-        RECT rc;
-        GetClientRect(&rc);
-        pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+        if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
+        {
+            // draw the frame margins in black
+            RECT rc;
+            GetClientRect(&rc);
+            pDC->FillSolidRect(rc.left, rc.bottom - BOTTOMMARG, rc.right - rc.left, BOTTOMMARG, RGB(0, 0, 0));
+        }
     }
     return TRUE;
 }
