@@ -102,16 +102,10 @@ BOOL CMergeWizard::OnInitDialog()
     margs.cxRightWidth = 0;
     margs.cyBottomHeight = BOTTOMMARG;
 
-    if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
+    if (m_aeroControls.AeroDialogsEnabled())
     {
-        HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
-        SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
-        BOOL bEnabled = FALSE;
-        if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
-        {
-            DwmExtendFrameIntoClientArea(m_hWnd, &margs);
-            ShowGrip(false);
-        }
+        DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+        ShowGrip(false);
         m_aeroControls.SubclassOkCancelHelp(this);
         m_aeroControls.SubclassControl(this, ID_WIZFINISH);
         m_aeroControls.SubclassControl(this, ID_WIZBACK);

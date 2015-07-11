@@ -34,6 +34,8 @@ public:
     void SubclassOkCancel(CWnd* parent);
     void SubclassOkCancelHelp(CWnd* parent);
 
+    bool AeroDialogsEnabled();
+
 private:
     static LRESULT CALLBACK SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uidSubclass, DWORD_PTR dwRefData);
     LRESULT StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);

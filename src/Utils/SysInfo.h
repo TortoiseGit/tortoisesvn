@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010,2014 - TortoiseSVN
+// Copyright (C) 2008-2010, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,4 +33,8 @@ public:
     static const SysInfo& Instance();
 
     bool            IsWin7OrLater() const { return IsWindows7OrGreater(); }
+#ifndef _WIN32_WINNT_WIN10
+#define _WIN32_WINNT_WIN10 0x0A00
+#endif
+    bool            IsWin10OrLater() const { return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0); }
 };

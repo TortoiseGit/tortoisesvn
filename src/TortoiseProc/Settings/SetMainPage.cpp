@@ -85,7 +85,8 @@ BOOL CSetMainPage::OnInitDialog()
     SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
     DialogEnableWindow(IDC_AERODWM, ((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled);
-
+    if (SysInfo::Instance().IsWin10OrLater())
+        GetDlgItem(IDC_AERODWM)->ShowWindow(SW_HIDE);
     CString temp;
     temp = m_regLastCommitTime;
     m_bLastCommitTime = (temp.CompareNoCase(L"yes")==0);

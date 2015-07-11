@@ -48,7 +48,6 @@ protected:
     CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
     {
         m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-        m_regEnableDWMFrame = CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE);
         m_margins.cxLeftWidth = 0;
         m_margins.cyTopHeight = 0;
         m_margins.cxRightWidth = 0;
@@ -136,7 +135,7 @@ protected:
     BOOL OnEraseBkgnd(CDC*  pDC)
     {
         BOOL baseRet = BaseType::OnEraseBkgnd(pDC);
-        if (IsDWMEnabled())
+        if (m_aeroControls.AeroDialogsEnabled())
         {
             // draw the frame margins in black
             CRect rc;
@@ -173,7 +172,7 @@ protected:
 
     LRESULT OnNcHitTest(CPoint pt)
     {
-        if (IsDWMEnabled())
+        if (m_aeroControls.AeroDialogsEnabled())
         {
             CRect rc;
             GetClientRect(&rc);
@@ -203,7 +202,7 @@ protected:
      */
     void ExtendFrameIntoClientArea(UINT leftControl, UINT topControl, UINT rightControl, UINT botomControl)
     {
-        if (!(DWORD)m_regEnableDWMFrame)
+        if (!m_aeroControls.AeroDialogsEnabled())
             return;
         RECT rc, rc2;
         GetWindowRect(&rc);
@@ -269,10 +268,7 @@ protected:
             m_margins.cxRightWidth = -1;
             m_margins.cyBottomHeight = -1;
         }
-        if (IsDWMEnabled())
-        {
-            DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
-        }
+        DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
     }
 
     /**
@@ -446,7 +442,6 @@ protected:
 
 protected:
     MARGINS         m_margins;
-    CRegDWORD       m_regEnableDWMFrame;
     AeroControlBase m_aeroControls;
     CToolTips       m_tooltips;
     int             m_nResizeBlock;
@@ -485,7 +480,7 @@ private:
 
     void OnCompositionChanged()
     {
-        if (IsDWMEnabled())
+        if (m_aeroControls.AeroDialogsEnabled())
         {
             DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
         }
@@ -498,13 +493,6 @@ private:
         return 0;
     }
 
-    bool IsDWMEnabled()
-    {
-        HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
-        SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
-        BOOL bEnabled = FALSE;
-        return ((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled && ((DWORD)m_regEnableDWMFrame);
-    }
     HICON           m_hIcon;
     HICON           m_hBkgndIcon;
     int             m_bkgndIconWidth;

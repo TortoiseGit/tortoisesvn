@@ -201,7 +201,7 @@ BOOL CSettings::OnInitDialog()
     margs.cxRightWidth = 0;
     margs.cyBottomHeight = BOTTOMMARG;
 
-    if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
+    if (m_aeroControls.AeroDialogsEnabled())
     {
         DwmExtendFrameIntoClientArea(m_hWnd, &margs);
         m_aeroControls.SubclassOkCancelHelp(this);
@@ -246,18 +246,12 @@ BOOL CSettings::OnEraseBkgnd(CDC* pDC)
 {
     CTreePropSheet::OnEraseBkgnd(pDC);
 
-    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
-    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
-    BOOL bEnabled = FALSE;
-    if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE))
+    if (m_aeroControls.AeroDialogsEnabled())
     {
-        if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
-        {
-            // draw the frame margins in black
-            RECT rc;
-            GetClientRect(&rc);
-            pDC->FillSolidRect(rc.left, rc.bottom - BOTTOMMARG, rc.right - rc.left, BOTTOMMARG, RGB(0, 0, 0));
-        }
+        // draw the frame margins in black
+        RECT rc;
+        GetClientRect(&rc);
+        pDC->FillSolidRect(rc.left, rc.bottom - BOTTOMMARG, rc.right - rc.left, BOTTOMMARG, RGB(0, 0, 0));
     }
     return TRUE;
 }

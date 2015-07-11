@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "AeroControls.h"
+#include "SysInfo.h"
 
 enum ControlType
 {
@@ -60,7 +61,7 @@ AeroControlBase::~AeroControlBase()
 bool AeroControlBase::SubclassControl(HWND hControl)
 {
     bool bRet = false;
-    if (!(DWORD)m_regEnableDWMFrame)
+    if (!AeroDialogsEnabled())
         return bRet;
     TCHAR szWndClassName[MAX_PATH] = { 0 };
     if (GetClassName(hControl, szWndClassName, _countof(szWndClassName)))
@@ -100,6 +101,25 @@ void AeroControlBase::SubclassOkCancelHelp(CWnd* parent)
     SubclassControl(parent, IDCANCEL);
     SubclassControl(parent, IDOK);
     SubclassControl(parent, IDHELP);
+}
+
+bool AeroControlBase::AeroDialogsEnabled()
+{
+    // disable aero dialogs in high contrast mode and on Windows 10:
+    // in high contrast mode, while DWM is still active, the aero effect is not
+    // in Win 10, the dialog title bar is not rendered transparent, so the dialogs would
+    // look really ugly and not symmetric.
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+    BOOL bEnabled = FALSE;
+    if ((DWORD)m_regEnableDWMFrame && !SysInfo::Instance().IsWin10OrLater())
+    {
+        if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 LRESULT AeroControlBase::SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uidSubclass, DWORD_PTR dwRefData)
