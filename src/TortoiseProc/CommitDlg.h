@@ -114,6 +114,7 @@ protected:
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg void OnBnClickedRunhook();
     void Refresh();
     void GetAutocompletionList(std::map<CString, int>& autolist);
     void ScanFile(std::map<CString, int>& autolist, const CString& sFilePath, const CString& sRegex, const CString& sExt);
@@ -172,6 +173,4 @@ private:
     CPathEdit           m_CommitTo;
     CBugTraqAssociation m_bugtraq_association;
     CHyperLink          m_cUpdateLink;
-public:
-    afx_msg void OnBnClickedRunhook();
 };
