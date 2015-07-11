@@ -602,6 +602,7 @@ UINT CCommitDlg::StatusThread()
     InterlockedExchange(&m_bRunThread, TRUE);   // if this is set to FALSE, the thread should stop
     m_bCancelled = false;
     CoInitialize(NULL);
+    OnOutOfScope(CoUninitialize());
 
     DialogEnableWindow(IDOK, false);
     DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
@@ -740,7 +741,6 @@ UINT CCommitDlg::StatusThread()
     InterlockedExchange(&m_bThreadRunning, FALSE);
     // force the cursor to normal
     RefreshCursor();
-    CoUninitialize();
     return 0;
 }
 
@@ -982,7 +982,7 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
     try
     {
         CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
-        while (m_bRunThread && file.ReadString(strLine))
+        while (m_bRunThread && !m_bCancelled && file.ReadString(strLine))
         {
             int eqpos = strLine.Find('=');
             CString rgx;
@@ -1011,7 +1011,7 @@ void CCommitDlg::ParseSnippetFile(const CString& sFile, std::map<CString, CStrin
     try
     {
         CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
-        while (m_bRunThread && file.ReadString(strLine))
+        while (m_bRunThread && !m_bCancelled && file.ReadString(strLine))
         {
             if (strLine.IsEmpty())
                 continue;
@@ -1084,10 +1084,10 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
     // and scan them for strings we can use
     int nListItems = m_ListCtrl.GetItemCount();
     CRegDWORD removedExtension(L"Software\\TortoiseSVN\\AutocompleteRemovesExtensions", FALSE);
-    for (int i = 0; i < nListItems && m_bRunThread; ++i)
+    for (int i = 0; i < nListItems && m_bRunThread && !m_bCancelled; ++i)
     {
         // stop parsing after timeout
-        if ((!m_bRunThread) || (GetTickCount64() - starttime > timeoutvalue))
+        if ((!m_bRunThread) || m_bCancelled || (GetTickCount64() - starttime > timeoutvalue))
             return;
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
@@ -1117,10 +1117,10 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
                 autolist.insert(std::make_pair(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME));
         }
     }
-    for (int i = 0; i < nListItems && m_bRunThread; ++i)
+    for (int i = 0; i < nListItems && m_bRunThread && !m_bCancelled; ++i)
     {
         // stop parsing after timeout
-        if ((!m_bRunThread) || (GetTickCount64() - starttime > timeoutvalue))
+        if ((!m_bRunThread) || m_bCancelled || (GetTickCount64() - starttime > timeoutvalue))
             return;
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
@@ -1210,6 +1210,8 @@ void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFile
         const std::tr1::wsregex_iterator end;
         for (std::tr1::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
         {
+            if (m_bCancelled)
+                break;
             const std::tr1::wsmatch match = *it;
             for (size_t i=1; i<match.size(); ++i)
             {
