@@ -43,9 +43,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-06 06:49+0000\n"
-"Last-Translator: Kerzzy <6greenday6@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/tortoisesvn/language/fr/)\n"
+"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/p/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,6 +210,18 @@ msgstr "%I64d octets/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d ko transférés"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr ""
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr ""
 
 #. Resource IDs: (1022)
 #, c-format
@@ -405,18 +417,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nest un répertoire, pas un fichier !\nTortoiseMerge ne peut pas comparer les répertoires."
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Récupéré]"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2063,14 +2063,15 @@ msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réini
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser le menu '%s' ?"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser la barre d'outils '%s' ?"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr ""
 
 #. Resource IDs: (32976)
 msgid ""
@@ -3872,7 +3873,7 @@ msgstr "L'arborescence de répertoires par défaut a été créé avec succès."
 
 #. Resource IDs: (65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "Intervalle par défaut du moniteur en minutes :"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4188,8 +4189,8 @@ msgstr "Faire de même pour tous les éléments non versionnés/modifiés"
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Voulez-vous vraiment supprimer la barre d'outils '%s' ?"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4389,7 +4390,7 @@ msgstr "Modifier les références externes"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "Editer le projet à surveiller"
 
 #. Resource IDs: (227, 9408)
 msgid "Edit Properties"
@@ -4436,7 +4437,7 @@ msgstr "Editer un commentaire"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Editer la propriété '%1!S!' sur\n%2!!s!"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4708,8 +4709,8 @@ msgstr "&Développer l'arborescence suivante"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "Etendre (%s)"
+msgid "Expand (%Ts)"
+msgstr ""
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -4860,7 +4861,7 @@ msgstr "Échec du lancement de l'opération serveur."
 
 #. Resource IDs: (1043)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Impossible de charger le fichier de configuration du moniteur de projet !"
 
 #. Resource IDs: (61697)
 msgid "Failed to open document."
@@ -5671,7 +5672,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -5957,7 +5958,7 @@ msgstr "Importer le répertoire %1!ls!\r\nvers %2!ls!"
 #. Resource IDs: (9801)
 #, c-format
 msgid "Import to %1!ls!"
-msgstr ""
+msgstr "Importer vers %1!ls!"
 
 #. Resource IDs: (1673)
 msgid ""
@@ -6254,7 +6255,7 @@ msgstr "Laisser seulement les changements sélectionnés"
 
 #. Resource IDs: (65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Laissez la case \"Chemin ou URL\" vide pour créer un dossier"
 
 #. Resource IDs: (3003)
 msgid "Left View: "
@@ -6525,7 +6526,7 @@ msgstr "Trop d'éléments sélectionnés pour afficher le différentiel"
 msgid ""
 "Mark all projects as read\n"
 "Hold down the shift key to also clear all fetch errors."
-msgstr ""
+msgstr "Marquer tous les projets comme lus\nGardez la touche majuscule enfoncée pour effacer également toutes les erreurs de récupération"
 
 #. Resource IDs: (9760)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6585,7 +6586,7 @@ msgstr "Marque un fichier comme résolu dans Subversion\nMarquer comme résolu"
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr ""
+msgstr "Marque le conflit comme résolu.\nNote : cela ne résout par le conflit, mais le marque seulement comme résolu !"
 
 #. Resource IDs: (9520)
 msgid ""
@@ -6812,7 +6813,7 @@ msgstr "Noeud modifié"
 
 #. Resource IDs: (65535)
 msgid "Monitor interval in minutes:"
-msgstr ""
+msgstr "Intervalle du moniteur en minutes :"
 
 #. Resource IDs: (17107)
 msgid "More"
@@ -6880,7 +6881,7 @@ msgstr "Déplacer l'Élément vers le Haut"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Déplacer et ajouter\nCe fichier est déplacé vers la destination et ajouté au contrôle de version."
 
 #. Resource IDs: (2336)
 msgid "Move and rename"
@@ -8340,7 +8341,7 @@ msgstr "Retirer du système de contrôle de version\nTous les répertoires .svn 
 msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Supprimer la propritété '%1!S!' de\n%2!ls!"
 
 #. Resource IDs: (5507)
 msgid "Remove the selected cache(s) from disk"
@@ -8492,7 +8493,7 @@ msgstr "Remplacer :"
 #. Resource IDs: (1507)
 #, c-format
 msgid "Replaced %d matches"
-msgstr ""
+msgstr "%d correspondances remplacées"
 
 #. Resource IDs: (1173)
 msgid "Replacing"
@@ -8980,19 +8981,19 @@ msgstr "Enregistrer tout\nTous les fichiers sont enregistrés"
 msgid ""
 "Save and exclude\n"
 "Your changes are saved and the original content is used"
-msgstr ""
+msgstr "Sauvegarder et exclure\nVos modifications sont sauvegardées et le contenu original est utilisé"
 
 #. Resource IDs: (107)
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr ""
+msgstr "Sauvegarder et ignorer les blocs marqués\nSeuls vos modifications manuelles sont sauvegardées, les blocs marqués sont laissés tels quels"
 
 #. Resource IDs: (105)
 msgid ""
 "Save and include\n"
 "Your changes are saved and the marked blocks are included"
-msgstr ""
+msgstr "Sauvegarder et inclure\nVos modifications sont sauvegardées et le blocs marqués sont inclus"
 
 #. Resource IDs: (5050, 57604)
 msgid "Save as"
@@ -9876,7 +9877,7 @@ msgstr ""
 
 #. Resource IDs: (1036)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Démarre l'outil de fusion où vous pourrez résoudre le conflit de propriété"
 
 #. Resource IDs: (1038)
 msgid "Starts the property dialog where you can edit the property manually."
@@ -10800,14 +10801,15 @@ msgstr "Ce produit inclût des logiciels de Apache™ Subversion® (http://subve
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "Ce programme est lié à l'exportation manquante %s dans le fichier %s. Cette machine peut avoir une version incompatible de %s."
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr ""
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "Ce programme demande le fichier %s, lequel n'a pas été trouvé."
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -10983,25 +10985,25 @@ msgstr ""
 
 #. Resource IDs: (1021)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "Moniteur de projet TortoiseSVN"
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "Options du moniteur de projet TortoiseSVN"
 
 #. Resource IDs: (1025)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "Moniteur de projet TortoiseSVN\n%d nouvelle livraison dans %d projet"
 
 #. Resource IDs: (1026)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "Moniteur de projet TortoiseSVN\n%d nouvelles livraisons dans %d projets"
 
 #. Resource IDs: (4482)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11360,7 +11362,7 @@ msgstr "Mis à jour"
 
 #. Resource IDs: (1041)
 msgid "Updates all monitored working copies"
-msgstr ""
+msgstr "Mets à jour toutes les copies de travail surveillées"
 
 #. Resource IDs: (171)
 msgid "Updates the working copy to a specific revision"
@@ -11730,7 +11732,7 @@ msgstr "Attendre que le script se termine"
 
 #. Resource IDs: (1046)
 msgid "Waiting for monitoring thread to finish..."
-msgstr ""
+msgstr "En attente de la fin du processus de surveillance..."
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"

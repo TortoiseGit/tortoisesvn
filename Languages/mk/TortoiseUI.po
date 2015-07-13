@@ -16,9 +16,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-12 09:09+0000\n"
+"PO-Revision-Date: 2015-07-12 09:20+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Macedonian (http://www.transifex.com/projects/p/tortoisesvn/language/mk/)\n"
+"Language-Team: Macedonian (http://www.transifex.com/p/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -183,6 +183,18 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kB пренесено"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr ""
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr ""
 
 #. Resource IDs: (1022)
 #, c-format
@@ -378,18 +390,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nе директориум а не датотека!\nTortoiseMerge не може да споредува директориуми."
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Вратено на старо]"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2036,14 +2036,15 @@ msgstr "Сите ваши измени ќе бидат изгубени! Дал�
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го ресетирате менито '%s'?"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го ресетирате алатникот '%s'?"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr ""
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4161,8 +4162,8 @@ msgstr ""
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Дали навистина сакате да го избришете алатникот '%s'?"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4681,8 +4682,8 @@ msgstr "Прошири го &следното дрво:"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "Прошири (%s)"
+msgid "Expand (%Ts)"
+msgstr ""
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10773,14 +10774,15 @@ msgstr ""
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "Овој програм е поврзан со непостоечкиот експорт%s во %s. Можеби на оваа машина постои некомпатибилна верзија на %s."
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr ""
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "Оваа програма ја користи датотеката %s, која не е пронајдена."
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."

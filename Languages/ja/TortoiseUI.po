@@ -33,9 +33,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-13 11:11+0000\n"
-"Last-Translator: ABE Tsunehiko\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/tortoisesvn/language/ja/)\n"
+"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/p/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,6 +200,18 @@ msgstr "%I64d バイト/秒"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KBを転送しました"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr ""
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr ""
 
 #. Resource IDs: (1022)
 #, c-format
@@ -395,18 +407,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nはファイルではなくディレクトリです。\nTortoiseMerge はディレクトリの差分を取ることはできません。"
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s ［復元］"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2053,14 +2053,15 @@ msgstr "すべての変更が失われます。本当にキーボードの割り
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "すべての変更が失われます。本当にメニュー「%s」をリセットしてもよろしいですか？"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "すべての変更が失われます。本当にツールバー「%s」をリセットしてもよろしいですか？"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr ""
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4178,8 +4179,8 @@ msgstr "バージョン管理外もしくは変更された項目すべてにこ
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "本当にこのツールバー「%s」を削除してもよろしいですか？"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4698,8 +4699,8 @@ msgstr "次のツリーを展開する(&F)"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "展開（%s）"
+msgid "Expand (%Ts)"
+msgstr ""
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10790,14 +10791,15 @@ msgstr "本製品は Apache™ Subversion® (http://subversion.apache.org) の�
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "このプログラムは不明な %s （ファイル %s）へリンクされています。 この計算機は %s とは互換性のないバージョンの可能性があります。"
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr ""
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "このプログラムはファイル %s を必要としますが、このシステム上で見つけることができませんでした。"
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."

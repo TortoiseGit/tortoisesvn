@@ -21,9 +21,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-04 17:45+0000\n"
+"PO-Revision-Date: 2015-07-12 11:28+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
+"Language-Team: Catalan (http://www.transifex.com/p/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -188,6 +188,18 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferits"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr "%Ts [Recuperat]"
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -383,18 +395,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nés un directori, no un fitxer.\nTortoiseMerge no pot comparar directoris."
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Recuperat]"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2041,14 +2041,15 @@ msgstr "Tots els canvis es perdran! Realment voleu reinicialitzar totes les assi
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Tots els canvis es perdran! Realment voleu reinicialitzar el menú '%s'?"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr "Tots els canvis es perdran. Voleu reinicialitzar el menú '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Tots els canvis es perdran! Realment voleu reinicialitzar la barra d'eines '%s'?"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr "Tots els canvis es perdran. Voleu reinicialitzar la barra d'eines '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4166,8 +4167,8 @@ msgstr "Feu això per a tots els elements sense versionar o modificats"
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Realment voleu esborrar la barra d'eines '%s'?"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr "Voleu suprimir la barra d'eines '%Ts'?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4686,8 +4687,8 @@ msgstr "Expandeix arbre &següent"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "Expandeix (%s)"
+msgid "Expand (%Ts)"
+msgstr "Expandeix (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10578,7 +10579,7 @@ msgid ""
 "%ls\n"
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
-msgstr "La carpeta triada \n%ls\nno és buida!\nEsteu segur que voleu obtenir/exportar a aquesta carpeta ?"
+msgstr "La carpeta triada \n%ls\nno és buida.\nEsteu segur que voleu obtenir/exportar a aquesta carpeta?"
 
 #. Resource IDs: (4459)
 msgid "The target has local modifications"
@@ -10778,14 +10779,15 @@ msgstr "Aquest producte inclou programari de Apache™ Subversion® (http://subv
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "Aquest programa està enllaçat a una funció que no es troba a %s del fitxer %s. Aquesta màquina pot tenir una versió incompatible de  %s."
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr "Aquest programa està enllaçat amb l'exportable inexistent %Ts en el fitxer %Ts. Aquesta màquina té una versió de %Ts incompatible."
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "Aquest programa requereix el fitxer %s, que no s'ha trobat al sistema."
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr "Aquest programa requereix el fitxer %Ts, que no s'ha trobat al sistema."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."

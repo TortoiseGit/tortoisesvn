@@ -32,9 +32,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-12 19:50+0000\n"
-"Last-Translator: Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/tortoisesvn/language/pt_BR/)\n"
+"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/p/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,6 +199,18 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferidos"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr ""
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr ""
 
 #. Resource IDs: (1022)
 #, c-format
@@ -394,18 +406,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\né um diretório, não um arquivo!\nO TortoiseMerge não pode diferenciar diretórios."
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Recuperados]"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2052,14 +2052,15 @@ msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar as atr
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar o menu '%s'?"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar a barra de ferramentas '%s'?"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr ""
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4177,8 +4178,8 @@ msgstr "Fazer para todos os itens não versionados/modificados"
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Você realmente deseja excluir a barra de ferramentas '%s'?"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr ""
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4697,8 +4698,8 @@ msgstr "Expandir árvore &seguinte"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "Expandir (%s)"
+msgid "Expand (%Ts)"
+msgstr ""
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10789,14 +10790,15 @@ msgstr "Este produto inclui aplicativo da Apache™ Subversion® (http://subvers
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "Esse programa está associado à %s ausente no arquivo %s. Este computador pode estar com uma versão incompatível do %s."
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr ""
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "Esse programa requer o arquivo %s, que não foi encontrado no sistema."
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."

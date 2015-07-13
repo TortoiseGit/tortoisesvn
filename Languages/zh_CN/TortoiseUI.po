@@ -36,9 +36,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-06-12 12:43+0000\n"
+"PO-Revision-Date: 2015-07-12 15:10+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/tortoisesvn/language/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/p/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -203,6 +203,18 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "已传输 %I64d KB"
+
+#. Resource IDs: (62186)
+#, c-format
+msgid "%Ts [Recovered]"
+msgstr "%Ts [已还原]"
+
+#. Resource IDs: (61585, 61586)
+#, c-format
+msgid ""
+"%Ts\n"
+"%Ts"
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -398,18 +410,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n是个文件夹，不是文件！\nTortoiseMerge 无法比较文件夹的差异。"
-
-#. Resource IDs: (62186)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [已还原]"
-
-#. Resource IDs: (61585, 61586)
-#, c-format
-msgid ""
-"%s\n"
-"%s"
-msgstr "%s\n%s"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -2056,14 +2056,15 @@ msgstr "将要丢弃你的全部修改! 你真的要重置全部键盘分配吗?
 #. Resource IDs: (16113)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "将要丢弃你的全部修改! 你真的要重置菜单“%s”吗?"
+"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
+msgstr "您的更改将全部丢失！您确定要重置菜单“%Ts”吗？"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "将要丢弃你的全部修改! 你真的要重置工具栏“%s”吗?"
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%Ts'?"
+msgstr "您的更改将全部丢失！您确定要重置工具栏“%Ts”吗？"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4181,8 +4182,8 @@ msgstr "应用到所有无版本控制/已修改的项目"
 
 #. Resource IDs: (16109)
 #, c-format
-msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "你真的要删除工具栏“%s”吗？"
+msgid "Do you really want to delete the toolbar '%Ts'?"
+msgstr "您确定要删除工具栏“%Ts”吗？"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4701,8 +4702,8 @@ msgstr "展开下列树(&A)"
 
 #. Resource IDs: (16025)
 #, c-format
-msgid "Expand (%s)"
-msgstr "展开 (%s)"
+msgid "Expand (%Ts)"
+msgstr "展开 (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10793,14 +10794,15 @@ msgstr "本产品包含了来自  Apache™ Subversion® (http://subversion.apac
 #. Resource IDs: (61710)
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine"
-" may have an incompatible version of %s."
-msgstr "找不到本程序链接的 %s (包含于 %s)，可能 %s 的已安装版本不兼容。"
+"This program is linked to the missing export %Ts in the file %Ts. This "
+"machine may have an incompatible version of %Ts."
+msgstr "找不到本程序链接的 %Ts (包含于 %Ts)。此机器已安装的 %Ts 版本可能不兼容。"
 
 #. Resource IDs: (61709)
 #, c-format
-msgid "This program requires the file %s, which was not found on this system."
-msgstr "系统中找不到本程序需要的 %s。"
+msgid ""
+"This program requires the file %Ts, which was not found on this system."
+msgstr "此系统中找不到本程序需要的 %Ts。"
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
