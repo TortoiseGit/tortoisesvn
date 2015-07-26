@@ -243,7 +243,7 @@ void CLockDlg::OnEnChangeLockmessage()
 {
     CString sTemp;
     GetDlgItemText(IDC_LOCKMESSAGE, sTemp);
-    if ((m_ProjectProperties == NULL)||((m_ProjectProperties)&&(sTemp.GetLength() >= m_ProjectProperties->nMinLockMsgSize)))
+    if (m_ProjectProperties == NULL || sTemp.GetLength() >= m_ProjectProperties->nMinLockMsgSize)
     {
         if (!m_bBlock)
             DialogEnableWindow(IDOK, TRUE);
