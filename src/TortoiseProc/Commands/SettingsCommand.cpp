@@ -30,8 +30,7 @@ bool SettingsCommand::Execute()
     HDC hdc = ::GetDC(nullptr);
     int dpiX = GetDeviceCaps(hdc, LOGPIXELSX);
     ::ReleaseDC(nullptr, hdc);
-    const int treeWidth = 220;  // need to adjust manually if text gets longer
-    dlg.SetTreeWidth(220 * dpiX / 96);
+    dlg.SetTreeWidth(220 * dpiX / 96);  // need to adjust manually if text gets longer
     long page = parser.GetLongVal(L"page");
     dlg.SetActivePage(page);
     dlg.DoModal();
