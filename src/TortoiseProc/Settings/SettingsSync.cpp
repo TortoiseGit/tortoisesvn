@@ -94,6 +94,13 @@ BOOL CSettingsSync::OnApply()
     if (!ValidateInput())
         return FALSE;
 
+    // if the path changed, reset the sync counter in the registry
+    if (m_sSyncPath.CompareNoCase((CString)m_regSyncPath))
+    {
+        CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
+        regCount = 0;
+    }
+
     auto pw = CStringUtils::Encrypt(m_sPW1);
     Store(pw, m_regSyncPW);
     Store(m_sSyncPath, m_regSyncPath);
@@ -152,7 +159,7 @@ BOOL CSettingsSync::ValidateInput()
                 LARGE_INTEGER fsize = { 0 };
                 if (GetFileSizeEx(hFile, &fsize))
                 {
-                    auto filebuf = std::make_unique<char[]>(fsize.QuadPart);
+                    auto filebuf = std::make_unique<char[]>(DWORD(fsize.QuadPart));
                     DWORD bytesread = 0;
                     if (ReadFile(hFile, filebuf.get(), DWORD(fsize.QuadPart), &bytesread, NULL))
                     {

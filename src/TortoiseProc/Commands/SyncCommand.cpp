@@ -151,7 +151,7 @@ bool SyncCommand::Execute()
             LARGE_INTEGER fsize = { 0 };
             if (GetFileSizeEx(hFile, &fsize))
             {
-                auto filebuf = std::make_unique<char[]>(fsize.QuadPart);
+                auto filebuf = std::make_unique<char[]>(DWORD(fsize.QuadPart));
                 DWORD bytesread = 0;
                 if (ReadFile(hFile, filebuf.get(), DWORD(fsize.QuadPart), &bytesread, NULL))
                 {

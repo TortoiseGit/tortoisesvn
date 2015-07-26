@@ -6792,9 +6792,9 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
                     int succeededItems = 0;
                     PIDLIST_RELATIVE pidl = NULL;
 
-                    size_t bufsize = 1024;
+                    int bufsize = 1024;
                     std::unique_ptr<WCHAR[]> filepath(new WCHAR[bufsize]);
-                    for (size_t i = 0; i < nItems; i++)
+                    for (int i = 0; i < nItems; i++)
                     {
                         if (bufsize < targetList[i].GetWinPathString().GetLength())
                         {

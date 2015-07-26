@@ -128,18 +128,18 @@ private:
 
         /// dictionary lookup
 
-        const value_type& value (index_type index) const
+        const value_type& value (index_type ind) const
         {
-            assert (data->size() >= index);
-            return (*data)[index]->pathID;
+            assert (data->size() >= ind);
+            return (*data)[ind]->pathID;
         }
 
         /// lookup and comparison
 
-        bool equal (const value_type& value, index_type index) const
+        bool equal (const value_type& value, index_type ind) const
         {
-            assert (data->size() > index);
-            return (*data)[index]->pathID == value;
+            assert (data->size() > ind);
+            return (*data)[ind]->pathID == value;
         }
     };
 
