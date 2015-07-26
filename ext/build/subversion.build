@@ -106,7 +106,6 @@
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
             <define name="SVN_HAVE_SASL=1" />
             <define name="alloca=_alloca" />
-            <define name="snprintf=_snprintf" />
             <define name="WIN32" />
             <define name="_WINDOWS" />
             <define name="_WIN32" />
@@ -296,7 +295,6 @@ TSVN_ClearLastUsedAuthCache' />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
             <define name="alloca=_alloca" />
             <define name="SVN_HAVE_SASL" />
-            <define name="snprintf=_snprintf" />
             <define name="WIN32" />
             <define name="_WINDOWS" />
             <define name="_WIN32" />
