@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -688,7 +688,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                 CString revname, wcname;
                 revname.Format(L"%s Revision %s", (LPCTSTR)url1.GetFilename(), (LPCTSTR)rev2.ToString());
                 wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-                return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName(), L"");
+                return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, url1, url1, rev2, rev1, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName(), L"");
             }
         }
     }
