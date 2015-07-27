@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-07-13 19:48+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/p/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,14 +190,14 @@ msgstr "%I64d kBajta preneto"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Obnovljen]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -2040,14 +2040,14 @@ msgstr "Sve vaše izmene biće izgubljene! Da li zaista želite izmeniti oznake 
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Sve vaše izmene će nestati! Da li stvarno želite da resetujete meni  '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Sve vaše izmene će nestati! Da li stvarno želite da resetujete alatni panel  '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -4166,7 +4166,7 @@ msgstr "Uradite ovo za sve neverzionisane/izmenjene stavke"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Da li zaista želite da obrišete alatni panel  '%Ts'?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4686,7 +4686,7 @@ msgstr "Proširiti &sledeće stablo"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Proširi (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -10779,13 +10779,13 @@ msgstr "Ovaj proizvod sadrži softver od  Apache™ Subversion® (http://subvers
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Ovaj proogram je povezan na nedostajući izvoz %Ts u fajlu %Ts. Ova mašina možda ima nekompatabilnu verziju %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Ovaj program zahteva fajl %Ts, koji nije pronađen u sistemu."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
