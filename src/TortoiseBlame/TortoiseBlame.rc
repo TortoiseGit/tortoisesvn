@@ -34,12 +34,12 @@ BEGIN
     BEGIN
         MENUITEM "&Settings",                   ID_FILE_SETTINGS
         MENUITEM SEPARATOR
-        MENUITEM "E&xit",                       IDM_EXIT
+        MENUITEM "E&xit\t(Ctrl+W)",             IDM_EXIT
     END
     POPUP "&Edit"
     BEGIN
-        MENUITEM "&Find...",                    ID_EDIT_FIND
-        MENUITEM "&Go To Line...",              ID_EDIT_GOTOLINE
+        MENUITEM "&Find...\t(Ctrl+F)",          ID_EDIT_FIND
+        MENUITEM "&Go To Line...\t(Ctrl+G)",    ID_EDIT_GOTOLINE
     END
     POPUP "&View"
     BEGIN
