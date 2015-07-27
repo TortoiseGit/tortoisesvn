@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2012-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -153,6 +153,12 @@ public:
      */
     long SetActiveFrame(UINT frame);
 
+    /**
+     * frees the allocated memory that holds the IPicture interface data and
+     * clear picture information
+     */
+    void FreePictureData();
+
     DWORD GetFileSize() const {return m_nSize;}
     tstring GetFileSizeAsText(bool bAbbrev = true);
     CPicture();
@@ -177,12 +183,6 @@ protected:
      * \return TRUE if succeeded
      */
     bool LoadPictureData(BYTE* pBuffer, int nSize);
-
-    /**
-     * frees the allocated memory that holds the IPicture interface data and
-     * clear picture information
-     */
-    void FreePictureData();
 
 private:
     GdiplusStartupInput gdiplusStartupInput;
