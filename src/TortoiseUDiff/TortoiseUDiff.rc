@@ -80,18 +80,19 @@ IDC_TORTOISEUDIFF MENU
 BEGIN
     POPUP "&File"
     BEGIN
-        MENUITEM "&Open",                       ID_FILE_OPEN
-        MENUITEM "&Save",                       ID_FILE_SAVE
-        MENUITEM "Save &as",                    ID_FILE_SAVEAS
+        MENUITEM "&Open\t(Ctrl+O)",             ID_FILE_OPEN
+        MENUITEM "&Save\t(Ctrl+S)",             ID_FILE_SAVE
+        MENUITEM "Save &as\t(Ctrl+Shift+S)",    ID_FILE_SAVEAS
         MENUITEM SEPARATOR
         MENUITEM "P&age setup",                 ID_FILE_PAGESETUP
-        MENUITEM "&Print",                      ID_FILE_PRINT
+        MENUITEM "&Print\t(Ctrl+P)",            ID_FILE_PRINT
         MENUITEM SEPARATOR
         MENUITEM "Se&ttings",                   ID_FILE_SETTINGS
         MENUITEM SEPARATOR
+        MENUITEM "&Find\t(Ctrl+F)",             IDM_SHOWFINDBAR
         MENUITEM "Apply &Patch...",             ID_FILE_APPLYPATCH
         MENUITEM SEPARATOR
-        MENUITEM "&Exit",                       ID_FILE_EXIT
+        MENUITEM "&Exit\t(Ctrl+W)",             ID_FILE_EXIT
     END
 END
 
