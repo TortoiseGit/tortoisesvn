@@ -13,7 +13,10 @@
 #include <windows.h>
 
 #include <commctrl.h>
-#include <Shlobj.h>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#include <shlobj.h>
+#pragma warning(pop)
 #include <Shlwapi.h>
 #include <tchar.h>
 #include <wininet.h>

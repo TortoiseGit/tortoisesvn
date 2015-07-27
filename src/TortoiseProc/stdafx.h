@@ -61,7 +61,10 @@
 #include <regex>
 
 #include <vfw.h>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
+#pragma warning(pop)
 #include <Shlwapi.h>
 #include <shlguid.h>
 #include <uxtheme.h>
@@ -70,7 +73,10 @@
 #include <wininet.h>
 #include <assert.h>
 #include <math.h>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
+#pragma warning(pop)
 
 #include "apr_version.h"
 #include "apu_version.h"

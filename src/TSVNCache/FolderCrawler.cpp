@@ -22,7 +22,10 @@
 #include "SVNStatusCache.h"
 #include "registry.h"
 #include "TSVNCache.h"
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
+#pragma warning(pop)
 
 
 CFolderCrawler::CFolderCrawler(void)

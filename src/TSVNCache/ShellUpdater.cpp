@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008, 2011-2012, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,8 +18,11 @@
 //
 
 #include "stdafx.h"
-#include <shlobj.h>
 #include "SVNStatusCache.h"
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#include <shlobj.h>
+#pragma warning(pop)
 
 CShellUpdater::CShellUpdater(void)
 {

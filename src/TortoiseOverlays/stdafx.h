@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007-2008, 2012-2013 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012-2013, 2015 - TortoiseSVN
 
 #pragma once
 // Modify the following defines if you have to target a platform prior to the ones specified below.
@@ -24,7 +24,10 @@
 #include <windows.h>
 
 #include <commctrl.h>
-#include <Shlobj.h>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#include <shlobj.h>
+#pragma warning(pop)
 #include <Shlwapi.h>
 #include <tchar.h>
 

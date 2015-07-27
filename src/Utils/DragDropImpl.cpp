@@ -8,7 +8,10 @@
 // IDataObjectImpl.cpp: implementation of the CIDataObjectImpl class.
 //////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
+#pragma warning(pop)
 #include <atlbase.h>
 #include "DragDropImpl.h"
 #include <new>

@@ -10,7 +10,10 @@
 #define __DRAGDROPIMPL_H__
 //#include <ShlDisp.h>
 #include <shobjidl.h>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
+#pragma warning(pop)
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

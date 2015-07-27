@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "PathUtils.h"
-#include <shlobj.h>
 #include "UnicodeUtils.h"
 
 #include "SVNHelpers.h"
@@ -26,6 +25,10 @@
 #include "svn_path.h"
 #include <emmintrin.h>
 #include <memory>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#include <shlobj.h>
+#pragma warning(pop)
 
 static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
 

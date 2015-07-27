@@ -1,4 +1,4 @@
-// Copyright 2014 Idol Software, Inc.
+// Copyright 2014-2015 Idol Software, Inc.
 //
 // This file is part of Doctor Dump SDK.
 //
@@ -16,8 +16,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
-
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <dbghelp.h>
+#pragma warning(pop)
 #include <atlstr.h>
 #include <vector>
 #include <map>

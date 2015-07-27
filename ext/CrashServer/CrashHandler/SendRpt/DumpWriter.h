@@ -1,4 +1,4 @@
-// Copyright 2014 Idol Software, Inc.
+// Copyright 2014-2015 Idol Software, Inc.
 //
 // This file is part of Doctor Dump SDK.
 //
@@ -18,7 +18,10 @@
 #pragma once
 
 #include <wtypes.h>
+#pragma warning(push)
+#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <dbghelp.h>
+#pragma warning(pop)
 #include <map>
 #include "DoctorDump.h"
 #include "../../CommonLibs/Log/log.h"

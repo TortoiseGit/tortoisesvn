@@ -20,7 +20,10 @@
 #include "tstring.h"
 #include <string>
 #include <ocidl.h>
-#include <GdiPlus.h>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
 
 using namespace Gdiplus;
 

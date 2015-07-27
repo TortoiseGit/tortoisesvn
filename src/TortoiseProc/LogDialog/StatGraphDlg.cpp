@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "StatGraphDlg.h"
-#include "gdiplus.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "PathUtils.h"
@@ -31,6 +30,10 @@
 #include <list>
 #include <utility>
 #include <strsafe.h>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
 
 using namespace Gdiplus;
 

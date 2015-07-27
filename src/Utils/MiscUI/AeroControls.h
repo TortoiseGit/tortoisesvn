@@ -20,7 +20,10 @@
 #pragma once
 #include "registry.h"
 #include <map>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
+#pragma warning(pop)
 using namespace Gdiplus;
 
 class AeroControlBase
