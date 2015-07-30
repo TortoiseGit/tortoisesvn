@@ -26,6 +26,7 @@
 #include "XSplitter.h"
 #include "SVNPatch.h"
 #include "SimpleIni.h"
+#include "CustomMFCRibbonStatusBar.h"
 
 #include <tuple>
 
@@ -240,7 +241,7 @@ protected:
 
 protected:
     CMFCStatusBar   m_wndStatusBar;
-    CMFCRibbonStatusBar m_wndRibbonStatusBar;
+    CCustomMFCRibbonStatusBar m_wndRibbonStatusBar;
     CLocatorBar     m_wndLocatorBar;
     CLineDiffBar    m_wndLineDiffBar;
     CXSplitter      m_wndSplitter;
