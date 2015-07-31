@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2012, 2014 - TortoiseSVN
+// Copyright (C) 2006-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -112,6 +112,13 @@ void CLocatorBar::DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordA
     }
     indents.Add(identcount);
     states.Add(state);
+}
+
+CSize CLocatorBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
+{
+    auto s = __super::CalcFixedLayout(bStretch, bHorz);
+    s.cx = m_minWidth;
+    return s;
 }
 
 void CLocatorBar::OnPaint()
