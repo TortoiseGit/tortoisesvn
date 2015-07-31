@@ -532,6 +532,11 @@ BEGIN
         MENUITEM "Mark as resolved",            ID_EDIT_MARKASRESOLVED
         MENUITEM SEPARATOR
         MENUITEM "Create patch file",           ID_EDIT_CREATEUNIFIEDDIFFFILE
+        MENUITEM SEPARATOR
+        POPUP "Regex Filter"
+        BEGIN
+            MENUITEM "Regex Filter",                ID_REGEXFILTER
+        END
     END
     POPUP "&Navigate"
     BEGIN

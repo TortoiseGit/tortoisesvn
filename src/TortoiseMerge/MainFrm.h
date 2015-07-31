@@ -67,6 +67,7 @@ protected:
     virtual BOOL    PreCreateWindow(CREATESTRUCT& cs);
     virtual BOOL    OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
     virtual void    ActivateFrame(int nCmdShow = -1);
+    virtual BOOL    OnShowPopupMenu(CMFCPopupMenu* pMenuPopup);
     /// line = -1 means keep the current position,
     /// line >= 0 means scroll to that line,
     /// and line == -2 means do nothing or scroll to first diff depending on registry setting
@@ -235,7 +236,7 @@ protected:
     static bool     HasNextConflict(CBaseView* view);
     static bool     HasPrevInlineDiff(CBaseView* view);
     static bool     HasNextInlineDiff(CBaseView* view);
-    void            BuildRegexSubitems();
+    void            BuildRegexSubitems(CMFCPopupMenu* pMenuPopup = nullptr);
 
     static svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool);
 
