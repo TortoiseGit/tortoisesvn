@@ -535,8 +535,9 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Regex Filter"
         BEGIN
-            MENUITEM "Configure Filter Regexes", ID_REGEXFILTER
+            MENUITEM "Configure Filter Regexes",    ID_REGEXFILTER
         END
+        MENUITEM "Ignore comments",             ID_VIEW_IGNORECOMMENTS
     END
     POPUP "&Navigate"
     BEGIN
@@ -1157,7 +1158,7 @@ END
 
 STRINGTABLE
 BEGIN
-    ID_VIEW_IGNORECOMMENTS  "View Bars"
+    ID_VIEW_IGNORECOMMENTS  "Ignore Comments"
     ID_LOGOBUTTON           "TortoiseMerge"
 END
 
