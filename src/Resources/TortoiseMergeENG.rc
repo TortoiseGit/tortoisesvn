@@ -535,7 +535,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Regex Filter"
         BEGIN
-            MENUITEM "Regex Filter",                ID_REGEXFILTER
+            MENUITEM "Configure Filter Regexes", ID_REGEXFILTER
         END
     END
     POPUP "&Navigate"
