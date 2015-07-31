@@ -7,6 +7,7 @@
 #include "SysImageList.h"
 #include "TSVNPath.h"
 
+const char * commenttest = "http://example.com";
 
 // Singleton constructor and destructor (private)
 

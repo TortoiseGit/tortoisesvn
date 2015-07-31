@@ -8,8 +8,9 @@
 #include "SysImageList.h"
 #include "TSVNPath.h"
 
+const char * commenttest = "http://test.com";
 
-// Singleton constructor and destructor (private)
+// Singleton constructor and destructor
 
 CSysImageList * CSysImageList::instance = 0;
 
