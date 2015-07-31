@@ -110,6 +110,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_COMMAND(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnEditCreateunifieddifffile)
     ON_UPDATE_COMMAND_UI(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnUpdateViewLinediffbar)
     ON_COMMAND(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnViewLinediffbar)
+    ON_UPDATE_COMMAND_UI(ID_VIEW_BARS, &CMainFrame::OnUpdateViewBars)
     ON_UPDATE_COMMAND_UI(ID_VIEW_LOCATORBAR, &CMainFrame::OnUpdateViewLocatorbar)
     ON_COMMAND(ID_VIEW_LOCATORBAR, &CMainFrame::OnViewLocatorbar)
     ON_COMMAND(ID_EDIT_USELEFTBLOCK, &CMainFrame::OnEditUseleftblock)
@@ -2764,6 +2765,11 @@ void CMainFrame::OnViewLinediffbar()
 void CMainFrame::OnUpdateViewLocatorbar(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bLocatorBar);
+    pCmdUI->Enable();
+}
+
+void CMainFrame::OnUpdateViewBars(CCmdUI * pCmdUI)
+{
     pCmdUI->Enable();
 }
 
