@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,7 +312,9 @@ STDMETHODIMP CShellExt::IsMemberOf_Wrap(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     {
         // note: we can show other overlays if due to lack of enough free overlay
         // slots some of our overlays aren't loaded. But we assume that
-        // at least the 'normal' and 'modified' overlay are available.
+        // at least the 'normal' overlay is available.
+        // if the 'modified' overlay isn't available, we show the 'normal' overlay,
+        // but in this case the overlays don't really provide anything useful anymore.
         case svn_wc_status_none:
             return S_FALSE;
 
@@ -363,8 +365,16 @@ STDMETHODIMP CShellExt::IsMemberOf_Wrap(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
         case svn_wc_status_replaced:
         case svn_wc_status_modified:
         case svn_wc_status_merged:
-            if (m_State != FileStateModified)
-                return S_FALSE;
+            if (g_modifiedovlloaded)
+            {
+                if (m_State != FileStateModified)
+                    return S_FALSE;
+            }
+            else
+            {
+                if (m_State != FileStateVersioned)
+                    return S_FALSE;
+            }
             break;
 
         case svn_wc_status_added:
