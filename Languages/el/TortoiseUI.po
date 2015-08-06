@@ -18,9 +18,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"PO-Revision-Date: 2015-08-05 09:21+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Greek (http://www.transifex.com/p/tortoisesvn/language/el/)\n"
+"Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -782,12 +782,12 @@ msgid "&Find"
 msgstr "&Εύρεση"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "&Εύρεση..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr ""
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "&Προσαρμογή εικόνων στο παράθυρο"
+msgid "&Fit images in window\t(F)"
+msgstr ""
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -826,8 +826,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "&Από: (Αρχικό URL και εμβέλεια των έκδοσεων που πρόκειτε να συνενωθούν)"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "&Μεταπήδηση στη γραμμή..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -887,8 +887,8 @@ msgid "&Image"
 msgstr "&Εικόνα"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "&Πληροφορίες εικόνας"
+msgid "&Image info\t(I)"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1104,9 +1104,13 @@ msgstr "&Αποσυνδεμένο τώρα"
 msgid "&One Page"
 msgstr "&Μια Σελίδα"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "&Άνοιγμα"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr ""
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1121,8 +1125,8 @@ msgid "&Other"
 msgstr "&Άλλο"
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "&Επικάλυψη εικόνων"
+msgid "&Overlay images\t(O)"
+msgstr ""
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1521,6 +1525,10 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Τρέχον Αντίγραφο Εργασίας"
+
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr ""
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2211,7 +2219,7 @@ msgid ""
 msgstr "Είσαστε σίγουροι ότι θέλετε να αναστρέψετε %d αντικείμενα; Θα χάσετε ΟΛΕΣ τις αλλαγές από την ώρα της τελευταίας ενημέρωσης!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
+msgid "Arrange &vertical\t(V)"
 msgstr ""
 
 #. Resource IDs: (1587)
@@ -3301,7 +3309,7 @@ msgstr "Ολοκληρώθηκε!"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr ""
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr ""
 
@@ -4327,6 +4335,10 @@ msgstr ""
 msgid "E&xit"
 msgstr "Έ&ξοδος"
 
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr ""
+
 #. Resource IDs: (4384)
 msgid "E&xpand all"
 msgstr "Α&νάπτυξη όλων"
@@ -5098,11 +5110,11 @@ msgid "Fit height"
 msgstr "Αλλαγή σε κατάλληλο ύψος"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
+msgid "Fit image &heights\t(H)"
 msgstr ""
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
+msgid "Fit image &widths\t(W)"
 msgstr ""
 
 #. Resource IDs: (32803)
@@ -5490,19 +5502,19 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5515,15 +5527,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5531,7 +5543,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5559,11 +5571,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr ""
 
@@ -5821,6 +5833,10 @@ msgstr "Παράβλεψη δια&φοράς πεζών/κεφαλαίων"
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
+msgstr ""
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
 msgstr ""
 
 #. Resource IDs: (1126, 1127)
@@ -7422,8 +7438,8 @@ msgid "Options"
 msgstr "Επιλογές"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "Α&ρχικό μέγεθος"
+msgid "Ori&ginal size\t(S)"
+msgstr ""
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8141,7 +8157,7 @@ msgstr ""
 msgid "Refreshing shell for %1!ls!"
 msgstr ""
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8285,12 +8301,6 @@ msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
 msgstr ""
 
 #. Resource IDs: (237)
@@ -11658,6 +11668,10 @@ msgstr "Σε έκδοση"
 msgid "View"
 msgstr "Εμφάνιση"
 
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr ""
+
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
 msgstr ""
@@ -11958,8 +11972,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "Μεγέθυνση &έξω"
+msgid "Zoo&m out\t(-)"
+msgstr ""
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -11999,8 +12013,8 @@ msgid ""
 msgstr "Σμίκρυνση\nΣμίκρυνση"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "Μεγέθυνση &μέσα"
+msgid "Zoom i&n\t(+)"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

@@ -17,6 +17,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Maarten Hilferink <mhilferink@objectvision.nl>, 2011
+# mark van tilburg <markvantilburg@gmail.com>, 2015
 # Paul <paul@piak.nl>, 2011
 # Sander Boele <sboele@hotmail.com>, 2014
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
@@ -25,9 +26,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"PO-Revision-Date: 2015-08-05 09:22+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/p/tortoisesvn/language/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -196,7 +197,7 @@ msgstr "%I64d kBytes verstuurd"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Herstelt]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
@@ -590,7 +591,7 @@ msgstr "&Sluit venster(s)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "&Collaborator gebruikersnaam"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -789,12 +790,12 @@ msgid "&Find"
 msgstr "&Zoeken"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "&Zoeken..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr ""
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "&Pas afbeeldingen in venster"
+msgid "&Fit images in window\t(F)"
+msgstr ""
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -833,8 +834,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "Bron &start: (begin URL en revisie van het samen te voegen bereik)"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "&Ga naar regel..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -894,8 +895,8 @@ msgid "&Image"
 msgstr "&Afbeelding"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "&Afbeeldingsinformatie"
+msgid "&Image info\t(I)"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1111,9 +1112,13 @@ msgstr "&Voorlopig niet verbonden"
 msgid "&One Page"
 msgstr "&Een pagina"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "&Openen"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr ""
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1128,8 +1133,8 @@ msgid "&Other"
 msgstr "&Overig"
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "Afbeeldingen &overlappen"
+msgid "&Overlay images\t(O)"
+msgstr ""
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1529,6 +1534,10 @@ msgstr "&Windows (CRLF)"
 msgid "&Working copy"
 msgstr "&Werkkopie"
 
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr ""
+
 #. Resource IDs: (1540)
 msgid "&file list control"
 msgstr "&bestandenlijst instellingen"
@@ -1912,7 +1921,7 @@ msgstr "Voeg project of folder toe..."
 #. Resource IDs: (9804)
 #, c-format
 msgid "Add to %1!ls!"
-msgstr ""
+msgstr "Toevoegen aan %1!ls!"
 
 #. Resource IDs: (194)
 msgid "Add to &ignore list"
@@ -2218,8 +2227,8 @@ msgid ""
 msgstr "Weet u zeker dat u %d onderde(e)l(en) wilt herstellen? U raakt alle wijzigingen sinds de laatste verversing kwijt!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
-msgstr "&Boven elkaar plaatsen"
+msgid "Arrange &vertical\t(V)"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -3230,7 +3239,7 @@ msgstr "Vastleggen naar een label"
 
 #. Resource IDs: (4247)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "Transactie doorvoeren..."
 
 #. Resource IDs: (4381, 32784)
 msgid "Compare &HEAD revisions"
@@ -3308,7 +3317,7 @@ msgstr "Gereed!"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Laat &TortoiseSVN nooit de prullenbak gebruiken"
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr ""
 
@@ -3487,7 +3496,7 @@ msgstr "Kopieer de selectie en plaats op het klembord\nKopiëren"
 #. Resource IDs: (9802)
 #, c-format
 msgid "Copy to %1!ls!"
-msgstr ""
+msgstr "Kopiëren naar %1!ls!"
 
 #. Resource IDs: (1809)
 msgid "Copy to clipboard"
@@ -4163,7 +4172,7 @@ msgstr "Doe dit voor alle geselecteerde mappen zonder versiebeheer"
 
 #. Resource IDs: (2375)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "Doe dit voor alle onderdelen zonder versiebeheer"
 
 #. Resource IDs: (2358)
 msgid "Do this for all unversioned/modified items"
@@ -4172,7 +4181,7 @@ msgstr "Doe dit voor alle onderdelen zonder versiebeheer of met wijzigingen"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Wilt u de werkbalk '%Ts' echt verwijderen?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4333,6 +4342,10 @@ msgstr "&Uitvoerbaar"
 #. Resource IDs: (105, 32874, 57665)
 msgid "E&xit"
 msgstr "&Afsluiten"
+
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr ""
 
 #. Resource IDs: (4384)
 msgid "E&xpand all"
@@ -4692,7 +4705,7 @@ msgstr "&Vervolgtak uitklappen"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Uitklappen (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5058,7 +5071,7 @@ msgstr "Filter paden"
 
 #. Resource IDs: (1644)
 msgid "Filter:"
-msgstr ""
+msgstr "Filter:"
 
 #. Resource IDs: (139, 57636)
 msgid "Find"
@@ -5105,11 +5118,11 @@ msgid "Fit height"
 msgstr "Hoogte passend"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
+msgid "Fit image &heights\t(H)"
 msgstr ""
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
+msgid "Fit image &widths\t(W)"
 msgstr ""
 
 #. Resource IDs: (32803)
@@ -5462,7 +5475,7 @@ msgstr "Soort hook:"
 
 #. Resource IDs: (5812)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Uitvoeren hook script mislukt!"
 
 #. Resource IDs: (2760)
 msgid "Hook script failed!"
@@ -5497,19 +5510,19 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr "ID:105:V C +W"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5522,15 +5535,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5538,7 +5551,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32773:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5566,11 +5579,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr ""
 
@@ -5814,7 +5827,7 @@ msgstr "Negeer &oorsprong"
 
 #. Resource IDs: (32896)
 msgid "Ignore Comments"
-msgstr ""
+msgstr "Commentaar Negeren"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5829,6 +5842,10 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Negeer wijzigingen\nNegeer de externe wijzigingen."
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -5910,7 +5927,7 @@ msgstr "&Boodschap importeren"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Instellingen uit bestand importeren..."
 
 #. Resource IDs: (9291)
 msgid "Import a previously saved set of properties from a file"
@@ -6007,7 +6024,7 @@ msgstr ""
 
 #. Resource IDs: (1019)
 msgid "Information"
-msgstr ""
+msgstr "Informatie"
 
 #. Resource IDs: (32889)
 msgid "Inline diff"
@@ -6516,7 +6533,7 @@ msgstr ""
 
 #. Resource IDs: (1400)
 msgid "Mark as Resolved"
-msgstr ""
+msgstr "Markeer als opgelost"
 
 #. Resource IDs: (2355, 4503, 32808)
 msgid "Mark as resolved"
@@ -6544,15 +6561,15 @@ msgstr "Markeer om te vergelijken"
 
 #. Resource IDs: (1463)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Markeer missende bestanden als verwijdert"
 
 #. Resource IDs: (4018)
 msgid "Mark this change"
-msgstr ""
+msgstr "Markeer deze wijziging"
 
 #. Resource IDs: (103)
 msgid "Marked Blocks"
-msgstr ""
+msgstr "Gemarkeerde blokken"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6642,7 +6659,7 @@ msgstr "Alles samenvoegen"
 
 #. Resource IDs: (210)
 msgid "Merge all..."
-msgstr ""
+msgstr "Alles samenvoegen..."
 
 #. Resource IDs: (149)
 msgid "Merge changes into the working copy"
@@ -6888,7 +6905,7 @@ msgstr "Verplaats speciaal bestand of map"
 #. Resource IDs: (9803)
 #, c-format
 msgid "Move to %1!ls!"
-msgstr ""
+msgstr "Verplaats naar %1!ls!"
 
 #. Resource IDs: (3340)
 msgid "Move to changelist"
@@ -6921,7 +6938,7 @@ msgstr "Verplaats\nDe objecten worden verplaatst naar het doelpad."
 
 #. Resource IDs: (4243)
 msgid "Moved"
-msgstr ""
+msgstr "Verplaatst"
 
 #. Resource IDs: (3345)
 #, c-format
@@ -7320,7 +7337,7 @@ msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
 #. Resource IDs: (1023)
 msgid "One project has updates:"
-msgstr ""
+msgstr "Een project heeft updates:"
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
@@ -7429,8 +7446,8 @@ msgid "Options"
 msgstr "Opties"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "&Origineel formaat"
+msgid "Ori&ginal size\t(S)"
+msgstr ""
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -7512,11 +7529,11 @@ msgstr "Parameters:"
 
 #. Resource IDs: (370)
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #. Resource IDs: (9923)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Wachtwoord is onjuist"
 
 #. Resource IDs: (5573)
 msgid "Password/phrase"
@@ -7585,11 +7602,11 @@ msgstr "Pad gevonden dat beter past bij de patch."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
-msgstr ""
+msgstr "Pad of URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Pad:"
 
 #. Resource IDs: (1851)
 msgid "Paths"
@@ -7861,7 +7878,7 @@ msgstr "Voortgang"
 
 #. Resource IDs: (65535)
 msgid "Project"
-msgstr ""
+msgstr "Project"
 
 #. Resource IDs: (177, 226, 257)
 msgid "Properties"
@@ -8119,7 +8136,7 @@ msgstr "Doorverwijzen naar url"
 
 #. Resource IDs: (57644)
 msgid "Redo"
-msgstr ""
+msgstr "Opnieuw"
 
 #. Resource IDs: (57644)
 msgid ""
@@ -8148,7 +8165,7 @@ msgstr "Ververs &shell overlays"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Shell verversen voor %1!ls!"
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8284,20 +8301,14 @@ msgstr "Verwijder %ls"
 
 #. Resource IDs: (1620)
 msgid "Remove Bookmark"
-msgstr ""
+msgstr "Bladwijzer verwijderen"
 
 #. Resource IDs: (1029)
 msgid "Remove Project"
-msgstr ""
+msgstr "Verwijder project"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
 msgstr ""
 
 #. Resource IDs: (237)
@@ -8519,7 +8530,7 @@ msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 
 #. Resource IDs: (127)
 msgid "Res&olve..."
-msgstr ""
+msgstr "&Oplossen..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -9082,7 +9093,7 @@ msgstr "Doorzoek &logboekberichten..."
 
 #. Resource IDs: (1074)
 msgid "Search &up"
-msgstr ""
+msgstr "&Omhoog zoeken"
 
 #. Resource IDs: (65535)
 msgid "Search for:"
@@ -9506,11 +9517,11 @@ msgstr "Toon &logboek"
 
 #. Resource IDs: (1013)
 msgid "Show multiple &changes..."
-msgstr ""
+msgstr "Toon meerdere &wijzigingen..."
 
 #. Resource IDs: (1829)
 msgid "Show multiple &changes... (content only)"
-msgstr ""
+msgstr "Toon meerdere &wijzigingen... (alleen inhoud)"
 
 #. Resource IDs: (32814)
 msgid "Show oldest node at top"
@@ -9681,7 +9692,7 @@ msgstr "Grootte van de cache als hij niet gecomprimeerd zou zijn"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Overslaan\nBestand blijft zoals het is."
 
 #. Resource IDs: (1177)
 msgid "Skipped"
@@ -9705,7 +9716,7 @@ msgstr "Overgeslagen, ouder-pad niet onder versiebeheer"
 
 #. Resource IDs: (4238)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Overgeslagen, blijft in conflict"
 
 #. Resource IDs: (17112)
 msgid "Slide"
@@ -9867,7 +9878,7 @@ msgstr ""
 
 #. Resource IDs: (2705)
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10014,7 +10025,7 @@ msgstr "Subversion server bestand:"
 
 #. Resource IDs: (1018)
 msgid "Success"
-msgstr ""
+msgstr "Succes"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10277,7 +10288,7 @@ msgstr "De map\n%ls\nbestaat al!"
 
 #. Resource IDs: (2713)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Het hook-script is succesvol uitgevoerd"
 
 #. Resource IDs: (1320, 5810)
 #, c-format
@@ -10479,11 +10490,11 @@ msgstr "De parameters '/path' en '/pathfile' kunnen niet samen gebruikt worden.\
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Het wachtwoord is onjuist.\nGelieve het correcte wachtwoord in het instellingen scherm in te voeren."
 
 #. Resource IDs: (9921)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "De wachtwoorden komen niet overeen"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -10561,7 +10572,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr ""
+msgstr "Het gespecificeerde pad/URL\n%ls\nis niet valide!"
 
 #. Resource IDs: (2339)
 msgid "The target already exists."
@@ -10604,7 +10615,7 @@ msgstr "De doel werkkopie heeft lokale wijzigingen!"
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr ""
+msgstr "De tekst is identiek, maar de bestanden komen niet overeen!\nDe volgende verschillen zijn gevonden:"
 
 #. Resource IDs: (3115)
 msgid ""
@@ -10967,11 +10978,11 @@ msgstr ""
 
 #. Resource IDs: (1021)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "TortoiseSVN Project Monitor"
 
 #. Resource IDs: (366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "TortoiseSVN Project Monitor Opties"
 
 #. Resource IDs: (1025)
 #, c-format
@@ -11496,11 +11507,11 @@ msgstr "Gebruik reguliere expressie"
 
 #. Resource IDs: (4014)
 msgid "Use right block"
-msgstr ""
+msgstr "Gebruik rechter blok"
 
 #. Resource IDs: (1091)
 msgid "Use spaces"
-msgstr ""
+msgstr "Gebruik spaties"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -11587,7 +11598,7 @@ msgstr "&Gebruik dit gehele bestand"
 
 #. Resource IDs: (4011)
 msgid "Use this block on left"
-msgstr ""
+msgstr "Gebruik dit blok links"
 
 #. Resource IDs: (189)
 msgid "Use this if the URL of the repository has changed"
@@ -11611,7 +11622,7 @@ msgstr "Gebruikersnaam:"
 
 #. Resource IDs: (65535)
 msgid "Users to ignore:"
-msgstr ""
+msgstr "Gebruikers die genegeerd worden:"
 
 #. Resource IDs: (5001)
 msgid ""
@@ -11664,6 +11675,10 @@ msgstr "Onder beheer"
 #. Resource IDs: (156)
 msgid "View"
 msgstr "Bekijk"
+
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr ""
 
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
@@ -11965,8 +11980,8 @@ msgid ""
 msgstr "Uw werkkopie wijzt naar %ls, wat een label lijkt te zijn!\nU zou eerst moeten wisselen naar een tak of de basislijn voordat u vastlegt."
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "&Uitzoomen"
+msgid "Zoo&m out\t(-)"
+msgstr ""
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12006,8 +12021,8 @@ msgid ""
 msgstr "Uitzoomen\nUitzoomen"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "&Inzoomen"
+msgid "Zoom i&n\t(+)"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

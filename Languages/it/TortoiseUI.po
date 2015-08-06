@@ -25,9 +25,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"PO-Revision-Date: 2015-08-05 09:22+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/p/tortoisesvn/language/it/)\n"
+"Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -789,12 +789,12 @@ msgid "&Find"
 msgstr "&Trova"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "&Trova..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr ""
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "&Adatta immagine alla finestra"
+msgid "&Fit images in window\t(F)"
+msgstr ""
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -833,8 +833,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "&Da: (URL iniziale e revisione dell'intervallo da unire)"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "&Vai alla linea..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -894,8 +894,8 @@ msgid "&Image"
 msgstr "&Immagine"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "&Informazioni immagine"
+msgid "&Image info\t(I)"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1111,9 +1111,13 @@ msgstr "&Fuori linea per ora"
 msgid "&One Page"
 msgstr "&Una pagina"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "&Apri"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr ""
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1128,8 +1132,8 @@ msgid "&Other"
 msgstr "Altr&o"
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "&Sovrapponi immagini"
+msgid "&Overlay images\t(O)"
+msgstr ""
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1528,6 +1532,10 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Copia di lavoro"
+
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr ""
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2218,8 +2226,8 @@ msgid ""
 msgstr "Ripristinare %d oggetti(o)? Così facendo tutte le modifiche dall'ultimo aggiornamento andranno perse."
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
-msgstr "Affianca &verticalmente"
+msgid "Arrange &vertical\t(V)"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -3308,7 +3316,7 @@ msgstr "Completato!"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Configura &TortoiseSVN per non usare il cestino"
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr ""
 
@@ -4334,6 +4342,10 @@ msgstr "E&seguibile"
 msgid "E&xit"
 msgstr "&Esci"
 
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr ""
+
 #. Resource IDs: (4384)
 msgid "E&xpand all"
 msgstr "E&spandi tutto"
@@ -5105,12 +5117,12 @@ msgid "Fit height"
 msgstr "Adatta altezza"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
-msgstr "Adatta l'altezza dell'immagine"
+msgid "Fit image &heights\t(H)"
+msgstr ""
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
-msgstr "Adatta la larghezza dell'immagine"
+msgid "Fit image &widths\t(W)"
+msgstr ""
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5497,19 +5509,19 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr "ID:105:V C +W"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5522,15 +5534,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5538,7 +5550,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5566,11 +5578,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr "ID:32817:V +W"
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr "ID:32818:V +H"
 
@@ -5829,6 +5841,10 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Ignora modifiche\nIgnora le modifiche esterne."
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7429,8 +7445,8 @@ msgid "Options"
 msgstr "Opzioni"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "Dimensioni ori&ginali"
+msgid "Ori&ginal size\t(S)"
+msgstr ""
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8148,7 +8164,7 @@ msgstr "Aggiorna overlay &shell"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Aggiorna shell per %1!ls!"
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8293,12 +8309,6 @@ msgstr ""
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Rimuovi dati autentificazione salvati"
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
-msgstr "Rimuovi tutti i commenti prima di vedere le differenze così non risultano come differenti"
 
 #. Resource IDs: (237)
 msgid "Remove from &ignore list"
@@ -11665,6 +11675,10 @@ msgstr "Versionato"
 msgid "View"
 msgstr "Visualizza"
 
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr ""
+
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
 msgstr "Visualizza il percorso della revisione nel &webviewer"
@@ -11965,8 +11979,8 @@ msgid ""
 msgstr "La tua copia di lavoro punta a %ls che sembra essere un tag!\nDovresti prima spostarti su un branch o sul tronco principale prima di inviare."
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "Zoom &indietro"
+msgid "Zoo&m out\t(-)"
+msgstr ""
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12006,8 +12020,8 @@ msgid ""
 msgstr "Zoom Out\nZoom Out"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "Zoom &avanti"
+msgid "Zoom i&n\t(+)"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

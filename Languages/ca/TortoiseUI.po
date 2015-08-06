@@ -21,9 +21,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-31 10:33+0000\n"
-"Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/tortoisesvn/language/ca/)\n"
+"PO-Revision-Date: 2015-08-05 09:22+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -785,12 +785,12 @@ msgid "&Find"
 msgstr "&Cerca"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "&Cerca..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr ""
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "&Ajusta imatges a la finestra"
+msgid "&Fit images in window\t(F)"
+msgstr ""
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -829,8 +829,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "&De: (URL inicial i revisió del rang a fusionar)"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "&Vés a la línia ..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -890,8 +890,8 @@ msgid "&Image"
 msgstr "&Imatge"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "&Informació de la imatge"
+msgid "&Image info\t(I)"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1107,9 +1107,13 @@ msgstr "&Sense connexió per ara"
 msgid "&One Page"
 msgstr "&Una Pàgina"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "&Obre"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr ""
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1124,8 +1128,8 @@ msgid "&Other"
 msgstr "&Altres"
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "Imatges de &superposició"
+msgid "&Overlay images\t(O)"
+msgstr ""
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1524,6 +1528,10 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Còpia de Treball"
+
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr ""
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2214,8 +2222,8 @@ msgid ""
 msgstr "Voleu revertir %d element(s)? Perdreu tots els canvis des de la darrera actualització."
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
-msgstr "Disposició &vertical"
+msgid "Arrange &vertical\t(V)"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -3304,7 +3312,7 @@ msgstr " Completada !"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Configura &TortoiseSVN per no utilitzar mai la paperera"
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr "Configurar Filtres regex"
 
@@ -4330,6 +4338,10 @@ msgstr "E&xecutable"
 msgid "E&xit"
 msgstr "S&urt"
 
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr ""
+
 #. Resource IDs: (4384)
 msgid "E&xpand all"
 msgstr "E&xpandeix tot"
@@ -5101,12 +5113,12 @@ msgid "Fit height"
 msgstr "Ajusta l'alçada"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
-msgstr "Ajusta &alçades d'imatge"
+msgid "Fit image &heights\t(H)"
+msgstr ""
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
-msgstr "Ajusta &amplades d'imatge"
+msgid "Fit image &widths\t(W)"
+msgstr ""
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5493,19 +5505,19 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr "ID:105:V C +W"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5518,15 +5530,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5534,7 +5546,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5562,11 +5574,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr "ID:32817:V +W"
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr "ID:32818:V +H"
 
@@ -5825,6 +5837,10 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Ignora canvis\nIgnora els canvis exteriors."
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7425,8 +7441,8 @@ msgid "Options"
 msgstr "Opcions"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "Mida ori&ginal"
+msgid "Ori&ginal size\t(S)"
+msgstr ""
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8144,7 +8160,7 @@ msgstr "Refresca les superposicions de &shell"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Refrescant la shell per %1!ls!"
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr "Filtre regex"
 
@@ -8289,12 +8305,6 @@ msgstr "Suprimir Projecte"
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "Supressió de les dades d'autenticació desades"
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
-msgstr "Suprimeix tots els comentaris abans de fer el diff de manera que els canvis en els comentaris no es mostrin com a diferències"
 
 #. Resource IDs: (237)
 msgid "Remove from &ignore list"
@@ -11661,6 +11671,10 @@ msgstr "Versionat"
 msgid "View"
 msgstr "Visualització"
 
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr ""
+
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
 msgstr "Visualitza revisió pel camí al visor &web"
@@ -11961,8 +11975,8 @@ msgid ""
 msgstr "La còpia de treball apunta a %ls, que sembla ser una etiqueta!\nHauríeu de canviar a una branca o al tronc principal abans de fer l'entrega."
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "Zoo&m enfora"
+msgid "Zoo&m out\t(-)"
+msgstr ""
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12002,8 +12016,8 @@ msgid ""
 msgstr "Zoom Enfora\nZoom Endins"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "Zoom endi&ns"
+msgid "Zoom i&n\t(+)"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

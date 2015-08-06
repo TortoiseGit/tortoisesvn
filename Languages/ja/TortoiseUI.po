@@ -33,9 +33,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/p/tortoisesvn/language/ja/)\n"
+"PO-Revision-Date: 2015-08-06 04:54+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
+"Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -204,14 +204,14 @@ msgstr "%I64d KBを転送しました"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts ［復元］"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -797,12 +797,12 @@ msgid "&Find"
 msgstr "検索(&F)"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "検索(&F)..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr "検索...\t(Ctrl+&F)"
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "画像をウィンドウサイズに合わせる(&F)"
+msgid "&Fit images in window\t(F)"
+msgstr "画像サイズをウィンドウに合わせる\t(&F)"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -841,8 +841,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "開始点(&F): （マージする範囲の始点を指すURLとリビジョン）"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "指定した行へ移動(&G)..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr "指定した行へ移動...\t(Ctrl+&G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -902,8 +902,8 @@ msgid "&Image"
 msgstr "画像(&I)"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "画像情報を表示する(&I)"
+msgid "&Image info\t(I)"
+msgstr "画像情報を表示する\t(&I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1119,9 +1119,13 @@ msgstr "オフラインにする(&O)"
 msgid "&One Page"
 msgstr "1ページ(&O)"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "開く(&O)"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr "開く\t(Ctrl+&O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1136,8 +1140,8 @@ msgid "&Other"
 msgstr "その他(&O)"
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "画像を重ねて表示(&O)"
+msgid "&Overlay images\t(O)"
+msgstr "画像を重ねて表示\t(&O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1536,6 +1540,10 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "作業コピー(&W)"
+
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr "ステータスバー(&S)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2054,14 +2062,14 @@ msgstr "すべての変更が失われます。本当にキーボードの割り
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "すべての変更が失われます。メニュー「%Ts」をリセットしてもよろしいですか？"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "すべての変更が失われます。ツールバー「%Ts」をリセットしてもよろしいですか？"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2226,8 +2234,8 @@ msgid ""
 msgstr "本当に項目%d件の変更を取り消してもよろしいですか？ 最後の更新以降のすべての変更が失われます。"
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
-msgstr "垂直方向に並べる(&V)"
+msgid "Arrange &vertical\t(V)"
+msgstr "垂直方向に並べる\t(&V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -3316,7 +3324,7 @@ msgstr "完了"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "TortoiseSVNがごみ箱を使用しないように設定(&T)"
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr "フィルターの正規表現を設定"
 
@@ -4180,7 +4188,7 @@ msgstr "バージョン管理外もしくは変更された項目すべてにこ
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "ツールバー「%Ts」を削除してもよろしいですか？"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4341,6 +4349,10 @@ msgstr "実行可能属性(&X)"
 #. Resource IDs: (105, 32874, 57665)
 msgid "E&xit"
 msgstr "終了(&X)"
+
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr "終了(&X)\t(Ctrl+W)"
 
 #. Resource IDs: (4384)
 msgid "E&xpand all"
@@ -4700,7 +4712,7 @@ msgstr "次のツリーを展開する(&F)"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "展開（%Ts）"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5113,12 +5125,12 @@ msgid "Fit height"
 msgstr "高さを合わせる"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
-msgstr "画像の高さを合わせる(&H)"
+msgid "Fit image &heights\t(H)"
+msgstr "画像の高さを合わせる\t(&H)"
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
-msgstr "画像の幅を合わせる(&W)"
+msgid "Fit image &widths\t(W)"
+msgstr "画像の幅を合わせる\t(&W)"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5505,19 +5517,19 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr "ID:105:V C +W"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5530,15 +5542,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5546,7 +5558,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5574,11 +5586,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr "ID:32817:V   +W"
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr "ID:32818:V   +H"
 
@@ -5837,6 +5849,10 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "変更を無視する\n外部での変更を無視します。"
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
+msgstr "コメントを無視"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7437,8 +7453,8 @@ msgid "Options"
 msgstr "オプション"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "オリジナルのサイズで表示する(&G)"
+msgid "Ori&ginal size\t(S)"
+msgstr "元のサイズで表示(&G)\t(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8156,7 +8172,7 @@ msgstr "シェルのオーバーレイを更新(&S)"
 msgid "Refreshing shell for %1!ls!"
 msgstr "%1!ls! のオーバーレイを更新中"
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr "正規表現フィルター"
 
@@ -8301,12 +8317,6 @@ msgstr "プロジェクトを削除"
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
 msgstr "保存された認証データを削除"
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
-msgstr "差分を取る前にすべてのコメントを削除するので、コメント内の変更は差分として表示されません"
 
 #. Resource IDs: (237)
 msgid "Remove from &ignore list"
@@ -10793,13 +10803,13 @@ msgstr "本製品は Apache™ Subversion® (http://subversion.apache.org) の�
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "このプログラムは不明なエクスポート %Ts （ファイル %Ts の中）にリンクされています。この機器には %Ts に互換性のないバージョンがある可能性があります。"
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "このプログラムにはファイル %Ts が必要ですが、このシステムに見つかりませんでした。"
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -11673,6 +11683,10 @@ msgstr "バージョン管理開始"
 msgid "View"
 msgstr "表示"
 
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr "バーを表示"
+
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
 msgstr "パスのリビジョンをウェブビューアーで表示(&W)"
@@ -11973,8 +11987,8 @@ msgid ""
 msgstr "作業コピーは、タグ上の %ls を指しています。\nコミットする前に、ブランチもしくはメイントランクに切り替えるべきです。"
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "ズームアウト(&M)"
+msgid "Zoo&m out\t(-)"
+msgstr "ズームアウト(&M)\t(-)"
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12014,8 +12028,8 @@ msgid ""
 msgstr "ズームアウト\nズームアウト"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "ズームイン(&N)"
+msgid "Zoom i&n\t(+)"
+msgstr "ズームイン(&N)\t(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

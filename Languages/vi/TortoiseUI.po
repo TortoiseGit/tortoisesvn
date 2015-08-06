@@ -17,9 +17,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-07-12 09:20+0000\n"
+"PO-Revision-Date: 2015-08-05 09:22+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: Vietnamese (http://www.transifex.com/p/tortoisesvn/language/vi/)\n"
+"Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -781,12 +781,12 @@ msgid "&Find"
 msgstr "&Tìm"
 
 #. Resource IDs: (32771)
-msgid "&Find..."
-msgstr "&Tìm..."
+msgid "&Find...\t(Ctrl+F)"
+msgstr ""
 
 #. Resource IDs: (32778)
-msgid "&Fit images in window"
-msgstr "&Làm vừa các hình ảnh trong cửa sổ"
+msgid "&Fit images in window\t(F)"
+msgstr ""
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -825,8 +825,8 @@ msgid "&From: (start URL and revision of the range to merge)"
 msgstr "&Từ: (URL bắt đầu và bản chỉnh sửa trong giới hạn để hợp nhất)"
 
 #. Resource IDs: (32779)
-msgid "&Go To Line..."
-msgstr "&Nhảy đến dòng..."
+msgid "&Go To Line...\t(Ctrl+G)"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -886,8 +886,8 @@ msgid "&Image"
 msgstr "&Ảnh"
 
 #. Resource IDs: (32790)
-msgid "&Image info"
-msgstr "&Thông tin về hình ảnh "
+msgid "&Image info\t(I)"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1103,9 +1103,13 @@ msgstr "&Bây giờ thì ngoài mạng"
 msgid "&One Page"
 msgstr "&Một Trang"
 
-#. Resource IDs: (1602, 1804, 32773)
+#. Resource IDs: (1602, 1804)
 msgid "&Open"
 msgstr "&Mở"
+
+#. Resource IDs: (32773)
+msgid "&Open\t(Ctrl+O)"
+msgstr ""
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1120,8 +1124,8 @@ msgid "&Other"
 msgstr ""
 
 #. Resource IDs: (32772)
-msgid "&Overlay images"
-msgstr "&Ảnh nạp chồng"
+msgid "&Overlay images\t(O)"
+msgstr ""
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1520,6 +1524,10 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Bản sao đang làm"
+
+#. Resource IDs: (59393)
+msgid "&amp;Status Bar"
+msgstr ""
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2210,8 +2218,8 @@ msgid ""
 msgstr "Bạn có chắc là bạn muốn khôi phục %d món? Bạn sẽ mất tất cả thay đổi kể từ lần cập nhật cuối!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &vertical"
-msgstr "Sắp xếp theo chiều &dọc"
+msgid "Arrange &vertical\t(V)"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -3300,7 +3308,7 @@ msgstr "Đã hoàn tất!"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Điều chỉnh &TortoiseSVN để không bao giờ dùng thùng rác"
 
-#. Resource IDs: (102)
+#. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
 msgstr ""
 
@@ -4326,6 +4334,10 @@ msgstr "&Thi hành được"
 msgid "E&xit"
 msgstr "&Thoát"
 
+#. Resource IDs: (105)
+msgid "E&xit\t(Ctrl+W)"
+msgstr ""
+
 #. Resource IDs: (4384)
 msgid "E&xpand all"
 msgstr "&Trải ra hết"
@@ -5097,11 +5109,11 @@ msgid "Fit height"
 msgstr "Làm cho vừa chiều cao"
 
 #. Resource IDs: (32818)
-msgid "Fit image &heights"
+msgid "Fit image &heights\t(H)"
 msgstr ""
 
 #. Resource IDs: (32817)
-msgid "Fit image &widths"
+msgid "Fit image &widths\t(W)"
 msgstr ""
 
 #. Resource IDs: (32803)
@@ -5489,19 +5501,19 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:105; 'E&xit'
+#. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
 msgstr "ID: 105: VC + W"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
+#. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32772; '&Overlay images'
+#. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
 msgstr "ID:32772:V   +O"
 
-#. Accelerator Entry for Menu ID:32773; '&Open'
+#. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
 msgstr "ID:32773:V C +O"
 
@@ -5514,15 +5526,15 @@ msgstr "ID:32774:V C +T"
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
-#. Accelerator Entry for Menu ID:32778; '&Fit images in window'
+#. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
 msgstr "ID:32778:V   +F"
 
-#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
+#. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
 msgstr "ID:32779:V   +S"
 
-#. Accelerator Entry for Menu ID:32779; '&Go To Line...'
+#. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
 msgstr "ID:32779:V C +G"
 
@@ -5530,7 +5542,7 @@ msgstr "ID:32779:V C +G"
 msgid "ID:32785:V C +O"
 msgstr "ID:32785:V C +O"
 
-#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical'
+#. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
 msgstr "ID:32793:V C +V"
 
@@ -5558,11 +5570,11 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32817; 'Fit image &widths'
+#. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:32818; 'Fit image &heights'
+#. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr ""
 
@@ -5821,6 +5833,10 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Bỏ qua các thay đổi\nBỏ qua các thay đổi bên ngoài."
+
+#. Resource IDs: (32896)
+msgid "Ignore comments"
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7421,8 +7437,8 @@ msgid "Options"
 msgstr "Các tùy chọn"
 
 #. Resource IDs: (32779)
-msgid "Ori&ginal size"
-msgstr "Kích thước &nguyên thủy"
+msgid "Ori&ginal size\t(S)"
+msgstr ""
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8140,7 +8156,7 @@ msgstr "Làm mới nạp chồng &shell"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Làm mới shell cho %1!ls!"
 
-#. Resource IDs: (165, 500)
+#. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8284,12 +8300,6 @@ msgstr ""
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
-
-#. Resource IDs: (32896)
-msgid ""
-"Remove all comments before doing the diff so changes inside comments don't "
-"show as different"
 msgstr ""
 
 #. Resource IDs: (237)
@@ -11657,6 +11667,10 @@ msgstr "Có phiên bản"
 msgid "View"
 msgstr "Xem"
 
+#. Resource IDs: (32898)
+msgid "View Bars"
+msgstr ""
+
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
 msgstr "Xem bản chỉnh sửa cho đường dẫn trong &trình xem web"
@@ -11957,8 +11971,8 @@ msgid ""
 msgstr "Bản sao làm việc của bạn chỉ đến %ls là một thẻ!\nBạn nên chuyển sang một nhánh hay thân chính trước khi cam kết."
 
 #. Resource IDs: (32783)
-msgid "Zoo&m out"
-msgstr "&Thu nhỏ"
+msgid "Zoo&m out\t(-)"
+msgstr ""
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -11998,8 +12012,8 @@ msgid ""
 msgstr "Thu Nhỏ\nThu Nhỏ"
 
 #. Resource IDs: (32784)
-msgid "Zoom i&n"
-msgstr "Phóng &to"
+msgid "Zoom i&n\t(+)"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "Zoom in"
