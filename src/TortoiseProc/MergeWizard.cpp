@@ -96,14 +96,13 @@ BOOL CMergeWizard::OnInitDialog()
     url = svn.GetURLFromPath(wcPath);
     sUUID = svn.GetUUIDFromPath(wcPath);
 
-    MARGINS margs;
-    margs.cxLeftWidth = 0;
-    margs.cyTopHeight = 0;
-    margs.cxRightWidth = 0;
-    margs.cyBottomHeight = BOTTOMMARG;
-
     if (m_aeroControls.AeroDialogsEnabled())
     {
+        MARGINS margs;
+        margs.cxLeftWidth = 0;
+        margs.cyTopHeight = 0;
+        margs.cxRightWidth = 0;
+        margs.cyBottomHeight = BOTTOMMARG;
         DwmExtendFrameIntoClientArea(m_hWnd, &margs);
         ShowGrip(false);
         m_aeroControls.SubclassOkCancelHelp(this);
@@ -208,17 +207,15 @@ BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
 {
     CResizableSheetEx::OnEraseBkgnd(pDC);
 
-    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
-    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
-    BOOL bEnabled = FALSE;
-    if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
+    if (m_aeroControls.AeroDialogsEnabled())
     {
         // draw the frame margins in black
         RECT rc;
         GetClientRect(&rc);
         pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+        return TRUE;
     }
-    return TRUE;
+    return FALSE;
 }
 
 LRESULT CMergeWizard::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
