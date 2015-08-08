@@ -27,7 +27,6 @@
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
-    , m_name(L"")
     , m_renameRequired(true)
     , m_pInputValidator(NULL)
     , m_bBalloonVisible(false)

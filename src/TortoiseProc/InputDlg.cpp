@@ -26,7 +26,6 @@
 IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputDlg::IDD, pParent)
-    , m_sInputText(L"")
     , m_iCheck(0)
 {
 }

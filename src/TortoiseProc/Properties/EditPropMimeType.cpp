@@ -30,7 +30,6 @@ IMPLEMENT_DYNAMIC(CEditPropMimeType, CStandAloneDialog)
 CEditPropMimeType::CEditPropMimeType(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropMimeType::IDD, pParent)
     , EditPropBase()
-    , m_sCustomMimeType(L"")
 {
 
 }

@@ -27,7 +27,6 @@ IMPLEMENT_DYNAMIC(CSettingsUDiff, ISettingsPropPage)
 CSettingsUDiff::CSettingsUDiff()
     : ISettingsPropPage(CSettingsUDiff::IDD)
     , m_dwFontSize(0)
-    , m_sFontName(L"")
     , m_dwTabSize(4)
 {
     m_regForeCommandColor  = CRegDWORD(L"Software\\TortoiseSVN\\UDiffForeCommandColor", UDIFF_COLORFORECOMMAND);

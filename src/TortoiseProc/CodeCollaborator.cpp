@@ -63,7 +63,7 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
     if (PathFileExists(path))
         return path;
 #endif
-    return CString(L"");
+    return CString();
 }
 
 bool CodeCollaboratorInfo::IsInstalled()

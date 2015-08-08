@@ -30,9 +30,6 @@ IMPLEMENT_DYNAMIC(CAutoTextTestDlg, CDialog)
 
 CAutoTextTestDlg::CAutoTextTestDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CAutoTextTestDlg::IDD, pParent)
-    , m_sRegex(L"")
-    , m_sResult(L"")
-    , m_sTimingLabel(L"")
 {
 
 }

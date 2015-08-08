@@ -29,9 +29,6 @@ IMPLEMENT_DYNAMIC(CRegexFilterDlg, CDialogEx)
 
 CRegexFilterDlg::CRegexFilterDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CRegexFilterDlg::IDD, pParent)
-    , m_sName(L"")
-    , m_sRegex(L"")
-    , m_sReplace(L"")
 {
 }
 

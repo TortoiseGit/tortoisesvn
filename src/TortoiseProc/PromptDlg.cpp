@@ -25,8 +25,6 @@
 IMPLEMENT_DYNAMIC(CPromptDlg, CStandAloneDialog)
 CPromptDlg::CPromptDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CPromptDlg::IDD, pParent)
-    , m_info(L"")
-    , m_sPass(L"")
     , m_saveCheck(FALSE)
     , m_hide(FALSE)
     , m_hParentWnd(NULL)

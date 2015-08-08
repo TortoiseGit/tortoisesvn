@@ -24,8 +24,6 @@
 IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
-    , m_sToUrl(L"")
-    , m_sFromUrl(L"")
     , m_bIncludeExternals(FALSE)
 {
 }

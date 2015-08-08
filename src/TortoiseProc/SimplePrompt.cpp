@@ -24,10 +24,7 @@
 IMPLEMENT_DYNAMIC(CSimplePrompt, CStandAloneDialog)
 CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CSimplePrompt::IDD, pParent)
-    , m_sUsername(L"")
-    , m_sPassword(L"")
     , m_bSaveAuthentication(FALSE)
-    , m_sRealm(L"")
     , m_hParentWnd(NULL)
 {
 }

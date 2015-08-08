@@ -4125,7 +4125,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 const CTSVNPath& path = selection.GetURL (0, 0);
                 CRenameDlg dlg(this);
-                dlg.m_name = L"";
                 dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_MKDIR);
                 CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
                 if (dlg.DoModal() == IDOK)

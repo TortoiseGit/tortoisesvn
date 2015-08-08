@@ -29,7 +29,6 @@ IMPLEMENT_DYNAMIC(CRecycleBinDlg, CStandAloneDialog)
 CRecycleBinDlg::CRecycleBinDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRecycleBinDlg::IDD, pParent)
     , m_regDontDoAgain(L"Software\\TortoiseSVN\\RecycleBinSlowDontAskAgain")
-    , m_sLabel(L"")
     , m_bDontAskAgain(FALSE)
     , m_startTicks(0)
 {

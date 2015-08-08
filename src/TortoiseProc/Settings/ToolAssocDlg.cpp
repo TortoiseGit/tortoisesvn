@@ -27,8 +27,6 @@ CToolAssocDlg::CToolAssocDlg(const CString& type, bool add, CWnd* pParent /*=NUL
     : CDialog(CToolAssocDlg::IDD, pParent)
     , m_sType(type)
     , m_bAdd(add)
-    , m_sExtension(L"")
-    , m_sTool(L"")
 {
 }
 

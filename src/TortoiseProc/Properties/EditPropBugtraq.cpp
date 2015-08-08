@@ -31,14 +31,6 @@ CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropBugtraq::IDD, pParent)
     , EditPropBase()
     , m_bWarnIfNoIssue(FALSE)
-    , m_sBugtraqUrl(L"")
-    , m_sBugtraqMessage(L"")
-    , m_sBugtraqLabel(L"")
-    , m_sBugtraqRegex1(L"")
-    , m_sBugtraqRegex2(L"")
-    , m_sProviderUUID(L"")
-    , m_sProviderUUID64(L"")
-    , m_sProviderParams(L"")
 {
 
 }

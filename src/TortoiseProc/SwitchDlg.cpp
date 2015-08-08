@@ -28,7 +28,6 @@
 IMPLEMENT_DYNAMIC(CSwitchDlg, CResizableStandAloneDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSwitchDlg::IDD, pParent)
-    , m_URL(L"")
     , Revision(L"HEAD")
     , m_pLogDlg(NULL)
     , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))

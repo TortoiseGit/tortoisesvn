@@ -27,7 +27,6 @@
 IMPLEMENT_DYNAMIC(CUrlDiffDlg, CResizableStandAloneDialog)
 CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUrlDiffDlg::IDD, pParent)
-    , m_URL(L"")
     , Revision(L"HEAD")
     , m_pLogDlg(NULL)
     , m_bFolder(false)

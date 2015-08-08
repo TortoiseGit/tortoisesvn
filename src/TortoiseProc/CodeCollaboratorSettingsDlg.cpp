@@ -28,10 +28,6 @@ IMPLEMENT_DYNAMIC(CodeCollaboratorSettingsDlg, CDialog)
 
 CodeCollaboratorSettingsDlg::CodeCollaboratorSettingsDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CodeCollaboratorSettingsDlg::IDD, pParent),
-    m_svnUser(L""),
-    m_svnPassword(L""),
-    m_collabUser(L""),
-    m_collabPassword(L"")
 {
     m_regCollabUser     = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
     m_regCollabPassword = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");

@@ -26,14 +26,9 @@
 IMPLEMENT_DYNAMIC(CSetProxyPage, ISettingsPropPage)
 CSetProxyPage::CSetProxyPage()
     : ISettingsPropPage(CSetProxyPage::IDD)
-    , m_serveraddress(L"")
     , m_serverport(0)
-    , m_username(L"")
-    , m_password(L"")
     , m_timeout(0)
     , m_isEnabled(FALSE)
-    , m_SSHClient(L"")
-    , m_Exceptions(L"")
 {
     m_regServeraddress = CRegString(L"Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host", L"");
     m_regServerport = CRegString(L"Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port", L"");

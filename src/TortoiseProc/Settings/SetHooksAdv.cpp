@@ -27,8 +27,6 @@ IMPLEMENT_DYNAMIC(CSetHooksAdv, CResizableStandAloneDialog)
 
 CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSetHooksAdv::IDD, pParent)
-    , m_sPath(L"")
-    , m_sCommandLine(L"")
     , m_bWait(FALSE)
     , m_bHide(FALSE)
     , m_bEnforce(FALSE)

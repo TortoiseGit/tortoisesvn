@@ -30,7 +30,6 @@ IMPLEMENT_DYNAMIC(EditPropUserBool, CStandAloneDialog)
 EditPropUserBool::EditPropUserBool(CWnd* pParent, const UserProp * p)
     : CStandAloneDialog(EditPropUserBool::IDD, pParent)
     , EditPropBase()
-    , m_sLabel(L"")
     , m_bChecked(FALSE)
     , m_userprop(p)
 {

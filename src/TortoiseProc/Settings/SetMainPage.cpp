@@ -33,7 +33,6 @@
 IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
 CSetMainPage::CSetMainPage()
     : ISettingsPropPage(CSetMainPage::IDD)
-    , m_sTempExtensions(L"")
     , m_bLastCommitTime(FALSE)
     , m_bUseAero(TRUE)
     , m_dwLanguage(0)

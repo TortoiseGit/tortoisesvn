@@ -28,7 +28,6 @@ IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CMergeWizardBasePage)
 
 CMergeWizardRevRange::CMergeWizardRevRange()
     : CMergeWizardBasePage(CMergeWizardRevRange::IDD)
-    , m_sRevRange(L"")
     , m_pLogDlg(NULL)
     , m_pLogDlg2(NULL)
 {

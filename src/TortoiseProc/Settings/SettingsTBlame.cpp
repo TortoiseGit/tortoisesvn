@@ -27,7 +27,6 @@ IMPLEMENT_DYNAMIC(CSettingsTBlame, ISettingsPropPage)
 CSettingsTBlame::CSettingsTBlame()
     : ISettingsPropPage(CSettingsTBlame::IDD)
     , m_dwFontSize(0)
-    , m_sFontName(L"")
     , m_dwTabSize(4)
 {
     m_regNewLinesColor = CRegDWORD(L"Software\\TortoiseSVN\\BlameNewColor", BLAMENEWCOLOR);

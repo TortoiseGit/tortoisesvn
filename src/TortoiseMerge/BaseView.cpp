@@ -2068,7 +2068,7 @@ void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CStri
 {
     if (nCount <= 0)
     {
-        line = L"";
+        line.Empty();
         return;
     }
 

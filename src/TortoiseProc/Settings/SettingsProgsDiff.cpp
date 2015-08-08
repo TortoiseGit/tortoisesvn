@@ -28,12 +28,9 @@ CSettingsProgsDiff::CSettingsProgsDiff()
     : ISettingsPropPage(CSettingsProgsDiff::IDD)
     , m_dlgAdvDiff(L"Diff")
     , m_iExtDiff(0)
-    , m_sDiffPath(L"")
     , m_iExtDiffProps(0)
-    , m_sDiffPropsPath(L"")
     , m_regConvertBase(L"Software\\TortoiseSVN\\ConvertBase", TRUE)
     , m_bConvertBase(false)
-    , m_sDiffViewerPath(L"")
     , m_iDiffViewer(0)
 {
     m_regDiffPath = CRegString(L"Software\\TortoiseSVN\\Diff");

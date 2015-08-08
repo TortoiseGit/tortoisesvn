@@ -29,8 +29,6 @@ IMPLEMENT_DYNAMIC(CMergeWizardTree, CMergeWizardBasePage)
 
 CMergeWizardTree::CMergeWizardTree()
     : CMergeWizardBasePage(CMergeWizardTree::IDD)
-    , m_URLFrom(L"")
-    , m_URLTo(L"")
     , StartRev(0)
     , EndRev(L"HEAD")
     , m_pLogDlg(NULL)

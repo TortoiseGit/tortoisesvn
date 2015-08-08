@@ -3465,7 +3465,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                         if (doCheck)
                         {
                             CStdioFile file(targetPath.GetWinPath(), CFile::typeBinary | CFile::modeRead);
-                            CString strLine = L"";
+                            CString strLine;
                             while (file.ReadString(strLine))
                             {
                                 if (strLine.Find(L"<<<<<<<")==0)

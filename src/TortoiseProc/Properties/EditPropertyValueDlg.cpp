@@ -30,7 +30,6 @@ IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropertyValueDlg::IDD, pParent)
     , EditPropBase()
-    , m_sPropValue(L"")
 {
 }
 
