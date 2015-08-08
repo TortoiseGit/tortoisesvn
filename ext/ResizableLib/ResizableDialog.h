@@ -36,7 +36,7 @@ class CResizableDialog : public CDialog, public CResizableLayout,
                          public CResizableGrip, public CResizableMinMax,
                          public CResizableWndState
 {
-
+    DECLARE_DYNAMIC(CResizableDialog)
 // Construction
 public:
     CResizableDialog();

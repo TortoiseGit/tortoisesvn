@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2015 - TortoiseSVN
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
@@ -18,6 +18,7 @@
 #include "stdafx.h"
 #include "SettingsPropPage.h"
 
+IMPLEMENT_DYNAMIC(ISettingsPropPage, CPropertyPage)
 
 ISettingsPropPage::ISettingsPropPage() : CPropertyPage()
     , m_restart(Restart_None)

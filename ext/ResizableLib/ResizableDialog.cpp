@@ -29,6 +29,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CResizableDialog
 
+IMPLEMENT_DYNAMIC(CResizableDialog, CDialog)
 
 BOOL CResizableDialog::IsDwmCompositionEnabled(void)
 {

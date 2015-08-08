@@ -25,6 +25,7 @@
  */
 class ISettingsPropPage : public CPropertyPage
 {
+    DECLARE_DYNAMIC(ISettingsPropPage)
 public:
     // simple construction
     ISettingsPropPage();

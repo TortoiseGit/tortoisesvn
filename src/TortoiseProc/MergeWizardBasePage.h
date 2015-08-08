@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@
  */
 class CMergeWizardBasePage : public CResizablePageEx, public SVN
 {
+    DECLARE_DYNAMIC(CMergeWizardBasePage)
 public:
     CMergeWizardBasePage()
         : CResizablePageEx()
