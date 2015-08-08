@@ -24,16 +24,6 @@
       <ComponentRef Id="C__ProgramMenuFolder" />
       <ComponentRef Id="C__DiffScripts" />
 
-      <Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
-        <MergeRef Id="CRT" />
-        <?if $(env.Platform) = "x64" ?>
-        <MergeRef Id="CRT32" />
-        <?endif ?>
-      </Feature>
-      <Feature Id="F_MFC" Level="1" Title="MFC 12.0" Description="The MFC 12.0 libs" TypicalDefault="install" Display="hidden" >
-        <MergeRef Id="MFC" />
-        <MergeRef Id="MFCLOC" />
-      </Feature>
       <Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="Ovlays" />
         <?if $(env.Platform) = "x64" ?>

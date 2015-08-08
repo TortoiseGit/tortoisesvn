@@ -32,6 +32,12 @@
 #define DIALOG_BLOCKHORIZONTAL 1
 #define DIALOG_BLOCKVERTICAL 2
 
+#define DECLARE_DYNAMIC_T(class_name, T1) \
+public: \
+	static const CRuntimeClass class##class_name##T1; \
+	virtual CRuntimeClass* GetRuntimeClass() const; \
+
+
 /**
  * \ingroup TortoiseProc
  *
@@ -44,6 +50,7 @@
  */
 template <typename BaseType> class CStandAloneDialogTmpl : public BaseType
 {
+    DECLARE_DYNAMIC(CStandAloneDialogTmpl)
 protected:
     CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
     {
@@ -477,7 +484,7 @@ private:
         }
         cmd.ReleaseBuffer();
     }
-
+protected:
     void OnCompositionChanged()
     {
         if (m_aeroControls.AeroDialogsEnabled())
@@ -501,6 +508,7 @@ private:
 
 class CStateDialog : public CDialog, public CResizableWndState
 {
+    DECLARE_DYNAMIC(CStateDialog)
 public:
     CStateDialog() : CDialog()
         , m_bEnableSaveRestore(false)

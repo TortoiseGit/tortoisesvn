@@ -29,7 +29,7 @@
       <arg value="Makefile.msvc" if="${platform == 'x64'}" />
       <arg value="Makefile32.msvc" if="${platform == 'win32'}" />
       <arg value="DLL=1" />
-      <arg value="MFLAGS=-MD" />
+      <arg value="MFLAGS=-MT" />
     </exec>
     <exec program="mt.exe">
       <arg value="-nologo" />
