@@ -213,9 +213,8 @@ BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
         RECT rc;
         GetClientRect(&rc);
         pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
-        return TRUE;
     }
-    return FALSE;
+    return TRUE;
 }
 
 LRESULT CMergeWizard::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
