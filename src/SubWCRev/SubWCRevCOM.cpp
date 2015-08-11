@@ -181,6 +181,25 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     SubStat.bFolders = folders;
     SubStat.bExternals = externals;
 
+    // clear all possible previous data
+    SubStat.MinRev = 0;
+    SubStat.MaxRev = 0;
+    SubStat.CmtRev = 0;
+    SubStat.CmtDate = 0;
+    SubStat.HasMods = FALSE;
+    SubStat.HasUnversioned = FALSE;
+    SubStat.bHexPlain = FALSE;
+    SubStat.bHexX = FALSE;
+    SubStat.bIsSvnItem = FALSE;
+    SubStat.bIsExternalsNotFixed = FALSE;
+    SubStat.bIsExternalMixed = FALSE;
+    SubStat.bIsTagged = FALSE;
+    SecureZeroMemory(SubStat.Url, sizeof(SubStat.Url));
+    SecureZeroMemory(SubStat.RootUrl, sizeof(SubStat.RootUrl));
+    SecureZeroMemory(SubStat.Author, sizeof(SubStat.Author));
+    SecureZeroMemory(&SubStat.LockData, sizeof(SubStat.LockData));
+
+
     apr_pool_t * pool;
     apr_pool_create_ex (&pool, NULL, NULL, NULL);
 

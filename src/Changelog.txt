@@ -1,5 +1,8 @@
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)
+- CHG: Allow the SubWCRevCOM object to be reused, i.e.
+       clear all gathered data when GetWCInfo2() is
+       called. (Stefan)
 - BUG: When Aero dialogs are disabled, the merge dlg
        background was painted black. (Stefan)
 - BUG: SubWCRev segfaulted when started for a
