@@ -9,6 +9,9 @@ Version 1.9.1
        non-wc path. (Stefan)
 - BUG: TMerge showed filtered diffs if "show whitespaces"
        was active. (Stefan)
+- BUG: TMerge could mark the wrong line as changed if the
+       files contained mixed newlines at the start of
+       the files. (Stefan)
 
 Version 1.9.0
 See the release notes here:
