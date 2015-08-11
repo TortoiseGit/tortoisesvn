@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -197,12 +197,15 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     svn_client_ctx_t * ctx;
     svn_client_create_context2(&ctx, NULL, pool);
 
+    svn_error_t * svnerr = nullptr;
     const char *wcroot;
-    svn_client_get_wc_root(&wcroot, internalpath, ctx, pool, pool);
-    LoadIgnorePatterns(wcroot, &SubStat);
+    svnerr = svn_client_get_wc_root(&wcroot, internalpath, ctx, pool, pool);
+    if ((svnerr == SVN_NO_ERROR) && wcroot)
+        LoadIgnorePatterns(wcroot, &SubStat);
+    svn_error_clear(svnerr);
     LoadIgnorePatterns(internalpath, &SubStat);
 
-    svn_error_t * svnerr = svn_status(  internalpath,   //path
+    svnerr = svn_status(  internalpath,   //path
         &SubStat,       //status_baton
         TRUE,           //noignore
         ctx,
