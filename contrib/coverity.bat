@@ -27,7 +27,7 @@ if exist "TortoiseSVN.tgz"  del "TortoiseSVN.tgz"
 
 :main
 rem Win32
-call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+call "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86
 if %ERRORLEVEL% neq 0 (
   echo vcvarsall.bat call failed.
   goto End
@@ -44,7 +44,7 @@ title "%COVDIR%\bin\cov-build.exe" --no-parallel-translate --dir "cov-int" nant 
 
 
 rem x64
-call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86_amd64
+call "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86_amd64
 if %ERRORLEVEL% neq 0 (
   echo vcvarsall.bat call failed.
   goto End
