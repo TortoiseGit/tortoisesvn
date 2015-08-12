@@ -72,6 +72,7 @@
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
                         <li><a href="#iesecurity">Security warnings when uploading files in Internet Explorer</a></li>
                         <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
+                        <li><a href="#wrongdifftool">&quot;compare with working copy&quot; does not use the configured diff viewer</a></li>
                         <li><a href="#debug">Where are the debug symbols?</a></li>
                     </ul>
 
@@ -709,6 +710,20 @@ force security mode = 0600</pre>
                         in case a certificate is requested by the repository, create the
                         registry key <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em> as a DWORD
                         and set its value to <em>0</em>.
+                        </p>
+                        </div>
+
+                        <div class="h3" id="wrongdifftool">
+                        <h3>&quot;compare with working copy&quot; does not use the configured diff viewer</h3>
+                        <p>When you run a &quot;compare with working copy&quot; from the log dialog, TortoiseMerge
+                        is started even if you have configured a different diff viewer tool to be used.
+                        </p>
+                        <p>
+                        This is not a bug: this command does not compare two files even though it may
+                        appear like it. It actually creates a patch file and then starts TortoiseMerge
+                        to show what applying that patch file to the working copy would look like.
+                        And since we don't know of any other UI tool that can apply patch files, TortoiseMerge
+                        is started. Your configured diff viewer can not do that.
                         </p>
                         </div>
 
