@@ -244,12 +244,13 @@
                         <p>
                         You may find that not all of these icons are used on your system. This is because
                         the number of overlays allowed by Windows is limited to 15. Windows uses 4 of
-                        those, and the remaining 11 can be used by other applications. If you are also
-                        using TortoiseCVS, then there are not enough overlay slots available, so
+                        those, and the remaining 11 can be used by other applications. And if you have
+                        OneDrive installed, that uses another 5 slots. If you then have another
+                        cloud drive tool installed, those slots can be used up.
                         TortoiseSVN tries to be a "Good Citizen (TM)"? and limits its use of overlays
                         to give other apps a chance.</p>
                         <ul>
-                            <li>Normal, Modified and Conflicted are always loaded and visible.</li>
+                            <li>Normal, Modified and Conflicted are always loaded and visible (if possible!).</li>
                             <li>Deleted is loaded if possible, but falls back to Modified if there are not enough slots.</li>
                             <li>ReadOnly is loaded if possible, but falls back to Normal if there are not enough slots.</li>
                             <li>Locked is only loaded if there are less than 13 overlays already loaded. It falls back to Normal if there are not enough slots.</li>
@@ -261,10 +262,17 @@
                         Other apps which are known to use overlays:
                         <ul>
                             <li>Windows itself. Vista and Win7 use more than XP.</li>
-                            <li>Other Tortoise clients like TCVS. Newer versions of these used a shared icon set, TortoiseOverlays.dll, but you should check what your version uses.</li>
+                            <li>OneDrive</li>
+                            <li>GDrive</li>
+                            <li>Mega</li>
                             <li>Dropbox</li>
-                            <li>Microsoft Groove (part of Office 2007/2010)</li>
+                            <li>many others</li>
                         </ul>
+                        <p>
+                        If there are too many overlay handlers installed and TortoiseSVN does not show any overlays, you can
+                        try to delete some of the installed handlers from the registry. But be careful when editing the
+                        registry!
+                        </p>
                         </div>
 
                         <div class="h3" id="ovlonlylocal">
