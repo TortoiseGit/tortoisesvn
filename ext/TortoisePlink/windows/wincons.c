@@ -85,6 +85,7 @@ int verify_ssh_host_key(void *frontend, char *host, int port, char *keytype,
 	"Connection abandoned.\n";
     static const char wrongmsg[] =
 	"WARNING - POTENTIAL SECURITY BREACH!\n"
+	"\n"
 	"The server's host key does not match the one PuTTY has\n"
 	"cached in the registry. This means that either the\n"
 	"server administrator has changed the host key, or you\n"
@@ -313,15 +314,16 @@ int console_get_userpass_input(prompts_t *p, unsigned char *in, int inlen)
     if (console_batch_mode)
 	return 0;
 
-    for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
 
+    for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
+		
 	prompt_t *pr = p->prompts[curr_prompt];
 	if (!DoLoginDialog(pr->result, pr->resultsize-1, pr->prompt))
 	return 0;
-    
     }
 
     return 1; /* success */
+
 }
 
 void frontend_keypress(void *handle)

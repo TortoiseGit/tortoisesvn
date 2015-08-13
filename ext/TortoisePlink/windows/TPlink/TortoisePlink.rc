@@ -53,31 +53,31 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,63,0,9999
- PRODUCTVERSION 0,63,0,9999
- FILEFLAGSMASK 0x3fL
+ FILEVERSION 0,64,0,9999
+ PRODUCTVERSION 0,64,0,9999
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
 #ifdef _DEBUG
- FILEFLAGS 0x1L
+ FILEFLAGS VS_FF_DEBUG
 #else
  FILEFLAGS 0x0L
 #endif
- FILEOS 0x40004L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
         BLOCK "080904b0"
         BEGIN
             VALUE "Comments", "Adapted from PuTTY plink (http://www.chiark.greenend.org.uk/~sgtatham/putty/)"
-            VALUE "CompanyName", "http://tortoisesvn.net"
+            VALUE "CompanyName", "PuTTY team, TortoiseSVN team and TortoiseGit team"
             VALUE "FileDescription", "TortoisePlink"
-            VALUE "FileVersion", "Release 0.63"
+            VALUE "FileVersion", "Release 0.64"
             VALUE "InternalName", "TortoisePlink"
-            VALUE "LegalCopyright", "Copyright © 2003-2013"
+            VALUE "LegalCopyright", "Copyright © 2003-2015"
             VALUE "OriginalFilename", "TortoisePlink.exe"
             VALUE "ProductName", "TortoiseSVN TortoisePlink"
-            VALUE "ProductVersion", "Release 0.63"
+            VALUE "ProductVersion", "Release 0.64"
         END
     END
     BLOCK "VarFileInfo"

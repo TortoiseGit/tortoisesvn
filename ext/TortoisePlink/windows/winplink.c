@@ -68,10 +68,6 @@ void nonfatal(char *p, ...)
     MessageBox(GetParentHwnd(), stuff, morestuff,
         MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
     sfree(stuff);
-    if (logctx) {
-        log_free(logctx);
-        logctx = NULL;
-    }
 }
 void connection_fatal(void *frontend, char *p, ...)
 {
