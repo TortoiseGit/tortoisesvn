@@ -115,7 +115,7 @@ kbd kbd {
     border-left: 1px solid;
     border-top: 5px solid;
     -webkit-border-top-left-radius: 4px;
-       -moz-border-radius-topleft: 4px;
+   -moz-border-radius-topleft: 4px;
     border-top-left-radius: 4px;
     clear: both;
     margin: 1em 0 0 1em;
@@ -401,12 +401,6 @@ a.fancybox,
     white-space: nowrap;
 }
 
-.smartsvn {
-    border-bottom: none;
-    display: block;
-    margin: 20px 0 40px 0;
-}
-
 .btn {
     background-color: #2584c4;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2584c4), color-stop(100%, #042f4a));
@@ -424,8 +418,8 @@ a.fancybox,
     box-shadow: 0 1px 3px #666666;
     border-bottom: none;
     display: inline-block;
-    color: #ffffff;
-    padding: 10px 20px 10px 20px;
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
 }
 
