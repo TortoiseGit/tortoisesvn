@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 IMPLEMENT_DYNAMIC(CodeCollaboratorSettingsDlg, CDialog)
 
 CodeCollaboratorSettingsDlg::CodeCollaboratorSettingsDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CodeCollaboratorSettingsDlg::IDD, pParent),
+    : CDialog(CodeCollaboratorSettingsDlg::IDD, pParent)
 {
     m_regCollabUser     = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
     m_regCollabPassword = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
