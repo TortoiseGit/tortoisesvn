@@ -55,7 +55,7 @@ bool CreatePatchCommand::Execute()
             else
                 return false;
         }
-        bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, dlg.m_sDiffOptions, CTSVNPath(savepath));
+        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_sDiffOptions, CTSVNPath(savepath));
         SVN svn;
         svn.Revert(dlg.m_filesToRevert, CStringArray(), false, false, false);
     }

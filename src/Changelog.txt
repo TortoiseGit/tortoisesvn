@@ -13,6 +13,8 @@ Version 1.9.1
 - BUG: TMerge could mark the wrong line as changed if the
        files contained mixed newlines at the start of
        the files. (Stefan)
+- BUG: "Show differences as unified diff" failed if the
+       selected files were in different directories. (Stefan)
 
 Version 1.9.0
 See the release notes here:
