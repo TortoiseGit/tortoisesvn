@@ -4,6 +4,8 @@ Version 1.9.1
        clear all gathered data when GetWCInfo2() is
        called. (Stefan)
 - CHG: Update TortoisePlink. (Stefan)
+- CHG: Moved all commands to the front view in
+       TortoiseMerge. (Stefan)
 - BUG: When Aero dialogs are disabled, the merge dlg
        background was painted black. (Stefan)
 - BUG: SubWCRev segfaulted when started for a
