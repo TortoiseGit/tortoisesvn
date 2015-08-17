@@ -4645,6 +4645,33 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
     {
         m_checkoutDepths[pItem->url] = svn_depth_infinity;
         m_updateDepths[pItem->url] = svn_depth_infinity;
+        if (!pItem->children_fetched && (pItem->kind == svn_node_dir))
+        {
+            auto foundWCDepth = m_wcDepths.find(pItem->url);
+            if (foundWCDepth != m_wcDepths.end())
+            {
+                m_updateDepths[pItem->url] = foundWCDepth->second;
+                if (foundWCDepth->second != svn_depth_infinity)
+                {
+                    // add all child states as well
+                    for (const auto& wcdepth : m_wcDepths)
+                    {
+                        if (wcdepth.first.GetLength() > pItem->url.GetLength())
+                        {
+                            CString sUrl = wcdepth.first.Left(pItem->url.GetLength());
+                            if (pItem->url.Compare(sUrl) == 0)
+                            {
+                                if (wcdepth.first[pItem->url.GetLength()] == '/')
+                                {
+                                    m_updateDepths[wcdepth.first] = wcdepth.second;
+                                    m_updateDepths[pItem->url] = svn_depth_unknown;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
@@ -4745,6 +4772,16 @@ void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
     }
     else
     {
+        if (m_bSparseCheckoutMode && !m_wcDepths.empty())
+        {
+            // clear the wc depth state of this item so it won't get used
+            // later in the OnOK handler in case this item is not expanded.
+            CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
+            if (pItem)
+            {
+                m_wcDepths.erase(pItem->url);
+            }
+        }
         // uncheck item and all children
         CheckTreeItemRecursive(hItem, bCheck);
 

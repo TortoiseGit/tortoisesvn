@@ -6,6 +6,8 @@ Version 1.9.1
 - CHG: Update TortoisePlink. (Stefan)
 - CHG: Moved all commands to the front view in
        TortoiseMerge. (Stefan)
+- CHG: Updating a sparse checkout remembers the
+       state of hidden items as well. (Stefan)
 - BUG: When Aero dialogs are disabled, the merge dlg
        background was painted black. (Stefan)
 - BUG: SubWCRev segfaulted when started for a
