@@ -513,6 +513,7 @@ private:
     bool                m_bShowBugtraqColumn;
     CString             m_sLogInfo;
     std::set<svn_revnum_t> m_mergedRevs;
+    SVNRev              m_copyfromrev;
     CString             m_sMultiLogFormat;
 
     CTime               m_timFrom;
