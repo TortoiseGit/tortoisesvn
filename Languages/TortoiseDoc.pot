@@ -9358,6 +9358,14 @@ msgid "By default, TortoiseSVN always runs an update with externals included. Th
 msgstr ""
 
 #. (para)
+msgid "When the log dialog is started from the merge wizard, already merged revisions are shown in gray, but revisions beyond the point where the branch was created are also shown. These revisions are shown in black because those can't be merged."
+msgstr ""
+
+#. (para)
+msgid "If this option is set to <literal>true</literal> then TortoiseSVN tries to find the revision where the branch was created from and hide all the revisions that are beyond that revision. Since this can take quite a while, this option is disabled by default. Also this option doesn't work with some SVN servers (e.g., Google Code Hosting, see <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue #5471</citetitle></ulink>)."
+msgstr ""
+
+#. (para)
 msgid "A format string for the log messages when multiple revisions are selected in the log dialog."
 msgstr ""
 
