@@ -150,6 +150,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="TortoiseOverlaysMSI.wxs" />
+    <None Include="version.build.in" />
+    <None Include="VersionNumberInclude.in.wxi" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Guids.h" />

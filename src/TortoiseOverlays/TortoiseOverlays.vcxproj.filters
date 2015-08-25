@@ -56,6 +56,12 @@
     <None Include="TortoiseOverlaysDirx64.wxi">
       <Filter>WiX</Filter>
     </None>
+    <None Include="VersionNumberInclude.in.wxi">
+      <Filter>WiX</Filter>
+    </None>
+    <None Include="version.build.in">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Guids.h">
