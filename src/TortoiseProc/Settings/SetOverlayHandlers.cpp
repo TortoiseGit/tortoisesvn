@@ -143,7 +143,11 @@ int CSetOverlayHandlers::GetInstalledOverlays()
             rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
             if (rc == ERROR_SUCCESS)
             {
-                if (_wcsnicmp(&value[1], L"tortoise", 8) != 0)
+                for (int i = 0; value[i]; i++)
+                {
+                    value[i] = tolower(value[i]);
+                }
+                if (wcsstr(&value[0], L"tortoise") == 0)
                 {
                     // check if there's a 'default' entry with a guid
                     wcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
