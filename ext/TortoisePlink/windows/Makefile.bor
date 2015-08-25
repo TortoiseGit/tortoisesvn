@@ -555,8 +555,8 @@ ssharcf.obj: ..\ssharcf.c ..\ssh.h ..\puttymem.h ..\tree234.h ..\network.h \
 		..\int64.h ..\misc.h
 sshblowf.obj: ..\sshblowf.c ..\ssh.h ..\puttymem.h ..\tree234.h ..\network.h \
 		..\int64.h ..\misc.h
-sshbn.obj: ..\sshbn.c ..\misc.h ..\ssh.h ..\puttymem.h ..\tree234.h \
-		..\network.h ..\int64.h
+sshbn.obj: ..\sshbn.c ..\misc.h ..\sshbn.h ..\ssh.h ..\puttymem.h \
+		..\tree234.h ..\network.h ..\int64.h
 sshcrc.obj: ..\sshcrc.c ..\ssh.h ..\puttymem.h ..\tree234.h ..\network.h \
 		..\int64.h ..\misc.h
 sshcrcda.obj: ..\sshcrcda.c ..\misc.h ..\ssh.h ..\puttymem.h ..\tree234.h \
@@ -657,6 +657,10 @@ uxnoise.obj: ..\unix\uxnoise.c ..\putty.h ..\ssh.h ..\storage.h ..\puttyps.h \
 		..\network.h ..\misc.h ..\puttymem.h ..\tree234.h ..\int64.h \
 		..\windows\winstuff.h ..\macosx\osx.h ..\unix\unix.h \
 		..\windows\winhelp.h ..\charset\charset.h
+uxpeer.obj: ..\unix\uxpeer.c ..\putty.h ..\puttyps.h ..\network.h ..\misc.h \
+		..\windows\winstuff.h ..\macosx\osx.h ..\unix\unix.h \
+		..\puttymem.h ..\tree234.h ..\windows\winhelp.h \
+		..\charset\charset.h
 uxplink.obj: ..\unix\uxplink.c ..\putty.h ..\storage.h ..\tree234.h \
 		..\puttyps.h ..\network.h ..\misc.h ..\windows\winstuff.h \
 		..\macosx\osx.h ..\unix\unix.h ..\puttymem.h \
