@@ -506,7 +506,6 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 
 void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 {
-    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
     CStringA fontName = CUnicodeUtils::GetUTF8(sFontName);
     Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)fontName);
     Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
