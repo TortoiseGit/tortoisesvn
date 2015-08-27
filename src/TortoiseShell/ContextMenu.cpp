@@ -389,8 +389,60 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                 BOOL statfetched = FALSE;
                 for (int i = 0; i < count; ++i)
                 {
-                    ItemIDList child (GetPIDLItem (cida, i), &parent);
+                    ItemIDList child(GetPIDLItem(cida, i), &parent);
+                    if (i == 0)
+                    {
+                        if (g_ShellCache.IsVersioned(child.toString().c_str(), (itemStates & ITEMIS_FOLDER) != 0, false))
+                            itemStates |= ITEMIS_INVERSIONEDFOLDER;
+                    }
+
                     tstring str = child.toString();
+                    // resolve shortcuts if it's a multi-selection (single selections are resolved by the shell!)
+                    // and only if the parent directory is not versioned: a shortcut inside a working copy
+                    // should not be resolved so it can be added to version control and handled as versioned later
+                    if ((count > 1) && ((itemStates & ITEMIS_INVERSIONEDFOLDER) == 0))
+                    {
+                        // test if the item is a shortcut
+                        SHFILEINFO fi = { 0 };
+                        fi.dwAttributes = SFGAO_LINK;
+                        auto pidlAbsolute  = ILCombine(GetPIDLFolder(cida), GetPIDLItem(cida, i));
+                        if (pidlAbsolute)
+                        {
+                            DWORD_PTR dwResult = SHGetFileInfo((LPCWSTR)pidlAbsolute, 0, &fi, sizeof(fi),
+                                                               SHGFI_ATTR_SPECIFIED | SHGFI_ATTRIBUTES | SHGFI_PIDL);
+                            if (dwResult != 0)
+                            {
+                                if (fi.dwAttributes & SFGAO_LINK)
+                                {
+                                    // it is a shortcut, so resolve that shortcut
+                                    IShellLink * pShLink = nullptr;
+                                    if (SUCCEEDED(CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER,
+                                                                   IID_IShellLink, (LPVOID*)&pShLink)))
+                                    {
+                                        IPersistFile * ppf = nullptr;
+                                        if (SUCCEEDED(pShLink->QueryInterface(IID_IPersistFile, (LPVOID*)&ppf)))
+                                        {
+                                            if (SUCCEEDED(ppf->Load(str.c_str(), STGM_READ)))
+                                            {
+                                                if (SUCCEEDED(pShLink->Resolve(NULL, SLR_NO_UI)))
+                                                {
+                                                    wchar_t shortcutpath[MAX_PATH] = { 0 };
+                                                    if (SUCCEEDED(pShLink->GetPath(shortcutpath, MAX_PATH, NULL, 0)))
+                                                    {
+                                                        str = shortcutpath;
+                                                    }
+                                                }
+
+                                            }
+                                            ppf->Release();
+                                        }
+                                        pShLink->Release();
+                                    }
+                                }
+                            }
+                            ILFree(pidlAbsolute);
+                        }
+                    }
                     if (str.empty()||(!g_ShellCache.IsContextPathAllowed(str.c_str())))
                         continue;
                     //check if our menu is requested for a subversion admin directory
@@ -515,9 +567,6 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                     if (status == svn_wc_status_deleted)
                         itemStates |= ITEMIS_DELETED;
                 } // for (int i = 0; i < count; ++i)
-                ItemIDList child (GetPIDLItem (cida, 0), &parent);
-                if (g_ShellCache.IsVersioned(child.toString().c_str(), (itemStates & ITEMIS_FOLDER) != 0, false))
-                    itemStates |= ITEMIS_INVERSIONEDFOLDER;
                 GlobalUnlock(medium.hGlobal);
 
                 // if the item is a versioned folder, check if there's a patch file
