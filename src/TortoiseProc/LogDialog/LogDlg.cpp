@@ -9108,14 +9108,11 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_startrev = head;
         m_bStartRevIsHead = false;
         m_LogRevision = head;
-        if (m_limit == 0)
-            m_endrev = 0;
-        else
-            m_endrev = max(1, head - m_limit + 1);
         m_hasWC = m_path.IsUrl();
         m_bStrict = false;
         m_bSaveStrict = false;
         m_revUnread = pItem->unreadFirst;
+        m_endrev = 1;
         m_hasWC = !m_path.IsUrl();
         m_ProjectProperties = pItem->projectproperties;
         m_MonitorAuthorsToIgnore = pItem->authorstoignore;

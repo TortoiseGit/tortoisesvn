@@ -20,6 +20,9 @@ Version 1.9.1
        the files. (Stefan)
 - BUG: "Show differences as unified diff" failed if the
        selected files were in different directories. (Stefan)
+- BUG: ProjectMonitor could not show any log messages if
+       HEAD was more than log-limit above the corresponding
+       log messages to show. (Stefan)
 
 Version 1.9.0
 See the release notes here:
