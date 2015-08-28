@@ -8472,9 +8472,9 @@ void CLogDlg::MonitorThread()
     CAutoReadLock locker(m_monitorguard);
     for (auto& item : m_monitorItemListForThread)
     {
-        SVN svn(true);
         if (m_bCancelled)
             break;
+        SVN svn(true);
         if (item.WCPathOrUrl.IsEmpty())
             continue;
         if (item.authfailed)
@@ -8484,7 +8484,8 @@ void CLogDlg::MonitorThread()
         {
             CString sCheckInfo;
             sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
-            SetDlgItemText(IDC_LOGINFO, sCheckInfo);
+            if (!m_bCancelled)
+                SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
             svn_revnum_t head = svn.GetHEADRevision(WCPathOrUrl, false);
             if (m_bCancelled)
@@ -8601,7 +8602,8 @@ void CLogDlg::MonitorThread()
                 CAutoWriteLock pathlock(m_monitorpathguard);
                 m_pathCurrentlyChecked.Empty();
             }
-            SetDlgItemText(IDC_LOGINFO, L"");
+            if (!m_bCancelled)
+                SetDlgItemText(IDC_LOGINFO, L"");
         }
         if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24)) < currenttime))
         {
@@ -8733,7 +8735,13 @@ void CLogDlg::MonitorThread()
 
         svn.SetAuthInfo(L"", L"");
     }
-    SetDlgItemText(IDC_LOGINFO, L"");
+    // if the thread is cancelled, then don't update the log label
+    // here to avoid a deadlock situation in MonitorShowProject() when
+    // waiting for this thread to finish: since there the message queue
+    // does not run, the below call to SetDlgItemText() can't finish
+    // and the thread won't end.
+    if (!m_bCancelled)
+        SetDlgItemText(IDC_LOGINFO, L"");
 
     InterlockedExchange(&m_bMonitorThreadRunning, FALSE);
     PostMessage(WM_COMMAND, ID_LOGDLG_MONITOR_THREADFINISHED);
@@ -8754,6 +8762,8 @@ bool CLogDlg::IsRevisionRelatedToUrl(const CDictionaryBasedTempPath& basePath, P
 
 void CLogDlg::OnMonitorThreadFinished()
 {
+    SetDlgItemText(IDC_LOGINFO, L"");
+
     CString sTemp;
     int changedprojects = 0;
     bool hasUnreadItems = false;
