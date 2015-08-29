@@ -97,6 +97,7 @@
               <File Id="F__TSVNSnippet" Name="snippet.txt" DiskId="1" Source="include\snippet.txt" />
               <File Id="F__websiteurl" Name="Website.url" Source="include\Website.url" DiskId="1" />
               <File Id="F__tsvntilexml" Name="TortoiseProc.VisualElementsManifest.xml" Source="include\TortoiseProc.VisualElementsManifest.xml" DiskId="1" />
+              <File Id="F__tsvnlogopng" Name="tsvn-logo.png" Source="include\tsvn-logo.png" DiskId="1" />
 
               <File Id="F__SubWCRev" Name="SubWCRev.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <File Id="F__SubWCRevCOM" Name="SubWCRevCOM.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRevCOM.exe" />
@@ -999,7 +1000,10 @@
               <Shortcut Id="S__TortoiseRepoBrowser" Directory="D_TortoisePrgMenu" Name="TortoiseSVN Repository Browser" Advertise="no"
               Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Repository Browser" Arguments="/command:repobrowser" Show="normal" />
               <Shortcut Id="S__TortoiseMonitor" Directory="D_TortoisePrgMenu" Name="TortoiseSVN Project Monitor" Advertise="no"
-              Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Project Monitor" Arguments="/command:monitor" Show="normal" />
+              Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN Project Monitor" Arguments="/command:monitor" Show="normal">
+                <!-- Set the AppID in order to get toasts to work -->
+                <ShortcutProperty Key="System.AppUserModel.ID" Value="TSVN.MONITOR.1"></ShortcutProperty>
+              </Shortcut>
             </Component>
 
             <Component Id="C__TortoiseMerge" Guid="$(var.GuidTortoiseMerge)" Win64="$(var.Win64YesNo)">

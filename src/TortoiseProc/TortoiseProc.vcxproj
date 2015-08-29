@@ -210,6 +210,7 @@
     <ClCompile Include="..\Utils\MiscUI\StandAloneDlg.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SubTooltipListCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\ToastNotifications.cpp" />
     <ClCompile Include="..\Utils\MiscUI\Tooltip.cpp" />
     <ClCompile Include="..\Utils\MiscUI\WaitCursorEx.cpp" />
     <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp" />
@@ -527,6 +528,7 @@
     <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h" />
     <ClInclude Include="..\Utils\MiscUI\SubTooltipListCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
+    <ClInclude Include="..\Utils\MiscUI\ToastNotifications.h" />
     <ClInclude Include="..\Utils\MiscUI\Tooltip.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
     <ClInclude Include="..\Utils\MiscUI\WaitCursorEx.h" />
@@ -549,6 +551,7 @@
     <ClInclude Include="..\Utils\stdex_vector.h" />
     <ClInclude Include="..\Utils\StdioFileT.h" />
     <ClInclude Include="..\Utils\StringBuffer.h" />
+    <ClInclude Include="..\Utils\StringReferenceWrapper.h" />
     <ClInclude Include="..\Utils\StringUtils.h" />
     <ClInclude Include="..\Utils\SVNTrace.h" />
     <ClInclude Include="..\Utils\SysImageList.h" />
