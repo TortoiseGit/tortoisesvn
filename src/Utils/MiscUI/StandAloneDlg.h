@@ -34,8 +34,8 @@
 
 #define DECLARE_DYNAMIC_T(class_name, T1) \
 public: \
-	static const CRuntimeClass class##class_name##T1; \
-	virtual CRuntimeClass* GetRuntimeClass() const; \
+    static const CRuntimeClass class##class_name##T1; \
+    virtual CRuntimeClass* GetRuntimeClass() const; \
 
 
 /**

@@ -54,7 +54,7 @@ public:
     ToastEventHandler::ToastEventHandler(_In_ HWND hMainWnd);
     ~ToastEventHandler();
 
-    // DesktopToastActivatedEventHandler 
+    // DesktopToastActivatedEventHandler
     IFACEMETHODIMP Invoke(_In_ ABI::Windows::UI::Notifications::IToastNotification *sender, _In_ IInspectable* args);
 
     // DesktopToastDismissedEventHandler
