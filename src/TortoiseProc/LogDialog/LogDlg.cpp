@@ -9399,7 +9399,7 @@ LRESULT CLogDlg::OnToastNotification(WPARAM wParam, LPARAM lParam)
         default:
         break;
     }
-    return FALSE;
+    return TRUE;
 }
 
 void CLogDlg::MonitorShowDlg()
