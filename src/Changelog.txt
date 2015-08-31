@@ -25,6 +25,8 @@ Version 1.9.1
        log messages to show. (Stefan)
 - BUG: Stopping the monitoring thread failed when trying
        to show the log. (Stefan)
+- BUG: When a start commit hook script failed in the repo browser,
+       the buttons (abort/proceed) were switched. (Stefan)
 
 Version 1.9.0
 See the release notes here:

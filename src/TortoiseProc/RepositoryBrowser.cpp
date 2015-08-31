@@ -5229,7 +5229,7 @@ bool CRepositoryBrowser::RunStartCommit( const CTSVNPathList& pathlist, CString&
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);
             taskdlg.SetMainIcon(TD_ERROR_ICON);
-            return (taskdlg.DoModal(GetSafeHwnd()) == 1);
+            return (taskdlg.DoModal(GetSafeHwnd()) == 2);
         }
     }
     return true;
