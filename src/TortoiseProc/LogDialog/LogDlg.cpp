@@ -8439,11 +8439,16 @@ void CLogDlg::MonitorPopupTimer()
                 if (SysInfo::Instance().IsWin10OrLater() && ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseWin10ToastNotifications", TRUE)))
                 {
                     std::vector<std::wstring> lines;
-                    lines.push_back((LPCWSTR)m_sMonitorNotificationTitle);
-                    lines.push_back((LPCWSTR)m_sMonitorNotificationText);
-                    ToastNotifications toastnotifier;
-                    auto hr = toastnotifier.ShowToast(GetSafeHwnd(), L"TSVN.MONITOR.1", CPathUtils::GetAppDirectory() + L"tsvn-logo.png", lines);
-                    toastShown = SUCCEEDED(hr);
+                    if (!m_sMonitorNotificationTitle.IsEmpty())
+                        lines.push_back((LPCWSTR)m_sMonitorNotificationTitle);
+                    if (!m_sMonitorNotificationText.IsEmpty())
+                        lines.push_back((LPCWSTR)m_sMonitorNotificationText);
+                    if (!lines.empty())
+                    {
+                        ToastNotifications toastnotifier;
+                        auto hr = toastnotifier.ShowToast(GetSafeHwnd(), L"TSVN.MONITOR.1", CPathUtils::GetAppDirectory() + L"tsvn-logo.png", lines);
+                        toastShown = SUCCEEDED(hr);
+                    }
                 }
                 if (!toastShown)
                 {
