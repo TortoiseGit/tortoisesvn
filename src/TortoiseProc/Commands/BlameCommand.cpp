@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,8 +55,8 @@ bool BlameCommand::Execute()
     if (parser.HasKey(L"startrev") && parser.HasKey(L"endrev"))
     {
         bShowDialog = false;
-        dlg.StartRev = parser.GetLongVal(L"startrev");
-        dlg.EndRev = parser.GetLongVal(L"endrev");
+        dlg.StartRev = SVNRev(parser.GetVal(L"startrev"));
+        dlg.EndRev = SVNRev(parser.GetVal(L"endrev"));
         if (parser.HasKey(L"ignoreeol") || parser.HasKey(L"ignorespaces") || parser.HasKey(L"ignoreallspaces"))
         {
             options = SVN::GetOptionsString(!!parser.HasKey(L"ignoreeol"), !!parser.HasKey(L"ignorespaces"), !!parser.HasKey(L"ignoreallspaces"));
