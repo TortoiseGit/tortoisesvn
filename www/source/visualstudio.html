@@ -49,7 +49,7 @@
                     here's the parameters I used:
                 </p>
                 <ul>
-                    <li><code>/command:blame /path:"$(ItemPath)" /line:$(CurLine)</code></li>
+                    <li><code>/command:blame /path:"$(ItemPath)" /line:$(CurLine) /startrev:1 /endrev:"-1"</code></li>
                     <li><code>/command:diff /path:"$(ItemPath)"</code></li>
                     <li><code>/command:log /path:"$(ItemPath)"</code></li>
                 </ul>
@@ -57,6 +57,9 @@
                     Notice the <em>/line:</em> parameter: this will make
                     TortoiseBlame automatically scroll to the same line
                     the cursor is located in the opened file in Visual Studio.
+                    If you omit the <em>/startrev</em> and <em>/endrev</em> parameters
+                    for the blame command then a dialog is first shown where you can
+                    specify more options for the blame.
                 </p>
                 <p>
                     Now to add those new commands to the file tab context menu,
