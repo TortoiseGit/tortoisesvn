@@ -1492,9 +1492,10 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     if (posSelectedEntry)
         nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
 
+    SetRedraw(FALSE);
+    OnOutOfScope(SetRedraw(TRUE));
     {
         CAutoWriteLock locker(m_guard);
-        SetRedraw(FALSE);
         DeleteAllItems();
 
         m_nShownUnversioned = 0;
@@ -1636,8 +1637,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
         SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
-
-    SetRedraw(TRUE);
 
     m_bWaitCursor = false;
     GetCursorPos(&pt);
