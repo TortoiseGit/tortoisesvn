@@ -1,6 +1,8 @@
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
        in the explorer. (Stefan)
+- BUG: "Show unified diff" in the log dialog did
+       not include the last (lowest) revision. (Stefan)
 
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)

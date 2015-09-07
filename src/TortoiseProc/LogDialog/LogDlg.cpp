@@ -5504,6 +5504,9 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         r1 = pCmi->RevHighest;
         r2 = pCmi->RevLowest;
     }
+    // use the previous revision of the lowest rev so the lowest rev
+    // is included in the diff
+    r2 = r2 - 1;
     CString options;
     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
     {
