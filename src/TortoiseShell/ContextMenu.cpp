@@ -259,6 +259,12 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
         {
             if (m_State == FileStateDropHandler)
             {
+                if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE))
+                {
+                    ReleaseStgMedium(&medium);
+                    return S_OK;
+                }
+
                 FORMATETC etc = { CF_HDROP, NULL, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
                 STGMEDIUM stg = { TYMED_HGLOBAL };
                 if ( FAILED( pDataObj->GetData ( &etc, &stg )))
@@ -294,7 +300,9 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                     if (str.empty()||(!g_ShellCache.IsContextPathAllowed(szFileName.get())))
                         continue;
                     CTSVNPath strpath;
-                    strpath.SetFromWin(CPathUtils::GetLongPathname(str.c_str()));
+                    // only use GetLongPathname for the first item, since we only get the status for
+                    // that first item. TortoiseProc later converts the filesnames before using them too.
+                    strpath.SetFromWin(i != 0 ? str.c_str() : CPathUtils::GetLongPathname(str.c_str()));
                     if (itemStates & ITEMIS_ONLYONE)
                     {
                         itemStates |= (strpath.GetFileExtension().CompareNoCase(L".diff")==0) ? ITEMIS_PATCHFILE : 0;
