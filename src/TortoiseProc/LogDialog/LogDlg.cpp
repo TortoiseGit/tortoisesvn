@@ -212,6 +212,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_copyfromrev(0)
     , m_bStartRevIsHead(true)
     , m_boldFont(NULL)
+    , m_boldItalicFont(NULL)
     , m_bStrict(false)
     , m_bSaveStrict(false)
     , m_hasWC(false)
@@ -300,6 +301,8 @@ CLogDlg::~CLogDlg()
     }
     if (m_boldFont)
         DeleteObject(m_boldFont);
+    if (m_boldItalicFont)
+        DeleteObject(m_boldItalicFont);
     if (m_hToolbarImages)
         ImageList_Destroy(m_hToolbarImages);
 }
@@ -482,6 +485,8 @@ void CLogDlg::SetupDialogFonts()
     GetObject(hFont, sizeof(LOGFONT), &lf);
     lf.lfWeight = FW_BOLD;
     m_boldFont = CreateFontIndirect(&lf);
+    lf.lfItalic = TRUE;
+    m_boldItalicFont = CreateFontIndirect(&lf);
     CAppUtils::CreateFontForLogs(m_logFont);
 }
 
@@ -3431,7 +3436,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         crText = GetSysColor(COLOR_GRAYTEXT);
                     if ((data->GetRevision() == m_wcRev) || data->GetUnread())
                     {
-                        SelectObject(pLVCD->nmcd.hdc, m_boldFont);
+                        SelectObject(pLVCD->nmcd.hdc, data->GetUnread() ? m_boldFont : m_boldItalicFont);
                         // We changed the font, so we're returning CDRF_NEWFONT. This
                         // tells the control to recalculate the extent of the text.
                         *pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
@@ -4874,7 +4879,16 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
             if (index < m_logEntries.GetVisibleCount())
             {
                 PLOGENTRYDATA pCurLogEntry = m_logEntries.GetVisible(index);
-                if ((pCurLogEntry)&&(pCurLogEntry->GetRevision() == m_wcRev))
+                if ((pCurLogEntry) && (pCurLogEntry->GetRevision() == m_wcRev))
+                {
+                    HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
+                    // set the bold font and ask for the string width again
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldItalicFont, NULL);
+                    linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
+                    // restore the system font
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
+                }
+                if (pCurLogEntry && pCurLogEntry->GetUnread())
                 {
                     HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again

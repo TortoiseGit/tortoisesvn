@@ -442,6 +442,7 @@ public:
     WORD                m_wParam;
 private:
     HFONT               m_boldFont;
+    HFONT               m_boldItalicFont;
     CString             m_sRelativeRoot;
     CString             m_sRepositoryRoot;
     CString             m_sURL;
