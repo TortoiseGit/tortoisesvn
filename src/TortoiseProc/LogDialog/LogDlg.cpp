@@ -8594,13 +8594,13 @@ void CLogDlg::MonitorThread()
                 }
                 else
                 {
-                    auto Error = svn.GetSVNError();
-                    if (Error)
+                    auto SVNError = svn.GetSVNError();
+                    if (SVNError)
                     {
-                        if ((SVN_ERROR_IN_CATEGORY(Error->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
-                            (SVN_ERROR_IN_CATEGORY(Error->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                            (Error->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
-                            (Error->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+                        if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+                            (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+                            (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
+                            (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
                         {
                             item.authfailed = true;
                             item.lastErrorMsg = svn.GetLastErrorMessage();
@@ -8612,14 +8612,14 @@ void CLogDlg::MonitorThread()
             }
             else
             {
-                auto Error = svn.GetSVNError();
-                if (Error)
+                auto SVNError = svn.GetSVNError();
+                if (SVNError)
                 {
-                    if ((SVN_ERROR_IN_CATEGORY(Error->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
-                        (SVN_ERROR_IN_CATEGORY(Error->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                        (Error->apr_err == SVN_ERR_RA_DAV_FORBIDDEN)||
-                        (Error->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION)||
-                        (Error->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
+                    if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+                        (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+                        (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN)||
+                        (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION)||
+                        (SVNError->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
                     {
                         item.authfailed = true;
                     }
