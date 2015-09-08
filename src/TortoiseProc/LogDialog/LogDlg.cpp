@@ -8103,15 +8103,6 @@ void CLogDlg::OnMonitorCheckNow()
         SetDlgItemText(IDC_LOGINFO, CString(MAKEINTRESOURCE(IDS_MONITOR_THREADRUNNING)));
         return;
     }
-    // clear the log view
-    m_ChangedFileListCtrl.SetItemCountEx(0);
-    m_ChangedFileListCtrl.Invalidate();
-    m_LogList.SetItemCountEx(0);
-    m_LogList.Invalidate();
-    CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
-    pMsgView->SetWindowText(L"");
-    m_logEntries.ClearAll();
-    GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
     // mark all entries as 'never checked before'
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
