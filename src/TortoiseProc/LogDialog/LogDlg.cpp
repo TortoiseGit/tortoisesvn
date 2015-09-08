@@ -9394,7 +9394,7 @@ LRESULT CLogDlg::OnShowDlgMsg(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
-LRESULT CLogDlg::OnToastNotification(WPARAM wParam, LPARAM lParam)
+LRESULT CLogDlg::OnToastNotification(WPARAM wParam, LPARAM /*lParam*/)
 {
     switch (wParam)
     {
