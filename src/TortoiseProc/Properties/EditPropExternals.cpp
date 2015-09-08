@@ -413,7 +413,6 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 svn.SetPromptParentWindow(m_hWnd);
                 SVNInfo svnInfo;
                 svnInfo.SetPromptParentWindow(m_hWnd);
-                std::map<CString, svn_revnum_t> headrevs;
                 CProgressDlg progDlg;
                 progDlg.ShowModal(m_hWnd, TRUE);
                 progDlg.SetTitle(IDS_EDITPROPS_PROG_FINDHEADTITLE);
@@ -437,18 +436,11 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                                 m_externals[index].root = svn.GetRepositoryRoot(path_);
                             }
 
-                            auto hi = headrevs.find(m_externals[index].root);
-                            if (hi == headrevs.end())
-                            {
-                                const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(m_externals[index].fullurl), SVNRev(), SVNRev::REV_HEAD);
-                                if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
-                                    m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
-                                else
-                                    m_externals[index].headrev = pInfo->lastchangedrev;
-                                headrevs[m_externals[index].root] = m_externals[index].headrev;
-                            }
+                            const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(m_externals[index].fullurl), SVNRev(), SVNRev::REV_HEAD);
+                            if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
+                                m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
                             else
-                                m_externals[index].headrev = hi->second;
+                                m_externals[index].headrev = pInfo->lastchangedrev;
                         }
                     }
                 }

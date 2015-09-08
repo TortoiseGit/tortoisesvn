@@ -3,6 +3,9 @@ Version 1.9.2
        in the explorer. (Stefan)
 - BUG: "Show unified diff" in the log dialog did
        not include the last (lowest) revision. (Stefan)
+- BUG: Adjusting externals to the HEAD revision used
+       always the same revision if multiple externals were
+       selected. (Stefan)
 
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)
