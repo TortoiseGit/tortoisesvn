@@ -71,6 +71,10 @@
     </Property>
     <?endif ?>
 
+    <Property Id="LANGUAGEFOLDER" Secure="yes">
+      <RegistrySearch Key="SOFTWARE\[Manufacturer]" Root="HKLM" Type="raw" Id="LANGUAGEFOLDER_REGSEARCH" Name="LanguageFolderPath" Win64="$(var.Win64YesNo)"/>
+    </Property>
+
     <DirectoryRef Id="TARGETDIR"/>
 
     <FeatureRef Id="DefaultFeature" />

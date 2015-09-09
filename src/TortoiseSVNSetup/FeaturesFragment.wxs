@@ -23,6 +23,7 @@
       <ComponentRef Id="C__PlatformSettingsShortcuts" />
       <ComponentRef Id="C__ProgramMenuFolder" />
       <ComponentRef Id="C__DiffScripts" />
+      <ComponentRef Id="C_LanguagePacks" />
 
       <Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="Ovlays" />

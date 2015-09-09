@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <?include Includes.wxi?>
   <?if $(env.Platform) = "win32" ?>
   <?define cf="CommonFilesFolder" ?>
@@ -1057,6 +1058,20 @@
               <File Id="F__CLIsvnsync" Name="svnsync.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnsync.exe" />
               <File Id="F__CLIsvnversion" Name="svnversion.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnversion.exe" />
               <File Id="F__CLIsvnbench" Name="svnbench.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnbench.exe" />
+            </Component>
+
+            <Component Id="C_LanguagePacks" Guid="$(var.GuidRemoveLanguagePacks)" Win64="$(var.Win64YesNo)" >
+              <!-- When a language pack is installed, it copies files into the [INSTALLDIR]Languages folder, but
+                   also in a subfolder with the language code as its name.
+                   E.g. "C:\program files\TortoiseSVN\Languages\de\LC_MESSAGES\"
+                   We could add here Directory- and RemoveFile-Elements for each and every one of the possible
+                   language packs, but using the WiX utility RemoveFolderEx is in this case the better option.
+                   To use RemoveFolderEx, we have to use a property with the path of the language folder, so
+                   to get such a property we save that path to a registry key and read that key into the property.
+                   -->
+              <RegistryKey Root="HKLM" Key="Software\[Manufacturer]" />
+              <RegistryValue Root="HKLM" Key="Software\[Manufacturer]" Name="LanguageFolderPath" Type="string" Value="[INSTALLDIR]Languages" />
+              <util:RemoveFolderEx Id='CleanupApplicationFolder' On="uninstall" Property="LANGUAGEFOLDER" />
             </Component>
 
             <Component Id="C__CLIREG" Guid="$(var.GuidCLIREG)" Win64="$(var.Win64YesNo)" Permanent="yes">

@@ -112,6 +112,8 @@
         <arg value="FeaturesFragment.wxs" />
         <arg value="StructureFragment.wxs" />
         <arg value="UIFragment.wxs" />
+        <arg value="-ext" />
+        <arg value="WixUtilExtension" />
       </exec>
       <exec program="light">
         <arg value="-nologo" />
@@ -127,6 +129,8 @@
         <arg value="..\..\bin\FeaturesFragment.wixobj" />
         <arg value="..\..\bin\StructureFragment.wixobj" />
         <arg value="..\..\bin\UIFragment.wixobj" />
+        <arg value="-ext" />
+        <arg value="WixUtilExtension" />
       </exec>
       <delete>
         <fileset>
