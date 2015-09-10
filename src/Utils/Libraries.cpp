@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2014 - TortoiseSVN
+// Copyright (C) 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,9 +20,10 @@
 #include "Libraries.h"
 #include "PathUtils.h"
 #include "resource.h"
+#include "SmartHandle.h"
 #include <initguid.h>
 #include <propkeydef.h>
-#include "SmartHandle.h"
+#include <VersionHelpers.h>
 
 
 #ifdef _WIN64
@@ -31,6 +32,10 @@ DEFINE_GUID(FOLDERTYPEID_SVNWC32,     0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x
 #else
 DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
 #endif
+#ifndef _WIN32_WINNT_WIN10
+#define _WIN32_WINNT_WIN10 0x0A00
+#endif
+bool IsWin10OrLater() { return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0); }
 
 
 /**
@@ -74,7 +79,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
             PathCanonicalize(buf, (LPCTSTR)appDir);
             appDir = buf;
         }
-        path.Format(L"%s%s,-%d", (LPCTSTR)appDir, L"TortoiseProc.exe", IDI_LIBRARY);
+        path.Format(L"%s%s,-%d", (LPCTSTR)appDir, L"TortoiseProc.exe", IsWin10OrLater() ? IDI_LIBRARY_WIN10 : IDI_LIBRARY);
         pLibrary->SetIcon((LPCTSTR)path);
         pLibrary->Commit();
     }
