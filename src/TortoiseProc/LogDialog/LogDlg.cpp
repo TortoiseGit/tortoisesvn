@@ -5520,7 +5520,7 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     }
     // use the previous revision of the lowest rev so the lowest rev
     // is included in the diff
-    r2 = r2 - 1;
+    r2 = r2 - svn_revnum_t(1);
     CString options;
     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
     {
