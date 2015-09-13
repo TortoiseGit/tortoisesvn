@@ -6,6 +6,13 @@ Version 1.9.2
 - BUG: Adjusting externals to the HEAD revision used
        always the same revision if multiple externals were
        selected. (Stefan)
+- BUG: "Check all" in project monitor cleared the view. (Stefan)
+- BUG: When uninstalling TSVN, files from an installed
+       language pack were left. (Stefan)
+- BUG: IDiff showed 256x256 icons with wrong size. (Stefan)
+- NEW: new library icon for Win10, new overlay icon set
+       for Win10. (Stefan)
+- CHG: TortoisePlink uses new UX style. (Stefan)
 
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)
