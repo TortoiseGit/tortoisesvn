@@ -295,6 +295,8 @@
 #     define BOOST_COMPILER_VERSION 11.0
 #   elif _MSC_VER < 1900
 #     define BOOST_COMPILER_VERSION 12.0
+#   elif _MSC_VER < 2000
+#     define BOOST_COMPILER_VERSION 14.0
 #   else
 #     define BOOST_COMPILER_VERSION _MSC_VER
 #   endif
@@ -304,8 +306,8 @@
 #endif
 
 //
-// last known and checked version is 18.00.20827.3 (VC12 RC, aka 2013 RC):
-#if (_MSC_VER > 1800 && _MSC_FULL_VER > 180020827)
+// last known and checked version is 19.00.23026 (VC14 RC, aka 2015 RC):
+#if (_MSC_VER > 1900 && _MSC_FULL_VER > 190023026)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
