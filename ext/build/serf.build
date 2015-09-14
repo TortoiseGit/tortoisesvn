@@ -31,8 +31,8 @@
       <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/EHsc" />
-      <arg value="/MT" if="${configuration == 'release'}" />
-      <arg value="/MTd" if="${configuration == 'debug'}" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />

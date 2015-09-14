@@ -28,8 +28,8 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <!-- first build the gen_test_char.exe tool and generate the header with it -->
     <cl outputdir="${configuration}_${platform}">
-      <arg value="/MT" if="${configuration == 'release'}" />
-      <arg value="/MTd" if="${configuration == 'debug'}" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
@@ -79,8 +79,8 @@
       <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/EHsc" />
-      <arg value="/MT" if="${configuration == 'release'}" />
-      <arg value="/MTd" if="${configuration == 'debug'}" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />

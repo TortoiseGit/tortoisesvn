@@ -48,7 +48,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <ResourceCompile>
@@ -67,7 +67,7 @@
       <OmitFramePointers Condition="'$(Platform)'=='Win32'">false</OmitFramePointers>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <StringPooling>true</StringPooling>
       <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>

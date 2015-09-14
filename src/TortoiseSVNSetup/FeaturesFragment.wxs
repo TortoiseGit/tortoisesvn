@@ -25,6 +25,19 @@
       <ComponentRef Id="C__DiffScripts" />
       <ComponentRef Id="C_LanguagePacks" />
 
+      <ComponentRef Id="C__ucrt" />
+      <ComponentRef Id="C__crtmfc" />
+
+      <!--<Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
+        <MergeRef Id="CRT" />
+        <?if $(env.Platform) = "x64" ?>
+        <MergeRef Id="CRT32" />
+        <?endif ?>
+      </Feature>
+      <Feature Id="F_MFC" Level="1" Title="MFC 14.0" Description="The MFC 14.0 libs" TypicalDefault="install" Display="hidden" >
+        <MergeRef Id="MFC" />
+        <MergeRef Id="MFCLOC" />
+      </Feature>-->
       <Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="Ovlays" />
         <?if $(env.Platform) = "x64" ?>

@@ -39,7 +39,7 @@
       </exec>
       <loadfile file="..\openssl\ms\nt.mak" property="makefile">
         <filterchain>
-          <replacestring from="/MD" to="/MT" />
+          <replacestring from="/MT" to="/MD" />
           <replacestring from="-W3 " to="-W0 " />
           <replacestring from="/Ox " to="/O2 /GL /arch:IA32 " if="${configuration == 'release'}" />
           <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
@@ -64,7 +64,7 @@
       </exec>
       <loadfile file="..\openssl\ms\nt.mak" property="makefile">
         <filterchain>
-          <replacestring from="/MD" to="/MT" />
+          <replacestring from="/MT" to="/MD" />
           <replacestring from="-W3 " to="-W0 " />
           <replacestring from="/Ox " to="/O2 /GL " if="${configuration == 'release'}" />
           <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
