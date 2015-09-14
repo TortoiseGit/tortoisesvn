@@ -32,11 +32,6 @@
 #define DIALOG_BLOCKHORIZONTAL 1
 #define DIALOG_BLOCKVERTICAL 2
 
-#define DECLARE_DYNAMIC_T(class_name, T1) \
-public: \
-    static const CRuntimeClass class##class_name##T1; \
-    virtual CRuntimeClass* GetRuntimeClass() const; \
-
 
 /**
  * \ingroup TortoiseProc
@@ -50,7 +45,9 @@ public: \
  */
 template <typename BaseType> class CStandAloneDialogTmpl : public BaseType
 {
+#ifndef _DLL
     DECLARE_DYNAMIC(CStandAloneDialogTmpl)
+#endif
 protected:
     CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
     {

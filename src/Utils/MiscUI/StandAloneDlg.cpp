@@ -20,7 +20,7 @@
 #include "resource.h"
 #include "StandAloneDlg.h"
 
-
+#ifndef _DLL
 // custom macro, adjusted from the MFC macro IMPLEMENT_DYNAMIC to make it work for templated
 // base classes.
 #define _RUNTIME_CLASS_T(class_name, T1) ((CRuntimeClass*)(&class_name<class T1>::class##class_name))
@@ -35,6 +35,7 @@
 
 #define IMPLEMENT_DYNAMIC_T(class_name, T1, base_class_name) \
     IMPLEMENT_RUNTIMECLASS_T(class_name, T1, base_class_name, 0xFFFF, NULL, NULL)
+#endif
 
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
@@ -48,6 +49,7 @@ BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
     ON_REGISTERED_MESSAGE( TaskBarButtonCreated, OnTaskbarButtonCreated )
 END_MESSAGE_MAP()
 
+#ifndef _DLL
 // Can't find a way to make the IMPLEMENT_DYNAMIC macro work for templated classes
 // (see above for templated base classes). So we do it manually here for all the templated classes
 // we use:
@@ -86,9 +88,13 @@ CRuntimeClass* CStandAloneDialogTmpl<CStateDialog>::GetRuntimeClass() const
 {
     return ((CRuntimeClass*)(&CStandAloneDialogTmpl<CStateDialog>::classCStandAloneDialogTmpl));
 }
+#endif
 
-
+#ifndef _DLL
 IMPLEMENT_DYNAMIC_T(CStandAloneDialog, CDialog, CStandAloneDialogTmpl)
+#else
+IMPLEMENT_DYNAMIC(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
+#endif
 CStandAloneDialog::CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
 : CStandAloneDialogTmpl<CDialog>(nIDTemplate, pParentWnd)
 {
@@ -96,7 +102,11 @@ CStandAloneDialog::CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL
 BEGIN_MESSAGE_MAP(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
 END_MESSAGE_MAP()
 
+#ifndef _DLL
 IMPLEMENT_DYNAMIC_T(CStateStandAloneDialog, CStateDialog, CStandAloneDialogTmpl)
+#else
+IMPLEMENT_DYNAMIC(CStateStandAloneDialog, CStandAloneDialogTmpl<CStateDialog>)
+#endif
 CStateStandAloneDialog::CStateStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
 : CStandAloneDialogTmpl<CStateDialog>(nIDTemplate, pParentWnd)
 {
@@ -105,7 +115,11 @@ BEGIN_MESSAGE_MAP(CStateStandAloneDialog, CStandAloneDialogTmpl<CStateDialog>)
 END_MESSAGE_MAP()
 
 
+#ifndef _DLL
 IMPLEMENT_DYNAMIC_T(CResizableStandAloneDialog, CResizableDialog, CStandAloneDialogTmpl)
+#else
+IMPLEMENT_DYNAMIC(CResizableStandAloneDialog, CStandAloneDialogTmpl<CResizableDialog>)
+#endif
 CResizableStandAloneDialog::CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
     : CStandAloneDialogTmpl<CResizableDialog>(nIDTemplate, pParentWnd)
     , m_bVertical(false)
