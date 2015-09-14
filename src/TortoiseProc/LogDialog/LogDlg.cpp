@@ -1692,15 +1692,19 @@ void CLogDlg::LogThread()
             svnPath
             )
 
-        bool bFindCopyFrom = !!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFindCopyFrom", FALSE);
-        if (bFindCopyFrom)
+        bool bFindCopyFrom = !!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFindCopyFrom", TRUE);
+        if (bFindCopyFrom && m_bStrict)
         {
             SVNLogHelper helper;
             CString sCopyFrom;
             CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath) + L"/");
             SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
             if (sCopyFrom.Compare(m_sURL) == 0)
+            {
                 m_copyfromrev = rev;
+                if (svn_revnum_t(m_startrev) > svn_revnum_t(m_endrev))
+                    m_endrev = m_copyfromrev;
+            }
         }
     }
 

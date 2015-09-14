@@ -119,7 +119,7 @@ CSettingsAdvanced::CSettingsAdvanced()
 
     settings[i].sName   = L"LogFindCopyFrom";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
-    settings[i++].def.b = false;
+    settings[i++].def.b = true;
 
     settings[i].sName   = L"LogMultiRevFormat";
     settings[i].type    = CSettingsAdvanced::SettingTypeString;
