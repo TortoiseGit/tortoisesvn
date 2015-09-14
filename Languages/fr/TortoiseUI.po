@@ -31,6 +31,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2015
 # Mickael Patron <mickael_patron@hotmail.com>, 2012
 # Le Gall Nicolas <nicolaslegall34@gmail.com>, 2014
 # Philippe <kissifrot@gmail.com>, 2012-2014
@@ -43,8 +44,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-05 09:22+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-08-23 01:43+0000\n"
+"Last-Translator: Lucas Mascaro <mascaro.lucas@yahoo.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -214,14 +215,14 @@ msgstr "%I64d ko transférés"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Récupéré]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -808,11 +809,11 @@ msgstr "&Rechercher"
 
 #. Resource IDs: (32771)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Rechercher...\t(Ctrl+F)"
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "&Adapter les images à la fenêtre\t(F)"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -852,7 +853,7 @@ msgstr "&De : (URL de début et plage de révisions à fusionner)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&Allez à la Ligne...\t(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -913,7 +914,7 @@ msgstr "&Image"
 
 #. Resource IDs: (32790)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&Information de l'image\t(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1135,7 +1136,7 @@ msgstr "&Ouvrir"
 
 #. Resource IDs: (32773)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&Ouvrir\t(Ctrl+O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1151,7 +1152,7 @@ msgstr "&Autre"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "&Images de superposition\t(O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1529,7 +1530,7 @@ msgstr "&Nom :"
 
 #. Resource IDs: (1647)
 msgid "&Vacuum pristine copies"
-msgstr ""
+msgstr "&Vider les copies du projet"
 
 #. Resource IDs: (65535)
 msgid "&View"
@@ -1550,10 +1551,6 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "Copie de travai&l"
-
-#. Resource IDs: (59393)
-msgid "&amp;Status Bar"
-msgstr ""
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -1746,7 +1743,7 @@ msgstr "<nouvelle liste de changements>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
 "all=&Options=="
-msgstr ""
+msgstr "=&Vérifier maintenant=&Ajouter un projet=&Editer=&Supprimer=&Marquer comme lu=&Tout mettre à jour=&Options=="
 
 #. Resource IDs: (32814)
 msgid "?"
@@ -2072,14 +2069,14 @@ msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réini
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Toutes vos modifications seront perdues! Voulez vous vraiment réinitialiser le menu '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Toutes vos modifications seront perdues! Voulez vous vraiment réinitialiser la barre d'outils '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2245,7 +2242,7 @@ msgstr "Êtes-vous sûr de vouloir faire revenir à l'ancienne version %d élém
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Arranger &verticalement\t(V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -4042,7 +4039,7 @@ msgstr "Visualiseur de différences::Outil de fusion"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Voir les différences des lignes ajoutées"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
@@ -4074,7 +4071,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Voir les différences des lignes supprimées"
 
 #. Resource IDs: (279)
 msgid "Diff with URL"
@@ -4198,7 +4195,7 @@ msgstr "Faire de même pour tous les éléments non versionnés/modifiés"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Voulez vous vraiment supprimer la barre d'outils '%Ts'?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4362,7 +4359,7 @@ msgstr "&Quitter"
 
 #. Resource IDs: (105)
 msgid "E&xit\t(Ctrl+W)"
-msgstr ""
+msgstr "Quitter\t(Ctrl+W)"
 
 #. Resource IDs: (4384)
 msgid "E&xpand all"
@@ -4722,7 +4719,7 @@ msgstr "&Développer l'arborescence suivante"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Etendre (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5136,11 +5133,11 @@ msgstr "Même hauteur"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "Ajuster les &hauteurs d'image\t(H)"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "Ajuster les &largeurs d'image\t(H)"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5492,7 +5489,7 @@ msgstr "Type de hook :"
 
 #. Resource IDs: (5812)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Echec du script hook"
 
 #. Resource IDs: (2760)
 msgid "Hook script failed!"
@@ -5862,7 +5859,7 @@ msgstr "Ignorer les modifications\nIgnore les modifications extérieures"
 
 #. Resource IDs: (32896)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Ignorer les commentaires"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7607,7 +7604,7 @@ msgstr "Application du patch"
 #. Resource IDs: (2703)
 #, c-format
 msgid "Patching file '%1!ls!'"
-msgstr ""
+msgstr "Patch en cours du fichier '%1!ls!'"
 
 #. Resource IDs: (304, 1004, 1223, 2704, 3153, 3300)
 msgid "Path"
@@ -9635,7 +9632,7 @@ msgstr "Affiche une représentation graphique des copies/étiquettes/branches"
 msgid ""
 "Shows a unified diff of all changes of the path and those below, including "
 "property changes."
-msgstr ""
+msgstr "Montre les différences unifiées de tout les changements de l'arborescence, incluant les changements de propriétés"
 
 #. Resource IDs: (193)
 msgid ""
@@ -9908,6 +9905,10 @@ msgstr "Statistiques"
 #. Resource IDs: (1176, 3301, 65535)
 msgid "Status"
 msgstr "Statut"
+
+#. Resource IDs: (59393)
+msgid "Status Bar"
+msgstr "Barre de Statut"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -10819,7 +10820,7 @@ msgstr ""
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Ce programme nécéssite le fichier %Ts, lequel n'a pas été trouvé."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -10991,7 +10992,7 @@ msgid ""
 "%ls\r\n"
 "zlib %ls\r\n"
 "SQLite %ls"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %ls, %ls%ls\nSubversion %d.%d.%d, %ls\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%ls\nzlib %ls\nSQLite %ls"
 
 #. Resource IDs: (1021)
 msgid "TortoiseSVN Project Monitor"
@@ -11658,7 +11659,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Les options de commande valides sont\n/base:<chemin du fichier de base>\n/basename:<nom à afficher sur le titre de la vue>\n/theirs:<chemin de leur fichiers>\n/theirsname:<nom à afficher sur le titre de la vue>\n/mine:<chemin de vos fichiers>\n/minename:<nom à afficher sur le titre de la vue>\n/merged:<chemin du résultat de la fusion>\n/mergedname:<nom à afficher sur le titre de la vue>\n/diff:<chemin du fichier diff unifié>\n/patchpath:<chemin du dossier>\n/saverequired\n/saverequiredonconflicts\n/oneway <force la vue unique>\n/line:<numéro de la ligne jusqu'où il faut passer>"
 
 #. Resource IDs: (1338)
 msgid "Validation of the property value failed!"
@@ -11998,7 +11999,7 @@ msgstr "Votre copie de travail pointe sur %ls, ce qui semble être un tag !\nVou
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out\t(-)"
-msgstr ""
+msgstr "Ré&duire \t(-)"
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12039,7 +12040,7 @@ msgstr "Réduire le Grossissement\nRéduire le Grossissement"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n\t(+)"
-msgstr ""
+msgstr "Agra&ndir\t(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

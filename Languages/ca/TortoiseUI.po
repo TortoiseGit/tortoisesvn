@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-10 15:12+0000\n"
+"PO-Revision-Date: 2015-08-28 13:16+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -177,12 +177,12 @@ msgstr "%1\nNo es troba el fitxer.\nVerifiqueu que el camí i el nom del fitxer 
 #. Resource IDs: (5704)
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%I64d Bytes transferits"
+msgstr "%I64d bytes transferits"
 
 #. Resource IDs: (5705)
 #, c-format
 msgid "%I64d Bytes/s"
-msgstr "%I64d Bytes/s"
+msgstr "%I64d bytes/s"
 
 #. Resource IDs: (5701)
 #, c-format
@@ -1375,7 +1375,7 @@ msgstr "Visualització de &símbols"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
-msgstr "&Longitud del tabulador:"
+msgstr "&Long tabulador:"
 
 #. Resource IDs: (17088)
 msgid "&Tabbed Document"
@@ -1528,10 +1528,6 @@ msgstr "&Windows (CRLF)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Còpia de Treball"
-
-#. Resource IDs: (59393)
-msgid "&amp;Status Bar"
-msgstr "&amp;Barra d'estat"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2541,7 +2537,7 @@ msgstr "No es pot copiar \n%1!ls!\na\n%2!ls!"
 
 #. Resource IDs: (16010)
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr "No es pot copiar imatge bitmap al porta-retalls!"
+msgstr "No es pot copiar imatge bitmap al porta-retalls"
 
 #. Resource IDs: (16003)
 msgid "Can't create a new image!"
@@ -2553,7 +2549,7 @@ msgstr "No es poden personalitzar menús!"
 
 #. Resource IDs: (16004)
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr "No es pot enganxar una imatge bitmap del porta-retalls!"
+msgstr "No es pot enganxar una imatge bitmap del porta-retalls"
 
 #. Resource IDs: (2, 1383, 1475, 4461, 5302, 17101)
 msgid "Cancel"
@@ -2791,7 +2787,7 @@ msgstr "Certificats|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgid ""
 "Change the style of the application\n"
 "Change Style"
-msgstr "Canviar l'estil de l'aplicació\nCanvia l'estil"
+msgstr "Canvia l'estil de l'aplicació\nCanvia l'estil"
 
 #. Resource IDs: (4602)
 msgid ""
@@ -3108,7 +3104,7 @@ msgstr "Replega arbre &següent"
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
-msgstr "Replegar seccions sense canvis\nReplega"
+msgstr "Replega seccions sense canvis\nReplega"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3314,7 +3310,7 @@ msgstr "Configura &TortoiseSVN per no utilitzar mai la paperera"
 
 #. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
-msgstr "Configurar Filtres regex"
+msgstr "Configura filtres regex"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3486,7 +3482,7 @@ msgstr "Copia al &porta-retalls"
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
-msgstr "Copia la selecció i posa-la al Porta-retalls\nCopia"
+msgstr "Copia la selecció i posa-la al porta-retalls\nCopia"
 
 #. Resource IDs: (9802)
 #, c-format
@@ -3819,7 +3815,7 @@ msgstr "Personalitza Barra d'Accés Ràpid..."
 msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
-msgstr "Retalla la selecció i posa-la al Porta-retalls\nRetalla"
+msgstr "Retalla la selecció i posa-la al porta-retalls\nRetalla"
 
 #. Resource IDs: (1279)
 msgid "D&etails"
@@ -5295,25 +5291,25 @@ msgstr "Vés a la línia"
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
-msgstr "Aneu al proper conflicte\nProper conflicte"
+msgstr "Vés al proper conflicte\nProper conflicte"
 
 #. Resource IDs: (32779)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
-msgstr "Aneu a la propera diferència\nPropera diferència"
+msgstr "Vés a la propera diferència\nPropera diferència"
 
 #. Resource IDs: (32876)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
-msgstr "Aneu a la propera diferència a la línia\nPropera diferència a la línia"
+msgstr "Vés a la propera diferència a la línia\nPropera diferència a la línia"
 
 #. Resource IDs: (32802)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
-msgstr "Aneu al conflicte previ\nConflicte previ"
+msgstr "Vés al conflicte previ\nConflicte previ"
 
 #. Resource IDs: (32780)
 msgid ""
@@ -5325,7 +5321,7 @@ msgstr "Vés a la diferència prèvia\nDiferència prèvia"
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
-msgstr "Aneu a l'anterior diferència a la línia\nAnterior diferència a la línia"
+msgstr "Vés a l'anterior diferència a la línia\nAnterior diferència a la línia"
 
 #. Resource IDs: (32893)
 msgid "Goto Line"
@@ -6041,7 +6037,7 @@ msgstr "Entrada"
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
-msgstr "Insereix contingut del Porta-retalls\nEnganxa"
+msgstr "Insereix contingut del porta-retalls\nEnganxa"
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
@@ -6362,11 +6358,11 @@ msgstr "Ubicació on es desaran els continguts\nde l'URL(s) del repositori."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr "Barra Localització"
+msgstr "Barra de localització"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
-msgstr "Barra Localització"
+msgstr "Barra de localització"
 
 #. Resource IDs: (3309, 3531, 3660, 65535)
 msgid "Lock"
@@ -6990,7 +6986,7 @@ msgstr "Navegació"
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
-msgstr "Navegueu fins a una línia específica dins la vista\nVés a la línia"
+msgstr "Navega fins a una línia específica dins la vista\nVés a la línia"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -9542,7 +9538,7 @@ msgstr "Mostra o amaga barra de diferències de línia\nMostra o Amaga LineDiffB
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
-msgstr "Mostra o amaga barra localització\nCommuta BarLoc"
+msgstr "Mostra o amaga barra de localització\nCommuta BarLoc"
 
 #. Resource IDs: (59393)
 msgid ""
@@ -9719,7 +9715,7 @@ msgstr "Desplaça"
 
 #. Resource IDs: (1098)
 msgid "Smart tab char"
-msgstr "Caràcter tabulador intel·ligent"
+msgstr "Caràcter tab intel·ligent"
 
 #. Resource IDs: (5015)
 msgid ""
@@ -9886,6 +9882,10 @@ msgstr "Estadístiques"
 #. Resource IDs: (1176, 3301, 65535)
 msgid "Status"
 msgstr "Estat"
+
+#. Resource IDs: (59393)
+msgid "Status Bar"
+msgstr "Barra d'estat"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -11440,7 +11440,7 @@ msgstr "Utilitza diàlegs Aero"
 
 #. Resource IDs: (1066)
 msgid "Use Ribbons"
-msgstr "Utilitza Cintes"
+msgstr "Utilitza cintes"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11464,7 +11464,7 @@ msgstr "Utilitza bloc de l'esquerra abans que de la dreta"
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
-msgstr "Utilitza bloc de la vista esquerra abans que bloc de la vista dreta\nUtilitza bloc de l'esquerra abans de la dreta"
+msgstr "Utilitza bloc de la vista esquerra abans que el bloc de la vista dreta\nUtilitza bloc de l'esquerra abans que de la dreta"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
