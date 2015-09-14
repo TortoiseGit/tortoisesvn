@@ -9496,6 +9496,8 @@ void CLogDlg::OnMonitorUpdateAll()
         }
         return false;
     });
+    if (pathlist.GetCount() == 0)
+        return;
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false);
     if (pathlist.WriteToFile(tempfile.GetWinPathString()))
     {
