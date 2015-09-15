@@ -3438,6 +3438,8 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         crText = m_Colors.GetColor(CColors::Modified);
                     if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
                         crText = GetSysColor(COLOR_GRAYTEXT);
+                    if ((m_copyfromrev > data->GetRevision()) && !m_mergePath.IsEmpty())
+                        crText = GetSysColor(COLOR_GRAYTEXT);
                     if ((data->GetRevision() == m_wcRev) || data->GetUnread())
                     {
                         SelectObject(pLVCD->nmcd.hdc, data->GetUnread() ? m_boldFont : m_boldItalicFont);
