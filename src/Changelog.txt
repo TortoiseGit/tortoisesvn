@@ -13,6 +13,12 @@ Version 1.9.2
 - NEW: new library icon for Win10, new overlay icon set
        for Win10. (Stefan)
 - CHG: TortoisePlink uses new UX style. (Stefan)
+- BUG: "update all" was enabled even if there are no monitored
+        working copies in the project monitor. (Stefan)
+- CHG: The option "LogFindCopyFrom" is now enabled by default,
+       and revisions before the merge branch are grayed. (Stefan)
+- BUG: A blame started from the log dialog ignored the blame
+       options from the dialog. (Stefan)
 
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)
