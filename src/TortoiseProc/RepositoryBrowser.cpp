@@ -804,6 +804,18 @@ void CRepositoryBrowser::OnOK()
     m_cancelled = TRUE;
     m_lister.Cancel();
 
+    if (m_RepoList.GetSelectedCount() == 1)
+    {
+        POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+        if (pos)
+        {
+            int selIndex = m_RepoList.GetNextSelectedItem(pos);
+            CAutoReadLock locker(m_guard);
+            CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
+            if (pItem)
+                m_barRepository.ShowUrl(pItem->absolutepath, pItem->repository.revision);
+        }
+    }
 
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
@@ -2511,8 +2523,6 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
             CItem * pItem = (CItem*)m_RepoList.GetItemData(pNMLV->iItem);
             if (pItem)
             {
-                m_barRepository.ShowUrl ( pItem->absolutepath
-                    , pItem->repository.revision);
                 CString temp;
                 CString rev;
 
