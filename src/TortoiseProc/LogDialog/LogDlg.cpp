@@ -6003,6 +6003,8 @@ void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         SVNRev endrev = dlg.EndRev;
         bool includeMerge = !!dlg.m_bIncludeMerge;
         bool textViewer = !!dlg.m_bTextView;
+        CString options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+
         auto f = [=]()
         {
             CoInitialize(NULL);
@@ -6013,7 +6015,7 @@ void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
             CBlame blame;
             CString tempfile;
             tempfile = blame.BlameToTempFile(m_path, startrev, endrev, m_pegrev,
-                                             L"", includeMerge, TRUE, TRUE);
+                                             options, includeMerge, TRUE, TRUE);
             if (!tempfile.IsEmpty())
             {
                 if (textViewer)
@@ -7447,6 +7449,7 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
         SVNRev pegrev = pCmi->Rev1;
         bool includeMerge = !!dlg.m_bIncludeMerge;
         bool textView = !!dlg.m_bTextView;
+        CString options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
         auto f = [=]()
         {
             CoInitialize(NULL);
@@ -7456,7 +7459,7 @@ void CLogDlg::ExecuteBlameChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, 
             CBlame blame;
             CString tempfile;
             tempfile = blame.BlameToTempFile(CTSVNPath(pCmi->fileUrl), startrev,
-                endrev, pegrev, L"", includeMerge, TRUE, TRUE);
+                endrev, pegrev, options, includeMerge, TRUE, TRUE);
             if (!tempfile.IsEmpty())
             {
                 if (textView)
