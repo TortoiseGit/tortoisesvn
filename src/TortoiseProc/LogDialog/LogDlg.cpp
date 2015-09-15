@@ -7997,7 +7997,7 @@ void CLogDlg::RefreshMonitorProjTree()
         m_SystemTray.uFlags = NIF_MESSAGE | NIF_ICON;
         Shell_NotifyIcon(NIM_ADD, &m_SystemTray);
     }
-    ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_LOGDLG_MONITOR_REMOVE, MAKELONG(bHasWorkingCopies, 0));
+    ::SendMessage(m_hwndToolbar, TB_ENABLEBUTTON, ID_MISC_UPDATE, MAKELONG(bHasWorkingCopies, 0));
 
     if (m_pTaskbarList)
     {
