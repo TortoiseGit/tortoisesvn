@@ -265,7 +265,7 @@ kbd kbd {
 
 .menu ul {
     line-height: normal;
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0 0 0 10px;
 }
@@ -316,9 +316,8 @@ kbd kbd {
 }
 
 .legal {
+    font-size: 0.8em;
     padding: 10px 0 20px 0;
-    text-align: justify;
-    font-size: 9px;
 }
 
 /* Sidebar */
