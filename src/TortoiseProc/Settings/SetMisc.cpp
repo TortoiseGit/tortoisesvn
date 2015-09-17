@@ -50,7 +50,7 @@ CSetMisc::CSetMisc()
     m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
     m_regAutoSelect = CRegDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE);
     m_bAutoSelect = (BOOL)(DWORD)m_regAutoSelect;
-    m_regIncompleteReopen = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", TRUE);
+    m_regIncompleteReopen = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", FALSE);
     m_bIncompleteReopen = (BOOL)(DWORD)m_regIncompleteReopen;
 }
 

@@ -19,6 +19,9 @@ Version 1.9.2
        and revisions before the merge branch are grayed. (Stefan)
 - BUG: A blame started from the log dialog ignored the blame
        options from the dialog. (Stefan)
+- BUG: The option "Reopen dialog after commit if items were
+       left uncommitted" was shown as active in the settings
+       dialog, even though it was not. (Stefan)
 
 Version 1.9.1
 - CHG: static linking to CRT and MFC. (Stefan)
