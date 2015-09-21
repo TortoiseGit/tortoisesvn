@@ -14,6 +14,7 @@
 # Huseyin <hyagli@hotmail.com>, 2013
 # ibrahim YENER <jdavide222@hotmail.com>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Muhammed Yasin Erdoğan <obsessio@gmail.com>, 2015
 # Muhammet Kara <muhammetk@gmail.com>, 2011-2012,2014
 # Muhammet Kara <muhammetk@gmail.com>, 2014
 # Vural Göze <vuralgoze@gmail.com>, 2011
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-18 09:21+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-09-18 10:33+0000\n"
+"Last-Translator: Muhammed Yasin Erdoğan <obsessio@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/luebbe/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,7 +203,7 @@ msgstr ""
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -1116,7 +1117,7 @@ msgstr "&Aç"
 
 #. Resource IDs: (32773)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&Aç\t(Ctrl+O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -2222,7 +2223,7 @@ msgstr "%d eleman(lar)daki değişiklikleri geri almak istediğinizden emin misi
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Düzenle & dikey\t(V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2354,7 +2355,7 @@ msgstr "Arkaplan"
 
 #. Resource IDs: (1682)
 msgid "Backwards in browsing history"
-msgstr ""
+msgstr "Tarama geçmişinde geriye dön"
 
 #. Resource IDs: (3934)
 msgid "Bar Graph"
@@ -3085,7 +3086,7 @@ msgstr "Aktif pencereyi kapatır ve dökümanları kayıt etmeniz gerektiğini s
 
 #. Resource IDs: (350)
 msgid "Code Collaborator Settings"
-msgstr ""
+msgstr "Kod Katılımcısı Ayarları "
 
 #. Resource IDs: (4387)
 msgid "Coll&apse source tree"
@@ -3233,7 +3234,7 @@ msgstr "Bir etikete teslim ediliyor"
 
 #. Resource IDs: (4247)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "İşlem gönderiliyor..."
 
 #. Resource IDs: (4381, 32784)
 msgid "Compare &HEAD revisions"
@@ -3277,7 +3278,7 @@ msgstr "&Taban ile karşılaştır"
 
 #. Resource IDs: (2203)
 msgid "Compare with base (content only)"
-msgstr ""
+msgstr "Taban ile karşılaştır (sadece içerik)"
 
 #. Resource IDs: (1816)
 msgid "Compare with previous revision"
@@ -3313,7 +3314,7 @@ msgstr "&TortoiseSVN'i geri dönüşüm kutusunu kullanmamak üzere ayarla"
 
 #. Resource IDs: (102, 500)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Filtre Düzenli İfadelerini Konfigüre Et"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3412,7 +3413,7 @@ msgstr "Buradan kopyalandı: %1!ls!@%2!ld!\r\n"
 
 #. Resource IDs: (281)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Seçilen tüm öğelerin URL'lerini panoya kopyala"
 
 #. Resource IDs: (1235, 16991, 57634)
 msgid "Copy"
@@ -3518,7 +3519,7 @@ msgstr "%1!ls! kopyalanıyor "
 
 #. Resource IDs: (4241)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "Yabancı depo URL'sinden kopyalanıyor"
 
 #. Resource IDs: (1273)
 msgid "Copying..."
@@ -4003,7 +4004,7 @@ msgstr "Diyalog boyutları ve konumları"
 
 #. Resource IDs: (156)
 msgid "Diff"
-msgstr ""
+msgstr "Fark"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
@@ -4023,11 +4024,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Fark komutu"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Fark açıklaması"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4035,7 +4036,7 @@ msgstr "Karşılaştırma dosyası:"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Fark başlığı"
 
 #. Resource IDs: (267)
 msgid "Diff later"
@@ -4047,11 +4048,11 @@ msgstr "Karşılaştırma seçenekleri"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Farkı konumu"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Silinen satırları karşılaştır"
 
 #. Resource IDs: (279)
 msgid "Diff with URL"
@@ -4379,7 +4380,7 @@ msgstr "Hariciyi düzenle"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "İzlenecek Projeyi düzenle"
 
 #. Resource IDs: (227, 9408)
 msgid "Edit Properties"
@@ -4727,7 +4728,7 @@ msgstr ""
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Ayarları dosya olarak dışarı aktar..."
 
 #. Resource IDs: (5506)
 msgid ""
@@ -4850,7 +4851,7 @@ msgstr "Sunucu uygulama çalıştırılamadı."
 
 #. Resource IDs: (1043)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "Proje monitörü için konfigürasyon dosyasının yüklemesi başarısız oldu!"
 
 #. Resource IDs: (61697)
 msgid "Failed to open document."
@@ -4877,7 +4878,7 @@ msgstr "İşlem başarısız!"
 
 #. Resource IDs: (4245)
 msgid "Failed: target required"
-msgstr ""
+msgstr "Başarısız: hedef gerekli"
 
 #. Resource IDs: (9444)
 msgid "Fetch HEAD revision and adjust to it"
@@ -5161,7 +5162,7 @@ msgstr "Kaldırmaya zorla"
 
 #. Resource IDs: (65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Önplan"
 
 #. Resource IDs: (17021)
 msgid "Forward"
@@ -5169,7 +5170,7 @@ msgstr "İleri"
 
 #. Resource IDs: (1683)
 msgid "Forwards in browsing history"
-msgstr ""
+msgstr "Tarama geçmişinde ileriye git"
 
 #. Resource IDs: (65535)
 msgid "Found auto words:"
@@ -5469,7 +5470,7 @@ msgstr "Yakalayıcı türü:"
 
 #. Resource IDs: (5812)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Kanca betiği başarısız oldu"
 
 #. Resource IDs: (2760)
 msgid "Hook script failed!"
@@ -5839,7 +5840,7 @@ msgstr "Değişiklikleri yoksay\nHarici değişiklikleri yoksay."
 
 #. Resource IDs: (32896)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Yorumları yoksay"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -5921,7 +5922,7 @@ msgstr "İçe aktarma &mesajı"
 
 #. Resource IDs: (1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Ayarları dosyadan içe aktar"
 
 #. Resource IDs: (9291)
 msgid "Import a previously saved set of properties from a file"
@@ -5988,7 +5989,7 @@ msgstr "Aldırılmayan dosyaları dahil et"
 
 #. Resource IDs: (9927)
 msgid "Include local settings"
-msgstr ""
+msgstr "Yerel ayarları içer"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
@@ -6014,7 +6015,7 @@ msgstr "İndis renkleri:"
 
 #. Resource IDs: (4246)
 msgid "Info on external"
-msgstr ""
+msgstr "Harici bilgisi"
 
 #. Resource IDs: (1019)
 msgid "Information"
@@ -6331,7 +6332,7 @@ msgstr "Resimleri yükle"
 
 #. Resource IDs: (1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "Ayarları dosyadan yükle"
 
 #. Resource IDs: (5030)
 msgid ""
@@ -6493,7 +6494,7 @@ msgstr "Posta sistemi DLL'si geçersiz."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Ana sağ-tık menüsü"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6509,7 +6510,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Elle içe aktar/dışa aktar"
 
 #. Resource IDs: (3421)
 msgid "Many items selected to show diff"
@@ -6527,7 +6528,7 @@ msgstr ""
 
 #. Resource IDs: (1400)
 msgid "Mark as Resolved"
-msgstr ""
+msgstr "Çözümlendi olarak işaretle"
 
 #. Resource IDs: (2355, 4503, 32808)
 msgid "Mark as resolved"
@@ -6637,7 +6638,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Merge Log Templates"
-msgstr ""
+msgstr "Birleştirme Günlüğü Şablonları "
 
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
@@ -6899,7 +6900,7 @@ msgstr "Özel dosya ya da dizini taşı"
 #. Resource IDs: (9803)
 #, c-format
 msgid "Move to %1!ls!"
-msgstr ""
+msgstr "Buraya taşı %1!ls!"
 
 #. Resource IDs: (3340)
 msgid "Move to changelist"
@@ -7046,7 +7047,7 @@ msgstr ""
 
 #. Resource IDs: (1603)
 msgid "Newlines"
-msgstr ""
+msgstr "Yeni satırlar"
 
 #. Resource IDs: (58114)
 msgid ""
@@ -7331,7 +7332,7 @@ msgstr "Bir yada daha fazla dosya(lar) çakişır durumunda."
 
 #. Resource IDs: (1023)
 msgid "One project has updates:"
-msgstr ""
+msgstr "Bir projede değişiklikler var:"
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
@@ -7527,7 +7528,7 @@ msgstr "Şifre"
 
 #. Resource IDs: (9923)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Şifre hatalı"
 
 #. Resource IDs: (5573)
 msgid "Password/phrase"
@@ -7596,11 +7597,11 @@ msgstr "Yamaya daha iyi uyan dizin yolu bulundu."
 
 #. Resource IDs: (65535)
 msgid "Path or URL:"
-msgstr ""
+msgstr "Dizin veya URL:"
 
 #. Resource IDs: (65535)
 msgid "Path:"
-msgstr ""
+msgstr "Dizin:"
 
 #. Resource IDs: (1851)
 msgid "Paths"
@@ -7823,7 +7824,7 @@ msgstr "Yazdırılıyor"
 
 #. Resource IDs: (5811)
 msgid "Proceed anyway"
-msgstr ""
+msgstr "Yine de devam et"
 
 #. Resource IDs: (5814)
 msgid ""
@@ -8130,7 +8131,7 @@ msgstr "Url'ye yönlendiriliyor"
 
 #. Resource IDs: (57644)
 msgid "Redo"
-msgstr ""
+msgstr "Tekrarla"
 
 #. Resource IDs: (57644)
 msgid ""
@@ -8161,11 +8162,11 @@ msgstr "%1!ls! için kabuk tazeleniyor"
 
 #. Resource IDs: (165, 500, 65535)
 msgid "Regex Filter"
-msgstr ""
+msgstr "Düzenli İfade Filtresi"
 
 #. Resource IDs: (164)
 msgid "Regex Filters"
-msgstr ""
+msgstr "Düzenli İfade Filtreleri"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
@@ -8173,7 +8174,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Regex:"
-msgstr ""
+msgstr "Düzenli İfade:"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8299,11 +8300,11 @@ msgstr "Yer İmini Kaldır"
 
 #. Resource IDs: (1029)
 msgid "Remove Project"
-msgstr ""
+msgstr "Projeyi Kaldır"
 
 #. Resource IDs: (348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "Kaydedilmiş Kimlik Verisini Kaldır"
 
 #. Resource IDs: (237)
 msgid "Remove from &ignore list"
@@ -8461,7 +8462,7 @@ msgstr "Son işlemi tekrarla\nTekrarla"
 
 #. Resource IDs: (1512)
 msgid "Replace &All"
-msgstr ""
+msgstr "Hepsi&ni değiştir"
 
 #. Resource IDs: (57641)
 msgid ""
@@ -8471,11 +8472,11 @@ msgstr "Belirli bir metni farklı bir metin ile değiştir\nDeğiştir"
 
 #. Resource IDs: (65535)
 msgid "Replace with:"
-msgstr ""
+msgstr "Şununla değiştir:"
 
 #. Resource IDs: (65535)
 msgid "Replace:"
-msgstr ""
+msgstr "Değiştir:"
 
 #. Resource IDs: (1507)
 #, c-format
@@ -8540,7 +8541,7 @@ msgstr "Çözümle"
 
 #. Resource IDs: (2)
 msgid "Resolve &later"
-msgstr ""
+msgstr "&Sonra çözümle"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
@@ -8597,7 +8598,7 @@ msgstr "Varsayılana Geridön"
 
 #. Resource IDs: (9911)
 msgid "Restore after commit"
-msgstr ""
+msgstr "Gönderdikten sonra geri al"
 
 #. Resource IDs: (61202)
 msgid "Restore the window to normal size"
@@ -12458,7 +12459,7 @@ msgstr "çift simgeler:"
 
 #. Resource IDs: (2707)
 msgid "patched"
-msgstr ""
+msgstr "yamalandı"
 
 #. Resource IDs: (65535)
 msgid "path elements: "

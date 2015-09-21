@@ -19,13 +19,14 @@
 # Hugo Rossi <hugo.hrossi@gmail.com>, 2015
 # igorruckert <igorruckert@yahoo.com.br>, 2011-2012
 # Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>, 2015
+# Leandro Hermes Neto <leandro@leandrohermes.net>, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Matheus Macabu <mkbu95@gmail.com>, 2013
 # Michel Apt <michel.apt1@gmail.com>, 2015
 # Paulo Pires <paulo.albert.pires@gmail.com>, 2015
-# Rafael Heise <rmheise@gmail.com>, 2011-2014
+# Rafael Heise <rmheise@gmail.com>, 2011-2015
 # Ricardo Souza <srrcdmk@gmail.com>, 2012
 # Rodrigo Monte <rodrigo.monte86@gmail.com>, 2014
 msgid ""
@@ -33,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-23 01:50+0000\n"
-"Last-Translator: Hugo Rossi <hugo.hrossi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-16 15:02+0000\n"
+"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,14 +205,14 @@ msgstr "%I64d kBytes transferidos"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Recuperado]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -798,11 +799,11 @@ msgstr "&Localizar"
 
 #. Resource IDs: (32771)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Procurar...\t(Ctrl+F)"
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "&Fit images in window\t(F)"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -903,7 +904,7 @@ msgstr "&Imagem"
 
 #. Resource IDs: (32790)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&Informações da imagem\t(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1141,7 +1142,7 @@ msgstr "&Outro"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "S&obreposição de imagens\t(O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -2058,14 +2059,14 @@ msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar as atr
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Todas as suas alterações serão perdidas! Você realmente quer reiniciar o menu '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Todas as suas alterações serão perdidas! Você realmente quer reiniciar a barra de ferramentas '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2231,7 +2232,7 @@ msgstr "Você tem certeza de que quer reverter %d item(s)? Você irá perder tod
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Organizar &vertical\t(V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -4184,7 +4185,7 @@ msgstr "Fazer para todos os itens não versionados/modificados"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Você realmente quer apagar a barra de ferramentas '%Ts'?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4708,7 +4709,7 @@ msgstr "Expandir árvore &seguinte"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Expandir (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5122,11 +5123,11 @@ msgstr "Ajustar à altura"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "Ajustar alturas das imagens⇥(H)"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "Ajustar larguras das imagens\t(W)"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5848,7 +5849,7 @@ msgstr "Ignorar as alterações⏎\nIgnorar as alterações externas."
 
 #. Resource IDs: (32896)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Ignorar comentários"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7450,7 +7451,7 @@ msgstr "Opções"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Tamanho ori&ginal\t(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -10803,13 +10804,13 @@ msgstr "Este produto inclui aplicativo da Apache™ Subversion® (http://subvers
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Este programa está vinculado para a exportação incorreta %Ts no arquivo %Ts. Esta máquina deve ter uma versão incompatível de %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Este programa requer o arquivo %Ts, o qual não foi encontrado no sistema."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -11685,7 +11686,7 @@ msgstr "Visualizar"
 
 #. Resource IDs: (32898)
 msgid "View Bars"
-msgstr ""
+msgstr "Visualizar Barras"
 
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
@@ -11988,7 +11989,7 @@ msgstr "Sua cópia de trabalho aponta para %ls o qual parece ser um rótulo!\nVo
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out\t(-)"
-msgstr ""
+msgstr "Afastar\t(-)"
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12029,7 +12030,7 @@ msgstr "Menos Zoom\nMenos Zoom"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n\t(+)"
-msgstr ""
+msgstr "Aproximar\t(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"

@@ -15,6 +15,7 @@
 # BASLEY Nicolas <basleynicolas@hotmail.com>, 2013
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011-2015
 # Christophe SAUVEUR <christophe@xhaleera.com>, 2011, 2012
+# Dirk Hoffmann <Hoffmann@cppm.in2p3.fr>, 2015
 # Florentin GUTH <kegnarok.rm@laposte.net>, 2013
 # Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
@@ -44,8 +45,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-23 01:43+0000\n"
-"Last-Translator: Lucas Mascaro <mascaro.lucas@yahoo.fr>\n"
+"PO-Revision-Date: 2015-09-19 12:36+0000\n"
+"Last-Translator: Dirk Hoffmann <Hoffmann@cppm.in2p3.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +130,7 @@ msgstr "%1!ld! minute(s) et %2!ld! seconde(s)"
 #. Resource IDs: (1837)
 #, c-format
 msgid "%1!ls! (offline)"
-msgstr "%1!ls! (Hors ligne)"
+msgstr "%1!ls! (hors ligne)"
 
 #. Resource IDs: (3600)
 #, c-format
@@ -187,7 +188,7 @@ msgstr "%1!ls!\nAffichage de %2!d! fichiers et de %3!d! dossiers, de %4!d! élé
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr "%1 : %2\nContinuer l'exécution du script?"
+msgstr "%1 : %2\nContinuer l'exécution du script ?"
 
 #. Resource IDs: (61729)
 #, c-format
@@ -255,7 +256,7 @@ msgstr "%ls"
 #. Resource IDs: (1472)
 #, c-format
 msgid "%ls (offline)"
-msgstr "%ls (hors-ligne)"
+msgstr "%ls (hors ligne)"
 
 #. Resource IDs: (236)
 #, c-format
@@ -340,7 +341,7 @@ msgstr "%ls, mais une copie non versionnée du fichier existe déjà localement.
 #. Resource IDs: (9763)
 #, c-format
 msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls, mais le fichier est abdent de la copie locale (supprimé ou déplacé ?)."
+msgstr "%ls, mais le fichier est absent de la copie locale (supprimé ou déplacé ?)."
 
 #. Resource IDs: (9740)
 #, c-format
@@ -481,7 +482,7 @@ msgstr "&Appliquer un patch"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
-msgstr "&Arguments:"
+msgstr "&Arguments :"
 
 #. Resource IDs: (16645)
 msgid "&Assign"
@@ -1278,7 +1279,7 @@ msgstr "Re&staurer les valeurs par défaut"
 
 #. Resource IDs: (1542, 9020)
 msgid "&Retry without hooks"
-msgstr "&Réessayer sans les crochets"
+msgstr "&Réessayer sans les scripts hook"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
@@ -1286,11 +1287,11 @@ msgstr "&Annuler toutes les modifications récursivement"
 
 #. Resource IDs: (1808)
 msgid "&Revert changes from these revisions"
-msgstr " Annuler les modifications de ces &révisions"
+msgstr " &Annuler les modifications de ces révisions"
 
 #. Resource IDs: (1801)
 msgid "&Revert changes from this revision"
-msgstr "Annule&r les modifications de cette révision"
+msgstr "&Annuler les modifications de cette révision"
 
 #. Resource IDs: (1033, 1116, 1637, 1640)
 msgid "&Revision"
@@ -1827,7 +1828,7 @@ msgstr "&Abandonner la fusion"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "Abandon\nVous pouvez corriger d'abord la raison pour laquelle le script hook a échoué."
 
 #. Resource IDs: (134, 57664)
 msgid "About"
@@ -2210,7 +2211,7 @@ msgstr "Appliquer un diff standard"
 
 #. Resource IDs: (5801)
 msgid "Approve or reject client-side hook script"
-msgstr "Approuver ou rejeter l'appel de script côté client"
+msgstr "Approuver ou rejeter l'appel de script hook côté client"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2341,7 +2342,7 @@ msgstr "Fermeture automatique s'il n'y a pas de fusions, ajouts ou suppressions"
 msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
-msgstr "La complétion automatique suggère des mots (habituellement des classes ou des noms de membres)\r\ntirés des fichiers que vous avez changés lorsque vous tapez un commentaire."
+msgstr "La complétion automatique propose des mots (habituellement des classes ou des noms de membres)\ntirés des fichiers que vous avez changés lorsque vous tapez un commentaire."
 
 #. Resource IDs: (3535)
 #, c-format
@@ -2816,7 +2817,7 @@ msgstr "Changer le style de l'application\nChanger le Style"
 msgid ""
 "Change the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "La révision étiquetée a été changée.\nLa propriété svn:external du dossier parent a été ajustée en fonction."
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -2916,7 +2917,7 @@ msgstr "Vérifier les modifications de la copie de travail"
 
 #. Resource IDs: (9108)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Script hook pour vérification du commit"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3362,7 +3363,7 @@ msgstr "Configurez le programme de visualisation  de fichiers de différences GN
 
 #. Resource IDs: (2350)
 msgid "Confirm revert"
-msgstr "Confirmer la réversion"
+msgstr "Confirmer le retour en arrière"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3746,7 +3747,7 @@ msgstr "Créer un fichier de patch"
 
 #. Resource IDs: (123)
 msgid "Create repositor&y here"
-msgstr "Créer un ré&férentiel ici..."
+msgstr "Créer un nouveau dépôt ici"
 
 #. Resource IDs: (1617)
 msgid "Create shortcut"
@@ -4043,11 +4044,11 @@ msgstr "Voir les différences des lignes ajoutées"
 
 #. Resource IDs: (65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Commande de diff (comparaison)"
 
 #. Resource IDs: (65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Commentaire de la comparaison"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4055,11 +4056,11 @@ msgstr "Fichier diff :"
 
 #. Resource IDs: (65535)
 msgid "Diff header"
-msgstr ""
+msgstr "En-tête de la comparaison"
 
 #. Resource IDs: (267)
 msgid "Diff later"
-msgstr ""
+msgstr "Comparer ultérieurement"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -4254,7 +4255,7 @@ msgstr "Voulez-vous supprimer la propriété %ls récursivement ?"
 #. Resource IDs: (2349)
 #, c-format
 msgid "Do you want to revert '%ls'?"
-msgstr "Voulez-vous annuler '%ls'?"
+msgstr "Voulez-vous revenir en arrière avec '%ls'?"
 
 #. Resource IDs: (1911)
 #, c-format
@@ -6371,7 +6372,7 @@ msgstr "&Appels de script locaux"
 
 #. Resource IDs: (334)
 msgid "Local hook scripts"
-msgstr ""
+msgstr "Scripts hook locaux."
 
 #. Resource IDs: (1500)
 msgid ""
@@ -6719,7 +6720,7 @@ msgstr "A fusionné la(es) révision(s) {revrange} à partir de {mergeurl} :\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Fusionne toutes les révisions en attente de trunk dans le répertoire de travail d'une branche, en utilisant l'information suivi de fusion (merge-tracking)."
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -6970,7 +6971,7 @@ msgstr "Déplacé vers\n%ls"
 
 #. Resource IDs: (3144)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr "Déplacer les fichiers modifiés vers la corbeille avant de revenir en arrière"
+msgstr "Déplace les fichiers modifiés vers la corbeille avant de revenir en arrière"
 
 #. Resource IDs: (1275)
 #, c-format
@@ -7058,7 +7059,7 @@ msgstr "Nouveau Menu"
 
 #. Resource IDs: (1239)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "Nouvelle branch/tag pas encore disponible, re-essaye de basculer …"
 
 #. Resource IDs: (1506)
 msgid "New name must not be empty or the same as the original name!"
@@ -7461,7 +7462,7 @@ msgstr "Options"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Taille ori&ginale⇥(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8259,7 +8260,7 @@ msgstr "Recharger"
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
-msgstr "Recharge les fichiers ouverts et annule les changements.\nRecharge"
+msgstr "Recharge les fichiers ouverts et annule les changements.\nRecharger"
 
 #. Resource IDs: (157)
 msgid "Relocate"
@@ -8802,7 +8803,7 @@ msgstr "Exécuter l'a&ppel de script"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr "Exécuter\nExécuter le script crocheté"
+msgstr "Exécuter\nExécuter le script hook"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9107,7 +9108,7 @@ msgstr "Recherche dans le fichier journa&l..."
 
 #. Resource IDs: (1074)
 msgid "Search &up"
-msgstr ""
+msgstr "Recherche vers le ha&ut"
 
 #. Resource IDs: (65535)
 msgid "Search for:"
@@ -9459,7 +9460,7 @@ msgstr "Afficher la boîte de dialogue verrou avant de verrouiller les fichiers"
 
 #. Resource IDs: (1028)
 msgid "Show Monitor Dialog"
-msgstr ""
+msgstr "Afficher dialogue de progrès"
 
 #. Resource IDs: (17029)
 msgid "Show More Buttons"
@@ -9738,7 +9739,7 @@ msgstr "Glisser"
 
 #. Resource IDs: (1098)
 msgid "Smart tab char"
-msgstr ""
+msgstr "Tabulation adaptée"
 
 #. Resource IDs: (5015)
 msgid ""
@@ -9854,7 +9855,7 @@ msgstr "Standard"
 
 #. Resource IDs: (9100)
 msgid "Start Commit Hook"
-msgstr "Hook de début de livraison"
+msgstr "Démarrer script hook pour commit"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -9862,7 +9863,7 @@ msgstr "Révision de début"
 
 #. Resource IDs: (9103)
 msgid "Start Update Hook"
-msgstr "Hook de début de mise à jour"
+msgstr "Démarrer script hook pour update"
 
 #. Resource IDs: (1542)
 msgid "Start registry editor"
@@ -9880,7 +9881,7 @@ msgstr "Démarrage des externes..."
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Démarre l'afficheur pour comparaison entre le fichier sélectionné et celui qui a été retenu auparavant pour comparaison ultérieure."
 
 #. Resource IDs: (1036)
 msgid "Starts the merge tool where you can resolve the property conflict"
@@ -9888,7 +9889,7 @@ msgstr "Démarre l'outil de fusion où vous pourrez résoudre le conflit de prop
 
 #. Resource IDs: (1038)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Lancer le dialogue de propriétés, où les propriétés peuvent être éditées manuellement."
 
 #. Resource IDs: (2705)
 msgid "State"
@@ -9951,7 +9952,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Retient le chemin du fichier à utiliser dans une comparaison ultérieure par clic-droit. Maintenez la touche Ctrl et cliquer pour annuler la dernière sélection de ce type."
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -10136,7 +10137,7 @@ msgstr "Paramétrage de la synchronisation"
 
 #. Resource IDs: (1529)
 msgid "Sync stored auth data"
-msgstr ""
+msgstr "Synchroniser les données d'authentification enregistrées"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10306,7 +10307,7 @@ msgstr "Le dossier\n%ls\nexiste déjà !"
 
 #. Resource IDs: (2713)
 msgid "The hook script executed successfully"
-msgstr "L'appel de script a exécuté correctement."
+msgstr "Le script hook a été exécuté correctement."
 
 #. Resource IDs: (1320, 5810)
 #, c-format
@@ -10814,7 +10815,7 @@ msgstr "Ce produit inclût des logiciels de Apache™ Subversion® (http://subve
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Ce logiciel est relié à l'exportation manquante %Ts dans le fichier %Ts. Cette machine contient peut-être une version incompatible de %Ts."
 
 #. Resource IDs: (61709)
 #, c-format

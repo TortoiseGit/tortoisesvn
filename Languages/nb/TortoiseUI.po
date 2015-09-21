@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-18 09:21+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-09-14 12:09+0000\n"
+"Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/luebbe/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -193,14 +193,14 @@ msgstr "%I64d kByte overført"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Gjenvunnet]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
@@ -787,11 +787,11 @@ msgstr "&Finn"
 
 #. Resource IDs: (32771)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Finn...\t(Ctrl+F)"
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "&Tilpass bildene til vinduet\t(F)"
 
 #. Resource IDs: (1646)
 msgid "&Fix time stamps"
@@ -831,7 +831,7 @@ msgstr "&Fra:(start-URL og revisjon for intervallet som skal flettes)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&Gå til linje...\t(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -892,7 +892,7 @@ msgstr "&Bilde"
 
 #. Resource IDs: (32790)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&Bildeinformasjon\t(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1114,7 +1114,7 @@ msgstr "Å&pne"
 
 #. Resource IDs: (32773)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "Å&pne\t(Ctrl+O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1130,7 +1130,7 @@ msgstr "&Annet"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "Legg bildene &over hverandre\t(O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -2047,14 +2047,14 @@ msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille tastetilord
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille menyen '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille verktøylinjen '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2220,7 +2220,7 @@ msgstr "Er du sikker på at du vil tilbakestille %d element(er)? Du vil miste al
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Ordne &vertikalt\t(V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -4173,7 +4173,7 @@ msgstr "Gjør dette for alle ikke-versjonerte/modifiserte elementer"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Vil du virkelig slette verktøylinjen '%Ts'?"
 
 #. Resource IDs: (1464)
 #, c-format
@@ -4337,7 +4337,7 @@ msgstr "&Avslutt"
 
 #. Resource IDs: (105)
 msgid "E&xit\t(Ctrl+W)"
-msgstr ""
+msgstr "&Avslutt\t(Ctrl+W)"
 
 #. Resource IDs: (4384)
 msgid "E&xpand all"
@@ -4697,7 +4697,7 @@ msgstr "Utvid &følgende tre"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Utvid (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5111,11 +5111,11 @@ msgstr "Tilpass høyde"
 
 #. Resource IDs: (32818)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "Tilpass bilde&høyder\t(H)"
 
 #. Resource IDs: (32817)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "Tilpass bilde&bredder\t(W)"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -5837,7 +5837,7 @@ msgstr "Ignore changes\nIgnorer the utvendige endringene."
 
 #. Resource IDs: (32896)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Overse kommetarer"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -7439,7 +7439,7 @@ msgstr "Opsjoner"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Ori&ginal størrelse\t(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -9886,7 +9886,7 @@ msgstr "Status"
 
 #. Resource IDs: (59393)
 msgid "Status Bar"
-msgstr ""
+msgstr "Statuslinje"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -10792,13 +10792,13 @@ msgstr "Dette produktet inkluderer programvare fra Apache™ Subversion® (http:
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Dette programmet er lenket til manglende eksport %Ts i filen %Ts. Denne maskinen har muligens en ikke-kompatibel versjon av %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Dette programmet krever filen %Ts, som ikke ble funnet på dette systemet."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -11674,7 +11674,7 @@ msgstr "Vis"
 
 #. Resource IDs: (32898)
 msgid "View Bars"
-msgstr ""
+msgstr "Vis Linjer"
 
 #. Resource IDs: (1815)
 msgid "View revision for path in &webviewer"
@@ -11977,7 +11977,7 @@ msgstr "Arbeidskopien peker til %ls, som ser ut til å være et merke!\nDu burde
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out\t(-)"
-msgstr ""
+msgstr "Zoo&m ut\t(-)"
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12018,7 +12018,7 @@ msgstr "Zoom Ut\nZoom Ut"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n\t(+)"
-msgstr ""
+msgstr "Zoom &inn\t(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"
