@@ -51,7 +51,7 @@ private:
 class ToastEventHandler : public Microsoft::WRL::Implements<DesktopToastActivatedEventHandler, DesktopToastDismissedEventHandler, DesktopToastFailedEventHandler>
 {
 public:
-    ToastEventHandler::ToastEventHandler(_In_ HWND hMainWnd);
+    ToastEventHandler(_In_ HWND hMainWnd);
     ~ToastEventHandler();
 
     // DesktopToastActivatedEventHandler
