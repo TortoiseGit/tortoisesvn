@@ -14,7 +14,7 @@
 # Friedrich Brunzema <brunzefb@yahoo.com>, 2013
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2015.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
@@ -28,14 +28,15 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-09-14 10:42+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2015-09-23 10:45+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #. (title)
 #. (secondary)
@@ -13626,7 +13627,7 @@ msgstr "Der Name der Konfliktdatei in Anführungszeichen"
 
 #. (para)
 msgid "The name of the conflicted file, without quotes"
-msgstr "Der Name der Konflikdatei ohne Anführungszeichen"
+msgstr "Der Name der Konfliktdatei ohne Anführungszeichen"
 
 #. (para)
 msgid ""
@@ -13754,7 +13755,9 @@ msgstr "Der Fenstertitel für die zusammengeführte Datei ohne Anführungszeiche
 msgid ""
 "The name of the file. This is an empty string if two different files are "
 "diffed instead of two states of the same file."
-msgstr "Der Name der Datei. Dies ist eine leere Zeichenfolge, wenn zwei verschiedene Dateien, anstelle von zwei Zuständen der selben Datei verglichen werden."
+msgstr ""
+"Der Name der Datei. Dies ist eine leere Zeichenfolge, wenn zwei verschiedene "
+"Dateien, anstelle von zwei Zuständen der selben Datei verglichen werden."
 
 #. (para)
 msgid "The name of the file, without quotes"
@@ -13765,7 +13768,10 @@ msgid ""
 "An external merge program used to resolve conflicted files. Parameter "
 "substitution is used in the same way as with the Diff Program. "
 "<placeholder-1/>"
-msgstr "Ein externes Programm, mit dem Sie Konflikte in Dateien auflösen können. Die Parameterübergabe an das Programm erfolgt genau so wie beim Vergleichsprogramm. <placeholder-1/>"
+msgstr ""
+"Ein externes Programm, mit dem Sie Konflikte in Dateien auflösen können. Die "
+"Parameterübergabe an das Programm erfolgt genau so wie beim "
+"Vergleichsprogramm. <placeholder-1/>"
 
 #. (para)
 msgid ""
