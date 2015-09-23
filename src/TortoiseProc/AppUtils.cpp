@@ -451,7 +451,7 @@ bool CAppUtils::StartExtDiff(
 
     if (sName.IsEmpty())
     {
-        viewer.Replace(L"%fname", L"");
+        viewer.Replace(L"%fname", L"\"\"");
         viewer.Replace(L"%nqfname", L"");
     }
     else
