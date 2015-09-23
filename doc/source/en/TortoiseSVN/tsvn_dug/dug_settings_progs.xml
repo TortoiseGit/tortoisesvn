@@ -161,7 +161,9 @@
           <term condition="pot">%fname</term>
           <listitem>
             <para>
-              The name of the conflicted file
+              The name of the file. This is an empty string if two
+              different files are diffed instead of two states of
+              the same file.
             </para>
           </listitem>
         </varlistentry>
@@ -169,7 +171,7 @@
           <term condition="pot">%nqfname</term>
           <listitem>
             <para>
-              The name of the conflicted file, without quotes
+              The name of the file, without quotes
             </para>
           </listitem>
         </varlistentry>
@@ -371,9 +373,7 @@ C:\Path-To\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine
           <term condition="pot">%fname</term>
           <listitem>
             <para>
-              The name of the file. This is an empty string if two
-              different files are diffed instead of two states of
-              the same file.
+              The name of the conflicted file
             </para>
           </listitem>
         </varlistentry>
@@ -381,7 +381,7 @@ C:\Path-To\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine
           <term condition="pot">%nqfname</term>
           <listitem>
             <para>
-              The name of the file, without quotes
+              The name of the conflicted file, without quotes
             </para>
           </listitem>
         </varlistentry>
