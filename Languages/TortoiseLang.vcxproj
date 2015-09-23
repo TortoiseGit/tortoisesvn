@@ -75,17 +75,25 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll TortoiseUI.pot</Command>
+      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll*..\src\TortoiseProc\resource.h*..\src\TortoiseShell\resource.h ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll*..\src\TortoiseMerge\resource.h ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll*..\src\TortoiseBlame\resource.h ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll*..\src\TortoiseIDiff\resource.h -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
+      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll*..\src\TortoiseProc\resource.h*..\src\TortoiseShell\resource.h ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll*..\src\TortoiseMerge\resource.h ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll*..\src\TortoiseBlame\resource.h ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll*..\src\TortoiseIDiff\resource.h -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\TortoiseBlame\TortoiseBlameLang.vcxproj">

@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\SysInfo.cpp" />
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="codecvt.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -133,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Utils\SysInfo.h" />
+    <ClInclude Include="..\Utils\UnicodeUtils.h" />
     <ClInclude Include="codecvt.h" />
     <ClInclude Include="POFile.h" />
     <ClInclude Include="ResModule.h" />

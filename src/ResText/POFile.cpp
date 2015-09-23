@@ -253,7 +253,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
         {
             File << L"#. Resource IDs: (";
 
-            std::set<INT_PTR>::const_iterator II = I->second.resourceIDs.begin();
+            auto II = I->second.resourceIDs.begin();
             File << (*II);
             ++II;
             while (II != I->second.resourceIDs.end())
