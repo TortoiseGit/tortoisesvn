@@ -1,6 +1,8 @@
 Version 1.9.3
 - BUG: The DEL key didn't work in the filter box
        in the log dialog. (Stefan)
+- BUG: The %fname was not set when diffing two revisions
+       of the same file from the log dialog. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
