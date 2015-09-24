@@ -21,8 +21,8 @@
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 #include "ShellObjects.h"
-#include "SysInfo.h"
 #include "svn_dso.h"
+
 
 volatile LONG       g_cRefThisDll = 0;              ///< reference count of this DLL.
 HINSTANCE           g_hmodThisDll = NULL;           ///< handle to this DLL itself.
@@ -56,36 +56,6 @@ ShellObjects        g_shellObjects;
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 {
-#ifdef _DEBUG
-    // if no debugger is present, then don't load the dll.
-    // this prevents other apps from loading the dll and locking
-    // it.
-
-    if (!SysInfo::Instance().IsWin7OrLater())
-    {
-        bool bInShellTest = false;
-        TCHAR buf[MAX_PATH + 1] = { 0 };       // MAX_PATH ok, the test really is for debugging anyway.
-        DWORD pathLength = GetModuleFileName(NULL, buf, MAX_PATH);
-        if(pathLength >= 14)
-        {
-            if ((_wcsicmp(&buf[pathLength-14], L"\\ShellTest.exe")) == 0)
-            {
-                bInShellTest = true;
-            }
-            if ((_wcsicmp(&buf[pathLength-13], L"\\verclsid.exe")) == 0)
-            {
-                bInShellTest = true;
-            }
-        }
-
-        if (!::IsDebuggerPresent() && !bInShellTest)
-        {
-            ATLTRACE("In debug load preventer\n");
-            return FALSE;
-        }
-    }
-#endif
-
     // NOTE: Do *NOT* call apr_initialize() or apr_terminate() here in DllMain(),
     // because those functions call LoadLibrary() indirectly through malloc().
     // And LoadLibrary() inside DllMain() is not allowed and can lead to unexpected

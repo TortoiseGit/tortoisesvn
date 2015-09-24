@@ -22,9 +22,9 @@
 #include "StringUtils.h"
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
-#include "SysInfo.h"
 #include "UDiffColors.h"
 #include "registry.h"
+#include <VersionHelpers.h>
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -577,7 +577,7 @@ bool CMainWindow::Initialize()
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
     bool enabled2d = false;
-    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
     std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New");
     std::string fontName;

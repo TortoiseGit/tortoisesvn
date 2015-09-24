@@ -62,7 +62,6 @@
 #include "Callback.h"
 #include "SVNDataObject.h"
 #include "RenameDlg.h"
-#include "SysInfo.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include "ToastNotifications.h"
 #include <tlhelp32.h>
@@ -8451,7 +8450,7 @@ void CLogDlg::MonitorPopupTimer()
             else
             {
                 bool toastShown = false;
-                if (SysInfo::Instance().IsWin10OrLater() && ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseWin10ToastNotifications", TRUE)))
+                if (IsWindows10OrGreater() && ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseWin10ToastNotifications", TRUE)))
                 {
                     std::vector<std::wstring> lines;
                     if (!m_sMonitorNotificationTitle.IsEmpty())

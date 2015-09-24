@@ -90,9 +90,6 @@
     <ClCompile Include="..\Utils\SVNTrace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TortoiseSVN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -323,9 +320,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\SVNTrace.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\TSVNPath.h">

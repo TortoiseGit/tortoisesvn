@@ -39,9 +39,6 @@
     <ClCompile Include="..\Utils\TaskbarUUID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Utils\CmdLineParser.h">
@@ -69,9 +66,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BlameIndexColors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

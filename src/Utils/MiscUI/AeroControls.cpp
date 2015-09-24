@@ -18,7 +18,15 @@
 //
 #include "stdafx.h"
 #include "AeroControls.h"
-#include "SysInfo.h"
+#include <VersionHelpers.h>
+// SDKs prior to Win10 don't have the IsWindows10OrGreater API in the versionhelpers header, so
+// we define it here just in case:
+#ifndef _WIN32_WINNT_WIN10
+#define _WIN32_WINNT_WIN10 0x0A00
+#define _WIN32_WINNT_WINTHRESHOLD 0x0A00
+#define  IsWindows10OrGreater() (IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0))
+#endif
+
 
 enum ControlType
 {
@@ -112,7 +120,7 @@ bool AeroControlBase::AeroDialogsEnabled()
     HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
     SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
-    if ((DWORD)m_regEnableDWMFrame && !SysInfo::Instance().IsWin10OrLater())
+    if ((DWORD)m_regEnableDWMFrame && !IsWindows10OrGreater())
     {
         if (((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled)
         {

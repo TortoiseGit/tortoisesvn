@@ -25,7 +25,6 @@
 #include <string>
 #include "registry.h"
 #include "SciEdit.h"
-#include "SysInfo.h"
 
 
 
@@ -273,7 +272,7 @@ void CSciEdit::Init(LONG lLanguage)
     Call(SCI_ASSIGNCMDKEY, SCK_HOME, SCI_HOMEWRAP);
     Call(SCI_ASSIGNCMDKEY, SCK_HOME + (SCMOD_SHIFT << 16), SCI_HOMEWRAPEXTEND);
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
-    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    if (IsWindows7OrGreater() && DWORD(used2d))
     {
         Call(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
         Call(SCI_SETBUFFEREDDRAW, 0);

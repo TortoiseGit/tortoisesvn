@@ -77,6 +77,14 @@
 #pragma warning(disable: 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
+#include <VersionHelpers.h>
+// SDKs prior to Win10 don't have the IsWindows10OrGreater API in the versionhelpers header, so
+// we define it here just in case:
+#ifndef _WIN32_WINNT_WIN10
+#define _WIN32_WINNT_WIN10 0x0A00
+#define _WIN32_WINNT_WINTHRESHOLD 0x0A00
+#define  IsWindows10OrGreater() (IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0))
+#endif
 
 #include "apr_version.h"
 #include "apu_version.h"

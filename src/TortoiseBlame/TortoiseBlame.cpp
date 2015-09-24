@@ -27,12 +27,12 @@
 #include "TaskbarUUID.h"
 #include "BlameIndexColors.h"
 #include "../Utils/CrashReport.h"
-#include "../Utils/SysInfo.h"
 
 #include <algorithm>
 #include <cctype>
 #include <regex>
 #include <strsafe.h>
+#include <VersionHelpers.h>
 
 #define MAX_LOADSTRING 1000
 
@@ -586,7 +586,7 @@ void TortoiseBlame::InitialiseEditor()
     m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
     bool enabled2d = false;
-    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
