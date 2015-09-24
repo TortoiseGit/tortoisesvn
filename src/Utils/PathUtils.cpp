@@ -691,9 +691,9 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
 
     if (dwBufferSize > 0)
     {
-        LPVOID pBuffer = (void*) malloc(dwBufferSize);
+        auto pBuffer = std::make_unique<BYTE[]>(dwBufferSize);
 
-        if (pBuffer != (void*) NULL)
+        if (pBuffer)
         {
             UINT        nInfoSize = 0,
                         nFixedLength = 0;
@@ -705,10 +705,10 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
             GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strFilename,
                 dwReserved,
                 dwBufferSize,
-                pBuffer);
+                pBuffer.get());
 
             // Check the current language
-            VerQueryValue(  pBuffer,
+            VerQueryValue(  pBuffer.get(),
                 L"\\VarFileInfo\\Translation",
                 &lpFixedPointer,
                 &nFixedLength);
@@ -717,13 +717,12 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
             strLangProductVersion.Format(L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
-            VerQueryValue(pBuffer,
+            VerQueryValue(pBuffer.get(),
                 (LPTSTR)(LPCTSTR)strLangProductVersion,
                 (LPVOID *)&lpVersion,
                 &nInfoSize);
             if (nInfoSize && lpVersion)
                 strReturn = (LPCTSTR)lpVersion;
-            free(pBuffer);
         }
     }
 
