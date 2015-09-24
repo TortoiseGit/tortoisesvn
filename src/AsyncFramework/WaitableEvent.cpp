@@ -51,6 +51,10 @@ namespace
         CWaitableEventPool();
         ~CWaitableEventPool();
 
+        // prevent cloning
+        CWaitableEventPool(const CWaitableEventPool&) = delete;
+        CWaitableEventPool& operator=(const CWaitableEventPool&) = delete;
+
     public:
 
         // Meyer's singleton

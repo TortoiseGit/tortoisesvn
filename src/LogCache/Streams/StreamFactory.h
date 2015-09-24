@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,6 +98,10 @@ private:
 
     CStreamFactoryPool() {};
 
+    // prevent cloning
+    CStreamFactoryPool(const CStreamFactoryPool&) = delete;
+    CStreamFactoryPool& operator=(const CStreamFactoryPool&) = delete;
+
 public:
 
     // destruction (nothing to do)
@@ -165,6 +169,10 @@ private:
         typedef CStreamFactoryPool< IStreamFactory<I, B> > TPool;
         TPool::GetInstance()->Add (this);
     }
+
+    // prevent cloning
+    CStreamFactory(const CStreamFactory&) = delete;
+    CStreamFactory& operator=(const CStreamFactory&) = delete;
 
 public:
 

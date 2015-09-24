@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006-2014 - TortoiseSVN
+// Copyright (C) 2006-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,6 +90,10 @@ class CHooks : public std::map<hookkey, hookcmd>
 private:
     CHooks();
     ~CHooks();
+    // prevent cloning
+    CHooks(const CHooks&) = delete;
+    CHooks& operator=(const CHooks&) = delete;
+
     void AddPathParam(CString& sCmd, const CTSVNPathList& pathList);
     void AddDepthParam(CString& sCmd, svn_depth_t depth);
     void AddCWDParam(CString& sCmd, const CTSVNPathList& pathList);
