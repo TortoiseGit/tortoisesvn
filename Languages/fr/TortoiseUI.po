@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-09-19 12:36+0000\n"
+"PO-Revision-Date: 2015-09-22 21:41+0000\n"
 "Last-Translator: Dirk Hoffmann <Hoffmann@cppm.in2p3.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -276,7 +276,7 @@ msgstr "%ls : Fichier distant"
 #. Resource IDs: (2401)
 #, c-format
 msgid "%ls : Working Base"
-msgstr "%ls : Copie de base"
+msgstr "%ls : Base de travail"
 
 #. Resource IDs: (2400)
 #, c-format
@@ -336,7 +336,7 @@ msgstr "%ls, mais le répertoire a été remplacé"
 #. Resource IDs: (9741)
 #, c-format
 msgid "%ls, but the file already exists unversioned locally."
-msgstr "%ls, mais une copie non versionnée du fichier existe déjà localement."
+msgstr "%ls, mais une copie non versionnée du fichier existe déjà dans la copie locale."
 
 #. Resource IDs: (9763)
 #, c-format
@@ -395,14 +395,14 @@ msgstr "%ls\n%ld partie(s) ayant échoué"
 msgid ""
 "%ls\n"
 "Do you want to remove the %d files anyway?"
-msgstr "%ls\nVoulez-vous supprimer les %d fichiers ?"
+msgstr "%ls\nVoulez-vous supprimer les %d fichiers quand même ?"
 
 #. Resource IDs: (2346)
 #, c-format
 msgid ""
 "%ls\n"
 "Do you want to remove the file '%ls' anyway?"
-msgstr "%ls\nVoulez-vous supprimer le fichier '%ls' ?"
+msgstr "%ls\nVoulez-vous supprimer le fichier '%ls' quand même ?"
 
 #. Resource IDs: (2348)
 #, c-format
@@ -410,7 +410,7 @@ msgid ""
 "%ls\n"
 "The folder %ls\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "%ls\nLe dossier %ls\ncontient un(des) fichier(s) non versionné(s) et/ou modifié(s). Voulez-vous de l'enlever quand même ?"
+msgstr "%ls\nLe dossier %ls\ncontient un ou plusieurs fichier non versionnés et/ou modifiés. Voulez-vous le supprimer quand même ?"
 
 #. Resource IDs: (1102)
 #, c-format
@@ -478,7 +478,7 @@ msgstr "&Appliquer la mise à jour au répertoire de destination"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Appliquer un patch"
+msgstr "&Appliquer un correctif"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -606,7 +606,7 @@ msgstr "&Fermer"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr "&Fermer la(es) fenêtre(s)"
+msgstr "&Fermer fenêtre(s)"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
@@ -614,7 +614,7 @@ msgstr "Nom d'utilisateur du &collaborateur"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
-msgstr "&Commande:"
+msgstr "&Commande :"
 
 #. Resource IDs: (122)
 msgid "&Commit..."
@@ -650,7 +650,7 @@ msgstr "&Copier"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "&Copier l'Image du Bouton"
+msgstr "&Copier l'image du bouton"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -682,11 +682,11 @@ msgstr "&Jours d'inactivité avant que les caches de petite taille soient suppri
 
 #. Resource IDs: (1269)
 msgid "&Default"
-msgstr "&Défaut"
+msgstr "Par &Défaut"
 
 #. Resource IDs: (168, 1382, 16617, 16912)
 msgid "&Delete"
-msgstr "E&ffacer"
+msgstr "&Supprimer"
 
 #. Resource IDs: (271)
 msgid "&Delete (keep local)"
@@ -702,7 +702,7 @@ msgstr "&Supprimer les éléments non versionnés..."
 
 #. Resource IDs: (1604)
 msgid "&Delete..."
-msgstr "&Effacer..."
+msgstr "&Supprimer..."
 
 #. Resource IDs: (176)
 msgid "&Diff"
@@ -858,7 +858,7 @@ msgstr "&Allez à la Ligne...\t(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr "&Vert:"
+msgstr "&Vert :"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
@@ -959,7 +959,7 @@ msgstr "&Langue :"
 
 #. Resource IDs: (16653)
 msgid "&Large Icons"
-msgstr "&Grandes Icônes"
+msgstr "&Grandes icônes"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -1255,7 +1255,7 @@ msgstr "&Remplacer"
 
 #. Resource IDs: (201)
 msgid "&Repo-browser"
-msgstr "Navigateur de &dépôt"
+msgstr "Explorateur de &dépôt"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
@@ -1279,7 +1279,7 @@ msgstr "Re&staurer les valeurs par défaut"
 
 #. Resource IDs: (1542, 9020)
 msgid "&Retry without hooks"
-msgstr "&Réessayer sans les scripts hook"
+msgstr "&Réessayer sans les scripts associés"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
@@ -1828,7 +1828,7 @@ msgstr "&Abandonner la fusion"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr "Abandon\nVous pouvez corriger d'abord la raison pour laquelle le script hook a échoué."
+msgstr "Abandon\nVous pouvez corriger d'abord la raison pour laquelle le script associé a échoué."
 
 #. Resource IDs: (134, 57664)
 msgid "About"
@@ -2211,7 +2211,7 @@ msgstr "Appliquer un diff standard"
 
 #. Resource IDs: (5801)
 msgid "Approve or reject client-side hook script"
-msgstr "Approuver ou rejeter l'appel de script hook côté client"
+msgstr "Approuver ou rejeter l'appel des scripts associés côté client"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2917,7 +2917,7 @@ msgstr "Vérifier les modifications de la copie de travail"
 
 #. Resource IDs: (9108)
 msgid "Check-Commit Hook"
-msgstr "Script hook pour vérification du commit"
+msgstr "Script associé pour vérification de la livraison"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -3338,7 +3338,7 @@ msgstr "Configurer les filtres regex"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr "Configurer les scripts hook"
+msgstr "Configurer les scripts associés"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
@@ -4068,7 +4068,7 @@ msgstr "Options de comparaison"
 
 #. Resource IDs: (65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Position de comparaison"
 
 #. Resource IDs: (65535)
 msgid "Diff removed lines"
@@ -5474,7 +5474,7 @@ msgstr "Accueil"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Scripts hook"
+msgstr "Scripts associés"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
@@ -5482,19 +5482,19 @@ msgstr "Scripts d'Accroche::Intégration du Système de Suivi de Problèmes"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
-msgstr "Type de hook"
+msgstr "Type d'association de script"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr "Type de hook :"
+msgstr "Type d'association de script :"
 
 #. Resource IDs: (5812)
 msgid "Hook script failed"
-msgstr "Echec du script hook"
+msgstr "Echec du script associé"
 
 #. Resource IDs: (2760)
 msgid "Hook script failed!"
-msgstr "Le script hook a échoué !"
+msgstr "Le script assopcié a échoué !"
 
 #. Resource IDs: (1296)
 #, c-format
@@ -5817,7 +5817,7 @@ msgstr "Si vous utilisez d'autres clients SVN en plus de TortoiseSVN sur cet ord
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr "Si vous souhaitez cassez le verrou, utilisez la boîte de dialogue 'Vérifier les Modifications' ou le navigateur de dépôt."
+msgstr "Si vous souhaitez lever le verrou, utilisez la boîte de dialogue 'Vérifier les Modifications' ou l'Explorateur de dépôt."
 
 #. Resource IDs: (65535)
 msgid "Ignore"
@@ -6372,7 +6372,7 @@ msgstr "&Appels de script locaux"
 
 #. Resource IDs: (334)
 msgid "Local hook scripts"
-msgstr "Scripts hook locaux."
+msgstr "Scripts associés locaux."
 
 #. Resource IDs: (1500)
 msgid ""
@@ -6526,7 +6526,7 @@ msgstr "Gérer les propriétés Subversion"
 
 #. Resource IDs: (9107)
 msgid "Manual Pre-Commit Hook"
-msgstr "Hook pré-livraison manuel"
+msgstr "Script associé à la pré-livraison manuelle"
 
 #. Resource IDs: (65535)
 msgid "Manual import/export"
@@ -7442,7 +7442,7 @@ msgstr "Ouvre l'aide\nAide"
 
 #. Resource IDs: (202)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Ouvre le navigateur de dépôt pour optimiser le dépôt en ligne"
+msgstr "Ouvrir l'Explorateur de dépôt pour optimiser le dépôt en ligne"
 
 #. Resource IDs: (3173)
 msgid "Operate from log cache for now only"
@@ -7675,11 +7675,11 @@ msgstr "Graphique en camembert"
 
 #. Resource IDs: (1319)
 msgid "Please enter a hook script to execute."
-msgstr "Veuillez entrer un script hook à exécuter."
+msgstr "Saisir un script associé à exécuter."
 
 #. Resource IDs: (1318)
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Veuillez entrer un chemin où appliquer le script hook."
+msgstr "Saisir un chemin où appliquer le script associé."
 
 #. Resource IDs: (308)
 msgid "Please execute the 'Cleanup' command."
@@ -7700,7 +7700,7 @@ msgstr "Veuillez résoudre le conflit en choisissant l'une des options suivantes
 
 #. Resource IDs: (1317)
 msgid "Please select a hook type"
-msgstr "Veuillez sélectionner un type de hook."
+msgstr "Veuillez sélectionner un type d'association de script."
 
 #. Resource IDs: (2101)
 msgid "Please wait - this can take several minutes. Seriously!"
@@ -7720,7 +7720,7 @@ msgstr "Veuillez patienter pendant la mise en commun des éléments externes..."
 
 #. Resource IDs: (1660)
 msgid "Please wait while the repository browser is initializing..."
-msgstr "Veuillez patienter pendant l'initialisation du navigateur de dépôt..."
+msgstr "Veuillez patienter pendant l'initialisation de l'Explorateur de dépôt..."
 
 #. Resource IDs: (347, 1661, 1902, 2333, 3403)
 msgid "Please wait..."
@@ -7736,11 +7736,11 @@ msgstr "Valeurs possibles : 0 (totalement transparent) .. 255 (opaque)"
 
 #. Resource IDs: (9102)
 msgid "Post-Commit Hook"
-msgstr "Hook post-livraison"
+msgstr "Script associé après livraison"
 
 #. Resource IDs: (9105)
 msgid "Post-Update Hook"
-msgstr "Hook post-mise à jour"
+msgstr "Script associé après mise à jour"
 
 #. Resource IDs: (58115)
 msgid "Pre&v Page"
@@ -7748,15 +7748,15 @@ msgstr "Page Pré&cédente"
 
 #. Resource IDs: (9101)
 msgid "Pre-Commit Hook"
-msgstr "Hook pre-livraison"
+msgstr "Script associé avant livraison"
 
 #. Resource IDs: (9106)
 msgid "Pre-Connect Hook"
-msgstr "Hook de pre-connexion"
+msgstr "Script associé avant connexion"
 
 #. Resource IDs: (9104)
 msgid "Pre-Update Hook"
-msgstr "Hook pre-mise à jour"
+msgstr "Script associé avant mise à jour"
 
 #. Resource IDs: (3)
 msgid "Prefer &local"
@@ -7850,7 +7850,7 @@ msgstr "Exécuter quand même"
 msgid ""
 "Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr "Continuer quand-même\nIgnore les scripts de hook et lance quand-même la commande."
+msgstr "Continuer tout de même\nIgnorer les scripts associés et lancer la commande malgré tout."
 
 #. Resource IDs: (2710)
 msgid ""
@@ -8513,7 +8513,7 @@ msgstr "Dépôt"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
-msgstr "Navigateur de dépôt"
+msgstr "Explorateur de dépôt"
 
 #. Resource IDs: (3170)
 msgid "Repository URL"
@@ -8525,7 +8525,7 @@ msgstr "UUID du dépôt :"
 
 #. Resource IDs: (65535)
 msgid "Repository browser"
-msgstr "Navigateur de dépôt"
+msgstr "Explorateur de dépôt"
 
 #. Resource IDs: (324)
 msgid "Repository created"
@@ -8803,7 +8803,7 @@ msgstr "Exécuter l'a&ppel de script"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr "Exécuter\nExécuter le script hook"
+msgstr "Exécuter\nExécuter le script associé"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9209,7 +9209,7 @@ msgstr "Sélectionnez le répertoire où sauvegarder les fichiers sélectionnés
 
 #. Resource IDs: (3151)
 msgid "Select hook script file"
-msgstr "Sélectionner le fichier du script hook..."
+msgstr "Sélectionner le fichier du script associé"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -9855,7 +9855,7 @@ msgstr "Standard"
 
 #. Resource IDs: (9100)
 msgid "Start Commit Hook"
-msgstr "Démarrer script hook pour commit"
+msgstr "Démarrer script associé pour livraison"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -9863,7 +9863,7 @@ msgstr "Révision de début"
 
 #. Resource IDs: (9103)
 msgid "Start Update Hook"
-msgstr "Démarrer script hook pour update"
+msgstr "Démarrer script associé pour mise à jour"
 
 #. Resource IDs: (1542)
 msgid "Start registry editor"
@@ -10307,14 +10307,14 @@ msgstr "Le dossier\n%ls\nexiste déjà !"
 
 #. Resource IDs: (2713)
 msgid "The hook script executed successfully"
-msgstr "Le script hook a été exécuté correctement."
+msgstr "Le script associé a été exécuté correctement."
 
 #. Resource IDs: (1320, 5810)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
 "%ls"
-msgstr "Le script hook a renvoyé une erreur :\n%ls"
+msgstr "Le script associé a renvoyé une erreur :\n%ls"
 
 #. Resource IDs: (1339)
 msgid "The hook script was not approved to run"
@@ -12458,7 +12458,7 @@ msgstr "gênant"
 
 #. Resource IDs: (9602)
 msgid "offline"
-msgstr "hors-ligne"
+msgstr "hors ligne"
 
 #. Resource IDs: (61504)
 #, c-format
@@ -12507,7 +12507,7 @@ msgstr "trimestre"
 
 #. Resource IDs: (3953)
 msgid "quarters of year"
-msgstr "quarts d'année"
+msgstr "trimestres"
 
 #. Resource IDs: (3110)
 msgid "readonly"
@@ -12832,13 +12832,13 @@ msgid ""
 "tsvn:projectlanguage\r\n"
 "Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
-msgstr "tsvn:projectlanguage\r\nMettez ceci au numéro de la langue dans laquelle vous souhaitez écrire vos commentaires.\r\nTortoiseSVN chargera le module de correction orthographique approprié s'il est disponible."
+msgstr "tsvn:projectlanguage\nMettre le numéro de la langue dans laquelle vous souhaitez écrire vos commentaires.\nTortoiseSVN chargera le module de correction orthographique approprié s'il est disponible."
 
 #. Resource IDs: (9224)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr "tsvn:warnifnoissue\r\nMettre à 'oui' si une alerte doit être affichée quand aucun incident n'est entré dans la boîte de dialogue de livraison."
+msgstr "tsvn:warnifnoissue\nMettre à 'oui' si une alerte doit être affichée lorsqu'aucun incident n'est saisi dans le dialogue de livraison."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -12862,7 +12862,7 @@ msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
-msgstr "uuid x6&4:"
+msgstr "uuid x6&4 :"
 
 #. Resource IDs: (9401)
 msgid "values are different"

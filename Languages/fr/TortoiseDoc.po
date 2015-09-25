@@ -39,7 +39,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-09-18 18:48+0000\n"
+"PO-Revision-Date: 2015-09-22 21:50+0000\n"
 "Last-Translator: Dirk Hoffmann <Hoffmann@cppm.in2p3.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr "Large"
 
 #. (title)
 msgid "Preface"
-msgstr "Préface"
+msgstr "Avant-propos"
 
 #. (primary)
 msgid "version control"
@@ -101,7 +101,7 @@ msgid ""
 " the next day. Imagine a team of such developers working concurrently - and "
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
-msgstr "Le contrôle de version est l'art de gérer les changements de l'information. Cela a longtemps été un outil critique pour les programmeurs, qui passent typiquement leur temps à faire de petites modifications au logiciel et à défaire ensuite ces changements le lendemain. Imaginez une équipe de ces programmeurs travaillant concurremment - et peut-être même simultanément sur les même fichiers ! - et vous pouvez voir pourquoi un bon système est nécessaire pour <emphasis>gérer le chaos potentiel</emphasis>."
+msgstr "Le contrôle de versions est l'art de gérer les changements d'information. Cela a longtemps été un outil critique pour les programmeurs, qui passent typiquement leur temps à faire de petites modifications à leurs logiciels et à défaire ces changements le lendemain. Imaginez une équipe de ces programmeurs travaillant en parallèle - et peut-être en même temps sur les même fichiers ! - et vous comprenez pourquoi un bon système est nécessaire pour <emphasis>gérer le chaos potentiel</emphasis>."
 
 #. (title)
 msgid "What is TortoiseSVN?"
@@ -118,7 +118,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN est un client Windows open-source gratuit pour le système de contrôle de version <firstterm>Apache™ Subversion®</firstterm>. TortoiseSVN gère des fichiers et répertoires dans le temps. Les fichiers sont stockés dans un <firstterm>dépôt</ firstterm> central. Le dépôt est un peu comme un serveur de fichiers ordinaire, sauf qu'il se rappelle chaque changement fait à vos fichiers et répertoires. Cela vous permet de récupérer les anciennes versions de vos fichiers et examiner l'histoire de comment et quand vos données ont changé, et qui les ont changé. C'est pourquoi beaucoup de gens pensent de Subversion et des systèmes de version en général comme d'une sorte de <quote>machine à remonter le temps</ quote>."
+msgstr "TortoiseSVN est un client Windows open-source gratuit pour le système de contrôle de version <firstterm>Apache™ Subversion®</firstterm>. TortoiseSVN gère des fichiers et répertoires dans le temps. Les fichiers sont stockés dans un <firstterm>dépôt</ firstterm> central. Le dépôt est un peu comme un serveur de fichiers ordinaire, sauf qu'il se rappelle chaque changement fait à vos fichiers et répertoires. Cela vous permet de récupérer les anciennes versions de vos fichiers et examiner l'histoire de comment et quand vos données ont changé, et qui les a changé. C'est pourquoi beaucoup de gens voient Subversion et des systèmes de contrôle de versions en général, comme d'une sorte de <quote>machine à remonter le temps</ quote>."
 
 #. (para)
 msgid ""
@@ -139,7 +139,7 @@ msgstr "Les fonctionnalités de TortoiseSVN"
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "Qu'est-ce qui fait de TortoiseSVN un si bon client Subversion ? Voici une courte liste des fonctionnalités."
+msgstr "Qu'est-ce qui fait de TortoiseSVN un si bon client Subversion ? Voici une liste brève de ses fonctionnalités."
 
 #. (term)
 msgid "Shell integration"
@@ -173,7 +173,7 @@ msgstr "Et vous n'êtes même pas obligés d'utiliser Windows Explorer ; les men
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Recouvrement d'icônes"
+msgstr "Icônes superposées"
 
 #. (para)
 msgid ""
@@ -368,7 +368,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Au fil du temps, d'autres systèmes de contrôle de versions ont eu leur propre client Tortoise, ce qui a posé un problème avec l'Explorer : Le nombre de ces icônes superposées est limité, et même un seul client Tortoise peut facilement dépasser cette limite. C'est pourquoi Stefan Küng a implémenté le composant TortoiseOverlays, qui permet à tous les clients Tortoise d'utiliser les mêmes icônes superposées. Aujourd'hui tous les client Tortoise open source et même quelques clients en dehors de Tortoise partagent ce composant."
 
 #. (title)
 msgid "Acknowledgments"
@@ -1356,7 +1356,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Afin d'obtenir une copie de travail (CdT), il faut <firstterm>extraire</firstterm> une partie de l'arbordescence du dépôt. (Le terme anglais <emphasis>check out</emphasis> pourrait suggérer qu'il s'agit de verrouiller ou de réserver des ressources du dépôt, mais ce n'est pas le cas. Il s'agit simplement d'une copie privée, également appelé bac à sable, du projet pour l'utilisateur.)"
 
 #. (para)
 msgid ""
@@ -1514,7 +1514,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/chemin/vers/depots\n...\nfile:///X|/chemin/vers/depots\n...\n      "
 
 #. (para)
 msgid ""
@@ -1631,7 +1631,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1650,7 +1650,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1668,7 +1668,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -2006,7 +2006,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -17293,7 +17293,7 @@ msgstr "Si vous avez une copie de travail dont vous n'avez plus besoin, comment 
 
 #. (title)
 msgid "Useful Tips For Administrators"
-msgstr "Trucs Utiles Pour Les Administrateurs"
+msgstr "Astuces pour les Administrateurs"
 
 #. (para)
 msgid ""
@@ -17339,7 +17339,7 @@ msgid ""
 "A good walk-through on how to do that can be found in the knowledge base "
 "article 314934 from Microsoft: <ulink "
 "url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
-msgstr "Un bon guide sur la façon de faire cela peut être trouvé dans l'article de la base de connaissance 314934 de Microsoft : <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
+msgstr "Un bon guide sur la façon de faire se trouvé dans l'article 314934 de la base de connaissances de Microsoft : <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -17411,7 +17411,7 @@ msgstr ""
 #. (title)
 msgid ""
 "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
-msgstr "Mettre la variable d'environnement <literal>SVN_ASP_DOT_NET_HACK</literal>"
+msgstr "Définir la variable d'environnement <literal>SVN_ASP_DOT_NET_HACK</literal>"
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
