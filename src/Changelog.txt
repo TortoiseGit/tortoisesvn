@@ -3,6 +3,9 @@ Version 1.9.3
        in the log dialog. (Stefan)
 - BUG: The %fname was not set when diffing two revisions
        of the same file from the log dialog. (Stefan)
+- BUG: Crash when showing the context menu in the status
+       list control if the class associations couldn't
+       be created. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files

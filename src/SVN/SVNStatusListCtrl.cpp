@@ -6826,8 +6826,9 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
                             { ASSOCCLASS_STAR, NULL, NULL },
                             { ASSOCCLASS_FOLDER, NULL, NULL },
                         };
-                        IQueryAssociations * pIQueryAssociations;
-                        AssocCreateForClasses(rgAssocItem, ARRAYSIZE(rgAssocItem), IID_IQueryAssociations, (void**)&pIQueryAssociations);
+                        IQueryAssociations * pIQueryAssociations = nullptr;
+                        if (FAILED(AssocCreateForClasses(rgAssocItem, ARRAYSIZE(rgAssocItem), IID_IQueryAssociations, (void**)&pIQueryAssociations)))
+                            pIQueryAssociations = nullptr;  // not a problem, it works without this
 
                         g_pFolderhook = new CIShellFolderHook(g_psfDesktopFolder, targetList);
                         LPCONTEXTMENU icm1 = nullptr;
@@ -6876,7 +6877,8 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
                                 }
                             }
                         }
-                        pIQueryAssociations->Release();
+                        if (pIQueryAssociations)
+                            pIQueryAssociations->Release();
                     }
                 }
             }
