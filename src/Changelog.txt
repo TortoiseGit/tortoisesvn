@@ -6,6 +6,8 @@ Version 1.9.3
 - BUG: Crash when showing the context menu in the status
        list control if the class associations couldn't
        be created. (Stefan)
+- BUG: TortoiseMerge: The horizontal scroll bar was wrong
+       if the shown doc had a lot of tabs. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
