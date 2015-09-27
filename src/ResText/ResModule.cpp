@@ -1,5 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2015 - TortoiseGit
 // Copyright (C) 2003-2008, 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
@@ -79,6 +80,7 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
         std::wstring filepath = *I;
         m_currentHeaderDataDialogs.clear();
         m_currentHeaderDataStrings.clear();
+        m_currentHeaderDataMenus.clear();
         auto starpos = I->find('*');
         if (starpos != std::wstring::npos)
             filepath = I->substr(0, starpos);
@@ -2189,6 +2191,11 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                         m_currentHeaderDataDialogs[value] = CUnicodeUtils::StdGetUnicode(text);
                         ++count;
                     }
+                    else if (text.find("ID_") == 0)
+                    {
+                        m_currentHeaderDataMenus[value] = CUnicodeUtils::StdGetUnicode(text);
+                        ++count;
+                    }
                 }
 
             }
@@ -2228,6 +2235,11 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                         m_currentHeaderDataDialogs[value] = text;
                         ++count;
                     }
+                    else if (text.find(L"ID_") == 0)
+                    {
+                        m_currentHeaderDataMenus[value] = text;
+                        ++count;
+                    }
                 }
             }
         }
@@ -2250,6 +2262,14 @@ void CResModule::InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, RESOURCEENTRY
     {
         auto foundIt = m_currentHeaderDataStrings.find(id);
         if (foundIt != m_currentHeaderDataStrings.end())
+            entry.resourceIDs.insert(foundIt->second + infotext);
+        else
+            entry.resourceIDs.insert(NumToStr(id) + infotext);
+    }
+    else if (lpType == RT_MENU)
+    {
+        auto foundIt = m_currentHeaderDataMenus.find(id);
+        if (foundIt != m_currentHeaderDataMenus.end())
             entry.resourceIDs.insert(foundIt->second + infotext);
         else
             entry.resourceIDs.insert(NumToStr(id) + infotext);
