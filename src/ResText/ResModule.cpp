@@ -691,7 +691,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 
             std::wstring wstr = std::wstring(pBuf);
             RESOURCEENTRY entry = m_StringEntries[wstr];
-            InsertResourceIDs(RT_MENU, 0, entry, id, L"");
+            InsertResourceIDs(RT_MENU, 0, entry, id, L" - Menu");
 
             TCHAR szTempBuf[1024] = { 0 };
             swprintf(szTempBuf, L"#: MenuEntry; ID:%u", id);
@@ -815,7 +815,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
             // Popup has a DWORD help entry on a DWORD boundary - skip over it
             res += 2;
 
-            InsertResourceIDs(RT_MENU, 0, entry, menuId, L"");
+            InsertResourceIDs(RT_MENU, 0, entry, menuId, L" - PopupMenuEx");
             TCHAR szTempBuf[1024] = { 0 };
             swprintf(szTempBuf, L"#: MenuExPopupEntry; ID:%lu", menuId);
             MENUENTRY menu_entry;
@@ -837,7 +837,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
 
             std::wstring wstr = std::wstring(pBuf);
             RESOURCEENTRY entry = m_StringEntries[wstr];
-            InsertResourceIDs(RT_MENU, 0, entry, menuId, L"");
+            InsertResourceIDs(RT_MENU, 0, entry, menuId, L" - MenuEx");
 
             TCHAR szTempBuf[1024] = { 0 };
             swprintf(szTempBuf, L"#: MenuExEntry; ID:%lu", menuId);
