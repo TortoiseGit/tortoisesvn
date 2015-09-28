@@ -738,9 +738,9 @@ UINT CPicture::GetWidth() const
     if ((bIsIcon)&&(lpIcons))
     {
         LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-        return lpIconDir->idEntries[nCurrentIcon].bWidth;
+        return lpIconDir->idEntries[nCurrentIcon].bWidth == 0 ? 256 : lpIconDir->idEntries[nCurrentIcon].bWidth;
     }
-    return lpIconDir->idEntries[nCurrentIcon].bWidth == 0 ? 256 : lpIconDir->idEntries[nCurrentIcon].bWidth;
+    return pBitmap ? pBitmap->GetWidth() : 0;
 }
 
 PixelFormat CPicture::GetPixelFormat() const
