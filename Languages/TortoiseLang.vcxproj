@@ -86,7 +86,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll*..\src\TortoiseProc\resource.h*..\src\TortoiseShell\resource.h ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll*..\src\TortoiseMerge\resource.h ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll*..\src\TortoiseBlame\resource.h ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll*..\src\TortoiseIDiff\resource.h -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
+      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll*..\src\TortoiseProc\resource.h*..\src\TortoiseShell\resource.h*"$(VCInstallDir)atlmfc\include\afxres.h" ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll*..\src\TortoiseMerge\resource.h*"$(VCInstallDir)atlmfc\include\afxres.h" ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll*..\src\TortoiseBlame\resource.h ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll*..\src\TortoiseIDiff\resource.h -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
