@@ -8,6 +8,9 @@ Version 1.9.3
        be created. (Stefan)
 - BUG: TortoiseMerge: The horizontal scroll bar was wrong
        if the shown doc had a lot of tabs. (Stefan)
+- BUG: Adjusting externals to the HEAD revision used
+       always the same revision if multiple externals were
+       selected. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
