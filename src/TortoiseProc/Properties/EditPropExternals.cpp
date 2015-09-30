@@ -341,10 +341,10 @@ void CEditPropExternals::OnBnClickedFindhead()
         if (!it->root.IsEmpty())
         {
             const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(it->fullurl), SVNRev(), SVNRev::REV_HEAD);
-            if ((pInfo == nullptr) || (pInfo->rev <= 0))
+            if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
                 it->headrev = svn.GetHEADRevision(CTSVNPath(it->fullurl), true);
             else
-                it->headrev = pInfo->rev;
+                it->headrev = pInfo->lastchangedrev;
         }
     }
     progDlg.Stop();
@@ -429,10 +429,10 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                             }
 
                             const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(m_externals[index].fullurl), SVNRev(), SVNRev::REV_HEAD);
-                            if ((pInfo == nullptr) || (pInfo->rev <= 0))
+                            if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
                                 m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
                             else
-                                m_externals[index].headrev = pInfo->rev;
+                                m_externals[index].headrev = pInfo->lastchangedrev;
                         }
                     }
                 }

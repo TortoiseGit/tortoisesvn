@@ -11,9 +11,6 @@ Version 1.9.3
 - BUG: Adjusting externals to the HEAD revision used
        always the same revision if multiple externals were
        selected. (Stefan)
-- BUG: Adjusting externals used the wrong revision
-       if the external was copied itself but not
-       modified later. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
