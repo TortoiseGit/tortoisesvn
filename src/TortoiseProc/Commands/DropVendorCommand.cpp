@@ -105,8 +105,8 @@ bool DropVendorCommand::Execute()
             {
                 if (!CopyFileHandleReadOnly(srcPath, dstPath))
                 {
-                    progress.Stop();
                     CFormatMessageWrapper error;
+                    progress.Stop();
                     CString sErr;
                     sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
                     MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
@@ -134,8 +134,8 @@ bool DropVendorCommand::Execute()
                         {
                             if (!CopyFileHandleReadOnly(srcPath, dstPath))
                             {
-                                progress.Stop();
                                 CFormatMessageWrapper error;
+                                progress.Stop();
                                 CString sErr;
                                 sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
                                 MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
@@ -170,8 +170,8 @@ bool DropVendorCommand::Execute()
                 {
                     if (!CopyFileHandleReadOnly(srcPath, dstPath))
                     {
-                        progress.Stop();
                         CFormatMessageWrapper error;
+                        progress.Stop();
                         CString sErr;
                         sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
                         MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
