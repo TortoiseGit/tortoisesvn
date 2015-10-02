@@ -7839,6 +7839,7 @@ void CLogDlg::InitMonitorProjTree()
     CString sDataFilePath = CPathUtils::GetAppDataDirectory();
     sDataFilePath += L"\\MonitoringData.ini";
     m_monitoringFile.SetMultiLine();
+    m_monitoringFile.SetUnicode();
     if (PathFileExists(sDataFilePath))
     {
         int retrycount = 5;

@@ -11,6 +11,8 @@ Version 1.9.3
 - BUG: Adjusting externals to the HEAD revision used
        always the same revision if multiple externals were
        selected. (Stefan)
+- BUG: unicode data was not saved properly in the project
+       monitor. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
