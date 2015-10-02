@@ -18,6 +18,9 @@ Version 1.9.3
 - CHG: the "break locks" checkbox in the cleanup dialog
        is now unchecked by default, and remembers its
        state between sessions. (Stefan)
+- BUG: The "create vendor branch" command failed to copy
+       over files that have the svn:needs-lock property
+       set or are otherwise set as readonly. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
