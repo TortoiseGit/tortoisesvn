@@ -60,4 +60,5 @@ private:
     CRegDWORD           m_regExternals;
     CRegDWORD           m_regFixTimestamps;
     CRegDWORD           m_regVacuum;
+    CRegDWORD           m_regBreakLocks;
 };

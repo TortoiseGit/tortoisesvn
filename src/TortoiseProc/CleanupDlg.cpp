@@ -42,6 +42,7 @@ CCleanupDlg::CCleanupDlg(CWnd* pParent /*=NULL*/)
     , m_regExternals(L"Software\\TortoiseSVN\\CleanupExternals", TRUE)
     , m_regFixTimestamps(L"Software\\TortoiseSVN\\CleanupFixTimeStamps", FALSE)
     , m_regVacuum(L"Software\\TortoiseSVN\\CleanupVacuum", FALSE)
+    , m_regBreakLocks(L"Software\\TortoiseSVN\\CleanupBreakLocks", FALSE)
 {
 }
 
@@ -109,7 +110,7 @@ BOOL CCleanupDlg::OnInitDialog()
     AdjustControlSize(IDC_VACUUM);
 
     m_bCleanup = true;
-    m_bBreakLocks = true;
+    m_bBreakLocks = m_regBreakLocks;
     m_bExternals = m_regExternals;
     m_bRefreshShell= m_regRefreshShell;
     m_bFixTimestamps = m_regFixTimestamps;
@@ -132,6 +133,7 @@ void CCleanupDlg::EnableOKButton()
     m_regRefreshShell = m_bRefreshShell;
     m_regFixTimestamps = m_bFixTimestamps;
     m_regVacuum = m_bVacuum;
+    m_regBreakLocks = m_bBreakLocks;
 }
 
 void CCleanupDlg::OnBnClickedHelp()

@@ -15,6 +15,9 @@ Version 1.9.3
        monitor. (Stefan)
 - BUG: Project monitor accepted escaped urls. Automatically
        unescapes them now. (Stefan)
+- CHG: the "break locks" checkbox in the cleanup dialog
+       is now unchecked by default, and remembers its
+       state between sessions. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
