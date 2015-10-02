@@ -13,6 +13,8 @@ Version 1.9.3
        selected. (Stefan)
 - BUG: unicode data was not saved properly in the project
        monitor. (Stefan)
+- BUG: Project monitor accepted escaped urls. Automatically
+       unescapes them now. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
