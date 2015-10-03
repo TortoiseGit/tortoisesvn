@@ -301,11 +301,13 @@
       <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
       <property name="svnverstring" value="${environment::get-variable('SVNMajorVersion')}.${environment::get-variable('SVNMinorVersion')}.${environment::get-variable('SVNMicroVersion')}" />
       <if test="${ipv6 == ''}">
+        <mkdir dir="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application" />
         <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-${svnverstring}" />
         <move file="bin\${msifilename}.msi" tofile="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application\${msifilename}.msi" />
       </if>
       <if test="${ipv6 != ''}">
         <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-ipv6-svn-${svnverstring}" />
+        <mkdir dir="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application\ipv6" />
         <move file="bin\${msifilename}.msi" tofile="upload\${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}\Application\ipv6\${msifilename}.msi" />
       </if>
     </if>
