@@ -11,10 +11,10 @@
       </exec>
       <delete>
         <fileset>
-          <include name="..\openssl\out32\**.*" />
-          <include name="..\openssl\out64\**.*" />
-          <include name="..\openssl\out32.dbg\**.*" />
-          <include name="..\openssl\out64.dbg\**.*" />
+          <include name="..\openssl\out32\**.*" if="${configuration == 'release' and platform == 'win32'}" />
+          <include name="..\openssl\out64\**.*" if="${configuration == 'release' and platform == 'x64'}" />
+          <include name="..\openssl\out32.dbg\**.*" if="${configuration == 'debug' and platform == 'win32'}" />
+          <include name="..\openssl\out64.dbg\**.*" if="${configuration == 'debug' and platform == 'x64'}" />
           <include name="..\openssl\tmp32\**.*" />
           <include name="..\openssl\tmp64\**.*" />
         </fileset>
