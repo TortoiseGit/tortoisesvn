@@ -23,33 +23,33 @@
 
 ShellCache::ShellCache()
 {
-    cachetype = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? dll : exe);
-    showrecursive = CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE);
-    folderoverlay = CRegStdDWORD(L"Software\\TortoiseSVN\\FolderOverlay", TRUE);
-    driveremote = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemote");
+    cachetype = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? dll : exe, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    showrecursive = CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    folderoverlay = CRegStdDWORD(L"Software\\TortoiseSVN\\FolderOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    driveremote = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemote", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     drivefixed = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskFixed", TRUE);
-    drivecdrom = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskCDROM");
-    driveremove = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemovable");
-    drivefloppy = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskFloppy");
-    driveram = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRAM");
-    driveunknown = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskUnknown");
-    shellmenuaccelerators = CRegStdDWORD(L"Software\\TortoiseSVN\\ShellMenuAccelerators", TRUE);
-    unversionedasmodified = CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE);
-    ignoreoncommitignored = CRegStdDWORD(L"Software\\TortoiseSVN\\IgnoreOnCommitIgnored", TRUE);
-    hidemenusforunversioneditems = CRegStdDWORD(L"Software\\TortoiseSVN\\HideMenusForUnversionedItems", FALSE);
-    getlocktop = CRegStdDWORD(L"Software\\TortoiseSVN\\GetLockTop", TRUE);
-    excludedasnormal = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal", FALSE);
-    alwaysextended = CRegStdDWORD(L"Software\\TortoiseSVN\\AlwaysExtendedMenu", FALSE);
+    drivecdrom = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskCDROM", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    driveremove = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemovable", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    drivefloppy = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskFloppy", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    driveram = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRAM", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    driveunknown = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskUnknown", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    shellmenuaccelerators = CRegStdDWORD(L"Software\\TortoiseSVN\\ShellMenuAccelerators", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    unversionedasmodified = CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    ignoreoncommitignored = CRegStdDWORD(L"Software\\TortoiseSVN\\IgnoreOnCommitIgnored", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    hidemenusforunversioneditems = CRegStdDWORD(L"Software\\TortoiseSVN\\HideMenusForUnversionedItems", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    getlocktop = CRegStdDWORD(L"Software\\TortoiseSVN\\GetLockTop", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    excludedasnormal = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    alwaysextended = CRegStdDWORD(L"Software\\TortoiseSVN\\AlwaysExtendedMenu", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     drivetypeticker = 0;
-    menulayoutlow = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-    menulayouthigh = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0);
-    menumasklow_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, FALSE, HKEY_LOCAL_MACHINE);
-    menumaskhigh_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0, FALSE, HKEY_LOCAL_MACHINE);
-    menumasklow_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0);
-    menumaskhigh_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0);
-    langid = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
-    blockstatus = CRegStdDWORD(L"Software\\TortoiseSVN\\BlockStatus", 0);
-    columnseverywhere = CRegStdDWORD(L"Software\\TortoiseSVN\\ColumnsEveryWhere", FALSE);
+    menulayoutlow = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    menulayouthigh = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    menumasklow_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, FALSE, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);
+    menumaskhigh_lm = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0, FALSE, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);
+    menumasklow_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    menumaskhigh_cu = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    langid = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    blockstatus = CRegStdDWORD(L"Software\\TortoiseSVN\\BlockStatus", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    columnseverywhere = CRegStdDWORD(L"Software\\TortoiseSVN\\ColumnsEveryWhere", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     std::fill_n(drivetypecache, 27, (UINT)-1);
     if (DWORD(drivefloppy) == 0)
     {
@@ -67,7 +67,7 @@ ShellCache::ShellCache()
     columnrevformat.Grouping = _wtoi(szBuffer);
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], _countof(szBuffer));
     columnrevformat.NegativeOrder = _wtoi(szBuffer);
-    nocontextpaths = CRegStdString(L"Software\\TortoiseSVN\\NoContextPaths", L"");
+    nocontextpaths = CRegStdString(L"Software\\TortoiseSVN\\NoContextPaths", L"", false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     drivetypepathcache[0] = 0;
     m_critSec.Init();
     // Use RegNotifyChangeKeyValue() to get a notification event whenever a registry value
@@ -645,8 +645,8 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
 // construction
 
 ShellCache::CPathFilter::CPathFilter()
-    : excludelist(L"Software\\TortoiseSVN\\OverlayExcludeList")
-    , includelist(L"Software\\TortoiseSVN\\OverlayIncludeList")
+    : excludelist(L"Software\\TortoiseSVN\\OverlayExcludeList", L"", false, HKEY_CURRENT_USER, KEY_WOW64_64KEY)
+    , includelist(L"Software\\TortoiseSVN\\OverlayIncludeList", L"", false, HKEY_CURRENT_USER, KEY_WOW64_64KEY)
 {
     Refresh();
 }

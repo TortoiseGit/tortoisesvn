@@ -259,7 +259,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
         {
             if (m_State == FileStateDropHandler)
             {
-                if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE))
+                if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY))
                 {
                     ReleaseStgMedium(&medium);
                     return S_OK;
@@ -911,7 +911,7 @@ tstring CShellExt::WriteFileListToTempFile()
 
 STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu)
 {
-    if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE))
+    if (!CRegStdDWORD(L"Software\\TortoiseSVN\\EnableDragContextMenu", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY))
         return S_OK;
 
     PreserveChdir preserveChdir;
@@ -1152,7 +1152,7 @@ STDMETHODIMP CShellExt::QueryContextMenu_Wrap(HMENU hMenu,
     bool bMenuEntryAdded = false;
     // insert separator at start
     InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
-    bool bShowIcons = !!DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\ShowContextMenuIcons", TRUE));
+    bool bShowIcons = !!DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\ShowContextMenuIcons", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY));
     for (int menuIndex = 0; menuInfo[menuIndex].command != ShellMenuLastEntry; menuIndex++)
     {
         MenuInfo& menuItem = menuInfo[menuIndex];
@@ -1703,7 +1703,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             }
             if (!uuidSource.empty())
             {
-                CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
+                CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
                 switch (DWORD(groupSetting))
                 {
                 case 1:
@@ -1786,7 +1786,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             svnCmd += buf;
             if (!uuidSource.empty())
             {
-                CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
+                CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
                 switch (DWORD(groupSetting))
                 {
                 case 1:
