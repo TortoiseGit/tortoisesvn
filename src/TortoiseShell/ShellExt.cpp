@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -92,8 +92,9 @@ void LoadLangDll()
         if (dirpointA)
             *dirpointA = 0;
         strcat_s(langdirA, "\\Languages");
+#ifdef ENABLE_NLS
         bindtextdomain ("subversion", langdirA);
-
+#endif
         BOOL bIsWow = FALSE;
         IsWow64Process(GetCurrentProcess(), &bIsWow);
 

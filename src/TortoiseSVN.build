@@ -57,6 +57,16 @@
   </target>
 
   <target name="TortoiseSVN" depends="clean,versioninfo">
+    <echo message="building the static shell extension dll" if="${configuration == 'release' and platform == 'win32'}" />
+    <exec program="msbuild.exe" if="${configuration == 'release' and platform == 'win32'}">
+      <arg value="TortoiseShell\TortoiseShell.vcxproj" />
+      <arg value="/t:Rebuild" />
+      <arg value="/p:Configuration=${configuration}_static" />
+      <arg value="/p:Platform=${platform}" />
+      <arg value="/verbosity:minimal" />
+      <arg value="/maxcpucount" />
+    </exec>
+    <echo message="building all TortoiseSVN projects" />
     <exec program="msbuild.exe">
       <arg value="${solutionname}" />
       <arg value="/t:Rebuild" />

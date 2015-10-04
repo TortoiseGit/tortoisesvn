@@ -39,7 +39,9 @@
 #include "svn_client.h"
 #pragma warning(pop)
 
+#ifndef TSVN_STATICSHELL
 extern "C" void TSVN_ClearLastUsedAuthCache();
+#endif
 
 SVNBase::SVNBase()
     : Err(NULL)
@@ -258,6 +260,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
 
 void SVNBase::ClearCAPIAuthCacheOnError() const
 {
+#ifndef TSVN_STATICSHELL
     if (Err != NULL)
     {
         if ( (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
@@ -266,6 +269,7 @@ void SVNBase::ClearCAPIAuthCacheOnError() const
              (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
              TSVN_ClearLastUsedAuthCache();
     }
+#endif
 }
 
 #endif

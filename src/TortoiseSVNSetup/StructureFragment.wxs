@@ -116,8 +116,10 @@
             </Component>
 
             <Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
+              <?if $(env.Platform) = "win32" ?>
               <File Id="F__libapr" Name="libapr_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libapr_tsvn32.dll" KeyPath="yes" />
               <File Id="F__libaprutil" Name="libaprutil_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libaprutil_tsvn32.dll" />
+              <?endif ?>
               <?if $(env.Platform) = "x64" ?>
               <File Id="F__libapr64" Name="libapr_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libapr_tsvn.dll" />
               <File Id="F__libaprutil64" Name="libaprutil_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libaprutil_tsvn.dll" />
@@ -125,7 +127,9 @@
             </Component>
 
             <Component Id="C__sasl" Guid="$(var.GuidSASL)" Win64="$(var.Win64YesNo)">
+              <?if $(env.Platform) = "win32" ?>
               <File Id="F__libsasl" Name="libsasl32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libsasl32.dll" KeyPath="yes" />
+              <?endif ?>
               <?if $(env.Platform) = "x64" ?>
               <File Id="F__libsasl64" Name="libsasl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsasl.dll" />
               <?endif ?>
@@ -139,7 +143,9 @@
             </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">
+              <?if $(env.Platform) = "win32" ?>
               <File Id="F__intl" Name="intl3_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\intl3_tsvn32.dll" KeyPath="yes" />
+              <?endif ?>
               <?if $(env.Platform) = "x64" ?>
               <File Id="F__intl64" Name="intl3_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\intl3_tsvn.dll" />
               <?endif ?>
@@ -161,13 +167,17 @@
 
             <Component Id="C__TortoiseSVN" Guid="$(var.GuidTortoiseSVN)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseProc" Name="TortoiseProc.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
-              <File Id="F__TortoiseShell32" Name="TortoiseSVN32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseSVN32.dll" />
               <File Id="F__TortoiseStub32" Name="TortoiseStub32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseStub32.dll" />
+              <?if $(env.Platform) = "win32" ?>
+              <File Id="F__TortoiseShell32" Name="TortoiseSVN32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseSVN32.dll" />
               <File Id="F__libsvn32" Name="libsvn_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libsvn_tsvn32.dll" />
+              <?endif ?>
               <?if $(env.Platform) = "x64" ?>
               <File Id="F__TortoiseShell" Name="TortoiseSVN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
               <File Id="F__TortoiseStub" Name="TortoiseStub.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseStub.dll" />
+              <File Id="F__TortoiseShell32" Name="TortoiseSVN32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseSVN32_static.dll" />
               <File Id="F__libsvn" Name="libsvn_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsvn_tsvn.dll" />
+              <File Id="F__libsvn32" Name="libsvn_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libsvn_tsvn32_static.dll" />
               <?endif ?>
               <File Id="F__TortoisePlink" Name="TortoisePlink.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
               <File Id="F__TSVNCache" Name="TSVNCache.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
