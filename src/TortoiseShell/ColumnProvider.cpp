@@ -218,7 +218,7 @@ STDMETHODIMP CShellExt::GetItemData_Wrap(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA ps
         {
             case 0: // SVN Status
                 GetMainColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-                SVNStatus::GetStatusString(g_hResInst, filestatus, buf, _countof(buf), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetStatusString(g_hResInst, filestatus, buf, _countof(buf), (WORD)g_ShellCache.GetLangID());
                 szInfo = buf;
                 break;
             case 1: // SVN Revision
