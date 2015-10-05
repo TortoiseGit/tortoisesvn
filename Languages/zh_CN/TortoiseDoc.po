@@ -12,6 +12,7 @@
 # Translators:
 # szkingrose <1072258106@qq.com>, 2014
 # Entong Shen <dexter_shen@hotmail.com>, 2011
+# Evil Roach <evilroach@tom.com>, 2015
 # fang zheng <fz0000@sina.com>, 2012
 # Garfield Yao <field977@gmail.com>, 2011
 # Gong Gong <gongong83@gmail.com>, 2013
@@ -33,7 +34,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 08:47+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -8754,9 +8755,9 @@ msgstr "如果外部项目位于同一版本库，当你提交你的主要项目
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "如果外部工程位于不同的版本库，当你向主项目提交你的修改时，你对外部工程做的修改会被通报，但是你必须单独的提交这些外部工程的修改。"
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13626,11 +13627,13 @@ msgid "The peg revision, if available, without quotes"
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
+msgid "The name of the file, without quotes"
 msgstr ""
 
 #. (para)
@@ -13756,13 +13759,11 @@ msgid "The window title for the merged file, without quotes"
 msgstr ""
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
+msgid "The name of the conflicted file"
 msgstr ""
 
 #. (para)
-msgid "The name of the file, without quotes"
+msgid "The name of the conflicted file, without quotes"
 msgstr ""
 
 #. (para)
@@ -15299,7 +15300,7 @@ msgstr "删除"
 
 #. (para)
 msgid "Removes the selected project after a confirmation dialog is shown."
-msgstr ""
+msgstr "在一个确认对话框出现后，移除选中的项目。"
 
 #. (term)
 msgid "Mark all as read"
@@ -15320,7 +15321,7 @@ msgstr ""
 
 #. (term)
 msgid "Update all"
-msgstr ""
+msgstr "更新全部"
 
 #. (para)
 msgid ""

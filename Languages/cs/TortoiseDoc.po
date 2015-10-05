@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 10:34+0000\n"
+"PO-Revision-Date: 2015-10-05 08:58+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -8739,9 +8739,9 @@ msgstr "Pokud je externí projekt ve stejném úložišti, všechny změny, kter
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Pokud je externí projekt v jiném úložišti, všechny změny v něm provedené budou při odevzdání hlavního projektu oznámeny, ale musíte tyto vnější změny odevzdat samostatně."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr "Pokud je externí projekt v jiném úložišti, všechny změny v něm provedené budou při odevzdání hlavního projektu zobrazeny či vyznačeny, ale tyto vnější změny musíte odevzdat samostatně."
 
 #. (para)
 msgid ""
@@ -13611,12 +13611,14 @@ msgid "The peg revision, if available, without quotes"
 msgstr "Zavěšená revize, je-li dostupná, bez uvozovek"
 
 #. (para)
-msgid "The name of the conflicted file"
-msgstr "Název konfliktního souboru"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Název souboru. Pokud jsou porovnávány dva různé soubory, místo dvou stavů stejného souboru, je tento řetězec prázdný."
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
-msgstr "Název konfliktního souboru, bez uvozovek"
+msgid "The name of the file, without quotes"
+msgstr "Název souboru, bez uvozovek"
 
 #. (para)
 msgid ""
@@ -13741,14 +13743,12 @@ msgid "The window title for the merged file, without quotes"
 msgstr "Název okna sloučeného souboru, bez uvozovek"
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
-msgstr "Název souboru. Pokud jsou porovnávány dva různé soubory, místo dvou stavů stejného souboru, je tento řetězec prázdný."
+msgid "The name of the conflicted file"
+msgstr "Název konfliktního souboru"
 
 #. (para)
-msgid "The name of the file, without quotes"
-msgstr "Název souboru, bez uvozovek"
+msgid "The name of the conflicted file, without quotes"
+msgstr "Název konfliktního souboru, bez uvozovek"
 
 #. (para)
 msgid ""

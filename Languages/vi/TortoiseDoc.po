@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 08:47+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -8738,9 +8738,9 @@ msgstr "Nếu dự án bên ngoài là trong cùng một kho lưu trữ, bất k
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Nếu dự án bên ngoài nằm trong một kho lưu trữ khác, bất kỳ thay đổi bạn thực hiện đến các dự án bên ngoài sẽ được thông báo khi bạn cam kết dự án chính, nhưng bạn phải cam kết những thay đổi bên ngoài một cách riêng biệt."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13610,11 +13610,13 @@ msgid "The peg revision, if available, without quotes"
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
+msgid "The name of the file, without quotes"
 msgstr ""
 
 #. (para)
@@ -13740,13 +13742,11 @@ msgid "The window title for the merged file, without quotes"
 msgstr ""
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
+msgid "The name of the conflicted file"
 msgstr ""
 
 #. (para)
-msgid "The name of the file, without quotes"
+msgid "The name of the conflicted file, without quotes"
 msgstr ""
 
 #. (para)

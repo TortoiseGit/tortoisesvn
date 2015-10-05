@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 08:47+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -8738,9 +8738,9 @@ msgstr "Jos ulkoinen projekti on samassa arkistossa, kaikki siihen tehdyt muutok
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Jos ulkoinen projekti on eri arkistossa, siihen tekemistäsi muutoksista ilmoitetaan toimittaessasi pääprojektin muutoksia arkistoon.  Joudut kuitenkin toimittamaan ulkoiset muutokset erikseen."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13610,12 +13610,14 @@ msgid "The peg revision, if available, without quotes"
 msgstr "Ankkuriversio, mikäli saatavilla, ilman lainausmerkkejä"
 
 #. (para)
-msgid "The name of the conflicted file"
-msgstr "RIstiriidassa olevan tiedoston nimi"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Tiedoston nimi. Korvautuu tyhjällä merkkijonolla, mikäli verrataan kahta eri tiedostoa, eikä samaa tiedostoa kahdessa eri tilassa."
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
-msgstr "Ristiriidassa olevan tiedoston nimi, ilman lainausmerkkejä"
+msgid "The name of the file, without quotes"
+msgstr "TIedoston nimi, ilman lainausmerkkejä"
 
 #. (para)
 msgid ""
@@ -13740,14 +13742,12 @@ msgid "The window title for the merged file, without quotes"
 msgstr "Yhdistetyn tiedoston ikkunaotsikko, ilman lainausmerkkejä"
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
-msgstr "Tiedoston nimi. Korvautuu tyhjällä merkkijonolla, mikäli verrataan kahta eri tiedostoa, eikä samaa tiedostoa kahdessa eri tilassa."
+msgid "The name of the conflicted file"
+msgstr "RIstiriidassa olevan tiedoston nimi"
 
 #. (para)
-msgid "The name of the file, without quotes"
-msgstr "TIedoston nimi, ilman lainausmerkkejä"
+msgid "The name of the conflicted file, without quotes"
+msgstr "Ristiriidassa olevan tiedoston nimi, ilman lainausmerkkejä"
 
 #. (para)
 msgid ""

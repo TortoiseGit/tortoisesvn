@@ -14,7 +14,7 @@
 # Friedrich Brunzema <brunzefb@yahoo.com>, 2013
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2015.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011,2013
@@ -28,15 +28,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-09-23 10:45+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2015-10-05 11:20+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
 #. (title)
 #. (secondary)
@@ -8750,9 +8749,9 @@ msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änder
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Wenn ein externes Projekt in einem anderen Projektarchiv ist, werden Sie zwar über Änderungen im externen Projekt informiert, Sie müssen diese jedoch separat übertragen."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr "Wenn sich ein externes Projekt in einem anderen Projektarchiv befindet, werden Sie zwar über Änderungen im externen Projekt informiert, Sie müssen diese jedoch separat übertragen."
 
 #. (para)
 msgid ""
@@ -13622,12 +13621,14 @@ msgid "The peg revision, if available, without quotes"
 msgstr "Die fixe Revision, falls verfügbar, ohne Anführungszeichen"
 
 #. (para)
-msgid "The name of the conflicted file"
-msgstr "Der Name der Konfliktdatei in Anführungszeichen"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Der Name der Datei. Dies ist eine leere Zeichenfolge, wenn zwei verschiedene Dateien, anstelle von zwei Zuständen der selben Datei verglichen werden."
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
-msgstr "Der Name der Konfliktdatei ohne Anführungszeichen"
+msgid "The name of the file, without quotes"
+msgstr "Der Name der Datei, ohne Anführungszeichen"
 
 #. (para)
 msgid ""
@@ -13752,26 +13753,19 @@ msgid "The window title for the merged file, without quotes"
 msgstr "Der Fenstertitel für die zusammengeführte Datei ohne Anführungszeichen"
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
-msgstr ""
-"Der Name der Datei. Dies ist eine leere Zeichenfolge, wenn zwei verschiedene "
-"Dateien, anstelle von zwei Zuständen der selben Datei verglichen werden."
+msgid "The name of the conflicted file"
+msgstr "Der Name der Konfliktdatei in Anführungszeichen"
 
 #. (para)
-msgid "The name of the file, without quotes"
-msgstr "Der Name der Datei, ohne Anführungszeichen"
+msgid "The name of the conflicted file, without quotes"
+msgstr "Der Name der Konfliktdatei ohne Anführungszeichen"
 
 #. (para)
 msgid ""
 "An external merge program used to resolve conflicted files. Parameter "
 "substitution is used in the same way as with the Diff Program. "
 "<placeholder-1/>"
-msgstr ""
-"Ein externes Programm, mit dem Sie Konflikte in Dateien auflösen können. Die "
-"Parameterübergabe an das Programm erfolgt genau so wie beim "
-"Vergleichsprogramm. <placeholder-1/>"
+msgstr "Ein externes Programm, mit dem Sie Konflikte in Dateien auflösen können. Die Parameterübergabe an das Programm erfolgt genau so wie beim Vergleichsprogramm. <placeholder-1/>"
 
 #. (para)
 msgid ""

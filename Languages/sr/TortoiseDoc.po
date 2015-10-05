@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-23 20:57+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -8741,9 +8741,9 @@ msgstr "Ако је спољашњи пројекат у истом спреми
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Ако је спољашњи пројекат у различитом спремишту, било које измене које направите у спољашњем пројекту биће означене када урезујете главни пројекат, али морате урезати те спољашње измене издвојено."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13613,12 +13613,14 @@ msgid "The peg revision, if available, without quotes"
 msgstr "Пег ревизија, ако је доступна, без наводника"
 
 #. (para)
-msgid "The name of the conflicted file"
-msgstr "Име фајла у конфликту"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "Име фајла. Ово је празан стринг ако су два различита фајла различита уместо два стања истог фајла. "
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
-msgstr "Име фајла у конфликту, без наводника"
+msgid "The name of the file, without quotes"
+msgstr "Име фајла, без наводника"
 
 #. (para)
 msgid ""
@@ -13743,14 +13745,12 @@ msgid "The window title for the merged file, without quotes"
 msgstr "Виндоу титл за стопљен фајл, без наводника"
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
-msgstr "Име фајла. Ово је празан стринг ако су два различита фајла различита уместо два стања истог фајла. "
+msgid "The name of the conflicted file"
+msgstr "Име фајла у конфликту"
 
 #. (para)
-msgid "The name of the file, without quotes"
-msgstr "Име фајла, без наводника"
+msgid "The name of the conflicted file, without quotes"
+msgstr "Име фајла у конфликту, без наводника"
 
 #. (para)
 msgid ""

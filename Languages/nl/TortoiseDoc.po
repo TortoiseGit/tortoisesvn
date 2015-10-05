@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 08:47+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -8746,9 +8746,9 @@ msgstr "Als het externe project zich in hetzelfde archief bevindt, dan worden de
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Als het externe project zich in een ander archief bevindt, dan zul je alleen een notificatie krijgen van de wijzigingen die je aan het externe project hebt doorgevoerd op het moment dat je het hoofd project vastlegt. Je moet de wijzigingen aan het externe project apart vastleggen."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13618,11 +13618,13 @@ msgid "The peg revision, if available, without quotes"
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
 msgstr ""
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
+msgid "The name of the file, without quotes"
 msgstr ""
 
 #. (para)
@@ -13748,13 +13750,11 @@ msgid "The window title for the merged file, without quotes"
 msgstr ""
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
+msgid "The name of the conflicted file"
 msgstr ""
 
 #. (para)
-msgid "The name of the file, without quotes"
+msgid "The name of the conflicted file, without quotes"
 msgstr ""
 
 #. (para)

@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-08-21 08:47+0000\n"
+"PO-Revision-Date: 2015-10-05 08:51+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -8766,9 +8766,9 @@ msgstr "Si el proyecto externo está en el mismo repositorio, cualquier cambio q
 #. (para)
 msgid ""
 "If the external project is in a different repository, any changes you make "
-"to the external project will be notified when you commit the main project, "
-"but you have to commit those external changes separately."
-msgstr "Si los proyectos externos están en repositorios diferentes, cualquier cambio que haga en el proyecto externo se notificará cuando cnofirme el proyecto principal, pero tendrá que confirmar esos cambios externos de forma separada."
+"to the external project will be shown or indicated when you commit the main "
+"project, but you have to commit those external changes separately."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13638,12 +13638,14 @@ msgid "The peg revision, if available, without quotes"
 msgstr "La marca (señal) de la revisión, si está disponible, sin comillas"
 
 #. (para)
-msgid "The name of the conflicted file"
-msgstr "El nombre del archivo con conflicto"
+msgid ""
+"The name of the file. This is an empty string if two different files are "
+"diffed instead of two states of the same file."
+msgstr "El nombre del archivo. Éste es una cadena vacía si dos diferentes archivos son diferenciados, en lugar de dos estados del mismo archivo."
 
 #. (para)
-msgid "The name of the conflicted file, without quotes"
-msgstr "El nombre del archivo con conflicto, sin comillas"
+msgid "The name of the file, without quotes"
+msgstr "El nombre del archivo, sin comillas"
 
 #. (para)
 msgid ""
@@ -13768,14 +13770,12 @@ msgid "The window title for the merged file, without quotes"
 msgstr "La ventana de título para el archivo unido, sin comillas"
 
 #. (para)
-msgid ""
-"The name of the file. This is an empty string if two different files are "
-"diffed instead of two states of the same file."
-msgstr "El nombre del archivo. Éste es una cadena vacía si dos diferentes archivos son diferenciados, en lugar de dos estados del mismo archivo."
+msgid "The name of the conflicted file"
+msgstr "El nombre del archivo con conflicto"
 
 #. (para)
-msgid "The name of the file, without quotes"
-msgstr "El nombre del archivo, sin comillas"
+msgid "The name of the conflicted file, without quotes"
+msgstr "El nombre del archivo con conflicto, sin comillas"
 
 #. (para)
 msgid ""
