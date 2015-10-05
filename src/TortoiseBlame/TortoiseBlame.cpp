@@ -956,7 +956,7 @@ void TortoiseBlame::BlamePreviousRevision()
     swprintf_s(bufEndRev, L"%ld", nRevisionTo);
 
     TCHAR bufLine[20] = { 0 };
-    swprintf_s(bufLine, L"%d", m_selectedLine+1); //using the current line is a good guess.
+    swprintf_s(bufLine, L"%ld", m_selectedLine+1); //using the current line is a good guess.
 
     tstring svnCmd = L" /command:blame ";
     svnCmd += L" /path:\"";
