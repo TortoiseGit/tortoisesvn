@@ -1493,7 +1493,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
 
     SetRedraw(FALSE);
-    OnOutOfScope(SetRedraw(TRUE));
     {
         CAutoWriteLock locker(m_guard);
         DeleteAllItems();
@@ -1592,18 +1591,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
         GetStatisticsString();
 
-        ClearSortsFromHeaders();
-
-        CHeaderCtrl * pHeader = GetHeaderCtrl();
-        HDITEM HeaderItem = {0};
-        HeaderItem.mask = HDI_FORMAT;
-        if (m_nSortedColumn >= 0)
-        {
-            pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-            HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
-            pHeader->SetItem(m_nSortedColumn, &HeaderItem);
-        }
-
         if (nSelectedEntry)
         {
             SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
@@ -1650,13 +1637,25 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     m_bEmpty = (GetItemCount() == 0);
     if (m_pSelectButton)
         m_pSelectButton->EnableWindow(!m_bEmpty);
-    GetHeaderCtrl()->Invalidate();
     Invalidate();
     if (m_bResortAfterShow)
     {
         Sort();
         m_bResortAfterShow = false;
     }
+    ClearSortsFromHeaders();
+
+    CHeaderCtrl * pHeader = GetHeaderCtrl();
+    HDITEM HeaderItem = { 0 };
+    HeaderItem.mask = HDI_FORMAT;
+    if (m_nSortedColumn >= 0)
+    {
+        pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+        HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
+        pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+    }
+    SetRedraw(TRUE);
+    pHeader->Invalidate();
 }
 
 CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
