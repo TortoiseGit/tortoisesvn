@@ -67,6 +67,7 @@ ShellCache::ShellCache()
     columnrevformat.Grouping = _wtoi(szBuffer);
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], _countof(szBuffer));
     columnrevformat.NegativeOrder = _wtoi(szBuffer);
+    columnrevformatticker = GetTickCount64();
     nocontextpaths = CRegStdString(L"Software\\TortoiseSVN\\NoContextPaths", L"", false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     drivetypepathcache[0] = 0;
     m_critSec.Init();
