@@ -21,6 +21,8 @@ Version 1.9.3
 - BUG: The "create vendor branch" command failed to copy
        over files that have the svn:needs-lock property
        set or are otherwise set as readonly. (Stefan)
+- BUG: The column "SVN Statusnumber" showed sometimes
+       the wrong value. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files

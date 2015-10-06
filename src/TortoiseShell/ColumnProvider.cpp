@@ -255,7 +255,7 @@ STDMETHODIMP CShellExt::GetItemData_Wrap(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA ps
                     ExtractProperty(path, SVN_PROP_EOL_STYLE, szInfo);
                 break;
             case 9: // SVN Status
-                GetExtraColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+                GetMainColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
                 V_VT(pvarData) = VT_I4;
                 V_I4(pvarData) = filestatus;
                 return S_OK;
