@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2013 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,4 +62,6 @@ public:
     std::pair<CTSVNPath, SVNRev>
     GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
                     const CTSVNPath& url2, const SVNRev& pegrev2);
+
+    SVNRev GetYoungestRev(CTSVNPath url);
 };

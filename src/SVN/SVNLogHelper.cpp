@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,5 +129,45 @@ SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
     --iter2;
     SVNRev commonRev = min ((LONG)iter1->second, (LONG)iter2->second);
     return std::make_pair (iter1->first, commonRev);
+}
+
+SVNRev SVNLogHelper::GetYoungestRev(CTSVNPath url)
+{
+    SVNRev result;
+
+    // fill / update a suitable log cache
+
+    auto pegrev = GetHEADRevision(url);
+
+    std::unique_ptr<const CCacheLogQuery> query
+        (ReceiveLog(CTSVNPathList(url), pegrev, pegrev, 1, 1, TRUE, FALSE, false));
+    if (query.get() == NULL)
+        return pegrev;
+
+    // construct the path object
+    // (URLs are always escaped, so we must unescape them)
+
+    CStringA svnURLPath = CUnicodeUtils::GetUTF8(url.GetSVNPathString());
+    if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
+        svnURLPath.Delete(7, 2);
+
+    CStringA relPath = svnURLPath.Mid(query->GetRootURL().GetLength());
+    relPath = CPathUtils::PathUnescape(relPath);
+
+    const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath path(paths, (const char*)relPath);
+
+    // follow the log
+
+    LogCache::CStrictLogIterator iterator
+        (query->GetCache()
+         , pegrev
+         , path);
+
+    iterator.Retry();
+    if (!iterator.EndOfPath())
+        result = iterator.GetRevision();
+
+    return result;
 }
 
