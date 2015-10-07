@@ -5128,8 +5128,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
             }
             if (!regex_search(in.begin(), in.end(), titex2))
             {
-                TRACE(L"found repository url instead of SVNParentPathList\n");
-                return false;
+                return (nCountNewEntries>0);
             }
             for (tr1::sregex_iterator i(in.begin(), in.end(), expression2); i != end; ++i)
             {

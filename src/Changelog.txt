@@ -23,6 +23,8 @@ Version 1.9.3
        set or are otherwise set as readonly. (Stefan)
 - BUG: The column "SVN Statusnumber" showed sometimes
        the wrong value. (Stefan)
+- BUG: Repobrowser failed to properly detect SVNParentPath
+       pages which don't use xml output. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
