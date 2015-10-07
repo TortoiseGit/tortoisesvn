@@ -25,6 +25,9 @@ Version 1.9.3
        the wrong value. (Stefan)
 - BUG: Repobrowser failed to properly detect SVNParentPath
        pages which don't use xml output. (Stefan)
+- BUG: Adjusting externals used the wrong revision
+       if the external was copied itself but not
+       modified later. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files

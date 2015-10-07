@@ -21,6 +21,7 @@
 #include "EditPropExternals.h"
 #include "EditPropExternalsValue.h"
 #include "SVN.h"
+#include "SVNLogHelper.h"
 #include "SVNInfo.h"
 #include "AppUtils.h"
 #include "ProgressDlg.h"
@@ -331,6 +332,7 @@ void CEditPropExternals::OnBnClickedFindhead()
     }
 
     progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_PROG_FINDHEADREVS)));
+    SVNLogHelper logHelper;
     for (auto it = m_externals.begin(); it != m_externals.end(); ++it)
     {
         progDlg.SetProgress(count, total);
@@ -340,11 +342,11 @@ void CEditPropExternals::OnBnClickedFindhead()
         count += 4;
         if (!it->root.IsEmpty())
         {
-            const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(it->fullurl), SVNRev(), SVNRev::REV_HEAD);
-            if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
+            auto youngestRev = logHelper.GetYoungestRev(CTSVNPath(it->fullurl));
+            if (!youngestRev.IsValid())
                 it->headrev = svn.GetHEADRevision(CTSVNPath(it->fullurl), true);
             else
-                it->headrev = pInfo->lastchangedrev;
+                it->headrev = youngestRev;
         }
     }
     progDlg.Stop();
@@ -405,6 +407,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 svn.SetPromptParentWindow(m_hWnd);
                 SVNInfo svnInfo;
                 svnInfo.SetPromptParentWindow(m_hWnd);
+                SVNLogHelper logHelper;
                 CProgressDlg progDlg;
                 progDlg.ShowModal(m_hWnd, TRUE);
                 progDlg.SetTitle(IDS_EDITPROPS_PROG_FINDHEADTITLE);
@@ -427,12 +430,12 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                                 path_.AppendPathString(m_externals[index].targetDir);
                                 m_externals[index].root = svn.GetRepositoryRoot(path_);
                             }
-
-                            const SVNInfoData * pInfo = svnInfo.GetFirstFileInfo(CTSVNPath(m_externals[index].fullurl), SVNRev(), SVNRev::REV_HEAD);
-                            if ((pInfo == nullptr) || (pInfo->lastchangedrev <= 0))
-                                m_externals[index].headrev = svn.GetHEADRevision(CTSVNPath(m_externals[index].fullurl), true);
+                            auto fullurl = CTSVNPath(m_externals[index].fullurl);
+                            auto youngestRev = logHelper.GetYoungestRev(fullurl);
+                            if (!youngestRev.IsValid())
+                                m_externals[index].headrev = svn.GetHEADRevision(fullurl, true);
                             else
-                                m_externals[index].headrev = pInfo->lastchangedrev;
+                                m_externals[index].headrev = youngestRev;
                         }
                     }
                 }
