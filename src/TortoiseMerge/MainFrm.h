@@ -238,6 +238,7 @@ protected:
     static bool     HasPrevInlineDiff(CBaseView* view);
     static bool     HasNextInlineDiff(CBaseView* view);
     void            BuildRegexSubitems(CMFCPopupMenu* pMenuPopup = nullptr);
+    bool            AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType& type);
 
     static svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool);
 
