@@ -55,7 +55,6 @@
 #define IDCUSTOM1           23
 #define IDCUSTOM2           24
 
-
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
 CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
@@ -67,6 +66,8 @@ CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
     , m_bUrlIsFolder(false)
     , m_bThreadRunning(false)
     , m_bCancelled(false)
+    , m_nSortedColumn(-1)
+    , m_bAscending(false)
 {
 }
 
@@ -98,6 +99,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_IMPORT, &CEditPropertiesDlg::OnBnClickedImport)
     ON_WM_SETCURSOR()
     ON_WM_CONTEXTMENU()
+    ON_NOTIFY(HDN_ITEMCLICK, 0, &CEditPropertiesDlg::OnHdnItemclickEditproplist)
 END_MESSAGE_MAP()
 
 void CEditPropertiesDlg::OnBnClickedHelp()
@@ -285,7 +287,6 @@ void CEditPropertiesDlg::Refresh()
 {
     if (m_bThreadRunning)
         return;
-    m_propList.DeleteAllItems();
     InterlockedExchange(&m_bThreadRunning, TRUE);
     if (AfxBeginThread(PropsThreadEntry, this)==NULL)
     {
@@ -391,60 +392,8 @@ UINT CEditPropertiesDlg::PropsThread()
     jobs.WaitForEmptyQueue();
 
     // fill the property list control with the gathered information
-    int index=0;
-    m_propList.SetRedraw(FALSE);
     async::CCriticalSectionLock lock(m_mutex);
-    for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
-    {
-        m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
-        m_propList.SetItemText(index, 2, it->second.inheritedfrom.c_str());
-        m_propList.SetItemData(index, (LPARAM)&it->second);
-
-        if (it->second.isbinary)
-        {
-            m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
-        }
-        else if (it->second.count != m_pathlist.GetCount())
-        {
-            // if the property values are the same for all paths they're set
-            // but they're not set for *all* paths, then we show the entry grayed out
-            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
-        }
-        else if (it->second.allthesamevalue)
-        {
-            // if the property values are the same for all paths,
-            // we show the value
-            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
-        }
-        else
-        {
-            // if the property values aren't the same for all paths
-            // then we show "values are different" instead of the value
-            CString sTemp(MAKEINTRESOURCE(IDS_EDITPROPS_DIFFERENTPROPVALUES));
-            m_propList.SetItemText(index, 1, sTemp);
-        }
-        if (index == 0)
-        {
-            // select the first entry
-            m_propList.SetItemState(index, LVIS_SELECTED, LVIS_SELECTED);
-            m_propList.SetSelectionMark(index);
-        }
-        index++;
-    }
-
-    int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount() - 1;
-    for (int col = 0; col <= maxcol; col++)
-    {
-        m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE);
-    }
-    // resize the middle column so that all columns fit into the client area
-    RECT rc;
-    m_propList.GetClientRect(&rc);
-    const int bordersize = 20;
-    m_propList.SetColumnWidth(1, rc.right - m_propList.GetColumnWidth(0) - m_propList.GetColumnWidth(2) - bordersize);
-
-    InterlockedExchange(&m_bThreadRunning, FALSE);
-    m_propList.SetRedraw(TRUE);
+    FillListControl();
     if (!PathIsDirectory(m_pathlist[0].GetWinPath()) && !m_bUrlIsFolder)
     {
         // properties for one or more files:
@@ -700,6 +649,64 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
     }
 
     return dlg;
+}
+
+void CEditPropertiesDlg::FillListControl()
+{
+    int index = 0;
+    m_propList.SetRedraw(FALSE);
+    m_propList.DeleteAllItems();
+    for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
+    {
+        m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
+        m_propList.SetItemText(index, 2, it->second.inheritedfrom.c_str());
+        m_propList.SetItemData(index, (LPARAM)&it->second);
+
+        if (it->second.isbinary)
+        {
+            m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
+        }
+        else if (it->second.count != m_pathlist.GetCount())
+        {
+            // if the property values are the same for all paths they're set
+            // but they're not set for *all* paths, then we show the entry grayed out
+            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
+        }
+        else if (it->second.allthesamevalue)
+        {
+            // if the property values are the same for all paths,
+            // we show the value
+            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
+        }
+        else
+        {
+            // if the property values aren't the same for all paths
+            // then we show "values are different" instead of the value
+            CString sTemp(MAKEINTRESOURCE(IDS_EDITPROPS_DIFFERENTPROPVALUES));
+            m_propList.SetItemText(index, 1, sTemp);
+        }
+        if (index == 0)
+        {
+            // select the first entry
+            m_propList.SetItemState(index, LVIS_SELECTED, LVIS_SELECTED);
+            m_propList.SetSelectionMark(index);
+        }
+        index++;
+    }
+
+    int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount() - 1;
+    for (int col = 0; col <= maxcol; col++)
+    {
+        m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE);
+    }
+    // resize the middle column so that all columns fit into the client area
+    RECT rc;
+    m_propList.GetClientRect(&rc);
+    const int bordersize = 20;
+    m_propList.SetColumnWidth(1, rc.right - m_propList.GetColumnWidth(0) - m_propList.GetColumnWidth(2) - bordersize);
+
+    InterlockedExchange(&m_bThreadRunning, FALSE);
+    m_propList.SetRedraw(TRUE);
 }
 
 void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /* = "" */, bool bAdd /* = false*/)
@@ -1314,5 +1321,71 @@ LRESULT CEditPropertiesDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/)
     if (m_propname.size())
         EditProps(true, CUnicodeUtils::StdGetUTF8(m_propname), true);
     return 0;
+}
+
+
+
+void CEditPropertiesDlg::OnHdnItemclickEditproplist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+    if (m_nSortedColumn == phdr->iItem)
+        m_bAscending = !m_bAscending;
+    else
+        m_bAscending = TRUE;
+    m_nSortedColumn = phdr->iItem;
+
+    m_propList.SortItemsEx(&CEditPropertiesDlg::SortCompare, (DWORD_PTR)this);
+
+    CHeaderCtrl * pHeader = m_propList.GetHeaderCtrl();
+    HDITEM HeaderItem = { 0 };
+    HeaderItem.mask = HDI_FORMAT;
+    const int itemCount = pHeader->GetItemCount();
+    for (int i = 0; i<itemCount; ++i)
+    {
+        pHeader->GetItem(i, &HeaderItem);
+        HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+        pHeader->SetItem(i, &HeaderItem);
+    }
+    pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+    HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
+    pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+
+    *pResult = 0;
+}
+
+int CALLBACK CEditPropertiesDlg::SortCompare(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
+{
+    CEditPropertiesDlg * pDlg = (CEditPropertiesDlg*)lParamSort;
+
+    auto sName1 = CUnicodeUtils::StdGetUTF8((LPCTSTR)pDlg->m_propList.GetItemText((int)lParam1, 0));
+    PropValue * prop1 = (PropValue*)pDlg->m_propList.GetItemData((int)lParam1);
+    auto sName2 = CUnicodeUtils::StdGetUTF8((LPCTSTR)pDlg->m_propList.GetItemText((int)lParam2, 0));
+    PropValue * prop2 = (PropValue*)pDlg->m_propList.GetItemData((int)lParam2);
+
+    int result = 0;
+    switch (pDlg->m_nSortedColumn)
+    {
+        case 0:     // property name column
+        result = sName1.compare(sName2);
+        break;
+        case 1:     // property value column
+        result = prop1->value_without_newlines.compare(prop2->value_without_newlines);
+        break;
+        case 2:     // property inherited column
+        result = prop1->inheritedfrom.compare(prop2->inheritedfrom);
+        break;
+        default:
+        break;
+    }
+
+    // Sort by name if everything else is equal
+    if (result == 0)
+    {
+        result = sName1.compare(sName2);
+    }
+
+    if (!pDlg->m_bAscending)
+        result = -result;
+    return result < 0;
 }
 

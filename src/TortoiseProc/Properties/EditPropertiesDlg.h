@@ -63,6 +63,7 @@ protected:
     afx_msg void OnBnClickedEditprops();
     afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnHdnItemclickEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnBnClickedSaveprop();
     afx_msg void OnBnClickedAddprops();
     afx_msg void OnBnClickedExport();
@@ -81,7 +82,8 @@ private:
     void EditProps(bool bDefault, const std::string& propName = "", bool bAdd = false);
     void RemoveProps();
     EditPropBase * GetPropDialog(bool bDefault, const std::string& sName);
-
+    void FillListControl();
+    static int CALLBACK SortCompare(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort);
 protected:
 
     async::CCriticalSection m_mutex;
@@ -106,6 +108,9 @@ protected:
     CString         m_sUUID;
     ProjectProperties * m_pProjectProperties;
     bool            m_bCancelled;
+
+    int             m_nSortedColumn;
+    bool            m_bAscending;
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(L"TORTOISESVN_AFTERTHREAD_MSG");
