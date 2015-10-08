@@ -30,6 +30,9 @@
 #define CMD_ADJUST 1
 #define CMD_FETCH_AND_ADJUST 2
 
+int      CEditPropExternals::m_nSortedColumn = -1;
+bool     CEditPropExternals::m_bAscending = false;
+
 IMPLEMENT_DYNAMIC(CEditPropExternals, CResizableStandAloneDialog)
 
 CEditPropExternals::CEditPropExternals(CWnd* pParent /*=NULL*/)
@@ -60,6 +63,7 @@ BEGIN_MESSAGE_MAP(CEditPropExternals, CResizableStandAloneDialog)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_EXTERNALSLIST, &CEditPropExternals::OnLvnItemchangedExternalslist)
     ON_BN_CLICKED(IDC_FINDHEAD, &CEditPropExternals::OnBnClickedFindhead)
     ON_WM_CONTEXTMENU()
+    ON_NOTIFY(HDN_ITEMCLICK, 0, &CEditPropExternals::OnHdnItemclickExternalslist)
 END_MESSAGE_MAP()
 
 
@@ -468,3 +472,74 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         }
     }
 }
+
+void CEditPropExternals::OnHdnItemclickExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+
+    if (m_nSortedColumn == phdr->iItem)
+        m_bAscending = !m_bAscending;
+    else
+        m_bAscending = TRUE;
+    m_nSortedColumn = phdr->iItem;
+
+    std::sort(m_externals.begin(), m_externals.end(), &CEditPropExternals::SortCompare);
+
+    m_ExtList.SetRedraw(FALSE);
+    m_ExtList.DeleteAllItems();
+    m_ExtList.SetItemCountEx((int)m_externals.size());
+
+    CHeaderCtrl * pHeader = m_ExtList.GetHeaderCtrl();
+    HDITEM HeaderItem = { 0 };
+    HeaderItem.mask = HDI_FORMAT;
+    const int itemCount = pHeader->GetItemCount();
+    for (int i = 0; i<itemCount; ++i)
+    {
+        pHeader->GetItem(i, &HeaderItem);
+        HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+        pHeader->SetItem(i, &HeaderItem);
+    }
+    pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+    HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
+    pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+
+    m_ExtList.SetRedraw(TRUE);
+
+    *pResult = 0;
+}
+
+bool CEditPropExternals::SortCompare(const SVNExternal& Data1, const SVNExternal& Data2)
+{
+    int result = 0;
+    switch (m_nSortedColumn)
+    {
+        case 0:     // file column
+        result = Data1.targetDir.CompareNoCase(Data2.targetDir);
+        break;
+        case 1:     // url column
+        result = Data1.url.CompareNoCase(Data2.url);
+        break;
+        case 2:     //peg revision column
+        result = Data1.pegrevision.value.number < Data2.pegrevision.value.number;
+        break;
+        case 3:     // operative revision column
+        result = Data1.revision.value.number < Data2.revision.value.number;
+        break;
+        case 4:     // head revision column
+        result = Data1.headrev < Data2.headrev;
+        break;
+        default:
+        break;
+    }
+
+    // Sort by path if everything else is equal
+    if (result == 0)
+    {
+        result = Data1.path < Data2.path;
+    }
+
+    if (!m_bAscending)
+        result = -result;
+    return result < 0;
+}
+

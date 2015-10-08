@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013 - TortoiseSVN
+// Copyright (C) 2010-2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,6 +44,7 @@ protected:
     afx_msg void OnBnClickedFindhead();
     afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnHdnItemclickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
     afx_msg void OnBnClickedHelp();
@@ -52,10 +53,14 @@ protected:
 
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
 
+    static bool SortCompare(const SVNExternal& Data1, const SVNExternal& Data2);
+
 private:
     CListCtrl       m_ExtList;
     SVNExternals    m_externals;
     TCHAR           m_columnbuf[MAX_PATH];
     CTSVNPath       m_url;
     CTSVNPath       m_repoRoot;
+    static int      m_nSortedColumn;
+    static bool     m_bAscending;
 };
