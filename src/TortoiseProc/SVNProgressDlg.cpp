@@ -1861,7 +1861,6 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     m_nSortedColumn = phdr->iItem;
     Sort();
 
-    CString temp;
     m_ProgList.SetRedraw(FALSE);
     m_ProgList.DeleteAllItems();
     m_ProgList.SetItemCountEx (static_cast<int>(m_arData.size()));
