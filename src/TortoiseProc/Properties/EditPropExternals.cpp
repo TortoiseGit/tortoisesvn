@@ -105,7 +105,6 @@ BOOL CEditPropExternals::OnInitDialog()
     m_ExtList.InsertColumn(1, temp);
     temp.LoadString(IDS_EXTERNALS_PEG);
     m_ExtList.InsertColumn(2, temp);
-    m_ExtList.SetItemCountEx((int)m_externals.size());
     temp.LoadString(IDS_EXTERNALS_OPERATIVE);
     m_ExtList.InsertColumn(3, temp);
     temp.LoadString(IDS_EXTERNALS_HEADREV);
