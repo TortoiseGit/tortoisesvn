@@ -2019,6 +2019,7 @@ void CCommitDlg::ShowBalloonInCaseOfError()
 void CCommitDlg::OnBnClickedRunhook()
 {
     UpdateData();
+    m_sLogMessage = m_cLogMessage.GetText();
     // create a list of all checked items
     CTSVNPathList checkedItems;
     m_ListCtrl.WriteCheckedNamesToPathList(checkedItems);

@@ -28,6 +28,8 @@ Version 1.9.3
 - BUG: Adjusting externals used the wrong revision
        if the external was copied itself but not
        modified later. (Stefan)
+- BUG: The manual pre-commit hook script was executed with
+       an outdated or empty log message. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
