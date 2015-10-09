@@ -102,7 +102,7 @@ kbd kbd {
           box-shadow: none;
 }
 
-.table-hover tr:hover {
+.table-hover > tbody > tr:hover {
     background-color: #E1EAFE;
 }
 
@@ -454,22 +454,25 @@ a.fancybox,
     border: 1px solid black;
 }
 
-.table-donate {
-    border: none;
-    border-collapse: collapse;
-    border-spacing: 0;
+.translations-table {
+    margin-top: 10px;
 }
 
-.table-credits td:first-child {
-    width: 28%;
+.translations-table > tbody td:first-child {
+    width: 30%;
+}
+
+.translations-table > tbody > tr > td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.translations-table img {
+    margin-right: 0.3em;
 }
 
 .left-aligned {
     text-align: left;
-}
-
-.translations img {
-    margin-right: 0.3em;
 }
 
 /* clearfix taken from Bootstrap */
@@ -484,35 +487,28 @@ a.fancybox,
     clear: both;
 }
 
+
+a[hreflang = "en"]:after,
+a[href ^= "mailto"]:after,
+a[href *= ".pdf"]:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.3em;
+    vertical-align: text-bottom;
+    width: 14px;
+    height: 16px;
+}
+
 a[hreflang = "en"]:after {
     background-image: url("../img/icon_english.png");
-    content: "";
-    display: inline-block;
-    margin-left: 0.3em;
-    vertical-align: text-bottom;
-    width: 14px;
-    height: 16px;
 }
 
-/* all A tags whose HREF attribute starts with mailto: */
-a[href ^="mailto"]:after {
-    background-image: url("../img/icon_mailto.gif");
-    content: "";
-    display: inline-block;
-    margin-left: 0.3em;
-    vertical-align: text-bottom;
-    width: 14px;
-    height: 16px;
+/* all `a` tags whose `href` attribute starts with `mailto:` */
+a[href ^= "mailto"]:after {
+    background-image: url("../img/icon_mailto.png");
 }
 
-/* all A tags whose HREF attribute ends in .pdf */
-a[href$=".pdf"]:after,
-a[href$=".pdf?download"]:after {
-    background-image: url("../img/icon_pdf.gif");
-    content: "";
-    display: inline-block;
-    margin-left: 0.3em;
-    vertical-align: text-bottom;
-    width: 14px;
-    height: 16px;
+/* all `a` tags whose `href` attribute includes `.pdf` */
+a[href *= ".pdf"]:after {
+    background-image: url("../img/icon_pdf.png");
 }
