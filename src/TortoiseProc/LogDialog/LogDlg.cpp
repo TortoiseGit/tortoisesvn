@@ -8977,7 +8977,10 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                 swprintf_s(m_SystemTray.szTip, _countof(m_SystemTray.szTip), (LPCWSTR)sFormat, unreadItems, unreadProjects);
             }
             else
-                swprintf_s(m_SystemTray.szTip, _countof(m_SystemTray.szTip), L"TortoiseSVN Commit Monitor");
+            {
+                CString sFormat(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE));
+                swprintf_s(m_SystemTray.szTip, _countof(m_SystemTray.szTip), (LPCWSTR)sFormat);
+            }
             if (Shell_NotifyIcon(NIM_MODIFY, &m_SystemTray) == FALSE)
             {
                 Shell_NotifyIcon(NIM_DELETE, &m_SystemTray);
