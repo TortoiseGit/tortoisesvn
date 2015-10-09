@@ -17,8 +17,8 @@ module.exports = function(grunt) {
                     {dest: '<%= dirs.dest %>/', src: ['*', '!*.html'], filter: 'isFile', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: '.htaccess', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: 'files/**', expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: ['img/**', '!**/_old/**'], expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: ['js/*.min.js', 'js/prettify/**'], expand: true, cwd: '<%= dirs.src %>/'},
+                    {dest: '<%= dirs.dest %>/', src: ['img/**', '!**/_old/**', '!**/flags/**'], expand: true, cwd: '<%= dirs.src %>/'},
+                    {dest: '<%= dirs.dest %>/', src: ['js/*.min.js', 'js/prettify/**'], expand: true, cwd: '<%= dirs.src %>/'}
                 ]
             }
         },
@@ -51,6 +51,7 @@ module.exports = function(grunt) {
             core: {
                 src: ['<%= dirs.src %>/css/normalize.css',
                       '<%= dirs.src %>/css/jquery.fancybox.css',
+                      '<%= dirs.src %>/css/flags-sprite.css',
                       '<%= dirs.src %>/css/style.css'
                 ],
                 dest: '<%= dirs.dest %>/css/pack.css'

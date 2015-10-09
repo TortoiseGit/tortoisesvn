@@ -459,7 +459,7 @@ a.fancybox,
 }
 
 .translations-table > tbody td:first-child {
-    width: 30%;
+    min-width: 30%;
 }
 
 .translations-table > tbody > tr > td {
@@ -467,15 +467,11 @@ a.fancybox,
     padding-bottom: 4px;
 }
 
-.translations-table img {
-    margin-right: 0.3em;
-}
-
 .left-aligned {
     text-align: left;
 }
 
-/* clearfix taken from Bootstrap */
+/* clearfix and list-unstyled taken from Bootstrap */
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -485,6 +481,11 @@ a.fancybox,
 .clearfix:after,
 .container:after {
     clear: both;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style-type: none;
 }
 
 

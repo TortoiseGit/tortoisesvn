@@ -1,0 +1,1262 @@
+/* command used:
+   glue "world.small" --html --output="new" -a square --margin=4 --sprite-namespace=flag --namespace=
+   ...and then cleaned the CSS up and adapted to our needs.
+*/
+
+/* glue: 0.11.1 hash: 187deba6a9 */
+.flag-zw:before,
+.flag-zm:before,
+.flag-zh_TW:before,
+.flag-zh_CN:before,
+.flag-za:before,
+.flag-yu:before,
+.flag-yt:before,
+.flag-ye:before,
+.flag-ws:before,
+.flag-wf:before,
+.flag-vu:before,
+.flag-vn:before,
+.flag-vi:before,
+.flag-vg:before,
+.flag-ve:before,
+.flag-vc:before,
+.flag-va:before,
+.flag-uz:before,
+.flag-uy:before,
+.flag-us:before,
+.flag-um:before,
+.flag-uk:before,
+.flag-ug:before,
+.flag-tz:before,
+.flag-tv:before,
+.flag-tt:before,
+.flag-tr:before,
+.flag-to:before,
+.flag-tn:before,
+.flag-tm:before,
+.flag-tl:before,
+.flag-tk:before,
+.flag-tj:before,
+.flag-th:before,
+.flag-tg:before,
+.flag-tf:before,
+.flag-td:before,
+.flag-tc:before,
+.flag-sz:before,
+.flag-sy:before,
+.flag-sv1:before,
+.flag-sv:before,
+.flag-st:before,
+.flag-srp:before,
+.flag-sr_spl:before,
+.flag-sr_spc:before,
+.flag-sr:before,
+.flag-so:before,
+.flag-sn:before,
+.flag-sm:before,
+.flag-sl1:before,
+.flag-sl:before,
+.flag-sk:before,
+.flag-sj:before,
+.flag-sh:before,
+.flag-sg:before,
+.flag-sd:before,
+.flag-sc:before,
+.flag-sb:before,
+.flag-sa:before,
+.flag-rw:before,
+.flag-ru:before,
+.flag-rs:before,
+.flag-ro:before,
+.flag-re:before,
+.flag-qa:before,
+.flag-py:before,
+.flag-pw:before,
+.flag-pt_PT:before,
+.flag-pt_BR:before,
+.flag-pt:before,
+.flag-ps:before,
+.flag-pr:before,
+.flag-pn:before,
+.flag-pm:before,
+.flag-pl:before,
+.flag-pk:before,
+.flag-ph:before,
+.flag-pg:before,
+.flag-pf:before,
+.flag-pe:before,
+.flag-pa:before,
+.flag-om:before,
+.flag-nz:before,
+.flag-nu:before,
+.flag-nr:before,
+.flag-np:before,
+.flag-nl:before,
+.flag-ni:before,
+.flag-ng:before,
+.flag-nf:before,
+.flag-ne:before,
+.flag-nc:before,
+.flag-nb:before,
+.flag-na:before,
+.flag-mz:before,
+.flag-my:before,
+.flag-mx:before,
+.flag-mw:before,
+.flag-mv:before,
+.flag-mu:before,
+.flag-mt:before,
+.flag-ms:before,
+.flag-mr:before,
+.flag-mq:before,
+.flag-mp:before,
+.flag-mo:before,
+.flag-mn:before,
+.flag-mm:before,
+.flag-ml_IN:before,
+.flag-ml:before,
+.flag-mk:before,
+.flag-mh:before,
+.flag-mg:before,
+.flag-md:before,
+.flag-mc:before,
+.flag-ma:before,
+.flag-ly:before,
+.flag-lv:before,
+.flag-lu:before,
+.flag-lt:before,
+.flag-ls:before,
+.flag-lr:before,
+.flag-lk:before,
+.flag-li:before,
+.flag-lc:before,
+.flag-lb:before,
+.flag-la:before,
+.flag-kz:before,
+.flag-ky:before,
+.flag-kw:before,
+.flag-kp:before,
+.flag-ko:before,
+.flag-kn:before,
+.flag-km:before,
+.flag-ki:before,
+.flag-kh:before,
+.flag-kg:before,
+.flag-ke:before,
+.flag-ka:before,
+.flag-jo:before,
+.flag-jm:before,
+.flag-ja:before,
+.flag-it:before,
+.flag-is:before,
+.flag-ir:before,
+.flag-iq:before,
+.flag-io:before,
+.flag-in:before,
+.flag-il:before,
+.flag-ie:before,
+.flag-id:before,
+.flag-hu:before,
+.flag-ht:before,
+.flag-hr:before,
+.flag-hn:before,
+.flag-hm:before,
+.flag-hk:before,
+.flag-gy:before,
+.flag-gw:before,
+.flag-gu:before,
+.flag-gt:before,
+.flag-gs:before,
+.flag-gq:before,
+.flag-gp:before,
+.flag-gn:before,
+.flag-gm:before,
+.flag-gl:before,
+.flag-gi:before,
+.flag-gh:before,
+.flag-gf:before,
+.flag-gd:before,
+.flag-gb:before,
+.flag-ga:before,
+.flag-fr:before,
+.flag-fo:before,
+.flag-fm:before,
+.flag-fk:before,
+.flag-fj:before,
+.flag-fi:before,
+.flag-fa:before,
+.flag-et:before,
+.flag-es:before,
+.flag-er:before,
+.flag-eo:before,
+.flag-el:before,
+.flag-eh:before,
+.flag-eg:before,
+.flag-ee:before,
+.flag-ec:before,
+.flag-dz:before,
+.flag-do:before,
+.flag-dm:before,
+.flag-dj:before,
+.flag-de:before,
+.flag-da:before,
+.flag-cy:before,
+.flag-cx:before,
+.flag-cv:before,
+.flag-cu:before,
+.flag-cs1:before,
+.flag-cs:before,
+.flag-cr:before,
+.flag-co:before,
+.flag-cm:before,
+.flag-cl:before,
+.flag-ck:before,
+.flag-ci:before,
+.flag-ch:before,
+.flag-cg:before,
+.flag-cf:before,
+.flag-cd:before,
+.flag-cc:before,
+.flag-ca_ES:before,
+.flag-ca:before,
+.flag-bz:before,
+.flag-by:before,
+.flag-bw:before,
+.flag-bv:before,
+.flag-bt:before,
+.flag-bs_BA:before,
+.flag-bs:before,
+.flag-bo:before,
+.flag-bn:before,
+.flag-bm:before,
+.flag-bj:before,
+.flag-bi:before,
+.flag-bh:before,
+.flag-bg:before,
+.flag-bf:before,
+.flag-be:before,
+.flag-bd:before,
+.flag-bb:before,
+.flag-az:before,
+.flag-aw:before,
+.flag-au:before,
+.flag-at:before,
+.flag-as:before,
+.flag-ar:before,
+.flag-aq:before,
+.flag-ao:before,
+.flag-an:before,
+.flag-am:before,
+.flag-al:before,
+.flag-ai:before,
+.flag-ag:before,
+.flag-af:before,
+.flag-ae:before,
+.flag-ad:before {
+    background-image: url('../img/flags-sprite.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: 364px 360px;
+    -moz-background-size: 364px 360px;
+    background-size: 364px 360px;
+    content: '';
+    display: inline-block;
+    margin-right: 0.4em;
+    width: 18px;
+    height: 12px;
+}
+
+.flag-zw:before {
+    background-position: -4px -4px;
+}
+
+.flag-zm:before {
+    background-position: -30px -4px;
+}
+
+.flag-zh_TW:before {
+    background-position: -4px -24px;
+}
+
+.flag-zh_CN:before {
+    background-position: -30px -24px;
+}
+
+.flag-za:before {
+    background-position: -56px -4px;
+}
+
+.flag-yu:before {
+    background-position: -56px -24px;
+}
+
+.flag-yt:before {
+    background-position: -4px -44px;
+}
+
+.flag-ye:before {
+    background-position: -30px -44px;
+}
+
+.flag-ws:before {
+    background-position: -56px -44px;
+}
+
+.flag-wf:before {
+    background-position: -82px -4px;
+}
+
+.flag-vu:before {
+    background-position: -82px -24px;
+}
+
+.flag-vn:before {
+    background-position: -82px -44px;
+}
+
+.flag-vi:before {
+    background-position: -4px -64px;
+}
+
+.flag-vg:before {
+    background-position: -30px -64px;
+}
+
+.flag-ve:before {
+    background-position: -56px -64px;
+}
+
+.flag-vc:before {
+    background-position: -82px -64px;
+}
+
+.flag-va:before {
+    background-position: -4px -84px;
+}
+
+.flag-uz:before {
+    background-position: -30px -84px;
+}
+
+.flag-uy:before {
+    background-position: -56px -84px;
+}
+
+.flag-us:before {
+    background-position: -82px -84px;
+}
+
+.flag-um:before {
+    background-position: -108px -4px;
+}
+
+.flag-uk:before {
+    background-position: -108px -24px;
+}
+
+.flag-ug:before {
+    background-position: -108px -44px;
+}
+
+.flag-tz:before {
+    background-position: -108px -64px;
+}
+
+.flag-tv:before {
+    background-position: -108px -84px;
+}
+
+.flag-tt:before {
+    background-position: -4px -104px;
+}
+
+.flag-tr:before {
+    background-position: -30px -104px;
+}
+
+.flag-to:before {
+    background-position: -56px -104px;
+}
+
+.flag-tn:before {
+    background-position: -82px -104px;
+}
+
+.flag-tm:before {
+    background-position: -108px -104px;
+}
+
+.flag-tl:before {
+    background-position: -134px -4px;
+}
+
+.flag-tk:before {
+    background-position: -134px -24px;
+}
+
+.flag-tj:before {
+    background-position: -134px -44px;
+}
+
+.flag-th:before {
+    background-position: -134px -64px;
+}
+
+.flag-tg:before {
+    background-position: -134px -84px;
+}
+
+.flag-tf:before {
+    background-position: -134px -104px;
+}
+
+.flag-td:before {
+    background-position: -4px -124px;
+}
+
+.flag-tc:before {
+    background-position: -30px -124px;
+}
+
+.flag-sz:before {
+    background-position: -56px -124px;
+}
+
+.flag-sy:before {
+    background-position: -82px -124px;
+}
+
+.flag-sv1:before {
+    background-position: -108px -124px;
+}
+
+.flag-sv:before {
+    background-position: -134px -124px;
+}
+
+.flag-st:before {
+    background-position: -160px -4px;
+}
+
+.flag-srp:before {
+    background-position: -160px -24px;
+}
+
+.flag-sr_spl:before {
+    background-position: -160px -44px;
+}
+
+.flag-sr_spc:before {
+    background-position: -160px -64px;
+}
+
+.flag-sr:before {
+    background-position: -160px -84px;
+}
+
+.flag-so:before {
+    background-position: -160px -104px;
+}
+
+.flag-sn:before {
+    background-position: -160px -124px;
+}
+
+.flag-sm:before {
+    background-position: -4px -144px;
+}
+
+.flag-sl1:before {
+    background-position: -30px -144px;
+}
+
+.flag-sl:before {
+    background-position: -56px -144px;
+}
+
+.flag-sk:before {
+    background-position: -82px -144px;
+}
+
+.flag-sj:before {
+    background-position: -108px -144px;
+}
+
+.flag-sh:before {
+    background-position: -134px -144px;
+}
+
+.flag-sg:before {
+    background-position: -160px -144px;
+}
+
+.flag-sd:before {
+    background-position: -4px -164px;
+}
+
+.flag-sc:before {
+    background-position: -30px -164px;
+}
+
+.flag-sb:before {
+    background-position: -56px -164px;
+}
+
+.flag-sa:before {
+    background-position: -82px -164px;
+}
+
+.flag-rw:before {
+    background-position: -108px -164px;
+}
+
+.flag-ru:before {
+    background-position: -134px -164px;
+}
+
+.flag-rs:before {
+    background-position: -160px -164px;
+}
+
+.flag-ro:before {
+    background-position: -186px -4px;
+}
+
+.flag-re:before {
+    background-position: -186px -24px;
+}
+
+.flag-qa:before {
+    background-position: -186px -44px;
+}
+
+.flag-py:before {
+    background-position: -186px -64px;
+}
+
+.flag-pw:before {
+    background-position: -186px -84px;
+}
+
+.flag-pt_PT:before {
+    background-position: -186px -104px;
+}
+
+.flag-pt_BR:before {
+    background-position: -186px -124px;
+}
+
+.flag-pt:before {
+    background-position: -186px -144px;
+}
+
+.flag-ps:before {
+    background-position: -186px -164px;
+}
+
+.flag-pr:before {
+    background-position: -4px -184px;
+}
+
+.flag-pn:before {
+    background-position: -30px -184px;
+}
+
+.flag-pm:before {
+    background-position: -56px -184px;
+}
+
+.flag-pl:before {
+    background-position: -82px -184px;
+}
+
+.flag-pk:before {
+    background-position: -108px -184px;
+}
+
+.flag-ph:before {
+    background-position: -134px -184px;
+}
+
+.flag-pg:before {
+    background-position: -160px -184px;
+}
+
+.flag-pf:before {
+    background-position: -186px -184px;
+}
+
+.flag-pe:before {
+    background-position: -212px -4px;
+}
+
+.flag-pa:before {
+    background-position: -212px -24px;
+}
+
+.flag-om:before {
+    background-position: -212px -44px;
+}
+
+.flag-nz:before {
+    background-position: -212px -64px;
+}
+
+.flag-nu:before {
+    background-position: -212px -84px;
+}
+
+.flag-nr:before {
+    background-position: -212px -104px;
+}
+
+.flag-np:before {
+    background-position: -212px -124px;
+}
+
+.flag-nl:before {
+    background-position: -212px -144px;
+}
+
+.flag-ni:before {
+    background-position: -212px -164px;
+}
+
+.flag-ng:before {
+    background-position: -212px -184px;
+}
+
+.flag-nf:before {
+    background-position: -4px -204px;
+}
+
+.flag-ne:before {
+    background-position: -30px -204px;
+}
+
+.flag-nc:before {
+    background-position: -56px -204px;
+}
+
+.flag-nb:before {
+    background-position: -82px -204px;
+}
+
+.flag-na:before {
+    background-position: -108px -204px;
+}
+
+.flag-mz:before {
+    background-position: -134px -204px;
+}
+
+.flag-my:before {
+    background-position: -160px -204px;
+}
+
+.flag-mx:before {
+    background-position: -186px -204px;
+}
+
+.flag-mw:before {
+    background-position: -212px -204px;
+}
+
+.flag-mv:before {
+    background-position: -238px -4px;
+}
+
+.flag-mu:before {
+    background-position: -238px -24px;
+}
+
+.flag-mt:before {
+    background-position: -238px -44px;
+}
+
+.flag-ms:before {
+    background-position: -238px -64px;
+}
+
+.flag-mr:before {
+    background-position: -238px -84px;
+}
+
+.flag-mq:before {
+    background-position: -238px -104px;
+}
+
+.flag-mp:before {
+    background-position: -238px -124px;
+}
+
+.flag-mo:before {
+    background-position: -238px -144px;
+}
+
+.flag-mn:before {
+    background-position: -238px -164px;
+}
+
+.flag-mm:before {
+    background-position: -238px -184px;
+}
+
+.flag-ml_IN:before {
+    background-position: -238px -204px;
+}
+
+.flag-ml:before {
+    background-position: -4px -224px;
+}
+
+.flag-mk:before {
+    background-position: -30px -224px;
+}
+
+.flag-mh:before {
+    background-position: -56px -224px;
+}
+
+.flag-mg:before {
+    background-position: -82px -224px;
+}
+
+.flag-md:before {
+    background-position: -108px -224px;
+}
+
+.flag-mc:before {
+    background-position: -134px -224px;
+}
+
+.flag-ma:before {
+    background-position: -160px -224px;
+}
+
+.flag-ly:before {
+    background-position: -186px -224px;
+}
+
+.flag-lv:before {
+    background-position: -212px -224px;
+}
+
+.flag-lu:before {
+    background-position: -238px -224px;
+}
+
+.flag-lt:before {
+    background-position: -4px -244px;
+}
+
+.flag-ls:before {
+    background-position: -30px -244px;
+}
+
+.flag-lr:before {
+    background-position: -56px -244px;
+}
+
+.flag-lk:before {
+    background-position: -82px -244px;
+}
+
+.flag-li:before {
+    background-position: -108px -244px;
+}
+
+.flag-lc:before {
+    background-position: -134px -244px;
+}
+
+.flag-lb:before {
+    background-position: -160px -244px;
+}
+
+.flag-la:before {
+    background-position: -186px -244px;
+}
+
+.flag-kz:before {
+    background-position: -212px -244px;
+}
+
+.flag-ky:before {
+    background-position: -238px -244px;
+}
+
+.flag-kw:before {
+    background-position: -264px -4px;
+}
+
+.flag-kp:before {
+    background-position: -264px -24px;
+}
+
+.flag-ko:before {
+    background-position: -264px -44px;
+}
+
+.flag-kn:before {
+    background-position: -264px -64px;
+}
+
+.flag-km:before {
+    background-position: -264px -84px;
+}
+
+.flag-ki:before {
+    background-position: -264px -104px;
+}
+
+.flag-kh:before {
+    background-position: -264px -124px;
+}
+
+.flag-kg:before {
+    background-position: -264px -144px;
+}
+
+.flag-ke:before {
+    background-position: -264px -164px;
+}
+
+.flag-ka:before {
+    background-position: -264px -184px;
+}
+
+.flag-jo:before {
+    background-position: -264px -204px;
+}
+
+.flag-jm:before {
+    background-position: -264px -224px;
+}
+
+.flag-ja:before {
+    background-position: -264px -244px;
+}
+
+.flag-it:before {
+    background-position: -4px -264px;
+}
+
+.flag-is:before {
+    background-position: -30px -264px;
+}
+
+.flag-ir:before {
+    background-position: -56px -264px;
+}
+
+.flag-iq:before {
+    background-position: -82px -264px;
+}
+
+.flag-io:before {
+    background-position: -108px -264px;
+}
+
+.flag-in:before {
+    background-position: -134px -264px;
+}
+
+.flag-il:before {
+    background-position: -160px -264px;
+}
+
+.flag-ie:before {
+    background-position: -186px -264px;
+}
+
+.flag-id:before {
+    background-position: -212px -264px;
+}
+
+.flag-hu:before {
+    background-position: -238px -264px;
+}
+
+.flag-ht:before {
+    background-position: -264px -264px;
+}
+
+.flag-hr:before {
+    background-position: -290px -4px;
+}
+
+.flag-hn:before {
+    background-position: -290px -24px;
+}
+
+.flag-hm:before {
+    background-position: -290px -44px;
+}
+
+.flag-hk:before {
+    background-position: -290px -64px;
+}
+
+.flag-gy:before {
+    background-position: -290px -84px;
+}
+
+.flag-gw:before {
+    background-position: -290px -104px;
+}
+
+.flag-gu:before {
+    background-position: -290px -124px;
+}
+
+.flag-gt:before {
+    background-position: -290px -144px;
+}
+
+.flag-gs:before {
+    background-position: -290px -164px;
+}
+
+.flag-gq:before {
+    background-position: -290px -184px;
+}
+
+.flag-gp:before {
+    background-position: -290px -204px;
+}
+
+.flag-gn:before {
+    background-position: -290px -224px;
+}
+
+.flag-gm:before {
+    background-position: -290px -244px;
+}
+
+.flag-gl:before {
+    background-position: -290px -264px;
+}
+
+.flag-gi:before {
+    background-position: -4px -284px;
+}
+
+.flag-gh:before {
+    background-position: -30px -284px;
+}
+
+.flag-gf:before {
+    background-position: -56px -284px;
+}
+
+.flag-gd:before {
+    background-position: -82px -284px;
+}
+
+.flag-gb:before {
+    background-position: -108px -284px;
+}
+
+.flag-ga:before {
+    background-position: -134px -284px;
+}
+
+.flag-fr:before {
+    background-position: -160px -284px;
+}
+
+.flag-fo:before {
+    background-position: -186px -284px;
+}
+
+.flag-fm:before {
+    background-position: -212px -284px;
+}
+
+.flag-fk:before {
+    background-position: -238px -284px;
+}
+
+.flag-fj:before {
+    background-position: -264px -284px;
+}
+
+.flag-fi:before {
+    background-position: -290px -284px;
+}
+
+.flag-fa:before {
+    background-position: -316px -4px;
+}
+
+.flag-et:before {
+    background-position: -316px -24px;
+}
+
+.flag-es:before {
+    background-position: -316px -44px;
+}
+
+.flag-er:before {
+    background-position: -316px -64px;
+}
+
+.flag-eo:before {
+    background-position: -316px -84px;
+}
+
+.flag-el:before {
+    background-position: -316px -104px;
+}
+
+.flag-eh:before {
+    background-position: -316px -124px;
+}
+
+.flag-eg:before {
+    background-position: -316px -144px;
+}
+
+.flag-ee:before {
+    background-position: -316px -164px;
+}
+
+.flag-ec:before {
+    background-position: -316px -184px;
+}
+
+.flag-dz:before {
+    background-position: -316px -204px;
+}
+
+.flag-do:before {
+    background-position: -316px -224px;
+}
+
+.flag-dm:before {
+    background-position: -316px -244px;
+}
+
+.flag-dj:before {
+    background-position: -316px -264px;
+}
+
+.flag-de:before {
+    background-position: -316px -284px;
+}
+
+.flag-da:before {
+    background-position: -4px -304px;
+}
+
+.flag-cy:before {
+    background-position: -30px -304px;
+}
+
+.flag-cx:before {
+    background-position: -56px -304px;
+}
+
+.flag-cv:before {
+    background-position: -82px -304px;
+}
+
+.flag-cu:before {
+    background-position: -108px -304px;
+}
+
+.flag-cs1:before {
+    background-position: -134px -304px;
+}
+
+.flag-cs:before {
+    background-position: -160px -304px;
+}
+
+.flag-cr:before {
+    background-position: -186px -304px;
+}
+
+.flag-co:before {
+    background-position: -212px -304px;
+}
+
+.flag-cm:before {
+    background-position: -238px -304px;
+}
+
+.flag-cl:before {
+    background-position: -264px -304px;
+}
+
+.flag-ck:before {
+    background-position: -290px -304px;
+}
+
+.flag-ci:before {
+    background-position: -316px -304px;
+}
+
+.flag-ch:before {
+    background-position: -342px -4px;
+}
+
+.flag-cg:before {
+    background-position: -342px -24px;
+}
+
+.flag-cf:before {
+    background-position: -342px -44px;
+}
+
+.flag-cd:before {
+    background-position: -342px -64px;
+}
+
+.flag-cc:before {
+    background-position: -342px -84px;
+}
+
+.flag-ca_ES:before {
+    background-position: -342px -104px;
+}
+
+.flag-ca:before {
+    background-position: -342px -124px;
+}
+
+.flag-bz:before {
+    background-position: -342px -144px;
+}
+
+.flag-by:before {
+    background-position: -342px -164px;
+}
+
+.flag-bw:before {
+    background-position: -342px -184px;
+}
+
+.flag-bv:before {
+    background-position: -342px -204px;
+}
+
+.flag-bt:before {
+    background-position: -342px -224px;
+}
+
+.flag-bs_BA:before {
+    background-position: -342px -244px;
+}
+
+.flag-bs:before {
+    background-position: -342px -264px;
+}
+
+.flag-bo:before {
+    background-position: -342px -284px;
+}
+
+.flag-bn:before {
+    background-position: -342px -304px;
+}
+
+.flag-bm:before {
+    background-position: -4px -324px;
+}
+
+.flag-bj:before {
+    background-position: -30px -324px;
+}
+
+.flag-bi:before {
+    background-position: -56px -324px;
+}
+
+.flag-bh:before {
+    background-position: -82px -324px;
+}
+
+.flag-bg:before {
+    background-position: -108px -324px;
+}
+
+.flag-bf:before {
+    background-position: -134px -324px;
+}
+
+.flag-be:before {
+    background-position: -160px -324px;
+}
+
+.flag-bd:before {
+    background-position: -186px -324px;
+}
+
+.flag-bb:before {
+    background-position: -212px -324px;
+}
+
+.flag-az:before {
+    background-position: -238px -324px;
+}
+
+.flag-aw:before {
+    background-position: -264px -324px;
+}
+
+.flag-au:before {
+    background-position: -290px -324px;
+}
+
+.flag-at:before {
+    background-position: -316px -324px;
+}
+
+.flag-as:before {
+    background-position: -342px -324px;
+}
+
+.flag-ar:before {
+    background-position: -4px -344px;
+}
+
+.flag-aq:before {
+    background-position: -30px -344px;
+}
+
+.flag-ao:before {
+    background-position: -56px -344px;
+}
+
+.flag-an:before {
+    background-position: -82px -344px;
+}
+
+.flag-am:before {
+    background-position: -108px -344px;
+}
+
+.flag-al:before {
+    background-position: -134px -344px;
+}
+
+.flag-ai:before {
+    background-position: -160px -344px;
+}
+
+.flag-ag:before {
+    background-position: -186px -344px;
+}
+
+.flag-af:before {
+    background-position: -212px -344px;
+}
+
+.flag-ae:before {
+    background-position: -238px -344px;
+}
+
+.flag-ad:before {
+    background-position: -264px -344px;
+}
