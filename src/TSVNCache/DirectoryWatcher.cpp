@@ -350,8 +350,8 @@ void CDirectoryWatcher::WorkerThread()
                     pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 
 
-                    HANDLE port = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
-                    if (port == NULL)
+                    CAutoGeneralHandle port = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
+                    if (!port)
                     {
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": CreateIoCompletionPort failed. Can't watch directory %s\n", watchedPath.GetWinPath());
 
@@ -367,7 +367,7 @@ void CDirectoryWatcher::WorkerThread()
                         watchedPaths.RemovePath(watchedPath);
                         break;
                     }
-                    m_hCompPort = port;
+                    m_hCompPort = std::move(port);
 
                     if (!ReadDirectoryChangesW(pDirInfo->m_hDir,
                                                 pDirInfo->m_Buffer,
@@ -598,11 +598,11 @@ bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
     return true;
 }
 
-CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName)
-    : m_hDir(hDir)
+CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(CAutoFile && hDir, const CTSVNPath& DirectoryName)
+    : m_hDir(std::move(hDir))
     , m_DirName(DirectoryName)
 {
-    ATLASSERT(hDir && !DirectoryName.IsEmpty());
+    ATLASSERT(m_hDir && !DirectoryName.IsEmpty());
     m_Buffer[0] = 0;
     SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
     m_DirPath = m_DirName.GetWinPathString();

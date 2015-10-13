@@ -108,10 +108,10 @@ private:
     class CDirWatchInfo
     {
     private:
-        CDirWatchInfo();    // private & not implemented
-        CDirWatchInfo & operator=(const CDirWatchInfo & rhs);//so that they're aren't accidentally used. -- you'll get a linker error
+        CDirWatchInfo() = delete;
+        CDirWatchInfo & operator=(const CDirWatchInfo & rhs) = delete;  //so that they're aren't accidentally used. -- you'll get a linker error
     public:
-        CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName);
+        CDirWatchInfo(CAutoFile && hDir, const CTSVNPath& DirectoryName);
         ~CDirWatchInfo();
 
     protected:

@@ -35,12 +35,45 @@ public:
         m_Handle = NULL_VALUE;
     }
 
-    CSmartHandle(HandleType h)
+    // disable any copies of handles.
+    // Handles must be copied only using DuplicateHandle(). But we leave
+    // that to an explicit call.
+    // See compiler tests at the bottom
+    CSmartHandle(const HandleType& h) = delete;
+    CSmartHandle(const CSmartHandle& h) = delete;
+    HandleType& operator=(const HandleType& h) = delete;
+    CSmartHandle& operator=(const CSmartHandle& h) = delete;
+
+    CSmartHandle(HandleType && h)
     {
         m_Handle = h;
     }
 
-    HandleType operator=(HandleType h)
+    CSmartHandle(CSmartHandle && h)
+    {
+        if (m_Handle != (HandleType)h)
+        {
+            CleanUp();
+            m_Handle = h.Detach();
+        }
+        else
+            h.Detach();
+    }
+
+    CSmartHandle& operator=(CSmartHandle && h)
+    {
+        if (m_Handle != (HandleType)h)
+        {
+            CleanUp();
+            m_Handle = h.Detach();
+        }
+        else
+            h.Detach();
+
+        return *this;
+    }
+
+    HandleType& operator=(HandleType && h)
     {
         if (m_Handle != h)
         {
@@ -48,7 +81,7 @@ public:
             m_Handle = h;
         }
 
-        return(*this);
+        return m_Handle;
     }
 
     bool CloseHandle()
@@ -86,6 +119,21 @@ public:
         return m_Handle != NULL_VALUE;
     }
 
+    HandleType Duplicate()
+    {
+        HandleType hDup = NULL_VALUE;
+        if (DuplicateHandle(GetCurrentProcess(),
+                            (HANDLE)m_Handle,
+                            GetCurrentProcess(),
+                            &hDup,
+                            0,
+                            FALSE,
+                            DUPLICATE_SAME_ACCESS))
+        {
+            return hDup;
+        }
+        return NULL_VALUE;
+    }
 
     ~CSmartHandle()
     {
@@ -196,4 +244,18 @@ typedef CSmartHandle<HMODULE, CCloseLibrary>                                    
 typedef CSmartHandle<HANDLE,  CCloseHandle, INVALID_HANDLE_VALUE>                   CAutoFile;
 typedef CSmartHandle<HANDLE,  CCloseFindFile, INVALID_HANDLE_VALUE>                 CAutoFindFile;
 
-
+/*
+void CompilerTests()
+{
+    // compiler tests
+    {
+        HANDLE h = (HANDLE)1;
+        CAutoFile hFile = h;                    // C2280
+        CAutoFile hFile2 = std::move(h);        // OK
+        // OK, uses move semantics
+        CAutoFile hFile3 = CreateFile(L"c:\\test.txt", GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        CAutoFile hFile4 = hFile3;              // C2280
+        CAutoFile hFile5 = std::move(hFile3);   // OK
+    }
+}
+*/
