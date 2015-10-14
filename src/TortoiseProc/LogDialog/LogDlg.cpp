@@ -8654,15 +8654,19 @@ void CLogDlg::MonitorThread()
             if (m_bCancelled)
                 continue;
             // try to read the project properties
-            if (!item.projectproperties.ReadProps(WCPathOrUrl))
+            ProjectProperties props;
+            if (!props.ReadProps(WCPathOrUrl))
             {
                 if (WCPathOrUrl.IsUrl() && (WCPathOrUrl.GetSVNPathString().Find(L"trunk") < 0))
                 {
                     CTSVNPath trunkpath = WCPathOrUrl;
                     trunkpath.AppendPathString(L"trunk");
-                    item.projectproperties.ReadProps(trunkpath);
+                    if (props.ReadProps(trunkpath))
+                        item.projectproperties = props;
                 }
             }
+            else
+                item.projectproperties = props;
 
             if (m_bCancelled)
                 continue;
