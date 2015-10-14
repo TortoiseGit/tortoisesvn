@@ -1072,7 +1072,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
     if (PathFileExists(sSnippetFile))
         ParseSnippetFile(sSnippetFile, m_snippet);
     for (auto snip : m_snippet)
-        autolist.insert(std::make_pair(snip.first, AUTOCOMPLETE_SNIPPET));
+        autolist.emplace(snip.first, AUTOCOMPLETE_SNIPPET);
 
     ULONGLONG starttime = GetTickCount64();
 
@@ -1097,7 +1097,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 
         // add the path parts to the auto completion list too
         CString sPartPath = entry->GetRelativeSVNPath(false);
-        autolist.insert(std::make_pair(sPartPath, AUTOCOMPLETE_FILENAME));
+        autolist.emplace(sPartPath, AUTOCOMPLETE_FILENAME);
 
         int pos = 0;
         int lastPos = 0;
@@ -1105,7 +1105,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
         {
             pos++;
             lastPos = pos;
-            autolist.insert(std::make_pair(sPartPath.Mid(pos), AUTOCOMPLETE_FILENAME));
+            autolist.emplace(sPartPath.Mid(pos), AUTOCOMPLETE_FILENAME);
         }
 
         // Last inserted entry is a file name.
@@ -1114,7 +1114,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
         {
             int dotPos = sPartPath.ReverseFind('.');
             if ((dotPos >= 0) && (dotPos > lastPos))
-                autolist.insert(std::make_pair(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME));
+                autolist.emplace(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME);
         }
     }
     for (int i = 0; i < nListItems && m_bRunThread && !m_bCancelled; ++i)
@@ -1217,7 +1217,7 @@ void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFile
             {
                 if (match[i].second-match[i].first)
                 {
-                    autolist.insert(std::make_pair(std::wstring(match[i]).c_str(), AUTOCOMPLETE_PROGRAMCODE));
+                    autolist.emplace(std::wstring(match[i]).c_str(), AUTOCOMPLETE_PROGRAMCODE);
                 }
             }
         }

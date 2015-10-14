@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -299,7 +299,7 @@ std::multimap<CString, CString> CLogCachePool::GetRepositoryURLs() const
         const CRepositoryInfo::SPerRepositoryInfo* info
             = repositoryInfo->data[i];
 
-        result.insert (std::make_pair (info->root, info->uuid));
+        result.emplace(info->root, info->uuid);
     }
 
     return result;

@@ -243,7 +243,7 @@ svn_error_t * SVNAuthData::cleanup_callback(svn_boolean_t *delete_cred, void *cl
             *delete_cred = true;
         }
     }
-    authList->push_back(std::make_tuple(s1, s2, authinfodata));
+    authList->emplace_back(s1, s2, authinfodata);
 
     return SVN_NO_ERROR;
 }
@@ -283,7 +283,7 @@ svn_error_t * SVNAuthData::auth_callback(svn_boolean_t * /*delete_cred*/, void *
 {
     std::vector<std::tuple<std::string, std::string>> * authdata = (std::vector<std::tuple<std::string, std::string>>*)auth_baton;
 
-    authdata->push_back(std::make_tuple(std::string(cred_kind), std::string(realmstring)));
+    authdata->emplace_back(cred_kind, realmstring);
 
     return SVN_NO_ERROR;
 }

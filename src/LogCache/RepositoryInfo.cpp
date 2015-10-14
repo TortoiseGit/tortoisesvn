@@ -188,9 +188,9 @@ void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
     SPerRepositoryInfo* newInfo = new SPerRepositoryInfo (info);
     data.push_back (newInfo);
 
-    urlIndex.insert (std::make_pair (newInfo->root, newInfo));
-    uuidIndex.insert (std::make_pair (newInfo->uuid, newInfo));
-    fullIndex.insert (std::make_pair (std::make_pair (newInfo->uuid, newInfo->root), newInfo));
+    urlIndex.emplace(newInfo->root, newInfo);
+    uuidIndex.emplace(newInfo->uuid, newInfo);
+    fullIndex.emplace(std::make_pair(newInfo->uuid, newInfo->root), newInfo);
 }
 
 void CRepositoryInfo::CData::Add (const CString& uuid, const CString& root)

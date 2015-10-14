@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014 - TortoiseSVN
+// Copyright (C) 2008-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
         const char* next = strchr (rhs, ' ');
 
         CString name (rhs, static_cast<int>(next == NULL ? strlen (rhs) : next - rhs));
-        properties.insert (std::make_pair (name, CString()));
+        properties.emplace(name, CString());
 
         rhs = next == NULL ? NULL : next+1;
     }

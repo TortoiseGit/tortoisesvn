@@ -177,7 +177,7 @@ void CLogChangedPathArray::Add
 {
     reserve (last - first);
     for (; first != last; ++first)
-        push_back (CLogChangedPath (first, logPath));
+        emplace_back(first, logPath);
 
     // update log path to the *last* copy source we found
     // because it will also be the closed one (parent may

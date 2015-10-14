@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,7 +39,7 @@ void CStrictOrderNodePositioning::SortRevisions
     for (index_t i = 0; i < count; ++i)
     {
         CStandardLayoutNodeInfo* node = nodeAccess->GetNode(i);
-        nodes.push_back (std::make_pair (node->node->GetRevision(), node));
+        nodes.emplace_back(node->node->GetRevision(), node);
 
         // more than 1 sub-branch?
 
@@ -53,7 +53,7 @@ void CStrictOrderNodePositioning::SortRevisions
                 ; subBranch != NULL
                 ; subBranch = subBranch->nextBranch)
             {
-                subBranches.push_back (std::make_pair (subBranch->node->GetRevision(), subBranch));
+                subBranches.emplace_back(subBranch->node->GetRevision(), subBranch);
             }
 
             std::sort (subBranches.begin(), subBranches.end());

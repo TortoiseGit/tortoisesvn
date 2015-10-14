@@ -88,7 +88,7 @@ SVNLogHelper::GetCopyHistory(const CTSVNPath& url, const SVNRev& pegrev)
 
     while (rev.IsNumber() && !path.IsEmpty())
     {
-        result.push_back (std::make_pair (path, rev));
+        result.emplace_back(path, rev);
 
         CString copyFromURL;
         rev = GetCopyFromRev(path, rev, copyFromURL);

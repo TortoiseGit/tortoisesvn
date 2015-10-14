@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2010, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2010, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,7 +96,7 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
             WCRootsTimes dbTimes;
             dbTimes.LastTicks = GetTickCount64();
             dbTimes.FileTime = dbPath.GetLastWriteTime();
-            return m_WCDBs.insert(std::pair<CTSVNPath, WCRootsTimes>(p, dbTimes)).first;
+            return m_WCDBs.emplace(p, dbTimes).first;
         }
     } while (!p.IsEmpty());
 

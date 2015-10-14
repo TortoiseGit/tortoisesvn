@@ -1694,7 +1694,7 @@ void CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const std::deque<CItem>&
 
     for (size_t i = 0, count = items.size(); i < count; ++i)
         if ((items[i].kind == svn_node_dir)||(m_bSparseCheckoutMode))
-            newItems.insert (std::make_pair (items[i].path, &items[i]));
+            newItems.emplace(items[i].path, &items[i]);
 
     {
         CAutoReadLock locker(m_guard);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2013 - TortoiseSVN
+// Copyright (C) 2007-2009, 2013, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ void CHierachicalInStreamBase::ReadSubStreams ( CCacheFileInBuffer* buffer
         IHierarchicalInStream* subStream
             = factory->CreateStream (buffer, subStreamIndex);
 
-        subStreams.insert (std::make_pair (subStreamID, subStream));
+        subStreams.emplace(subStreamID, subStream);
     }
 
     // adjust buffer pointer

@@ -487,9 +487,9 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
                         apr_hash_this(hi, &key, NULL, &val);
                         svn_string_t * propval = (svn_string_t *)val;
                         const char * pname_utf8 = (char *)key;
-                        propmap.insert(std::make_pair(pname_utf8, std::string(propval->data, propval->len)));
+                        propmap.emplace(pname_utf8, std::string(propval->data, propval->len));
                     }
-                    pThis->m_inheritedProperties.push_back(std::make_tuple(iitem->path_or_url, propmap));
+                    pThis->m_inheritedProperties.emplace_back(iitem->path_or_url, propmap);
                 }
             }
             if (pThis->m_props && prop_hash)

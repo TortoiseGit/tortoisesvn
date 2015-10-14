@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,9 +61,9 @@ const TRevPropNames& CSVNLogQuery::GetStandardRevProps()
 
     if (standardRevProps.empty())
     {
-        standardRevProps.push_back (std::string (SVN_PROP_REVISION_LOG));
-        standardRevProps.push_back (std::string (SVN_PROP_REVISION_DATE));
-        standardRevProps.push_back (std::string (SVN_PROP_REVISION_AUTHOR));
+        standardRevProps.emplace_back(SVN_PROP_REVISION_LOG);
+        standardRevProps.emplace_back(SVN_PROP_REVISION_DATE);
+        standardRevProps.emplace_back(SVN_PROP_REVISION_AUTHOR);
     }
 
     return standardRevProps;

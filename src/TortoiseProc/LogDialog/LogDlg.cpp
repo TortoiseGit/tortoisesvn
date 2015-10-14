@@ -3359,7 +3359,7 @@ void CLogDlg::OnBnClickedStatbutton()
         if (entry)
         {
             if (revisionsCovered.insert (entry->GetRevision()).second)
-                revsByDate.insert (std::make_pair (entry->GetDate(), entry));
+                revsByDate.emplace(entry->GetDate(), entry);
         }
     }
 

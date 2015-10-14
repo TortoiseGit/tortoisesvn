@@ -324,7 +324,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
             }
             else
             {
-                it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
+                it = m_properties.emplace_hint(it, prop_str, PropValue());
                 tstring value = CUnicodeUtils::StdGetUnicode(prop_value);
                 it->second.value = prop_value;
                 CString stemp = value.c_str();
@@ -353,7 +353,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
 
                 async::CCriticalSectionLock lock(m_mutex);
 
-                auto it = m_properties.insert(std::make_pair(prop_str, PropValue()));
+                auto it = m_properties.emplace(prop_str, PropValue());
                 tstring value = CUnicodeUtils::StdGetUnicode(prop_value);
                 it->second.value = prop_value;
                 CString stemp = value.c_str();

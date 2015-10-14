@@ -200,7 +200,7 @@ CPathClassificator::ParsePatterns (const std::string& patterns) const
         // extract pattern and add it to the list
 
         std::string pattern = patterns.substr (start, end - start);
-        result.push_back (CWildCardPattern (pattern));
+        result.emplace_back(pattern);
 
         // to next pattern
 

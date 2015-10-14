@@ -137,25 +137,25 @@ void CEditPropMergeLogTemplate::OnOK()
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATETITLE, pVal));
+    newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATETITLE, pVal);
 
     GetDlgItemText(IDC_TITLEREVERSE, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE, pVal));
+    newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE, pVal);
 
     GetDlgItemText(IDC_MSG, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
     pVal.value = propVal;
     pVal.remove = (pVal.value.empty());
-    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATEMSG, pVal));
+    newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATEMSG, pVal);
 
     pVal.value = IsDlgButtonChecked(IDC_TITLEBOTTOM) ? "yes" : "";
     pVal.remove = (pVal.value.empty());
-    newProps.insert(std::make_pair(PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM, pVal));
+    newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM, pVal);
 
     m_bChanged = true;
     m_properties = newProps;

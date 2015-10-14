@@ -69,7 +69,7 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
     // insert the new range / enlarge existing range
 
     std::pair<TRanges::iterator,bool> insertionResult
-        = ranges.insert (std::make_pair (start, size));
+        = ranges.emplace(start, size);
     if (!insertionResult.second && (insertionResult.first->second < size))
         insertionResult.first->second = size;
 
@@ -160,7 +160,7 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
             else
             {
                 if (start != iter->first)
-                    iter = ranges.insert (std::make_pair (start, length)).first;
+                    iter = ranges.emplace(start, length).first;
                 else
                     iter->second = length;
 
@@ -427,7 +427,7 @@ CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t ind) const
         ; iter != end
         ; ++iter)
     {
-        result.push_back (std::make_pair (iter->first, iter->second));
+        result.emplace_back(iter->first, iter->second);
     }
 
     return result;

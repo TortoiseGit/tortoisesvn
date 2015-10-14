@@ -593,20 +593,17 @@ void CRevisionGraphWnd::DrawGlyphs
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop, glyph1, position);
-        visibleGlyphs->push_back
-            (CRevisionGraphState::SVisibleGlyph (state1, leftTop, node));
+        visibleGlyphs->emplace_back(state1, leftTop, node);
     }
     else
     {
         PointF leftTop1 (center.X - squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop1, glyph1, position);
-        visibleGlyphs->push_back
-            (CRevisionGraphState::SVisibleGlyph (state1, leftTop1, node));
+        visibleGlyphs->emplace_back(state1, leftTop1, node);
 
         PointF leftTop2 (center.X, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop2, glyph2, position);
-        visibleGlyphs->push_back
-            (CRevisionGraphState::SVisibleGlyph (state2, leftTop2, node));
+        visibleGlyphs->emplace_back(state2, leftTop2, node);
     }
 }
 

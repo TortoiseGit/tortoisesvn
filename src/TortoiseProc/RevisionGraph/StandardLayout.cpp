@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -291,7 +291,7 @@ void CStandardLayout::CreateConnections()
 
         // an actual connection
 
-        connections.push_back (std::make_pair (previousNode->GetIndex(), i));
+        connections.emplace_back(previousNode->GetIndex(), i);
     }
 }
 
@@ -311,7 +311,7 @@ void CStandardLayout::CreateTexts()
         const CStandardLayoutNodeInfo& info = nodes[i];
 
         if (info.requiresRevision)
-            texts.push_back (STextInfo (i, 0));
+            texts.emplace_back(i, 0);
 
         if (info.requiresPath)
         {
@@ -319,7 +319,7 @@ void CStandardLayout::CreateTexts()
                                        - info.skipStartPathElements
                                        - info.skipTailPathElements;
             for (index_t k = (index_t)visibleElementCount; k > 0; --k)
-                texts.push_back (STextInfo (i, k));
+                texts.emplace_back(i, k);
         }
     }
 }

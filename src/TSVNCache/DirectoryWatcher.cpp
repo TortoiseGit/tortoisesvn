@@ -474,7 +474,7 @@ void CDirectoryWatcher::WorkerThread()
                                     continue;
                                 }
                                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": change notification for %s\n", buf);
-                                notifyPaths.push_back(CTSVNPath(buf));
+                                notifyPaths.emplace_back(buf);
                             }
                         } while ((nOffset > 0)&&(nOffset < READ_DIR_CHANGE_BUFFER_SIZE));
 

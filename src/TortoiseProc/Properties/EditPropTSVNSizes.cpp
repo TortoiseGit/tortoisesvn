@@ -110,17 +110,17 @@ void CEditPropTSVNSizes::OnOK()
     sprintf_s(numBuf, "%d", m_LogMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LogMinSize == 0);
-    newProps.insert(std::make_pair(PROJECTPROPNAME_LOGMINSIZE, pVal));
+    newProps.emplace(PROJECTPROPNAME_LOGMINSIZE, pVal);
 
     sprintf_s(numBuf, "%d", m_LockMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LockMinSize == 0);
-    newProps.insert(std::make_pair(PROJECTPROPNAME_LOCKMSGMINSIZE, pVal));
+    newProps.emplace(PROJECTPROPNAME_LOCKMSGMINSIZE, pVal);
 
     sprintf_s(numBuf, "%d", m_Border);
     pVal.value = numBuf;
     pVal.remove = (m_Border == 0);
-    newProps.insert(std::make_pair(PROJECTPROPNAME_LOGWIDTHLINE, pVal));
+    newProps.emplace(PROJECTPROPNAME_LOGWIDTHLINE, pVal);
 
     m_bChanged = true;
     m_properties = newProps;
