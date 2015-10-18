@@ -278,7 +278,10 @@ void CCacheLogQuery::CLogFiller::WriteToCache
     if (stdRevProps != NULL)
         presenceMask = CRevisionInfoContainer::HAS_STANDARD_REVPROPS;
     if (changes != NULL)
-        presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
+    {
+        if ((revision > 0) || (!changes->empty()))
+            presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
+    }
     if (userRevProps != NULL)
         presenceMask |= CRevisionInfoContainer::HAS_USERREVPROPS;
 
@@ -384,7 +387,10 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
         // the first revision we may not have information about is the one
         // immediately preceding the one we just received from the server
 
-        firstNARevision = revision-1;
+        if (revision > 0)
+            firstNARevision = revision - 1;
+        else
+            firstNARevision = 0;
 
         // hand on to the original log receiver.
         // Even if there is no receiver, track the oldest revision
@@ -1025,7 +1031,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
             // we must not fetch revisions twice
             // (this may cause an indefinite loop)
 
-            assert (iterator->GetRevision() < lastReported);
+            assert(iterator->GetRevision() < lastReported || (lastReported == 0 && iterator->GetRevision() == 0));
             if (iterator->GetRevision() >= lastReported)
             {
                 return;
