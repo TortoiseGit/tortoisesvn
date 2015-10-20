@@ -1455,7 +1455,8 @@ private:
         testPath.SetFromWin(L"c:\\windows");
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\"))==false);
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows")));
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windowsdummy"))==false);
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windowsdummy")) == false);
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows test")) == false);
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows\\test.txt")));
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows\\system32\\test.txt")));
     }
