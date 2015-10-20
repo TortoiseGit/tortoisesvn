@@ -1817,7 +1817,6 @@ void CLogDlg::LogThread()
                     pEntry->SetUnread(true);
                 }
             }
-            m_revUnread = 0;
         }
     }
     m_LogList.ClearText();
@@ -1909,6 +1908,7 @@ void CLogDlg::LogThread()
             m_LogList.SetItemState(selIndex, LVIS_SELECTED, LVIS_SELECTED);
         }
     }
+    m_revUnread = 0;
     if (!GetDlgItem(IDOK)->IsWindowVisible())
     {
         temp.LoadString(IDS_MSGBOX_OK);
