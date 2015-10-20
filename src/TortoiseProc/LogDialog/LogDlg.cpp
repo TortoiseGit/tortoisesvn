@@ -1895,8 +1895,18 @@ void CLogDlg::LogThread()
         // the revisions are shown. Let's preselect the topmost revision.
         if ( m_LogList.GetItemCount()>0 )
         {
-            m_LogList.SetSelectionMark(0);
-            m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
+            int selIndex = 0;
+            if (m_bMonitoringMode && m_revUnread)
+            {
+                // in monitoring mode, select the first _unread_ revision
+                for (; selIndex < m_logEntries.size(); ++selIndex)
+                {
+                    if (m_logEntries.GetVisible(selIndex)->GetRevision() < m_revUnread)
+                        break;
+                }
+            }
+            m_LogList.SetSelectionMark(selIndex);
+            m_LogList.SetItemState(selIndex, LVIS_SELECTED, LVIS_SELECTED);
         }
     }
     if (!GetDlgItem(IDOK)->IsWindowVisible())
