@@ -150,7 +150,7 @@ void CResizableDialog::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
 
 // NOTE: this must be called after setting the layout
 //       to have the dialog and its controls displayed properly
-void CResizableDialog::EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly)
+void CResizableDialog::EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly, BOOL bHorzResize, BOOL bVertResize)
 {
     m_sSection = pszSection;
 
@@ -158,7 +158,7 @@ void CResizableDialog::EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly)
     m_bRectOnly = bRectOnly;
 
     // restore immediately
-    LoadWindowRect(pszSection, bRectOnly);
+    LoadWindowRect(pszSection, bRectOnly, bHorzResize, bVertResize);
 
     CMenu* pMenu = GetMenu();
     if ( pMenu )
