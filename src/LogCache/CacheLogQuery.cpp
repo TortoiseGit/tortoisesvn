@@ -278,10 +278,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
     if (stdRevProps != NULL)
         presenceMask = CRevisionInfoContainer::HAS_STANDARD_REVPROPS;
     if (changes != NULL)
-    {
-        if ((revision > 0) || (!changes->empty()))
-            presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
-    }
+        presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
     if (userRevProps != NULL)
         presenceMask |= CRevisionInfoContainer::HAS_USERREVPROPS;
 

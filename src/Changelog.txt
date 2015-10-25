@@ -38,6 +38,8 @@ Version 1.9.3
        updated properly. (Stefan)
 - BUG: Windows and dialogs were shown with a wrong size if
        the monitor settings changed. (Stefan)
+- BUG: The log dialog could crash if revision zero contained
+       user revprops. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files

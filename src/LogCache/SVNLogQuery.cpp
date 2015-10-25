@@ -273,28 +273,21 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
     try
     {
-        // treat revision 0 special: only report/show it if either the author or a message is set, or if user props are set
-        if (   log_entry->revision
-            || userRevProps.GetCount()
-            || !standardRevProps.GetAuthor().empty()
-            || !standardRevProps.GetMessage().empty())
-        {
-            MergeInfo mergeInfo = { log_entry->has_children != FALSE
-                                  , log_entry->non_inheritable != FALSE
-                                  , log_entry->subtractive_merge != FALSE };
+        MergeInfo mergeInfo = { log_entry->has_children != FALSE
+                              , log_entry->non_inheritable != FALSE
+                              , log_entry->subtractive_merge != FALSE };
 
-            receiver->ReceiveLog ( receiverBaton->includeChanges
-                                       ? &changedPaths
-                                       : NULL
-                                 , log_entry->revision
-                                 , receiverBaton->includeStandardRevProps
-                                       ? &standardRevProps
-                                       : NULL
-                                 , receiverBaton->includeUserRevProps
-                                       ? &userRevProps
-                                       : NULL
-                                 , &mergeInfo);
-        }
+        receiver->ReceiveLog(receiverBaton->includeChanges
+                             ? &changedPaths
+                             : NULL
+                             , log_entry->revision
+                             , receiverBaton->includeStandardRevProps
+                             ? &standardRevProps
+                             : NULL
+                             , receiverBaton->includeUserRevProps
+                             ? &userRevProps
+                             : NULL
+                             , &mergeInfo);
     }
     catch (SVNError& e)
     {

@@ -1739,12 +1739,22 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
 void SVN::ReceiveLog ( TChangedPaths* /* changes */
                      , svn_revnum_t rev
                      , const StandardRevProps* stdRevProps
-                     , UserRevPropArray* /* userRevProps*/
+                     , UserRevPropArray*  userRevProps
                      , const MergeInfo* mergeInfo)
 {
     // check for user pressing "Cancel" somewhere
 
     cancel();
+
+    if (rev == 0)
+    {
+        // only use revision 0 if either the author or a message is set, or if user props are set
+        bool bEmpty = stdRevProps ? stdRevProps->GetAuthor().empty() : true;
+        bEmpty = bEmpty && (stdRevProps ? stdRevProps->GetMessage().empty() : true);
+        bEmpty = bEmpty && (userRevProps ? userRevProps->GetCount() == 0 : true);
+        if (bEmpty)
+            return;
+    }
 
     // use the log info (in a derived class specific way)
 
