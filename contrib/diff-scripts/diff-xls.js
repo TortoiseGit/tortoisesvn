@@ -142,13 +142,16 @@ var objSpecialWorkbook = objExcelApp.Workbooks.Add;
 var length = objNewWorkbook.Worksheets.Count;
 for (var i = 1; i <= length; i++)
 {
-    var objBaseWorksheet = objBaseWorkbook.Worksheets(i);
+    var objBaseWorksheet = null;
+    if (i <= objBaseWorkbook.Worksheets.Count)
+        objBaseWorksheet = objBaseWorkbook.Worksheets(i);
     var objNewWorksheet = objNewWorkbook.Worksheets(i);
 
-    UnhideWorksheet(objBaseWorksheet);
+    if (objBaseWorksheet != null)
+        UnhideWorksheet(objBaseWorksheet);
     UnhideWorksheet(objNewWorksheet);
 
-    if (!bFastMode)
+    if (!bFastMode && (objBaseWorksheet != null))
     {
         objBaseWorkbook.Sheets(i).Copy(null, objNewWorkbook.Sheets(objNewWorkbook.Sheets.Count));
         var objDummyWorksheet = objNewWorkbook.Sheets(objNewWorkbook.Sheets.Count);
@@ -170,7 +173,7 @@ for (var i = 1; i <= length; i++)
     {
         objNewWorksheet.Cells.FormatConditions.Delete();
         var sFormula;
-        if (bFastMode)
+        if (bFastMode && (objBaseWorksheet != null))
         {
             sFormula = "=INDIRECT(\"" + ToAbsoluteReference(objBaseWorksheet) + "!\"&ADDRESS(ROW(),COLUMN()))";
         }
