@@ -331,16 +331,22 @@ bool CPicture::Load(tstring sFilePathName)
                                         cbStride = ((cbStride + sizeof(DWORD) - 1) / sizeof(DWORD)) * sizeof(DWORD);
 
                                         UINT cbBufferSize = cbStride * uHeight;
+                                        // note: the buffer must exist during the lifetime of the pBitmap object created below
                                         pBitmapBuffer = new BYTE[cbBufferSize];
 
                                         if (pBitmapBuffer != NULL)
                                         {
-                                            WICRect rc = { 0, 0, uWidth, uHeight };
+                                            WICRect rc = { 0, 0, (INT)uWidth, (INT)uHeight };
                                             hr = piFormatConverter->CopyPixels(&rc, cbStride, cbStride * uHeight, pBitmapBuffer);
                                             if (SUCCEEDED(hr))
                                             {
                                                 pBitmap = new Bitmap(uWidth, uHeight, cbStride, PixelFormat24bppRGB, pBitmapBuffer);
                                                 bResult = true;
+                                            }
+                                            else
+                                            {
+                                                delete[] pBitmapBuffer;
+                                                pBitmapBuffer = nullptr;
                                             }
                                         }
                                         else
