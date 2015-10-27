@@ -23,6 +23,7 @@
 #include <algorithm>
 #include "Picture.h"
 #include "SmartHandle.h"
+#include <memory>
 #include <atlbase.h>
 #include <Wincodec.h>
 
@@ -35,12 +36,14 @@
 
 #define HIMETRIC_INCH 2540
 
+
 CPicture::CPicture()
     : m_IPicture(NULL)
     , m_Height(0)
     , m_Weight(0)
     , m_Width(0)
     , pBitmap(NULL)
+    , pBitmapBuffer(nullptr)
     , bHaveGDIPlus(false)
     , m_ip(InterpolationModeDefault)
     , hIcons(NULL)
@@ -59,6 +62,7 @@ CPicture::~CPicture()
 {
     FreePictureData(); // Important - Avoid Leaks...
     delete pBitmap;
+    delete[] pBitmapBuffer;
     if (bHaveGDIPlus)
         GdiplusShutdown(gdiplusToken);
 }
@@ -92,6 +96,8 @@ void CPicture::FreePictureData()
     lpIcons = nullptr;
     delete pBitmap;
     pBitmap = nullptr;
+    delete[] pBitmapBuffer;
+    pBitmapBuffer = nullptr;
 }
 
 // Util function to ease loading of FreeImage library
@@ -272,6 +278,90 @@ bool CPicture::Load(tstring sFilePathName)
         }
 
         // If still failed to load the file...
+        if (!bResult)
+        {
+            // try WIC
+            IWICImagingFactory * pFactory = NULL;
+            HRESULT hr = CoCreateInstance(CLSID_WICImagingFactory,
+                                          NULL,
+                                          CLSCTX_INPROC_SERVER,
+                                          IID_IWICImagingFactory,
+                                          (LPVOID*)&pFactory);
+
+            // Create a decoder from the file.
+            if (SUCCEEDED(hr))
+            {
+                IWICBitmapDecoder * pDecoder = NULL;
+                hr = pFactory->CreateDecoderFromFilename(m_Name.c_str(),
+                                                         NULL,
+                                                         GENERIC_READ,
+                                                         WICDecodeMetadataCacheOnDemand,
+                                                         &pDecoder);
+                if (SUCCEEDED(hr))
+                {
+                    IWICBitmapFrameDecode * pBitmapFrameDecode = NULL;
+                    hr = pDecoder->GetFrame(0, &pBitmapFrameDecode);
+                    if (SUCCEEDED(hr))
+                    {
+                        IWICBitmapSource * pSource = NULL;
+                        pSource = pBitmapFrameDecode;
+                        pSource->AddRef();
+
+                        IWICFormatConverter * piFormatConverter = nullptr;
+                        hr = pFactory->CreateFormatConverter(&piFormatConverter);
+                        if (SUCCEEDED(hr))
+                        {
+                            hr = piFormatConverter->Initialize(pSource, GUID_WICPixelFormat24bppBGR, WICBitmapDitherTypeNone, NULL, 0.0, WICBitmapPaletteTypeCustom);
+                            if (SUCCEEDED(hr))
+                            {
+                                UINT uWidth = 0;
+                                UINT uHeight = 0;
+                                hr = piFormatConverter->GetSize(&uWidth, &uHeight);
+                                m_Height = uHeight;
+                                m_Width = uWidth;
+                                if (SUCCEEDED(hr))
+                                {
+                                    WICPixelFormatGUID pixelFormat = { 0 };
+                                    hr = piFormatConverter->GetPixelFormat(&pixelFormat);
+
+                                    if (SUCCEEDED(hr))
+                                    {
+                                        UINT cbStride = uWidth * 3;
+                                        // Force the stride to be a multiple of sizeof(DWORD)
+                                        cbStride = ((cbStride + sizeof(DWORD) - 1) / sizeof(DWORD)) * sizeof(DWORD);
+
+                                        UINT cbBufferSize = cbStride * uHeight;
+                                        pBitmapBuffer = new BYTE[cbBufferSize];
+
+                                        if (pBitmapBuffer != NULL)
+                                        {
+                                            WICRect rc = { 0, 0, uWidth, uHeight };
+                                            hr = piFormatConverter->CopyPixels(&rc, cbStride, cbStride * uHeight, pBitmapBuffer);
+                                            if (SUCCEEDED(hr))
+                                            {
+                                                pBitmap = new Bitmap(uWidth, uHeight, cbStride, PixelFormat24bppRGB, pBitmapBuffer);
+                                                bResult = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            hr = ERROR_NOT_ENOUGH_MEMORY;
+                                        }
+                                    }
+                                }
+                            }
+                            if (piFormatConverter)
+                                piFormatConverter->Release();
+                        }
+                        pSource->Release();
+                        pBitmapFrameDecode->Release();
+                    }
+                    pDecoder->Release();
+                }
+                pFactory->Release();
+            }
+        }
+
         if (!bResult)
         {
             // Attempt to load the FreeImage library as an optional DLL to support additional formats

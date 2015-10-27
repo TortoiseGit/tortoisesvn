@@ -191,6 +191,7 @@ private:
     GdiplusStartupInput gdiplusStartupInput;
     ULONG_PTR           gdiplusToken;
     Bitmap *            pBitmap;
+    BYTE *              pBitmapBuffer;
     bool                bHaveGDIPlus;
     InterpolationMode   m_ip;
     bool                bIsIcon;
