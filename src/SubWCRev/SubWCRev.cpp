@@ -978,7 +978,6 @@ int _tmain(int argc, _TCHAR* argv[])
             LoadIgnorePatterns(wcroot, &SubStat);
         svn_error_clear(svnerr);
         LoadIgnorePatterns(internalpath, &SubStat);
-        SubStat.abspathoffset = strlen(internalpath);
     }
 
     svnerr = svn_status(    internalpath,   //path

@@ -30,6 +30,7 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include <algorithm>
+#include <tuple>
 #include <fstream>
 
 CRegStdString regTagsPattern = CRegStdString(L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
@@ -47,7 +48,7 @@ void LoadIgnorePatterns(const char * wc, SubWCRev_t * SubStat)
         while (std::getline(infile, line))
         {
             if (!line.empty())
-                SubStat->ignorepatterns.insert(line);
+                SubStat->ignorepatterns.emplace(line, path.size());
         }
     }
 }
@@ -222,18 +223,21 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     {
         for (const auto& pattern : sb->SubStat->ignorepatterns)
         {
-            if (strwildcmp(pattern.c_str(), status->repos_relpath))
+            if (strwildcmp(std::get<0>(pattern).c_str(), status->repos_relpath))
                 return SVN_NO_ERROR;
         }
     }
     if (status->local_abspath && !sb->SubStat->ignorepatterns.empty())
     {
-        const char * relativepath = &status->local_abspath[sb->SubStat->abspathoffset];
-        if (*relativepath == '/')
-            ++relativepath;
         for (const auto& pattern : sb->SubStat->ignorepatterns)
         {
-            if (strwildcmp(pattern.c_str(), relativepath))
+            auto offset = std::get<1>(pattern);
+            if (strlen(status->local_abspath) <= offset)
+                continue;
+            const char * relativepath = &status->local_abspath[offset];
+            if (*relativepath == '/')
+                ++relativepath;
+            if (strwildcmp(std::get<0>(pattern).c_str(), relativepath))
                 return SVN_NO_ERROR;
         }
     }
