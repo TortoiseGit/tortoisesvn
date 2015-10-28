@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -223,6 +223,17 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
         for (const auto& pattern : sb->SubStat->ignorepatterns)
         {
             if (strwildcmp(pattern.c_str(), status->repos_relpath))
+                return SVN_NO_ERROR;
+        }
+    }
+    if (status->local_abspath && !sb->SubStat->ignorepatterns.empty())
+    {
+        const char * relativepath = &status->local_abspath[sb->SubStat->abspathoffset];
+        if (*relativepath == '/')
+            ++relativepath;
+        for (const auto& pattern : sb->SubStat->ignorepatterns)
+        {
+            if (strwildcmp(pattern.c_str(), relativepath))
                 return SVN_NO_ERROR;
         }
     }

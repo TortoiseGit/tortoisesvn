@@ -223,6 +223,7 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
         LoadIgnorePatterns(wcroot, &SubStat);
     svn_error_clear(svnerr);
     LoadIgnorePatterns(internalpath, &SubStat);
+    SubStat.abspathoffset = strlen(internalpath);
 
     svnerr = svn_status(  internalpath,   //path
         &SubStat,       //status_baton

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,6 +66,7 @@ struct SubWCRev_t
         , bIsExternalsNotFixed(FALSE)
         , bIsExternalMixed(FALSE)
         , bIsTagged(FALSE)
+        , abspathoffset(0)
     {
         SecureZeroMemory(Url, sizeof(Url));
         SecureZeroMemory(RootUrl, sizeof(RootUrl));
@@ -91,6 +92,7 @@ struct SubWCRev_t
     BOOL  bIsExternalsNotFixed; // True if one external is not fixed to a specified revision
     BOOL  bIsExternalMixed; // True if one external, which is fixed has not the explicit revision set
     BOOL  bIsTagged;   // True if working copy URL contains "tags" keyword
+    int   abspathoffset;    // offset to get the relative path of the absolute path
     std::set<std::string> ignorepatterns;   // a list of file patterns to ignore
 };
 
