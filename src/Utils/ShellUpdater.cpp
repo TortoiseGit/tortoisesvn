@@ -67,7 +67,7 @@ void CShellUpdater::AddPathsForUpdate(const CTSVNPathList& pathList)
 
 void CShellUpdater::Flush()
 {
-    if(m_pathsForUpdating.GetCount() > 0)
+    if (!m_pathsForUpdating.IsEmpty())
     {
         CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Flushing shell update list\n");
 
