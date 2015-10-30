@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-10-05 11:20+0000\n"
+"PO-Revision-Date: 2015-10-30 07:18+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -15403,16 +15403,24 @@ msgstr "Wenn Sie möchten, dass SubWCRev Schlüsselwortersetzungen durchführt, 
 
 #. (para)
 msgid ""
-"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root and paths relative to the path of the <filename>.subwcrevignore</filename> file. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
 "/trunk/doc\n"
 "/trunk/doc/*\n"
-"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"</screen> Or, assuming the <filename>.subwcrevignore</filename> file is in the working copy root which is checked out from trunk, using the patterns <screen>\n"
+"doc\n"
+"doc/*\n"
+"</screen> is the same as the example above."
+msgstr "Sie können Ausschlussmuster für SubWCRev festlegen, um bestimmte Dateien und Pfade zu ignorieren. Die Muster werden aus einer Datei namens <filename>.subwcrevignore</filename> gelesen. Die Datei wird im angegebenen Pfad und in der Wurzel der Arbeitskopie gesucht. Wird sie nicht gefunden, so werden auch keine Dateien oder Pfade ignoriert. Die Datei <filename>.subwcrevignore</filename> kann mehrere, durch Zeilenumbrüche getrennte, Muster enthalten. Die Muster werden relativ zur Wurzel der Arbeitskopie und relativ zur Datei <filename>.subwcrevignore</filename> angewendet. Um zum Beispiel sämtliche Dateien im <filename>doc</filename> Ordner der TortoiseSVN Arbeitskopie zu auszuschließen, würde die <filename>.subwcrevignore<filename> Datei die folgenden Zeilen enthalten:\n<screen>\n/trunk/doc\n/trunk/doc/*\n</screen>\nOder, unter der Annahme, dass sich die <filename>.subwcrevignore</filename> Datei in der Wurzel der von trunk ausgecheckten Arbeitskopie befindet, würden die Muster\n<screen>\ndoc\ndoc/*\n</screen>\ndas gleiche erreichen."
+
+#. (para)
+msgid ""
+"To ignore all images, the ignore patterns could be set like this: <screen>\n"
 "*.png\n"
 "*.jpg\n"
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr "Sie können Ausschlussmuster für SubWCRev festlegen, um bestimmte Dateien und Ordner von der Betrachtung auszuschließen. Diese Muster werden aus der Datei <filename>.subwcrevignore</filename> gelesen. Die Datei wird im angegebenen Pfad und in der Wurzel der Arbeitskopie gesucht. Die Datei <filename>.subwcrevignore</filename> kann mehrere, durch Zeilenumbrüche getrennte Muster enthalten. Die Muster werden relativ zur Basis der Arbeitskopie betractet. Um, zum Beispiel alle Dateien im <filename>doc</filename> Ordner der TortoiseSVN Arbeitskopie auszuschließen, müsste die Datei <filename>.subwcrevignore</filename> folgende Einträge enthalten:\n<screen>\n/trunk/doc\n/trunk/doc/*\n</screen>\nUm alle Bilddateien auszuschließen, können Sie folgende Einträge verwenden:\n<screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
+msgstr "Um sämtliche Bilder auszuschließen, könnten die Muster folgendermaßen aussehen: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."

@@ -14,6 +14,7 @@
 # Entong Shen <dexter_shen@hotmail.com>, 2011
 # Evil Roach <evilroach@tom.com>, 2015
 # fang zheng <fz0000@sina.com>, 2012
+# flypopo <flypopo.reg@qq.com>, 2015
 # Garfield Yao <field977@gmail.com>, 2011
 # Gong Gong <gongong83@gmail.com>, 2013
 # Hong Xu <icehong@gmail.com>, 2012
@@ -34,7 +35,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-10-05 08:51+0000\n"
+"PO-Revision-Date: 2015-10-29 08:56+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -649,7 +650,7 @@ msgstr "TortoiseSVN 以简单易用的安装包的形式发布。双击安装文
 msgid ""
 "You need Administrator privileges to install TortoiseSVN. The installer will"
 " ask you for Administrator credentials if necessary."
-msgstr ""
+msgstr "你需要管理员权限来安装 TortoiseSVN。必要的话安装程序会向您要求管理员证书。"
 
 #. (para)
 msgid ""
@@ -1509,7 +1510,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n..."
 
 #. (para)
 msgid ""
@@ -1521,7 +1522,7 @@ msgstr "注意 URL 使用普通的斜杠，而不是 Windows 本地(非 URL)形�
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "你可以通过网络共享访问一个FSFS版本库，但由于很多原因不建议你这样做。"
 
 #. (para)
 msgid ""
@@ -15409,10 +15410,18 @@ msgstr "如果你想让SubWCRev执行关键字替换，象版本库版本，地�
 
 #. (para)
 msgid ""
-"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root and paths relative to the path of the <filename>.subwcrevignore</filename> file. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
 "/trunk/doc\n"
 "/trunk/doc/*\n"
-"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"</screen> Or, assuming the <filename>.subwcrevignore</filename> file is in the working copy root which is checked out from trunk, using the patterns <screen>\n"
+"doc\n"
+"doc/*\n"
+"</screen> is the same as the example above."
+msgstr ""
+
+#. (para)
+msgid ""
+"To ignore all images, the ignore patterns could be set like this: <screen>\n"
 "*.png\n"
 "*.jpg\n"
 "*.ico\n"

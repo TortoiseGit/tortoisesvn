@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-10-05 08:58+0000\n"
+"PO-Revision-Date: 2015-10-29 09:04+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -15393,16 +15393,24 @@ msgstr "Pokud chcete, aby SubWCRev provedl nahrazení klíčového slova, takže
 
 #. (para)
 msgid ""
-"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
+"You can specify ignore patterns for SubWCRev to prevent specific files and paths from being considered. The patterns are read from a file named <filename>.subwcrevignore</filename>. The file is read from the specified path, and also from the working copy root. If the file does not exist, no files or paths are ignored. The <filename>.subwcrevignore</filename> file can contain multiple patterns, separated by newlines. The patterns are matched against the paths relative to the repository root and paths relative to the path of the <filename>.subwcrevignore</filename> file. For example, to ignore all files in the <filename>doc</filename> folder of the TortoiseSVN working copy, the <filename>.subwcrevignore</filename> would contain the following lines: <screen>\n"
 "/trunk/doc\n"
 "/trunk/doc/*\n"
-"</screen> To ignore all images, the ignore patterns could be set like this: <screen>\n"
+"</screen> Or, assuming the <filename>.subwcrevignore</filename> file is in the working copy root which is checked out from trunk, using the patterns <screen>\n"
+"doc\n"
+"doc/*\n"
+"</screen> is the same as the example above."
+msgstr "Abyste zabránili konkrétním souborů a cestám být zpracovány v SubWCRev, můžete zadat vzory pro ignorování. Vzory jsou čteny ze souboru s názvem <filename>.subwcrevignore</filename>. Soubor je čten ze zadané cesty a také z kořene pracovní kopie. Pokud soubor neexistuje, nedochází k žádnému ignorování. Soubor <filename>.subwcrevignore</filename> může obsahovat mnoho vzorů, oddělených novým řádkem. Vzory jsou porovnávány s cestami  relativně ke kořeni úložiště a souboru <filename>.subwcrevignore</filename>. Například pro ignorování všech souborů ve složce <filename>doc</filename> pracovní kopie TortoiseSVN by soubor <filename>.subwcrevignore</filename> obsahoval následující řádky: <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Nebo, za předpokladu, že soubor <filename>.subwcrevignore</filename> je v kořeni pracovní kopii získané z kmene, lze docílit stejného výsledku použitím vzoru<screen>\ndoc\ndoc/*\n</screen>"
+
+#. (para)
+msgid ""
+"To ignore all images, the ignore patterns could be set like this: <screen>\n"
 "*.png\n"
 "*.jpg\n"
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr "Abyste zabránili konkrétním souborů a cestám být zpracovány v SubWCRev, můžete zadat vzory pro ignorování. Vzory jsou čteny ze souboru s názvem <filename>.subwcrevignore</filename>. Soubor je čten ze zadané cesty a také z kořene pracovní kopie. Pokud soubor neexistuje, nedochází k žádnému ignorování. Soubor <filename>.subwcrevignore</filename> obsahuje mnoho vzorů, oddělených novým řádkem. Vzory jsou porovnávány s cestami  relativně ke kořeni úložiště. Například pro ignorování všech souborů ve složce <filename>doc</filename> pracovní kopie TortoiseSVN by soubor <filename>.subwcrevignore</filename> obsahoval následující řádky: <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Pro ignorování všech obrázků by vzory byly nastaveny takto: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
+msgstr "Pro ignorování všech obrázků by vzory byly nastaveny takto: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
