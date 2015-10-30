@@ -165,8 +165,8 @@ protected:
     BOOL        IsMisspelled(const CString& sWord);
     DWORD       GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
     bool        IsUrl(const CStringA& sText);
-    CStringA    GetWordForSpellCkecker(const CString& sWord);
-    CString     GetWordFromSpellCkecker(const CStringA& sWordA);
+    CStringA    GetWordForSpellChecker(const CString& sWord);
+    CString     GetWordFromSpellChecker(const CStringA& sWordA);
 
     afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
     afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
