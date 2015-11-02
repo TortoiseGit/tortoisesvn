@@ -34,7 +34,8 @@ bool AddCommand::Execute()
     {
         SVN svn;
         ProjectProperties props;
-        props.ReadPropsPathList(pathList);
+        if (!props.ReadPropsPathList(pathList))
+            props.ReadProps(pathList.GetCommonRoot());
         bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, true, false, true);
         CShellUpdater::Instance().AddPathsForUpdate(pathList);
     }
@@ -89,7 +90,8 @@ bool AddCommand::Execute()
 
             SVN svn;
             ProjectProperties props;
-            props.ReadPropsPathList(pathList);
+            if (!props.ReadPropsPathList(pathList))
+                props.ReadProps(pathList.GetCommonRoot());
             bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, true, false, true);
             if (!bRet)
             {
@@ -115,7 +117,8 @@ bool AddCommand::Execute()
                 progDlg.SetAutoClose (parser);
                 progDlg.SetPathList(dlg.m_pathList);
                 ProjectProperties props;
-                props.ReadPropsPathList(dlg.m_pathList);
+                if (!props.ReadPropsPathList(dlg.m_pathList))
+                    props.ReadProps(dlg.m_pathList.GetCommonRoot());
                 progDlg.SetProjectProperties(props);
                 progDlg.SetItemCount(dlg.m_pathList.GetCount());
                 progDlg.DoModal();
