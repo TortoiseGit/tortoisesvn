@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -271,6 +271,10 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
     }
 
     m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
+    // copy the conflicted file to the merged file, just in case the user does not
+    // really solve the conflict and save the changes, and then click the "Resolved" button anyway.
+    CopyFile(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath), m_mergedfile, FALSE);
+
     CAppUtils::MergeFlags flags;
     flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
     flags.bReadOnly = true;
