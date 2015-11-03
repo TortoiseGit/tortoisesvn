@@ -1898,7 +1898,7 @@ void CLogDlg::LogThread()
             if (m_bMonitoringMode && m_revUnread)
             {
                 // in monitoring mode, select the first _unread_ revision
-                for (; selIndex < m_logEntries.size(); ++selIndex)
+                for (; selIndex < (int)m_logEntries.size(); ++selIndex)
                 {
                     if (m_logEntries.GetVisible(selIndex)->GetRevision() < m_revUnread)
                         break;
