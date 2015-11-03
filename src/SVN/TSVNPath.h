@@ -338,6 +338,7 @@ public:
     CString CreateAsteriskSeparatedString() const;
 
     int GetCount() const;
+    bool IsEmpty() const { return m_paths.empty(); }
     void Clear();
     CTSVNPath& operator[](INT_PTR index);
     const CTSVNPath& operator[](INT_PTR index) const;
