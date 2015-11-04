@@ -12,23 +12,41 @@
         (function() {
             "use strict";
 
-            function loadBadgeIframe() {
-                var el = document.createElement("iframe");
-                el.setAttribute("src", "https://www.openhub.net/p/tortoisesvn/widgets/project_users?style=blue");
-                el.scrolling = "no";
-                el.frameborder = "0";
-                el.style.border = "none";
-                el.style.width = "95px";
-                el.style.height = "115px";
-                document.getElementById("iframe-badge").appendChild(el);
+            (function() {
+
+                var docEl = document.documentElement;
+                var classRE = new RegExp("(^|\\s)no-js(\\s|$)");
+                var className = docEl.className;
+
+                docEl.className = className.replace(classRE, "$1js$2");
+            })();
+
+            function loadOnLoad() {
+
+                var iframeEl = document.createElement("iframe");
+                iframeEl.setAttribute("src", "https://www.openhub.net/p/tortoisesvn/widgets/project_users?style=blue");
+                iframeEl.scrolling = "no";
+                iframeEl.frameborder = "0";
+                iframeEl.style.border = "none";
+                iframeEl.style.width = "95px";
+                iframeEl.style.height = "115px";
+                document.getElementById("iframe-badge").appendChild(iframeEl);
+
+                var imgDefer = document.getElementsByTagName("img");
+                for (var i = 0; i < imgDefer.length; i++) {
+                    if (imgDefer[i].getAttribute("data-src")) {
+                        imgDefer[i].setAttribute("src", imgDefer[i].getAttribute("data-src"));
+                    }
+                }
+
             }
 
             if (window.addEventListener) {
-                window.addEventListener("load", loadBadgeIframe, false);
+                window.addEventListener("load", loadOnLoad, false);
             } else if (window.attachEvent) {
-                window.attachEvent("onload", loadBadgeIframe);
+                window.attachEvent("onload", loadOnLoad);
             } else {
-                window.onload = loadBadgeIframe;
+                window.onload = loadOnLoad;
             }
 
         }());

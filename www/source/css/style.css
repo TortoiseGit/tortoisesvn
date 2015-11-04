@@ -471,6 +471,10 @@ a.fancybox,
     text-align: left;
 }
 
+.no-js .defer {
+    display: none;
+}
+
 /* clearfix and list-unstyled taken from Bootstrap */
 .clearfix:before,
 .clearfix:after {

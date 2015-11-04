@@ -67,7 +67,10 @@ module.exports = function(grunt) {
         uncss: {
             options: {
                 htmlroot: '<%= dirs.dest %>',
-                ignore: [/(#|\.)fancybox(\-[a-zA-Z]+)?/],
+                ignore: [
+                    /(#|\.)fancybox(\-[a-zA-Z]+)?/,
+                    /\.no\-js/
+                ],
                 ignoreSheets: [/fonts.googleapis/, /www.google.com/],
                 stylesheets: ['css/pack.css']
             },
