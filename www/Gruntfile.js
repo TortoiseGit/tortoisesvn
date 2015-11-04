@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                     {dest: '<%= dirs.dest %>/', src: '.htaccess', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: 'files/**', expand: true, cwd: '<%= dirs.src %>/'},
                     {dest: '<%= dirs.dest %>/', src: ['img/**', '!**/_old/**', '!**/flags/**'], expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: ['js/*.min.js', 'js/prettify/**'], expand: true, cwd: '<%= dirs.src %>/'}
+                    {dest: '<%= dirs.dest %>/', src: ['js/*.min.js', 'js/vendor/prettify/**'], expand: true, cwd: '<%= dirs.src %>/'}
                 ]
             }
         },
@@ -45,22 +45,30 @@ module.exports = function(grunt) {
 
         concat: {
             prettify: {
-                src: '<%= dirs.src %>/css/prettify.css',
-                dest: '<%= dirs.dest %>/css/prettify.min.css'
+                src: '<%= dirs.src %>/css/vendor/prettify.css',
+                dest: '<%= dirs.dest %>/css/vendor/prettify.min.css'
             },
             core: {
-                src: ['<%= dirs.src %>/css/normalize.css',
-                      '<%= dirs.src %>/css/jquery.fancybox.css',
+                src: ['<%= dirs.src %>/css/vendor/normalize.css',
+                      '<%= dirs.src %>/css/vendor/jquery.fancybox.css',
                       '<%= dirs.src %>/css/flags-sprite.css',
                       '<%= dirs.src %>/css/style.css'
                 ],
                 dest: '<%= dirs.dest %>/css/pack.css'
             },
+            main: {
+              src: ['<%= dirs.src %>/js/img-defer.js',
+                    '<%= dirs.src %>/js/no-js-class.js',
+                    '<%= dirs.src %>/js/google-analytics.js'
+              ],
+              dest: '<%= dirs.dest %>/js/main.js'
+            },
             js: {
-                src: ['<%= dirs.src %>/js/jquery.mousewheel.js',
-                      '<%= dirs.src %>/js/jquery.fancybox.js'
+                src: ['<%= dirs.src %>/js/vendor/jquery.mousewheel.js',
+                      '<%= dirs.src %>/js/vendor/jquery.fancybox.js',
+                      '<%= dirs.src %>/js/fancybox-init.js'
                 ],
-                dest: '<%= dirs.dest %>/js/pack.js'
+                dest: '<%= dirs.dest %>/js/fancybox.js'
             }
         },
 
@@ -105,7 +113,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    '<%= concat.js.dest %>': '<%= concat.js.dest %>'
+                    '<%= concat.js.dest %>': '<%= concat.js.dest %>',
+                    '<%= concat.main.dest %>': '<%= concat.main.dest %>'
                 }
             }
         },
@@ -133,8 +142,8 @@ module.exports = function(grunt) {
             js: {
                 src: [
                     '<%= dirs.dest %>/js/**/{,*/}*.js',
-                    '!<%= dirs.dest %>/js/jquery*.min.js',
-                    '!<%= dirs.dest %>/js/prettify/lang-*.js'
+                    '!<%= dirs.dest %>/js/vendor/jquery*.min.js',
+                    '!<%= dirs.dest %>/js/vendor/prettify/lang-*.js'
                 ]
             },
             images: {
@@ -210,7 +219,11 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             },
             grunt: {
-                src: 'Gruntfile.js'
+                src: [
+                    'Gruntfile.js',
+                    '<%= dirs.src %>/js/*.js',
+                    '!<%= dirs.src %>/js/google-analytics.js'
+                ]
             }
         },
 
