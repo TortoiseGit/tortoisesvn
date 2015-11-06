@@ -189,6 +189,13 @@ bool DropVendorCommand::Execute()
             }
         }
     }
+    if (pathList.GetCount() > 1)
+    {
+        // remove the source paths from the list:
+        // they're definitely not missing
+        for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
+            versionedFiles.erase(pathList[nPath].GetWinPathString().Mid(rootlen));
+    }
 
     // now go through all files still in the versionedFiles map
     progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_VENDORDROP_REMOVE)));
