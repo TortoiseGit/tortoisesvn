@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -132,9 +132,14 @@ void CLogFile::TrimFile (DWORD maxLines)
         unsigned char* begin = file.GetWritableBuffer();
         unsigned char* end = begin + file.GetSize();
 
+        if (begin <= (end - 2))
+            return;
+
         unsigned char* trimPos = begin;
         for (unsigned char* s = end; s != begin; --s)
-            if (*(s-1) == '\n')
+        {
+            if (*(s - 1) == '\n')
+            {
                 if (maxLines == 0)
                 {
                     trimPos = s;
@@ -142,6 +147,8 @@ void CLogFile::TrimFile (DWORD maxLines)
                 }
                 else
                     --maxLines;
+            }
+        }
 
         // need to remove lines from the beginning of the file?
 
