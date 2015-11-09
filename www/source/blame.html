@@ -1,46 +1,41 @@
-@@include("_includes/header.html", {
-    "title": "TortoiseBlame - who changed which line, when and why?",
-    "metaKeywords": "TortoiseBlame, annotate, blame"
-})
-<body>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: TortoiseBlame - who changed which line, when and why?
+keywords: TortoiseBlame, annotate, blame
+lang: en
+useFancybox: true
+---
 
-            <div class="post">
-                <h2 class="title">TortoiseBlame - who changed which line, when and why?</h2>
-                <div class="entry">
-                    <h2>TortoiseBlame</h2>
-                    <p>
-                        Sometimes you need to know why a part of your files is the way it
-                        is, who made that particular change and why. Or in other words:
-                        "Who the h*** put that command there?".
-                    </p>
-                    <p>
-                        Subversion has a command for this, and it is called <em>blame</em>
-                        (guess why). Subversion creates a blame of a file by adding information
-                        about the author who committed a line, the revision the line was last
-                        changed and the date.
-                    </p>
-                    <p>
-                        TortoiseSVN has its own tool to show you those blames. In addition to
-                        the information other Subversion clients show, it also shows you
-                        the log message of the commit for each line inside a little tooltip
-                        window when you hover the mousepointer over a line.
-                    </p>
-                    <a href="/img/Blame.png" class="fancybox" data-fancybox-group="features" title="Blame">
-                        <img src="/img/Blame-small.png" alt="Blame" width="365" height="235">
-                    </a>
-                    <p>
-                        To make it easier to follow a specific revision (which lines exactly
-                        were changed in a commit), it colors lines from the same revision
-                        differently. Also a separate color is used for the author of the
-                        currently selected line.
-                    </p>
-                </div>
-            </div>
-        </div> <!-- .content -->
 
-    @@include("_includes/footer-fancybox.html")
+<div class="post">
+    <h2 class="title">TortoiseBlame - who changed which line, when and why?</h2>
+    <div class="entry">
+        <h2>TortoiseBlame</h2>
+        <p>
+            Sometimes you need to know why a part of your files is the way it
+            is, who made that particular change and why. Or in other words:
+            "Who the h*** put that command there?".
+        </p>
+        <p>
+            Subversion has a command for this, and it is called <em>blame</em>
+            (guess why). Subversion creates a blame of a file by adding information
+            about the author who committed a line, the revision the line was last
+            changed and the date.
+        </p>
+        <p>
+            TortoiseSVN has its own tool to show you those blames. In addition to
+            the information other Subversion clients show, it also shows you
+            the log message of the commit for each line inside a little tooltip
+            window when you hover the mousepointer over a line.
+        </p>
+        <a href="/assets/img/Blame.png" class="fancybox" data-fancybox-group="features" title="Blame">
+            <img src="/assets/img/Blame-small.png" alt="Blame" width="365" height="235">
+        </a>
+        <p>
+            To make it easier to follow a specific revision (which lines exactly
+            were changed in a commit), it colors lines from the same revision
+            differently. Also a separate color is used for the author of the
+            currently selected line.
+        </p>
+    </div>
+</div>

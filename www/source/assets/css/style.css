@@ -210,18 +210,24 @@ kbd kbd {
     padding: 10px;
 }
 
-/* Search */
+/* Language selector */
+.langselection {
+    display: block;
+    float: right;
+    padding: 0.7em;
+    text-align: right;
+}
+
 .langselection li {
     display: inline;
     list-style-type: none;
     padding-right: 0.3em;
 }
 
-.langselection {
-    display: block;
-    float: right;
-    padding: 0.7em;
-    text-align: right;
+.en:lang(en),
+.de:lang(de),
+.zh:lang(zh) {
+    font-weight: bold;
 }
 
 /* Menu */
@@ -516,4 +522,10 @@ a[href ^= "mailto"]:after {
 /* all `a` tags whose `href` attribute includes `.pdf` */
 a[href *= ".pdf"]:after {
     background-image: url("../img/icon_pdf.png");
+}
+
+
+/* overwrite normalize's reset for this specific case */
+figure.highlight {
+    margin: 0;
 }

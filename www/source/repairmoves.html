@@ -1,56 +1,47 @@
-@@include("_includes/header.html", {
-    "title": "Repair moves/renames",
-    "metaDescription": "How to repair moves and renames done without the SVN command",
-    "metaKeywords": "repair, moves, renames"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/repairmoves.html">EN</a></li>
-    <li><a href="/repairmoves.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Repair moves/renames
+id: repair-moves
+description: How to repair moves and renames done without the SVN command
+keywords: repair, moves, renames
+lang: en
+---
 
-            <div class="post">
-                <h1 class="title">Repair moves/renames</h1>
-                <div class="entry">
-                    <p>Moving and renaming versioned files inside a working copy
-                    must always be done with the corresponding
-                    Subversion/TortoiseSVN commands. A move/rename without
-                    those (e.g., with the Windows Explorer) leads to problems
-                    since Subversion doesn't know that you have moved/renamed
-                    the files.</p>
-                    <p>For example, if you rename a file named <em>myfile.txt</em>
-                    to <em>myfile2.txt</em> without using the Subversion/TortoiseSVN
-                    command, <em>myfile.txt</em> will show up as "missing" and
-                    <em>myfile2.txt</em> as "non-versioned" in the commit
-                    dialog or the Check-For-Modifications dialog.</p>
 
-                    <p>If that happens to you, TortoiseSVN offers you an easy
-                    way to correct this. The following screenshot shows how
-                    the file <em>TSVN-Support.ods</em> was renamed to
-                    <em>TortoiseSVN-Support.ods</em> without the proper
-                    commands. They show up in the commit dialog as "missing"
-                    and "non-versioned". In the commit (or the
-                    Check-For-Modifications) dialog, you can select both
-                    files <kbd>Ctrl+click</kbd>, right-click and choose "Repair move"
-                    from the context menu:</p>
+<div class="post">
+    <h1 class="title">Repair moves/renames</h1>
+    <div class="entry">
+        <p>Moving and renaming versioned files inside a working copy
+        must always be done with the corresponding
+        Subversion/TortoiseSVN commands. A move/rename without
+        those (e.g., with the Windows Explorer) leads to problems
+        since Subversion doesn't know that you have moved/renamed
+        the files.</p>
+        <p>For example, if you rename a file named <em>myfile.txt</em>
+        to <em>myfile2.txt</em> without using the Subversion/TortoiseSVN
+        command, <em>myfile.txt</em> will show up as "missing" and
+        <em>myfile2.txt</em> as "non-versioned" in the commit
+        dialog or the Check-For-Modifications dialog.</p>
 
-                    <p><img src="/img/repairmove.png" alt="Repair Move"></p>
+        <p>If that happens to you, TortoiseSVN offers you an easy
+        way to correct this. The following screenshot shows how
+        the file <em>TSVN-Support.ods</em> was renamed to
+        <em>TortoiseSVN-Support.ods</em> without the proper
+        commands. They show up in the commit dialog as "missing"
+        and "non-versioned". In the commit (or the
+        Check-For-Modifications) dialog, you can select both
+        files <kbd>Ctrl+click</kbd>, right-click and choose "Repair move"
+        from the context menu:</p>
 
-                    <p>The "Repair move" command only works if exactly two files
-                    are selected, one having the "missing" and the other the
-                    "non-versioned" status. Only that way TortoiseSVN can find
-                    out which file got renamed to which file. By executing the
-                    command, TortoiseSVN repeats the rename but using the proper
-                    Subversion move/rename command:</p>
+        <p><img src="/assets/img/repairmove.png" alt="Repair Move"></p>
 
-                    <p><img src="/img/repairmove2.png" alt="After Repair Move"></p>
-                </div>
-            </div>
-        </div> <!-- .content -->
+        <p>The "Repair move" command only works if exactly two files
+        are selected, one having the "missing" and the other the
+        "non-versioned" status. Only that way TortoiseSVN can find
+        out which file got renamed to which file. By executing the
+        command, TortoiseSVN repeats the rename but using the proper
+        Subversion move/rename command:</p>
 
-    @@include("_includes/footer.html")
+        <p><img src="/assets/img/repairmove2.png" alt="After Repair Move"></p>
+    </div>
+</div>

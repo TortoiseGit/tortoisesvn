@@ -1,38 +1,23 @@
-@@include("_includes/header.html", {
-    "title": "404",
-    "metaKeywords": "error, 404"
-})
-<body>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
-
-            <div class="post">
-                <h1 class="title">404 - Page Not Found</h1>
-                <div class="entry">
-                <p>
-                    The page you requested doesn't exist on this server. Maybe it was moved to another place.
-                </p>
-                <p>
-                    You can search for the information you want using the search button below.
-                </p>
-                <div class="gcse-searchbox-only"></div>
-                </div>
-            </div>
-        </div> <!-- .content -->
+---
+layout: default
+title: 404
+description: 404
+keywords: error, 404
+lang: en
+sitemap: false
+includeGCSE: true
+---
 
 
-    <script>
-        (function() {
-            var cx = 'partner-pub-0430507460695576:j0zyjq-56po';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
-                '//www.google.com/cse/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-        })();
-    </script>
-    @@include("_includes/footer.html")
+<div class="post">
+    <h1 class="title">404 - Page Not Found</h1>
+    <div class="entry">
+        <p>
+            The page you requested doesn't exist on this server. Maybe it was moved to another place.
+        </p>
+        <p>
+            You can search for the information you want using the search button below.
+        </p>
+        <div class="gcse-searchbox-only"></div>
+    </div>
+</div>

@@ -1,37 +1,31 @@
-@@include("_includes/header.html", {
-    "title": "Shift-Diff",
-    "metaDescription": "switch between configured diff tools",
-    "metaKeywords": "tip"
-})
-<body>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Shift-Diff
+description: switch between configured diff tools
+keywords: tip
+lang: en
+---
 
-            <div class="post">
-                <h1 class="title">Shift-Diff</h1>
-                <div class="entry">
-                    <p>TortoiseSVN allows you to specify your own tool for
-                    showing diffs and/or merges. For example, a lot of people
-                    prefer <a href="http://winmerge.org/">WinMerge</a> over
-                    <a href="http://tortoisesvn.tigris.org/TortoiseMerge.html">TortoiseMerge</a> (
-                    even though I can't see why :-) ).</p>
 
-                    <p>But sometimes you might want to prefer TortoiseMerge
-                    over your custom diff tool. Changing the settings would be
-                    way too complicated to just use TortoiseMerge once, for
-                    this particular situation.</p>
-                    <p>TortoiseSVN allows you to use TortoiseMerge easily,
-                    without changing your custom diff tool setup: just hold
-                    down the <kbd>Shift</kbd> key when you click on the context menu to
-                    do the diff. If the <kbd>Shift</kbd> key is pressed when doing a diff,
-                    TortoiseSVN always uses TortoiseMerge. If the <kbd>Shift</kbd> key is
-                    not pressed, the diff/merge tool specified in your settings
-                    is used.</p>
-                </div>
-            </div>
-        </div> <!-- .content -->
+<div class="post">
+    <h1 class="title">Shift-Diff</h1>
+    <div class="entry">
+        <p>TortoiseSVN allows you to specify your own tool for
+        showing diffs and/or merges. For example, a lot of people
+        prefer <a href="http://winmerge.org/">WinMerge</a> over
+        <a href="http://tortoisesvn.tigris.org/TortoiseMerge.html">TortoiseMerge</a> (
+        even though I can't see why :-) ).</p>
 
-    @@include("_includes/footer.html")
+        <p>But sometimes you might want to prefer TortoiseMerge
+        over your custom diff tool. Changing the settings would be
+        way too complicated to just use TortoiseMerge once, for
+        this particular situation.</p>
+        <p>TortoiseSVN allows you to use TortoiseMerge easily,
+        without changing your custom diff tool setup: just hold
+        down the <kbd>Shift</kbd> key when you click on the context menu to
+        do the diff. If the <kbd>Shift</kbd> key is pressed when doing a diff,
+        TortoiseSVN always uses TortoiseMerge. If the <kbd>Shift</kbd> key is
+        not pressed, the diff/merge tool specified in your settings
+        is used.</p>
+    </div>
+</div>

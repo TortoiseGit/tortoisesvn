@@ -1,48 +1,42 @@
-@@include("_includes/header.html", {
-    "title": "Translation",
-    "metaKeywords": "translations"
-})
-<body>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Translation
+lang: en
+showAds: true
+---
 
-            <div class="post">
-                <h1 class="title">Translation</h1>
-@@include("_includes/adsense_inpage.html")
-                <div class="entry">
-                    <p>Would you like to translate TortoiseSVN into your native language?</p>
 
-                    <p>To check the currently available languages, take a look at our
-                    <a href="https://www.transifex.com/projects/p/tortoisesvn">Translation status page</a>. Maybe your language
-                    already exists and is ready for use or needs just a little improvement.
-                    </p>
-                    <p>
-                    A while ago we decided to move to a web based translation platform at
-                    <a href="https://transifex.com">transifex.com</a>. We think this makes it easier
-                    for new translators to get started. If you want to help to translate TortoiseSVN,
-                    please register an account at <a href="https://transifex.com">transifex.com</a>, then
-                    request membership of one of our
-                    <a href="https://www.transifex.com/projects/p/tortoisesvn">translation teams</a>
-                    or request to create a new team, if your language is not yet listed.
-                    </p>
-                    <p>
-                    We will run some sanity checks on it and commit it into our repository.
-                    From that moment on, an installer for your language will be available in the
-                    nightly development builds for testing. It'll become part of the next official
-                    release. We will also put your name on the <a href="/translator_credits.html">list of contributors</a>.
-                    </p>
-                    <p>
-                    Now go ahead and <a href="/downloads.html">download</a> your favourite language pack.
-                    </p>
-                    <hr/>
-                    <a href="/translator_credits.html">Supported Languages &amp; Credits</a>
-                </div>
-            </div>
-        </div> <!-- .content -->
+<div class="post">
+    <h1 class="title">Translation</h1>
 
-    @@include("_includes/footer.html", {
-        "bottomHtml": "<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>"
-    })
+    {% include adsense_inpage.html %}
+
+    <div class="entry">
+        <p>Would you like to translate TortoiseSVN into your native language?</p>
+
+        <p>To check the currently available languages, take a look at our
+        <a href="https://www.transifex.com/projects/p/tortoisesvn">Translation status page</a>. Maybe your language
+        already exists and is ready for use or needs just a little improvement.
+        </p>
+        <p>
+        A while ago we decided to move to a web based translation platform at
+        <a href="https://transifex.com">transifex.com</a>. We think this makes it easier
+        for new translators to get started. If you want to help to translate TortoiseSVN,
+        please register an account at <a href="https://transifex.com">transifex.com</a>, then
+        request membership of one of our
+        <a href="https://www.transifex.com/projects/p/tortoisesvn">translation teams</a>
+        or request to create a new team, if your language is not yet listed.
+        </p>
+        <p>
+        We will run some sanity checks on it and commit it into our repository.
+        From that moment on, an installer for your language will be available in the
+        nightly development builds for testing. It'll become part of the next official
+        release. We will also put your name on the <a href="/translator_credits.html">list of contributors</a>.
+        </p>
+        <p>
+        Now go ahead and <a href="/downloads.html">download</a> your favourite language pack.
+        </p>
+        <hr/>
+        <a href="/translator_credits.html">Supported Languages &amp; Credits</a>
+    </div>
+</div>

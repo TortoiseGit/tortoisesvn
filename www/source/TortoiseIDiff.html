@@ -1,37 +1,31 @@
-@@include("_includes/header.html", {
-    "title": "TortoiseIDiff",
-    "metaKeywords": "TortoiseIDiff"
-})
-<body>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: TortoiseIDiff
+lang: en
+useFancybox: true
+---
 
-            <div class="post">
-                <h2 class="title">TortoiseIDiff</h2>
-                <div class="entry">
-                    <p>
-                        Depending on your project, not all files which are under version
-                        control are text files. Most likely you will have images too, for
-                        example screenshots and diagrams for the documentation/helpfile.
-                    </p>
-                    <p>
-                        For those files it's not possible to use a common file diff tool,
-                        because they only work with text files and diff line-by-line.
-                        Here is where the Tortoise Image Diff tool (TortoiseIDiff) comes
-                        to the rescue. It can show two images side-by-side, or even
-                        show the images over each other alpha blended.
-                    </p>
-                    <a href="/img/TortoiseIDiffTwo.png" class="fancybox" data-fancybox-group="idiff" title="TortoiseIDiffTwo">
-                        <img src="/img/TortoiseIDiffTwo-small.png" alt="TortoiseIDiffTwo" width="381" height="221">
-                    </a>
-                    <a href="/img/TortoiseIDiffOne.png" class="fancybox" data-fancybox-group="idiff" title="TortoiseIDiffOne">
-                        <img src="/img/TortoiseIDiffOne-small.png" alt="TortoiseIDiffOne" width="324" height="309">
-                    </a>
-                </div>
-            </div>
-        </div> <!-- .content -->
 
-    @@include("_includes/footer-fancybox.html")
+<div class="post">
+    <h2 class="title">TortoiseIDiff</h2>
+    <div class="entry">
+        <p>
+            Depending on your project, not all files which are under version
+            control are text files. Most likely you will have images too, for
+            example screenshots and diagrams for the documentation/helpfile.
+        </p>
+        <p>
+            For those files it's not possible to use a common file diff tool,
+            because they only work with text files and diff line-by-line.
+            Here is where the Tortoise Image Diff tool (TortoiseIDiff) comes
+            to the rescue. It can show two images side-by-side, or even
+            show the images over each other alpha blended.
+        </p>
+        <a href="/assets/img/TortoiseIDiffTwo.png" class="fancybox" data-fancybox-group="idiff" title="TortoiseIDiffTwo">
+            <img src="/assets/img/TortoiseIDiffTwo-small.png" alt="TortoiseIDiffTwo" width="381" height="221">
+        </a>
+        <a href="/assets/img/TortoiseIDiffOne.png" class="fancybox" data-fancybox-group="idiff" title="TortoiseIDiffOne">
+            <img src="/assets/img/TortoiseIDiffOne-small.png" alt="TortoiseIDiffOne" width="324" height="309">
+        </a>
+    </div>
+</div>

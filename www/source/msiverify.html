@@ -1,49 +1,41 @@
-@@include("_includes/header.html", {
-    "title": "Verify the MSI signature",
-    "metaDescription": "how to verify the signatures",
-    "metaKeywords": "verify, signature"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/msiverify.html">EN</a></li>
-    <li><a href="/msiverify.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Verify the MSI signature
+id: msi-verify
+description: how to verify the signatures
+keywords: verify, signature
+lang: en
+useFancybox: true
+---
 
-            <div class="post">
-                <h1 class="title">Verify the MSI signature</h1>
-                <div class="entry">
-                    <p>Since the TortoiseSVN MSI installer files are hosted on
-                    many <a href="https://sourceforge.net">SourceForge</a>
-                    mirrors, we can't guarantee that they are not modified or
-                    corrupted when you download them.</p>
-                    <p>To verify that the files have not been tempered with,
-                    you can verify the signature of the files yourself. All
-                    files of TortoiseSVN are digitally signed
-                    (since version 1.6.3).</p>
-                    <p>After downloading the files, right-click on the files
-                    and choose "Properties" from the explorer context menu.
-                    In the properties dialog, go to the "signatures" tab and
-                    verify that the file is signed by "Stefan Küng" and that
-                    the signature is valid. If you don't see the "signatures"
-                    tab, you don't have a good file!</p>
-                    <a href="/img/propertiessignature.png" class="fancybox" data-fancybox-group="signature" title="propertiessignature">
-                        <img src="/img/propertiessignature-small.png" alt="propertiessignature" width="289" height="287">
-                    </a>
 
-                    <p>Windows also verifies the signature during installation.
-                    If the prompt dialog does not say that the signature is
-                    valid, cancel the installation and download the file
-                    again!</p>
-                    <a href="/img/InstallUAC.png" class="fancybox" data-fancybox-group="signature" title="InstallUAC">
-                        <img src="/img/InstallUAC-small.png" alt="InstallUAC" width="254" height="198">
-                    </a>
-                </div>
-            </div>
-        </div> <!-- .content -->
+<div class="post">
+    <h1 class="title">Verify the MSI signature</h1>
+    <div class="entry">
+        <p>Since the TortoiseSVN MSI installer files are hosted on
+        many <a href="https://sourceforge.net">SourceForge</a>
+        mirrors, we can't guarantee that they are not modified or
+        corrupted when you download them.</p>
+        <p>To verify that the files have not been tempered with,
+        you can verify the signature of the files yourself. All
+        files of TortoiseSVN are digitally signed
+        (since version 1.6.3).</p>
+        <p>After downloading the files, right-click on the files
+        and choose "Properties" from the explorer context menu.
+        In the properties dialog, go to the "signatures" tab and
+        verify that the file is signed by "Stefan Küng" and that
+        the signature is valid. If you don't see the "signatures"
+        tab, you don't have a good file!</p>
+        <a href="/assets/img/propertiessignature.png" class="fancybox" data-fancybox-group="signature" title="propertiessignature">
+            <img src="/assets/img/propertiessignature-small.png" alt="propertiessignature" width="289" height="287">
+        </a>
 
-    @@include("_includes/footer-fancybox.html")
+        <p>Windows also verifies the signature during installation.
+        If the prompt dialog does not say that the signature is
+        valid, cancel the installation and download the file
+        again!</p>
+        <a href="/assets/img/InstallUAC.png" class="fancybox" data-fancybox-group="signature" title="InstallUAC">
+            <img src="/assets/img/InstallUAC-small.png" alt="InstallUAC" width="254" height="198">
+        </a>
+    </div>
+</div>

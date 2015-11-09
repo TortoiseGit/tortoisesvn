@@ -1,73 +1,64 @@
-@@include("_includes/header.de.html", {
-    "title": "Erweitertes Kontextmenu",
-    "metaDescription": "Das erweiterte Kontextmenu im Explorer",
-    "metaKeywords": "Kontextmenu, erweitert"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/extendedcontextmenu.html">EN</a></li>
-    <li><a href="/extendedcontextmenu.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.de.html")
-    @@include("_includes/sidebar.de.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Erweitertes Kontextmenu
+id: extended-context-menu
+description: Das erweiterte Kontextmenu im Explorer
+keywords: Kontextmenu, erweitert
+lang: de
+---
 
-            <div class="post">
-                <h1 class="title">Erweitertes Kontextmenu</h1>
-                <div class="entry">
-                    <p>Viele Leute wissen nicht, dass der Windows Explorer
-                    ein erweitertes Kontextmenu anzeigt wenn der <em>Shift Button</em>
-                    gedrückt wird beim Rechtsklick.
-                    <br/>
-                    Der folgende Screenshot zeigt den Unterschied zwischen
-                    dem normalen und dem erweiterten Kontextmenu. Das erste
-                    Bild zeigt das normale Kontextmenu, das zweite Bild
-                    das Erweiterte.</p>
 
-                    <div class="centered">
-                        <img src="/img/VistaPlainMenu.png" alt="VistaPlainMenu" width="269" height="335">
-                        <img src="/img/VistaExtendedMenu.png" alt="VistaExtendedMenu" width="270" height="379">
-                    </div>
+<div class="post">
+    <h1 class="title">Erweitertes Kontextmenu</h1>
+    <div class="entry">
+        <p>Viele Leute wissen nicht, dass der Windows Explorer
+        ein erweitertes Kontextmenu anzeigt wenn der <em>Shift Button</em>
+        gedrückt wird beim Rechtsklick.
+        <br/>
+        Der folgende Screenshot zeigt den Unterschied zwischen
+        dem normalen und dem erweiterten Kontextmenu. Das erste
+        Bild zeigt das normale Kontextmenu, das zweite Bild
+        das Erweiterte.</p>
 
-                    <p>Wie leicht zu erkennen ist zeigt das erweiterte
-                    Kontextmenu den zusätzlichen Befehl <em>Öffne Console</em>
-                    welcher eine Konsole im ausgewählten Verzeichnis öffnet, und
-                    den Befehl <em>Kopiere Pfad</em> welcher den ausgewählten
-                    Pfad als Text in die Zwischenablage kopiert.</p>
-                    <p>Das erweiterte Menu erscheint jedoch nur bei einem
-                    Rechtsklick im rechten Listview, nicht links im Verzeichnisbaum.
-                    Zumindest nicht unter XP oder Vista - unter Windows 7 wird
-                    das erweiterte Kontextmenu auch im Verzeichnisbaum angezeigt.</p>
+        <div class="centered">
+            <img src="/assets/img/VistaPlainMenu.png" alt="VistaPlainMenu" width="269" height="335">
+            <img src="/assets/img/VistaExtendedMenu.png" alt="VistaExtendedMenu" width="270" height="379">
+        </div>
 
-                    <p>TortoiseSVN benutzt das erweiterte Kontextmenu selbst.
-                    Einige Befehle werden nur angezeigt, wenn der
-                    <em>Shift Button</em> gedrückt wird während dem Rechtsklick.
-                    Dies sind Befehle welche nicht sehr oft benötigt werden
-                    oder Befehle bei welchen der Benutzer genau wissen muss,
-                    was <em>die Konsequenzen</em> des Befehls sind, was voraussetzt
-                    dass die <a href="/support.de.html">Dokumentation</a> gelesen
-                    wurde.</p>
+        <p>Wie leicht zu erkennen ist zeigt das erweiterte
+        Kontextmenu den zusätzlichen Befehl <em>Öffne Console</em>
+        welcher eine Konsole im ausgewählten Verzeichnis öffnet, und
+        den Befehl <em>Kopiere Pfad</em> welcher den ausgewählten
+        Pfad als Text in die Zwischenablage kopiert.</p>
+        <p>Das erweiterte Menu erscheint jedoch nur bei einem
+        Rechtsklick im rechten Listview, nicht links im Verzeichnisbaum.
+        Zumindest nicht unter XP oder Vista - unter Windows 7 wird
+        das erweiterte Kontextmenu auch im Verzeichnisbaum angezeigt.</p>
 
-                    <p>Das Bild links zeigt das normale Kontextmenu von
-                    TortoiseSVN, das rechte Bild das erweiterte Kontextmenu.</p>
-                    <div class="centered">
-                        <img src="/img/TSVNNormalMenu.png" alt="TSVNNormalMenu" width="186" height="565">
-                        <img src="/img/TSVNExtendedMenu.png" alt="TSVNExtendedMenu" width="220" height="673">
-                    </div>
-                    <p>
-                    Die Befehle welche nur im erweiterten Kontextmenu angezeigt
-                    werden sind:
-                    "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-diff.html#tsvn-dug-diff-file"><em>Vergleich mit URL</em></a>",
-                    "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-rename.html#tsvn-dug-rename-delete"><em>Löschen (lokal erhalten)</em></a>",
-                    "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-rename.html#tsvn-dug-rename-del-unversioned"><em>Nicht versionierte Objekte &amp;löschen...</em></a>",
-                    "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-locking.html#tsvn-dug-locking-unlock"><em>Sperre aufbrechen</em></a>"
-                    und
-                    "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-merge.html#tsvn-dug-merge-all"><em>Wiedereingliedern...</em></a>".
-                    </p>
-                </div>
-            </div>
-        </div> <!-- .content -->
+        <p>TortoiseSVN benutzt das erweiterte Kontextmenu selbst.
+        Einige Befehle werden nur angezeigt, wenn der
+        <em>Shift Button</em> gedrückt wird während dem Rechtsklick.
+        Dies sind Befehle welche nicht sehr oft benötigt werden
+        oder Befehle bei welchen der Benutzer genau wissen muss,
+        was <em>die Konsequenzen</em> des Befehls sind, was voraussetzt
+        dass die <a href="/support.de.html">Dokumentation</a> gelesen
+        wurde.</p>
 
-    @@include("_includes/footer.html")
+        <p>Das Bild links zeigt das normale Kontextmenu von
+        TortoiseSVN, das rechte Bild das erweiterte Kontextmenu.</p>
+        <div class="centered">
+            <img src="/assets/img/TSVNNormalMenu.png" alt="TSVNNormalMenu" width="186" height="565">
+            <img src="/assets/img/TSVNExtendedMenu.png" alt="TSVNExtendedMenu" width="220" height="673">
+        </div>
+        <p>
+        Die Befehle welche nur im erweiterten Kontextmenu angezeigt
+        werden sind:
+        "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-diff.html#tsvn-dug-diff-file"><em>Vergleich mit URL</em></a>",
+        "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-rename.html#tsvn-dug-rename-delete"><em>Löschen (lokal erhalten)</em></a>",
+        "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-rename.html#tsvn-dug-rename-del-unversioned"><em>Nicht versionierte Objekte &amp;löschen...</em></a>",
+        "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-locking.html#tsvn-dug-locking-unlock"><em>Sperre aufbrechen</em></a>"
+        und
+        "<a href="/docs/release/TortoiseSVN_de/tsvn-dug-merge.html#tsvn-dug-merge-all"><em>Wiedereingliedern...</em></a>".
+        </p>
+    </div>
+</div>

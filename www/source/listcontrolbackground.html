@@ -1,62 +1,59 @@
-@@include("_includes/header.html", {
-    "title": "List control background images",
-    "metaDescription": "how to get background images to work with list controls",
-    "metaKeywords": "list control, background images",
-    "headHtml": "<link rel=\"stylesheet\" href=\"/css/vendor/prettify.min.css\">"
-})
-<body onload="prettyPrint()">
-<div class="wrapper">
-    @@include("_includes/menu.html")
-    @@include("_includes/sidebar.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: List control background images
+description: how to get background images to work with list controls
+keywords: list control, background images
+lang: en
+---
 
-            <div class="post">
-                <h1 class="title">List control background images</h1>
-                <p class="meta">Posted on January 21, 2007</p>
-                <div class="entry">
-                    <p>While the main focus of
-                    <a href="/">TortoiseSVN</a> lies on
-                    usability, sometimes I like to add something which doesn't
-                    really add a value but just looks nice.</p>
 
-                    <p>Last week I wanted to implement just that: something
-                    that looks nice but doesn't disturb the user. The Windows
-                    explorer shows a slightly visible image on the bottom right
-                    depending on what files are in the folder it currently
-                    shows. The image is barely visible like a watermark. I
-                    wanted to show such a watermark image in our main dialogs
-                    file list.</p>
+<div class="post">
+    <h1 class="title">List control background images</h1>
+    <p class="meta">Posted on January 21, 2007</p>
+    <div class="entry">
+        <p>While the main focus of
+        <a href="/">TortoiseSVN</a> lies on
+        usability, sometimes I like to add something which doesn't
+        really add a value but just looks nice.</p>
 
-                    <img class="img-centered" src="/img/explorer-watermark.png" alt="The watermark in Windows explorer">
+        <p>Last week I wanted to implement just that: something
+        that looks nice but doesn't disturb the user. The Windows
+        explorer shows a slightly visible image on the bottom right
+        depending on what files are in the folder it currently
+        shows. The image is barely visible like a watermark. I
+        wanted to show such a watermark image in our main dialogs
+        file list.</p>
 
-                    <p>The obvious step to get this done would be the
-                    <a href="http://msdn2.microsoft.com/en-gb/library/z16576bw(vs.80).aspx">SetBkImage</a>
-                    method of the <a href="http://msdn2.microsoft.com/en-gb/library/hfshke78(VS.80).aspx">CListCtrl</a>
-                    class, since that's the control we use to show the file
-                    list in our dialogs. So I called that method like this:</p>
-                    <pre class="prettyprint lang-cpp">
+        <img class="img-centered" src="/assets/img/explorer-watermark.png" alt="The watermark in Windows explorer">
+
+        <p>The obvious step to get this done would be the
+        <a href="http://msdn2.microsoft.com/en-gb/library/z16576bw(vs.80).aspx">SetBkImage</a>
+        method of the <a href="http://msdn2.microsoft.com/en-gb/library/hfshke78(VS.80).aspx">CListCtrl</a>
+        class, since that's the control we use to show the file
+        list in our dialogs. So I called that method like this:</p>
+{% highlight cpp %}
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
                         128, 128,
                         LR_DEFAULTCOLOR);
 
-m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);</pre>
-                    <p>
+m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);
+{% endhighlight %}
+        <p>
 
-                    But of course, that didn't work at all. No background image
-                    was shown. Stepping through the code of <code>SetBkImage</code>
-                    shows that it's simply a wrapper around the
-                    <a href="https://msdn.microsoft.com/library/en-us/shellcc/platform/commctls/listview/messages/lvm_setbkimage.asp">LVM_SETBKIMAGE</a>
-                    message. Reading the MSDN docs about that message reviled
-                    something that was missing completely from the
-                    documentation of <code>SetBkImage</code>: the parameter <code>hbm</code> of the
-                    <a href="https://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>
-                    structure is "not currently used". Just great. I then tried
-                    to use another option:</p>
+        But of course, that didn't work at all. No background image
+        was shown. Stepping through the code of <code>SetBkImage</code>
+        shows that it's simply a wrapper around the
+        <a href="https://msdn.microsoft.com/library/en-us/shellcc/platform/commctls/listview/messages/lvm_setbkimage.asp">LVM_SETBKIMAGE</a>
+        message. Reading the MSDN docs about that message reviled
+        something that was missing completely from the
+        documentation of <code>SetBkImage</code>: the parameter <code>hbm</code> of the
+        <a href="https://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>
+        structure is "not currently used". Just great. I then tried
+        to use another option:</p>
 
-                    <pre class="prettyprint lang-cpp">
+{% highlight cpp %}
 TCHAR szBuffer[MAX_PATH];
 VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
@@ -65,60 +62,62 @@ sPath.Format(_T("res://%s/#%d/#%d"),
              szBuffer, RT_BITMAP,
              IDB_BACKGROUND);
 
-m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
-                    <p>
+m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
+{% endhighlight %}
+        <p>
 
-                    And that actually worked. But for one, the image was drawn
-                    solid with all the transparent pixels of the image drawn
-                    black, and the image did not stay at the right bottom when
-                    the content of the control was scrolled. I neither could
-                    get the image drawn correctly with the alpha channel nor
-                    make the image stay at the right bottom, even with setting
-                    the image position in the scroll event handler. Obviously,
-                    I was on the wrong path here.</p>
+        And that actually worked. But for one, the image was drawn
+        solid with all the transparent pixels of the image drawn
+        black, and the image did not stay at the right bottom when
+        the content of the control was scrolled. I neither could
+        get the image drawn correctly with the alpha channel nor
+        make the image stay at the right bottom, even with setting
+        the image position in the scroll event handler. Obviously,
+        I was on the wrong path here.</p>
 
-                    <img class="img-centered" src="/img/first-try.png" alt="SetBkImage the obvious way">
+        <img class="img-centered" src="/assets/img/first-try.png" alt="SetBkImage the obvious way">
 
-                    <p>Next I tried to draw the image directly in the
-                    <a href="http://msdn2.microsoft.com/en-us/library/ms670610.aspx">NM_CUSTOMDRAW</a>
-                    handler of the list control. That worked really well,
-                    until I scrolled the list of files a little bit faster.
-                    That produced some ugly "leftovers" from the watermark
-                    image. Turns out the list control doesn't always redraw
-                    its background completely when scrolled, which is actually
-                    a good thing for performance, but of course bad for me and
-                    what I want to do.<br/>
-                    On a sidenote: the
-                    <a href="http://msdn2.microsoft.com/en-us/library/ms672574.aspx">CDRF_NOTIFYPOSTERASE</a>
-                    isn't used in the list control.</p>
+        <p>Next I tried to draw the image directly in the
+        <a href="http://msdn2.microsoft.com/en-us/library/ms670610.aspx">NM_CUSTOMDRAW</a>
+        handler of the list control. That worked really well,
+        until I scrolled the list of files a little bit faster.
+        That produced some ugly "leftovers" from the watermark
+        image. Turns out the list control doesn't always redraw
+        its background completely when scrolled, which is actually
+        a good thing for performance, but of course bad for me and
+        what I want to do.<br/>
+        On a sidenote: the
+        <a href="http://msdn2.microsoft.com/en-us/library/ms672574.aspx">CDRF_NOTIFYPOSTERASE</a>
+        isn't used in the list control.</p>
 
-                    <img class="img-centered" src="/img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler">
+        <img class="img-centered" src="/assets/img/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler">
 
-                    <p>But there must be a way, because Microsoft does it with
-                    the explorer, assuming of course they don't use some
-                    undocumented feature they like to keep to themselves.<br/>
-                    Sometimes it is usefull to read the header files from the
-                    SDK. In the file <em>commctrl.h</em> I found the following
-                    defines for use in the
-                    <a href="https://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>:
-                    </p>
+        <p>But there must be a way, because Microsoft does it with
+        the explorer, assuming of course they don't use some
+        undocumented feature they like to keep to themselves.<br/>
+        Sometimes it is usefull to read the header files from the
+        SDK. In the file <em>commctrl.h</em> I found the following
+        defines for use in the
+        <a href="https://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>:
+        </p>
 
-                    <pre class="prettyprint lang-cpp">
+{% highlight cpp %}
 #if (_WIN32_WINNT >= 0x0501)
 #define LVBKIF_FLAG_TILEOFFSET  0x00000100
 #define LVBKIF_TYPE_WATERMARK   0x10000000
 #define LVBKIF_FLAG_ALPHABLEND  0x20000000
-#endif</pre>
-                    <p>
-                    But of these three defines, only the first one is
-                    documented. Well, not exactly. Searching
-                    <a href="https://msdn.microsoft.com">MSDN</a> for
-                    <code>LVBKIF_TYPE_WATERMARK</code> revealed
-                    <a href="http://msdn2.microsoft.com/en-us/library/ms670562.aspx">this page</a>.
-                    And here those defines are documented. Heureka! Or so I
-                    thought.</p>
+#endif
+{% endhighlight %}
+        <p>
+        But of these three defines, only the first one is
+        documented. Well, not exactly. Searching
+        <a href="https://msdn.microsoft.com">MSDN</a> for
+        <code>LVBKIF_TYPE_WATERMARK</code> revealed
+        <a href="http://msdn2.microsoft.com/en-us/library/ms670562.aspx">this page</a>.
+        And here those defines are documented. Heureka! Or so I
+        thought.</p>
 
-                    <pre class="prettyprint lang-cpp">
+{% highlight cpp %}
 TCHAR szBuffer[MAX_PATH];
 VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
@@ -134,12 +133,15 @@ lv.pszImage = sPath;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-m_ListCtrl.SetBkImage(&amp;lv);</pre>
-                    <p>Nope, didn't work either. Maybe the bitmap I used didn't
-                    have a real alpha channel? Removing the
-                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag didn't help either.
-                    Out of pure desperation I tried this:</p>
-                    <pre class="prettyprint lang-cpp">
+m_ListCtrl.SetBkImage(&amp;lv);
+{% endhighlight %}
+
+        <p>Nope, didn't work either. Maybe the bitmap I used didn't
+        have a real alpha channel? Removing the
+        <code>LVBKIF_FLAG_ALPHABLEND</code> flag didn't help either.
+        Out of pure desperation I tried this:</p>
+
+{% highlight cpp %}
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
@@ -153,20 +155,21 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);</pre>
-                    <p>
-                    And this worked! Unbelievable. Even though the
-                    documentation tells that the <code>hbm</code> member
-                    of the <code>LVBKIMAGE</code> structure is "not currently used",
-                    it obviously is used (and must be used) if the
-                    <code>LVBKIF_TYPE_WATERMARK</code> flag is set.
-                    The image was shown in the bottom right corner and stayed
-                    there without any UI glitches even when scrolling the file
-                    list. But (there's always a "but") the image was not shown
-                    with its alpha channel. Where it should have been
-                    transparent it was drawn black. But that's what the
-                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag is for:</p>
-                    <pre class="prettyprint lang-cpp">
+SetBkImage(&amp;lv);
+{% endhighlight %}
+        <p>
+        And this worked! Unbelievable. Even though the
+        documentation tells that the <code>hbm</code> member
+        of the <code>LVBKIMAGE</code> structure is "not currently used",
+        it obviously is used (and must be used) if the
+        <code>LVBKIF_TYPE_WATERMARK</code> flag is set.
+        The image was shown in the bottom right corner and stayed
+        there without any UI glitches even when scrolling the file
+        list. But (there's always a "but") the image was not shown
+        with its alpha channel. Where it should have been
+        transparent it was drawn black. But that's what the
+        <code>LVBKIF_FLAG_ALPHABLEND</code> flag is for:</p>
+{% highlight cpp %}
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
@@ -180,28 +183,29 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);</pre>
-                    <p>
-                    Or at least that's what I thought. Adding the
-                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag made the bitmap disappear.
-                    I tried different bitmaps, used different image editors
-                    to create a bitmap with alpha channel, but nothing worked.
-                    I even extracted the bitmaps from shell.dll which the
-                    explorer uses for this. Even those did not work!</p>
+SetBkImage(&amp;lv);
+{% endhighlight %}
+        <p>
+        Or at least that's what I thought. Adding the
+        <code>LVBKIF_FLAG_ALPHABLEND</code> flag made the bitmap disappear.
+        I tried different bitmaps, used different image editors
+        to create a bitmap with alpha channel, but nothing worked.
+        I even extracted the bitmaps from shell.dll which the
+        explorer uses for this. Even those did not work!</p>
 
-                    <p>But giving up so close to reaching the goal? Not me :)<br/>
-                    The easy solution would be to simply use a bitmap with a
-                    white background. That looks good on most systems where
-                    the user hasn't changed the default system colors. But
-                    some users actually change them, and some even use red or
-                    other colored backgrounds. On those systems, the background
-                    image would look really ugly. So that's not a real
-                    solution.</p>
+        <p>But giving up so close to reaching the goal? Not me :)<br/>
+        The easy solution would be to simply use a bitmap with a
+        white background. That looks good on most systems where
+        the user hasn't changed the default system colors. But
+        some users actually change them, and some even use red or
+        other colored backgrounds. On those systems, the background
+        image would look really ugly. So that's not a real
+        solution.</p>
 
-                    <p>What I finally came up with was to draw the image alpha
-                    blended into an empty bitmap where the background was set
-                    to the system background the user has set.</p>
-                    <pre class="prettyprint lang-cpp">
+        <p>What I finally came up with was to draw the image alpha
+        blended into an empty bitmap where the background was set
+        to the system background the user has set.</p>
+{% highlight cpp %}
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 {
     SetTextBkColor(CLR_NONE);
@@ -282,33 +286,29 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
     SetBkImage(&amp;lv);
 
     return true;
-}</pre>
+}
+{% endhighlight %}
 
-                    <p>And that's how I got this to work. One problem remained:
-                    the watermark image was painted over when an item got
-                    selected, and the first column was not transparent and
-                    was also painting over the watermark.</p>
+        <p>And that's how I got this to work. One problem remained:
+        the watermark image was painted over when an item got
+        selected, and the first column was not transparent and
+        was also painting over the watermark.</p>
 
-                    <img class="img-centered" src="/img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set">
+        <img class="img-centered" src="/assets/img/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set">
 
-                    <p>As it turned out, this was due to the fact that I set
-                    the <code>LVS_EX_FULLROWSELECT</code> style for the control.
-                    Removing that style finally made the watermark image behave
-                    the exact same way it does in the explorer.</p>
+        <p>As it turned out, this was due to the fact that I set
+        the <code>LVS_EX_FULLROWSELECT</code> style for the control.
+        Removing that style finally made the watermark image behave
+        the exact same way it does in the explorer.</p>
 
-                    <p>And now (drumroll please): the screenshots of the add
-                    and commit dialog:</p>
-                    <div class="centered">
-                    <img src="/img/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark">
-                    <br/>
-                    <img src="/img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark">
-                    </div>
-                    <p>And in case someone knows how to use the
-                    <code>LVBKIF_FLAG_ALPHABLEND</code> flag, please let me know!</p>
-                </div>
-            </div>
-        </div> <!-- .content -->
-
-@@include("_includes/footer.html", {
-    "bottomHtml": "<script src=\"/js/vendor/prettify/prettify.js\"></script>"
-})
+        <p>And now (drumroll please): the screenshots of the add
+        and commit dialog:</p>
+        <div class="centered">
+        <img src="/assets/img/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark">
+        <br/>
+        <img src="/assets/img/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark">
+        </div>
+        <p>And in case someone knows how to use the
+        <code>LVBKIF_FLAG_ALPHABLEND</code> flag, please let me know!</p>
+    </div>
+</div>

@@ -1,106 +1,97 @@
-@@include("_includes/header.de.html", {
-    "title": "Die am meisten übersehene Funktion",
-    "metaDescription": "rechts ziehen im Explorer",
-    "metaKeywords": "right-drag"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/mostforgottenfeature.html">EN</a></li>
-    <li><a href="/mostforgottenfeature.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.de.html")
-    @@include("_includes/sidebar.de.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Die am meisten übersehene Funktion
+id: most-forgotten-feature
+description: rechts ziehen im Explorer
+keywords: right-drag
+lang: de
+---
 
-            <div class="post">
-                <h1 class="title">Die am meisten übersehene Funktion</h1>
-                <div class="entry">
-                    <p>TortoiseSVN bietet viele Funktionen. Die meisten Nutzer
-                    werden nie alle dieser Funktionen verwenden sondern nur
-                    einige wenige, abhängig von den Projekten mit welchen
-                    TortoiseSVN eingesetzt wird. Aber es gibt einige Funktionen
-                    welche viele Leute benutzen würden wenn sie wüssten dass
-                    es diese Funktionen überhaupt gibt.</p>
 
-                    <p>Wenn eine Funktion nicht sofort ersichtlich ist sonder
-                    so versteckt dass viele Nutzer gar nicht wissen dass
-                    es diese Funktion gibt, dann muss die Benutzeroberfläche
-                    verbessert werden damit die Funktion besser erkennbar ist.</p>
-                    <p>Aber manchmal ist dies leider nicht möglich, oder wir
-                    wissen einfach nicht wie wir die Benutzeroberfläche
-                    verbessern könnten.</p>
+<div class="post">
+    <h1 class="title">Die am meisten übersehene Funktion</h1>
+    <div class="entry">
+        <p>TortoiseSVN bietet viele Funktionen. Die meisten Nutzer
+        werden nie alle dieser Funktionen verwenden sondern nur
+        einige wenige, abhängig von den Projekten mit welchen
+        TortoiseSVN eingesetzt wird. Aber es gibt einige Funktionen
+        welche viele Leute benutzen würden wenn sie wüssten dass
+        es diese Funktionen überhaupt gibt.</p>
 
-                    <p>Dies ist so eine Situation:</p>
+        <p>Wenn eine Funktion nicht sofort ersichtlich ist sonder
+        so versteckt dass viele Nutzer gar nicht wissen dass
+        es diese Funktion gibt, dann muss die Benutzeroberfläche
+        verbessert werden damit die Funktion besser erkennbar ist.</p>
+        <p>Aber manchmal ist dies leider nicht möglich, oder wir
+        wissen einfach nicht wie wir die Benutzeroberfläche
+        verbessern könnten.</p>
 
-                    <h3>Rechts ziehen</h3>
-                    <p>Im Windows Explorer ist es möglich, Dateien zu
-                    verschieben oder zu kopieren durch ziehen der Dateien mit
-                    der linken, aber auch mit der rechten Maustaste.
-                    Wenn man Dateien mit der rechten Maustaste zieht, erscheint
-                    ein Kontextmenu sobald man die rechte Maustaste wieder
-                    loslässt. In diesem Kontextmenu kann man dann wählen, ob
-                    die Datei(en) verschoben, kopiert oder nur eine Verknüpfung
-                    erstellt werden soll.</p>
+        <p>Dies ist so eine Situation:</p>
 
-                    <p>TortoiseSVN fügt eigene Befehle zu diesem Kontextmenu
-                    hinzu. Die Screenshots zeigen das Kontextmenu wenn man
-                    Dateien/Verzeichnisse von ausserhalb einer Arbeitskopie
-                    auf eine Arbeitskopie zieht:</p>
-                    <img class="img-centered" src="/img/rightdrag-u2v.png" alt="Das Kontextmenu beim ziehen von Objekten auf eine Arbeitskopie">
+        <h3>Rechts ziehen</h3>
+        <p>Im Windows Explorer ist es möglich, Dateien zu
+        verschieben oder zu kopieren durch ziehen der Dateien mit
+        der linken, aber auch mit der rechten Maustaste.
+        Wenn man Dateien mit der rechten Maustaste zieht, erscheint
+        ein Kontextmenu sobald man die rechte Maustaste wieder
+        loslässt. In diesem Kontextmenu kann man dann wählen, ob
+        die Datei(en) verschoben, kopiert oder nur eine Verknüpfung
+        erstellt werden soll.</p>
 
-                    <p>Wie im Screenshot zu erkennen ist, erlaubt TortoiseSVN
-                    mit den Einträgen im Kontextmenu das hinzufügen der Objekte
-                    zur Arbeitskopie. D.h. die Objekte werden zuerst an den
-                    Zielort kopiert und dann wird ein "SVN Hinzufügen" ausgeführt.</p>
-                    <p>Der Eintrag "Patch Hinzufügen" erscheint nur wenn eine
-                    <em>*.patch</em> oder <em>*.diff</em> Datei auf eine
-                    Arbeitskopie gezogen wird. Dieser Befehl startet TortoiseMerge
-                    und erlaubt so das hinzufügen des Patches zur Arbeitskopie.</p>
+        <p>TortoiseSVN fügt eigene Befehle zu diesem Kontextmenu
+        hinzu. Die Screenshots zeigen das Kontextmenu wenn man
+        Dateien/Verzeichnisse von ausserhalb einer Arbeitskopie
+        auf eine Arbeitskopie zieht:</p>
+        <img class="img-centered" src="/assets/img/rightdrag-u2v.png" alt="Das Kontextmenu beim ziehen von Objekten auf eine Arbeitskopie">
 
-                    <p>Das folgente Kontextmenu erscheint beim ziehen von
-                    Dateien/Verzeichnissen aus einer Arbeitskopie auf einen
-                    normalen Ordner:</p>
+        <p>Wie im Screenshot zu erkennen ist, erlaubt TortoiseSVN
+        mit den Einträgen im Kontextmenu das hinzufügen der Objekte
+        zur Arbeitskopie. D.h. die Objekte werden zuerst an den
+        Zielort kopiert und dann wird ein "SVN Hinzufügen" ausgeführt.</p>
+        <p>Der Eintrag "Patch Hinzufügen" erscheint nur wenn eine
+        <em>*.patch</em> oder <em>*.diff</em> Datei auf eine
+        Arbeitskopie gezogen wird. Dieser Befehl startet TortoiseMerge
+        und erlaubt so das hinzufügen des Patches zur Arbeitskopie.</p>
 
-                    <img class="img-centered" src="/img/rightdrag-v2u.png" alt="Das Kontextmenu beim ziehen von versionierten Objekten auf einen normalen Ordner">
+        <p>Das folgente Kontextmenu erscheint beim ziehen von
+        Dateien/Verzeichnissen aus einer Arbeitskopie auf einen
+        normalen Ordner:</p>
 
-                    <p>Diese Befehle erlauben das Exportieren der Objekte:</p>
-                    <ul>
-                        <li>SVN hier exportieren: exportiert die gezogenen
-                        Dateien/Ordner zum Zielort, d.h. erstellt eine
-                        Kopie ohne die versteckten .svn Ordner.</li>
-                        <li>SVN alle hier exportieren: exportiert die
-                        gezogenen Dateien/Ordner zum Zielort, einschliesslich
-                        der nicht versionierten Dateien und Ordner.</li>
-                    </ul>
+        <img class="img-centered" src="/assets/img/rightdrag-v2u.png" alt="Das Kontextmenu beim ziehen von versionierten Objekten auf einen normalen Ordner">
 
-                    <p>Zu guter Letzt das Kontextmenu beim Ziehen von
-                    Objekten innerhalb einer Arbeitskopie:</p>
-                    <img class="img-centered" src="/img/rightdrag-v2v.png" alt="das Kontextmenu beim Ziehen von Objekten innerhalb einer Arbeitskopie">
+        <p>Diese Befehle erlauben das Exportieren der Objekte:</p>
+        <ul>
+            <li>SVN hier exportieren: exportiert die gezogenen
+            Dateien/Ordner zum Zielort, d.h. erstellt eine
+            Kopie ohne die versteckten .svn Ordner.</li>
+            <li>SVN alle hier exportieren: exportiert die
+            gezogenen Dateien/Ordner zum Zielort, einschliesslich
+            der nicht versionierten Dateien und Ordner.</li>
+        </ul>
 
-                    <p>Diese Befehle helfen bei der Reorganisation der
-                    Arbeitskopie, d.h. beim Verschieben und Kopieren
-                    von Dateien innerhalb einer Arbeitskopie:</p>
-                    <ul>
-                        <li>SVN Objekte hierher verschieben: verschiebt die
-                        Dateien/Ordner an den Zielort. Falls die Datei am
-                        Zielort bereits existiert wird TortoiseSVN nachfragen
-                        was genau zu tun ist: Datei umbenennen, die Zieldatei
-                        überschreiben oder das Verschieben abbrechen.</li>
-                        <li>SVN Objekt hierher kopieren und umbenennen: wie
-                        'SVN Objekte hierher verschieben' aber TortoiseSVN
-                        fragt vor dem Verschieben nach einem neuen Namen für
-                        das Objekt.</li>
-                        <li>SVN Objekte hierher kopieren: wie 'SVN Objekte hierher
-                        verschieben' aber die Originaldatei wird beibehalten. D.h.
-                        das Objekt wird kopiert, nicht verschoben.</li>
-                        <li>SVN Objekte hierher kopieren und umbenennen: wie 'SVN Objekte hierher
-                        verschieben und umbenennen' aber die Originaldatei wird beibehalten. D.h.
-                        das Objekt wird kopiert, nicht verschoben.</li>
-                    </ul>
-                </div>
-            </div>
-        </div> <!-- .content -->
+        <p>Zu guter Letzt das Kontextmenu beim Ziehen von
+        Objekten innerhalb einer Arbeitskopie:</p>
+        <img class="img-centered" src="/assets/img/rightdrag-v2v.png" alt="das Kontextmenu beim Ziehen von Objekten innerhalb einer Arbeitskopie">
 
-    @@include("_includes/footer.html")
+        <p>Diese Befehle helfen bei der Reorganisation der
+        Arbeitskopie, d.h. beim Verschieben und Kopieren
+        von Dateien innerhalb einer Arbeitskopie:</p>
+        <ul>
+            <li>SVN Objekte hierher verschieben: verschiebt die
+            Dateien/Ordner an den Zielort. Falls die Datei am
+            Zielort bereits existiert wird TortoiseSVN nachfragen
+            was genau zu tun ist: Datei umbenennen, die Zieldatei
+            überschreiben oder das Verschieben abbrechen.</li>
+            <li>SVN Objekt hierher kopieren und umbenennen: wie
+            'SVN Objekte hierher verschieben' aber TortoiseSVN
+            fragt vor dem Verschieben nach einem neuen Namen für
+            das Objekt.</li>
+            <li>SVN Objekte hierher kopieren: wie 'SVN Objekte hierher
+            verschieben' aber die Originaldatei wird beibehalten. D.h.
+            das Objekt wird kopiert, nicht verschoben.</li>
+            <li>SVN Objekte hierher kopieren und umbenennen: wie 'SVN Objekte hierher
+            verschieben und umbenennen' aber die Originaldatei wird beibehalten. D.h.
+            das Objekt wird kopiert, nicht verschoben.</li>
+        </ul>
+    </div>
+</div>

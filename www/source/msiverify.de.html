@@ -1,55 +1,47 @@
-@@include("_includes/header.de.html", {
-    "title": "Verify the MSI signature",
-    "metaDescription": "how to verify the signatures",
-    "metaKeywords": "verify, signature"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/msiverify.html">EN</a></li>
-    <li><a href="/msiverify.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.de.html")
-    @@include("_includes/sidebar.de.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Verify the MSI signature
+id: msi-verify
+description: how to verify the signatures
+keywords: verify, signature
+lang: de
+useFancybox: true
+---
 
-            <div class="post">
-                <h1 class="title">Überprüfen der Signatur</h1>
-                <div class="entry">
-                    <p>Da die TortoiseSVN MSI Installationsdateien auf
-                    vielen verschiedenen <a href="https://sourceforge.net">SourceForge</a>
-                    Spiegelservern gespeichert sind können wir nicht garantieren
-                    dass die Dateien nicht verändert werden oder beschädigt werden
-                    beim Download.</p>
-                    <p>Um sicherzustellen dass die Dateien nicht verändert oder
-                    beschädigt wurden können Sie die digitale Signatur der Dateien
-                    überprüfen. Wenn die Signatur in Ordnung ist bedeutet das,
-                    dass die Datei unverändert ist.</p>
-                    <p>Nach dem Download der Dateien, klicken Sie mit der
-                    rechten Maustaste auf die Datei und wählen Sie dann den
-                    Punkt <em>Eigenschaften</em> im Explorer-Kontextmenu aus.
-                    Im Eigenschaftsdialog wählen Sie dann die Seite <em>Signatur</em>
-                    aus und überprüfen Sie dass die Signatur von <em>Stefan Küng,
-                    Open Source Developer</em> stammt und dass die Signatur
-                    gültig ist.</p>
-                    <p>Wenn die Seite <em>Signatur</em> im Eigenschaftsdialog
-                    nicht angezeigt wird, dann ist die Signatur nicht gültig
-                    und die Datei ist nicht in Ordnung!</p>
-                    <a href="/img/propertiessignature.png" class="fancybox" data-fancybox-group="signature" title="propertiessignature">
-                        <img src="/img/propertiessignature-small.png" alt="propertiessignature" width="289" height="287">
-                    </a>
 
-                    <p>Windows überprüft die Signatur auch während der
-                    Installation selbst. Wenn der Sicherheitsdialog nicht
-                    anzeigt dass die Signatur gültig ist, brechen Sie die
-                    Installation ab und laden Sie die Datei erneut herunter, am
-                    besten von einem anderen Spiegelserver.</p>
-                    <a href="/img/InstallUAC.png" class="fancybox" data-fancybox-group="signature" title="InstallUAC">
-                        <img src="/img/InstallUAC-small.png" alt="InstallUAC" width="254" height="198">
-                    </a>
-                </div>
-            </div>
-        </div> <!-- .content -->
+<div class="post">
+    <h1 class="title">Überprüfen der Signatur</h1>
+    <div class="entry">
+        <p>Da die TortoiseSVN MSI Installationsdateien auf
+        vielen verschiedenen <a href="https://sourceforge.net">SourceForge</a>
+        Spiegelservern gespeichert sind können wir nicht garantieren
+        dass die Dateien nicht verändert werden oder beschädigt werden
+        beim Download.</p>
+        <p>Um sicherzustellen dass die Dateien nicht verändert oder
+        beschädigt wurden können Sie die digitale Signatur der Dateien
+        überprüfen. Wenn die Signatur in Ordnung ist bedeutet das,
+        dass die Datei unverändert ist.</p>
+        <p>Nach dem Download der Dateien, klicken Sie mit der
+        rechten Maustaste auf die Datei und wählen Sie dann den
+        Punkt <em>Eigenschaften</em> im Explorer-Kontextmenu aus.
+        Im Eigenschaftsdialog wählen Sie dann die Seite <em>Signatur</em>
+        aus und überprüfen Sie dass die Signatur von <em>Stefan Küng,
+        Open Source Developer</em> stammt und dass die Signatur
+        gültig ist.</p>
+        <p>Wenn die Seite <em>Signatur</em> im Eigenschaftsdialog
+        nicht angezeigt wird, dann ist die Signatur nicht gültig
+        und die Datei ist nicht in Ordnung!</p>
+        <a href="/assets/img/propertiessignature.png" class="fancybox" data-fancybox-group="signature" title="propertiessignature">
+            <img src="/assets/img/propertiessignature-small.png" alt="propertiessignature" width="289" height="287">
+        </a>
 
-    @@include("_includes/footer-fancybox.html")
+        <p>Windows überprüft die Signatur auch während der
+        Installation selbst. Wenn der Sicherheitsdialog nicht
+        anzeigt dass die Signatur gültig ist, brechen Sie die
+        Installation ab und laden Sie die Datei erneut herunter, am
+        besten von einem anderen Spiegelserver.</p>
+        <a href="/assets/img/InstallUAC.png" class="fancybox" data-fancybox-group="signature" title="InstallUAC">
+            <img src="/assets/img/InstallUAC-small.png" alt="InstallUAC" width="254" height="198">
+        </a>
+    </div>
+</div>

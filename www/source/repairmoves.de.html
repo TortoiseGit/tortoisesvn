@@ -1,51 +1,42 @@
-@@include("_includes/header.de.html", {
-    "title": "Verschiebungen und Umbenennungen Reparieren",
-    "metaDescription": "Wie man verschobene oder umbenannte Dateien in SVN repariert",
-    "metaKeywords": "repair, moves, renames"
-})
-<body>
-<ul class="langselection">
-    <li><a href="/repairmoves.html">EN</a></li>
-    <li><a href="/repairmoves.de.html">DE</a></li>
-</ul>
-<div class="wrapper">
-    @@include("_includes/menu.de.html")
-    @@include("_includes/sidebar.de.html")
-    <div class="page clearfix">
-        <div class="content">
+---
+layout: default
+title: Verschiebungen und Umbenennungen Reparieren
+id: repair-moves
+description: Wie man verschobene oder umbenannte Dateien in SVN repariert
+keywords: repair, moves, renames
+lang: de
+---
 
-            <div class="post">
-                <h1 class="title">Verschiebungen und Umbenennungen Reparieren</h1>
-                <div class="entry">
-                    <p>Verschieben und Umbenennnen von Dateien und Ordnern in
-                    einer Arbeitskopie muss immer mit den entsprechenden
-                    Subversion-Befehlen durchgeführt werden. Mach man dies nicht
-                    dann erkennt Subversion dies nicht richtig. Das heisst
-                    eine Datei welche direkt im Explorer verschoben oder
-                    umbenannt wird erscheint für Subversion als "nicht versioniert"
-                    am neuen Ort (oder mit neuem Namen) und eine Datei am
-                    alten Ort oder mit dem alten Namen erscheint als "fehlend".</p>
 
-                    <p>Wenn dies einmal passiert ist, erlaubt es TortoiseSVN
-                    die Situation zu retten. Der folgende Screenshot zeigt wie
-                    die Datei <em>TSVN-Support.ods</em> zu <em>TortoiseSVN-Support.ods</em>
-                    umbenannt wurde ohne den entsprechenden Subversion Befehl.</p>
-                    <p>Im Commit-Dialog (oder im 'Auf änderungen prüfen' Dialog)
-                    können Sie beide Einträge auswählen und dann mit der rechten
-                    Maustaste klicken. Das Kontextmenu dann zeigt den Befehl
-                    "Umbenennen reparieren":</p>
+<div class="post">
+    <h1 class="title">Verschiebungen und Umbenennungen Reparieren</h1>
+    <div class="entry">
+        <p>Verschieben und Umbenennnen von Dateien und Ordnern in
+        einer Arbeitskopie muss immer mit den entsprechenden
+        Subversion-Befehlen durchgeführt werden. Mach man dies nicht
+        dann erkennt Subversion dies nicht richtig. Das heisst
+        eine Datei welche direkt im Explorer verschoben oder
+        umbenannt wird erscheint für Subversion als "nicht versioniert"
+        am neuen Ort (oder mit neuem Namen) und eine Datei am
+        alten Ort oder mit dem alten Namen erscheint als "fehlend".</p>
 
-                    <p><img src="/img/repairmove.png" alt="Umbenennen reparieren"></p>
+        <p>Wenn dies einmal passiert ist, erlaubt es TortoiseSVN
+        die Situation zu retten. Der folgende Screenshot zeigt wie
+        die Datei <em>TSVN-Support.ods</em> zu <em>TortoiseSVN-Support.ods</em>
+        umbenannt wurde ohne den entsprechenden Subversion Befehl.</p>
+        <p>Im Commit-Dialog (oder im 'Auf änderungen prüfen' Dialog)
+        können Sie beide Einträge auswählen und dann mit der rechten
+        Maustaste klicken. Das Kontextmenu dann zeigt den Befehl
+        "Umbenennen reparieren":</p>
 
-                    <p>Der "Umbenennen reparieren" Befehl funktioniert nur, wenn
-                    genau zwei Dateien ausgewählt wurden, wobei eine der Dateien
-                    als "fehlend" markiert ist und die andere als "nicht versioniert".
-                    Nur auf diese Weise kann TortoiseSVN die Umbenennung oder
-                    Verschiebung reparieren.</p>
+        <p><img src="/assets/img/repairmove.png" alt="Umbenennen reparieren"></p>
 
-                    <p><img src="/img/repairmove2.png" alt="After Repair Move"></p>
-                </div>
-            </div>
-        </div> <!-- .content -->
+        <p>Der "Umbenennen reparieren" Befehl funktioniert nur, wenn
+        genau zwei Dateien ausgewählt wurden, wobei eine der Dateien
+        als "fehlend" markiert ist und die andere als "nicht versioniert".
+        Nur auf diese Weise kann TortoiseSVN die Umbenennung oder
+        Verschiebung reparieren.</p>
 
-    @@include("_includes/footer.html")
+        <p><img src="/assets/img/repairmove2.png" alt="After Repair Move"></p>
+    </div>
+</div>

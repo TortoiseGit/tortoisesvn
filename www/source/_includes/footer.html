@@ -1,14 +1,42 @@
-    </div> <!-- .page -->
+            </div>  <!-- .content -->
+        </div>  <!-- .page -->
 
-    <div class="footer">
-        <p>&hearts; 2004-2015 &ndash; <span title="@@DATE">The TortoiseSVN team</span>. Please share.</p>
-    </div> <!-- .footer -->
+        <div class="footer">
+            <p>&hearts; 2004-2015 &ndash; <span title={{ site.time | date_to_xmlschema }}>The TortoiseSVN team</span>. Please share.</p>
+        </div>  <!-- .footer -->
 
-    </div> <!-- .wrapper -->
+    </div>  <!-- .wrapper -->
 
-    <script async src="/js/main.js"></script>
+    <script async src="/assets/js/main.js"></script>
 
-    @@bottomHtml
+    {% if page.useFancybox %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/jquery-1.11.3.min.js"><\/script>')</script>
+    <script src="/assets/js/fancybox.js"></script>
+    {% endif %}
+
+    {% if page.showAds %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% endif %}
+
+    {% if page.includeSFAccel %}
+    {% include sf-accel.html %}
+    {% endif %}
+
+    {% if page.includeGCSE %}
+    <script>
+        (function() {
+            var cx = 'partner-pub-0430507460695576:j0zyjq-56po';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
+                '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    {% endif %}
+
 
 </body>
 </html>

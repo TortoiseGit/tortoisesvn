@@ -2,73 +2,84 @@
 
 module.exports = function(grunt) {
 
-    // Project configuration.
     grunt.initConfig({
         dirs: {
             dest: 'dist',
             src: 'source'
         },
-        ver: grunt.file.readJSON('version.json'),
 
         // Copy files that don't need compilation to dist/
         copy: {
             dist: {
                 files: [
-                    {dest: '<%= dirs.dest %>/', src: ['*', '!*.html'], filter: 'isFile', expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: '.htaccess', expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: 'files/**', expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: ['img/**', '!**/_old/**', '!**/flags/**'], expand: true, cwd: '<%= dirs.src %>/'},
-                    {dest: '<%= dirs.dest %>/', src: ['js/*.min.js', 'js/vendor/prettify/**'], expand: true, cwd: '<%= dirs.src %>/'}
+                    { dest: '<%= dirs.dest %>/', src: 'assets/js/vendor/jquery*.min.js', expand: true, cwd: '<%= dirs.src %>/' }
                 ]
             }
         },
 
-        includereplace: {
+        jekyll: {
+            site: {
+                options: {
+                    bundleExec: true,
+                    incremental: false
+                }
+            }
+        },
+
+        htmlmin: {
             dist: {
                 options: {
-                    globals: {
-                        bottomHtml: '',
-                        headHtml: '',
-                        metaDescription: '',
-                        metaKeywords: '',
-                        DATE: '<%= grunt.template.today("dddd, mmmm dS, yyyy, HH:MM:ss Z") %>',
-                        TSVNSHORTVERSION: '<%= ver.TSVNSHORTVERSION %>',
-                        TSVNVERSION: '<%= ver.TSVNVERSION %>',
-                        SVNVERSION: '<%= ver.SVNVERSION %>'
-                    }
+                    collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    ignoreCustomComments: [/^\s*google(off|on):\s/],
+                    minifyCSS: {
+                        //advanced: false,
+                        compatibility: 'ie8',
+                        keepSpecialComments: 0
+                    },
+                    minifyJS: true,
+                    minifyURLs: false,
+                    removeAttributeQuotes: true,
+                    removeComments: true,
+                    removeOptionalAttributes: true,
+                    removeOptionalTags: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true
                 },
-                files: [
-                    {src: '*.html', dest: '<%= dirs.dest %>/', expand: true, cwd: '<%= dirs.src %>/'}
+                expand: true,
+                cwd: '<%= dirs.dest %>',
+                dest: '<%= dirs.dest %>',
+                src: [
+                    '**/*.html'
                 ]
             }
         },
 
         concat: {
-            prettify: {
-                src: '<%= dirs.src %>/css/vendor/prettify.css',
-                dest: '<%= dirs.dest %>/css/vendor/prettify.min.css'
-            },
-            core: {
-                src: ['<%= dirs.src %>/css/vendor/normalize.css',
-                      '<%= dirs.src %>/css/vendor/jquery.fancybox.css',
-                      '<%= dirs.src %>/css/flags-sprite.css',
-                      '<%= dirs.src %>/css/style.css'
+            css: {
+                src: ['<%= dirs.src %>/assets/css/vendor/normalize.css',
+                      '<%= dirs.src %>/assets/css/vendor/jquery.fancybox.css',
+                      '<%= dirs.src %>/assets/css/vendor/highlighter.css',
+                      '<%= dirs.src %>/assets/css/flags-sprite.css',
+                      '<%= dirs.src %>/assets/css/style.css'
                 ],
-                dest: '<%= dirs.dest %>/css/pack.css'
+                dest: '<%= dirs.dest %>/assets/css/pack.css'
             },
-            main: {
-              src: ['<%= dirs.src %>/js/img-defer.js',
-                    '<%= dirs.src %>/js/no-js-class.js',
-                    '<%= dirs.src %>/js/google-analytics.js'
+            mainJs: {
+              src: ['<%= dirs.src %>/assets/js/img-defer.js',
+                    '<%= dirs.src %>/assets/js/no-js-class.js',
+                    '<%= dirs.src %>/assets/js/google-analytics.js'
               ],
-              dest: '<%= dirs.dest %>/js/main.js'
+              dest: '<%= dirs.dest %>/assets/js/main.js'
             },
-            js: {
-                src: ['<%= dirs.src %>/js/vendor/jquery.mousewheel.js',
-                      '<%= dirs.src %>/js/vendor/jquery.fancybox.js',
-                      '<%= dirs.src %>/js/fancybox-init.js'
+            fancybox: {
+                src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
+                      '<%= dirs.src %>/assets/js/vendor/jquery.mousewheel.js',
+                      '<%= dirs.src %>/assets/js/vendor/jquery.fancybox.js',
+                      '<%= dirs.src %>/assets/js/fancybox-init.js'
                 ],
-                dest: '<%= dirs.dest %>/js/fancybox.js'
+                dest: '<%= dirs.dest %>/assets/js/fancybox.js'
             }
         },
 
@@ -79,27 +90,24 @@ module.exports = function(grunt) {
                     /(#|\.)fancybox(\-[a-zA-Z]+)?/,
                     /\.no\-js/
                 ],
-                ignoreSheets: [/fonts.googleapis/, /www.google.com/],
-                stylesheets: ['css/pack.css']
+                ignoreSheets: [/fonts.googleapis/, /www.google.com/, /pagead2.googlesyndication.com/],
+                stylesheets: ['/assets/css/pack.css']
             },
             dist: {
                 src: '<%= dirs.dest %>/**/*.html',
-                dest: '<%= concat.core.dest %>'
+                dest: '<%= concat.css.dest %>'
             }
         },
 
         cssmin: {
-            options: {
-                compatibility: 'ie8',
-                keepSpecialComments: 0
-            },
-            prettify: {
-                src: '<%= concat.prettify.dest %>',
-                dest: '<%= concat.prettify.dest %>'
-            },
-            core: {
-                src: '<%= concat.core.dest %>',
-                dest: '<%= concat.core.dest %>'
+            minify: {
+                options: {
+                    compatibility: 'ie8',
+                    keepSpecialComments: 0
+                },
+                files: {
+                    '<%= uncss.dist.dest %>': '<%= concat.css.dest %>'
+                }
             }
         },
 
@@ -111,45 +119,28 @@ module.exports = function(grunt) {
                 mangle: true,
                 preserveComments: false
             },
-            dist: {
+            minify: {
                 files: {
-                    '<%= concat.js.dest %>': '<%= concat.js.dest %>',
-                    '<%= concat.main.dest %>': '<%= concat.main.dest %>'
+                    '<%= concat.fancybox.dest %>': '<%= concat.fancybox.dest %>',
+                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>'
                 }
-            }
-        },
-
-        htmlmin: {
-            dist: {
-                options: {
-                    collapseWhitespace: true,
-                    minifyCSS: true,
-                    minifyJS: true,
-                    removeAttributeQuotes: true,
-                    removeComments: true
-                },
-                expand: true,
-                cwd: '<%= dirs.dest %>',
-                dest: '<%= dirs.dest %>',
-                src: ['**/*.html']
             }
         },
 
         filerev: {
             css: {
-                src: '<%= dirs.dest %>/css/**/{,*/}*.css'
+                src: '<%= dirs.dest %>/assets/css/**/{,*/}*.css'
              },
             js: {
                 src: [
-                    '<%= dirs.dest %>/js/**/{,*/}*.js',
-                    '!<%= dirs.dest %>/js/vendor/jquery*.min.js',
-                    '!<%= dirs.dest %>/js/vendor/prettify/lang-*.js'
+                    '<%= dirs.dest %>/assets/js/**/{,*/}*.js',
+                    '!<%= dirs.dest %>/assets/js/vendor/jquery*.min.js'
                 ]
             },
             images: {
                 src: [
-                    '<%= dirs.dest %>/img/**/*.{jpg,jpeg,gif,png}',
-                    '!<%= dirs.dest %>/img/logo-256x256.png'
+                    '<%= dirs.dest %>/assets/img/**/*.{jpg,jpeg,gif,png}',
+                    '!<%= dirs.dest %>/assets/img/logo-256x256.png'
                 ]
             }
         },
@@ -163,14 +154,10 @@ module.exports = function(grunt) {
         },
 
         usemin: {
-            css: '<%= dirs.dest %>/css/pack*.css',
-            html: '<%= dirs.dest %>/**/*.html'
-        },
-
-        sitemap: {
-            dist: {
-                pattern: ['<%= dirs.dest %>/**/*.html', '!<%= dirs.dest %>/**/google*.html'],
-                siteRoot: './dist'
+            css: '<%= dirs.dest %>/assets/css/pack*.css',
+            html: '<%= dirs.dest %>/**/*.html',
+            options: {
+                assetsDirs: ['<%= dirs.dest %>/', '<%= dirs.dest %>/assets/img/']
             }
         },
 
@@ -178,14 +165,14 @@ module.exports = function(grunt) {
             options: {
                 hostname: 'localhost',
                 livereload: 35729,
-                port: 8001
+                port: 8000
             },
             livereload: {
-                 options: {
+                options: {
                     base: '<%= dirs.dest %>/',
                     open: true  // Automatically open the webpage in the default browser
-                 }
-             }
+                }
+            }
         },
 
         watch: {
@@ -193,38 +180,28 @@ module.exports = function(grunt) {
                 livereload: '<%= connect.options.livereload %>'
             },
             dev: {
-            files: ['<%= dirs.src %>/**', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
+                files: ['<%= dirs.src %>/**', '.jshintrc', '_config.yml', 'Gruntfile.js'],
                 tasks: 'dev'
             },
             build: {
-            files: ['<%= dirs.src %>/**', '.csslintrc', '.jshintrc', 'Gruntfile.js', 'version.json'],
+                files: ['<%= dirs.src %>/**', '.jshintrc', '_config.yml', 'Gruntfile.js'],
                 tasks: 'build'
             }
-        },
-
-        clean: {
-            dist: '<%= dirs.dest %>/'
         },
 
         csslint: {
             options: {
                 csslintrc: '.csslintrc'
             },
-            src: [
-                '<%= dirs.src %>/css/style.css'
-            ]
+            src: '<%= dirs.src %>/assets/css/style.css'
         },
 
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
             },
-            grunt: {
-                src: [
-                    'Gruntfile.js',
-                    '<%= dirs.src %>/js/*.js',
-                    '!<%= dirs.src %>/js/google-analytics.js'
-                ]
+            files: {
+                src: ['Gruntfile.js', '<%= dirs.src %>/assets/js/*.js', '!<%= dirs.src %>/assets/js/google-analytics.js']
             }
         },
 
@@ -232,29 +209,21 @@ module.exports = function(grunt) {
             src: '<%= dirs.dest %>/**/*.html'
         },
 
+        clean: {
+            dist: '<%= dirs.dest %>/'
+        }
+
     });
 
     // Load any grunt plugins found in package.json.
     require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
     require('time-grunt')(grunt);
 
-    grunt.registerTask('dev', [
-        'clean',
-        'copy',
-        'includereplace',
-        'useminPrepare',
-        'concat',
-        'filerev',
-        'usemin',
-        'sitemap'
-    ]);
-
     grunt.registerTask('build', [
         'clean',
-        'copy',
-        'includereplace',
-        'sitemap',
+        'jekyll',
         'useminPrepare',
+        'copy',
         'concat',
         'uncss',
         'cssmin',
@@ -269,6 +238,15 @@ module.exports = function(grunt) {
         'csslint',
         'jshint',
         'htmllint'
+    ]);
+
+    grunt.registerTask('dev', [
+        'jekyll',
+        'useminPrepare',
+        'copy',
+        'concat',
+        'filerev',
+        'usemin'
     ]);
 
     grunt.registerTask('server', [
