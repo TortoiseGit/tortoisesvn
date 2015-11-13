@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-09-25 00:47+0000\n"
+"PO-Revision-Date: 2015-11-13 01:30+0000\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -403,7 +403,7 @@ msgstr "%ls\n是目錄而非檔案!\nTortoiseMerge 無法比對目錄差異."
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "關於TortoiseMerge…(&A)"
 
@@ -502,7 +502,7 @@ msgstr "二進位(&B)"
 msgid "&Blame changes"
 msgstr "追溯變更(&B)"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "追溯前一個版本(&B)"
 
@@ -543,11 +543,11 @@ msgstr "瀏覽檔案庫(&B)"
 msgid "&Browse..."
 msgstr "瀏覽(&B)..."
 
-#. Resource IDs: (32850)
+#. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "問題追蹤系統整合(&B)"
 
-#. Resource IDs: (16913)
+#. Resource IDs: (16913 - Menu)
 msgid "&Button Appearance..."
 msgstr "按鈕外觀(&B)..."
 
@@ -616,8 +616,8 @@ msgstr "送交(&C)..."
 msgid "&Compare URLs"
 msgstr "比對 URL(&C)"
 
-#. Resource IDs: (32783, IDS_LOG_POPUP_COMPARETWO,
-#. IDS_REVGRAPH_POPUP_COMPAREREVS)
+#. Resource IDs: (IDS_LOG_POPUP_COMPARETWO, IDS_REVGRAPH_POPUP_COMPAREREVS,
+#. ID_VIEW_COMPAREREVISIONS - Menu)
 msgid "&Compare revisions"
 msgstr "比對版本差異(&C)"
 
@@ -638,16 +638,16 @@ msgstr "啟動時連接檔案庫(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "與 BASE 比對異動時轉換檔案(&C)"
 
-#. Resource IDs: (57634, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "複製(&C)"
 
-#. Resource IDs: (16911)
+#. Resource IDs: (16911 - Menu)
 msgid "&Copy Button Image"
 msgstr "複製按鈕影像(&C)"
 
-#. Resource IDs: (32776)
+#. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
 msgstr "複製記錄訊息至剪貼簿(&C)"
 
@@ -681,8 +681,8 @@ msgstr "移除小快取前的最多未使用天數(&D)"
 msgid "&Default"
 msgstr "預設(&D)"
 
-#. Resource IDs: (16617, 16912, Dialog IDD_SETTINGSLOGCACHELIST: Control id
-#. 1382, IDS_MENUREMOVE)
+#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
+#. Control id 1382, IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "刪除(&D)"
 
@@ -726,7 +726,7 @@ msgstr "不要再詢問(&D)"
 msgid "&Docking"
 msgstr "&視窗停駐"
 
-#. Resource IDs: (32851)
+#. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
 msgstr "&EOL"
 
@@ -766,7 +766,7 @@ msgstr "清空資源回收筒(&E)"
 msgid "&Enable Proxy Server"
 msgstr "啟用 Proxy 伺服器(&E)"
 
-#. Resource IDs: (32976)
+#. Resource IDs: (ID_EDIT_ENABLE - Menu)
 msgid "&Enable edit"
 msgstr "啟用編輯(&E)"
 
@@ -782,7 +782,7 @@ msgstr "請輸入鎖定檔案的原因(&E)."
 msgid "&Executable"
 msgstr "可執行檔(&E)"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (ID_MENUEXIT - Menu)
 msgid "&Exit"
 msgstr "離開(&E)"
 
@@ -804,7 +804,7 @@ msgstr "檔案(&F)"
 msgid "&Files"
 msgstr "檔案(&F)"
 
-#. Resource IDs: (32809)
+#. Resource IDs: (ID_VIEW_FILTER - Menu)
 msgid "&Filter"
 msgstr "過濾條件(&F)"
 
@@ -812,11 +812,11 @@ msgstr "過濾條件(&F)"
 msgid "&Find"
 msgstr "搜尋(&F)"
 
-#. Resource IDs: (32771)
+#. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
 msgstr "搜尋...\t(Ctrl+&F)"
 
-#. Resource IDs: (32778)
+#. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
 msgstr "調整影像至視窗大小\t(&F)"
 
@@ -858,7 +858,7 @@ msgstr "從版本(&F)"
 msgid "&From: (start URL and revision of the range to merge)"
 msgstr "從(&F): (URL 以及合併範圍的起始版本)"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr "前往行數...\t(Ctrl+&G)"
 
@@ -866,7 +866,7 @@ msgstr "前往行數...\t(Ctrl+&G)"
 msgid "&Green:"
 msgstr "綠(&G):"
 
-#. Resource IDs: (32799)
+#. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "依分支分組(&G)"
 
@@ -887,12 +887,12 @@ msgstr "最新版本(&H)"
 msgid "&HEAD revision in the repository"
 msgstr "伺服器上最新版本(&H)"
 
-#. Resource IDs: (32781, 57670, 65535 - PopupMenu, Dialog IDD_ADD: Control id
-#. 9, Dialog IDD_CLEANUP: Control id 9, IDS_MENUHELP)
+#. Resource IDs: (57670, 65535 - PopupMenu, Dialog IDD_ADD: Control id 9,
+#. Dialog IDD_CLEANUP: Control id 9, IDS_MENUHELP, ID_MENUHELP - Menu)
 msgid "&Help"
 msgstr "說明(&H)"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "說明主題(&H)"
 
@@ -921,11 +921,11 @@ msgstr "無視之前版本(&I)"
 msgid "&Ignore and proceed"
 msgstr "忽略並繼續(&I)"
 
-#. Resource IDs: (16914)
+#. Resource IDs: (16914 - Menu)
 msgid "&Image"
 msgstr "影像(&I)"
 
-#. Resource IDs: (32790)
+#. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr "影像資訊\t(&I)"
 
@@ -961,7 +961,7 @@ msgstr "與子目錄樹合併(&J)"
 msgid "&Jump to first difference when loading"
 msgstr "載入時跳至第一個差異處(&J)"
 
-#. Resource IDs: (32852)
+#. Resource IDs: (ID_NEW_KEYWORDS - Menu)
 msgid "&Keywords"
 msgstr "關鍵字(&K)"
 
@@ -990,7 +990,7 @@ msgstr "行號(&L)"
 msgid "&Line number (%d - %d)"
 msgstr "行號 (%d - %d)(&L)"
 
-#. Resource IDs: (32797)
+#. Resource IDs: (ID_VIEW_LINKIMAGESTOGETHER - Menu)
 msgid "&Link image positions"
 msgstr "連結影像位置(&L)"
 
@@ -1010,7 +1010,7 @@ msgstr "載入(&L)..."
 msgid "&Locking required (read-only update)"
 msgstr "需要鎖定[唯讀更新](&L)"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (ID_NEW_LOGSIZES - Menu)
 msgid "&Log Sizes"
 msgstr "記錄檔大小(&L)"
 
@@ -1051,7 +1051,7 @@ msgstr "選單內容(&M):"
 msgid "&Merge"
 msgstr "合併(&M)"
 
-#. Resource IDs: (32786)
+#. Resource IDs: (ID_VIEW_MERGEPATH - Menu)
 msgid "&Merge paths"
 msgstr "合併路徑(&M)"
 
@@ -1063,7 +1063,7 @@ msgstr "合併(&M)..."
 msgid "&Merging"
 msgstr "合併(&M)"
 
-#. Resource IDs: (32847)
+#. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&MIME 類型"
 
@@ -1079,7 +1079,7 @@ msgstr "調整 tag 工作副本的顏色(&M)"
 msgid "&Modify color for trunk copies"
 msgstr "調整 trunk 工作副本的顏色(&M)"
 
-#. Resource IDs: (32880)
+#. Resource IDs: (ID_VIEW_MOVEDBLOCKS - Menu)
 msgid "&Moved blocks"
 msgstr "已移動之區塊(&M)"
 
@@ -1177,7 +1177,7 @@ msgstr "單頁(&O)"
 msgid "&Open"
 msgstr "開啟(&O)"
 
-#. Resource IDs: (32773)
+#. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
 msgstr "開啟\t(Ctrl+&O)"
 
@@ -1189,11 +1189,11 @@ msgstr "實施修訂(&O):"
 msgid "&Options"
 msgstr "選項(&O)"
 
-#. Resource IDs: (32849)
+#. Resource IDs: (ID_NEW_ADVANCED - Menu)
 msgid "&Other"
 msgstr "其它(&O)"
 
-#. Resource IDs: (32772)
+#. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
 msgstr "影像覆蓋\t(&O)"
 
@@ -1202,7 +1202,8 @@ msgstr "影像覆蓋\t(&O)"
 msgid "&Password:"
 msgstr "密碼(&P):"
 
-#. Resource IDs: (57637, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "貼上(&P)"
 
@@ -1316,7 +1317,7 @@ msgstr "重設工具列(&R)"
 msgid "&Reset my usage data"
 msgstr "重設個人使用記錄(&R)"
 
-#. Resource IDs: (16910)
+#. Resource IDs: (16910 - Menu)
 msgid "&Reset to Default"
 msgstr "還原至預設值(&R)"
 
@@ -1372,7 +1373,8 @@ msgstr "儲存(&S)"
 msgid "&Save authentication"
 msgstr "儲存認證(&S)"
 
-#. Resource IDs: (32771, 32806, IDS_REVGRAPH_SAVEPIC)
+#. Resource IDs: (IDS_REVGRAPH_SAVEPIC, ID_FILE_SAVEGRAPHAS - Menu,
+#. ID_FILE_SAVESTATGRAPHAS - Menu)
 msgid "&Save graph as..."
 msgstr "圖表另存新檔(&S)..."
 
@@ -1385,11 +1387,11 @@ msgstr "儲存選擇的檔案清單至(&S)"
 msgid "&Save value..."
 msgstr "另存設定值(&S)..."
 
-#. Resource IDs: (32795, IDS_MENUSETTINGS)
+#. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
 msgstr "設定(&S)"
 
-#. Resource IDs: (32815)
+#. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
 msgstr "顯示最新版本(&S)"
 
@@ -1401,7 +1403,7 @@ msgstr "顯示記錄訊息(&S)"
 msgid "&Show Menus for:"
 msgstr "顯示選單於(&S):"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr "顯示監控專案(&S)"
 
@@ -1417,7 +1419,7 @@ msgstr "顯示文字標籤(&S)"
 msgid "&Specific revision in repository"
 msgstr "伺服器上特定版本(&S)"
 
-#. Resource IDs: (16917)
+#. Resource IDs: (16917 - Menu)
 msgid "&Start Group"
 msgstr "啟動群組(&S)"
 
@@ -1425,7 +1427,7 @@ msgstr "啟動群組(&S)"
 msgid "&Start Repobrowser"
 msgstr "啟動檔案庫瀏覽器(&S)"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "狀態列(&S)"
 
@@ -1469,7 +1471,7 @@ msgstr "標記(&T)"
 msgid "&Test merge"
 msgstr "測試合併(&T)"
 
-#. Resource IDs: (16915, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "文字(&T)"
 
@@ -1503,7 +1505,7 @@ msgstr "至路徑(&T):"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "至(&T): (合併結束的 URL 及版本)"
 
-#. Resource IDs: (59392)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "工具列(&T)"
 
@@ -1552,11 +1554,11 @@ msgstr "檔案庫 &URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "復原(&U)"
 
-#. Resource IDs: (32785, IDS_REVGRAPH_POPUP_UNIDIFFREVS)
+#. Resource IDs: (IDS_REVGRAPH_POPUP_UNIDIFFREVS, ID_VIEW_UNIFIEDDIFF - Menu)
 msgid "&Unified diff"
 msgstr "單一差異檔(&U)"
 
@@ -1824,7 +1826,7 @@ msgid ""
 "all=&Options=="
 msgstr "=立刻檢查(&C)=新增專案(&A)=編輯(&D)=移除(&R)=全部標記為已讀(&M)=全部更新(&U)=選項(&O)=="
 
-#. Resource IDs: (32814)
+#. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
 msgstr "?"
 
@@ -1909,7 +1911,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr "放棄\n先修正掛勾指令檔失敗的原理."
 
-#. Resource IDs: (57664 - Ribbon name, IDS_MENUABOUT)
+#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
 msgstr "關於"
 
@@ -2097,7 +2099,8 @@ msgstr "調校設定值\n設定"
 msgid "Adjust to HEAD revision"
 msgstr "調整為 HEAD 版"
 
-#. Resource IDs: (32848, Dialog IDD_SETTINGS_CONFIG: Control id 307)
+#. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 307, ID_EDIT_ADVANCED
+#. - Menu)
 msgid "Advanced"
 msgstr "進階"
 
@@ -2117,7 +2120,7 @@ msgstr "進階合併設定"
 msgid "Age"
 msgstr "年紀"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (ID_VIEW_TOPALIGNTREES - Menu)
 msgid "Align trees on top"
 msgstr "向上對齊目錄樹"
 
@@ -2301,7 +2304,8 @@ msgstr "允許或拒絕用戶端掛勾指令檔"
 msgid "Approved hook scripts"
 msgstr "已允許的掛勾指令檔"
 
-#. Resource IDs: (10012, 10012 - Ribbon name)
+#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
+#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
 msgid "Aqua Style"
 msgstr "Aqua 樣式"
 
@@ -2325,7 +2329,7 @@ msgid ""
 "the last update!"
 msgstr "是否確定要復原 %d 項目嗎? 從上一版本之後的所有變更都會消失!"
 
-#. Resource IDs: (32793)
+#. Resource IDs: (ID_VIEW_ARRANGEVERTICAL - Menu)
 msgid "Arrange &vertical\t(V)"
 msgstr "縱向排列\t(&V)"
 
@@ -2479,7 +2483,8 @@ msgid ""
 "a bitmap"
 msgstr "點陣圖\n點陣圖"
 
-#. Resource IDs: (10010, 10010 - Ribbon name)
+#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
+#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
 msgid "Black Style"
 msgstr "黑色樣式"
 
@@ -2499,7 +2504,7 @@ msgstr "追溯..."
 msgid "Blames each line of a file on an author"
 msgstr "列出檔案每一行的作者"
 
-#. Resource IDs: (32812)
+#. Resource IDs: (ID_VIEW_BLENDALPHA - Menu)
 msgid "Blend alpha"
 msgstr "透明度"
 
@@ -2507,7 +2512,8 @@ msgstr "透明度"
 msgid "Blocks"
 msgstr "區塊"
 
-#. Resource IDs: (10009, 10009 - Ribbon name)
+#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
+#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
 msgid "Blue Style"
 msgstr "藍色樣式"
 
@@ -3251,7 +3257,7 @@ msgstr "展開原始目錄樹(&A)"
 msgid "Collaborator &password"
 msgstr "Collaborator 密碼(&P)"
 
-#. Resource IDs: (32870, 32870 - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
 msgid "Collapse"
 msgstr "展開"
 
@@ -3277,15 +3283,15 @@ msgstr "色彩 1"
 msgid "Color 2"
 msgstr "色彩 2"
 
-#. Resource IDs: (32785)
+#. Resource IDs: (ID_VIEW_COLORAGEOFLINES - Menu)
 msgid "Color by &age, indexed"
 msgstr "依照時間上色及索引(&A)"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (ID_VIEW_COLORBYAGE - Menu)
 msgid "Color by age, &continuous"
 msgstr "依照時間上色(&C)"
 
-#. Resource IDs: (32793)
+#. Resource IDs: (ID_VIEW_COLORBYAUTHOR - Menu)
 msgid "Color by au&thor"
 msgstr "依照作者上色 (&T)"
 
@@ -3395,7 +3401,8 @@ msgstr "正在送交至標記"
 msgid "Committing transaction..."
 msgstr "正在送交整筆記錄..."
 
-#. Resource IDs: (32784, IDS_REVGRAPH_POPUP_COMPAREHEADS)
+#. Resource IDs: (IDS_REVGRAPH_POPUP_COMPAREHEADS,
+#. ID_VIEW_COMPAREHEADREVISIONS - Menu)
 msgid "Compare &HEAD revisions"
 msgstr "比對最新版本(&H)"
 
@@ -3419,7 +3426,8 @@ msgstr "比對版本差異(僅比對內容(&T))"
 msgid "Compare two files"
 msgstr "比較兩個檔案"
 
-#. Resource IDs: (32871, 32871 - Ribbon name)
+#. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
+#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
 msgid "Compare whitespaces"
 msgstr "比對空白字元"
 
@@ -3471,7 +3479,7 @@ msgstr "完成!"
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "設定 &TortoiseSVN 不使用資源回收筒"
 
-#. Resource IDs: (500, IDS_CONFIGUREREGEXES)
+#. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
 msgstr "設定過濾器正規表示式 "
 
@@ -3575,7 +3583,7 @@ msgstr "複製自: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr "複製所有選擇項目的 URL 至剪貼簿"
 
-#. Resource IDs: (16991, 57634 - Ribbon name, IDS_PROGRS_TITLE_COPY)
+#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
 msgid "Copy"
 msgstr "複製"
 
@@ -3598,7 +3606,7 @@ msgid ""
 "to %2!ls!"
 msgstr "複製 %1!ls!\r\n至 %2!ls!"
 
-#. Resource IDs: (32797)
+#. Resource IDs: (ID_COPYTOCLIPBOARD_REV - Menu)
 msgid "Copy &revision number to clipboard"
 msgstr "複製版號至剪貼簿(&R)"
 
@@ -3881,7 +3889,8 @@ msgid ""
 "%ls"
 msgstr "建立目錄:\r\n%ls"
 
-#. Resource IDs: (32828, 32828 - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
+#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
 msgid "Create patch file"
 msgstr "產生補綴檔"
 
@@ -3994,7 +4003,7 @@ msgstr "日期"
 msgid "Date Range"
 msgstr "日期範圍"
 
-#. Resource IDs: (16114, 32842)
+#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "預設"
 
@@ -4230,7 +4239,7 @@ msgstr "與 \"%ls\" 比對差異"
 msgid "Difference between"
 msgstr "差異:"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (ID_VIEW_SHOWDIFFPATHS - Menu)
 msgid "Differential path &names"
 msgstr "比較路徑差異(&N)"
 
@@ -4485,7 +4494,7 @@ msgstr "磁碟機 A: B:"
 msgid "Drop not possible on %1!ls!"
 msgstr "無法對 %1!ls! 進行拖放操作"
 
-#. Resource IDs: (32816)
+#. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
 msgstr "完整複製來源(&X)"
 
@@ -4493,15 +4502,15 @@ msgstr "完整複製來源(&X)"
 msgid "E&xclude paths:"
 msgstr "除外路徑(&X):"
 
-#. Resource IDs: (32839)
+#. Resource IDs: (ID_NEW_EXECUTABLE - Menu)
 msgid "E&xecutable"
 msgstr "可執行檔(&X)"
 
-#. Resource IDs: (105, 32874, 57665)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "離開(&X)"
 
-#. Resource IDs: (105)
+#. Resource IDs: (105 - Menu)
 msgid "E&xit\t(Ctrl+W)"
 msgstr "離開(&X)\t(Ctrl+W)"
 
@@ -4629,7 +4638,7 @@ msgstr "啟用自動屬性(&P)"
 msgid "Enable Auto-Properties"
 msgstr "啟用自動屬性設定"
 
-#. Resource IDs: (32976 - Ribbon name)
+#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
 msgid "Enable Edit"
 msgstr "啟用編輯"
 
@@ -4830,7 +4839,7 @@ msgstr "讀寫註冊樹時發生錯誤: %1!ls!\n%2!ls!"
 msgid "Every commit should be assigned to an issue."
 msgstr "每個送交都需要對應到一個問題."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (ID_NEW_EXTERNALS - Menu)
 msgid "Ex&ternals"
 msgstr "外部(&T)"
 
@@ -4852,8 +4861,8 @@ msgstr "可執行檔 (*.exe)|*.exe|可執行檔 (*.com)|*.com|文件 (*.pdf)|*.p
 msgid "Existing"
 msgstr "已存在"
 
-#. Resource IDs: (57665 - Ribbon name, Dialog IDD_AUTOTEXTTESTDLG: Control id
-#. 2)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
+#. Ribbon name)
 msgid "Exit"
 msgstr "離開"
 
@@ -5239,7 +5248,8 @@ msgstr "過濾路徑"
 msgid "Filter:"
 msgstr "過濾條件:"
 
-#. Resource IDs: (57636, 57636 - Ribbon name, Dialog IDD_FIND: Control id 139)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "搜尋"
 
@@ -5275,23 +5285,23 @@ msgstr "搜尋: 找到自文件開始的第一筆. 已抵達文件結尾."
 msgid "Finished!"
 msgstr "完成!"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (ID_VIEW_ZOOMALL - Menu)
 msgid "Fit graph"
 msgstr "符合圖表"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (ID_VIEW_ZOOMHEIGHT - Menu)
 msgid "Fit height"
 msgstr "符合高度"
 
-#. Resource IDs: (32818)
+#. Resource IDs: (ID_VIEW_FITIMAGEHEIGHTS - Menu)
 msgid "Fit image &heights\t(H)"
 msgstr "符合影像高度\t(&H)"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (ID_VIEW_FITIMAGEWIDTHS - Menu)
 msgid "Fit image &widths\t(W)"
 msgstr "符合影像寬度\t(&W)"
 
-#. Resource IDs: (32803)
+#. Resource IDs: (ID_VIEW_ZOOMWIDTH - Menu)
 msgid "Fit width"
 msgstr "符合寬度"
 
@@ -5299,7 +5309,7 @@ msgstr "符合寬度"
 msgid "Fixed at rev"
 msgstr "已修復於版本"
 
-#. Resource IDs: (32818)
+#. Resource IDs: (ID_VIEW_FOLDTAGS - Menu)
 msgid "Fold &tags"
 msgstr "折疊標籤(&T)"
 
@@ -5501,7 +5511,7 @@ msgid ""
 "Previous inline difference"
 msgstr "前往上一個行內差異\n上一個行內差異"
 
-#. Resource IDs: (32893, 32893 - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
 msgid "Goto Line"
 msgstr "前往行號"
 
@@ -5551,27 +5561,27 @@ msgstr "HEAD 版是 %ls"
 msgid "Header"
 msgstr "檔頭"
 
-#. Resource IDs: (57670 - Ribbon name, Dialog IDD_BLAME: Control id 9, Dialog
-#. IDD_CHECKOUT: Control id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog
-#. IDD_CONFLICTRESOLVE: Control id 9, Dialog IDD_COPY: Control id 9, Dialog
-#. IDD_CREATEPATCH: Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9,
-#. Dialog IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id
-#. 9, Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog
-#. IDD_EDITPROPEXECUTABLE: Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control
-#. id 9, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog
-#. IDD_EDITPROPKEYWORDS: Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control
-#. id 9, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog
-#. IDD_EDITPROPMIMETYPE: Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control
-#. id 9, Dialog IDD_EDITPROPTSVNLANG: Control id 9, Dialog
-#. IDD_EDITPROPTSVNSIZES: Control id 9, Dialog IDD_EXPORT: Control id 9,
-#. Dialog IDD_IMPORT: Control id 9, Dialog IDD_LOCK: Control id 9, Dialog
-#. IDD_LOGMESSAGE: Control id 9, Dialog IDD_MERGEALL: Control id 9, Dialog
-#. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
-#. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
-#. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK:
-#. Control id 9, Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP)
+#. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
+#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_CONFLICTRESOLVE:
+#. Control id 9, Dialog IDD_COPY: Control id 9, Dialog IDD_CREATEPATCH:
+#. Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9, Dialog
+#. IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id 9,
+#. Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog IDD_EDITPROPEXECUTABLE:
+#. Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control id 9, Dialog
+#. IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog IDD_EDITPROPKEYWORDS:
+#. Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control id 9, Dialog
+#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog IDD_EDITPROPMIMETYPE:
+#. Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control id 9, Dialog
+#. IDD_EDITPROPTSVNLANG: Control id 9, Dialog IDD_EDITPROPTSVNSIZES: Control
+#. id 9, Dialog IDD_EXPORT: Control id 9, Dialog IDD_IMPORT: Control id 9,
+#. Dialog IDD_LOCK: Control id 9, Dialog IDD_LOGMESSAGE: Control id 9, Dialog
+#. IDD_MERGEALL: Control id 9, Dialog IDD_OPENDLG: Control id 9, Dialog
+#. IDD_RELOCATE: Control id 9, Dialog IDD_REPOSITORY_BROWSER: Control id 9,
+#. Dialog IDD_RESOLVE: Control id 9, Dialog IDD_REVERT: Control id 9, Dialog
+#. IDD_SETTINGSBUGTRAQADV: Control id 9, Dialog IDD_SETTINGSHOOKCONFIG:
+#. Control id 9, Dialog IDD_SWITCH: Control id 9, Dialog
+#. IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
 msgid "Help"
 msgstr "說明"
 
@@ -5583,7 +5593,7 @@ msgstr "鍵盤說明"
 msgid "Hex"
 msgstr "Hex"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
 msgstr "隱藏已刪除的路徑(&D)"
 
@@ -5611,7 +5621,7 @@ msgstr "隱藏停駐的視窗"
 msgid "Hide non-mergeable revisions"
 msgstr "隱藏無法合併的版本"
 
-#. Resource IDs: (32832)
+#. Resource IDs: (ID_VIEW_REMOVETAGS - Menu)
 msgid "Hide ta&gs"
 msgstr "隱藏 ta&g"
 
@@ -5620,11 +5630,12 @@ msgstr "隱藏 ta&g"
 msgid "Hide the script while running"
 msgstr "隱藏執行中的指令檔"
 
-#. Resource IDs: (32830)
+#. Resource IDs: (ID_VIEW_REMOVEUNCHANGEDBRANCHES - Menu)
 msgid "Hide unused &branches"
 msgstr "隱藏未使用的分支(&B)"
 
-#. Resource IDs: (32817, 32817 - Ribbon name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
+#. name)
 msgid "Hide/Show the patch file list"
 msgstr "隱藏/顯示補綴檔列表"
 
@@ -6020,11 +6031,12 @@ msgstr "忽略所有空白字元(&A)"
 msgid "Ignore &ancestry"
 msgstr "無視之前版本(&A)"
 
-#. Resource IDs: (32896, 32896 - Ribbon name)
+#. Resource IDs: (32896, ID_VIEW_IGNORECOMMENTS - Ribbon name)
 msgid "Ignore Comments"
 msgstr "忽略註解"
 
-#. Resource IDs: (32873, 32873 - Ribbon name)
+#. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
+#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
 msgid "Ignore all whitespace changes"
 msgstr "無視所有空白字元變更"
 
@@ -6038,7 +6050,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "忽略變更\n忽略外部的變更"
 
-#. Resource IDs: (32896)
+#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
 msgstr "忽略註解"
 
@@ -6060,8 +6072,9 @@ msgstr "忽略空白字元 (&C)"
 msgid "Ignore whitespace c&hanges"
 msgstr "無視空白字元變更(&H)"
 
-#. Resource IDs: (32872, 32872 - Ribbon name, Dialog IDD_BLAME: Control id
-#. 1391)
+#. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
+#. Ribbon name)
 msgid "Ignore whitespace changes"
 msgstr "無視空白字元變更"
 
@@ -6089,7 +6102,7 @@ msgstr "比對差異時忽略空白字元\n忽略空白字元變更"
 msgid "Illegal path"
 msgstr "路徑不正確"
 
-#. Resource IDs: (16916)
+#. Resource IDs: (16916 - Menu)
 msgid "Image &and Text"
 msgstr "影像與文字(&A)"
 
@@ -6224,11 +6237,12 @@ msgstr "外部連結資訊"
 msgid "Information"
 msgstr "資訊"
 
-#. Resource IDs: (32889, 32889 - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
 msgid "Inline diff"
 msgstr "行內差異"
 
-#. Resource IDs: (32825, 32825 - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
+#. Ribbon name)
 msgid "Inline diff word-wise"
 msgstr "行內逐字差異"
 
@@ -6396,7 +6410,7 @@ msgstr "種類"
 msgid "L&imit:"
 msgstr "限制(&I)"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (ID_NEW_LANGUAGES - Menu)
 msgid "Lan&guages"
 msgstr "語系(&G)"
 
@@ -6484,7 +6498,8 @@ msgid ""
 "Line"
 msgstr "畫線工具\n畫線"
 
-#. Resource IDs: (32853, 32853 - Ribbon name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
+#. name)
 msgid "Line diff bar"
 msgstr "單行差異列"
 
@@ -6549,7 +6564,7 @@ msgid ""
 "The views are updated with the new content."
 msgstr "載入變更\n已更新為新的內容"
 
-#. Resource IDs: (32861)
+#. Resource IDs: (ID_NEW_LOCALHOOKS - Menu)
 msgid "Local &Hooks"
 msgstr "本地掛勾指令(&H)"
 
@@ -6563,7 +6578,7 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "儲存檔案庫 URL 內容的位置."
 
-#. Resource IDs: (32854, 32854 - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
 msgid "Locator Bar"
 msgstr "定位列"
 
@@ -6734,8 +6749,8 @@ msgstr "標記為已解決, 移動操作會改變為複製(&R)"
 msgid "Mark as Resolved"
 msgstr "標記為已消除"
 
-#. Resource IDs: (32808, 32808 - Ribbon name, IDS_PROC_RESOLVE_TASK2,
-#. IDS_SVNPROGRESS_MENUMARKASRESOLVED)
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
+#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
 msgstr "標記為已消除"
 
@@ -6841,7 +6856,7 @@ msgstr "合併"
 msgid "Merge &depth:"
 msgstr "合併層數(&D):"
 
-#. Resource IDs: (32865)
+#. Resource IDs: (ID_NEW_MERGELOGTEMPLATES - Menu)
 msgid "Merge Log &Templates"
 msgstr "合併紀錄樣版(&T)"
 
@@ -7219,7 +7234,7 @@ msgstr "導覽面板選項"
 msgid "Navigation Pane Options..."
 msgstr "導覽面板選項..."
 
-#. Resource IDs: (32845)
+#. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
 msgstr "需要鎖定(&L)"
 
@@ -7274,15 +7289,18 @@ msgid ""
 "Next Page"
 msgstr "下一頁\n下一頁"
 
-#. Resource IDs: (32804, 32804 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
+#. Ribbon name)
 msgid "Next conflict"
 msgstr "下一個衝突"
 
-#. Resource IDs: (32779, 32779 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
+#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
 msgid "Next difference"
 msgstr "下一個差異"
 
-#. Resource IDs: (32875, 32875 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
+#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
 msgid "Next inline difference"
 msgstr "下一個行內差異"
 
@@ -7518,11 +7536,12 @@ msgstr "確定"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, 10006 - Ribbon name)
+#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
+#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
 msgid "Office 2003"
 msgstr "Office 2003"
 
-#. Resource IDs: (10008 - Ribbon name)
+#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
 msgid "Office 2007"
 msgstr "Office 2007"
 
@@ -7530,7 +7549,8 @@ msgstr "Office 2007"
 msgid "Office 2007 colors"
 msgstr "Office 2007 色彩"
 
-#. Resource IDs: (10004, 10004 - Ribbon name)
+#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
+#. - Ribbon name)
 msgid "Office XP"
 msgstr "Office XP"
 
@@ -7538,7 +7558,7 @@ msgstr "Office XP"
 msgid "Older lines"
 msgstr "之前的行"
 
-#. Resource IDs: (32814)
+#. Resource IDs: (ID_URL_FOCUS - Menu)
 msgid "Oldest on to&p"
 msgstr "舊的在最上層(&P)"
 
@@ -7600,7 +7620,7 @@ msgstr "僅在設定 tsvn:projectlanguage 時使用拼字檢查(&P)"
 msgid "Opacity"
 msgstr "透明度"
 
-#. Resource IDs: (57601, 57601 - Ribbon name, 61440)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "開啟"
 
@@ -7677,7 +7697,7 @@ msgstr "選項"
 msgid "Options"
 msgstr "選項"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr "原始大小(&G)\t(S)"
 
@@ -7777,7 +7797,7 @@ msgstr "密碼/密語"
 msgid "Password:"
 msgstr "密碼:"
 
-#. Resource IDs: (57637 - Ribbon name)
+#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
 msgid "Paste"
 msgstr "貼上"
 
@@ -8027,15 +8047,18 @@ msgid ""
 "Previous Page"
 msgstr "上一頁\n上一頁"
 
-#. Resource IDs: (32802, 32802 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
+#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
 msgid "Previous conflict"
 msgstr "上一個衝突"
 
-#. Resource IDs: (32780, 32780 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
+#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
 msgid "Previous difference"
 msgstr "上一個差異"
 
-#. Resource IDs: (32876, 32876 - Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
+#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
 msgid "Previous inline difference"
 msgstr "上一個行內差異"
 
@@ -8373,7 +8396,7 @@ msgstr "資源回收筒"
 msgid "Redirecting to url"
 msgstr "正在導向至 URL"
 
-#. Resource IDs: (57644 - Ribbon name)
+#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
 msgid "Redo"
 msgstr "取消復原"
 
@@ -8383,7 +8406,7 @@ msgid ""
 "Redo"
 msgstr "重做上次還原的動作\n重做"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (ID_VIEW_REDUCECROSSLINES - Menu)
 msgid "Reduce cross-&lines"
 msgstr "減少連接線交叉(&L)"
 
@@ -8405,8 +8428,8 @@ msgstr "重新整理圖示(&S)"
 msgid "Refreshing shell for %1!ls!"
 msgstr "正在更新 %1!ls! 的圖示"
 
-#. Resource IDs: (500, 500 - Ribbon name, 65535 - PopupMenu, Dialog
-#. IDD_REGEXFILTER: Control id 165)
+#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
+#. 165, ID_REGEXFILTER - Ribbon name)
 msgid "Regex Filter"
 msgstr "正規表示式過濾器"
 
@@ -8478,7 +8501,7 @@ msgstr "解除鎖定, 讓其它人也可以編輯."
 msgid "Relo&cate..."
 msgstr "重新定位(&C)..."
 
-#. Resource IDs: (32794, 32794 - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
 msgid "Reload"
 msgstr "重新載入"
 
@@ -9170,11 +9193,11 @@ msgstr "用來測試 bugtraq:regex 的記錄訊息範本.\n\n測試在段落中�
 msgid "Sample text:"
 msgstr "範例文字:"
 
-#. Resource IDs: (57603, 57603 - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "儲存"
 
-#. Resource IDs: (57604, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "另存新檔(&A)..."
 
@@ -9244,7 +9267,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr "儲存並帶入\n儲存你的變更並帶入標記的區塊"
 
-#. Resource IDs: (57604 - Ribbon name, IDS_ASKFORSAVEAS)
+#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
 msgid "Save as"
 msgstr "另存新檔"
 
@@ -9573,7 +9596,8 @@ msgstr "設定 %2!ls! 的屬性\n'%1!S!' "
 msgid "Setting properties..."
 msgstr "正在設定屬性..."
 
-#. Resource IDs: (32782, 32782 - Ribbon name, IDS_SETTINGSTITLE)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
+#. Ribbon name)
 msgid "Settings"
 msgstr "設定"
 
@@ -9636,15 +9660,15 @@ msgstr "顯示記錄訊息(&L)"
 msgid "Show &Range..."
 msgstr "顯示範圍(&R)..."
 
-#. Resource IDs: (32826)
+#. Resource IDs: (ID_VIEW_SHOWWCREV - Menu)
 msgid "Show &WC revision"
 msgstr "顯示工作複本的版本(&W)"
 
-#. Resource IDs: (32796)
+#. Resource IDs: (ID_VIEW_SHOWALLREVISIONS - Menu)
 msgid "Show &all revisions"
 msgstr "顯示所有版本(&A)"
 
-#. Resource IDs: (32783, IDS_LOG_POPUP_DIFF)
+#. Resource IDs: (IDS_LOG_POPUP_DIFF, ID_DIFF_PREVIOUS_REVISION - Menu)
 msgid "Show &changes"
 msgstr "顯示變更(&C)"
 
@@ -9656,13 +9680,13 @@ msgstr " 顯示外部資源(&E)"
 msgid "Show &locks"
 msgstr "顯示鎖定(&L)"
 
-#. Resource IDs: (32784, Dialog IDD_CHECKOUT: Control id 1228, Dialog
+#. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1228, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1228, Dialog IDD_EXPORT: Control id
 #. 1228, Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1420, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1031, Dialog IDD_PROPPAGE: Control id
 #. 1016, Dialog IDD_SWITCH: Control id 1132, Dialog IDD_UPDATE: Control id
 #. 1132, Dialog IDD_URLDIFF: Control id 1132, IDS_MENULOG,
-#. IDS_REPOBROWSE_SHOWLOG)
+#. IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG - Menu)
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
@@ -9723,7 +9747,7 @@ msgstr "顯示監控視窗"
 msgid "Show More Buttons"
 msgstr "顯示更多按鈕"
 
-#. Resource IDs: (32813)
+#. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "顯示一覽(&R)"
 
@@ -9739,11 +9763,12 @@ msgstr "在功能區下方顯示快速存取工具列"
 msgid "Show Screen&Tips on toolbars"
 msgstr "在工具列上顯示畫面提示(&T)"
 
-#. Resource IDs: (32831)
+#. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "顯示工作複本變更(&M)"
 
-#. Resource IDs: (32774, 32774 - Ribbon name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
+#. name)
 msgid "Show Whitespaces"
 msgstr "顯示空白字元"
 
@@ -9934,7 +9959,8 @@ msgstr "顯示選定的檔案/目錄的記錄"
 msgid "Shows the mime type of the versioned file"
 msgstr "顯示在版本控制下檔案的 mime 類型"
 
-#. Resource IDs: (10011, 10011 - Ribbon name)
+#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
+#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
 msgid "Silver Style"
 msgstr "銀色樣式"
 
@@ -10134,7 +10160,7 @@ msgstr "Windows 啟動時同時執行(&W)"
 
 #. Resource IDs: (IDS_PROGRS_STARTING_EXTERNALS)
 msgid "Starting externals..."
-msgstr "正在啟動外部程式..."
+msgstr "正在處理外部連結..."
 
 #. Resource IDs: (IDS_MENUDESCDIFFNOW)
 msgid ""
@@ -10167,7 +10193,7 @@ msgstr "統計資料"
 msgid "Status"
 msgstr "狀態"
 
-#. Resource IDs: (59393 - Ribbon name)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
 msgstr "狀態列"
 
@@ -10218,7 +10244,7 @@ msgstr "儲存選定檔的路徑並用於稍後右鍵選單中的「比對差異
 msgid "Stripes"
 msgstr "條紋"
 
-#. Resource IDs: (10000 - Ribbon name, 65535 - PopupMenu)
+#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
 msgid "Style"
 msgstr "樣式"
 
@@ -10337,7 +10363,7 @@ msgid ""
 "Previous Pane"
 msgstr "切換回前一個視窗區塊\n前一區塊"
 
-#. Resource IDs: (32775, 32775 - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
 msgid "Switch between single and double pane view"
 msgstr "切換單一或雙重檢視"
 
@@ -10347,7 +10373,7 @@ msgid ""
 "Switch between single and double pane view"
 msgstr "在單區塊與雙區塊檢視模式間切換\n切換單/雙區塊模式"
 
-#. Resource IDs: (32811, 32811 - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
 msgid "Switch left and right view"
 msgstr "對調左右檢視"
 
@@ -11336,7 +11362,7 @@ msgstr "合併的版本總數"
 msgid "Total number of user revision properties"
 msgstr "用戶版本屬性總數"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (ID_VIEW_SHOWTREESTRIPES - Menu)
 msgid "Tr&ee stripes"
 msgstr "樹條紋(&E)"
 
@@ -11345,7 +11371,7 @@ msgstr "樹條紋(&E)"
 msgid "Transferring at %ls"
 msgstr "傳輸中: %ls"
 
-#. Resource IDs: (32816)
+#. Resource IDs: (ID_VIEW_TRANSPARENTCOLOR - Menu)
 msgid "Transparent &color..."
 msgstr "透明色(&C)..."
 
@@ -11471,7 +11497,7 @@ msgid ""
 "menu"
 msgstr "未勾選的項目會顯示在第二層選單, 勾選的項目會列在第一層快顯選單"
 
-#. Resource IDs: (57643 - Ribbon name)
+#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
 msgid "Undo"
 msgstr "復原"
 
@@ -11508,7 +11534,8 @@ msgid ""
 "text without any formatting"
 msgstr "無格式文字\n沒有設定格式的文字"
 
-#. Resource IDs: (32786, IDS_REVGRAPH_POPUP_UNIDIFFHEADS)
+#. Resource IDs: (IDS_REVGRAPH_POPUP_UNIDIFFHEADS,
+#. ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS - Menu)
 msgid "Unified &diff of HEAD revisions"
 msgstr "與最新版本的單一差異檔(&D)"
 
@@ -11710,19 +11737,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "可以用 '*' 做為指定例外的萬用字元. \r\n用逗號 (',') 分隔多筆例外資料.\r\n例如: *.mylan.com, *.company.com"
 
-#. Resource IDs: (32820, 32820 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
 msgid "Use 'mine' text block"
 msgstr "使用本地端文字區塊"
 
-#. Resource IDs: (32822, 32822 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
+#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "先套用本地再套用遠端的文字區塊"
 
-#. Resource IDs: (32819, 32819 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
+#. name)
 msgid "Use 'theirs' text block"
 msgstr "使用遠端的文字區塊"
 
-#. Resource IDs: (32821, 32821 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
+#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "先套用遠端再套用本地的文字區塊"
 
@@ -11748,7 +11778,8 @@ msgid ""
 "Use left file"
 msgstr "使用左方視窗的全部內容\n使用左方檔案"
 
-#. Resource IDs: (32857, 32857 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
+#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
 msgid "Use block from left before right"
 msgstr "先使用左方區塊再使用右方"
 
@@ -11758,7 +11789,8 @@ msgid ""
 "Use block from left before right"
 msgstr "先使用左方視窗的文字區塊再使用右方視窗的文字區塊\n先使用左方區塊再使用右方"
 
-#. Resource IDs: (32859, 32859 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
+#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
 msgid "Use block from right before left"
 msgstr "先使用右方區塊再使用左方"
 
@@ -11776,11 +11808,13 @@ msgstr "使用兩個文字區域(先使用本區塊)"
 msgid "Use both text blocks (this one last)"
 msgstr "使用兩個文字區塊(最後使用本區塊)"
 
-#. Resource IDs: (32855, 32855 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
+#. name)
 msgid "Use left block"
 msgstr " 使用左方區塊"
 
-#. Resource IDs: (32856, 32856 - Ribbon name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
+#. name)
 msgid "Use left file"
 msgstr "使用左方檔案"
 
@@ -11965,7 +11999,7 @@ msgstr "版本控制中"
 msgid "View"
 msgstr "檢視"
 
-#. Resource IDs: (32898 - Ribbon name)
+#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
 msgid "View Bars"
 msgstr "檢視工具列"
 
@@ -11981,11 +12015,13 @@ msgstr "以網頁瀏覽器檢視版本(&W)"
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
 
-#. Resource IDs: (10007, 10007 - Ribbon name)
+#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
+#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
 msgid "Visual Studio 2005"
 msgstr "Visual Studio 2005"
 
-#. Resource IDs: (10002, 10002 - Ribbon name)
+#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
+#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
 msgid "Visual Studio 2008"
 msgstr "Visual Studio 2008"
 
@@ -12087,15 +12123,18 @@ msgstr "視窗位置"
 msgid "Windows"
 msgstr "Windows"
 
-#. Resource IDs: (10003, 10003 - Ribbon name)
+#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
+#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
 msgid "Windows 2000"
 msgstr "Windows 2000"
 
-#. Resource IDs: (10001, 10001 - Ribbon name)
+#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
+#. Ribbon name)
 msgid "Windows 7"
 msgstr "Windows 7"
 
-#. Resource IDs: (10005, 10005 - Ribbon name)
+#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
+#. - Ribbon name)
 msgid "Windows XP"
 msgstr "Windows XP"
 
@@ -12126,7 +12165,8 @@ msgstr "工作複本重定位至\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "工作複本: %ls\n"
 
-#. Resource IDs: (32881, 32881 - Ribbon name)
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
+#. name)
 msgid "Wrap long lines"
 msgstr "自動折行"
 
@@ -12273,7 +12313,7 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "指向 %ls 的工作複本應該是標記！\n建議您先切換至分支或trunk再進行送交."
 
-#. Resource IDs: (32783)
+#. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr "縮小(&M)\t(-)"
 
@@ -12289,11 +12329,11 @@ msgstr "放大(&I)"
 msgid "Zoom &Out"
 msgstr "縮小(&O)"
 
-#. Resource IDs: (32772)
+#. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom &in\tCtrl-+"
 msgstr "放大(&I)\tCtrl-+"
 
-#. Resource IDs: (32773)
+#. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoom &out\tCtrl--"
 msgstr "縮小(&O)\tCtrl--"
 
@@ -12314,7 +12354,7 @@ msgid ""
 "Zoom Out"
 msgstr "縮小\n縮小"
 
-#. Resource IDs: (32784)
+#. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
 msgstr "放大(&N)\t(+)"
 
@@ -12326,7 +12366,7 @@ msgstr "放大"
 msgid "Zoom out"
 msgstr "縮小"
 
-#. Resource IDs: (32801)
+#. Resource IDs: (ID_VIEW_ZOOM100 - Menu)
 msgid "Zoom to &100%"
 msgstr "放大至 &100%"
 
