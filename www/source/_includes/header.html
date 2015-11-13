@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage" class="no-js">
+<html lang="{{ page.lang }}" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage" class="no-js">
 <head>
     <meta charset="utf-8">
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
@@ -52,9 +52,17 @@
     {% endunless %}
 
     <div class="wrapper">
-        {% include menu.html %}
 
-        {% include sidebar.html %}
+        {% if page.lang == "de" %}
+            {% include menu.de.html %}
+            {% include sidebar.de.html %}
+        {% elsif page.lang == "zh" %}
+            {% include menu.zh.html %}
+            {% include sidebar.zh.html %}
+        {% else %}
+            {% include menu.html %}
+            {% include sidebar.html %}
+        {% endif %}
 
         <div class="page clearfix">
             <div class="content">

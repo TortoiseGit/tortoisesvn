@@ -1,10 +1,4 @@
-{% if page.lang == "de" %}
-    {% include header.de.html %}
-{% elsif page.lang == "zh" %}
-    {% include header.zh.html %}
-{% else %}
-    {% include header.html %}
-{% endif %}
+{% include header.html %}
 
 {{ content }}
 
