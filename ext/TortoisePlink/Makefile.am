@@ -15,10 +15,10 @@ allsources = be_all_s.c be_none.c be_nos_s.c be_ssh.c callback.c \
 		ldisc.h ldiscucs.c logging.c macosx/osx.h macosx/osxclass.h \
 		macosx/osxctrls.m macosx/osxdlg.m macosx/osxmain.m \
 		macosx/osxsel.m macosx/osxwin.m minibidi.c misc.c misc.h \
-		network.h nocproxy.c nogss.c noshare.c noterm.c notiming.c \
-		pgssapi.c pgssapi.h pinger.c portfwd.c proxy.c proxy.h \
-		pscp.c psftp.c psftp.h putty.h puttymem.h puttyps.h raw.c \
-		rlogin.c sercfg.c settings.c sftp.c sftp.h ssh.c ssh.h \
+		miscucs.c network.h nocproxy.c nogss.c noshare.c noterm.c \
+		notiming.c pgssapi.c pgssapi.h pinger.c portfwd.c proxy.c \
+		proxy.h pscp.c psftp.c psftp.h putty.h puttymem.h puttyps.h \
+		raw.c rlogin.c sercfg.c settings.c sftp.c sftp.h ssh.c ssh.h \
 		sshaes.c ssharcf.c sshblowf.c sshbn.c sshbn.h sshcrc.c \
 		sshcrcda.c sshdes.c sshdh.c sshdss.c sshdssg.c sshgss.h \
 		sshgssc.c sshgssc.h sshmd5.c sshprime.c sshpubk.c sshrand.c \
@@ -108,8 +108,8 @@ pterm_SOURCES = be_none.c callback.c charset/fromucs.c charset/localenc.c \
 		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
 		charset/utf8.c charset/xenc.c cmdline.c conf.c config.c \
 		dialog.c ldisc.c ldiscucs.c logging.c minibidi.c misc.c \
-		nocproxy.c nogss.c sercfg.c settings.c terminal.c time.c \
-		timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
+		miscucs.c nocproxy.c nogss.c sercfg.c settings.c terminal.c \
+		time.c timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
 		unix/gtkdlg.c unix/gtkfont.c unix/gtkwin.c unix/uxcfg.c \
 		unix/uxmisc.c unix/uxprint.c unix/uxpterm.c unix/uxpty.c \
 		unix/uxsel.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
@@ -124,19 +124,19 @@ putty_SOURCES = be_all_s.c callback.c charset/fromucs.c charset/localenc.c \
 		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
 		charset/utf8.c charset/xenc.c cmdline.c conf.c config.c \
 		cproxy.c dialog.c ldisc.c ldiscucs.c logging.c minibidi.c \
-		misc.c pgssapi.c pinger.c portfwd.c proxy.c raw.c rlogin.c \
-		sercfg.c settings.c ssh.c sshaes.c ssharcf.c sshblowf.c \
-		sshbn.c sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c \
-		sshgssc.c sshmd5.c sshpubk.c sshrand.c sshrsa.c sshsh256.c \
-		sshsh512.c sshsha.c sshshare.c sshzlib.c telnet.c terminal.c \
-		time.c timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
-		unix/gtkdlg.c unix/gtkfont.c unix/gtkwin.c unix/ux_x11.c \
-		unix/uxagentc.c unix/uxcfg.c unix/uxgss.c unix/uxmisc.c \
-		unix/uxnet.c unix/uxnoise.c unix/uxpeer.c unix/uxprint.c \
-		unix/uxproxy.c unix/uxputty.c unix/uxsel.c unix/uxser.c \
-		unix/uxshare.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
-		unix/xkeysym.c unix/xpmpucfg.c unix/xpmputty.c version.c \
-		wcwidth.c wildcard.c x11fwd.c
+		misc.c miscucs.c pgssapi.c pinger.c portfwd.c proxy.c raw.c \
+		rlogin.c sercfg.c settings.c ssh.c sshaes.c ssharcf.c \
+		sshblowf.c sshbn.c sshcrc.c sshcrcda.c sshdes.c sshdh.c \
+		sshdss.c sshgssc.c sshmd5.c sshpubk.c sshrand.c sshrsa.c \
+		sshsh256.c sshsh512.c sshsha.c sshshare.c sshzlib.c telnet.c \
+		terminal.c time.c timing.c tree234.c unix/gtkcfg.c \
+		unix/gtkcols.c unix/gtkdlg.c unix/gtkfont.c unix/gtkwin.c \
+		unix/ux_x11.c unix/uxagentc.c unix/uxcfg.c unix/uxgss.c \
+		unix/uxmisc.c unix/uxnet.c unix/uxnoise.c unix/uxpeer.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxputty.c unix/uxsel.c \
+		unix/uxser.c unix/uxshare.c unix/uxsignal.c unix/uxstore.c \
+		unix/uxucs.c unix/xkeysym.c unix/xpmpucfg.c unix/xpmputty.c \
+		version.c wcwidth.c wildcard.c x11fwd.c
 putty_LDADD = $(GTK_LIBS)
 endif
 
@@ -152,14 +152,15 @@ puttytel_SOURCES = be_nos_s.c callback.c charset/fromucs.c \
 		charset/sbcs.c charset/sbcsdat.c charset/slookup.c \
 		charset/toucs.c charset/utf8.c charset/xenc.c cmdline.c \
 		conf.c config.c dialog.c ldisc.c ldiscucs.c logging.c \
-		minibidi.c misc.c nocproxy.c nogss.c pinger.c proxy.c raw.c \
-		rlogin.c sercfg.c settings.c telnet.c terminal.c time.c \
-		timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
-		unix/gtkdlg.c unix/gtkfont.c unix/gtkwin.c unix/uxcfg.c \
-		unix/uxmisc.c unix/uxnet.c unix/uxpeer.c unix/uxprint.c \
-		unix/uxproxy.c unix/uxputty.c unix/uxsel.c unix/uxser.c \
-		unix/uxsignal.c unix/uxstore.c unix/uxucs.c unix/xkeysym.c \
-		unix/xpmpucfg.c unix/xpmputty.c version.c wcwidth.c
+		minibidi.c misc.c miscucs.c nocproxy.c nogss.c pinger.c \
+		proxy.c raw.c rlogin.c sercfg.c settings.c telnet.c \
+		terminal.c time.c timing.c tree234.c unix/gtkcfg.c \
+		unix/gtkcols.c unix/gtkdlg.c unix/gtkfont.c unix/gtkwin.c \
+		unix/uxcfg.c unix/uxmisc.c unix/uxnet.c unix/uxpeer.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxputty.c unix/uxsel.c \
+		unix/uxser.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
+		unix/xkeysym.c unix/xpmpucfg.c unix/xpmputty.c version.c \
+		wcwidth.c
 puttytel_LDADD = $(GTK_LIBS)
 endif
 
