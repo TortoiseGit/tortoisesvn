@@ -57,7 +57,10 @@ BOOL CSimplePrompt::OnInitDialog()
     BOOL bAllowAuthSave = (BOOL)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\AllowAuthSave", TRUE);
     DialogEnableWindow(IDC_SAVECHECK, bAllowAuthSave);
     if (bAllowAuthSave)
-        CheckDlgButton(IDC_SAVECHECK, SVNConfig::Instance().ConfigGetBool(SVN_CONFIG_SECTION_AUTH, SVN_CONFIG_OPTION_STORE_PASSWORDS, true) ? BST_CHECKED : BST_UNCHECKED);
+    {
+        m_bSaveAuthentication = SVNConfig::Instance().ConfigGetBool(SVN_CONFIG_SECTION_AUTH, SVN_CONFIG_OPTION_STORE_PASSWORDS, true);
+        CheckDlgButton(IDC_SAVECHECK, m_bSaveAuthentication ? BST_CHECKED : BST_UNCHECKED);
+    }
 
     GetDlgItem(IDC_USEREDIT)->SetFocus();
     if ((m_hParentWnd==NULL)&&(GetExplorerHWND()))

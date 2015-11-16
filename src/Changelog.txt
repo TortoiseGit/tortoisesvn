@@ -43,6 +43,7 @@ Version 1.9.3
 - BUG: "Drop vendorbranch here" could leave the target folder
        empty if multiple sources where dragged. (Stefan)
 - BUG: Possible crash when trimming the action log file. (Stefan)
+- BUG: Authentication wasn't properly saved. (Stefan)
 
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
