@@ -445,7 +445,9 @@
         </listitem>
         <listitem>
           <para>
-            TortoiseSVN can use spell checker modules which are also
+            TortoiseSVN can use a spell checker. On Windows 10, the
+            spell checker of the OS is used. On earlier Windows versions,
+            it can use spell checker modules which are also
             used by OpenOffice and Mozilla. If you have those installed
             this property will determine which spell checker to use, i.e.
             in which language the log messages for your project should
