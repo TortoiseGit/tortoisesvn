@@ -65,6 +65,7 @@ protected:
 
             CRect rc;
             GetClientRect(&rc);
+            bool bIsEmpty = false;
             CListCtrl * pListCtrl = dynamic_cast<CListCtrl*>(this);
             if (pListCtrl)
             {
@@ -77,6 +78,7 @@ protected:
                     pHC->GetItemRect(0, &rcH);
                     rc.top += rcH.bottom;
                 }
+                bIsEmpty = pListCtrl->GetItemCount() == 0;
             }
             CDC* pDC = GetDC();
             {
@@ -84,7 +86,10 @@ protected:
 
                 memDC.SetTextColor(clrText);
                 memDC.SetBkColor(clrTextBk);
-                memDC.BitBlt(rc.left, rc.top, rc.Width(), rc.Height(), pDC, rc.left, rc.top, SRCCOPY);
+                if (bIsEmpty)
+                    memDC.BitBlt(rc.left, rc.top, rc.Width(), rc.Height(), pDC, rc.left, rc.top, SRCCOPY);
+                else
+                    memDC.FillSolidRect(rc, clrTextBk);
                 rc.top += 10;
                 CGdiObject * oldfont = memDC.SelectStockObject(DEFAULT_GUI_FONT);
                 memDC.DrawText(m_sText, rc, DT_CENTER | DT_VCENTER |
