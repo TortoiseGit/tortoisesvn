@@ -5425,10 +5425,11 @@ void CSVNStatusListCtrl::OnPaint()
             memDC.SetTextColor(clrText);
             memDC.SetBkColor(clrTextBk);
             memDC.FillSolidRect(rc, clrTextBk);
+            memDC.BitBlt(rc.left, rc.top, rc.Width(), rc.Height(), pDC, rc.left, rc.top, SRCCOPY);
             rc.top += 10;
             CGdiObject * oldfont = memDC.SelectStockObject(DEFAULT_GUI_FONT);
             memDC.DrawText(str, rc, DT_CENTER | DT_VCENTER |
-                DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
+                           DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
             memDC.SelectObject(oldfont);
         }
         ReleaseDC(pDC);
