@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-11-22 17:22+0000\n"
+"PO-Revision-Date: 2015-11-26 20:06+0000\n"
 "Last-Translator: Daniel Sahlberg <daniel.l.sahlberg@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/luebbe/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -626,7 +626,7 @@ msgstr "&Jämför revisioner"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1390, Dialog IDD_MERGEALL:
 #. Control id 1390, Dialog IDD_MERGEWIZARD_OPTIONS: Control id 1390)
 msgid "&Compare whitespaces"
-msgstr "&Jämför tomrum"
+msgstr "&Jämför blanktecken"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1239)
 msgid "&Configure"
@@ -1616,7 +1616,7 @@ msgstr "&Helt ord"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1589)
 msgid "&Windows (CRLF)"
-msgstr "&Windows (CRLF)"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1183)
 msgid "&Working copy"
@@ -2309,7 +2309,7 @@ msgstr ""
 #. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
 #. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
 msgid "Aqua Style"
-msgstr ""
+msgstr "Aqua"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2488,7 +2488,7 @@ msgstr "Bitmap\nEn bitmap"
 #. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
 #. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
 msgid "Black Style"
-msgstr ""
+msgstr "Svart"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
@@ -2517,7 +2517,7 @@ msgstr "Block"
 #. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
 #. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
 msgid "Blue Style"
-msgstr ""
+msgstr "Blå"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2948,7 +2948,7 @@ msgstr "Certifikat|*.p12;*.pkcs12;*.pfx|Alla|*.*||"
 msgid ""
 "Change the style of the application\n"
 "Change Style"
-msgstr ""
+msgstr "Ändra färgschema på programmet\nÄndra Färgschema"
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
 msgid ""
@@ -2988,7 +2988,7 @@ msgstr "Ändringar (dubbelklicka på fil för jämförelse):"
 
 #. Resource IDs: (32956)
 msgid "Changes the style of the application"
-msgstr ""
+msgstr "Ändrar färgschemat på programmet"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3379,11 +3379,11 @@ msgstr "Arkiveringar per datum"
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYUNIT)
 #, c-format
 msgid "Commits each %ls:"
-msgstr "Arkiveringar varje %ls:"
+msgstr "Arkiveringar per %ls:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1135)
 msgid "Commits each week:"
-msgstr "Arkiveringar varje vecka:"
+msgstr "Arkiveringar per vecka:"
 
 #. Resource IDs: (IDS_MENUDESCCOMMIT)
 msgid "Commits your changes to the repository"
@@ -3431,7 +3431,7 @@ msgstr "Jämför två filer"
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
 #. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
 msgid "Compare whitespaces"
-msgstr "Jämför tomrum"
+msgstr "Jämför blanktecken"
 
 #. Resource IDs: (IDS_LOG_COMPAREWITHHEAD)
 msgid "Compare with &HEAD and BASE"
@@ -3457,7 +3457,7 @@ msgstr "Jämför med föregående revision"
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
-msgstr "Visa tomrumsskillnader vid jämförelse\nJämför tomrum"
+msgstr "Visa skillnader i blanktecken vid jämförelse\nJämför blanktecken"
 
 #. Resource IDs: (IDS_MENUDESCDIFF)
 msgid ""
@@ -4031,7 +4031,7 @@ msgstr "Standard katalogstruktur skapat utan problem!"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "Standard övervakningsintervall i minuter:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1515)
 msgid "Default path:"
@@ -4047,11 +4047,11 @@ msgstr "Ta bort"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "Radera &ignorerade filer och mappar"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "Radera ej &versionshanterade filer och mappar"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)
 msgid "Delete Repository cache"
@@ -4305,7 +4305,7 @@ msgstr "Visa programinformation, versionsnummer och copyright\nOm"
 
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK5)
 msgid "Do not ask again for this script"
-msgstr ""
+msgstr "Fråga inte igen för detta skript"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1562)
 msgid "Do not expand keywords"
@@ -4706,7 +4706,7 @@ msgstr "Slutrevision"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_EOL)
 msgid "End of Line Style"
-msgstr ""
+msgstr "Typ av radslutstecken"
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_ENFORCE)
 msgid "Enforce"
@@ -4793,7 +4793,7 @@ msgstr "Ange inte fler än %1 tecken."
 
 #. Resource IDs: (IDS_LOGCACHE_EXPORTFILTER)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "Ange prefix|*"
 
 #. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 65535)
 msgid "Enter the regex string below:"
@@ -5072,11 +5072,11 @@ msgstr "Hämtar mappens innehåll i bakgrunden så att bläddring blir snabbare"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_GETDATA2)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Hämtar fillista från källan"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_GETDATA1)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Hämta fillista från målet"
 
 #. Resource IDs: (IDS_GETVERSIONOFFILETITLE)
 msgid "Fetching file..."
@@ -5098,7 +5098,7 @@ msgstr "Filnamn"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_ENCODING)
 msgid "File Encoding"
-msgstr ""
+msgstr "Filens teckenkodning"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK2,
 #. IDS_WARN_ADDCASERENAMED_TASK2)
@@ -5108,11 +5108,11 @@ msgstr "Filen finns redan"
 #. Resource IDs: (IDS_STATGRAPH_FILECHANGESBYUNIT)
 #, c-format
 msgid "File changes each %ls:"
-msgstr ""
+msgstr "Ändrade filer per %ls:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1138)
 msgid "File changes each week:"
-msgstr "Filändringar varje vecka:"
+msgstr "Ändrade filer per vecka:"
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK2)
 msgid "File contains conflict markers"
@@ -5371,11 +5371,11 @@ msgstr "Fullskärm"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
-msgstr ""
+msgstr "All information"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS)
 msgid "Full revision data without changed paths"
-msgstr ""
+msgstr "All versionsdata förutom ändrade filer"
 
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
@@ -5680,11 +5680,11 @@ msgstr "Kroktyp:"
 
 #. Resource IDs: (IDS_HOOKFAILED_TASK2)
 msgid "Hook script failed"
-msgstr ""
+msgstr "Krok-skript misslyckades"
 
 #. Resource IDs: (IDS_COMMITDLG_CHECKCOMMIT_TASK1)
 msgid "Hook script failed!"
-msgstr ""
+msgstr "Krok-skript misslyckades!"
 
 #. Resource IDs: (IDS_ERR_SSL_CNMISMATCH)
 #, c-format
@@ -5698,7 +5698,7 @@ msgstr "Hur vill du lösa följande konflikt?"
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1392, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1392)
 msgid "I&gnore all whitespaces"
-msgstr "I&gnorera alla tomrum"
+msgstr "I&gnorera alla blanktecken"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1264)
 msgid "I&gnored"
@@ -6026,7 +6026,7 @@ msgstr "Ignorera &EOL ändringar"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1392, Dialog IDD_DIFFOPTIONS:
 #. Control id 1611)
 msgid "Ignore &all whitespaces"
-msgstr "Ignorera &alla tomrum"
+msgstr "Ignorera &alla blanktecken"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1267, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1267)
@@ -6040,7 +6040,7 @@ msgstr "Ignorera kommentarer"
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
 msgid "Ignore all whitespace changes"
-msgstr "Ignorera ändringar av tomrum"
+msgstr "Ignorera ändringar av blanktecken"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1067)
 msgid "Ignore case cha&nges"
@@ -6050,7 +6050,7 @@ msgstr "Ig&norera ändringar mellan gemener/versaler"
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
-msgstr ""
+msgstr "Ignorera ändringar\nIgnorera externa ändringar"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6072,13 +6072,13 @@ msgstr "Ignorera mellanslag och &ändringar"
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1391, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1391)
 msgid "Ignore whitespace c&hanges"
-msgstr "&Ignorera ändringar av tomrum"
+msgstr "&Ignorera ändringar av blanktecken"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
 #. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
 #. Ribbon name)
 msgid "Ignore whitespace changes"
-msgstr "Ignorera ändringar av tomrum"
+msgstr "Ignorera ändringar av blanktecken"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAYHANDLERS: Control id 1432)
 msgid "Ignored"
@@ -6092,13 +6092,13 @@ msgstr "Inkluderade ignorerade objekt"
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
-msgstr "Ignorera tomrumsskillnader vid jämförelse\nIgnorera tomrum"
+msgstr "Ignorera alla skillnader i blanktecken vid jämförelse\nIgnorera alla skillnader i blanktecken"
 
 #. Resource IDs: (32872)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
-msgstr "Visa förändringar av tomrum vid jämförelse\nJämför tomrum"
+msgstr "Ignorera förändringar av blanktecken i jämförlse\nIgnorera förändringar av blanktecken"
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
@@ -6512,12 +6512,12 @@ msgstr "Radskillnader"
 #. Resource IDs: (IDS_MOVED_FROM_TT)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "Rad flyttad från rad %ld"
 
 #. Resource IDs: (IDS_MOVED_TO_TT)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "Rad flyttad till rad %ld"
 
 #. Resource IDs: (Dialog IDD_GOTODLG: Control id 65535)
 msgid "Line:"
@@ -6558,13 +6558,13 @@ msgstr "Ladda inställningar från fil"
 msgid ""
 "Load changes\n"
 "Changes made in TortoiseMerge are lost and replaced with the new content."
-msgstr ""
+msgstr "Läs in ändringar\nÄndringar som gjorts i TortoiseMerge går förlorade och ersätts med det nya innehållet."
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDE_TASK4)
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
-msgstr ""
+msgstr "Läs in ändringar\nVyerna uppdateras med det nya innehållet."
 
 #. Resource IDs: (ID_NEW_LOCALHOOKS - Menu)
 msgid "Local &Hooks"
@@ -6659,11 +6659,11 @@ msgstr "Logg cache statistik"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 281)
 msgid "Log Caching"
-msgstr "Logg cache"
+msgstr "Logg Cachning"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 295)
 msgid "Log Caching::Cached Repositories"
-msgstr "Logg Caching::Cachade arkiv"
+msgstr "Logg Cachning::Cachade arkiv"
 
 #. Resource IDs: (Dialog IDD_HISTORYDLG: Control id 211)
 msgid "Log History"
@@ -7283,7 +7283,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_EOL)
 msgid "Newlines"
-msgstr ""
+msgstr "Ny-rad-tecken"
 
 #. Resource IDs: (58114)
 msgid ""
@@ -8098,7 +8098,7 @@ msgstr "Fortsätt ändå"
 msgid ""
 "Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "Fortsätt ändå\nIgnorera krok-skript och kör kommandot i alla fall."
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
@@ -8913,7 +8913,7 @@ msgstr "Återgå till standard inställningar. Rekommenderas för oerfarna anvä
 msgid ""
 "Revert\n"
 "All local modifications will be lost."
-msgstr ""
+msgstr "Återställ\nAlla lokala ändringar går förlorade."
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
 msgid ""
@@ -9211,7 +9211,7 @@ msgstr "Spara som"
 msgid ""
 "Save Bottom File as\n"
 "You're asked where to save the bottom file"
-msgstr ""
+msgstr "Spara nedre filen som\nDu tillfrågas om var den nedre filen skall sparas"
 
 #. Resource IDs: (IDS_SAVE)
 msgid "Save File"
@@ -9221,7 +9221,7 @@ msgstr "Spara fil"
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr ""
+msgstr "Spara vänstra filen som\nDu tillfrågas var den vänstra filen skall sparas"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVELEFT)
 #, c-format
@@ -9229,13 +9229,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr ""
+msgstr "Spara vänstra filen\nÄndringarna sparas till\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVERIGHTAS)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr ""
+msgstr "Spara högra filen som\nDu tillfrågas var den högra filen skall sparas"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVERIGHT)
 #, c-format
@@ -9243,13 +9243,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr ""
+msgstr "Spara högra filen\nÄndringarna sparas till\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVEALL2)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "Spara alla\nBåda filerna sparas"
 
 #. Resource IDs: (IDS_MARKEDBLOCKSSAVEEXCLUDE)
 msgid ""
@@ -9551,13 +9551,13 @@ msgstr "Välj applikation för att visa skillnadsfiler"
 
 #. Resource IDs: (IDS_ASKFORSAVEAS_MORE)
 msgid "Select what file you want to save as"
-msgstr ""
+msgstr "Välj vilken fil du vill spara"
 
 #. Resource IDs: (IDS_ASKFORSAVEAS_MORECONFLICT)
 msgid ""
 "Select what file you want to save as\n"
 "Note: There is unresolved conflict!"
-msgstr ""
+msgstr "Välj vilken fil du vill spara\nObs: Det finns konflikter som inte är lösta!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Selected node"
@@ -9772,7 +9772,7 @@ msgstr "&Visa arbetskopians ändringar"
 #. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
 #. name)
 msgid "Show Whitespaces"
-msgstr ""
+msgstr "Visa blanktecken"
 
 #. Resource IDs: (32813)
 msgid "Show an overview of the whole graph"
@@ -9874,7 +9874,7 @@ msgstr "Visa genvägs&knappar i skärmtips"
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
-msgstr ""
+msgstr "Visa specialtecken för blanktecken och ny-rad\nVisa blanktecken"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_DETAILS)
 msgid "Show statistics for the selected log cache"
@@ -9964,7 +9964,7 @@ msgstr "Visar mime-typen för den versionshanterade filen"
 #. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
 #. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
 msgid "Silver Style"
-msgstr ""
+msgstr "Silver"
 
 #. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
@@ -10032,13 +10032,13 @@ msgstr ""
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
-msgstr ""
+msgstr "Vissa fil(er) har ändrats utanför T-Merge.\nVill du läsa in ändringarna?"
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
-msgstr ""
+msgstr "Vissa fil(er) har ändrats utanför T-Merge.\nVill du läsa in dem och förlora dina ändringar?"
 
 #. Resource IDs: (IDS_ERR_ERROROCCURED)
 msgid "Something went wrong"
@@ -10248,7 +10248,7 @@ msgstr "Föreningar"
 
 #. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
 msgid "Style"
-msgstr ""
+msgstr "Färgschema"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10596,7 +10596,7 @@ msgstr "Mappen\n%ls\nfinns redan!"
 
 #. Resource IDs: (IDS_COMMITDLG_HOOKSUCCESSFUL_TT)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Krok-skriptet slutfördes korrekt"
 
 #. Resource IDs: (IDS_ERR_HOOKFAILED, IDS_HOOK_ERRORMSG)
 #, c-format
@@ -10798,11 +10798,11 @@ msgstr "Argumenten '/path' och '/pathfile' är ömsesidigt uteslutande.\nDu får
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Lösenordet är inte giltigt.\nAnge korrekt lösenord i inställningsdialogen."
 
 #. Resource IDs: (IDS_ERR_SYNCPW_NOMATCH)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "Lösenordet är inte giltigt"
 
 #. Resource IDs: (IDS_ERR_PATCH_DOESNOTMATCH)
 #, c-format
@@ -11350,7 +11350,7 @@ msgstr "Analyserade arkiveringar:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1163)
 msgid "Total file changes:"
-msgstr "Antal filändringar:"
+msgstr "Antal ändrade filer:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGESTOTAL)
 msgid "Total number of changes over all cached revisions"
@@ -11764,7 +11764,7 @@ msgstr "Använd Aero dialoger"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1066)
 msgid "Use Ribbons"
-msgstr "Använd Ribbons"
+msgstr "Använd Menyfliksområde"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -12115,7 +12115,7 @@ msgstr ""
 #. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
 #. 65535)
 msgid "Whitespaces"
-msgstr "Tomrum"
+msgstr "Blanktecken"
 
 #. Resource IDs: (17038)
 msgid "Window Position"
@@ -12593,7 +12593,7 @@ msgstr "dummy"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
-msgstr "eol style"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSEXTERNAL)
 msgid "external"
@@ -12666,7 +12666,7 @@ msgstr "behåll fillistan på engelska"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "senaste uppdatering av HEAD:"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "last read: "
@@ -12766,7 +12766,7 @@ msgstr "ej i arkivet"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK2)
 msgid "non-versioned item"
-msgstr ""
+msgstr "icke versionshanterade objekt"
 
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
@@ -12828,7 +12828,7 @@ msgstr "kvartal"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYDATEXQUARTERS)
 msgid "quarters of year"
-msgstr ""
+msgstr "kvartal"
 
 #. Resource IDs: (IDS_SETTINGS_READONLYNAME)
 msgid "readonly"

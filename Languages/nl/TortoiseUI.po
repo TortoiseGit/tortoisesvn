@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-10-30 10:22+0000\n"
+"PO-Revision-Date: 2015-11-25 10:01+0000\n"
 "Last-Translator: mark van tilburg <markvantilburg@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -1293,7 +1293,7 @@ msgstr "&Verwijder project"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Verwijderen\nHet project is verwijderd. Mochten er onderliggende projecten zijn, dan zijn deze ook verwijderd. "
 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
@@ -1911,7 +1911,7 @@ msgstr "Samenvoegen &Afbreken"
 msgid ""
 "Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "Annuleren\nJe kunt eerst het falen van het hook script oplossen."
 
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
@@ -2158,7 +2158,7 @@ msgstr "Al uw wijzigingen gaan verloren! Wilt u echt alle toetscombinaties herst
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Alle wijzigingen gaan verloren! Weet je zeker dat je het menu'%Ts' wilt resetten?"
 
 #. Resource IDs: (16111)
 #, c-format
@@ -2333,7 +2333,7 @@ msgstr "Weet u zeker dat u %d onderde(e)l(en) wilt herstellen? U raakt alle wijz
 
 #. Resource IDs: (ID_VIEW_ARRANGEVERTICAL - Menu)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "&Verticaal rangschikken\t(V)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1587)
 msgid "As &is (no specific EOL)"
@@ -2536,7 +2536,7 @@ msgstr "Zowel het pad naar het patch-bestand als het doel-pad moeten absolute pa
 
 #. Resource IDs: (IDS_STATUSBAR_BOTTOMVIEW)
 msgid "Bottom View:"
-msgstr ""
+msgstr "Onderzijde:"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1007)
 msgid "Br&owse..."
@@ -3483,7 +3483,7 @@ msgstr "Laat &TortoiseSVN nooit de prullenbak gebruiken"
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Filter Regexes Instellen"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKCONFIG: Control id 236)
 msgid "Configure Hook Scripts"
@@ -4646,7 +4646,7 @@ msgstr "Wijzigen inschakelen"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1510)
 msgid "Enable EditorConfig"
-msgstr ""
+msgstr "EditorConfig inschakelen"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOOKANDFEEL: Control id 1648)
 msgid "Enable drag context menu"
@@ -4706,7 +4706,7 @@ msgstr "Laatste Revisie"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_EOL)
 msgid "End of Line Style"
-msgstr ""
+msgstr "Einderegel stijl"
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_ENFORCE)
 msgid "Enforce"
@@ -5775,7 +5775,7 @@ msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:32811; 'Switch left and right view'
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5787,11 +5787,11 @@ msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5831,7 +5831,7 @@ msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; 'Open'
 msgid "ID:57601:V C +O"
@@ -5873,7 +5873,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -6288,7 +6288,7 @@ msgstr "Ongeldige valuta."
 
 #. Resource IDs: (IDS_INVALIDPARAMS)
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Ongeldige parameters"
 
 #. Resource IDs: (IDS_ERR_INVALIDREV)
 msgid ""
@@ -6372,7 +6372,7 @@ msgstr "Samennemen met bron-boom"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "Naar volgende &conflict springen"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1203)
 msgid "Keep &locks"
@@ -6464,7 +6464,7 @@ msgstr "Laat geconflicteerd:"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
-msgstr ""
+msgstr "Alleen gemarkeerde wijzigingen behouden"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
@@ -6731,7 +6731,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "Handmatig importeren/exporteren"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK2)
 msgid "Many items selected to show diff"
@@ -7042,7 +7042,7 @@ msgstr "Knoop gewijzigd"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
-msgstr ""
+msgstr "Monitor interval in minuten:"
 
 #. Resource IDs: (17107)
 msgid "More"
@@ -7755,7 +7755,7 @@ msgstr "Overschrijven\nHet doelbestand wordt vervangen."
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
-msgstr ""
+msgstr "POPUP"
 
 #. Resource IDs: (61507)
 #, c-format
@@ -9306,7 +9306,7 @@ msgstr "Bewaar revisie &in..."
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "Configuratie opslaan in bestand"
 
 #. Resource IDs: (57603, 57604)
 msgid ""
@@ -9506,7 +9506,7 @@ msgstr "Selecteer revisiebereik"
 
 #. Resource IDs: (IDS_SYNC_SETTINGSFILE)
 msgid "Select settings file"
-msgstr ""
+msgstr "Selecteer configuratie bestand"
 
 #. Resource IDs: (IDS_MERGE_SELECTSTARTREVISION)
 msgid "Select start revision"
@@ -10042,7 +10042,7 @@ msgstr "Sommige bestanden zijn buiten TMerge gewijzigd.\nWilt u opnieuw laden en
 
 #. Resource IDs: (IDS_ERR_ERROROCCURED)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Er is iets fout gegaan"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
@@ -10197,7 +10197,7 @@ msgstr "Statusbalk"
 
 #. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
-msgstr ""
+msgstr "Status Balk"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
