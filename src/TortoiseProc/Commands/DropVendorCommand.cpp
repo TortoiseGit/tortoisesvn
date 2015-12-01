@@ -155,6 +155,8 @@ bool DropVendorCommand::Execute()
                                     versionedFilesTemp[it->first + vv->first.Mid(it->first.GetLength())] = vv->second;
                                     versionedFiles.erase(vv);
                                     vv = versionedFiles.begin();
+                                    if (versionedFiles.empty())
+                                        break;
                                 }
                             }
                             versionedFiles.insert(versionedFilesTemp.begin(), versionedFilesTemp.end());
