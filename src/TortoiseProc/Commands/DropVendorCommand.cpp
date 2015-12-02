@@ -148,15 +148,17 @@ bool DropVendorCommand::Execute()
                             versionedFiles.erase(v);
                             // adjust all paths inside the renamed folder
                             std::map<CString, bool> versionedFilesTemp;
-                            for (auto vv = versionedFiles.begin(); vv != versionedFiles.end(); ++vv)
+                            for (auto vv = versionedFiles.begin(); vv != versionedFiles.end(); )
                             {
                                 if ((vv->first.Left(it->first.GetLength()).CompareNoCase(it->first) == 0) && (vv->first[it->first.GetLength()] == '\\'))
                                 {
                                     versionedFilesTemp[it->first + vv->first.Mid(it->first.GetLength())] = vv->second;
-                                    versionedFiles.erase(vv);
-                                    vv = versionedFiles.begin();
-                                    if (versionedFiles.empty())
-                                        break;
+                                    auto curIter = vv++;
+                                    versionedFiles.erase(curIter);
+                                }
+                                else
+                                {
+                                    ++v;
                                 }
                             }
                             versionedFiles.insert(versionedFilesTemp.begin(), versionedFilesTemp.end());
