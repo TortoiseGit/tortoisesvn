@@ -1,5 +1,3 @@
-// Original source: https://varvy.com/pagespeed/defer-images.html
-
 /* jshint browser: true */
 
 (function() {
@@ -16,6 +14,7 @@
         iframeElement.style.height = '115px';
         document.getElementById('iframe-badge').appendChild(iframeElement);
 
+        // Original source: https://varvy.com/pagespeed/defer-images.html
         var imgElement = document.getElementsByTagName('img');
 
         for (var i = 0; i < imgElement.length; i++) {

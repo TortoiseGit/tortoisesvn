@@ -67,8 +67,8 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/assets/css/pack.css'
             },
             mainJs: {
-              src: ['<%= dirs.src %>/assets/js/img-defer.js',
-                    '<%= dirs.src %>/assets/js/no-js-class.js',
+              src: ['<%= dirs.src %>/assets/js/no-js-class.js',
+                    '<%= dirs.src %>/assets/js/onLoad.js',
                     '<%= dirs.src %>/assets/js/google-analytics.js'
               ],
               dest: '<%= dirs.dest %>/assets/js/main.js'
