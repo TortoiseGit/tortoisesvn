@@ -133,7 +133,7 @@ lv.pszImage = sPath;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-m_ListCtrl.SetBkImage(&amp;lv);
+m_ListCtrl.SetBkImage(&lv);
 {% endhighlight %}
 
         <p>Nope, didn't work either. Maybe the bitmap I used didn't
@@ -155,7 +155,7 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);
+SetBkImage(&lv);
 {% endhighlight %}
         <p>
         And this worked! Unbelievable. Even though the
@@ -183,7 +183,7 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);
+SetBkImage(&lv);
 {% endhighlight %}
         <p>
         Or at least that's what I thought. Adding the
@@ -253,7 +253,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     // with the given colour
                     ::SetBkColor(dst_hdc, bkColor);
 
-                    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &amp;rect,
+                    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect,
                                  NULL, 0, NULL);
 
                     // Draw the icon into the compatible DC
@@ -283,7 +283,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
     lv.xOffsetPercent = 100;
 
     lv.yOffsetPercent = 100;
-    SetBkImage(&amp;lv);
+    SetBkImage(&lv);
 
     return true;
 }
