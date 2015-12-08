@@ -68,7 +68,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
             return;
     }
 
-    if (SUCCEEDED(pLibrary->SetFolderType(FOLDERTYPEID_SVNWC)))
+    if (SUCCEEDED(pLibrary->SetFolderType(IsWindows8OrGreater() ? FOLDERTYPEID_Documents : FOLDERTYPEID_SVNWC)))
     {
         // create the path for the icon
         CString path;
