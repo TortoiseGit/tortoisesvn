@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ bool UrlDiffCommand::Execute()
         SVNDiff diff(NULL, GetExplorerHWND());
         diff.SetJumpLine(parser.GetLongVal(L"line"));
         bool ignoreprops = !!parser.HasKey(L"ignoreprops");
-        bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, CTSVNPath(dlg.m_URL), dlg.Revision, SVNRev(), ignoreprops, L"");
+        bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, CTSVNPath(dlg.m_URL), dlg.Revision, SVNRev(), ignoreprops, dlg.m_sDiffOptions);
     }
     return bRet;
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "BrowseFolder.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
+#include "DiffOptionsDlg.h"
 
 IMPLEMENT_DYNAMIC(CUrlDiffDlg, CResizableStandAloneDialog)
 CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
@@ -48,6 +49,7 @@ void CUrlDiffDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CUrlDiffDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+    ON_BN_CLICKED(IDC_DIFFOPTIONS, OnBnClickedDiffOptions)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_EN_CHANGE(IDC_REVISION_NUM, &CUrlDiffDlg::OnEnChangeRevisionNum)
     ON_BN_CLICKED(IDC_LOG, &CUrlDiffDlg::OnBnClickedLog)
@@ -60,8 +62,10 @@ BOOL CUrlDiffDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+    BlockResize(DIALOG_BLOCKVERTICAL);
 
     ExtendFrameIntoClientArea(IDC_REVGROUP);
+    m_aeroControls.SubclassControl(this, IDC_DIFFOPTIONS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     CTSVNPath svnPath(m_path);
@@ -97,6 +101,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
     AddAnchor(IDC_REVISION_N, TOP_LEFT);
     AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
     AddAnchor(IDC_LOG, TOP_LEFT);
+    AddAnchor(IDC_DIFFOPTIONS, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -222,4 +227,13 @@ LPARAM CUrlDiffDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 void CUrlDiffDlg::OnCbnEditchangeUrlcombo()
 {
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+}
+
+void CUrlDiffDlg::OnBnClickedDiffOptions()
+{
+    CDiffOptionsDlg dlg(this);
+    if (dlg.DoModal() == IDOK)
+        m_sDiffOptions = dlg.GetDiffOptionsString();
+    else
+        m_sDiffOptions.Empty();
 }
