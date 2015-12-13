@@ -46,6 +46,7 @@
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
 #include "SVNConfig.h"
+#include <random>
 
 #define STRUCT_IOVEC_DEFINED
 #include "sasl.h"
@@ -526,9 +527,11 @@ void CTortoiseProcApp::CheckUpgrade()
     }
     if (lVersion <= 0x01081100)
     {
-        srand((unsigned)time(0));
+        std::random_device rd;
+        std::mt19937 mt(rd());
+        std::uniform_int_distribution<int> dist(0, 6);
         CRegDWORD checkNewerWeekDay = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeekDay"), 0);
-        checkNewerWeekDay = rand() % 7;
+        checkNewerWeekDay = dist(mt);
     }
     CAppUtils::SetupDiffScripts(false, CString());
 
