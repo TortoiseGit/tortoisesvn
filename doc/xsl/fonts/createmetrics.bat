@@ -43,6 +43,7 @@ set CMD=%CMD% org.apache.fop.fonts.apps.TTFReader
 %CMD% %FONT_DIR%\couri.ttf couri.xml
 %CMD% %FONT_DIR%\iqraa.ttf iqraa.xml
 %CMD% %FONT_DIR%\msgothic.ttf msgothic.xml
+%CMD% %FONT_DIR%\yugothic.ttf msgothic.xml
 %CMD% %FONT_DIR%\msmincho.ttf msmincho.xml
 %CMD% %FONT_DIR%\msyh.ttf msyh.xml
 %CMD% %FONT_DIR%\msyhbd.ttf msyhbd.xml
@@ -55,7 +56,9 @@ set CMD=%CMD% org.apache.fop.fonts.apps.TTFReader
 
 :: in case the ttf isn't available, try the ttc
 %CMD% -ttcname "MS Gothic" %FONT_DIR%\msgothic.ttc msgothic.xml
+%CMD% -ttcname "MS Gothic" %FONT_DIR%\yugothr.ttc msgothic.xml
 %CMD% -ttcname "MS Mincho" %FONT_DIR%\msmincho.ttc msmincho.xml
+%CMD% -ttcname "MS Mincho" %FONT_DIR%\YuGothB.ttc msmincho.xml
 %CMD% -ttcname "MS YaHei" %FONT_DIR%\msyh.ttc msyh.xml
 %CMD% -ttcname "MS YaHei Bold" %FONT_DIR%\msyhbd.ttc msyhbd.xml
 %CMD% -ttcname "SimHei" %FONT_DIR%\simhei.ttc simhei.xml
