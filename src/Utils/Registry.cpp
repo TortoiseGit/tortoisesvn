@@ -180,7 +180,7 @@ bool CRegistryKey::getValues(CStringList& values)
         }
     }
 
-    return values.GetCount() > 0;
+    return !subkeys.IsEmpty();
 }
 
 bool CRegistryKey::getSubKeys(CStringList& subkeys)
@@ -202,7 +202,7 @@ bool CRegistryKey::getSubKeys(CStringList& subkeys)
         }
     }
 
-    return subkeys.GetCount() > 0;
+    return !subkeys.IsEmpty();
 }
 #endif
 
