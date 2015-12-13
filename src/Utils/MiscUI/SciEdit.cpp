@@ -120,7 +120,7 @@ static LPBYTE Icon2Image(HICON hIcon)
     infoheader.bmiHeader.biCompression = BI_RGB;
     infoheader.bmiHeader.biSizeImage = size;
 
-    std::unique_ptr<BYTE[]> ptrb(new BYTE[(size * 2 + height * width * 4)]);
+    auto ptrb = std::make_unique<BYTE[]>(size * 2 + height * width * 4);
     LPBYTE pixelsIconRGB = ptrb.get();
     LPBYTE alphaPixels = pixelsIconRGB + size;
     HDC hDC = CreateCompatibleDC(nullptr);
@@ -496,7 +496,7 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
         return CString();
     textrange.chrg.cpMax = (LONG)Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
 
-    std::unique_ptr<char[]> textbuffer(new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1]);
+    auto textbuffer = std::make_unique<char[]>(textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
     textrange.lpstrText = textbuffer.get();
     Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
     if (bSelectWord)
@@ -667,7 +667,7 @@ void CSciEdit::CheckSpelling(int startpos, int endpos)
             continue;
         }
         ATLASSERT(textrange.chrg.cpMax >= textrange.chrg.cpMin);
-        std::unique_ptr<char[]> textbuffer(new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 2]);
+        auto textbuffer = std::make_unique<char[]>(textrange.chrg.cpMax - textrange.chrg.cpMin + 2);
         SecureZeroMemory(textbuffer.get(), textrange.chrg.cpMax - textrange.chrg.cpMin + 2);
         textrange.lpstrText = textbuffer.get();
         textrange.chrg.cpMax++;
@@ -689,7 +689,7 @@ void CSciEdit::CheckSpelling(int startpos, int endpos)
             TEXTRANGEA twoWords;
             twoWords.chrg.cpMin = textrange.chrg.cpMin;
             twoWords.chrg.cpMax = (LONG)Call(SCI_WORDENDPOSITION, textrange.chrg.cpMax + 1, TRUE);
-            std::unique_ptr<char[]> twoWordsBuffer(new char[twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1]);
+            auto twoWordsBuffer = std::make_unique<char[]>(twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
             twoWords.lpstrText = twoWordsBuffer.get();
             SecureZeroMemory(twoWords.lpstrText, twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
             Call(SCI_GETTEXTRANGE, 0, (LPARAM)&twoWords);
@@ -938,7 +938,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 while (GetStyleAt(textrange.chrg.cpMax + 1) == style)
                     ++textrange.chrg.cpMax;
                 ++textrange.chrg.cpMax;
-                std::unique_ptr<char[]> textbuffer(new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1]);
+                auto textbuffer = std::make_unique<char[]>(textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
                 textrange.lpstrText = textbuffer.get();
                 Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
                 CString url;
@@ -1374,7 +1374,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
     {
         int offset = (int)Call(SCI_POSITIONFROMLINE, line_number);
         int line_len = (int)Call(SCI_LINELENGTH, line_number);
-        std::unique_ptr<char[]> linebuffer(new char[line_len+1]);
+        auto linebuffer = std::make_unique<char[]>(line_len + 1);
         Call(SCI_GETLINE, line_number, (LPARAM)(linebuffer.get()));
         linebuffer[line_len] = 0;
         int start = 0;
@@ -1514,7 +1514,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
         end_pos = switchtemp;
     }
 
-    std::unique_ptr<char[]> textbuffer(new char[end_pos - start_pos + 2]);
+    auto textbuffer = std::make_unique<char[]>(end_pos - start_pos + 2);
     TEXTRANGEA textrange;
     textrange.lpstrText = textbuffer.get();
     textrange.chrg.cpMin = start_pos;
@@ -1617,7 +1617,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
     startstylepos = (int)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
 
     int len = endstylepos - startstylepos + 1;
-    std::unique_ptr<char[]> textbuffer(new char[len + 1]);
+    auto textbuffer = std::make_unique<char[]>(len + 1);
     TEXTRANGEA textrange;
     textrange.lpstrText = textbuffer.get();
     textrange.chrg.cpMin = startstylepos;

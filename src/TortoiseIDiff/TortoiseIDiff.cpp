@@ -78,7 +78,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
     curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
-    std::unique_ptr<CMainWindow> mainWindow(new CMainWindow(hResource));
+    auto mainWindow = std::make_unique<CMainWindow>(hResource);
     mainWindow->SetRegistryPath(L"Software\\TortoiseSVN\\TortoiseIDiffWindowPos");
     std::wstring leftfile = parser.HasVal(L"left") ? parser.GetVal(L"left") : L"";
     std::wstring rightfile = parser.HasVal(L"right") ? parser.GetVal(L"right") : L"";

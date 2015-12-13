@@ -199,7 +199,7 @@ HRESULT STDMETHODCALLTYPE CIShellFolderHook::GetUIObjectOf(HWND hwndOwner, UINT 
             nLength += 1; // '\0' separator
         }
         int nBufferSize = sizeof(DROPFILES) + ((nLength + 5)*sizeof(TCHAR));
-        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
+        auto pBuffer = std::make_unique<char[]>(nBufferSize);
         SecureZeroMemory(pBuffer.get(), nBufferSize);
         DROPFILES* df = (DROPFILES*)pBuffer.get();
         df->pFiles = sizeof(DROPFILES);
@@ -2801,7 +2801,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
     }
     filelist += L"|";
     int len = filelist.GetLength();
-    std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
+    auto buf = std::make_unique<TCHAR[]>(len + 2);
     wcscpy_s(buf.get(), len+2, filelist);
     CStringUtils::PipesToNulls(buf.get(), len);
     SHFILEOPSTRUCT fileop;
@@ -5524,7 +5524,7 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     if (pathList.GetCount() == 0)
         return;
 
-    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
+    auto pdsrc = std::make_unique<CIDropSource>();
     if (pdsrc == NULL)
         return;
     pdsrc->AddRef();
@@ -6803,13 +6803,13 @@ BOOL CSVNStatusListCtrl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LR
                     PIDLIST_RELATIVE pidl = NULL;
 
                     int bufsize = 1024;
-                    std::unique_ptr<WCHAR[]> filepath(new WCHAR[bufsize]);
+                    auto filepath = std::make_unique<WCHAR[]>(bufsize);
                     for (int i = 0; i < nItems; i++)
                     {
                         if (bufsize < targetList[i].GetWinPathString().GetLength())
                         {
                             bufsize = targetList[i].GetWinPathString().GetLength() + 3;
-                            filepath = std::unique_ptr<WCHAR[]>(new WCHAR[bufsize]);
+                            filepath = std::make_unique<WCHAR[]>(bufsize);
                         }
                         wcscpy_s(filepath.get(), bufsize, targetList[i].GetWinPath());
                         if (SUCCEEDED(g_psfDesktopFolder->ParseDisplayName(NULL, 0, filepath.get(), NULL, &pidl, NULL)))

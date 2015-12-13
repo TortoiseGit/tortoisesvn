@@ -88,7 +88,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         DWORD len = GetCurrentDirectory(0, NULL);
         if (len)
         {
-            std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
+            auto originalCurrentDirectory = std::make_unique<TCHAR[]>(len);
             if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
                 sOrigCWD = originalCurrentDirectory.get();
@@ -592,8 +592,8 @@ bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
     LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
 
     DWORD len = GetTempPath(0, NULL);
-    std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
-    std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
+    auto path = std::make_unique<TCHAR[]>(len + 1);
+    auto tempF = std::make_unique<TCHAR[]>(len + 100);
     GetTempPath (len+1, path.get());
     GetTempFileName (path.get(), L"tsm", 0, tempF.get());
     std::wstring sTempFile = std::wstring(tempF.get());

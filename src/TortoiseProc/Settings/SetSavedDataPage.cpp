@@ -322,7 +322,7 @@ void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, UINT progressText)
     CString p(path);
     p += L"||";
     int len = p.GetLength();
-    std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
+    auto buf = std::make_unique<TCHAR[]>(len + 2);
     wcscpy_s(buf.get(), len+2, p);
     CStringUtils::PipesToNulls(buf.get(), len);
 

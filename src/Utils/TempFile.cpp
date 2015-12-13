@@ -40,8 +40,8 @@ CTempFiles& CTempFiles::Instance()
 CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision) const
 {
     DWORD len = ::GetTempPath(0, NULL);
-    std::unique_ptr<TCHAR[]> temppath (new TCHAR[len+1]);
-    std::unique_ptr<TCHAR[]> tempF (new TCHAR[len+50]);
+    auto temppath = std::make_unique<TCHAR[]>(len + 1);
+    auto tempF = std::make_unique<TCHAR[]>(len + 50);
     ::GetTempPath (len+1, temppath.get());
     CTSVNPath tempfile;
     CString possibletempfile;
@@ -162,7 +162,7 @@ CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /*
 void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
 {
     DWORD len = ::GetTempPath(0, NULL);
-    std::unique_ptr<TCHAR[]> path(new TCHAR[len + 100]);
+    auto path = std::make_unique<TCHAR[]>(len + 100);
     len = ::GetTempPath (len+100, path.get());
     if (len == 0)
         return;

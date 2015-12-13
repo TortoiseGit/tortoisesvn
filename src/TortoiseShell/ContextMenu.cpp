@@ -291,7 +291,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                     UINT len = DragQueryFile(drop, i, NULL, 0);
                     if (len == 0)
                         continue;
-                    std::unique_ptr<TCHAR[]> szFileName(new TCHAR[len+1]);
+                    auto szFileName = std::make_unique<TCHAR[]>(len + 1);
                     if (0 == DragQueryFile(drop, i, szFileName.get(), len+1))
                     {
                         continue;
@@ -345,7 +345,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                             {
                                 size_t slen = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
                                 slen += 2;
-                                std::unique_ptr<char[]> url(new char[slen]);
+                                auto url = std::make_unique<char[]>(slen);
                                 strcpy_s(url.get(), slen, stat.status->repos_root_url);
                                 strcat_s(url.get(), slen, "/");
                                 strcat_s(url.get(), slen, stat.status->repos_relpath);
@@ -508,7 +508,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                             {
                                 size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
                                 len += 2;
-                                std::unique_ptr<char[]> url(new char[len]);
+                                auto url = std::make_unique<char[]>(len);
                                 strcpy_s(url.get(), len, stat.status->repos_root_url);
                                 strcat_s(url.get(), len, "/");
                                 strcat_s(url.get(), len, stat.status->repos_relpath);
@@ -644,7 +644,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(PCIDLIST_ABSOLUTE pIDFolder,
                         {
                             size_t len = strlen(stat.status->repos_relpath) + strlen(stat.status->repos_root_url);
                             len += 2;
-                            std::unique_ptr<char[]> url(new char[len]);
+                            auto url = std::make_unique<char[]>(len);
                             strcpy_s(url.get(), len, stat.status->repos_root_url);
                             strcat_s(url.get(), len, "/");
                             strcat_s(url.get(), len, stat.status->repos_relpath);
@@ -821,8 +821,8 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
     //write all selected files and paths to a temporary file
     //for TortoiseProc.exe to read out again.
     DWORD pathlength = GetTempPath(0, NULL);
-    std::unique_ptr<TCHAR[]> path(new TCHAR[pathlength+1]);
-    std::unique_ptr<TCHAR[]> tempFile(new TCHAR[pathlength + 100]);
+    auto path = std::make_unique<TCHAR[]>(pathlength + 1);
+    auto tempFile = std::make_unique<TCHAR[]>(pathlength + 100);
     GetTempPath (pathlength+1, path.get());
     GetTempFileName (path.get(), L"svn", 0, tempFile.get());
     tempfile = tstring(tempFile.get());
@@ -877,8 +877,8 @@ tstring CShellExt::WriteFileListToTempFile()
     //write all selected files and paths to a temporary file
     //for TortoiseProc.exe to read out again.
     DWORD pathlength = GetTempPath(0, NULL);
-    std::unique_ptr<TCHAR[]> path(new TCHAR[pathlength+1]);
-    std::unique_ptr<TCHAR[]> tempFile(new TCHAR[pathlength + 100]);
+    auto path = std::make_unique<TCHAR[]>(pathlength + 1);
+    auto tempFile = std::make_unique<TCHAR[]>(pathlength + 100);
     GetTempPath (pathlength+1, path.get());
     GetTempFileName (path.get(), L"svn", 0, tempFile.get());
     tstring retFilePath = tstring(tempFile.get());
@@ -1644,8 +1644,8 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
                     LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
 
                     DWORD len = GetTempPath(0, NULL);
-                    std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
-                    std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
+                    auto path = std::make_unique<TCHAR[]>(len + 1);
+                    auto tempF = std::make_unique<TCHAR[]>(len + 100);
                     GetTempPath (len+1, path.get());
                     GetTempFileName (path.get(), L"svn", 0, tempF.get());
                     std::wstring sTempFile = std::wstring(tempF.get());

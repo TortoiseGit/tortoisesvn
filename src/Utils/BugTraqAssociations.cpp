@@ -76,7 +76,7 @@ void CBugTraqAssociations::Load(LPCTSTR uuid /* = NULL */, LPCTSTR params /* = N
 
             DWORD cbParameters = 0;
             RegQueryValueEx(hk2, L"Parameters", NULL, NULL, (LPBYTE)NULL, &cbParameters);
-            std::unique_ptr<TCHAR[]> szParameters (new TCHAR[cbParameters+1]);
+            auto szParameters = std::make_unique<TCHAR[]>(cbParameters + 1);
             RegQueryValueEx(hk2, L"Parameters", NULL, NULL, (LPBYTE)szParameters.get(), &cbParameters);
             szParameters[cbParameters] = 0;
             m_inner.push_back(new CBugTraqAssociation(szWorkingCopy, provider_clsid, LookupProviderName(provider_clsid), szParameters.get()));

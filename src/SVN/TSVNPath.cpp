@@ -363,7 +363,7 @@ bool CTSVNPath::Delete(bool bTrash) const
     {
         if ((bTrash)||(IsDirectory()))
         {
-            std::unique_ptr<TCHAR[]> buf(new TCHAR[m_sBackslashPath.GetLength()+2]);
+            auto buf = std::make_unique<TCHAR[]>(m_sBackslashPath.GetLength() + 2);
             wcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
             buf[m_sBackslashPath.GetLength()] = 0;
             buf[m_sBackslashPath.GetLength()+1] = 0;
@@ -913,7 +913,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     }
     catch (CFileException* pE)
     {
-        std::unique_ptr<TCHAR[]> error(new TCHAR[10000]);
+        auto error = std::make_unique<TCHAR[]>(10000);
         pE->GetErrorMessage(error.get(), 10000);
         ::MessageBox(NULL, error.get(), L"TortoiseSVN", MB_ICONERROR);
         pE->Delete();

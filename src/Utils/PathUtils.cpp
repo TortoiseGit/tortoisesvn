@@ -36,8 +36,8 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
     const size_t len = wcslen(path);
     const size_t fullLen = len+10;
-    std::unique_ptr<TCHAR[]> buf(new TCHAR[fullLen]);
-    std::unique_ptr<TCHAR[]> internalpathbuf(new TCHAR[fullLen]);
+    auto buf = std::make_unique<TCHAR[]>(fullLen);
+    auto internalpathbuf = std::make_unique<TCHAR[]>(fullLen);
     TCHAR * pPath = internalpathbuf.get();
     SECURITY_ATTRIBUTES attribs;
 
@@ -368,7 +368,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
         ret = GetFullPathName(path, 0, NULL, NULL);
         if (ret)
         {
-            std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+1]);
+            auto pathbuf = std::make_unique<TCHAR[]>(ret + 1);
             if ((ret = GetFullPathName(path, ret, pathbuf.get(), NULL))!=0)
             {
                 sRet = CString(pathbuf.get(), ret);
@@ -380,7 +380,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
         ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
         if (ret == 0)
             return path;
-        std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+2]);
+        auto pathbuf = std::make_unique<TCHAR[]>(ret + 2);
         ret = ::GetLongPathName(pathbufcanonicalized, pathbuf.get(), ret+1);
         // GetFullPathName() sometimes returns the full path with the wrong
         // case. This is not a problem on Windows since its filesystem is
@@ -392,7 +392,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
         int shortret = ::GetShortPathName(pathbuf.get(), NULL, 0);
         if (shortret)
         {
-            std::unique_ptr<TCHAR[]> shortpath(new TCHAR[shortret+2]);
+            auto shortpath = std::make_unique<TCHAR[]>(shortret + 2);
             if (::GetShortPathName(pathbuf.get(), shortpath.get(), shortret+1))
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret+1);
@@ -406,14 +406,14 @@ CString CPathUtils::GetLongPathname(const CString& path)
         ret = ::GetLongPathName(path, NULL, 0);
         if (ret == 0)
             return path;
-        std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+2]);
+        auto pathbuf = std::make_unique<TCHAR[]>(ret + 2);
         ret = ::GetLongPathName(path, pathbuf.get(), ret+1);
         sRet = CString(pathbuf.get(), ret);
         // fix the wrong casing of the path. See above for details.
         int shortret = ::GetShortPathName(pathbuf.get(), NULL, 0);
         if (shortret)
         {
-            std::unique_ptr<TCHAR[]> shortpath(new TCHAR[shortret+2]);
+            auto shortpath = std::make_unique<TCHAR[]>(shortret + 2);
             if (::GetShortPathName(pathbuf.get(), shortpath.get(), shortret+1))
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret+1);
@@ -639,7 +639,7 @@ CString CPathUtils::GetLocalAppDataDirectory()
 
 CStringA CPathUtils::PathUnescape(const CStringA& path)
 {
-    std::unique_ptr<char[]> urlabuf (new char[path.GetLength()+1]);
+    auto urlabuf = std::make_unique<char[]>(path.GetLength() + 1);
 
     strcpy_s(urlabuf.get(), path.GetLength()+1, path);
     Unescape(urlabuf.get());

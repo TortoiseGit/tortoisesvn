@@ -290,7 +290,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         m_wndRibbonStatusBar.AddElement(new CMFCRibbonStatusBarPane(ID_SEPARATOR, CString(MAKEINTRESOURCE(AFX_IDS_IDLEMESSAGE)), TRUE), L"");
 
         CString sTooltip(MAKEINTRESOURCE(IDS_ENCODING_COMBO_TOOLTIP));
-        std::unique_ptr<CMFCRibbonButtonsGroup> apBtnGroupLeft(new CMFCRibbonButtonsGroup);
+        auto apBtnGroupLeft = std::make_unique<CMFCRibbonButtonsGroup>();
         apBtnGroupLeft->SetID(ID_INDICATOR_LEFTVIEW);
         apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR,   CString(MAKEINTRESOURCE(IDS_STATUSBAR_LEFTVIEW)), TRUE));
         CMFCRibbonButton * pButton = new CMFCRibbonButton(ID_INDICATOR_LEFTVIEWCOMBOENCODING, L"");
@@ -306,7 +306,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_INDICATOR_LEFTVIEW,   L"", TRUE));
         m_wndRibbonStatusBar.AddExtendedElement(apBtnGroupLeft.release(), L"");
 
-        std::unique_ptr<CMFCRibbonButtonsGroup> apBtnGroupRight(new CMFCRibbonButtonsGroup);
+        auto apBtnGroupRight = std::make_unique<CMFCRibbonButtonsGroup>();
         apBtnGroupRight->SetID(ID_INDICATOR_RIGHTVIEW);
         apBtnGroupRight->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR,   CString(MAKEINTRESOURCE(IDS_STATUSBAR_RIGHTVIEW)), TRUE));
         pButton = new CMFCRibbonButton(ID_INDICATOR_RIGHTVIEWCOMBOENCODING, L"");
