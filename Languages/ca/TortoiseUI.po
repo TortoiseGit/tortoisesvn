@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-14 09:13+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2015-12-14 10:22+0000\n"
+"Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1962,7 +1962,7 @@ msgstr "Fitxers Actius"
 msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
-msgstr "Els objectes ActiveX no es poden desar quan se surt de Windows!\nDescarto tots els canvis de %1?"
+msgstr "Els objectes ActiveX no es poden desar quan se surt de Windows.\nDescarto tots els canvis de %1?"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
@@ -2658,11 +2658,11 @@ msgstr "No es pot copiar imatge bitmap al porta-retalls"
 
 #. Resource IDs: (16003)
 msgid "Can't create a new image!"
-msgstr "No es pot crear una nova imatge!"
+msgstr "No es pot crear una nova imatge."
 
 #. Resource IDs: (16007)
 msgid "Can't customize menus!"
-msgstr "No es poden personalitzar menús!"
+msgstr "No es poden personalitzar menús."
 
 #. Resource IDs: (16004)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -3714,7 +3714,7 @@ msgstr "No s'ha pogut comprovar si hi ha una versió més nova."
 msgid ""
 "Could not copy the files!\n"
 "%ls"
-msgstr "No s'han pogut copiar els fitxers!\n%ls"
+msgstr "No s'han pogut copiar els fitxers.\n%ls"
 
 #. Resource IDs: (61864)
 #, c-format
@@ -3723,7 +3723,7 @@ msgstr "No s'ha pogut crear %1 perquè el directori és ple."
 
 #. Resource IDs: (IDS_ERR_CREATETEMPDIR)
 msgid "Could not create temp folder!"
-msgstr "No s'ha pogut crear carpeta temp!"
+msgstr "No s'ha pogut crear la carpeta temp."
 
 #. Resource IDs: (IDS_EDITCONFLICT_ACTIONINFO_DELETE)
 #, c-format
@@ -3748,7 +3748,7 @@ msgstr "No s'ha pogut trobar una carpeta pare per\n%ls"
 
 #. Resource IDs: (IDS_ERR_NOSTATUS)
 msgid "Could not get the status!"
-msgstr "No s'ha pogut obtenir l'estat!"
+msgstr "No s'ha pogut obtenir l'estat."
 
 #. Resource IDs: (IDS_EDITCONFLICT_ACTIONINFO_MODIFY)
 #, c-format
@@ -3797,7 +3797,7 @@ msgstr "No s'ha pogut substituir la propietat '%1!ls!' a '%2!ls!' perquè"
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%ls"
-msgstr "No s'ha pogut obtenir la URL del fitxer!\n%ls"
+msgstr "No s'ha pogut obtenir l'URL del fitxer\n%ls"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND)
 #, c-format
@@ -3811,21 +3811,21 @@ msgstr "No s'ha pogut obtenir la revisió %1!ls! del fitxer %2!ls.\nNo és possi
 msgid ""
 "Could not start diff viewer!\n"
 "%ls"
-msgstr "No s'ha pogut iniciar el visualitzador de diferències!\n%ls"
+msgstr "No s'ha pogut iniciar el visualitzador de diferències.\n%ls"
 
 #. Resource IDs: (IDS_ERR_EXTDIFFSTART)
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
 "%ls"
-msgstr "No s'ha pogut iniciar el visualitzador de diferències!\n%ls"
+msgstr "No s'ha pogut iniciar el programa extern de diferències.\n%ls"
 
 #. Resource IDs: (IDS_ERR_EXTMERGESTART)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
 "%ls"
-msgstr "No s'ha pogut engegar el programa extern de fusió !\n%ls"
+msgstr "No s'ha pogut iniciar el programa extern de fusió.\n%ls"
 
 #. Resource IDs: (61702)
 msgid "Could not start print job."
@@ -3836,11 +3836,11 @@ msgstr "No s'ha pogut iniciar la tasca d'impressió."
 msgid ""
 "Could not start text viewer!\n"
 "%ls"
-msgstr "No s'ha pogut iniciar el visualitzador de text!\n%ls"
+msgstr "No s'ha pogut iniciar el visualitzador de text.\n%ls"
 
 #. Resource IDs: (IDS_ERR_THREADSTARTFAILED)
 msgid "Could not start thread!"
-msgstr "No s'ha pogut iniciar el fil!"
+msgstr "No s'ha pogut iniciar el fil."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1501)
 msgid "Coun&t"
@@ -4177,7 +4177,7 @@ msgstr "Compara"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "&Opcions de comparació"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4675,7 +4675,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "Codificació\nConverteix a la codificació especificada\nPremeu la tecla Ctrl per a carregar el fitxer amb la codificació especificada."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -4829,7 +4829,7 @@ msgstr "Error"
 
 #. Resource IDs: (IDS_PROC_ICONCACHENOTREBUILT)
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Error refent Cache d'Icones Shell!"
+msgstr "Error refent memòria cau d'icones Shell."
 
 #. Resource IDs: (IDS_ERR_SSL_VALIDATE)
 #, c-format
@@ -5389,7 +5389,7 @@ msgstr "Totalment recursiu"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
-msgstr "No s'ha pogut iniciar GDI+!"
+msgstr "No s'ha pogut iniciar GDI+."
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOBITMAP)
 msgid ""
@@ -5529,7 +5529,7 @@ msgstr "Tipus de gràfic:"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
-msgstr "Les gràfiques d'arrels de repositori estan sempre buides!"
+msgstr "Les gràfiques d'arrels de repositori sempre estan buides."
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5690,7 +5690,7 @@ msgstr "L'script Hook ha fallat"
 
 #. Resource IDs: (IDS_COMMITDLG_CHECKCOMMIT_TASK1)
 msgid "Hook script failed!"
-msgstr "L'script Hook ha fallat!"
+msgstr "L'script Hook ha fallat."
 
 #. Resource IDs: (IDS_ERR_SSL_CNMISMATCH)
 #, c-format
@@ -6340,7 +6340,7 @@ msgid ""
 "Valid revisions are numbers and HEAD, separated by commas.\n"
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
-msgstr "Rang de revisió no vàlid!\nLes revisions vàlides són números i HEAD, separades per comes.\nUn rang pot ser especificat amb un guió.\nExemple: 2-5,7,10,44-70,300-HEAD"
+msgstr "El rang de revisió no és vàlid.\nLes revisions vàlides són números i HEAD, separades per comes.\nUn rang pot ser especificat amb un guió.\nExemple: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1571)
 msgid "Issue tracker"
@@ -6613,7 +6613,7 @@ msgstr "Bloqueig eliminat"
 
 #. Resource IDs: (IDS_STATUSLIST_LOCKBROKEN)
 msgid "Lock broken!"
-msgstr "Bloqueig eliminat!"
+msgstr "Bloqueig eliminat."
 
 #. Resource IDs: (IDS_STATUSLIST_COLLOCKCOMMENT)
 msgid "Lock comment"
@@ -6653,7 +6653,7 @@ msgstr "Bloqueig ha fallat"
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
-msgstr "Bloqueig fallit perquè existeix una versió més nova!\nVoleu actualitzar i provar de nou?"
+msgstr "Bloqueig fallit perquè existeix una versió més nova.\nVoleu actualitzar i provar de nou?"
 
 #. Resource IDs: (IDS_MENUDESC_LOCK)
 msgid "Locks a file for other users and makes it editable by you."
@@ -6685,7 +6685,7 @@ msgstr "Missatge de log"
 
 #. Resource IDs: (IDS_COMMITDLG_MSGLENGTH)
 msgid "Log message is too short!"
-msgstr "Missatge de log massa curt!"
+msgstr "El missatge de log és massa curt."
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "Log messages"
@@ -7316,7 +7316,7 @@ msgstr "Propera diferència a la línia"
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
-msgstr "No s'ha especificat cap ordre!\nTortoiseProc.exe s'utilitza per la extensió Shell i no ha de ser cridat directament!"
+msgstr "No s'ha especificat cap ordre.\nTortoiseProc.exe s'utilitza per la extensió Shell i no s'ha de cridar directament."
 
 #. Resource IDs: (IDS_ERR_EMPTYDIFF)
 msgid "No differences found!"
@@ -7367,7 +7367,7 @@ msgstr "No s'ha trobat encoder d'imatge per %ls."
 
 #. Resource IDs: (IDS_ERR_NOPATH)
 msgid "No path or pathfile specified on the command line!"
-msgstr "No hi ha camí ni fitxer de camí especificats a la línia d'ordres!"
+msgstr "No hi ha cap camí ni cap fitxer de camí especificats a la línia d'ordres."
 
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid ""
@@ -7906,17 +7906,17 @@ msgstr "Menús i Barres d'Eines Personalitzats"
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
-msgstr "Dibuix (Metafile)\nun dibuix"
+msgstr "Imatge (Metafile)\nuna imatge"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
-msgstr "Dibuix:"
+msgstr "Imatge:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "Imatges (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Totes (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"

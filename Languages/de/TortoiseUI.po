@@ -17,7 +17,7 @@
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2015.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2015
@@ -30,16 +30,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-14 09:13+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2015-12-14 11:21+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -53,6 +53,7 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
+#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -4186,7 +4187,7 @@ msgstr "Vergleich"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "Vergleichs&optionen"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4685,6 +4686,10 @@ msgid ""
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
 msgstr ""
+"Codierung\n"
+"Konvertiert in die angegebene Codierung\n"
+"Halten Sie die Strg Taste gedrückt, um die Datei in der angegebenen "
+"Codierung zu laden."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -7926,6 +7931,8 @@ msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
 msgstr ""
+"Bilder (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
+"*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Alle (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
