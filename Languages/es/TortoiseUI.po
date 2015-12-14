@@ -39,7 +39,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-01 11:18+0000\n"
+"PO-Revision-Date: 2015-12-14 09:13+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -4193,6 +4193,10 @@ msgstr "Tamaños y posiciones de los diálogos"
 msgid "Diff"
 msgstr "Diff"
 
+#. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
+msgid "Diff &Options"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
 msgstr "Opciones de Diff"
@@ -4683,6 +4687,13 @@ msgstr "Habilita el corrector ortográfico únicamente\nsi la propiedad tsvn:pro
 #. Control id 301, IDS_TEXTIDENTICAL_ENCODING)
 msgid "Encoding"
 msgstr "Codificando"
+
+#. Resource IDs: (IDS_ENCODING_COMBO_TOOLTIP)
+msgid ""
+"Encoding\n"
+"Convert to the specified encoding\n"
+"Hold down the Ctrl key to reload the file with the specified encoding."
+msgstr ""
 
 #. Resource IDs: (61866)
 #, c-format
@@ -7921,9 +7932,9 @@ msgstr "Dibujo:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
-"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
-"*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Imágenes (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
+"*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
+msgstr ""
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"

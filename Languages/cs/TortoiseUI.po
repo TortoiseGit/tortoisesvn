@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-10-23 13:10+0000\n"
+"PO-Revision-Date: 2015-12-14 09:19+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -4171,6 +4171,10 @@ msgstr "Velikosti a pozice dialogových oken"
 msgid "Diff"
 msgstr "Porovnat"
 
+#. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
+msgid "Diff &Options"
+msgstr "&Volby porovnání"
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
 msgstr "Nastavení Srovnávání"
@@ -4661,6 +4665,13 @@ msgstr "Aktivuje kontrolu pravopisu pouze pokud je\nvlastnost tsvn:projectlangua
 #. Control id 301, IDS_TEXTIDENTICAL_ENCODING)
 msgid "Encoding"
 msgstr "Kódování"
+
+#. Resource IDs: (IDS_ENCODING_COMBO_TOOLTIP)
+msgid ""
+"Encoding\n"
+"Convert to the specified encoding\n"
+"Hold down the Ctrl key to reload the file with the specified encoding."
+msgstr "Kódování\nPřevede na zadané kódování\nPodržte klávesu Ctrl pro znovu načtení souboru se zadaným kódováním."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -7899,9 +7910,9 @@ msgstr "Obrázek:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
-"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
-"*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Obrázky (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Vše (*.*)|*.*||"
+"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
+"*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
+msgstr "Obrázky (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Vše (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"

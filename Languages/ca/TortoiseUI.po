@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-04 13:12+0000\n"
-"Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
+"PO-Revision-Date: 2015-12-14 09:13+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +96,7 @@ msgstr "%1!d! fitxers seleccionats, %2!d! fitxers en total"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "%1!d! autor(s) més actiu(s) amb almenys %2!d! entregues cadascun (%3!d! %%)"
+msgstr "%1!d! autor(s) més actiu(s) amb almenys %2!d! pujades cadascun (%3!d! %%)"
 
 #. Resource IDs: (IDS_PROGRS_TIME)
 #, c-format
@@ -607,7 +607,7 @@ msgstr "&Ordre:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
-msgstr "&Entrega..."
+msgstr "&Puja..."
 
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF)
 msgid "&Compare URLs"
@@ -1624,7 +1624,7 @@ msgstr "Control de &llista de fitxers"
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TEXT)
 #, c-format
 msgid "'%ls' : %ld new commits"
-msgstr "'%ls' : %ld entregues noves"
+msgstr "'%ls' : %ld pujades noves"
 
 #. Resource IDs: (IDS_ERR_MUSTBEURLORPATH)
 #, c-format
@@ -2715,7 +2715,7 @@ msgstr "Cancel·la"
 msgid ""
 "Cancel\n"
 "Change the selection for the commit."
-msgstr "Cancel·lar\nCanvia la selecció per l'entrega."
+msgstr "Cancel·lar\nCanvia la selecció per a la pujada."
 
 #. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
 msgid ""
@@ -2727,7 +2727,7 @@ msgstr "Cancel·lar\nEscull una carpeta diferent on exportar"
 msgid ""
 "Cancel\n"
 "Do not commit to a tag."
-msgstr "Cancel·lar\nNo associar a una etiqueta."
+msgstr "Cancel·lar\nNo pugis a una etiqueta."
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
@@ -2987,7 +2987,7 @@ msgstr "Canvia l'estil de l'aplicació"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
-msgstr "Posició on es mostra una línia de vora als quadres de text d'entrega:"
+msgstr "Posició on es mostra una línia de vora als quadres de text de pujada:"
 
 #. Resource IDs: (IDS_MENUCHECKOUT)
 msgid "Chec&kout..."
@@ -3041,7 +3041,7 @@ msgstr "Marqueu les entrades de menú que s'han de mostrar al menú superior con
 
 #. Resource IDs: (IDS_SETTINGS_SHORTDATEFORMAT_TT)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Marca per utilitzar un format de temps/data simplificat en els missatges del log de les entregues. "
+msgstr "Marca per utilitzar un format de temps/data simplificat en els missatges del log "
 
 #. Resource IDs: (32831)
 msgid "Check working copy for modifications"
@@ -3049,7 +3049,7 @@ msgstr "Comprova modificacions a la còpia de treball"
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
-msgstr "Hook de Comprovació-Entrega"
+msgstr "Hook de Comprovació-Pujada"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1504, Dialog IDD_COPY:
 #. Control id 1504)
@@ -3341,58 +3341,58 @@ msgstr "Ordres"
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
 #. IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
-msgstr "Entrega"
+msgstr "Pujada"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
-msgstr "Entrega només la carpeta\nEls fitxers dins de la carpeta no s'entregaran."
+msgstr "Puja només la carpeta\nEls fitxers dins de la carpeta no es pujaran."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
-msgstr "Entrega a:"
+msgstr "Puja a:"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COMMIT)
 msgid "Commit..."
-msgstr "Entrega..."
+msgstr "Puja..."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
 msgid ""
 "Commit\n"
 "Commit the changes to the target."
-msgstr "Entregar\nEntrega els canvis a la destinació."
+msgstr "Pujar\nPuja els canvis a la destinació."
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
-msgstr "Entregues per autor"
+msgstr "Pujades per autor"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYDATE)
 msgid "Commits by date"
-msgstr "Entregues per data"
+msgstr "Pujades per data"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYUNIT)
 #, c-format
 msgid "Commits each %ls:"
-msgstr "Entregues cada %ls:"
+msgstr "Pujades cada %ls:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1135)
 msgid "Commits each week:"
-msgstr "Entregues cada setmana:"
+msgstr "Pujades cada setmana:"
 
 #. Resource IDs: (IDS_MENUDESCCOMMIT)
 msgid "Commits your changes to the repository"
-msgstr "Entrega els canvis al repositori"
+msgstr "Puja els canvis al repositori"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK1)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
-msgstr "Entregar una carpeta sense versionar no afegeix recursivament els seus elements fills.\nAfegiu aquestes carpetes recursivament utilitzant l'ordre 'Afegeix...' del menú contextual."
+msgstr "Pujar una carpeta sense versionar no afegeix recursivament els seus elements fills.\nAfegiu aquestes carpetes recursivament utilitzant l'ordre 'Afegeix...' del menú contextual."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK2)
 msgid "Committing to a tag"
-msgstr "Entregant a una etiqueta"
+msgstr "Pujant a una etiqueta"
 
 #. Resource IDs: (IDS_SVNACTION_COMMITTINGTRANSACTION)
 msgid "Committing transaction..."
@@ -3458,7 +3458,7 @@ msgstr "Compara tots els espais en blanc quan cerca diferències\nCompara espais
 msgid ""
 "Compares the file with the last committed revision to show you the changes "
 "you made"
-msgstr "Compara el fitxer amb l'última revisió entregada per mostrar-vos els canvis que heu fet"
+msgstr "Compara el fitxer amb l'última revisió pujada per mostrar-vos els canvis que heu fet"
 
 #. Resource IDs: (IDS_MENUDESCURLDIFF)
 msgid "Compares the selected file with a file in the repository"
@@ -3737,7 +3737,7 @@ msgstr "No s'ha pogut eliminar la propietat  '%1!ls!' sobre '%2!ls!' perquè"
 
 #. Resource IDs: (IDS_ERR_NOPREVREVISION)
 msgid "Could not determine the last committed revision!"
-msgstr "No s'ha pogut determinar la darrera revisió entregada."
+msgstr "No s'ha pogut determinar la darrera revisió pujada."
 
 #. Resource IDs: (IDS_ERR_NOPARENTFOUND)
 #, c-format
@@ -4175,6 +4175,10 @@ msgstr "Mides i posicions dels formularis"
 msgid "Diff"
 msgstr "Compara"
 
+#. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
+msgid "Diff &Options"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
 msgstr "Opcions de comparació"
@@ -4246,7 +4250,7 @@ msgstr "Trobant diferències"
 
 #. Resource IDs: (IDS_MENUDESCPREVDIFF)
 msgid "Diffs the working copy file with the one before the last commit."
-msgstr "Troba diferències de la còpia de treball amb la que hi havia abans de la darrera entrega."
+msgstr "Troba diferències de la còpia de treball amb la que hi havia abans de la darrera pujada."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1513)
 msgid "Directories"
@@ -4666,6 +4670,13 @@ msgstr "Habilita el corrector lingüístic només si\nla propietat tsvn:projectl
 msgid "Encoding"
 msgstr "Codificació"
 
+#. Resource IDs: (IDS_ENCODING_COMBO_TOOLTIP)
+msgid ""
+"Encoding\n"
+"Convert to the specified encoding\n"
+"Hold down the Ctrl key to reload the file with the specified encoding."
+msgstr ""
+
 #. Resource IDs: (61866)
 #, c-format
 msgid "Encountered a hardware I/O error while accessing %1."
@@ -4798,7 +4809,7 @@ msgstr "Introduïu la cadena regex a sota:"
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr "Introduïu els patrons d'expressions regulars per filtrar fora l'ID d'error en un missatge d'entrega."
+msgstr "Introduïu els patrons d'expressions regulars per filtrar fora l'ID d'error en un missatge de pujada."
 
 #. Resource IDs: (57633)
 msgid ""
@@ -4834,7 +4845,7 @@ msgstr "Error de lectura/escriptura en la clau del registre %1!ls!\n%2!ls!"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK1)
 msgid "Every commit should be assigned to an issue."
-msgstr "Cada entrega s'hauria d'assignar a una incidència."
+msgstr "Cada pujada s'hauria d'assignar a una incidència."
 
 #. Resource IDs: (ID_NEW_EXTERNALS - Menu)
 msgid "Ex&ternals"
@@ -5962,19 +5973,19 @@ msgstr "Si s'activa, les carpetes de la còpia de treball que no mostren\nsuperp
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
-msgstr "Si està seleccionat, TortoiseSVN posa els temps en els quals es varen\nentregar els fitxers el darrer cop. Si no ho està, TortoiseSVN utilitza el temps actual."
+msgstr "Si està seleccionat, TortoiseSVN posa els temps en els quals es varen\npujar els fitxers el darrer cop. Si no ho està, TortoiseSVN utilitza el temps actual."
 
 #. Resource IDs: (IDS_SETTINGS_UNVERSIONEDRECURSE_TT)
 msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
-msgstr "Si està seleccionat, els fitxers dins de carpetes sense versionar es mostren al control d'estat.\nEl control d'estat s'utilitza per exemple al diàleg d'entrega."
+msgstr "Si està seleccionat, els fitxers dins de carpetes sense versionar es mostren al control d'estat.\nEl control d'estat s'utilitza per exemple al diàleg de pujada."
 
 #. Resource IDs: (IDS_SETTINGS_IGNOREONCOMMITIGNORE_TT)
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr "Si està seleccionat, els fitxers modificats de la llista de canvis \"ignora-en-entrega\" no marquen les carpetes pare com a modificades; \no sigui, tenen la icona normal excepte si s'ha modificat un altre fitxer o carpeta."
+msgstr "Si està seleccionat, els fitxers modificats de la llista de canvis \"ignora-en-pujada\" no marquen les carpetes pare com a modificades; \no sigui, tenen la icona normal excepte si s'ha modificat un altre fitxer o carpeta."
 
 #. Resource IDs: (IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT)
 msgid ""
@@ -6722,7 +6733,7 @@ msgstr "Administra propietats del Subversion"
 
 #. Resource IDs: (IDS_HOOKTYPE_MANUALPRECOMMIT)
 msgid "Manual Pre-Commit Hook"
-msgstr "Hook de pre-entrega manual"
+msgstr "Hook de pre-pujada manual"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Manual import/export"
@@ -7004,7 +7015,7 @@ msgstr "Minimitza la cinta"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
-msgstr "Nombre mínim de caràcters per un missatge d'entrega:"
+msgstr "Nombre mínim de caràcters en un missatge de pujada:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a lock message:"
@@ -7336,14 +7347,14 @@ msgid ""
 "There's nothing for TortoiseSVN to do here...\n"
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
-msgstr "No s'ha modificat o afegit cap fitxer des de la darrera entrega. \nAquí TortoiseSVN no hi té res a fer...\nMostreu els elements sense versionar activant la casella de selecció a la part inferior."
+msgstr "No s'ha modificat o afegit cap fitxer des de la darrera pujada. \nAquí TortoiseSVN no hi té res a fer...\nMostreu els elements sense versionar activant la casella de selecció a la part inferior."
 
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGTOCOMMIT)
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
-msgstr "No s'ha modificat o afegit cap fitxer des de\nla darrera entrega. TortoiseSVN\nno hi té res a fer..."
+msgstr "No s'ha modificat o afegit cap fitxer des de\nla darrera pujada. TortoiseSVN\nno hi té res a fer..."
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
@@ -7383,7 +7394,7 @@ msgstr "Colors del node"
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK2)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "Entrega no recursiva de les carpetes desplaçades o canviades de nom."
+msgstr "Pujada no recursiva de les carpetes desplaçades o canviades de nom."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1507)
 msgid "Non-versioned"
@@ -7435,7 +7446,7 @@ msgstr "Nota: aquesta propietat no té cap efecte en Windows"
 
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGSELECTED)
 msgid "Nothing is selected for commit!"
-msgstr "No hi ha res seleccionat per entregar!"
+msgstr "No hi ha res seleccionat per pujar."
 
 #. Resource IDs: (IDS_WARN_NOTE)
 msgid "Notice"
@@ -7903,9 +7914,9 @@ msgstr "Dibuix:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
-"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
-"*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Imatges (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tot (*.*)|*.*||"
+"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
+"*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
+msgstr ""
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -7930,7 +7941,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr "Atenció:\nLa còpia de treball segueix al camí anterior. Si voleu que els propers canvis\ns'entreguin a la còpia o branca que acabeu de crear, \nheu de canviar la còpia de treball al nou URL.\nUtilitzeu l'ordre Canvia per fer-ho."
+msgstr "Atenció:\nLa còpia de treball segueix al camí anterior. Si voleu que els propers canvis\nes pugin a la còpia o branca que acabeu de crear, \nheu de canviar la còpia de treball al nou URL.\nUtilitzeu l'ordre Canvia per fer-ho."
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -7976,7 +7987,7 @@ msgstr "Valors possibles: 0 (totalment transparent) .. 255 (opac)"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTCOMMIT)
 msgid "Post-Commit Hook"
-msgstr "Hook de post-entrega"
+msgstr "Hook de post-pujada"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTUPDATE)
 msgid "Post-Update Hook"
@@ -7988,7 +7999,7 @@ msgstr "Pàgina Prè&via"
 
 #. Resource IDs: (IDS_HOOKTYPE_PRECOMMIT)
 msgid "Pre-Commit Hook"
-msgstr "Hook de pre-entrega"
+msgstr "Hook de pre-pujada"
 
 #. Resource IDs: (IDS_HOOKTYPE_PRECONNECT)
 msgid "Pre-Connect Hook"
@@ -8099,7 +8110,7 @@ msgstr "Segueix de totes maneres\nIgnora l'script hook i executa l'ordre de tote
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
-msgstr "Seguir amb l'entrega\nles carpetes canviades de nom o desplaçades s'entreguen recursivament en el repositori."
+msgstr "Seguir amb la pujada\nles carpetes canviades de nom o desplaçades es pugen recursivament en el repositori."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
@@ -8115,7 +8126,7 @@ msgstr "Segueix amb la fusió."
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr "Segueix sense un número d'incidència\nL'entrega no s'assignarà a una incidència."
+msgstr "Segueix sense un número d'incidència\nLa pujada no s'assignarà a una incidència."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO2)
 #, c-format
@@ -8705,13 +8716,13 @@ msgstr "Renombra fitxers / carpetes dins de versió de control"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1562)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr "Reobre diàleg després de l'entrega si alguns elements han quedat sense entregar"
+msgstr "Reobre diàleg després de la pujada si alguns elements han quedat sense pujar"
 
 #. Resource IDs: (IDS_SETTINGS_INCOMPLETEREOPEN_TT)
 msgid ""
 "Reopens the commit dialog after a successful commit if there were files "
 "and/or folders left uncommitted."
-msgstr "Reobre el diàleg d'entrega després d'una entrega satisfactòria si han quedat fitxers i/o carpetes sense entregar."
+msgstr "Reobre el diàleg de pujada després d'una pujada satisfactòria si han quedat fitxers i/o carpetes sense pujar."
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REPAIRCOPY)
 msgid "Repair copy"
@@ -8871,7 +8882,7 @@ msgstr "Restaura per defecte"
 
 #. Resource IDs: (IDS_MENUCREATERESTORE)
 msgid "Restore after commit"
-msgstr "Restaura després de l'entrega"
+msgstr "Restaura després de la pujada"
 
 #. Resource IDs: (61202)
 msgid "Restore the window to normal size"
@@ -9526,7 +9537,7 @@ msgstr "Selecciona el document sencer\nSelecciona tot"
 msgid ""
 "Select the language this project is using. This settings affects the spell "
 "checker used for commit messages."
-msgstr "Selecciona l'idioma per aquest projecte. Aquesta configuració afecta el corrector ortogràfic utilitzat en els missatges d'entrega."
+msgstr "Selecciona l'idioma d'aquest projecte. Aquesta configuració afecta el corrector ortogràfic utilitzat en els missatges de pujada."
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONSSUBTITLE)
 msgid "Select the merge options"
@@ -9580,7 +9591,7 @@ msgstr "Estableix una revisió explícita per aquests externs:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "Canvia les dates dels fitxers a \"&temps darrera entrega\""
+msgstr "Canvia les dates dels fitxers a \"&temps darrera pujada\""
 
 #. Resource IDs: (IDS_INPUT_SETPROP)
 #, c-format
@@ -10041,7 +10052,7 @@ msgstr "Alguna cosa ha fallat"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
-msgstr "Ordena per nombre d'entregues"
+msgstr "Ordena per nombre de pujades"
 
 #. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1501)
 msgid "Source Left:"
@@ -10082,7 +10093,7 @@ msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
-msgstr "Especifica com es construeix el missatge d'entrega a partir del bug-ID introduït. Utilitza espai reservat %BUGID% per al número d'incidència real. Si deixes aquests paràmetres buits, TortoiseSVN utilitzarà les expressions regulars."
+msgstr "Especifiqueu com es construeix el missatge de pujada a partir del bug-ID introduït. Utilitzeu la paraula reservada %BUGID% per al número d'incidència real. Si deixeu aquests paràmetres buits, TortoiseSVN utilitzarà les expressions regulars."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1305)
 msgid ""
@@ -10137,7 +10148,7 @@ msgstr "Estàndard"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
-msgstr "Hook d'inici d'entrega"
+msgstr "Hook d'inici de pujada"
 
 #. Resource IDs: (Dialog IDD_REVISIONRANGE: Control id 65535)
 msgid "Start Revision"
@@ -10261,7 +10272,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr "Filtre de sub-cadenes:\n* Especifiqueu una o més cadenes, separades per espais. S'avaluaran d'esquerra a dreta.\n* Poseu - davant d'una sub-cadena per excloure revisions que contenen aquesta sub-cadena.\n* Poseu + davant d'una sub-cadena per incloure revisions que no han coincidit amb el filtre fins ara.\n* Tanqueu les cadenes que contenen espais, etc. entre \".\n* Poseu ! al principi  de la línia per invertir tota la condició del filtre.\n\nExemples:\nelmeunom 2015 : les entregues meves del 2015\n.h -.cpp : entregues que han canviat de capçalera però no implementacions\n.doc +.xls 2014 : entregues del 2014 amb fitxers .doc o .xls\n\" \" : entregues amb espais (per ex: quan cerqueu només en camins)\n-\"\"mostra tot\"\" : entregues que no contenen la cadena \"mostra tot\"\n!elmeunom .cpp : tot excepte les meves entregues a fitxers .cpp"
+msgstr "Filtre de sub-cadenes:\n* Especifiqueu una o més cadenes, separades per espais. S'avaluaran d'esquerra a dreta.\n* Poseu - davant d'una sub-cadena per excloure revisions que contenen aquesta sub-cadena.\n* Poseu + davant d'una sub-cadena per incloure revisions que no han coincidit amb el filtre fins ara.\n* Tanqueu les cadenes que contenen espais, etc. entre \".\n* Poseu ! al principi  de la línia per invertir tota la condició del filtre.\n\nExemples:\nelmeunom 2015 : pujades meves del 2015\n.h -.cpp : pujades que han canviat de capçalera però no implementacions\n.doc +.xls 2014 : pujades del 2014 amb fitxers .doc o .xls\n\" \" : pujades amb espais (per ex: quan cerqueu només en camins)\n-\"\"mostra tot\"\" : pujades que no contenen la cadena \"mostra tot\"\n!elmeunom .cpp : tot excepte les pujades meves a fitxers .cpp"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "Subversion"
@@ -10486,7 +10497,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr "Els canvis s'aplicaran a la còpia de treball amb una operació de fusió revertida. El repositori no quedarà afectat. Reviseu els canvis abans de fer-ne l'entrega."
+msgstr "Els canvis s'aplicaran a la còpia de treball amb una operació de fusió revertida. El repositori no quedarà afectat. Reviseu els canvis abans de fer-ne la pujada."
 
 #. Resource IDs: (IDS_ERR_PATCH_CHUNKMISMATCH)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10517,7 +10528,7 @@ msgstr "El camí per defecte a on obtenir si no s'especifica res més"
 msgid ""
 "The depth of this commit is \"%ls\", but copies are always performed "
 "recursively in the repository."
-msgstr "La profunditat d'aquesta entrega és \"%ls\", però les còpies sempre es fan recursivament en el repositori."
+msgstr "La profunditat d'aquesta pujada és \"%ls\", però les còpies sempre es fan recursivament en el repositori."
 
 #. Resource IDs: (IDS_ERR_DIFF_DIFF)
 #, c-format
@@ -10908,7 +10919,7 @@ msgstr "La destinació té modificacions locals"
 msgid ""
 "The target working copy '%ls' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr "La còpia de treball destí '%ls' té modificacions locals. Es recomana entregar aquests canvis primer, abans de fusionar nous canvis."
+msgstr "La còpia de treball destí '%ls' té modificacions locals. Es recomana pujar aquests canvis primer, abans de fusionar nous canvis."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTY)
 msgid "The target working copy has local modifications!"
@@ -10935,7 +10946,7 @@ msgstr "Les dues URL's seleccionades no s'han creat des de la mateixa arrel.\nNo
 
 #. Resource IDs: (IDS_COLDESCAUTHOR)
 msgid "The user who did the last commit"
-msgstr "L'usuari que ha fet la darrera entrega"
+msgstr "L'usuari que ha fet la darrera pujada"
 
 #. Resource IDs: (IDS_COLDESCOWNER)
 msgid "The user who owns the lock of the file"
@@ -10953,7 +10964,7 @@ msgstr "Els seus"
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
-msgstr "Hi ha canvis dins d'un o més elements sense versionar dins d'un o més directoris que heu inclòs amb svn:externals.\nAquests fitxers no han estat llistats per a l'entrega. Heu d'entregar-los separadament."
+msgstr "Hi ha canvis dins d'un o més elements sense versionar dins d'un o més directoris que heu inclòs amb svn:externals.\nAquests fitxers no han estat llistats per a la pujada. Heu de pujar-los separadament."
 
 #. Resource IDs: (IDS_SETTINGS_OVERLAYINFO)
 #, c-format
@@ -11026,7 +11037,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr "Aquesta entrega és no recursiva, i hi ha carpetes desplaçades, canviades de nom o copiades, seleccionades per entregar. Aquestes accions sempre es fan recursivament en el repositori. Voleu fer l'entrega de totes maneres?"
+msgstr "Aquesta pujada és no recursiva, i hi ha carpetes desplaçades, canviades de nom o copiades, seleccionades per pujar. Aquestes accions sempre es fan recursivament en el repositori. Voleu fer la pujada de totes maneres?"
 
 #. Resource IDs: (IDS_SVNERR_HOOKFAILED)
 msgid ""
@@ -11038,7 +11049,7 @@ msgstr "Aquest error s'ha generat per un script hook personalitzat en el servido
 msgid ""
 "This error was generated by a custom post-commit hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
-msgstr "Aquest error s'ha generat per un script hook de post-entrega personalitzat en el servidor del Subversion.\nContacteu amb l'administrador del servidor per ajudar-vos a resoldre la incidència."
+msgstr "Aquest error s'ha generat per un script hook de post-pujada personalitzat en el servidor del Subversion.\nContacteu amb l'administrador del servidor per ajudar-vos a resoldre la incidència."
 
 #. Resource IDs: (IDS_SVNERR_POSTLOCKHOOKFAILED)
 msgid ""
@@ -11163,7 +11174,7 @@ msgid ""
 "are also checked in the commit dialog.\n"
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
-msgstr "Per entregar recursivament i evitar aquest error,\nassegureu-vos que tot els elements fills de la carpeta marcada\ntambé són marcats al diàleg d'entrega.\nSi no, TortoiseSVN ha de fer una entrega no-recursiva\nque no permet esborrar directoris."
+msgstr "Per pujar recursivament i evitar aquest error,\nassegureu-vos que tot els elements fills de la carpeta marcada\ntambé són marcats al diàleg de pujada.\nSi no, TortoiseSVN ha de fer una pujada no-recursiva\nque no permet esborrar directoris."
 
 #. Resource IDs: (IDS_SVNPROGRESS_LOCKHINT)
 msgid ""
@@ -11294,18 +11305,18 @@ msgstr "Opcions del Monitor de Projectes TortoiseSVN"
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commit in %d project"
-msgstr "Monitor de Projectes TortoiseSVN\n%d nova entrega en %d projecte"
+msgstr "Monitor de Projectes TortoiseSVN\n%d nova pujada en %d projecte"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMITS)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commits in %d projects"
-msgstr "Monitor de Projectes TortoiseSVN\n%d noves entregues en %d projectes"
+msgstr "Monitor de Projectes TortoiseSVN\n%d noves pujades en %d projectes"
 
 #. Resource IDs: (IDS_COPY_COMMITMSG)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr "Auto entrega de TortoiseSVN: ha canviat externs a revisió específica"
+msgstr "Auto pujada de TortoiseSVN: ha canviat externs a revisió específica"
 
 #. Resource IDs: (IDS_RECYCLEBINSLOWDOWN)
 #, c-format
@@ -11341,7 +11352,7 @@ msgstr "TortoiseUDiff"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1162)
 msgid "Total commits analyzed:"
-msgstr "Nombre total d'entregues analitzades:"
+msgstr "Nombre total de pujades analitzades:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1163)
 msgid "Total file changes:"
@@ -11651,7 +11662,7 @@ msgstr "Actualitza\nActualitza el fitxer i torna a provar el bloqueig."
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr "Actualitza\nActualitza la còpia de treball i reobre el diàleg d'entrega per intentar de nou."
+msgstr "Actualitza\nActualitza la còpia de treball i reobre el diàleg de pujada per intentar de nou."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
@@ -12095,7 +12106,7 @@ msgstr "Si s'activa, els elements del menú contextual desplaça/copia del Torto
 msgid ""
 "When enabled, the versioned items listed in the commit dialog are "
 "automatically selected"
-msgstr "Quan està habilitat, els elements versionats llistats se seleccionen automàticament"
+msgstr "Quan està habilitat, els elements versionats llistats al diàleg de pujada es seleccionen automàticament"
 
 #. Resource IDs: (IDS_SETTINGS_SHOWLOCKDLG_TT)
 msgid ""
@@ -12244,7 +12255,7 @@ msgstr "Heu de reiniciar el sistema per tal que els canvis tinguin efecte."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
-msgstr "Heu seleccionat una carpeta sense versionar per fer l'entrega."
+msgstr "Heu seleccionat una carpeta sense versionar per fer la pujada."
 
 #. Resource IDs: (16002)
 msgid "You should enter a text!"
@@ -12271,7 +12282,7 @@ msgstr "Esteu intentant afegir l'element\n'%1!ls!',\nperò l'element\n'%2!ls!'\n
 msgid ""
 "You've committed changes to external item that is tagged to a specific revision.\n"
 "Do you want to change the tagged revision now to the just committed revision?"
-msgstr "Heu entregat canvis d'un element extern que està etiquetat amb una determinada revisió.\nVoleu canviar ara la revisió etiquetada a la revisió tot just entregada?"
+msgstr "Heu pujat canvis d'un element extern que està etiquetat amb una determinada revisió.\nVoleu canviar ara la revisió etiquetada a la revisió tot just pujada?"
 
 #. Resource IDs: (IDS_COMMITDLG_HISTORYHINT_TT)
 msgid ""
@@ -12308,7 +12319,7 @@ msgstr "La còpia de treball  té modificacions locals.\nSi feu una  branca/etiq
 msgid ""
 "Your working copy points to %ls which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
-msgstr "La còpia de treball apunta a %ls, que sembla ser una etiqueta!\nHauríeu de canviar a una branca o al tronc principal abans de fer l'entrega."
+msgstr "La còpia de treball apunta a %ls, que sembla ser una etiqueta!\nHauríeu de canviar a una branca o al tronc principal abans de fer la pujada."
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
@@ -12389,7 +12400,7 @@ msgstr "[Sense assignar]"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
-msgstr "Els fitxers \"ignora-en-entrega\" no marquen la carpeta pare com a modificada"
+msgstr "Els fitxers \"ignora-en-pujada\" no marquen la carpeta pare com a modificada"
 
 #. Resource IDs: (IDS_SETTINGS_PATTERN_INFO)
 msgid ""
@@ -12533,11 +12544,11 @@ msgstr "columna '%ls'"
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHORY,
 #. IDS_STATGRAPH_COMMITSBYDATEY)
 msgid "commits"
-msgstr "Entregues"
+msgstr "Pujades"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_COMMITTED)
 msgid "committed revision"
-msgstr "revisió entregada"
+msgstr "revisió pujada"
 
 #. Resource IDs: (IDS_STATUSCONFLICTED)
 msgid "conflicted"
@@ -12700,7 +12711,7 @@ msgstr "màx. en aquesta revisió"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_MAX_COMMITTED)
 msgid "max. committed revision"
-msgstr "màx. revisió entregada"
+msgstr "màx. revisió pujada"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535,
 #. IDS_STATUSMERGED)
@@ -12717,7 +12728,7 @@ msgstr "mín. en aquesta revisió"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_MIN_COMMITTED)
 msgid "min. committed revision"
-msgstr "mín. revisió entregada"
+msgstr "mín. revisió pujada"
 
 #. Resource IDs: (IDS_STATUSABSENT)
 msgid "missing"
@@ -12987,7 +12998,7 @@ msgid ""
 "The file will be set to read-only when checked out or updated,\r\n"
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
-msgstr "svn:needs-lock\r\nEstablir-ho a qualsevol valor (per exemple  '*') per forçar el bloqueig del fitxer.\r\nEl fitxer serà establert com a fitxer de només lectura quan sigui obtingut o actualitzat,\r\nindicant que un usuari ha d'adquirir un bloqueig del fitxer\r\nabans de poder editar-lo o entregar-ne canvis."
+msgstr "svn:needs-lock\nEstablir-ho a qualsevol valor (per exemple  '*') per forçar el bloqueig del fitxer.\nEl fitxer serà establert com a fitxer de només lectura quan sigui obtingut o actualitzat,\nindicant que un usuari ha d'adquirir un bloqueig del fitxer\nabans de poder editar-lo o pujar-ne canvis."
 
 #. Resource IDs: (IDS_STATUSLIST_SWITCHEDTO)
 #, c-format
@@ -13053,13 +13064,13 @@ msgid ""
 "tsvn:logfilelistenglish\r\n"
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
-msgstr "tsvn:logfilelistenglish\r\nEstabliu-ho a  'fals 'si no voleu que la llista de fitxers modificats sigui enganxada en anglès\r\nal diàleg d'entrega."
+msgstr "tsvn:logfilelistenglish\nEstabliu-ho a  'fals 'si no voleu que la llista de fitxers modificats sigui enganxada en anglès\nal diàleg de pujada."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGMINSIZE)
 msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
-msgstr "tsvn:logminsize\nMida mínima en caràcters que un missatge de log ha de tenir abans de que es permeti una entrega."
+msgstr "tsvn:logminsize\nMida mínima en caràcters que un missatge de log ha de tenir abans de que es permeti una pujada."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGREVREGEX)
 msgid ""
@@ -13078,35 +13089,35 @@ msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for users to fill in."
-msgstr "tsvn:logtemplate\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatges de log perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplate\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatges de log perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEBRANCH)
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
-msgstr "tsvn:logtemplatebranch\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a branca/etiquetes/còpies perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatebranch\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a branca/etiquetes/còpies perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATECOMMIT)
 msgid ""
 "tsvn:logtemplatecommit\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
-msgstr "tsvn:logtemplatecommit\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a les entregues perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatecommit\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a les pujades perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEDEL)
 msgid ""
 "tsvn:logtemplatedelete\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
-msgstr "tsvn:logtemplatedelete\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a les supressions perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatedelete\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a les supressions perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEIMPORT)
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
-msgstr "tsvn:logtemplateimport\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a les importacions perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplateimport\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a les importacions perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATELOCK)
 msgid ""
@@ -13120,28 +13131,28 @@ msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
-msgstr "tsvn:logtemplatemkdir\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a les creacions de directori perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatemkdir\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a les creacions de directori perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEMOVE)
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
-msgstr "tsvn:logtemplatemove\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log als moviments/canvis de nom perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatemove\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log als moviments/canvis de nom perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEPROPSET)
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
-msgstr "tsvn:logtemplatepropset\nCadena que s'insereix a les caixes del missatge de log als diàlegs d'entrega.\nUtilitza-ho com a plantilla de missatge de log a les modificacions de propietats perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatepropset\nCadena que s'insereix a les caixes del missatge de log als diàlegs de pujada.\nUtilitza-ho com a plantilla de missatge de log a les modificacions de propietats perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGWIDTHMARKER)
 msgid ""
 "tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
-msgstr "tsvn:logwidthmarker\nEstabliu-ho al nombre de caràcters d'amplada màxim que pot tenir un missatge de log.\nEs mostrarà una línia esborronada als diàlegs d'entrega en aquesta posició. Per defecte és 80 caràcters."
+msgstr "tsvn:logwidthmarker\nEstabliu-ho al nombre de caràcters d'amplada màxim que pot tenir un missatge de log.\nEs mostrarà una línia esborronada als diàlegs de pujada en aquesta posició. Per defecte és 80 caràcters."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNPROJECTLANGUAGE)
 msgid ""
@@ -13154,7 +13165,7 @@ msgstr "tsvn:projectlanguage\nEstabliu el número de llenguatge per als missatge
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr "tsvn:warnifnoissue\nEstabliu-ho a  'yes ' si s'ha de mostrar un missatge quan no s'introdueix assumpte al diàleg d'entrega."
+msgstr "tsvn:warnifnoissue\nEstabliu-ho a  'yes' si s'ha de mostrar un missatge quan no s'introdueix assumpte al diàleg de pujada."
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "user revprops total: "
