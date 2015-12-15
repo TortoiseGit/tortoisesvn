@@ -362,9 +362,9 @@ AddDefaultCharset utf-8
     RewriteRule ^StExBar$ http://tools.tortoisesvn.net/StExBar.html [R,NC]
 
     # prevent hotlinking
-    RewriteCond %{HTTP_REFERER} !^http://(.+\.)?tortoisesvn\.net/ [NC]
+    RewriteCond %{HTTP_REFERER} !^(http|https)://(.+\.)?tortoisesvn\.net/ [NC]
     RewriteCond %{HTTP_REFERER} !^$
-    RewriteRule .*\.(jpe?g|gif|bmp|png)$ - [F]
+    RewriteRule .*\.(jpe?g|gif|bmp|png|svg)$ - [F]
 
 </IfModule>
 
