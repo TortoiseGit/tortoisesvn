@@ -1,3 +1,50 @@
+Version 1.9.3
+- BUG: The DEL key didn't work in the filter box
+       in the log dialog. (Stefan)
+- BUG: The %fname was not set when diffing two revisions
+       of the same file from the log dialog. (Stefan)
+- BUG: Crash when showing the context menu in the status
+       list control if the class associations couldn't
+       be created. (Stefan)
+- BUG: TortoiseMerge: The horizontal scroll bar was wrong
+       if the shown doc had a lot of tabs. (Stefan)
+- BUG: Adjusting externals to the HEAD revision used
+       always the same revision if multiple externals were
+       selected. (Stefan)
+- BUG: unicode data was not saved properly in the project
+       monitor. (Stefan)
+- BUG: Project monitor accepted escaped urls. Automatically
+       unescapes them now. (Stefan)
+- CHG: the "break locks" checkbox in the cleanup dialog
+       is now unchecked by default, and remembers its
+       state between sessions. (Stefan)
+- BUG: The "create vendor branch" command failed to copy
+       over files that have the svn:needs-lock property
+       set or are otherwise set as readonly. (Stefan)
+- BUG: The column "SVN Statusnumber" showed sometimes
+       the wrong value. (Stefan)
+- BUG: Repobrowser failed to properly detect SVNParentPath
+       pages which don't use xml output. (Stefan)
+- BUG: Adjusting externals used the wrong revision
+       if the external was copied itself but not
+       modified later. (Stefan)
+- BUG: The manual pre-commit hook script was executed with
+       an outdated or empty log message. (Stefan)
+- BUG: TortoiseIDiff only zoomed one image in overlap mode
+       when zooming with the Ctrl-mousewheel. (Stefan)
+- BUG: The tooltip of the tray icon mentioned commit monitor
+       instead of project monitor. (Stefan)
+- BUG: project properties in the project monitor were not
+       updated properly. (Stefan)
+- BUG: Windows and dialogs were shown with a wrong size if
+       the monitor settings changed. (Stefan)
+- BUG: The log dialog could crash if revision zero contained
+       user revprops. (Stefan)
+- BUG: "Drop vendorbranch here" could leave the target folder
+       empty if multiple sources where dragged. (Stefan)
+- BUG: Possible crash when trimming the action log file. (Stefan)
+- BUG: Authentication wasn't properly saved. (Stefan)
+
 Version 1.9.2
 - BUG: Performance issue if dragging lots of files
        in the explorer. (Stefan)
@@ -55,7 +102,7 @@ Version 1.9.1
 
 Version 1.9.0
 See the release notes here:
-https://tortoisesvn.net/tsvn_1.9_releasenotes.html
+http://tortoisesvn.net/tsvn_1.9_releasenotes.html
 
 Version 1.8.12
 - BUG: Issue #691: Bug when SVN-copying (overwriting) files
@@ -346,7 +393,7 @@ Version 1.8.1
 
 Version 1.8.0
 See the release notes here:
-https://tortoisesvn.net/tsvn_1.8_releasenotes.html
+http://tortoisesvn.net/tsvn_1.8_releasenotes.html
 
 Version 1.7.13
 - BUG: Issue #477: Drag and drop causes
@@ -903,7 +950,7 @@ Version 1.7.1
 Version 1.7.0
 Too many changes to list here. See the release notes for
 an overview of the most visible and important changes:
-https://tortoisesvn.net/tsvn_1.7_releasenotes.html
+http://tortoisesvn.net/tsvn_1.7_releasenotes.html
 
 Version 1.6.17
 - BUG: the bugtraq:number property was added to
