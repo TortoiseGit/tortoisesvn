@@ -76,7 +76,6 @@ protected:
     void SaveDialogAndLogMessageControlRectangles();
     void AddAnchorsToFacilitateResizing();
     void LineupControlsAndAdjustSizes();
-    void ConvertStaticToLinkControl();
     void AdjustControlSizes();
     void SetCommitWindowTitleAndEnableStatus();
     void SetupLogMessageDefaultText();
@@ -170,6 +169,15 @@ private:
     CRect               m_LogMsgOrigRect;
     CPathWatcher        m_pathwatcher;
     CLinkControl        m_linkControl;
+    CLinkControl        m_CheckAll;
+    CLinkControl        m_CheckNone;
+    CLinkControl        m_CheckUnversioned;
+    CLinkControl        m_CheckVersioned;
+    CLinkControl        m_CheckAdded;
+    CLinkControl        m_CheckDeleted;
+    CLinkControl        m_CheckModified;
+    CLinkControl        m_CheckFiles;
+    CLinkControl        m_CheckDirectories;
     CPathEdit           m_CommitTo;
     CBugTraqAssociation m_bugtraq_association;
     CHyperLink          m_cUpdateLink;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012-2014 - TortoiseSVN
+// Copyright (C) 2009, 2012-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,261 +19,182 @@
 #include "stdafx.h"
 #include "LinkControl.h"
 
-
-#define PROP_OBJECT_PTR         MAKEINTATOM(ga.atom)
-#define PROP_ORIGINAL_PROC      MAKEINTATOM(ga.atom)
-
-class CGlobalAtom
-{
-public:
-    CGlobalAtom(void)
-    { atom = GlobalAddAtom(L"_LinkControl_Object_Pointer_"
-             L"\\{62671D58-E5E8-46e0-A818-FD6547EC60B8}"); }
-    ~CGlobalAtom(void)
-    { DeleteAtom(atom); }
-
-    ATOM atom;
-};
-
-static CGlobalAtom ga;
-
 const UINT CLinkControl::LK_LINKITEMCLICKED
 = ::RegisterWindowMessage(L"LK_LINKITEMCLICKED");
 
-
-HCURSOR  CLinkControl::g_hLinkCursor     = NULL;
-HFONT    CLinkControl::g_UnderlineFont   = NULL;
-HFONT    CLinkControl::g_NormalFont      = NULL;
-int      CLinkControl::g_counter         = 0;
-
-
 CLinkControl::CLinkControl(void)
     : m_bOverControl(false)
-    , m_bMouseDownPressed(false)
-    , m_StdFont(NULL)
-    , m_pfnOrigCtlProc(NULL)
 {
 }
 
 CLinkControl::~CLinkControl(void)
 {
+    /*
+    * No need to call DestroyCursor() for cursors acquired through
+    * LoadCursor().
+    */
+    m_NormalFont.DeleteObject();
+    m_UnderlineFont.DeleteObject();
 }
 
-bool CLinkControl::ConvertStaticToLink(HWND hwndCtl)
+void CLinkControl::PreSubclassWindow()
 {
-    // Subclass the parent so we can draw the controls ourselves
-    HWND hwndParent = GetParent(hwndCtl);
-    if (hwndParent)
+    CStatic::PreSubclassWindow();
+
+    ModifyStyle(0, SS_NOTIFY);
+
+    m_hLinkCursor = ::LoadCursor(NULL, IDC_HAND); // Load Windows' hand cursor
+    if (!m_hLinkCursor)    // if not available, use the standard Arrow cursor
     {
-        WNDPROC pfnOrigProc = (WNDPROC) GetWindowLongPtr(hwndParent, GWLP_WNDPROC);
-        if (pfnOrigProc != _HyperlinkParentProc)
-        {
-            if (SetProp(hwndParent, PROP_ORIGINAL_PROC, (HANDLE)pfnOrigProc))
-                SetWindowLongPtr(hwndParent, GWLP_WNDPROC, (LONG_PTR)(WNDPROC)_HyperlinkParentProc);
-        }
+        m_hLinkCursor = ::LoadCursor(NULL, IDC_ARROW);
     }
-
-    // Make sure the control will send notifications.
-
-    LONG_PTR Style = GetWindowLongPtr(hwndCtl, GWL_STYLE);
-    SetWindowLongPtr(hwndCtl, GWL_STYLE, Style | SS_NOTIFY);
 
     // Create an updated font by adding an underline.
-
-    m_StdFont = (HFONT) SendMessage(hwndCtl, WM_GETFONT, 0, 0);
-
-    if (g_counter++ == 0)
+    CFont* pFont = GetFont();
+    if (!pFont)
     {
-        createGlobalResources();
+        HFONT hFont = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+        if (hFont == NULL)
+            hFont = (HFONT)GetStockObject(ANSI_VAR_FONT);
+        if (hFont)
+            pFont = CFont::FromHandle(hFont);
     }
-    SendMessage(hwndCtl, WM_SETFONT, (WPARAM)CLinkControl::g_NormalFont, FALSE);
+    ASSERT(pFont->GetSafeHandle());
 
-    // Subclass the existing control.
+    LOGFONT lf;
+    pFont->GetObject(sizeof(lf), &lf);
+    lf.lfWeight = FW_BOLD;
+    m_NormalFont.CreateFontIndirect(&lf);
 
-    m_pfnOrigCtlProc = (WNDPROC)GetWindowLongPtr(hwndCtl, GWLP_WNDPROC);
-    if (SetProp(hwndCtl, PROP_OBJECT_PTR, (HANDLE)this))
-        SetWindowLongPtr(hwndCtl, GWLP_WNDPROC, (LONG_PTR)(WNDPROC)_HyperlinkProc);
+    lf.lfUnderline = TRUE;
+    m_UnderlineFont.CreateFontIndirect(&lf);
 
-    return true;
+    SetFont(&m_NormalFont, FALSE);
+
 }
 
-bool CLinkControl::ConvertStaticToLink(HWND hwndParent, UINT uiCtlId)
-{
-    return ConvertStaticToLink(GetDlgItem(hwndParent, uiCtlId));
-}
+BEGIN_MESSAGE_MAP(CLinkControl, CStatic)
+    ON_WM_SETCURSOR()
+    ON_WM_MOUSEMOVE()
+    ON_WM_CAPTURECHANGED()
+    ON_WM_ERASEBKGND()
+    ON_WM_SETFOCUS()
+    ON_WM_KILLFOCUS()
+    ON_WM_GETDLGCODE()
+    ON_WM_KEYDOWN()
+    ON_CONTROL_REFLECT(STN_CLICKED, OnClicked)
+END_MESSAGE_MAP()
 
-LRESULT CALLBACK CLinkControl::_HyperlinkParentProc(HWND hwnd, UINT message,
-                                                 WPARAM wParam, LPARAM lParam)
+void CLinkControl::OnMouseMove(UINT /*nFlags*/, CPoint pt)
 {
-    WNDPROC pfnOrigProc = (WNDPROC)GetProp(hwnd, PROP_ORIGINAL_PROC);
-
-    switch (message)
+    if (m_bOverControl)
     {
-    case WM_CTLCOLORSTATIC:
-        {
-            //HDC hdc = (HDC)wParam;
-            HWND hwndCtl = (HWND)lParam;
-            CLinkControl *pHyperLink = (CLinkControl*)GetProp(hwndCtl, PROP_OBJECT_PTR);
+        RECT rect;
+        GetClientRect(&rect);
 
-            if (pHyperLink)
-            {
-                LRESULT lr = CallWindowProc(pfnOrigProc, hwnd, message, wParam, lParam);
-                //::SetTextColor(hdc, GetSysColor(COLOR_HOTLIGHT));
-                return lr;
-            }
-        }
-        break;
-    case WM_DESTROY:
-        {
-            SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR) pfnOrigProc);
-            RemoveProp(hwnd, PROP_ORIGINAL_PROC);
-        }
-        break;
+        if (!PtInRect(&rect, pt))
+            ReleaseCapture();
     }
-    return CallWindowProc(pfnOrigProc, hwnd, message, wParam, lParam);
+    else
+    {
+        m_bOverControl = TRUE;
+        SetFont(&m_UnderlineFont, FALSE);
+        InvalidateRect(NULL, FALSE);
+        SetCapture();
+    }
 }
 
-void CLinkControl::DrawFocusRect(HWND hwnd)
+BOOL CLinkControl::OnSetCursor(CWnd* /*pWnd*/, UINT /*nHitTest*/, UINT /*message*/)
 {
-    HWND hwndParent = ::GetParent(hwnd);
+    ::SetCursor(m_hLinkCursor);
+    return TRUE;
+}
+
+void CLinkControl::OnCaptureChanged(CWnd * /*pWnd*/)
+{
+    m_bOverControl = FALSE;
+    SetFont(&m_NormalFont, FALSE);
+    InvalidateRect(NULL, FALSE);
+}
+
+void CLinkControl::OnSetFocus(CWnd* pOldWnd)
+{
+    DrawFocusRect();
+    __super::OnSetFocus(pOldWnd);
+}
+
+void CLinkControl::OnKillFocus(CWnd* pOldWnd)
+{
+    DrawFocusRect();
+    __super::OnKillFocus(pOldWnd);
+}
+
+void CLinkControl::DrawFocusRect()
+{
+    HWND hwndParent = GetParent()->GetSafeHwnd();
 
     if (hwndParent)
     {
         // calculate where to draw focus rectangle, in screen coords
         RECT rc;
-        GetWindowRect(hwnd, &rc);
+        GetWindowRect(&rc);
 
         InflateRect(&rc, 1, 1);                  // add one pixel all around
         ::ScreenToClient(hwndParent, (LPPOINT)&rc);
         ::ScreenToClient(hwndParent, ((LPPOINT)&rc) + 1);
-        HDC dcParent = GetDC(hwndParent);
+        HDC dcParent = ::GetDC(hwndParent);
         ::DrawFocusRect(dcParent, &rc);
-        ReleaseDC(hwndParent, dcParent);
+        ::ReleaseDC(hwndParent, dcParent);
     }
 }
 
-LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
-                                           WPARAM wParam, LPARAM lParam)
+UINT CLinkControl::OnGetDlgCode()
 {
-    CLinkControl *pHyperLink = (CLinkControl *)GetProp(hwnd, PROP_OBJECT_PTR);
+    UINT dlgCode = CStatic::OnGetDlgCode();
+    const MSG *pMsg = CWnd::GetCurrentMessage();
 
+    // we want all keys to get the return key
+    dlgCode |= DLGC_WANTALLKEYS;
+    dlgCode |= DLGC_BUTTON;
+    // but we don't want the tab key since that should be used in dialogs
+    // to switch the focus
+    dlgCode &= ~DLGC_WANTTAB;
+    dlgCode &= ~DLGC_STATIC;
+
+    if (pMsg->lParam &&
+        ((MSG *)pMsg->lParam)->message == WM_KEYDOWN &&
+        ((MSG *)pMsg->lParam)->wParam == VK_TAB)
+    {
+        dlgCode &= ~DLGC_WANTMESSAGE;
+    }
+
+    return dlgCode;
+}
+
+void CLinkControl::OnKeyDown(UINT nChar, UINT /*nRepCnt*/, UINT /*nFlags*/)
+{
+    if (nChar == VK_SPACE || nChar == VK_RETURN)
+    {
+        ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
+                      (WPARAM)GetSafeHwnd(), (LPARAM)0);
+    }
+}
+
+void CLinkControl::OnClicked()
+{
+    ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
+                  (WPARAM)GetSafeHwnd(), (LPARAM)0);
+}
+
+BOOL CLinkControl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+{
     switch (message)
     {
-    case WM_MOUSEMOVE:
-        {
-            if (pHyperLink->m_bOverControl)
-            {
-                RECT rect;
-                GetClientRect(hwnd, &rect);
-
-                POINT pt = { LOWORD(lParam), HIWORD(lParam) };
-
-                if (!PtInRect(&rect, pt))
-                    ReleaseCapture();
-            }
-            else
-            {
-                pHyperLink->m_bOverControl = TRUE;
-                SendMessage(hwnd, WM_SETFONT, (WPARAM)CLinkControl::g_UnderlineFont, FALSE);
-                InvalidateRect(hwnd, NULL, FALSE);
-                SetCapture(hwnd);
-            }
-        }
-        break;
-    case WM_SETCURSOR:
-        {
-            SetCursor(CLinkControl::g_hLinkCursor);
-            return TRUE;
-        }
-        break;
-    case WM_CAPTURECHANGED:
-        {
-            pHyperLink->m_bOverControl = FALSE;
-            SendMessage(hwnd, WM_SETFONT, (WPARAM)CLinkControl::g_NormalFont, FALSE);
-            InvalidateRect(hwnd, NULL, FALSE);
-        }
-        break;
-    case WM_KEYDOWN:
-        {
-            if ((wParam != VK_SPACE)&&(wParam != VK_RETURN))
-                break;
-            PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
-            return 0;
-        }
-        break;
     case BM_CLICK:
-        PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
-        break;
-    case WM_LBUTTONDOWN:
-        pHyperLink->m_bMouseDownPressed = true;
-        // fallthrough
-    case WM_LBUTTONUP:
-        {
-            if (pHyperLink->m_bMouseDownPressed)
-                PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
-            pHyperLink->m_bMouseDownPressed = false;
-        }
-        break;
-    case WM_GETDLGCODE:
-        {
-            LRESULT lres = CallWindowProc(pHyperLink->m_pfnOrigCtlProc, hwnd, message, wParam, lParam);
-            // we want all keys to get the return key
-            lres |= DLGC_WANTALLKEYS;
-            lres |= DLGC_BUTTON;
-            // but we don't want the tab key since that should be used in dialogs
-            // to switch the focus
-            lres &= ~DLGC_WANTTAB;
-            lres &= ~DLGC_STATIC;
-            if (lParam &&
-                ((MSG *)lParam)->message == WM_KEYDOWN &&
-                ((MSG *)lParam)->wParam == VK_TAB)
-            {
-                lres &= ~DLGC_WANTMESSAGE;
-            }
-            return lres;
-        }
-        break;
-    case WM_SETFOCUS:
-        // Fall through
-    case WM_KILLFOCUS:
-        {
-            CLinkControl::DrawFocusRect(hwnd);
-        }
-        break;
-    case WM_DESTROY:
-        {
-            SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)pHyperLink->m_pfnOrigCtlProc);
-
-            SendMessage(hwnd, WM_SETFONT, (WPARAM)pHyperLink->m_StdFont, 0);
-
-            if (--CLinkControl::g_counter <= 0)
-                destroyGlobalResources();
-
-            RemoveProp(hwnd, PROP_OBJECT_PTR);
-        }
+        ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
+                      (WPARAM)GetSafeHwnd(), (LPARAM)0);
         break;
     }
 
-    return CallWindowProc(pHyperLink->m_pfnOrigCtlProc, hwnd, message,
-                          wParam, lParam);
-}
-
-void CLinkControl::createUnderlineFont(void)
-{
-    LOGFONT lf;
-    GetObject(m_StdFont, sizeof(lf), &lf);
-    lf.lfWeight = FW_BOLD;
-    g_NormalFont = CreateFontIndirect(&lf);
-
-    lf.lfUnderline = TRUE;
-    g_UnderlineFont = CreateFontIndirect(&lf);
-}
-
-void CLinkControl::createLinkCursor(void)
-{
-    g_hLinkCursor = ::LoadCursor(NULL, IDC_HAND); // Load Windows' hand cursor
-    if (!g_hLinkCursor)    // if not available, use the standard Arrow cursor
-    {
-        g_hLinkCursor = ::LoadCursor(NULL, IDC_ARROW);
-    }
+    return CStatic::OnWndMsg(message, wParam, lParam, pResult);
 }

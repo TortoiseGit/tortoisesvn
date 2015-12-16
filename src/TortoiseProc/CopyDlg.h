@@ -126,5 +126,6 @@ private:
     bool            m_bCancelled;
     volatile LONG   m_bThreadRunning;
     SVNExternals    m_externals;
-    CLinkControl    m_linkControl;
+    CLinkControl    m_CheckAll;
+    CLinkControl    m_CheckNone;
 };

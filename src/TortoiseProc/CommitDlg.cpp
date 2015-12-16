@@ -82,6 +82,15 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_KEEPLISTS, m_bKeepChangeList);
     DDX_Control(pDX, IDC_COMMIT_TO, m_CommitTo);
     DDX_Control(pDX, IDC_NEWVERSIONLINK, m_cUpdateLink);
+    DDX_Control(pDX, IDC_CHECKALL, m_CheckAll);
+    DDX_Control(pDX, IDC_CHECKNONE, m_CheckNone);
+    DDX_Control(pDX, IDC_CHECKUNVERSIONED, m_CheckUnversioned);
+    DDX_Control(pDX, IDC_CHECKVERSIONED, m_CheckVersioned);
+    DDX_Control(pDX, IDC_CHECKADDED, m_CheckAdded);
+    DDX_Control(pDX, IDC_CHECKDELETED, m_CheckDeleted);
+    DDX_Control(pDX, IDC_CHECKMODIFIED, m_CheckModified);
+    DDX_Control(pDX, IDC_CHECKFILES, m_CheckFiles);
+    DDX_Control(pDX, IDC_CHECKDIRECTORIES, m_CheckDirectories);
 }
 
 BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
@@ -126,7 +135,6 @@ BOOL CCommitDlg::OnInitDialog()
     SetupLogMessageDefaultText();
     SetCommitWindowTitleAndEnableStatus();
     AdjustControlSizes();
-    ConvertStaticToLinkControl();
     LineupControlsAndAdjustSizes();
     SaveDialogAndLogMessageControlRectangles();
     AddAnchorsToFacilitateResizing();
@@ -1863,19 +1871,6 @@ void CCommitDlg::AdjustControlSizes()
 {
     AdjustControlSize(IDC_SHOWUNVERSIONED);
     AdjustControlSize(IDC_KEEPLOCK);
-}
-
-void CCommitDlg::ConvertStaticToLinkControl()
-{
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKUNVERSIONED);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKVERSIONED);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKADDED);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKDELETED);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKMODIFIED);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKFILES);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKDIRECTORIES);
 }
 
 void CCommitDlg::LineupControlsAndAdjustSizes()

@@ -69,6 +69,8 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
     DDX_Control(pDX, IDC_DESTURL, m_DestUrl);
     DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
+    DDX_Control(pDX, IDC_CHECKALL, m_CheckAll);
+    DDX_Control(pDX, IDC_CHECKNONE, m_CheckNone);
 }
 
 
@@ -226,9 +228,6 @@ BOOL CCopyDlg::OnInitDialog()
         m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
 
     OnEnChangeLogmessage();
-
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
 
     // line up all controls and adjust their sizes.
 #define LINKSPACING 9

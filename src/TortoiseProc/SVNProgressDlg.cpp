@@ -146,6 +146,7 @@ void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_SVNPROGRESS, m_ProgList);
+    DDX_Control(pDX, IDC_JUMPCONFLICT, m_jumpConflictControl);
 }
 
 BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
@@ -1243,7 +1244,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
     AdjustControlSize(IDC_JUMPCONFLICT);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_JUMPCONFLICT)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
-    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_JUMPCONFLICT);
 
     AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);

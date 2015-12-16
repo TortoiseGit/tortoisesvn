@@ -383,7 +383,7 @@ private:
     int                     nEnsureVisibleCount;
 
     CString                 m_sTotalBytesTransferred;
-    CLinkControl            m_linkControl;
+    CLinkControl            m_jumpConflictControl;
 
     CColors                 m_Colors;
     HFONT                   m_boldFont;
