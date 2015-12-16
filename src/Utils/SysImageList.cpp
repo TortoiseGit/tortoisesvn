@@ -75,6 +75,7 @@ void CSysImageList::EnsureFileIconIsLoaded(const CTSVNPath & file) const
         FILE_ATTRIBUTE_NORMAL,
         &sfi, sizeof sfi,
         SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+    DestroyIcon(sfi.hIcon);
 }
 
 int CSysImageList::GetDirIconIndex() const
