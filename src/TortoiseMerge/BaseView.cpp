@@ -3270,13 +3270,13 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         SetCaretPosition(ptCaretPos);
         ClearSelection();
 
-        POINT ptViewCarret = GetCaretViewPosition();
-        nViewLine = ptViewCarret.y;
+        POINT ptViewCaret = GetCaretViewPosition();
+        nViewLine = ptViewCaret.y;
         if (nViewLine >= GetViewCount())
             return;
         const CString &sLine = GetViewLine(nViewLine);
         int nLineLength = sLine.GetLength();
-        int nBasePos = ptViewCarret.x;
+        int nBasePos = ptViewCaret.x;
         // get target char group
         ECharGroup eLeft = CHG_UNKNOWN;
         if (nBasePos > 0)
