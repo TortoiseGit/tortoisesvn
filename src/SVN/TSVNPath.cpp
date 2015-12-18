@@ -67,30 +67,7 @@ CTSVNPath::~CTSVNPath(void)
 {
 }
 // Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
-CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
-    m_bDirectoryKnown(false),
-    m_bIsDirectory(false),
-    m_bIsURL(false),
-    m_bURLKnown(false),
-    m_bHasAdminDirKnown(false),
-    m_bHasAdminDir(false),
-    m_bIsValidOnWindowsKnown(false),
-    m_bIsValidOnWindows(false),
-    m_bIsReadOnly(false),
-    m_bIsAdminDirKnown(false),
-    m_bIsAdminDir(false),
-    m_bIsWCRootKnown(false),
-    m_bIsWCRoot(false),
-    m_bExists(false),
-    m_bExistsKnown(false),
-    m_bLastWriteTimeKnown(0),
-    m_lastWriteTime(0),
-    m_fileSize(0),
-    m_customData(NULL),
-    m_bIsSpecialDirectoryKnown(false),
-    m_bIsSpecialDirectory(false),
-    m_bIsAttributesKnown(false),
-    m_attributes(0)
+CTSVNPath::CTSVNPath(const CString& sUnknownPath) : CTSVNPath()
 {
     SetFromUnknown(sUnknownPath);
 }
