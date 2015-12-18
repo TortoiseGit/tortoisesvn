@@ -169,7 +169,7 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
     // clear all previously set header columns
 
-    int c = ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount()-1;
+    int c = control->GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         control->DeleteColumn(c--);
 
@@ -837,7 +837,7 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
     // we must have placed all columns or something is really fishy ..
 
     assert (gridColumnOrder.size() == columns.size());
-    assert (GetColumnCount() == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
+    assert (GetColumnCount() == control->GetHeaderCtrl()->GetItemCount());
 
     // o.k., apply our column ordering
 

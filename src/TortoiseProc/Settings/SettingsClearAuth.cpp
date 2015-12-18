@@ -124,7 +124,7 @@ void CSettingsClearAuth::FillAuthListControl()
     m_cAuthList.SetRedraw(false);
     m_cAuthList.DeleteAllItems();
 
-    int c = ((CHeaderCtrl*)(m_cAuthList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_cAuthList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_cAuthList.DeleteColumn(c--);
     CString temp;
@@ -184,7 +184,7 @@ void CSettingsClearAuth::FillAuthListControl()
     }
 
 
-    int maxcol = ((CHeaderCtrl*)(m_cAuthList.GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = m_cAuthList.GetHeaderCtrl()->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
     {
         m_cAuthList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);

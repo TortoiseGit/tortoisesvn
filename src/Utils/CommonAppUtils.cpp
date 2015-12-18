@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2014 - TortoiseSVN
+// Copyright (C) 2010-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -290,10 +290,10 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
 
 void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 {
-    int maxcol = ((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = pListCtrl->GetHeaderCtrl()->GetItemCount()-1;
     int nItemCount = pListCtrl->GetItemCount();
     TCHAR textbuf[MAX_PATH] = { 0 };
-    CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(pListCtrl->GetDlgItem(0));
+    CHeaderCtrl * pHdrCtrl = pListCtrl->GetHeaderCtrl();
     if (pHdrCtrl)
     {
         int imgWidth = 0;

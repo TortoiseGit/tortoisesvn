@@ -95,7 +95,7 @@ BOOL CEditPropExternals::OnInitDialog()
     m_ExtList.SetRedraw(false);
     m_ExtList.DeleteAllItems();
 
-    int c = ((CHeaderCtrl*)(m_ExtList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_ExtList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_ExtList.DeleteColumn(c--);
     CString temp;

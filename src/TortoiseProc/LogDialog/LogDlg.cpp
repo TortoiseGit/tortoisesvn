@@ -566,7 +566,7 @@ void CLogDlg::ConfigureColumnsForLogListControl()
 {
     CString temp;
     // set up the columns
-    int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_LogList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_LogList.DeleteColumn(c--);
     temp.LoadString(IDS_LOG_REVISION);
@@ -606,7 +606,7 @@ void CLogDlg::ConfigureColumnsForChangedFileListControl()
     CString temp;
     m_ChangedFileListCtrl.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
     m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
-    int c = ((CHeaderCtrl*)(m_ChangedFileListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_ChangedFileListCtrl.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_ChangedFileListCtrl.DeleteColumn(c--);
     temp.LoadString(IDS_PROGRS_PATH);
@@ -4863,7 +4863,7 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 {
-    CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(m_LogList.GetDlgItem(0));
+    CHeaderCtrl * pHdrCtrl = m_LogList.GetHeaderCtrl();
     if (pHdrCtrl == 0)
         return;
 

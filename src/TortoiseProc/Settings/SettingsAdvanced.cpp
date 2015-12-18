@@ -208,7 +208,7 @@ BOOL CSettingsAdvanced::OnInitDialog()
     ISettingsPropPage::OnInitDialog();
 
     m_ListCtrl.DeleteAllItems();
-    int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_ListCtrl.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_ListCtrl.DeleteColumn(c--);
 
@@ -253,7 +253,7 @@ BOOL CSettingsAdvanced::OnInitDialog()
     }
 
     int mincol = 0;
-    int maxcol = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = m_ListCtrl.GetHeaderCtrl()->GetItemCount()-1;
     int col;
     for (col = mincol; col <= maxcol; col++)
     {

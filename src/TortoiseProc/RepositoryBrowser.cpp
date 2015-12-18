@@ -1236,7 +1236,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     m_RepoTree.ClearText();
     m_pListCtrlTreeItem = pTreeItem;
 
-    int c = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_RepoList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_RepoList.DeleteColumn(c--);
 
@@ -1317,7 +1317,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         StringToWidthArray(regColWidths, m_arColumnWidths);
     }
 
-    int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = m_RepoList.GetHeaderCtrl()->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
     {
         if (m_arColumnWidths[col] == 0)
@@ -4431,7 +4431,7 @@ CString CRepositoryBrowser::WidthArrayToString(int WidthArray[])
 void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 {
     CRegString regColWidth(L"Software\\TortoiseSVN\\RepoBrowserColumnWidth");
-    int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = m_RepoList.GetHeaderCtrl()->GetItemCount()-1;
     // first clear the width array
     std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
     for (int col = 0; col <= maxcol; ++col)

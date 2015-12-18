@@ -59,7 +59,7 @@ BOOL CPropDlg::OnInitDialog()
     m_proplist.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
     m_proplist.DeleteAllItems();
-    int c = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_proplist.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_proplist.DeleteColumn(c--);
     CString temp;
@@ -149,7 +149,7 @@ BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 
 void CPropDlg::setProplistColumnWidth()
 {
-    const int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
+    const int maxcol = m_proplist.GetHeaderCtrl()->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
     {
         m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);

@@ -1119,7 +1119,7 @@ void CSVNProgressDlg::ResizeColumns()
 
     TCHAR textbuf[MAX_PATH] = { 0 };
 
-    CHeaderCtrl * pHeaderCtrl = (CHeaderCtrl*)(m_ProgList.GetDlgItem(0));
+    CHeaderCtrl * pHeaderCtrl = m_ProgList.GetHeaderCtrl();
     if (pHeaderCtrl)
     {
         int maxcol = pHeaderCtrl->GetItemCount()-1;
@@ -1214,7 +1214,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     SetWindowTheme(m_ProgList.GetSafeHwnd(), L"Explorer", NULL);
 
     m_ProgList.DeleteAllItems();
-    int c = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_ProgList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_ProgList.DeleteColumn(c--);
     CString temp;

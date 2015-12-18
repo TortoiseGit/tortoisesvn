@@ -151,7 +151,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     m_propList.DeleteAllItems();
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
     m_propList.SetExtendedStyle(exStyle);
-    int c = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_propList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_propList.DeleteColumn(c--);
     CString temp;
@@ -694,7 +694,7 @@ void CEditPropertiesDlg::FillListControl()
         index++;
     }
 
-    int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount() - 1;
+    int maxcol = m_propList.GetHeaderCtrl()->GetItemCount() - 1;
     for (int col = 0; col <= maxcol; col++)
     {
         m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE);

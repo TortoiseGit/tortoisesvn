@@ -160,7 +160,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     temp = L"   "+temp;
     m_cFilter.SetCueBanner(temp);
 
-    int c = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
+    int c = m_cFileList.GetHeaderCtrl()->GetItemCount()-1;
     while (c>=0)
         m_cFileList.DeleteColumn(c--);
     temp.LoadString(IDS_FILEDIFF_FILE);
