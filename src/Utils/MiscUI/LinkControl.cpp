@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "LinkControl.h"
+#include "CommonAppUtils.h"
 
 const UINT CLinkControl::LK_LINKITEMCLICKED
 = ::RegisterWindowMessage(L"LK_LINKITEMCLICKED");
@@ -71,6 +72,8 @@ void CLinkControl::PreSubclassWindow()
 
     SetFont(&m_NormalFont, FALSE);
 
+    CCommonAppUtils::SetAccProperty(GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+    UpdateAccState();
 }
 
 BEGIN_MESSAGE_MAP(CLinkControl, CStatic)
@@ -83,6 +86,7 @@ BEGIN_MESSAGE_MAP(CLinkControl, CStatic)
     ON_WM_GETDLGCODE()
     ON_WM_KEYDOWN()
     ON_CONTROL_REFLECT(STN_CLICKED, OnClicked)
+    ON_WM_ENABLE()
 END_MESSAGE_MAP()
 
 void CLinkControl::OnMouseMove(UINT /*nFlags*/, CPoint pt)
@@ -148,6 +152,15 @@ void CLinkControl::DrawFocusRect()
     }
 }
 
+void CLinkControl::UpdateAccState()
+{
+    DWORD state = STATE_SYSTEM_READONLY;
+    if (!IsWindowEnabled())
+        state |= STATE_SYSTEM_UNAVAILABLE;
+
+    CCommonAppUtils::SetAccProperty(GetSafeHwnd(), PROPID_ACC_STATE, state);
+}
+
 UINT CLinkControl::OnGetDlgCode()
 {
     UINT dlgCode = CStatic::OnGetDlgCode();
@@ -184,6 +197,13 @@ void CLinkControl::OnClicked()
 {
     ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
                   (WPARAM)GetSafeHwnd(), (LPARAM)0);
+}
+
+void CLinkControl::OnEnable(BOOL enabled)
+{
+    CStatic::OnEnable(enabled);
+
+    UpdateAccState();
 }
 
 BOOL CLinkControl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)

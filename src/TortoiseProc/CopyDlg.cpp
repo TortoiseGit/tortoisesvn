@@ -240,9 +240,6 @@ BOOL CCopyDlg::OnInitDialog()
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
 
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
-
     CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
     CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
     CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));

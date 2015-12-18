@@ -38,6 +38,7 @@ private:
     bool            m_bOverControl;                 // cursor over control?
 
     void DrawFocusRect();
+    void UpdateAccState();
 
 protected:
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -48,6 +49,7 @@ protected:
     afx_msg UINT OnGetDlgCode();
     afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
     afx_msg void OnClicked();
+    afx_msg void OnEnable(BOOL enabled);
 
     DECLARE_MESSAGE_MAP()
 };
