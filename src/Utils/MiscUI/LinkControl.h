@@ -38,7 +38,9 @@ private:
     bool            m_bOverControl;                 // cursor over control?
 
     void DrawFocusRect();
+    void ClearFocusRect();
     void UpdateAccState();
+    void NotifyParent(UINT msg);
 
 protected:
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);

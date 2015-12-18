@@ -129,26 +129,42 @@ void CLinkControl::OnSetFocus(CWnd* pOldWnd)
 
 void CLinkControl::OnKillFocus(CWnd* pOldWnd)
 {
-    DrawFocusRect();
+    ClearFocusRect();
     __super::OnKillFocus(pOldWnd);
 }
 
 void CLinkControl::DrawFocusRect()
 {
-    HWND hwndParent = GetParent()->GetSafeHwnd();
+    CWnd *parent = GetParent();
 
-    if (hwndParent)
+    if (parent)
     {
         // calculate where to draw focus rectangle, in screen coords
         RECT rc;
         GetWindowRect(&rc);
 
         InflateRect(&rc, 1, 1);                  // add one pixel all around
-        ::ScreenToClient(hwndParent, (LPPOINT)&rc);
-        ::ScreenToClient(hwndParent, ((LPPOINT)&rc) + 1);
-        HDC dcParent = ::GetDC(hwndParent);
-        ::DrawFocusRect(dcParent, &rc);
-        ::ReleaseDC(hwndParent, dcParent);
+        parent->ScreenToClient(&rc);
+
+        CClientDC dcParent(parent);
+        dcParent.DrawFocusRect(&rc);
+    }
+}
+
+void CLinkControl::ClearFocusRect()
+{
+    CWnd *parent = GetParent();
+
+    if (parent)
+    {
+        // calculate where to draw focus rectangle, in screen coords
+        RECT rc;
+        GetWindowRect(&rc);
+
+        InflateRect(&rc, 1, 1);                  // add one pixel all around
+        parent->ScreenToClient(&rc);
+        // Ask parent to redraw area where we rendered focus rect before.
+        parent->InvalidateRect(&rc);
     }
 }
 
@@ -159,6 +175,11 @@ void CLinkControl::UpdateAccState()
         state |= STATE_SYSTEM_UNAVAILABLE;
 
     CCommonAppUtils::SetAccProperty(GetSafeHwnd(), PROPID_ACC_STATE, state);
+}
+
+void CLinkControl::NotifyParent(UINT msg)
+{
+    ::PostMessage(GetParent()->GetSafeHwnd(), msg, (WPARAM)GetSafeHwnd(), (LPARAM) 0);
 }
 
 UINT CLinkControl::OnGetDlgCode()
@@ -188,15 +209,13 @@ void CLinkControl::OnKeyDown(UINT nChar, UINT /*nRepCnt*/, UINT /*nFlags*/)
 {
     if (nChar == VK_SPACE || nChar == VK_RETURN)
     {
-        ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
-                      (WPARAM)GetSafeHwnd(), (LPARAM)0);
+        NotifyParent(LK_LINKITEMCLICKED);
     }
 }
 
 void CLinkControl::OnClicked()
 {
-    ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
-                  (WPARAM)GetSafeHwnd(), (LPARAM)0);
+    NotifyParent(LK_LINKITEMCLICKED);
 }
 
 void CLinkControl::OnEnable(BOOL enabled)
@@ -211,8 +230,7 @@ BOOL CLinkControl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT*
     switch (message)
     {
     case BM_CLICK:
-        ::PostMessage(GetParent()->GetSafeHwnd(), LK_LINKITEMCLICKED,
-                      (WPARAM)GetSafeHwnd(), (LPARAM)0);
+        NotifyParent(LK_LINKITEMCLICKED);
         break;
     }
 
