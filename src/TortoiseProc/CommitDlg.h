@@ -168,7 +168,6 @@ private:
     CRect               m_DlgOrigRect;
     CRect               m_LogMsgOrigRect;
     CPathWatcher        m_pathwatcher;
-    CLinkControl        m_linkControl;
     CLinkControl        m_CheckAll;
     CLinkControl        m_CheckNone;
     CLinkControl        m_CheckUnversioned;
