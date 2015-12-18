@@ -1912,20 +1912,6 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
     }
 }
 
-int CSVNStatusListCtrl::GetEntryIcon (int listIndex)
-{
-    CAutoReadLock locker(m_guard);
-    const FileEntry * entry = GetListEntry (listIndex);
-    if (entry == NULL)
-        return 0;
-
-    int icon_idx = entry->isfolder
-                 ? m_nIconFolder
-                 : SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
-
-    return icon_idx;
-}
-
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
 {
     CAutoWriteLock locker(m_guard);
@@ -1984,7 +1970,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     lvItem.iItem = listIndex;
     lvItem.mask = LVIF_TEXT|LVIF_IMAGE|LVIF_STATE;
     lvItem.pszText = LPSTR_TEXTCALLBACK;
-    lvItem.iImage = I_IMAGECALLBACK;
     lvItem.stateMask = LVIS_OVERLAYMASK;
     if (entry->IsNested())
         lvItem.state = INDEXTOOVERLAYMASK(OVL_NESTED);
@@ -2016,6 +2001,20 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
             }
         }
     }
+
+    // Load the icons *now* so the icons are cached when showing them later in the
+    // WM_PAINT handler.
+    // Problem is that (at least on Win10), loading the icons in the WM_PAINT
+    // handler triggers an OLE operation, which should not happen in WM_PAINT at all
+    // (see ..\VC\atlmfc\src\mfc\olemsgf.cpp, COleMessageFilter::OnMessagePending() for details about this)
+    // By loading the icons here, they get cached and the OLE operation won't happen
+    // later in the WM_PAINT handler.
+    // This solves the 'hang' which happens in the commit dialog if images are
+    // shown in the file list.
+    lvItem.iImage = entry->isfolder
+                      ? m_nIconFolder
+                      : SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
+
     InsertItem(&lvItem);
 
     SetCheck(listIndex, entry->checked);
@@ -2047,17 +2046,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     SetItemGroup(listIndex, groupIndex);
-
-    // Load the icons *now* so the icons are cached when showing them later in the
-    // WM_PAINT handler.
-    // Problem is that (at least on Win10), loading the icons in the WM_PAINT
-    // handler triggers an OLE operation, which should not happen in WM_PAINT at all
-    // (see ..\VC\atlmfc\src\mfc\olemsgf.cpp, COleMessageFilter::OnMessagePending() for details about this)
-    // By loading the icons here, they get cached and the OLE operation won't happen
-    // later in the WM_PAINT handler.
-    // This solves the 'hang' which happens in the commit dialog if images are
-    // shown in the file list.
-    CSysImageList::GetInstance().EnsureFileIconIsLoaded(entry->path);
 
     --m_nBlockItemChangeHandler;
 }
@@ -5008,15 +4996,6 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
         {
             CString text = GetCellText (pItem->iItem, pItem->iSubItem);
             lstrcpyn(pItem->pszText, text, pItem->cchTextMax - 1);
-        }
-        if (pItem->mask & LVIF_IMAGE)
-        {
-            if (pItem->iSubItem == 0)
-            {
-                pItem->iImage = GetEntryIcon (pItem->iItem);
-            }
-            else
-                pItem->mask -= LVIF_IMAGE;
         }
     }
     else

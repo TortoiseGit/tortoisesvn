@@ -65,19 +65,6 @@ int CSysImageList::AddIcon(const HICON hIcon)
     return this->Add(hIcon);
 }
 
-void CSysImageList::EnsureFileIconIsLoaded(const CTSVNPath & file) const
-{
-    SHFILEINFO sfi;
-    SecureZeroMemory(&sfi, sizeof sfi);
-
-    SHGetFileInfo(
-        file.GetWinPath(),
-        FILE_ATTRIBUTE_NORMAL,
-        &sfi, sizeof sfi,
-        SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-    DestroyIcon(sfi.hIcon);
-}
-
 int CSysImageList::GetDirIconIndex() const
 {
     return GetFileIcon(L"Doesn't matter", FILE_ATTRIBUTE_DIRECTORY, 0);
