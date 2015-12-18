@@ -1621,7 +1621,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
     // resizing the columns trigger redraw messages, so we have to do
     // this after releasing the write lock.
-    int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = GetHeaderCtrl()->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
         SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
 
@@ -5204,7 +5204,7 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
         bottom = GetItemCount();
 
     // Get the number of columns
-    CHeaderCtrl* pHeader = (CHeaderCtrl*)GetDlgItem(0);
+    CHeaderCtrl* pHeader = GetHeaderCtrl();
     int nColumnCount = pHeader->GetItemCount();
 
     // Loop through the visible rows
@@ -5551,7 +5551,7 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CSVNStatusListCtrl::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 {
-    int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+    int maxcol = GetHeaderCtrl()->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
         if (m_ColumnManager.IsVisible (col))
             m_ColumnManager.ColumnResized (col);
