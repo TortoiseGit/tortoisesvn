@@ -168,7 +168,9 @@ LPCTSTR CTSVNPath::GetWinPath() const
     }
     if(m_sBackslashPath.GetLength() >= 248)
     {
-        m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
+        if (m_sLongBackslashPath.IsEmpty())
+            m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
+
         return m_sLongBackslashPath;
     }
     return m_sBackslashPath;
@@ -1480,6 +1482,14 @@ private:
         ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
         testPath.SetFromUnknown(L"\\\\?\\C:\\Windows");
         ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
+
+        // Make sure that GetWinPath() for long path has appropriate lifetime.
+        testPath.SetFromUnknown(L"C:\\Windows\\" + CString(L'A', 260));
+        LPCWSTR p1 = testPath.GetWinPath();
+        LPCWSTR p2 = testPath.GetWinPath();
+        ATLASSERT(wcscmp(p1, L"\\\\?\\C:\\Windows\\" + CString(L'A', 260)) == 0);
+        ATLASSERT(wcscmp(p2, L"\\\\?\\C:\\Windows\\" + CString(L'A', 260)) == 0);
+
 #if defined(_MFC_VER)
         testPath.SetFromUnknown(L"http://testing again");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
