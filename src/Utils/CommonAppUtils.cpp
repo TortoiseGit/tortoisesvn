@@ -290,12 +290,12 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
 
 void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 {
-    int maxcol = pListCtrl->GetHeaderCtrl()->GetItemCount()-1;
+    CHeaderCtrl * pHdrCtrl = pListCtrl->GetHeaderCtrl();
     int nItemCount = pListCtrl->GetItemCount();
     TCHAR textbuf[MAX_PATH] = { 0 };
-    CHeaderCtrl * pHdrCtrl = pListCtrl->GetHeaderCtrl();
     if (pHdrCtrl)
     {
+        int maxcol = pHdrCtrl->GetItemCount() - 1;
         int imgWidth = 0;
         CImageList * pImgList = pListCtrl->GetImageList(LVSIL_SMALL);
         if ((pImgList)&&(pImgList->GetImageCount()))
@@ -324,7 +324,6 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
                     cx = linewidth;
             }
             pListCtrl->SetColumnWidth(col, cx);
-
         }
     }
 }
