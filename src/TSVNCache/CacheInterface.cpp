@@ -59,9 +59,9 @@ CString GetCacheID()
 
 bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 {
-    int retrycount = 2;
     CAutoFile hPipe;
-    do
+
+    for(int retry = 0; retry < 2; retry++)
     {
         hPipe = CreateFile(
             GetCacheCommandPipeName(),      // pipe name
@@ -72,10 +72,11 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
             OPEN_EXISTING,                  // opens existing pipe
             FILE_FLAG_OVERLAPPED,           // default attributes
             NULL);                          // no template file
-        retrycount--;
-        if (!hPipe)
-            Sleep(10);
-    } while ((!hPipe) && (retrycount));
+        if (hPipe)
+            break;
+
+        Sleep(10);
+    }
 
     if (!hPipe)
     {
@@ -98,9 +99,8 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         if (path)
             wcsncpy_s(cmd.path, path, _TRUNCATE);
 
-        retrycount = 2;
         BOOL fSuccess = FALSE;
-        do
+        for (int retry = 0; retry < 2; retry++)
         {
             fSuccess = WriteFile(
                 hPipe,          // handle to pipe
@@ -108,10 +108,12 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
                 sizeof(cmd),    // number of bytes to write
                 &cbWritten,     // number of bytes written
                 NULL);          // not overlapped I/O
-            retrycount--;
-            if (! fSuccess || sizeof(cmd) != cbWritten)
-                Sleep(10);
-        } while ((retrycount) && (! fSuccess || sizeof(cmd) != cbWritten));
+
+            if (fSuccess && sizeof(cmd) == cbWritten)
+                break;
+
+            Sleep(10);
+        }
 
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
