@@ -159,8 +159,12 @@ CBlockCacheForPath::~CBlockCacheForPath()
 {
     if (m_bBlocked)
     {
-        int retry = 3;
-        while (retry-- && !SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
+        for (int retry = 0; retry < 3; retry++)
+        {
+            if (SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
+                return;
+
             Sleep(10);
+        }
     }
 }
