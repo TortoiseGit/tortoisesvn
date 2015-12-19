@@ -118,6 +118,9 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         BOOL fSuccess = FALSE;
         for (int retry = 0; retry < 2; retry++)
         {
+            if (retry > 0)
+                Sleep(10);
+
             fSuccess = WriteFile(
                 hPipe,          // handle to pipe
                 &cmd,           // buffer to write from
@@ -127,8 +130,6 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 
             if (fSuccess && sizeof(cmd) == cbWritten)
                 break;
-
-            Sleep(10);
         }
 
         if (! fSuccess || sizeof(cmd) != cbWritten)
@@ -179,10 +180,11 @@ CBlockCacheForPath::~CBlockCacheForPath()
     {
         for (int retry = 0; retry < 3; retry++)
         {
-            if (SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
-                return;
+            if (retry > 0)
+                Sleep(10);
 
-            Sleep(10);
+            if (SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
+                break;
         }
     }
 }
