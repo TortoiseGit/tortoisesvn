@@ -3746,7 +3746,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         // find the HEAD revision number and update specifically to that for PreUpdate
         // hook
         if (m_Revision.IsHead() && !multipleUUIDs &&
-            (m_targetPathList.GetCount() > 1 ||
+            (wcroots.size() > 1 ||
              CHooks::Instance().IsHookPresent(pre_update_hook, m_targetPathList)))
         {
             // don't use the cache to fetch the HEAD here, we need the current HEAD
