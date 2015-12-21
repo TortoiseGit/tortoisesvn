@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-14 10:22+0000\n"
+"PO-Revision-Date: 2015-12-14 11:40+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -443,7 +443,7 @@ msgstr "&Tot"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1471)
 msgid "&Allow ambiguous URLs"
-msgstr "&Permet URLs ambigües"
+msgstr "&Permet URLs ambigus"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog
 #. IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id
@@ -841,7 +841,7 @@ msgstr "&Tipus de lletra:"
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1530, IDS_COPYDLG_FROMURL)
 msgid "&From URL:"
-msgstr "&De la URL:"
+msgstr "&De l'URL:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1259)
 msgid "&From WC / URL:"
@@ -1491,7 +1491,7 @@ msgstr "&A la Revisió"
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1384, Dialog IDD_URLDIFF:
 #. Control id 1305)
 msgid "&To URL:"
-msgstr "&Cap a la URL:"
+msgstr "&Cap a l'URL:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1384, Dialog IDD_SWITCH: Control
 #. id 1305)
@@ -1935,7 +1935,7 @@ msgstr "Accepta el certificat\nEl certificat només s'accepta aquesta vegada."
 #. Resource IDs: (61861)
 #, c-format
 msgid "Access to %1 was denied."
-msgstr "L'accés a %1 ha sigut denegat."
+msgstr "S'ha denegat l'accés a %1."
 
 #. Resource IDs: (IDS_FILEDIFF_ACTION, IDS_PROGRS_ACTION)
 msgid "Action"
@@ -2002,7 +2002,7 @@ msgstr "Afegir element\nAixò provocarà problemes a Windows."
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
-msgstr "Afegeix nous fitxers automàticament a l'SVN"
+msgstr "Afegeix fitxers nous automàticament a l'SVN"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORADDSUB)
 msgid "Add project or folder here..."
@@ -2176,7 +2176,7 @@ msgstr "Permet  &UUIDs ambigües"
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr "Permet a diferents repositoris utilitzar la mateixa URL, p.ex. http://localhost/myrepos/"
+msgstr "Permet a diferents repositoris utilitzar el mateix URL, p.ex. http://localhost/myrepos/"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_AMBIGUOUSUUID)
 msgid ""
@@ -2235,7 +2235,7 @@ msgstr "Un programa extern utilitzat\nper solucionar fitxers en conflicte.\n\nEs
 #. Resource IDs: (61862)
 #, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr "Un tipus invàlid d'arxiu ha sigut associat amb %1."
+msgstr "S'ha associat un gestor invàlid d'arxiu amb %1."
 
 #. Resource IDs: (61476)
 msgid "An unknown error has occurred."
@@ -2793,7 +2793,7 @@ msgstr "Cancel·la\nIntroduiré un camí/URL diferent."
 msgid ""
 "Cancel\n"
 "Keep the current URL."
-msgstr "Cancel·lar\nConserva la URL actual."
+msgstr "Cancel·lar\nConserva l'URL actual."
 
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
@@ -2871,7 +2871,7 @@ msgstr "Cancel·la\nLa revisió etiquetada de l'extern es deixa com està."
 msgid ""
 "Cancel\n"
 "The target file is left as is"
-msgstr "Cancel·la\nEl fitxer destí es deixa com està"
+msgstr "Cancel·la\nEl fitxer a la destinació es deixa tal com està"
 
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK4)
 msgid ""
@@ -3161,7 +3161,7 @@ msgstr "Esborra..."
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_URLHIST_TT)
 #, c-format
 msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
-msgstr "Neteja %1!ld! URLs emmagatzemades per a %2!ld! còpies de treball"
+msgstr "Neteja %1!ld! URLs emmagatzemats per a %2!ld! còpies de treball"
 
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_LOGHIST_TT)
 #, c-format
@@ -3214,7 +3214,7 @@ msgstr "Feu clic a \"Avançat\" per especificar programes de fusió de fitxers a
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
-msgstr "Feu clic per veure les ordres de moure blocs de text\nUtilitzeu blocs de text"
+msgstr "Feu clic per a veure les ordres de desplaçar blocs de text\nUtilitzeu blocs de text"
 
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
@@ -3244,7 +3244,7 @@ msgstr "Tanca la finestra activa i pregunta si es volen gravar els documents"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 350)
 msgid "Code Collaborator Settings"
-msgstr "Paràmetres de Col·laborador de codi"
+msgstr "Preferències del Col·laborador de codi"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_COLLAPSE_ABOVE)
 msgid "Coll&apse source tree"
@@ -3578,7 +3578,7 @@ msgstr "Copiat de: %1!ls!@%2!ld!\n"
 
 #. Resource IDs: (IDS_MENUDESCCOPYURL)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr "Copia les URLs de tots els elements seleccionats al porta-retalls"
+msgstr "Copia elsURLs de tots els elements seleccionats al porta-retalls"
 
 #. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
 msgid "Copy"
@@ -3619,7 +3619,7 @@ msgstr "Eina de Còpia\nCòpia"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
-msgstr "Copia URL al porta-retalls"
+msgstr "Copia l'URL al porta-retalls"
 
 #. Resource IDs: (IDS_PROC_COPYUNVERSIONED_TASK4)
 msgid ""
@@ -3669,7 +3669,7 @@ msgstr "Copia a la còpia de treball..."
 #. Resource IDs: (IDS_PROC_NEWNAMECOPY)
 #, c-format
 msgid "Copy: New name for %ls"
-msgstr "Còpia: Nou nom per %ls"
+msgstr "Còpia: Nom nou per a %ls"
 
 #. Resource IDs: (IDS_PROC_COPYUNVERSIONED_TASK3)
 msgid ""
@@ -3684,7 +3684,7 @@ msgstr "S'està copiant %1!ls!"
 
 #. Resource IDs: (IDS_SVNACTION_COPYREMOTE)
 msgid "Copying from foreign repository URL"
-msgstr "Copiant d'una URL de repositori exterior"
+msgstr "Copiant d'un URL de repositori exterior"
 
 #. Resource IDs: (IDS_PROC_COPYING)
 msgid "Copying..."
@@ -3693,7 +3693,7 @@ msgstr "Copiant..."
 #. Resource IDs: (IDS_ERR_FAILEDIGNOREPROPERTY)
 #, c-format
 msgid "Could not add %ls to the ignore list!"
-msgstr "No s'ha pogut afegir %ls a la llista d'ignorats!"
+msgstr "No s'ha pogut afegir %ls a la llista d'ignorats."
 
 #. Resource IDs: (IDS_EDITCONFLICT_ACTIONINFO_ADD)
 #, c-format
@@ -3884,7 +3884,7 @@ msgstr "Crea carpetes intermèdies"
 msgid ""
 "Create new directory:\r\n"
 "%ls"
-msgstr "Crea un nou directori:\r\n%ls"
+msgstr "Crea un directori nou:\n%ls"
 
 #. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
 #. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
@@ -3963,7 +3963,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr "Títol personalitzat. Les paraules clau disponibles són:\n{mergeurl}:⇥la URL font de la fusió\n{revisions}:⇥Una llista separada per comes de les revisions fusionades, per exemple 3, 5, 6, 7\n{revisionsr}:⇥Com {revisions} però amb una 'r' davant de les revisions\n{revrange}:⇥Una llista separada per comes de les revisions fusionades, si és possible agrupada per rangs, per exemple 3, 5-7"
+msgstr "Títol personalitzat. Les paraules clau disponibles són:\n{mergeurl}:⇥l'URL font de la fusió\n{revisions}:⇥Una llista separada per comes de les revisions fusionades, per exemple 3, 5, 6, 7\n{revisionsr}:⇥Com {revisions} però amb una 'r' davant de les revisions\n{revrange}:⇥Una llista separada per comes de les revisions fusionades, si és possible agrupada per rangs, per exemple 3, 5-7"
 
 #. Resource IDs: (16103, 17074)
 msgid "Customize"
@@ -4448,7 +4448,7 @@ msgid ""
 "Instead, all URLs get checked out into a separate\n"
 "working copies next to each other.\n"
 "This works for directory URLs only."
-msgstr "Del directori on deses l'obtenció, no en facis una còpia de treball disseminada.\nEnlloc d'això, obtén totes les URLs en còpies de treball\nseparades, una al costat de l'altra.\nAixò només funciona amb URLs de directori."
+msgstr "Del directori on deses l'obtenció, no en facis una còpia de treball disseminada.\nEnlloc d'això, obtén tots els URLs en còpies de treball\nseparades, una al costat de l'altra.\nAixò només funciona amb URLs de directori."
 
 #. Resource IDs: (62185)
 msgid ""
@@ -4845,7 +4845,7 @@ msgstr "Error de lectura/escriptura en la clau del registre %1!ls!\n%2!ls!"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK1)
 msgid "Every commit should be assigned to an issue."
-msgstr "Cada pujada s'hauria d'assignar a una incidència."
+msgstr "És recomanable que assigneu una incidència a cada pujada."
 
 #. Resource IDs: (ID_NEW_EXTERNALS - Menu)
 msgid "Ex&ternals"
@@ -4893,7 +4893,7 @@ msgstr "Expandeix finestra encastada"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
-msgstr "Paràmetres d'Expert"
+msgstr "Preferències de l'Expert"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_EXPLORE)
 msgid "Explore to"
@@ -4942,7 +4942,7 @@ msgstr "Exportant..."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK2)
 msgid "Exporting: Target folder exists."
-msgstr "Exportant: La carpeta destí existeix."
+msgstr "Exportant: Existeix la carpeta a la destinació."
 
 #. Resource IDs: (IDS_PROP_TT_EXPORT)
 msgid "Exports a set of properties to a file"
@@ -5042,7 +5042,7 @@ msgstr "No s'ha pogut carregar el fitxer de configuració per al monitor de proj
 
 #. Resource IDs: (61697)
 msgid "Failed to open document."
-msgstr "No ha pogut obrir document."
+msgstr "No ha pogut obrir el document."
 
 #. Resource IDs: (61827)
 msgid "Failed to perform server operation."
@@ -5061,7 +5061,7 @@ msgstr "Ha fallat l'inici del seguidor d'incidències COM proveïdor '%1!ls!'.\n
 
 #. Resource IDs: (IDS_PROGRS_TITLEFAILED)
 msgid "Failed!"
-msgstr "Ha fallat!"
+msgstr "Ha fallat."
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREQUIRESTARGET)
 msgid "Failed: target required"
@@ -5082,7 +5082,7 @@ msgstr "Obtenint llista de fitxers de l'origen"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_GETDATA1)
 msgid "Fetching file list of target"
-msgstr "Obtenint llista de fitxers del destí"
+msgstr "Obtenint llista de fitxers de la destinació"
 
 #. Resource IDs: (IDS_GETVERSIONOFFILETITLE)
 msgid "Fetching file..."
@@ -5473,7 +5473,7 @@ msgstr "&Patró d'ignorar global:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Global settings"
-msgstr "Paràmetres globals"
+msgstr "Preferències globals"
 
 #. Resource IDs: (Dialog IDD_GOTO: Control id 155)
 msgid "Go To Line"
@@ -5955,7 +5955,7 @@ msgstr "Si se selecciona, fent doble clic sobre una revisió a la llista del  lo
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
-msgstr "Si està habilitat, el diàleg de Fusió inicialitza la URL  'De: ' amb la URL de la còpia de treball seleccionada\nenlloc de la darrera URL utilitzada."
+msgstr "Si està habilitat, el diàleg de Fusió inicialitza l'URL  'De: ' amb l'URL de la còpia de treball seleccionada\nenlloc del darrer URL utilitzat."
 
 #. Resource IDs: (IDS_SETTINGS_REPOCHECK_TT)
 msgid ""
@@ -6008,7 +6008,7 @@ msgid ""
 "If you use other SVN clients besides TortoiseSVN on this computer, you have "
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
-msgstr "Si en aquest ordinador utilitzeu clients SVN diferents de TortoiseSVN, també els heu d'actualitzar. En cas contrari, aquests clients no podran accedir a la còpia de treball amb el nou format."
+msgstr "Si en aquest ordinador utilitzeu clients SVN diferents de TortoiseSVN, també els heu d'actualitzar. En cas contrari, aquests clients no podran accedir a la còpia de treball amb el format nou."
 
 #. Resource IDs: (IDS_SVNERR_UNLOCKFAILED)
 msgid ""
@@ -6564,13 +6564,13 @@ msgstr "Carrega configuració des de fitxer"
 msgid ""
 "Load changes\n"
 "Changes made in TortoiseMerge are lost and replaced with the new content."
-msgstr "Carrega canvis\nEls canvis fets a TortoiseMerge es perden i es substitueixen pel nou contingut."
+msgstr "Carrega canvis\nEls canvis fets a TortoiseMerge es perden i es substitueixen pel contingut nou."
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDE_TASK4)
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
-msgstr "Carrega canvis\nLes vistes s'actualitzen amb el nou contingut."
+msgstr "Carrega canvis\nLes vistes s'actualitzen amb el contingut nou."
 
 #. Resource IDs: (ID_NEW_LOCALHOOKS - Menu)
 msgid "Local &Hooks"
@@ -6808,7 +6808,7 @@ msgstr "Marca un fitxer com a resolt al Subversion\nMarca com a resolt"
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr "Marca el conflicte com a resolt.\nNota: això no resol el conflicte, només el marca com a resolt!"
+msgstr "Marca el conflicte com a resolt.\nNota: això no resol el conflicte, només el marca com a resolt."
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_RECORDONLY_TT)
 msgid ""
@@ -7253,7 +7253,7 @@ msgstr "Necessita-bloqueig"
 #. Resource IDs: (IDS_ERR_PATHPARAMMISSING)
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
-msgstr "No s'ha especificat ni /path ni /pathfile, o conté un camí invàlid!"
+msgstr "No s'ha especificat ni /path ni /pathfile, o conté un camí invàlid."
 
 #. Resource IDs: (IDS_STATUSLIST_NESTED)
 msgid "Nested"
@@ -7273,11 +7273,11 @@ msgstr "Nou"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
-msgstr "Nou &nom:"
+msgstr "Nom &nou:"
 
 #. Resource IDs: (16014)
 msgid "New Menu"
-msgstr "Nou Menú"
+msgstr "Menú nou"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7285,7 +7285,7 @@ msgstr "La nova branca/etiqueta encara no està disponible, tornant a provar el 
 
 #. Resource IDs: (IDS_WARN_RENAMEREQUIRED)
 msgid "New name must not be empty or the same as the original name!"
-msgstr "El nou nom no pot ser buit o igual que el nom original!"
+msgstr "El nom nou no pot ser buit o igual que el nom original."
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_EOL)
 msgid "Newlines"
@@ -7316,7 +7316,7 @@ msgstr "Propera diferència a la línia"
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
-msgstr "No s'ha especificat cap ordre.\nTortoiseProc.exe s'utilitza per la extensió Shell i no s'ha de cridar directament."
+msgstr "No s'ha especificat cap ordre.\nTortoiseProc.exe s'utilitza per la extensió Shell i no s'hauria d'executar directament."
 
 #. Resource IDs: (IDS_ERR_EMPTYDIFF)
 msgid "No differences found!"
@@ -7419,7 +7419,7 @@ msgid ""
 "Not enough memory!\n"
 "Try reducing the size of the revision graph by either\n"
 "collapsing nodes or reducing the zoom factor."
-msgstr "No hi ha prou memòria!\nReduïu la mida del gràfic de revisió \ncontraient els nodes o bé reduïnt el factor de zoom."
+msgstr "No hi ha prou memòria.\nReduïu la mida del gràfic de revisió \ncontraient els nodes o bé reduint el factor de zoom."
 
 #. Resource IDs: (IDS_SVNACTION_PATHNOTEXIST)
 msgid "Not under version control"
@@ -7665,7 +7665,7 @@ msgstr "Obre múltiple &local..."
 
 #. Resource IDs: (IDS_SVNPROGRESS_MENUOPENPARENT)
 msgid "Open parent folder"
-msgstr "Obre carpeta pare"
+msgstr "Obre la carpeta pare"
 
 #. Resource IDs: (IDS_LOG_POPUP_OPENURL)
 msgid "Open repository &Url"
@@ -7751,7 +7751,7 @@ msgstr "Sobreescriu\nEs sobreescriu la configuració"
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
-msgstr "Sobreescriu\nEs substitueix el fitxer destí"
+msgstr "Sobreescriu\nEs substitueix el fitxer a la destinació"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
@@ -7941,7 +7941,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr "Atenció:\nLa còpia de treball segueix al camí anterior. Si voleu que els propers canvis\nes pugin a la còpia o branca que acabeu de crear, \nheu de canviar la còpia de treball al nou URL.\nUtilitzeu l'ordre Canvia per fer-ho."
+msgstr "Atenció:\nLa còpia de treball segueix al camí anterior. Si voleu que els propers canvis\nes pugin a la còpia o branca que acabeu de crear, \nheu de canviar la còpia de treball a l'URL nou.\nUtilitzeu l'ordre Canvia per fer-ho."
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -7953,7 +7953,7 @@ msgstr "Seleccioneu un tipus de hook."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO)
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Espereu un moment... això pot trigar uns quants minuts. De debò!"
+msgstr "Espereu un moment... això pot trigar uns quants minuts. De debò."
 
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
@@ -8531,7 +8531,7 @@ msgstr "Torna a situar on es podria proposar un canvi"
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr "Torna a situar\nLa còpia de treball es trasllada a la nova URL."
+msgstr "Torna a situar\nLa còpia de treball es trasllada a l'URL nou."
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -9183,7 +9183,7 @@ msgstr "Tipus mime SVN"
 
 #. Resource IDs: (IDS_COLTITLESHORTURL)
 msgid "SVN short URL"
-msgstr "URL curta SVN"
+msgstr "URL curt SVN"
 
 #. Resource IDs: (IDS_SAMPLEBUGTRAQTESTMSG)
 msgid ""
@@ -9392,7 +9392,7 @@ msgstr "Cerca:"
 
 #. Resource IDs: (IDS_SEARCHNOTFOUND)
 msgid "Search string not found!"
-msgstr "Cadena no trobada!"
+msgstr "No s'ha trobat la cadena de cerca."
 
 #. Resource IDs: (IDS_PATCH_SEARCHPATHTITLE)
 msgid "Searching for better path to apply patch..."
@@ -9520,7 +9520,7 @@ msgstr "Selecciona inici de la revisió"
 
 #. Resource IDs: (IDS_MERGEWIZARD_TREESUBTITLE)
 msgid "Select the URLs for the tree merge"
-msgstr "Selecciona les URL per la fusió de l'arbre"
+msgstr "Selecciona els URLs per a la fusió de l'arbre"
 
 #. Resource IDs: (IDS_SETTINGS_AUTOCLOSE_TT)
 msgid ""
@@ -9624,7 +9624,7 @@ msgstr "Shell"
 
 #. Resource IDs: (IDS_PROC_ICONCACHEREBUILT)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "El cache d'icones de shell s'ha regenerat!"
+msgstr "S'ha refet la memòria cau d'icones de Shell."
 
 #. Resource IDs: (32822)
 msgid ""
@@ -9641,7 +9641,7 @@ msgstr "Format curt de &data/hora als missatges de log "
 
 #. Resource IDs: (IDS_COLDESCSHORTURL)
 msgid "Short URL of Subversion items"
-msgstr "URL curta dels elements de Subversion"
+msgstr "URL curt dels elements de Subversion"
 
 #. Resource IDs: (IDS_STATUSLIST_REMOVEUNUSEDPROPS)
 msgid "Shorten property list"
@@ -10093,13 +10093,13 @@ msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
-msgstr "Especifiqueu com es construeix el missatge de pujada a partir del bug-ID introduït. Utilitzeu la paraula reservada %BUGID% per al número d'incidència real. Si deixeu aquests paràmetres buits, TortoiseSVN utilitzarà les expressions regulars."
+msgstr "Especifiqueu com es construeix el missatge de pujada a partir del bug-ID introduït. Utilitzeu la paraula reservada %BUGID% per al número d'incidència real. Si deixeu buides aquestes preferències, TortoiseSVN utilitzarà les expressions regulars."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
-msgstr "Especifica la URL per accedir al seguidor d'incidències. Utilitza %BUGID% com a espai reservat per al número d'incidència real."
+msgstr "Especifica l'URL per accedir al seguidor d'incidències. Utilitza %BUGID% com a espai reservat per al número d'incidència real."
 
 #. Resource IDs: (IDS_SETTINGS_TEMPEXTENSIONS_TT)
 msgid ""
@@ -10326,7 +10326,7 @@ msgstr "Contraseny&a de Subversion"
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
-msgstr "El Subversion ha trobat un error mentre creava un repositori!\nAssegureu-vos que la carpeta és buida i que no està protegida contra escriptura."
+msgstr "El Subversion ha trobat un error mentre creava un repositori.\nAssegureu-vos que la carpeta és buida i que no està protegida contra escriptura."
 
 #. Resource IDs: (IDS_SVNREPORTEDANERROR)
 msgid "Subversion reported an error:"
@@ -10466,7 +10466,7 @@ msgstr "Nodes etiqueta"
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK2)
 msgid "Target folder is not empty"
-msgstr "La carpeta destí no és buida"
+msgstr "La carpeta a la destinació no és buida"
 
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
@@ -10501,7 +10501,7 @@ msgstr "Els canvis s'aplicaran a la còpia de treball amb una operació de fusi�
 
 #. Resource IDs: (IDS_ERR_PATCH_CHUNKMISMATCH)
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr "La mida del tros no correspon al nombre de línies afegides/esborrades!"
+msgstr "La mida del tros no correspon al nombre de línies afegides/esborrades."
 
 #. Resource IDs: (IDS_SETTINGS_TWEAKTAGSCOLORS)
 msgid ""
@@ -10540,7 +10540,7 @@ msgstr "L'eina de diferències s'ha aturat degut a un error:\n%ls"
 #. Resource IDs: (IDS_ERR_PATCH_INVALIDPATCHFILE)
 #, c-format
 msgid "The file %ls does not exist!"
-msgstr "El fitxer %ls no existeix!"
+msgstr "El fitxer %ls no existeix."
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK1)
 #, c-format
@@ -10590,7 +10590,7 @@ msgid ""
 "The file\n"
 "%ls\n"
 "is not a valid text file!"
-msgstr "El fitxer\n%ls\nno és un fitxer de text vàlid!"
+msgstr "El fitxer\n%ls\nno és un fitxer de text vàlid."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT)
 #, c-format
@@ -10598,7 +10598,7 @@ msgid ""
 "The folder\n"
 "%ls\n"
 "already exists!"
-msgstr "La carpeta\n%ls\nja existeix!"
+msgstr "La carpeta\n%ls\nja existeix."
 
 #. Resource IDs: (IDS_COMMITDLG_HOOKSUCCESSFUL_TT)
 msgid "The hook script executed successfully"
@@ -10768,12 +10768,12 @@ msgstr "La línia  '==== ' s'esperava a la línia %d !"
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
-msgstr "No s'ha trobat la línia  'Index:  ' ! \nO bé això no és un fitxer diff o bé el fitxer diff és buit."
+msgstr "No s'ha trobat la línia  'Index:  ' .\nO bé això no és un fitxer diff o bé el fitxer diff és buit."
 
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "S'esperava una línia indicant que s'esperava un nou fitxer a la línia %d !"
+msgstr "La línia indicant el fitxer nou s'esperava a la línia %d."
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10825,7 +10825,7 @@ msgstr "El pedaç no sembla actualitzat! La línia del fitxer\n%1!ls!\ni la lín
 msgid ""
 "The path/URL '%ls' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
-msgstr "El camí/URL '%ls' sembla que no és acceptat pel Windows!\nPodeu provar-lo igualment, però pot donar un error més endavant."
+msgstr "Sembla que Windows no accepta el camí/URL '%ls' .\nPodeu provar-lo igualment, però pot donar un error més endavant."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH)
 msgid ""
@@ -10836,7 +10836,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "\n"
 "Do you want to proceed anyway?"
-msgstr "El camí/URL introduït sembla que no és acceptat pel Windows!\nPodeu provar-lo igualment, però pot donar un error més endavant.\n\nUn camí vàlid al Windows no ha de tenir '<>|\"?*:' ni cap dels següents noms de dispositu:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n\nVoleu continuar de totes maneres?"
+msgstr "Sembla que Windows no accepta el camí/URL introduït.\nPodeu provar-lo igualment, però pot donar un error més endavant.\n\nUn camí vàlid al Windows no ha de tenir '<>|\"?*:' ni cap dels següents noms de dispositu:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n\nVoleu continuar de totes maneres?"
 
 #. Resource IDs: (IDS_WARNBETTERPATCHPATHFOUND)
 #, c-format
@@ -10886,7 +10886,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr "El camí/url especificat\n%ls\nno és vàlid!"
+msgstr "El camí/url especificat\n%ls\nno és vàlid."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK2)
 msgid "The target already exists."
@@ -10899,7 +10899,7 @@ msgid ""
 "%ls\n"
 " already exists.\n"
 "Do you want to replace the file?"
-msgstr "El fitxer destí\n%ls\n ja existeix.\nVoleu reemplaçar-lo?"
+msgstr "El fitxer %ls\na la destinació\n ja existeix.\nVoleu reemplaçar-lo?"
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY)
 #, c-format
@@ -10919,17 +10919,17 @@ msgstr "La destinació té modificacions locals"
 msgid ""
 "The target working copy '%ls' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr "La còpia de treball destí '%ls' té modificacions locals. Es recomana pujar aquests canvis primer, abans de fusionar nous canvis."
+msgstr "La còpia de treball '%ls' a la destinació té modificacions locals. Es recomana pujar aquests canvis primer, abans de fusionar canvis nous."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTY)
 msgid "The target working copy has local modifications!"
-msgstr "La còpia de treball destí té modificacions locals!"
+msgstr "La còpia de treball a la destinació té modificacions locals."
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_MAIN)
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr "El text és idèntic, però els fitxers no coincideixen!\nS'han trobat les següents diferències:"
+msgstr "El text és idèntic, però els fitxers no coincideixen.\nS'han trobat les següents diferències:"
 
 #. Resource IDs: (IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT)
 msgid ""
@@ -10942,7 +10942,7 @@ msgstr "Temps en segons després del qual el parsing dels fitxers seleccionats s
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
-msgstr "Les dues URL's seleccionades no s'han creat des de la mateixa arrel.\nNo és possible mostrar els missatges de log entre elles!"
+msgstr "Els dos URLs seleccionats no s'han creat des de la mateixa arrel.\nNo és possible mostrar els missatges de log entre ells."
 
 #. Resource IDs: (IDS_COLDESCAUTHOR)
 msgid "The user who did the last commit"
@@ -10990,7 +10990,7 @@ msgid ""
 "You should resolve those conflicts first before saving.\n"
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
-msgstr "Encara hi ha conflictes sense resoldre a la línia %d!\nHeu de resoldre aquests conflictes abans de desar.\nVoleu desar el fitxer amb conflictes?\nSi cliqueu SÍ, llavors heu de resoldre els conflictes manualment en un altre editor!"
+msgstr "Encara hi ha conflictes sense resoldre a la línia %d.\nÉs recomanable que resolgueu aquests conflictes abans de desar.\nVoleu desar el fitxer amb conflictes?\nSi cliqueu SÍ, llavors heu de resoldre els conflictes manualment en un altre editor."
 
 #. Resource IDs: (IDS_WARNMODIFIEDLOOSECHANGES)
 msgid ""
@@ -11065,20 +11065,20 @@ msgstr "Aquest error s'ha generat per un script hook post-desbloqueig personalit
 
 #. Resource IDs: (IDS_ERR_FILEEXISTS)
 msgid "This file already exists!"
-msgstr "Aquest fitxer ja existeix!"
+msgstr "Aquest fitxer ja existeix."
 
 #. Resource IDs: (IDS_ERR_MUSTBEURL)
 msgid ""
 "This is not a valid URL.\n"
 "Please enter an URL here."
-msgstr "Això no és una URL vàlida.\nSi us plau introduïu una URL vàlida."
+msgstr "Això no és un URL vàlid.\nSi us plau introduïu un URL vàlid."
 
 #. Resource IDs: (IDS_ERR_NOVALIDPATH)
 msgid ""
 "This is not a valid path!\n"
 "A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-msgstr "Això no és un camí vàlid!\nUn camí vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms de dispositiu:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "Això no és un camí vàlid.\nUn camí vàlid no pot contenir '<>|\"?*:' ni cap dels següents noms de dispositiu:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (IDS_MERGEWIZARD_REVRANGELABEL)
 msgid ""
@@ -11137,7 +11137,7 @@ msgstr "Això esborrarà el registre de les ordres que heu utilitzat en aquesta 
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Això actualitzarà la còpia de treball al nou format 1.8 i deixarà de ser utilitzable per clients antics."
+msgstr "Això actualitzarà la còpia de treball al format nou 1.8 i deixarà de ser utilitzable per clients antics."
 
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK1)
 #, c-format
@@ -11232,7 +11232,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr "TortoiseBlame no s'ha d'iniciar directament! Useu\nTortoiseProc.exe /command:blame /path:\"camí\\del\\fitxer\".\n\nTortoiseBlame.exe fitxerblame [fitxerlog [títol_visualització]] [/line:número_de_línia] [/path:camí_original] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+msgstr "TortoiseBlame no s'ha d'iniciar directament. Useu\nTortoiseProc.exe /command:blame /path:\"camí\\del\\fitxer\".\n\nTortoiseBlame.exe fitxerblame [fitxerlog [títol_visualització]] [/line:número_de_línia] [/path:camí_original] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 153, IDS_APP_TITLE)
 msgid "TortoiseIDiff"
@@ -11422,7 +11422,7 @@ msgstr "URL"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1272)
 msgid "URL history"
-msgstr "Història URL"
+msgstr "Història de l'URL"
 
 #. Resource IDs: (IDS_COLDESCURL)
 msgid "URL of Subversion items"
@@ -11459,7 +11459,7 @@ msgstr "Impossible determinar la font per fer la fusió\n%ls\nUtilitzeu el diàl
 
 #. Resource IDs: (61840)
 msgid "Unable to load mail system support."
-msgstr "No s 'ha pogut carregar suport per al sistema d'e-mail"
+msgstr "No s'ha pogut carregar el suport per al sistema de correu."
 
 #. Resource IDs: (61826)
 msgid "Unable to process command, server busy."
@@ -11480,7 +11480,7 @@ msgid ""
 "This can happen if the file has been renamed.\n"
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
-msgstr "No s'ha pogut reconstruir el camí de la còpia de treball!\nAixò pot passar si el fitxer ha sigut canviat de nom.\nInicieu el diàleg de log només amb aquest fitxer concret i revertiu els canvis\ndes del panell superior del diàleg de log."
+msgstr "No s'ha pogut reconstruir el camí de la còpia de treball.\nAixò pot passar si el fitxer ha canviat de nom.\nInicieu el diàleg de log només amb aquest fitxer concret i revertiu els canvis\ndes del panell superior del diàleg de log."
 
 #. Resource IDs: (61837)
 msgid "Unable to write read-only property."
@@ -11489,7 +11489,7 @@ msgstr "No es pot escriure propietat només de lectura."
 #. Resource IDs: (61732)
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
-msgstr "No es possible escriure a %1, es de només lectura o és oberta per algú altre."
+msgstr "No es possible escriure a %1, es de només lectura o és obert per algú altre."
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Unchanged node"
@@ -11586,7 +11586,7 @@ msgstr "Desmarca aquest canvi"
 
 #. Resource IDs: (IDS_EDITPROPS_ERRIMPORTFORMAT)
 msgid "Unrecognized or invalid property file format!"
-msgstr "Format de fitxer no reconegut o no és vàlid!"
+msgstr "No es reconeix el format de fitxer o no és vàlid."
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
@@ -11625,7 +11625,7 @@ msgstr "Els fitxers sense versionar marquen la carpeta contenidora com a modific
 #. Resource IDs: (IDS_SVNPROGRESS_UNVERSION)
 #, c-format
 msgid "Unversioning %1!ls!"
-msgstr "Desversionant %1!ls!"
+msgstr "Desversionant %1!ls."
 
 #. Resource IDs: (IDS_REPOBROWSE_TT_UPFOLDER)
 msgid "Up one folder"
@@ -11706,7 +11706,7 @@ msgstr "Actualitzant cache log"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr "Actualitza la còpia de treball\nal nou format 1.8 ."
+msgstr "Actualitza la còpia de treball\nal format nou 1.8 ."
 
 #. Resource IDs: (IDS_MENUUPGRADE, IDS_PROC_UPGRADE,
 #. IDS_PROC_UPGRADECONFIRMATION_TASK2)
@@ -11975,7 +11975,7 @@ msgstr "Opcions vàlides de la línia d'ordres:\n/base:<camí del fitxer base>\n
 
 #. Resource IDs: (IDS_ERR_VALIDATIONFAILED)
 msgid "Validation of the property value failed!"
-msgstr "La validació del valor de la propietat ha fallat!"
+msgstr "Ha fallat la validació del valor de la propietat."
 
 #. Resource IDs: (IDS_PROPVALUE, IDS_SETTINGS_CONF_VALUECOL)
 msgid "Value"
@@ -12038,7 +12038,7 @@ msgid ""
 "WARNING:\r\n"
 "Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
-msgstr "ATENCIÓ:\nCanvieu aquesta configuració només si n'esteu ben segur!\nPer establir els valors per defecte, esborreu el text del valor."
+msgstr "ATENCIÓ:\nCanvieu aquesta configuració només si n'esteu ben segur.\nPer establir els valors per defecte, esborreu el text del valor."
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "WC Revision:"
@@ -12197,19 +12197,19 @@ msgstr "Aquí podeu inhabilitar gestors específics de superposició.\nEls gesto
 #. Resource IDs: (16005)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "Només podeu enganxar bitmaps de mida (%d x %d) !"
+msgstr "Només podeu enganxar bitmaps de mida (%d x %d)."
 
 #. Resource IDs: (16243)
 #, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr "No podeu crear més de %d barres d'eines definides per l'usuari!"
+msgstr "No podeu crear més de %d barres d'eines definides per l'usuari."
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
 "You can't set this property on folders, only on files!\n"
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
-msgstr "No podeu establir aquesta propietat a les carpetes, només als fitxers!\nSi voleu establir-la a tots els fitxers dins d'aquesta carpeta,\nheu de marcar la  casella 'recursivament'."
+msgstr "No podeu establir aquesta propietat a les carpetes, només als fitxers.\nSi voleu establir-la a tots els fitxers dins d'aquesta carpeta,\nheu de marcar la  casella 'recursivament'."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK1)
 msgid ""
@@ -12259,11 +12259,11 @@ msgstr "Heu seleccionat una carpeta sense versionar per fer la pujada."
 
 #. Resource IDs: (16002)
 msgid "You should enter a text!"
-msgstr "Heu d'introduir un text!"
+msgstr "Heu d'introduir un text."
 
 #. Resource IDs: (16001)
 msgid "You should select an image!"
-msgstr "Heu de seleccionar una imatge!"
+msgstr "Heu de seleccionar una imatge."
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12288,7 +12288,7 @@ msgstr "Heu pujat canvis d'un element extern que està etiquetat amb una determi
 msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
-msgstr "Els missatges de log han sigut desats.\nFeu clic aquí per llegir-los i inserir-los de nou."
+msgstr "S'han desat els missatges introduïts prèviament.\nFeu clic aquí per llegir-los i inserir-los de nou."
 
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1112)
 msgid "Your version is:"
@@ -12312,14 +12312,14 @@ msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr "La còpia de treball  té modificacions locals.\nSi feu una  branca/etiqueta de la revisió HEAD, els canvis locals\nno es mostraran a la branca/etiqueta!"
+msgstr "La còpia de treball  té modificacions locals.\nSi feu una  branca/etiqueta de la revisió HEAD, els canvis locals\nno es mostraran a la branca/etiqueta."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK1)
 #, c-format
 msgid ""
 "Your working copy points to %ls which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
-msgstr "La còpia de treball apunta a %ls, que sembla ser una etiqueta!\nHauríeu de canviar a una branca o al tronc principal abans de fer la pujada."
+msgstr "La còpia de treball apunta a %ls, que sembla ser una etiqueta.\nHauríeu de canviar a una branca o al tronc principal abans de fer la pujada."
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
@@ -12937,7 +12937,7 @@ msgid ""
 "^/ relative to the repository root\r\n"
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
-msgstr "svn:externals\nUna llista d'especificadors de mòdul, separats per salt de línia, cadascun dels quals consisteix en\nuna revisió opcional, una URL amb una revisió peg opcional i un camí relatiu de directori. Per exemple\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag foo/bar\n\nLes URLs poden ser completes o relatives. El format per\nles URLs relatives és:\n../ relatiu al directori pare de l'extern\n^/ relatiu a l'arrel del repositori\n// relatiu a l'esquema d'URL\n/ relatiu al nom de host del servidor"
+msgstr "svn:externals\nUna llista d'especificadors de mòdul, separats per salt de línia, cadascun dels quals consisteix en\nuna revisió opcional, un URL amb una revisió peg opcional i un camí relatiu de directori. Per exemple\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nLes URLs poden ser completes o relatives. El format per\nles URLs relatives és:\n../ relatiu al directori pare de l'extern\n^/ relatiu a l'arrel del repositori\n// relatiu a l'esquema d'URL\n/ relatiu al nom de host del servidor"
 
 #. Resource IDs: (IDS_PROP_TT_INHERITABLEIGNORE)
 msgid ""

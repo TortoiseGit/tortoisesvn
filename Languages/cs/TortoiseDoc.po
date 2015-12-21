@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-11-21 18:18+0000\n"
+"PO-Revision-Date: 2015-12-15 09:21+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -7486,6 +7486,35 @@ msgid ""
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
 msgstr "Jak je uvedeno výše, tato možnost se snaží dostat pracovní kopii v rozporu do práceschopného a použitelného stavu. Toto nemá žádný vliv na data, která máte, ale pouze na vnitřní stavy databáze pracovní kopie. Toto je ve skutečnosti příkaz <literal>Vyčistit</literal>, který znáte ze starších klientů TortoiseSVN nebo jiných klientů SVN."
+
+#. (term)
+msgid "Break locks"
+msgstr "Rozbít zámky"
+
+#. (para)
+msgid ""
+"If checked, all locks on files are removed, even if the lock is held in "
+"another working copy or by another user. Note that the lock is only removed "
+"from the working copy, it is still kept in the repository."
+msgstr "Při zaškrtnutí jsou všechny zámky na souborech odstraněny, i když je zámek držen v jiné pracovník kopii nebo jiným uživatelem. Nezapomeňte, že zámek je odstraněn pouze v pracovní kopii, v úložišti je ponechán."
+
+#. (term)
+msgid "Fix time stamps"
+msgstr "Spravit časová razítka"
+
+#. (para)
+msgid "Changes all file times to the time of the last commit."
+msgstr "Nastaví všechny časy souborů na čas posledního odevzdání."
+
+#. (term)
+msgid "Vacuum pristine copies"
+msgstr "Vyčistit původní kopie"
+
+#. (para)
+msgid ""
+"Removes unused pristine copies and compresses all remaining pristine copies "
+"of working copy files."
+msgstr "Odstraní nepoužité původní kopie a zkomprimuje všechny zbývající původní kopie souborů pracovní kopie."
 
 #. (term)
 msgid "Refresh shell overlays"

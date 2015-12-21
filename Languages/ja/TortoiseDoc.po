@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-11-21 09:07+0000\n"
+"PO-Revision-Date: 2015-12-15 09:12+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -7489,6 +7489,35 @@ msgid ""
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
 msgstr "前述のように、このオプションは、矛盾した作業コピーを使用可能な状態にしようとします。これは、作業コピーのデータベースの内部状態にのみ影響し、それ以外のデータには影響しません。これは、以前の TortoiseSVN クライアントや他の SVN クライアントで<literal>クリーンアップ</literal>コマンドを実行した時と同じ動作です。"
+
+#. (term)
+msgid "Break locks"
+msgstr ""
+
+#. (para)
+msgid ""
+"If checked, all locks on files are removed, even if the lock is held in "
+"another working copy or by another user. Note that the lock is only removed "
+"from the working copy, it is still kept in the repository."
+msgstr ""
+
+#. (term)
+msgid "Fix time stamps"
+msgstr ""
+
+#. (para)
+msgid "Changes all file times to the time of the last commit."
+msgstr ""
+
+#. (term)
+msgid "Vacuum pristine copies"
+msgstr ""
+
+#. (para)
+msgid ""
+"Removes unused pristine copies and compresses all remaining pristine copies "
+"of working copy files."
+msgstr ""
 
 #. (term)
 msgid "Refresh shell overlays"

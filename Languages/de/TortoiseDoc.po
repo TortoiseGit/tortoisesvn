@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-11-23 09:36+0200\n"
+"PO-Revision-Date: 2015-12-21 09:12+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH\n"
 "Language: de\n"
@@ -7499,6 +7499,43 @@ msgid ""
 msgstr "Wie oben erwähnt, versucht diese Option, eine inkonsistente Arbeitskopie in einen nutzbaren Zustand zu versetzen. Dies hat keine Auswirkungen auf Ihre Daten, sondern auf den internen Zustand der Datenbank innerhalb der Arbeitskopie. Es handelt sich um den <literal>Bereinigen</literal> Befehl, den Sie von älteren SVN Clients kennen."
 
 #. (term)
+msgid "Break locks"
+msgstr "Sperre aufbrechen"
+
+#. (para)
+msgid ""
+"If checked, all locks on files are removed, even if the lock is held in "
+"another working copy or by another user. Note that the lock is only removed "
+"from the working copy, it is still kept in the repository."
+msgstr ""
+"Wenn diese Option aktiv ist, werden sämtliche Dateisperren aufgebrochen, "
+"auch solche aus anderen Arbeitskopien oder von anderen Benutzern. Beachten "
+"Sie bitte, dass die Sperre nur in der aktuellen Arbeitskopie entfernt wird. "
+"Sie bleibt im Projektarchiv bestehen."
+
+#. (term)
+msgid "Fix time stamps"
+msgstr "Zeitstempel reparieren"
+
+#. (para)
+msgid "Changes all file times to the time of the last commit."
+msgstr ""
+"Setzt die Zeitstempel aller Dateien auf den Zeitpunkt der letzten "
+"Übertragung."
+
+#. (term)
+msgid "Vacuum pristine copies"
+msgstr "Unberührte Kopien entrümpeln"
+
+#. (para)
+msgid ""
+"Removes unused pristine copies and compresses all remaining pristine copies "
+"of working copy files."
+msgstr ""
+"Entfernt ungenutzte, unberührte Kopien und komprimiert alle verbleibenden "
+"unberührten Kopien von Arbeitsdateien."
+
+#. (term)
 msgid "Refresh shell overlays"
 msgstr "Aktualisiert die überlagerten Symbole"
 
@@ -8028,17 +8065,7 @@ msgid ""
 "url=\"http://msdn2.microsoft.com/en-"
 "us/library/ms776260.aspx\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr ""
-"TortoiseSVN kann eine Rechtschreibprüfung benutzen. Unter Windows 10 wird "
-"die Rechtschreibprüfung des Betriebssystems verwendet, unter früheren "
-"Versionen von Windows die Wörterbücher von OpenOffice oder Mozilla. Wenn Sie "
-"ein solches installiert haben, legt diese Eigenschaft fest, welches "
-"Sprachmodul für das Projekt benutzt werden "
-"soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu "
-"benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier "
-"nachschlagen: <ulink url=\"http://msdn2.microsoft.com/en-"
-"us/library/ms776260.aspx\"><citetitle>MSDN: Language "
-"Identifiers</citetitle></ulink>."
+msgstr "TortoiseSVN kann eine Rechtschreibprüfung benutzen. Unter Windows 10 wird die Rechtschreibprüfung des Betriebssystems verwendet, unter früheren Versionen von Windows die Wörterbücher von OpenOffice oder Mozilla. Wenn Sie ein solches installiert haben, legt diese Eigenschaft fest, welches Sprachmodul für das Projekt benutzt werden soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier nachschlagen: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
 
 #. (para)
 msgid ""

@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-11-22 23:29+0000\n"
+"PO-Revision-Date: 2015-12-15 20:35+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -7489,6 +7489,35 @@ msgid ""
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
 msgstr "Jak wspomniano powyżej, opcja ta stara się doprowadzić niespójną kopię roboczą do działającego i używalnego stanu. Nie ma to wpływu na jakiekolwiek dane a jedynie wewnętrzne stany bazy danych kopii roboczej. To jest rzeczywiście polecenie <literal>Uporządkuj</literal> znane ze starszych klientów TortoiseSVN lub innych klientów SVN."
+
+#. (term)
+msgid "Break locks"
+msgstr "Złam blokady"
+
+#. (para)
+msgid ""
+"If checked, all locks on files are removed, even if the lock is held in "
+"another working copy or by another user. Note that the lock is only removed "
+"from the working copy, it is still kept in the repository."
+msgstr "Jeśli zaznaczono, wszystkie blokady na plikach zostaną usunięte, nawet jeśli blokadę założono na innej kopii roboczej lub przez innego użytkownika. Należy zaznaczyć, że blokada zostaje usunięta tylko na kopii roboczej, a będzie ciągle utrzymywana w repozytorium."
+
+#. (term)
+msgid "Fix time stamps"
+msgstr "Napraw znaczniki czasu"
+
+#. (para)
+msgid "Changes all file times to the time of the last commit."
+msgstr "Zmienia wszystkie znaczniki czasowe plików na czas ostatniego zatwierdzenia."
+
+#. (term)
+msgid "Vacuum pristine copies"
+msgstr "Uporządkuj pierwotne kopie"
+
+#. (para)
+msgid ""
+"Removes unused pristine copies and compresses all remaining pristine copies "
+"of working copy files."
+msgstr "Usuwa nieużywane kopie pierwotne i kompresuje wszystkie pozostałe kopie pierwotne plików kopii roboczej."
 
 #. (term)
 msgid "Refresh shell overlays"
