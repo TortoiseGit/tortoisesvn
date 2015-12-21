@@ -50,14 +50,9 @@ public:
     }
 
     CSmartHandle(CSmartHandle && h)
+        : CSmartHandle()
     {
-        if (m_Handle != (HandleType)h)
-        {
-            CleanUp();
-            m_Handle = h.Detach();
-        }
-        else
-            h.Detach();
+        m_Handle = h.Detach();
     }
 
     CSmartHandle& operator=(CSmartHandle && h)
