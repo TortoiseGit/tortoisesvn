@@ -307,7 +307,7 @@ void CDragDropTreeCtrl::CopyChildren(HTREEITEM hDest, HTREEITEM hSrc)
     // Create a copy of it at the destination.
     TVITEMEX tvItem = { 0 };
     tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
-    tvItem.hItem = hSrc;
+    tvItem.hItem = hItem;
     GetItem((TVITEM*)&tvItem);
 
     TVINSERTSTRUCT tvInsertItem = { 0 };
