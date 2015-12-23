@@ -597,9 +597,6 @@ UINT CCommitDlg::StatusThread()
     //get the status of all selected file/folders recursively
     //and show the ones which have to be committed to the user
     //in a list control.
-    InterlockedExchange(&m_bBlock, TRUE);
-    InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
-    InterlockedExchange(&m_bRunThread, TRUE);   // if this is set to FALSE, the thread should stop
     m_bCancelled = false;
     CoInitialize(NULL);
     OnOutOfScope(CoUninitialize());
@@ -837,6 +834,9 @@ void CCommitDlg::StartStatusThread()
     }
     else
     {
+        InterlockedExchange(&m_bBlock, TRUE);
+        InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
+        InterlockedExchange(&m_bRunThread, TRUE);   // if this is set to FALSE, the thread should stop
         m_pThread->m_bAutoDelete = FALSE;
         m_pThread->ResumeThread();
     }
