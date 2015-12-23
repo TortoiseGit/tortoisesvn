@@ -141,7 +141,7 @@ BOOL CCommitDlg::OnInitDialog()
     CenterWindowWhenLaunchedFromExplorer();
     AdjustDialogSizeAndPanes();
     AddDirectoriesToPathWatcher();
-    GetAsyncFileListStatus();
+    StartStatusThread();
     ShowBalloonInCaseOfError();
     GetDlgItem(IDC_RUNHOOK)->ShowWindow(CHooks::Instance().IsHookPresent(manual_precommit, m_pathList) ? SW_SHOW : SW_HIDE);
     return FALSE;  // return TRUE unless you set the focus to a control
@@ -155,15 +155,7 @@ void CCommitDlg::OnOK()
     if (m_bThreadRunning)
     {
         m_bCancelled = true;
-        InterlockedExchange(&m_bRunThread, FALSE);
-        WaitForSingleObject(m_pThread->m_hThread, 1000);
-        if (m_bThreadRunning)
-        {
-            // we gave the thread a chance to quit. Since the thread didn't
-            // listen to us we have to kill it.
-            TerminateThread(m_pThread->m_hThread, (DWORD)-1);
-            InterlockedExchange(&m_bThreadRunning, FALSE);
-        }
+        StopStatusThread();
     }
     CString id;
     GetDlgItemText(IDC_BUGID, id);
@@ -751,15 +743,7 @@ void CCommitDlg::OnCancel()
     m_pathwatcher.Stop();
     if (m_bThreadRunning)
     {
-        InterlockedExchange(&m_bRunThread, FALSE);
-        WaitForSingleObject(m_pThread->m_hThread, 1000);
-        if (m_bThreadRunning)
-        {
-            // we gave the thread a chance to quit. Since the thread didn't
-            // listen to us we have to kill it.
-            TerminateThread(m_pThread->m_hThread, (DWORD)-1);
-            InterlockedExchange(&m_bThreadRunning, FALSE);
-        }
+        StopStatusThread();
     }
     UpdateData();
     m_sBugID.Trim();
@@ -833,9 +817,14 @@ void CCommitDlg::Refresh()
     if (m_bThreadRunning)
         return;
 
+    StartStatusThread();
+}
+
+void CCommitDlg::StartStatusThread()
+{
     InterlockedExchange(&m_bBlock, TRUE);
-    m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
-    if (m_pThread==NULL)
+    m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+    if (m_pThread == NULL)
     {
         OnCantStartThread();
         InterlockedExchange(&m_bBlock, FALSE);
@@ -844,6 +833,19 @@ void CCommitDlg::Refresh()
     {
         m_pThread->m_bAutoDelete = FALSE;
         m_pThread->ResumeThread();
+    }
+}
+
+void CCommitDlg::StopStatusThread()
+{
+    InterlockedExchange(&m_bRunThread, FALSE);
+    WaitForSingleObject(m_pThread->m_hThread, 1000);
+    if (m_bThreadRunning)
+    {
+        // we gave the thread a chance to quit. Since the thread didn't
+        // listen to us we have to kill it.
+        TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+        InterlockedExchange(&m_bThreadRunning, FALSE);
     }
 }
 
@@ -1949,24 +1951,6 @@ void CCommitDlg::AddDirectoriesToPathWatcher()
             m_pathwatcher.AddPath(m_pathList[i]);
     }
     m_updatedPathList = m_pathList;
-}
-
-void CCommitDlg::GetAsyncFileListStatus()
-{
-    //first start a thread to obtain the file list with the status without
-    //blocking the dialog
-    InterlockedExchange(&m_bBlock, TRUE);
-    m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
-    if (m_pThread==NULL)
-    {
-        OnCantStartThread();
-        InterlockedExchange(&m_bBlock, FALSE);
-    }
-    else
-    {
-        m_pThread->m_bAutoDelete = FALSE;
-        m_pThread->ResumeThread();
-    }
 }
 
 void CCommitDlg::ShowBalloonInCaseOfError()

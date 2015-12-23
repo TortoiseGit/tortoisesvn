@@ -69,7 +69,6 @@ protected:
     virtual BOOL OnInitDialog();
     // extracted from OnInitDialog
     void ShowBalloonInCaseOfError();
-    void GetAsyncFileListStatus();
     void AddDirectoriesToPathWatcher();
     void AdjustDialogSizeAndPanes();
     void CenterWindowWhenLaunchedFromExplorer();
@@ -115,6 +114,8 @@ protected:
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg void OnBnClickedRunhook();
     void Refresh();
+    void StartStatusThread();
+    void StopStatusThread();
     void GetAutocompletionList(std::map<CString, int>& autolist);
     void ScanFile(std::map<CString, int>& autolist, const CString& sFilePath, const CString& sRegex, const CString& sExt);
     void DoSize(int delta);
