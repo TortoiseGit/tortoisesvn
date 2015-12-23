@@ -475,7 +475,7 @@ void CLogDlg::SetupDialogFonts()
     font->GetLogFont(&lf);
 
     lf.lfWeight = FW_BOLD;
-    m_boldFont. CreateFontIndirect(&lf);
+    m_boldFont.CreateFontIndirect(&lf);
 
     lf.lfItalic = TRUE;
     m_boldItalicFont.CreateFontIndirect(&lf);
