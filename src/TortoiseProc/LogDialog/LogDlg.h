@@ -555,7 +555,7 @@ private:
     bool                m_bMonitoringMode;
     bool                m_bKeepHidden;
     HWND                m_hwndToolbar;
-    HIMAGELIST          m_hToolbarImages;
+    CImageList          m_toolbarImages;
     CRect               m_ProjTreeOrigRect;
     CSplitterControl    m_wndSplitterLeft;
     CHintCtrl<CDragDropTreeCtrl> m_projTree;

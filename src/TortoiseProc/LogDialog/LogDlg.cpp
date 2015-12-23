@@ -234,7 +234,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bMonitoringMode(false)
     , m_bKeepHidden(false)
     , m_hwndToolbar(NULL)
-    , m_hToolbarImages(NULL)
     , m_bMonitorThreadRunning(FALSE)
     , m_nMonitorUrlIcon(0)
     , m_nMonitorWCIcon(0)
@@ -296,8 +295,6 @@ CLogDlg::~CLogDlg()
         delete m_pStoreSelection;
         m_pStoreSelection = NULL;
     }
-    if (m_hToolbarImages)
-        ImageList_Destroy(m_hToolbarImages);
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -7626,14 +7623,13 @@ bool CLogDlg::CreateToolbar()
 #define MONITORMODE_TOOLBARBUTTONCOUNT  10
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
-    m_hToolbarImages = ImageList_Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4);
-    if (m_hToolbarImages == NULL)
+    if (!m_toolbarImages.Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
         return false;
     auto iString = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
                                  (WPARAM)AfxGetResourceHandle(), (LPARAM)IDS_MONITOR_TOOLBARTEXTS);
     int index = 0;
     HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_GETALL), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_CHECKREPOSITORIESNOW;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7648,7 +7644,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = 0;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_ADD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_ADDPROJECT;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7656,7 +7652,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = iString++;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_EDIT), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_EDIT;
     tbb[index].fsState = BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7664,7 +7660,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = iString++;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_REMOVE), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_REMOVE;
     tbb[index].fsState = BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7679,7 +7675,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = 0;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_MARKALLASREAD), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_MARKALLASREAD;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7687,7 +7683,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = iString++;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_UPDATE), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_UPDATE;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
@@ -7702,14 +7698,14 @@ bool CLogDlg::CreateToolbar()
     tbb[index++].iString = 0;
 
     hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITOR_OPTIONS), IMAGE_ICON, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
-    tbb[index].iBitmap = ImageList_AddIcon(m_hToolbarImages, hIcon);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_OPTIONS;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    ::SendMessage(m_hwndToolbar, TB_SETIMAGELIST, 0, (LPARAM)m_hToolbarImages);
+    ::SendMessage(m_hwndToolbar, TB_SETIMAGELIST, 0, (LPARAM)m_toolbarImages.GetSafeHandle());
     ::SendMessage(m_hwndToolbar, TB_ADDBUTTONS, (WPARAM)index, (LPARAM)(LPTBBUTTON)&tbb);
     ::SendMessage(m_hwndToolbar, TB_AUTOSIZE, 0, 0);
     return true;
