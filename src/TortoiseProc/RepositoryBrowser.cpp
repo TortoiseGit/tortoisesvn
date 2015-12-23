@@ -340,7 +340,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     {
         m_cnrRepositoryBar.ShowWindow(SW_HIDE);
         m_barRepository.ShowWindow(SW_HIDE);
-        SetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE, GetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE) | TVS_CHECKBOXES);
+        m_RepoTree.ModifyStyle(0, TVS_CHECKBOXES);
     }
     else
     {
