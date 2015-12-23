@@ -328,10 +328,10 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
     m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
 
-    m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_nExternalOvl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_EXTERNALOVL, 0, 0, LR_DEFAULTSIZE));
     if (m_nExternalOvl >= 0)
         SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVERLAY_EXTERNAL);
-    m_nSVNParentPath = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CACHE), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_nSVNParentPath = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_CACHE, 0, 0, LR_DEFAULTSIZE));
 
     m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
     m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -404,7 +404,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         m_RepoList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
         ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
     }
-    m_nBookmarksIcon = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BOOKMARKS), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+    m_nBookmarksIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_BOOKMARKS, 0, 0, LR_DEFAULTSIZE));
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     // TVS_EX_FADEINOUTEXPANDOS style must not be set:
     // if it is set, there's a UI glitch when editing labels:

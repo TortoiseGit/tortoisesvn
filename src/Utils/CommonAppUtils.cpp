@@ -826,3 +826,9 @@ HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorki
     pac->Release();
     return hr;
 }
+
+HICON CCommonAppUtils::LoadIconEx(UINT resourceId, UINT cx, UINT cy, UINT fuLoad)
+{
+    return (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(resourceId),
+                            IMAGE_ICON, cx, cy, fuLoad);
+}

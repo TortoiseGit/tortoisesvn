@@ -125,6 +125,9 @@ public:
     static void MarkWindowAsUnpinnable(HWND hWnd);
 
     static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = NULL, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
+
+    // Wrapper for LoadImage(IMAGE_ICON)
+    static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy, UINT fuLoad);
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};

@@ -179,19 +179,19 @@ BOOL CStatGraphDlg::OnInitDialog()
     GetWindowText(sTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sTitle);
 
-    m_btnGraphBar.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphBar.SetImage(CCommonAppUtils::LoadIconEx(IDI_GRAPHBAR, 16, 16, LR_DEFAULTCOLOR));
     m_btnGraphBar.SizeToContent();
     m_btnGraphBar.Invalidate();
-    m_btnGraphBarStacked.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphBarStacked.SetImage(CCommonAppUtils::LoadIconEx(IDI_GRAPHBARSTACKED, 16, 16, LR_DEFAULTCOLOR));
     m_btnGraphBarStacked.SizeToContent();
     m_btnGraphBarStacked.Invalidate();
-    m_btnGraphLine.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphLine.SetImage(CCommonAppUtils::LoadIconEx(IDI_GRAPHLINE, 16, 16, LR_DEFAULTCOLOR));
     m_btnGraphLine.SizeToContent();
     m_btnGraphLine.Invalidate();
-    m_btnGraphLineStacked.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINESTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphLineStacked.SetImage(CCommonAppUtils::LoadIconEx(IDI_GRAPHLINESTACKED, 16, 16, LR_DEFAULTCOLOR));
     m_btnGraphLineStacked.SizeToContent();
     m_btnGraphLineStacked.Invalidate();
-    m_btnGraphPie.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHPIE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphPie.SetImage(CCommonAppUtils::LoadIconEx(IDI_GRAPHPIE, 16, 16, LR_DEFAULTCOLOR));
     m_btnGraphPie.SizeToContent();
     m_btnGraphPie.Invalidate();
 
