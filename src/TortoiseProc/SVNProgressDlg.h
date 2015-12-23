@@ -386,7 +386,7 @@ private:
     CLinkControl            m_jumpConflictControl;
 
     CColors                 m_Colors;
-    HFONT                   m_boldFont;
+    CFont                   m_boldFont;
 
 
     bool                    m_bLockWarning;

@@ -441,8 +441,8 @@ public:
     ProjectProperties   m_ProjectProperties;
     WORD                m_wParam;
 private:
-    HFONT               m_boldFont;
-    HFONT               m_boldItalicFont;
+    CFont               m_boldFont;
+    CFont               m_boldItalicFont;
     CString             m_sRelativeRoot;
     CString             m_sRepositoryRoot;
     CString             m_sURL;

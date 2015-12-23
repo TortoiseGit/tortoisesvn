@@ -210,8 +210,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bHideNonMergeables(FALSE)
     , m_copyfromrev(0)
     , m_bStartRevIsHead(true)
-    , m_boldFont(NULL)
-    , m_boldItalicFont(NULL)
     , m_bStrict(false)
     , m_bSaveStrict(false)
     , m_hasWC(false)
@@ -298,10 +296,6 @@ CLogDlg::~CLogDlg()
         delete m_pStoreSelection;
         m_pStoreSelection = NULL;
     }
-    if (m_boldFont)
-        DeleteObject(m_boldFont);
-    if (m_boldItalicFont)
-        DeleteObject(m_boldItalicFont);
     if (m_hToolbarImages)
         ImageList_Destroy(m_hToolbarImages);
 }
@@ -479,13 +473,15 @@ void CLogDlg::SetupDialogFonts()
     // use the default GUI font, create a copy of it and
     // change the copy to BOLD (leave the rest of the font
     // the same)
-    HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
+    CFont *font = m_LogList.GetFont();
     LOGFONT lf = {0};
-    GetObject(hFont, sizeof(LOGFONT), &lf);
+    font->GetLogFont(&lf);
+
     lf.lfWeight = FW_BOLD;
-    m_boldFont = CreateFontIndirect(&lf);
+    m_boldFont. CreateFontIndirect(&lf);
+
     lf.lfItalic = TRUE;
-    m_boldItalicFont = CreateFontIndirect(&lf);
+    m_boldItalicFont.CreateFontIndirect(&lf);
     CAppUtils::CreateFontForLogs(m_logFont);
 }
 
@@ -4896,7 +4892,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
                 {
                     HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
-                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldItalicFont, NULL);
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldItalicFont.GetSafeHandle(), NULL);
                     linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
                     // restore the system font
                     m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
@@ -4905,7 +4901,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
                 {
                     HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
-                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont.GetSafeHandle(), NULL);
                     linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
                     // restore the system font
                     m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);

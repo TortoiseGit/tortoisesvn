@@ -116,7 +116,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , iFirstResized(0)
     , bSecondResized(false)
     , nEnsureVisibleCount(0)
-    , m_boldFont(NULL)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -138,8 +137,6 @@ CSVNProgressDlg::~CSVNProgressDlg()
         delete data;
     }
     delete m_pThread;
-    if (m_boldFont)
-        DeleteObject(m_boldFont);
 }
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
@@ -1142,7 +1139,7 @@ void CSVNProgressDlg::ResizeColumns()
                 {
                     hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
-                    m_ProgList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+                    m_ProgList.SendMessage(WM_SETFONT, (WPARAM) m_boldFont.GetSafeHandle(), NULL);
                 }
 
                 // get the width of the string and add 14 pixels for the column separator and margins
@@ -1232,7 +1229,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     LOGFONT lf = {0};
     GetObject(hFont, sizeof(LOGFONT), &lf);
     lf.lfWeight = FW_BOLD;
-    m_boldFont = CreateFontIndirect(&lf);
+    m_boldFont.CreateFontIndirect(&lf);
 
     UpdateData(FALSE);
 
