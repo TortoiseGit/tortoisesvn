@@ -5194,7 +5194,7 @@ INT_PTR CSVNStatusListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const
 {
     // Make sure that the ListView is in LVS_REPORT
-    if ((GetWindowLong(m_hWnd, GWL_STYLE) & LVS_TYPEMASK) != LVS_REPORT)
+    if ((GetStyle() & LVS_TYPEMASK) != LVS_REPORT)
         return -1;
 
     // Get the top and bottom row visible
