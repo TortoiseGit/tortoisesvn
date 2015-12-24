@@ -103,6 +103,7 @@ enum RepoBrowserContextMenuCommands
     ID_CREATELINK,
     ID_ADDTOBOOKMARKS,
     ID_REMOVEBOOKMARKS,
+    ID_SWITCHTO,
 };
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -3464,6 +3465,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
                 }
             }
+            if (m_path.Exists() && (selection.GetPathCount(0) == 1))
+            {
+                popup.AppendMenuIcon(ID_SWITCHTO, IDS_REVGRAPH_POPUP_SWITCH, IDI_SWITCH);   // Switch WC to path and revision
+            }
         }
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
         if (bIsBookmark)
@@ -3517,6 +3522,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CString sCmd;
                     sCmd.Format(L"/command:update /pathfile:\"%s\" /rev /deletepathfile",
                         tempFile.GetWinPath());
+
+                    CAppUtils::RunTortoiseProc(sCmd);
+                }
+            }
+            break;
+        case ID_SWITCHTO:
+            {
+                if (selection.GetPathCount(0) == 1)
+                {
+                    auto switchToUrl = selection.GetURL(0, 0);
+                    const SVNRev& revision = selection.GetRepository(0).revision;
+                    CString sCmd;
+                    sCmd.Format(L"/command:switch /path:\"%s\" /rev:%s /url:\"%s\"",
+                                m_path.GetWinPath(), (LPCWSTR)revision.ToString(), (LPCWSTR)switchToUrl.GetSVNPathString());
 
                     CAppUtils::RunTortoiseProc(sCmd);
                 }
