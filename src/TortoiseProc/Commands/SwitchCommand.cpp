@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,10 @@ bool SwitchCommand::Execute()
     if (parser.HasKey(L"url"))
     {
         dlg.m_URL = parser.GetVal(L"url");
+    }
+    if (parser.HasVal(L"rev"))
+    {
+        dlg.Revision = SVNRev(parser.GetVal(L"rev"));
     }
 
     if (dlg.DoModal() == IDOK)

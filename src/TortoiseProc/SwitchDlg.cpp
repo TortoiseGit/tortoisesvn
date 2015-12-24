@@ -110,6 +110,10 @@ BOOL CSwitchDlg::OnInitDialog()
 
     // set head revision as default revision
     SetRevision(SVNRev::REV_HEAD);
+    if (Revision.IsValid())
+    {
+        SetRevision(Revision);
+    }
 
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
