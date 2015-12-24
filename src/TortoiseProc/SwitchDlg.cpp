@@ -81,8 +81,8 @@ BOOL CSwitchDlg::OnInitDialog()
     SetDlgItemText(IDC_SWITCHPATH, m_path);
     m_bFolder = svnPath.IsDirectory();
     SVN svn;
-    CString sUUID;
-    m_repoRoot = svn.GetRepositoryRootAndUUID(svnPath, true, sUUID);
+
+    m_repoRoot = svn.GetRepositoryRootAndUUID(svnPath, true, m_sUUID);
     m_repoRoot.TrimRight('/');
     CString url = svn.GetURLFromPath(svnPath);
     CString destUrl = url;
@@ -90,7 +90,7 @@ BOOL CSwitchDlg::OnInitDialog()
     {
         destUrl = m_URL;
     }
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoPaths\\"+sUUID, L"url");
+    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoPaths\\"+ m_sUUID, L"url");
     m_URLCombo.SetCurSel(0);
     if (!url.IsEmpty())
     {
@@ -104,6 +104,10 @@ BOOL CSwitchDlg::OnInitDialog()
         SetDlgItemText(IDC_SRCURL, CTSVNPath(url).GetUIPathString());
         SetDlgItemText(IDC_DESTURL, CTSVNPath(CPathUtils::CombineUrls(m_repoRoot, relPath)).GetUIPathString());
     }
+
+    CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + m_sUUID;
+    CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
+    m_bIgnoreAncestry = (DWORD)regIgnoreAncestryOpt;
 
     GetWindowText(m_sTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_path, m_sTitle);
@@ -238,6 +242,11 @@ void CSwitchDlg::OnOK()
 
     CRegDWORD regNoExt(L"Software\\TortoiseSVN\\noext");
     regNoExt = m_bNoExternals;
+
+    CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + m_sUUID;
+    CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
+    regIgnoreAncestryOpt = m_bIgnoreAncestry;
+
 
     CResizableStandAloneDialog::OnOK();
 }
