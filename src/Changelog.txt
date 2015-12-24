@@ -1,6 +1,11 @@
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
 - BUG: lifetime issue with path string for long paths. (Ivan Zhakov)
+- BUG: Race condition in the shell extension. (Ivan Zhakov)
+- BUG: Crash in Project Monitor when drag&drop
+       item with children. (Ivan Zhakov)
+- BUG: Small memory leak in commit dialog when
+       doing refresh. (Ivan Zhakov)
 
 Version 1.9.3
 - BUG: The DEL key didn't work in the filter box
