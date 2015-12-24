@@ -1182,8 +1182,8 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 
         if (m_repository.root.IsEmpty())
             return false;
-
-        m_path = CTSVNPath(m_repository.root);
+        if (urlHasDifferentRoot)
+            m_path = CTSVNPath(m_repository.root);
         CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), m_origDlgTitle);
         root = m_repository.root;
 
