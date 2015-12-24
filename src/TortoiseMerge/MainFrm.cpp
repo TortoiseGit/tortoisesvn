@@ -2097,7 +2097,8 @@ void CMainFrame::OnMergeMarkasresolved()
     {
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
-            FileSave(false);
+            if (!FileSave(false))
+                return;
             m_bSaveRequired = false;
         }
     }
