@@ -27,7 +27,7 @@
 template <typename HandleType,
     template <class> class CloseFunction,
     HandleType NULL_VALUE = NULL>
-class CSmartHandle : public CloseFunction<HandleType>
+class CSmartHandle
 {
 public:
     CSmartHandle()
@@ -50,21 +50,13 @@ public:
     }
 
     CSmartHandle(CSmartHandle && h)
-        : CSmartHandle()
     {
         m_Handle = h.Detach();
     }
 
     CSmartHandle& operator=(CSmartHandle && h)
     {
-        if (m_Handle != (HandleType)h)
-        {
-            CleanUp();
-            m_Handle = h.Detach();
-        }
-        else
-            h.Detach();
-
+        *this = h.Detach();
         return *this;
     }
 
@@ -86,15 +78,13 @@ public:
 
     HandleType Detach()
     {
-        HandleType p;
-
-        p = m_Handle;
+        HandleType p = m_Handle;
         m_Handle = NULL_VALUE;
 
         return p;
     }
 
-    operator HandleType()
+    operator HandleType() const
     {
         return m_Handle;
     }
@@ -104,17 +94,17 @@ public:
         return &m_Handle;
     }
 
-    operator bool()
+    operator bool() const
     {
         return IsValid();
     }
 
-    bool IsValid()
+    bool IsValid() const
     {
         return m_Handle != NULL_VALUE;
     }
 
-    HandleType Duplicate()
+    HandleType Duplicate() const
     {
         HandleType hDup = NULL_VALUE;
         if (DuplicateHandle(GetCurrentProcess(),
@@ -141,7 +131,7 @@ protected:
     {
         if ( m_Handle != NULL_VALUE )
         {
-            bool b = Close(m_Handle);
+            const bool b = CloseFunction<HandleType>::Close(m_Handle);
             m_Handle = NULL_VALUE;
             return b;
         }
@@ -152,21 +142,12 @@ protected:
     HandleType m_Handle;
 };
 
-class CEmptyClass
-{
-};
-
 template <typename T>
 struct CCloseHandle
 {
-    bool Close(T handle)
+    static bool Close(T handle)
     {
         return !!::CloseHandle(handle);
-    }
-
-protected:
-    ~CCloseHandle()
-    {
     }
 };
 
@@ -175,14 +156,9 @@ protected:
 template <typename T>
 struct CCloseRegKey
 {
-    bool Close(T handle)
+    static bool Close(T handle)
     {
         return RegCloseKey(handle) == ERROR_SUCCESS;
-    }
-
-protected:
-    ~CCloseRegKey()
-    {
     }
 };
 
@@ -190,14 +166,9 @@ protected:
 template <typename T>
 struct CCloseLibrary
 {
-    bool Close(T handle)
+    static bool Close(T handle)
     {
         return !!::FreeLibrary(handle);
-    }
-
-protected:
-    ~CCloseLibrary()
-    {
     }
 };
 
@@ -205,28 +176,18 @@ protected:
 template <typename T>
 struct CCloseViewOfFile
 {
-    bool Close(T handle)
+    static bool Close(T handle)
     {
         return !!::UnmapViewOfFile(handle);
-    }
-
-protected:
-    ~CCloseViewOfFile()
-    {
     }
 };
 
 template <typename T>
 struct CCloseFindFile
 {
-    bool Close(T handle)
+    static bool Close(T handle)
     {
         return !!::FindClose(handle);
-    }
-
-protected:
-    ~CCloseFindFile()
-    {
     }
 };
 
