@@ -819,13 +819,14 @@ void CCommitDlg::Refresh()
 
 void CCommitDlg::StartStatusThread()
 {
+    if (InterlockedExchange(&m_bBlock, TRUE) != FALSE)
+        return;
     if (m_pThread)
     {
         delete m_pThread;
         m_pThread = NULL;
     }
 
-    InterlockedExchange(&m_bBlock, TRUE);
     m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
     if (m_pThread == NULL)
     {
@@ -834,7 +835,6 @@ void CCommitDlg::StartStatusThread()
     }
     else
     {
-        InterlockedExchange(&m_bBlock, TRUE);
         InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
         InterlockedExchange(&m_bRunThread, TRUE);   // if this is set to FALSE, the thread should stop
         m_pThread->m_bAutoDelete = FALSE;
