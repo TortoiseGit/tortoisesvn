@@ -188,7 +188,7 @@ protected:
 
     static MenuInfo                 menuInfo[];
     FileState                       m_State;
-    ULONG                           m_cRef;
+    volatile ULONG                  m_cRef;
     //std::map<int,std::string> verbMap;
     std::map<UINT_PTR, UINT_PTR>    myIDMap;
     std::map<UINT_PTR, UINT_PTR>    mySubMenuMap;
