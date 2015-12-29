@@ -821,11 +821,9 @@ void CCommitDlg::StartStatusThread()
 {
     if (InterlockedExchange(&m_bBlock, TRUE) != FALSE)
         return;
-    if (m_pThread)
-    {
-        delete m_pThread;
-        m_pThread = NULL;
-    }
+
+    delete m_pThread;
+    m_pThread = NULL;
 
     m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
     if (m_pThread == NULL)
