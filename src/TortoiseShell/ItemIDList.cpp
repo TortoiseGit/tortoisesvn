@@ -124,10 +124,9 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
         (wcsncmp(ret.c_str(), L"::{", 3)==0))
     {
         CComPtr<IShellLibrary> plib;
-        hr = CoCreateInstance(CLSID_ShellLibrary,
-                              NULL,
-                              CLSCTX_INPROC_SERVER,
-                              IID_PPV_ARGS(&plib));
+        hr = plib.CoCreateInstance(CLSID_ShellLibrary,
+                                   NULL,
+                                   CLSCTX_INPROC_SERVER);
         if (SUCCEEDED(hr))
         {
             CComPtr<IShellItem> psiLibrary;

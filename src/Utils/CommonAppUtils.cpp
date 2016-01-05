@@ -763,20 +763,18 @@ void CCommonAppUtils::MarkWindowAsUnpinnable( HWND hWnd )
 HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory, AUTOCOMPLETELISTOPTIONS acloOptions, AUTOCOMPLETEOPTIONS acoOptions, REFCLSID clsid)
 {
     CComPtr<IAutoComplete> pac;
-    HRESULT hr = CoCreateInstance(CLSID_AutoComplete,
-                                  NULL,
-                                  CLSCTX_INPROC_SERVER,
-                                  IID_PPV_ARGS(&pac));
+    HRESULT hr = pac.CoCreateInstance(CLSID_AutoComplete,
+                                      NULL,
+                                      CLSCTX_INPROC_SERVER);
     if (FAILED(hr))
     {
         return hr;
     }
 
     CComPtr<IUnknown> punkSource;
-    hr = CoCreateInstance(clsid,
-                          NULL,
-                          CLSCTX_INPROC_SERVER,
-                          IID_PPV_ARGS(&punkSource));
+    hr = punkSource.CoCreateInstance(clsid,
+                                     NULL,
+                                     CLSCTX_INPROC_SERVER);
     if (FAILED(hr))
     {
         return hr;

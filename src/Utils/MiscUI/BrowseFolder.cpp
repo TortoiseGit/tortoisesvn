@@ -87,7 +87,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
     // Create a new common open file dialog
     CComPtr<IFileOpenDialog> pfd;
-    hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pfd));
+    hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog as a folder picker
