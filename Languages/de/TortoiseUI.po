@@ -18,8 +18,9 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2015
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
@@ -30,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:18+0000\n"
+"PO-Revision-Date: 2016-01-05 10:36+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2024,7 +2025,7 @@ msgstr "Projekt oder Ordner hinzufügen..."
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Zu %1 hinzufügen"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -3665,7 +3666,7 @@ msgstr "Copy the selection and put it on the Clipboard\nCopy"
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Nach %1 kopieren"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -6166,26 +6167,26 @@ msgstr "Einen Satz von Eigenschaften aus einer Datei importieren"
 msgid ""
 "Import file %1!ls!\r\n"
 "to %2!ls!"
-msgstr "Importiere Datei %1!ls!\r\nnach %2!ls!"
+msgstr "Importiere Datei %1!ls!\r\nin %2!ls!"
 
 #. Resource IDs: (IDS_INPUT_IMPORTFILE)
 #, c-format
 msgid ""
 "Import file to\r\n"
 "%ls"
-msgstr "Importiere Datei nac\r\n%ls"
+msgstr "Importiere Datei in\r\n%ls"
 
 #. Resource IDs: (IDS_INPUT_IMPORTFOLDER)
 #, c-format
 msgid ""
 "Import folder %1!ls!\r\n"
 "to %2!ls!"
-msgstr "Importiere Ordner %1!ls!\r\nnach %2!ls!"
+msgstr "Importiere Ordner %1!ls!\r\nin %2!ls!"
 
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
 msgid "Import to %1"
-msgstr ""
+msgstr "In %1 importieren"
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
 msgid ""
@@ -7150,7 +7151,7 @@ msgstr "Spezielle Datei oder Verzeichnis verschieben"
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "Nach %1 verschieben"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)
 msgid "Move to changelist"
