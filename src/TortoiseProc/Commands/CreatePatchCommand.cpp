@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -117,16 +117,12 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             // set the default folder
             if (SUCCEEDED(hr))
             {
-                CAutoLibrary hLib = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
-                if (hLib)
+                IShellItem* psiDefault = 0;
+                hr = SHCreateItemFromParsingName(root.GetWinPath(), NULL, IID_PPV_ARGS(&psiDefault));
+                if (SUCCEEDED(hr))
                 {
-                    IShellItem* psiDefault = 0;
-                    hr = SHCreateItemFromParsingName(root.GetWinPath(), NULL, IID_PPV_ARGS(&psiDefault));
-                    if (SUCCEEDED(hr))
-                    {
-                        hr = pfd->SetFolder(psiDefault);
-                        psiDefault->Release();
-                    }
+                    hr = pfd->SetFolder(psiDefault);
+                    psiDefault->Release();
                 }
             }
             bool bAdvised = false;
