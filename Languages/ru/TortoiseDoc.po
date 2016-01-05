@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2015 the TortoiseSVN team
+# Copyright (C) 2004-2016 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-15 09:12+0000\n"
+"PO-Revision-Date: 2016-01-05 09:16+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -18167,6 +18167,14 @@ msgstr "/refreshshell"
 msgid "/externals"
 msgstr "/externals"
 
+#. (option)
+msgid "/fixtimestamps"
+msgstr ""
+
+#. (option)
+msgid "/vacuum"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
@@ -18176,9 +18184,9 @@ msgid ""
 "<placeholder-4/> disables showing the cleanup dialog where the user can "
 "choose what exactly should be done in the cleanup. The available actions can"
 " be specified with the options <placeholder-5/> for status cleanup, "
-"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
-"<placeholder-10/>."
-msgstr "Очищает прерванные или незавершенные операции и разблокирует рабочую копию в <placeholder-1/>. Используйте <placeholder-2/> для предотвращения появления диалога результата (либо очистка завершается, либо показывается сообщение об ошибке). <placeholder-3/> также отключает диалог процесса выполнения. <placeholder-4/> отключает показ диалога, в котором пользователь может выбрать, что именно должно быть выполнено при очистке. Доступные действия могут быть указаны параметрами <placeholder-5/> для очистки статуса, <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> и <placeholder-10/>."
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
+"<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
+msgstr ""
 
 #. (option)
 #. (option)

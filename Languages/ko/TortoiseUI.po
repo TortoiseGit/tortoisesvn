@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2015 the TortoiseSVN team
+# Copyright (C) 2004-2016 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-14 09:49+0000\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
+"PO-Revision-Date: 2016-01-05 09:18+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -206,7 +206,7 @@ msgstr "%Ts\n%Ts"
 #. Resource IDs: (IDS_MONITOR_NOTIFY_MULTITITLE)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d개의 프로젝트가 업데이트 되었습니다:"
 
 #. Resource IDs: (IDS_ALPHABUTTONTT)
 #, c-format
@@ -269,7 +269,7 @@ msgstr "%ls, 그러나 디렉토리가 로컬에서 버전관리 대상이 아�
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%ls, 그러나 로컬에서는 디렉토리를 찾을 수 없습니다 (삭제 또는 이동?)."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
 #, c-format
@@ -319,7 +319,7 @@ msgstr "%ls, 그러나 파일이 로컬에서 버전관리 대상이 아닌채�
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%ls, 그러나 로컬에서는 파일을 찾을 수 없습니다 (삭제 또는 이동?)."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
 #, c-format
@@ -463,7 +463,7 @@ msgstr "속성을 재귀적으로 적용(&A)"
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
 msgid "&Apply the update to the move destination"
-msgstr ""
+msgstr "이동 방향으로 업데이트 적용(&A)"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
@@ -531,7 +531,7 @@ msgstr "브랜치(&B)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "잠금을 강제 해제(&B)"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -589,7 +589,7 @@ msgstr "정리(&C)..."
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "변경 목록 지우기(&C)"
 
 #. Resource IDs: (58112, Dialog IDD_CHECKFORUPDATES: Control id 1, IDS_CLOSE)
 msgid "&Close"
@@ -691,7 +691,7 @@ msgstr "삭제(&D) (작업사본은 유지)"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "필터 삭제(&D)"
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1514)
 msgid "&Delete unversioned items..."
@@ -736,7 +736,7 @@ msgstr "편집(&E)"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "필터 편집(&E)"
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
 #. IDD_EDITPROPCONFLICT: Control id 1542)
@@ -749,7 +749,7 @@ msgstr "충돌 상황 편집(&E)"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITOREDIT)
 msgid "&Edit project"
-msgstr ""
+msgstr "프로젝트 편집(&E)"
 
 #. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
@@ -813,7 +813,7 @@ msgstr "찾기(&F)"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "찾기...\t(Ctrl+&F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
@@ -2016,7 +2016,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
-msgid "Add to %1!ls!"
+msgid "Add to %1"
 msgstr ""
 
 #. Resource IDs: (IDS_MENUIGNORE)
@@ -3657,7 +3657,7 @@ msgstr "선택한 부분을 복사하고 클립보드에 넣음\n복사"
 
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
-msgid "Copy to %1!ls!"
+msgid "Copy to %1"
 msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
@@ -6177,7 +6177,7 @@ msgstr "%1!ls! 폴더를\r\n%2!ls!(으)로 임포트"
 
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
-msgid "Import to %1!ls!"
+msgid "Import to %1"
 msgstr ""
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
@@ -7142,7 +7142,7 @@ msgstr "특수 파일이나 디렉토리 이동"
 
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
-msgid "Move to %1!ls!"
+msgid "Move to %1"
 msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)

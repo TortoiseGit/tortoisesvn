@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2015 the TortoiseSVN team
+# Copyright (C) 2004-2016 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -17,7 +17,7 @@
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2015.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2015
@@ -30,16 +30,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2015-12-14 11:21+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2016-01-05 09:18+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
+#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -53,7 +53,6 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -2024,8 +2023,8 @@ msgstr "Projekt oder Ordner hinzufügen..."
 
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
-msgid "Add to %1!ls!"
-msgstr "Zu %1!ls! hinzufügen"
+msgid "Add to %1"
+msgstr ""
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -3665,8 +3664,8 @@ msgstr "Copy the selection and put it on the Clipboard\nCopy"
 
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
-msgid "Copy to %1!ls!"
-msgstr "In %1!ls! kopieren"
+msgid "Copy to %1"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -4685,11 +4684,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
-"Codierung\n"
-"Konvertiert in die angegebene Codierung\n"
-"Halten Sie die Strg Taste gedrückt, um die Datei in der angegebenen "
-"Codierung zu laden."
+msgstr "Codierung\nKonvertiert in die angegebene Codierung\nHalten Sie die Strg Taste gedrückt, um die Datei in der angegebenen Codierung zu laden."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -6189,8 +6184,8 @@ msgstr "Importiere Ordner %1!ls!\r\nnach %2!ls!"
 
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
-msgid "Import to %1!ls!"
-msgstr "In %1!ls! importieren"
+msgid "Import to %1"
+msgstr ""
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
 msgid ""
@@ -7154,8 +7149,8 @@ msgstr "Spezielle Datei oder Verzeichnis verschieben"
 
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
-msgid "Move to %1!ls!"
-msgstr "Nach %1!ls! verschieben"
+msgid "Move to %1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)
 msgid "Move to changelist"
@@ -7930,9 +7925,7 @@ msgstr "Bild:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
-"Bilder (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
-"*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Alle (*.*)|*.*||"
+msgstr "Bilder (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Alle (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
