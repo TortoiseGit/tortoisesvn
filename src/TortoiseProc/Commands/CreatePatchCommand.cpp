@@ -131,7 +131,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
             {
                 CComPtr<IFileDialogCustomize> pfdCustomize;
-                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                hr = pfd.QueryInterface(&pfdCustomize);
                 if (SUCCEEDED(hr))
                 {
                     pfdCustomize->StartVisualGroup(100, L"");
@@ -150,7 +150,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
             {
                 CComPtr<IFileDialogCustomize> pfdCustomize;
-                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                hr = pfd.QueryInterface(&pfdCustomize);
                 if (SUCCEEDED(hr))
                 {
                     pfdCustomize->GetCheckButtonState(101, &gitFormat);

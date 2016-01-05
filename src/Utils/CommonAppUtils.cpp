@@ -783,7 +783,7 @@ HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorki
     if ((acloOptions != ACLO_NONE) || (szCurrentWorkingDirectory != NULL))
     {
         CComPtr<IACList2> pal2;
-        hr = punkSource->QueryInterface(IID_PPV_ARGS(&pal2));
+        hr = punkSource.QueryInterface(&pal2);
         if (SUCCEEDED(hr))
         {
             if (acloOptions != ACLO_NONE)
@@ -794,7 +794,7 @@ HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorki
             if (szCurrentWorkingDirectory != NULL)
             {
                 CComPtr<ICurrentWorkingDirectory> pcwd;
-                hr = pal2->QueryInterface(IID_PPV_ARGS(&pcwd));
+                hr = pal2.QueryInterface(&pcwd);
                 if (SUCCEEDED(hr))
                 {
                     hr = pcwd->SetDirectory(szCurrentWorkingDirectory);
@@ -808,7 +808,7 @@ HRESULT CCommonAppUtils::EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorki
     if (acoOptions != ACO_NONE)
     {
         CComPtr<IAutoComplete2> pac2;
-        hr = pac->QueryInterface(IID_PPV_ARGS(&pac2));
+        hr = pac.QueryInterface(&pac2);
         if (SUCCEEDED(hr))
         {
             hr = pac2->SetOptions(acoOptions);

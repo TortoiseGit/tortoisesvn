@@ -120,7 +120,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         if (m_CheckText[0] != 0)
         {
             CComPtr<IFileDialogCustomize> pfdCustomize = 0;
-            hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+            hr = pfd.QueryInterface(&pfdCustomize);
             if (SUCCEEDED(hr))
             {
                 pfdCustomize->StartVisualGroup(100, L"");
@@ -150,7 +150,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
                 }
 
                 CComPtr<IFileDialogCustomize> pfdCustomize;
-                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                hr = pfd.QueryInterface(&pfdCustomize);
                 if (SUCCEEDED(hr))
                 {
                     pfdCustomize->GetCheckButtonState(101, &m_bCheck);

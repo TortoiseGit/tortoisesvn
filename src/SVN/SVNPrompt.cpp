@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -374,7 +374,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
 
             CComPtr<IFileDialogCustomize> pfdCustomize;
-            hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+            hr = pfd.QueryInterface(&pfdCustomize);
             if (SUCCEEDED(hr))
             {
                 pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SSL_SAVE_CERTPATH)), FALSE);
@@ -384,7 +384,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
             if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
             {
                 CComPtr<IFileDialogCustomize> pfdCustomizeRet;
-                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomizeRet));
+                hr = pfd.QueryInterface(&pfdCustomizeRet);
                 if (SUCCEEDED(hr))
                 {
                     BOOL bChecked = FALSE;

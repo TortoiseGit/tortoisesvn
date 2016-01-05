@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -879,7 +879,7 @@ bool SyncCommand::FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWN
         if (!bOpen)
         {
             CComPtr<IFileDialogCustomize> pfdCustomize;
-            hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+            hr = pfd.QueryInterface(&pfdCustomize);
             if (SUCCEEDED(hr))
             {
                 pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SYNC_INCLUDELOCAL)), FALSE);
@@ -902,7 +902,7 @@ bool SyncCommand::FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWN
                     if (!bOpen)
                     {
                         CComPtr<IFileDialogCustomize> pfdCustomize;
-                        hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                        hr = pfd.QueryInterface(&pfdCustomize);
                         if (SUCCEEDED(hr))
                         {
                             pfdCustomize->GetCheckButtonState(101, &bWithLocals);
