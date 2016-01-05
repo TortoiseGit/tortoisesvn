@@ -52,7 +52,7 @@
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
 
-    <if test="${configuration == 'release' and platform == 'win32'}">
+    <if test="${platform == 'win32'}">
       <!-- first build a dll that's linked statically to the CRT, and also links apr and apr-util
            statically. This dll is only used for the shell extension part for 32-bit apps on
            x64 OS, so no need for networking stuff to be compiled/linked in. -->
@@ -65,7 +65,7 @@
         </filterchain>
       </loadfile>
       <echo file="subversion\svn_private_config.h" message="${configh}" />
-      <foreach item="Folder" property="foldername" if="${configuration == 'release' and platform == 'win32'}">
+      <foreach item="Folder" property="foldername" if="${platform == 'win32'}">
         <in>
           <items>
             <include name="subversion\libsvn*" />

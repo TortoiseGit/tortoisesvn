@@ -47,9 +47,9 @@
       </includedirs>
     </rc>
 
-    <mkdir dir="${configuration}_${platform}_static" if="${configuration == 'release' and platform == 'win32'}"/>
+    <mkdir dir="${configuration}_${platform}_static" if="${platform == 'win32'}"/>
     <property name="machineoption" value="/MACHINE:X86" />
-    <cl outputdir="${configuration}_${platform}_static" if="${configuration == 'release' and platform == 'win32'}">
+    <cl outputdir="${configuration}_${platform}_static" if="${platform == 'win32'}">
       <arg value="/O2" if="${configuration == 'release'}" />
       <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
@@ -106,7 +106,7 @@
     </cl>
     <lib
       output="${configuration}_${platform}_static\libaprutil_tsvn.lib"
-      options='/NOLOGO ${subsystem} ${machineoption}' if="${configuration == 'release' and platform == 'win32'}">
+      options='/NOLOGO ${subsystem} ${machineoption}' if="${platform == 'win32'}">
       <sources>
         <include name="${configuration}_${platform}_static\*.obj" />
       </sources>

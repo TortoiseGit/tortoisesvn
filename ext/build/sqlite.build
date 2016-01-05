@@ -57,8 +57,8 @@
       </defines>
     </cl>
 
-    <mkdir dir="${configuration}_${platform}_static" if="${configuration == 'release' and platform == 'win32'}" />
-    <cl outputdir="${configuration}_${platform}_static" if="${configuration == 'release' and platform == 'win32'}">
+    <mkdir dir="${configuration}_${platform}_static" if="${platform == 'win32'}" />
+    <cl outputdir="${configuration}_${platform}_static" if="${platform == 'win32'}">
       <arg value="/O2" if="${configuration == 'release'}" />
       <arg value="/Oy-" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/Od" if="${configuration == 'debug'}" />
@@ -106,7 +106,7 @@
     <lib
       output="${configuration}_${platform}_static\sqlite.lib"
       options='/NOLOGO ${subsystem} ${machineoption}'
-      if="${configuration == 'release' and platform == 'win32'}">
+      if="${platform == 'win32'}">
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}_static\*.obj" />
