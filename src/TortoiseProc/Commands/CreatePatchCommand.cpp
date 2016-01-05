@@ -117,12 +117,11 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             // set the default folder
             if (SUCCEEDED(hr))
             {
-                IShellItem* psiDefault = 0;
+                CComPtr<IShellItem> psiDefault = 0;
                 hr = SHCreateItemFromParsingName(root.GetWinPath(), NULL, IID_PPV_ARGS(&psiDefault));
                 if (SUCCEEDED(hr))
                 {
                     hr = pfd->SetFolder(psiDefault);
-                    psiDefault->Release();
                 }
             }
             bool bAdvised = false;

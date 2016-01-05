@@ -103,15 +103,13 @@ HRESULT OpenShellLibrary(LPWSTR pwszLibraryName, IShellLibrary** ppShellLib)
     HRESULT hr;
     *ppShellLib = NULL;
 
-    IShellItem2* pShellItem = NULL;
+    CComPtr<IShellItem2> pShellItem = NULL;
     hr = GetShellLibraryItem(pwszLibraryName, &pShellItem);
     if (FAILED(hr))
         return hr;
 
     // Get the shell library object from the shell item with a read and write permissions
     hr = SHLoadLibraryFromItem(pShellItem, STGM_READWRITE, IID_PPV_ARGS(ppShellLib));
-
-    pShellItem->Release();
 
     return hr;
 }

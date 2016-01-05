@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2014 - TortoiseSVN
+// Copyright (C) 2011-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -97,7 +97,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
 #endif
             if (!uuid.empty())
             {
-                ITaskbarList3 * pTaskbarInterface = NULL;
+                CComPtr<ITaskbarList3> pTaskbarInterface;
                 HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, reinterpret_cast<void**> (&(pTaskbarInterface)));
 
                 if (SUCCEEDED(hr))
@@ -140,7 +140,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
 
                     HICON icon = ::CreateIcon(NULL,16,16,1,32,AND,(BYTE*)XOR);
                     pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
-                    pTaskbarInterface->Release();
+                    pTaskbarInterface.Release();
                     DestroyIcon(icon);
                 }
             }
