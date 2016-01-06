@@ -20,6 +20,7 @@
 #include "stdafx.h"
 #include "IconBitmapUtils.h"
 #include "registry.h"
+#include "OnOutOfScope.h"
 
 #pragma comment(lib, "UxTheme.lib")
 
@@ -43,7 +44,7 @@ HBITMAP IconBitmapUtils::IconToBitmap(HINSTANCE hInst, UINT uIcon)
     HICON hIcon = (HICON)LoadImage(hInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 12, 12, LR_DEFAULTCOLOR);
     if (!hIcon)
         return NULL;
-    OnOutOfScope(DestroyIcon(hIcon););
+    OnOutOfScope(DestroyIcon(hIcon));
 
     RECT rect;
 

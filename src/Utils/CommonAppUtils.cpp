@@ -28,6 +28,7 @@
 #include "SelectFileFilter.h"
 #include "SmartHandle.h"
 #include "PreserveChdir.h"
+#include "OnOutOfScope.h"
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
@@ -336,7 +337,7 @@ bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int w
     HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(nID), IMAGE_ICON, width, height, LR_DEFAULTCOLOR);
     if (!hIcon)
         return false;
-    OnOutOfScope(DestroyIcon(hIcon););
+    OnOutOfScope(DestroyIcon(hIcon));
 
     RECT rect = {0};
     rect.right = width;
@@ -349,13 +350,13 @@ bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int w
     HDC screen_dev = ::GetDC(desktop);
     if (!screen_dev)
         return false;
-    OnOutOfScope(::ReleaseDC(desktop, screen_dev););
+    OnOutOfScope(::ReleaseDC(desktop, screen_dev));
 
     // Create a compatible DC
     HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
     if (!dst_hdc)
         return false;
-    OnOutOfScope(::DeleteDC(dst_hdc););
+    OnOutOfScope(::DeleteDC(dst_hdc));
 
     // Create a new bitmap of icon size
     HBITMAP bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);

@@ -22,6 +22,7 @@
 #include "BrowseFolder.h"
 #include "PathUtils.h"
 #include "SmartHandle.h"
+#include "OnOutOfScope.h"
 #include <strsafe.h>
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
@@ -100,7 +101,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         //is the dialog canceled?
         if (!itemIDList)
             return CANCEL;
-        OnOutOfScope(CoTaskMemFree((LPVOID)itemIDList););
+        OnOutOfScope(CoTaskMemFree((LPVOID)itemIDList));
 
         if (!SHGetPathFromIDList(itemIDList, CStrBuf(path, MAX_PATH)))		// MAX_PATH ok. Explorer can't handle paths longer than MAX_PATH.
             return NOPATH;
