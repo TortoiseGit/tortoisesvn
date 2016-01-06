@@ -1,5 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2016 - TortoiseGit
 // Copyright (C) 2011-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
@@ -23,6 +24,7 @@
 #include "CmdLineParser.h"
 
 #include <Shobjidl.h>
+#include "SmartHandle.h"
 #include <atlbase.h>
 
 #define APPID (L"TSVN.TSVN.1")
@@ -31,7 +33,7 @@
 void SetTaskIDPerUUID()
 {
     typedef HRESULT STDAPICALLTYPE SetCurrentProcessExplicitAppUserModelIDFN(PCWSTR AppID);
-    HMODULE hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
+    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
     if (hShell)
     {
         SetCurrentProcessExplicitAppUserModelIDFN *pfnSetCurrentProcessExplicitAppUserModelID = (SetCurrentProcessExplicitAppUserModelIDFN*)GetProcAddress(hShell, "SetCurrentProcessExplicitAppUserModelID");
@@ -40,7 +42,6 @@ void SetTaskIDPerUUID()
             std::wstring id = GetTaskIDPerUUID();
             pfnSetCurrentProcessExplicitAppUserModelID(id.c_str());
         }
-        ::FreeLibrary(hShell);
     }
 }
 
@@ -83,67 +84,64 @@ extern CString g_sGroupingUUID;
 
 void SetUUIDOverlayIcon( HWND hWnd )
 {
-    if (CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3))
-    {
-        if (CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay", TRUE))
-        {
-            std::wstring uuid;
+    if (!CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3))
+        return;
+
+    if (!CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay", TRUE))
+        return;
+
+    std::wstring uuid;
 #ifdef _MFC_VER
-            uuid = g_sGroupingUUID;
+    uuid = g_sGroupingUUID;
 #else
-            CCmdLineParser parser(GetCommandLine());
-            if (parser.HasVal(L"groupuuid"))
-                uuid = parser.GetVal(L"groupuuid");
+    CCmdLineParser parser(GetCommandLine());
+    if (parser.HasVal(L"groupuuid"))
+        uuid = parser.GetVal(L"groupuuid");
 #endif
-            if (!uuid.empty())
-            {
-                CComPtr<ITaskbarList3> pTaskbarInterface;
-                HRESULT hr = pTaskbarInterface.CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER);
+    if (uuid.empty())
+        return;
 
-                if (SUCCEEDED(hr))
-                {
-                    int foundUUIDIndex = 0;
-                    do
-                    {
-                        wchar_t buf[MAX_PATH] = { 0 };
-                        swprintf_s(buf, _countof(buf), L"%s%d", L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\", foundUUIDIndex);
-                        CRegStdString r = CRegStdString(buf);
-                        std::wstring sr = r;
-                        if (sr.empty() || (sr.compare(uuid)==0))
-                        {
-                            r = uuid;
-                            break;
-                        }
-                        foundUUIDIndex++;
-                    } while (foundUUIDIndex < 20);
-                    if (foundUUIDIndex >= 20)
-                    {
-                        CRegStdString r = CRegStdString(L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\1");
-                        r.removeKey();
-                    }
+    CComPtr<ITaskbarList3> pTaskbarInterface;
+    if (FAILED(pTaskbarInterface.CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER)))
+        return;
 
-                    DWORD colors[6] = {0x80FF0000, 0x80FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0x8000FFFF};
-
-                    // AND mask - monochrome - determines which pixels get drawn
-                    BYTE AND[32];
-                    for( int i=0; i<32; i++ )
-                    {
-                        AND[i] = 0xFF;
-                    }
-
-                    // XOR mask - 32bpp ARGB - determines the pixel values
-                    DWORD XOR[256];
-                    for( int i=0; i<256; i++ )
-                    {
-                        XOR[i] = colors[foundUUIDIndex % 6];
-                    }
-
-                    HICON icon = ::CreateIcon(NULL,16,16,1,32,AND,(BYTE*)XOR);
-                    pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
-                    pTaskbarInterface.Release();
-                    DestroyIcon(icon);
-                }
-            }
+    int foundUUIDIndex = 0;
+    do
+    {
+        wchar_t buf[MAX_PATH] = { 0 };
+        swprintf_s(buf, _countof(buf), L"%s%d", L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\", foundUUIDIndex);
+        CRegStdString r = CRegStdString(buf);
+        std::wstring sr = r;
+        if (sr.empty() || (sr.compare(uuid)==0))
+        {
+            r = uuid;
+            break;
         }
+        foundUUIDIndex++;
+    } while (foundUUIDIndex < 20);
+    if (foundUUIDIndex >= 20)
+    {
+        CRegStdString r = CRegStdString(L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\1");
+        r.removeKey();
     }
+
+    DWORD colors[6] = { 0x80FF0000, 0x80FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0x8000FFFF };
+
+    // AND mask - monochrome - determines which pixels get drawn
+    BYTE AND[32];
+    for (int i = 0; i<32; i++)
+    {
+        AND[i] = 0xFF;
+    }
+
+    // XOR mask - 32bpp ARGB - determines the pixel values
+    DWORD XOR[256];
+    for (int i = 0; i<256; i++)
+    {
+        XOR[i] = colors[foundUUIDIndex % 6];
+    }
+
+    HICON icon = ::CreateIcon(NULL,16,16,1,32,AND,(BYTE*)XOR);
+    pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
+    DestroyIcon(icon);
 }

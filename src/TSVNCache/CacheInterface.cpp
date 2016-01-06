@@ -163,28 +163,28 @@ CBlockCacheForPath::CBlockCacheForPath(const WCHAR * aPath)
 {
     wcsncpy_s(path, aPath, MAX_PATH - 1);
 
-    if (SendCacheCommand(TSVNCACHECOMMAND_BLOCK, path))
-    {
-        // Wait a short while to make sure the cache has
-        // processed this command. Without this, we risk
-        // executing the svn command before the cache has
-        // blocked the path and already gets change notifications.
-        Sleep(20);
-        m_bBlocked = true;
-    }
+    if (!SendCacheCommand(TSVNCACHECOMMAND_BLOCK, path))
+        return;
+
+    // Wait a short while to make sure the cache has
+    // processed this command. Without this, we risk
+    // executing the svn command before the cache has
+    // blocked the path and already gets change notifications.
+    Sleep(20);
+    m_bBlocked = true;
 }
 
 CBlockCacheForPath::~CBlockCacheForPath()
 {
-    if (m_bBlocked)
-    {
-        for (int retry = 0; retry < 3; retry++)
-        {
-            if (retry > 0)
-                Sleep(10);
+    if (!m_bBlocked)
+        return;
 
-            if (SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
-                break;
-        }
+    for (int retry = 0; retry < 3; retry++)
+    {
+        if (retry > 0)
+            Sleep(10);
+
+        if (SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, path))
+            break;
     }
 }
