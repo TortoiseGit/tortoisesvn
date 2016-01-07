@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,6 @@ CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
     EnableHtmlHelp();
     apr_initialize();
     svn_dso_initialize2();
-    SYS_IMAGE_LIST();
     CHooks::Create();
     g_SVNAdminDir.Init();
     m_bLoadUserToolbars = FALSE;
@@ -95,7 +94,6 @@ CTortoiseProcApp::~CTortoiseProcApp()
     // *now* instead of later when the object itself is destroyed.
     g_SVNAdminDir.Close();
     CHooks::Destroy();
-    SYS_IMAGE_LIST().Cleanup();
     apr_terminate();
     sasl_done();
 }
@@ -238,6 +236,8 @@ BOOL CTortoiseProcApp::InitInstance()
     AfxInitRichEdit5();
     CWinAppEx::InitInstance();
     SetRegistryKey(L"TortoiseSVN");
+
+    SYS_IMAGE_LIST();
 
     CCmdLineParser parser(AfxGetApp()->m_lpCmdLine);
 
@@ -600,6 +600,8 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
 
 int CTortoiseProcApp::ExitInstance()
 {
+    SYS_IMAGE_LIST().Cleanup();
+
     CWinAppEx::ExitInstance();
     if (retSuccess)
         return 0;
