@@ -68,6 +68,7 @@ private:
 private:
     bool    retSuccess;
     HWND    hWndExplorer;
+    apr_pool_t *m_GlobalPool;
     void CheckForNewerVersion();
     void Sync();
 };

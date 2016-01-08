@@ -67,12 +67,14 @@ END_MESSAGE_MAP()
 //////////////////////////////////////////////////////////////////////////
 CCrashReportTSVN crasher(L"TortoiseSVN " _T(APP_X64_STRING));
 
-CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
+CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL), m_GlobalPool(NULL)
 {
     SetDllDirectory(L"");
     EnableHtmlHelp();
     apr_initialize();
     svn_dso_initialize2();
+    m_GlobalPool = svn_pool_create(NULL);
+    svn_utf_initialize2(FALSE, m_GlobalPool);
     CHooks::Create();
     g_SVNAdminDir.Init();
     m_bLoadUserToolbars = FALSE;
@@ -94,6 +96,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
     // *now* instead of later when the object itself is destroyed.
     g_SVNAdminDir.Close();
     CHooks::Destroy();
+    svn_pool_destroy(m_GlobalPool);
     apr_terminate();
     sasl_done();
 }

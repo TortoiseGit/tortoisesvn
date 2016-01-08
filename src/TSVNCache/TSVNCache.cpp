@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014-2015 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,6 +135,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
     apr_initialize();
     svn_dso_initialize2();
+    apr_pool_t *utfPool = svn_pool_create(NULL);
+    svn_utf_initialize2(FALSE, utfPool);
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     g_SVNAdminDir.Init();
     CSVNStatusCache::Create();
@@ -217,6 +219,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     Shell_NotifyIcon(NIM_DELETE,&niData);
     CSVNStatusCache::Destroy();
     g_SVNAdminDir.Close();
+    svn_pool_destroy(utfPool);
     apr_terminate();
 
     return 0;
