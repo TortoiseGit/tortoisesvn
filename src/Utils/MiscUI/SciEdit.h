@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "../SmartHandle.h"
 #include "scintilla.h"
 #include "SciLexer.h"
 #include "../../../ext/hunspell/hunspell.hxx"
@@ -129,11 +130,11 @@ public:
 
     void        RestyleBugIDs();
 private:
-    HMODULE     m_hModule;
+    CAutoLibrary m_hModule;
     LRESULT     m_DirectFunction;
     LRESULT     m_DirectPointer;
-    Hunspell *  pChecker;
-    MyThes *    pThesaur;
+    std::unique_ptr<Hunspell> pChecker;
+    std::unique_ptr<MyThes>   pThesaur;
     UINT        m_spellcodepage;
     std::map<CString, int> m_autolist;
     TCHAR       m_separator;

@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015 - TortoiseSVN
-// Copyright (C) 2015 - TortoiseGit
+// Copyright (C) 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 #include <string>
 #include "registry.h"
 #include "SciEdit.h"
-
+#include "OnOutOfScope.h"
 
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
@@ -72,8 +72,6 @@ IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
 
 CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_DirectPointer(NULL)
-    , pChecker(NULL)
-    , pThesaur(NULL)
     , m_bDoStyle(false)
     , m_spellcodepage(0)
     , m_separator(' ')
@@ -88,10 +86,6 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
 CSciEdit::~CSciEdit(void)
 {
     m_personalDict.Save();
-    if (m_hModule)
-        ::FreeLibrary(m_hModule);
-    delete pChecker;
-    delete pThesaur;
 }
 
 static std::unique_ptr<UINT[]> Icon2Image(HICON hIcon)
@@ -124,21 +118,15 @@ static std::unique_ptr<UINT[]> Icon2Image(HICON hIcon)
     LPBYTE pixelsIconRGB = ptrb.get();
     LPBYTE alphaPixels = pixelsIconRGB + size;
     HDC hDC = CreateCompatibleDC(nullptr);
+    OnOutOfScope(DeleteDC(hDC));
     HBITMAP hBmpOld = (HBITMAP)SelectObject(hDC, (HGDIOBJ)iconInfo.hbmColor);
     if (!GetDIBits(hDC, iconInfo.hbmColor, 0, height, (LPVOID)pixelsIconRGB, &infoheader, DIB_RGB_COLORS))
-    {
-        DeleteDC(hDC);
         return nullptr;
-    }
 
     SelectObject(hDC, hBmpOld);
     if (!GetDIBits(hDC, iconInfo.hbmMask, 0,height, (LPVOID)alphaPixels, &infoheader, DIB_RGB_COLORS))
-    {
-        DeleteDC(hDC);
         return nullptr;
-    }
 
-    DeleteDC(hDC);
     auto imagePixels = std::make_unique<UINT[]>(height * width);
     int lsSrc = width * 3;
     int vsDest = height - 1;
@@ -339,32 +327,32 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
         if ((PathFileExists(sFolderAppData + L"dic\\" + sFile + L".aff")) &&
             (PathFileExists(sFolderAppData + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".dic")));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".dic")));
         }
         else if ((PathFileExists(sFolder + sFile + L".aff")) &&
             (PathFileExists(sFolder + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolder + sFile + L".aff"), CStringA(sFolder + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolder + sFile + L".aff"), CStringA(sFolder + sFile + L".dic"));
         }
         else if ((PathFileExists(sFolder + L"dic\\" + sFile + L".aff")) &&
             (PathFileExists(sFolder + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolder + L"dic\\" + sFile + L".aff"), CStringA(sFolder + L"dic\\" + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolder + L"dic\\" + sFile + L".aff"), CStringA(sFolder + L"dic\\" + sFile + L".dic"));
         }
         else if ((PathFileExists(sFolderUp + sFile + L".aff")) &&
             (PathFileExists(sFolderUp + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + sFile + L".aff"), CStringA(sFolderUp + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + sFile + L".aff"), CStringA(sFolderUp + sFile + L".dic"));
         }
         else if ((PathFileExists(sFolderUp + L"dic\\" + sFile + L".aff")) &&
             (PathFileExists(sFolderUp + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + L"dic\\" + sFile + L".aff"), CStringA(sFolderUp + L"dic\\" + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + L"dic\\" + sFile + L".aff"), CStringA(sFolderUp + L"dic\\" + sFile + L".dic"));
         }
         else if ((PathFileExists(sFolderUp + L"Languages\\" + sFile + L".aff")) &&
             (PathFileExists(sFolderUp + L"Languages\\" + sFile + L".dic")))
         {
-            pChecker = new Hunspell(CStringA(sFolderUp + L"Languages\\" + sFile + L".aff"), CStringA(sFolderUp + L"Languages\\" + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + L"Languages\\" + sFile + L".aff"), CStringA(sFolderUp + L"Languages\\" + sFile + L".dic"));
         }
     }
 #if THESAURUS
@@ -373,32 +361,32 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
         if ((PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
             (PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat"))))
         {
-            pThesaur = new MyThes(CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat")));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat")));
         }
         else if ((PathFileExists(sFolder + L"th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolder + L"th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolder + sFile + L"_v2.idx"), CStringA(sFolder + sFile + L"_v2.dat"));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolder + sFile + L"_v2.idx"), CStringA(sFolder + sFile + L"_v2.dat"));
         }
         else if ((PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolder + L"dic\\" + sFile + L"_v2.idx"), CStringA(sFolder + L"dic\\" + sFile + L"_v2.dat"));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolder + L"dic\\" + sFile + L"_v2.idx"), CStringA(sFolder + L"dic\\" + sFile + L"_v2.dat"));
         }
         else if ((PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + L"th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"th_" + sFile + L"_v2.dat"));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"th_" + sFile + L"_v2.dat"));
         }
         else if ((PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat"));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat"));
         }
         else if ((PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx")) &&
             (PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat")))
         {
-            pThesaur = new MyThes(CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat"));
+            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat"));
         }
     }
 #endif
