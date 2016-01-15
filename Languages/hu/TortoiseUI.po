@@ -11,14 +11,15 @@
 # Authors:
 # Translators:
 # Baquatelle <abel@abel.hu>, 2012
+# Balázs Meskó <meskobalazs@gmail.com>, 2016
 # Petrovics Sándor <egeramasrol@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:18+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-01-11 18:59+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/luebbe/tortoisesvn/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +47,7 @@ msgstr "! %d"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1262)
 msgid "# authors shown individually:"
-msgstr "Megjelenített fejlesztők száma:"
+msgstr "Megjelenített szerzők száma:"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALMBTRANSFERRED)
 #, c-format
@@ -92,7 +93,7 @@ msgstr "%1!d! fájl van kiválasztva, összesen %2!d! fájl"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "A(z) %1!d! legaktívabb fejlesztő, egyenként legalább %2!d! beküldéssel (%3!d! %%)"
+msgstr "A(z) %1!d! legaktívabb szerző, egyenként legalább %2!d! beküldéssel (%3!d! %%)"
 
 #. Resource IDs: (IDS_PROGRS_TIME)
 #, c-format
@@ -117,7 +118,7 @@ msgstr "%1!ls! : Alappéldány, Verzió: %2!ld!"
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
 msgid "%1!ls! in %2!ls!"
-msgstr ""
+msgstr "%1!ls! itt: %2!ls!"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
@@ -127,12 +128,12 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
 msgid "%1!ls!\\%2!ls! - Export"
-msgstr ""
+msgstr "%1!ls!\\%2!ls! - Exportálás"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME2)
 #, c-format
 msgid "%1!ls!\\%2!ls! - Export (%3!d!)"
-msgstr ""
+msgstr "%1!ls!\\%2!ls! - Exportálás (%3!d!)"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFODIR)
 #, c-format
@@ -188,14 +189,14 @@ msgstr "%I64d kB forgalom"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Helyreállított]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_MULTITITLE)
 #, c-format
@@ -208,7 +209,7 @@ msgid ""
 "%i%% alpha\n"
 "click to toggle alpha\n"
 "double click to automatically toggle alpha"
-msgstr ""
+msgstr "%i%% alfa\nkattints az alfa bekapcsolásához\nkattints duplán az alfa automatikus bekapcsolásához"
 
 #. Resource IDs: (IDS_DIMENSIONSANDFRAMES)
 #, c-format
@@ -238,7 +239,7 @@ msgstr "%ls (rekurzívan)"
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
 msgid "%ls : Merged file"
-msgstr ""
+msgstr "%ls: Egyesített fájl"
 
 #. Resource IDs: (IDS_DIFF_REMOTENAME)
 #, c-format
@@ -273,17 +274,17 @@ msgstr "%ls, de hiányzik a helyi könyvtár."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
 #, c-format
 msgid "%ls, but the directory was already added locally."
-msgstr "%ls, de már hozzá van adva a helyi könyvtár."
+msgstr "%ls, de már hozzá lett adva a helyi könyvtár."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
 #, c-format
 msgid "%ls, but the directory was already edited."
-msgstr "%ls, de már módosítva van a könyvtár."
+msgstr "%ls, de már módosítva lett a könyvtár."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
 #, c-format
 msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, de a helyi könyvtár már törlődött, átneveződött vagy el lett mozgatva."
+msgstr "%ls, de a helyi könyvtárt már törölték, átnevezték vagy el lett mozgatva."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
 #, c-format
@@ -293,7 +294,7 @@ msgstr "%ls, de a könyvtár máshová lett áthelyezve"
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDHERE)
 #, c-format
 msgid "%ls, but the directory was moved here"
-msgstr ""
+msgstr "%ls, de a könyvtár ide lett áthelyezve"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
 #, c-format
@@ -313,7 +314,7 @@ msgstr "%ls, de már létezik ilyen nevű, verziókezelésen kívüli fájl."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%ls, de hiányzik a helyi fájl (törölték vagy máshová helyezték át?)."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
 #, c-format
@@ -333,48 +334,48 @@ msgstr "%ls, de a fájl már szerkesztve volt."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
 #, c-format
 msgid "%ls, but the file was deleted, moved or renamed locally."
-msgstr ""
+msgstr "%ls, de a fájlt már törölték, átnevezték vagy el lett mozgatva."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY)
 #, c-format
 msgid "%ls, but the file was moved away"
-msgstr ""
+msgstr "%ls, de a fájl máshová lett áthelyezve"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDHERE)
 #, c-format
 msgid "%ls, but the file was moved here"
-msgstr ""
+msgstr "%ls, de a fájl ide lett áthelyezve"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED)
 #, c-format
 msgid "%ls, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%ls, de a munkapéldányban a fájl akadályozva volt."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_REPLACED)
 #, c-format
 msgid "%ls, but the file was replaced"
-msgstr ""
+msgstr "%ls, de a fájl kicserélték"
 
 #. Resource IDs: (IDS_PATCH_ITEMTT)
 #, c-format
 msgid ""
 "%ls\n"
 "%ld failed hunk(s)"
-msgstr ""
+msgstr "%ls\n%ld sikertelen darab"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK1_1)
 #, c-format
 msgid ""
 "%ls\n"
 "Do you want to remove the %d files anyway?"
-msgstr ""
+msgstr "%ls\nMégis le szeretnéd törölni a(z) %d fájlt?"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK1)
 #, c-format
 msgid ""
 "%ls\n"
 "Do you want to remove the file '%ls' anyway?"
-msgstr ""
+msgstr "%ls\nMégis le szeretnéd törölni a(z) „%ls” fájlt?"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK1_2)
 #, c-format
@@ -382,7 +383,7 @@ msgid ""
 "%ls\n"
 "The folder %ls\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
+msgstr "%ls\nA(z) %ls könyvtár\nnem verziókezelt vagy módosított fájlokat tartalmaz. Mégis le szeretnéd törölni? "
 
 #. Resource IDs: (IDS_ERR_FILE_NOTAFILE)
 #, c-format
@@ -390,7 +391,7 @@ msgid ""
 "%ls\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr "%ls\negy mappa, nem egy fájl!\nA TortoiseMerge nem tud mappákat összehasonlítani."
+msgstr "%ls\negy könyvtár, nem egy fájl!\nA TortoiseMerge nem tud mappákat összehasonlítani."
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -402,11 +403,11 @@ msgstr "&A TortoiseMerge névjegye..."
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
 msgid "&Accept current working copy state (mark as resolved)"
-msgstr ""
+msgstr "&Jelenlegi munkapéldány állapot elfogadása (megjelölés megoldottként)"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
-msgstr "&Akívál"
+msgstr "&Akíválás"
 
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
@@ -414,11 +415,11 @@ msgstr "Hozzá&adás"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
-msgstr "&Hozzáad >>"
+msgstr "&Hozzáadás >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "Szűrő &hozzáadása"
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -426,16 +427,16 @@ msgstr "&Gombok hozzáadása/eltávolítása"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
-msgstr "&Hozzáadás..."
+msgstr "&Hozzáadás…"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1090, Dialog
 #. IDD_SETTINGSPROGSMERGE: Control id 1093)
 msgid "&Advanced..."
-msgstr "&Speciális..."
+msgstr "&Haladó…"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1505)
 msgid "&All"
-msgstr ""
+msgstr "Össz&es"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1471)
 msgid "&Allow ambiguous URLs"
@@ -505,19 +506,19 @@ msgstr "Verziók &hibáztatása"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
-msgstr "&Hibáztatás..."
+msgstr "&Hibáztatás…"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
-msgstr "&Kék"
+msgstr "&Kék:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
-msgstr ""
+msgstr "&Keret:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1568)
 msgid "&Bottom"
-msgstr ""
+msgstr "&Alsó"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Branches"
@@ -525,7 +526,7 @@ msgstr "&Mellékágak"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break locks"
-msgstr ""
+msgstr "Zárolások &feltörése"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -534,7 +535,7 @@ msgstr "&A tároló böngészése"
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1001, Dialog IDD_OPENDLG:
 #. Control id 1009)
 msgid "&Browse..."
-msgstr "&Tallózás..."
+msgstr "&Tallózás…"
 
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
@@ -542,7 +543,7 @@ msgstr "&Bugtraq (Hibakövető rendszer integrálása)"
 
 #. Resource IDs: (16913 - Menu)
 msgid "&Button Appearance..."
-msgstr "&Gombok kinézete..."
+msgstr "&Gombok kinézete…"
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
@@ -571,7 +572,7 @@ msgstr "Paran&cs kiválasztása:"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Válassz ki elemeket…"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1562)
 msgid "&Clean up working copy status"
@@ -579,11 +580,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUCLEANUP)
 msgid "&Clean up..."
-msgstr "&Tisztítás..."
+msgstr "&Tisztítás…"
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "Változáslisták &törlése"
 
 #. Resource IDs: (58112, Dialog IDD_CHECKFORUPDATES: Control id 1, IDS_CLOSE)
 msgid "&Close"
@@ -595,7 +596,7 @@ msgstr "Ablak(ok) &bezárása"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "&Közreműködő felhasználóneve"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -603,7 +604,7 @@ msgstr "&Művelet:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
-msgstr "&Beküldés..."
+msgstr "&Beküldés…"
 
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF)
 msgid "&Compare URLs"
@@ -650,11 +651,11 @@ msgstr "&Másolás a vágólapra"
 
 #. Resource IDs: (IDS_REPOBROWSE_COPY)
 msgid "&Copy to..."
-msgstr "&Másolás adott helyre..."
+msgstr "&Másolás adott helyre…"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "Könyvtárszerkezet &létrehozása"
 
 #. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1560, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1097)
@@ -672,7 +673,7 @@ msgstr "&Ennyi nap múlva törlődnek a kis méretű gyorsítótárak"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1269)
 msgid "&Default"
-msgstr "&Alap"
+msgstr "&Alapértelmezett"
 
 #. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
 #. Control id 1382, IDS_MENUREMOVE)
@@ -685,15 +686,15 @@ msgstr "&Törlés (helyi példány megtartása)"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "Szűrő &törlése"
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1514)
 msgid "&Delete unversioned items..."
-msgstr "&Nem verziókezelt elemek törlése..."
+msgstr "&Nem verziókezelt elemek törlése…"
 
 #. Resource IDs: (IDS_REPOBROWSE_DELETE)
 msgid "&Delete..."
-msgstr "&Törlés..."
+msgstr "&Törlés…"
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -701,7 +702,7 @@ msgstr "&Összehasonlítás"
 
 #. Resource IDs: (IDS_MENUURLDIFF)
 msgid "&Diff with URL"
-msgstr "&Összehasonlítás URL-lel"
+msgstr "&Összehasonlítás URL-el"
 
 #. Resource IDs: (IDS_MENUPREVDIFF)
 msgid "&Diff with previous version"
@@ -709,11 +710,11 @@ msgstr "&Összehasonlítás az előző verzióval"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1528)
 msgid "&Directories"
-msgstr "&Mappák"
+msgstr "&Könyvtárak"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1562)
 msgid "&Do not ask again"
-msgstr ""
+msgstr "&Ne kérdezze újra"
 
 #. Resource IDs: (17040)
 msgid "&Docking"
@@ -730,7 +731,7 @@ msgstr "&Szerkesztés"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Szűrő szerkesztése"
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
 #. IDD_EDITPROPCONFLICT: Control id 1542)
@@ -743,21 +744,21 @@ msgstr "&Konfliktusok szerkesztése"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITOREDIT)
 msgid "&Edit project"
-msgstr ""
+msgstr "&Projekt szerkesztése"
 
 #. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
-msgstr "&Szerkesztés..."
+msgstr "&Szerkesztés…"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1542)
 msgid "&Empty the recycle bin now"
-msgstr ""
+msgstr "Kuka ürítés&e most"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1023)
 msgid "&Enable Proxy Server"
-msgstr "&Proxy szerver engedélyezése"
+msgstr "&Proxy kiszolgáló engedélyezése"
 
 #. Resource IDs: (ID_EDIT_ENABLE - Menu)
 msgid "&Enable edit"
@@ -781,7 +782,7 @@ msgstr "&Kilépés"
 
 #. Resource IDs: (IDS_FILEDIFF_POPEXPORT)
 msgid "&Export selection to..."
-msgstr "&Kijelölés exportálása ide..."
+msgstr "&Kijelölés exportálása ide…"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -807,15 +808,15 @@ msgstr "&Keresés"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Keresés...\t(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "Képek &igazítása az ablakhoz\t(F)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1646)
 msgid "&Fix time stamps"
-msgstr ""
+msgstr "Időbéjegyek &javítása"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1050)
 msgid "&Fixed drives"
@@ -841,7 +842,7 @@ msgstr "&URL-ből:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1259)
 msgid "&From WC / URL:"
-msgstr ""
+msgstr "&WC-ből / URL-ből:"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 65535)
 msgid "&From revision"
@@ -853,11 +854,11 @@ msgstr "&Ettől (az egyesítendő intervallum kezdő URL-je és verziója):"
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "Sorhoz &ugrás…\t(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr "&Zöld"
+msgstr "&Zöld:"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -887,7 +888,7 @@ msgstr "&Súgó"
 
 #. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
-msgstr "&Súgó témák"
+msgstr "&Súgótémák"
 
 #. Resource IDs: (17042, 61457)
 msgid "&Hide"
@@ -895,11 +896,11 @@ msgstr "&Elrejtés"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "Kihagyott elemek &elrejtése"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
-msgstr "&Ikon-stílus:"
+msgstr "&Ikonkészlet:"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE)
 #, c-format
@@ -908,11 +909,11 @@ msgstr "%d elem k&ihagyása név alapján"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Származás figyelmen kívül hagyása"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
-msgstr ""
+msgstr "K&ihagyás és folytatás"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -920,7 +921,7 @@ msgstr "&Kép"
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&Kép infó\t(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -928,11 +929,11 @@ msgstr "Csak &kép"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
-msgstr "&Importálás..."
+msgstr "&Importálás…"
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&Külső fájlok mutatása"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
@@ -976,12 +977,12 @@ msgstr "&Limit:"
 
 #. Resource IDs: (Dialog IDD_GOTO: Control id 1078)
 msgid "&Line number"
-msgstr ""
+msgstr "&Sorszám"
 
 #. Resource IDs: (IDS_GOTOLINE)
 #, c-format
 msgid "&Line number (%d - %d)"
-msgstr ""
+msgstr "&Sorszám (%d - %d)"
 
 #. Resource IDs: (ID_VIEW_LINKIMAGESTOGETHER - Menu)
 msgid "&Link image positions"
@@ -997,7 +998,7 @@ msgstr "&Lista nézet"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1309)
 msgid "&Load..."
-msgstr "&Betöltés..."
+msgstr "&Betöltés…"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1554)
 msgid "&Locking required (read-only update)"
@@ -2379,7 +2380,7 @@ msgstr "Hitelesítési adatok"
 #. Resource IDs: (Dialog IDD_EDITPROPKEYWORDS: Control id 1562,
 #. IDS_HEADER_AUTHOR, IDS_LOG_AUTHOR, IDS_STATUSLIST_COLAUTHOR)
 msgid "Author"
-msgstr "Fejlesztő"
+msgstr "Szerző"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Author:\t\t\t\tStefan Kueng"
@@ -2387,15 +2388,15 @@ msgstr "Szerző:»»»»Stefan Kueng"
 
 #. Resource IDs: (IDS_LOG_FILTER_AUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS)
 msgid "Authors"
-msgstr "Fejlesztők"
+msgstr "Szerzők"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1265)
 msgid "Authors case sensitive"
-msgstr "Fejlesztők nevében számít a kisbetű/nagybetű"
+msgstr "Szerzők nevében számít a kisbetű/nagybetű"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1444)
 msgid "Authors:"
-msgstr "Fejlesztők:"
+msgstr "Szerzők:"
 
 #. Resource IDs: (16033)
 msgid "Auto Hide"
@@ -2499,7 +2500,7 @@ msgstr "Minden sornak kiírja a legutóbbi módosítóját"
 
 #. Resource IDs: (ID_VIEW_BLENDALPHA - Menu)
 msgid "Blend alpha"
-msgstr ""
+msgstr "Alfa keverése"
 
 #. Resource IDs: (156 - Ribbon element)
 msgid "Blocks"
@@ -3361,7 +3362,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
-msgstr "Beküldések fejlesztőnként"
+msgstr "Beküldések szerzőnként"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYDATE)
 msgid "Commits by date"
@@ -4567,11 +4568,11 @@ msgstr "Forrás-fa konfliktus szerkesztése"
 
 #. Resource IDs: (IDS_LOG_POPUP_EDITAUTHOR)
 msgid "Edit author"
-msgstr "Fejlesztő szerkesztése"
+msgstr "Szerző szerkesztése"
 
 #. Resource IDs: (IDS_LOG_AUTHOREDITTITLE)
 msgid "Edit author name"
-msgstr "Fejlesztő nevének szerkesztése"
+msgstr "Szerző nevének szerkesztése"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 315)
 msgid "Edit bugtraq properties"
@@ -6424,7 +6425,7 @@ msgstr "Nyelv:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Utoljára módosított szerző:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed revision:"
@@ -6452,7 +6453,7 @@ msgstr "Elindítja a külső diff / egyesítő programot a konfliktusok feloldá
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1137)
 msgid "Least active author:"
-msgstr "Legkevésbé aktív fejlesztő:"
+msgstr "Legkevésbé aktív szerző:"
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK4)
 msgid ""
@@ -7072,7 +7073,7 @@ msgstr "További..."
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1136)
 msgid "Most active author:"
-msgstr "Legaktívabb fejlesztő:"
+msgstr "Legaktívabb szerz:"
 
 #. Resource IDs: (16135)
 msgid "Mouse"
@@ -7455,11 +7456,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_AUTHORS)
 msgid "Number of authors in the cache"
-msgstr "A gyorsítótárban szereplő fejlesztők száma"
+msgstr "A gyorsítótárban szereplő szerzők száma"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1161)
 msgid "Number of authors:"
-msgstr "Fejlesztők száma:"
+msgstr "Szerzők száma:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESREVISIONS)
 msgid "Number of cached merged revisions"
@@ -8470,7 +8471,7 @@ msgid ""
 "\\W   : any non-alphanumeric character\r\n"
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
-msgstr "RegEx szűrő:\r\n.   : bármely karakter\r\nc+   : c karakter 1 vagy többször\r\nc*   : c karakter 0 vagy többször\r\n^   : sor eleje\r\n$   : sor vége\r\n(szöveg){n} : szöveg n darabszor\r\n(abcd)   : rész-kifejezés\r\n[aei0-9]   : a,e,i és 0..9 karakterek\r\n[^aei0-9] : minden karakter, kivéve a,e,i és 0..9\r\n\r\n\\w   : a-z,A-Z,0-9 és _ karakterek\r\n\\W   : bármely nem alfenumerikus karakter\r\n\\d   : számjegyek, 0-9\r\n\\s   : láthatatlan karakterek (pl. szóköz, tabulátor, sortörés)"
+msgstr "Reguláris kifejezés szűrő:\n. : bármely karakter\nc+ : c karakter 1 vagy többször\nc* : c karakter 0 vagy többször\n^ : sor eleje\n$ : sor vége\n(szöveg){n} : szöveg n-szer\n(abcd) : részkifejezés\n[aei0-9] : a,e,i és 0..9 karakterek\n[^aei0-9] : minden karakter, kivéve a,e,i és 0..9\n\n\\w : a-z,A-Z,0-9 és _ karakterek\n\\W : bármely nem alfanumerikus karakter\n\\d : számjegyek, 0-9\n\\s : láthatatlan karakterek (pl. szóköz, tabulátor, sortörés)"
 
 #. Resource IDs: (IDS_PROGRS_CMD_MERGEREINTEGRATE)
 #, c-format
@@ -9115,7 +9116,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_COLTITLEAUTHOR)
 msgid "SVN Author"
-msgstr "SVN Fejlesztő"
+msgstr "SVN szerző"
 
 #. Resource IDs: (IDS_DROPCOPYADDMENU)
 msgid "SVN Copy and add files to this WC"
@@ -12466,11 +12467,11 @@ msgstr "ennél a verziónál"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHORX)
 msgid "author"
-msgstr "fejlesztő"
+msgstr "szerző"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "authors: "
-msgstr "fejlesztők: "
+msgstr "szerzők: "
 
 #. Resource IDs: (IDS_PROP_TT_BQAPPEND)
 msgid ""
