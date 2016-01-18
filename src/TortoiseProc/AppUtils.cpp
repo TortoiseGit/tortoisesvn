@@ -731,7 +731,7 @@ namespace {
         return iswalnum(ch) ||
             ch == L'_' || ch == L'/' || ch == L';' || ch == L'?' || ch == L'&' || ch == L'=' ||
             ch == L'%' || ch == L':' || ch == L'.' || ch == L'#' || ch == L'-' || ch == L'+' ||
-            ch == L'|' || ch == L'>' || ch == L'<';
+            ch == L'|' || ch == L'>' || ch == L'<' || ch == L'!';
     }
 
     bool IsUrl(const CString& sText)
