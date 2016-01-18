@@ -94,6 +94,10 @@ void SVNRev::Create(CString sRev)
     }
     else
     {
+        // Support rXXX syntax to match svn command line client syntax.
+        if (sRev[0] == L'r')
+            sRev = sRev.Mid(1);
+
         bool bAllNumbers = true;
         for (int i=0; i<sRev.GetLength(); ++i)
         {
@@ -542,6 +546,18 @@ public:
         ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-24")==0);
         revarray.AdjustForMerge(true);
         ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-23")==0);
+
+        array.FromListString(L"r1,r3-5,r10");
+        ATLASSERT(array.GetCount() == 3);
+        range = array[0];
+        ATLASSERT(range.GetStartRevision() == 1);
+        ATLASSERT(range.GetEndRevision() == 1);
+        range = array[1];
+        ATLASSERT(range.GetStartRevision() == 3);
+        ATLASSERT(range.GetEndRevision() == 5);
+        range = array[2];
+        ATLASSERT(range.GetStartRevision() == 10);
+        ATLASSERT(range.GetEndRevision() == 10);
     }
 } SVNRevListTests;
 #endif
