@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012-2015 - TortoiseSVN
+// Copyright (C) 2009, 2012-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -225,14 +225,13 @@ void CLinkControl::OnEnable(BOOL enabled)
     UpdateAccState();
 }
 
-BOOL CLinkControl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+BOOL CLinkControl::PreTranslateMessage(MSG * pMsg)
 {
-    switch (message)
+    switch (pMsg->message)
     {
-    case BM_CLICK:
+        case BM_CLICK:
         NotifyParent(LK_LINKITEMCLICKED);
         break;
     }
-
-    return CStatic::OnWndMsg(message, wParam, lParam, pResult);
+    return __super::PreTranslateMessage(pMsg);
 }
