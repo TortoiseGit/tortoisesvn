@@ -9037,6 +9037,9 @@ LRESULT CLogDlg::OnTaskbarCallBack(WPARAM /*wParam*/, LPARAM lParam)
                 case ID_POPUP_SHOWMONITOR:
                     MonitorShowDlg();
                     break;
+                case ID_POPUP_UPDATEALL:
+                    OnMonitorUpdateAll();
+                    break;
             }
         }
             break;
