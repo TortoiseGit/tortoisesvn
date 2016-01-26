@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2015
+# Kari Granö <kari.grano@gmail.com>, 2011-2016
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:16+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-01-26 00:06+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7488,32 +7488,32 @@ msgstr "Kuten yllä kuvattiin, tämä valinta koettaa korjata vikaantuneen työk
 
 #. (term)
 msgid "Break locks"
-msgstr ""
+msgstr "Riko lukot"
 
 #. (para)
 msgid ""
 "If checked, all locks on files are removed, even if the lock is held in "
 "another working copy or by another user. Note that the lock is only removed "
 "from the working copy, it is still kept in the repository."
-msgstr ""
+msgstr "Mikäli valittu, kaikki tiedostolukot poistetaan. Lukot poistetaan, vaikka ne olisi varattu toisen työkopion kauta tai toisen käyttäjän toimesta. Huomaa, että lukko poistetaan vain työkopiosta, se säilyy palvelimella."
 
 #. (term)
 msgid "Fix time stamps"
-msgstr ""
+msgstr "Korjaa aikaleimat"
 
 #. (para)
 msgid "Changes all file times to the time of the last commit."
-msgstr ""
+msgstr "Asettaa tiedostojen päiväykset viimeisimpään arkistoon toimitusaikaan."
 
 #. (term)
 msgid "Vacuum pristine copies"
-msgstr ""
+msgstr "Siivoa alkuperäiskopiot"
 
 #. (para)
 msgid ""
 "Removes unused pristine copies and compresses all remaining pristine copies "
 "of working copy files."
-msgstr ""
+msgstr "Poistaa käyttämättömät alkuperäiskopiot ja pakkaa jäljelle jääneet työkopiotiedostojen alkuperäiskopiot."
 
 #. (term)
 msgid "Refresh shell overlays"
@@ -8045,7 +8045,7 @@ msgid ""
 "url=\"http://msdn2.microsoft.com/en-"
 "us/library/ms776260.aspx\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN tukee oikeinkirjoituksen tarkistusta. Windows 10-alustalla käytetään käyttöjärjestelmän mukana tulevaa tarkistusta. Aiemmissa Windows-versioissa käytetään samoja oikeinkirjoitusmoduleita, joita OpenOffice ja Mozilla käyttävät. Jos olet asentanut yhden tai useamman modulin, niin tämä ominaisuus määrittää, mitä niistä käytetään, ts. millä kielellä projektisi lokiviestit tulee kirjoittaa. <literal>tsvn:projectlanguage</literal> asettaa lokiviestin oikeinkirjoituksen tarkistuksen kielimodulin. Löydät koodin omalle kielellesi seuraavasta dokumentista: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -15430,7 +15430,7 @@ msgid ""
 "doc\n"
 "doc/*\n"
 "</screen> is the same as the example above."
-msgstr ""
+msgstr "SubWCRev kykenee ohittamaan halutut tiedostot tai polut.  Ohituslausekkeet luetaan tiedostosta, jonka nimi on <filename>.subwcrevignore</filename>.  Tiedosto voidaan lukea annetusta polusta tai työkopion juuresta. Mikäli tiedostoa ei löydy, mitään tiedostoja tai polkuja ei ohiteta. Tiedosto <filename>.subwcrevignore</filename> voi sisältää useita rivinvaihdolla eroteltuja ohituslausekkeita. Lausekkeet täsmätään arkiston juureen sekä <filename>.subwcrevignore</filename> -toedpstpm polkuun nähden suhteellisten polkujen kanssa. Esimerkki: Ohittaaksesi kaikki tiedostot TortoiseSVN-projektin <filename>doc</filename> -kansiosta aseta ohituslausekkeet seuraavasti:\n <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Tai, olettaen, että tiedosto <filename>.subwcrevignore</filename> on päähaaran työkopion juuressa, sama tulos saadaan lausekkeilla\n<screen>\ndoc\ndoc/*\n</screen>"
 
 #. (para)
 msgid ""
@@ -15440,7 +15440,7 @@ msgid ""
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr ""
+msgstr "Ohittaaksesi kaikki kuvat, ohituslausekkeet voidaan määritellä seuraavasti:\n<screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
@@ -18157,11 +18157,11 @@ msgstr "/externals"
 
 #. (option)
 msgid "/fixtimestamps"
-msgstr ""
+msgstr "/fixtimestamps"
 
 #. (option)
 msgid "/vacuum"
-msgstr ""
+msgstr "/vacuum"
 
 #. (entry)
 msgid ""
@@ -18174,7 +18174,7 @@ msgid ""
 " be specified with the options <placeholder-5/> for status cleanup, "
 "<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
 "<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
-msgstr ""
+msgstr "Siivoaa kesken jääneet toiminnot ja poistaa lukituksen työkopiosta <placeholder-1/>. Käytä valitsinta <placeholder-2/> estääksesi tulosikkunan avaamisen (ikkunassa on viesti operaation päättymisestä tai virheilmoitus). Valitsin <placeholder-3/> estää etenemisikkunan näyttämisen. Valitsin <placeholder-4/> estää siivousikkunan asetusten näyttämisen ennen toiminnon käynnistystä. Mahdolliset toimenpiteet määritellään valitsimilla <placeholder-5/> tilasiivousta varten, <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> , <placeholder-10/>, <placeholder-11/> ja <placeholder-12/>."
 
 #. (option)
 #. (option)
