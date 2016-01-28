@@ -859,7 +859,7 @@ void MyGraph::DrawLegend(CDC& dc)
     ::SecureZeroMemory(&lf, sizeof(lf));
     VERIFY(fontLegend.GetLogFont(&lf));
     // just in case the font height is invalid (zero), use min().
-    int nLabelHeight = min(1, abs(lf.lfHeight));
+    int nLabelHeight = max(1, abs(lf.lfHeight));
 
     // Get number of legend entries
     int nLegendEntries = max(1, GetMaxSeriesSize());
