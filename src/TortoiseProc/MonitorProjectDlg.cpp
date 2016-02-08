@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,6 +85,8 @@ void CMonitorProjectDlg::OnOK()
         SendDlgItemMessage(IDC_IGNOREREGEX, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
         return;
     }
-
+    // remove newlines in case the url was pasted with such
+    m_sPathOrURL.Remove('\n');
+    m_sPathOrURL.Remove('\r');
     CDialogEx::OnOK();
 }
